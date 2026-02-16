@@ -12,12 +12,17 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 В сервисе {{ yds-name }} существуют два режима тарификации:
 
 * [По выделенным ресурсам](#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
 * [По фактическому использованию](#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
 Режим тарификации устанавливается для каждого потока данных по-отдельности. По умолчанию потоки данные в {{ yds-name }} создаются в режиме тарификации по выделенным ресурсам.
+
+Размер единицы записываемых данных — 40 КБ.
 
 ## Тарификация по выделенным ресурсам {#rules}
 
@@ -50,123 +55,57 @@ editable: false
 
 
 
+
+
 ## Цены для региона Россия {#prices}
+
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Цена единицы записываемых данных {#event}
 
-Каждый месяц не тарифицируются первые 2 000 000 единиц записываемых данных.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-event.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-event.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yds }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
-### Цена выделенных ресурсов {#resources}
 
-### Тарификация по времени хранения {#time-limit}
+Если время хранения данных — 1 час, время использования ресурса несколькими потоками суммируется. Например, при работе двух потоков данных круглосуточно в течение месяца время использования ресурса составит 2 × 24 × 30 = 1440 часов. Первые 744 часа будут бесплатны, они израсходуются совместно двумя потоками за полмесяца, далее будет списываться оплата.
 
-Цена указывается за 1 час использования выделенных ресурсов.
+При расширенном времени хранения данные хранятся до 7 дней.
 
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 128 КБ/с {#up-to-128}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-128.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-128.md) %}
-
-{% endlist %}
-
-
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 512 КБ/с {#up-to-512}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-512.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-512.md) %}
-
-{% endlist %}
-
-
-#### Цена за хранение данных при лимите пропускной способности сегмента до 1 МБ/с {#up-to-1}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-1.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-1.md) %}
-
-{% endlist %}
-
-
-
-### Тарификация по объему хранения {#storage-limit}
-
-Данные хранятся до 7 дней.
-
-
-#### Цена за запись данных {#record}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-record.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-record.md) %}
-
-{% endlist %}
-
-#### Цена за хранение данных {#storage}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-streams/rub-resources-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-streams/kzt-resources-storage.md) %}
-
-{% endlist %}
-
+При предоставленном лимите хранения минимальный объем хранения — 50 ГБ на сегмент.
 
 
 ## Тарификация по фактическому использованию {#on-demand}
 
-При тарификации по фактическому использованию:
-* Потоки данных, хранящие данные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md).
+Для расчета стоимости запросов в {{ yds-full-name }} используется понятие _единица запроса (RU — Request Unit)_. Каждый выполненный запрос, в зависимости от его типа, сложности и размера данных приводит к потреблению определенного количества RU. Итоговая стоимость всех выполненных запросов к {{ yds-full-name }} складывается из стоимости каждого запроса, выраженной в RU.
 
-* Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated)).
+Правила расчета стоимости запросов к {{ yds-full-name }} в Request Units:
+* [Операции с топиками](../ydb/pricing/ru-topics.md).
+
+При тарификации по фактическому использованию:
+* До 19 февраля 2026 года потоки данных, размещенные в [Serverless базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#serverless), тарифицируются по [правилам тарификации для бессерверного режима {{ ydb-short-name }}](../ydb/pricing/serverless.md). С 20 Февраля 2026 года даты стоимость рассчитывается по приведенной ниже таблице.
+
+  
+  {% list tabs group=pricing %}
+
+  - Цены в рублях {#prices-rub}
+
+    {% include [serverless-rub.md](../_pricing/data-streams/rub-serverless.md) %}
+
+  - Цены в тенге {#prices-kzt}
+
+    {% include [serverless-kzt](../_pricing/data-streams/kzt-serverless.md) %}
+
+  {% endlist %}
+
+
+
+* Потоки данных, хранящие данные в [Dedicated базах данных {{ ydb-short-name }}](../ydb/concepts/serverless-and-dedicated.md#dedicated), отдельно не тарифицируются (оплачивается только dedicated база, см. [правила тарификации для dedicated баз](../ydb/pricing/dedicated.md)).
 

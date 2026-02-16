@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать виртуальную машину.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** нажмите ![image](../../../_assets/console-icons/circle-info.svg) рядом с нужным [публичным образом](../../concepts/image.md#public).
@@ -72,11 +72,11 @@ description: Следуя данной инструкции, вы сможете
   1. Добавьте в конфигурационный файл {{ TF }} блоки `data` и `output`:
 
       ```hcl
-      data "yandex_compute_image" "ubuntu_image" {
+      data "yandex_compute_image" "my_image" {
         family = "<имя_семейства>"
       }
 
-      output "ubuntu_id" {
+      output "image" {
         value = data.yandex_compute_image.my_image.image_id
       }
       ```
@@ -119,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать виртуальную машину.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**.
   1. В открывшемся списке выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** нажмите ![image](../../../_assets/console-icons/circle-info.svg) рядом с нужным [публичным образом](../../concepts/image.md#public).

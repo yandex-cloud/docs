@@ -1,9 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:add-cidr-blocks
+    method: post
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the Subnet resource that is being updated.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        v4CidrBlocks:
+          description: "**string**\nCIDR block.\nThe range of internal addresses that should be added to this subnet.\nFor example,\_10.0.0.0/22\_or\_192.168.0.0/24.\nMinimum subnet size is /28, maximum subnet size is /16."
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/addCidrBlocks.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.AddCidrBlocks {#AddCidrBlocks}
+# Virtual Private Cloud API, REST: Subnet.AddCidrBlocks
 
 Adds CIDR blocks to the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -72,7 +97,7 @@ Minimum subnet size is /28, maximum subnet size is /16. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "zoneId": "string",
     "v4CidrBlocks": [
@@ -221,7 +246,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

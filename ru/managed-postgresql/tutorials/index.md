@@ -21,13 +21,19 @@ description: Различные сценарии использования {{ m
 * [{#T}](./joomla-postgresql/index.md)
 * [{#T}](./datalens.md)
 * [{#T}](logging.md)
+* [{#T}](mlflow-datasphere.md)
+* [{#T}](yq-postgre.md)
+* [{#T}](yq-federative-queries.md)
+* [{#T}](glibc-collation-issues.md)
+* [{#T}](data-recording.md)
 
 ## Репликация и миграция {#replication-and-migration}
 
 * [{#T}](./replication-overview.md)
 * [{#T}](./data-migration.md)
 * [{#T}](./outbound-replication.md)
-* [{#T}](../operations/logical-replica-from-rds.md)
+* [{#T}](./postgresql-versions.md)
+* [{#T}](./logical-replica-from-rds.md)
 * [{#T}](./mpg-to-objstorage.md)
 * [{#T}](./mpg-to-mmy.md)
 * [{#T}](./mmy-to-mpg.md)

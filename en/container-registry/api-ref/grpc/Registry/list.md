@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/list.md
 ---
 
-# Container Registry API, gRPC: RegistryService.List {#List}
+# Container Registry API, gRPC: RegistryService.List
 
 Retrieves the list of Registry resources in the specified folder.
 
@@ -15,38 +15,46 @@ Retrieves the list of Registry resources in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list registries in.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+results is larger than `page_size`,
+the service returns a [ListRegistriesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListRegistriesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListRegistriesResponse.next_page_token](#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Registry.name](#yandex.cloud.containerregistry.v1.Registry) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListRegistriesResponse {#yandex.cloud.containerregistry.v1.ListRegistriesResponse}
@@ -56,14 +64,14 @@ The expression must specify:
   "registries": [
     {
       "id": "string",
-      "folderId": "string",
+      "folder_id": "string",
       "name": "string",
       "status": "Status",
-      "createdAt": "google.protobuf.Timestamp",
-      "labels": "string"
+      "created_at": "google.protobuf.Timestamp",
+      "labels": "map<string, string>"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -72,14 +80,14 @@ The expression must specify:
 || registries[] | **[Registry](#yandex.cloud.containerregistry.v1.Registry)**
 
 List of Registry resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListRegistriesRequest.pageSize](#yandex.cloud.containerregistry.v1.ListRegistriesRequest), use
-the `nextPageToken` as the value
-for the [ListRegistriesRequest.pageToken](#yandex.cloud.containerregistry.v1.ListRegistriesRequest) query parameter
+is larger than [ListRegistriesRequest.page_size](#yandex.cloud.containerregistry.v1.ListRegistriesRequest), use
+the `next_page_token` as the value
+for the [ListRegistriesRequest.page_token](#yandex.cloud.containerregistry.v1.ListRegistriesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Registry {#yandex.cloud.containerregistry.v1.Registry}
@@ -91,7 +99,7 @@ A Registry resource. For more information, see the [Registry](/docs/container-re
 || id | **string**
 
 Output only. ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
 || name | **string**
@@ -101,14 +109,13 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

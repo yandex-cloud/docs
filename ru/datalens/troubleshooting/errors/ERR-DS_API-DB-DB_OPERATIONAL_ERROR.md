@@ -1,4 +1,9 @@
-# Ошибка на стороне БД
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.DB_OPERATIONAL_ERROR
+description: На странице приведено описание ошибки {{ datalens-full-name }} Ошибка на стороне БД.
+---
+
+# [{{ datalens-full-name }}] Ошибка на стороне БД
 
 `ERR.DS_API.DB.DB_OPERATIONAL_ERROR`
 

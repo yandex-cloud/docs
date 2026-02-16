@@ -6,16 +6,14 @@ description: Из статьи вы узнаете, в каких сервиса
 # Интеграция с сервисами {{ yandex-cloud }}
 
 
-
 Вы можете использовать сертификаты из {{ certificate-manager-name }} в следующих сервисах {{ yandex-cloud }}:
 * [{{ objstorage-full-name }}](#os).
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
+* [{{ sws-full-name }}](#sws).
 
-Также вы можете хранить публичную часть пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
-
-
+Также вы можете хранить приватный ключ пользовательского сертификата в виде секрета [{{ lockbox-full-name }}](#lockbox) с помощью {{ TF }}.
 
 ## {{ objstorage-full-name }} {#os}
 
@@ -27,7 +25,6 @@ description: Из статьи вы узнаете, в каких сервиса
 * Применение изменений сертификата также может занимать до получаса.
 
 {% endnote %}
-
 
 ## {{ alb-full-name }} {#alb}
 
@@ -45,12 +42,23 @@ description: Из статьи вы узнаете, в каких сервиса
 
 Для доступа к [CDN-ресурсу](../../cdn/concepts/resource.md) по протоколу HTTPS можно [использовать](../../storage/operations/hosting/certificate.md#cert-manager) сертификат из {{ certificate-manager-name }}.
 
+## {{ sws-full-name }} {#sws}
+
+{{ sws-full-name }} позволяет защитить инфраструктуру от информационных угроз на прикладном уровне L7 модели [OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI). Например, [DDoS-атак](../../glossary/ddos.md), ботов, SQL-инъекций.
+
+Для подключения [домена](../../smartwebsecurity/concepts/domain-protect.md#domain) к [прокси-серверу](../../smartwebsecurity/concepts/domain-protect.md#proxy) по протоколу HTTPS можно использовать сертификат из {{ certificate-manager-name }}.
 
 ## {{ lockbox-full-name }} {#lockbox}
 
-Вы можете хранить публичную часть пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+Вы можете хранить приватный ключ пользовательского сертификата {{ certificate-manager-name }} в {{ lockbox-name }} [с помощью {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
 
 #### См. также {#see-also}
 
-* [Статический веб-сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
+* [Статический сайт в {{ objstorage-name }}](../../tutorials/web/static/index.md)
 * [{{ api-gw-full-name }}](../../api-gateway/)

@@ -69,7 +69,9 @@ items:
           С баланса платежного аккаунта списываются средства за неиспользуемые
           ресурсы
         href: billing/known-issues/billing-account-is-charged-by-unused-resources.md
-      - name: Деньги долго не приходят на баланс после платежа
+      - name: >-
+          Деньги долго не приходят на баланс после платежа переводом с
+          расчетного счета для юридических лиц
         href: billing/known-issues/recover-lost-payment.md
       - name: >-
           Устранение ошибки `Приглашение не найдено` при подключении к
@@ -190,13 +192,6 @@ items:
           Устранение ошибок `no such bucket` и `no such key` при загрузке
           объектов из {{ cdn-name }}
         href: cdn/known-issues/no-such-bucket-no-such-key.md
-      - name: Устранение ошибки `CNAME already exists`
-        href: cdn/known-issues/cname-already-exists.md
-      - name: >-
-          Устранение ошибки `You cannot enable redirect HTTP to HTTPS when HTTPS
-          is disabled`
-        href: >-
-          cdn/known-issues/you-cannot-enable-redirect-http-to-https-when-https-is-disabled.md
       - name: Сервис {{ cdn-name }} возвращает только один IP-адрес
         href: cdn/known-issues/returning-only-one-ip-address.md
       - name: Примеры конфигураций и сценариев {{ cdn-name }}
@@ -245,11 +240,6 @@ items:
       - name: Не поддерживается вложенная виртуализация
         href: compute/known-issues/nested-virtualisation-is-not-supported.md
       - name: >-
-          Устранение проблем с поддержкой UEFI и загрузкой с дисков, размеченных
-          в формате GPT
-        href: >-
-          compute/known-issues/uefi-support-and-booting-from-disks-with-gpt-layout.md
-      - name: >-
           Устранение ошибки `Not enough resources` при запуске виртуальной
           машины
         href: compute/known-issues/not-enough-resources.md
@@ -287,10 +277,8 @@ items:
           `ru-central1-a/b/c` is disabled`
         href: >-
           compute/known-issues/failed-precondition-relocation-to-zone-is-disabled.md
-      - name: >-
-          Устранение проблем с производительностью дискового и сетевого
-          ввода-вывода на виртуальной машине
-        href: compute/known-issues/throttling-and-vm-perfomance-issues.md
+      - name: Нет доступа к ВМ по SSH и ping после обновления cloud-init
+        href: compute/known-issues/no-ssh-access-and-ping-after-cloud-init-update.md
       - name: Примеры конфигураций и сценариев {{ compute-name }}
         href: compute/how-to/index.md
         hidden: true
@@ -328,8 +316,6 @@ items:
         href: compute/how-to/ssh-root-authorization.md
       - name: Как отслеживать объем потребляемой памяти
         href: compute/how-to/ram-monitoring.md
-      - name: Как сохранить снимки и образы локально
-        href: compute/how-to/download-snapshots-and-images.md
       - name: Как сменить внутренний IP-адрес
         href: compute/how-to/change-ip-address.md
       - name: Как читать график `Connections quota utilization`
@@ -338,10 +324,6 @@ items:
         href: compute/how-to/disk-access-speed.md
       - name: Как создать виртуальную машину с доступом по паролю
         href: compute/how-to/create-password-protected-vm.md
-      - name: >-
-          Какое максимальное количество сетевых интерфейсов можно подключить к
-          одной виртуальной машине
-        href: compute/how-to/maximum-web-interfaces-for-one-vm.md
       - name: Как увеличить количество сетевых соединений
         href: compute/how-to/increase-network-connections.md
       - name: Как настроить защиту RDP-подключения на Microsoft Windows®
@@ -447,28 +429,31 @@ items:
         href: datalens/known-issues/metrika-not-all-fields.md
       - name: Устранение ошибки `SSL is required`
         href: datalens/known-issues/error-ssl-is-required.md
+      - name: Устранение ошибки `1043 Bad handshake` при подключении к БД {{ MY }}
+        href: datalens/known-issues/err-1043-bad-handshake-mysql.md
       - name: Устранение неверного значения поля `Итого` в сводной таблице
         href: datalens/known-issues/incorrect-value-in-field-total.md
   - name: '{{ dataproc-name }}'
     items:
       - name: Все решения для {{ dataproc-name }}
-        href: dataproc/index.md
+        href: data-processing/index.md
       - name: Решения для известных проблем {{ dataproc-name }}
-        href: dataproc/known-issues/index.md
+        href: data-processing/known-issues/index.md
         hidden: true
       - name: >-
           Кластер {{ dataproc-name }} находится в состоянии `UNKNOWN` сразу
           после создания
         href: >-
-          dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation.md
+          data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
       - name: >-
           Устранение ошибки доступа к бакетам S3 из кластера {{ dataproc-name }}
           1.4
-        href: dataproc/known-issues/cannot-access-buckets.md
+        href: data-processing/known-issues/cannot-access-buckets.md
       - name: Нет логов в YARN Resource Manager Web UI после выполнения заданий
-        href: dataproc/known-issues/yarn-resource-manager-does-not-display-logs.md
+        href: >-
+          data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
       - name: Примеры конфигураций и сценариев {{ dataproc-name }}
-        href: dataproc/how-to/index.md
+        href: data-processing/how-to/index.md
         hidden: true
   - name: '{{ ml-platform-name }}'
     items:
@@ -501,8 +486,6 @@ items:
         href: datasphere/known-issues/servant-not-allocated-issue.md
       - name: Устранение ошибки `TestsFailure`
         href: datasphere/known-issues/tests-failure-error.md
-      - name: Устранение ошибки открытия проекта
-        href: datasphere/known-issues/project-not-starting.md
       - name: Устранение ошибки `Token authentication is enabled`
         href: datasphere/known-issues/error-token-authentication-is-enabled.md
       - name: Устранение ошибок с доступом или входом в проект
@@ -514,11 +497,6 @@ items:
           pip
         href: >-
           datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md
-      - name: >-
-          Устранение ошибки `A value is trying to be set on a copy of a slice
-          from a DataFrame`
-        href: >-
-          datasphere/known-issues/error-value-is-trying-to-be-set-on-a-copy-of-a-slice-from-a-dataframe.md
       - name: Устранение ошибки `Device or resource busy`
         href: datasphere/known-issues/error-device-or-resource-busy.md
       - name: Примеры конфигураций и сценариев {{ ml-platform-name }}
@@ -556,11 +534,6 @@ items:
           type information`
         href: >-
           data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md
-      - name: >-
-          Устранение ошибки `The transfer is located in zone ru-central1-c and
-          will be removed`
-        href: >-
-          data-transfer/known-issues/error-the-transfer-is-located-in-zone-ru-central1-c-and-will-be-removed.md
       - name: Примеры конфигураций и сценариев {{ data-transfer-name }}
         href: data-transfer/how-to/index.md
         hidden: true
@@ -593,11 +566,14 @@ items:
           Устранение ошибки `No node can serve the request (concurrent requests
           exceeded)`
         href: functions/known-issues/concurrent-request-quota-exceeded.md
+      - name: Устранение ошибки Permission denied при создании новых ресурсов
+        href: >-
+          functions/known-issues/permission-denied-when-creating-new-resources.md
       - name: Примеры конфигураций и сценариев {{ sf-name }}
         href: functions/how-to/index.md
         hidden: true
       - name: Как узнать количество вызовов функции за период
-      - href: functions/how-to/get-function-invokes-count.md
+        href: functions/how-to/get-function-invokes-count.md
       - name: Как подключиться к функции из MDB
         href: functions/how-to/accessing-function-from-mdb.md
       - name: Как настроить статический IP-адрес
@@ -606,22 +582,6 @@ items:
         href: functions/how-to/async-functions-invokes.md
       - name: Как настроить аутентификацию для `boto3`
         href: functions/how-to/boto3-authentification.md
-  - name: '{{ forms-name }}'
-    items:
-      - name: Все решения для {{ forms-name }}
-        href: forms/index.md
-      - name: Решения для известных проблем {{ forms-name }}
-        href: forms/known-issues/index.md
-        hidden: true
-      - name: Примеры конфигураций и сценариев {{ forms-name }}
-        href: forms/how-to/index.md
-        hidden: true
-      - name: Как настроить почтовые уведомления
-        href: forms/how-to/customizing-mail-notifications.md
-      - name: Как выдать пользователю доступ к редактированию формы
-        href: forms/how-to/granting-access-to-form-editing.md
-      - name: Как найти созданную форму
-        href: forms/how-to/locating-form.md
   - name: '{{ iam-name }}'
     items:
       - name: Все решения для {{ iam-short-name }}
@@ -636,11 +596,6 @@ items:
           iam/known-issues/resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md
       - name: Устранение ошибок при работе с приглашениями в облачную организацию
         href: iam/known-issues/error-when-users-accepts-invite-to-organisation.md
-      - name: >-
-          Устранение ошибки `Permission Denied` при добавлении нового
-          пользователя в облачную организацию
-        href: >-
-          iam/known-issues/permission-denied-error-when-adding-new-user-to-organisation.md
       - name: >-
           Устранение ошибки `The signature of response or assertion was invalid`
           при авторизации федеративным аккаунтом
@@ -685,8 +640,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ iam-short-name }}
         href: iam/how-to/index.md
         hidden: true
-      - name: Как удалить облако
-        href: iam/how-to/deleting-cloud.md
       - name: Как отменить удаление облака
         href: iam/how-to/cancel-pending-deletion.md
       - name: Как изменить владельца облака
@@ -796,8 +749,6 @@ items:
           managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: Как выдать узлам {{ k8s }} доступа в интернет
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
-      - name: Как изменить сеть или подсеть для MDB-кластера
-        href: managed-kubernetes/how-to/changing-net-or-subnet.md
       - name: Как создать внутренний Ingress-контроллер
         href: managed-kubernetes/how-to/create-internal-ingress-balancer.md
       - name: >-
@@ -821,6 +772,8 @@ items:
       - name: Примеры конфигураций и сценариев {{ mkf-name }}
         href: managed-kafka/how-to/index.md
         hidden: true
+      - name: Как отслеживать процесс чтения топиков
+        href: managed-kafka/how-to/process-read-topic.md
       - name: Решения для известных проблем {{ mkf-name }}
         href: managed-kafka/known-issues/index.md
         hidden: true
@@ -904,6 +857,8 @@ items:
           Нужно ли заключать отдельный договор по № 152-ФЗ для размещения
           персональных данных
         href: legal/how-to/fl-152.md
+      - name: Как стать поставщиком услуг для Яндекса
+        href: legal/how-to/becoming-a-service-supplier.md
   - name: '{{ objstorage-name }}'
     items:
       - name: Все решения для {{ objstorage-name }}
@@ -917,8 +872,11 @@ items:
           Устранение ошибок доступа к бакету с назначенной политикой
           безопасности
         href: storage/known-issues/unable-to-access-bucket-with-assigned-policy.md
-      - name: Устранение ошибки 429
-        href: storage/known-issues/error-429.md
+      - name: >-
+          Устранение ошибки `The request signature we calculated does not match
+          the signature you provided.`
+        href: >-
+          storage/known-issues/the-request-signature-we-calculated-does-not-match.md
       - name: Устранение ошибки 409 `BucketAlreadyExists`
         href: storage/known-issues/error-409-bucket-already-exists.md
       - name: >-
@@ -950,8 +908,8 @@ items:
           Как ограничить доступ к бакету {{ objstorage-name }} диапазоном
           IP-адресов, принадлежащих {{ cdn-name }}
         href: storage/how-to/permit-bucket-access-only-to-cdn-networks.md
-      - name: Как перенести содержимое бакета в другой бакет в пределах каталога
-        href: storage/how-to/moving-data-to-other-bucket-within-folder.md
+      - name: Как перенести содержимое бакета в другой бакет в пределах организации
+        href: storage/how-to/moving-data-to-other-bucket-within-organisation.md
       - name: >-
           Как работать напрямую с API {{ objstorage-name }} без использования
           SDK
@@ -966,8 +924,6 @@ items:
         href: storage/how-to/configure-cache-headings-with-http-queries.md
       - name: Как ограничить доступ к бакету для пользователя
         href: storage/how-to/restrict-bucket-access.md
-      - name: Как подключить собственный домен к бакету
-        href: storage/how-to/configuring-bucket-domain.md
       - name: Как изменить класс хранения
         href: storage/how-to/change-storage-class.md
       - name: Как восстановить удаленные данные из бакета
@@ -1034,6 +990,14 @@ items:
           managed-postgresql/known-issues/error-unrecognized-configuration-parameter.md
       - name: Устранение ошибки `max_connections сonn_limit is too high`
         href: managed-postgresql/known-issues/conn-limit-is-too-high.md
+      - name: Устранение ошибки `Must be superuser to create this extension`
+        href: >-
+          managed-postgresql/known-issues/must-be-superuser-to-create-this-extension.md
+      - name: >-
+          Устранение ошибки `terminating connection due to administrator
+          command` и `ERROR: odyssey: remote server read/write error`
+        href: >-
+          managed-postgresql/known-issues/terminating-connection-due-to-administrator-command.md
       - name: >-
           Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension
           <'ext_name'> is not present in shared_preload_libraries`
@@ -1193,48 +1157,6 @@ items:
         href: vpc/how-to/transferring-ip-to-a-different-zone.md
       - name: Как заблокировать IP-адрес
         href: vpc/how-to/block-ip-address.md
-  - name: '{{ tracker-name }}'
-    items:
-      - name: Все решения для {{ tracker-name }}
-        href: tracker/index.md
-      - name: Решения для известных проблем c {{ tracker-name }}
-        href: tracker/known-issues/index.md
-        hidden: true
-      - name: Недоступно редактирование воркфлоу
-        href: tracker/known-issues/unable-to-modify-workflow.md
-      - name: Устранение ошибки `Illegal parameter` при создании очереди
-        href: tracker/known-issues/illegal-parameter-while-creating-queue.md
-      - name: Примеры конфигураций и сценариев {{ tracker-name }}
-        href: tracker/how-to/index.md
-        hidden: true
-      - name: Как подключить {{ tracker-name }} после периода неактивности
-        href: tracker/how-to/activating-tracker-after-inactivity.md
-      - name: Как отключить {{ tracker-name }}
-        href: tracker/how-to/deactivating-tracker.md
-      - name: Как восстановить {{ tracker-name }} после удаления
-        href: tracker/how-to/restoring-tracker.md
-      - name: Как использовать новые доски задач
-        href: tracker/how-to/using-new-task-boards.md
-      - name: Как редактировать клонированные воркфлоу
-        href: tracker/how-to/modifying-cloned-worfklows.md
-      - name: Как ограничить доступ к очередям
-        href: tracker/how-to/limiting-queue-access.md
-      - name: Как подключить и использовать платный {{ tracker-name }}
-        href: tracker/how-to/using-paid-version.md
-      - name: Как войти в {{ tracker-name }}
-        href: tracker/how-to/logging-into-tracker.md
-      - name: Как подключить к {{ mgl-name }} репозиторий со стороннего сервера
-        href: tracker/how-to/connecting-gitlab-repository.md
-      - name: Как создать задачу в {{ tracker-name }} через {{ forms-name }}
-        href: tracker/how-to/creating-tasks-via-forms.md
-      - name: Как удалить пользователя из {{ tracker-name }}
-        href: tracker/how-to/excluding-user-from-tracker.md
-      - name: Как добавить пользователя в {{ tracker-name }}
-        href: tracker/how-to/adding-user-to-tracker.md
-      - name: Как отключить почтовые уведомления в {{ tracker-name }}
-        href: tracker/how-to/disabling-notifications.md
-      - name: Как удалить задачу из очереди
-        href: tracker/how-to/removing-task-from-queue.md
   - name: '{{ console-name }}'
     items:
       - name: Все решения для {{ console-name }}
@@ -1285,5 +1207,3 @@ items:
       - name: Примеры конфигураций и сценариев Partner
         href: partner/how-to/index.md
         hidden: true
-base: ru/troubleshooting
-deepBase: 2

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
+    method: post
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the Project resource to open.
+            To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/open.md
 ---
 
-# DataSphere API v2, REST: Project.Open {#Open}
+# DataSphere API v2, REST: Project.Open
 
 Opens the specified project.
 
@@ -20,7 +38,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:open
 || projectId | **string**
 
 Required field. ID of the Project resource to open.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -1,3 +1,10 @@
+{% note info %}
+
+* Используйте пароль пользователя рабочего стола. Этот пароль не совпадает с паролем от аккаунта Яндекса. Если вы не знаете пароль, [получите новый](../../cloud-desktop/operations/desktops/password-reset.md).
+* Логин подставляется из RDP‑файла автоматически. Если нужно ввести его вручную, укажите адрес почты без домена: `user`, а не `user@example.com`.
+
+{% endnote %}
+
 {% list tabs group=operating_system %}
 
 - Windows {#windows}

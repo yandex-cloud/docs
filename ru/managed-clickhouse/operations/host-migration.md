@@ -1,3 +1,8 @@
+---
+title: Миграция хостов кластера {{ CH }} в другую зону доступности
+description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ CH }} в другую зону доступности.
+---
+
 # Миграция хостов кластера {{ CH }} в другую зону доступности
 
 
@@ -11,7 +16,7 @@
 
    Нереплицируемые таблицы будут потеряны во время миграции.
 
-1. Если вы создали кластер без поддержки [{{ CK }}](../concepts/replication.md#ck), [включите отказоустойчивость](zk-hosts.md#add-zk) с использованием хостов {{ ZK }}. Иначе вы не сможете добавить новые хосты в [шарды](../concepts/sharding.md) и выполнить миграцию.
+1. Если вы создали кластер без поддержки [{{ CK }}](../concepts/replication.md#ck), [добавьте не менее трех хостов {{ ZK }}](zk-hosts.md#add-zk) или {{ CK }} для обеспечения [высокой доступности](../concepts/high-availability.md). Иначе вы не сможете добавить новые хосты в [шарды](../concepts/sharding.md) и выполнить миграцию.
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
 1. Добавьте хост в кластер:
 
@@ -19,7 +24,8 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Укажите параметры хоста:
@@ -44,7 +50,7 @@
          --host type=clickhouse,`
                `zone-id=<зона_доступности>,`
                `subnet-id=<идентификатор_новой_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту>
       ```
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
@@ -60,7 +66,7 @@
              type             = "CLICKHOUSE"
              zone             = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
-             assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+             assign_public_ip = <разрешить_публичный_доступ_к_хосту>
            }
          }
          ```
@@ -75,12 +81,84 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      * Идентификатор кластера в параметре `clusterId`. Идентификатор можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-      * Настройки нового хоста в параметрах `hostSpecs`.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "CLICKHOUSE",
+                           "zoneId": "<зона_доступности>",
+                           "subnetId": "<идентификатор_подсети>",
+                           "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
+                         }
+                       ]
+                     }'
+         ```
+
+         Где `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+         * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }};
+         * `zoneId` — зона доступности;
+         * `subnetId` — идентификатор подсети;
+         * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<идентификатор_кластера>",
+                     "host_specs": [
+                         {
+                             "type": "CLICKHOUSE",
+                             "zone_id": "<зона_доступности>",
+                             "subnet_id": "<идентификатор_подсети>",
+                             "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
+                         }
+                     ]
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Где `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+         * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }};
+         * `zone_id` — зона доступности;
+         * `subnet_id` — идентификатор подсети;
+         * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
    {% endlist %}
 
@@ -100,7 +178,8 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
@@ -123,16 +202,17 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * FQDN-имя или массив имен удаляемых хостов в параметре `hostNames`. FQDN-имена можно получить в [консоли управления]({{ link-console-main }}), на странице кластера, на вкладке **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
 
 ## Перенести хосты {{ ZK }} {#zookeeper-hosts}
 
@@ -143,7 +223,8 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
       1. Укажите новую подсеть и зону доступности, куда переносятся хосты.
@@ -163,7 +244,7 @@
          --host type=zookeeper,`
                `zone-id=<зона_доступности>,`
                `subnet-id=<идентификатор_новой_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту>
       ```
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
@@ -179,7 +260,7 @@
              type             = "ZOOKEEPER"
              zone             = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
-             assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+             assign_public_ip = <разрешить_публичный_доступ_к_хосту>
            }
          }
          ```
@@ -194,12 +275,83 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы добавить хост в кластер, воспользуйтесь методом REST API [addZookeeper](../api-ref/Cluster/addZookeeper.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и передайте в запросе:
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      * Идентификатор кластера в параметре `clusterId`. Идентификатор можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-      * Настройки нового хоста в параметрах `resources` и `hostSpecs`.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "ZOOKEEPER",
+                           "zoneId": "<зона_доступности>",
+                           "subnetId": "<идентификатор_подсети>",
+                           "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
+                         }
+                       ]
+                     }'
+         ```
+
+         Где `hostSpecs` — массив, содержащий настройки создаваемого хоста. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+         * `type` — тип хоста `ZOOKEEPER`;
+         * `zoneId` — зона доступности;
+         * `subnetId` — идентификатор подсети;
+         * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+      1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<идентификатор_кластера>",
+                     "host_specs": [
+                         {
+                             "type": "ZOOKEEPER",
+                             "zone_id": "<зона_доступности>",
+                             "subnet_id": "<идентификатор_подсети>",
+                             "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
+                         }
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Где `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива `host_specs` содержит настройки для одного хоста и имеет следующую структуру:
+
+         * `type` — тип хоста `ZOOKEEPER`;
+         * `zone_id` — зона доступности;
+         * `subnet_id` — идентификатор подсети;
+         * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
    {% endlist %}
 
@@ -209,7 +361,8 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
@@ -232,16 +385,17 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы удалить хост, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * FQDN-имя или массив имен удаляемых хостов в параметре `hostNames`. FQDN-имена можно получить в [консоли управления]({{ link-console-main }}), на странице кластера, на вкладке **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 

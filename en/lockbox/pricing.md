@@ -1,6 +1,6 @@
 ---
 title: '{{ lockbox-full-name }} pricing policy'
-description: This article describes the {{ lockbox-name }} pricing policy.
+description: This article covers the {{ lockbox-name }} pricing policy.
 editable: false
 ---
 
@@ -10,18 +10,16 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 The cost of using {{ lockbox-name }} is calculated based on:
 
 * Number of secret versions.
 * Number of completed [get](api-ref/Payload/get) operations on a secret.
 
-
-{% note warning %}
-
-The prices are valid as of March 10, 2024.
-
-{% endnote %}
-
+There is no charge for using secrets created with {{ connection-manager-name }}.
 
 
 ## Prices for the Russia region {#prices}
@@ -31,24 +29,17 @@ The prices are valid as of March 10, 2024.
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-### Secret storage price {#secrets}
-
-Billed hourly. The price per month is provided for reference only based on 720 hours (30 days) per month. The value is rounded. Secrets that are [deactivated](operations/secret-activation-manage.md) but not deleted are charged as active ones.
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|lockbox }}']}
+    excludeSkuIds={['{{ pc|lockbox.api.v1.connection_manager_get }}', '{{ pc|lockbox.storage.v1.connection_manager_active_secrets }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-
-Billing is hourly. The cost per month is provided for reference only, assuming a 720-hour (30-day) month. The value is rounded.
-
-{% include [usd.md](../_pricing/lockbox/usd-secrets.md) %}
-
-
-### Price of requests for secrets {#requests}
-
-
-
-
-{% include [usd.md](../_pricing/lockbox/usd-requests.md) %}
 
 
 ### Cost calculation example {#price-example}
@@ -60,6 +51,7 @@ Here is an example of calculating the monthly cost of {{ lockbox-name }} for the
 
 
 
+
+
+
 {% include [usd-lockbox](../_pricing_examples/lockbox/usd.md) %}
-
-

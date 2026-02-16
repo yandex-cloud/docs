@@ -1,0 +1,263 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/serverless/cli-ref-beta/api-gateway/create.md
+---
+
+# yc beta serverless api-gateway create
+
+Creates an API gateway in the specified folder.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta serverless api-gateway create <FOLDER-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--canary` | `shorthand/json`
+
+Canary release of the gateway.
+
+Shorthand Syntax:
+
+```hcl
+{
+  variables = {key={
+    variable-value = bool-value=bool | double-value=double | int-value=int | string-value=str
+  }, key=...},
+  weight = int
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "variables": {
+    "<key>": {
+      "variable-value": {
+        "bool-value": "bool",
+        "double-value": "double",
+        "int-value": "int",
+        "string-value": "str"
+      }
+    }, ...
+  },
+  "weight": "int"
+}
+```
+
+Fields:
+
+```
+variables -> (map[string,struct])
+  Values specification variables, associated with canary.
+  variable-value -> (oneof<bool-value|double-value|int-value|string-value>)
+    Oneof variable-value field
+    string-value -> (string)
+    int-value -> (int)
+    double-value -> (double)
+    bool-value -> (bool)
+weight -> (int)
+  It describes percentage of requests, which will be processed by canary.
+``` ||
+|| `--connectivity` | `shorthand/json`
+
+Gateway connectivity. If specified the gateway will be attached to specified network/subnet(s).
+
+Shorthand Syntax:
+
+```hcl
+{
+  network-id = str,
+  subnet-id = str,...
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "network-id": "str",
+  "subnet-id": [
+    "str", ...
+  ]
+}
+```
+
+Fields:
+
+```
+network-id -> (string)
+  Network the gateway will have access to. It's essential to specify network with subnets in all availability zones.
+subnet-id -> ([]string)
+  Complete list of subnets (from the same network) the gateway can be attached to. It's essential to specify at least one subnet for each availability zones.
+``` ||
+|| `--description` | `string`
+
+Description of the API gateway. ||
+|| `--execution-timeout` | `duration`
+
+Timeout for gateway call execution (duration, e.g. 30s, 5m10s) ||
+|| `--folder-id` | `string`
+
+ID of the folder to create an API gateway in. To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List] request. ||
+|| `--labels` | `stringToString`
+
+Resource labels as 'key:value' pairs. ||
+|| `--log-options` | `shorthand/json`
+
+Options for logging from the API gateway.
+
+Shorthand Syntax:
+
+```hcl
+{
+  destination = folder-id=str | log-group-id=str,
+  disabled = bool,
+  min-level = TRACE|DEBUG|INFO|WARN|ERROR|FATAL
+}
+```
+
+JSON Syntax:
+
+```json
+{
+  "destination": {
+    "folder-id": "str",
+    "log-group-id": "str"
+  },
+  "disabled": "bool",
+  "min-level": "TRACE|DEBUG|INFO|WARN|ERROR|FATAL"
+}
+```
+
+Fields:
+
+```
+disabled -> (bool)
+  Is logging from API gateway disabled.
+min-level -> (struct)
+  Minimum log entry level. See [LogLevel.Level] for details.
+destination -> (oneof<folder-id|log-group-id>)
+  Oneof destination field
+  log-group-id -> (string)
+    Entry should be written to log group resolved by ID.
+  folder-id -> (string)
+    Entry should be written to default log group for specified folder.
+``` ||
+|| `--name` | `string`
+
+Name of the API gateway. The name must be unique within the folder. ||
+|| `--variables` | `shorthand/json`
+
+Values of variables defined in the specification.
+
+Shorthand Syntax:
+
+```hcl
+{key={
+  variable-value = bool-value=bool | double-value=double | int-value=int | string-value=str
+}, key=...}
+```
+
+JSON Syntax:
+
+```json
+{
+  "<key>": {
+    "variable-value": {
+      "bool-value": "bool",
+      "double-value": "double",
+      "int-value": "int",
+      "string-value": "str"
+    }
+  }, ...
+}
+```
+
+Fields:
+
+```
+variable-value -> (oneof<bool-value|double-value|int-value|string-value>)
+  Oneof variable-value field
+  string-value -> (string)
+  int-value -> (int)
+  double-value -> (double)
+  bool-value -> (bool)
+``` ||
+|| `--openapi-spec` | `string`
+
+The text of specification, JSON or YAML. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

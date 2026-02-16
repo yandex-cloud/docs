@@ -1,9 +1,596 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:addBackend
+    method: post
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to add a backend to.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        http:
+          description: |-
+            **[HttpBackend](#yandex.cloud.apploadbalancer.v1.HttpBackend)**
+            HTTP backend to add to the backend group.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          $ref: '#/definitions/HttpBackend'
+        grpc:
+          description: |-
+            **[GrpcBackend](#yandex.cloud.apploadbalancer.v1.GrpcBackend)**
+            gRPC backend to add to the backend group.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          $ref: '#/definitions/GrpcBackend'
+        stream:
+          description: |-
+            **[StreamBackend](#yandex.cloud.apploadbalancer.v1.StreamBackend)**
+            New settings for the Stream backend.
+            Includes only one of the fields `http`, `grpc`, `stream`.
+            Backend to add to the backend group.
+          $ref: '#/definitions/StreamBackend'
+      additionalProperties: false
+      oneOf:
+        - required:
+            - http
+        - required:
+            - grpc
+        - required:
+            - stream
+    definitions:
+      LoadBalancingConfig:
+        type: object
+        properties:
+          panicThreshold:
+            description: |-
+              **string** (int64)
+              Threshold for panic mode.
+              If percentage of healthy backends in the group drops below threshold,
+              panic mode will be activated and traffic will be routed to all backends, regardless of their health check status.
+              This helps to avoid overloading healthy backends.
+              For details about panic mode, see [documentation](/docs/application-load-balancer/concepts/backend-group#panic-mode).
+              If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
+              Default value: `0`.
+              Acceptable values are 0 to 100, inclusive.
+            default: '0'
+            type: string
+            format: int64
+          localityAwareRoutingPercent:
+            description: |-
+              **string** (int64)
+              Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
+              The rest is divided equally between other zones. For details about zone-aware routing, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
+              If there are no healthy backends in an availability zone, all the traffic is divided between other zones.
+              If [strictLocality](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) is `true`, the specified value is ignored.
+              A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
+              Default value: `0`.
+              Acceptable values are 0 to 100, inclusive.
+            default: '0'
+            type: string
+            format: int64
+          strictLocality:
+            description: |-
+              **boolean**
+              Specifies whether a load balancer node should only send traffic to backends in its availability zone,
+              regardless of their health, and ignore backends in other zones.
+              If set to `true` and there are no healthy backends in the zone, the node in this zone will respond
+              to incoming traffic with errors.
+              For details about strict locality, see [documentation](/docs/application-load-balancer/concepts/backend-group#locality).
+              If `strict_locality` is `true`, the value specified in [localityAwareRoutingPercent](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) is ignored.
+              Default value: `false`.
+            default: false
+            type: boolean
+          mode:
+            description: |-
+              **enum** (LoadBalancingMode)
+              Load balancing mode for the backend.
+              For details about load balancing modes, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group#balancing-mode).
+              - `ROUND_ROBIN`: Round robin load balancing mode.
+                All endpoints of the backend take their turns to receive requests attributed to the backend.
+              - `RANDOM`: Random load balancing mode. Default value.
+                For a request attributed to the backend, an endpoint that receives it is picked at random.
+              - `LEAST_REQUEST`: Least request load balancing mode.
+                To pick an endpoint that receives a request attributed to the backend, the power of two choices algorithm is used;
+              that is, two endpoints are picked at random, and the request is sent to the one which has the fewest active
+              requests.
+              - `MAGLEV_HASH`: Maglev hashing load balancing mode.
+                Each endpoint is hashed, and a hash table with 65537 rows is filled accordingly, so that every endpoint occupies
+              the same amount of rows. An attribute of each request is also hashed by the same function (if session affinity is
+              enabled for the backend group, the attribute to hash is specified in session affinity configuration). The row
+              with the same number as the resulting value is looked up in the table to determine the endpoint that receives
+              the request.
+                If the backend group with session affinity enabled contains more than one backend with positive weight, endpoints
+              for backends with `MAGLEV_HASH` load balancing mode are picked at `RANDOM` instead.
+            type: string
+            enum:
+              - ROUND_ROBIN
+              - RANDOM
+              - LEAST_REQUEST
+              - MAGLEV_HASH
+      TargetGroupsBackend:
+        type: object
+        properties:
+          targetGroupIds:
+            description: |-
+              **string**
+              List of ID's of target groups that belong to the backend.
+              To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+              The number of elements must be greater than 0.
+            type: array
+            items:
+              type: string
+      StorageBucketBackend:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Required field. Name of the bucket.
+            type: string
+        required:
+          - bucket
+      Payload:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Payload text.
+              The string length in characters must be greater than 0.
+              Includes only one of the fields `text`.
+              Payload.
+            type: string
+        oneOf:
+          - required:
+              - text
+      StreamHealthCheck:
+        type: object
+        properties:
+          send:
+            description: |-
+              **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
+              Message sent to targets during TCP data transfer.
+              If not specified, no data is sent to the target.
+            $ref: '#/definitions/Payload'
+          receive:
+            description: |-
+              **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
+              Data that must be contained in the messages received from targets for a successful health check.
+              If not specified, no messages are expected from targets, and those that are received are not checked.
+            $ref: '#/definitions/Payload'
+      HttpHealthCheck:
+        type: object
+        properties:
+          host:
+            description: |-
+              **string**
+              Value for the HTTP/1.1 `Host` header or the HTTP/2 `:authority` pseudo-header used in requests to targets.
+            type: string
+          path:
+            description: |-
+              **string**
+              Required field. HTTP path used in requests to targets: request URI for HTTP/1.1 request line
+              or value for the HTTP/2 `:path` pseudo-header.
+            type: string
+          useHttp2:
+            description: |-
+              **boolean**
+              Enables HTTP/2 usage in health checks.
+              Default value: `false`, HTTP/1.1 is used.
+            default: false
+            type: boolean
+          expectedStatuses:
+            description: |-
+              **string** (int64)
+              A list of HTTP response statuses considered healthy.
+              By default only 200 HTTP status code considered healthy.
+              Acceptable values are 100 to 599, inclusive.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+              format: int64
+        required:
+          - path
+      GrpcHealthCheck:
+        type: object
+        properties:
+          serviceName:
+            description: |-
+              **string**
+              Name of the gRPC service to be checked.
+              If not specified, overall health is checked.
+              For details about the concept, see [GRPC Health Checking Protocol](https://github.com/grpc/grpc/blob/master/doc/health-checking.md).
+            type: string
+      PlaintextTransportSettings:
+        type: object
+        properties: {}
+      ValidationContext:
+        type: object
+        properties:
+          trustedCaId:
+            description: |-
+              **string**
+              Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+              TLS certificate issued by a trusted certificate authority (CA).
+            type: string
+          trustedCaBytes:
+            description: |-
+              **string**
+              X.509 certificate contents in PEM format.
+              Includes only one of the fields `trustedCaId`, `trustedCaBytes`.
+              TLS certificate issued by a trusted certificate authority (CA).
+            type: string
+        oneOf:
+          - required:
+              - trustedCaId
+          - required:
+              - trustedCaBytes
+      SecureTransportSettings:
+        type: object
+        properties:
+          sni:
+            description: |-
+              **string**
+              SNI string for TLS connections.
+            type: string
+          validationContext:
+            description: |-
+              **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
+              Validation context for backend TLS connections.
+            $ref: '#/definitions/ValidationContext'
+      HealthCheck:
+        type: object
+        properties:
+          timeout:
+            description: |-
+              **string** (duration)
+              Required field. Health check timeout.
+              The timeout is the time allowed for the target to respond to a check.
+              If the target doesn't respond in time, the check is considered failed.
+            type: string
+            format: duration
+          interval:
+            description: |-
+              **string** (duration)
+              Required field. Base interval between consecutive health checks.
+            type: string
+            format: duration
+          intervalJitterPercent:
+            description: '**string**'
+            type: string
+          healthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of consecutive successful health checks required to mark an unhealthy target as healthy.
+              Both `0` and `1` values amount to one successful check required.
+              The value is ignored when a load balancer is initialized; a target is marked healthy after one successful check.
+              Default value: `0`.
+            default: '0'
+            type: string
+            format: int64
+          unhealthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of consecutive failed health checks required to mark a healthy target as unhealthy.
+              Both `0` and `1` values amount to one unsuccessful check required.
+              The value is ignored if a health check is failed due to an HTTP `503 Service Unavailable` response from the target
+              (not applicable to TCP stream health checks). The target is immediately marked unhealthy.
+              Default value: `0`.
+            default: '0'
+            type: string
+            format: int64
+          healthcheckPort:
+            description: |-
+              **string** (int64)
+              Port used for health checks.
+              If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+          stream:
+            description: |-
+              **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck)**
+              TCP stream health check settings.
+              Includes only one of the fields `stream`, `http`, `grpc`.
+              Protocol-specific health check settings.
+              The protocols of the backend and of its health check may differ,
+              e.g. a gRPC health check may be specified for an HTTP backend.
+            $ref: '#/definitions/StreamHealthCheck'
+          http:
+            description: |-
+              **[HttpHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.HttpHealthCheck)**
+              HTTP health check settings.
+              Includes only one of the fields `stream`, `http`, `grpc`.
+              Protocol-specific health check settings.
+              The protocols of the backend and of its health check may differ,
+              e.g. a gRPC health check may be specified for an HTTP backend.
+            $ref: '#/definitions/HttpHealthCheck'
+          grpc:
+            description: |-
+              **[GrpcHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck)**
+              gRPC health check settings.
+              Includes only one of the fields `stream`, `http`, `grpc`.
+              Protocol-specific health check settings.
+              The protocols of the backend and of its health check may differ,
+              e.g. a gRPC health check may be specified for an HTTP backend.
+            $ref: '#/definitions/GrpcHealthCheck'
+          plaintext:
+            description: |-
+              **object**
+              Includes only one of the fields `plaintext`, `tls`.
+              Optional transport protocol for health checks.
+              When not set, health checks use the same protocol as the proxied traffic.
+              Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+            $ref: '#/definitions/PlaintextTransportSettings'
+          tls:
+            description: |-
+              **[SecureTransportSettings](#yandex.cloud.apploadbalancer.v1.SecureTransportSettings)**
+              Includes only one of the fields `plaintext`, `tls`.
+              Optional transport protocol for health checks.
+              When not set, health checks use the same protocol as the proxied traffic.
+              Use this when health checks' protocol settings differ from their backend, e.g. plaintext health checks for a TLS backend.
+            $ref: '#/definitions/SecureTransportSettings'
+        required:
+          - timeout
+          - interval
+        allOf:
+          - oneOf:
+              - required:
+                  - stream
+              - required:
+                  - http
+              - required:
+                  - grpc
+          - oneOf:
+              - required:
+                  - plaintext
+              - required:
+                  - tls
+      BackendTls:
+        type: object
+        properties:
+          sni:
+            description: |-
+              **string**
+              Server Name Indication (SNI) string for TLS connections.
+            type: string
+          validationContext:
+            description: |-
+              **[ValidationContext](#yandex.cloud.apploadbalancer.v1.ValidationContext)**
+              Validation context for TLS connections.
+            $ref: '#/definitions/ValidationContext'
+      HttpBackend:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the backend.
+              Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+            pattern: '[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          backendWeight:
+            description: |-
+              **string** (int64)
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+              Weights must be set either for all backends in a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+              If the weight is non-positive, traffic is not sent to the backend.
+            type: string
+            format: int64
+          loadBalancingConfig:
+            description: |-
+              **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+              Load balancing configuration for the backend.
+            $ref: '#/definitions/LoadBalancingConfig'
+          port:
+            description: |-
+              **string** (int64)
+              Port used by all targets to receive traffic.
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+          targetGroups:
+            description: |-
+              **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+              Target groups that belong to the backend. For details about target groups, see
+              [documentation](/docs/application-load-balancer/concepts/target-group).
+              Includes only one of the fields `targetGroups`, `storageBucket`.
+              Reference to targets that belong to the backend.
+              A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+            $ref: '#/definitions/TargetGroupsBackend'
+          storageBucket:
+            description: |-
+              **[StorageBucketBackend](#yandex.cloud.apploadbalancer.v1.StorageBucketBackend)**
+              Object Storage bucket to use as the backend. For details about buckets, see
+              [documentation](/docs/storage/concepts/bucket).
+              If a bucket is used as a backend, the list of bucket objects and the objects themselves must be publicly
+              accessible. For instructions, see [documentation](/docs/storage/operations/buckets/bucket-availability).
+              Includes only one of the fields `targetGroups`, `storageBucket`.
+              Reference to targets that belong to the backend.
+              A backend may be a set of target groups or an Object Storage bucket. For details about backend types, see
+              [documentation](/docs/application-load-balancer/concepts/backend-group#types).
+            $ref: '#/definitions/StorageBucketBackend'
+          healthchecks:
+            description: |-
+              **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+              If no health checks are specified, active health checking is not performed.
+            type: array
+            items:
+              $ref: '#/definitions/HealthCheck'
+          tls:
+            description: |-
+              **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
+              Settings for TLS connections between load balancer nodes and backend targets.
+              If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
+              and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+              If not specified, the load balancer establishes unencrypted HTTP connections with targets.
+            $ref: '#/definitions/BackendTls'
+          useHttp2:
+            description: |-
+              **boolean**
+              Enables HTTP/2 usage in connections between load balancer nodes and backend targets.
+              Default value: `false`, HTTP/1.1 is used.
+            default: false
+            type: boolean
+        required:
+          - name
+        oneOf:
+          - required:
+              - targetGroups
+          - required:
+              - storageBucket
+      GrpcBackend:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the backend.
+              Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+            pattern: '[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          backendWeight:
+            description: |-
+              **string** (int64)
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+              Weights must be set either for all backends of a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+              If the weight is non-positive, traffic is not sent to the backend.
+            type: string
+            format: int64
+          loadBalancingConfig:
+            description: |-
+              **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+              Load balancing configuration for the backend.
+            $ref: '#/definitions/LoadBalancingConfig'
+          port:
+            description: |-
+              **string** (int64)
+              Port used by all targets to receive traffic.
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+          targetGroups:
+            description: |-
+              **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+              Target groups that belong to the backend.
+              Includes only one of the fields `targetGroups`.
+              Reference to targets that belong to the backend. For now, targets are referenced via target groups.
+            $ref: '#/definitions/TargetGroupsBackend'
+          healthchecks:
+            description: |-
+              **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+              If no health checks are specified, active health checking is not performed.
+            type: array
+            items:
+              $ref: '#/definitions/HealthCheck'
+          tls:
+            description: |-
+              **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
+              Settings for TLS connections between load balancer nodes and backend targets.
+              If specified, the load balancer establishes HTTPS (HTTP over TLS) connections with targets
+              and compares received certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+              If not specified, the load balancer establishes unencrypted HTTP connections with targets.
+            $ref: '#/definitions/BackendTls'
+        required:
+          - name
+        oneOf:
+          - required:
+              - targetGroups
+      StreamBackend:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the backend.
+              Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `.
+            pattern: '[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          backendWeight:
+            description: |-
+              **string** (int64)
+              Backend weight. Traffic is distributed between backends of a backend group according to their weights.
+              Weights must be set either for all backends in a group or for none of them.
+              Setting no weights is the same as setting equal non-zero weights for all backends.
+              If the weight is non-positive, traffic is not sent to the backend.
+            type: string
+            format: int64
+          loadBalancingConfig:
+            description: |-
+              **[LoadBalancingConfig](#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig)**
+              Load balancing configuration for the backend.
+            $ref: '#/definitions/LoadBalancingConfig'
+          port:
+            description: |-
+              **string** (int64)
+              Port used by all targets to receive traffic.
+              Acceptable values are 0 to 65535, inclusive.
+            type: string
+            format: int64
+          targetGroups:
+            description: |-
+              **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
+              Target groups that belong to the backend. For details about target groups, see
+              [documentation](/docs/application-load-balancer/concepts/target-group).
+              Includes only one of the fields `targetGroups`.
+              Reference to targets that belong to the backend.
+            $ref: '#/definitions/TargetGroupsBackend'
+          healthchecks:
+            description: |-
+              **[HealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck)**
+              Health checks to perform on targets from target groups.
+              For details about health checking, see [documentation](/docs/application-load-balancer/concepts/backend-group#health-checks).
+              If no health checks are specified, active health checking is not performed.
+            type: array
+            items:
+              $ref: '#/definitions/HealthCheck'
+          tls:
+            description: |-
+              **[BackendTls](#yandex.cloud.apploadbalancer.v1.BackendTls)**
+              Settings for TLS connections between load balancer nodes and backend targets.
+              If specified, the load balancer establishes TLS-encrypted TCP connections with targets and compares received
+              certificates with the one specified in [BackendTls.validationContext](#yandex.cloud.apploadbalancer.v1.BackendTls).
+              If not specified, the load balancer establishes unencrypted TCP connections with targets.
+            $ref: '#/definitions/BackendTls'
+          enableProxyProtocol:
+            description: |-
+              **boolean**
+              If set, proxy protocol will be enabled for this backend.
+            type: boolean
+          keepConnectionsOnHostHealthFailure:
+            description: |-
+              **boolean**
+              If a backend host becomes unhealthy (as determined by the configured health checks),
+              keep connections to the failed host.
+            type: boolean
+        oneOf:
+          - required:
+              - targetGroups
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/addBackend.md
 ---
 
-# Application Load Balancer API, REST: BackendGroup.AddBackend {#AddBackend}
+# Application Load Balancer API, REST: BackendGroup.AddBackend
 
 Adds backends to the specified backend group.
 
@@ -73,7 +660,10 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "boolean"
+          "useHttp2": "boolean",
+          "expectedStatuses": [
+            "string"
+          ]
         },
         "grpc": {
           "serviceName": "string"
@@ -145,7 +735,10 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "boolean"
+          "useHttp2": "boolean",
+          "expectedStatuses": [
+            "string"
+          ]
         },
         "grpc": {
           "serviceName": "string"
@@ -216,7 +809,10 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
         "http": {
           "host": "string",
           "path": "string",
-          "useHttp2": "boolean"
+          "useHttp2": "boolean",
+          "expectedStatuses": [
+            "string"
+          ]
         },
         "grpc": {
           "serviceName": "string"
@@ -245,7 +841,8 @@ To get the backend group ID, make a [BackendGroupService.List](/docs/application
         // end of the list of possible fields
       }
     },
-    "enableProxyProtocol": "boolean"
+    "enableProxyProtocol": "boolean",
+    "keepConnectionsOnHostHealthFailure": "boolean"
   }
   // end of the list of possible fields
 }
@@ -284,7 +881,9 @@ An HTTP backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -298,7 +897,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -361,7 +962,9 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || localityAwareRoutingPercent | **string** (int64)
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
@@ -373,7 +976,9 @@ If there are no healthy backends in an availability zone, all the traffic is div
 If `strictLocality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || strictLocality | **boolean**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
@@ -426,7 +1031,9 @@ A resource for target groups that belong to the backend.
 
 List of ID's of target groups that belong to the backend.
 
-To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request. ||
+To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
@@ -481,7 +1088,9 @@ Default value: `0`. ||
 
 Port used for health checks.
 
-If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks. ||
+If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || stream | **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck)**
 
 TCP stream health check settings.
@@ -556,6 +1165,8 @@ A health check payload resource.
 
 Payload text.
 
+The string length in characters must be greater than 0.
+
 Includes only one of the fields `text`.
 
 Payload. ||
@@ -579,6 +1190,12 @@ or value for the HTTP/2 `:path` pseudo-header. ||
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expectedStatuses[] | **string** (int64)
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy.
+
+Acceptable values are 100 to 599, inclusive. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck}
@@ -652,7 +1269,9 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -666,7 +1285,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend.
@@ -697,7 +1318,9 @@ A stream (TCP) backend resource.
 ||Field | Description ||
 || name | **string**
 
-Name of the backend. ||
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -711,7 +1334,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -736,6 +1361,10 @@ If not specified, the load balancer establishes unencrypted TCP connections with
 || enableProxyProtocol | **boolean**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -767,7 +1396,7 @@ If set, proxy protocol will be enabled for this backend. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
@@ -815,7 +1444,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -856,7 +1488,8 @@ If set, proxy protocol will be enabled for this backend. ||
       },
       "cookie": {
         "name": "string",
-        "ttl": "string"
+        "ttl": "string",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -903,7 +1536,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -943,7 +1579,8 @@ If set, proxy protocol will be enabled for this backend. ||
       },
       "cookie": {
         "name": "string",
-        "ttl": "string"
+        "ttl": "string",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -990,7 +1627,10 @@ If set, proxy protocol will be enabled for this backend. ||
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -1019,7 +1659,8 @@ If set, proxy protocol will be enabled for this backend. ||
               // end of the list of possible fields
             }
           },
-          "enableProxyProtocol": "boolean"
+          "enableProxyProtocol": "boolean",
+          "keepConnectionsOnHostHealthFailure": "boolean"
         }
       ],
       // Includes only one of the fields `connection`
@@ -1152,7 +1793,7 @@ Description of the backend group. The string is 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the backend group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -1256,7 +1897,9 @@ An HTTP backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1270,7 +1913,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -1333,7 +1978,9 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || localityAwareRoutingPercent | **string** (int64)
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
@@ -1345,7 +1992,9 @@ If there are no healthy backends in an availability zone, all the traffic is div
 If `strictLocality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || strictLocality | **boolean**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
@@ -1398,7 +2047,9 @@ A resource for target groups that belong to the backend.
 
 List of ID's of target groups that belong to the backend.
 
-To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request. ||
+To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend2}
@@ -1453,7 +2104,9 @@ Default value: `0`. ||
 
 Port used for health checks.
 
-If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend2) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks. ||
+If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend2) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || stream | **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck2)**
 
 TCP stream health check settings.
@@ -1528,6 +2181,8 @@ A health check payload resource.
 
 Payload text.
 
+The string length in characters must be greater than 0.
+
 Includes only one of the fields `text`.
 
 Payload. ||
@@ -1551,6 +2206,12 @@ or value for the HTTP/2 `:path` pseudo-header. ||
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expectedStatuses[] | **string** (int64)
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy.
+
+Acceptable values are 100 to 599, inclusive. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck2}
@@ -1635,7 +2296,9 @@ A resource for HTTP-header-field-based session affinity configuration.
 ||Field | Description ||
 || headerName | **string**
 
-Name of the HTTP header field that is used for session affinity. ||
+Name of the HTTP header field that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 |#
 
 ## CookieSessionAffinity {#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity}
@@ -1646,7 +2309,9 @@ A resource for cookie-based session affinity configuration.
 ||Field | Description ||
 || name | **string**
 
-Name of the cookie that is used for session affinity. ||
+Name of the cookie that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 || ttl | **string** (duration)
 
 Maximum age of cookies that are generated for sessions.
@@ -1655,6 +2320,14 @@ If set to `0`, session cookies are used, which are stored by clients in temporar
 on client restarts.
 
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
+|| path | **string**
+
+Path of cookie.
+This will be used to set the path of a new cookie when it is generated.
+
+If path is unspecified or empty, no path will be set for the cookie.
+
+The string length in characters must be 0-256. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup}
@@ -1720,7 +2393,9 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1734,7 +2409,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend.
@@ -1793,7 +2470,9 @@ A stream (TCP) backend resource.
 ||Field | Description ||
 || name | **string**
 
-Name of the backend. ||
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1807,7 +2486,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend2)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -1832,4 +2513,8 @@ If not specified, the load balancer establishes unencrypted TCP connections with
 || enableProxyProtocol | **boolean**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#

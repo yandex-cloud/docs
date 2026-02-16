@@ -16,7 +16,8 @@
 1. В блоке **{{ ui-key.yc-ui-datasphere.restrictions.project-mode }}** включите опцию **{{ ui-key.yc-ui-datasphere.restrictions.JUPYTER_TOKEN }}**.
 1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.projects }}** и выберите ваш проект.
 1. В настройках проекта в блоке **{{ ui-key.yc-ui-datasphere.common.general }}** нажмите **{{ ui-key.yc-ui-datasphere.common.edit }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** выберите [конфигурацию ВМ](../../concepts/configurations.md) и запустите проект.
+1. В поле **{{ ui-key.yc-ui-datasphere.external-ide.external-ide-vm-configuration }}** выберите [конфигурацию ВМ](../../concepts/configurations.md) и нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь загрузки проекта.
 1. В правом верхнем углу нажмите **Поделиться** ⟶ **Ссылка для внешней IDE**.
 1. Нажмите **Копировать ссылку**.
 1. Откройте файл формата `ipynb` в Visual Studio Code.

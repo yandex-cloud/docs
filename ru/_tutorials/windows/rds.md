@@ -33,7 +33,6 @@
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инсталляции Microsoft Windows Server with Remote Desktop Services входят:
@@ -41,7 +40,6 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-
 
 ## Создайте облачную сеть и подсети {#create-network}
 
@@ -87,7 +85,7 @@
        1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
        1. Нажмите на имя облачной сети.
        1. Нажмите кнопку **Добавить подсеть**.
-       1. Заполните форму: введите имя подсети `my-subnet-a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+       1. Заполните форму: введите имя подсети `my-subnet-d`, выберите зону доступности `{{ region-id }}-d` из выпадающего списка.
        1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
        1. Нажмите кнопку **Создать подсеть**.
 
@@ -97,8 +95,8 @@
 
        ```
        yc vpc subnet create \
-         --name my-subnet-a \
-         --zone {{ region-id }}-a \
+         --name my-subnet-d \
+         --zone {{ region-id }}-d \
          --network-name my-network \
          --range 10.1.0.0/16
        ```
@@ -136,20 +134,22 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-  1. В поле **Имя** введите имя виртуальной машины: `my-rds-vm`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-  1. В блоке **{{ marketplace-name }}** нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [RDS](/marketplace?tab=software&search=windows+rds).
-  1. В блоке **Диски** укажите размер загрузочного диска 50 ГБ.
-  1. В блоке **Вычислительные ресурсы**:
-      - Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Укажите необходимое количество vCPU и объем RAM:
-         * **vCPU** — 4.
-         * **Гарантированная доля vCPU** — 100%.
-         * **RAM** — 8 ГБ.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `RDS` и выберите подходящий образ [RDS](/marketplace?tab=software&search=windows+rds): 
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-  1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `my-network`. Выберите подсеть `my-subnet-a`. В блоке **Публичный адрес** выберите вариант **Автоматически**.
-  1. Нажмите кнопку **Создать ВМ**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `my-network` и подсеть `my-subnet-d`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-rds-vm`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -161,11 +161,13 @@
      --hostname my-rds-vm \
      --memory 8 \
      --cores 4 \
-     --zone {{ region-id }}-a \
-     --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
+     --zone {{ region-id }}-d \
+     --network-interface subnet-name=my-subnet-d,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
      --metadata-from-file user-data=setpass
   ```
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - API {#api}
 

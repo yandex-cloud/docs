@@ -3,10 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Resource/getProviderCName.md
 ---
 
-# Cloud CDN API, gRPC: ResourceService.GetProviderCName {#GetProviderCName}
+# Cloud CDN API, gRPC: ResourceService.GetProviderCName
 
-Get Provider's CNAME (edge endpoint) bind to specified folder id.
-Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
+Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message.
 
 ## gRPC request
 
@@ -16,15 +15,17 @@ Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
 
 ```json
 {
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. Folder ID to get provider's CNAME. ||
+Required field. Folder ID to get provider's CNAME.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetProviderCNameResponse {#yandex.cloud.cdn.v1.GetProviderCNameResponse}
@@ -32,7 +33,7 @@ Required field. Folder ID to get provider's CNAME. ||
 ```json
 {
   "cname": "string",
-  "folderId": "string"
+  "folder_id": "string"
 }
 ```
 
@@ -41,7 +42,7 @@ Required field. Folder ID to get provider's CNAME. ||
 || cname | **string**
 
 Provider's CNAME. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the provider belongs to. ||
 |#

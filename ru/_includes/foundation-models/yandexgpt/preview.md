@@ -1,1 +1,0 @@
-Сервис {{ foundation-models-full-name }} находится на [стадии Preview](../../../overview/concepts/launch-stages.md).

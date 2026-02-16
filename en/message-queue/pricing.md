@@ -1,6 +1,6 @@
 ---
 title: '{{ message-queue-full-name }} pricing policy'
-description: This article describes the {{ message-queue-name }} pricing policy.
+description: This article covers the {{ message-queue-name }} pricing policy.
 editable: false
 ---
 
@@ -11,6 +11,10 @@ editable: false
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## What goes into the cost of using Yandex Message Queue {#rules}
 
@@ -24,14 +28,17 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Requests to queues {#requests-to-queues}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ymq }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/message-queue/usd.md) %}
 
-
-You pay for the actual number of requests. For example, the cost per thousand requests is $0.00039008 while the cost of 1M requests is $0.390080.
 
 For pricing purposes, every 64 KB of request data is considered a separate request. For example, a 63 KB request is charged as one request, while a 65 KB request is charged as two requests (64 + 1).
 

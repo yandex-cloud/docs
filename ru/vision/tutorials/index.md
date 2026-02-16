@@ -7,3 +7,5 @@ description: Различные сценарии использования {{ v
 
 * [Распознавание архива изображений в {{ vision-full-name }}](archive-from-vision-to-object-storage.md)
 * [{#T}](./recognizer-bot.md)
+* [{#T}](./vision-ocrrecognizer-storage.md)
+

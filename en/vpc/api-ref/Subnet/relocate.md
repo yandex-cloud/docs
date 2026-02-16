@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:relocate
+    method: post
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationZoneId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - destinationZoneId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/relocate.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Relocate {#Relocate}
+# Virtual Private Cloud API, REST: Subnet.Relocate
 
 ## HTTP request
 
@@ -64,7 +91,7 @@ Required field.  ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "zoneId": "string",
     "v4CidrBlocks": [
@@ -211,7 +238,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

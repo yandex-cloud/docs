@@ -18,13 +18,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 Если [агент](../../load-testing/concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса {{ load-testing-name }} не тарифицируется.
-
 
 ## Подготовьте цель тестирования {#target-prepare}
 
@@ -96,7 +94,7 @@
 
 ## Подготовьте файл с тестовыми данными {#test-file}
 
-1. Сформируйте тестовые данные в формате [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md):
+1. Сформируйте тестовые данные в формате [GRPC_JSON](../../load-testing/concepts/payloads/grpc-json.md):
 
    ```JSON
    {"tag": "/Add", "call": "api.Adder.Add", "payload": {"x": 21, "y": 12}}

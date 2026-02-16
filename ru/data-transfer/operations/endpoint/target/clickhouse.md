@@ -19,7 +19,6 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md);
-    * [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
     * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
@@ -51,8 +50,8 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ metrika }}](../source/metrika.md);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [Oracle](../source/oracle.md);
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -86,7 +85,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -108,7 +107,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -150,7 +149,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse-target.md) %}
 
 - CLI {#cli}
 
@@ -166,7 +165,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -222,9 +221,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
-
-    * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
+    * {% include [advanced_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/advanced-settings.md) %}
 
 - CLI {#cli}
 
@@ -263,6 +260,8 @@ description: Из статьи вы узнаете, как задать наст
         * {% include [round_robin](../../../../_includes/data-transfer/fields/clickhouse/terraform/round-robin.md) %}
 
         Вы можете указать только один из вариантов шардирования: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping` или `sharding.round_robin`. Если вариант шардирования не указан, то все данные переносятся в один шард.
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 
@@ -323,8 +322,6 @@ description: Из статьи вы узнаете, как задать наст
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
-
-{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
 {% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 

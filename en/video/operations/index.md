@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ video-full-name }}. Step-by-step guides
+title: Working with {{ video-full-name }}. Step-by-step guides
 description: Step-by-step guides on how to use the streaming and video hosting service in {{ yandex-cloud }}. In this tutorial, you will learn how to manage channels and videos in {{ video-full-name }}.
 ---
 
@@ -15,6 +15,10 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 
 * [{#T}](video/upload.md)
 * [{#T}](video/update.md)
+* [{#T}](video/add-thumbnail.md)
+* [{#T}](video/subtitles.md)
+* [{#T}](video/translation.md)
+* [{#T}](video/summarization.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)
@@ -33,6 +37,7 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 
 * [{#T}](streams/create.md)
 * [{#T}](streams/update.md)
+* [{#T}](streams/add-thumbnail.md)
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)
@@ -49,6 +54,15 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 ## Video player {#player}
 
 * [{#T}](player-control.md)
+
+## Player presets {#style-presets}
+
+* [{#T}](style-presets/create.md)
+* [{#T}](style-presets/update.md)
+* [{#T}](style-presets/get.md)
+* [{#T}](style-presets/set-default.md)
+* [{#T}](style-presets/assign-to-video.md)
+* [{#T}](style-presets/delete.md)
 
 ## Members {#members}
 

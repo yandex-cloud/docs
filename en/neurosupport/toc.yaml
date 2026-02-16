@@ -1,0 +1,5 @@
+title: '{{ neurosupport-full-name }}'
+href: index.yaml
+items:
+  - name: Pricing policy
+    href: pricing.md

@@ -14,9 +14,11 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.opensearch; curl --output $HOME\.opensearch\root.crt {{ crt-web-path }}
+   mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt {{ crt-web-path }}
    ```
 
    Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.
+
+   Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее см. в разделе [Вопросы и ответы](../../../managed-opensearch/qa/index.md#get-ssl-error).
 
 {% endlist %}

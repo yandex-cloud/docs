@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          description: |-
+            **string**
+            Required field. ID of the lifecycle policy.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - lifecyclePolicyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/delete.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Delete {#Delete}
+# Container Registry API, REST: LifecyclePolicy.Delete
 
 Deletes the specified lifecycle policy.
 
@@ -19,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/lifecycle
 ||Field | Description ||
 || lifecyclePolicyId | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

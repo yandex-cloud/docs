@@ -1,9 +1,454 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://airflow.{{ api-host }}/managed-airflow/v1/clusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create Apache Airflow cluster in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the Apache Airflow cluster. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Apache Airflow cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Apache Airflow cluster as `` key:value `` pairs. For example, "env": "prod".
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        config:
+          description: |-
+            **[ClusterConfig](#yandex.cloud.airflow.v1.ClusterConfig)**
+            Required field. Configuration of Apache Airflow components.
+          $ref: '#/definitions/ClusterConfig'
+        network:
+          description: |-
+            **[NetworkConfig](#yandex.cloud.airflow.v1.NetworkConfig)**
+            Network related configuration options.
+          $ref: '#/definitions/NetworkConfig'
+        codeSync:
+          description: |-
+            **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
+            Parameters of the location and access to the code that will be executed in the cluster.
+          $ref: '#/definitions/CodeSyncConfig'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster.
+          type: boolean
+        serviceAccountId:
+          description: |-
+            **string**
+            Service account used to access Cloud resources.
+            For more information, see [documentation](/docs/managed-airflow/concepts/impersonation).
+          type: string
+        logging:
+          description: |-
+            **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
+            Cloud Logging configuration.
+          $ref: '#/definitions/LoggingConfig'
+        adminPassword:
+          description: |-
+            **string**
+            Required field. Password of user `admin`.
+          type: string
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+            Window of maintenance operations.
+          $ref: '#/definitions/MaintenanceWindow'
+      required:
+        - folderId
+        - name
+        - config
+        - adminPassword
+      additionalProperties: false
+    definitions:
+      AirflowConfig:
+        type: object
+        properties:
+          config:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Properties to be passed to Apache Airflow configuration file.
+            type: object
+            additionalProperties:
+              type: string
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to an instance (CPU, memory etc.).
+            type: string
+      WebserverConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of webserver instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to webserver instances.
+            $ref: '#/definitions/Resources'
+      SchedulerConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of scheduler instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to scheduler instances.
+            $ref: '#/definitions/Resources'
+      TriggererConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of triggerer instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to triggerer instances.
+            $ref: '#/definitions/Resources'
+      WorkerConfig:
+        type: object
+        properties:
+          minCount:
+            description: |-
+              **string** (int64)
+              The minimum number of worker instances in the cluster.
+            type: string
+            format: int64
+          maxCount:
+            description: |-
+              **string** (int64)
+              The maximum number of worker instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to worker instances.
+            $ref: '#/definitions/Resources'
+      Dependencies:
+        type: object
+        properties:
+          pipPackages:
+            description: |-
+              **string**
+              Python packages that are installed in the cluster.
+            type: array
+            items:
+              type: string
+          debPackages:
+            description: |-
+              **string**
+              System packages that are installed in the cluster.
+            type: array
+            items:
+              type: string
+      LockboxConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              The setting allows to enable Lockbox Secret Backend.
+            type: boolean
+      DagProcessorConfig:
+        type: object
+        properties:
+          count:
+            description: |-
+              **string** (int64)
+              The number of dag-processor instances in the cluster.
+            type: string
+            format: int64
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.airflow.v1.Resources)**
+              Resources allocated to dag-processor instances.
+            $ref: '#/definitions/Resources'
+      ClusterConfig:
+        type: object
+        properties:
+          versionId:
+            description: |-
+              **string**
+              Version of Apache Airflow that runs on the cluster.
+              Use `airflow_version` instead.
+            deprecated: true
+            type: string
+          airflow:
+            description: |-
+              **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
+              Configuration of the Apache Airflow application itself.
+            $ref: '#/definitions/AirflowConfig'
+          webserver:
+            description: |-
+              **[WebserverConfig](#yandex.cloud.airflow.v1.WebserverConfig)**
+              Required field. Configuration of webserver instances.
+            $ref: '#/definitions/WebserverConfig'
+          scheduler:
+            description: |-
+              **[SchedulerConfig](#yandex.cloud.airflow.v1.SchedulerConfig)**
+              Required field. Configuration of scheduler instances.
+            $ref: '#/definitions/SchedulerConfig'
+          triggerer:
+            description: |-
+              **[TriggererConfig](#yandex.cloud.airflow.v1.TriggererConfig)**
+              Configuration of triggerer instances.
+            $ref: '#/definitions/TriggererConfig'
+          worker:
+            description: |-
+              **[WorkerConfig](#yandex.cloud.airflow.v1.WorkerConfig)**
+              Required field. Configuration of worker instances.
+            $ref: '#/definitions/WorkerConfig'
+          dependencies:
+            description: |-
+              **[Dependencies](#yandex.cloud.airflow.v1.Dependencies)**
+              The list of additional packages installed in the cluster.
+            $ref: '#/definitions/Dependencies'
+          lockbox:
+            description: |-
+              **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
+              Configuration of Lockbox Secret Backend.
+            $ref: '#/definitions/LockboxConfig'
+          airflowVersion:
+            description: |-
+              **string**
+              Apache Airflow version. Format: "Major.Minor"
+            type: string
+          pythonVersion:
+            description: |-
+              **string**
+              Python version. Format: "Major.Minor"
+            type: string
+          dagProcessor:
+            description: |-
+              **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+              Configuration of dag-processor instances.
+            $ref: '#/definitions/DagProcessorConfig'
+        required:
+          - webserver
+          - scheduler
+          - worker
+      NetworkConfig:
+        type: object
+        properties:
+          subnetIds:
+            description: |-
+              **string**
+              IDs of VPC network subnets where instances of the cluster are attached.
+            type: array
+            items:
+              type: string
+          securityGroupIds:
+            description: |-
+              **string**
+              User security groups.
+            type: array
+            items:
+              type: string
+      S3Config:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              The name of the Object Storage bucket that stores DAG files used in the cluster.
+            type: string
+      GitSyncConfig:
+        type: object
+        properties:
+          repo:
+            description: |-
+              **string**
+              Required field. Git repository URL.
+            type: string
+          branch:
+            description: |-
+              **string**
+              Required field. Git branch name to sync from.
+            type: string
+          subPath:
+            description: |-
+              **string**
+              Subdirectory path within the repository containing DAG files.
+            type: string
+          sshKey:
+            description: |-
+              **string**
+              SSH private key for repository authentication.
+            type: string
+        required:
+          - repo
+          - branch
+      CodeSyncConfig:
+        type: object
+        properties:
+          s3:
+            description: |-
+              **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
+              Includes only one of the fields `s3`, `gitSync`.
+            $ref: '#/definitions/S3Config'
+          gitSync:
+            description: |-
+              **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+              Includes only one of the fields `s3`, `gitSync`.
+            $ref: '#/definitions/GitSyncConfig'
+        oneOf:
+          - required:
+              - s3
+          - required:
+              - gitSync
+      LoggingConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Logs generated by the Airflow components are delivered to Cloud Logging.
+            type: boolean
+          folderId:
+            description: |-
+              **string**
+              Logs should be written to default log group for specified folder.
+              Includes only one of the fields `folderId`, `logGroupId`.
+              Destination of log records.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          logGroupId:
+            description: |-
+              **string**
+              Logs should be written to log group resolved by ID.
+              Includes only one of the fields `folderId`, `logGroupId`.
+              Destination of log records.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - folderId
+          - required:
+              - logGroupId
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              - `WEEK_DAY_UNSPECIFIED`
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC.
+            type: string
+            format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/create.md
 ---
 
-# Managed Service for Apache Airflow™ API, REST: Cluster.Create {#Create}
+# Managed Service for Apache Airflow™ API, REST: Cluster.Create
 
 Creates an Apache Airflow cluster.
 
@@ -20,11 +465,11 @@ POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "config": {
     "versionId": "string",
     "airflow": {
-      "config": "string"
+      "config": "object"
     },
     "webserver": {
       "count": "string",
@@ -61,6 +506,14 @@ POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters
     },
     "lockbox": {
       "enabled": "boolean"
+    },
+    "airflowVersion": "string",
+    "pythonVersion": "string",
+    "dagProcessor": {
+      "count": "string",
+      "resources": {
+        "resourcePresetId": "string"
+      }
     }
   },
   "network": {
@@ -72,9 +525,15 @@ POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters
     ]
   },
   "codeSync": {
-    // Includes only one of the fields `s3`
+    // Includes only one of the fields `s3`, `gitSync`
     "s3": {
       "bucket": "string"
+    },
+    "gitSync": {
+      "repo": "string",
+      "branch": "string",
+      "subPath": "string",
+      "sshKey": "string"
     }
     // end of the list of possible fields
   },
@@ -88,7 +547,16 @@ POST https://airflow.{{ api-host }}/managed-airflow/v1/clusters
     // end of the list of possible fields
     "minLevel": "string"
   },
-  "adminPassword": "string"
+  "adminPassword": "string",
+  "maintenanceWindow": {
+    // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+    "anytime": "object",
+    "weeklyMaintenanceWindow": {
+      "day": "string",
+      "hour": "string"
+    }
+    // end of the list of possible fields
+  }
 }
 ```
 
@@ -103,7 +571,7 @@ Required field. Name of the Apache Airflow cluster. The name must be unique with
 || description | **string**
 
 Description of the Apache Airflow cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Airflow cluster as `` key:value `` pairs. For example, "env": "prod". ||
 || config | **[ClusterConfig](#yandex.cloud.airflow.v1.ClusterConfig)**
@@ -128,6 +596,9 @@ Cloud Logging configuration. ||
 || adminPassword | **string**
 
 Required field. Password of user `admin`. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.airflow.v1.ClusterConfig}
@@ -136,7 +607,8 @@ Required field. Password of user `admin`. ||
 ||Field | Description ||
 || versionId | **string**
 
-Version of Apache that runs on the cluster. ||
+Version of Apache Airflow that runs on the cluster.
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -158,13 +630,22 @@ The list of additional packages installed in the cluster. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
 
 Configuration of Lockbox Secret Backend. ||
+|| airflowVersion | **string**
+
+Apache Airflow version. Format: "Major.Minor" ||
+|| pythonVersion | **string**
+
+Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
 
 #|
 ||Field | Description ||
-|| config | **string**
+|| config | **object** (map<**string**, **string**>)
 
 Properties to be passed to Apache Airflow configuration file. ||
 |#
@@ -250,6 +731,18 @@ System packages that are installed in the cluster. ||
 The setting allows to enable Lockbox Secret Backend. ||
 |#
 
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
+|#
+
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}
 
 #|
@@ -268,7 +761,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `gitSync`. ||
+|| gitSync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Includes only one of the fields `s3`, `gitSync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config}
@@ -278,6 +774,24 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig}
+
+#|
+||Field | Description ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}
@@ -330,6 +844,37 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
   May be used to alert about unrecoverable failures and events. ||
 |#
 
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -359,7 +904,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "monitoring": [
       {
         "name": "string",
@@ -370,7 +915,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "config": {
       "versionId": "string",
       "airflow": {
-        "config": "string"
+        "config": "object"
       },
       "webserver": {
         "count": "string",
@@ -407,6 +952,14 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
       },
       "lockbox": {
         "enabled": "boolean"
+      },
+      "airflowVersion": "string",
+      "pythonVersion": "string",
+      "dagProcessor": {
+        "count": "string",
+        "resources": {
+          "resourcePresetId": "string"
+        }
       }
     },
     "health": "string",
@@ -420,9 +973,15 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
       ]
     },
     "codeSync": {
-      // Includes only one of the fields `s3`
+      // Includes only one of the fields `s3`, `gitSync`
       "s3": {
         "bucket": "string"
+      },
+      "gitSync": {
+        "repo": "string",
+        "branch": "string",
+        "subPath": "string",
+        "sshKey": "string"
       }
       // end of the list of possible fields
     },
@@ -436,6 +995,21 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
       "logGroupId": "string",
       // end of the list of possible fields
       "minLevel": "string"
+    },
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string",
+      "latestMaintenanceTime": "string",
+      "nextMaintenanceWindowTime": "string"
     }
   }
   // end of the list of possible fields
@@ -567,7 +1141,7 @@ The name is unique within the folder. 1-64 characters long. ||
 || description | **string**
 
 Description of the Apache Airflow cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.airflow.v1.Monitoring)**
@@ -615,6 +1189,12 @@ For more information, see [documentation](/docs/managed-airflow/concepts/imperso
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig2)**
 
 Cloud Logging configuration. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow2)**
+
+Window of maintenance operations. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -640,7 +1220,8 @@ Link to the monitoring system. ||
 ||Field | Description ||
 || versionId | **string**
 
-Version of Apache that runs on the cluster. ||
+Version of Apache Airflow that runs on the cluster.
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig2)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -662,13 +1243,22 @@ The list of additional packages installed in the cluster. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig2)**
 
 Configuration of Lockbox Secret Backend. ||
+|| airflowVersion | **string**
+
+Apache Airflow version. Format: "Major.Minor" ||
+|| pythonVersion | **string**
+
+Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig2)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig2}
 
 #|
 ||Field | Description ||
-|| config | **string**
+|| config | **object** (map<**string**, **string**>)
 
 Properties to be passed to Apache Airflow configuration file. ||
 |#
@@ -754,6 +1344,18 @@ System packages that are installed in the cluster. ||
 The setting allows to enable Lockbox Secret Backend. ||
 |#
 
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig2}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources2)**
+
+Resources allocated to dag-processor instances. ||
+|#
+
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig2}
 
 #|
@@ -772,7 +1374,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config2)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `gitSync`. ||
+|| gitSync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig2)**
+
+Includes only one of the fields `s3`, `gitSync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config2}
@@ -782,6 +1387,24 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig2}
+
+#|
+||Field | Description ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig2}
@@ -832,4 +1455,66 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow2}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow2)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow2}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayedUntil | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| latestMaintenanceTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| nextMaintenanceWindowTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

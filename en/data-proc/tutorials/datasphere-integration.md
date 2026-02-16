@@ -1,3 +1,7 @@
-# Integrating with {{ ml-platform-full-name }}
+---
+canonical: '{{ link-docs }}/tutorials/ml-ai/data-processing-integration'
+---
 
-{% include notitle [integration with data proc](../../_tutorials/ml-ai/data-proc-integration.md) %}
+# Integration with {{ ml-platform-full-name }}
+
+{% include notitle [integration with Data Processing](../../_tutorials/ml-ai/data-processing-integration.md) %}

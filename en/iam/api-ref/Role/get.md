@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/roles/{roleId}
+    method: get
+    path:
+      type: object
+      properties:
+        roleId:
+          description: |-
+            **string**
+            Required field. ID of the Role resource to return.
+            To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - roleId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Role/get.md
 ---
 
-# Identity and Access Management API, REST: Role.Get {#Get}
+# Identity and Access Management API, REST: Role.Get
 
 Returns the specified Role resource.
 
@@ -22,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
 || roleId | **string**
 
 Required field. ID of the Role resource to return.
-To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request. ||
+To get the role ID, use a [RoleService.List](/docs/iam/api-ref/Role/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.Role}

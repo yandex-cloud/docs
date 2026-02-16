@@ -1,15 +1,9 @@
-# Вызов нагрузочного тестирования из {{ GL }} CI
-
-[{{ GL }}](https://about.gitlab.com/) — это сайт и система управления репозиториями кода для Git. Также {{ GL }} позволяет разработчикам вести непрерывный процесс для создания, тестирования и развертывания кода.
-
-В этом сценарии вы добавите в пайплайн [непрерывной интеграции и непрерывной поставки (CI/CD)](/blog/posts/2022/10/ci-cd) этап вызова нагрузочного тестирования развертываемого приложения с помощью сервиса {{ load-testing-name }}. На этом этапе скрипт создаст агент тестирования, запустит тест и проверит результат тестирования.
-
 Чтобы добавить вызов нагрузочного тестирования из {{ GL }} CI:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте инфраструктуру](#infrastructure-prepare).
 1. [Подготовьте файл с тестовыми данными](#test-file).
 1. [Создайте переменные окружения {{ GL }}](#add-variables).
-1. [Добавьте этап нагрузочного тестирования в файл конфигурации сценария CI](#add-loadtesting-ci)
+1. [Добавьте этап нагрузочного тестирования в файл конфигурации сценария CI](#add-loadtesting-ci).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -17,13 +11,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 1. Если [агент](../../load-testing/concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 1. Плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -38,7 +30,7 @@
    * `vpc.user`;
    * `vpc.publicAdmin` (опционально, если агент будет разворачиваться в публичной сети).
 
-1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
+1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
 
 ### Настройте сеть {#network-setup}
 
@@ -225,7 +217,13 @@
       * по обновлению в Pull Request.
 
    Более сложные сценарии разобраны в видео:
-   @[youtube](QrMMZu__2DI)
+
+   
+   <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjypgxy7j52zgpam2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+   [Смотреть видео на YouTube](https://www.youtube.com/watch?v=QrMMZu__2DI).
+
+
 
 ## Удалите созданные ресурсы {#clear-out}
 

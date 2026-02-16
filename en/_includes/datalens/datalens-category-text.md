@@ -1,1 +1,3 @@
-If the values of the categories contain a large amount of text, try to reduce it. Then the signatures on the diagram will look more accurate. You can use string functions in the calculated fields or conditional operators [CASE](../../datalens/function-ref/CASE.md).
+**Labels.** If the category values are too verbose, make them shorter so that the chart labels look neater.
+
+You can use string functions in calculated fields or the [CASE](../../datalens/function-ref/CASE.md) conditional statements.

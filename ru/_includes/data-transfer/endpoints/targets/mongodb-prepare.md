@@ -1,33 +1,30 @@
 {% list tabs %}
 
-
-- {{ mmg-name }}
+- {{ mmg-name }} (Managed Service for MongoDB)
     
-    1. [Создайте базу данных](../../../../managed-mongodb/operations/databases.md#add-db).
-    1. [Создайте пользователя](../../../../managed-mongodb/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../../../managed-mongodb/concepts/users-and-roles.md#readWrite) на созданную базу.
+    1. [Создайте базу данных](../../../../storedoc/operations/databases.md#add-db).
+    1. [Создайте пользователя](../../../../storedoc/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../../../storedoc/concepts/users-and-roles.md#readWrite) на созданную базу.
     1. Чтобы шардировать переносимые коллекции в кластере-приемнике {{ mmg-full-name }}:
-        1. Следуя [инструкции](../../../../managed-mongodb/tutorials/sharding.md), создайте и настройте в базе-приемнике пустые шардированные коллекции.
+        1. Следуя [инструкции](../../../../storedoc/tutorials/sharding.md), создайте и настройте в базе-приемнике пустые шардированные коллекции.
         
            Сервис {{ data-transfer-name }} не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
         
-        1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../../../managed-mongodb/operations/cluster-users.md#updateuser) `mdbShardingManager`.
+        1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../../../storedoc/operations/cluster-users.md#updateuser) `mdbShardingManager`.
         
         1. При [создании эндпоинта для приемника](../../../../data-transfer/operations/endpoint/target/mongodb.md) выберите политику очистки `DISABLED` или `TRUNCATE`.
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
-
-       Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/manual/sharding/).
 
 
 - {{ MG }}
     
     1. {% include notitle [White IP list](../../configure-white-ip.md) %}
     
-    1. Убедитесь, версия {{ MG }} на приемнике не ниже чем на источнике.
+    1. Убедитесь, что версия {{ MG }} на приемнике не ниже, чем на источнике.
     
     1. {% include [mondodb cluster requirement](../../mongodb-cluster-requirement.md) %}
     
-    1. [Настройте кластер-приемник](https://docs.mongodb.com/manual/core/security-mongodb-configuration/), чтобы к нему можно было подключиться из интернета:
+    1. Настройте кластер-приемник, чтобы к нему можно было подключиться из интернета:
         
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
         
@@ -66,7 +63,7 @@
                 _id: "<имя_набора_реплик>",
                 members: [{
                     _id: 0,
-                    host: "<IP-адрес_который_слушает_{{ MG }}>:<порт>"
+                    host: "<IP-адрес_который_слушает_Yandex_StoreDoc>:<порт>"
                 }]
             });
             ```
@@ -113,8 +110,7 @@
             ```javascript
             sh.shardCollection("<имя_базы-приемника>.<имя_коллекции>", { <имя_поля>: <1|"hashed">, ... });
             ```
-        
-           Описание функции `shardCollection()` см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/method/sh.shardCollection/#mongodb-method-sh.shardCollection).
+           
         
         1. Чтобы убедиться в том, что шардирование настроено и включено, получите список доступных шардов:
         
@@ -133,6 +129,5 @@
         
            {% include [MongoDB endpoint DROP clean policy warning](../../note-mongodb-clean-policy.md) %}
 
-       Подробнее о шардировании см. в [документации {{ MG }}](https://docs.mongodb.com/basics/sharding/).
 
 {% endlist %}

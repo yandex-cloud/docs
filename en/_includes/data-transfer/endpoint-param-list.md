@@ -1,5 +1,6 @@
 * Sources:
-   * {{ AB }}:
+ 
+    * {{ AB }}:
         * [AWS CloudTrail](../../data-transfer/operations/endpoint/source/aws-cloudtrail.md)
         * [BigQuery](../../data-transfer/operations/endpoint/source/bigquery.md)
         * [MS SQL Server](../../data-transfer/operations/endpoint/source/mssql.md)
@@ -15,10 +16,10 @@
     * [{{ PG }}](../../data-transfer/operations/endpoint/source/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/source/data-streams.md)
     * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/source/ydb.md)
+    * [{{ ytsaurus-name }}](../../data-transfer/operations/endpoint/target/yt.md)
 * Targets:
     * [{{ KF }}](../../data-transfer/operations/endpoint/target/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/target/clickhouse.md)
-    * [{{ ES }}](../../data-transfer/operations/endpoint/target/elasticsearch.md)
     * [{{ GP }}](../../data-transfer/operations/endpoint/target/greenplum.md)
     * [{{ MG }}](../../data-transfer/operations/endpoint/target/mongodb.md)
     * [{{ MY }}](../../data-transfer/operations/endpoint/target/mysql.md)
@@ -27,3 +28,6 @@
     * [{{ PG }}](../../data-transfer/operations/endpoint/target/postgresql.md)
     * [{{ yds-full-name }}](../../data-transfer/operations/endpoint/target/data-streams.md)
     * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/target/yandex-database.md)
+    * {{ ytsaurus-name }}:
+        * [YTSaurus Dynamic](../../data-transfer/operations/endpoint/target/yt.md)
+        * [YTSaurus Static](../../data-transfer/operations/endpoint/target/yt.md)

@@ -7,8 +7,8 @@ description: Различные сценарии использования {{ m
 
 * [Добавление данных в БД](insert.md)
 * [{#T}](data-migration.md)
+* [{#T}](ch-to-mch-migration.md)
 * [Шардирование таблиц](sharding.md)
-* [Перешардирование данных в кластере](mch-mch-resharding.md)
 * [Использование гибридного хранилища](hybrid-storage.md)
 * [Получение данных из {{ mkf-name }}](fetch-data-from-mkf.md)
 * [Получение данных из RabbitMQ](fetch-data-from-rabbitmq.md)
@@ -25,7 +25,23 @@ description: Различные сценарии использования {{ m
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](opensearch-to-clickhouse.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [Использование параметров](data-from-ch-with-parameters.md)
+* [Примеры создания QL-чартов](data-from-ch-to-sql-chart.md)
+* [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](data-from-appmetrica-visualization.md)
+* [{#T}](data-from-appmetrica-yc-visualization.md)
+* [{#T}](metrika-to-clickhouse.md)
+* [{#T}](data-from-tracker.md)
+* [{#T}](data-from-ch-visualization.md)
+* [{#T}](data-from-ch-to-geolayers-visualization.md)
+* [{#T}](data-from-ch-geocoder.md)
+* [{#T}](s3-data-processing-ch.md)
 * [{#T}](greenplum-to-clickhouse.md)
+* [{#T}](data-ingestion.md)
+* [{#T}](yq-clickhouse.md)
+* [{#T}](yq-federative-queries.md)
+* [{#T}](jdbc-ch-to-sql-server-integration.md)
+* [{#T}](jdbc-ch-to-oracle-integration.md)
 
 
 О миграции хостов кластера {{ mch-name }} в другую зону доступности читайте в [инструкции](../operations/host-migration.md).

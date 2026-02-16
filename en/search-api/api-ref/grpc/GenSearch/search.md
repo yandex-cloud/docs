@@ -1,0 +1,316 @@
+---
+editable: false
+sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/GenSearch/search.md
+---
+
+# Web Search API, gRPC: GenSearchService.Search
+
+## gRPC request
+
+**rpc Search ([GenSearchRequest](#yandex.cloud.searchapi.v2.GenSearchRequest)) returns (stream [GenSearchResponse](#yandex.cloud.searchapi.v2.GenSearchResponse))**
+
+## GenSearchRequest {#yandex.cloud.searchapi.v2.GenSearchRequest}
+
+```json
+{
+  "messages": [
+    {
+      "content": "string",
+      "role": "Role"
+    }
+  ],
+  "folder_id": "string",
+  // Includes only one of the fields `site`, `host`, `url`
+  "site": {
+    "site": [
+      "string"
+    ]
+  },
+  "host": {
+    "host": [
+      "string"
+    ]
+  },
+  "url": {
+    "url": [
+      "string"
+    ]
+  },
+  // end of the list of possible fields
+  "fix_misspell": "bool",
+  "enable_nrfm_docs": "bool",
+  "search_filters": [
+    {
+      // Includes only one of the fields `date`, `lang`, `format`
+      "date": "string",
+      "lang": "string",
+      "format": "DocFormat"
+      // end of the list of possible fields
+    }
+  ],
+  "search_type": "SearchType",
+  "get_partial_results": "bool",
+  "metadata": {
+    "fields": "map<string, string>"
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| messages[] | **[GenSearchMessage](#yandex.cloud.searchapi.v2.GenSearchMessage)**
+
+Single search query or a search query with context in the form of chat with the model.
+
+The number of elements must be in the range 1-100. ||
+|| folder_id | **string**
+
+Required field. ID of the folder.
+
+The maximum string length in characters is 50. ||
+|| site | **[SiteOption](#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages. ||
+|| host | **[HostOption](#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages. ||
+|| url | **[UrlOption](#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption)**
+
+Includes only one of the fields `site`, `host`, `url`.
+
+Restricts the search to the specific websites, hosts or pages. ||
+|| fix_misspell | **bool**
+
+Fix query misspells. ||
+|| enable_nrfm_docs | **bool**
+
+Use the documents inaccessible from the site's front page. ||
+|| search_filters[] | **[SearchFilter](#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter)**
+
+Restricts the search by date, document formats or language.
+
+The maximum number of elements is 10. ||
+|| search_type | enum **SearchType**
+
+Search type that determines the domain name that will be used for the search queries.
+
+- `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
+- `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
+- `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
+- `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
+- `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
+- `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
+|| get_partial_results | **bool**
+
+Get partial results ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
+|#
+
+## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage}
+
+#|
+||Field | Description ||
+|| content | **string**
+
+Required field. Text of user query or the model's response (depending on the role value).
+
+The maximum string length in characters is 16384. ||
+|| role | enum **Role**
+
+Required field. Message sender's role
+
+- `ROLE_USER`: The message is sent by the user.
+- `ROLE_ASSISTANT`: The message is sent by the model. ||
+|#
+
+## SiteOption {#yandex.cloud.searchapi.v2.GenSearchRequest.SiteOption}
+
+#|
+||Field | Description ||
+|| site[] | **string**
+
+Restricts the search to the specific websites.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
+|#
+
+## HostOption {#yandex.cloud.searchapi.v2.GenSearchRequest.HostOption}
+
+#|
+||Field | Description ||
+|| host[] | **string**
+
+Restricts the search to the specific hosts.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
+|#
+
+## UrlOption {#yandex.cloud.searchapi.v2.GenSearchRequest.UrlOption}
+
+#|
+||Field | Description ||
+|| url[] | **string**
+
+Restricts the search to the specific pages.
+
+The maximum string length in characters for each value is 1024. The maximum number of elements is 100. ||
+|#
+
+## SearchFilter {#yandex.cloud.searchapi.v2.GenSearchRequest.SearchFilter}
+
+#|
+||Field | Description ||
+|| date | **string**
+
+Restrict by document date. See https://yandex.ru/support/search/ru/query-language/search-operators details.
+
+The maximum string length in characters is 25.
+
+Includes only one of the fields `date`, `lang`, `format`. ||
+|| lang | **string**
+
+Restrict by document language. Use ISO 639-1 language codes.
+
+Includes only one of the fields `date`, `lang`, `format`. ||
+|| format | enum **DocFormat**
+
+Restrict by document format.
+
+Includes only one of the fields `date`, `lang`, `format`.
+
+- `DOC_FORMAT_PDF`
+- `DOC_FORMAT_XLS`
+- `DOC_FORMAT_ODS`
+- `DOC_FORMAT_RTF`
+- `DOC_FORMAT_PPT`
+- `DOC_FORMAT_ODP`
+- `DOC_FORMAT_SWF`
+- `DOC_FORMAT_ODT`
+- `DOC_FORMAT_ODG`
+- `DOC_FORMAT_DOC` ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|#
+
+## GenSearchResponse {#yandex.cloud.searchapi.v2.GenSearchResponse}
+
+```json
+{
+  "message": {
+    "content": "string",
+    "role": "Role"
+  },
+  "sources": [
+    {
+      "url": "string",
+      "title": "string",
+      "used": "bool"
+    }
+  ],
+  "search_queries": [
+    {
+      "text": "string",
+      "req_id": "string"
+    }
+  ],
+  "fixed_misspell_query": "string",
+  "is_answer_rejected": "bool",
+  "is_bullet_answer": "bool",
+  "hints": [
+    "string"
+  ],
+  "problematic_answer": "bool"
+}
+```
+
+#|
+||Field | Description ||
+|| message | **[GenSearchMessage](#yandex.cloud.searchapi.v2.GenSearchMessage2)**
+
+The text of the generative response. ||
+|| sources[] | **[Source](#yandex.cloud.searchapi.v2.GenSearchResponse.Source)**
+
+The documents used to form the generative response. ||
+|| search_queries[] | **[SearchQuery](#yandex.cloud.searchapi.v2.GenSearchResponse.SearchQuery)**
+
+The search queries, refined by the YandexGPT model and used for the generative response. ||
+|| fixed_misspell_query | **string**
+
+The text of the search query with fixed misspells. ||
+|| is_answer_rejected | **bool**
+
+The model failed to answer due to the ethical concerns. ||
+|| is_bullet_answer | **bool**
+
+A bullet answer in case the model cannot give a proper response and returns a set of bullets with various data. ||
+|| hints[] | **string**
+
+Search hints ||
+|| problematic_answer | **bool**
+
+The answer may contain inappropriate content ||
+|#
+
+## GenSearchMessage {#yandex.cloud.searchapi.v2.GenSearchMessage2}
+
+#|
+||Field | Description ||
+|| content | **string**
+
+Required field. Text of user query or the model's response (depending on the role value).
+
+The maximum string length in characters is 16384. ||
+|| role | enum **Role**
+
+Required field. Message sender's role
+
+- `ROLE_USER`: The message is sent by the user.
+- `ROLE_ASSISTANT`: The message is sent by the model. ||
+|#
+
+## Source {#yandex.cloud.searchapi.v2.GenSearchResponse.Source}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+Document URL. ||
+|| title | **string**
+
+Document title. ||
+|| used | **bool**
+
+The document was used in the answer. ||
+|#
+
+## SearchQuery {#yandex.cloud.searchapi.v2.GenSearchResponse.SearchQuery}
+
+#|
+||Field | Description ||
+|| text | **string**
+
+Query text. ||
+|| req_id | **string**
+
+Query ID in Yandex Search. ||
+|#

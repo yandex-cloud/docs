@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/scan.md
 ---
 
-# Container Registry API, gRPC: ScannerService.Scan {#Scan}
+# Container Registry API, gRPC: ScannerService.Scan
 
 Executes scanning of specified image.
 
@@ -15,15 +15,17 @@ Executes scanning of specified image.
 
 ```json
 {
-  "imageId": "string"
+  "image_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
-Required field. ID of the Image to be scanned for vulnerabilities. ||
+Required field. ID of the Image to be scanned for vulnerabilities.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -32,19 +34,19 @@ Required field. ID of the Image to be scanned for vulnerabilities. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "scanResultId": "string"
+    "scan_result_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "imageId": "string",
-    "scannedAt": "google.protobuf.Timestamp",
+    "image_id": "string",
+    "scanned_at": "google.protobuf.Timestamp",
     "status": "Status",
     "vulnerabilities": {
       "critical": "int64",
@@ -69,13 +71,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -118,7 +120,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| scanResultId | **string**
+|| scan_result_id | **string**
 
 ID of the ScanResult that is being created. ||
 |#
@@ -132,17 +134,16 @@ A ScanResult resource.
 || id | **string**
 
 Output only. ID of the ScanResult. ||
-|| imageId | **string**
+|| image_id | **string**
 
 Output only. ID of the Image that the ScanResult belongs to. ||
-|| scannedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. ||
 || status | enum **Status**
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

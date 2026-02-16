@@ -7,26 +7,110 @@ items:
     items:
       - name: Обзор
         href: quickstart.md
-      - name: Начало работы с Push-уведомлениями
+      - name: Начало работы с мобильными Push-уведомлениями
         href: quickstart-push.md
+      - name: Начало работы с Push-уведомлениями в браузере
+        href: quickstart-browser.md
       - name: Начало работы с SMS
         href: quickstart-sms.md
+      - name: Начало работы с топиками
+        href: quickstart-topics.md
+  - name: Пошаговые операции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Мобильные Push-уведомления
+        items:
+          - name: Создать канал push-уведомлений
+            href: operations/push/channel-create.md
+          - name: Изменить канал push-уведомлений
+            href: operations/push/channel-update.md
+          - name: Удалить канал push-уведомлений
+            href: operations/push/channel-delete.md
+          - name: Создать эндпоинт
+            href: operations/push/endpoint-create.md
+          - name: Изменить эндпоинт
+            href: operations/push/endpoint-update.md
+          - name: Удалить эндпоинт
+            href: operations/push/endpoint-delete.md
+          - name: Отправить push-уведомление
+            href: operations/push/send.md
+      - name: Push-уведомления в браузере
+        items:
+          - name: Создать канал
+            href: operations/browser/channel-create.md
+          - name: Управлять каналом
+            href: operations/browser/channel-manage.md
+          - name: Создать эндпоинт
+            href: operations/browser/endpoint-create.md
+          - name: Управлять эндпоинтом
+            href: operations/browser/endpoint-manage.md
+          - name: Отправить push-уведомление в браузер
+            href: operations/browser/send.md
+      - name: SMS-уведомления
+        items:
+          - name: Создать канал SMS-уведомлений
+            href: operations/sms/channel-create.md
+          - name: Удалить канал SMS-уведомлений
+            href: operations/sms/channel-delete.md
+          - name: Добавить тестовый номер
+            href: operations/sms/test-number-create.md
+          - name: Удалить тестовый номер
+            href: operations/sms/test-number-delete.md
+          - name: Отправить тестовое SMS-уведомление
+            href: operations/sms/send.md
+          - name: Выйти из песочницы
+            href: operations/sms/exit-sandbox.md
+      - name: Топики
+        items:
+          - name: Создать топик
+            href: operations/topics/topic-create.md
+          - name: Создать подписку на топик
+            href: operations/topics/subscription-create.md
+          - name: Отправить уведомление в топик
+            href: operations/topics/send.md
+          - name: Управлять топиком
+            href: operations/topics/topic-manage.md
+          - name: Управлять подпиской
+            href: operations/topics/subscription-manage.md
+      - name: Настроить логирование
+        href: operations/configure-logging.md
   - name: Концепции
     expanded: true
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Push-уведомления
+      - name: Мобильные Push-уведомления
         href: concepts/push.md
+      - name: Push-уведомления в браузере
+        href: concepts/browser.md
       - name: SMS
         href: concepts/sms.md
+      - name: Топики
+        href: concepts/topics.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Инструменты
     expanded: true
     items:
+      - name: Все инструменты
+        href: tools/index.md
       - name: AWS CLI
         href: tools/aws-cli.md
+      - name: AWS SDK для С++
+        href: tools/sdk-cpp.md
+      - name: AWS SDK для Go
+        href: tools/sdk-go.md
+      - name: AWS SDK для Java
+        href: tools/sdk-java.md
+      - name: AWS SDK для JavaScript
+        href: tools/sdk-javascript.md
+      - name: AWS SDK для Kotlin
+        href: tools/sdk-kotlin.md
+      - name: AWS SDK для .NET
+        href: tools/sdk-dot-net.md
+      - name: AWS SDK для PHP
+        href: tools/sdk-php.md
       - name: AWS SDK для Python (boto3)
         href: tools/sdk-python.md
   - name: Правила тарификации
@@ -65,5 +149,9 @@ items:
             href: api-ref/delete-endpoint.md
       - name: Publish
         href: api-ref/publish.md
-base: ru/notifications
-deepBase: 2
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Логи {{ cloud-logging-name }}
+    href: concepts/logging.md
+  - name: История изменений
+    href: release-notes.md

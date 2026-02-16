@@ -12,6 +12,8 @@
 
     Подробнее об этом типе дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#nr-disks).
 
+{% include [available-storage](../../_includes/mdb/available-storage.md) %} 
+
 ## Особенности хранилища на нереплицируемых SSD-дисках {#network-nrd-storage-features}
 
 Хранилище на нереплицируемых SSD-дисках не обеспечивает отказоустойчивости: при отказе диска данные теряются безвозвратно.

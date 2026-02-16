@@ -1,6 +1,11 @@
 # Request handler for a function in Python
 
-A _request handler_ is a method used to process each Python function call. When creating a function version, you should specify the entry point that consists of the file name and the request handler name, e.g., `main.handler`. The name of the handler file must not contain any `.` before the extension, e.g., `.handler.py`.
+A _request handler_ is a method used to process each Python function call. When creating a function [version](../../concepts/function.md#version), you must set up an _entry point_ for it, i.e., a path to the request handler in `<file>`.`<function>` format, where:
+
+* `<file>`: Name of the file with the function code (without `.py`), e.g., `index`. The code file must reside in the root directory. The file name must not contain any dots.
+* `<function>`: Name of the callable object, as defined in `<file>`, e.g., `handler`. When a function is initialized, the runtime environment imports `<file>` and finds a callable object named `<function>` in that file, which object is launched each time the function is called.
+
+Example of an entry point for a Python function: `index.handler`.
 
 {% note info %}
 
@@ -14,7 +19,7 @@ When invoking the handler, the runtime provides the following arguments:
     * If a function was invoked with the `?integration=raw` request string parameter, the HTTP request body is provided to the function as is (unprocessed).
 1. [Invocation context](context.md) (the `context` parameter). 
 
-    The context contains the requred information about the function version. The structure of this object is described in [{#T}](context.md).
+    The context contains the requred function version information. The structure of this object is described in [{#T}](context.md).
     
 ## Handler types {#type}
 
@@ -65,7 +70,10 @@ def handler(event, context):
 Function invocation example:
 
 ```bash
-curl --data '{"hello": "world"}' -H 'Content-Type: application/json' https://{{ sf-url }}/<function_ID>?param=one
+curl \
+  --data '{"hello": "world"}' \
+  --header 'Content-Type: application/json' \
+  https://{{ sf-url }}/<function_ID>?param=one
 ```
 
 Result:

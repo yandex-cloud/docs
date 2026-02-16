@@ -12,12 +12,17 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvyireo4fkd4k4i4au?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=1gFAfVA4XRM&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=2&pp=iAQB).
+
 
 
   {% include [create-vm-with-gpu](../../../_includes/compute/create/create-vm-with-gpu-console.md) %}
@@ -52,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
        --memory=96 \
        --gpus=1 \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu \
+       --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-1604-lts-gpu,kms-key-id=<идентификатор_ключа> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -79,9 +84,16 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
-     * `--create-boot-disk` – [образ](../images-with-pre-installed-software/get-list.md) операционной системы.
+     * `--create-boot-disk` — [образ](../images-with-pre-installed-software/get-list.md) операционной системы:
 
-       {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
+         * `image-family` — [семейство образов](../../concepts/image.md#family), например, `ubuntu-1604-lts-gpu`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 

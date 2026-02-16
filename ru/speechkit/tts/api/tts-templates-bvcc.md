@@ -29,8 +29,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы синтезировать шаблонные фразы для колл-центра:
 
-1. [{#T}](#prepare-template).
-1. [{#T}](#send-to-api).
+1. [Подготовьте шаблон аудиозаписи](#prepare-template).
+1. [Отправьте данные в API](#send-to-api).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -295,7 +295,7 @@ description: Следуя данной инструкции, вы сможете
 
               # Установите соединение с сервером.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('tts.api.cloud.yandex.net:443', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Отправьте данные для распознавания

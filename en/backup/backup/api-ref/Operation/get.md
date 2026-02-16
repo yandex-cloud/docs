@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Operation/get.md
 ---
 
-# Cloud Backup API, REST: Operation.Get {#Get}
+# Cloud Backup API, REST: Operation.Get
 
 Returns the specified Operation resource.
 

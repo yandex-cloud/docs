@@ -1,31 +1,48 @@
 title: Yandex Cloud Video
 description:
   - >-
-    <i>Yandex Cloud Video is at the <a
-    href="/docs/overview/concepts/launch-stages">Preview stage</a>.</i>
-  - >-
-    Yandex Cloud Video is a service for organizing streaming broadcasts and
-    video hosting. You can upload, store and process videos for further
-    publication on external resources, as well as launch online broadcasts.
-    Broadcasts and videos are played in an integrated video player.
-meta:
-  title: Yandex Cloud Video
+    Yandex Cloud Video is an end-to-end video content management platform. Use
+    the complete set of tools for video storage, processing, hosting, and online
+    streaming. Broadcasts and videos are played in an integrated video player.
 links:
-  - title: Getting started with video hosting
-    description: Download your first video
-    href: hosting
-  - title: Getting started with video broadcasts
-    description: Create your first broadcast
-    href: streaming
+  - title: Getting started
+    description: Upload a video or create your first broadcast
+    href: quickstart-overview
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
   - title: Concepts
-    description: Find out about channels, broadcasts, lines and videos
+    description: Learn about channels, broadcasts, lines, and videos
     href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: API reference
-    description: HTTP API method descriptions
+    description: HTTP API method reference
     href: api-ref/
+meta:
+  title: Yandex Cloud Video
+  keywords:
+    - '{{ video-name }}'
+    - videos in {{ video-name }}
+    - '{{ video-name }} in {{ yandex-cloud }}'
+    - video content in {{ yandex-cloud }}
+    - streams in {{ video-name }}
+    - channels in {{ video-name }}
+    - broadcasts in {{ video-name }}
+    - playlists in {{ video-name }}
+    - video hosting in {{ yandex-cloud }}
+    - streaming broadcasts in {{ yandex-cloud }}"
+    - '{{ video-name }} live stream'
+    - video feed in {{ yandex-cloud }}"
+    - '{{ video-name }} line'
+    - episode in {{ video-name }}
+    - '{{ video-name }} video player'
+    - '{{ video-name }} content'
+    - hosting in {{ video-name }}

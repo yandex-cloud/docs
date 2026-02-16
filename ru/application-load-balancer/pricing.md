@@ -10,6 +10,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ alb-name }} {#rules}
 
 При работе с сервисом {{ alb-name }} вы платите за фактическое использование вычислительных ресурсов каждого активного балансировщика.
@@ -69,24 +72,23 @@ editable: false
 
 
 
+ 
 
 
 ## Цены для региона Россия {#prices}
 
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-lcu.md](../_pricing/application-load-balancer/rub-lcu.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kz-preview-prices.md](../_pricing/application-load-balancer/kzt-lcu.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|alb }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 

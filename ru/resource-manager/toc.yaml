@@ -13,12 +13,16 @@ items:
         items:
           - name: Создание облака
             href: operations/cloud/create.md
+          - name: Создание облака в другом регионе
+            href: operations/cloud/create-in-another-region.md
           - name: Переименование облака
             href: operations/cloud/update.md
           - name: Удаление облака
             href: operations/cloud/delete.md
           - name: Отмена удаления облака
             href: operations/cloud/delete-cancel.md
+          - name: Управление политиками авторизации
+            href: operations/cloud/manage-access-policies.md
           - name: Настройка прав доступа
             href: operations/cloud/set-access-bindings.md
           - name: Получение идентификатора облака
@@ -37,14 +41,26 @@ items:
             href: operations/folder/update.md
           - name: Удаление каталога
             href: operations/folder/delete.md
+          - name: Управление политиками авторизации
+            href: operations/folder/manage-access-policies.md
           - name: Настройка прав доступа
             href: operations/folder/set-access-bindings.md
+          - name: Навигация по каталогам
+            href: operations/folder/switch.md
           - name: Получение идентификатора каталога
             href: operations/folder/get-id.md
           - name: Получение уведомлений сервисов в каталоге
             href: operations/folder/notify.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+        href: tutorials/multi-folder-vpc.md
+      - name: Приглашение нового пользователя и назначение ролей
+        href: tutorials/add-account-and-assign-roles.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов Yandex Cloud
@@ -59,8 +75,78 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/resource-manager/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cloud
+        items:
+          - name: Overview
+            href: cli-ref/cloud/index.md
+          - name: add-access-binding
+            href: cli-ref/cloud/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cloud/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/cloud/bind-access-policy.md
+          - name: create
+            href: cli-ref/cloud/create.md
+          - name: delete
+            href: cli-ref/cloud/delete.md
+          - name: get
+            href: cli-ref/cloud/get.md
+          - name: list
+            href: cli-ref/cloud/list.md
+          - name: list-access-bindings
+            href: cli-ref/cloud/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/cloud/list-access-policy-bindings.md
+          - name: list-operations
+            href: cli-ref/cloud/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cloud/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cloud/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/cloud/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/cloud/unbind-access-policy.md
+          - name: update
+            href: cli-ref/cloud/update.md
+      - name: folder
+        items:
+          - name: Overview
+            href: cli-ref/folder/index.md
+          - name: add-access-binding
+            href: cli-ref/folder/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/folder/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/folder/bind-access-policy.md
+          - name: create
+            href: cli-ref/folder/create.md
+          - name: delete
+            href: cli-ref/folder/delete.md
+          - name: get
+            href: cli-ref/folder/get.md
+          - name: list
+            href: cli-ref/folder/list.md
+          - name: list-access-bindings
+            href: cli-ref/folder/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/folder/list-access-policy-bindings.md
+          - name: list-operations
+            href: cli-ref/folder/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/folder/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/folder/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/folder/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/folder/unbind-access-policy.md
+          - name: update
+            href: cli-ref/folder/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -93,6 +179,12 @@ items:
                 href: api-ref/grpc/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -115,6 +207,12 @@ items:
                 href: api-ref/grpc/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview
@@ -149,6 +247,12 @@ items:
                 href: api-ref/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -171,6 +275,12 @@ items:
                 href: api-ref/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview
@@ -187,5 +297,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/resource-manager
-deepBase: 2

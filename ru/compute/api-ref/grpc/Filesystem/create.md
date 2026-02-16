@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Filesystem/create.md
 ---
 
-# Compute Cloud API, gRPC: FilesystemService.Create {#Create}
+# Compute Cloud API, gRPC: FilesystemService.Create
 
 Creates a filesystem in the specified folder.
 
@@ -15,55 +15,67 @@ Creates a filesystem in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
-  "typeId": "string",
-  "zoneId": "string",
+  "labels": "map<string, string>",
+  "type_id": "string",
+  "zone_id": "string",
   "size": "int64",
-  "blockSize": "int64"
+  "block_size": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a filesystem in.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the filesystem. The name must be unique within the folder. ||
+Name of the filesystem. The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the filesystem. ||
-|| labels | **string**
+Description of the filesystem.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| typeId | **string**
+For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+|| type_id | **string**
 
 ID of the filesystem type.
 
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request.
 
-The filesystem type cannot be updated after the filesystem creation. ||
-|| zoneId | **string**
+The filesystem type cannot be updated after the filesystem creation.
+
+The maximum string length in characters is 50. ||
+|| zone_id | **string**
 
 Required field. ID of the availability zone where the filesystem resides.
 
 To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
 
 A filesystem can be attached only to virtual machines residing in the same availability zone.
-The filesystem availability zone cannot be updated after the filesystem creation. ||
+The filesystem availability zone cannot be updated after the filesystem creation.
+
+The maximum string length in characters is 50. ||
 || size | **int64**
 
 Required field. Size of the filesystem, specified in bytes.
 
 The size of the filesystem cannot be updated after the filesystem creation. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size used for the filesystem, specified in bytes.
 
@@ -78,26 +90,26 @@ Default value: 4096. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "filesystemId": "string"
+    "filesystem_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
-    "typeId": "string",
-    "zoneId": "string",
+    "labels": "map<string, string>",
+    "type_id": "string",
+    "zone_id": "string",
     "size": "int64",
-    "blockSize": "int64",
+    "block_size": "int64",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -114,13 +126,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -163,7 +175,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| filesystemId | **string**
+|| filesystem_id | **string**
 
 ID of the filesystem that is being created. ||
 |#
@@ -178,10 +190,10 @@ For details about the concept, see [documentation](/docs/compute/concepts/filesy
 || id | **string**
 
 ID of the filesystem. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the filesystem belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -190,16 +202,16 @@ Name of the filesystem. The name is unique within the folder. ||
 || description | **string**
 
 Description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of the filesystem type.
 
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the filesystem resides.
 
@@ -207,14 +219,13 @@ A filesystem can be attached only to instances residing in the same availability
 || size | **int64**
 
 Size of the filesystem, specified in bytes. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size used for the filesystem, specified in bytes. ||
 || status | enum **Status**
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

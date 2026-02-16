@@ -6,15 +6,17 @@ description: Различные сценарии использования си
 # Руководства по работе с системами управления базовой инфраструктурой
 
 * [Архитектура и защита базового интернет-сервиса](../routing/web-service.md)
+* [{#T}](billing-resource-detailing.md)
+* [{#T}](./info-for-federal-ip-whitelist.md)
 
 ## Отказоустойчивость и масштабирование {#fault-tolerance}
 
 * [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](../infrastructure-management/fault-tolerance.md)
 * [Отказоустойчивый сайт с балансировкой нагрузки через {{ network-load-balancer-full-name }}](../web/load-balancer-website/index.md)
-* [Отказоустойчивый сайт с балансировкой нагрузки с помощью {{ alb-full-name }}](../web/application-load-balancer-website.md)
-* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration.md)
+* [Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-full-name }}](../web/application-load-balancer-website/index.md)
+* [Интеграция L7-балансировщика с {{ cdn-full-name }} и {{ objstorage-full-name }}](../web/cdn-storage-integration/index.md)
 * [Работа с группой виртуальных машин с автоматическим масштабированием](../infrastructure-management/vm-autoscale/index.md)
-* [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled.md)
+* [Масштабирование группы ВМ по расписанию](../infrastructure-management/vm-scale-scheduled/index.md)
 * [Автоматическое масштабирование группы ВМ для обработки сообщений из очереди {{ message-queue-full-name }}](../infrastructure-management/autoscale-monitoring.md)
 * [Обновление группы ВМ под нагрузкой](../infrastructure-management/updating-under-load.md)
 * [Создание триггера для бюджетов, который вызывает функцию {{ sf-full-name }} для остановки ВМ](../infrastructure-management/serverless-trigger-budget-vm.md)
@@ -30,7 +32,11 @@ description: Различные сценарии использования си
 * [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](../infrastructure-management/packer-custom-image.md)
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}](../infrastructure-management/terraform-state-lock.md)
 * [Использование модулей {{ yandex-cloud }} в {{ TF }}](../infrastructure-management/terraform-modules.md)
+* [{#T}](../infrastructure-management/kubernetes-terraform-provider.md)
+* [{#T}](../infrastructure/coi-with-terraform.md)
 * [Запуск Docker-образа на виртуальной машине](../infrastructure-management/run-docker-on-vm/index.md)
+* [Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-full-name }}](../infrastructure-management/ua-http-logging.md)
+* [{#T}](gpu-cluster-deepseek.md)
 
 ## Сеть {#routing}
 
@@ -39,6 +45,7 @@ description: Различные сценарии использования си
 * [Маршрутизация через NAT-инстанс](../routing/nat-instance/index.md)
 * [Установка виртуального роутера Cisco CSR 1000v](../routing/cisco.md)
 * [Установка виртуального роутера Mikrotik CHR](../routing/mikrotik.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-name }}](../container-infrastructure/nginx-ingress-certificate-manager.md)
 
 ## VPNs {#vpns}
 
@@ -53,3 +60,8 @@ description: Различные сценарии использования си
 * [{#T}](../dataplatform/clickhouse-dns-peering.md)
 * [{#T}](../infrastructure-management/dns-integration.md)
 * [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](../infrastructure-management/cert-manager-webhook.md)
+
+## GPU {#gpu}
+
+* [Запуск языковой модели DeepSeek-R1 в кластере GPU](../infrastructure-management/gpu-cluster-deepseek.md)
+* [Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU](../infrastructure-management/vllm-gemma-gpu.md)

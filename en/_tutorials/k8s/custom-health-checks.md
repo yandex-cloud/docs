@@ -1,30 +1,48 @@
-# Health checking your applications in a {{ managed-k8s-full-name }} cluster with the {{ alb-full-name }} Ingress controller
+# Health checking applications in a {{ managed-k8s-full-name }} cluster via a {{ alb-full-name }}
 
-You can use the [{{ alb-name }} Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
+You can use an [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md) ingress controller to automatically health check your applications deployed in a {{ managed-k8s-name }} cluster.
 
-The Ingress controller installed in the cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
-The L7 load balancer automatically health checks the application in this cluster. Depending on the results, the L7 load balancer allows or denies external traffic to the backend ([Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource). For more information, see [Health checks](../../application-load-balancer/concepts/backend-group.md#health-checks).
+An ingress controller installed in a cluster deploys an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources based on the configuration of the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources you created.
 
-By default, the {{ alb-name }} Ingress controller receives application health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+The L7 load balancer automatically health checks the application in this cluster. Depending on the results, the L7 load balancer allows or denies external traffic to the backend (the [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource). For more information, see [Health checks](../../application-load-balancer/concepts/backend-group.md#health-checks).
+
+By default, the {{ alb-name }} ingress controller listens for application health check requests from the L7 load balancer on TCP port `10501` and checks the health of [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} redirects traffic to a different pod or node.
 
 In this tutorial, you will configure your own application health checks using the [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resource parameters and open a dedicated port on cluster nodes for these checks in the `NodePort` type [Service](../../managed-kubernetes/alb-ref/service-for-ingress.md) resource parameters.
 
 You can view health check results in the [management console]({{ link-console-main }}).
 
-To deploy an application in a {{ managed-k8s-name }} cluster, configure access to it, and set up health checks via {{ alb-name }}:
-1. [Prepare your cloud](#before-begin).
+{% include [alb-custom-hc-enabling](../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+
+To deploy an application in a {{ managed-k8s-name }} cluster, configure access to it, and set up its health checks via an {{ alb-name }}:
+
+1. [Get your cloud ready](#before-begin).
 1. [Create a Docker image](#docker-image).
 1. [Deploy a test application](#test-app).
-1. [Prepare an address for the L7 load balancer](#prepare-address).
+1. [Set up an address for the L7 load balancer](#prepare-address).
 1. [Create the Ingress and HttpBackendGroup resources](#create-ingress).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
 
-### Prepare the infrastructure {#infra}
+## Required paid resources {#paid-resources}
+
+The support cost for this solution includes:
+
+* Fee for a DNS zone and DNS requests (see [{{ dns-name }} pricing](../../dns/pricing.md)).
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for using L7 load balancer's computing resources (see [{{ alb-name }} pricing](../../application-load-balancer/pricing.md)).
+* Fee for public IP addresses for cluster nodes and L7 load balancer (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for {{ container-registry-name }} [storage](../../container-registry/pricing.md).
+
+
+## Get your cloud ready {#before-begin}
+
+### Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
@@ -34,7 +52,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       {% include [configure-sg-alb-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-alb-manual.md) %}
 
-      The application will be available on the {{ managed-k8s-name }} cluster nodes on port `30080`. Application health checks will be available on port `30081`. Make sure these ports are open for the L7 load balancer in the node group's security group. You can also [make these ports internet-accessible](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes).
+      The application will be available on the {{ managed-k8s-name }} cluster nodes on port `30080`. Application health checks will be available on port `30081`. Make sure these ports are open for the L7 load balancer in the node group's security group. You can also [make these ports accessible from the internet](../../managed-kubernetes/operations/connect/security-groups.md#rules-nodes).
 
       {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
@@ -54,11 +72,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security groups](../../vpc/concepts/security-groups.md) required for the {{ managed-k8s-name }} cluster, node group, and the {{ alb-name }} load balancer.
-      * Service account required for the {{ k8s }} cluster.
+      * [Security groups](../../vpc/concepts/security-groups.md) for the {{ managed-k8s-name }} cluster, node group, and the {{ alb-name }}.
+      * Service account for the {{ k8s }} cluster.
       * {{ k8s }} cluster.
       * {{ k8s }} node group.
-      * Registry in {{ container-registry-full-name }}.
+      * {{ container-registry-full-name }}.
 
    1. Specify the following in the `k8s-custom-health-checks.tf` file:
 
@@ -71,7 +89,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -81,9 +99,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% endlist %}
 
-### Install the {{ alb-name }} Ingress controller {#install-alb-ingress-controller}
+### Install the {{ alb-name }} ingress controller {#install-alb-ingress-controller}
 
-Use this [guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) to install the [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) application in a separate `yc-alb` namespace. Later on, all the required {{ k8s }} resources will be created in this namespace.
+Use [this guide](../../managed-kubernetes/operations/applications/alb-ingress-controller.md) to install the [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) in a separate `yc-alb` namespace. Later on, all the required {{ k8s }} resources will be created in this namespace.
 
 ### Install additional dependencies {#prepare}
 
@@ -102,11 +120,11 @@ Use this [guide](../../managed-kubernetes/operations/applications/alb-ingress-co
 
 The source files for a Docker image reside in the [yc-mk8s-alb-ingress-health-checks](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks) repository.
 
-The Docker image will be created from `app/Dockerfile` and will contain test application code from the `app/healthchecktest.go` file. You will use this Docker image to [deploy the application in your {{ managed-k8s-name }} cluster](#test-app).
+The Docker image will be created from `app/Dockerfile` and will contain the test application code from the `app/healthchecktest.go` file. You will use this Docker image to [deploy the application in your {{ managed-k8s-name }} cluster](#test-app).
 
 The application will respond to HTTP requests as follows depending on the pod port:
-* `80`: Return request path parameters in the response body, e.g., `/test-path`. This is the main functionality of the application that will be available via the L7 load balancer.
-* `8080`: Return an `OK` message in the response body. This functionality will be used to perform application health checks.
+* `80`: Return request path parameters in the response body, e.g., `/test-path`. This is the main application functionality that will be available via the L7 load balancer.
+* `8080`: Return `OK` in the response body. This functionality will be used for application health checks.
 
 Successful requests will return the `200 OK` HTTP code.
 
@@ -118,8 +136,8 @@ To create a Docker image:
    ```
 
 1. In the terminal, go to the root of the repository directory.
-1. Get the {{ container-registry-name }} registry ID. You can [request it with a list of registries](../../container-registry/operations/registry/registry-list.md#registry-list) in the folder.
-1. In the environment variable, add the name of the Docker image to create:
+1. Get the {{ container-registry-name }} ID. You can [get it with the list of registries](../../container-registry/operations/registry/registry-list.md#registry-list) in the folder.
+1. Add the name of the Docker image to create to the environment variable:
 
    ```bash
    export TEST_IMG={{ registry }}/<registry_ID>/example-app1:latest
@@ -131,7 +149,7 @@ To create a Docker image:
    docker build -t ${TEST_IMG} -f ./app/Dockerfile .
    ```
 
-   The command specifies the path for the repository's root directory.
+   The command specifies the path for the repository root directory.
 
 1. Push the Docker image to the registry:
 
@@ -141,8 +159,8 @@ To create a Docker image:
 
    If you fail to push the image, follow these steps:
 
-   * Make sure you [authenticate in {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) using a Docker credential helper.
-   * [Configure registry access](../../container-registry/operations/registry/registry-access.md). Grant the PUSH permission for your computer's IP address to allow pushing Docker-images.
+   * Make sure you are [authenticated in {{ container-registry-name }}](../../container-registry/operations/authentication.md#cred-helper) using a Docker credential helper.
+   * [Configure registry access](../../container-registry/operations/registry/registry-access.md): Allow your computer's IP address to push Docker images by granting the PUSH permission.
 
 ## Deploy a test application {#test-app}
 
@@ -150,9 +168,9 @@ Build a test application from the created Docker image and the [app/testapp.yaml
 
 The file contains the description of {{ k8s }} resources: `Deployment` and `Service` of the `NodePort` type.
 
-The `Service` resource contains the description of ports used to access the application on your cluster's nodes:
-* `spec.ports.name: http`: Port to access the main functionality of the application, `80` on the pod and `30080` on the host.
-* `spec.ports.name: health`: Port for application health checks, `8080` on the pod and `30081` on the host.
+The `Service` resource contains the description of ports used to access the application on your cluster nodes:
+* `spec.ports.name: http`: Port to access the main functionality of the application, `80` on the pod and `30080` on the node.
+* `spec.ports.name: health`: Port for application health checks, `8080` on the pod and `30081` on the node.
 
 To build a test application:
 
@@ -162,13 +180,13 @@ To build a test application:
    printenv TEST_IMG
    ```
 
-1. Create the application from the `app/testapp.yaml` file:
+1. Create the application from `app/testapp.yaml`:
 
    ```bash
    kubectl apply -f ./app/testapp.yaml --namespace=yc-alb
    ```
 
-   The command specifies the path for the repository's root directory.
+   The command specifies the path for the repository root directory.
 
 1. Make sure the pods with the application are running:
 
@@ -191,7 +209,7 @@ To build a test application:
    * Main functionality:
 
      ```bash
-     curl -i http://<node_IP_address>:30080/test-path
+     curl --include http://<node_IP_address>:30080/test-path
      ```
 
      Result:
@@ -208,7 +226,7 @@ To build a test application:
    * Application health check:
 
      ```bash
-     curl -i http://<node_IP_address>:30081
+     curl --include http://<node_IP_address>:30081
      ```
 
      Result:
@@ -222,19 +240,21 @@ To build a test application:
      OK%
      ```
 
-## Prepare an address for the L7 load balancer {#prepare-address}
+## Set up an address for the L7 load balancer {#prepare-address}
 
 This address will be used to access the application from the internet.
 
-To prepare an address for the load balancer:
+To set up an address for the load balancer:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-   1. [Reserve a static public IP address](../../vpc/operations/get-static-ip.md) for the {{ alb-name }} load balancer.
-   1. [Register a public domain zone and delegate your domain](../../dns/operations/zone-create-public.md).
-   1. To bind the address to the domain, [create an A record](../../dns/operations/resource-record-create.md) for the delegated domain. Specify the reserved IP address as the record value.
+   1. [Reserve a static public IP address](../../vpc/operations/get-static-ip.md) for your {{ alb-name }}.
+
+   1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
+
+   1. To map the address to the domain, [create an A record](../../dns/operations/resource-record-create.md) for the delegated domain. Specify the reserved IP address as the record value.
    1. Make sure the A record is added:
 
       ```bash
@@ -251,12 +271,12 @@ To prepare an address for the load balancer:
 
    1. Place the [address-for-k8s-health-checks.tf](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks/blob/main/terraform-manifests/address-for-k8s-health-checks.tf) configuration file in the same working directory as the `k8s-custom-health-checks.tf` file.
 
-      The `address-for-k8s-health-checks.tf` file describes:
+      `address-for-k8s-health-checks.tf` describes:
 
-
+      
       * [Static public IP address](../../vpc/concepts/address.md#public-addresses).
       * [Public DNS zone](../../dns/concepts/dns-zone.md#public-zones).
-      * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to bind the reserved IP address to the delegated domain.
+      * [Type A record](../../dns/concepts/resource-record.md#a) for this zone to map the reserved IP address to the delegated domain.
 
 
    1. Make sure the {{ TF }} configuration files are correct using this command:
@@ -265,7 +285,7 @@ To prepare an address for the load balancer:
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -289,7 +309,7 @@ To prepare an address for the load balancer:
 
 ## Create the Ingress and HttpBackendGroup resources {#create-ingress}
 
-Based on the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources, the Ingress controller will deploy the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources.
+Based on the [Ingress](../../managed-kubernetes/alb-ref/ingress.md) and [HttpBackendGroup](../../managed-kubernetes/alb-ref/http-backend-group.md) resources, the ingress controller will deploy an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) with all the required {{ alb-name }} resources.
 
 The `ingress.yaml` and `httpbackendgroup.yaml` configuration files for the specified resources are located in the [yc-mk8s-alb-ingress-health-checks](https://github.com/yandex-cloud-examples/yc-mk8s-alb-ingress-health-checks) repository.
 
@@ -299,9 +319,9 @@ To create resources:
 
 1. In the `ingress.yaml` file, specify the following values for annotations:
 
-   * `ingress.alb.yc.io/subnets`: List of IDs for the subnets hosting the {{ managed-k8s-name }} cluster.
-   * `ingress.alb.yc.io/security-groups`: List of security group IDs for {{ alb-name }}.
-   * `ingress.alb.yc.io/external-ipv4-address`: Reserved static public IP address.
+   * `ingress.alb.yc.io/subnets`: One or more subnets to host the {{ alb-name }}.
+   * `ingress.alb.yc.io/security-groups`: One or more [security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) for the load balancer. If you skip this parameter, the default security group will be used. At least one of the security groups must allow an outgoing TCP connection to port `10501` in the {{ managed-k8s-name }} node group subnet or to its security group.
+   * `ingress.alb.yc.io/external-ipv4-address`: Public access to the load balancer from the internet. Specify the previously reserved static public IP address.
 
 1. In the same `ingress.yaml` file, specify the delegated domain in the `spec.rules.host` parameter.
 1. To create the `Ingress` and `HttpBackendGroup` resources, run the following command from the root of the repository directory:
@@ -313,18 +333,18 @@ To create resources:
 
 1. Wait until the resources are created and the load balancer is deployed and assigned a public IP address. This may take a few minutes.
 
-   To track the creation of the `Ingress` resource and make sure there are no errors, open the logs of the pod where the creation process is running:
+   To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-   1. Click your cluster's name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
-   1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) where the resource creation process is running.
+   1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
+   1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) that is running the resource creation.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
 
-      You will see the resource creation logged and the logs displayed in real time. Any errors that occur will also be logged.
+      The load balancer's creation logs are generated and displayed in real time. Any errors that occur will also be logged.
 
 ## Check the result {#check-result}
 
-1. Make sure the `Ingress` resource has been created. To do this, run the appropriate command and check that the command output shows the following value in the `ADDRESS` field:
+1. Make sure the load balancer was created. To do this, run the following command and verify that the `ADDRESS` field in the output contains a value:
 
    ```bash
    kubectl get ingress alb-demo --namespace=yc-alb
@@ -333,14 +353,14 @@ To create resources:
    Result:
 
    ```bash
-   NAME       CLASS    HOSTS      ADDRESS        PORTS   AGE
+   NAME       CLASS    HOSTS     ADDRESS      PORTS   AGE
    alb-demo   <none>   <domain>   <IP_address>   80      15h
    ```
 
 1. Check that the deployed application is available via the L7 load balancer:
 
    ```bash
-   curl -i http://<domain>/test-path
+   curl --include http://<domain>/test-path
    ```
 
    Result:
@@ -363,9 +383,9 @@ To create resources:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click the load balancer name and select **{{ ui-key.yacloud.alb.label_healthchecks }}** in the left-hand panel.
-      1. Check the target health statuses. The `HEALTHY` status indicates the application is up and running.
+      1. Check the target health. The `HEALTHY` status indicates the application is up and running.
 
    {% endlist %}
 
@@ -373,13 +393,13 @@ To create resources:
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-1. {{ alb-name }} [L7 load balancer](../../application-load-balancer/operations/application-load-balancer-delete.md)
+1. [{{ alb-name }}](../../application-load-balancer/operations/application-load-balancer-delete.md)
 1. {{ alb-name }} [HTTP router](../../application-load-balancer/operations/http-router-delete.md)
-1. {{ alb-name }} [backend groups](../../application-load-balancer/operations/backend-group-delete.md)
+1. {{ alb-name }} [backend group](../../application-load-balancer/operations/backend-group-delete.md)
 1. {{ alb-name }} [target group](../../application-load-balancer/operations/target-group-delete.md)
 1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
 1. {{ managed-k8s-name }} [cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md)
-1. [Registry](../../container-registry/operations/registry/registry-delete.md) in {{ container-registry-name }}
+1. [{{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md)
 1. {{ dns-name }} [public domain zone](../../dns/operations/zone-delete.md)
 1. {{ vpc-name }} [security groups](../../vpc/operations/security-group-delete.md)
 1. {{ vpc-name }} [static public IP address](../../vpc/operations/address-delete.md)

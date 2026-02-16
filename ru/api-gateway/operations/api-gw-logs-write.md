@@ -12,16 +12,19 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Выберите API-шлюз, для которого хотите настроить логирование.
-    1. В верхней части страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.serverless-functions.gateways.overview.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.logging.label_title }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — чтобы выключить логирование.
-        * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится API-шлюз.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-            1. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте ее](../../logging/operations/create-group.md).
+    1. В верхней части страницы нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+    1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+                  
+           * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать логи в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится API-шлюз.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. (Опционально) Выберите минимальный уровень логирования.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**. 
     
     {% include [min-log-level](../../_includes/api-gateway/min-log-level.md) %}
@@ -36,7 +39,9 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [logging-destination](../../_includes/api-gateway/logging-destination.md) %}
 
-    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор лог-группы в параметре `--log-group-id` при [создании](api-gw-create.md) или [изменении](api-gw-update.md) API-шлюза. Лог-группа должна находиться в том же каталоге, в котором находится API-шлюз.
+    Чтобы записывать логи в лог-группу по умолчанию для другого каталога, укажите идентификатор этого каталога в параметре `--log-folder-id` при [создании](api-gw-create.md) или [изменении](api-gw-update.md) API-шлюза. [Аккаунту](../../iam/concepts/users/accounts.md), от имени которого выполняется команда, на этот каталог должна быть назначена [роль](../../logging/security/index.md#logging-editor) `logging.editor` или выше.
+
+    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор этой лог-группы в параметре `--log-group-id` при создании или изменении API-шлюза. Лог-группа может находиться в другом каталоге. Аккаунту, от имени которого выполняется команда, на этот каталог должна быть назначена роль `logging.editor` или выше.
 
     ## Минимальный уровень логирования {#log-level}
 
@@ -70,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
     created_at: "2024-01-26T09:18:55.985Z"
     name: example_gateway
     status: ACTIVE
-    domain: d5dr8k465604********.apigw.yandexcloud.net
+    domain: {{ api-host-apigw }}
     log_group_id: ckgsh1kdbvj1********
     connectivity: {}
     log_options:
@@ -88,11 +93,13 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [logging-destination](../../_includes/api-gateway/logging-destination.md) %}
 
-    Чтобы записывать логи в пользовательскую лог-группу, в блоке `log_options` укажите идентификатор лог-группы в параметре `log_group_id` при [создании](api-gw-create.md) или [изменении](api-gw-update.md) API-шлюза. Лог-группа должна находиться в том же каталоге, в котором находится API-шлюз.
+    Чтобы записывать логи в лог-группу по умолчанию для другого каталога, укажите идентификатор этого каталога в блоке `log_options` в параметре `folder_id` при [создании](api-gw-create.md) или [изменении](api-gw-update.md) API-шлюза. [Аккаунту](../../iam/concepts/users/accounts.md), от имени которого выполняется команда, на этот каталог должна быть назначена [роль](../../logging/security/index.md#logging-editor) `logging.editor` или выше.
+
+    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор этой лог-группы в блоке `log_options` в параметре `log_group_id` при создании или изменении API-шлюза. Лог-группа может находиться в другом каталоге. Аккаунту, от имени которого выполняется команда, на этот каталог должна быть назначена роль `logging.editor` или выше.
 
     ## Минимальный уровень логирования {#log-level}
 
-    Чтобы задать минимальный уровень логирования, укажите его в параметре `log_group_id` блока `log_options` при создании или изменении API-шлюза. 
+    Чтобы задать минимальный уровень логирования, укажите его в блоке `log_options` в параметре `min_level` при создании или изменении API-шлюза. 
 
     {% include [min-log-level](../../_includes/api-gateway/min-log-level.md) %}
 

@@ -2,7 +2,7 @@
 
 {{ ml-platform-full-name }} supports [computing resource configurations](../../concepts/configurations.md) with GPUs.
 
-You can check the GPU performance, load, and resource utilization statistics using the [TensorFlow](https://www.tensorflow.org/) library or the `nvidia-smi` utility.
+You can check the GPU performance, load, and resource utilization statistics using [TensorFlow](https://www.tensorflow.org/) or `nvidia-smi`.
 
 ## Getting started {#before-begin}
 
@@ -12,8 +12,8 @@ You can check the GPU performance, load, and resource utilization statistics usi
 
 ### Checking a connection using TensorFlow {#check-with-TensorFlow}
 
-1. [Select](control-compute-resources.md) the desired GPU configuration. In our example, we use the `g1.1` configuration.
-1. Enter the following code in the cell:
+1. [Select](control-compute-resources.md) the GPU configuration you need. In our example, we use the `g1.1` configuration.
+1. Enter the following code in a cell:
 
     ```bash
     import tensorflow as tf
@@ -27,8 +27,8 @@ You can check the GPU performance, load, and resource utilization statistics usi
 
 ### Checking a connection using nvidia-smi {#check-with-nvidia-smi}
 
-1. [Select](control-compute-resources.md) the desired GPU configuration. In our example, we use the `g1.1` configuration.
-1. Enter the following code in the cell:
+1. [Select](control-compute-resources.md) the GPU configuration you need. In our example, we use the `g1.1` configuration.
+1. Enter the following code in a cell:
 
     ```bash
     #!:bash
@@ -40,7 +40,7 @@ You can check the GPU performance, load, and resource utilization statistics usi
 
 ## Writing GPU utilization statistics while training a model {#record-usage}
 
-1. Enter the following code in the cell:
+1. Enter the following code in a cell:
 
     ```bash
     import subprocess
@@ -61,9 +61,9 @@ You can check the GPU performance, load, and resource utilization statistics usi
 
 ## Example of writing GPU utilization statistics {#record-example}
 
-Use a ready-made model to test GPU configurations. When executing the code on the `g1.1` and `g2.1` configurations, the model uses 18% to 25% of GPU resources. You can view the data in the `sm` column of the `stdout.txt` file.
+Use a pre-trained model to test GPU configurations. When running the code on the `g1.1` and `g2.1` configurations, the model utilizes 18% to 25% of GPU resources. You can view the data in the `sm` column of the `stdout.txt` file.
 
-1. Enter the following code in the cell:
+1. Enter the following code in a cell:
 
     ```bash
     import subprocess

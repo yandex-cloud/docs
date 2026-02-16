@@ -1,4 +1,6 @@
 ---
+title: Перенос данных между кластерами {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
+description: Следуя данному руководству, вы сможете переносить данные между кластерами {{ mkf-name }} с помощью {{ data-transfer-name }}.
 canonical: '{{ link-docs }}/tutorials/dataplatform/data-transfer-mkf'
 ---
 

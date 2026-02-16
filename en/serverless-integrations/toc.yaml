@@ -1,0 +1,690 @@
+title: '{{ si-full-name }}'
+stage: preview
+href: index.yaml
+items:
+  - name: Comparing with other {{ yandex-cloud }} services
+    href: service-comparison.md
+  - name: Getting started
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: '{{ sw-name }}'
+        href: quickstart/workflows.md
+      - name: '{{ er-name }}'
+        href: quickstart/eventrouter.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: '{{ sw-name }}'
+        items:
+          - name: Getting workflow info
+            items:
+              - name: Getting a list of workflows
+                href: operations/workflows/workflow/get-list.md
+              - name: Getting workflow info
+                href: operations/workflows/workflow/get-info.md
+          - name: Managing a workflow
+            items:
+              - name: Creating a workflow
+                items:
+                  - name: Constructor
+                    href: operations/workflows/workflow/create-constructor.md
+                  - name: YaWL specification
+                    href: operations/workflows/workflow/create-yawl.md
+              - name: Updating a workflow
+                href: operations/workflows/workflow/update.md
+              - name: Specifying a cloud network
+                href: operations/workflows/workflow/network-add.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/workflows/workflow/label-add.md
+                  - name: Updating a label
+                    href: operations/workflows/workflow/label-update.md
+                  - name: Deleting a label
+                    href: operations/workflows/workflow/label-delete.md
+              - name: Viewing monitoring charts
+                href: operations/workflows/workflow/monitoring.md
+              - name: Managing logs
+                items:
+                  - name: Viewing logs
+                    href: operations/workflows/workflow/logs-read.md
+                  - name: Writing logs
+                    href: operations/workflows/workflow/logs-write.md
+              - name: Deleting a workflow
+                href: operations/workflows/workflow/delete.md
+          - name: Workflow step constructor
+            items:
+              - name: Overview
+                href: operations/workflows/constructor/index.md
+              - name: Integration steps
+                items:
+                  - name: Models {{ ai-studio-name }}
+                    href: operations/workflows/constructor/foundationmodelscall.md
+                  - name: '{{ ai-studio-name }} agent'
+                    href: operations/workflows/constructor/aistudioagent.md
+                  - name: Vector Store
+                    href: operations/workflows/constructor/vectorstore.md
+                  - name: '{{ sf-short-name }}'
+                    href: operations/workflows/constructor/functioncall.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: operations/workflows/constructor/containercall.md
+                  - name: '{{ postbox-short-name }}'
+                    href: operations/workflows/constructor/postbox.md
+                  - name: '{{ tracker-name }}'
+                    href: operations/workflows/constructor/tracker.md
+                  - name: HTTP
+                    href: operations/workflows/constructor/httpcall.md
+                  - name: gRPC
+                    href: operations/workflows/constructor/grpccall.md
+                  - name: '{{ objstorage-name }}'
+                    href: operations/workflows/constructor/objectstorage.md
+                  - name: '{{ ydb-name }}'
+                    href: operations/workflows/constructor/ydbdocument.md
+                  - name: '{{ yds-name }}'
+                    href: operations/workflows/constructor/yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/workflows/constructor/ymq.md
+                  - name: Yandex Disk
+                    href: operations/workflows/constructor/yadisk.md
+                  - name: '{{ sw-name }}'
+                    href: operations/workflows/constructor/workflow.md
+                  - name: AI agent
+                    href: operations/workflows/constructor/aiagent.md
+                  - name: Telegram bot
+                    href: operations/workflows/constructor/telegrambot.md
+                  - name: Database Query
+                    href: operations/workflows/constructor/databasequery.md
+              - name: Control steps
+                items:
+                  - name: Switch
+                    href: operations/workflows/constructor/switch.md
+                  - name: Foreach
+                    href: operations/workflows/constructor/foreach.md
+                  - name: While
+                    href: operations/workflows/constructor/while.md
+                  - name: Parallel
+                    href: operations/workflows/constructor/parallel.md
+                  - name: No op
+                    href: operations/workflows/constructor/noop.md
+                  - name: Fail
+                    href: operations/workflows/constructor/fail.md
+                  - name: Success
+                    href: operations/workflows/constructor/success.md
+                  - name: Wait
+                    href: operations/workflows/constructor/wait.md
+              - name: Configuring a retry policy for a workflow
+                href: operations/workflows/constructor/setup-restart-policy.md
+              - name: Configuring an error transition rule
+                href: operations/workflows/constructor/setup-catch-rule.md
+          - name: Getting workflow execution info
+            items:
+              - name: Getting a list of workflow executions
+                href: operations/workflows/execution/get-list.md
+              - name: Getting workflow execution info
+                href: operations/workflows/execution/get-info.md
+              - name: Getting information on the progress of each step
+                href: operations/workflows/execution/get-history.md
+          - name: Managing a workflow execution
+            items:
+              - name: Starting a workflow execution
+                href: operations/workflows/execution/start.md
+              - name: Starting a workflow execution on a timer
+                href: operations/workflows/execution/start-by-timer.md
+              - name: Stopping a workflow execution
+                href: operations/workflows/execution/stop.md
+              - name: Terminating a workflow execution
+                href: operations/workflows/execution/terminate.md
+          - name: Managing workflow access permissions
+            items:
+              - name: Viewing roles assigned for a workflow
+                href: operations/workflows/access-rights/role-list.md
+              - name: Assigning roles for a workflow
+                href: operations/workflows/access-rights/role-add.md
+              - name: Revoking roles assigned for a workflow
+                href: operations/workflows/access-rights/role-revoke.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Getting bus info
+            items:
+              - name: Getting a list of buses
+                href: operations/eventrouter/bus/get-list.md
+              - name: Getting bus info
+                href: operations/eventrouter/bus/get-info.md
+          - name: Managing a bus
+            items:
+              - name: Creating a bus
+                href: operations/eventrouter/bus/create.md
+              - name: Updating a bus
+                href: operations/eventrouter/bus/update.md
+              - name: Writing logs
+                href: operations/eventrouter/bus/logs-write.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/eventrouter/bus/label-add.md
+                  - name: Updating a label
+                    href: operations/eventrouter/bus/label-update.md
+                  - name: Deleting a label
+                    href: operations/eventrouter/bus/label-delete.md
+              - name: Deleting a bus
+                href: operations/eventrouter/bus/delete.md
+          - name: Sending events to a bus
+            items:
+              - name: Sending events directly
+                href: operations/eventrouter/bus/data-put.md
+              - name: Sending events using a connector
+                href: operations/eventrouter/bus/data-send.md
+          - name: Getting connector info
+            items:
+              - name: Getting a list of connectors
+                href: operations/eventrouter/connector/get-list.md
+              - name: Getting connector info
+                href: operations/eventrouter/connector/get-info.md
+          - name: Managing a connector
+            items:
+              - name: Creating a connector
+                items:
+                  - name: Timer
+                    href: operations/eventrouter/connector/create-timer.md
+                  - name: API {{ er-name }}
+                    href: operations/eventrouter/connector/create-api-eventrouter.md
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/connector/create-yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/connector/create-message-queue.md
+              - name: Editing a connector
+                href: operations/eventrouter/connector/update.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/eventrouter/connector/label-add.md
+                  - name: Updating a label
+                    href: operations/eventrouter/connector/label-update.md
+                  - name: Deleting a label
+                    href: operations/eventrouter/connector/label-delete.md
+              - name: Running a connector
+                href: operations/eventrouter/connector/start.md
+              - name: Stopping a connector
+                href: operations/eventrouter/connector/stop.md
+              - name: Deleting a connector
+                href: operations/eventrouter/connector/delete.md
+          - name: Getting rule info
+            items:
+              - name: Getting a list of rules
+                href: operations/eventrouter/rule/get-list.md
+              - name: Getting rule info
+                href: operations/eventrouter/rule/get-info.md
+          - name: Managing a rule
+            items:
+              - name: Creating a rule
+                items:
+                  - name: '{{ api-gw-name }}'
+                    href: operations/eventrouter/rule/create-api-gw.md
+                  - name: '{{ sf-name }}'
+                    href: operations/eventrouter/rule/create-functions.md
+                  - name: '{{ cloud-logging-name }}'
+                    href: operations/eventrouter/rule/create-logging.md
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/rule/create-data-streams.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/rule/create-message-queue.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: >-
+                      operations/eventrouter/rule/create-serverless-containers.md
+                  - name: '{{ sw-name }}'
+                    href: operations/eventrouter/rule/create-workflows.md
+              - name: Editing a rule
+                href: operations/eventrouter/rule/update.md
+              - name: Managing targets
+                items:
+                  - name: Adding a target
+                    href: operations/eventrouter/rule/add-target.md
+                  - name: Updating a target
+                    href: operations/eventrouter/rule/update-target.md
+                  - name: Deleting a target
+                    href: operations/eventrouter/rule/delete-target.md
+              - name: Managing labels
+                items:
+                  - name: Adding a label
+                    href: operations/eventrouter/rule/label-add.md
+                  - name: Updating a label
+                    href: operations/eventrouter/rule/label-update.md
+                  - name: Deleting a label
+                    href: operations/eventrouter/rule/label-delete.md
+              - name: Enabling a rule
+                href: operations/eventrouter/rule/enable.md
+              - name: Disabling a rule
+                href: operations/eventrouter/rule/disable.md
+              - name: Deleting a rule
+                href: operations/eventrouter/rule/delete.md
+          - name: Managing resource access permissions
+            items:
+              - name: Viewing roles assigned for a resource
+                href: operations/eventrouter/access-rights/role-list.md
+              - name: Assigning roles for a resource
+                href: operations/eventrouter/access-rights/role-add.md
+              - name: Revoking roles assigned for a resource
+                href: operations/eventrouter/access-rights/role-revoke.md
+      - name: Viewing operations with service resources
+        href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: >-
+          Automatic data upload to {{ speechsense-full-name }} using {{ sw-name
+          }}
+        href: tutorials/auto-upload.md
+      - name: >-
+          Setting up {{ sw-name }} integration with {{ tracker-full-name }}, {{
+          foundation-models-full-name }}, and {{ postbox-full-name }}
+        href: tutorials/tracker-yandexgpt-postbox-integrations.md
+      - name: Developing an AI agent-supported Telegram bot
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          AI-powered review of GitHub pull requests with {{ sw-name }} and
+          GitHub Actions
+        href: tutorials/ai-powered-github-pr-review.md
+  - name: Concepts
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: '{{ sw-name }}'
+        items:
+          - name: Workflow
+            href: concepts/workflows/workflow.md
+          - name: Starting a workflow execution
+            href: concepts/workflows/execution.md
+          - name: YaWL specification
+            items:
+              - name: Overview
+                href: concepts/workflows/yawl/index.md
+              - name: Integration steps
+                items:
+                  - name: HTTPCall
+                    href: concepts/workflows/yawl/integration/httpcall.md
+                  - name: GRPCCall
+                    href: concepts/workflows/yawl/integration/grpccall.md
+                  - name: YMQ
+                    href: concepts/workflows/yawl/integration/ymq.md
+                  - name: YDS
+                    href: concepts/workflows/yawl/integration/yds.md
+                  - name: YDBDocument
+                    href: concepts/workflows/yawl/integration/ydbdocument.md
+                  - name: FunctionCall
+                    href: concepts/workflows/yawl/integration/functioncall.md
+                  - name: ContainerCall
+                    href: concepts/workflows/yawl/integration/containercall.md
+                  - name: FoundationModelsCall
+                    href: >-
+                      concepts/workflows/yawl/integration/foundationmodelscall.md
+                  - name: ObjectStorage
+                    href: concepts/workflows/yawl/integration/objectstorage.md
+                  - name: Tracker
+                    href: concepts/workflows/yawl/integration/tracker.md
+                  - name: Postbox
+                    href: concepts/workflows/yawl/integration/postbox.md
+                  - name: Workflow
+                    href: concepts/workflows/yawl/integration/workflow.md
+                  - name: Disk
+                    href: concepts/workflows/yawl/integration/disk.md
+                  - name: AIAgent
+                    href: concepts/workflows/yawl/integration/aiagent.md
+                  - name: TelegramBot
+                    href: concepts/workflows/yawl/integration/telegrambot.md
+                  - name: AIStudioAgent
+                    href: concepts/workflows/yawl/integration/aistudioagent.md
+                  - name: VectorStore
+                    href: concepts/workflows/yawl/integration/vectorstore.md
+                  - name: DatabaseQuery
+                    href: concepts/workflows/yawl/integration/databasequery.md
+              - name: Control steps
+                items:
+                  - name: Switch
+                    href: concepts/workflows/yawl/management/switch.md
+                  - name: Foreach
+                    href: concepts/workflows/yawl/management/foreach.md
+                  - name: Parallel
+                    href: concepts/workflows/yawl/management/parallel.md
+                  - name: Success
+                    href: concepts/workflows/yawl/management/success.md
+                  - name: Fail
+                    href: concepts/workflows/yawl/management/fail.md
+                  - name: NoOp
+                    href: concepts/workflows/yawl/management/noop.md
+                  - name: Wait
+                    href: concepts/workflows/yawl/management/wait.md
+                  - name: While
+                    href: concepts/workflows/yawl/management/while.md
+          - name: Templating
+            href: concepts/workflows/templating.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Bus
+            href: concepts/eventrouter/bus.md
+          - name: Connector
+            href: concepts/eventrouter/connector.md
+          - name: Rule
+            href: concepts/eventrouter/rule.md
+          - name: Sending events to the bus
+            href: concepts/eventrouter/sending-events.md
+      - name: Cron expressions
+        href: concepts/cron.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Access management
+    items:
+      - name: Overview
+        href: security/index.md
+      - name: '{{ er-name }} roles'
+        href: security/eventrouter.md
+      - name: '{{ sw-name }} roles'
+        href: security/workflows.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: CLI reference
+    items:
+      - name: '{{ sw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/workflow/index.md
+      - name: '{{ er-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/eventrouter/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: '{{ sw-name }} API reference'
+    items:
+      - name: API authentication
+        href: api-ref/workflows/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: workflows/api-ref/grpc/index.md
+          - name: Execution
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Execution/index.md
+              - name: Start
+                href: workflows/api-ref/grpc/Execution/start.md
+              - name: Stop
+                href: workflows/api-ref/grpc/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/grpc/Execution/terminate.md
+              - name: Get
+                href: workflows/api-ref/grpc/Execution/get.md
+              - name: GetHistory
+                href: workflows/api-ref/grpc/Execution/getHistory.md
+              - name: List
+                href: workflows/api-ref/grpc/Execution/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: workflows/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: workflows/api-ref/grpc/Operation/cancel.md
+          - name: Workflow
+            items:
+              - name: Overview
+                href: workflows/api-ref/grpc/Workflow/index.md
+              - name: Create
+                href: workflows/api-ref/grpc/Workflow/create.md
+              - name: Update
+                href: workflows/api-ref/grpc/Workflow/update.md
+              - name: Get
+                href: workflows/api-ref/grpc/Workflow/get.md
+              - name: Delete
+                href: workflows/api-ref/grpc/Workflow/delete.md
+              - name: List
+                href: workflows/api-ref/grpc/Workflow/list.md
+              - name: ListOperations
+                href: workflows/api-ref/grpc/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/grpc/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/grpc/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/grpc/Workflow/updateAccessBindings.md
+      - name: REST
+        items:
+          - name: Overview
+            href: workflows/api-ref/index.md
+          - name: Execution
+            items:
+              - name: Overview
+                href: workflows/api-ref/Execution/index.md
+              - name: Start
+                href: workflows/api-ref/Execution/start.md
+              - name: Stop
+                href: workflows/api-ref/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/Execution/terminate.md
+              - name: Get
+                href: workflows/api-ref/Execution/get.md
+              - name: GetHistory
+                href: workflows/api-ref/Execution/getHistory.md
+              - name: List
+                href: workflows/api-ref/Execution/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: workflows/api-ref/Operation/index.md
+              - name: Get
+                href: workflows/api-ref/Operation/get.md
+              - name: Cancel
+                href: workflows/api-ref/Operation/cancel.md
+          - name: Workflow
+            items:
+              - name: Overview
+                href: workflows/api-ref/Workflow/index.md
+              - name: Create
+                href: workflows/api-ref/Workflow/create.md
+              - name: Update
+                href: workflows/api-ref/Workflow/update.md
+              - name: Get
+                href: workflows/api-ref/Workflow/get.md
+              - name: Delete
+                href: workflows/api-ref/Workflow/delete.md
+              - name: List
+                href: workflows/api-ref/Workflow/list.md
+              - name: ListOperations
+                href: workflows/api-ref/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/Workflow/updateAccessBindings.md
+  - name: '{{ er-name }} API reference'
+    items:
+      - name: API authentication
+        href: api-ref/eventrouter/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: eventrouter/api-ref/grpc/index.md
+          - name: Bus
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Bus/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Bus/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Bus/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Bus/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Bus/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Bus/delete.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Bus/listOperations.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Bus/updateAccessBindings.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Connector/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Connector/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Connector/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Connector/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Connector/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Connector/delete.md
+              - name: Start
+                href: eventrouter/api-ref/grpc/Connector/start.md
+              - name: Stop
+                href: eventrouter/api-ref/grpc/Connector/stop.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Connector/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Connector/listOperations.md
+          - name: Event
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Event/index.md
+              - name: Put
+                href: eventrouter/api-ref/grpc/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/grpc/Event/send.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: eventrouter/api-ref/grpc/Operation/cancel.md
+          - name: Rule
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/grpc/Rule/index.md
+              - name: Get
+                href: eventrouter/api-ref/grpc/Rule/get.md
+              - name: List
+                href: eventrouter/api-ref/grpc/Rule/list.md
+              - name: Create
+                href: eventrouter/api-ref/grpc/Rule/create.md
+              - name: Update
+                href: eventrouter/api-ref/grpc/Rule/update.md
+              - name: Delete
+                href: eventrouter/api-ref/grpc/Rule/delete.md
+              - name: Enable
+                href: eventrouter/api-ref/grpc/Rule/enable.md
+              - name: Disable
+                href: eventrouter/api-ref/grpc/Rule/disable.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/grpc/Rule/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/grpc/Rule/listOperations.md
+      - name: REST
+        items:
+          - name: Overview
+            href: eventrouter/api-ref/index.md
+          - name: Bus
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Bus/index.md
+              - name: Get
+                href: eventrouter/api-ref/Bus/get.md
+              - name: List
+                href: eventrouter/api-ref/Bus/list.md
+              - name: Create
+                href: eventrouter/api-ref/Bus/create.md
+              - name: Update
+                href: eventrouter/api-ref/Bus/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Bus/delete.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Bus/listOperations.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Bus/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Bus/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Bus/updateAccessBindings.md
+          - name: Connector
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Connector/index.md
+              - name: Get
+                href: eventrouter/api-ref/Connector/get.md
+              - name: List
+                href: eventrouter/api-ref/Connector/list.md
+              - name: Create
+                href: eventrouter/api-ref/Connector/create.md
+              - name: Update
+                href: eventrouter/api-ref/Connector/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Connector/delete.md
+              - name: Start
+                href: eventrouter/api-ref/Connector/start.md
+              - name: Stop
+                href: eventrouter/api-ref/Connector/stop.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Connector/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Connector/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Connector/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Connector/listOperations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Operation/index.md
+              - name: Get
+                href: eventrouter/api-ref/Operation/get.md
+              - name: Cancel
+                href: eventrouter/api-ref/Operation/cancel.md
+          - name: Rule
+            items:
+              - name: Overview
+                href: eventrouter/api-ref/Rule/index.md
+              - name: Get
+                href: eventrouter/api-ref/Rule/get.md
+              - name: List
+                href: eventrouter/api-ref/Rule/list.md
+              - name: Create
+                href: eventrouter/api-ref/Rule/create.md
+              - name: Update
+                href: eventrouter/api-ref/Rule/update.md
+              - name: Delete
+                href: eventrouter/api-ref/Rule/delete.md
+              - name: Enable
+                href: eventrouter/api-ref/Rule/enable.md
+              - name: Disable
+                href: eventrouter/api-ref/Rule/disable.md
+              - name: ListAccessBindings
+                href: eventrouter/api-ref/Rule/listAccessBindings.md
+              - name: SetAccessBindings
+                href: eventrouter/api-ref/Rule/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: eventrouter/api-ref/Rule/updateAccessBindings.md
+              - name: ListOperations
+                href: eventrouter/api-ref/Rule/listOperations.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: Public materials
+    href: public-talks.md
+  - name: Release notes
+    href: release-notes.md

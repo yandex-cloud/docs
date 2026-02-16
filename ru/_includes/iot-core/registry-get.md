@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о реестре.
 

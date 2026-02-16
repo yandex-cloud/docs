@@ -1,0 +1,1 @@
+**Discard large values**: Enable it to ignore non-critical data that fails to comply with the limits. If the size of a column value does not comply with the [{{ ytsaurus-name }}](https://ytsaurus.tech/docs/ru/user-guide/dynamic-tables/overview#limitations) limitations, this value will be replaced with `BigStringValueStub`.

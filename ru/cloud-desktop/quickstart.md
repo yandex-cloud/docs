@@ -1,17 +1,17 @@
 ---
-title: Как начать работать с {{ cloud-desktop-name }}
+title: Начало работы с {{ cloud-desktop-name }} для администраторов
 description: Следуя данной инструкции, вы сможете создать и настроить группу рабочих столов.
 ---
 
-# Как начать работать с {{ cloud-desktop-full-name }}
+# Начало работы с {{ cloud-desktop-full-name }} для администраторов
 
 {% note info %}
 
-Инструкция содержит информацию о создании и настройке [группы рабочих столов](concepts/desktops-and-groups.md). Если вы получили от администратора ссылку на [витрину пользовательских рабочих столов](concepts/showcase.md), перейдите к подразделу [{#T}](#get-credentials).
+Инструкция содержит информацию о создании и настройке [группы рабочих столов](concepts/desktops-and-groups.md). Если вы получили от администратора ссылку на [витрину пользовательских рабочих столов](concepts/showcase.md), перейдите к разделу [{#T}](quickstart-users.md).
 
 {% endnote %}
 
-{{ cloud-desktop-name }} — сервис для управления виртуальной инфраструктурой рабочих столов на базе Linux.
+{{ cloud-desktop-name }} — сервис для управления виртуальной инфраструктурой рабочих столов.
 
 Создайте [группу пользователей](../organization/concepts/groups.md) {{ org-full-name }} и разверните для нее [группу рабочих столов](./concepts/desktops-and-groups.md) {{ cloud-desktop-name }}:
 
@@ -28,11 +28,13 @@ description: Следуя данной инструкции, вы сможете
 1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
-1. Убедитесь, что у вас есть следующие _минимальные_ роли:
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} _минимальные_ роли:
     * [organization-manager.admin](../organization/security/index.md#organization-manager-admin) на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) — для создания группы пользователей.
     * [vdi.admin](./security/index.md#vdi-admin) на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder) — для создания группы рабочих столов и назначения ей [ACL](./concepts/acl.md).
 
     Если у вас примитивная роль [admin](../iam/roles-reference.md#admin) на каталог, назначать дополнительно роли не требуется.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 1. Чтобы рабочие столы имели доступ в интернет, для [подсетей](../vpc/concepts/network.md#subnet), в которых они будут размещены, [настройте](../vpc/operations/create-nat-gateway.md) NAT-шлюз.
 
@@ -66,24 +68,34 @@ description: Следуя данной инструкции, вы сможете
 
 ## Разверните группу рабочих столов {#create-desktop-group}
 
+В этой инструкции вы создадите группу рабочих столов на базе предустановленной ОС `Ubuntu 20.04 LTS`. Также вы можете:
+
+* [{#T}](operations/images/create-from-compute-linux.md)
+* [{#T}](operations/images/create-from-windows.md)
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа рабочих столов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vdi.button_empty-create-desktop-group }}**.
   1. Введите имя группы рабочих столов.
+  1. Выберите **{{ ui-key.yacloud.vdi.section_type }}** — **{{ ui-key.yacloud.vdi.value_type-personal }}**. Рабочие столы назначаются пользователям при их первом подключении и остаются зарезервированными за ними.
+  1. В блоке **{{ ui-key.yacloud.vdi.section_desktop }}** задайте:
+     1. **{{ ui-key.yacloud.vdi.field_max-desktops-amount }}** — `2`, максимальное количество рабочих столов в группе.
+     1. **{{ ui-key.yacloud.vdi.field_min-ready-desktops }}** — `1`, количество рабочих столов, которые будут всегда загружены для быстрого подключения пользователей.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** на вкладке **{{ ui-key.yacloud.component.compute.resources.label_tab-standard }}** выберите **Базовая**.
   1. Выберите [образ](./concepts/images.md) операционной системы — `Ubuntu 20.04 LTS`.
   1. В блоке **{{ ui-key.yacloud.vdi.section_disks }}**:
       * Выберите [типы](../compute/concepts/disk.md#disks-types) загрузочного и рабочего [дисков](./concepts/disks.md) — `SSD`.
       * Укажите размер загрузочного диска — `60 ГБ`.
       * Укажите размер рабочего диска — `4 ГБ`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * Укажите количество ядер vCPU — `2`.
-      * Выберите [гарантированную долю](../compute/concepts/performance-levels.md) vCPU — `100%`.
-      * Укажите объем RAM — `8 ГБ`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите [облачную сеть](../vpc/concepts/network.md#network) и [подсети](../vpc/concepts/network.md#subnet), в которых будут размещаться рабочие столы.
+  1. В блоке **Пользователи рабочих столов** нажмите **Добавить пользователей** и укажите, кому будут доступны рабочие столы:
+     * [Группы пользователей](../iam/concepts/access-control/public-group.md).
+     * [Отдельные пользователи](../iam/concepts/users/accounts.md).
+     * Почтовый адрес любого пользователя — ему будет отправлено приглашение в вашу организацию и назначена роль для доступа к рабочим столам.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -96,8 +108,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Справа от группы рабочих столов, созданной ранее, нажмите ![image](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vdi.button_acl }}**.
-  1. В появившемся окне **{{ ui-key.yacloud.component.acl-dialog.label_title }}** выберите группу пользователей, созданную ранее, укажите для нее [роль](./security/index.md#vdi-viewer) `vdi.viewer` и нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В списке групп рабочих рабочих столов выберите созданную ранее группу.
+  1. На панели слева выберите ![persons](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
+  1. Нажмите **{{ ui-key.yacloud_org.common.resource-acl.button_new-bindings }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud_components.acl.label.title }}** выберите группу пользователей, созданную ранее.
+  1. Нажмите **{{ ui-key.yacloud_components.acl.action.add-role }}** и укажите [роль](./security/index.md#vdi-desktopGroups-user) `vdi.desktopGroups.user` или [роль](./security/index.md#vdi-desktopGroups-maintainer) `vdi.desktopGroups.maintainer`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
@@ -130,6 +145,6 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключитесь к рабочему столу {#connect-desktop}
 
-Для подключения к рабочему столу используется [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+{% include [rdp-is-using](../_includes/cloud-desktop/rdp-is-using.md) %}
 
 {% include [desktop-connect](../_includes/cloud-desktop/desktop-connect.md) %}

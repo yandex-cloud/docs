@@ -1,22 +1,29 @@
 ---
-title: '{{ metadata-hub-full-name }}. Ответы на вопросы'
+title: '{{ metadata-hub-full-name }}. Решение проблем'
 description: Как исправить ошибку при создании БД в {{ metastore-name }}? Ответы на этот и другие вопросы в данной статье.
 ---
 
-# Общие вопросы про {{ metadata-hub-name }}
+# Решение проблем в {{ metadata-hub-name }} 
 
-#### Как исправить ошибку при создании базы данных в {{ metastore-full-name }}? {#create-db-in-hive}
+В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
-Ошибка возникает, если создавать БД с помощью следующего запроса:
+* [{{ metastore-full-name }}](#metastore)
+* [{{ schema-registry-full-name }}](#schema-registry-full-name)
 
-```sql
-CREATE DATABASE IF NOT EXISTS <имя_БД>;
-```
+## Решение проблем в {{ metastore-full-name }} {#metastore}
 
-{{ metastore-name }} не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md), который привязан к кластеру {{ dataproc-name }}. Чтобы создать БД, выполните запрос:
+### Ошибка при создании базы данных в {{ metastore-full-name }} {#create-db-in-hive}
 
-```sql
-CREATE DATABASE IF NOT EXISTS <имя_БД> LOCATION <местоположение_БД>;
-```
+{% include notitle [create-db-in-hive](../../_qa/metadata-hub/create-db-in-hive.md) %}
 
-В параметре `LOCATION` укажите путь до бакета и базы данных в нем в формате: `s3a://<имя_бакета>/<имя_папки>/<имя_БД>`. Указывать папку необязательно, но в нее объекты загружаются быстрее, чем в корень бакета.
+### Отсутствие прав при подключении сервисного аккаунта к кластеру {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
+
+## Решение проблем в {{ schema-registry-full-name }} {#schema-registry-full-name}
+
+### Ошибка при добавлении и удалении опциональных параметров {#avoid-errors-while-evolving-schema}
+
+{% include notitle [optional-parameter-error](../../_qa/metadata-hub/optional-parameter-error.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

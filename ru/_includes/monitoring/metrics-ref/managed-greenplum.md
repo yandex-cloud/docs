@@ -39,6 +39,7 @@ fqdn | FQDN хоста
 | `disk.inodes_free`<br/>`DGAUGE`, штуки | Свободное количество inodes. |
 | `disk.inodes_total`<br/>`DGAUGE`, штуки | Доступное количество inodes. |
 | `disk.inodes_used`<br/>`DGAUGE`, штуки | Использованное количество inodes. |
+| `disk.inodes_used_percent`<br/>`DGAUGE`, % | Процент использованных inodes. |
 | `disk.total`<br/>`DGAUGE`, байты | Доступное место. |
 | `disk.used`<br/>`DGAUGE`, байты | Использованное место. |
 | `disk.used_percent`<br/>`DGAUGE`, % | Процент использованного места. |
@@ -56,9 +57,42 @@ fqdn | FQDN хоста
 | `diskio.read_time`<br/>`DGAUGE`, миллисекунды | Длительность чтения с диска. |
 | `diskio.reads`<br/>`DGAUGE`, штуки | Количество операций чтения с диска. |
 | `diskio.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода. |
-| `diskio.write_bytes`<br/>`DGAUGE`, байты | Объем записи на диск.  |
+| `diskio.write_bytes`<br/>`DGAUGE`, байты | Объем записи на диск. |
 | `diskio.write_time`<br/>`DGAUGE`, миллисекунды | Длительность записи на диск. |
 | `diskio.writes`<br/>`DGAUGE`, штуки | Количество операций записи на диск. |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Средний процент используемой квоты диска. |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Максимальный процент используемой квоты диска. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, прочитанных с диска. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска. |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на чтение с диска. |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций чтения с диска. |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций чтения с диска. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций чтения при превышении квоты диска. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, записанных на диск. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, записанных на диск. |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на запись на диск. |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций записи на диск. |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций записи на диск. |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций записи при превышении квоты диска. |
+
+
+## Метрики операций сетевых дисков {#managed-greenplum-network-diskio-metrics}
+| Имя<br/>Тип, единицы измерения | Описание |
+| :--- | :--- |
+| `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Средний процент использования квоты ввода-вывода для диска. |
+| `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Максимальный процент использования квоты ввода-вывода для диска (burst). |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, прочитанных с диска в секунду. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска в секунду. |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на чтение с диска. |
+| `monitoring_disk.read_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций чтения с диска. |
+| `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций чтения с диска. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций чтения при превышении квоты диска. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, записанных на диск в секунду. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, записанных на диск в секунду. |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на запись на диск. |
+| `monitoring_disk.write_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций записи на диск. |
+| `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций записи на диск. |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций записи при превышении квоты диска. |
 
 ## Метрики RAM {#managed-greenplum-ram-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -109,6 +143,7 @@ fqdn | FQDN хоста
 | `net.err_out`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. |
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. |
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. |
+| `net.speed`<br/>`DGAUGE`, бит/с | Максимальная скорость передачи данных в сети для данного интерфейса. |
 | `net.icmp_inaddrmaskreps`<br/>`DGAUGE`, штуки | Количество полученных ответных ICMP-сообщений с маской адреса от опрашиваемого узла.  |
 | `net.icmp_inaddrmasks`<br/>`DGAUGE`, штуки | Количество полученных сообщений с запросом маски ICMP-адреса.  |
 | `net.icmp_incsumerrors`<br/>`DGAUGE`, штуки | Общее количество IP-пакетов с ошибками контрольной суммы.  |
@@ -120,7 +155,7 @@ fqdn | FQDN хоста
 | `net.icmp_inparmprobs`<br/>`DGAUGE`, штуки | Количество полученных сообщений о неполадках с параметрами ICMP. |
 | `net.icmp_inredirects`<br/>`DGAUGE`, штуки | Количество полученных сообщений о перенаправлении ICMP.  |
 | `net.icmp_insrcquenchs`<br/>`DGAUGE`, штуки | Количество полученных ICMP-сообщений Source Quench.  |
-| `net.icmp_intimeexcds`<br/>`DGAUGE`, штуки | Количество полученных сообщений с превышением времени ICMP превысило количество полученных сообщений.  | 
+| `net.icmp_intimeexcds`<br/>`DGAUGE`, штуки | Количество полученных сообщений о превышении времени ICMP.  | 
 | `net.icmp_intimestampreps`<br/>`DGAUGE`, штуки | Количество полученных ответных сообщений с меткой времени ICMP.  |
 | `net.icmp_intimestamps`<br/>`DGAUGE`, штуки | Количество полученных сообщений (запросов) с меткой времени ICMP.  |
 | `net.icmp_outaddrmaskreps`<br/>`DGAUGE`, штуки | Количество отправленных ответных сообщений по маске ICMP-адреса.  |
@@ -133,7 +168,7 @@ fqdn | FQDN хоста
 | `net.icmp_outparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP.  |
 | `net.icmp_outredirects`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с перенаправлениями маршрута.  |
 | `net.icmp_outsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP.  |
-| `net.icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с превышением времени ICMP превысило количество отправленных сообщений.  |
+| `net.icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о превышении времени ICMP.  |
 | `net.icmp_outtimestampreps`<br/>`DGAUGE`, штуки | Количество отправленных ответных сообщений с меткой времени ICMP.  |
 | `net.icmp_outtimestamps`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с меткой времени ICMP.  |
 | `net.icmpmsg_intype0`<br/>`DGAUGE`, штуки | Количество полученных ICMP-сообщений типа 0 (Echo Reply).  |
@@ -212,6 +247,69 @@ fqdn | FQDN хоста
 | `nstat.ipextoutmcastpkts`<br/>`DGAUGE`, штуки | Общее количество отправленных внешних многоадресных пакетов с IP-адресами и расширенными сведениями о трафике.  |
 | `nstat.ipextoutoctets`<br/>`DGAUGE`, байты | Общее количество отправленных внешних байт с IP-адресами и расширенными сведениями о трафике.  |
 | `nstat.ipextreasmoverlaps`<br/>`DGAUGE`, штуки | Количество перекрывающихся фрагментов в процессе дефрагментации IP-пакетов.  |
+| `nstat.mptcpextaddaddr`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 0). |
+| `nstat.mptcpextaddaddrdrop`<br/>`DGAUGE`, штуки | Количество отброшенных входящих MPTCP-пакетов с опцией `ADD_ADDR`. |
+| `nstat.mptcpextaddaddrtx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 0). |
+| `nstat.mptcpextaddaddrtxdrop`<br/>`DGAUGE`, штуки | Количество отброшенных исходящих MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 0), которые не были отправлены из-за исчерпания ресурсов. |
+| `nstat.mptcpextdatacsumerr`<br/>`DGAUGE`, штуки | Количество MPTCP-пакетов с ошибками контрольной суммы данных. |
+| `nstat.mptcpextdsscorruptionfallback`<br/>`DGAUGE`, штуки | Количество случаев, когда в MPTCP-пакете была обнаружена коррупция DSS (Data Sequence Signal), что привело к отказу от использования MPTCP и переходу к обычному TCP. |
+| `nstat.mptcpextdsscorruptionreset`<br/>`DGAUGE`, штуки | Количество случаев сброса подпотока из-за обнаружения коррупции DSS (Data Sequence Signal) в MPTCP-пакете. |
+| `nstat.mptcpextdssnomatchtcp`<br/>`DGAUGE`, штуки | Количество случаев, когда новое отображение DSS (Data Sequence Signal) в MPTCP-пакете не соответствовало предыдущим данным. |
+| `nstat.mptcpextdssnotmatching`<br/>`DGAUGE`, штуки | Количество случаев, когда полученные данные не соответствовали ожидаемым на основе DSS (Data Sequence Signal). |
+| `nstat.mptcpextduplicatedata`<br/>`DGAUGE`, штуки | Количество сегментов, отброшенных из-за дублирования DSS (Data Sequence Signal) в MPTCP-пакетах. |
+| `nstat.mptcpextechoadd`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 1). |
+| `nstat.mptcpextechoaddtx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 1). |
+| `nstat.mptcpextechoaddtxdrop`<br/>`DGAUGE`, штуки | Количество отброшенных исходящих MPTCP-пакетов с опцией `ADD_ADDR` (флаг echo равен 1), которые не были отправлены из-за исчерпания ресурсов. |
+| `nstat.mptcpextinfinitemaprx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с бесконечными отображениями. |
+| `nstat.mptcpextinfinitemaptx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов с бесконечными отображениями. |
+| `nstat.mptcpextmismatchportackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов ACK с `MP_JOIN`, где номер порта не совпадает. |
+| `nstat.mptcpextmismatchportsynrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN с `MP_JOIN`, где номер порта не совпадает. |
+| `nstat.mptcpextmpcapableackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN/ACK с `MP_CAPABLE`. |
+| `nstat.mptcpextmpcapableendpattempt`<br/>`DGAUGE`, штуки | Количество попыток установить соединение с использованием `MP_CAPABLE` для порта, который не поддерживает MPTCP. |
+| `nstat.mptcpextmpcapablefallbackack`<br/>`DGAUGE`, штуки | Количество случаев перехода к обычному TCP при получении ACK с `MP_CAPABLE`. |
+| `nstat.mptcpextmpcapablefallbacksynack`<br/>`DGAUGE`, штуки | Количество случаев перехода к обычному TCP при получении SYN/ACK с `MP_CAPABLE`. |
+| `nstat.mptcpextmpcapablesynackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN/ACK с опцией `MP_CAPABLE`. |
+| `nstat.mptcpextmpcapablesynrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN с `MP_CAPABLE`. |
+| `nstat.mptcpextmpcapablesyntx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов SYN с опцией `MP_CAPABLE`. |
+| `nstat.mptcpextmpcurrestab`<br/>`DGAUGE`, штуки | Текущее количество установленных MPTCP-соединений. |
+| `nstat.mptcpextmpfailrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов `MP_FAIL`. |
+| `nstat.mptcpextmpfailtx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов `MP_FAIL`. |
+| `nstat.mptcpextmpfallbacktokeninit`<br/>`DGAUGE`, штуки | Количество попыток инициализации токена в MPTCP, которые не удались. |
+| `nstat.mptcpextmpfastcloserx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов `MP_FASTCLOSE`. |
+| `nstat.mptcpextmpfastclosetx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов `MP_FASTCLOSE`. |
+| `nstat.mptcpextmpjoinackhmacfailure`<br/>`DGAUGE`, штуки | Количество случаев, когда проверка HMAC для полученного MPTCP-пакета ACK с опцией `MP_JOIN` не прошла. |
+| `nstat.mptcpextmpjoinackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов ACK с опцией `MP_JOIN`. |
+| `nstat.mptcpextmpjoinnotokenfound`<br/>`DGAUGE`, штуки | Количество случаев, когда при попытке присоединения подпотока с помощью опции `MP_JOIN` соответствующий токен не был найден. |
+| `nstat.mptcpextmpjoinportackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов ACK с `MP_JOIN`, содержащих номер порта. |
+| `nstat.mptcpextmpjoinportsynackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN/ACK с `MP_JOIN`, содержащих номер порта. |
+| `nstat.mptcpextmpjoinportsynrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN с `MP_JOIN`, содержащих номер порта. |
+| `nstat.mptcpextmpjoinsynackbackuprx`<br/>`DGAUGE`, штуки | Количество полученных резервных MPTCP-пакетов SYN/ACK с `MP_JOIN`. |
+| `nstat.mptcpextmpjoinsynackhmacfailure`<br/>`DGAUGE`, штуки | Количество случаев, когда проверка HMAC для полученного MPTCP-пакета SYN/ACK с опцией `MP_JOIN` не прошла. |
+| `nstat.mptcpextmpjoinsynackrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN/ACK с опцией `MP_JOIN`. |
+| `nstat.mptcpextmpjoinsynbackuprx`<br/>`DGAUGE`, штуки | Количество полученных резервных MPTCP-пакетов SYN с `MP_JOIN`. |
+| `nstat.mptcpextmpjoinsynrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов SYN с опцией `MP_JOIN`. |
+| `nstat.mptcpextmppriorx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с опцией `MP_PRIO`. |
+| `nstat.mptcpextmppriotx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов с опцией `MP_PRIO`. |
+| `nstat.mptcpextmprstrx`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов `MP_RST`. |
+| `nstat.mptcpextmprsttx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов `MP_RST`. |
+| `nstat.mptcpextmptcpretrans`<br/>`DGAUGE`, штуки | Количество повторных передач сегментов на уровне MPTCP. |
+| `nstat.mptcpextnodssinwindow`<br/>`DGAUGE`, штуки | Количество сегментов, которые не попали в окно MPTCP. |
+| `nstat.mptcpextofomerge`<br/>`DGAUGE`, штуки | Количество сегментов, объединенных в очередь `OoO` (out-of-order). |
+| `nstat.mptcpextofoqueue`<br/>`DGAUGE`, штуки | Количество сегментов, вставленных в очередь `OoO` (out-of-order). |
+| `nstat.mptcpextofoqueuetail`<br/>`DGAUGE`, штуки | Количество сегментов, вставленных в конец очереди `OoO` (out-of-order). |
+| `nstat.mptcpextportadd`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с опцией `ADD_ADDR`, содержащих номер порта. |
+| `nstat.mptcpextrcvpruned`<br/>`DGAUGE`, штуки | Количество отброшенных данных на этапе приема в MPTCP-соединении. |
+| `nstat.mptcpextrcvwndconflict`<br/>`DGAUGE`, штуки | Количество конфликтов при обновлении окна приема MPTCP. |
+| `nstat.mptcpextrcvwndconflictupdate`<br/>`DGAUGE`, штуки | Количество случаев, когда окно приема MPTCP было обновлено из-за конфликта с другим подпотоком. |
+| `nstat.mptcpextrcvwndshared`<br/>`DGAUGE`, штуки | Количество случаев, когда окно приема подпотока было переопределено общим окном MPTCP. |
+| `nstat.mptcpextrmaddr`<br/>`DGAUGE`, штуки | Количество полученных MPTCP-пакетов с опцией `RM_ADDR`. |
+| `nstat.mptcpextrmaddrdrop`<br/>`DGAUGE`, штуки | Количество отброшенных входящих MPTCP-пакетов с опцией `RM_ADDR`. |
+| `nstat.mptcpextrmaddrtx`<br/>`DGAUGE`, штуки | Количество отправленных MPTCP-пакетов с опцией `RM_ADDR`. |
+| `nstat.mptcpextrmaddrtxdrop`<br/>`DGAUGE`, штуки | Количество MPTCP-пакетов с опцией `RM_ADDR`, которые не были отправлены из-за исчерпания ресурсов. |
+| `nstat.mptcpextrmsubflow`<br/>`DGAUGE`, штуки | Количество удаленных подпотоков в MPTCP-соединении. |
+| `nstat.mptcpextsndwndshared`<br/>`DGAUGE`, штуки | Количество случаев, когда окно отправки подпотока было переопределено общим окном MPTCP. |
+| `nstat.mptcpextsubflowrecover`<br/>`DGAUGE`, штуки | Количество подпотоков, которые вернулись в активное состояние после того, как находились в состоянии `stale`. |
+| `nstat.mptcpextsubflowstale`<br/>`DGAUGE`, штуки | Количество подпотоков, которые вошли в состояние `stale`. |
 | `nstat.tcpextarpfilter`<br/>`DGAUGE`, штуки | Количество пакетов, отфильтрованных с помощью фильтра ARP в TCP.  |
 | `nstat.tcpextbusypollrxpackets`<br/>`DGAUGE`, штуки | Количество пакетов, полученных с помощью опроса при занятости в TCP.  |
 | `nstat.tcpextdelayedacklocked`<br/>`DGAUGE`, штуки | Количество блокированных задержанных подтверждений (ACK) в TCP.  |
@@ -245,6 +343,11 @@ fqdn | FQDN хоста
 | `nstat.tcpexttcpackskippedseq`<br/>`DGAUGE`, штуки | Количество пропущенных ACK-пакетов TCP, вызванных нахождением соединений в неправильной последовательности.  |
 | `nstat.tcpexttcpackskippedsynrecv`<br/>`DGAUGE`, штуки | Количество пропущенных ACK-пакетов TCP, вызванных нахождением соединений в состоянии `SYN_RECV`.  |
 | `nstat.tcpexttcpackskippedtimewait`<br/>`DGAUGE`, штуки | Количество пропущенных ACK-пакетов TCP, вызванных нахождением соединений в состоянии `TIME_WAIT`.  |
+| `nstat.tcpexttcpaobad`<br/>`DGAUGE`, штуки | количество TCP-пакетов, которые не прошли верификацию в рамках `TCP-AO` (ошибки при проверке подписи или нарушение целостности данных). |
+| `nstat.tcpexttcpaodroppedicmps`<br/>`DGAUGE`, штуки | количество ICMP-сообщений, которые были проигнорированы или отброшены в контексте работы `TCP-AO`. |
+| `nstat.tcpexttcpaogood`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, которые успешно прошли верификацию в рамках `TCP-AO`. |
+| `nstat.tcpexttcpaokeynotfound`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, для которых при верификации не был найден необходимый ключ (KeyID). |
+| `nstat.tcpexttcpaorequired`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, в которых ожидался заголовок `TCP-AO`, но он отсутствовал. |
 | `nstat.tcpexttcpautocorking`<br/>`DGAUGE`, штуки | Количество автоматически выполняемых операций задержки TCP (autocorking).  |
 | `nstat.tcpexttcpbacklogcoalesce`<br/>`DGAUGE`, штуки | Количество объединений задержки TCP (backlog coalesce).  |
 | `nstat.tcpexttcpbacklogdrop`<br/>`DGAUGE`, штуки | Количество TCP-соединений, отброшенных из-за переполнения очереди ожидания.  |
@@ -252,13 +355,16 @@ fqdn | FQDN хоста
 | `nstat.tcpexttcpdeferacceptdrop`<br/>`DGAUGE`, штуки | Количество TCP-соединений, отброшенных при отложенном принятии (defer accept).  |
 | `nstat.tcpexttcpdelivered`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, доставленных успешно.  |
 | `nstat.tcpexttcpdeliveredce`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, доставленных успешно с учетом коррекции ошибок (Checksum Error).  |
+| `nstat.tcpexttcpdsackignoreddubious`<br/>`DGAUGE`, штуки | Количество сегментов, которые были проигнорированы при обработке `DSACK` из-за их сомнительности или несоответствия ожидаемым параметрам. |
 | `nstat.tcpexttcpdsackignorednoundo`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности дублирующих (duplicate) блоков данных, которые не были использованы при приеме.  |
 | `nstat.tcpexttcpdsackignoredold`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности устаревших (old) данных, полученных при приеме.  |
 | `nstat.tcpexttcpdsackoforecv`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности дублирующих (duplicate) блоков данных, которые были отправлены при передаче.  |
 | `nstat.tcpexttcpdsackofosent`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности опережающих (out-of-order) блоков данных, полученных при приеме.  |
 | `nstat.tcpexttcpdsackoldsent`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности опережающих (out-of-order) блоков данных, отправленных при передаче.  |
 | `nstat.tcpexttcpdsackrecv`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности устаревших (old) блоков данных, отправленных при передаче.  |
+| `nstat.tcpexttcpdsackrecvsegs`<br/>`DGAUGE`, штуки | Количество сегментов, которые были приняты и обработаны в рамках механизма `DSACK`. |
 | `nstat.tcpexttcpdsackundo`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности опережающих (out-of-order) блоков данных, полученных при приеме.  |
+| `nstat.tcpexttcpduplicatdatarehash`<br/>`DGAUGE`, штуки | Количество сегментов, для которых был выполнен перерасчет (rehash) при обнаружении дублирующихся данных в TCP-потоке. |
 | `nstat.tcpexttcpfastopenactive`<br/>`DGAUGE`, штуки | Количество TCP-пакетов, сигнализирующих о доступности исправленных (undo) блоков данных, полученных при приеме.  |
 | `nstat.tcpexttcpfastopenactivefail`<br/>`DGAUGE`, штуки | Количество неудачных попыток активного использования TCP Fast Open.  |
 | `nstat.tcpexttcpfastopenblackhole`<br/>`DGAUGE`, штуки | Количество пакетов TCP Fast Open, отправленных, но не доставленных (потерянных).  |
@@ -287,6 +393,8 @@ fqdn | FQDN хоста
 | `nstat.tcpexttcpmd5unexpected`<br/>`DGAUGE`, штуки | Количество неожиданных ошибок аутентификации TCP MD5.  |
 | `nstat.tcpexttcpmemorypressures`<br/>`DGAUGE`, штуки | Количество сбоев из-за недостатка памяти TCP.  |
 | `nstat.tcpexttcpmemorypressureschrono`<br/>`DGAUGE`, штуки | Количество сбоев из-за недостатка памяти TCP с учетом времени.  |
+| `nstat.tcpexttcpmigratereqfailure`<br/>`DGAUGE`, штуки | Количество запросов на миграцию сокетов или других ресурсов в контексте TCP, которые завершились неудачей. |
+| `nstat.tcpexttcpmigratereqsuccess`<br/>`DGAUGE`, штуки | Количество запросов на миграцию сокетов или других ресурсов в контексте TCP, которые были успешно выполнены. |
 | `nstat.tcpexttcpminttldrop`<br/>`DGAUGE`, штуки | Количество прерываний TCP-соединений, вызванных минимальным значением TTL.  |
 | `nstat.tcpexttcpmtupfail`<br/>`DGAUGE`, штуки | Количество сбоев в подгонке MTU TCP.  |
 | `nstat.tcpexttcpmtupsuccess`<br/>`DGAUGE`, штуки | Количество успешных подгонок MTU TCP.  |
@@ -295,6 +403,7 @@ fqdn | FQDN хоста
 | `nstat.tcpexttcpofoqueue`<br/>`DGAUGE`, штуки | Количество пакетов опережающих TCP-пакеты в очереди.  |
 | `nstat.tcpexttcporigdatasent`<br/>`DGAUGE`, штуки | Количество отправленных данных TCP до противоположной стороны.  |
 | `nstat.tcpexttcppartialundo`<br/>`DGAUGE`, штуки | Количество частичных операций отмены TCP.  |
+| `nstat.tcpexttcpplbrehash`<br/>`DGAUGE`, штуки | Количество операций перерасчета (rehash) в контексте `PLB`. |
 | `nstat.tcpexttcppureacks`<br/>`DGAUGE`, штуки | Количество пакетов с чистыми ACK TCP.  |
 | `nstat.tcpexttcprcvcoalesce`<br/>`DGAUGE`, штуки | Количество объединений TCP-пакетов, полученных при приеме.  |
 | `nstat.tcpexttcprcvcollapsed`<br/>`DGAUGE`, штуки | Количество объединений TCP-пакетов, сжатых при приеме.  |
@@ -320,6 +429,7 @@ fqdn | FQDN хоста
 | `nstat.tcpexttcpspuriousrtxhostqueues`<br/>`DGAUGE`, штуки | Количество ложных повторных передач в очередь хоста TCP.  |
 | `nstat.tcpexttcpsynchallenge`<br/>`DGAUGE`, штуки | Количество вызовов синхронизации TCP.  |
 | `nstat.tcpexttcpsynretrans`<br/>`DGAUGE`, штуки | Количество повторных передач синхронизаций TCP.  |
+| `nstat.tcpexttcptimeoutrehash`<br/>`DGAUGE`, штуки | Количество операций перерасчета (rehash), инициированных из-за истечения времени ожидания (timeout) в TCP-соединениях. |
 | `nstat.tcpexttcptimeouts`<br/>`DGAUGE`, штуки | Количество истекших временных интервалов TCP.  |
 | `nstat.tcpexttcptimewaitoverflow`<br/>`DGAUGE`, штуки | Количество переполнений ожидания TCP TIME_WAIT.  |
 | `nstat.tcpexttcptozerowindowadv`<br/>`DGAUGE`, штуки | Количество объявлений нулевого размера TCP окна в сегменте.  |
@@ -340,6 +450,10 @@ fqdn | FQDN хоста
 | `ping.result_code`<br/>`DGAUGE`, `0`-`4` | Результат кода пинга. |
 | `ping.standard_deviation_ms`<br/>`DGAUGE`, миллисекунды | Стандартное отклонение времени ответа пинга. |
 | `ping.ttl`<br/>`DGAUGE`, штуки | TTL пинга — количество переходов (hop) между сетевыми узлами (обычно измеряемое в количестве маршрутизаторов), которые должен пройти пакет пинга. |
+| `net_queue.rx_queue_*_packets`<br/>`DGAUGE` пакетов/с | Количество полученных пакетов в очереди. |
+| `net_queue.tx_queue_*_packets`<br/>`DGAUGE` пакетов/с | Количество отправленных пакетов в очереди. |
+| `net_queue.rx_queue_*_bytes`<br/>`DGAUGE` байт/с | Количество полученных байт в очереди. |
+| `net_queue.tx_queue_*_bytes`<br/>`DGAUGE` байт/с | Количество отправленных байт в очереди. |
 
 ## Метрики сервиса {#managed-greenplum-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -404,6 +518,29 @@ fqdn | FQDN хоста
 | `gp_expand.tables_in_progress`<br/>`DGAUGE`, штуки    | Количество таблиц, которое перераспределяется в настоящий момент времени. |
 | `gp_expand.tables_left`<br/>`DGAUGE`, штуки           | Количество таблиц, которое осталось перераспределить. |
 | `gp_expand.tables_total`<br/>`DGAUGE`, штуки          | Общее количество таблиц, которое нужно перераспределить. |
+
+## Метрики bloat {#managed-greenplum-bloat-metrics}
+
+Эти метрики показывают состояние системного каталога и таблицы `pg_attribute`, включая количество актуальных (`live_tuples`) и устаревших (`dead_tuples`) строк, размер системного каталога и таблицы `pg_attribute`, а также время последнего vacuum.
+
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `catalog_dead_tuples_segment`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в каталоге по всем сегментам. |
+| `catalog_live_tuples_segment`<br/>`DGAUGE`, штуки | Количество `live_tuple` в каталоге по всем сегментам. |
+| `catalog_size_segment`<br/>`DGAUGE`, байты | Размер каталога по всем сегментам. |
+| `catalog_vacuum_age_segment`<br/>`DGAUGE`, секунды | Максимальное время с последнего vacuum среди всех таблиц каталога на сегментах. |
+| `catalog_dead_tuples_master`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в каталоге на мастере. |
+| `catalog_live_tuples_master`<br/>`DGAUGE`, штуки | Количество `live_tuple` в каталоге на мастере. |
+| `catalog_size_master`<br/>`DGAUGE`, байты | Размер каталога на мастере, включая все сегменты. |
+| `catalog_vacuum_age_master`<br/>`DGAUGE`, секунды | Максимальное время с последнего vacuum среди всех таблиц каталога на мастере. |
+| `pg_attribute_dead_tuples_segment`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в таблице `pg_attribute` по всем сегментам. |
+| `pg_attribute_live_tuples_segment`<br/>`DGAUGE`, штуки | Количество `live_tuple` в таблице `pg_attribute` по всем сегментам. |
+| `pg_attribute_size_segment`<br/>`DGAUGE`, байты | Размер таблицы `pg_attribute` по всем сегментам. |
+| `pg_attribute_vacuum_age_segment`<br/>`DGAUGE`, секунды | Время с последнего vacuum таблицы `pg_attribute` среди всех сегментов. |
+| `pg_attribute_dead_tuples_master`<br/>`DGAUGE`, штуки | Количество `dead_tuple` в таблице `pg_attribute` на мастере. |
+| `pg_attribute_live_tuples_master`<br/>`DGAUGE`, штуки | Количество `live_tuple` в таблице `pg_attribute` на мастере. |
+| `pg_attribute_size_master`<br/>`DGAUGE`, байты | Размер таблицы `pg_attribute` на мастере, включая все сегменты. |
+| `pg_attribute_vacuum_age_master`<br/>`DGAUGE`, секунды | Время с последнего vacuum таблицы `pg_attribute` на мастере. |
 
 ## Метрики PXF {#managed-greenplum-pxf-metrics}
 
@@ -470,6 +607,8 @@ PXF помечает все метрики, которые он возвраща
 | `snmp.icmpouterrors`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, которые этот объект не отправил из-за проблем, обнаруженных в ICMP, таких как нехватка буферов (в сетевом протоколе SNMP). |
 | `snmp.icmpoutmsgs`<br/>`DGAUGE`, штуки | Общее количество ICMP-сообщений, которые пытался отправить этот объект. Включает все сообщения, подсчитанные `snmp.icmpouterrors` (в сетевом протоколе SNMP). |
 | `snmp.icmpoutparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP (в сетевом протоколе SNMP). |
+| `snmp.icmpoutratelimitglobal`<br/>`DGAUGE`, штуки | Количество ограниченных (лимитированных) исходящих ICMP-сообщений, отправленных на глобальном уровне. |
+| `snmp.icmpoutratelimithost`<br/>`DGAUGE`, штуки | Количество ограниченных (лимитированных) исходящих ICMP-сообщений, отправленных конкретным хостом. |
 | `snmp.icmpoutredirects`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с перенаправлениями маршрута (в сетевом протоколе SNMP). |
 | `snmp.icmpoutsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP (в сетевом протоколе SNMP). |
 | `snmp.icmpouttimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с превышением времени ICMP превысило количество отправленных сообщений (в сетевом протоколе SNMP). |
@@ -490,6 +629,7 @@ PXF помечает все метрики, которые он возвраща
 | `snmp.ipoutdiscards`<br/>`DGAUGE`, штуки | Количество выходящих IP-пакетов, для которых не возникло проблем, препятствующих их передаче по назначению, но которые были отброшены (например, из-за нехватки места в буфере). Обратите внимание, что этот счетчик включал бы пакеты, подсчитанные в `snmp.ipforwdatagrams`, если бы такие пакеты удовлетворяли этому (дискреционному) критерию отбрасывания (в сетевом протоколе SNMP). |
 | `snmp.ipoutnoroutes`<br/>`DGAUGE`, штуки | Количество отброшенных IP-пакетов, для которых не удалось найти маршрут для их передачи по назначению. Этот счетчик включает все пакеты, подсчитанные в `snmp.ipforwdatagrams`, которые соответствуют критерию «без маршрута». Сюда входят любые пакеты, которые хост не может перенаправить, поскольку все его маршрутизаторы по умолчанию не работают. |
 | `snmp.ipoutrequests`<br/>`DGAUGE`, штуки | Общее количество IP-пакетов, которые локальные пользовательские протоколы IP (включая ICMP) передали IP в запросах на передачу. Этот счетчик не включает в себя пакеты, подсчитанные в `snmp.ipforwdatagrams` (в сетевом протоколе SNMP). |
+| `snmp.ipouttransmits`<br/>`DGAUGE`, штуки | Количество IP-пакетов, отправленных интерфейсом. |
 | `snmp.ipreasmfails`<br/>`DGAUGE`, штуки | Количество сбоев, обнаруженных алгоритмом повторной сборки IP (по любой причине: тайм-аут, ошибки и т.д.). Это не обязательно количество отброшенных IP-фрагментов, поскольку некоторые алгоритмы (в частности, алгоритм в RFC 815) могут потерять отслеживание количества фрагментов, объединяя их по мере их получения (в сетевом протоколе SNMP). |
 | `snmp.ipreasmoks`<br/>`DGAUGE`, штуки | Количество IP-пакетов, успешно собранных повторно (в сетевом протоколе SNMP). |
 | `snmp.ipreasmreqds`<br/>`DGAUGE`, штуки | Количество полученных IP-фрагментов, которые необходимо было повторно собрать в этом объекте (в сетевом протоколе SNMP). |
@@ -517,10 +657,12 @@ PXF помечает все метрики, которые он возвраща
 | `snmp.udpliteincsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный пакет UDP-Lite содержит недопустимую контрольную сумму кода ядра (в сетевом протоколе SNMP). |
 | `snmp.udpliteindatagrams`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP-Lite (в сетевом протоколе SNMP). |
 | `snmp.udpliteinerrors`<br/>`DGAUGE`, штуки | Общее количество ошибок при получении пакетов UDP-Lite (в сетевом протоколе SNMP). |
+| `snmp.udplitememerrors`<br/>`DGAUGE`, штуки | Количество ошибок памяти UDP-Lite (в сетевом протоколе SNMP). |
 | `snmp.udplitenoports`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP-Lite, для которых на порте назначения не было слушателя (в сетевом протоколе SNMP). |
 | `snmp.udpliteoutdatagrams`<br/>`DGAUGE`, штуки | Общее количество пакетов UDP-Lite, отправленных от этого объекта (в сетевом протоколе SNMP). |
 | `snmp.udplitercvbuferrors`<br/>`DGAUGE`, штуки | Увеличивается, когда память не может быть выделена для обработки входящего пакета UDP-Lite (в сетевом протоколе SNMP). |
 | `snmp.udplitesndbuferrors`<br/>`DGAUGE`, штуки | Увеличивается, когда память не может быть выделена для отправки пакета UDP-Lite (в сетевом протоколе SNMP). |
+| `snmp.udpmemerrors`<br/>`DGAUGE`, штуки | Количество ошибок памяти UDP-Lite (в сетевом протоколе SNMP). |
 | `snmp.udpnoports`<br/>`DGAUGE`, штуки | Общее количество принятых UDP-пакетов, для которых на порте назначения не было слушателя (в сетевом протоколе SNMP). |
 | `snmp.udpoutdatagrams`<br/>`DGAUGE`, штуки | Общее количество UDP-пакетов, отправленных от этого объекта (в сетевом протоколе SNMP). |
 | `snmp.udprcvbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера приема UDP (в сетевом протоколе SNMP). |
@@ -561,6 +703,7 @@ PXF помечает все метрики, которые он возвраща
 | `snmp6.icmp6outneighborsolicits`<br/>`DGAUGE`, штуки | Количество отправленных запросов соседей (Neighbor Solicitation) ICMPv6 (в сетевом протоколе SNMP). |
 | `snmp6.icmp6outparmproblems`<br/>`DGAUGE`, штуки | Количество ошибок при отправке ICMPv6-сообщений о некорректных параметрах (в сетевом протоколе SNMP). |
 | `snmp6.icmp6outpkttoobigs`<br/>`DGAUGE`, штуки | Количество ошибок при отправке ICMPv6-сообщений о слишком больших пакетах (в сетевом протоколе SNMP). |
+| `snmp6.icmp6outratelimithost`<br/>`DGAUGE`, штуки | Количество ограниченных (лимитированных) исходящих ICMPv6-сообщений. |
 | `snmp6.icmp6outredirects`<br/>`DGAUGE`, штуки | Количество отправленных ICMPv6-сообщений с перенаправлениями маршрута (в сетевом протоколе SNMP). |
 | `snmp6.icmp6outrouteradvertisements`<br/>`DGAUGE`, штуки | Количество отправленных объявлений маршрутизаторов (Router Advertisement) ICMPv6 (в сетевом протоколе SNMP). |
 | `snmp6.icmp6outroutersolicits`<br/>`DGAUGE`, штуки | Количество отправленных запросов маршрутизаторов (Router Solicitation) ICMPv6 (в сетевом протоколе SNMP). |
@@ -599,6 +742,7 @@ PXF помечает все метрики, которые он возвраща
 | `snmp6.ip6outnoroutes`<br/>`DGAUGE`, штуки | Количество отброшенных IPv6-пакетов, для которых не удалось найти маршрут для их передачи по назначению (в сетевом протоколе SNMP). |
 | `snmp6.ip6outoctets`<br/>`DGAUGE`, штуки | Общее количество отправленных внешних байт с IPv6-адресами и расширенными сведениями о трафике (в сетевом протоколе SNMP). |
 | `snmp6.ip6outrequests`<br/>`DGAUGE`, штуки | Общее количество IPv6-пакетов, которые локальные пользовательские протоколы IPv6 (включая ICMP) передали IPv6 в запросах на передачу (в сетевом протоколе SNMP). |
+| `snmp6.ip6outtransmits`<br/>`DGAUGE`, штуки | Количество отправленных пакетов IPv6 (в сетевом протоколе SNMP). |
 | `snmp6.ip6reasmfails`<br/>`DGAUGE`, штуки | Количество сбоев, обнаруженных алгоритмом повторной сборки IPv6 (по любой причине: тайм-аут, ошибки и т.д.). Это не обязательно количество отброшенных IPv6-фрагментов, поскольку некоторые алгоритмы (в частности, алгоритм в RFC 815) могут потерять отслеживание количества фрагментов, объединяя их по мере их получения (в сетевом протоколе SNMP). |
 | `snmp6.ip6reasmoks`<br/>`DGAUGE`, штуки | Количество IPv6-пакетов, успешно собранных повторно (в сетевом протоколе SNMP). |
 | `snmp6.ip6reasmreqds`<br/>`DGAUGE`, штуки | Количество полученных IPv6-фрагментов, которые необходимо было повторно собрать в этом объекте (в сетевом протоколе SNMP). |
@@ -607,6 +751,7 @@ PXF помечает все метрики, которые он возвраща
 | `snmp6.udp6incsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный UDPv6-пакет содержит недопустимую контрольную сумму кода ядра (в сетевом протоколе SNMP). |
 | `snmp6.udp6indatagrams`<br/>`DGAUGE`, штуки | Общее количество принятых UDPv6-пакетов (в сетевом протоколе SNMP). |
 | `snmp6.udp6inerrors`<br/>`DGAUGE`, штуки | Количество полученных UDPv6-пакетов с ошибками, не включая ошибки контрольной суммы (в сетевом протоколе SNMP). |
+| `snmp6.udp6memerrors`<br/>`DGAUGE`, штуки | Количество ошибок памяти UDPv6 (в сетевом протоколе SNMP). |
 | `snmp6.udp6noports`<br/>`DGAUGE`, штуки | Общее количество полученных UDPv6-пакетов, для которых на порту назначения не было приложения (в сетевом протоколе SNMP). |
 | `snmp6.udp6outdatagrams`<br/>`DGAUGE`, штуки | Общее количество UDPv6-пакетов, отправленных от этого объекта (в сетевом протоколе SNMP). |
 | `snmp6.udp6rcvbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера приема UDPv6 (в сетевом протоколе SNMP). |
@@ -614,7 +759,42 @@ PXF помечает все метрики, которые он возвраща
 | `snmp6.udplite6incsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный пакет UDP-Litev6 содержит недопустимую контрольную сумму кода ядра (в сетевом протоколе SNMP). |
 | `snmp6.udplite6indatagrams`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP-Litev6 (в сетевом протоколе SNMP). |
 | `snmp6.udplite6inerrors`<br/>`DGAUGE`, штуки | Общее количество ошибок при получении пакетов UDP-Litev6 (в сетевом протоколе SNMP). |
+| `snmp6.udplite6memerrors`<br/>`DGAUGE`, штуки | Количество ошибок памяти UDP-Litev6 (в сетевом протоколе SNMP). |
 | `snmp6.udplite6noports`<br/>`DGAUGE`, штуки | Количество полученных пакетов UDP-Litev6, для которых не найден соответствующий порт приемника (в сетевом протоколе SNMP). |
 | `snmp6.udplite6outdatagrams`<br/>`DGAUGE`, штуки | Общее количество пакетов UDP-litev6, отправленных от этого объекта (в сетевом протоколе SNMP). |
 | `snmp6.udplite6rcvbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера приема UDP-Litev6 (в сетевом протоколе SNMP). |
 | `snmp6.udplite6sndbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера отправки UDP-Litev6 (в сетевом протоколе SNMP). |
+
+## Метрики нагрузки на ресурсы системы (Linux PSI) {#managed-greenplum-pressure-stall-information-metrics}
+| Имя<br/>Тип, единицы измерения | Описание |
+| :--- | :--- |
+| `psi.cpu.some.avg10`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за нехватки вычислительных ресурсов, за последние 10 секунд. |
+| `psi.cpu.some.avg60`<br/>`DGAUGE`, %  | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за нехватки вычислительных ресурсов, за последние 60 секунд. |
+| `psi.cpu.some.avg300`<br/>`DGAUGE`, %  | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за нехватки вычислительных ресурсов, за последние 300 секунд. |
+| `psi.cpu.some.total`<br/>`DGAUGE`, миллисекунды | Общее время, в течение которого некоторые процессы ожидали доступа к ресурсам процессора. |
+| `psi.memory.full.avg10`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого все активные задачи одновременно задерживались из-за недостатка доступной памяти, за последние 10 секунд. |
+| `psi.memory.full.avg60`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого все активные задачи одновременно задерживались из-за недостатка доступной памяти, за последние 60 секунд. |
+| `psi.memory.full.avg300`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого все активные задачи одновременно задерживались из-за недостатка доступной памяти, за последние 300 секунд. |
+| `psi.memory.full.total`<br/>`DGAUGE`, миллисекунды | Общее время, в течение которого все процессы ожидали доступа к ресурсам памяти. |
+| `psi.memory.some.avg10`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за недостатка доступной памяти, за последние 10 секунд. |
+| `psi.memory.some.avg60`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за недостатка доступной памяти, за последние 60 секунд. |
+| `psi.memory.some.avg300`<br/>`DGAUGE`, % | Среднее значение доли времени, в течение которого хотя бы некоторые задачи задерживались из-за недостатка доступной памяти, за последние 300 секунд. |
+| `psi.memory.some.total`<br/>`DGAUGE`, миллисекунды | Общее время, в течение которого некоторые процессы ожидали доступа к ресурсам памяти. |
+
+## Метрики процессов {#managed-greenplum-process-metrics}
+| Имя<br/>Тип, единицы измерения | Описание |
+| :--- | :--- |
+| `proc_state_stat.idle`<br/>`DGAUGE`, штуки | Количество процессов в статусе `idle`. |
+| `proc_state_stat.running`<br/>`DGAUGE`, штуки | Количество процессов в статусе `running`. |
+| `proc_state_stat.interruptible_sleep`<br/>`DGAUGE`, штуки | Количество процессов в статусе `interruptible_sleep`. |
+| `proc_state_stat.uninterruptible_sleep`<br/>`DGAUGE`, штуки | Количество процессов в статусе `uninterruptible_sleep`. |
+| `proc_state_stat.zombie`<br/>`DGAUGE`, штуки | Количество процессов в статусе `zombie`. |
+| `proc_state_stat.stopped_by_debugger`<br/>`DGAUGE`, штуки | Количество процессов в статусе `stopped_by_debugger`. |
+| `proc_state_stat.stopped_by_job_control_signal`<br/>`DGAUGE`, штуки | Количество процессов в статусе `stopped_by_job_control_signal`. |
+
+## Прочие метрики {#managed-greenplum-other-metrics}
+| Имя<br/>Тип, единицы измерения | Описание |
+| ----- | ----- |
+| `core_dump.count`<br/>`DGAUGE`, штуки | Количество дампов ядра. |
+| `dmesg_events.cgroup.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в `cgroup`. |
+| `dmesg_events.system.oom`<br/>`DGAUGE`, штуки | Количество событий `OOM` в системе. |

@@ -1,13 +1,14 @@
 # HttpBackendGroup resource fields
 
+`HttpBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing traffic. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
-The `HttpBackendGroup` resource enables you to combine backends that are {{ k8s }} services and that traffic is distributed to, into a group. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
-You must add a reference to `HttpBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md).
+You need to add a reference to `HttpBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md).
 
 {% include [k8s-ingress-controller-backend-group-features](../../application-load-balancer/k8s-ingress-controller-backend-group-features.md) %}
 
-`HttpBackendGroup` is a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `alb.yc.io` API group provided by the Ingress controller.
+`HttpBackendGroup` is a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) from the `alb.yc.io` API group provided by an Ingress controller.
 
 ## HttpBackendGroup {#http-backend-group}
 
@@ -39,6 +40,10 @@ spec:
           unhealthyThreshold: <int32>
           timeout: <string>
           interval: <string>
+      loadBalancingConfig:
+        balancerMode: <string>
+        panicThreshold: <int64>
+        localityAwareRouting: <int64>
     - ...
 ```
 
@@ -46,116 +51,141 @@ Where:
 
 * `apiVersion`: `alb.yc.io/v1alpha1`
 * `kind`: `HttpBackendGroup`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
+  
+  Resource metadata.
 
-   Resource metadata.
+  * `name` (`string`; this is a required field)
 
-   * `name` (`string`, required)
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  
+    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
 
-      Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-
-      You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see the [configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
-
-      This name is not the backend group name in {{ alb-name }}.
+    Do not mistake this name for the {{ alb-name }} backend group name.
 
 * `spec` (`HttpBackendGroupSpec`)
 
-   Resource specification.
+  Resource specification.
+  
+  * `backends` (`[]HttpBackend`)
+  
+    List of backends in the group.
+    
+    * `name` (`string`; this is a required field)
+    
+      Backend name.
+    
+    * `weight` (`int64`)
 
-   * `backends` (`[]HttpBackend`)
+      Backend weight. Backends in a group receive traffic in proportion to their weights.
 
-      List of backends in the group.
+      You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed across backends.
 
-      * `name` (`string`, required)
+      A backend with zero or negative weight will not be receiving traffic.
+    
+    * `useHttp2` (`bool`)
+    
+      Enables HTTP/2 connections between load balancer nodes and backend endpoints.
 
-         Backend name.
+      The default value is `false`, which means only HTTP/1.1 connections are allowed.
 
-      * `weight` (`int64`)
+    * `service` (`ServiceBackend`)
 
-         Relative backend weight. Traffic is distributed to backends in a group as a function of backend weights.
+      Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) to process requests as a backend.
 
-         Weights must be specified either for all backends in a group, or for none. If weights are not specified, traffic is distributed to the backends as if they had identical positive weights.
+      The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
-         If a non-positive weight is specified, a backend will not receive traffic.
+      You must specify a service or an {{ objstorage-name }} bucket, i.e.,`storageBucket`, for the backend. You cannot specify both at the same time.
 
-      * `useHttp2` (`bool`)
+      {% include [k8s-ingress-controller-service-backend](../../application-load-balancer/k8s-ingress-controller-service-backend.md) %}
+        
+    * `storageBucket` (`StorageBucketBackend`)
 
-         Enables HTTP/2 connections between the load balancer nodes and the backend endpoints.
+      [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) for processing requests as a backend. To learn more about using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
 
-         The default value, `false`, results in HTTP/1.1 connections.
+      {% include [bucket-availability-note](../../../application-load-balancer/_includes_service/bucket-availability-note.md) %}
 
-      * `service` (`ServiceBackend`)
+      You must specify a bucket or {{ k8s }} `service` for the backend. You cannot specify both at the same time.
+      
+      * `name` (`string`; this is a required field)
+      
+        Bucket name.
+        
+    * `tls` (`BackendTLS`)
+    
+      TLS connection settings for the load balancer nodes and backend endpoints.
+    
+      If this field is specified, the load balancer will establish TLS connections to the backend, comparing received certificates with the one specified in the `trustedCa` field. Otherwise, the load balancer will use unencrypted connections to the backend.
+        
+      * `sni` (`string`)
+      
+        SNI domain name for TLS connections.
+      
+      * `trustedCa` (`string`)
+      
+        Contents of the X.509 certificate issued by a certificate authority in PEM format.
 
-         Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) expected to process requests as a backend.
+    * `healthChecks` (`[]HealthChecks`)
 
-         The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+      Custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) settings for {{ managed-k8s-name }} cluster applications.
 
-         A backend must either have a service or an {{ objstorage-name }} bucket specified (`storageBucket`) but not both.
+      By default, the {{ alb-name }} Ingress controller receives L7 load balancer health check requests on TCP port `10501`. Then it checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} redirects traffic to a different pod or node.
+      
+      You can use `healthChecks` settings to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
 
-         {% include [k8s-ingress-controller-service-backend](../../application-load-balancer/k8s-ingress-controller-service-backend.md) %}
+      * `http` (`HttpBackend`)
 
-      * `storageBucket` (`StorageBucketBackend`)
+        Specifies HTTP as the health check protocol.
 
-         Reference to a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) expected to process requests as a backend. To learn more about using a bucket as a backend, see [{#T}](../../../application-load-balancer/concepts/backend-group.md#types).
+        * `path` (`string`)
 
-         {% include [bucket-availability-note](../../../application-load-balancer/_includes_service/bucket-availability-note.md) %}
+          Application endpoint URI path for health check requests, e.g., `/health`.
 
-         Either a bucket or a {{ k8s }} service (`service`) must be specified for a backend but not both.
+      * `port` (`int32`)
 
-         * `name` (`string`, required)
+        Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource.
 
-            Bucket name.
+        The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
 
-      * `tls` (`BackendTLS`)
+      * `healthyThreshold` (`int32`)
 
-         TLC connection settings for the load balancer nodes and backend endpoints.
+        Number of consecutive successful checks required to consider the application endpoint healthy.
 
-         If the field is specified, the load balancer established TLS connections with the backend and compares the certificates received to the certificate specified in the `trustedCa` field. If the field is not specified, the load balancer will make unencrypted connections to the backend.
+      * `unhealthyThreshold` (`int32`)
 
-         * `sni` (`string`)
+        Number of consecutive failed checks required to consider the application endpoint unhealthy.
 
-            Domain name specified as the value for the Server Name Indication (SNI) TLS extension.
+      * `timeout` (`string`)
 
-         * `trustedCa` (`string`)
+        Response timeout in seconds. You can specify values between `1s` and `60s`.
 
-            Contents of the X.509 certificate issued by a certificate authority in PEM format.
+      * `interval` (`string`)
 
-      * `healthChecks` (`[]HealthChecks`)
+        Health check request interval in seconds.
 
-         Settings for custom [health checks](../../../application-load-balancer/concepts/backend-group.md#health-checks) of applications in a {{ managed-k8s-name }} cluster.
+        You can specify values between `1s` and `60s`. `interval` must exceed `timeout` by at least one second.
 
-         By default, the {{ alb-name }} Ingress controller accepts health check requests from the L7 load balancer on TCP port `10501` and checks if the [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods work properly on each cluster node. If kube-proxy is healthy, then, even if an application in a particular pod does not respond, {{ k8s }} will redirect traffic to a different pod with that application or to a different node.
+      {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
 
-         The `healthChecks` parameters allow you to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
+    * `loadBalancingConfig` (`LoadBalancingConfig`)
 
-         * `http` (`HttpBackend`)
+      Load balancing settings.
 
-            Sets HTTP as the protocol to use for the health check.
+      * `balancerMode` (`string`)
 
-            * `path` (`string`)
+        Mode of traffic distribution across backend endpoints. The possible values are `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, and `MAGLEV_HASH`. Learn more about each mode [here](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
 
-               Path to the application's health check endpoint in the request URI, e.g. `/health`.
+      * `panicThreshold` (`int64`)
 
-         * `port` (`int32`)
+        Percentage of healthy endpoints. Values below this threshold will trigger the [panic mode](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
 
-            Port on the cluster nodes used to check the application's availability. The same port is specified in the `NodePort` type [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource, in the `spec.ports.nodePort` parameter.
+        The default value is `0`, which means the panic mode will never be activated.
 
-            The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
+      * `localityAwareRouting` (`int64`)
 
-         * `healthyThreshold` (`int32`)
+        Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is evenly distributed across other availability zones. For more information on locality-aware routing, see [this guide](../../../application-load-balancer/concepts/backend-group.md#locality).
 
-            Number of consecutive successful checks to consider the application endpoint healthy.
+        The default value is `0`.
 
-         * `unhealthyThreshold` (`int32`)
 
-            Number of consecutive failed checks to consider the application endpoint unhealthy.
 
-         * `timeout` (`string`)
-
-            Response timeout in seconds. The possible values range from `1s` to `60s`.
-
-         * `interval` (`string`)
-
-            Interval between health check requests in seconds.
-
-            The possible values range from `1s` to `60s`. The `interval` value must be larger than `timeout` by at least one second.

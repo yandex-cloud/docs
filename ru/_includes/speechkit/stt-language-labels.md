@@ -1,27 +1,54 @@
-Сервис {{ speechkit-short-name }} позволяет в ходе распознавания речи автоматически определять язык речи и возвращать вместе с результатами распознавания языковые метки, содержащие вероятность правильного определения языка.
-Чтобы настроить автоматическое определение языка, необходимо в параметре `language_code` метода `LanguageRestrictionOptions()` указать значение `auto`:
+{% endlist %}
+
+{% note info %}
+
+Определение языка и расстановка языковых меток доступно только в API v3.
+
+{% endnote %}
+
+Сервис {{ speechkit-short-name }} в ходе распознавания речи автоматически определяет язык в каждом отдельном предложении.
+
+Чтобы использовать автоматическое определение языка, в параметре `language_code` метода `LanguageRestrictionOptions()` укажите значение `auto`:
 
 {% list tabs group=programming_language %}
 
 - Python 3 {#python}
 
-    ```python
-	    language_restriction=stt_pb2.LanguageRestrictionOptions(
-            restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
-            language_code=['auto']
-        )
-    ```
+  ```python
+  language_restriction=stt_pb2.LanguageRestrictionOptions(
+        restriction_type=stt_pb2.LanguageRestrictionOptions.WHITELIST,
+        language_code=['auto']
+  )
+  ```
 
 {% endlist %}
 
-Языковые метки содержат код языка и вероятность правильности его определения:
+Вместе с результатами распознавания сервис возвращает языковые метки, содержащие код языка и вероятность правильности его определения:
+
 ```yaml
-    language_code: "ru-RU" probability: 0.91582357883453369
+language_code: "ru-RU" probability: 0.91582357883453369
 ```
 
+Если одно предложение состоит из слов на разных языках, то язык может быть определен неверно. Чтобы распознавание было точнее, вместо значения `auto` укажите список ожидаемых языков как подсказку для модели. Например:
 
-{% note info %}
+{% list tabs group=programming_language %}
 
-Определение языка и расстановка языковых меток доступно только в gRPC API v3.
+- Python 3 {#python}
 
-{% endnote %}
+  ```python
+  ...
+        language_code=['en-US', 'es-ES', 'fr-FR']
+  ...
+  ```
+
+{% endlist %}
+
+Язык определяется для каждой фразы. Если в предложении встречаются фразы на нескольких языках, вероятнее всего они все будут распознаны на одном языке.
+
+**Примеры**
+
+**Текст в аудио** | **Транскрибация**
+--- | ---
+Открой Whats'app | Открой ватсап
+Это можно настроить в Windows Hello или другом сервисе | Это можно настроить в виндс хеллоу или другом сервисе
+Men koʻchada sayr qilishni va muzqaymoq isteʼmol qilishni yaxshi koʻraman, я люблю гулять по улице и есть мороженое | Men koʻchada sayr qilishni va muzqaymoq isteʼmol qilishni yaxshi koʻraman, я люблю гулять по улице и есть мороженое

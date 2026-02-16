@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -27,14 +27,18 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
+      * Чтобы добавить [метки](../../concepts/labels.md):
+
+          * Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          * Введите метку в формате `ключ: значение`.
+          * Нажмите **Enter**.
+
       * Чтобы настроить [TLS-сертификат](../../concepts/clients-to-servers-tls.md) для CDN-ресурса, в поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите одну из опций:
 
           * `{{ ui-key.yacloud.cdn.value_certificate-no }}` — ресурс будет доступен только по протоколу HTTP.
 
 
           * `{{ ui-key.yacloud.cdn.value_certificate-custom }}` — выберите сертификат. Ресурс будет доступен по протоколам HTTP и HTTPS.
-
-              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
 
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
@@ -144,7 +148,9 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы отключить политику доступа по IP-адресам, используйте параметр `--clear-ip-address-acl`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Чтобы добавить или удалить [метки](../../concepts/labels.md), используйте параметры `--add-labels`, `--remove-labels` и `--remove-all-labels`.
+
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 

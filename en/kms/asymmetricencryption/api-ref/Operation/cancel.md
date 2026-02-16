@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}:cancel
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the operation to cancel.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/Operation/cancel.md
 ---
 
-# Key Management Service API, REST: Operation.Cancel {#Cancel}
+# Key Management Service API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

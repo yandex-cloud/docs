@@ -2,20 +2,22 @@
 
 This section describes typical problems that may arise during [transfer](../concepts/index.md#transfer) [activation](../operations/transfer.md#activate) or operation, and the relevant solutions.
 
-* [{#T}](#overview)
-* [{#T}](#common)
-* [{#T}](#data-transform)
-* [{#T}](#api)
-* [{#T}](#network)
-* [{#T}](#clickhouse)
-* [{#T}](#elasticsearch)
-* [{#T}](#mongodb)
-* [{#T}](#mysql)
-* [{#T}](#opensearch)
-* [{#T}](#postgresql)
-* [{#T}](#ydb)
-* [{#T}](#yds)
-* [{#T}](#support)
+* [Problems that arise when working with {{ data-transfer-name }}](#overview)
+* [General](#common)
+* [Errors displayed on the timeline](#timeline)
+* [Data transformation](#data-transform)
+* [API errors](#api)
+* [Network](#network)
+* [{{ CH }}](#clickhouse)
+* [{{ MG }}](#mongodb)
+* [{{ MY }}](#mysql)
+* [{{ objstorage-name }}](#object-storage)
+* [{{ OS }}](#opensearch)
+* [{{ PG }}](#postgresql)
+* [{{ ydb-full-name }}](#ydb)
+* [{{ yds-full-name }}](#yds)
+* [{{ GP }}](#greenplum)
+* [Who to report your problem to](#support)
 
 ## Problems that arise when working with {{ data-transfer-name }} {#overview}
 To detect a problem in time:
@@ -27,12 +29,12 @@ To detect a problem in time:
 
 If {{ data-transfer-name }} operation was disrupted during data transfer, try to localize and analyze the problem. You may find certain solutions in this article or other sections of our documentation.
 
-| Issue source     | Issue                                                    | Solution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|-----------------------|-------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Endpoint              | Lack of network accessibility or endpoint access permissions | Check source reading using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check writing to the target using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data can be read and written, check if there are any [DBMS-related restrictions](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [setting up](../operations/index.md) the endpoint.</br>Check our [suggested solutions](#common). |
-| Endpoint or transfer | Lack of physical resources for the transfer or endpoints     | If the data can be read and written, check if there are enough physical resources on the charts: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Read the guidelines for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../managed-mongodb/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md).                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Data                | Outdated data due to changes in the data schema          | See the different data transfer scenarios in the [{{ data-transfer-name }} tutorials](../tutorials/index.md) section.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Data                | Outdated data due to large data volume            | Allocate more workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into multiple transfers.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Issue source | Issue | Solution |
+|-------------------|----------|---------|
+| Endpoint | Lack of network accessibility or endpoint access permissions | Check source reading using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>Check writing to the target using the following charts: [Maximum data transfer delay](../operations/monitoring.md#sinker.pusher.time.row_max_lag_sec), [Number of source events](../operations/monitoring.md#publisher.data.changeitems), [Number of target events](../operations/monitoring.md#sinker.pusher.data.changeitems), and [Reads](../operations/monitoring.md#publisher.data.bytes).</br>If the data can be read and written, check if there are any [DBMS-related restrictions](../operations/transfer.md).</br>Check the requirements for [preparing](../operations/prepare.md) and [setting up](../operations/index.md) the endpoint.</br>Check our [suggested solutions](#common). |
+| Endpoint or transfer | Lack of physical resources for the transfer or endpoints | If the data can be read and written, check if there are enough physical resources on these charts: [CPU](../operations/monitoring.md#proc.cpu%7Cproc.guarantee.cpu) and [RAM](../operations/monitoring.md#proc.ram%7Cproc.guarantee.mem).</br>Read the guidelines for DBMS diagnostics. For example, [{{ MY }}](../../managed-mysql/operations/performance-diagnostics.md), [{{ MG }}](../../storedoc/operations/performance-diagnostics.md), or [{{ PG }}](../../managed-postgresql/operations/performance-diagnostics.md). |
+| Data | Outdated data due to changes in the data schema | See the different data transfer scenarios in the [{{ data-transfer-name }}](../tutorials/index.md) tutorialssection. |
+| Data | Outdated data due to large data volume | Allocate more workers for [parallel copying](../concepts/sharded.md) or [replication](../operations/transfer.md#create).</br>Split the tables into multiple transfers. |
 
 After solving the problem, depending on the status of the transfer, activate it or change the data transfer limits of the running transfer.
 
@@ -48,6 +50,21 @@ After solving the problem, depending on the status of the transfer, activate it 
 
 {% include [insufficiency-resources](../../_includes/data-transfer/troubles/insufficiency-resources.md) %}
 
+{% include [permission-denied](../../_includes/data-transfer/troubles/permission-denied.md) %}
+
+{% include [unable-to-parse-obj](../../_includes/data-transfer/troubles/unable-to-parse-obj.md) %}
+
+{% include [failed-to-connect](../../_includes/data-transfer/troubles/failed-to-connect.md) %}
+
+{% include [no-alive-hosts](../../_includes/data-transfer/troubles/no-alive-hosts.md) %}
+
+{% include [operation-canceled](../../_includes/data-transfer/troubles/operation-canceled.md) %}
+
+{% include [unknown-user](../../_includes/data-transfer/troubles/unknown-user.md) %}
+
+
+{% include [no-such-host](../../_includes/data-transfer/troubles/no-such-host.md) %}
+
 ### Decrease in transfer speed {#speed-degrade}
 
 **Issue**:
@@ -62,11 +79,23 @@ Use the `Drop` or `Truncate` cleanup policy.
 {% include [required-role](../../_includes/data-transfer/troubles/required-roles.md) %}
 
 
+## Errors displayed on the transfer timeline {#timeline}
+
+{% include [no-items-in-memory](../../_includes/data-transfer/troubles/timeline/no-items-in-memory.md) %}
+
+{% include [transfer-time-sound](../../_includes/data-transfer/troubles/timeline/transfer-time-sound.md) %}
+
+{% include [row-max-lag-constant](../../_includes/data-transfer/troubles/timeline/row-max-lag-constant.md) %}
+
+{% include [replication-restarts](../../_includes/data-transfer/troubles/timeline/replication-restarts.md) %}
+
 ## Data transformation {#data-transform}
 
 {% include [required-role](../../_includes/data-transfer/troubles/data-transformation/filtr-append-only-sources.md) %}
 
 ## API errors {#api}
+
+### "code": 13 {#code13}
 
 Error example:
 
@@ -76,7 +105,12 @@ Error example:
 
 **Solution**: Contact [support]({{ link-console-support }}) or your account manager and provide the `request_id`. If you are using `curl` for API calls, add the `-v` flag to facilitate error diagnostics.
 
+
 ## Network {#network}
+
+{% include [connection-refused](../../_includes/data-transfer/troubles/network/connection-refused.md) %}
+
+{% include [failed-to-connect-to](../../_includes/data-transfer/troubles/network/failed-to-connect-to.md) %}
 
 {% include [common-network](../../_includes/data-transfer/troubles/network/common-network.md) %}
 
@@ -89,20 +123,27 @@ Error example:
 {% include [transfer-error](../../_includes/data-transfer/troubles/network/transfer-error.md) %}
 
 
+{% include [vpc-user](../../_includes/data-transfer/troubles/network/vpc-user.md) %}
+
+
+{% include [connection-timed-out](../../_includes/data-transfer/troubles/network/connection-timed-out.md) %}
+
 ## {{ CH }} {#clickhouse}
 
-{% include [no-new-tables](../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
+{% include [no-new-tables](../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [ssl-is-required](../../_includes/data-transfer/troubles/clickhouse/ssl-is-required.md) %}
 
-{% include [date-range](../../_includes/data-transfer/troubles/date-range.md) %}
+{% include [date-range](../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
-## {{ ES }} {#elasticsearch}
+{% include [pod-restarted](../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
 
+{% include [max-partitions](../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
 
-{% include [ambiguous-object-resolution-es](../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
+{% include [no-tables-found](../../_includes/data-transfer/troubles/clickhouse/no-tables.md) %}
 
-{% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
+{% include [ch-ch-no-sharding](../../_includes/data-transfer/troubles/clickhouse/ch-ch-no-sharding.md) %}
+
 
 ## {{ MG }} {#mongodb}
 
@@ -123,6 +164,8 @@ Error example:
 
 {% include [cannot-get-delimiters](../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
 
+{% include [invalid-length](../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}
+
 ## {{ MY }} {#mysql}
 
 {% include [binlog-size](../../_includes/data-transfer/troubles/mysql/binlog-size.md) %}
@@ -135,9 +178,17 @@ Error example:
 
 {% include [binlog-bytes](../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
 
+{% include [binlog-position](../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
+
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
 {% include [timezone-shift](../../_includes/data-transfer/troubles/mysql/timezone-shift.md) %}
+
+{% include [no-tables-found](../../_includes/data-transfer/troubles/mysql/no-tables.md) %}
+
+## {{ objstorage-name }} {#object-storage}
+
+{% include [update-not-supported](../../_includes/data-transfer/troubles/object-storage/update-not-supported.md) %}
 
 ## {{ OS }} {#opensearch}
 
@@ -147,7 +198,15 @@ Error example:
 
 {% include [duplication](../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [mapper-parsing-exception](../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
+
+{% include [ssl-is-required](../../_includes/data-transfer/troubles/elastic-opensearch/ssl-is-required.md) %}
+
+{% include [no-tables](../../_includes/data-transfer/troubles/elastic-opensearch/no-tables.md) %}
+
 ## {{ PG }} {#postgresql}
+
+{% include [no-tables](../../_includes/data-transfer/troubles/postgresql/no-tables.md) %}
 
 {% include [master-trans-stop](../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -173,6 +232,8 @@ Error example:
 
 {% include [master-change](../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
 
+{% include [no-wal-story](../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
+
 {% include [inner-tables](../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
@@ -185,8 +246,11 @@ Error example:
 
 {% include [primary-keys](../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../_includes/data-transfer/troubles/drop-table-error.md) %}
 
+{% include [generated-columns](../../_includes/data-transfer/troubles/generated-columns.md) %}
 
 ## {{ ydb-full-name }} {#ydb}
 
@@ -199,8 +263,15 @@ Error example:
 {% include [redirects](../../_includes/data-transfer/troubles/data-streams/data-streams-redirects.md) %}
 
 
+## {{ GP }} {#greenplum}
 
-## Who to report the problem to {#support}
+{% include [threads_limit](../../_includes/data-transfer/troubles/greenplum/threads_limit.md) %}
+
+{% include [external_table_url_limit](../../_includes/data-transfer/troubles/greenplum/external_table_url_limit.md) %}
+
+{% include [gp_segment_configuration](../../_includes/data-transfer/troubles/greenplum/gp_segment_configuration.md) %}
+
+## Who to report your problem to {#support}
 
 If you tried the above suggestions but the problem persists, contact [support]({{ link-console-support }}).
 

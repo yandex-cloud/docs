@@ -10,6 +10,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру поставки данных:
@@ -18,14 +26,16 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте кластер-источник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
-    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации, с хостами в публичном доступе.
+    1. В той же [зоне доступности](../../../overview/concepts/geo-scope.md) [создайте кластер-приемник {{ mch-name }}](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе.
 
        Если вы планируете подключаться к кластеру через сервис {{ websql-full-name }}, включите в настройках кластера настройку **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}**.
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
-    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) и [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) разрешают подключение через интернет.
+    1. Убедитесь, что группы безопасности кластеров [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) и [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) разрешают подключение через интернет.
 
 - {{ TF }} {#tf}
 
@@ -54,7 +64,7 @@
         * `mch_username` — имя пользователя в кластере {{ mch-name }};
         * `mch_user_password` — пароль пользователя в кластере {{ mch-name }};
         * `source_endpoint_id` — идентификатор эндпоинта-источника;
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -215,7 +225,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите эндпоинт](../../../data-transfer/operations/endpoint/index.md#delete) для источника.
 1. Удалите остальные ресурсы в зависимости от способа их создания:
@@ -236,16 +246,7 @@
 
     - {{ TF }} {#tf}
 
-        1. В терминале перейдите в рабочую директорию с конфигурационным файлом `opensearch-to-clickhouse.tf`.
-        1. Удалите ресурсы с помощью команды:
-
-            ```bash
-            terraform destroy
-            ```
-
-        1. Введите слово `yes` и нажмите **Enter**.
-
-            Все ресурсы, которые были описаны в конфигурационном файле `opensearch-to-clickhouse.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

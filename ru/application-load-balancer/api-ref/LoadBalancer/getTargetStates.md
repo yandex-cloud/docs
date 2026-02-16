@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}/targetStates/{backendGroupId}/{targetGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer that the backend group is attributed to.
+          type: string
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group that the target group is attributed to.
+          type: string
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to get target states of.
+          type: string
+      required:
+        - loadBalancerId
+        - backendGroupId
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/getTargetStates.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.GetTargetStates {#GetTargetStates}
+# Application Load Balancer API, REST: LoadBalancer.GetTargetStates
 
 Returns the statuses of all targets of the specified backend group in all their availability zones.
 
@@ -102,7 +131,6 @@ Required field. ID of the availability zone. ||
 
 Status of the target in the availability zone.
 
-- `STATUS_UNSPECIFIED`
 - `HEALTHY`: All of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) are passed
 (the number depends on the [HealthCheck.healthyThreshold](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HealthCheck) setting) and the target is ready to receive traffic.
 - `PARTIALLY_HEALTHY`: Some of the health checks specified in [HttpBackend.healthchecks](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.healthchecks](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.GrpcBackend) failed

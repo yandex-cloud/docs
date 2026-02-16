@@ -15,4 +15,10 @@
 
 {% include [training-courses](../_includes/training/training-courses.md) %}
 
+
+#### См. также {#see-also}
+
+* [От ИИ‑агентов до инженерных практик: как мы обучали передовым технологиям в 2025 году](https://yandex.cloud/ru/blog/training-review-2025)
+
+
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -63,6 +63,8 @@ items:
         href: concepts/topic-table-transactions.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Ввод данных в системы хранения
         href: tutorials/data-ingestion.md
       - name: Умная обработка логов
@@ -83,6 +85,12 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/kafka-to-yds.md
+      - name: Поставка данных из очереди {{ yds-name }} в {{ ydb-name }}
+        href: tutorials/yds-to-ydb.md
+      - name: >-
+          Поставка данных в {{ mkf-full-name }} с помощью {{
+          data-transfer-full-name }}
+        href: tutorials/yds-to-kafka.md
       - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
         href: tutorials/ydb-to-yds.md
       - name: Захват изменений {{ PG }} и поставка в {{ DS }}
@@ -90,11 +98,43 @@ items:
       - name: Захват изменений {{ MY }} и поставка в {{ DS }}
         href: tutorials/mmy-to-yds.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: >-
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
+      - name: Обработка аудитных логов {{ at-name }}
+        href: tutorials/audit-trails.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
+      - name: Обработка потока изменений Debezium
+        href: tutorials/debezium.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/search-events-query.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
+      - name: Диагностика медленной записи в {{ yds-full-name }}
+        href: tutorials/slow-writes-debug.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -141,5 +181,3 @@ items:
         href: kafkaapi/auth.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/data-streams
-deepBase: 2

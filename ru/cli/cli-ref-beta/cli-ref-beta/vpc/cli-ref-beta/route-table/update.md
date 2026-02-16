@@ -1,0 +1,135 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/vpc/cli-ref-beta/route-table/update.md
+---
+
+# yc beta vpc route-table update
+
+Updates the specified route table.
+Method starts an asynchronous operation that can be cancelled while it is in progress.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta vpc route-table update <ROUTE-TABLE-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--description` | `string`
+
+Description of the route table. ||
+|| `--labels` | `stringToString`
+
+Resource labels as '' key:value '' pairs. ||
+|| `--name` | `string`
+
+Name of the route table. The name must be unique within the folder. ||
+|| `--route-table-id` | `string`
+
+ID of the RouteTable resource to update. ||
+|| `--static-routes` | `shorthand/json`
+
+List of static routes.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    destination = destination-prefix=str,
+    labels = {key=str, key=...},
+    next-hop = gateway-id=str | next-hop-address=str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "destination": {
+      "destination-prefix": "str"
+    },
+    "labels": {
+      "<key>": "str", ...
+    },
+    "next-hop": {
+      "gateway-id": "str",
+      "next-hop-address": "str"
+    }
+  }, ...
+]
+```
+
+Fields:
+
+```
+labels -> (map[string,string])
+  Resource labels as '' key:value '' pairs. Maximum of 64 per resource.
+destination -> (oneof<destination-prefix>)
+  Oneof destination field
+  destination-prefix -> (string)
+    Destination subnet in CIDR notation
+next-hop -> (oneof<gateway-id|next-hop-address>)
+  Oneof next-hop field
+  next-hop-address -> (string)
+    Next hop IP address
+  gateway-id -> (string)
+    Next hop gateway id
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -1,4 +1,9 @@
-# Вычисляемые поля
+---
+title: Вычисляемые поля в {{ datalens-full-name }}
+description: Вычисляемое поле в {{ datalens-full-name }} — это дополнительное поле данных, значения которого вычисляются по формуле.
+---
+
+# Вычисляемые поля в {{ datalens-full-name }}
 
 Вычисляемое поле — это дополнительное [поле данных](../../dataset/index.md#field), значения которого вычисляются по формуле.
 Вычисляемые поля позволяют вам создавать новые измерения и показатели. При этом источник данных не изменяется.
@@ -78,9 +83,11 @@
 
   {% include [datalens-create-calculated-field-in-dataset](../../../_includes/datalens/operations/datalens-create-calculated-field-in-dataset.md) %}
 
+  ![dataset-calculated-field](../../../_assets/datalens/concepts/dataset-calculated-field.png)
+
 - Визард
   
-
+  
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
@@ -89,6 +96,10 @@
   1. Введите название поля.
   1. Введите необходимую формулу.
   1. Нажмите кнопку **Создать**. Поле отобразится в списке слева. Вы можете использовать его в чарте.
+
+  ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
+
+  Также вы можете [продублировать](../../dataset/create-dataset.md#dublicate-fields) любое поле датасета, в том числе вычисляемое поле, которое вы создали ранее.
 
 {% endlist %}
 

@@ -1,0 +1,116 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/s3api/index.md
+---
+
+# yc beta storage s3api
+
+[PREVIEW] An aws s3api-like interface for accessing Object Storage
+
+#### Command Usage
+
+Syntax:
+
+`yc beta storage s3api <command>`
+
+#### Command Tree
+
+- [yc beta storage s3api abort-multipart-upload](abort-multipart-upload.md) — Aborts a multipart upload
+
+- [yc beta storage s3api complete-multipart-upload](complete-multipart-upload.md) — Completes a multipart upload
+
+- [yc beta storage s3api copy-object](copy-object.md) — Creates a copy of an object that is already stored in Object Storage
+
+- [yc beta storage s3api create-multipart-upload](create-multipart-upload.md) — Creates a new multipart upload
+
+- [yc beta storage s3api delete-object](delete-object.md) — Deletes an object from Object Storage
+
+- [yc beta storage s3api delete-object-tagging](delete-object-tagging.md) — Deletes all objects labels from a bucket
+
+- [yc beta storage s3api delete-objects](delete-objects.md) — Deletes objects based on a list of keys passed in a request
+
+- [yc beta storage s3api get-bucket-acl](get-bucket-acl.md) — Returns bucket access control list
+
+- [yc beta storage s3api get-object](get-object.md) — Returns an object from Object Storage
+
+- [yc beta storage s3api get-object-acl](get-object-acl.md) — Returns bucket object access control list
+
+- [yc beta storage s3api get-object-legal-hold](get-object-legal-hold.md) — Returns the settings of the legal hold placed on the object version
+
+- [yc beta storage s3api get-object-retention](get-object-retention.md) — Returns settings of the retention put on an object version
+
+- [yc beta storage s3api get-object-tagging](get-object-tagging.md) — Returns bucket object labels
+
+- [yc beta storage s3api head-object](head-object.md) — Returns object metadata from Object Storage
+
+- [yc beta storage s3api list-multipart-uploads](list-multipart-uploads.md) — Lists in-progress multipart uploads
+
+- [yc beta storage s3api list-objects](list-objects.md) — Lists objects in a bucket using listObjectsV2 http method
+
+- [yc beta storage s3api list-parts](list-parts.md) — Lists parts of a multipart upload
+
+- [yc beta storage s3api put-bucket-acl](put-bucket-acl.md) — Sets bucket access control list
+
+- [yc beta storage s3api put-object](put-object.md) — Puts an object and its metadata to Object Storage
+
+- [yc beta storage s3api put-object-acl](put-object-acl.md) — Sets bucket object access control list
+
+- [yc beta storage s3api put-object-legal-hold](put-object-legal-hold.md) — Puts or removes legal hold for an object version
+
+- [yc beta storage s3api put-object-retention](put-object-retention.md) — Puts retention on the object version or enables/disables a previously set lock
+
+- [yc beta storage s3api put-object-tagging](put-object-tagging.md) — Adds labels to a bucket object. This overwrites any existing object labels
+
+- [yc beta storage s3api upload-part](upload-part.md) — Uploads a part in a multipart upload
+
+- [yc beta storage s3api upload-part-copy](upload-part-copy.md) — Uploads a part by copying data from an existing object as data source
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

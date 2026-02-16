@@ -17,6 +17,8 @@ items:
             href: operations/internal-lb-create.md
           - name: Остановить и запустить сетевой балансировщик
             href: operations/load-balancer-start-and-stop.md
+          - name: Настроить защиту от удаления
+            href: operations/deletion-protection.md
           - name: Изменить настройки балансировщика
             href: operations/load-balancer-update.md
           - name: Переместить ВМ в целевую группу в новой зоне доступности
@@ -29,6 +31,12 @@ items:
             href: operations/listener-add.md
           - name: Удалить обработчик
             href: operations/listener-remove.md
+          - name: Управление зонами доступности
+            items:
+              - name: Разрешить и запретить перенос трафика
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Отключить и подключить зоны доступности
+                href: operations/manage-zone/disable-enable-zone.md
       - name: Целевые группы
         items:
           - name: Информация об имеющихся целевых группах
@@ -49,6 +57,8 @@ items:
         href: tutorials/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: tutorials/web-service.md
+      - name: Реализация отказоустойчивых сценариев для сетевых виртуальных машин
+        href: tutorials/route-switcher.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
@@ -73,6 +83,72 @@ items:
         href: tutorials/updating-under-load.md
       - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
         href: tutorials/dns-integration.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Реализация защищенной высокодоступной сетевой инфраструктуры с
+          выделением DMZ на основе Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: Развертывание Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: >-
+          Развертывание группы доступности Always On с внутренним сетевым
+          балансировщиком
+        href: tutorials/mssql-alwayson-lb.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          подключения защиты {{ sws-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
   - name: Концепции
     items:
       - name: Обзор
@@ -97,8 +173,64 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/load-balancer/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: network-load-balancer
+        items:
+          - name: Overview
+            href: cli-ref/network-load-balancer/index.md
+          - name: add-listener
+            href: cli-ref/network-load-balancer/add-listener.md
+          - name: attach-target-group
+            href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: create
+            href: cli-ref/network-load-balancer/create.md
+          - name: delete
+            href: cli-ref/network-load-balancer/delete.md
+          - name: detach-target-group
+            href: cli-ref/network-load-balancer/detach-target-group.md
+          - name: disable-zones
+            href: cli-ref/network-load-balancer/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/network-load-balancer/enable-zones.md
+          - name: get
+            href: cli-ref/network-load-balancer/get.md
+          - name: list
+            href: cli-ref/network-load-balancer/list.md
+          - name: list-operations
+            href: cli-ref/network-load-balancer/list-operations.md
+          - name: remove-listener
+            href: cli-ref/network-load-balancer/remove-listener.md
+          - name: start
+            href: cli-ref/network-load-balancer/start.md
+          - name: stop
+            href: cli-ref/network-load-balancer/stop.md
+          - name: target-states
+            href: cli-ref/network-load-balancer/target-states.md
+          - name: update
+            href: cli-ref/network-load-balancer/update.md
+      - name: target-group
+        items:
+          - name: Overview
+            href: cli-ref/target-group/index.md
+          - name: add-targets
+            href: cli-ref/target-group/add-targets.md
+          - name: create
+            href: cli-ref/target-group/create.md
+          - name: delete
+            href: cli-ref/target-group/delete.md
+          - name: get
+            href: cli-ref/target-group/get.md
+          - name: list
+            href: cli-ref/target-group/list.md
+          - name: list-operations
+            href: cli-ref/target-group/list-operations.md
+          - name: remove-targets
+            href: cli-ref/target-group/remove-targets.md
+          - name: update
+            href: cli-ref/target-group/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -139,6 +271,10 @@ items:
                 href: api-ref/grpc/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/grpc/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/grpc/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/grpc/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -201,6 +337,10 @@ items:
                 href: api-ref/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -241,9 +381,9 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/network-load-balancer
-deepBase: 2

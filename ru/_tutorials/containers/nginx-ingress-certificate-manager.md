@@ -1,3 +1,7 @@
+# Установка Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-full-name }}
+
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
 Управляйте [TLS-сертификатом](../../certificate-manager/concepts/index.md) для Ingress-контроллера NGINX через [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) синхронизирует сертификат с [секретом {{ k8s }}](../../managed-kubernetes/concepts/encryption.md). Это позволяет управлять сертификатом развернутого приложения через {{ certificate-manager-name }}: добавить самоподписанный сертификат и обновлять его самостоятельно или выпустить сертификат от Let's Encrypt®, который будет обновляться автоматически.
@@ -17,7 +21,7 @@
 
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
    * `eso-service-account` — для взаимодействия External Secrets Operator с {{ certificate-manager-name }}.
-   * `k8s-sa` с [ролями](../../iam/concepts/access-control/roles.md) `editor`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
+   * `k8s-sa` с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) — для создания ресурсов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и скачивания [Docker-образов](../../container-registry/concepts/docker-image.md). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
 1. Создайте [авторизованный ключ](../../iam/concepts/authorization/access-key.md) для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и сохраните его в файл `authorized-key.json`:
 
    ```bash
@@ -39,7 +43,7 @@
 В стоимость поддержки инфраструктуры входит:
 * Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
 * Использование [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Входящий трафик, обработанный балансировщиком, и использование [сетевого балансировщика](../../network-load-balancer/concepts/index.md) (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
 
 ## Добавьте сертификат в {{ certificate-manager-name }}
@@ -73,36 +77,51 @@
 
 ## Установите External Secrets Operator {#install-eso}
 
-1. Добавьте Helm-репозиторий `external-secrets`:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
 
-1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
+- {{ marketplace-full-name }} {#marketplace}
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+    Установите приложение [External Secrets Operator с поддержкой {{ lockbox-name }}](/marketplace/products/yc/external-secrets) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) со следующими параметрами:
 
-   Эта команда создаст новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`, необходимое для работы External Secrets Operator.
+    * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`.
+    * **Ключ сервисной учетной записи** — вставьте содержимое файла `authorized-key.json`, созданного [ранее](#before-you-begin).
 
-   Результат:
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+- Вручную {#manual}
+
+    1. Добавьте Helm-репозиторий `external-secrets`:
+
+        ```bash
+        helm repo add external-secrets https://charts.external-secrets.io
+        ```
+
+    1. Установите External Secrets Operator в кластер {{ managed-k8s-name }}:
+
+        ```bash
+        helm install external-secrets \
+          external-secrets/external-secrets \
+          --namespace external-secrets \
+          --create-namespace
+        ```
+
+        Эта команда создаст новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) `external-secrets`, необходимое для работы External Secrets Operator.
+
+        Результат:
+
+        ```text
+        NAME: external-secrets
+        LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+        NAMESPACE: external-secrets
+        STATUS: deployed
+        REVISION: 1
+        TEST SUITE: None
+        NOTES:
+        external-secrets has been deployed successfully!
+        ...
+        ```
+
+{% endlist %}
 
 ## Настройте кластер {{ managed-k8s-name }} {#configure-cluster}
 
@@ -119,26 +138,50 @@
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Создайте [хранилище секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/) `secret-store`, содержащее секрет `yc-auth`:
+1. Узнайте поддерживаемые `apiVersion` для [хранилища секретов (SecretStore)](https://external-secrets.io/v0.5.8/api-secretstore/):
+
+   ```bash
+   kubectl get crd secretstores.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Создайте хранилище секретов с именем `yc-cert-manager`, содержащее секрет `yc-auth`, указав поддерживаемую `apiVersion`:
+
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
    kind: SecretStore
    metadata:
-     name: secret-store
+     name: yc-cert-manager
    spec:
      provider:
        yandexcertificatemanager:
          auth:
            authorizedKeySecretRef:
              name: yc-auth
-             key: authorized-key'
+             key: authorized-key.json
+             namespace: ns'
    ```
+
+
+
+   {% note tip %}
+
+   В примере хранилище секретов создается с типом `kind: SecretStore`, оно будет доступно только в пространстве имен `ns`, в котором было создано. Чтобы хранилище секретов было доступно во всех пространствах имен, используйте тип `kind: ClusterSecretStore`.
+
+   {% endnote %}
 
 ## Создайте ExternalSecret {#create-externalsecret}
 
-1. Создайте объект [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/) `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}:
+1. Узнайте поддерживаемые `apiVersion` для [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/):
+
+   ```bash
+   kubectl get crd externalsecrets.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Создайте объект ExternalSecret с именем `external-secret`, указывающий на сертификат из {{ certificate-manager-name }}, указав поддерживаемую `apiVersion`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -149,7 +192,7 @@
    spec:
      refreshInterval: 1h
      secretStoreRef:
-       name: secret-store
+       name: yc-cert-manager
        kind: SecretStore
      target:
        name: k8s-secret
@@ -165,6 +208,12 @@
          key: <идентификатор_сертификата>
          property: privateKey'
    ```
+
+   {% note info %}
+
+   Если вы создавали хранилище секретов с типом `kind: ClusterSecretStore`, исправьте в примере манифеста значение `spec:secretStoreRef:kind` на `ClusterSecretStore`.
+
+   {% endnote %}
 
    Где:
    * `k8s-secret` — имя секрета, в который External Secret Operator поместит сертификат из {{ certificate-manager-name }}.
@@ -227,10 +276,6 @@
 
 {% list tabs group=instructions %}
 
-- {{ marketplace-full-name }} {#marketplace}
-
-  Установите приложение [Ingress NGINX](/marketplace/products/yc/ingress-nginx) из {{ marketplace-name }} [по инструкции](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
 - Вручную {#manual}
 
   1. Добавьте в Helm-репозиторий для NGINX:
@@ -259,10 +304,17 @@
      Update Complete. ⎈Happy Helming!⎈
      ```
 
-  1. Установите контроллер в стандартной конфигурации. Контроллер будет установлен вместе с {{ network-load-balancer-name }}:
+  1. Установите контроллер. Он будет установлен вместе с {{ network-load-balancer-name }}:
 
      ```bash
      helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
+
+     SSL-сертификат будет доступен только в пространстве имен `ns`, где создан секрет с этим сертификатом. Чтобы Ingress мог использовать этот сертификат в любом пространстве имен, установите контроллер с параметром `default-ssl-certificate`:
+
+     ```bash
+     helm install ingress-nginx ingress-nginx/ingress-nginx \
+       --set controller.extraArgs.default-ssl-certificate="ns/k8s-secret"
      ```
 
      Результат:
@@ -280,6 +332,8 @@
      You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
      ...
      ```
+
+     При изменении параметра `default-ssl-certificate` перезапустите Ingress-контроллер NGINX.
 
   Чтобы настроить конфигурацию контроллера самостоятельно, обратитесь к [документации Helm](https://helm.sh/ru/docs/intro/using_helm/#настройка-chart-а-перед-установкой) и отредактируйте файл [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml).
 
@@ -333,7 +387,7 @@ spec:
 1. Узнайте IP-адрес Ingress-контроллера (значение в колонке `EXTERNAL-IP`):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <пространство_имен_приложения_Ingress_NGINX>
    ```
 
    Результат:

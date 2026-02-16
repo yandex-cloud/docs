@@ -13,11 +13,11 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
   1. In the [management console]({{ link-console-main }}), select the folder where your [resource](../../concepts/resource.md) is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
@@ -31,7 +31,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -84,17 +84,18 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
         status: READY
       ```
 
-  1. Specify the paths to the files you would like to prefetch as a comma-separated list with no spaces:
+  1. Specify the paths to the files you want to prefetch as a comma-separated list with no spaces:
 
       ```bash
       yc cdn cache prefetch --resource-id <resource_ID> \
         --path <file_paths>
       ```
 
-      For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+      For more information about the `yc cdn cache prefetch` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 
   Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/Cache/prefetch.md) gRPC API call.
 
 {% endlist %}
+  

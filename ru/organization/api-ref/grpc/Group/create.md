@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/create.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.Create {#Create}
+# Identity Hub API, gRPC: GroupService.Create
 
 Creates a group in the specified organization.
 
@@ -15,7 +15,7 @@ Creates a group in the specified organization.
 
 ```json
 {
-  "organizationId": "string",
+  "organization_id": "string",
   "name": "string",
   "description": "string"
 }
@@ -23,17 +23,23 @@ Creates a group in the specified organization.
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 Required field. ID of the organization to create a group in.
-To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
+To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` [a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -42,21 +48,23 @@ Description of the group. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "groupId": "string"
+    "group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "organization_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
-    "description": "string"
+    "description": "string",
+    "subject_container_id": "string",
+    "external_id": "string"
   }
   // end of the list of possible fields
 }
@@ -72,13 +80,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -121,7 +129,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 ID of the group that is being created. ||
 |#
@@ -136,10 +144,10 @@ For more information, see [Groups](/docs/organization/operations/manage-groups).
 || id | **string**
 
 ID of the group. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -148,4 +156,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subject_container_id | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| external_id | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

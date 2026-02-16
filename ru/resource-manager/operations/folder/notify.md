@@ -8,7 +8,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-cloud }}) выберите каталог для настройки. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
   1. Перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-notifications }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
   1. В открывшемся окне **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** выберите:
@@ -17,7 +17,7 @@
 
         {% note info %}
 
-        Добавлять можно пользователей с [аккаунтом на Яндексе](../../../iam/concepts/users/accounts.md#passport) и [федеративных пользователей](../../../iam/concepts/users/accounts.md#saml-federation). Федеративные пользователи должны в собственных настройках учетной записи указать адрес электронной почты.
+        Добавлять можно пользователей с [аккаунтом на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../../iam/concepts/users/accounts.md#local) пользователей. Федеративные и локальные пользователи должны в собственных настройках учетной записи указать адрес электронной почты.
 
         {% endnote %}
 

@@ -1,6 +1,6 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте группу ВМ](#create-vms).
-1. [Загрузите файлы веб-сайта](#upload-files).
+1. [Загрузите файлы сайта](#upload-files).
 1. [Создайте сетевой балансировщик](#create-load-balancer).
 1. [Протестируйте отказоустойчивость](#test).
 
@@ -32,7 +32,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
       * Укажите имя группы ВМ, например `nlb-vm-group`.
@@ -48,14 +48,14 @@
 
           Нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
-          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** откройте вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите: 
 
-          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`.
+          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
           * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
           * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
           * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -77,12 +77,12 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы: `nlb-tg`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  Создание группы ВМ может занять несколько минут. Когда все ВМ перейдут в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на них файлы веб-сайта](#upload-files).
+  Создание группы ВМ может занять несколько минут. Когда все ВМ перейдут в [статус](../../compute/concepts/vm-statuses.md) `RUNNING`, вы можете [загрузить на них файлы сайта](#upload-files).
 
 {% endlist %}
 
 
-## Загрузите файлы веб-сайта {#upload-files}
+## Загрузите файлы сайта {#upload-files}
 
 {% include [load-balancer-website-upload-files](../_tutorials_includes/load-balancer-website/upload-files.md) %}
 

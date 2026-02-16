@@ -1,31 +1,45 @@
-# Indicator ![](../../_assets/datalens/indicator.svg)
+---
+title: Indicator in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the indicator visualization type in {{ datalens-full-name }}.
+---
 
-An indicator reflects the value of a single key measure. It is used when a dashboard contains values that need to be monitored on a regular basis to understand the overall situation. These can be the number of incidents for the past day, plan performance, or a YoY increase in sales. Indicators are most often placed at the top or on the right side of a dashboard. Make sure there are no more than six indicators per screen so that they do not lose their urgency or confuse users. Using indicators of different sizes, you can build a hierarchy of the various metrics according to significance.
+# Indicator ![](../../_assets/datalens/indicator.svg) in {{ datalens-full-name }}
 
-![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
+An indicator reflects the value of a single key measure. To build a more [complex](#markup-indicator) and meaningful indicator, use several measures.
 
-You can set up the size and color of an indicator.
+* You may want to use indicators when a dashboard contains values you need to monitor on a regular basis to understand the general picture. This could be, for example, the number of incidents for the previous day, plan performance percentage, or year-on-year sales growth.
 
-![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
+* Indicators are most commonly placed at the top or on the right side of a dashboard. Add no more than six indicators per screen so they remain in focus without confusing the user. Adjust widget sizes to reflect the importance of different metrics.
 
-{% cut "Source table" %}
+  ![indicator-chart](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart.png)
 
-| Year | Sales |
------|---------|
-| 2022 | 6M |
-| 2021 | 28M |
-| 2020 | 18M |
-| 2019 | 9M |
-| 2018 | 1M |
+* You can set up the size and color of an indicator.
 
-{% endcut %}
+  {% list tabs %}
+
+  - Visualization
+
+    ![indicator-chart-red](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-red.png)
+
+  - Source table
+
+    Year |	Sales|	
+    -----|---------| 
+    2022|	6M |	
+    2021|	28M |	
+    2020|	18M |	
+    2019|	9M | 
+    2018|	1M |
+
+  {% endlist %}
+
 
 ## Wizard sections {#wizard-sections}
 
-| Wizard<br/> section | Description |
+Wizard<br/> section| Description
 ----- | ----
-| Measure | Measure. One measure that determines the indicator value. |
-| Filters | Dimension or measure. Used as a filter. |
+Measure | Measure. One measure that determines the indicator value.
+Filters | Dimension or measure. Used as a filter.
 
 ## Creating an indicator {#create-diagram}
 
@@ -35,10 +49,10 @@ To create an indicator:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select the **Indicator** chart type.
 1. Drag a dimension or measure from the dataset to the **Measure** section. The value is displayed as a number.
 
@@ -48,8 +62,8 @@ To create an indicator:
 
 To change indicator size and color:
 
-1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg).
-1. In the **Indicator settings** window, select the size and color and click **Apply**.
+1. In the **Measure** section, click ![](../../_assets/console-icons/gear.svg). This setting is not available for a field of the `Markup` type. In this case, use [markup functions](../function-ref/markup-functions.md) for formatting as when [creating a complex indicator](#markup-indicator).
+1. In the **Indicator settings** window, select the size, color palette, color and click **Apply**.
 
 ### Customizing header display {#indicator-title}
 
@@ -70,14 +84,111 @@ To customize header display:
 
 {% endcut %}
 
+### Creating a complex indicator {#markup-indicator}
+
+To create a complex indicator representing a number of measures, use the [markup functions](../function-ref/markup-functions.md). Proceed as follows:
+
+1. Create a [calculated field](../concepts/calculations/index.md) using the markup functions.
+1. Drag a field from **Measures** to the indicator's **Measure** section.
+
+{% cut "Text formatting" %}
+
+```markdown
+BOLD(SIZE('Payment by card: ', '18px')) +
+BR() + BR() +
+SIZE(COLOR(STR(COUNTD_IF([OrderID], [PaymentType]='Bank card')),'blue') + ' / ' + STR(COUNTD([OrderID])), '26px') +
+BR() + BR() +
+SIZE(STR(ROUND(COUNTD_IF([OrderID], [PaymentType]='Bank card')/COUNTD([OrderID])*100, 2)) +
+' %  in total', '20px')
+```
+
+![indicator-fonts](../../_assets/datalens/visualization-ref/indicator-chart/indicator-fonts.png)
+
+{% endcut %}
+
+{% cut "Indicator with multiple measures" %}
+
+```markdown
+SIZE('Amount: ', '18px') +
+BR() + BR() +
+COLOR(SIZE('- categories: ' + STR(COUNTD([ProductCategory])), '18px'), '#BE2443') +
+BR() +
+COLOR(SIZE('- subcategories: ' + STR(COUNTD([ProductSubcategory])), '18px'), 'blue') +
+BR() +
+COLOR(SIZE('- brands: ' + STR(COUNTD([ProductBrend])), '18px'), 'green') +
+BR() +
+COLOR(SIZE('- products: ' + STR(COUNTD([ProductName])), '18px'), '#FF7E00')
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-some-measures.png)
+
+{% endcut %}
+
+{% cut "Indicator with a measure by category" %}
+
+```markdown
+SIZE('Sales: ' + COLOR(STR([Sales])+ ' ₽', 'green'), '26px') +
+BR() +
+COLOR(" ▲ ", "green")+": More than ₽50,000,000  | " + COLOR(" ▼ ", "red") + ": ₽50,000,000 or less" +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Home appliances'))+ ' ₽ | ', 'blue') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Home appliances')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Home appliances' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household chemicals'))+ ' ₽ | ', 'green') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household chemicals')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Household chemicals' +
+BR() + BR() +
+SIZE(
+    COLOR('| ' + STR(SUM_IF([Sales],[ProductCategory]='Household products'))+ ' ₽ | ', 'violet') + 
+    COLOR(if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000, " ▲ "," ▼ "), if(SUM_IF([Sales],[ProductCategory]='Household products')>50,000,000,"green", "red")),
+    '20px') +
+BR() + 'Household products'
+```
+
+![indicator-categories](../../_assets/datalens/visualization-ref/indicator-chart/indicator-categories.png)
+
+{% endcut %}
+
+{% cut "Indicator with an image" %}
+
+```markdown
+IMAGE('https://storage.yandexcloud.net/dl--********//datalens.jpg', 32, 32, 'alt-text-1') +
+COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='DataLens')), '32px'), '#AEC5F3') +
+BR()+
+COLOR(SIZE('DataLens', '20px'), '#AEC5F3')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl--********//powerbi.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Power BI')), '32px'), '#B8A754')+
+BR()+
+COLOR(SIZE('Power BI', '20px'), '#B8A754')+
+BR()+
+BR()+
+IMAGE('https://storage.yandexcloud.net/dl-********/tableu.jpg', 32, 32, 'alt-text-1') +
+" " + COLOR(SIZE('| ' + STR(SUM_IF([Usage],[Service]='Tableau')), '32px'), '#4D5DAB')+
+BR()+
+COLOR(SIZE('Tableau', '20px'), '#4D5DAB')
+```
+
+![indicator-some-measures](../../_assets/datalens/visualization-ref/indicator-chart/indicator-image.png)
+
+{% endcut %}
+
 ## Recommendations {#recommendations}
 
 * Use emojis when calculating indicator values to make them more informative.
 
-   ![indicator-chart-emoji](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-emoji.png)
+  ![indicator-chart-emoji](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-emoji.png)
 
-   This indicator chart uses a calculated field with the following formula: `IF([Average spend]>2200, CONCAT("✔️",STR(ROUND([Average spend]))),CONCAT("🔻",STR(round([Average spend]))))`.
+  This indicator chart uses a calculated field with the following formula: `IF([Average spend]>2200, CONCAT("✔️",STR(ROUND([Average spend]))),CONCAT("🔻",STR(round([Average spend]))))`.
 
 * Describe the context to make it clear what indicators mean.
 
-   ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
+  ![indicator-chart-context](../../_assets/datalens/visualization-ref/indicator-chart/indicator-chart-context.png)
+
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

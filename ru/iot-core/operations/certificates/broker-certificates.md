@@ -28,7 +28,7 @@ description: Из статьи вы узнаете, как получить сп
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат брокера.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите в списке нужный брокер.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
@@ -88,7 +88,7 @@ description: Из статьи вы узнаете, как получить сп
      * `yandex_iot_core_broker` — параметры брокера:
        * `name` — имя брокера.
        * `description` — описание брокера.
-       * `certificates` — список сертификатов брокера для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+       * `certificates` — список сертификатов брокера для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
 
       Пример описания брокера в конфигурации {{ TF }}:
 
@@ -153,7 +153,7 @@ description: Из статьи вы узнаете, как получить сп
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого хотите удалить сертификат брокера.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите в списке нужный брокер.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.

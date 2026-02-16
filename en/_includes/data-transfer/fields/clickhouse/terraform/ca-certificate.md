@@ -1,1 +1,3 @@
-`connection.connection_options.on_premise.tls_mode.enabled.ca_certificate`: CA certificate used if the data being transferred must be encrypted to comply with the [PCI DSS]({{ link-pci-dss-en }}) requirements.
+`connection.connection_options.on_premise.tls_mode.enabled.ca_certificate`: CA certificate if the data to transfer must be encrypted, e.g., to comply with the PCI DSS requirements.
+
+{% include [certificate](../../../../../_includes/data-transfer/fields/certificate-needed.md) %}

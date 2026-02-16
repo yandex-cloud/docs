@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как управлять х
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
 
 - CLI {#cli}
@@ -59,7 +59,7 @@ description: Из статьи вы узнаете, как управлять х
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -98,17 +98,17 @@ description: Из статьи вы узнаете, как управлять х
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Укажите параметры хоста:
 
-
+     
      * Зону доступности.
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
-
-
      * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      * Приоритет назначения хоста мастером.
      * Приоритет хоста как {{ MY }}-реплики для создания резервной копии.
 
@@ -138,7 +138,7 @@ description: Из статьи вы узнаете, как управлять х
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
-
+     
      Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
 
 
@@ -155,7 +155,7 @@ description: Из статьи вы узнаете, как управлять х
        --cluster-name=<имя_кластера> \
        --host zone-id=<идентификатор_зоны_доступности>,`
          `subnet-id=<идентификатор_подсети>,`
-         `assign-public-ip=<публичный_доступ_к_хосту_подкластера>,`
+         `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
          `replication-source=<имя_хоста-источника>,`
          `backup-priority=<приоритет_хоста_при_резервном_копировании>,`
          `priority=<приоритет_назначения_хоста_мастером>
@@ -186,7 +186,7 @@ description: Из статьи вы узнаете, как управлять х
        host {
          zone             = "<зона_доступности>"
          subnet_id        = <идентификатор_подсети>
-         assign_public_ip = <публичный_доступ_к_хосту>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
          priority         = <приоритет_назначения_хоста_мастером>
          ...
        }
@@ -229,7 +229,7 @@ description: Из статьи вы узнаете, как управлять х
                       {
                         "zoneId": "<зона_доступности>",
                         "subnetId": "<идентификатор_подсети>",
-                        "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                        "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                         "replicationSource": "<FQDN_хоста>",
                         "backupPriority": "<приоритет_хоста_при_резервном_копировании>",
                         "priority": "<приоритет_назначения_хоста_мастером>"
@@ -242,14 +242,14 @@ description: Из статьи вы узнаете, как управлять х
 
       * `zoneId` — зона доступности.
       * `subnetId` — идентификатор подсети.
-      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
-      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect.md#fqdn), который будет источником репликации.
+      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
       * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -273,7 +273,7 @@ description: Из статьи вы узнаете, как управлять х
                   {
                     "zone_id": "<зона_доступности>",
                     "subnet_id": "<идентификатор_подсети>",
-                    "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                     "replication_source": "<FQDN_хоста>",
                     "backup_priority": "<приоритет_хоста_при_резервном_копировании>",
                     "priority": "<приоритет_назначения_хоста_мастером>"
@@ -288,8 +288,8 @@ description: Из статьи вы узнаете, как управлять х
 
       * `zone_id` — зона доступности.
       * `subnet_id` — идентификатор подсети.
-      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
-      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect.md#fqdn), который будет источником репликации.
+      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
       * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -302,7 +302,7 @@ description: Из статьи вы узнаете, как управлять х
 
 {% note warning %}
 
-Если после добавления хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+Если после добавления хоста к нему невозможно [подключиться](./connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
 
 {% endnote %}
 
@@ -326,12 +326,16 @@ description: Из статьи вы узнаете, как управлять х
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Задайте новые настройки для хоста:
      1. Выберите источник репликации для хоста, чтобы вручную управлять потоками репликации.
+
+     
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      1. Задайте значение поля **{{ ui-key.yacloud.mysql.field_priority }}**.
      1. Задайте значение поля **{{ ui-key.yacloud.mysql.field_backup_priority }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
@@ -348,7 +352,7 @@ description: Из статьи вы узнаете, как управлять х
   {{ yc-mdb-my }} host update <имя_хоста> \
     --cluster-name=<имя_кластера> \
     --replication-source=<имя_хоста-источника> \
-    --assign-public-ip=<публичный_доступ_к_хосту> \
+    --assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
     --backup-priority=<приоритет_хоста_при_резервном_копировании> \
     --priority=<приоритет_назначения_хоста_мастером>
   ```
@@ -375,7 +379,7 @@ description: Из статьи вы узнаете, как управлять х
        ...
        host {
          replication_source_name = "<источник_репликации>"
-         assign_public_ip        = <публичный_доступ_к_хосту>
+         assign_public_ip        = <разрешить_публичный_доступ_к_хосту>
          priority                = <приоритет_назначения_хоста_мастером>
        }
      }
@@ -417,7 +421,7 @@ description: Из статьи вы узнаете, как управлять х
                       {
                         "updateMask": "assignPublicIp,replicationSource,backupPriority,priority",
                         "hostName": "<FQDN_хоста>",
-                        "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                        "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                         "replicationSource": "<FQDN_хоста>",
                         "backupPriority": "<приоритет_хоста_при_резервном_копировании>",
                         "priority": "<приоритет_назначения_хоста_мастером>"
@@ -429,15 +433,15 @@ description: Из статьи вы узнаете, как управлять х
       Где `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-      * `hostName` — [FQDN изменяемого хоста](connect.md#fqdn).
-      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
-      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect.md#fqdn), который будет источником репликации.
+      * `hostName` — [FQDN изменяемого хоста](./connect/fqdn.md).
+      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
       * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -465,7 +469,7 @@ description: Из статьи вы узнаете, как управлять х
                       ]
                     },
                     "host_name": "<FQDN_хоста>",
-                    "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                     "replication_source": "<FQDN_хоста>",
                     "backup_priority": "<приоритет_хоста_при_резервном_копировании>",
                     "priority": "<приоритет_назначения_хоста_мастером>"
@@ -479,9 +483,9 @@ description: Из статьи вы узнаете, как управлять х
       Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-      * `host_name` — [FQDN изменяемого хоста](connect.md#fqdn).
-      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
-      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect.md#fqdn), который будет источником репликации.
+      * `host_name` — [FQDN изменяемого хоста](./connect/fqdn.md).
+      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](./connect/fqdn.md), который будет источником репликации.
       * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
 
@@ -494,7 +498,7 @@ description: Из статьи вы узнаете, как управлять х
 
 {% note warning %}
 
-Если после изменения хоста к нему невозможно [подключиться](connect.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+Если после изменения хоста к нему невозможно [подключиться](./connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
 
 {% endnote %}
 
@@ -509,7 +513,7 @@ description: Из статьи вы узнаете, как управлять х
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
 
@@ -573,7 +577,7 @@ description: Из статьи вы узнаете, как управлять х
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

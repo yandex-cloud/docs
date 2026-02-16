@@ -2,9 +2,9 @@ To work with the {{ speechkit-name }} API, you need to pass authentication. The 
 
 {% list tabs group=authentication %}
 
-- Yandex or federated account {#yandex-account}
+- Yandex account, federated account, or local account {#yandex-account}
 
-  1. Get an IAM token for your [Yandex account](../../iam/operations/iam-token/create.md) or [federated account](../../iam/operations/iam-token/create-for-federation.md).
+  1. Get an IAM token for a [Yandex account](../../iam/operations/iam-token/create.md), [federated account](../../iam/operations/iam-token/create-for-federation.md), or [local account](../../iam/operations/iam-token/create-for-local.md).
   1. Get the [ID of the folder](../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-speechkit-stt }}`, `{{ roles-speechkit-tts }}`, or higher roles.
   1. {% include [iam-token-usage](../iam-token-usage-speechkit-v3.md) %}
 
@@ -14,7 +14,7 @@ To work with the {{ speechkit-name }} API, you need to pass authentication. The 
 
    * With an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
-      1. Get an [IAM token](../../iam/operations/iam-token/create-for-sa.md).
+      1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
       1. Provide the IAM token in the `Authorization` header in the following format:
 
           ```yaml
@@ -25,13 +25,13 @@ To work with the {{ speechkit-name }} API, you need to pass authentication. The 
 
      {% include [api-keys-disclaimer](../iam/api-keys-disclaimer.md) %}
 
-      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
       1. Provide the API key in the `Authorization` header in the following format:
 
           ```yaml
           Authorization: Api-Key <API_key>
           ```
 
-   Do not specify the folder ID in your requests, as {{ yagpt-name }} uses the folder in which the service account was created.
+   Do not specify the folder ID in your requests, as the service uses the folder the service account was created in.
 
 {% endlist %}

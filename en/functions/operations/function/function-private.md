@@ -13,7 +13,7 @@ If all unauthorized users (the All users [public group](../../../iam/concepts/ac
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to make private.
     1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, disable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
     

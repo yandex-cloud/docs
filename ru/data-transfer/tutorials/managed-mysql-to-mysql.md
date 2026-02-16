@@ -1,34 +1,7 @@
 ---
 title: Как выполнить миграцию на сторонний кластер {{ MY }} с помощью {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как выполнить миграцию на сторонний кластер {{ MY }}.
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-mysql-to-mysql'
 ---
 
-# Миграция на сторонний кластер {{ MY }}
-
-Чтобы перенести базу данных, развернутую в кластере {{ mmy-full-name }}, на сторонний кластер {{ MY }}:
-
-1. Перенесите данные.
-1. Закройте старую базу данных на запись.
-1. Переведите нагрузку на сторонний кластер.
-
-Поддерживается миграция между разными версиями: например, можно перенести базы из {{ MY }} версии 5.7 в версию 8. При этом мажорная версия {{ MY }} на стороннем кластере должна быть не ниже версии на кластере {{ mmy-full-name }}.
-
-## Перед началом работы {#before-you-begin}
-
-Создайте кластер {{ MY }} любой подходящей конфигурации. При этом:
-
-* Версия {{ MY }} должна быть не ниже чем на кластере-источнике.
-
-    Перенос данных с повышением мажорной версии {{ MY }} возможен, но не гарантируется. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
-
-    Миграция с понижением версии {{ MY }} [невозможна](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
-
-* [Режим SQL](../../managed-mysql/concepts/settings-list.md#setting-sql-mode) должен быть таким же, как и на кластере-источнике.
-
-## Перенос данных {#data-transfer}
-
-{% include notitle [MySQL migration with Data Transfer](../../_tutorials/dataplatform/datatransfer/managed-mysql-to-mysql.md) %}
-
-## См. также {#see-also}
-
-Другие способы миграции описаны в [документации {{ mmy-full-name }}](../../managed-mysql/tutorials/index.md).
+{% include [article-body](../../_tutorials/dataplatform/managed-mysql-to-mysql.md) %}

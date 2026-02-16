@@ -16,7 +16,9 @@
    * из объектов {{ k8s }} в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md);
    * из сервиса {{ monitoring-name }} в объекты {{ k8s }}.
 
+
 * [Установите приложение Prometheus Operator](../applications/prometheus-operator.md) для работы с системой мониторинга [{{ managed-prometheus-name }}](../../../monitoring/operations/prometheus/index.md). Так вы сможете работать с дашбордами в [{{ grafana-name }}](https://grafana.com/grafana/) и пользоваться преимуществами [{{ prometheus-name }}](https://prometheus.io/docs/introduction/overview/).
+
 
 ## Посмотреть статистику в консоли управления {#console}
 

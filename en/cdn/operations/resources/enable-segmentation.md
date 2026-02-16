@@ -13,15 +13,15 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. At the top right, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
-  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable the **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}** option.
+  1. In the **{{ ui-key.yacloud.cdn.label_resource-content-slice }}** field, enable **{{ ui-key.yacloud.cdn.label_resource-content-optimize-true }}**.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -31,7 +31,7 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -84,20 +84,19 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
         status: READY
       ```
 
-  1. Enable file segmentation using the `--slice` flag with the `true` value:
+  1. Enable file segmentation using the `--slice` flag set to `true`:
 
       ```bash
       yc cdn resource update <resource_ID> --slice true
       ```
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
-
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
       ```hcl
       terraform {
@@ -129,21 +128,19 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
       }
       ```
 
-
-
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating access to content for end users. If set to `True`, CDN content will be available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the origin group description in the `yandex_cdn_origin_group` resource.
+      * `cname`: Primary domain name used for content distribution. This is a required setting.
+      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional setting. The default value is `true`.
+      * `origin_protocol`: Protocol for origins. This is an optional setting. The default value is `http`.
+      * `secondary_hostnames`: Additional domain names. This is an optional setting.
+      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `slice`: Flag indicating whether segmentation will be used. This is an optional parameter. The default value is `false`.
+         * `slice`: Flag indicating whether segmentation will be used. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -161,14 +158,14 @@ To enable [segmentation](../../concepts/slicing.md) of [resource](../../concepts
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 

@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to delete the database from.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the database to delete.
+            To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/delete.md
 ---
 
-# Managed Service for MySQL API, REST: Database.Delete {#Delete}
+# Managed Service for MySQL API, REST: Database.Delete
 
 Deletes a database from a cluster.
 
@@ -21,12 +49,16 @@ DELETE https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/database
 
 Required field. ID of the cluster to delete the database from.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to delete.
 
-To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request. ||
+To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

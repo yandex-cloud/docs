@@ -1,6 +1,5 @@
 `provider.tf`
 
-
 ```hcl
 terraform {
   required_providers {
@@ -18,7 +17,5 @@ provider "yandex" {
 ```
 
 
-
-
-Для получения [токена OAuth](../../iam/concepts/authorization/oauth-token.md) или [статического ключа доступа](../../iam/operations/sa/create-access-key.md) см. инструкции {{ iam-full-name }}.
+Для получения [токена OAuth](../../iam/concepts/authorization/oauth-token.md) или [статического ключа доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) см. инструкции {{ iam-full-name }}.
 

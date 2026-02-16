@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-editor }}` на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}.
+Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `yq.editor` (или `{{ roles-editor }}`) на каталог, в котором создано [соединение](../../../query/concepts/glossary.md#connection) {{ yq-full-name }}.
 
 {% endnote %}
 
@@ -26,3 +26,8 @@ description: Следуя данной инструкции, вы сможете
 1. Нажмите кнопку **Создать подключение**.
 1. Выберите [воркбук](../../workbooks-collections/index.md), в котором сохранится подключение, или создайте новый. Если вы пользуетесь старой навигацией по папкам, выберите папку для сохранения подключения. Нажмите кнопку **Создать**.
 1. Укажите название подключения и нажмите кнопку **Создать**.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/data-from-yandex-query-visualization.md)

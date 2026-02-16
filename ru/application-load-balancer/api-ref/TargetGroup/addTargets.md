@@ -1,9 +1,64 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}:addTargets
+    method: post
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to add targets to.
+            To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        targets:
+          description: |-
+            **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
+            List of targets to add to the target group.
+            The number of elements must be greater than 0.
+          type: array
+          items:
+            $ref: '#/definitions/Target'
+      additionalProperties: false
+    definitions:
+      Target:
+        type: object
+        properties:
+          ipAddress:
+            description: |-
+              **string**
+              IP address of the target.
+              Includes only one of the fields `ipAddress`.
+              Reference to the target. As of now, targets must only be referred to by their IP addresses.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the target is connected to.
+            type: string
+          privateIpv4Address:
+            description: |-
+              **boolean**
+              If set, will not require `subnet_id` to validate the target.
+              Instead, the address should belong to one of the following ranges:
+              10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+              Only one of `subnet_id` or `private_ipv4_address` should be set.
+            type: boolean
+        oneOf:
+          - required:
+              - ipAddress
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.AddTargets {#AddTargets}
+# Application Load Balancer API, REST: TargetGroup.AddTargets
 
 Adds targets to the specified target group.
 
@@ -44,7 +99,9 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
 ||Field | Description ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
-List of targets to add to the target group. ||
+List of targets to add to the target group.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Target {#yandex.cloud.apploadbalancer.v1.Target}
@@ -100,7 +157,7 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "targets": [
       {
         // Includes only one of the fields `ipAddress`
@@ -230,7 +287,7 @@ Description of the target group. ||
 || folderId | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

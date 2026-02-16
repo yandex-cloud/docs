@@ -1,21 +1,21 @@
 ---
-title: What tasks {{ data-transfer-full-name }} is used for
-description: In this tutorial, you will learn about {{ data-transfer-full-name }} use cases.
+title: Problems addressed by {{ data-transfer-full-name }}
+description: In this tutorial, you will learn about the problems addressed by {{ data-transfer-full-name }}.
 ---
 
-# What tasks {{ data-transfer-full-name }} is used for
+# Problems addressed by {{ data-transfer-full-name }}
 
 ## Testing {{ yandex-cloud }} {#testing}
 
-{{ data-transfer-name }} allows you to test working with [{{ mmg-full-name }}](../../managed-mongodb/), [{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
+{{ data-transfer-name }} allows you to test working with [{{ mmg-full-name }}](../../storedoc/), [{{ mmy-full-name }}](../../managed-mysql/), and [{{ mpg-full-name }}](../../managed-postgresql/) on real data.
 
-For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep these copies up-to-date.
+For example, using {{ data-transfer-name }}, you can connect copies of databases hosted in these services to your application. {{ data-transfer-name }} will keep copies up-to-date.
 
-## Migrating databases to {{ yandex-cloud }} {#migration}
+## Migrating databases in {{ yandex-cloud }} {#migration}
 
 {{ data-transfer-name }} allows you to transfer your data from third-party services to {{ yandex-cloud }}. For more information about source and target compatibility, see [{#T}](./index.md#connectivity-matrix).
 
-## Creating backups {#backup}
+## Creating a backup {#backup}
 
 {{ data-transfer-name }} allows you to create and maintain an up-to-date copy of data from {{ yandex-cloud }} in local database. This copy can later be used for disaster recovery.
 

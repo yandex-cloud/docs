@@ -1,60 +1,60 @@
 Расчет стоимости для хостов-брокеров {{ KF }}:
 
-> 3 × (2&nbsp;×&nbsp;7,55&nbsp;₸ + 8&nbsp;×&nbsp;2,00&nbsp;₸) = 93,30&nbsp;₸
+> 3 × (2&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.kafka.v3.ram|string }}) = {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }}) %}
 > 
-> Итого: 93,30&nbsp;₸ — стоимость часа работы хостов-брокеров {{ KF }}.
+> Итого: {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }}) %} — стоимость часа работы хостов-брокеров {{ KF }}.
 
 Где:
 * 3 — количество хостов-брокеров {{ KF }}.
 * 2 — количество vCPU.
-* 7,55&nbsp;₸ — стоимость часа использования 100% vCPU.
+* {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
 * 8 — объем RAM одного хоста (в гигабайтах).
-* 2,00&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+* {{ sku|KZT|mdb.cluster.kafka.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 Расчет стоимости хранилища для хостов-брокеров {{ KF }}:
 
-> 3 × 100 × 16,00&nbsp;₸ = 4&nbsp;800,00&nbsp;₸
+> 3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|string }} = {% calc [currency=KZT] 3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }} %}
 >
-> Итого: 4&nbsp;800,00&nbsp;₸ — стоимость хранилища для хостов-брокеров {{ KF }}.
+> Итого: {% calc [currency=KZT] 3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }} %} — стоимость хранилища для хостов-брокеров {{ KF }}.
 
 Где:
 * 3 — количество хостов-брокеров {{ KF }}.
 * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-* 16,00&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+* {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 Расчет стоимости для хостов {{ ZK }}:
 
-> 3 × (2&nbsp;×&nbsp;3,50&nbsp;₸ + 4&nbsp;×&nbsp;1,40&nbsp;₸) = 37,80&nbsp;₸
+> 3 × (2&nbsp;×&nbsp;{{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|string }} + 4&nbsp;×&nbsp;{{ sku|KZT|mdb.zk.kafka.v3.ram|string }}) = {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}) %}
 >
-> Итого: 37,80&nbsp;₸ — стоимость часа работы хостов {{ ZK }}.
+> Итого: {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}) %} — стоимость часа работы хостов {{ ZK }}.
 
 Где:
 * 3 — количество хостов {{ ZK }}.
 * 2 — количество vCPU.
-* 3,50&nbsp;₸ — стоимость часа использования 50% vCPU.
+* {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|string }} — стоимость часа использования 50% vCPU.
 * 4 — объем RAM одного хоста (в гигабайтах).
-* 1,40&nbsp;₸ — стоимость часа использования 1 ГБ RAM на 50% vCPU.
+* {{ sku|KZT|mdb.zk.kafka.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 50% vCPU.
 
 Расчет стоимости хранилища для хостов {{ ZK }}:
 
-> 3 × 10 × 65,05&nbsp;₸ = 1&nbsp;951,50&nbsp;₸
+> 3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|string }} = {% calc [currency=KZT] 3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }} %}
 >
-> Итого: 1&nbsp;951,50&nbsp;₸ — стоимость хранилища для хостов {{ ZK }}.
+> Итого: {% calc [currency=KZT] 3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }} %} — стоимость хранилища для хостов {{ ZK }}.
 
 Где:
 * 3 — количество хостов {{ ZK }}.
 * 10 — объем хранилища на сетевых SSD-дисках (в гигабайтах).
-* 65,05&nbsp;₸ — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
+* {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых SSD-дисках.
 
 Расчет итоговой стоимости:
 
-> 720 × (93,30&nbsp;₸ + 37,80&nbsp;₸) + 4&nbsp;800,00&nbsp;₸ + 1&nbsp;951,50&nbsp;₸ = 101&nbsp;143,50&nbsp;₸
+> 720 × ({% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }}) %} + {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}) %}) + {% calc [currency=KZT] 3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }} %} + {% calc [currency=KZT] 3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }} %} = {% calc [currency=KZT] 720 × ((3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }})) + (3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}))) + (3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }}) + (3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }}) %}
 >
-> Итого: 101&nbsp;143,50&nbsp;₸ — стоимость использования кластера в течение 30 дней.
+> Итого: {% calc [currency=KZT] 720 × ((3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }})) + (3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}))) + (3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }}) + (3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }}) %} — стоимость использования кластера в течение 30 дней.
 
 Где:
 * 720 — количество часов в 30 днях.
-* 93,30&nbsp;₸ — стоимость часа работы хостов-брокеров {{ KF }}.
-* 37,80&nbsp;₸ — стоимость часа работы хостов {{ ZK }}.
-* 4&nbsp;800,00&nbsp;₸ — стоимость хранилища для хостов-брокеров {{ KF }}.
-* 1&nbsp;951,50&nbsp;₸ — стоимость хранилища для хостов {{ ZK }}.
+* {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.kafka.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.kafka.v3.ram|number }}) %} — стоимость часа работы хостов-брокеров {{ KF }}.
+* {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.zk.kafka.v3.cpu.c50|number }} + 4 × {{ sku|KZT|mdb.zk.kafka.v3.ram|number }}) %} — стоимость часа работы хостов {{ ZK }}.
+* {% calc [currency=KZT] 3 × 100 × {{ sku|KZT|mdb.cluster.network-hdd.kafka|month|number }} %} — стоимость хранилища для хостов-брокеров {{ KF }}.
+* {% calc [currency=KZT] 3 × 10 × {{ sku|KZT|mdb.cluster.network-nvme.kafka|month|number }} %} — стоимость хранилища для хостов {{ ZK }}.

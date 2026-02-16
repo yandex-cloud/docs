@@ -12,6 +12,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ iot-name }} {#rules}
 
 В рамках сервиса {{ iot-name }} тарифицируется количество сообщений. Количество сообщений считается c округлением в большую сторону по формуле: 
@@ -36,6 +39,8 @@ editable: false
 
 ### Пример расчета стоимости {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
 ## Тарифицируемые команды {#mqtt-commands}
@@ -53,19 +58,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Объем данных {#volumes}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|iot }}']}
+    excludeSkuIds={['{{ pc|iot.mqtt.basic_ingest }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/iot-core/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/iot-core/kzt.md) %}
-
-{% endlist %}
 
 

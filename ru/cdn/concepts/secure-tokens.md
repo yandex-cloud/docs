@@ -6,13 +6,10 @@
 
 Также с помощью защищенных токенов можно задать доверенный IP-адрес, с которого будет разрешен доступ к CDN-ресурсу.
 
-Вы можете [включить](../operations/resources/enable-secure-token.md#enable-secure-token) для CDN-ресурса доступ по защищенному токену с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/managed-services/cdn/resource/update.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource) или [API](../api-ref/Resource/update.md). Для вступления изменений в силу может потребоваться до 15 минут.
+Вы можете [включить](../operations/resources/enable-secure-token.md#enable-secure-token) для CDN-ресурса доступ по защищенному токену с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource) или [API](../api-ref/Resource/update.md). Для вступления изменений в силу может потребоваться до 15 минут.
 
 Если для CDN-ресурса включен доступ по защищенному токену, контент доступен только по подписанным ссылкам. Чтобы сохранить доступ к части контента по обычным ссылкам, [создайте](../operations/resources/create-resource.md) для этого контента еще один CDN-ресурс с отдельным [источником](./origins.md).
 
-Подробности о защищенном токене см. в документации CDN-провайдера EdgeЦентр:
-* [Secure token. Обзор функции](https://support.edgecenter.ru/knowledge_base/item/268821?sid=57227)
-* [Документация API](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
 ## Подписанная ссылка {#protected-link}
 
@@ -27,6 +24,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 Пример подписанной ссылки:
 
 > http://cdn.example.com/files/image.jpg?md5=xu7AXOAOQ********Ua0xw&expires=1701609223
+
 
 ## Примеры {#link-generation-code}
 
@@ -188,8 +186,10 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 
 {% endlist %}
 
+
 ### См. также {#see-also}
 
 * [{#T}](../operations/resources/enable-secure-token.md)
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)

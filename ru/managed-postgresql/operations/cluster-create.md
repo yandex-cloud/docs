@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 
 * Количество хостов, которые можно создать вместе с кластером {{ PG }}, зависит от выбранного [типа диска](../concepts/storage.md#storage-type-selection) и [класса хостов](../concepts/instance-types.md#available-flavors).
 * Доступные типы диска зависят от выбранного [класса хостов](../concepts/instance-types.md#available-flavors).
-* Если хранилище БД заполнится на 95%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее.
+* Если хранилище БД заполнится на 97%, кластер перейдет в режим только чтения. Рассчитывайте и увеличивайте необходимый размер хранилища заранее или [настройте автоматическое увеличение его размера](storage-space.md#disk-size-autoscale).
 
 {% endnote %}
 
@@ -20,22 +20,32 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [note-pg-user-connections.md](../../_includes/mdb/note-pg-user-connections.md) %}
 
+
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mpg-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mpg.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
+
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
+
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvhanaqkgdchwzk7xu?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=UByUvah7lDU&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=6&pp=iAQB).
+
 
 
   Чтобы создать кластер {{ mpg-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер БД.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
@@ -45,17 +55,23 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите класс хостов — он определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
-
      * Выберите тип диска.
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
+     
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
-
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
+
+     
+     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+       * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** укажите желаемые настройки:
 
@@ -64,13 +80,15 @@ description: Следуя данной инструкции, вы сможете
           * Размер хранилища увеличился в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window), когда хранилище окажется заполнено более чем на указанную долю (%).
           * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
 
-          Можно задать оба условия, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания.
+          Можно задать оба условия, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания. 
+          
+          Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
 
       * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
-
+      
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
 
@@ -79,34 +97,64 @@ description: Следуя данной инструкции, вы сможете
       Если настроено увеличение хранилища в окно обслуживания, настройте расписание окна обслуживания.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
+
      * Имя БД. Это имя должно быть уникальным в рамках каталога.
 
        {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     * Имя пользователя — владельца БД и пароль. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера.
+     * Имя пользователя — владельца БД. По умолчанию новому пользователю выделяется 50 подключений к каждому хосту кластера. Изменить допустимое количество подключений можно с помощью настройки [Conn limit](../concepts/settings-list.md#setting-conn-limit).
 
-       {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+       {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+     
+     * Пароль:
+
+       * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+       * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+
+       Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
      * Локаль сортировки и локаль набора символов. Эти настройки определяют правила, по которым производится сортировка строк (`LC_COLLATE`) и классификация символов (`LC_CTYPE`). В {{ mpg-name }} настройки локали действуют на уровне отдельно взятой БД.
 
        {% include [postgresql-locale](../../_includes/mdb/mpg-locale-settings.md) %}
 
-
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера. Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+
+       1. В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
+       1. (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
      * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной подсети. Чтобы выбрать для хоста конкретную [подсеть](../../vpc/concepts/network.md#subnet), в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
 
+     Минимальное количество хостов в кластере зависит от выбранного [типа диска](../concepts/storage.md). Конфигурация кластера по умолчанию, предлагаемая в консоли управления, включает:
 
-     При настройке параметров хостов обратите внимание, что если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер.
+      * два хоста, если выбран тип диска `network-ssd`, `network-hdd` или `network-ssd-io-m3`.
+      * три хоста, если выбран тип диска `local-ssd` или `network-ssd-nonreplicated`.
 
+     {% note warning %}
 
+     Не рекомендуется создавать кластер из одного хоста. Такой кластер обходится дешевле, но не обеспечивает [высокую доступность](../concepts/high-availability.md#host-configuration).
+
+     {% endnote %}
+
+     После создания кластера {{ mpg-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+
+     
      Чтобы к хосту можно было подключаться из интернета, включите настройку **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+
+
+    
+  1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
+
 
   1. При необходимости задайте дополнительные настройки кластера:
 
@@ -130,7 +178,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mpg-name }}:
 
-
+  
   1. Проверьте, есть ли в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) [подсети](../../vpc/concepts/network.md#subnet) для хостов кластера:
 
      ```bash
@@ -148,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} cluster create \
        --name <имя_кластера> \
@@ -156,7 +204,7 @@ description: Следуя данной инструкции, вы сможете
        --network-name <имя_сети> \
        --host zone-id=<зона_доступности>,`
                 `subnet-id=<идентификатор_подсети>,`
-                `assign-public-ip=<доступ_к_хосту_из_интернета> \
+                `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
        --resource-preset <класс_хоста> \
        --user name=<имя_пользователя>,password=<пароль_пользователя> \
        --database name=<имя_БД>,owner=<имя_владельца_БД> \
@@ -167,16 +215,13 @@ description: Следуя данной инструкции, вы сможете
        --deletion-protection
      ```
 
-
-
+     
      Где:
 
      * `environment` — окружение: `prestable` или `production`.
      * `disk-type` — тип диска.
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
+     
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.
 
 
@@ -184,29 +229,45 @@ description: Следуя данной инструкции, вы сможете
 
        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
+       Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
+       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
 
 
-     Доступные [режимы работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
-
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+     Длина пароля — от 8 до 128 символов.
 
-     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     
+     {% note info %}
+
+     Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените команду и задайте параметры пользователя таким образом:
+
+     ```bash
+       --user name=<имя_пользователя>,generate-password=true
+     ```
+
+     Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+     {% endnote %}
+
+
+     Доступные [режимы работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
      Также вы можете указать дополнительную опцию `replication-source` в параметре `--host` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
 
-
+     
+     Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/), передайте параметр `--serverless-access`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
-
 
 
      {% note info %}
@@ -235,15 +296,14 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-
-
+     
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
        environment         = "<окружение>"
        network_id          = "<идентификатор_сети>"
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
-       deletion_protection = <защита_от_удаления>
+       deletion_protection = <защитить_кластер_от_удаления>
 
        config {
          version = "<версия_{{ PG }}>"
@@ -263,7 +323,7 @@ description: Следуя данной инструкции, вы сможете
          zone             = "<зона_доступности>"
          name             = "<имя_хоста>"
          subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <доступ_к_хосту_из_интернета>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
        }
      }
 
@@ -293,13 +353,11 @@ description: Следуя данной инструкции, вы сможете
      ```
 
 
-
-
      Где:
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
 
-
+     
      * `assign_public_ip` — доступ к хосту из интернета: `true` или `false`.
 
 
@@ -307,17 +365,55 @@ description: Следуя данной инструкции, вы сможете
 
        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
+       Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+
+       {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `version` — версия {{ PG }}: {{ pg.versions.tf.str }}.
      * `pool_discard`  — параметр Odyssey `pool_discard`: `true` или `false`.
      * `pooling_mode` — режим работы: `SESSION`, `TRANSACTION` или `STATEMENT`.
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
 
-     {% include [username-limit](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+     Длина пароля — от 8 до 128 символов.
 
-     {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+     
+     {% note info %}
+
+     Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
+
+     Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+     {% endnote %}
+
+
+     Чтобы настроить автоматическое увеличение размера хранилища, добавьте в блок `config` блок `disk_size_autoscaling`:
+
+     {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
+
+     {% note warning %}
+     
+     * При использовании параметра `planned_usage_threshold` необходимо настроить окно технического обслуживания в блоке `maintenance_window`.
+     
+     * Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
+     
+     {% endnote %}
 
      {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
+
+     
+     Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+
+       ```hcl
+       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+         ...
+         disk_encryption_key_id = <идентификатор_ключа_KMS>
+         ...
+       }
+       ```
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
      {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
 
@@ -338,82 +434,89 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
-     ```bash
-     curl \
-       --request POST \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
-       --data '{
-                 "folderId": "<идентификатор_каталога>",
-                 "name": "<имя_кластера>",
-                 "environment": "<окружение>",
-                 "networkId": "<идентификатор_сети>",
-                 "securityGroupIds": [
-                   "<идентификатор_группы_безопасности_1>",
-                   "<идентификатор_группы_безопасности_2>",
-                   ...
-                   "<идентификатор_группы_безопасности_N>"
-                 ],
-                 "deletionProtection": <защита_от_удаления:_true_или_false>,
-                 "configSpec": {
-                   "version": "<версия_{{ PG }}>",
-                   "resources": {
-                     "resourcePresetId": "<класс_хостов>",
-                     "diskSize": "<размер_хранилища_в_байтах>",
-                     "diskTypeId": "<тип_диска>"
-                   },
-                   "access": {
-                     "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                     "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                     "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                     "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
-                     "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <активация_сбора_статистики:_true_или_false>,
-                     "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                     "statementsSamplingInterval": "<интервал_сбора_запросов>"
-                   }
-                 },
-                 "databaseSpecs": [
-                   {
-                     "name": "<имя_БД>",
-                     "owner": "<имя_владельца_БД>"
-                   },
-                   { <аналогичный_набор_настроек_для_БД_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_БД_N> }
-                 ],
-                 "userSpecs": [
-                   {
-                     "name": "<имя_пользователя>",
-                     "password": "<пароль_пользователя>",
-                     "permissions": [
-                       {
-                         "databaseName": "<имя_БД>"
-                       }
-                     ],
-                     "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
-                   },
-                   { <аналогичный_набор_настроек_для_пользователя_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_пользователя_N> }
-                 ],
-                 "hostSpecs": [
-                   {
-                     "zoneId": "<зона_доступности>",
-                     "subnetId": "<идентификатор_подсети>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
-                   },
-                   { <аналогичный_набор_настроек_для_хоста_2> },
-                   { ... },
-                   { <аналогичный_набор_настроек_для_хоста_N> }
-                 ]
-               }'
+     
+     ```json
+     {
+       "folderId": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "networkId": "<идентификатор_сети>",
+       "securityGroupIds": [
+         "<идентификатор_группы_безопасности_1>",
+         "<идентификатор_группы_безопасности_2>",
+         ...
+         "<идентификатор_группы_безопасности_N>"
+       ],
+       "deletionProtection": <защитить_кластер_от_удаления>,
+       "configSpec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resourcePresetId": "<класс_хостов>",
+           "diskSize": "<размер_хранилища_в_байтах>",
+           "diskTypeId": "<тип_диска>",
+           "diskEncryptionKeyId": "<идентификатор_ключа_KMS>"
+         },
+         "access": {
+           "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
+         },
+         "performanceDiagnostics": {
+           "enabled": <активировать_сбор_статистики>,
+           "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+           "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         },
+         "diskSizeAutoscaling": {
+           "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+           "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+           "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+         }
+       },
+       "databaseSpecs": [
+         {
+           "name": "<имя_БД>",
+           "owner": "<имя_владельца_БД>"
+         },
+         { <аналогичный_набор_настроек_для_БД_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_БД_N> }
+       ],
+       "userSpecs": [
+         {
+           "name": "<имя_пользователя>",
+           "password": "<пароль_пользователя>",
+           "permissions": [
+             {
+               "databaseName": "<имя_БД>"
+             }
+           ],
+           "login": <разрешить_пользователю_подключение_к_БД>
+         },
+         { <аналогичный_набор_настроек_для_пользователя_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_пользователя_N> }
+       ],
+       "hostSpecs": [
+         {
+           "zoneId": "<зона_доступности>",
+           "subnetId": "<идентификатор_подсети>",
+           "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
+         },
+         { <аналогичный_набор_настроек_для_хоста_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_хоста_N> }
+       ],
+       "maintenanceWindow": {
+         "weeklyMaintenanceWindow": {
+           "day": "<день_недели>",
+           "hour": "<час_дня>"
+         }
+       }
+     }
      ```
 
 
@@ -426,11 +529,18 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
+
+       По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+
+       Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `configSpec` — настройки кластера:
 
        * `version` — версия {{ PG }}.
@@ -438,9 +548,10 @@ description: Следуя данной инструкции, вы сможете
 
          * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
          * `diskSize` — размер диска в байтах;
-         * `diskTypeId` — [тип диска](../concepts/storage.md).
+         * `diskTypeId` — [тип диска](../concepts/storage.md);
+         * `diskEncryptionKeyId` — идентификатор ключа KMS для шифрования диска.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -449,12 +560,16 @@ description: Следуя данной инструкции, вы сможете
          * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
+
 
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+       
+       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
      * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
@@ -464,17 +579,40 @@ description: Следуя данной инструкции, вы сможете
      * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
        * `name` — имя пользователя.
-       * `password` — пароль пользователя.
+       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+          
+          Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
+
+          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
        * `permissions.databaseName` — имя базы данных, к которой пользователь получает доступ.
-       * `login` — разрешение для пользователя на подключение к БД.
+       * `login` — разрешение для пользователя на подключение к БД: `true` или `false`.
 
      * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+     * `maintenanceWindow` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
+
+       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.  
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
+       --data "@body.json"
+     ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -483,85 +621,89 @@ description: Следуя данной инструкции, вы сможете
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "folder_id": "<идентификатор_каталога>",
-             "name": "<имя_кластера>",
-             "environment": "<окружение>",
-             "network_id": "<идентификатор_сети>",
-             "security_group_ids": [
-               "<идентификатор_группы_безопасности_1>",
-               "<идентификатор_группы_безопасности_2>",
-               ...
-               "<идентификатор_группы_безопасности_N>"
-             ],
-             "deletion_protection": <защита_от_удаления:_true_или_false>,
-             "config_spec": {
-               "version": "<версия_{{ PG }}>",
-               "resources": {
-                 "resource_preset_id": "<класс_хостов>",
-                 "disk_size": "<размер_хранилища_в_байтах>",
-                 "disk_type_id": "<тип_диска>"
-               },
-               "access": {
-                 "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                 "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                 "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                 "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
-                 "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <активация_сбора_статистики:_true_или_false>,
-                 "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                 "statements_sampling_interval": "<интервал_сбора_запросов>"
-               }
-             },
-             "database_specs": [
-               {
-                 "name": "<имя_БД>",
-                 "owner": "<имя_владельца_БД>"
-               },
-               { <аналогичный_набор_настроек_для_БД_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_БД_N> }
-             ],
-             "user_specs": [
-               {
-                 "name": "<имя_пользователя>",
-                 "password": "<пароль_пользователя>",
-                 "permissions": [
-                   {
-                     "database_name": "<имя_БД>"
-                   }
-                 ],
-                 "login": <разрешение_для_пользователя_на_подключение_к_БД:_true_или_false>
-               },
-               { <аналогичный_набор_настроек_для_пользователя_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_пользователя_N> }
-             ],
-             "host_specs": [
-               {
-                 "zone_id": "<зона_доступности>",
-                 "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
-               },
-               { <аналогичный_набор_настроек_для_хоста_2> },
-               { ... },
-               { <аналогичный_набор_настроек_для_хоста_N> }
-             ]
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Create
+     
+     ```json
+     {
+       "folder_id": "<идентификатор_каталога>",
+       "name": "<имя_кластера>",
+       "environment": "<окружение>",
+       "network_id": "<идентификатор_сети>",
+       "security_group_ids": [
+         "<идентификатор_группы_безопасности_1>",
+         "<идентификатор_группы_безопасности_2>",
+         ...
+         "<идентификатор_группы_безопасности_N>"
+       ],
+       "deletion_protection": <защитить_кластер_от_удаления>,
+       "config_spec": {
+         "version": "<версия_{{ PG }}>",
+         "resources": {
+           "resource_preset_id": "<класс_хостов>",
+           "disk_size": "<размер_хранилища_в_байтах>",
+           "disk_type_id": "<тип_диска>",
+           "disk_encryption_key_id": "<идентификатор_ключа_KMS>"
+         },
+         "access": {
+           "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
+         },
+         "performance_diagnostics": {
+           "enabled": <активировать_сбор_статистики>,
+           "sessions_sampling_interval": "<интервал_сбора_сессий>",
+           "statements_sampling_interval": "<интервал_сбора_запросов>"
+         },
+         "disk_size_autoscaling": {
+           "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+           "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+           "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+         }
+       },
+       "database_specs": [
+         {
+           "name": "<имя_БД>",
+           "owner": "<имя_владельца_БД>"
+         },
+         { <аналогичный_набор_настроек_для_БД_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_БД_N> }
+       ],
+       "user_specs": [
+         {
+           "name": "<имя_пользователя>",
+           "password": "<пароль_пользователя>",
+           "permissions": [
+             {
+               "database_name": "<имя_БД>"
+             }
+           ],
+           "login": <разрешить_пользователю_подключение_к_БД>
+         },
+         { <аналогичный_набор_настроек_для_пользователя_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_пользователя_N> }
+       ],
+       "host_specs": [
+         {
+           "zone_id": "<зона_доступности>",
+           "subnet_id": "<идентификатор_подсети>",
+           "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
+         },
+         { <аналогичный_набор_настроек_для_хоста_2> },
+         { ... },
+         { <аналогичный_набор_настроек_для_хоста_N> }
+       ],
+       "maintenance_window": {
+         "weekly_maintenance_window": {
+           "day": "<день_недели>",
+           "hour": "<час_дня>"
+         }
+       }
+     }
      ```
 
 
@@ -574,11 +716,18 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-
+     
      * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
+
+        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+
+        Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
      * `config_spec` — настройки кластера:
 
        * `version` — версия {{ PG }}.
@@ -586,9 +735,10 @@ description: Следуя данной инструкции, вы сможете
 
          * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
          * `disk_size` — размер диска в байтах;
-         * `disk_type_id` — [тип диска](../concepts/storage.md).
+         * `disk_type_id` — [тип диска](../concepts/storage.md);
+         * `disk_encryption_key_id` — идентификатор ключа KMS для шифрования диска.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -597,12 +747,16 @@ description: Следуя данной инструкции, вы сможете
          * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
+
 
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
+       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 
      * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и имеет следующую структуру:
 
@@ -612,15 +766,42 @@ description: Следуя данной инструкции, вы сможете
      * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
        * `name` — имя пользователя.
-       * `password` — пароль пользователя.
+       * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+          
+          Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
+
+          Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
        * `permissions.database_name` — имя базы данных, к которой пользователь получает доступ.
-       * `login` — разрешение для пользователя на подключение к БД.
+       * `login` — разрешение для пользователя на подключение к БД: `true` или `false`.
 
      * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
        * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+    
+     * `maintenance_window` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
+
+       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.
+
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Create \
+       < body.json
+     ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
@@ -722,7 +903,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mpg-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `mypg`.
   * В окружении `production`.
   * В сети `default`.
@@ -736,7 +917,7 @@ description: Следуя данной инструкции, вы сможете
 
   Выполните следующую команду:
 
-
+  
   ```bash
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
@@ -764,7 +945,7 @@ description: Следуя данной инструкции, вы сможете
   * В каталоге с идентификатором `{{ tf-folder-id }}`.
   * В новой сети `mynet`.
 
-
+  
   * В новой группе безопасности `pgsql-sg`, разрешающей подключение к кластеру из интернета через порт `6432`.
 
 
@@ -776,8 +957,7 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера выглядит так:
 
-
-
+  
   ```hcl
   resource "yandex_mdb_postgresql_cluster" "mypg" {
     name                = "mypg"
@@ -806,6 +986,9 @@ description: Следуя данной инструкции, вы сможете
     cluster_id = yandex_mdb_postgresql_cluster.mypg.id
     name       = "db1"
     owner      = "user1"
+    depends_on = [
+      yandex_mdb_postgresql_user.user1
+    ]
   }
 
   resource "yandex_mdb_postgresql_user" "user1" {
@@ -839,10 +1022,4 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 
-
-
 {% endlist %}
-
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
-

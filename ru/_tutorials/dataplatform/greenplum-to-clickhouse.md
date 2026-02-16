@@ -1,5 +1,3 @@
-
-
 Вы можете перенести базу данных из {{ GP }} в {{ CH }} с помощью сервиса {{ data-transfer-full-name }}.
 
 Чтобы перенести базу данных из {{ GP }} в {{ CH }}:
@@ -10,6 +8,15 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
@@ -18,15 +25,18 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-источник {{ mgp-full-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации.
+    1. [Создайте кластер-источник {{ GP }} в сервисе {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации.
 
     1. [Создайте кластер-приемник {{ mch-full-name }}](../../managed-clickhouse/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с базой данных `db1`.
 
-
+    
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
+
+
+    1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `{{ CH }}`. В [параметрах](../../data-transfer/operations/endpoint/target/clickhouse.md#additional-settings) эндпоинта укажите политику очистки `Drop` или `Truncate`, чтобы данные на приемнике не дублировались при копировании.
 
 
 - {{ TF }} {#tf}
@@ -42,14 +52,21 @@
 
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
 
-
+        
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
 
 
-        * кластер-источник {{ mgp-name }};
-        * кластер-приемник {{ mch-name }}.
+        * кластер-источник {{ GP }} в сервисе {{ mgp-name }};
+        * кластер-приемник {{ mch-name }};
+        * эндпоинт-приемник.
 
-    1. Укажите в файле `greenplum-clickhouse.tf` пароли пользователя-администратора {{ GP }} и {{ CH }}.
+    1. Укажите в файле `greenplum-clickhouse.tf`:
+
+        * `mgp_password` — пароль администратора {{ GP }}.
+        * `mch_db` — имя базы данных {{ CH }}.
+        * `mch_user` — имя пользователя базы данных {{ CH }}.
+        * `mch_password` — пароль пользователя базы данных {{ CH }}.
+
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
@@ -70,21 +87,13 @@
 
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/greenplum.md) типа `{{ GP }}` и укажите в нем параметры подключения к кластеру.
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/clickhouse.md) типа `ClickHouse`.
-
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}](../../data-transfer/concepts/index.md#transfer-type), использующий эндпоинты для источника и приемника.
 
     Для этой пары эндпоинтов репликация недоступна, но вы можете настроить регулярное копирование при создании трансфера. Для этого в блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.title }}** в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** выберите **Регулярно**, затем укажите интервал копирования. Трансфер будет автоматически активироваться через указанный промежуток времени.
 
-    {% note warning %}
-
-    Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse#additional-settings) указана политика очистки `Drop` или `Truncate`. Иначе данные на приемнике будут дублироваться при копировании.
-
-    {% endnote %}
-
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect/index.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -120,7 +129,7 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. [Подключитесь к кластеру {{ mgp-name }}](../../managed-greenplum/operations/connect.md), удалите одну строку и измените другую в таблице `x_tab`:
+1. [Подключитесь к кластеру {{ GP }}](../../managed-greenplum/operations/connect/index.md), удалите одну строку и измените другую в таблице `x_tab`:
 
     ```sql
     DELETE FROM x_tab WHERE id = 41;
@@ -145,38 +154,23 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
-* [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-* Удалите кластеры:
+1. Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
+1. [Удалите](../../data-transfer/operations/endpoint/index.md#delete) эндпоинт-источник.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
 
     - {{ TF }} {#tf}
 
-        Если вы создали ресурсы с помощью {{ TF }}:
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `greenplum-clickhouse.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `greenplum-clickhouse.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 
@@ -185,4 +179,10 @@
 
 Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
-@[youtube](bzWmmPp6KFg)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkntkhjbfsn2c7ptv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=bzWmmPp6KFg).
+
+
+

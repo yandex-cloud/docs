@@ -13,7 +13,7 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
-Также инфраструктуру для синхронизации секретов {{ lockbox-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью [готового файла конфигурации](#terraform).
+Также инфраструктуру для синхронизации секретов {{ lockbox-name }} с секретами кластера {{ managed-k8s-name }} можно развернуть через {{ TF }} с помощью готового файла конфигурации. Подробнее см. в подразделе [Создайте инфраструктуру](#deploy-infrastructure) на вкладке {{ TF }}.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -35,7 +35,7 @@
   1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
   1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ managed-k8s-name }} и группа узлов.
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов {{ k8s }} с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов {{ k8s }} с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается кластер {{ managed-k8s-name }}.
      * Сервисный аккаунт для узлов {{ managed-k8s-name }} с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) на каталог с [реестром](../../container-registry/concepts/registry.md) [Docker-образов](../../container-registry/concepts/docker-image.md). От его имени узлы {{ managed-k8s-name }} будут скачивать из реестра необходимые Docker-образы.
 
      {% note tip %}
@@ -48,7 +48,7 @@
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-  1. [Создайте кластер {{ managed-k8s-name }} ](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности.
+  1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера {{ managed-k8s-name }} укажите ранее созданные сервисные аккаунты для ресурсов и узлов и группы безопасности.
 
   1. [Создайте секрет](../../lockbox/operations/secret-create.md) {{ lockbox-name }} со следующими параметрами:
      * **{{ ui-key.yacloud.common.name }}** — `lockbox-secret`.
@@ -181,7 +181,7 @@
    ```bash
    kubectl --namespace ns get secret k8s-secret \
      --output=json | \
-     jq --raw-output ."data"."password" | \
+     jq --raw-output '."data"."password"' | \
      base64 --decode
    ```
 
@@ -205,19 +205,6 @@
 
 - {{ TF }} {#tf}
 
-  1. В терминале перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-cluster-and-lockbox.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-     ```bash
-     terraform validate
-     ```
-
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cluster-and-lockbox.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

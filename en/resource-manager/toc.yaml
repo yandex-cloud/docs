@@ -13,6 +13,8 @@ items:
         items:
           - name: Creating a cloud
             href: operations/cloud/create.md
+          - name: Creating a cloud in another region
+            href: operations/cloud/create-in-another-region.md
           - name: Renaming a cloud
             href: operations/cloud/update.md
           - name: Deleting a cloud
@@ -21,7 +23,7 @@ items:
             href: operations/cloud/delete-cancel.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
-          - name: Retrieving a cloud ID
+          - name: Getting a cloud ID
             href: operations/cloud/get-id.md
           - name: Switch clouds
             href: operations/cloud/switch-cloud.md
@@ -39,12 +41,22 @@ items:
             href: operations/folder/delete.md
           - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
+          - name: Folder navigation
+            href: operations/folder/switch.md
           - name: Getting the folder ID
             href: operations/folder/get-id.md
           - name: Getting notifications from services in a folder
             href: operations/folder/notify.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Setting up networking between resources from different folders
+        href: tutorials/multi-folder-vpc.md
+      - name: Inviting a new user and assigning roles
+        href: tutorials/add-account-and-assign-roles.md
   - name: Concepts
     items:
       - name: Yandex Cloud resource hierarchy
@@ -60,12 +72,82 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/resource-manager/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cloud
+        items:
+          - name: Overview
+            href: cli-ref/cloud/index.md
+          - name: add-access-binding
+            href: cli-ref/cloud/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cloud/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/cloud/bind-access-policy.md
+          - name: create
+            href: cli-ref/cloud/create.md
+          - name: delete
+            href: cli-ref/cloud/delete.md
+          - name: get
+            href: cli-ref/cloud/get.md
+          - name: list
+            href: cli-ref/cloud/list.md
+          - name: list-access-bindings
+            href: cli-ref/cloud/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/cloud/list-access-policy-bindings.md
+          - name: list-operations
+            href: cli-ref/cloud/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cloud/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cloud/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/cloud/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/cloud/unbind-access-policy.md
+          - name: update
+            href: cli-ref/cloud/update.md
+      - name: folder
+        items:
+          - name: Overview
+            href: cli-ref/folder/index.md
+          - name: add-access-binding
+            href: cli-ref/folder/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/folder/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/folder/bind-access-policy.md
+          - name: create
+            href: cli-ref/folder/create.md
+          - name: delete
+            href: cli-ref/folder/delete.md
+          - name: get
+            href: cli-ref/folder/get.md
+          - name: list
+            href: cli-ref/folder/list.md
+          - name: list-access-bindings
+            href: cli-ref/folder/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/folder/list-access-policy-bindings.md
+          - name: list-operations
+            href: cli-ref/folder/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/folder/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/folder/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/folder/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/folder/unbind-access-policy.md
+          - name: update
+            href: cli-ref/folder/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -93,6 +175,12 @@ items:
                 href: api-ref/grpc/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -115,6 +203,12 @@ items:
                 href: api-ref/grpc/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview
@@ -149,6 +243,12 @@ items:
                 href: api-ref/Cloud/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Cloud/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Cloud/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Cloud/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Cloud/unbindAccessPolicy.md
           - name: Folder
             items:
               - name: Overview
@@ -171,6 +271,12 @@ items:
                 href: api-ref/Folder/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Folder/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Folder/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Folder/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Folder/unbindAccessPolicy.md
           - name: Operation
             items:
               - name: Overview
@@ -185,5 +291,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/resource-manager
-deepBase: 2

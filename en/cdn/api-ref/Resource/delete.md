@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
+    method: delete
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of resource to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/delete.md
 ---
 
-# Cloud CDN API, REST: Resource.Delete {#Delete}
+# Cloud CDN API, REST: Resource.Delete
 
 Deletes client's CDN resource.
 
@@ -19,7 +37,9 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/resources/{resourceId}
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource to delete. ||
+Required field. ID of resource to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

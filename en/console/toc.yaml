@@ -2,8 +2,24 @@ title: Yandex Cloud Console
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Management console
+        href: quickstart/console.md
+      - name: '{{ cloud-shell-name }}'
+        href: quickstart/cloud-shell.md
+  - name: Step-by-step guides
+    items:
+      - name: Navigating to a service and creating {{ yandex-cloud }} resources
+        href: operations/select-service.md
+      - name: Updating management console settings
+        href: operations/update.md
+      - name: Managing {{ cloud-shell-name }}
+        href: operations/cloud-shell-options.md
+      - name: Using search in the management console
+        href: operations/search.md
+      - name: Managing {{ yandex-cloud }} resources using an AI assistant
+        href: operations/ai-assistant.md
+  - name: Limits in {{ cloud-shell-name }}
+    href: concepts/cloud-shell/limits.md
   - name: Pricing policy
     href: pricing.md
-base: en/console
-deepBase: 2

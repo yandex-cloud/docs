@@ -13,54 +13,11 @@ description: В данном разделе приведены описания 
 {{ at-event-prefix }}.audit.<имя_сервиса>.<имя_события>
 ```
 
+{% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
+
 Ниже описаны события для сервисов:
 
-* [{{ api-gw-full-name }}](#api-gateway)
-* [{{ alb-full-name }}](#alb)
-* [{{ at-full-name }}](#audit-trails)
-* [{{ certificate-manager-full-name }}](#certificate-manager)
-* [{{ cloud-apps-full-name }}](#cloud-apps)
-* [{{ backup-full-name }}](#backup)
-* [{{ cdn-full-name }}](#cdn)
-* [{{ dns-full-name }}](#dns)
-* [{{ sf-full-name }}](#functions)
-* [{{ cloud-logging-full-name }}](#cloud-logging)
-* [{{ marketplace-full-name }}](#marketplace)
-* [{{ org-full-name }}](#organization)
-* [{{ postbox-full-name }}](#postbox)
-* [{{ compute-full-name }}](#compute)
-* [{{ container-registry-full-name }}](#container-registry)
-* [{{ dataproc-full-name }}](#dataproc)
-* [{{ data-transfer-full-name }}](#datatransfer)
-* [{{ ml-platform-full-name }}](#datasphere)
-* [{{ iam-full-name }}](#iam)
-* [{{ iot-full-name }}](#iot)
-* [{{ kms-full-name }}](#kms)
-* [{{ load-testing-full-name }}](#loadtesting)
-* [{{ lockbox-full-name }}](#lockbox)
-* [{{ maf-full-name }}](#managed-service-for-airflow)
-* [{{ mkf-full-name }}](#managed-service-for-kafka)
-* [{{ mch-full-name }}](#managed-service-for-clickhouse)
-* [{{ mgl-full-name }}](#managed-service-for-gitlab)
-* [{{ mgp-full-name }}](#managed-service-for-greenplum)
-* [{{ managed-k8s-full-name }}](#managed-service-for-kubernetes)
-* [{{ mmg-full-name }}](#managed-service-for-mongodb)
-* [{{ mmy-full-name }}](#managed-service-for-mysql)
-* [{{ mos-full-name }}](#managed-service-for-opensearch)
-* [{{ mpg-full-name }}](#managed-service-for-postgresql)
-* [{{ mrd-full-name }}](#managed-service-for-redis)
-* [{{ ydb-full-name }}](#ydb)
-* [{{ network-load-balancer-full-name }}](#network-load-balancer)
-* [{{ objstorage-full-name }}](#objstorage)
-* [{{ yq-full-name }}](#yq)
-* [{{ resmgr-full-name }}](#resmgr)
-* [{{ search-api-full-name }}](#searchapi)
-* [{{ serverless-containers-full-name }}](#serverless-containers)
-* [{{ captcha-full-name }}](#smartcaptcha)
-* [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ speechsense-full-name }}](#speechsense)
-* [{{ vpc-full-name }}](#vpc)
-* [{{ websql-full-name }}](#websql)
+{% include [cp-events-service-list](../../_includes/audit-trails/cp-events-service-list.md) %}
 
 ## {{ api-gw-full-name }} {#api-gateway}
 
@@ -74,6 +31,12 @@ description: В данном разделе приведены описания 
 
 {% include [alb-events](../../_includes/audit-trails/events/alb-events.md) %}
 
+## {{ ai-studio-full-name }} {#ai-studio}
+
+Имя сервиса — `ai`.
+
+{% include [ai-studio-events](../../_includes/audit-trails/events/ai-studio-events.md) %}
+
 ## {{ at-full-name }} {#audit-trails}
 
 Имя сервиса — `audittrails`.
@@ -86,6 +49,12 @@ description: В данном разделе приведены описания 
 `UpdateTrail` | Изменение трейла
 `UpdateTrailAccessBindings` | Изменение прав доступа для трейла
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Имя сервиса — `baremetal`.
+
+{% include [baremetal-events](../../_includes/audit-trails/events/baremetal-events.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
@@ -96,13 +65,7 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `cloudapps`.
 
-Имя события | Описание
---- | ---
-`CreateCloudApplication` | Создание приложения
-`DeleteCloudApplication` | Удаление приложения
-`SetApplicationAccessBindings` | Назначение прав доступа для приложения
-`UpdateApplicationAccessBindings` | Изменение прав доступа для приложения
-`UpdateCloudApplication` | Изменение приложения
+{% include [cloud-apps-events](../../_includes/audit-trails/events/cloud-apps-events.md) %}
 
 ## {{ backup-full-name }} {#backup}
 
@@ -110,11 +73,23 @@ description: В данном разделе приведены описания 
 
 {% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
+## {{ billing-name }} {#billing}
+
+Имя сервиса — `billing`.
+
+{% include [billing-events](../../_includes/audit-trails/events/billing-events.md) %}
+
 ## {{ cdn-full-name }} {#cdn}
 
 Имя сервиса — `cdn`.
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
+
+## {{ cloud-desktop-full-name }} {#clouddesktop}
+
+Имя сервиса — `clouddesktop`.
+
+{% include [clouddesktop-events](../../_includes/audit-trails/events/clouddesktop-events.md) %}
 
 ## {{ dns-full-name }} {#dns}
 
@@ -152,6 +127,18 @@ description: В данном разделе приведены описания 
 
 {% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
 
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Имя сервиса — `cloudregistry`.
+
+{% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
+
+## {{ video-full-name }} {#video}
+
+Имя сервиса — `video`.
+
+{% include [video-events](../../_includes/audit-trails/events/video-events.md) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Имя сервиса — `compute`.
@@ -168,13 +155,19 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `dataproc`.
 
-{% include [dataproc-events](../../_includes/audit-trails/events/dataproc-events.md) %}
+{% include [dataproc-events](../../_includes/audit-trails/events/data-processing-events.md) %}
 
 ## {{ data-transfer-full-name }} {#datatransfer}
 
 Имя сервиса — `datatransfer`.
 
 {% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
+
+## {{ datalens-full-name }} {#datalens}
+
+Имя сервиса — `datalens`.
+
+{% include [datalens-events](../../_includes/audit-trails/events/datalens-events.md) %}
 
 ## {{ ml-platform-full-name }} {#datasphere}
 
@@ -273,6 +266,24 @@ description: В данном разделе приведены описания 
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mspqr-full-name }} {#managed-service-for-sharded-postgresql}
+
+Имя сервиса — `mdb.spqr`.
+
+{% include [mspqr-events](../../_includes/audit-trails/events/mspqr-events.md) %}
+
+## {{ mtr-full-name }} {#managed-service-for-trino}
+
+Имя сервиса — `trino`.
+
+{% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
+
+## {{ msp-full-name }} {#managed-service-for-spark}
+
+Имя сервиса — `spark`.
+
+{% include [managed-spark-events](../../_includes/audit-trails/events/managed-spark-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Имя сервиса — `mdb.redis`.
@@ -284,6 +295,20 @@ description: В данном разделе приведены описания 
 Имя сервиса — `ydb`.
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
+
+## {{ message-queue-full-name }} {#ymq}
+
+Имя сервиса — `ymq`.
+
+{% include [ymq-events](../../_includes/audit-trails/events/ymq-events.md) %}
+
+## {{ metadata-hub-full-name }} {#metadata-hub}
+
+### {{ metastore-full-name }} {#hive-metastore}
+
+Имя сервиса — `metastore`.
+
+{% include [hive-metastore-events](../../_includes/audit-trails/events/hive-metastore-events.md) %}
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer}
 
@@ -303,6 +328,12 @@ description: В данном разделе приведены описания 
 
 {% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
 
+## {{ myt-full-name }} {#ytsaurus}
+
+Имя сервиса — `ytsaurus`.
+
+{% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Имя сервиса — `resourcemanager`.
@@ -314,6 +345,28 @@ description: В данном разделе приведены описания 
 Имя сервиса — `searchapi`.
 
 {% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
+
+## {{ sd-full-name }} {#security-deck}
+
+Имя сервиса — `securitydeck`.
+
+### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+
+Имя модуля — `securitydeck.kspm`.
+
+{% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
+
+### Модуль Контроль конфигурации (CSPM) {#sd-cspm}
+
+Имя модуля — `securitydeck.cspm`.
+
+{% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Окружения {{ sd-name }} {#sd-orchestrator}
+
+Имя модуля — `securitydeck.orchestrator`.
+
+{% include [sd-orchestrator-events](../../_includes/audit-trails/events/sd-orchestrator-events.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
@@ -337,7 +390,7 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `speechsense`.
 
-{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
+{% include [speechsense-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 

@@ -19,7 +19,9 @@
       * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-http-plain }}` (без шифрования) или `{{ ui-key.yacloud.alb.label_proto-http-tls }}` (с TLS-шифрованием). Для протокола `{{ ui-key.yacloud.alb.label_proto-http-tls }}` укажите:
         
         * **{{ ui-key.yacloud.alb.label_sni }}**. Доменное имя хоста для Server Name Indication — расширения TLS.
-        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов. Поддерживаются сертификаты стандарта [X.509](https://ru.wikipedia.org/wiki/X.509) в формате [PEM](https://ru.wikipedia.org/wiki/Почта_с_повышенной_секретностью).
+        * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов.
+
+          {% include [supported-certificates](supported-certificates.md) %}
     
     * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}`:
 
@@ -38,7 +40,7 @@
 
 * В блоке **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния**:
   
-  * **{{ ui-key.yacloud.alb.label_timeout }}** — время ожидания ответа.
+  * **{{ ui-key.yacloud.alb.label_timeout }}** — время ожидания ответа. Максимальный период, на который может быть установлено соединение.
   * **{{ ui-key.yacloud.alb.label_interval }}** — интервал отправки проверочных запросов.
   * **{{ ui-key.yacloud.alb.label_healthy }}** — количество последовательных успешных проверок, после которых эндпоинт считается работоспособным. Игнорируется в начале работы балансировщика: достаточно одной проверки.
   * **{{ ui-key.yacloud.alb.label_unhealthy }}** — количество последовательных неуспешных проверок, после которых эндпоинт считается неработоспособным. Игнорируется, если бэкенд один раз ответил HTTP-кодом состояния `503 Service Unavailable`: он сразу считается неработоспособным.
@@ -50,6 +52,7 @@
       * **{{ ui-key.yacloud.alb.label_path }}** — путь в URI запроса к эндпоинту.
       * **{{ ui-key.yacloud.alb.label_hc_host }}** — значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, которое будет передаваться эндпоинтам бэкенда при проверках состояния.
       * **{{ ui-key.yacloud.alb.label_use-http2 }}** — опция использования протокола HTTP версии 2.
+      * **{{ ui-key.yacloud.alb.label_expected-statuses }}** — список HTTP-кодов, которые считаются корректными при проверке состояния бэкенда.
      
     * Для типа `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`:
       

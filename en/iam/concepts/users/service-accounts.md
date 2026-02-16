@@ -1,5 +1,5 @@
 ---
-title: Service accounts
+title: Service account
 description: A service account is an account that can be used by a program to manage resources in {{ yandex-cloud }}.
 ---
 
@@ -17,6 +17,8 @@ By using service accounts you can flexibly configure access rights to resources 
 
 {% include [sa-uniq-name](../../../_includes/iam/sa-uniq-name.md) %}
 
+{% include [sa-last-used-data](../../../_includes/iam/sa-last-used-data.md) %}
+
 ## How service accounts differ from other accounts {#sa-difference}
 
 * Currently, you cannot use service accounts to log in to the [management console]({{ link-console-main }}). We assume that programs, rather than users, perform operations on behalf of service accounts.
@@ -24,23 +26,33 @@ By using service accounts you can flexibly configure access rights to resources 
 * You can create [keys](#sa-key) for the service account to [authenticate in {{ yandex-cloud }}](../authorization/index.md#sa) via the API, CLI, or other tools. Those keys are deleted when you delete the service account.
 * You can link your service account to [virtual machines](../../../compute/operations/vm-connect/auth-inside-vm.md) and [functions](../../../functions/operations/function-sa.md) that you run your program from.
 
-   This makes it easier to scale applications running on {{ yandex-cloud }}:
-   * You do not need to edit the program code to make it run on a new VM or function. The IAM authentication token is already available from inside.
-   * To enable or disable operations in {{ yandex-cloud }} for all running program instances, you can assign or revoke roles for a single service account.
+    This makes it easier to scale applications running on {{ yandex-cloud }}:
+    * You do not need to edit the program code to make it run on a new VM or function. The IAM token for authentication in the {{ yandex-cloud }} API is already available from inside the virtual machine.
+    * To enable or disable operations in {{ yandex-cloud }} for all running program instances, you can assign or revoke roles for a single service account.
 
 ## Service account keys {#sa-key}
 
-The following keys are used for service account authentication in {{ yandex-cloud }}:
+The following keys are used for service account authentication in the {{ yandex-cloud }} API:
 
 * [Authorized keys](../authorization/key.md): Keys used to [get an IAM token](../../operations/iam-token/create-for-sa.md).
 * [API keys](../authorization/api-key.md): Keys used in some services for simplified authentication instead of IAM tokens.
 * [Static access keys](../authorization/access-key.md): Keys used in services with AWS-compatible APIs.
 
-Generated keys belong to the service account and permissions to manage them are inherited from the service account. For example, if you have the `viewer` role in the service account, you can view the list of keys that belong to this account, but you cannot delete them or create new keys.
+Generated keys belong to the service account and permissions to manage them are inherited from the service account. For example, if you have the `viewer` role for the service account, you can view the list of keys belonging to this account but you cannot delete them or create new keys.
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
+## Use cases {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{#T}](../../../tutorials/analysis/search-events-query.md)
+* [{#T}](../../../tutorials/archive/kubernetes-backup.md)
+* [{#T}](../../tutorials/wlif-github-integration.md)
+* [{#T}](../../tutorials/wlif-gitlab-integration.md)
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+
 #### See also {#see-also}
 
-- [{#T}](../../quickstart-sa.md)
-- [Authorization as a service account](../authorization/index.md#sa)
+* [{#T}](../../quickstart-sa.md)
+* [{#T}](../../operations/sa/list-get.md)
+* [Authenticating as a service account](../authorization/index.md#sa)

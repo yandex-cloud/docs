@@ -1,0 +1,1 @@
+Be mindful of what is managed by the service and what, by the {{ yandex-cloud }} customer. Understanding these areas of management helps you use your cloud resources efficiently and avoid potential database-related issues. For more information, see [{#T}](../../overview/concepts/mdb-responsibilities.md).

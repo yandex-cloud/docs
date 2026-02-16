@@ -1,0 +1,1 @@
+To create an encrypted disk, you need the `kms.keys.user` [role](../../kms/security/index.md#kms-keys-user) or higher.

@@ -8,16 +8,9 @@ description: In this tutorial, you will learn how to make basic actions with mes
 Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/), one of the [tools](instruments/index.md) you can use to work with {{ message-queue-name }}.
 
 1. [Install](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) the AWS CLI, a command line utility for working with {{ message-queue-name }}.
-
-   {% note warning %}
-
-   Currently, there is no support for the new AWS CLI versions with JSON protocol. Use [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-version.html#:~:text=Install%20past%20releases%20of%20the%20AWS%20CLI%20version%202) 2.13.33 or lower until the `AWS JSON-1.0 protocol` protocol is deployed.
-
-   {% endnote %}
-
 1. [Create](../iam/operations/sa/create.md) a service account with the `editor` role.
-1. [Create](../iam/operations/sa/create-access-key.md) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
-1. Set up the AWS CLI:
+1. [Create](../iam/operations/authentication/manage-access-keys.md#create-access-key) static access keys. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
+1. Configure the AWS CLI:
 
    {% include [configure-aws-cli](../_includes/message-queue/configure-aws-cli.md) %}
 
@@ -26,12 +19,6 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
-     ```bash
-     aws sqs create-queue \
-       --queue-name <queue_name> \
-       --endpoint <endpoint>
-     ```
 
      ```bash
      aws sqs create-queue \
@@ -57,9 +44,10 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    - Management console
 
      1. In the [management console]({{ link-console-main }}), select the folder to create the queue in.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Enter a name for the queue: `sample-queue`.
+
         {% include [name](../_includes/message-queue/ymq-name.md) %}
 
      1. Select the `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}` type. Do not change other settings.
@@ -171,12 +159,6 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    {% list tabs group=instructions %}
 
    - AWS CLI {#cli}
-  
-     ```bash
-     aws sqs delete-queue \
-       --endpoint <endpoint> \
-       --queue-url <queue_URL>
-     ```
 
      ```bash
      aws sqs delete-queue \
@@ -192,7 +174,7 @@ Let's perform the basic actions using the [AWS CLI](https://aws.amazon.com/cli/)
    - Management console
 
      1. In the [management console]({{ link-console-main }}), select the folder the queue belongs to.
-     1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click ![image](../_assets/console-icons/ellipsis.svg) next to the appropriate queue and select **{{ ui-key.yacloud.common.delete }}**.
      1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

@@ -1,10 +1,6 @@
-* **Agent**: Agent data.
-* **Customer**: Customer data.
-* **Bot** (only for chats): Bot data.
-* **Speech statistics** (only for audio): Agent and customer speech quality criteria, e.g., speech rate, mutual interruptions, etc.
-* **General metadata**: Data about the conversation audio (collected via PBX) or text chat. Metadata is uploaded to {{ speechsense-name }} together with the conversation audio or text chat and contains its key characteristics, e.g., date, topic, and dialog language.
-* **Customer tags** and **Agent tags**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} scans the dialog for specific keywords, phrases, or intonations, classifies the dialog, and adds a tag to it.
+* **{{ ui-key.yc-ui-talkanalytics.dialogs.speech-statistics }}**: Quality criteria for speech or text messages exchanged between the agent and the customer. For example, for audio, it is the agent's or customer's speech rate, whether any of them interrupted the other party; for chats it is the number of characters in the dialog, how long it was taking the agent to respond to the customer's message.
+* **{{ ui-key.yc-ui-talkanalytics.dialogs.classifiers }}**: Classifiers applied to conversation audio recognition results or text chat messages. {{ speechsense-name }} detects specific keywords, phrases, or intonations in the dialog, classifies and tags the dialog.
 
-   {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
+    {{ speechsense-name }} has preconfigured tags. These can give you a clue as to whether there was an informal greeting or goodbye, whether the agent thanked the customer for waiting, whether it was the customer's repeat call to support, etc. You can learn more about tags [here](../../../speechsense/concepts/tags.md).
 
-* **YandexGPT analysis**: Agent's performance criteria and customer's behavioral characteristics during the dialog, such as whether the agent was polite, whether the customer was on the rude side, etc.
+    In your report, you can reflect the agent's performance criteria or the client's behavior, e.g., whether the agent was polite, whether the client was rude, etc. To do this, create a [semantic tag](../../../speechsense/concepts/tags.md#use-sense-tags-for-dialog-evaluation) and apply it as a parameter in the report. For more information, see [this guide](../../../speechsense/operations/data/manage-reports.md#use-sense-tags-for-analysis).

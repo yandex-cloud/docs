@@ -1,9 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            The maximum string length in characters is 255.
+          type: string
+        data:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 20000.
+          type: string
+        expiresAt:
+          description: |-
+            **string** (date-time)
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      required:
+        - organizationId
+        - subjectId
+        - data
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/create.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Create {#Create}
+# Identity Hub API, REST: UserSshKey.Create
 
 ## HTTP request
 
@@ -27,14 +74,22 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/userSsh
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-Required field.  ||
-|| name | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+The maximum string length in characters is 255. ||
 || data | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 20000. ||
 || expiresAt | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

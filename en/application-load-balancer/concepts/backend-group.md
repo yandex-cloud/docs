@@ -1,3 +1,8 @@
+---
+title: Backend groups
+description: In this article, you will learn about backend group types, session affinity, protocol and load balancing settings, and health checks.
+---
+
 # Backend groups
 
 A backend group defines the settings based on which the L7 load balancer sends traffic to the backend endpoints:
@@ -6,7 +11,11 @@ A backend group defines the settings based on which the L7 load balancer sends t
 * Settings for the endpoint health checks.
 * Rules for traffic distribution between endpoints.
 
-The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
+The backend group includes a list of backends. Each backend, depending on its [type](#types), points to resources that act as application endpoints: VMs in target groups or a bucket with files. You can assign a relative weight to each backend. Traffic between backends is distributed proportionally to these weights. 
+
+Weighted routing follows these steps: first, the system selects a backend based on its weight, ignoring the state of endpoints within backends. Then, within the selected backend, it selects a specific endpoint based on its load balancing policy. If the backend has no healthy endpoints, the load balancer will return the `503` error or close the connection. The exact behavior depends on your scenario and load balancer type. The system will not retry to select another backend.
+
+Protocols, health checks, and traffic distribution are configured separately for each backend. By using a group of multiple backends, you can split traffic between different application versions when running updates or experiments.
 
 {% include [backend-healthcheck](../../_includes/application-load-balancer/backend-healthcheck.md) %}
 
@@ -26,7 +35,7 @@ By default, backends of the **{{ ui-key.yacloud.alb.label_proto-stream }}** type
 
 {% note alert %}
 
-You can only select a backend group's type when creating it. You can't change the type of an existing group.
+You can only select a backend group's type when creating it. You cannot change the type of an existing group.
 
 {% endnote %}
 
@@ -59,6 +68,12 @@ Session affinity mode determines how incoming requests are grouped into one sess
   * If session affinity settings include cookie lifetime, the load balancer generates a cookie with a unique value and sends it in its response to a user's first request. To use session cookies that are stored on a client, such as a browser, and reset when it restarts, specify the `0` lifetime.
   * If a lifetime is not specified, the load balancer does not generate cookies. Instead, it only uses cookie values from incoming requests to bind sessions.
 
+  {% note info %}
+  
+  When combining requests into a session using a cookie, specify the request path so that the cookie only applies to certain sections of the website. If the path is not specified, the cookie is linked not to the user, but to a random path on the website. This may interfere with the application because user requests to different website sections may end up in different backends and not be combined into one session.
+  
+  {% endnote %}
+
 **{{ ui-key.yacloud.alb.label_proto-stream }}** backend groups only support session affinity by client IP address.
 
 ## Protocol and load balancing settings {#settings}
@@ -72,7 +87,7 @@ For backends consisting of target groups, you can configure:
 
 The load balancer can establish unencrypted backend connections and backend connections with TLS encryption. When using TLS, the load balancer does not validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
 
-If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. Backend groups of the **{{ ui-key.yacloud.alb.label_proto-grpc }}** type only support HTTP/2 connections.
+If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. **{{ ui-key.yacloud.alb.label_proto-grpc }}** backend groups only support the HTTP/2 protocol.
 
 ### Balancing mode {#balancing-mode}
 
@@ -98,7 +113,7 @@ In the backend settings, you can specify the mode for distributing traffic betwe
 ### Panic mode {#panic-mode}
 
 Panic mode safeguards you against failure of all app instances in case the data load increases drastically.
-In this mode, the load balancer will distribute requests across all endpoints, ignoring health check results. You can set the percentage of healthy endpoints that triggers panic mode.
+In this mode, the load balancer will distribute requests across all endpoints, ignoring health check results. You can set the percentage of healthy endpoints. Values below this threshold will trigger the panic mode. If set to `0`, panic mode will never be activated, and traffic will only be routed to healthy endpoints.
 
 If you do not use the panic mode, failure of some backends will further increase the load on backends that are still running. If an application is running at its maximum capacity, all backends will fail, which will render your service completely unavailable. If you enable the panic mode, traffic is again distributed across all your endpoints. Although some requests might fail, the service stays operable. This provides time to increase the application's computing resources [automatically](../../compute/concepts/instance-groups/scale.md#auto-scale) or manually.
 
@@ -120,15 +135,17 @@ The following health check settings are supported:
 * Timeout: Response waiting time.
 * Interval: Time interval between health check requests.
 * Resource health indicators: Numerical thresholds of successful/failed results for the check to be considered passed or failed, respectively.
+* Allows keeping the connection alive even if the health check fails (for Stream checks only).
 * HTTP health check settings:
 
   * Domain name for the `Host` header (HTTP/1.1) or the `:authority` pseudo-header (HTTP/2).
   * Path in the URI of request to the endpoint.
   * HTTP/2 flag.
+  * HTTP status codes that will be considered correct when checking the backend. You can specify any values from `100` to `599`.
 
 * Settings of gRPC health checks:
 
-  * Name of the service checked.
+  * Name of the service you want to check.
 
 * Settings of Stream health checks (TCP):
 
@@ -140,6 +157,17 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 
 * For Stream health checks, a TLS connection will be established and the check results will be returned through this connection.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
 
 ### See also {#see-also}
 

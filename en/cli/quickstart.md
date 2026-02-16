@@ -1,10 +1,15 @@
-# Getting started with the command-line interface
+---
+title: Getting started with the command line interface
+description: Follow this guide to learn how to use the command line interface.
+---
+
+# Getting started with the command line interface
 
 
-The _{{ yandex-cloud }} command-line interface (CLI)_ provides downloadable software for managing your cloud resources from the command line.
+The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software you can use to manage your cloud resources via the command line.
 
 
-## Installation {#install}
+## Installing {#install}
 
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
@@ -43,7 +48,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
 
 1. In the `my-yc-network` cloud network, create a subnet:
 
-
+   
    ```bash
    yc vpc subnet create \
      --name my-yc-subnet-a \
@@ -97,10 +102,10 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    ```
 
 1. Create a VM and connect it to `my-yc-subnet-a`:
-   1. [Prepare](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
+   1. [Create](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair (public and private keys) for SSH access to the VM.
    1. Create a Linux VM:
 
-
+      
       ```bash
       yc compute instance create \
         --name my-yc-instance \
@@ -141,3 +146,8 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
    yc vpc subnet delete my-yc-subnet-a
    yc vpc network delete my-yc-network
    ```
+
+
+## See also {#see-also}
+
+* [{#T}](operations/update-cli.md)

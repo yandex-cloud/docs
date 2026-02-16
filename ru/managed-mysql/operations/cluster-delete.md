@@ -19,7 +19,7 @@ description: После удаления кластера {{ MY }} его рез
 - Консоль управления {#console}
   
   1. Откройте [страницу каталога]({{ link-console-main }}) в консоли управления.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
@@ -59,7 +59,7 @@ description: После удаления кластера {{ MY }} его рез
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/delete.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 

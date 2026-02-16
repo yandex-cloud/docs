@@ -6,10 +6,10 @@
 
 Для выполнения примера:
 
-1. [{#T}](#before-you-begin).
-1. [{#T}](#create-binding).
-1. [{#T}](#run-query).
-1. [{#T}](#check-result).
+1. [Подготовьтесь к работе](#before-you-begin).
+1. [Подключитесь к данным](#create-binding).
+1. [Выполните запрос](#run-query).
+1. [Исследуйте результат](#check-result).
 
 {% note info %}
 

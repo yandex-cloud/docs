@@ -8,4 +8,4 @@
    {% endnote %}
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.uploader` и `ai.speechkit-stt.user` на каталог, в котором вы ранее создали бакет.
-1. Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../iam/operations/api-key/create.md) для созданного сервисного аккаунта.
+1. Получите [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для созданного сервисного аккаунта.

@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://translate.{{ api-host }}/translate/v2/languages
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to which you have access.
+            Required for authorization with a [user account](/docs/iam/concepts/users/accounts).
+            Do not specify this field if you make the request on behalf of a [service account](/docs/iam/concepts/users/accounts#sa).
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ai/translate/v2/api-ref/Translation/listLanguages.md
 ---
 
-# Translate API v2, REST: Translation.ListLanguages {#ListLanguages}
+# Translate API v2, REST: Translation.ListLanguages
 
 Retrieves the list of supported languages.
 
@@ -26,8 +43,8 @@ POST https://translate.{{ api-host }}/translate/v2/languages
 || folderId | **string**
 
 ID of the folder to which you have access.
-Required for authorization with a user account (see [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount) resource).
-Don't specify this field if you make the request on behalf of a service account. ||
+Required for authorization with a [user account](/docs/iam/concepts/users/accounts).
+Do not specify this field if you make the request on behalf of a [service account](/docs/iam/concepts/users/accounts#sa). ||
 |#
 
 ## Response {#yandex.cloud.ai.translate.v2.ListLanguagesResponse}
@@ -59,7 +76,7 @@ List of supported languages. ||
 || code | **string**
 
 The language code.
-Specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` en ``). ||
+Most languages are specified in [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) format (for example, `` ru ``), but the field are not limited to it. ||
 || name | **string**
 
 The name of the language (for example, `` English ``). ||

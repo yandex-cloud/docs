@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ ml-platform-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ ml-platform-name }}.
 editable: false
 ---
 
@@ -9,6 +11,9 @@ editable: false
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ ml-platform-name }} {#rules}
 
@@ -46,17 +51,19 @@ editable: false
 * Вычислительные ресурсы выбранной конфигурации {{ ml-platform-name }}.
 * Все время существования кластера {{ dataproc-name }} по [правилам тарификации {{ dataproc-full-name }}](../data-proc/pricing.md).
 
-Подробнее об [интеграции с {{ dataproc-name }}](concepts/data-proc.md).
+Подробнее об [интеграции с {{ dataproc-name }}](concepts/data-processing.md).
 
 ### Использование дискового пространства {#storage}
 
 Каждый проект {{ ml-platform-name }} имеет хранилище, в рамках которого хранение данных не тарифицируется. При увеличении [квоты]({{ link-console-quotas }}) на размер проекта весь запрошенный [объем хранилища](#prices-storage) свыше {{ ml-project-size }} оплачивается отдельно. Подробнее с квотами и лимитами сервиса можно ознакомиться в разделе [{#T}](concepts/limits.md).
 
-[Хранение данных внутри датасетов](#prices-storage) оплачивается отдельно.
+Хранение данных внутри [датасетов](concepts/dataset.md) и файловых хранилищ оплачивается отдельно.
 
 Если вам требуется хранить большие объемы данных, вы можете использовать сервис {{ objstorage-full-name }}. В этом случае хранение данных будет тарифицироваться по [правилам тарификации {{ objstorage-name }}](../storage/pricing.md).
 
-[Хранение моделей](#prices-storage) оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
+[Хранение моделей](concepts/models/index.md) и [Docker-образов](concepts/docker.md) в {{ ml-platform-name }} оплачивается отдельно. Тарификация зависит от размера модели, размер рассчитывается в ГБ и округляется до целого значения в большую сторону.
+
+Хранение Docker-образов в {{ container-registry-full-name }} оплачивается по тарифам [{{ container-registry-name }}](../container-registry/pricing.md#prices-storage). 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
@@ -119,6 +126,8 @@ editable: false
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Примеры расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 ### {{ ds-nb }} {#price-example-notebook}
 

@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups/{backupId}:startRecovery
+    method: post
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Backup ID that will be applied to destination Compute Cloud instance.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Destination Compute Cloud instance ID to which backup should be applied.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/startRecovery.md
 ---
 
-# Cloud Backup API, REST: Backup.StartRecovery {#StartRecovery}
+# Cloud Backup API, REST: Backup.StartRecovery
 
 Start recovery process of specified backup to specific Compute Cloud instance.
 
@@ -36,7 +64,9 @@ Required field. Backup ID that will be applied to destination Compute Cloud inst
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Destination Compute Cloud instance ID to which backup should be applied. ||
+Required field. Destination Compute Cloud instance ID to which backup should be applied.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

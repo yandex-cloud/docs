@@ -1,3 +1,5 @@
+
+
 Создайте [функцию](../../functions/concepts/function.md) с приложением на [Python](https://python.org/), которое выполняет простой запрос к базе данных [{{ ydb-full-name }}](../../ydb/).
 
 Функция с привязанным [сервисным аккаунтом](../../iam/concepts/users/service-accounts.md) авторизуется в {{ ydb-short-name }} через сервис метаданных.
@@ -17,13 +19,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 * Плата за выполнение запросов к БД (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
-
 
 ## Создайте сервисный аккаунт {#create-sa}
 

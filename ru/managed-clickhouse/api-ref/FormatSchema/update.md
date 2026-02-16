@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ClickHouse cluster ID.
+            To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+            The maximum string length in characters is 50.
+          type: string
+        formatSchemaName:
+          description: |-
+            **string**
+            Required field. Format schema name.
+            To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/FormatSchema/list#List) method.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - formatSchemaName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        uri:
+          description: |-
+            **string**
+            [Link to the file](/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/update.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.Update {#Update}
+# Managed Service for ClickHouse API, REST: FormatSchema.Update
 
 Changes a format schema.
 
@@ -21,12 +69,16 @@ PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/form
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method. ||
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 || formatSchemaName | **string**
 
 Required field. Format schema name.
 
-To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/FormatSchema/list#List) method. ||
+To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/FormatSchema/list#List) method.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.UpdateFormatSchemaRequest}
@@ -204,7 +256,6 @@ Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**

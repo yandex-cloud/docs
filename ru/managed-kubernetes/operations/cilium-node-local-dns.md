@@ -42,7 +42,6 @@
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    ---
    apiVersion: v1
    kind: Service
@@ -70,7 +69,6 @@
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    data:
      Corefile: |
        cluster.local:53 {
@@ -207,6 +205,8 @@
 
    {% endcut %}
 
+   {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
 1. Создайте файл `node-local-dns-lrp.yaml`:
 
    {% cut "node-local-dns-lrp.yaml" %}
@@ -270,12 +270,9 @@
 Для проверки работы локального DNS в кластере {{ managed-k8s-name }} будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
 1. Запустите под `nettool`:
 
-
    ```bash
    kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
-
-
 
 1. Убедитесь, что под перешел в состояние `Running`:
 

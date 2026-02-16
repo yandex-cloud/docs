@@ -7,6 +7,8 @@
 1. Введите имя и описание группы узлов {{ managed-k8s-name }}.
 1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите версию {{ k8s }} для узлов {{ managed-k8s-name }}.
 1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_container-runtime }}** выберите `{{ ui-key.yacloud.k8s.node-groups.create.label_runtime-CONTAINERD }}`.
+1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте [облачные метки узлов](../../managed-kubernetes/concepts/index.md#node-labels).
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}** выберите его тип:
    * `{{ ui-key.yacloud.k8s.node-groups.create.value_scale-fixed }}` — чтобы количество узлов {{ managed-k8s-name }} в группе оставалось неизменным. Укажите количество узлов {{ managed-k8s-name }} в группе.
 
@@ -24,12 +26,15 @@
 
    {% endnote %}
 
-1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество [виртуальных машин](../../compute/concepts/vm.md), на которое можно превысить и уменьшить размер группы узлов {{ managed-k8s-name }}.
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите максимальное количество узлов, на которое можно превысить размер группы при ее обновлении, а также максимальное количество недоступных при обновлении узлов.
+
+   {% include [note-expansion-group-vm](note-expansion-group-vm.md) %}
+
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество [GPU](../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
    * (Опционально) Укажите, что ВМ должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
-   * (Опционально) Включите [программно-ускоренную сеть](../../compute/concepts/software-accelerated-network.md).
+   * (Опционально) Включите [программно ускоренную сеть](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
 
@@ -41,6 +46,9 @@
 
 1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_gpu-settings }}** укажите, если группа узлов {{ managed-k8s-name }} должна быть без предустановленных драйверов NVIDIA® и библиотек CUDA® для [GPU-ускорения](../../compute/concepts/gpus.md).
 1. (Опционально) В блоке **{{ ui-key.yacloud.k8s.node-group.overview.section_placement-policy }}** укажите имя [группы размещения](../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}. Эту настройку невозможно изменить после создания группы узлов {{ managed-k8s-name }}.
+
+    {% include [placement-groups](placement-groups.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
    * Укажите **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}** узла {{ managed-k8s-name }}:
      * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}` — [стандартный сетевой диск](../../compute/concepts/disk.md#disks-types), сетевое блочное хранилище на HDD-накопителе.
@@ -56,14 +64,24 @@
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
      * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+
+     {% note info %}
+
+     {% include [nodes-internet-access](nodes-internet-access.md) %}
+
+     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
+
+     {% endnote %}
+
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md).
 
      {% include [security-groups-alert](security-groups-alert.md) %}
 
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
+   * Укажите [зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet), в которых вы хотите разместить узлы группы.
+   * (Опционально) Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и подсеть.
 
-   * Укажите расположение узлов {{ managed-k8s-name }} по [зонам доступности](../../overview/concepts/geo-scope.md) и [сетям](../../vpc/concepts/network.md#network).
-   * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и сеть, чтобы создать узлы {{ managed-k8s-name }} в разных зонах доступности.
-
+   {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** настройте один из способов подключения к узлам в группе узлов {{ managed-k8s-name }}:
 
@@ -84,7 +102,7 @@
     {% include [node-group-metadata-postponed-update-note](./node-group-metadata-postponed-update-note.md) %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-   * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для обновлений:
+   * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите окно для обновлений:
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
      * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.

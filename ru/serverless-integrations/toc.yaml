@@ -2,6 +2,8 @@ title: '{{ si-full-name }}'
 stage: preview
 href: index.yaml
 items:
+  - name: Сопоставление с другими сервисами {{ yandex-cloud }}
+    href: service-comparison.md
   - name: Начало работы
     items:
       - name: Обзор
@@ -10,6 +12,281 @@ items:
         href: quickstart/workflows.md
       - name: '{{ er-name }}'
         href: quickstart/eventrouter.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: '{{ sw-name }}'
+        items:
+          - name: Получение информации о рабочем процессе
+            items:
+              - name: Получить список рабочих процессов
+                href: operations/workflows/workflow/get-list.md
+              - name: Получить информацию о рабочем процессе
+                href: operations/workflows/workflow/get-info.md
+          - name: Управление рабочим процессом
+            items:
+              - name: Создать рабочий процесс
+                items:
+                  - name: Конструктор
+                    href: operations/workflows/workflow/create-constructor.md
+                  - name: YaWL-спецификация
+                    href: operations/workflows/workflow/create-yawl.md
+              - name: Изменить рабочий процесс
+                href: operations/workflows/workflow/update.md
+              - name: Указать облачную сеть
+                href: operations/workflows/workflow/network-add.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/workflows/workflow/label-add.md
+                  - name: Изменить метку
+                    href: operations/workflows/workflow/label-update.md
+                  - name: Удалить метку
+                    href: operations/workflows/workflow/label-delete.md
+              - name: Посмотреть графики мониторинга
+                href: operations/workflows/workflow/monitoring.md
+              - name: Управлять логами
+                items:
+                  - name: Посмотреть логи
+                    href: operations/workflows/workflow/logs-read.md
+                  - name: Записать логи
+                    href: operations/workflows/workflow/logs-write.md
+              - name: Удалить рабочий процесс
+                href: operations/workflows/workflow/delete.md
+          - name: Конструктор шагов рабочего процесса
+            items:
+              - name: Обзор
+                href: operations/workflows/constructor/index.md
+              - name: Интеграционные шаги
+                items:
+                  - name: Модели {{ ai-studio-name }}
+                    href: operations/workflows/constructor/foundationmodelscall.md
+                  - name: Агент {{ ai-studio-name }}
+                    href: operations/workflows/constructor/aistudioagent.md
+                  - name: Vector Store
+                    href: operations/workflows/constructor/vectorstore.md
+                  - name: '{{ sf-short-name }}'
+                    href: operations/workflows/constructor/functioncall.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: operations/workflows/constructor/containercall.md
+                  - name: '{{ postbox-short-name }}'
+                    href: operations/workflows/constructor/postbox.md
+                  - name: '{{ tracker-name }}'
+                    href: operations/workflows/constructor/tracker.md
+                  - name: HTTP
+                    href: operations/workflows/constructor/httpcall.md
+                  - name: gRPC
+                    href: operations/workflows/constructor/grpccall.md
+                  - name: '{{ objstorage-name }}'
+                    href: operations/workflows/constructor/objectstorage.md
+                  - name: '{{ ydb-name }}'
+                    href: operations/workflows/constructor/ydbdocument.md
+                  - name: '{{ yds-name }}'
+                    href: operations/workflows/constructor/yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/workflows/constructor/ymq.md
+                  - name: Яндекс Диск
+                    href: operations/workflows/constructor/yadisk.md
+                  - name: '{{ sw-name }}'
+                    href: operations/workflows/constructor/workflow.md
+                  - name: AI-агент
+                    href: operations/workflows/constructor/aiagent.md
+                  - name: Telegram-бот
+                    href: operations/workflows/constructor/telegrambot.md
+                  - name: Database Query
+                    href: operations/workflows/constructor/databasequery.md
+              - name: Управляющие шаги
+                items:
+                  - name: Switch
+                    href: operations/workflows/constructor/switch.md
+                  - name: Foreach
+                    href: operations/workflows/constructor/foreach.md
+                  - name: While
+                    href: operations/workflows/constructor/while.md
+                  - name: Parallel
+                    href: operations/workflows/constructor/parallel.md
+                  - name: No op
+                    href: operations/workflows/constructor/noop.md
+                  - name: Fail
+                    href: operations/workflows/constructor/fail.md
+                  - name: Success
+                    href: operations/workflows/constructor/success.md
+                  - name: Wait
+                    href: operations/workflows/constructor/wait.md
+              - name: Настроить политику повторных попыток для рабочего процесса
+                href: operations/workflows/constructor/setup-restart-policy.md
+              - name: Настроить правило перехода по ошибкам
+                href: operations/workflows/constructor/setup-catch-rule.md
+          - name: Получение информации о запуске рабочего процесса
+            items:
+              - name: Получить список запусков рабочего процесса
+                href: operations/workflows/execution/get-list.md
+              - name: Получить информацию о запуске рабочего процесса
+                href: operations/workflows/execution/get-info.md
+              - name: Получить информацию о выполнении каждого шага
+                href: operations/workflows/execution/get-history.md
+          - name: Управление запуском рабочего процесса
+            items:
+              - name: Запустить рабочий процесс
+                href: operations/workflows/execution/start.md
+              - name: Запустить рабочий процесс по таймеру
+                href: operations/workflows/execution/start-by-timer.md
+              - name: Остановить запуск рабочего процесса
+                href: operations/workflows/execution/stop.md
+              - name: Прекратить запуск рабочего процесса
+                href: operations/workflows/execution/terminate.md
+          - name: Управление правами доступа к рабочим процессам
+            items:
+              - name: Посмотреть роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-list.md
+              - name: Назначить роли на рабочий процесс
+                href: operations/workflows/access-rights/role-add.md
+              - name: Отозвать роли, назначенные на рабочий процесс
+                href: operations/workflows/access-rights/role-revoke.md
+      - name: '{{ er-name }}'
+        items:
+          - name: Получение информации о шине
+            items:
+              - name: Получить список шин
+                href: operations/eventrouter/bus/get-list.md
+              - name: Получить информацию о шине
+                href: operations/eventrouter/bus/get-info.md
+          - name: Управление шиной
+            items:
+              - name: Создать шину
+                href: operations/eventrouter/bus/create.md
+              - name: Изменить шину
+                href: operations/eventrouter/bus/update.md
+              - name: Записать логи
+                href: operations/eventrouter/bus/logs-write.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/bus/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/bus/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/bus/label-delete.md
+              - name: Удалить шину
+                href: operations/eventrouter/bus/delete.md
+          - name: Отправка событий в шину
+            items:
+              - name: Отправить события напрямую
+                href: operations/eventrouter/bus/data-put.md
+              - name: Отправить события с помощью коннектора
+                href: operations/eventrouter/bus/data-send.md
+          - name: Получение информации о коннекторе
+            items:
+              - name: Получить список коннекторов
+                href: operations/eventrouter/connector/get-list.md
+              - name: Получить информацию о коннекторе
+                href: operations/eventrouter/connector/get-info.md
+          - name: Управление коннектором
+            items:
+              - name: Создать коннектор
+                items:
+                  - name: Таймер
+                    href: operations/eventrouter/connector/create-timer.md
+                  - name: API {{ er-name }}
+                    href: operations/eventrouter/connector/create-api-eventrouter.md
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/connector/create-yds.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/connector/create-message-queue.md
+              - name: Изменить коннектор
+                href: operations/eventrouter/connector/update.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/connector/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/connector/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/connector/label-delete.md
+              - name: Запустить коннектор
+                href: operations/eventrouter/connector/start.md
+              - name: Остановить коннектор
+                href: operations/eventrouter/connector/stop.md
+              - name: Удалить коннектор
+                href: operations/eventrouter/connector/delete.md
+          - name: Получение информации о правиле
+            items:
+              - name: Получить список правил
+                href: operations/eventrouter/rule/get-list.md
+              - name: Получить информацию о правиле
+                href: operations/eventrouter/rule/get-info.md
+          - name: Управление правилом
+            items:
+              - name: Создать правило
+                items:
+                  - name: '{{ api-gw-name }}'
+                    href: operations/eventrouter/rule/create-api-gw.md
+                  - name: '{{ sf-name }}'
+                    href: operations/eventrouter/rule/create-functions.md
+                  - name: '{{ cloud-logging-name }}'
+                    href: operations/eventrouter/rule/create-logging.md
+                  - name: '{{ yds-name }}'
+                    href: operations/eventrouter/rule/create-data-streams.md
+                  - name: '{{ message-queue-name }}'
+                    href: operations/eventrouter/rule/create-message-queue.md
+                  - name: '{{ serverless-containers-name }}'
+                    href: >-
+                      operations/eventrouter/rule/create-serverless-containers.md
+                  - name: '{{ sw-name }}'
+                    href: operations/eventrouter/rule/create-workflows.md
+              - name: Изменить правило
+                href: operations/eventrouter/rule/update.md
+              - name: Управлять приемниками
+                items:
+                  - name: Добавить приемник
+                    href: operations/eventrouter/rule/add-target.md
+                  - name: Изменить приемник
+                    href: operations/eventrouter/rule/update-target.md
+                  - name: Удалить приемник
+                    href: operations/eventrouter/rule/delete-target.md
+              - name: Управлять метками
+                items:
+                  - name: Добавить метку
+                    href: operations/eventrouter/rule/label-add.md
+                  - name: Изменить метку
+                    href: operations/eventrouter/rule/label-update.md
+                  - name: Удалить метку
+                    href: operations/eventrouter/rule/label-delete.md
+              - name: Включить правило
+                href: operations/eventrouter/rule/enable.md
+              - name: Выключить правило
+                href: operations/eventrouter/rule/disable.md
+              - name: Удалить правило
+                href: operations/eventrouter/rule/delete.md
+          - name: Управление правами доступа к ресурсам
+            items:
+              - name: Посмотреть роли, назначенные на ресурс
+                href: operations/eventrouter/access-rights/role-list.md
+              - name: Назначить роли на ресурс
+                href: operations/eventrouter/access-rights/role-add.md
+              - name: Отозвать роли, назначенные на ресурс
+                href: operations/eventrouter/access-rights/role-revoke.md
+      - name: Просмотр операций с ресурсами сервиса
+        href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: >-
+          Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
+          {{ sw-name }}
+        href: tutorials/auto-upload.md
+      - name: >-
+          Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
+          foundation-models-full-name }} и {{ postbox-full-name }}
+        href: tutorials/tracker-yandexgpt-postbox-integrations.md
+      - name: Разработка Telegram-бота с поддержкой AI-агента
+        href: tutorials/telegram-ai-bot-workflows.md
+      - name: >-
+          ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-name }} и GitHub
+          Actions
+        href: tutorials/ai-powered-github-pr-review.md
   - name: Концепции
     items:
       - name: Обзор
@@ -21,7 +298,66 @@ items:
           - name: Запуск рабочего процесса
             href: concepts/workflows/execution.md
           - name: Спецификация YaWL
-            href: concepts/workflows/yawl.md
+            items:
+              - name: Обзор
+                href: concepts/workflows/yawl/index.md
+              - name: Интеграционные шаги
+                items:
+                  - name: HTTPCall
+                    href: concepts/workflows/yawl/integration/httpcall.md
+                  - name: GRPCCall
+                    href: concepts/workflows/yawl/integration/grpccall.md
+                  - name: YMQ
+                    href: concepts/workflows/yawl/integration/ymq.md
+                  - name: YDS
+                    href: concepts/workflows/yawl/integration/yds.md
+                  - name: YDBDocument
+                    href: concepts/workflows/yawl/integration/ydbdocument.md
+                  - name: FunctionCall
+                    href: concepts/workflows/yawl/integration/functioncall.md
+                  - name: ContainerCall
+                    href: concepts/workflows/yawl/integration/containercall.md
+                  - name: FoundationModelsCall
+                    href: >-
+                      concepts/workflows/yawl/integration/foundationmodelscall.md
+                  - name: ObjectStorage
+                    href: concepts/workflows/yawl/integration/objectstorage.md
+                  - name: Tracker
+                    href: concepts/workflows/yawl/integration/tracker.md
+                  - name: Postbox
+                    href: concepts/workflows/yawl/integration/postbox.md
+                  - name: Workflow
+                    href: concepts/workflows/yawl/integration/workflow.md
+                  - name: Disk
+                    href: concepts/workflows/yawl/integration/disk.md
+                  - name: AIAgent
+                    href: concepts/workflows/yawl/integration/aiagent.md
+                  - name: TelegramBot
+                    href: concepts/workflows/yawl/integration/telegrambot.md
+                  - name: AIStudioAgent
+                    href: concepts/workflows/yawl/integration/aistudioagent.md
+                  - name: VectorStore
+                    href: concepts/workflows/yawl/integration/vectorstore.md
+                  - name: DatabaseQuery
+                    href: concepts/workflows/yawl/integration/databasequery.md
+              - name: Управляющие шаги
+                items:
+                  - name: Switch
+                    href: concepts/workflows/yawl/management/switch.md
+                  - name: Foreach
+                    href: concepts/workflows/yawl/management/foreach.md
+                  - name: Parallel
+                    href: concepts/workflows/yawl/management/parallel.md
+                  - name: Success
+                    href: concepts/workflows/yawl/management/success.md
+                  - name: Fail
+                    href: concepts/workflows/yawl/management/fail.md
+                  - name: NoOp
+                    href: concepts/workflows/yawl/management/noop.md
+                  - name: Wait
+                    href: concepts/workflows/yawl/management/wait.md
+                  - name: While
+                    href: concepts/workflows/yawl/management/while.md
           - name: Шаблонизация
             href: concepts/workflows/templating.md
       - name: '{{ er-name }}'
@@ -32,10 +368,32 @@ items:
             href: concepts/eventrouter/connector.md
           - name: Правило
             href: concepts/eventrouter/rule.md
+          - name: Отправка событий в шину
+            href: concepts/eventrouter/sending-events.md
+      - name: Cron-выражения
+        href: concepts/cron.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+  - name: Управление доступом
+    items:
+      - name: Обзор
+        href: security/index.md
+      - name: Роли {{ er-name }}
+        href: security/eventrouter.md
+      - name: Роли {{ sw-name }}
+        href: security/workflows.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: '{{ sw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/workflow/index.md
+      - name: '{{ er-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/eventrouter/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API {{ sw-name }}
     items:
       - name: Аутентификация в API
@@ -52,6 +410,8 @@ items:
                 href: workflows/api-ref/grpc/Execution/start.md
               - name: Stop
                 href: workflows/api-ref/grpc/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/grpc/Execution/terminate.md
               - name: Get
                 href: workflows/api-ref/grpc/Execution/get.md
               - name: GetHistory
@@ -82,6 +442,12 @@ items:
                 href: workflows/api-ref/grpc/Workflow/list.md
               - name: ListOperations
                 href: workflows/api-ref/grpc/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/grpc/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/grpc/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/grpc/Workflow/updateAccessBindings.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -94,6 +460,8 @@ items:
                 href: workflows/api-ref/Execution/start.md
               - name: Stop
                 href: workflows/api-ref/Execution/stop.md
+              - name: Terminate
+                href: workflows/api-ref/Execution/terminate.md
               - name: Get
                 href: workflows/api-ref/Execution/get.md
               - name: GetHistory
@@ -124,6 +492,12 @@ items:
                 href: workflows/api-ref/Workflow/list.md
               - name: ListOperations
                 href: workflows/api-ref/Workflow/listOperations.md
+              - name: ListAccessBindings
+                href: workflows/api-ref/Workflow/listAccessBindings.md
+              - name: SetAccessBindings
+                href: workflows/api-ref/Workflow/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: workflows/api-ref/Workflow/updateAccessBindings.md
   - name: Справочник API {{ er-name }}
     items:
       - name: Аутентификация в API
@@ -186,6 +560,8 @@ items:
                 href: eventrouter/api-ref/grpc/Event/index.md
               - name: Put
                 href: eventrouter/api-ref/grpc/Event/put.md
+              - name: Send
+                href: eventrouter/api-ref/grpc/Event/send.md
           - name: Operation
             items:
               - name: Overview
@@ -272,12 +648,6 @@ items:
                 href: eventrouter/api-ref/Connector/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Connector/listOperations.md
-          - name: Event
-            items:
-              - name: Overview
-                href: eventrouter/api-ref/Event/index.md
-              - name: Put
-                href: eventrouter/api-ref/Event/put.md
           - name: Operation
             items:
               - name: Overview
@@ -312,5 +682,9 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
-base: ru/serverless-integrations
-deepBase: 2
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
+  - name: Публичные материалы
+    href: public-talks.md
+  - name: История изменений
+    href: release-notes.md

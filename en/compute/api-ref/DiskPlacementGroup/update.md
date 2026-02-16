@@ -1,9 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: |-
+            **string**
+            Required field. ID of the placement group to update.
+            To get the placement group ID, use an [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskPlacementGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the placement group.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the placement group.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            The existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/update.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Update {#Update}
+# Compute Cloud API, REST: DiskPlacementGroup.Update
 
 Updates the specified placement group.
 
@@ -20,7 +84,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlaceme
 || diskPlacementGroupId | **string**
 
 Required field. ID of the placement group to update.
-To get the placement group ID, use an [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use an [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateDiskPlacementGroupRequest}
@@ -30,7 +96,7 @@ To get the placement group ID, use an [DiskPlacementGroupService.List](/docs/com
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -48,15 +114,21 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the placement group. ||
+Name of the placement group.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the placement group. ||
-|| labels | **string**
+Description of the placement group.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-The existing set of `labels` is completely replaced by the provided set. ||
+The existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -88,7 +160,7 @@ The existing set of `labels` is completely replaced by the provided set. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "status": "string",
     // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
@@ -224,7 +296,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -234,7 +306,6 @@ ID of the availability zone where the placement group resides. ||
 
 Current status of the placement group
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `DELETING` ||

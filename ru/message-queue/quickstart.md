@@ -9,7 +9,7 @@ description: В этой инструкции вы научитесь выпол
 
 1. [Установите](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) AWS CLI — утилиту командной строки для работы с {{ message-queue-name }}.
 1. [Создайте](../iam/operations/sa/create.md) сервисный аккаунт с ролью `editor`.
-1. [Создайте](../iam/operations/sa/create-access-key.md) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры секретного ключа станут недоступны.
+1. [Создайте](../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры секретного ключа станут недоступны.
 1. Настройте AWS CLI:
 
    {% include [configure-aws-cli](../_includes/message-queue/configure-aws-cli.md) %}
@@ -44,7 +44,7 @@ description: В этой инструкции вы научитесь выпол
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать очередь.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. Укажите имя очереди: `sample-queue`.
 
@@ -174,7 +174,7 @@ description: В этой инструкции вы научитесь выпол
    - Консоль управления
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит очередь.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Нажмите значок ![image](../_assets/console-icons/ellipsis.svg) напротив нужной очереди и выберите **{{ ui-key.yacloud.common.delete }}**.
      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

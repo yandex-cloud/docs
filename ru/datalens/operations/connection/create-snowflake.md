@@ -44,6 +44,8 @@ description: Следуя данной инструкции, вы сможете
    * **Warehouse** — [хранилище](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#create-warehouse) базы данных.
    * **User role** — [роль пользователя](https://docs.snowflake.com/en/sql-reference/sql/create-role#create-role) с правом доступа к подключаемой базе данных.
 
+   ![image](../../../_assets/datalens/operations/connection/connection-snowflake-db.png)
+
 1. (опционально) Проверьте работоспособность подключения. Для этого нажмите кнопку **Проверить подключение**.
 1. Нажмите кнопку **Создать подключение**.
 

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+    method: get
+    path:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          description: |-
+            **string**
+            Required field. ID of the lifecycle policy.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - lifecyclePolicyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/get.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Get {#Get}
+# Container Registry API, REST: LifecyclePolicy.Get
 
 Returns the specified lifecycle policy.
 
@@ -21,7 +39,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePol
 ||Field | Description ||
 || lifecyclePolicyId | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.LifecyclePolicy}
@@ -68,7 +88,6 @@ The maximum string length in characters is 256. ||
 
 Status of lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -93,18 +112,24 @@ The rules of lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
 || expirePeriod | **string** (duration)
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
 || tagRegexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **boolean**
 
 Tag for applying the rule to Docker images without tags. ||
 || retainedTop | **string** (int64)
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#

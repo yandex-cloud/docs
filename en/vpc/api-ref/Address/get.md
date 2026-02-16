@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}
+    method: get
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the Address resource to return.
+            To get Address resource ID make a [AddressService.List](/docs/vpc/api-ref/Address/list#List) request.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/get.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Get {#Get}
+# Virtual Private Cloud API, REST: Address.Get
 
 Returns the specified Address resource.
 
@@ -37,7 +55,7 @@ To get Address resource ID make a [AddressService.List](/docs/vpc/api-ref/Addres
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `externalIpv4Address`
   "externalIpv4Address": {
     "address": "string",
@@ -92,7 +110,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

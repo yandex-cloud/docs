@@ -1,0 +1,1 @@
+Where `<folder_ID>` is the [ID of the {{ yandex-cloud }} folder](../../../resource-manager/operations/folder/get-id.md) for which your account has the `{{ roles-yagpt-user }}` role or higher.

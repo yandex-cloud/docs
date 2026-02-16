@@ -11,16 +11,14 @@ description:
     в соответствии с Федеральным законом Российской Федерации «О персональных
     данных» № 152-ФЗ.
   - >-
+    Правила использования сервиса определены в документе <a href
+    ="https://yandex.ru/legal/cloud_terms_speechkit">Условия использования
+    сервиса {{ speechkit-full-name }}</a>.
+  - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_speechkit">Уровень
     обслуживания {{ speechkit-full-name }}</a>.
-meta:
-  title: '{{ speechkit-full-name }}'
-  description: >-
-    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
-    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
-    речи (Text-to-Speech).
 links:
   - title: Начало работы
     description: Преобразуйте текст в речь и речь в текст
@@ -58,3 +56,22 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: '{{ speechkit-full-name }}'
+  description: >-
+    Сервис Yandex SpeechKit позволяет разработчикам приложений использовать
+    речевые технологии Яндекса: распознавание речи (Speech-to-Text) и синтез
+    речи (Text-to-Speech).
+  keywords:
+    - '{{ speechkit-full-name }}'
+    - сервис {{ speechkit-name }}
+    - речевые технологии Яндекса
+    - Speech-to-Text
+    - ASR
+    - распознавание речи
+    - распознавание речи в {{ yandex-cloud }}
+    - Text-to-Speech
+    - синтез речи в {{ yandex-cloud }}
+    - синтез речи
+    - API распознавания {{ yandex-cloud }}
+    - API синтеза {{ yandex-cloud }}

@@ -1,14 +1,12 @@
 title: Yandex Smart Web Security
 description:
   - >-
-    With Yandex Smart Web Security, you can protect your infrastructure from
-    DDoS and bot attacks at the application level (L7).
-  - null
-  - >-
-    WAF and ARL are at the <a
-    href="/docs/overview/concepts/launch-stages">Preview</a> stage.
-meta:
-  title: Yandex Smart Web Security
+    With Yandex Smart Web Security, you can protect your infrastructure against
+    DDoS attacks and bots at the application layer (L7).  You can further
+    strengthen your protection with: <a
+    href="/docs/smartwebsecurity/concepts/waf">Web application firewall
+    (WAF)</a> and <a href="/docs/smartwebsecurity/concepts/arl">Advanced rate
+    limiter (ARL)</a>.
 links:
   - title: Getting started
     description: Create your first security profile and connect it to the L7 load balancer
@@ -20,23 +18,44 @@ links:
     description: Learn about L7 security profiles, basic rules, and smart protection rules
     href: concepts/
   - title: WAF
-    description: Learn more about Web Application Firewall
+    description: Learn about web application firewalls
     href: concepts/waf
   - title: ARL
-    description: Learn how Advanced Rate Limiter works
+    description: Learn about rate limiting with an advanced rate limiter
     href: concepts/arl
   - title: Tutorials
     description: Leverage out-of-the-box use cases to protect your web apps
-    href: tutorials/balancer-with-sws-profile
+    href: tutorials/index
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access permissions to work with the service
+    description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
+meta:
+  title: Yandex Smart Web Security
+  keywords:
+    - SWS
+    - '{{ sws-name }}'
+    - DDoS protection
+    - '{{ sws-name }} in {{ yandex-cloud }}'
+    - bot protection
+    - '{{ sws-name }} profile'
+    - WAF in {{ yandex-cloud }}"
+    - ARL
+    - Firewall in {{ yandex-cloud }}"
+    - security profile
+    - '{{ sws-name }}'
+    - traffic filtering
+    - filtering in {{ sws-name }}
+    - '{{ sws-name }} IP blacklist'
+    - '{{ sws-name }} IP whitelist'
+    - traffic analysis
+    - traffic in {{ sws-name }}
+    - web security

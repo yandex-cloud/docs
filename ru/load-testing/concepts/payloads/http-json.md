@@ -38,3 +38,9 @@ config_content:
 ```
 
 При загрузке файла с тестовыми данными через консоль управления это происходит автоматически.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/loadtesting-gitlab-ci.md)
+* [{#T}](../../tutorials/loadtesting-grpc.md)

@@ -1,0 +1,7 @@
+{% note info %}
+
+Включить отправку логов [мастера {{ managed-k8s-name }}](../../../managed-kubernetes/concepts/index.md#master) в [{{ cloud-logging-name }}](../../../logging/) можно с помощью настройки `master logging` при [создании](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md) [кластера](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Настройка доступна только через API, CLI и {{ TF }}. Подробнее см. в руководстве [Передача логов кластера {{ managed-k8s-name }} в {{ cloud-logging-name }}](../../../logging/tutorials/k8s-fluent-bit-logging.md#master-logging).
+
+{% endnote %}
+
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи [подов](../../../managed-kubernetes/concepts/index.md#pod), [сервисов](../../../managed-kubernetes/concepts/index.md#service) и системных логов [узлов](../../../managed-kubernetes/concepts/index.md#node-group) {{ managed-k8s-name }} в {{ cloud-logging-name }}. Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).

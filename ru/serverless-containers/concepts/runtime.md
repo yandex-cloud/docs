@@ -18,7 +18,7 @@
 
 {% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
 
-После получения запроса экземпляр контейнера должен отправить ответ в течение времени, которое указано в поле **{{ ui-key.yacloud.serverless-containers.label_timeout }}** в настройках ревизии контейнера. Оно включает в себя время запуска экземпляра контейнера. В противном случае запрос завершается и возвращается ошибка 504.
+{% include [invoke-container](../../_includes/serverless-containers/invoke-container.md) %}
 
 ## Переменные окружения {#environment-variables}
 
@@ -26,7 +26,8 @@
 
 Ключ | Значение
 ---- | ----
-PORT | Сетевой порт, на который среда выполнения передает HTTP-запросы в приложение.
+`PORT` | Сетевой порт, на который среда выполнения передает HTTP-запросы в приложение.
+`REQUEST_PATH` | Данные HTTP-запроса к контейнеру, если [режим работы контейнера](container.md#runtime) — **Выполнение команд**.
 
 Добавить дополнительные переменные окружения можно при [создании ревизии контейнера](../operations/manage-revision.md#create) или сборке [Docker-образа](../../container-registry/concepts/docker-image.md). [Лимит](./limits.md#serverless-containers-limits) на максимальный объем переменных окружения, включая их имена, — 4 КБ.
 

@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Как начать работать с хостингом видео в {{ video-full-name }}
 
-{% include [preview-stage](../_includes/video/preview-stage.md) %}
-
 Чтобы загрузить [видео](./concepts/index.md#videos) на [канал](./concepts/index.md#channels) сервиса:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
@@ -18,7 +16,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Создайте канал {#create-channel}
 
@@ -34,19 +32,32 @@ description: Следуя данной инструкции, вы сможете
     В сервисе действуют [ограничения](./concepts/limits.md) на разрешение публикуемых видео.
 
 1. Введите **{{ ui-key.yacloud_video.videos.label_title }}** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
-1. В поле **{{ ui-key.yacloud_video.videos.label_accessRights }}** укажите, для кого должно быть доступно видео:
+1. (Опционально) В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
+   
+    {% include [video-timecodes](../_includes/video/video-timecodes.md) %}
 
-    * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}` — видео будет доступно пользователям, авторизованным в вашей организации.
-    * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}` — видео будет общедоступным.
+1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** выберите тип доступа к видео:
+
+    * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
+          
+        {% include [video-temporary-links](../_includes/video/video-temporary-links.md) %}
+
+    * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео будет доступно неограниченное время и всем, у кого есть ссылка на видео.
 
 1. (Опционально) Чтобы добавить обложку для видео, в поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
+
+     Если шаблон не выбран, к видео будут применен шаблон по умолчанию, который добавляется при создании канала.
+
+1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
 1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
+1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-[Подробнее о видео](./concepts/videos.md)
+Подробнее о видео см. в разделе [{#T}](./concepts/videos.md).
 
 ## Опубликуйте видео {#publish-video}
 
@@ -68,4 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](streaming.md)
 * [Обзор сервиса {{ video-full-name }}](./concepts/index.md)
-* [{#T}](troubleshooting.md)
+* [Загрузить видео](operations/video/upload.md)
+* [Настроить шаблон плеера](operations/style-presets/update.md)
+* [Настроить показ рекламы](operations/channels/settings.md#ad-settings)
+* [{#T}](troubleshooting/index.md)

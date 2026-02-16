@@ -1,15 +1,19 @@
-title: Yandex Cloud Organization
+title: Yandex Identity Hub
 description:
   - >-
-    Yandex Cloud Organization — это решение для корпоративных клиентов, с
-    помощью которого можно подключить к вашей организации сервисы Yandex Cloud и
-    управлять доступом сотрудников к этим сервисам.
-meta:
-  title: Yandex Cloud Organization
-  description: >-
-    Yandex Cloud Organization — это решение для корпоративных клиентов, с
-    помощью которого можно подключить к вашей организации сервисы Yandex Cloud и
-    управлять доступом сотрудников к этим сервисам.
+    Yandex Identity Hub — облачный сервис для централизованного управления
+    учетными записями пользователей и доступом к корпоративным приложениям по
+    протоколам SAML и OpenID Connect (Identity Provider).
+  - >-
+    Инфраструктура Yandex Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с Федеральным законом Российской Федерации «О персональных
+    данных» № 152-ФЗ.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
+    документе <a href="https://yandex.ru/legal/cloud_sla_identity_hub">Уровень
+    обслуживания Yandex Identity Hub</a>.
 links:
   - title: Зарегистрируйте организацию
     description: Чтобы начать работу, зарегистрируйте организацию
@@ -26,10 +30,25 @@ links:
     href: concepts/add-federation
   - title: Подключите сервисы
     description: Подключите сервисы, которыми смогут пользоваться сотрудники организации
-    href: concepts/manage-services
+    href: ../resource-manager/concepts/resources-hierarchy
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Identity Hub
+  description: >-
+    Yandex Identity Hub — облачный сервис для централизованного управления
+    учетными записями пользователей и доступом к корпоративным приложениям по
+    протоколам SAML и OpenID Connect (Identity Provider).
+  keywords:
+    - '{{ org-name }}'
+    - '{{ org-full-name }}'
+    - сервис {{ org-name }}
+    - '{{ yandex-cloud }} для организаций'
+    - корпоративный доступ в {{ yandex-cloud }}
+    - корпоративное облако
+    - облако для корпоративных клиентов
+    - как управлять доступом сотрудников

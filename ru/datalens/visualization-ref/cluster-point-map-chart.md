@@ -1,6 +1,11 @@
-# Точечная карта с кластеризацией ![](../../_assets/datalens/heatmap.svg)
+---
+title: Точечная карта с кластеризацией в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Точечная карта с кластеризацией.
+---
 
-Точечная диаграмма с кластеризацией отличается от [обычной точечной](point-map-chart.md) тем, что находящиеся рядом друг с другом точки объединяются в кластер. На карте кластер отображается в виде кольцевой диаграммы с числом точек в центре.
+# Точечная карта с кластеризацией ![](../../_assets/datalens/heatmap.svg) {{ datalens-full-name }}
+
+Точечная диаграмма с кластеризацией отличается от [обычной точечной](point-map-chart.md) тем, что находящиеся рядом друг с другом точки объединяются в кластер. На карте кластер выглядит как кольцевая диаграмма с числом точек в центре.
 
 {% note info %}
 
@@ -17,7 +22,7 @@
 
 Кластеризация на карте позволяет сделать визуализацию с большим количеством точек более наглядной. Например, если вы хотите показать на карте расположение всех магазинов в городе с помощью кластеризации, то точки на карте не перекроют друг друга.
 
-![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png)
+![point-chart](../../_assets/datalens/visualization-ref/cluster-point-map/cluster-point-map.png =800x)
 
 ## Секции в визарде {#wizard-sections}
 
@@ -42,23 +47,23 @@
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.
-1. Нажмите кнопку **Создать чарт** → **Чарт**.
-1. Слева вверху нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации. Если у вас нет датасета, [создайте его](../dataset/create-dataset.md#create).
-1. Выберите тип чарта **Карта**.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
+1. {% include [create-5](../../_includes/datalens/visualization-ref/create-5.md) %}
 1. Выберите тип слоя **Точки с кластеризацией (Геоточки)**.
 1. Перетащите измерение с типом [Геоточка](../dataset/data-types#geopoint) из датасета в секцию с выбором типа слоя.
 1. Задайте размер отображаемых точек для точечной карты. Перенесите показатель в секцию **Размер точек** или нажмите значок ![image](../../_assets/console-icons/gear.svg) в строке с названием секции.
 1. Закрасьте точки на карте. Перенесите измерение в секцию **Цвета**.
 1. Добавьте тултипы из значений измерения и показателя, которые отображаются при наведении на точку.
 
-Дополнительно вы можете:
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
 
-* добавить, переименовать, удалить слой;
-* поменять слои местами в рамках их типа;
-* применить фильтр ко всему чарту или к одному слою.
+{% include [you-can-3](../../_includes/datalens/visualization-ref/you-can-3.md) %}
 
 ## Рекомендации {#recomendations}
 
 * Используйте цветовые палитры, соответствующие целям и задачам визуализации.
+
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

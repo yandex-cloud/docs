@@ -1,9 +1,323 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster the user belongs to.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to be updated.
+            To get the name of the user use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `.
+          pattern: '[a-zA-Z0-9_@.-]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        password:
+          description: |-
+            **string**
+            New password for the user.
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: |-
+            **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
+            Set of permissions granted to the user to access specific databases.
+          type: array
+          items:
+            $ref: '#/definitions/Permission'
+        connLimit:
+          description: |-
+            **string** (int64)
+            Maximum number of database connections available to the user.
+            When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config.max_connections] setting.
+            When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
+            Minimum value: `10` (default: `50`), when used in session pooling.
+            The minimum value is 10.
+          default: 50`), when used in session pooling
+          type: string
+          format: int64
+        settings:
+          description: '**[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)**'
+          $ref: '#/definitions/UserSettings'
+        login:
+          description: |-
+            **boolean**
+            This flag defines whether the user can login to a PostgreSQL database.
+            Default value: `true` (login is allowed).
+          default: true` (login is allowed)
+          type: boolean
+        grants:
+          description: |-
+            **string**
+            A set of roles and privileges that are granted to the user.
+            For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+            The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `.
+          pattern: '[a-zA-Z0-9_]*'
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the user
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          default: unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+        userPasswordEncryption:
+          description: |-
+            **enum** (UserPasswordEncryption)
+            New password-based authentication method for user.
+            Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
+            - `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+            - `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method
+          type: string
+          enum:
+            - USER_PASSWORD_ENCRYPTION_UNSPECIFIED
+            - USER_PASSWORD_ENCRYPTION_MD5
+            - USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256
+        generatePassword:
+          description: |-
+            **boolean**
+            Generate password using Connection Manager.
+          type: boolean
+        authMethod:
+          description: |-
+            **enum** (AuthMethod)
+            User Auth method
+            - `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+            - `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token
+          type: string
+          enum:
+            - AUTH_METHOD_UNSPECIFIED
+            - AUTH_METHOD_PASSWORD
+            - AUTH_METHOD_IAM
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+      PGAuditSettings:
+        type: object
+        properties:
+          log:
+            description: |-
+              **enum** (PGAuditSettingsLog)
+              Defines which user queries will be written to the audit log. Corresponds to the [Pg audit log](https://yandex.cloud/en/docs/managed-postgresql/concepts/settings-list#setting-pg-audit-log) user setting.
+              The possible values are the following:
+              * PG_AUDIT_SETTINGS_LOG_READ: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+              * PG_AUDIT_SETTINGS_LOG_WRITE: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+              * PG_AUDIT_SETTINGS_LOG_FUNCTION: Function invocations and `DO` sections are logged.
+              * PG_AUDIT_SETTINGS_LOG_ROLE: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+              * PG_AUDIT_SETTINGS_LOG_DDL: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+              * PG_AUDIT_SETTINGS_LOG_MISC: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+              * PG_AUDIT_SETTINGS_LOG_MISC_SET: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged.
+              The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
+              - `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+              - `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+              - `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+              - `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+              - `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+              - `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+              - `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged.
+            type: array
+            items:
+              type: string
+              enum:
+                - PG_AUDIT_SETTINGS_LOG_UNSPECIFIED
+                - PG_AUDIT_SETTINGS_LOG_READ
+                - PG_AUDIT_SETTINGS_LOG_WRITE
+                - PG_AUDIT_SETTINGS_LOG_FUNCTION
+                - PG_AUDIT_SETTINGS_LOG_ROLE
+                - PG_AUDIT_SETTINGS_LOG_DDL
+                - PG_AUDIT_SETTINGS_LOG_MISC
+                - PG_AUDIT_SETTINGS_LOG_MISC_SET
+      UserSettings:
+        type: object
+        properties:
+          defaultTransactionIsolation:
+            description: |-
+              **enum** (TransactionIsolation)
+              SQL sets an isolation level for each transaction.
+              This setting defines the default isolation level to be set for all new SQL transactions.
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+            type: string
+            enum:
+              - TRANSACTION_ISOLATION_UNSPECIFIED
+              - TRANSACTION_ISOLATION_READ_UNCOMMITTED
+              - TRANSACTION_ISOLATION_READ_COMMITTED
+              - TRANSACTION_ISOLATION_REPEATABLE_READ
+              - TRANSACTION_ISOLATION_SERIALIZABLE
+          lockTimeout:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) for any statement to wait for acquiring a lock on an table, index, row or other database object.
+              If the wait time is longer than the specified amount, then this statement is aborted.
+              Default value: `0` (no control is enforced, a statement waiting time is unlimited).
+            default: 0` (no control is enforced, a statement waiting time is unlimited)
+            type: string
+            format: int64
+          logMinDurationStatement:
+            description: |-
+              **string** (int64)
+              This setting controls logging of the duration of statements.
+              The duration of each completed statement will be logged if the statement ran for at least the specified amount of time (in milliseconds).
+              E.g., if this setting's value is set to `500`, a statement that took 300 milliseconds to complete will not be logged; on the other hand, the one that took 2000 milliseconds to complete, will be logged.
+              Value of `0` forces PostgreSQL to log the duration of all statements.
+              Value of `-1` (default) disables logging of the duration of statements.
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+            type: string
+            format: int64
+          synchronousCommit:
+            description: |-
+              **enum** (SynchronousCommit)
+              This setting defines whether DBMS will commit transaction in a synchronous way.
+              When synchronization is enabled, cluster waits for the synchronous operations to be completed prior to reporting `success` to the client.
+              These operations guarantee different levels of the data safety and visibility in the cluster.
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+              - `SYNCHRONOUS_COMMIT_ON`
+              - `SYNCHRONOUS_COMMIT_OFF`
+              - `SYNCHRONOUS_COMMIT_LOCAL`
+              - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
+              - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`
+            type: string
+            enum:
+              - SYNCHRONOUS_COMMIT_UNSPECIFIED
+              - SYNCHRONOUS_COMMIT_ON
+              - SYNCHRONOUS_COMMIT_OFF
+              - SYNCHRONOUS_COMMIT_LOCAL
+              - SYNCHRONOUS_COMMIT_REMOTE_WRITE
+              - SYNCHRONOUS_COMMIT_REMOTE_APPLY
+          tempFileLimit:
+            description: |-
+              **string** (int64)
+              The maximum storage space size (in kilobytes) that a single process can use to create temporary files.
+              If a transaction exceeds this limit during execution, it will be aborted.
+              A huge query may not fit into a server's RAM, therefore PostgreSQL will use some storage to store and execute such a query. Too big queries can make excessive use of the storage system, effectively making other quieries to run slow. This setting prevents execution of a big queries that can influence other queries by limiting size of temporary files.
+            type: string
+            format: int64
+          logStatement:
+            description: |-
+              **enum** (LogStatement)
+              This setting specifies which SQL statements should be logged (on the user level).
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+              - `LOG_STATEMENT_NONE`
+              - `LOG_STATEMENT_DDL`
+              - `LOG_STATEMENT_MOD`
+              - `LOG_STATEMENT_ALL`
+            type: string
+            enum:
+              - LOG_STATEMENT_UNSPECIFIED
+              - LOG_STATEMENT_NONE
+              - LOG_STATEMENT_DDL
+              - LOG_STATEMENT_MOD
+              - LOG_STATEMENT_ALL
+          poolMode:
+            description: |-
+              **enum** (PoolingMode)
+              Mode that the connection pooler is working in with specified user.
+              For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
+              - `SESSION`: Session pooling mode.
+              - `TRANSACTION`: Transaction pooling mode.
+              - `STATEMENT`: Statement pooling mode.
+            type: string
+            enum:
+              - POOLING_MODE_UNSPECIFIED
+              - SESSION
+              - TRANSACTION
+              - STATEMENT
+          preparedStatementsPooling:
+            description: |-
+              **boolean**
+              User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+              This requires `pool_mode` to be set to TRANSACTION.
+              [Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement).
+            type: boolean
+          catchupTimeout:
+            description: |-
+              **string** (int64)
+              The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
+              Pooler will reject connections to the replica with a lag above this threshold.
+              It can be useful to prevent application from reading stale data.
+              Default value: 0
+              Value of `0` disables this mechanism
+            type: string
+            format: int64
+          walSenderTimeout:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) to wait for WAL replication (can be set only for PostgreSQL 12+)
+              Terminate replication connections that are inactive for longer than this amount of time.
+              Default value: `60000` (60 seconds).
+              Value of `0` disables the timeout mechanism.
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html).
+            type: string
+            format: int64
+          idleInTransactionSessionTimeout:
+            description: |-
+              **string** (int64)
+              Sets the maximum allowed idle time, in milliseconds, between queries while in a transaction.
+              The default value is `0`, which disables the timeout.
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
+          statementTimeout:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) to wait for statement.
+              The timeout is measured from the time a command arrives at the server until it is completed by the server.
+              If `log_min_error_statement` is set to ERROR or lower, the statement that timed out will also be logged.
+              Value of `0` (default) disables the timeout
+              For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+            type: string
+            format: int64
+          pgaudit:
+            description: |-
+              **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
+              Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
+            $ref: '#/definitions/PGAuditSettings'
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/User/update.md
 ---
 
-# Managed Service for PostgreSQL API, REST: User.Update {#Update}
+# Managed Service for PostgreSQL API, REST: User.Update
 
 Updates the specified PostgreSQL user.
 
@@ -20,11 +334,15 @@ PATCH https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/user
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster the user belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to be updated.
-To get the name of the user use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request. ||
+To get the name of the user use a [UserService.List](/docs/managed-postgresql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.UpdateUserRequest}
@@ -63,7 +381,9 @@ To get the name of the user use a [UserService.List](/docs/managed-postgresql/ap
     "string"
   ],
   "deletionProtection": "boolean",
-  "userPasswordEncryption": "string"
+  "userPasswordEncryption": "string",
+  "generatePassword": "boolean",
+  "authMethod": "string"
 }
 ```
 
@@ -81,7 +401,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.postgresql.v1.Permission)**
 
 Set of permissions granted to the user to access specific databases. ||
@@ -89,11 +411,13 @@ Set of permissions granted to the user to access specific databases. ||
 
 Maximum number of database connections available to the user.
 
-When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresqlConfig.maxConnections](/docs/managed-postgresql/api-ref/Cluster/get#yandex.cloud.mdb.postgresql.v1.ClusterConfig.postgresqlConfig) setting.
+When used in session pooling, this setting limits the number of connections to every single host in PostgreSQL cluster. In this case, the setting's value must be greater than the total number of connections that backend services can open to access the PostgreSQL cluster. The setting's value should not exceed the value of the [Cluster.config.postgresql_config.max_connections] setting.
 
 When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
 
-Minimum value: `10` (default: `50`), when used in session pooling. ||
+Minimum value: `10` (default: `50`), when used in session pooling.
+
+The minimum value is 10. ||
 || settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings)** ||
 || login | **boolean**
 
@@ -104,7 +428,9 @@ Default value: `true` (login is allowed). ||
 
 A set of roles and privileges that are granted to the user.
 
-For more information, see [the documentation](/docs/managed-postgresql/operations/grant). ||
+For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || deletionProtection | **boolean**
 
 Deletion Protection inhibits deletion of the user
@@ -115,9 +441,17 @@ Default value: `unspecified` (inherits cluster's deletion_protection) ||
 New password-based authentication method for user.
 Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
-- `USER_PASSWORD_ENCRYPTION_MD5`
-- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager. ||
+|| authMethod | **enum** (AuthMethod)
+
+User Auth method
+
+- `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+- `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -131,7 +465,7 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.postgresql.v1.UserSettings}
 
-PostgreSQL user settings.
+PostgreSQL and connection pooler user settings.
 
 #|
 ||Field | Description ||
@@ -142,7 +476,6 @@ This setting defines the default isolation level to be set for all new SQL trans
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
@@ -176,7 +509,6 @@ These operations guarantee different levels of the data safety and visibility in
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
 There is no synchronous write operation, data may be loss in case of storage subsystem failure.
@@ -198,7 +530,6 @@ This setting specifies which SQL statements should be logged (on the user level)
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`: Logs none of SQL statements. Default value.
 - `LOG_STATEMENT_DDL`: Logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
 - `LOG_STATEMENT_MOD`: Logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
@@ -209,15 +540,15 @@ Mode that the connection pooler is working in with specified user.
 
 For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Server connection will be assigned to it for the whole duration the client stays connected. Default value.
 - `TRANSACTION`: Server connection is assigned to a client only during a transaction.
 - `STATEMENT`: Server connection will be put back into the pool immediately after a query completes. ||
 || preparedStatementsPooling | **boolean**
 
-User can use prepared statements with transaction pooling.
+User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+This requires `pool_mode` to be set to TRANSACTION.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html). ||
+[Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement). ||
 || catchupTimeout | **string** (int64)
 
 The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
@@ -243,7 +574,9 @@ Sets the maximum allowed idle time, in milliseconds, between queries while in a 
 
 The default value is `0`, which disables the timeout.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html). ||
+For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || statementTimeout | **string** (int64)
 
 The maximum time (in milliseconds) to wait for statement.
@@ -279,14 +612,13 @@ The possible values are the following:
 
 The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
 
-- `PG_AUDIT_SETTINGS_LOG_UNSPECIFIED`
-- `PG_AUDIT_SETTINGS_LOG_READ`
-- `PG_AUDIT_SETTINGS_LOG_WRITE`
-- `PG_AUDIT_SETTINGS_LOG_FUNCTION`
-- `PG_AUDIT_SETTINGS_LOG_ROLE`
-- `PG_AUDIT_SETTINGS_LOG_DDL`
-- `PG_AUDIT_SETTINGS_LOG_MISC`
-- `PG_AUDIT_SETTINGS_LOG_MISC_SET` ||
+- `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+- `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+- `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+- `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -346,7 +678,11 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
       "string"
     ],
     "deletionProtection": "boolean",
-    "userPasswordEncryption": "string"
+    "userPasswordEncryption": "string",
+    "connectionManager": {
+      "connectionId": "string"
+    },
+    "authMethod": "string"
   }
   // end of the list of possible fields
 }
@@ -475,7 +811,9 @@ When used in session pooling, this setting limits the number of connections to e
 When used in transaction pooling, this setting limits the number of user's active transactions; therefore, in this mode user can open thousands of connections, but only `N` concurrent connections will be opened, where `N` is the value of the setting.
 
 Minimum value: `10` (default: `50`), when used in session pooling. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings2)** ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.postgresql.v1.UserSettings2)**
+
+PostgreSQL and connection pooler user settings. ||
 || login | **boolean**
 
 This flag defines whether the user can login to a PostgreSQL database.
@@ -485,7 +823,9 @@ Default value: `true` (login is allowed). ||
 
 A set of roles and privileges that are granted to the user.
 
-For more information, see [the documentation](/docs/managed-postgresql/operations/grant). ||
+For more information, see [the documentation](/docs/managed-postgresql/operations/grant).
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || deletionProtection | **boolean**
 
 Determines whether the user deletion protection is enabled.
@@ -497,9 +837,17 @@ Password-based authentication method for user.
 Possible values are `` USER_PASSWORD_ENCRYPTION_MD5 `` or `` USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 The default is `` password_encryption `` setting for cluster.
 
-- `USER_PASSWORD_ENCRYPTION_UNSPECIFIED`
-- `USER_PASSWORD_ENCRYPTION_MD5`
-- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `USER_PASSWORD_ENCRYPTION_MD5`: MD5 password-based authentication method
+- `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`: SCRAM-SHA-256 password-based authentication method ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
+|| authMethod | **enum** (AuthMethod)
+
+Auth method for user
+
+- `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
+- `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission2}
@@ -513,7 +861,7 @@ Name of the database that the permission grants access to. ||
 
 ## UserSettings {#yandex.cloud.mdb.postgresql.v1.UserSettings2}
 
-PostgreSQL user settings.
+PostgreSQL and connection pooler user settings.
 
 #|
 ||Field | Description ||
@@ -524,7 +872,6 @@ This setting defines the default isolation level to be set for all new SQL trans
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-- `TRANSACTION_ISOLATION_UNSPECIFIED`
 - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
 - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
 - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
@@ -558,7 +905,6 @@ These operations guarantee different levels of the data safety and visibility in
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-- `SYNCHRONOUS_COMMIT_UNSPECIFIED`
 - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
 - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
 There is no synchronous write operation, data may be loss in case of storage subsystem failure.
@@ -580,7 +926,6 @@ This setting specifies which SQL statements should be logged (on the user level)
 
 For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-- `LOG_STATEMENT_UNSPECIFIED`
 - `LOG_STATEMENT_NONE`: Logs none of SQL statements. Default value.
 - `LOG_STATEMENT_DDL`: Logs all data definition statements (such as `CREATE`, `ALTER`, `DROP` and others).
 - `LOG_STATEMENT_MOD`: Logs all statements that fall in the `LOG_STATEMENT_DDL` category plus data-modifying statements (such as `INSERT`, `UPDATE` and others).
@@ -591,15 +936,15 @@ Mode that the connection pooler is working in with specified user.
 
 For more information, see the [Odyssey documentation](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string).
 
-- `POOLING_MODE_UNSPECIFIED`
 - `SESSION`: Server connection will be assigned to it for the whole duration the client stays connected. Default value.
 - `TRANSACTION`: Server connection is assigned to a client only during a transaction.
 - `STATEMENT`: Server connection will be put back into the pool immediately after a query completes. ||
 || preparedStatementsPooling | **boolean**
 
-User can use prepared statements with transaction pooling.
+User can use [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html) with transaction pooling.
+This requires `pool_mode` to be set to TRANSACTION.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/sql-prepare.html). ||
+[Odyssey documentation](https://pg-odyssey.tech/configuration/rules.html#pool_reserve_prepared_statement). ||
 || catchupTimeout | **string** (int64)
 
 The connection pooler setting. It determines the maximum allowed replication lag (in seconds).
@@ -625,7 +970,9 @@ Sets the maximum allowed idle time, in milliseconds, between queries while in a 
 
 The default value is `0`, which disables the timeout.
 
-For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html). ||
+For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-client.html).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || statementTimeout | **string** (int64)
 
 The maximum time (in milliseconds) to wait for statement.
@@ -661,12 +1008,20 @@ The possible values are the following:
 
 The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parameter is not configured.
 
-- `PG_AUDIT_SETTINGS_LOG_UNSPECIFIED`
-- `PG_AUDIT_SETTINGS_LOG_READ`
-- `PG_AUDIT_SETTINGS_LOG_WRITE`
-- `PG_AUDIT_SETTINGS_LOG_FUNCTION`
-- `PG_AUDIT_SETTINGS_LOG_ROLE`
-- `PG_AUDIT_SETTINGS_LOG_DDL`
-- `PG_AUDIT_SETTINGS_LOG_MISC`
-- `PG_AUDIT_SETTINGS_LOG_MISC_SET` ||
+- `PG_AUDIT_SETTINGS_LOG_READ`: `SELECT` and `COPY` queries are logged if the data source is a relation or query.
+- `PG_AUDIT_SETTINGS_LOG_WRITE`: `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE`, and `COPY` queries are logged if the data target is a relation.
+- `PG_AUDIT_SETTINGS_LOG_FUNCTION`: Function invocations and `DO` sections are logged.
+- `PG_AUDIT_SETTINGS_LOG_ROLE`: Statements related to role and privilege management, such as `GRANT`, `REVOKE`, or `CREATE/ALTER/DROP ROLE`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_DDL`: Any `DDL` statements that do not belong to the `ROLE` class are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC`: Miscellaneous commands, such as `DISCARD`, `FETCH`, `CHECKPOINT`, `VACUUM`, and `SET`, are logged.
+- `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.postgresql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager Connection ||
 |#

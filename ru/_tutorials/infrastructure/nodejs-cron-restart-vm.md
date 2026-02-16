@@ -54,7 +54,7 @@
   1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `key_token`.
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
+     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для аутентификации функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -106,7 +106,7 @@
 
      * `name` — имя секрета.
      * `key` — ключ секрета.
-     * `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
+     * `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для аутентификации функции.
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
@@ -524,7 +524,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана ваша прерываемая ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. На панели слева выберите **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
   1. Проверьте состояние ВМ через 1 минуту или более. Статус ВМ должен измениться на `Running`.

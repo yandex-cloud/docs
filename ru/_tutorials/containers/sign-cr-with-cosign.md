@@ -1,6 +1,7 @@
+# Подпись и проверка Docker-образов {{ container-registry-full-name }} в {{ managed-k8s-full-name }}
 
 
-В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/).
+В этом сценарии описано, как подписать [Docker-образы](../../container-registry/concepts/docker-image.md) с помощью [Cosign](https://docs.sigstore.dev/cosign/overview/) в [{{ container-registry-full-name }}](../../container-registry/), а затем настроить проверку подписей в [{{ managed-k8s-full-name }}](../../managed-kubernetes/) с помощью ключей {{ kms-full-name }}.
 
 Чтобы подписать и настроить проверку Docker-образов:
 1. [Подпишите Docker-образ с помощью Cosign](#cosign).
@@ -8,6 +9,17 @@
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса, если они назначены узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за [использование хранилища](../../container-registry/pricing) {{ container-registry-name }}.
+
 
 ## Перед началом работы {#before-begin}
 
@@ -18,7 +30,7 @@
 - Вручную {#manual}
 
   1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролью](../../iam/concepts/access-control/roles.md) [{{ roles-editor }}](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
+     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) для ресурсов с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent` и `vpc.publicAdmin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
      * Сервисный аккаунт для узлов с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов. От его имени узлы будут скачивать из реестра необходимые Docker-образы.
 
      Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
@@ -84,13 +96,13 @@
 
 {% list tabs %}
 
-- Подпись образа на асимметричных ключах {{ kms-full-name }}
+- Подпись образа на асимметричных ключах {{ kms-name }}
 
   1. Установите специальную сборку Cosign для вашей операционной системы:
 
      {% include [install-cosign](../../_includes/kms/install-cosign.md) %}
 
-  1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменную среды `$YC_IAM_TOKEN`:
      * **Bash:**
 
        ```bash
@@ -156,7 +168,7 @@
 
      Утилита вернет идентификатор созданной ключевой пары подписи и сохранит открытый ключ подписи в локальный файл. Сохраните идентификатор ключевой пары, он понадобится вам на следующих шагах.
       
-     Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md).
+     Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
   1. Подпишите образ в {{ container-registry-name }}:
 
      ```bash
@@ -394,7 +406,9 @@
       clusterpolicy.kyverno.io/check-image configured
       ```
 
+
 1. {% include [install policy reporter](../../_includes/managed-kubernetes/install-policy-reporter.md) %}
+
 
 ## Проверьте результат {#check-result}
 
@@ -444,21 +458,6 @@
 
 - {{ TF }} {#tf}
 
-  Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-  1. [Удалите все Docker-образы](../../container-registry/operations/docker-image/docker-image-delete.md) из реестра {{ container-registry-name }}.
-  1. В терминале перейдите в директорию с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-validate-cr-image.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-     ```bash
-     terraform validate
-     ```
-
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-validate-cr-image.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

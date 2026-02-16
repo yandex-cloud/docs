@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/api-ref/grpc/SymmetricKey/list.md
 ---
 
-# Key Management Service API, gRPC: SymmetricKeyService.List {#List}
+# Key Management Service API, gRPC: SymmetricKeyService.List
 
 Returns the list of symmetric KMS keys in the specified folder.
 
@@ -15,27 +15,33 @@ Returns the list of symmetric KMS keys in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder to list symmetric KMS keys in. ||
-|| pageSize | **int64**
+Required field. ID of the folder to list symmetric KMS keys in.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListSymmetricKeysResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeysResponse)
+results is larger than `page_size`, the service returns a [ListSymmetricKeysResponse.next_page_token](#yandex.cloud.kms.v1.ListSymmetricKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListSymmetricKeysResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeysResponse) returned by a previous list request. ||
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListSymmetricKeysResponse.next_page_token](#yandex.cloud.kms.v1.ListSymmetricKeysResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListSymmetricKeysResponse {#yandex.cloud.kms.v1.ListSymmetricKeysResponse}
@@ -45,29 +51,29 @@ Page token. To get the next page of results, set `pageToken` to the
   "keys": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "status": "Status",
-      "primaryVersion": {
+      "primary_version": {
         "id": "string",
-        "keyId": "string",
+        "key_id": "string",
         "status": "Status",
         "algorithm": "SymmetricAlgorithm",
-        "createdAt": "google.protobuf.Timestamp",
+        "created_at": "google.protobuf.Timestamp",
         "primary": "bool",
-        "destroyAt": "google.protobuf.Timestamp",
-        "hostedByHsm": "bool"
+        "destroy_at": "google.protobuf.Timestamp",
+        "hosted_by_hsm": "bool"
       },
-      "defaultAlgorithm": "SymmetricAlgorithm",
-      "rotatedAt": "google.protobuf.Timestamp",
-      "rotationPeriod": "google.protobuf.Duration",
-      "deletionProtection": "bool"
+      "default_algorithm": "SymmetricAlgorithm",
+      "rotated_at": "google.protobuf.Timestamp",
+      "rotation_period": "google.protobuf.Duration",
+      "deletion_protection": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -76,13 +82,13 @@ Page token. To get the next page of results, set `pageToken` to the
 || keys[] | **[SymmetricKey](#yandex.cloud.kms.v1.SymmetricKey)**
 
 List of symmetric KMS keys in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number
-of results is greater than the specified [ListSymmetricKeysRequest.pageSize](#yandex.cloud.kms.v1.ListSymmetricKeysRequest), use
-the `nextPageToken` as the value for the [ListSymmetricKeysRequest.pageToken](#yandex.cloud.kms.v1.ListSymmetricKeysRequest) query parameter
+of results is greater than the specified [ListSymmetricKeysRequest.page_size](#yandex.cloud.kms.v1.ListSymmetricKeysRequest), use
+the `next_page_token` as the value for the [ListSymmetricKeysRequest.page_token](#yandex.cloud.kms.v1.ListSymmetricKeysRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## SymmetricKey {#yandex.cloud.kms.v1.SymmetricKey}
@@ -94,10 +100,10 @@ A symmetric KMS key that may contain several versions of the cryptographic mater
 || id | **string**
 
 ID of the key. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key was created. ||
 || name | **string**
@@ -106,40 +112,39 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption.
 Can be set to INACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/grpc/SymmetricKey/update#Update) method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/grpc/SymmetricKey/update#Update) method. ||
-|| primaryVersion | **[SymmetricKeyVersion](#yandex.cloud.kms.v1.SymmetricKeyVersion)**
+|| primary_version | **[SymmetricKeyVersion](#yandex.cloud.kms.v1.SymmetricKeyVersion)**
 
 Primary version of the key, used as the default for all encrypt/decrypt operations,
 when no version ID is specified. ||
-|| defaultAlgorithm | enum **SymmetricAlgorithm**
+|| default_algorithm | enum **SymmetricAlgorithm**
 
 Default encryption algorithm to be used with new versions of the key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
-|| rotatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
+|| rotated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last key rotation (time when the last version was created).
 Empty if the key does not have versions yet. ||
-|| rotationPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| rotation_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Time period between automatic key rotations. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the key ||
 |#
@@ -153,39 +158,38 @@ Symmetric KMS key version: metadata about actual cryptographic data.
 || id | **string**
 
 ID of the key version. ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the symmetric KMS key that the version belongs to. ||
 || status | enum **Status**
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
-is specified in the `SymmetricKeyVersion.destroyAt` field.
+is specified in the `SymmetricKeyVersion.destroy_at` field.
 - `DESTROYED`: The version is destroyed and cannot be recovered. ||
 || algorithm | enum **SymmetricAlgorithm**
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key version was created. ||
 || primary | **bool**
 
 Indication of a primary version, that is to be used by default for all cryptographic
 operations that don't have a key version explicitly specified. ||
-|| destroyAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| destroy_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key version is going to be destroyed. Empty unless the status
 is `SCHEDULED_FOR_DESTRUCTION`. ||
-|| hostedByHsm | **bool**
+|| hosted_by_hsm | **bool**
 
 Indication of the version that is hosted by HSM. ||
 |#

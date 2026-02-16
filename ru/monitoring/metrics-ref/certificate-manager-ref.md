@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ certificate-manager-full-name }}
+description: Из статьи вы узнаете про метрики {{ certificate-manager-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/certificate-manager-ref.md
 ---
 
 # Метрики {{ certificate-manager-full-name }}

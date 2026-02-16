@@ -1,10 +1,12 @@
 # Загрузка состояний {{ TF }} в {{ objstorage-full-name }}
 
 
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
+
 В инструкции описываются шаги загрузки состояния {{ TF }} в [{{ objstorage-name }}](../../storage/).
 
 Состояние {{ TF }} описывает текущую развернутую инфраструктуру и хранится в файлах с расширением `.tfstate`. Файл состояния создается после развертывания инфраструктуры и может быть сразу загружен в {{ objstorage-name }}. Загруженный файл состояния будет обновляться после изменений созданной инфраструктуры.
- 
+
 В этом примере сохраненное состояние позволит другим пользователям получить идентификатор одной из созданных [подсетей](../../vpc/concepts/network.md#subnet), чтобы подключить к ней новую [виртуальную машину](../../compute/concepts/vm.md).
 
 Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и использовать его для создания новых ресурсов:
@@ -17,8 +19,6 @@
 1. [Получите состояние из бэкенда](#retrieve-state).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -35,7 +35,7 @@
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) [editor](../../iam/roles-reference.md#editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), указанный в настройках провайдера.
-1. [Получите статический ключ доступа](../../iam/operations/sa/create-access-key.md). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
+1. [Получите статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
 
 ### Создайте бакет {#create-service-account}
 
@@ -133,11 +133,11 @@
    }
 
    provider "yandex" {
-     zone      = "{{ region-id }}-a"
+     zone      = "{{ region-id }}-d"
    }
 
    data "terraform_remote_state" "vpc" {
-     backend = "s3" 
+     backend = "s3"
      config  = {
        endpoints = {
          s3 = "https://{{ s3-storage-host }}"
@@ -163,7 +163,7 @@
    resource "yandex_compute_disk" "boot-disk-vm3" {
      name     = "boot-disk-3"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }

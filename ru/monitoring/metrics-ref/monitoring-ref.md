@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ monitoring-full-name }}
+description: Из статьи вы узнаете про метрики {{ monitoring-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/monitoring-ref.md
 ---
 
 # Метрики {{ monitoring-full-name }}

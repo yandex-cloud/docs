@@ -1,6 +1,7 @@
 ---
 title: Log group in {{ cloud-logging-full-name }}
 description: A log group is a way of grouping logs of services and custom messages.
+sourcePath: en/logging_includes/concepts/log-group.md
 ---
 
 # Log group in {{ cloud-logging-name }}
@@ -23,13 +24,21 @@ Current date – 30 days < Record creation timestamp < Current date + 1 day
 ## Services capable of logging in {{ cloud-logging-name }} {#services}
 
 
-* [{{ alb-name }}](../../application-load-balancer/)
 * [{{ api-gw-name }}](../../api-gateway/)
+* [{{ alb-name }}](../../application-load-balancer/)
 * [{{ at-name }}](../../audit-trails/)
 * [{{ sf-name }}](../../functions/)
+* [{{ compute-name }}](../../compute/) (collecting logs from VMs and user applications via [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/))
 * [{{ container-registry-name }}](../../container-registry/)
-* [{{ dataproc-name }}](../../data-proc/)
 * [{{ ml-platform-name }}](../../datasphere/)
+* [{{ maf-name }}](../../managed-airflow/)
+* [{{ mgp-name }}](../../managed-greenplum/)
 * [{{ managed-k8s-name }}®](../../managed-kubernetes/)
 * [{{ serverless-containers-name }}](../../serverless-containers/)
+* [{{ si-name }}](../../serverless-integrations/)
+* [{{ postbox-name }}](../../postbox/)
+* [{{ cns-full-name }}](../../notifications/)
+* [{{ dataproc-name }}](../../data-proc/)
+* [{{ yds-full-name }}](../../data-streams/)
 * [{{ iot-name }}](../../iot-core/)
+* [{{ mpg-full-name }}](../../managed-postgresql/)

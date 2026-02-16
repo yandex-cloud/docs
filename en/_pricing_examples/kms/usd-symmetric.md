@@ -1,0 +1,3 @@
+For example, if 10,000 operations are performed with one symmetric key version and 20,000 with another, the cost per month (720 hours) will be:
+
+> 720 × {{ sku|USD|kms.storage.v1.software|string }}&nbsp;×&nbsp;2 + ({{ sku|USD|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;10,000&nbsp;/&nbsp;10,000) + ({{ sku|USD|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;20,000&nbsp;/&nbsp;10,000) = {% calc [currency=USD] 720 × {{ sku|USD|kms.storage.v1.software|number }} × 2 + ({{ sku|USD|kms.api.v1.encryptdecrypt|number }} × 10,000 / 10,000) + ({{ sku|USD|kms.api.v1.encryptdecrypt|number }} × 20,000 / 10,000) %}

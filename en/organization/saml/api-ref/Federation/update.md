@@ -1,9 +1,144 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}
+    method: patch
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to update.
+            To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the federation.
+            The name must be unique within the organization.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the federation.
+            The maximum string length in characters is 256.
+          type: string
+        cookieMaxAge:
+          description: |-
+            **string** (duration)
+            Browser cookie lifetime in seconds.
+            If the cookie is still valid, the management console
+            authenticates the user immediately and redirects them to the home page.
+            The default value is `8h`.
+          type: string
+          format: duration
+        autoCreateAccountOnLogin:
+          description: |-
+            **boolean**
+            Add new users automatically on successful authentication.
+            The user becomes member of the organization automatically,
+            but you need to grant other roles to them.
+            If the value is `false`, users who aren't added to the organization
+            can't log in, even if they have authenticated on your server.
+          type: boolean
+        issuer:
+          description: |-
+            **string**
+            Required field. ID of the IdP server to be used for authentication.
+            The IdP server also responds to IAM with this ID after the user authenticates.
+            The maximum string length in characters is 8000.
+          type: string
+        ssoBinding:
+          description: |-
+            **enum** (BindingType)
+            Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
+            SAML Binding is a mapping of a SAML protocol message onto standard messaging
+            formats and/or communications protocols.
+            - `POST`: HTTP POST binding.
+            - `REDIRECT`: HTTP redirect binding.
+            - `ARTIFACT`: HTTP artifact binding.
+          type: string
+          enum:
+            - BINDING_TYPE_UNSPECIFIED
+            - POST
+            - REDIRECT
+            - ARTIFACT
+        ssoUrl:
+          description: |-
+            **string**
+            Required field. Single sign-on endpoint URL.
+            Specify the link to the IdP login page here.
+            The maximum string length in characters is 8000.
+          type: string
+        securitySettings:
+          description: |-
+            **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
+            Federation security settings.
+          $ref: '#/definitions/FederationSecuritySettings'
+        caseInsensitiveNameIds:
+          description: |-
+            **boolean**
+            Use case insensitive name ids.
+          type: boolean
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - issuer
+        - ssoUrl
+      additionalProperties: false
+    definitions:
+      FederationSecuritySettings:
+        type: object
+        properties:
+          encryptedAssertions:
+            description: |-
+              **boolean**
+              Enable encrypted assertions.
+            type: boolean
+          forceAuthn:
+            description: |-
+              **boolean**
+              Value parameter ForceAuthn in SAMLRequest.
+            type: boolean
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/update.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.Update {#Update}
+# SAML Federation API, REST: Federation.Update
 
 Updates the specified federation.
 
@@ -20,7 +155,9 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/saml/f
 || federationId | **string**
 
 Required field. ID of the federation to update.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.UpdateFederationRequest}
@@ -40,7 +177,7 @@ To get the federation ID, make a [FederationService.List](/docs/organization/api
     "forceAuthn": "boolean"
   },
   "caseInsensitiveNameIds": "boolean",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -59,10 +196,14 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the federation.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the federation. ||
+Description of the federation.
+
+The maximum string length in characters is 256. ||
 || cookieMaxAge | **string** (duration)
 
 Browser cookie lifetime in seconds.
@@ -80,7 +221,9 @@ can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
 
 Required field. ID of the IdP server to be used for authentication.
-The IdP server also responds to IAM with this ID after the user authenticates. ||
+The IdP server also responds to IAM with this ID after the user authenticates.
+
+The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
@@ -88,23 +231,26 @@ Single sign-on endpoint binding type. Most Identity Providers support the `POST`
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 
-- `BINDING_TYPE_UNSPECIFIED`
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
 || ssoUrl | **string**
 
 Required field. Single sign-on endpoint URL.
-Specify the link to the IdP login page here. ||
+Specify the link to the IdP login page here.
+
+The maximum string length in characters is 8000. ||
 || securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings)**
 
 Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive name ids. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Resource labels as `` key:value `` pairs. ||
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## FederationSecuritySettings {#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings}
@@ -160,7 +306,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
       "forceAuthn": "boolean"
     },
     "caseInsensitiveNameIds": "boolean",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -270,16 +416,22 @@ For more information, see [SAML-compatible identity federations](/docs/iam/conce
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the federation. ||
+Required field. ID of the federation.
+
+The maximum string length in characters is 50. ||
 || organizationId | **string**
 
 ID of the organization that the federation belongs to. ||
 || name | **string**
 
-Required field. Name of the federation. ||
+Required field. Name of the federation.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the federation. ||
+Description of the federation.
+
+The maximum string length in characters is 256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -306,7 +458,9 @@ can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
 
 Required field. ID of the IdP server to be used for authentication.
-The IdP server also responds to IAM with this ID after the user authenticates. ||
+The IdP server also responds to IAM with this ID after the user authenticates.
+
+The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
@@ -314,21 +468,22 @@ Single sign-on endpoint binding type. Most Identity Providers support the `POST`
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 
-- `BINDING_TYPE_UNSPECIFIED`
 - `POST`: HTTP POST binding.
 - `REDIRECT`: HTTP redirect binding.
 - `ARTIFACT`: HTTP artifact binding. ||
 || ssoUrl | **string**
 
 Required field. Single sign-on endpoint URL.
-Specify the link to the IdP login page here. ||
+Specify the link to the IdP login page here.
+
+The maximum string length in characters is 8000. ||
 || securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings2)**
 
 Federation security settings. ||
 || caseInsensitiveNameIds | **boolean**
 
 Use case insensitive Name IDs. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

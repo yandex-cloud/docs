@@ -1,15 +1,27 @@
 ---
-title: '{{ speechsense-name }} guides'
-description: The page contains all guides for {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
+title: How to work with {{ speechsense-name }}
+description: This page presents all the guides on how to use {{ speechsense-name }} in {{ yandex-cloud }}. Learn how to create a space, create a project for a specific connection, upload data, work with dialogs, and generate reports.
 ---
 
 # Step-by-step guides for {{ speechsense-name }}
 
 ## Operations with data {#data}
 
-* [{#T}](data/upload-data.md)
-* [{#T}](data/upload-chat-text.md)
-* [{#T}](data/search-data.md)
+* Uploading data:
+
+  * [{#T}](data/upload-audio-console.md)
+  * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-data-split.md)
+  * [{#T}](data/upload-chat-text.md)
+
+* Searching data:
+
+  * [{#T}](data/search-data-grpc.md)
+  * Data search via the REST API:
+    * [{#T}](data/rest-full-text-search.md)
+    * [{#T}](data/rest-search-filters.md)
+    * [{#T}](data/rest-get-dialog-data.md)
+
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
 
@@ -17,6 +29,7 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 
 * [{#T}](space/create.md)
 * [{#T}](space/link-ba.md)
+* [{#T}](space/change-ba.md)
 * [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
@@ -24,6 +37,7 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 ## Connections {#connection}
 
 * [{#T}](connection/create.md)
+* [{#T}](connection/edit.md)
 
 ## Projects {#project}
 
@@ -31,11 +45,24 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+* [{#T}](project/yandexgpt-training.md)
+
+## Assistants {#assistant}
+
+* [{#T}](assistant/create.md)
+* [{#T}](assistant/edit.md)
+* [{#T}](assistant/delete.md)
 
 ## Tags {#tag}
 
-* [{#T}](project/tag/create.md)
-* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/create-dictionary-tag.md)
+* [{#T}](project/tag/create-sense-tag.md)
+* [{#T}](project/tag/create-sense-pro-tag.md)
+* [{#T}](project/tag/create-dependent-tag.md)
+* [{#T}](project/tag/change-dictionary-tag.md)
+* [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/change-sense-pro-tag.md)
+* [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)
 
 ## Dictionaries {#dictionary}
@@ -44,3 +71,12 @@ description: The page contains all guides for {{ speechsense-name }} in {{ yande
 * [{#T}](dictionary/change.md)
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
+
+
+## Recalculation tasks {#task-recalculation}
+* [{#T}](task-recalculation/tags-recalc.md)
+* [{#T}](task-recalculation/assistants-recalc.md)
+
+## External integrations {#external-integrations}
+
+* [{#T}](external-integrations/create-datalens-connection.md)

@@ -15,7 +15,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards) с использованием реквизитов пользователя `admin`.
+1. Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`.
 
     В этом практическом руководстве предполагается, что веб-интерфейс {{ OS }} Dashboards доступен по URL:
 
@@ -103,8 +103,15 @@
 
     Для этого отключите опцию **Client signature required**.
 
+
 1. На вкладке **Client scopes** настройте сопоставление ролей для клиента:
 
+   {% note info %}
+   
+   Если на вкладке **Client scopes** в списке **Assigned Default Client Scopes** присутствует сопоставление ролей `role_list`, рекомендуется удалить это сопоставление во избежание проблем с проверкой SAML-ответа.
+   
+   {% endnote %}
+   
     1. Нажмите на URL для подключения к {{ OS }} Dashboards с суффиксом `-dedicated`.
 
     1. На вкладке **Mappers** нажмите **Configure a new mapper**. Выберите из списка маппер **Role list**.
@@ -172,6 +179,8 @@
             Укажите тот же атрибут, который [был настроен для маппера](#configure-idp) {{ keycloak }} — `roles`.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}** — оставьте поле пустым.
+
+        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — оставьте значение `0`.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}** — убедитесь, что эта опция включена.
 
@@ -242,7 +251,7 @@
 
     Чтобы сопоставить роли:
 
-    1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к {{ OS }} Dashboards от имени пользователя `admin`.
+    1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards от имени пользователя `admin`.
     1. В меню слева выберите **{{ OS }} Plugins** → **Security**.
     1. На панели слева выберите **Roles**.
     1. Настройте сопоставления ролей:
@@ -267,7 +276,7 @@
 
     Это действие нужно выполнять с компьютера, который имеет доступ к {{ keycloak }}.
 
-1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к {{ OS }} Dashboards.
+1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards.
 
     На странице логина нажмите кнопку **Log in with single sign-on** вместо ввода имени пользователя и пароля.
 

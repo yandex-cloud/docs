@@ -11,7 +11,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter the function name: `java-function`.
     1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -43,11 +43,6 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 - API {#api}
 
     You can create a function using the [create](../../functions/api-ref/Function/create.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}
@@ -98,7 +93,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     }
     ```
 
-1. Add the `Handler.java` file into the `hello-java.zip` archive.
+1. Add `Handler.java` to the `hello-java.zip` archive.
 
 ### Create a function version {#create-version}
 
@@ -107,10 +102,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the `java-function` function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the `java17` runtime environment and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Select the `{{ java-full-ver }}` runtime environment.
+    1. Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-java.zip`
@@ -131,7 +127,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     ```bash
     yc serverless function version create \
       --function-name=java-function \
-      --runtime java11 \
+      --runtime {{ java-cli-ver }} \
       --entrypoint Handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -140,11 +136,11 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 
     Where:
 
-    * `--function-name`: Name of the function a version of which you want to create.
+    * `--function-name`: Name of the function whose version you want to create.
     * `--runtime`: Runtime environment.
     * `--entrypoint`: Entry point.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -154,7 +150,7 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: java11
+    runtime: {{ java-cli-ver }}
     entrypoint: Handler
     resources:
         memory: "134217728"
@@ -169,11 +165,6 @@ Create and execute a [function](../../concepts/function.md) in Java that welcome
 - API {#api}
 
     You can create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a function version using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}

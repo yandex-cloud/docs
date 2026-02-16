@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя нужного CDN-ресурса.
 
@@ -167,7 +167,7 @@ description: Следуя данной инструкции, вы сможете
       yc cdn resource update <идентификатор_ресурса> --clear-rewrite
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

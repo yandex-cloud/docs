@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
-  1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, о котором хотите получить подробную информацию.
 
@@ -20,7 +20,6 @@
     ```
 
     Результат:
-  
 
     ```text
     id: a1sfe084v4h2********
@@ -42,7 +41,6 @@
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
-
 
 - API {#api}
 

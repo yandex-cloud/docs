@@ -1,9 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasource/{datasourceName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+        datasourceName:
+          description: |-
+            **string**
+            Required field.
+            The string length in characters must be 3-200. Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
+          pattern: ^[^\|/*?.,;'<>]+$
+          type: string
+      required:
+        - clusterId
+        - datasourceName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: PXFDatasource.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: PXFDatasource.Delete
 
 Delete PXF datasource
 
@@ -19,10 +45,14 @@ DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || datasourceName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -113,10 +143,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || datasourceName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list gateways in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListGatewaysResponse.nextPageToken](#yandex.cloud.vpc.v1.ListGatewaysResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListGatewaysResponse.nextPageToken](#yandex.cloud.vpc.v1.ListGatewaysResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters Gateway listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Gateway.name](#yandex.cloud.vpc.v1.Gateway) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-gateway`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/list.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.List {#List}
+# Virtual Private Cloud API, REST: Gateway.List
 
 Retrieves the list of Gateway resources in the specified folder.
 
@@ -56,7 +100,7 @@ Example of a filter: `name=my-gateway`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       // Includes only one of the fields `sharedEgressGateway`
       "sharedEgressGateway": "object"
       // end of the list of possible fields
@@ -110,7 +154,7 @@ Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
 || description | **string**
 
 Description of the gateway. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs.
 No more than 64 per resource.

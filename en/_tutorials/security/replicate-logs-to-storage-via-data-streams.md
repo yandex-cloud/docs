@@ -1,16 +1,16 @@
-# Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+# Replicating logs to {{ objstorage-full-name }} using {{ yds-full-name }}
 
 With [{{ yds-full-name }}](../../data-streams/), you can set up automatic replication of service and user application logs to [{{ objstorage-full-name }}](../../storage/).
 
-The solution works as described below:
-1. Logs, for example, from a [VM instance](../../compute/concepts/vm.md), are sent to a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md).
-1. The log group settings specify the {{ yds-name }} [stream](../../data-streams/concepts/glossary.md#stream-concepts) where the logs are transmitted automatically.
+The solution works as follows:
+1. Your {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) receives logs, e.g., from a [VM](../../compute/concepts/vm.md).
+1. The log group is set up to automatically forward logs to a specific [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in {{ yds-name }}.
 1. A {{ data-transfer-name }} [transfer](../../data-transfer/concepts/#transfer) is set up to fetch data from the stream and save it to an {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md).
 
 To set up log replication:
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Configure the environment](#prepare-environment).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your environment](#prepare-environment).
 1. [Create a bucket](#create-bucket).
 1. [Create a data stream](#create-stream).
 1. [Connect the stream to the log group](#stream-log-connect).
@@ -23,18 +23,22 @@ If you no longer want to store logs, [delete the resources allocated to them](#c
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of data storage support includes:
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
 
-* Data stream maintenance fees (see [{{ yds-full-name }} pricing](../../data-streams/pricing.md)).
-* Fees for transmitting data between sources and targets (see [{{ data-transfer-full-name }} pricing](../../data-transfer/pricing.md)).
-* Data storage fees (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-## Configure the environment {#prepare-environment}
+* {{ ydb-name }} database, operating in serverless mode: data operations, amount of stored data and backups (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
-1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) assigned for the folder.
-1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM instance or [add](../../logging/operations/write-logs.md) test records to the log group.
+
+## Set up your environment {#prepare-environment}
+
+1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `logs-sa`, with the `editor` [role](../../iam/roles-reference.md#editor) for the folder.
+1. [Set up](../../logging/tutorials/) the transfer of logs to the log group. For example, you can [transfer](../../logging/tutorials/vm-fluent-bit-logging.md) logs from a VM or [add](../../logging/operations/write-logs.md) test records to the log group.
 
 {% include [create-bucket](../_tutorials_includes/create-bucket.md) %}
 
@@ -46,10 +50,10 @@ The cost of data storage support includes:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-   1. Next to the log group where the logs are sent, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select the `logs-stream` created before.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Next to the log group receiving the logs, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the **{{ ui-key.yacloud.data-streams.label_data-stream }}** field, select `logs-stream` you created earlier.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -57,9 +61,9 @@ The cost of data storage support includes:
 
 {% include [check-ingestion](../_tutorials_includes/check-ingestion.md) %}
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To reduce the consumption of resources you do not need, delete them:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../data-transfer/operations/endpoint/#delete).

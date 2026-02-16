@@ -19,7 +19,7 @@
    {% endlist %}
 
 
-1. Загрузите на ВМ файлы веб-сайта с помощью [протокола SCP](https://ru.wikipedia.org/wiki/SCP).
+1. Загрузите на ВМ файлы сайта с помощью [протокола SCP](https://ru.wikipedia.org/wiki/SCP).
 
    {% list tabs group=operating_system %}
 

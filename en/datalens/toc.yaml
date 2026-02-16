@@ -5,9 +5,6 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Navigation and interface
-        href: getting-started/navigation.md
-        hidden: true
       - name: Getting started
         href: quickstart.md
       - name: Quotas and limits
@@ -22,8 +19,14 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Migrating objects to workbooks
         href: workbooks-collections/migrations.md
+      - name: Exporting and importing workbooks
+        href: workbooks-collections/export-and-import.md
+      - name: Errors and warnings during export and import
+        href: workbooks-collections/export-import-notifications.md
       - name: Configuring access
         href: workbooks-collections/security.md
+  - name: DataLens neuroanalyst
+    href: concepts/neuroanalyst.md
   - name: Tutorials
     items:
       - name: Overview
@@ -34,24 +37,24 @@ items:
             href: tutorials/data-from-csv-visualization.md
           - name: Public chart with a map of Moscow from a CSV file
             href: tutorials/data-from-csv-to-public-visualization.md
-          - name: Retail chain's dashboard based on a {{ CH }} DB
+          - name: Retail chain's dashboard based on a {{ CH }} database
             href: tutorials/data-from-ch-visualization.md
       - name: Working with geodata
         items:
           - name: Analyzing public data on road accidents in Russia
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
-              Analyzing sales and locations of pizzerias based on data from the
-              {{ CH }} database and Marketplace
+              Analyzing sales and locations of pizzerias based on data from a {{
+              CH }} database and Marketplace
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Geocoding with the Yandex Maps API for data visualization in {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Visualizing data using heat maps
+          - name: Visualizing data using Heat Maps
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
-          - name: Status monitoring of geographically distributed devices
+          - name: Monitoring the status of geographically distributed devices
             href: tutorials/datalens.md
       - name: Service analytics
         items:
@@ -67,6 +70,8 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: data export and visualization'
             href: tutorials/data-from-tracker.md
+          - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
+            href: tutorials/storage-logs-analysis.md
           - name: 'Yandex Music podcasts: Statistics'
             href: tutorials/data-from-podcasts.md
           - name: Visualizing {{ yq-full-name }} data
@@ -77,22 +82,41 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them using {{ datalens-full-name }}
+              and analyzing them with {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
+          - name: >-
+              Delivering data from {{ forms-full-name }} to {{
+              datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name
+              }}
+            items:
+              - name: Overview
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Management console
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: Migrating databases from Google BigQuery to {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
       - name: Functional
         items:
-          - name: Using parameters
+          - name: Using parameters in calculated fields
             href: tutorials/data-from-ch-with-parameters.md
+          - name: Source parameterization
+            href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Examples of creating QL charts
             href: tutorials/data-from-ch-to-sql-chart.md
   - name: Connections
     items:
       - name: Overview
-        href: concepts/connection.md
+        href: concepts/connection/index.md
+      - name: Versioning
+        href: concepts/connection/versioning.md
       - name: Caching
         href: concepts/caching.md
       - name: Combining data
         href: concepts/data-join.md
+      - name: Adding connection info
+        href: operations/connection/add-description.md
       - name: Databases
         items:
           - name: Creating a {{ CH }} connection
@@ -107,7 +131,7 @@ items:
             items:
               - name: Connection
                 href: operations/connection/chyt/create-chyt.md
-              - name: Specifics of JOIN
+              - name: Features of JOIN
                 href: operations/connection/chyt/chyt-global-join.md
               - name: Recommendations
                 href: operations/connection/chyt/chyt-recommendations.md
@@ -119,10 +143,10 @@ items:
             href: operations/connection/create-oracle.md
           - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
-          - name: Creating a BigQuery connection
-            href: operations/connection/create-big-query.md
           - name: Creating a Snowflake connection
             href: operations/connection/create-snowflake.md
+          - name: Creating a {{ TR }} connection
+            href: operations/connection/create-trino.md
       - name: Files and services
         items:
           - name: Creating a connection to files
@@ -142,23 +166,41 @@ items:
           - name: Creating a {{ monitoring-full-name }} connection
             href: operations/connection/create-monitoring.md
           - name: Creating a connection to {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
+            items:
+              - name: Overview
+                href: concepts/datalens-usage-analytics.md
+              - name: Connection
+                href: operations/connection/create-usage-tracking.md
+          - name: Creating an API Connector connection
+            href: operations/connection/create-api-connector.md
+          - name: Creating a {{ speechsense-name }} connection
+            href: operations/connection/create-speechsense.md
       - name: Partner connections
         items:
+          - name: Creating a 1C Extractor connection
+            href: operations/connection/create-extractor1c.md
           - name: Creating a Bitrix24 connection
             href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
             href: operations/connection/create-podcasts.md
+          - name: Suggest your partner connector
+            href: operations/marketplace/create-connector-for-partners.md
   - name: Datasets
     items:
       - name: Overview
         href: dataset/index.md
-      - name: Working with dataset
+      - name: Working with datasets
         href: dataset/create-dataset.md
       - name: Data model
         href: dataset/data-model.md
       - name: Dataset settings
         href: dataset/settings.md
+      - name: Versioning
+        href: dataset/versioning.md
+      - name: Adding dataset info
+        href: dataset/add-description.md
+      - name: Source parameterization
+        href: dataset/parametrization.md
       - name: Data types
         href: dataset/data-types.md
       - name: Data type mapping
@@ -169,6 +211,8 @@ items:
         href: concepts/calculations/index.md
       - name: Formula syntax
         href: concepts/calculations/formula-syntax.md
+      - name: Neuroanalyst for creating calculated fields
+        href: concepts/calculations/formulas-helper.md
       - name: Function reference
         items:
           - name: All Functions
@@ -231,6 +275,12 @@ items:
                 href: function-ref/ARRAY.md
               - name: ARR_AVG
                 href: function-ref/ARR_AVG.md
+              - name: ARR_DISTINCT
+                href: function-ref/ARR_DISTINCT.md
+              - name: ARR_INDEX_OF
+                href: function-ref/ARR_INDEX_OF.md
+              - name: ARR_INTERSECT
+                href: function-ref/ARR_INTERSECT.md
               - name: ARR_MAX
                 href: function-ref/ARR_MAX.md
               - name: ARR_MIN
@@ -303,6 +353,24 @@ items:
                 href: function-ref/WEEK.md
               - name: YEAR
                 href: function-ref/YEAR.md
+          - name: Hash functions
+            items:
+              - name: Overview
+                href: function-ref/hash-functions.md
+              - name: CITYHASH64
+                href: function-ref/CITYHASH64.md
+              - name: INTHASH64
+                href: function-ref/INTHASH64.md
+              - name: MD5
+                href: function-ref/MD5.md
+              - name: MURMURHASH2_64
+                href: function-ref/MURMURHASH2_64.md
+              - name: SHA1
+                href: function-ref/SHA1.md
+              - name: SHA256
+                href: function-ref/SHA256.md
+              - name: SIPHASH64
+                href: function-ref/SIPHASH64.md
           - name: Logical functions
             items:
               - name: Overview
@@ -379,6 +447,30 @@ items:
                 href: function-ref/SQUARE.md
               - name: TAN
                 href: function-ref/TAN.md
+          - name: Native functions
+            items:
+              - name: Overview
+                href: function-ref/native-functions.md
+              - name: DB_CALL_AGG_FLOAT
+                href: function-ref/DB_CALL_AGG_FLOAT.md
+              - name: DB_CALL_AGG_INT
+                href: function-ref/DB_CALL_AGG_INT.md
+              - name: DB_CALL_AGG_STRING
+                href: function-ref/DB_CALL_AGG_STRING.md
+              - name: DB_CALL_ARRAY_FLOAT
+                href: function-ref/DB_CALL_ARRAY_FLOAT.md
+              - name: DB_CALL_ARRAY_INT
+                href: function-ref/DB_CALL_ARRAY_INT.md
+              - name: DB_CALL_ARRAY_STRING
+                href: function-ref/DB_CALL_ARRAY_STRING.md
+              - name: DB_CALL_BOOL
+                href: function-ref/DB_CALL_BOOL.md
+              - name: DB_CALL_FLOAT
+                href: function-ref/DB_CALL_FLOAT.md
+              - name: DB_CALL_INT
+                href: function-ref/DB_CALL_INT.md
+              - name: DB_CALL_STRING
+                href: function-ref/DB_CALL_STRING.md
           - name: Operators
             items:
               - name: Overview
@@ -493,6 +585,8 @@ items:
                 href: function-ref/MARKUP.md
               - name: SIZE
                 href: function-ref/SIZE.md
+              - name: TOOLTIP
+                href: function-ref/TOOLTIP.md
               - name: URL
                 href: function-ref/URL.md
               - name: USER_INFO
@@ -591,11 +685,11 @@ items:
             href: function-ref/availability.md
       - name: Examples of using functions
         items:
-          - name: Aggregate functions
+          - name: Aggregation functions
             href: concepts/aggregation-tutorial.md
           - name: Window functions
             href: concepts/window-function-tutorial.md
-          - name: LOD expressions and filtering in aggregate functions
+          - name: LOD expressions and filtering management in aggregation functions
             href: concepts/lod-aggregation.md
           - name: Functions for time series
             href: concepts/time-series-functions.md
@@ -625,11 +719,11 @@ items:
                 href: operations/chart/create-multidataset-chart.md
               - name: Adding a hierarchy
                 href: operations/chart/add-hierarchy.md
-              - name: Configuring the navigator
+              - name: Configuring a navigator
                 href: operations/chart/config-chart-navigator.md
               - name: Configuring the display of null values
                 href: operations/chart/chart-null-settings.md
-              - name: Creating a color palette
+              - name: Configuring a color palette
                 href: operations/chart/create-palette.md
       - name: QL charts
         items:
@@ -637,13 +731,57 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Creating a QL chart
             href: operations/chart/create-sql-chart.md
+      - name: Charts in Editor
+        items:
+          - name: Overview
+            href: charts/editor/index.md
+          - name: Quick start in Editor
+            items:
+              - name: Overview
+                href: charts/editor/quickstart/index.md
+              - name: Creating a table based on a dataset
+                href: charts/editor/quickstart/from-dataset.md
+              - name: Creating a table based on an SQL query
+                href: charts/editor/quickstart/from-database.md
+              - name: Creating a table based on API Connector
+                href: charts/editor/quickstart/from-api-connector.md
+          - name: Neuroanalyst in Editor
+            href: charts/editor/code-helper.md
+          - name: Tabs
+            href: charts/editor/tabs.md
+          - name: Sources
+            href: charts/editor/sources.md
+          - name: Available methods
+            href: charts/editor/methods.md
+          - name: Notifications
+            href: charts/editor/notifications.md
+          - name: Chart links in dashboards and reports
+            href: charts/editor/links.md
+          - name: Cross-filtering
+            href: charts/editor/cross-filtration.md
+          - name: Chart debugging
+            href: charts/editor/debug.md
+          - name: Visualization types
+            items:
+              - name: Overview
+                href: charts/editor/widgets/index.md
+              - name: Table
+                href: charts/editor/widgets/table.md
+              - name: Chart (Gravity UI Charts)
+                href: charts/editor/widgets/chart.md
+              - name: Markdown
+                href: charts/editor/widgets/markdown.md
+              - name: Advanced chart
+                href: charts/editor/widgets/advanced.md
+              - name: Selector
+                href: charts/editor/widgets/controls.md
       - name: Visualization reference
         items:
           - name: All visualizations
             href: visualization-ref/index.md
           - name: Line chart
             href: visualization-ref/line-chart.md
-          - name: Stacked area chart
+          - name: Area chart
             href: visualization-ref/area-chart.md
           - name: Normalized stacked area chart
             href: visualization-ref/normalized-area-chart.md
@@ -693,8 +831,14 @@ items:
             href: operations/chart/add-guid.md
           - name: Adding parameters to a chart
             href: operations/chart/add-parameter-chart.md
+      - name: Adding chart info
+        href: operations/chart/add-description.md
+      - name: Opening a chart as a table
+        href: operations/chart/open-as-table.md
       - name: Versioning
         href: concepts/chart/versioning.md
+      - name: Exporting data from charts
+        href: concepts/chart/data-export.md
       - name: Chart inspector
         href: concepts/chart/inspector.md
       - name: Access management
@@ -717,11 +861,13 @@ items:
         href: dashboard/versioning.md
       - name: Parameters
         href: dashboard/dashboard_parameters.md
+      - name: Neuroanalyst on your dashboard
+        href: dashboard/insights.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
         items:
-          - name: Creating dashboards
+          - name: Creating a dashboard
             href: operations/dashboard/create.md
           - name: Adding a chart to a dashboard
             href: operations/dashboard/add-chart.md
@@ -729,14 +875,16 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Adding text to a dashboard
             href: operations/dashboard/add-text.md
-          - name: Adding a dashboard header
+          - name: Adding a title to a dashboard
             href: operations/dashboard/add-title.md
-          - name: Adding a description to a dashboard
+          - name: Adding dashboard info
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
             href: operations/dashboard/add-support-message.md
           - name: Adding an access error message
             href: operations/dashboard/add-access-message.md
+          - name: Configuring links on the dashboard
+            href: operations/dashboard/dashboard-links.md
           - name: Creating an alias
             href: operations/dashboard/create-alias.md
           - name: Deleting an alias
@@ -751,14 +899,28 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Changing dashboard settings
             href: operations/dashboard/dash-settings.md
+          - name: Disabling Neuroanalyst on your dashboard
+            href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Widget display order on a mobile device
             href: operations/dashboard/display-modes.md
+          - name: Adding a JS selector to a dashboard
+            href: charts/editor/add-js-selector.md
+  - name: Reports
+    items:
+      - name: Overview
+        href: reports/index.md
+      - name: Working with reports
+        href: reports/report-operations.md
+      - name: Selectors in reports
+        href: reports/add-selector.md
+      - name: Versioning
+        href: reports/versioning.md
+      - name: Neuroanalyst in reports
+        href: reports/insights.md
   - name: Access management
     items:
       - name: Overview
         href: security/index.md
-      - name: Adding users
-        href: security/add-new-user.md
       - name: '{{ datalens-short-name }} roles'
         href: security/roles.md
       - name: Organizations in {{ datalens-name }}
@@ -789,36 +951,134 @@ items:
             href: security/private-embedded-objects.md
   - name: Service settings
     items:
-      - name: UI customization
-        href: settings/ui-customization.md
-      - name: Disabling folder navigation
-        href: settings/disable-folder-navigation.md
-  - name: Marketplace
-    items:
       - name: Overview
-        href: concepts/marketplace.md
-      - name: Adding a product from Marketplace
-        href: operations/marketplace/add-marketplace-product.md
-      - name: Creating a partner connector
-        href: operations/marketplace/create-connector-for-partners.md
+        href: settings/index.md
+      - name: Seats
+        href: settings/seats.md
+      - name: Users
+        href: security/add-new-user.md
+      - name: Service plans and payment
+        href: settings/service-plan.md
+      - name: Appearance
+        href: settings/appearance.md
+      - name: Security
+        href: settings/restrictions.md
+      - name: Navigation
+        href: settings/navigation.md
+  - name: DataLens Gallery
+    href: concepts/gallery.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Configuring a service plan
-        href: settings/service-plan.md
+      - name: Pricing policy updates as of December 1
+        href: pricing-changes.md
       - name: Archive
         items:
-          - name: Before June 1, 2024
-            href: pricing-archive/pricing01062024.md
-          - name: Before April 23, 2024
-            href: pricing-archive/pricing23042024.md
+          - name: Pricing policy before December 1, 2025
+            href: pricing-old.md
+          - name: Service plans before December 1, 2025
+            href: concepts/service-plans-comparison.md
+  - name: '{{ datalens-name }} Public API'
+    items:
+      - name: How to use the Public API
+        href: operations/api-start.md
+      - name: '{{ datalens-name }} API'
+        items:
+          - name: Overview
+            href: openapi-ref/index.md
+          - name: getConnection
+            href: openapi-ref/getConnection.md
+          - name: createConnection
+            href: openapi-ref/createConnection.md
+          - name: updateConnection
+            href: openapi-ref/updateConnection.md
+          - name: deleteConnection
+            href: openapi-ref/deleteConnection.md
+          - name: getDashboard
+            href: openapi-ref/getDashboard.md
+          - name: createDashboard
+            href: openapi-ref/createDashboard.md
+          - name: updateDashboard
+            href: openapi-ref/updateDashboard.md
+          - name: deleteDashboard
+            href: openapi-ref/deleteDashboard.md
+          - name: getDataset
+            href: openapi-ref/getDataset.md
+          - name: createDataset
+            href: openapi-ref/createDataset.md
+          - name: updateDataset
+            href: openapi-ref/updateDataset.md
+          - name: deleteDataset
+            href: openapi-ref/deleteDataset.md
+          - name: validateDataset
+            href: openapi-ref/validateDataset.md
+          - name: getEntriesRelations
+            href: openapi-ref/getEntriesRelations.md
+          - name: getEntries
+            href: openapi-ref/getEntries.md
+          - name: getQLChart
+            href: openapi-ref/getQlChart.md
+          - name: deleteQLChart
+            href: openapi-ref/deleteQlChart.md
+          - name: getWizardChart
+            href: openapi-ref/getWizardChart.md
+          - name: deleteWizardChart
+            href: openapi-ref/deleteWizardChart.md
+          - name: getEditorChart
+            href: openapi-ref/getEditorChart.md
+          - name: deleteEditorChart
+            href: openapi-ref/deleteEditorChart.md
+          - name: createEditorChart
+            href: openapi-ref/createEditorChart.md
+          - name: updateEditorChart
+            href: openapi-ref/updateEditorChart.md
+          - name: getEntriesPermissions
+            href: openapi-ref/getEntriesPermissions.md
+          - name: getAuditEntriesUpdates
+            href: openapi-ref/getAuditEntriesUpdates.md
+          - name: listDirectory
+            href: openapi-ref/listDirectory.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     items:
-      - name: August 2024
+      - name: December 2025
         href: release-notes/index.md
+      - name: November 2025
+        href: release-notes/2511.md
+      - name: October 2025
+        href: release-notes/2510.md
+      - name: September 2025
+        href: release-notes/2509.md
+      - name: August 2025
+        href: release-notes/2508.md
+      - name: July 2025
+        href: release-notes/2507.md
       - name: Archive
         items:
+          - name: June 2025
+            href: release-notes/2506.md
+          - name: May 2025
+            href: release-notes/2505.md
+          - name: April 2025
+            href: release-notes/2504.md
+          - name: March 2025
+            href: release-notes/2503.md
+          - name: February 2025
+            href: release-notes/2502.md
+          - name: January 2025
+            href: release-notes/2501.md
+          - name: December 2024
+            href: release-notes/2412.md
+          - name: November 2024
+            href: release-notes/2411.md
+          - name: October 2024
+            href: release-notes/2410.md
+          - name: September 2024
+            href: release-notes/2409.md
+          - name: August 2024
+            href: release-notes/2408.md
           - name: July 2024
             href: release-notes/2407.md
           - name: June 2024
@@ -837,13 +1097,13 @@ items:
     items:
       - name: Optimization best practices
         href: concepts/optimization_recommendations.md
-      - name: '{{ datalens-name }} errors'
+      - name: Errors {{ datalens-name }}
         href: troubleshooting/errors/all.md
       - name: FAQ
         items:
           - name: All questions
             href: qa/index.md
-          - name: Access permissions
+          - name: Users and access management
             href: qa/permissions.md
           - name: Billing and payment
             href: qa/pricing.md
@@ -859,10 +1119,12 @@ items:
             href: qa/dashboards.md
           - name: Workbooks and collections
             href: qa/workbooks-collections.md
+          - name: Reports
+            href: qa/reports.md
+          - name: Private embedding
+            href: qa/embedded.md
           - name: Other
             href: qa/other.md
-      - name: Backup
-        href: concepts/backup.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
@@ -875,10 +1137,16 @@ items:
       - name: Backend app request timeout exceeded
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+      - name: Blocks have different column count
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md
       - name: Cannot join a concatenation of tables with another table
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
+      - name: Cannot parse
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -962,13 +1230,16 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
+      - name: Data preparation not finished
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
       - name: Received too many result data rows
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-ROW_COUNT_LIMIT.md
-      - name: Referenced connection <connection_ID> cannot be loaded. Access denied
+      - name: Referenced connection <connection_ID> cannot be loaded access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md
       - name: Request size limit exceeded
@@ -980,18 +1251,28 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Data preparation not finished
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
+      - name: Use of QL charts is prohibited at connection level
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
       - name: Subquery source is disallowed in the connection settings
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
-      - name: Table is not ready yet
+      - name: Table configuration is disrupted
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Empty document
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md
       - name: Too many series on the chart
         hidden: true
         href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
@@ -1021,6 +1302,9 @@ items:
       - name: Failed to create <object_type>
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md
+      - name: Invalid file format
+        hidden: true
+        href: troubleshooting/errors/ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md
       - name: Cannot update data
         hidden: true
         href: troubleshooting/errors/ERR-FILE-CANNOT_UPDATE_DATA.md
@@ -1033,6 +1317,21 @@ items:
       - name: Database-side error
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Access to the connection was denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED-CONNECTION.md
+      - name: Connection not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-OBJ_NOT_FOUND-CONNECTION.md
+      - name: 'Invalid input data: validation failed'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED.md
+      - name: Invalid connection ID
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED-CONNECTION.md
+      - name: Error handling the response
+        hidden: true
+        href: troubleshooting/errors/SDK_REQUEST_ERROR.md
       - name: Formula syntax error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
@@ -1042,5 +1341,3 @@ items:
       - name: Accessing a nonexistent object
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
-base: en/datalens
-deepBase: 2

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+    method: get
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop resource to return.
+            To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/get.md
 ---
 
-# Cloud Desktop API, REST: Desktop.Get {#Get}
+# Cloud Desktop API, REST: Desktop.Get
 
 Returns the specified desktop resource.
 
@@ -12,7 +31,7 @@ To get the list of available desktops, make a [List](/docs/cloud-desktop/api-ref
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters
@@ -23,7 +42,9 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 
 Required field. ID of the desktop resource to return.
 
-To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request. ||
+To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.Desktop}
@@ -51,9 +72,11 @@ To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/De
   ],
   "users": [
     {
-      "subjectId": "string"
+      "subjectId": "string",
+      "subjectType": "string"
     }
-  ]
+  ],
+  "labels": "object"
 }
 ```
 
@@ -84,10 +107,17 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
-- `ACTIVE`: Desktop is ready to use.
-- `DELETING`: Desktop is being deleted. ||
+- `ACTIVE`: Desktop is ready to be used.
+- `DELETING`: Desktop is being deleted.
+- `RESTARTING`: Desktop is restarting.
+- `UPDATING`: Desktop is updating.
+- `STARTING`: Desktop is starting.
+- `STOPPING`: Desktop is stopping.
+- `STOPPED`: Desktop is stopped.
+- `ERROR`: Desktop did not manage start or restart.
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||
@@ -96,15 +126,24 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64) ||
-|| cores | **string** (int64) ||
-|| coreFraction | **string** (int64) ||
+|| memory | **string** (int64)
+
+The minimum value is 1. ||
+|| cores | **string** (int64)
+
+The minimum value is 1. ||
+|| coreFraction | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -113,10 +152,14 @@ Resources of the desktop. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -125,5 +168,12 @@ Required field.  ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

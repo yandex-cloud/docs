@@ -19,8 +19,6 @@ The billing threshold amount and the total arrears when you are blocked may be d
 
 The billing threshold is only valid when you select a bank card as your payment method. If you do, when you reach your threshold, an attempt will be made to debit your card to cover what you owe.
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
-
 ## Billing threshold amount {#amount}
 
 The billing threshold amount is calculated individually and depends on a combination of factors, including:
@@ -36,7 +34,7 @@ The billing threshold is enabled automatically after the [paid version is activa
 
 {% note info %}
 
-The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md). To change the billing threshold, create a [new support request]({{ link-console-support }}).
+The billing threshold cannot be disabled and is valid until [the billing account is deleted](../operations/delete-account.md). To change the billing threshold, create a [new support ticket]({{ link-console-support }}).
 
 {% endnote %}
 
@@ -46,6 +44,24 @@ The billing threshold can only be used if you don't have a [grant](../concepts/b
 
 If you are using a bank account to pay for {{ yandex-cloud }} resources, a billing threshold will not apply.
 
+## Amount due {#sum}
+
+{% list tabs group=customers %}
+
+- Individuals {#individuals}
+
+  You can track the [balance of your personal account](../concepts/personal-account.md#balance) in [{{ billing-name }}]({{ link-console-billing }}) on the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page:
+  * Your balance automatically reduces as you consume resources.
+  * You can view your usage history on the [usage details](../operations/check-charges.md) page.
+  * When you [credit funds](../payment/payment-methods-individual.md), your balance increases. The top-up record is logged to the [payment history](../operations/check-bill-history.md).
+
+  For more information, see [Topping up your personal account](../operations/pay-the-bill.md#individuals).
+
+- Businesses and individual entrepreneurs {#businesses}
+
+  You can find the amount due in the [reporting documents](../payment/documents.md) that {{ yandex-cloud }} sends to customers each month.
+
+{% endlist %}
 
 ## Paying arrears {#arrears}
 
@@ -59,10 +75,10 @@ We recommend that you keep track of the money you spend from your personal accou
 
 For more information, see the following sections:
 * For individuals
-   * [Paying by bank card](../payment/payment-methods-individual.md)
-   * [Billing cycle](../payment/billing-cycle-individual.md)
+    * [Payment methods](../payment/payment-methods-individual.md)
+    * [Billing cycle](../payment/billing-cycle-individual.md)
 
 * Businesses and individual entrepreneurs:
-   * [Bank account transfers](../payment/payment-methods-business.md)
-   * [Paying by bank card](../payment/payment-methods-card-business.md)
-   * [Billing cycle](../payment/billing-cycle-business.md)
+    * [Bank account transfer](../payment/payment-methods-business.md)
+    * [Bank card payments](../payment/payment-methods-card-business.md)
+    * [Billing cycle](../payment/billing-cycle-business.md)

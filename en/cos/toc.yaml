@@ -12,32 +12,34 @@ items:
       - name: Creating a VM from a {{ coi }}
         href: tutorials/vm-create.md
       - name: >-
-          "Creating a VM from a {{ coi }} and an additional volume for a Docker
-          container"
+          Creating a VM from a {{ coi }} with an additional volume for a Docker
+          container
         href: tutorials/vm-create-with-second-disk.md
-      - name: '"Creating a VM from a {{ coi }} with multiple Docker containers"'
+      - name: Creating a VM from a {{ coi }} with multiple Docker containers
         href: tutorials/docker-compose.md
       - name: Creating an instance group from a {{ coi }}
         href: tutorials/ig-create.md
       - name: >-
-          "Creating an instance group from a {{ coi }} with multiple Docker
-          containers"
+          Creating an instance group from a {{ coi }} with multiple Docker
+          containers
         href: tutorials/ig-with-containers.md
-      - name: Updating a VM from a {{ coi }}
+      - name: Updating a {{ coi }} VM
         href: tutorials/vm-update.md
       - name: Configuring data output from a Docker container to a serial port
         href: tutorials/serial-port.md
-      - name: Creating a VM and an instance group from a {{ coi }} using {{ TF }}
+      - name: Running a containerized app in {{ serverless-containers-full-name }}
+        href: tutorials/deploy-app-container.md
+      - name: Creating a VM and an instance group with a {{ coi }} using {{ TF }}
         href: tutorials/coi-with-terraform.md
-      - name: Transferring logs from a {{ coi }} to {{ cloud-logging-name }}
+      - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
         href: tutorials/coi-fluent-bit-logging.md
   - name: Concepts
     items:
       - name: '{{ coi }}'
         href: concepts/index.md
-      - name: Specifics of working with a boot disk
-        href: concepts/boot-disk.md
-      - name: Specifics of working with the network
+      - name: Working with disks
+        href: concepts/disks.md
+      - name: Working with the network
         href: concepts/network.md
       - name: Docker image
         href: concepts/docker-image.md
@@ -55,5 +57,3 @@ items:
     href: qa/index.md
   - name: Troubleshooting
     href: error/index.md
-base: en/cos
-deepBase: 2

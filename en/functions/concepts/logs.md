@@ -10,6 +10,7 @@ Learn more about working with logs in the [{{ cloud-logging-full-name }} documen
 
 {% include [structured-logs](../../_includes/functions/structured-logs.md) %}
 
-## See also
+## See also {#see-also}
 
-* [Writing information to the execution log. Function examples.](../operations/function/logs-write.md)
+* [Writing data to the execution log. Function examples.](../operations/function/logs-write.md)
+* [Builder. Logging.](./builder.md)

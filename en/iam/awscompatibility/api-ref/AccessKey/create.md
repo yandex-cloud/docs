@@ -1,9 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to create an access key for.
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            If not specified, it defaults to the subject that made the request.
+            The maximum string length in characters is 50.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the access key.
+            The maximum string length in characters is 256.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/create.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.Create {#Create}
+# Access Key, REST: AccessKey.Create
 
 Creates an access key for the specified service account.
 
@@ -28,10 +52,14 @@ POST https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
 
 ID of the service account to create an access key for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the access key. ||
+Description of the access key.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.CreateAccessKeyResponse}

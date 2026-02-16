@@ -1,16 +1,61 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+    method: get
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop resource to return.
+            To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        user:
+          description: |-
+            **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+            User of the desktop.
+          $ref: '#/definitions/User'
+      additionalProperties: false
+    body: null
+    definitions:
+      User:
+        type: object
+        properties:
+          subjectId:
+            description: |-
+              **string**
+              Required field. Identity of the access binding.
+              The maximum string length in characters is 100.
+            type: string
+          subjectType:
+            description: |-
+              **string**
+              Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+              The maximum string length in characters is 100.
+            type: string
+        required:
+          - subjectId
+          - subjectType
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/getRdpFile.md
 ---
 
-# Cloud Desktop API, REST: Desktop.GetRdpFile {#GetRdpFile}
+# Cloud Desktop API, REST: Desktop.GetRdpFile
 
 Returns a RDP file for the specified desktop.
 
 ## HTTP request
 
 ```
-GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
 ```
 
 ## Path parameters
@@ -21,7 +66,9 @@ GET https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:g
 
 Required field. ID of the desktop resource to return.
 
-To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request. ||
+To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.GetRdpFileRequest}
@@ -39,7 +86,14 @@ User of the desktop. ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.clouddesktop.v1.api.RdpFileResponse}
@@ -48,14 +102,14 @@ Required field. Identity of the access binding. ||
 
 ```json
 {
-  "headers": "string",
+  "headers": "object",
   "content": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| headers | **string**
+|| headers | **object** (map<**string**, **string**>)
 
 HTTP headers mapping. ||
 || content | **string**

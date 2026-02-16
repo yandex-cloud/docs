@@ -2,8 +2,8 @@
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Select the trigger you want to get details about.
 
@@ -20,7 +20,6 @@
     ```
 
     Result:
-  
 
     ```text
     id: a1sfe084v4h2********
@@ -42,7 +41,6 @@
             service-account-id: aje3lebfemh2********
     status: ACTIVE
     ```
-
 
 - API {#api}
 

@@ -18,7 +18,7 @@ WHERE
 To create a binding to read data from {{ objstorage-short-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a binding.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.bindings.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-binding-add.create-binding.button-text }}**.
 1. Under **{{ ui-key.yql.yq-binding-form.connection-parameters.title }}**:
@@ -32,10 +32,12 @@ To create a binding to read data from {{ objstorage-short-name }}:
    1. In the **{{ ui-key.yql.yq-binding-form.binding-path-pattern.title }}** field, specify the [path to bucket data](object-storage.md#path_format). Parts of file names can be specified using `/*`, such as `yellow/*.csv`.
    1. In the **{{ ui-key.yql.yq-binding-info.compression.label-text }}** field, specify the [data compression](formats.md#compression) method.
    1. In the **{{ ui-key.yql.yq-binding-info.format.label-text }}** field, specify the [format of stored data](formats.md#formats).
-   1. List data columns and their types.
    1. Select a partitioning mode and list [partitioning columns](../concepts/partitioning.md) and their types.
 
       If you are using the **{{ ui-key.yql.yq-binding-form.projection-radio.enabled.label }}** mode, specify the [partition projection](../concepts/partition-projection.md) columns.
+   1. List data columns and their types.
+   
+      Alternatively, you can click **Detect columns** to do this automatically.
 
 1. To check the data, click **{{ ui-key.yql.yq-binding-form.binding-preview.button-text }}**.
 1. Click **{{ ui-key.yql.yq-binding-form.binding-create.button-text }}**.
@@ -68,4 +70,4 @@ FROM
     `binding_name`
 ```
 
-Where `binding_name` is the name of binding to {{ objstorage-short-name }} data.
+Where `binding_name` is the data binding name in {{ objstorage-short-name }}.

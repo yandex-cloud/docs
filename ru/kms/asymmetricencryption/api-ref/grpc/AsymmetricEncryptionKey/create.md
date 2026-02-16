@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/create.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Create {#Create}
+# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Create
 
 control plane
 Creates an asymmetric KMS key in the specified folder.
@@ -16,39 +16,46 @@ Creates an asymmetric KMS key in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
-  "encryptionAlgorithm": "AsymmetricEncryptionAlgorithm",
-  "deletionProtection": "bool"
+  "labels": "map<string, string>",
+  "encryption_algorithm": "AsymmetricEncryptionAlgorithm",
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder to create a asymmetric KMS key in. ||
+Required field. ID of the folder to create a asymmetric KMS key in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the key. ||
+Name of the key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-Description of the key. ||
-|| labels | **string**
+Description of the key.
+
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
-For example, `"project": "mvp"` or `"source": "dictionary"`. ||
-|| encryptionAlgorithm | enum **AsymmetricEncryptionAlgorithm**
+For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| encryption_algorithm | enum **AsymmetricEncryptionAlgorithm**
 
 Asymmetric encryption algorithm.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the symmetric KMS key ||
 |#
@@ -59,25 +66,25 @@ Flag that inhibits deletion of the symmetric KMS key ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "keyId": "string"
+    "key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
-    "encryptionAlgorithm": "AsymmetricEncryptionAlgorithm",
-    "deletionProtection": "bool"
+    "encryption_algorithm": "AsymmetricEncryptionAlgorithm",
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -93,13 +100,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -142,7 +149,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the key being created. ||
 |#
@@ -156,10 +163,10 @@ An asymmetric KMS key that may contain several versions of the cryptographic mat
 || id | **string**
 
 ID of the key. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key was created. ||
 || name | **string**
@@ -168,28 +175,26 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| encryptionAlgorithm | enum **AsymmetricEncryptionAlgorithm**
+|| encryption_algorithm | enum **AsymmetricEncryptionAlgorithm**
 
 Asymmetric Encryption Algorithm ID.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the key ||
 |#

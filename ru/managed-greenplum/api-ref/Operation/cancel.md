@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb-operation }}/operations/{operationId}:cancel
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the operation to cancel.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Operation/cancel.md
 ---
 
-# Managed Service for Greenplum® API, REST: Operation.Cancel {#Cancel}
+# Managed Service for Greenplum® API, REST: Operation.Cancel
 
 Cancels the specified operation.
 
@@ -12,7 +29,7 @@ Note that currently Object Storage API does not support cancelling operations.
 ## HTTP request
 
 ```
-GET https://operation.{{ api-host }}/operations/{operationId}:cancel
+GET https://{{ api-host-mdb-operation }}/operations/{operationId}:cancel
 ```
 
 ## Path parameters

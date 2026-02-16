@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -89,21 +89,20 @@ description: Следуя данной инструкции, вы сможете
         status: READY
       ```
 
-  1. Чтобы включить добавление заголовка `Access-Control-Allow-Origin`, используйте флаг `--cors`:
+  1. Чтобы включить добавление заголовка `Access-Control-Allow-Origin`, используйте параметр `--cors`:
 
       ```bash
       yc cdn resource update <идентификатор_ресурса> --cors <значение_CORS>
       ```
       Значения `*` и `"$http_origin"` разрешают доступ к контенту при любом значении заголовка `Origin`. Чтобы разрешить доступ только определенным источникам, укажите `"$http_origin"` и доменные имена источников: `["domain.com", "second.dom.com"]`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
-
 
       ```hcl
       terraform {
@@ -135,8 +134,6 @@ description: Следуя данной инструкции, вы сможете
 
       }
       ```
-
-
 
       Где:
 

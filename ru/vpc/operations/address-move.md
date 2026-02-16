@@ -84,7 +84,7 @@
       ip_version: IPV4
      ```
 
-     Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/move.md).
+     Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/move.md).
 
 - API {#api}
 
@@ -133,3 +133,6 @@
 
 {% endlist %}
 
+#### См. также {#see-also}
+
+* [{#T}](../../compute/operations/vm-control/vm-transferring-public-ip.md)

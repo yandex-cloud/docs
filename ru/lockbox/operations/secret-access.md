@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите на имя нужного секрета.
   1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
@@ -39,7 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
         Где:
         * `--id` — идентификатор секрета.
-        * `--user-account-id` — [идентификатор пользователя](../../iam/operations/users/get.md).
+        * `--user-account-id` — [идентификатор пользователя](../../organization/operations/users-get.md).
         * `--role` — назначаемая [роль](../security/index.md#roles-list).
 
       * [Сервисному аккаунту](../../iam/concepts/users/service-accounts.md):
@@ -60,10 +60,10 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры прав доступа к секрету:
+  1. Опишите права доступа к секрету в конфигурационном файле {{ TF }}:
 
       ```hcl
-      resource "yandex_lockbox_secret_iam_binding" "secret-viewer" {
+      resource "yandex_lockbox_secret_iam_member" "secret-viewer" {
         secret_id = "<идентификатор_секрета>"
         role      = "<роль>"
 
@@ -78,9 +78,9 @@ description: Следуя данной инструкции, вы сможете
 
       * `secret_id` — идентификатор секрета.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — идентификаторы [пользователей](../../iam/operations/users/get), групп или [сервисных аккаунтов](../../iam/operations/sa/get-id.md), которым будет присвоена роль.
+      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
-      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_binding` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
+      Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 
   1. Создайте ресурсы
 

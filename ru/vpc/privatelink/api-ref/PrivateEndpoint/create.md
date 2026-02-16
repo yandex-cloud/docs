@@ -1,9 +1,124 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/endpoints
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a private endpoint in.
+            To get a folder ID make a
+            [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the private endpoint.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the private endpoint.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Private endpoint labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network to create a private endpoint in.
+          type: string
+        addressSpec:
+          description: |-
+            **[AddressSpec](#yandex.cloud.vpc.v1.privatelink.AddressSpec)**
+            Private endpoint address specification.
+          $ref: '#/definitions/AddressSpec'
+        dnsOptions:
+          description: |-
+            **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)**
+            Private endpoint dns options.
+          $ref: '#/definitions/DnsOptions'
+        objectStorage:
+          description: |-
+            **object**
+            Yandex Cloud Object Storage.
+            Includes only one of the fields `objectStorage`.
+            Service to connect with via private endpoint.
+          $ref: '#/definitions/ObjectStorage'
+      required:
+        - folderId
+        - networkId
+      additionalProperties: false
+    definitions:
+      InternalIpv4AddressSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet that address belongs to.
+            type: string
+          address:
+            description: |-
+              **string**
+              Value of address.
+            type: string
+        required:
+          - subnetId
+      AddressSpec:
+        type: object
+        properties:
+          addressId:
+            description: |-
+              **string**
+              ID of IP address to associate with private endpoint.
+              Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+            type: string
+          internalIpv4AddressSpec:
+            description: |-
+              **[InternalIpv4AddressSpec](#yandex.cloud.vpc.v1.privatelink.InternalIpv4AddressSpec)**
+              Internal ipv4 address specification.
+              Includes only one of the fields `addressId`, `internalIpv4AddressSpec`.
+            $ref: '#/definitions/InternalIpv4AddressSpec'
+        oneOf:
+          - required:
+              - addressId
+          - required:
+              - internalIpv4AddressSpec
+      DnsOptions:
+        type: object
+        properties:
+          privateDnsRecordsEnabled:
+            description: |-
+              **boolean**
+              If enabled - vpc will create private dns records for specified service.
+            type: boolean
+      ObjectStorage:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/create.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.Create {#Create}
+# Virtual Private Cloud API, REST: PrivateEndpoint.Create
 
 Creates an private endpoint in the specified folder and network.
 
@@ -20,7 +135,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/endpoints
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "addressSpec": {
     // Includes only one of the fields `addressId`, `internalIpv4AddressSpec`
@@ -55,7 +170,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the private endpoint. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs. ||
 || networkId | **string**
@@ -142,7 +257,7 @@ If enabled - vpc will create private dns records for specified service. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "status": "string",
     "address": {
@@ -285,7 +400,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

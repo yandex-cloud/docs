@@ -1,3 +1,9 @@
+---
+title: Маршрутизация сообщений в {{ monitoring-full-name }}
+description: К маршрутизации сообщений можно отнести маршруты, каналы и цепочки преобразования.
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/routing.md
+---
+
 # Маршрутизация
 
 К маршрутизации сообщений можно отнести маршруты, каналы и цепочки преобразования.

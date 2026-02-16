@@ -1,0 +1,1 @@
+`--configuration-id`: [Server configuration](../../../baremetal/concepts/server-configurations.md) ID.

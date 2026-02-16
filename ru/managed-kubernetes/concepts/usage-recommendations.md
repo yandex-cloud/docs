@@ -7,44 +7,79 @@ description: Используйте эти рекомендации, если в
 
 
 Используйте эти рекомендации для ваших `PRODUCTION`-приложений, которым требуется:
-* Высокая доступность и отказоустойчивость.
+* Высокая доступность и [отказоустойчивость](../../architecture/fault-tolerance.md).
 * Масштабирование нагрузки.
 * Изоляция ресурсов.
 
-## Высокая доступность и отказоустойчивость {#high-availability}
-
-* Используйте [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`. Для всех версий {{ k8s }} доступны [NodeLocal DNS](../tutorials/node-local-dns.md) и [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/).
-
 {% note tip %}
 
-Используйте релизный канал `RAPID` для тестовых окружений, чтобы быстрее тестировать обновления {{ k8s }} и {{ managed-k8s-name }}.
+Протестируйте предлагаемые стратегии на тестовом окружении перед внедрением в `PRODUCTION`.
 
 {% endnote %}
 
-* Обновляйте [кластер](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group) вручную. Для этого отключите автоматические обновления [мастера](../operations/kubernetes-cluster/kubernetes-cluster-update.md) и [групп узлов](../operations/node-group/node-group-update.md).
-* Выбирайте [региональный](../concepts/index.md#master) тип мастера при [создании кластера](../operations/kubernetes-cluster/kubernetes-cluster-create.md). [Сервисы](service.md) {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с региональным мастером.
+## Высокая доступность и отказоустойчивость {#high-availability}
+
+* Используйте [релизный канал](../concepts/release-channels-and-updates.md) `REGULAR` или `STABLE`.
+
+  {% note tip %}
+
+  Используйте релизный канал `RAPID` для тестовых окружений, чтобы быстрее тестировать обновления {{ k8s }} и {{ managed-k8s-name }}.
+
+  {% endnote %}
+
+* Контролируйте обновление [кластера](./index.md#kubernetes-cluster) и [группы узлов](./index.md#node-group). Либо отключите автоматическое обновление и выполняйте его вручную, либо задайте время обновления так, чтобы ваши приложения были доступны в часы их активного использования.
+* Настраивайте [политики `podDisruptionBudget`](node-group/node-drain.md), чтобы сократить время простоя [сервисов](service.md) во время обновления.
+* Выбирайте [высокодоступный](../concepts/index.md#master) тип мастера, размещенный в трех зонах. Сервисы {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с высокодоступным мастером, размещенным в трех зонах.
+* Выделяйте мастеру и узлам достаточно вычислительных ресурсов (CPU, RAM).
+* Минимизируйте или исключите переподписку ресурсов (особенно RAM) на узлах.
+* Настраивайте корректные [проверки состояния](../../network-load-balancer/concepts/health-check.md) (Health Checks) для балансировщиков нагрузки.
+* Чтобы повысить надежность кластера, [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
+
+  {% note tip %}
+
+  {{ managed-k8s-name }} использует в качестве групп узлов кластера [группы виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-full-name }}. Посмотрите [описание групп ВМ при зональном инциденте и рекомендации по предотвращению его последствий](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+
+  {% endnote %}
+
 * Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
 
   Для всех стратегий используйте комбинации меток:
   * `topology.kubernetes.io/zone`, чтобы сервисы сохраняли доступность в случае отказа зоны доступности.
   * `kubernetes.io/hostname`, чтобы сервисы сохраняли доступность в случае отказа узла кластера.
 
-  {% note tip %}
+  {% note warning %}
 
-  Протестируйте стратегии на тестовом окружении перед внедрением в `PRODUCTION`.
+  На автомасштабирование ресурсов при отказе зоны доступности требуется время. Обязательно используйте указанные метки, чтобы распределить поды по разным узлам и зонам доступности и обеспечить работоспособность ваших приложений.
 
   {% endnote %}
 
 ## Масштабирование нагрузки {#scaling}
 
 Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
-* Для повышения надежности кластера [создавайте группы узлов](../operations/node-group/node-group-create.md) с [автоматическим масштабированием](autoscale.md) в нескольких зонах доступности.
 * Для снижения нагрузки на {{ k8s }} DNS используйте [NodeLocal DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
-* Чтобы снизить горизонтальный трафик внутри кластера, используйте [Сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
+* Чтобы снизить горизонтальный трафик внутри кластера, используйте [сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:
   * Изучите [лимиты дисков](../../compute/concepts/limits.md) для {{ compute-full-name }}.
   * Проведите нагрузочное тестирование дисковой подсистемы в тестовом окружении.
 * Для снижения задержки при высоких показателях IOPS используйте [нереплицируемые диски](../../compute/concepts/disk.md#disks_types).
+
+### Сетевой балансировщик нагрузки {#nlb}
+
+Сетевой балансировщик нагрузки (Network Load Balancer) распределяет поступающий на него трафик между целевыми ресурсами (ВМ). Обработчик с публичным IP-адресом позволяет балансировщику обрабатывать трафик из интернета, а обработчик с приватным IP-адресом — внутренний трафик. Балансировщик проверяет доступность целевых ресурсов с помощью проверок состояния (Health Checks).
+
+В {{ yandex-cloud }} реализован [механизм](../../architecture/fault-tolerance.md#nlb-zone-shift) `NLB Zone Shift`, который позволяет отметить балансировщик специальным флагом. Если в зоне доступности произошел частичный сбой, который не фиксируется проверками состояния, служба поддержки {{ yandex-cloud }} отключит проблемную зону от этого балансировщика.
+
+Чтобы оценить работоспособность вашего приложения при отказе одной из зон доступности, воспользуйтесь [сценарием](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb).
+
+[Подробнее о работе сетевого балансировщика нагрузки](../../architecture/fault-tolerance.md#nlb).
+
+### Балансировщик нагрузки уровня приложения {#alb}
+
+Балансировщик нагрузки уровня приложения (Application Load Balancer) основан на сетевом балансировщике, но позволяет направлять трафик на произвольные приватные IP-адреса, например на IP-адреса ресурсов вне облачной сети. Для маршрутизации трафика используются промежуточные ВМ, выступающие в качестве обратных прокси.
+
+Балансировщик нагрузки уровня приложения поддерживает ручное отключение зоны доступности, в которой произошел частичный сбой.
+
+[Подробнее о работе балансировщика нагрузки уровня приложения](../../architecture/fault-tolerance.md#alb).
 
 ## Изоляция ресурсов {#isolation}
 
@@ -72,3 +107,54 @@ containers:
 Чтобы автоматически управлять ресурсами подов, настройте политики {{ k8s }}:
 * [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
 * [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](../concepts/index.md#namespace).
+* [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) для ограничения общего потребления ресурсов в пространстве имен.
+
+### Resource Quota {#resource-quota}
+
+Используйте политику `ResourceQuota` для ограничения ресурсов, которые могут быть использованы в рамках одного пространства имен:
+
+```yaml
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: namespace-quota
+  namespace: my-namespace
+spec:
+  hard:
+    # Вычислительные ресурсы
+    requests.cpu: "10"
+    requests.memory: 20Gi
+    limits.cpu: "20"
+    limits.memory: 40Gi
+    # Количество объектов
+    pods: "50"
+    services: "10"
+    secrets: "20"
+    configmaps: "20"
+    persistentvolumeclaims: "10"
+    # Ресурсы хранилища
+    requests.storage: 100Gi
+```
+
+С помощью `ResourceQuota` можно ограничить:
+
+| Тип ресурса | Параметры | Описание |
+| --- | --- | --- |
+| Вычислительные | `requests.cpu`, `requests.memory`, `limits.cpu`, `limits.memory` | Суммарные запросы и лимиты vCPU и RAM для всех подов в пространстве имен |
+| Хранилище | `requests.storage`, `persistentvolumeclaims` | Общий объем запрашиваемого хранилища и количество PVC |
+| Количество объектов | `pods`, `services`, `secrets`, `configmaps`, `replicationcontrollers`, `deployments.apps`, `statefulsets.apps`, `jobs.batch`, `cronjobs.batch` | Максимальное количество объектов каждого типа |
+| Расширенные ресурсы | `requests.nvidia.com/gpu`, `limits.nvidia.com/gpu` | Ресурсы GPU и другие `extended resources` |
+
+{% note tip %}
+
+Комбинируйте `ResourceQuota` с `LimitRange`: `ResourceQuota` ограничивает суммарное потребление ресурсов в пространстве имен, а `LimitRange` задает значения по умолчанию и границы для отдельных контейнеров.
+
+{% endnote %}
+
+## Мониторинг и эскалация {#monitoring-escalation}
+
+[Мониторинг](../../monitoring/concepts/index.md) и [система предупреждений](../../monitoring/concepts/alerting/alert.md) — важный инструмент обеспечения отказоустойчивости.
+
+* [Настройте мониторинг метрик](../operations/kubernetes-cluster/kubernetes-cluster-get-stats.md) и [создайте алерты](../../monitoring/operations/alert/create-alert.md), чтобы следить за состоянием мастера, узлов, подов и постоянных томов.
+* Настройте для алертов политики [эскалации](../../monitoring/concepts/alerting/escalations.md).

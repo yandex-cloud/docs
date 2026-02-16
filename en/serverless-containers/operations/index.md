@@ -1,20 +1,21 @@
 ---
-title: How to use {{ serverless-containers-full-name }}
-description: In this tutorial, you will learn how to use the {{ serverless-containers-full-name }} managed service in {{ yandex-cloud }}.
+title: How to work with {{ serverless-containers-full-name }}
+description: In this article, you will learn how to work with the managed service for {{ serverless-containers-full-name }} in {{ yandex-cloud }}.
 ---
 
 # All {{ serverless-containers-name }} guides
 
 * [Getting an IAM token for a service account using a container](./sa.md)
 
-## Getting information about a container {#get-container}
+## Getting container information {#get-container}
 
 * [{#T}](./list.md)
 * [{#T}](./revision-list.md)
 * [{#T}](./container-info.md)
 * [{#T}](./revision-info.md)
+* [Configuring metadata service parameters](metadata-options.md)
 
-## Managing container access rights {#manage-access-rights-container}
+## Managing permissions to access a container {#manage-access-rights-container}
 
 * [{#T}](./container-public.md)
 * [{#T}](./container-private.md)
@@ -30,13 +31,16 @@ description: In this tutorial, you will learn how to use the {{ serverless-conta
 ## Invoking a container {#invoke-container}
 
 * [{#T}](./invoke.md)
+* [{#T}](./invoke-async.md)
 * [{#T}](./invocation-link.md)
+* [{#T}](./auth.md)
 
 ## Managing a container {#manage-container}
 
 * [Updating a name](./name-update.md)
 * [Updating a description](./description-update.md)
 * [Making a revision active](./activate-revision.md)
+* [Changing the operation mode](./update-runtime.md)
 * [Viewing scaling settings](./scaling-settings-list.md)
 * [Adding scaling settings](./scaling-settings-add.md)
 * [Deleting scaling settings](./scaling-settings-delete.md)
@@ -44,19 +48,20 @@ description: In this tutorial, you will learn how to use the {{ serverless-conta
 * [{#T}](./network-add.md)
 * [{#T}](./lockbox-secret-transmit.md)
 * [Mounting a bucket](./mount-bucket.md)
+* [Mounting an ephemeral disk](./mount-ephemeral-disk.md)
 * [Adding a label](./label-add.md)
 * [Updating a label](./label-update.md)
-* [Removing a label](./label-delete.md)
+* [Deleting a label](./label-delete.md)
 * [Viewing monitoring charts](./monitoring.md)
 * [Viewing logs](./logs.md)
 * [Writing to the execution log](./logs-write.md)
 * [{#T}](./migration.md)
 * [{#T}](./delete.md)
 
-## Getting information about a trigger {#get-trigger}
+## Getting trigger information {#get-trigger}
 
 * [Getting a list of triggers](./trigger-list.md)
-* [Getting information about a trigger](./trigger-info.md)
+* [Getting trigger information](./trigger-info.md)
 
 ## Creating a trigger {#create-trigger}
 
@@ -76,3 +81,8 @@ description: In this tutorial, you will learn how to use the {{ serverless-conta
 * [Updating a trigger](./trigger-update.md)
 * [Viewing monitoring charts](./trigger-monitoring.md)
 * [Deleting a trigger](./trigger-delete.md)
+
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

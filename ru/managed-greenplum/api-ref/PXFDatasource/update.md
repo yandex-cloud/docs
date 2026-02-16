@@ -1,9 +1,514 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        datasource:
+          description: '**[PXFDatasource](#yandex.cloud.mdb.greenplum.v1.PXFDatasource)**'
+          $ref: '#/definitions/PXFDatasource'
+      additionalProperties: false
+    definitions:
+      PXFDatasourceS3:
+        type: object
+        properties:
+          accessKey:
+            description: |-
+              **string**
+              Public key to access S3 storage.
+              The maximum string length in characters is 200.
+            type: string
+          secretKey:
+            description: |-
+              **string**
+              Secret key to access S3 storage.
+              The maximum string length in characters is 200.
+            type: string
+          fastUpload:
+            description: |-
+              **boolean**
+              Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
+              The fast upload is enabled by default.
+            type: boolean
+          endpoint:
+            description: |-
+              **string**
+              S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage.
+              The maximum string length in characters is 200. Value must match the regular expression ` (((s3|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? `.
+            pattern: (((s3|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})?
+            type: string
+      PXFDatasourceJDBC:
+        type: object
+        properties:
+          driver:
+            description: |-
+              **string**
+              JDBC driver class in Java. The possible values are the following:
+              * `com.simba.athena.jdbc.Driver`
+              * `com.clickhouse.jdbc.ClickHouseDriver`
+              * `com.ibm.as400.access.AS400JDBCDriver`
+              * `com.microsoft.sqlserver.jdbc.SQLServerDriver`
+              * `com.mysql.cj.jdbc.Driver`
+              * `org.postgresql.Driver`
+              * `oracle.jdbc.driver.OracleDriver`
+              * `net.snowflake.client.jdbc.SnowflakeDriver`
+              * `io.trino.jdbc.TrinoDriver`
+              The maximum string length in characters is 50.
+            type: string
+          url:
+            description: |-
+              **string**
+              URL that the JDBC driver uses to connect to the database. Examples:
+              * `jdbc:mysql://mysqlhost:3306/testdb`: Local MySQL DB.
+              * `jdbc:postgresql://c-<cluster_id>.rw.mdb.yandexcloud.net:6432/db1`: Managed Service for PostgreSQL cluster. The address contains the special FQDN of the cluster's master.
+              * `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB.
+              The maximum string length in characters is 1000.
+            type: string
+          user:
+            description: |-
+              **string**
+              Username of the DB owner.
+              The maximum string length in characters is 200.
+            type: string
+          password:
+            description: |-
+              **string**
+              Password of the DB owner.
+              The maximum string length in characters is 200.
+            type: string
+          statementBatchSize:
+            description: |-
+              **string** (int64)
+              Number of rows to read in an external table, in a batch.
+              The default value is `100`.
+              Acceptable values are 50 to 1000, inclusive.
+            type: string
+            format: int64
+          statementFetchSize:
+            description: |-
+              **string** (int64)
+              Number of rows to fetch (buffer) when reading from an external table.
+              The default value is `1000`.
+              Acceptable values are 50 to 10000, inclusive.
+            type: string
+            format: int64
+          statementQueryTimeout:
+            description: |-
+              **string** (int64)
+              Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
+              The default value is `60`.
+              Acceptable values are 5 to 43200, inclusive.
+            type: string
+            format: int64
+          poolEnabled:
+            description: |-
+              **boolean**
+              Determines whether JDBC connection pooling is used in a server configuration. By default, it is used.
+            type: boolean
+          poolMaximumSize:
+            description: |-
+              **string** (int64)
+              Maximum number of connections to the DB backend.
+              The default value is `5`.
+              Acceptable values are 1 to 200, inclusive.
+            type: string
+            format: int64
+          poolConnectionTimeout:
+            description: |-
+              **string** (int64)
+              Maximum time, in milliseconds, to wait for a connection from the pool.
+              The default value is `30000`.
+              Acceptable values are 5000 to 600000, inclusive.
+            type: string
+            format: int64
+          poolIdleTimeout:
+            description: |-
+              **string** (int64)
+              Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
+              The default value is `30000`.
+              Acceptable values are 5000 to 600000, inclusive.
+            type: string
+            format: int64
+          poolMinimumIdle:
+            description: |-
+              **string** (int64)
+              Minimum number of idle connections maintained in the connection pool.
+              The default value is `0`.
+              Acceptable values are 0 to 200, inclusive.
+            type: string
+            format: int64
+      PXFDatasourceCore:
+        type: object
+        properties:
+          defaultFs:
+            description: |-
+              **string**
+              URI whose scheme and authority determine the file system implementation.
+              The maximum string length in characters is 200.
+            type: string
+          securityAuthToLocal:
+            description: |-
+              **string**
+              Rules for mapping Kerberos principals to operating system user accounts.
+              The maximum string length in characters is 1000.
+            type: string
+      PXFDatasourceKerberos:
+        type: object
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Determines whether the Kerberos authentication server is used. By default, it is not used.
+            type: boolean
+          primary:
+            description: |-
+              **string**
+              Host of the primary KDC server (Key Distribution Center).
+              The maximum string length in characters is 128.
+            type: string
+          realm:
+            description: |-
+              **string**
+              Kerberos realm for a Greenplum® DB.
+              The maximum string length in characters is 1000.
+            type: string
+          kdcServers:
+            description: |-
+              **string**
+              KDC server hosts.
+              The maximum number of elements is 200. The string length in characters for each value must be 1-200.
+            type: array
+            items:
+              type: string
+          adminServer:
+            description: |-
+              **string**
+              Administration server host. Usually, this is the primary Kerberos server.
+              The maximum string length in characters is 128.
+            type: string
+          defaultDomain:
+            description: |-
+              **string**
+              Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain).
+              The maximum string length in characters is 128.
+            type: string
+          keytabBase64:
+            description: |-
+              **string**
+              Base64 encoded contents of the keytab file.
+              Value must match the regular expression ` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ `. The maximum string length in characters is 65536.
+            pattern: ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$
+            type: string
+      PXFDatasourceHDFSDfsNamenode:
+        type: object
+        properties:
+          rpcAddress:
+            description: |-
+              **string**
+              The maximum string length in characters is 1000.
+            type: string
+          serviceRpcAddress:
+            description: |-
+              **string**
+              The maximum string length in characters is 1000.
+            type: string
+          httpAddress:
+            description: |-
+              **string**
+              The maximum string length in characters is 1000.
+            type: string
+          httpsAddress:
+            description: |-
+              **string**
+              The maximum string length in characters is 1000.
+            type: string
+      PXFDatasourceHDFSDfs:
+        type: object
+        properties:
+          haAutomaticFailoverEnabled:
+            description: |-
+              **boolean**
+              Determines whether automatic failover is enabled for the high availability of the file system.
+              The automatic failover is enabled by default.
+            type: boolean
+          blockAccessTokenEnabled:
+            description: |-
+              **boolean**
+              If `true`, access tokens are used as capabilities for accessing datanodes. If `false`, no access tokens are checked on accessing datanodes.
+              The check of access tokens is enabled by default.
+            type: boolean
+          useDatanodeHostname:
+            description: |-
+              **boolean**
+              Determines whether the datanode hostname is used when connecting to datanodes.
+            type: boolean
+          namenodes:
+            description: |-
+              **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
+              List of HDFS service logical names.
+              Specify them separated by commas. The names can be arbitrary.
+              No more than 10000 per resource.
+            type: object
+            additionalProperties:
+              $ref: '#/definitions/PXFDatasourceHDFSDfsNamenode'
+            maxProperties: 10000
+          nameservices:
+            description: |-
+              **string**
+              Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource
+            type: string
+      PXFDatasourceHDFSYarnHaRm:
+        type: object
+        properties:
+          resourcemanagerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerSchedulerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerResourceTrackerAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerAdminAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerWebappAddress:
+            description: '**string**'
+            type: string
+          resourcemanagerWebappHttpsAddress:
+            description: '**string**'
+            type: string
+      PXFDatasourceHDFSYarn:
+        type: object
+        properties:
+          resourcemanagerHaEnabled:
+            description: |-
+              **boolean**
+              Determines whether high availability is enabled for YARN's ResourceManager services.
+              The high availability is enabled by default.
+            type: boolean
+          resourcemanagerHaAutoFailoverEnabled:
+            description: |-
+              **boolean**
+              Determines whether another ResourceManager should automatically become active when the active ResourceManager has failed and does not respond.
+              The switch of ResourceManagers is enabled by default if the high availability is enabled.
+            type: boolean
+          resourcemanagerHaAutoFailoverEmbedded:
+            description: |-
+              **boolean**
+              Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over.
+            type: boolean
+          resourcemanagerClusterId:
+            description: |-
+              **string**
+              Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster.
+              The maximum string length in characters is 1000.
+            type: string
+          haRm:
+            description: |-
+              **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
+              Highly available ResourceManager service.
+              No more than 10000 per resource.
+            type: object
+            additionalProperties:
+              $ref: '#/definitions/PXFDatasourceHDFSYarnHaRm'
+            maxProperties: 10000
+      PXFDatasourceHDFS:
+        type: object
+        properties:
+          core:
+            description: |-
+              **[PXFDatasourceCore](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
+              Settings of the file system and security rules.
+            $ref: '#/definitions/PXFDatasourceCore'
+          kerberos:
+            description: |-
+              **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
+              Settings of the Kerberos network authentication protocol.
+            $ref: '#/definitions/PXFDatasourceKerberos'
+          userImpersonation:
+            description: |-
+              **boolean**
+              Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
+              The authentication is disabled by default.
+            type: boolean
+          username:
+            description: |-
+              **string**
+              Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+              The maximum string length in characters is 128.
+            type: string
+          saslConnectionRetries:
+            description: |-
+              **string** (int64)
+              Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
+              The default value is `5`.
+              Acceptable values are 1 to 50, inclusive.
+            type: string
+            format: int64
+          zkHosts:
+            description: |-
+              **string**
+              ZooKeeper server hosts.
+              Specify values in the `<address>:<port>` format.
+              The maximum number of elements is 200. The string length in characters for each value must be 1-200.
+            type: array
+            items:
+              type: string
+          dfs:
+            description: |-
+              **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)**
+              Settings of the distributed file system.
+            $ref: '#/definitions/PXFDatasourceHDFSDfs'
+          yarn:
+            description: |-
+              **[PXFDatasourceHDFSYarn](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn)**
+              Settings of the ResourceManager service that is responsible for tracking resources in a cluster and scheduling applications (e.g., MapReduce jobs).
+            $ref: '#/definitions/PXFDatasourceHDFSYarn'
+      PXFDatasourceHive:
+        type: object
+        properties:
+          core:
+            description: |-
+              **[PXFDatasourceCore](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceCore)**
+              Settings of the file system and security rules.
+            $ref: '#/definitions/PXFDatasourceCore'
+          kerberos:
+            description: |-
+              **[PXFDatasourceKerberos](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos)**
+              Settings of the Kerberos network authentication protocol.
+            $ref: '#/definitions/PXFDatasourceKerberos'
+          userImpersonation:
+            description: |-
+              **boolean**
+              Enables authentication on behalf of the Greenplum® user when connecting to the remote file storage or DBMS.
+              The authentication is disabled by default.
+            type: boolean
+          username:
+            description: |-
+              **string**
+              Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+              The maximum string length in characters is 128.
+            type: string
+          saslConnectionRetries:
+            description: |-
+              **string** (int64)
+              Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
+              The default value is `5`.
+              Acceptable values are 1 to 50, inclusive.
+            type: string
+            format: int64
+          zkHosts:
+            description: |-
+              **string**
+              ZooKeeper server hosts.
+              Specify values in the `<address>:<port>` format.
+              The maximum number of elements is 200. The string length in characters for each value must be 1-200.
+            type: array
+            items:
+              type: string
+          ppd:
+            description: |-
+              **boolean**
+              Specifies if predicate pushdown is enabled for queries on external tables.
+              The predicate pushdown is enabled by default.
+            type: boolean
+          metastoreUris:
+            description: |-
+              **string**
+              List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs.
+              The maximum number of elements is 200. The string length in characters for each value must be 1-200.
+            type: array
+            items:
+              type: string
+          metastoreKerberosPrincipal:
+            description: |-
+              **string**
+              Service principal for the Metastore Thrift server.
+              The maximum string length in characters is 1000.
+            type: string
+          authKerberosPrincipal:
+            description: |-
+              **string**
+              Kerberos server principal.
+              The maximum string length in characters is 1000.
+            type: string
+      PXFDatasource:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Data source name.
+              The string length in characters must be 3-200. Value must match the regular expression ` ^[^\|/*?.,;'<>]+$ `.
+            pattern: ^[^\|/*?.,;'<>]+$
+            type: string
+          s3:
+            description: |-
+              **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
+              Settings of an external S3 data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceS3'
+          jdbc:
+            description: |-
+              **[PXFDatasourceJDBC](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC)**
+              Settings of an external JDBC data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceJDBC'
+          hdfs:
+            description: |-
+              **[PXFDatasourceHDFS](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS)**
+              Settings of an external HDFS data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceHDFS'
+          hive:
+            description: |-
+              **[PXFDatasourceHive](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHive)**
+              Settings of an external Hive data source.
+              Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`.
+            $ref: '#/definitions/PXFDatasourceHive'
+        required:
+          - name
+        oneOf:
+          - required:
+              - s3
+          - required:
+              - jdbc
+          - required:
+              - hdfs
+          - required:
+              - hive
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/PXFDatasource/update.md
 ---
 
-# Managed Service for Greenplum® API, REST: PXFDatasource.Update {#Update}
+# Managed Service for Greenplum® API, REST: PXFDatasource.Update
 
 Update PXF datasource
 
@@ -19,7 +524,9 @@ PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_d
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.greenplum.v1.UpdatePXFDatasourceRequest}
@@ -76,12 +583,7 @@ Required field.  ||
         "haAutomaticFailoverEnabled": "boolean",
         "blockAccessTokenEnabled": "boolean",
         "useDatanodeHostname": "boolean",
-        "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
-        },
+        "namenodes": "object",
         "nameservices": "string"
       },
       "yarn": {
@@ -89,14 +591,7 @@ Required field.  ||
         "resourcemanagerHaAutoFailoverEnabled": "boolean",
         "resourcemanagerHaAutoFailoverEmbedded": "boolean",
         "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
-        }
+        "haRm": "object"
       }
     },
     "hive": {
@@ -154,7 +649,9 @@ The rest of the fields will be reset to the default. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Data source name. ||
+Required field. Data source name.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || s3 | **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS3)**
 
 Settings of an external S3 data source.
@@ -183,10 +680,14 @@ Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
 ||Field | Description ||
 || accessKey | **string**
 
-Public key to access S3 storage. ||
+Public key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || secretKey | **string**
 
-Secret key to access S3 storage. ||
+Secret key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || fastUpload | **boolean**
 
 Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
@@ -194,7 +695,9 @@ Manages a fast upload of big files to S3 storage. In case of the `false` value, 
 The fast upload is enabled by default. ||
 || endpoint | **string**
 
-S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage. ||
+S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage.
+
+The maximum string length in characters is 200. Value must match the regular expression ``` (((s3|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? ```. ||
 |#
 
 ## PXFDatasourceJDBC {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC}
@@ -213,35 +716,49 @@ JDBC driver class in Java. The possible values are the following:
 * `org.postgresql.Driver`
 * `oracle.jdbc.driver.OracleDriver`
 * `net.snowflake.client.jdbc.SnowflakeDriver`
-* `io.trino.jdbc.TrinoDriver` ||
+* `io.trino.jdbc.TrinoDriver`
+
+The maximum string length in characters is 50. ||
 || url | **string**
 
 URL that the JDBC driver uses to connect to the database. Examples:
 
 * `jdbc:mysql://mysqlhost:3306/testdb`: Local MySQL DB.
 * `jdbc:postgresql://c-<cluster_id>.rw.mdb.yandexcloud.net:6432/db1`: Managed Service for PostgreSQL cluster. The address contains the special FQDN of the cluster's master.
-* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB. ||
+* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB.
+
+The maximum string length in characters is 1000. ||
 || user | **string**
 
-Username of the DB owner. ||
+Username of the DB owner.
+
+The maximum string length in characters is 200. ||
 || password | **string**
 
-Password of the DB owner. ||
+Password of the DB owner.
+
+The maximum string length in characters is 200. ||
 || statementBatchSize | **string** (int64)
 
 Number of rows to read in an external table, in a batch.
 
-The default value is `100`. ||
+The default value is `100`.
+
+Acceptable values are 50 to 1000, inclusive. ||
 || statementFetchSize | **string** (int64)
 
 Number of rows to fetch (buffer) when reading from an external table.
 
-The default value is `1000`. ||
+The default value is `1000`.
+
+Acceptable values are 50 to 10000, inclusive. ||
 || statementQueryTimeout | **string** (int64)
 
 Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
 
-The default value is `60`. ||
+The default value is `60`.
+
+Acceptable values are 5 to 43200, inclusive. ||
 || poolEnabled | **boolean**
 
 Determines whether JDBC connection pooling is used in a server configuration. By default, it is used. ||
@@ -249,22 +766,30 @@ Determines whether JDBC connection pooling is used in a server configuration. By
 
 Maximum number of connections to the DB backend.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 200, inclusive. ||
 || poolConnectionTimeout | **string** (int64)
 
 Maximum time, in milliseconds, to wait for a connection from the pool.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || poolIdleTimeout | **string** (int64)
 
 Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || poolMinimumIdle | **string** (int64)
 
 Minimum number of idle connections maintained in the connection pool.
 
-The default value is `0`. ||
+The default value is `0`.
+
+Acceptable values are 0 to 200, inclusive. ||
 |#
 
 ## PXFDatasourceHDFS {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS}
@@ -284,17 +809,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || saslConnectionRetries | **string** (int64)
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || dfs | **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs)**
 
 Settings of the distributed file system. ||
@@ -309,10 +840,14 @@ Settings of the ResourceManager service that is responsible for tracking resourc
 ||Field | Description ||
 || defaultFs | **string**
 
-URI whose scheme and authority determine the file system implementation. ||
+URI whose scheme and authority determine the file system implementation.
+
+The maximum string length in characters is 200. ||
 || securityAuthToLocal | **string**
 
-Rules for mapping Kerberos principals to operating system user accounts. ||
+Rules for mapping Kerberos principals to operating system user accounts.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceKerberos {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos}
@@ -324,22 +859,34 @@ Rules for mapping Kerberos principals to operating system user accounts. ||
 Determines whether the Kerberos authentication server is used. By default, it is not used. ||
 || primary | **string**
 
-Host of the primary KDC server (Key Distribution Center). ||
+Host of the primary KDC server (Key Distribution Center).
+
+The maximum string length in characters is 128. ||
 || realm | **string**
 
-Kerberos realm for a Greenplum® DB. ||
+Kerberos realm for a Greenplum® DB.
+
+The maximum string length in characters is 1000. ||
 || kdcServers[] | **string**
 
-KDC server hosts. ||
+KDC server hosts.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || adminServer | **string**
 
-Administration server host. Usually, this is the primary Kerberos server. ||
+Administration server host. Usually, this is the primary Kerberos server.
+
+The maximum string length in characters is 128. ||
 || defaultDomain | **string**
 
-Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain). ||
+Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain).
+
+The maximum string length in characters is 128. ||
 || keytabBase64 | **string**
 
-Base64 encoded contents of the keytab file. ||
+Base64 encoded contents of the keytab file.
+
+Value must match the regular expression ``` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ ```. The maximum string length in characters is 65536. ||
 |#
 
 ## PXFDatasourceHDFSDfs {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs}
@@ -359,11 +906,13 @@ The check of access tokens is enabled by default. ||
 || useDatanodeHostname | **boolean**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode)**>)
 
 List of HDFS service logical names.
 
-Specify them separated by commas. The names can be arbitrary. ||
+Specify them separated by commas. The names can be arbitrary.
+
+No more than 10000 per resource. ||
 || nameservices | **string**
 
 Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource ||
@@ -373,10 +922,18 @@ Corresponds well-known HDFS client setting "dfs.nameservices" for this datasourc
 
 #|
 ||Field | Description ||
-|| rpcAddress | **string** ||
-|| serviceRpcAddress | **string** ||
-|| httpAddress | **string** ||
-|| httpsAddress | **string** ||
+|| rpcAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| serviceRpcAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| httpAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| httpsAddress | **string**
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceHDFSYarn {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn}
@@ -398,10 +955,14 @@ The switch of ResourceManagers is enabled by default if the high availability is
 Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over. ||
 || resourcemanagerClusterId | **string**
 
-Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**
+Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster.
 
-Highly available ResourceManager service. ||
+The maximum string length in characters is 1000. ||
+|| haRm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm)**>)
+
+Highly available ResourceManager service.
+
+No more than 10000 per resource. ||
 |#
 
 ## PXFDatasourceHDFSYarnHaRm {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm}
@@ -433,17 +994,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || saslConnectionRetries | **string** (int64)
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || ppd | **boolean**
 
 Specifies if predicate pushdown is enabled for queries on external tables.
@@ -451,13 +1018,19 @@ Specifies if predicate pushdown is enabled for queries on external tables.
 The predicate pushdown is enabled by default. ||
 || metastoreUris[] | **string**
 
-List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs. ||
+List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || metastoreKerberosPrincipal | **string**
 
-Service principal for the Metastore Thrift server. ||
+Service principal for the Metastore Thrift server.
+
+The maximum string length in characters is 1000. ||
 || authKerberosPrincipal | **string**
 
-Kerberos server principal. ||
+Kerberos server principal.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -533,12 +1106,7 @@ Kerberos server principal. ||
         "haAutomaticFailoverEnabled": "boolean",
         "blockAccessTokenEnabled": "boolean",
         "useDatanodeHostname": "boolean",
-        "namenodes": {
-          "rpcAddress": "string",
-          "serviceRpcAddress": "string",
-          "httpAddress": "string",
-          "httpsAddress": "string"
-        },
+        "namenodes": "object",
         "nameservices": "string"
       },
       "yarn": {
@@ -546,14 +1114,7 @@ Kerberos server principal. ||
         "resourcemanagerHaAutoFailoverEnabled": "boolean",
         "resourcemanagerHaAutoFailoverEmbedded": "boolean",
         "resourcemanagerClusterId": "string",
-        "haRm": {
-          "resourcemanagerAddress": "string",
-          "resourcemanagerSchedulerAddress": "string",
-          "resourcemanagerResourceTrackerAddress": "string",
-          "resourcemanagerAdminAddress": "string",
-          "resourcemanagerWebappAddress": "string",
-          "resourcemanagerWebappHttpsAddress": "string"
-        }
+        "haRm": "object"
       }
     },
     "hive": {
@@ -666,10 +1227,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || datasourceName | **string**
 
-Required field.  ||
+Required field.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -695,7 +1260,9 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Data source name. ||
+Required field. Data source name.
+
+The string length in characters must be 3-200. Value must match the regular expression ``` ^[^\|/*?.,;'<>]+$ ```. ||
 || s3 | **[PXFDatasourceS3](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceS32)**
 
 Settings of an external S3 data source.
@@ -724,10 +1291,14 @@ Includes only one of the fields `s3`, `jdbc`, `hdfs`, `hive`. ||
 ||Field | Description ||
 || accessKey | **string**
 
-Public key to access S3 storage. ||
+Public key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || secretKey | **string**
 
-Secret key to access S3 storage. ||
+Secret key to access S3 storage.
+
+The maximum string length in characters is 200. ||
 || fastUpload | **boolean**
 
 Manages a fast upload of big files to S3 storage. In case of the `false` value, the PXF generates files on disk before sending them to the S3 storage. In case of the `true` value, the PXF generates files in RAM (the PXF writes to disc only if there is not enough RAM).
@@ -735,7 +1306,9 @@ Manages a fast upload of big files to S3 storage. In case of the `false` value, 
 The fast upload is enabled by default. ||
 || endpoint | **string**
 
-S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage. ||
+S3 storage address. The default value is `storage.yandexcloud.net` used for Yandex Object Storage.
+
+The maximum string length in characters is 200. Value must match the regular expression ``` (((s3|https?)://)?([a-z0-9]([a-z0-9-]*[a-z0-9])?[.])+[a-z]{2,})? ```. ||
 |#
 
 ## PXFDatasourceJDBC {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceJDBC2}
@@ -754,35 +1327,49 @@ JDBC driver class in Java. The possible values are the following:
 * `org.postgresql.Driver`
 * `oracle.jdbc.driver.OracleDriver`
 * `net.snowflake.client.jdbc.SnowflakeDriver`
-* `io.trino.jdbc.TrinoDriver` ||
+* `io.trino.jdbc.TrinoDriver`
+
+The maximum string length in characters is 50. ||
 || url | **string**
 
 URL that the JDBC driver uses to connect to the database. Examples:
 
 * `jdbc:mysql://mysqlhost:3306/testdb`: Local MySQL DB.
 * `jdbc:postgresql://c-<cluster_id>.rw.mdb.yandexcloud.net:6432/db1`: Managed Service for PostgreSQL cluster. The address contains the special FQDN of the cluster's master.
-* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB. ||
+* `jdbc:oracle:thin:@host.example:1521:orcl`: Oracle DB.
+
+The maximum string length in characters is 1000. ||
 || user | **string**
 
-Username of the DB owner. ||
+Username of the DB owner.
+
+The maximum string length in characters is 200. ||
 || password | **string**
 
-Password of the DB owner. ||
+Password of the DB owner.
+
+The maximum string length in characters is 200. ||
 || statementBatchSize | **string** (int64)
 
 Number of rows to read in an external table, in a batch.
 
-The default value is `100`. ||
+The default value is `100`.
+
+Acceptable values are 50 to 1000, inclusive. ||
 || statementFetchSize | **string** (int64)
 
 Number of rows to fetch (buffer) when reading from an external table.
 
-The default value is `1000`. ||
+The default value is `1000`.
+
+Acceptable values are 50 to 10000, inclusive. ||
 || statementQueryTimeout | **string** (int64)
 
 Amount of time (in seconds) the JDBC driver waits for a statement to run. This timeout applies to statements created for both read and write operations.
 
-The default value is `60`. ||
+The default value is `60`.
+
+Acceptable values are 5 to 43200, inclusive. ||
 || poolEnabled | **boolean**
 
 Determines whether JDBC connection pooling is used in a server configuration. By default, it is used. ||
@@ -790,22 +1377,30 @@ Determines whether JDBC connection pooling is used in a server configuration. By
 
 Maximum number of connections to the DB backend.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 200, inclusive. ||
 || poolConnectionTimeout | **string** (int64)
 
 Maximum time, in milliseconds, to wait for a connection from the pool.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || poolIdleTimeout | **string** (int64)
 
 Maximum amount of time, in milliseconds, after which an inactive connection is considered idle.
 
-The default value is `30000`. ||
+The default value is `30000`.
+
+Acceptable values are 5000 to 600000, inclusive. ||
 || poolMinimumIdle | **string** (int64)
 
 Minimum number of idle connections maintained in the connection pool.
 
-The default value is `0`. ||
+The default value is `0`.
+
+Acceptable values are 0 to 200, inclusive. ||
 |#
 
 ## PXFDatasourceHDFS {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFS2}
@@ -825,17 +1420,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || saslConnectionRetries | **string** (int64)
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || dfs | **[PXFDatasourceHDFSDfs](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs2)**
 
 Settings of the distributed file system. ||
@@ -850,10 +1451,14 @@ Settings of the ResourceManager service that is responsible for tracking resourc
 ||Field | Description ||
 || defaultFs | **string**
 
-URI whose scheme and authority determine the file system implementation. ||
+URI whose scheme and authority determine the file system implementation.
+
+The maximum string length in characters is 200. ||
 || securityAuthToLocal | **string**
 
-Rules for mapping Kerberos principals to operating system user accounts. ||
+Rules for mapping Kerberos principals to operating system user accounts.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceKerberos {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceKerberos2}
@@ -865,22 +1470,34 @@ Rules for mapping Kerberos principals to operating system user accounts. ||
 Determines whether the Kerberos authentication server is used. By default, it is not used. ||
 || primary | **string**
 
-Host of the primary KDC server (Key Distribution Center). ||
+Host of the primary KDC server (Key Distribution Center).
+
+The maximum string length in characters is 128. ||
 || realm | **string**
 
-Kerberos realm for a Greenplum® DB. ||
+Kerberos realm for a Greenplum® DB.
+
+The maximum string length in characters is 1000. ||
 || kdcServers[] | **string**
 
-KDC server hosts. ||
+KDC server hosts.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || adminServer | **string**
 
-Administration server host. Usually, this is the primary Kerberos server. ||
+Administration server host. Usually, this is the primary Kerberos server.
+
+The maximum string length in characters is 128. ||
 || defaultDomain | **string**
 
-Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain). ||
+Domain that is used for the host name extension. Applicable when Kerberos 4 service members become Kerberos 5 service members (for example, when rcmd.hostname is replaced with host/hostname.domain).
+
+The maximum string length in characters is 128. ||
 || keytabBase64 | **string**
 
-Base64 encoded contents of the keytab file. ||
+Base64 encoded contents of the keytab file.
+
+Value must match the regular expression ``` ^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$ ```. The maximum string length in characters is 65536. ||
 |#
 
 ## PXFDatasourceHDFSDfs {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfs2}
@@ -900,11 +1517,13 @@ The check of access tokens is enabled by default. ||
 || useDatanodeHostname | **boolean**
 
 Determines whether the datanode hostname is used when connecting to datanodes. ||
-|| namenodes | **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**
+|| namenodes | **object** (map<**string**, **[PXFDatasourceHDFSDfsNamenode](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSDfsNamenode2)**>)
 
 List of HDFS service logical names.
 
-Specify them separated by commas. The names can be arbitrary. ||
+Specify them separated by commas. The names can be arbitrary.
+
+No more than 10000 per resource. ||
 || nameservices | **string**
 
 Corresponds well-known HDFS client setting "dfs.nameservices" for this datasource ||
@@ -914,10 +1533,18 @@ Corresponds well-known HDFS client setting "dfs.nameservices" for this datasourc
 
 #|
 ||Field | Description ||
-|| rpcAddress | **string** ||
-|| serviceRpcAddress | **string** ||
-|| httpAddress | **string** ||
-|| httpsAddress | **string** ||
+|| rpcAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| serviceRpcAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| httpAddress | **string**
+
+The maximum string length in characters is 1000. ||
+|| httpsAddress | **string**
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## PXFDatasourceHDFSYarn {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarn2}
@@ -939,10 +1566,14 @@ The switch of ResourceManagers is enabled by default if the high availability is
 Determines whether the embedded ActiveStandbyElector method should be used for the election of the active ResourceManager. If the current active ResourceManager has failed and does not respond, the ActiveStandbyElector method makes another ResourceManager active which then takes over. ||
 || resourcemanagerClusterId | **string**
 
-Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster. ||
-|| haRm | **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**
+Cluster ID. Specify it, so the ResourceManager service does not become active for a different cluster.
 
-Highly available ResourceManager service. ||
+The maximum string length in characters is 1000. ||
+|| haRm | **object** (map<**string**, **[PXFDatasourceHDFSYarnHaRm](#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2)**>)
+
+Highly available ResourceManager service.
+
+No more than 10000 per resource. ||
 |#
 
 ## PXFDatasourceHDFSYarnHaRm {#yandex.cloud.mdb.greenplum.v1.PXFDatasourceHDFSYarnHaRm2}
@@ -974,17 +1605,23 @@ Enables authentication on behalf of the Greenplum® user when connecting to the 
 The authentication is disabled by default. ||
 || username | **string**
 
-Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled. ||
+Login username for the remote file storage or DBMS if authentication on behalf of the Greenplum® user is enabled.
+
+The maximum string length in characters is 128. ||
 || saslConnectionRetries | **string** (int64)
 
 Maximum number of times that PXF retries a SASL connection request after a refused connection returns a `GSS initiate failed` error.
 
-The default value is `5`. ||
+The default value is `5`.
+
+Acceptable values are 1 to 50, inclusive. ||
 || zkHosts[] | **string**
 
 ZooKeeper server hosts.
 
-Specify values in the `<address>:<port>` format. ||
+Specify values in the `<address>:<port>` format.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || ppd | **boolean**
 
 Specifies if predicate pushdown is enabled for queries on external tables.
@@ -992,11 +1629,17 @@ Specifies if predicate pushdown is enabled for queries on external tables.
 The predicate pushdown is enabled by default. ||
 || metastoreUris[] | **string**
 
-List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs. ||
+List of URIs separated by commas. To request metadata, the remote DBMS connects to Metastore by one of these URIs.
+
+The maximum number of elements is 200. The string length in characters for each value must be 1-200. ||
 || metastoreKerberosPrincipal | **string**
 
-Service principal for the Metastore Thrift server. ||
+Service principal for the Metastore Thrift server.
+
+The maximum string length in characters is 1000. ||
 || authKerberosPrincipal | **string**
 
-Kerberos server principal. ||
+Kerberos server principal.
+
+The maximum string length in characters is 1000. ||
 |#

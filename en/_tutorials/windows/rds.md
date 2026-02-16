@@ -5,47 +5,45 @@
 
 
 
-This scenario describes how to deploy Microsoft Windows Server Datacenter with pre-installed Remote Desktop Services in {{ yandex-cloud }}. The Microsoft Windows Server with Remote Desktop Services instance consists of a single server with Remote Desktop Services and Active Directory installed. Images are available with preset quotas for 5, 10, 25, 50, and 100 users. Select the version with the necessary quota. All examples are given for a server with a quota for five users.
+In this tutorial, we will deploy a {{ yandex-cloud }} Microsoft Windows Server Datacenter consisting of a single server with pre-installed Active Directory and Remote Desktop Services. You can select one of the images with preset quotas for 5, 10, 25, 50, and 100 users. In our example, we will select a 5-user quota.
 
 {% note warning %}
 
-To increase the quota, re-create the VM.
+To increase the quota, you will need to re-create the VM.
 
 {% endnote %}
 
 To deploy the Remote Desktop Services infrastructure:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a cloud network and subnets](#create-network).
-1. [Create a script to manage a local administrator account](#admin-script).
-1. [Create a VM for Remote Desktop Services](#add-vm).
-1. [Install and configure Active Directory domain controllers](#install-ad).
-1. [Set up the firewall rules](#firewall).
-1. [Set up the license server in the domain](#license-server).
+1. [Create an administrator account management script](#admin-script).
+1. [Create a Remote Desktop Services VM](#add-vm).
+1. [Install and configure Active Directory](#install-ad).
+1. [Set up firewall rules](#firewall).
+1. [Set up a domain license server](#license-server).
 1. [Set up the Remote Desktop Session Host role](#rdsh).
 1. [Create users](#create-users).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
-The cost of installing Microsoft Windows Server with Remote Desktop Services includes:
+The cost of Microsoft Windows Server with Remote Desktop Services infrastructure includes:
 
 * Fee for continuously running virtual machines (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
-* Cost of outgoing traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-
+* Fee for dynamic or static public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for outbound traffic from {{ yandex-cloud }} to the internet (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
 ## Create a cloud network and subnets {#create-network}
 
-Create a cloud network named `my-network` with subnets in all the availability zones where your VMs will be located.
+Create a cloud network named `my-network` with subnets in all availability zones that will host your VMs.
 
 1. Create a cloud network:
 
@@ -53,260 +51,264 @@ Create a cloud network named `my-network` with subnets in all the availability z
 
    - Management console {#console}
 
-      To create a [cloud network](../../vpc/concepts/network.md):
-      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
-      1. Click **Create network**.
-      1. Enter a network name: `my-network`.
-      1. Click **Create network**.
+     To create a [cloud network](../../vpc/concepts/network.md):
+     1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
+     1. Click **Create network**.
+     1. Specify the network name: `my-network`.
+     1. Click **Create network**.
 
    - CLI {#cli}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+     {% include [cli-install](../../_includes/cli-install.md) %}
+  
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %} 
 
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+     To create a cloud network, run this command:
 
-      To create a cloud network, run the command:
-
-      ```
-      yc vpc network create --name my-network
-      ```
+     ```
+     yc vpc network create --name my-network
+     ```
 
    - API {#api}
 
-      Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
+     Use the [create](../../vpc/api-ref/Network/create.md) REST API method for the [Network](../../vpc/api-ref/Network/index.md) resource or the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call.
 
    {% endlist %}
 
-2. Create a subnet in the network `my-network`:
+2. Create a subnet in `my-network`:
 
    {% list tabs group=instructions %}
 
-   - Management console {#console}
+     - Management console {#console}
 
-      To create a subnet:
-      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-      1. Click the name of the cloud network.
-      1. Click **Add subnet**.
-      1. Fill out the form: enter `my-subnet-a` as the subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR, which is its IP address and mask: `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
-      1. Click **Create subnet**.
+       To create a subnet:
+       1. Open the **{{ vpc-name }}** section in the folder where you want to create a subnet.
+       1. Click the cloud network name.
+       1. Click **Add subnet**.
+       1. Fill out the form: enter `my-subnet-d` as the subnet name and select the `{{ region-id }}-d` availability zone from the drop-down list.
+       1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+       1. Click **Create subnet**.
 
-   - CLI {#cli}
+     - CLI {#cli}
 
-      To create a subnet, run the following command:
+       To create a subnet, run this command:
 
-      ```
-      yc vpc subnet create \
-        --name my-subnet-a \
-        --zone {{ region-id }}-a \
-        --network-name my-network \
-        --range 10.1.0.0/16
-      ```
+       ```
+       yc vpc subnet create \
+         --name my-subnet-d \
+         --zone {{ region-id }}-d \
+         --network-name my-network \
+         --range 10.1.0.0/16
+       ```
+     
+     - API {#api}
 
-   - API {#api}
-
-      Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
+       Use the [create](../../vpc/api-ref/Subnet/create.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call.
 
    {% endlist %}
 
 
-## Create a script to manage a local administrator account {#admin-script}
+## Create an administrator account management script {#admin-script}
 
-Create a file named `setpass` with a script that will set a password for the local administrator account when creating VMs via the CLI:
+If you are going to create your VM via the CLI, create the `setpass` file with a script that will set the administrator password:
 
 {% list tabs group=programming_language %}
 
 - PowerShell {#powershell}
 
-   ```
-   #ps1
-   Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your password>" -AsPlainText -Force)
-   ```
+    ```
+    #ps1
+    Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<your_password>" -AsPlainText -Force)
+    ```
 {% endlist %}
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочные-материалы).
 
-Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+You can read more about the best practices regarding Active Directory safety on the [MS official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
-## Create a VM for Windows Server with Remote Desktop Services {#add-vm}
+## Create a Windows Server Remote Desktop Services VM {#add-vm}
 
-Create a virtual machine for Windows Server with Remote Desktop Services. This VM will have internet access.
+Create an internet-facing VM with pre-installed Windows Server and Remote Desktop Services.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. On the folder page in the [management console]({{ link-console-main }}), click **Create resource** and select **Virtual machine**.
-   1. In the **Name** field, enter a name for the VM: `my-rds-vm`.
-   1. Select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-   1. Under **{{ marketplace-name }}**, click **Show more**. In the window that opens, select the [RDS](/marketplace?tab=software&search=windows+rds) image.
-   1. Under **Disks**, enter 50 GB for the size of the boot disk.
-   1. Under **Computing resources**:
-      - Select the [platform](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-      - Specify the required number of vCPUs and the amount of RAM:
-         * **vCPU**: 4
-         * **Guaranteed vCPU share**: 100%
-         * **RAM**: 8 GB
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, type `RDS` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select the appropriate [RDS](/marketplace?tab=software&search=windows+rds) image: 
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, enter `50 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot [disk](../../compute/concepts/disk.md) size.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
-   1. Under **Network settings**, click **Add network** and select `my-network`. Select the `my-subnet-a` subnet. Under **Public address**, select **Automatically**.
-   1. Click **Create VM**.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `100%`
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, specify:
 
-   {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
+      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**: Network named `my-network` and subnet named `my-subnet-d`.
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `my-rds-vm`.
+  1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+  {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
 - CLI {#cli}
 
-   ```
-    yc compute instance create \
-      --name my-rds-vm \
-      --hostname my-rds-vm \
-      --memory 8 \
-      --cores 4 \
-      --zone {{ region-id }}-a \
-      --network-interface subnet-name=my-subnet-a,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
-      --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
-      --metadata-from-file user-data=setpass
-   ```
+  ```
+   yc compute instance create \
+     --name my-rds-vm \
+     --hostname my-rds-vm \
+     --memory 8 \
+     --cores 4 \
+     --zone {{ region-id }}-d \
+     --network-interface subnet-name=my-subnet-d,ipv4-address=10.1.0.3,nat-ip-version=ipv4 \
+     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk-rds-5 \
+     --metadata-from-file user-data=setpass
+  ```
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - API {#api}
 
-   Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
+  Use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
 {% endlist %}
 
-## Install and configure Active Directory domain controllers {#install-ad}
+## Install and configure Active Directory {#install-ad}
 
 1. Restart `my-rds-vm`:
 
    {% list tabs group=instructions %}
-
+   
    - Management console {#console}
-
-     1. On the folder page in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
-     1. Select `my-rds-vm`.
+   
+     1. On the folder dashboard in the [management console]({{ link-console-main }}), select **{{ compute-name }}**.
+     1. Select the `my-rds-vm` VM.
      1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **Restart**.
-
+   
    - CLI {#cli}
-
+   
      ```
      yc compute instance restart my-rds-vm
      ```
-
+   
    - API {#api}
-
+   
      Use the [restart](../../compute/api-ref/Instance/restart.md) REST API method for the [Instance](../../compute/api-ref/Instance/) resource or the [InstanceService/Restart](../../compute/api-ref/grpc/Instance/restart.md) gRPC API call.
-
+   
    {% endlist %}
 
-1. Connect to `my-rds-vm` using [RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+1. Connect to `my-rds-vm` through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as the username and your password.
 1. Assign Active Directory roles:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
-
-      ```powershell
-      Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-      Restart-Computer -Force
-      ```
-
-   {% endlist %}
+        ```powershell
+        Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+        Restart-Computer -Force
+        ```
+      
+    {% endlist %}
 
 1. Create an Active Directory forest:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
+        ```powershell
+        Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
+        ```
+      
+    {% endlist %}
 
-      ```powershell
-      Install-ADDSForest -DomainName 'yantoso.net' -Force:$true
-      ```
+   Windows will restart automatically. Reconnect to `my-rds-vm`. Use `yantoso\Administrator` as the username and your password. Relaunch PowerShell.
 
-   {% endlist %}
+## Set up firewall rules {#firewall}
 
-   Windows restarts automatically. Reconnect to `my-rds-vm`. Enter `yantoso\Administrator` as the username and then your password. Relaunch PowerShell.
+1. Add firewall rules protecting Active Directory from external network requests:
+    
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-## Set up the firewall rules {#firewall}
+        ```powershell
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - LDAP (UDP-In)' `
+          -RemoteAddress:Intranet
+        
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - LDAP (TCP-In)' `
+          -RemoteAddress:Intranet
+        
+        Set-NetFirewallRule `
+          -DisplayName 'Active Directory Domain Controller - Secure LDAP (TCP-In)' `
+          -RemoteAddress:Intranet
+        ```
+      
+    {% endlist %}
 
-1. Add firewall rules that protect Active Directory from external network requests:
+## Set up a domain license server {#license-server}
 
-   {% list tabs group=programming_language %}
+1. Add the `Network Service` user to the `Terminal Server License Servers` Active Directory group:
+    
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
-
-      ```powershell
-      Set-NetFirewallRule `
-        -DisplayName 'Active Directory Domain Controller - LDAP (UDP-In)' `
-        -RemoteAddress:Intranet
-
-      Set-NetFirewallRule `
-        -DisplayName 'Active Directory Domain Controller - LDAP (TCP-In)' `
-        -RemoteAddress:Intranet
-
-      Set-NetFirewallRule `
-        -DisplayName 'Active Directory Domain Controller - Secure LDAP (TCP-In)' `
-        -RemoteAddress:Intranet
-      ```
-
-   {% endlist %}
-
-## Set up the license server in the domain {#license-server}
-
-1. Add the Network Service system user to the Terminal Server License Servers group in the Active Directory security group:
-
-   {% list tabs group=programming_language %}
-
-   - PowerShell {#powershell}
-
-      ```powershell
-      net localgroup "Terminal Server License Servers" /Add 'Network Service'
-      ```
-
-   {% endlist %}
-
+        ```powershell
+        net localgroup "Terminal Server License Servers" /Add 'Network Service'
+        ```
+      
+    {% endlist %}
+   
 1. Set the licensing type.
+    
+    {% note info %}
+    
+    You can only use `User CAL` licenses.
+    
+    {% endnote %}
 
-   {% note info %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   You can only use `User CAL` licenses.
-
-   {% endnote %}
-
-   {% list tabs group=programming_language %}
-
-   - PowerShell {#powershell}
-
-      ```powershell
-      New-ItemProperty `
-      -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-      -Name 'LicensingMode' `
-      -Value 4 `
-      -PropertyType 'DWord'
-      ```
-
-   {% endlist %}
-
+        ```powershell
+        New-ItemProperty `
+        -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+        -Name 'LicensingMode' `
+        -Value 4 `
+        -PropertyType 'DWord'
+        ```
+      
+    {% endlist %}
+    
 1. Specify the RDS licensing service:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
+        ```powershell
+        New-ItemProperty `
+        -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
+        -Name 'LicenseServers' `
+        -Value 'localhost' `
+        -PropertyType 'String'
+        ```
+      
+    {% endlist %}
 
-      ```powershell
-      New-ItemProperty `
-      -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
-      -Name 'LicenseServers' `
-      -Value 'localhost' `
-      -PropertyType 'String'
-      ```
+1. Optionally, limit the number of concurrent server sessions:
 
-   {% endlist %}
-
-1. (Optional) Limit the number of permitted concurrent server sessions:
-
-   {% list tabs group=programming_language %}
-
-   - PowerShell {#powershell}
-
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
+        
       ```powershell
       New-ItemProperty `
       -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' `
@@ -314,38 +316,38 @@ Create a virtual machine for Windows Server with Remote Desktop Services. This V
       -Value 5 `
       -PropertyType 'DWord'
       ```
-
-   {% endlist %}
+   
+    {% endlist %}
 
 ## Set up the Remote Desktop Session Host role {#rdsh}
 
-Install the Remote Desktop Session Host role on the server:
+Install the `Remote Desktop Session Host` role on the server:
 
 {% list tabs group=programming_language %}
 
 - PowerShell {#powershell}
 
-   ```powershell
-   Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
-   Restart-Computer -Force
-   ```
+    ```powershell
+    Install-WindowsFeature RDS-RD-Server -IncludeManagementTools
+    Restart-Computer -Force
+    ```
 
 {% endlist %}
 
 
-## Add the server to the AD security group and register it as SCP {#ad-sg-scp}
+## Add your license server to the Active Directory security group and register it as SCP {#ad-sg-scp}
 
-Add the server to the Terminal Server License Servers group in the Active Directory security group and register it as the license service connection point (SCP) for users:
+Add your license server to the `Terminal Server License Servers group` Active Directory group and register it as the license service connection point (SCP):
 
 {% list tabs group=operating_system %}
 
 - Windows Server {#windows}
 
   1. Click **Start**.
-  1. Type `Remote Desktop Licensing Manager` in the search box.
-  1. Right-click the server in the list and select **Review Configuration...**.
-  1. Next to the first warning, on the `Terminal Server License Servers` group, click **Add to Group** and then click **Continue**.
-  1. Next to the second warning, the one on the service connection point, click **Register as SCP**.
+  1. In the search field, type `Remote Desktop Licensing Manager` and press `Enter` to open the manager.
+  1. Right-click your license server in the list and select **Review Configuration...**.
+  1. You will see the warning that your license server is not a member of the `Terminal Server License Servers` group and is not registered as a service connection point (SCP). Click **Add to Group** and then click **Continue**.
+  1. Click **Register as SCP**.
   1. Click **OK**.
   1. Restart the VM.
 
@@ -356,75 +358,75 @@ Add the server to the Terminal Server License Servers group in the Active Direct
 
 1. Create test users:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
+    
+        ```powershell
+        New-ADUser `
+          -Name ru1 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru2 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru3 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru4 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        New-ADUser `
+          -Name ru5 `
+          -PasswordNeverExpires $true `
+          -Enabled $true `
+          -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
+        ```
+      
+    {% endlist %}
 
-   - PowerShell {#powershell}
+1. Grant `Remote Desktop Users` permissions to the new users:
 
-      ```powershell
-      New-ADUser `
-        -Name ru1 `
-        -PasswordNeverExpires $true `
-        -Enabled $true `
-        -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-      New-ADUser `
-        -Name ru2 `
-        -PasswordNeverExpires $true `
-        -Enabled $true `
-        -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-      New-ADUser `
-        -Name ru3 `
-        -PasswordNeverExpires $true `
-        -Enabled $true `
-        -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-      New-ADUser `
-        -Name ru4 `
-        -PasswordNeverExpires $true `
-        -Enabled $true `
-        -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-      New-ADUser `
-        -Name ru5 `
-        -PasswordNeverExpires $true `
-        -Enabled $true `
-        -AccountPassword ("P@ssw0rd!1" | ConvertTo-SecureString -AsPlainText -Force )
-      ```
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
 
-   {% endlist %}
+        ```powershell
+        Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru2' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru3' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru4' -Identity 'Remote Desktop Users'
+        Add-ADGroupMember -Members 'ru5' -Identity 'Remote Desktop Users'
+        ```
 
-1. Grant `Remote Desktop Users` rights to the users:
+    {% endlist %}
 
-   {% list tabs group=programming_language %}
+1. Set up RDP access permissions for the `Remote Desktop Users` group:
 
-   - PowerShell {#powershell}
-
-      ```powershell
-      Add-ADGroupMember -Members 'ru1' -Identity 'Remote Desktop Users'
-      Add-ADGroupMember -Members 'ru2' -Identity 'Remote Desktop Users'
-      Add-ADGroupMember -Members 'ru3' -Identity 'Remote Desktop Users'
-      Add-ADGroupMember -Members 'ru4' -Identity 'Remote Desktop Users'
-      Add-ADGroupMember -Members 'ru5' -Identity 'Remote Desktop Users'
-      ```
-
-   {% endlist %}
-
-1. Set up RDP access rights for the `Remote Desktop Users` group:
-
-   {% list tabs group=programming_language %}
-
-   - PowerShell {#powershell}
-
-      ```powershell
-      & secedit /export /cfg sec_conf_export.ini  /areas user_rights
-      $secConfig = Get-Content sec_conf_export.ini
-      $SID = 'S-1-5-32-555'
-      $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"
-      $secConfig | Set-Content sec_conf_import.ini
-      & secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
-      Remove-Item sec_conf_import.ini
-      Remove-Item sec_conf_export.ini
-      ```
-
-   {% endlist %}
+    {% list tabs group=programming_language %}
+    
+    - PowerShell {#powershell}
+    
+        ```powershell
+        & secedit /export /cfg sec_conf_export.ini  /areas user_rights
+        $secConfig = Get-Content sec_conf_export.ini
+        $SID = 'S-1-5-32-555'
+        $secConfig = $secConfig -replace '^SeRemoteInteractiveLogonRight .+', "`$0,*$SID"
+        $secConfig | Set-Content sec_conf_import.ini
+        & secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
+        Remove-Item sec_conf_import.ini
+        Remove-Item sec_conf_export.ini
+        ```
+      
+    {% endlist %}
 
 ## How to delete the resources you created {#clear-out}
 
-If you no longer need the created resources, delete the [VM instances](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md).
+If you no longer need the resources you created, i.e., [VMs](../../compute/operations/vm-control/vm-delete.md) and [networks](../../vpc/operations/network-delete.md), delete them.

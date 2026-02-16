@@ -6,4 +6,4 @@ Users with this role can:
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View details on Yandex Lockbox [quotas](../../lockbox/concepts/limits.md#quotas).
 
-This role also includes the `lockbox.viewer` permissions.
+This role includes the `lockbox.viewer` permissions.

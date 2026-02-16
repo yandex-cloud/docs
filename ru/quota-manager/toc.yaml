@@ -1,0 +1,132 @@
+title: Yandex Cloud Quota Manager
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Концепции
+    href: concepts/index.md
+  - name: Примеры запросов
+    href: requests-examples.md
+  - name: Справочник квот
+    href: all-quotas.md
+  - name: Пошаговые инструкции
+    expanded: true
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Посмотреть список сервисов и квот
+        href: operations/list-quotas.md
+      - name: Посмотреть значение квоты
+        href: operations/read-quotas.md
+      - name: Изменить квоты
+        href: operations/set-quotas.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: quota-limit
+        items:
+          - name: Overview
+            href: cli-ref/quota-limit/index.md
+          - name: get
+            href: cli-ref/quota-limit/get.md
+          - name: list
+            href: cli-ref/quota-limit/list.md
+          - name: list-services
+            href: cli-ref/quota-limit/list-services.md
+      - name: quota-request
+        items:
+          - name: Overview
+            href: cli-ref/quota-request/index.md
+          - name: cancel
+            href: cli-ref/quota-request/cancel.md
+          - name: create
+            href: cli-ref/quota-request/create.md
+          - name: get
+            href: cli-ref/quota-request/get.md
+          - name: list
+            href: cli-ref/quota-request/list.md
+          - name: list-operations
+            href: cli-ref/quota-request/list-operations.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/grpc/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/grpc/QuotaLimit/get.md
+              - name: List
+                href: api-ref/grpc/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/grpc/QuotaLimit/listServices.md
+          - name: QuotaRequest
+            items:
+              - name: Overview
+                href: api-ref/grpc/QuotaRequest/index.md
+              - name: Get
+                href: api-ref/grpc/QuotaRequest/get.md
+              - name: Create
+                href: api-ref/grpc/QuotaRequest/create.md
+              - name: Cancel
+                href: api-ref/grpc/QuotaRequest/cancel.md
+              - name: List
+                href: api-ref/grpc/QuotaRequest/list.md
+              - name: ListOperations
+                href: api-ref/grpc/QuotaRequest/listOperations.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: QuotaLimit
+            items:
+              - name: Overview
+                href: api-ref/QuotaLimit/index.md
+              - name: Get
+                href: api-ref/QuotaLimit/get.md
+              - name: List
+                href: api-ref/QuotaLimit/list.md
+              - name: ListServices
+                href: api-ref/QuotaLimit/listServices.md
+          - name: QuotaRequest
+            items:
+              - name: Overview
+                href: api-ref/QuotaRequest/index.md
+              - name: Get
+                href: api-ref/QuotaRequest/get.md
+              - name: Create
+                href: api-ref/QuotaRequest/create.md
+              - name: Cancel
+                href: api-ref/QuotaRequest/cancel.md
+              - name: List
+                href: api-ref/QuotaRequest/list.md
+              - name: ListOperations
+                href: api-ref/QuotaRequest/listOperations.md
+  - name: История изменений
+    href: release-notes.md

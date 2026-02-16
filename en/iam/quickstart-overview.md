@@ -55,6 +55,7 @@ There are the following subject types:
 * [Yandex account](concepts/users/accounts.md#passport): Your Yandex or Yandex 360 account.
 * [Service account](concepts/users/service-accounts.md): Additional account programs can use to perform operations in {{ yandex-cloud }}. Service accounts are free of charge and enable flexible access management for your programs.
 * [Federated account](concepts/users/accounts.md#saml-federation): User account in an identity federation, e.g., Active Directory.
+* [Local user account](concepts/users/accounts.md#local): User account created locally in the {{ org-full-name }} [organization](../organization/concepts/organization.md) in a [user pool](../organization/concepts/user-pools.md).
 * [User group](../organization/concepts/groups.md): Group of users with the same access permissions.
 * [System group](concepts/access-control/system-group.md): User group preinstalled in {{ iam-short-name }}.
 
@@ -69,7 +70,7 @@ You can also [create federations and manage them](../organization/operations/set
 ## What's next {#whats-next}
 
 * Learn [how to get started with {{ org-name }}](../organization/quickstart.md).
-* Read about billing accounts: what they are for and [how to create one](../overview/quickstart.md).
+* Read about billing accounts: what they are for and [how to create one](../getting-started/individuals/registration.md).
 * Learn about [resources and access management {{ yandex-cloud }}](../overview/roles-and-resources.md).
 * [Learn how to manage access to resources](quickstart.md).
 * See [what account types exist in {{ yandex-cloud }}](concepts/users/accounts.md) and [how to work with service accounts](quickstart-sa.md).

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the Image to be scanned for vulnerabilities.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/scan.md
 ---
 
-# Container Registry API, REST: Scanner.Scan {#Scan}
+# Container Registry API, REST: Scanner.Scan
 
 Executes scanning of specified image.
 
@@ -25,7 +43,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/scans
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image to be scanned for vulnerabilities. ||
+Required field. ID of the Image to be scanned for vulnerabilities.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -190,7 +210,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

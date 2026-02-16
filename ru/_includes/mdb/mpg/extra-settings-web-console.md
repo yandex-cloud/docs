@@ -18,32 +18,18 @@
 
 
 
+- **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../../query/concepts/index.md).
 
 - **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}** — включите эту опцию, чтобы разрешить доступ к кластеру из сервиса [{{ sf-full-name }}](../../../functions/concepts/index.md). Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../../functions/operations/database-connection.md).
 
 
 
-- **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** — опция разрешает использовать в кластере инструмент [Диагностика производительности](../../../managed-postgresql/operations/performance-diagnostics.md). Если опция включена, настройте также **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}** при помощи ползунков. Единицы измерения обеих настроек — секунды.
-
-    Эта функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md).
-
-- **Автоматическое переключение мастера** — включите эту опцию, чтобы при смене мастера источник репликации для всех хостов-реплик автоматически переключился на новый хост-мастер. Подробнее см. в разделе [Репликация](../../../managed-postgresql/concepts/replication.md).
-
-    При [удалении](../../../managed-postgresql/operations/hosts.md#remove) хоста-мастера новый мастер будет выбран автоматически независимо от значения этой опции.
-
-    {% note alert %}
-
-    Если опция **Автоматическое переключение мастера** выключена, при выходе хоста-мастера из строя запустить выборы нового мастера или назначить эту роль одной из реплик придется [вручную](../../../managed-postgresql/operations/update.md#start-manual-failover).
-
-    {% endnote %}
-
-
 - **{{ ui-key.yacloud.postgresql.cluster.additional-field-pooling_mode }}** — выберите один из [режимов работы менеджера подключений](../../../managed-postgresql/concepts/pooling.md).
 
-- {% include [Deletion protection](../console/deletion-protection.md) %}
+- **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита от удаления кластера, его баз данных и пользователей.
 
     По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](../../../managed-postgresql/operations/cluster-users.md) и [Управление БД](../../../managed-postgresql/operations/databases.md).
     
     Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-    {% include [Ограничения защиты от удаления](../deletion-protection-limits-db.md) %}
+    {% include [Ограничения защиты от удаления кластера](../../../_includes/mdb/deletion-protection-limits-data.md) %}

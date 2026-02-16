@@ -1,4 +1,4 @@
-# Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall 
+# Сегментация облачной инфраструктуры с помощью решения Check Point Next-Generation Firewall
 
 С помощью руководства вы развернете защищенную сетевую инфраструктуру на основе Check Point Next-Generation Firewall. Инфраструктура состоит из трех сегментов, каждый из которых содержит ресурсы одного назначения, обособленные от других ресурсов. Например, выделенный [DMZ](https://ru.wikipedia.org/wiki/DMZ_(компьютерные_сети)) сегмент предназначен для размещения общедоступных приложений, а сегмент mgmt содержит ресурсы, используемые для управления облачной сетевой инфраструктурой. Связь между сегментами происходит через виртуальную машину [Check Point](https://www.checkpoint.com/quantum/next-generation-firewall/) [Next-Generation Firewall](https://en.wikipedia.org/wiki/Next-generation_firewall), обеспечивающую комплексную защиту сегментов и контроль трафика между сегментами.
 
@@ -36,8 +36,8 @@
 * Решение Check Point в данном примере настроено с базовыми политиками доступа (Access Control) и NAT.
 
 Решение Check Point CloudGuard IaaS доступно в Yandex Cloud Marketplace в вариантах Pay as you go и BYOL. В этом примере используется BYOL вариант с Trial периодом 15 дней:
-* ВМ NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention BYOL](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-byol-m);
-* ВМ сервера управления [Check Point CloudGuard IaaS - Security Management BYOL](/marketplace/products/checkpoint/cloudguard-iaas-security-management-byol-m) для задач управления NGFW.
+* ВМ NGFW Check Point CloudGuard IaaS: Firewall & Threat Prevention BYOL;
+* ВМ сервера управления Check Point CloudGuard IaaS: Security Management BYOL для задач управления NGFW.
 
 Для использования в продуктивной среде рекомендуется рассматривать варианты:
 * NGFW [Check Point CloudGuard IaaS - Firewall & Threat Prevention PAYG](/marketplace/products/checkpoint/cloudguard-iaas-firewall-tp-payg-m);
@@ -47,14 +47,12 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
 
 * плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ### Необходимые квоты {#required-quotes}
 
@@ -173,8 +171,8 @@
          Результат:
 
          ```text
-         id: ajehr0to1g8bh0la8c8r
-         folder_id: b1gv87ssvu497lpgjh5o
+         id: ajehr0to1g8b********
+         folder_id: b1gv87ssvu49********
          created_at: "2024-01-04T09:03:11.665153755Z"
          name: sa-terraform
          ```
@@ -311,8 +309,8 @@
          Результат:
          
          ```text
-         id: aje8nn871qo4a8bbopvb
-         service_account_id: ajehr0to1g8bh0la8c8r
+         id: aje8nn871qo4********
+         service_account_id: ajehr0to1g8b********
          created_at: "2023-03-04T09:16:43.479156798Z"
          key_algorithm: RSA_2048
          ```
@@ -383,7 +381,7 @@
 
    | Название<br>параметра | Нужно<br>изменение | Описание | Тип | Пример |
    | ----------- | ----------- | ----------- | ----------- | ----------- |
-   | `cloud_id` | да | Идентификатор вашего облака в Yandex Cloud | `string` | `b1g8dn6s3v2eiid9dbci` |
+   | `cloud_id` | да | Идентификатор вашего облака в Yandex Cloud | `string` | `b1g8dn6s3v2e********` |
    | `az_name` | - | <a href="https://yandex.cloud/ru/docs/overview/concepts/geo-scope">Зона доступности</a> Yandex Cloud для размещения ресурсов | `string` | `{{ region-id }}-d` |
    | `security_segment_names` | - | Список названий сегментов. Первый сегмент для размещения ресурсов управления, второй с публичным доступом в интернет, третий для DMZ. Если требуются дополнительные сегменты, то нужно добавлять их в конец списка. При добавлении сегмента обязательно добавьте префикс для подсети в список `subnet_prefix_list`. | `list(string)` |  `["mgmt", "public", "dmz"]` |
    | `subnet_prefix_list` | - | Список сетевых префиксов для подсетей, соответствующих списку названия сегментов `security_segment_names`. По одному префиксу для сегмента. | `list(string)` | `["192.168.1.0/24", "172.16.1.0/24", "10.160.1.0/24"]` |

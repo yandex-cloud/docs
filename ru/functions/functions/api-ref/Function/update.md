@@ -1,9 +1,74 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
+    method: patch
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to update.
+            To get a function ID make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the function.
+            The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the function.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Function labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label, request the current set of labels with a [FunctionService.Get](/docs/functions/functions/api-ref/Function/get#Get) request.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/update.md
 ---
 
-# Cloud Functions Service, REST: Function.Update {#Update}
+# Cloud Functions Service, REST: Function.Update
 
 Updates the specified function.
 
@@ -31,7 +96,7 @@ To get a function ID make a [FunctionService.List](/docs/functions/functions/api
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -50,16 +115,22 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 New name for the function.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-New description for the function. ||
-|| labels | **string**
+New description for the function.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [FunctionService.Get](/docs/functions/functions/api-ref/Function/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [FunctionService.Get](/docs/functions/functions/api-ref/Function/get#Get) request.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -91,7 +162,7 @@ to add or remove a label, request the current set of labels with a [FunctionServ
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "httpInvokeUrl": "string",
     "status": "string"
   }
@@ -218,13 +289,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the function. The name is unique within the folder. ||
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the function. ||
-|| labels | **string**
+Description of the function.
 
-Function labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || httpInvokeUrl | **string**
 
 URL that needs to be requested to invoke the function. ||
@@ -232,7 +309,6 @@ URL that needs to be requested to invoke the function. ||
 
 Status of the function.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Function is being created.
 - `ACTIVE`: Function is ready to be invoked.
 - `DELETING`: Function is being deleted.

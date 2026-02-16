@@ -2,7 +2,7 @@
 title: How to set up a {{ MG }} source endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to configure a {{ MG }} source endpoint when creating or modifying it in {{ data-transfer-full-name }}.
 ---
-# Transferring data from a {{ MG }} source endpoint
+# Transferring data from a {{ MG }}/{{ SD }} (Managed Service for MongoDB) source endpoint
 
 
 {{ data-transfer-full-name }} enables you to migrate data from a {{ MG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
@@ -15,42 +15,41 @@ description: In this tutorial, you will learn how to configure a {{ MG }} source
 1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
-## Scenarios for transferring data from {{ MG }} {#scenarios}
+## Scenarios for transferring data from {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating a {{ MG }} cluster](../../../tutorials/managed-mongodb.md).
-    * [Migrating a {{ MG }} cluster from 4.4 to 6.0](../../../tutorials/mongodb-versions.md).
+    * [Migrating a {{ MG }} cluster](../../../tutorials/storedoc.md)
+    * [Migrating a {{ SD }} (Managed Service for MongoDB) cluster from 4.4 to 6.0](../../../tutorials/storedoc-versions.md)
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/mongodb-prepare.md) %}
 
-## Configuring the {{ MG }} source endpoint {#endpoint-settings}
+## Configuring a {{ MG }}/{{ SD }} (Managed Service for MongoDB) source endpoint {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 When [creating](../index.md#create) or [updating](../index.md#update) an endpoint, you can define:
 
 * [{{ mmg-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
-
-### {{ mmg-name }} cluster {#managed-service}
+### {{ mmg-name }} (Managed Service for MongoDB) cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmg.viewer }}` role](../../../../managed-mongodb/security/index.md#mmg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -72,7 +71,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -97,14 +96,13 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
     {% include [Managed MongoDB API](../../../../_includes/data-transfer/necessary-settings/api/managed-mongodb.md) %}
 
 {% endlist %}
-
 
 ### Custom installation {#on-premise}
 
@@ -130,7 +128,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -164,7 +162,7 @@ The settings are given for the OnPremise use case when all fields are filled in 
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see this [{{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -223,7 +221,7 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 {% note info %}
 
 * If you use several endpoints, you need to create a separate transfer for each one.
-* As transfers of [timeseries collections]({{ mg.docs.comd }}/core/timeseries-collections/) are not supported, you should exclude such collections.
+* Transferring of `Time Series` collections is not supported, so you should exclude such collections.
 
 {% endnote %}
 
@@ -232,10 +230,11 @@ If a source workload is high (over 10,000 write transactions per second), we rec
 
 Configure one of the supported data targets:
 
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ MG }}](../target/mongodb.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -254,6 +253,8 @@ Known issues when using a {{ MG }} endpoint:
 * [Error when transferring timeseries collections](#timeseries).
 * [Unable to recognize an external cluster IP address or FQDN](#cluster-config-issue).
 * [Error at the copying stage](#history-lost)
+* [Source data cannot be sharded](#cannot-get-delimiters)
+* [Transfer failure with the `cursor.Decode` error](#invalid-length)
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
@@ -272,3 +273,5 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
 {% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
+
+{% include [invalid-length](../../../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}

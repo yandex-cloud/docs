@@ -1,9 +1,199 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a test in.
+          type: string
+        configurations:
+          description: |-
+            **[SingleAgentConfiguration](#yandex.cloud.loadtesting.api.v1.test.SingleAgentConfiguration)**
+            Test configuration associated with agents on which they will be executed.
+            In case of multiple configurations, a multitest will be created.
+          type: array
+          items:
+            $ref: '#/definitions/SingleAgentConfiguration'
+        testDetails:
+          description: |-
+            **[Details](#yandex.cloud.loadtesting.api.v1.test.Details)**
+            Test details. Name, tags etc.
+          $ref: '#/definitions/Details'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      AgentSelector:
+        type: object
+        properties:
+          agentId:
+            description: |-
+              **string**
+              Selection by agent ID.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: string
+          matchByFilter:
+            description: |-
+              **string**
+              Selection by filter string.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: string
+          anonymousAgent:
+            description: |-
+              **boolean**
+              Select anonymoud (i.e. not registered) agents.
+              Includes only one of the fields `agentId`, `matchByFilter`, `anonymousAgent`.
+            type: boolean
+        oneOf:
+          - required:
+              - agentId
+          - required:
+              - matchByFilter
+          - required:
+              - anonymousAgent
+      ObjectStorage:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Bucket name.
+            type: string
+          name:
+            description: |-
+              **string**
+              File name.
+            type: string
+      FilePointer:
+        type: object
+        properties:
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.loadtesting.api.v1.test.ObjectStorage)**
+              Reference to a file in Object Storage.
+              Includes only one of the fields `objectStorage`.
+            $ref: '#/definitions/ObjectStorage'
+        oneOf:
+          - required:
+              - objectStorage
+      SingleAgentConfiguration:
+        type: object
+        properties:
+          configId:
+            description: |-
+              **string**
+              ID of the config.
+            type: string
+          agentSelector:
+            description: |-
+              **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
+              Agent selection criterion.
+            $ref: '#/definitions/AgentSelector'
+          files:
+            description: |-
+              **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
+              Additional files to be used during test execution, represented as `rel_path:file` pairs.
+              `rel_path` can be either a simple file name, a relative path, or absolute path. Files are
+              downloaded by the agent to appropriate location.
+              Use cases include:
+              - [Test Data files](/docs/load-testing/concepts/payload).
+              - Custom Pandora executable.
+              - JMeter executable or ".jmx" scenario.
+              - etc.
+            type: object
+            additionalProperties:
+              $ref: '#/definitions/FilePointer'
+      Tag:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Key of the tag.
+            type: string
+          value:
+            description: |-
+              **string**
+              Value of the tag.
+            type: string
+      ArtifactSettings:
+        type: object
+        properties:
+          objectStorageBucket:
+            description: |-
+              **string**
+              Name of output object storage bucket in test's folder.
+              Includes only one of the fields `objectStorageBucket`.
+            type: string
+          isArchive:
+            description: |-
+              **boolean**
+              Setting which defines whether artifact files should be archived prior to uploading.
+            type: boolean
+          filterInclude:
+            description: |-
+              **string**
+              Filter strings defining which files should be included to artifacts. GLOB format.
+              Example:
+              - ['*'] - all files will be uploaded.
+              - ['*.log', '*.yaml] - all `.log` and `.yaml` files will be uploaded.
+            type: array
+            items:
+              type: string
+          filterExclude:
+            description: |-
+              **string**
+              Filter strings defining which files should be excluded from artifacts. GLOB format.
+              Example:
+              - filter_include=['*'], filter_exclude=['phout.log'] - upload all `.log` files excluding `phout.log`.
+            type: array
+            items:
+              type: string
+        oneOf:
+          - required:
+              - objectStorageBucket
+      Details:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the test.
+            pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the test.
+            type: string
+          tags:
+            description: |-
+              **[Tag](#yandex.cloud.loadtesting.api.v1.common.Tag)**
+              Tags assigned to the test.
+            type: array
+            items:
+              $ref: '#/definitions/Tag'
+          loggingLogGroupId:
+            description: |-
+              **string**
+              ID of the logging group to which test artifacts are uploaded.
+            type: string
+          artifactSettings:
+            description: |-
+              **[ArtifactSettings](#yandex.cloud.loadtesting.api.v1.test.ArtifactSettings)**
+              Settings which define where to upload test artifacts and which files should be included.
+            $ref: '#/definitions/ArtifactSettings'
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/create.md
 ---
 
-# Load Testing API, REST: Test.Create {#Create}
+# Load Testing API, REST: Test.Create
 
 Creates (runs) a test in the specified folder.
 
@@ -28,14 +218,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
         "anonymousAgent": "boolean"
         // end of the list of possible fields
       },
-      "files": {
-        // Includes only one of the fields `objectStorage`
-        "objectStorage": {
-          "bucket": "string",
-          "name": "string"
-        }
-        // end of the list of possible fields
-      }
+      "files": "object"
     }
   ],
   "testDetails": {
@@ -90,7 +273,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 
@@ -259,14 +442,7 @@ Example:
           "anonymousAgent": "boolean"
           // end of the list of possible fields
         },
-        "files": {
-          // Includes only one of the fields `objectStorage`
-          "objectStorage": {
-            "bucket": "string",
-            "name": "string"
-          }
-          // end of the list of possible fields
-        }
+        "files": "object"
       }
     ],
     "details": {
@@ -433,7 +609,7 @@ Configuration of the test.
 
 A test can have multiple configurations if it can be
 executed on multiple agents simultaneously. For more information, see
-[Load testing using multiple agents](docs/load-testing/tutorials/loadtesting-multiply). ||
+[Load testing using multiple agents](/docs/load-testing/tutorials/loadtesting-multiply). ||
 || details | **[Details](#yandex.cloud.loadtesting.api.v1.test.Details2)**
 
 Test meta information. Name, description, etc. ||
@@ -457,7 +633,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector2)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer2)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer2)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 
@@ -611,14 +787,15 @@ Status of the test.
 - `POST_PROCESSING`: Execution stage: results post-processing.
 - `FAILED`: Test has failed due to some error.
 - `STOPPING`: Test is being stopped.
-- `STOPPED`: Test has been stopped.
+- `STOPPED`: Test has been stopped by user.
 - `AUTOSTOPPED`: Test has been stopped automatically by satisfying autostop condition.
 - `WAITING`: Execution stage: waiting for a trigger to start.
 - `DELETING`: Test is being deleted.
 - `LOST`: Test status has not been reported in a while during execution stage.
 
   Means that either an agent is too busy to send it, got offline, or failed without
-reporting a final status. ||
+reporting a final status.
+- `CANCELLED`: Test has been cancelled. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.

@@ -26,7 +26,7 @@ For a detailed guide, see [{#T}](../operations/index.md).
 
 Yes, it is. Supported templates are listed in the [Recognition models](../concepts/ocr/template-recognition.md#models) section. You can test other templates yourself.
 
-#### Which languages does the `license-plates` recognition model support? {#qa-languages-license-plates}
+#### Which languages does the license-plates recognition model support? {#qa-languages-license-plates}
 
 The `license-plates` recognition model supports only Russian (`ru`) and English (`en`). You need to specify them explicitly in your request, in the `language_codes` parameter.
 

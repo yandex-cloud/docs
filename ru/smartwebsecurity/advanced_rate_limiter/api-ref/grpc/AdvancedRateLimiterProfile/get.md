@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/advanced_rate_limiter/api-ref/grpc/AdvancedRateLimiterProfile/get.md
 ---
 
-# SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService.Get {#Get}
+# SmartWebSecurity ARL API, gRPC: AdvancedRateLimiterProfileService.Get
 
 Returns the specified AdvancedRateLimiterProfile resource.
 
@@ -15,13 +15,13 @@ Returns the specified AdvancedRateLimiterProfile resource.
 
 ```json
 {
-  "advancedRateLimiterProfileId": "string"
+  "advanced_rate_limiter_profile_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| advancedRateLimiterProfileId | **string**
+|| advanced_rate_limiter_profile_id | **string**
 
 Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
 |#
@@ -31,70 +31,70 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "labels": "string",
+  "folder_id": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
-  "advancedRateLimiterRules": [
+  "advanced_rate_limiter_rules": [
     {
       "name": "string",
       "priority": "int64",
       "description": "string",
-      "dryRun": "bool",
-      // Includes only one of the fields `staticQuota`, `dynamicQuota`
-      "staticQuota": {
+      "dry_run": "bool",
+      // Includes only one of the fields `static_quota`, `dynamic_quota`
+      "static_quota": {
         "action": "Action",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -104,34 +104,34 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -141,59 +141,59 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
         "limit": "int64",
         "period": "int64"
       },
-      "dynamicQuota": {
+      "dynamic_quota": {
         "action": "Action",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -203,34 +203,34 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -241,24 +241,24 @@ Required field. ID of the AdvancedRateLimiterProfile resource to return. ||
         "period": "int64",
         "characteristics": [
           {
-            // Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`
-            "simpleCharacteristic": {
+            // Includes only one of the fields `simple_characteristic`, `key_characteristic`
+            "simple_characteristic": {
               "type": "Type"
             },
-            "keyCharacteristic": {
+            "key_characteristic": {
               "type": "Type",
               "value": "string"
             },
             // end of the list of possible fields
-            "caseInsensitive": "bool"
+            "case_insensitive": "bool"
           }
         ]
       }
       // end of the list of possible fields
     }
   ],
-  "createdAt": "google.protobuf.Timestamp",
-  "cloudId": "string"
+  "created_at": "google.protobuf.Timestamp",
+  "cloud_id": "string"
 }
 ```
 
@@ -269,25 +269,31 @@ A AdvancedRateLimiterProfile (ARL) resource.
 || id | **string**
 
 ID of the ARL profile. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
+Labels as `` key:value `` pairs. Maximum of 64 per resource.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || name | **string**
 
-Required field. Name of the ARL profile. The name is unique within the folder. 1-50 characters long. ||
+Required field. Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
-Optional description of the ARL profile. ||
-|| advancedRateLimiterRules[] | **[AdvancedRateLimiterRule](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
+Optional description of the ARL profile.
+
+The maximum string length in characters is 512. ||
+|| advanced_rate_limiter_rules[] | **[AdvancedRateLimiterRule](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
 
 List of rules. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the ARL profile belongs to. ||
 |#
@@ -300,30 +306,36 @@ A AdvancedRateLimiterRule object, see [Rules](/docs/smartwebsecurity/concepts/ar
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **int64**
 
 Determines the priority in case there are several matched rules.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire ARL profile.
-A lower numeric value means a higher priority. ||
+A lower numeric value means a higher priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
-|| dryRun | **bool**
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
+|| dry_run | **bool**
 
 This allows you to evaluate backend capabilities and find the optimum limit values.
 Requests will not be blocked in this mode. ||
-|| staticQuota | **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
+|| static_quota | **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
 
 Static quota. Counting each request individually.
 
-Includes only one of the fields `staticQuota`, `dynamicQuota`. ||
-|| dynamicQuota | **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
+Includes only one of the fields `static_quota`, `dynamic_quota`. ||
+|| dynamic_quota | **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
 
 Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
 
-Includes only one of the fields `staticQuota`, `dynamicQuota`. ||
+Includes only one of the fields `static_quota`, `dynamic_quota`. ||
 |#
 
 ## StaticQuota {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota}
@@ -336,7 +348,6 @@ StaticQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
@@ -344,7 +355,9 @@ The condition for matching the quota. ||
 || limit | **int64**
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **int64**
 
 Period of time in seconds. ||
@@ -360,16 +373,18 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
-Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
 |#
@@ -382,7 +397,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -391,24 +408,36 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -417,9 +446,11 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -433,7 +464,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher}
@@ -444,7 +477,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the query parameter. ||
@@ -458,7 +493,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the header. ||
@@ -470,10 +507,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -482,9 +519,11 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -495,7 +534,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## DynamicQuota {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota}
@@ -508,7 +549,6 @@ DynamicQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
@@ -516,32 +556,36 @@ The condition for matching the quota. ||
 || limit | **int64**
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **int64**
 
 Period of time in seconds. ||
 || characteristics[] | **[Characteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
 
-List of characteristics. ||
+List of characteristics.
+
+The maximum number of elements is 3. ||
 |#
 
 ## Characteristic {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic}
 
 #|
 ||Field | Description ||
-|| simpleCharacteristic | **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
+|| simple_characteristic | **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
 
 Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
 See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
 
-Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`. ||
-|| keyCharacteristic | **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
+Includes only one of the fields `simple_characteristic`, `key_characteristic`. ||
+|| key_characteristic | **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
 
 Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
 See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
 
-Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`. ||
-|| caseInsensitive | **bool**
+Includes only one of the fields `simple_characteristic`, `key_characteristic`. ||
+|| case_insensitive | **bool**
 
 Determines case-sensitive or case-insensitive keys matching. ||
 |#
@@ -554,7 +598,6 @@ Determines case-sensitive or case-insensitive keys matching. ||
 
 Type of simple characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `REQUEST_PATH`: HTTP Request path.
 - `HTTP_METHOD`: HTTP Method.
 - `IP`: IP address.
@@ -570,7 +613,6 @@ Type of simple characteristic.
 
 Type of key characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `COOKIE_KEY`: HTTP cookie key.
 - `HEADER_KEY`: HTTP header key.
 - `QUERY_KEY`: Query params key. ||

@@ -2,6 +2,8 @@
 
 Чтобы предоставить пользователю доступ к ресурсам в [каталоге](../../concepts/resources-hierarchy.md#folder), назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на этот каталог.
 
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
+
 ## Назначить роль на каталог {#access-to-user}
 
 {% list tabs group=instructions %}
@@ -105,14 +107,13 @@
        {% endnote %}
 
      * `member` — пользователь, которому будет присвоена роль. Обязательный параметр. Может иметь одно из следующих значений:
-       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../iam/operations/users/get.md).
+       * `userAccount:<идентификатор_пользователя>` — [ID пользователя](../../../organization/operations/users-get.md).
        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — [ID сервисного аккаунта](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<идентификатор_пользовательского_аккаунта>` — [ID пользовательского аккаунта](../../../organization/operations/users-get.md).
        * `system:group:organization:<идентификатор_организации>:users` — идентификатор [организации](../../../organization/quickstart.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers) `All users in organization X`.
        * `system:group:federation:<идентификатор_федерации>:users` — идентификатор [федерации удостоверений](../../../organization/concepts/add-federation.md), чтобы назначить роль [системной группе](../../../iam/concepts/access-control/system-group.md#allFederationUsers) `All users in federation N`.
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
-
 
      ```hcl
      ...
@@ -127,7 +128,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -190,6 +190,7 @@
        ]
       }
       ```
+
   1. Узнайте ID пользователя по логину с помощью метода REST API [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md):
       ```bash
       curl \
@@ -208,6 +209,7 @@
        }
       }
       ```
+
   1. Назначьте пользователю роль `editor` на каталог `my-folder`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
       ```bash
@@ -226,7 +228,6 @@
         }}}]}' \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
       ```
-
 
 {% endlist %}
 
@@ -292,7 +293,6 @@
 
      {% cut "Пример назначения роли на каталог с помощью {{ TF }}" %}
 
-
      ```hcl
      ...
      data "yandex_resourcemanager_folder" "project1" {
@@ -311,7 +311,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -386,7 +385,6 @@
 
   {% endnote %}
 
-
   ```bash
   curl \
     --request POST \
@@ -402,7 +400,6 @@
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
   ```
-
 
 {% endlist %}
 
@@ -503,7 +500,6 @@
 
 {% endlist %}
 
-
 ## Доступ к каталогу для федеративного пользователя {#access-to-federated-user}
 
 {% list tabs group=instructions %}
@@ -517,7 +513,7 @@
 - CLI {#cli}
 
   1. Выберите роль из [справочника ролей {{ yandex-cloud }}](../../../iam/roles-reference.md).
-  1. [Получите идентификатор пользователя](../../../iam/operations/users/get.md).
+  1. [Получите идентификатор пользователя](../../../organization/operations/users-get.md).
   1. Назначьте роль с помощью команды:
 
       ```bash
@@ -541,7 +537,6 @@
       ```
 
 {% endlist %}
-
 
 
 ## Что дальше {#what-is-next}

@@ -20,6 +20,8 @@ keywords:
 
 ## Создайте ВМ {#create-vm}
 
+{% include [role-note](../../_includes/compute/role-note.md) %}
+
 {% include [create-instance-via-console-linux](../_includes_service/create-instance-via-console-linux.md) %}
 
 ## Подключитесь к ВМ {#connect-to-vm}

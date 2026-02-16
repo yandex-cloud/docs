@@ -51,7 +51,7 @@
 Для создания подключения необходимо выполнить предварительные шаги:
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `dbeaver` с ролью `editor`.
 
-1. [Создайте авторизованный ключ](../../iam/operations/authorized-key/create.md) для сервисного аккаунта и сохраните его в файл.
+1. [Создайте авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта и сохраните его в файл.
 
 
 После этого выполните следующие шаги:
@@ -61,12 +61,13 @@
 1. В подразделе **Общие**, в поле ввода **JDBC URL**, укажите следующий путь:
 
     ```text
-    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>
+    jdbc:ydb:grpcs://grpc.yandex-query.cloud.yandex.net:2135/<folder_id>?saFile=<path_to_auth_key_file.json>&useQueryService=false
     ```
 
     Где:
     - `folder_id` — идентификатор каталога, в котором будут выполняться запросы к {{ yq-full-name }}.
     - `path_to_auth_key_file.json` — путь к файлу с авторизованным ключом.
+    - `useQueryService` — режим подключения. {{yq-full-name}} поддерживает только режим `useQueryService=false`.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Creating an SAP program in {{ yandex-cloud }}
-description: You will learn to configure a server with an installed SAP environment and write your first program. It will export existing system users in tabular format.
+description: In this tutorial, you will learn to configure an SAP server and write your first program exporting a list of system users in tabular format.
 author:
   name: Roman Gorbenko
   url: https://github.com/basisteam-io

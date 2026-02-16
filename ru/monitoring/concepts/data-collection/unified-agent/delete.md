@@ -1,6 +1,7 @@
 ---
 title: Как удалить {{ unified-agent-full-name }}
 description: Из статьи вы узнаете, как удалить {{ unified-agent-full-name }}.
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/delete.md
 ---
 
 # Удаление {{ unified-agent-full-name }}
@@ -115,7 +116,7 @@ description: Из статьи вы узнаете, как удалить {{ uni
    
      1. В [консоли управления]({{ link-console-main }}) перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
-     1. На панели слева выберите ![image](../../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+     1. На панели слева выберите ![image](../../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    
      1. Выберите ВМ и перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**.
   

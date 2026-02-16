@@ -8,8 +8,10 @@
 * [{#T}](datamart.md)
 * [{#T}](olap.md)
 * [{#T}](oltp.md)
+* [{#T}](sql.md)
 * [{#T}](cluster.md)
 * [{#T}](relational-databases.md)
+* [{#T}](columnar-databases.md)
 
 ## Аналитика {#analytics}
 
@@ -21,6 +23,8 @@
 
 * [{#T}](ml-models.md)
 * [{#T}](chat-bot.md)
+* [{#T}](llm.md)
+* [{#T}](mcp.md)
 
 ## Облачные вычисления и сервера {#servers}
 
@@ -60,15 +64,23 @@
 ## Сети и доставка контента {#networks}
 
 * [{#T}](cdn.md)
+* [{#T}](cli.md)
 * [{#T}](cookie.md)
 * [{#T}](cors.md)
+* [{#T}](dhcp.md)
 * [{#T}](dns.md)
-* [{#T}](grpc.md)
-* [{#T}](rest-api.md)
-* [{#T}](vpn.md)
-* [{#T}](cli.md)
 * [{#T}](fqdn.md)
+* [{#T}](grpc.md)
+* [{#T}](observability.md)
+* [{#T}](rest-api.md)
+* [{#T}](soap.md)
 * [{#T}](ssh-keygen.md)
+* [{#T}](url.md)
+* [{#T}](vpn.md)
+* [{#T}](dhcp.md)
+* [{#T}](soap.md)
+* [{#T}](tcp-ip.md)
+* [{#T}](webhook.md)
 
 ## Безопасность {#security}
 
@@ -79,3 +91,5 @@
 * [{#T}](ssl-certificate.md)
 * [{#T}](ipsec.md)
 * [{#T}](ddos.md)
+* [{#T}](jwt.md)
+* [{#T}](sso.md)

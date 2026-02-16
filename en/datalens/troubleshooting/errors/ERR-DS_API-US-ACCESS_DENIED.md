@@ -1,7 +1,12 @@
-# Access denied
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.US.ACCESS_DENIED'
+description: This page describes the Access denied {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Access denied
 
 `ERR.DS_API.US.ACCESS_DENIED`
 
-The error indicates that the user does not have access to the dataset.
+The error indicates that the user has no permissions to access the object. For example, if having no `View` permission for the dataset or attempting to create a connection in a folder they have no access to.
 
-To correct the error, request that the dataset administrator grant you `{{ permission-read }}` permission. For more information about permissions, see [{#T}](../../security/index.md).
+To fix this error, request the relevant permissions from the object administrator. For more information about access permissions, see [{#T}](../../security/index.md).

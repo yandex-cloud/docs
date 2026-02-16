@@ -1,9 +1,378 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a regression dashboard in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the dashboard.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the dashboard.
+          type: string
+        content:
+          description: |-
+            **[Content](#yandex.cloud.loadtesting.api.v1.regression.Dashboard.Content)**
+            Content of the dashboard.
+          $ref: '#/definitions/Content'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      LayoutPosition:
+        type: object
+        properties:
+          x:
+            description: |-
+              **string** (int64)
+              X.
+            type: string
+            format: int64
+          'y':
+            description: |-
+              **string** (int64)
+              Y.
+            type: string
+            format: int64
+          width:
+            description: |-
+              **string** (int64)
+              Width.
+            type: string
+            format: int64
+          height:
+            description: |-
+              **string** (int64)
+              Height.
+            type: string
+            format: int64
+      ResponseTime:
+        type: object
+        properties:
+          quantile:
+            description: |-
+              **enum** (QuantileType)
+              Cummulative quantile (percentile).
+              - `QUANTILE_TYPE_UNSPECIFIED`: Unspecified percentile.
+              - `QUANTILE_TYPE_50`: 50 percentile (median).
+              - `QUANTILE_TYPE_75`: 75 percentile.
+              - `QUANTILE_TYPE_80`: 80 percentile.
+              - `QUANTILE_TYPE_85`: 85 percentile.
+              - `QUANTILE_TYPE_90`: 90 percentile.
+              - `QUANTILE_TYPE_95`: 95 percentile.
+              - `QUANTILE_TYPE_98`: 98 percentile.
+              - `QUANTILE_TYPE_99`: 99 percentile.
+              - `QUANTILE_TYPE_100`: 100 percentile (maximum or minimum).
+            type: string
+            enum:
+              - QUANTILE_TYPE_UNSPECIFIED
+              - QUANTILE_TYPE_50
+              - QUANTILE_TYPE_75
+              - QUANTILE_TYPE_80
+              - QUANTILE_TYPE_85
+              - QUANTILE_TYPE_90
+              - QUANTILE_TYPE_95
+              - QUANTILE_TYPE_98
+              - QUANTILE_TYPE_99
+              - QUANTILE_TYPE_100
+      Instances:
+        type: object
+        properties:
+          agg:
+            description: |-
+              **enum** (Aggregation)
+              Aggregation function.
+              - `AGGREGATION_UNSPECIFIED`: Unspecified.
+              - `AGGREGATION_MIN`: Minimum.
+              - `AGGREGATION_MAX`: Maximum.
+              - `AGGREGATION_AVG`: Average.
+              - `AGGREGATION_MEDIAN`: Median.
+              - `AGGREGATION_STD_DEV`: Standard deviation.
+            type: string
+            enum:
+              - AGGREGATION_UNSPECIFIED
+              - AGGREGATION_MIN
+              - AGGREGATION_MAX
+              - AGGREGATION_AVG
+              - AGGREGATION_MEDIAN
+              - AGGREGATION_STD_DEV
+      ImbalanceRps:
+        type: object
+        properties: {}
+      ProtocolCodesAbsolute:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Protocol (HTTP, GRPC) code patterns to match.
+              All successful HTTP responses: ['2xx', '3xx'].
+              All failed HTTP responses: ['0', '4xx', '5xx'].
+            type: array
+            items:
+              type: string
+      ProtocolCodesRelative:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Protocol (HTTP, GRPC) code patterns to match.
+              All successful HTTP responses: ['2xx', '3xx'].
+              All failed HTTP responses: ['0', '4xx', '5xx'].
+            type: array
+            items:
+              type: string
+      NetworkCodesAbsolute:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Network code patterns to match.
+              All successful network responses: ['0'].
+              All failed network responses: ['xx', 'xxx'].
+            type: array
+            items:
+              type: string
+      NetworkCodesRelative:
+        type: object
+        properties:
+          codesPatterns:
+            description: |-
+              **string**
+              Network code patterns to match.
+              All successful network responses: ['0'].
+              All failed network responses: ['xx', 'xxx'].
+            type: array
+            items:
+              type: string
+      KpiSelector:
+        type: object
+        properties:
+          responseTime:
+            description: |-
+              **[ResponseTime](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ResponseTime)**
+              Response time cummulative quantile (percentile).
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ResponseTime'
+          instances:
+            description: |-
+              **[Instances](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.Instances)**
+              A number of instances throughout the test.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/Instances'
+          imbalanceRps:
+            description: |-
+              **object**
+              An RPS at the moment the test has been auto-stopped.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ImbalanceRps'
+          protocolCodesAbsolute:
+            description: |-
+              **[ProtocolCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesAbsolute)**
+              A total number of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ProtocolCodesAbsolute'
+          protocolCodesRelative:
+            description: |-
+              **[ProtocolCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.ProtocolCodesRelative)**
+              A percentage of requests completed with certain protocol (HTTP, GRPC, etc.) codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/ProtocolCodesRelative'
+          networkCodesAbsolute:
+            description: |-
+              **[NetworkCodesAbsolute](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesAbsolute)**
+              A total number of requests completed with certain network codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/NetworkCodesAbsolute'
+          networkCodesRelative:
+            description: |-
+              **[NetworkCodesRelative](#yandex.cloud.loadtesting.api.v1.report.KpiSelector.NetworkCodesRelative)**
+              A percentage of requests completed with certain network codes.
+              Includes only one of the fields `responseTime`, `instances`, `imbalanceRps`, `protocolCodesAbsolute`, `protocolCodesRelative`, `networkCodesAbsolute`, `networkCodesRelative`.
+            $ref: '#/definitions/NetworkCodesRelative'
+        oneOf:
+          - required:
+              - responseTime
+          - required:
+              - instances
+          - required:
+              - imbalanceRps
+          - required:
+              - protocolCodesAbsolute
+          - required:
+              - protocolCodesRelative
+          - required:
+              - networkCodesAbsolute
+          - required:
+              - networkCodesRelative
+      KpiThreshold:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string**
+              Value for comparison with an actual KPI value.
+            type: string
+          comparison:
+            description: |-
+              **enum** (Comparison)
+              Comparison operator for comparing actual with the threshold value.
+              Rule: actual (&lt;/<=/&gt;/>=) reference
+              - `COMPARISON_UNSPECIFIED`: Unspecified.
+              - `COMPARISON_LT`: Less than the specified value.
+              - `COMPARISON_LTE`: Less than or equal to the specified value.
+              - `COMPARISON_GT`: Greater than the specified value.
+              - `COMPARISON_GTE`: Greater than or equal to the specified value.
+            type: string
+            enum:
+              - COMPARISON_UNSPECIFIED
+              - COMPARISON_LT
+              - COMPARISON_LTE
+              - COMPARISON_GT
+              - COMPARISON_GTE
+      Kpi:
+        type: object
+        properties:
+          selector:
+            description: |-
+              **[KpiSelector](#yandex.cloud.loadtesting.api.v1.report.KpiSelector)**
+              Kind of KPI.
+            $ref: '#/definitions/KpiSelector'
+          threshold:
+            description: |-
+              **[KpiThreshold](#yandex.cloud.loadtesting.api.v1.report.KpiThreshold)**
+              A condition that should be specified.
+            $ref: '#/definitions/KpiThreshold'
+      ChartWidget:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the chart.
+            type: string
+          name:
+            description: |-
+              **string**
+              Name of the chart.
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the chart.
+            type: string
+          filterStr:
+            description: |-
+              **string**
+              Test filter selector to show KPI values for.
+            type: string
+          testCase:
+            description: |-
+              **string**
+              Test case to show KPI values for.
+            type: string
+          kpis:
+            description: |-
+              **[Kpi](#yandex.cloud.loadtesting.api.v1.report.Kpi)**
+              KPIs to show.
+            type: array
+            items:
+              $ref: '#/definitions/Kpi'
+      TextWidget:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Text string.
+            type: string
+      TitleWidget:
+        type: object
+        properties:
+          text:
+            description: |-
+              **string**
+              Title string.
+            type: string
+          size:
+            description: |-
+              **enum** (TitleSize)
+              Title size.
+              - `TITLE_SIZE_UNSPECIFIED`: Unspecified.
+              - `TITLE_SIZE_XS`: Extra small.
+              - `TITLE_SIZE_S`: Small.
+              - `TITLE_SIZE_M`: Medium.
+              - `TITLE_SIZE_L`: Large.
+            type: string
+            enum:
+              - TITLE_SIZE_UNSPECIFIED
+              - TITLE_SIZE_XS
+              - TITLE_SIZE_S
+              - TITLE_SIZE_M
+              - TITLE_SIZE_L
+      Widget:
+        type: object
+        properties:
+          position:
+            description: |-
+              **[LayoutPosition](#yandex.cloud.loadtesting.api.v1.regression.Widget.LayoutPosition)**
+              Widget position.
+            $ref: '#/definitions/LayoutPosition'
+          chart:
+            description: |-
+              **[ChartWidget](#yandex.cloud.loadtesting.api.v1.regression.ChartWidget)**
+              Chart widget.
+              Includes only one of the fields `chart`, `text`, `title`.
+            $ref: '#/definitions/ChartWidget'
+          text:
+            description: |-
+              **[TextWidget](#yandex.cloud.loadtesting.api.v1.regression.TextWidget)**
+              Text widget.
+              Includes only one of the fields `chart`, `text`, `title`.
+            $ref: '#/definitions/TextWidget'
+          title:
+            description: |-
+              **[TitleWidget](#yandex.cloud.loadtesting.api.v1.regression.TitleWidget)**
+              Title widget.
+              Includes only one of the fields `chart`, `text`, `title`.
+            $ref: '#/definitions/TitleWidget'
+        oneOf:
+          - required:
+              - chart
+          - required:
+              - text
+          - required:
+              - title
+      Content:
+        type: object
+        properties:
+          widgets:
+            description: |-
+              **[Widget](#yandex.cloud.loadtesting.api.v1.regression.Widget)**
+              Widgets.
+            type: array
+            items:
+              $ref: '#/definitions/Widget'
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/create.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.Create {#Create}
+# Load Testing API, REST: RegressionDashboard.Create
 
 Creates a regression dashboard in the specified folder.
 
@@ -347,7 +716,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.
@@ -876,7 +1245,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Job/listLog.md
 ---
 
-# Data Proc API, gRPC: JobService.ListLog {#ListLog}
+# Yandex Data Processing API, gRPC: JobService.ListLog
 
 Returns a log for specified job.
 
@@ -15,31 +15,39 @@ Returns a log for specified job.
 
 ```json
 {
-  "clusterId": "string",
-  "jobId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "job_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
-|| jobId | **string**
+Required field. ID of the cluster that the job is being created for.
 
-ID of the job being created. ||
-|| pageSize | **int64**
+The maximum string length in characters is 50. ||
+|| job_id | **string**
+
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum bytes of job log per response to return. If the number of available
-bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse)
+bytes is larger than `page_size`, the service returns a [ListJobLogResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobLogResponse)
 that can be used to get the next page of output in subsequent list requests.
-Default value: 1048576. ||
-|| pageToken | **string**
+Default value: 1048576.
+
+The maximum value is 1048576. ||
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request. ||
+[ListJobLogResponse.next_page_token](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListJobLogResponse {#yandex.cloud.dataproc.v1.ListJobLogResponse}
@@ -47,7 +55,7 @@ Page token. To get the next page of results, set `page_token` to the
 ```json
 {
   "content": "string",
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -55,8 +63,8 @@ Page token. To get the next page of results, set `page_token` to the
 ||Field | Description ||
 || content | **string**
 
-Requested part of Data Proc Job log. ||
-|| nextPageToken | **string**
+Requested part of Yandex Data Processing Job log. ||
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for ListLog requests,
 if the number of results is larger than `page_size` specified in the request.

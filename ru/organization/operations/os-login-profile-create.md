@@ -1,13 +1,21 @@
 ---
-title: Как создать профиль OS Login
-description: Следуя данной инструкции, вы сможете создать профиль OS Login.
+title: Как создать профиль {{ oslogin }}
+description: Следуя данной инструкции, вы сможете создать профиль {{ oslogin }}.
 ---
 
-# Создать профиль OS Login
+# Создать профиль {{ oslogin }}
 
-По умолчанию профили OS Login будут созданы для всех пользователей организации при [включении настройки](./os-login-access.md). При необходимости вы можете создать дополнительные профили или отредактировать существующие. Профили OS Login можно использовать в качестве профилей пользователей при работе внутри [ВМ](../../compute/concepts/vm.md) или узлов [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }}.
+[Профили {{ oslogin }} по умолчанию](../concepts/os-login.md#os-login-profiles) автоматически создаются для всех пользователей организации {{ org-name }} при [включении доступа по {{ oslogin }}](./os-login-access.md). При этом у каждого пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) может быть одновременно несколько профилей {{ oslogin }} — вы можете создавать такие профили вручную. Разные профили позволяют подключаться к [ВМ](../../compute/concepts/vm.md) или узлам [кластеров](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ k8s }} от имени разных локальных пользователей этих ВМ или узлов {{ k8s }}.
 
-Чтобы создать профиль OS Login для пользователя:
+Для сервисных аккаунтов профили {{ oslogin }} не создаются автоматически. Чтобы подключаться к ВМ или узлу {{ k8s }} от имени сервисного аккаунта, вручную создайте для него профиль {{ oslogin }}.
+
+{% note info %}
+
+{% include [os-login-profile-tab-access-notice](../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+{% endnote %}
+
+Чтобы создать профиль {{ oslogin }}:
 
 {% list tabs group=instructions %}
 
@@ -23,13 +31,15 @@ description: Следуя данной инструкции, вы сможете
   
       При необходимости воспользуйтесь фильтром или поиском.
   
-  1. На странице пользователя перейдите на вкладку **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. В открывшемся окне:
+  1. На странице пользователя перейдите на вкладку **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}** и нажмите кнопку **{{ ui-key.yacloud_org.entity.oslogin-profile.action.create }}**. В открывшемся окне:
 
-      1. Введите имя пользователя в ОС, которое будет присвоено ему при подключении к ВМ. Должно быть уникальным в пределах системы.
+      1. Введите имя пользователя в ОС, которое будет присвоено пользователю организации или сервисному аккаунту при подключении к ВМ. Должно быть уникальным в пределах системы.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      1. В поле **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** задайте уникальный числовой идентификатор пользователя (UID) в диапазоне от `1000` до `65534`. Должен быть уникальным в пределах системы.
+      1. В поле **{{ ui-key.yacloud_org.form.oslogin.field_uid }}** задайте уникальный числовой идентификатор пользователя (UID). Он должен быть уникальным в пределах системы.
+
+          {% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
 
       1. (Опционально) В поле **{{ ui-key.yacloud_org.form.oslogin.field_home-directory }}** укажите путь к домашнему каталогу пользователя.
 
@@ -43,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания профиля OS Login:
+  1. Посмотрите описание команды CLI для создания профиля {{ oslogin }}:
 
       ```bash
       yc organization-manager oslogin profile create --help
@@ -84,13 +94,14 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+----------+-------------------+---------------+-----------------------+
       ```
 
+      Если вы хотите создать профиль {{ oslogin }} для сервисного аккаунта, [получите](../../iam/operations/sa/get-id.md) идентификатор нужного сервисного аккаунта.
 
-  1. Создайте профиль OS Login для выбранного пользователя:
+  1. Создайте профиль {{ oslogin }} для выбранного пользователя или сервисного аккаунта:
 
       ```bash
       yc organization-manager oslogin profile create \
         --organization-id <идентификатор_организации> \
-        --subject-id <идентификатор_пользователя> \
+        --subject-id <идентификатор_пользователя_или_сервисного_аккаунта> \
         --login <логин> \
         --uid <числовой_идентификатор> \
         --home-directory <путь_к_домашнему_каталогу> \
@@ -100,14 +111,17 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `--organization-id` — полученный ранее идентификатор организации.
-      * `--subject-id` — полученный ранее идентификатор пользователя.
+      * `--subject-id` — полученный ранее идентификатор пользователя или сервисного аккаунта.
       * `--login` — имя пользователя в ОС, которое будет присвоено ему при подключении к ВМ. Должно быть уникальным в пределах системы.
 
           {% include [note-info-user-name-limits](../../_includes/organization/note-info-user-name-limits.md) %}
 
-      * `--uid` — уникальный числовой идентификатор пользователя (UID) в диапазоне от `1000` до `65534`. Должен быть уникальным в пределах системы.
-      * (Опционально) `--home-directory` — путь к домашнему каталогу пользователя. Значение по умолчанию — `/home/<имя_пользователя>`.
-      * (Опционально) `--shell` — путь к исполняемому файлу командной оболочки. Значение по умолчанию — `/bin/bash`.
+      * `--uid` — уникальный числовой идентификатор пользователя (UID). Должен быть уникальным в пределах системы.
+
+          {% include [user-defined-uid-range-notice](../../_includes/organization/user-defined-uid-range-notice.md) %}
+
+      * `--home-directory` — путь к домашнему каталогу пользователя на ВМ. Необязательный параметр. Значение по умолчанию — `/home/<имя_пользователя>`.
+      * `--shell` — путь к исполняемому файлу командной оболочки на ВМ. Необязательный параметр. Значение по умолчанию — `/bin/bash`.
 
       Результат:
 
@@ -127,16 +141,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-{% note info %}
-
-Если вы задаете UID вручную, используйте значения в диапазоне от `1000` до `65534`. Использование этого диапазона позволит избежать совпадения UID профиля OS Login и системных профилей операционной системы.
-
-{% endnote %}
+Создать профиль {{ oslogin }} сервисного аккаунта можно только с помощью [{{ yandex-cloud }} CLI](../cli-ref/oslogin/profile/create.md) или [API](../../organization/api-ref/OsLogin/createProfile.md).
 
 #### См. также {#see-also}
 
 * [{#T}](../operations/os-login-access.md)
 * [{#T}](../operations/add-ssh.md)
 * [{#T}](../../compute/operations/vm-connect/os-login.md)
-* [Подключиться к узлу {{ k8s }} через OS Login](../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Использовать сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)
+* [Подключиться к узлу {{ k8s }} через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Использовать сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](../tutorials/sa-oslogin-ansible.md)

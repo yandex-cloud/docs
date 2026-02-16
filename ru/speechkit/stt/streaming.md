@@ -4,7 +4,6 @@
 
 > В таком режиме распознавания работают голосовые помощники и умные колонки. Когда вы активируете помощника, он начинает передавать речь на сервер для распознавания. Сервер обрабатывает данные и возвращает промежуточные и финальные результаты распознавания каждой фразы. Промежуточные результаты используются, чтобы показать ход распознавания, а после финальных результатов помощник выполняет действие, например включает музыку или звонит другому человеку.
 
-
 {% note warning %}
 
 Потоковый режим предназначен для распознавания аудио в режиме реального времени. Для распознавания уже записанного аудиофайла используйте [синхронный](request.md) или [асинхронный](transcribation.md) режим распознавания аудиозаписей.
@@ -13,6 +12,7 @@
 
 
 ## Ограничения потокового распознавания {#session-restrictions}
+
 
 Потоковое распознавание {{ speechkit-name }} имеет ряд ограничений, которые нужно учитывать при создании приложения. Полный список действующих в {{ speechkit-name }} ограничений см. в разделе [{#T}](../concepts/limits.md).
 
@@ -64,15 +64,12 @@
 
 ### Запрос распознавания {#requests}
 
-
 Для распознавания речи приложение сначала должно отправить сообщение с настройками распознавания:
 
-* для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) с типом `session_options`.
+* для API v3 — сообщение [RecognizeStreaming](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) с типом `session_options`.
 * для API v2 — сообщение `StreamingRecognitionRequest` с типом [RecognitionConfig](api/streaming-api#specification-msg).
 
-
-
-После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/stt_service#RecognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
+После настройки сессии сервер будет ожидать сообщений с аудиофрагментами (chunks) — отправляйте сообщение `RecognizeStreaming` с типом [session_options](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming) или сообщение `StreamingRecognitionRequest` с типом [audio_content](api/streaming-api#audio-msg) в API v2. При отправке сообщений учитывайте следующие рекомендации:
 
 * Не отправляйте аудиофрагменты слишком часто или редко. Время между отправкой сообщений в сервис должно примерно совпадать с длительностью отправляемых аудиофрагментов, но не должно превышать 5 секунд. Например, каждые 400 мс отправляйте на распознавание 400 мс аудио.
 * Максимальная длительность переданного аудио за всю сессию — {{ stt-streaming-audioLength }}.
@@ -84,7 +81,7 @@
 
 ### Результат распознавания {#results}
 
-В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/stt_service#StreamingResponse) или [StreamingRecognitionResponse](api/streaming-api.md#response)) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`).
+В каждом сообщении с результатами распознавания ([StreamingResponse](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.StreamingResponse) или [StreamingRecognitionResponse](api/streaming-api.md#response)) сервер {{ speechkit-name }} возвращает один или несколько фрагментов речи, которые он успел распознать за этот промежуток (`chunks`). Для каждого фрагмента речи указывается список вариантов распознанного текста (`alternatives`).
 
 Сервер {{ speechkit-name }} возвращает результаты распознавания с указанием их типа:
 
@@ -104,12 +101,17 @@
    * `chunk` — звук, который распознается как тишина.
    * `silence_chunk` — длительность тишины в миллисекундах. Параметр позволяет уменьшить размер пакета с аудио и не передавать в нем тишину, которую не нужно распознавать.
 
+## Примеры использования {#examples}
+
+* [{#T}](api/streaming-examples-v3.md)
+* [{#T}](api/microphone-streaming.md)
+* [{#T}](api/stt-language-labels-example.md)
+* [{#T}](api/streaming-examples.md)
+
 #### См. также {#see-also}
 
 * [{#T}](../formats.md)
 * [{#T}](models.md)
 * [{#T}](../concepts/auth.md)
-* [Справочник API v3](../stt-v3/api-ref/grpc/stt_service)
-* [{#T}](api/streaming-examples-v3.md)
 * [{#T}](api/streaming-api.md)
-* [{#T}](api/streaming-examples.md)
+* [Справочник API v3](../stt-v3/api-ref/grpc/index.md)

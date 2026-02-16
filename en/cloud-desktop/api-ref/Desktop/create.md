@@ -1,16 +1,66 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        desktopGroupId:
+          description: |-
+            **string**
+            Required field. ID of the desktop group.
+            The maximum string length in characters is 50.
+          type: string
+        subnetId:
+          description: |-
+            **string**
+            ID of the subnet for desktop.
+            The maximum string length in characters is 50.
+          type: string
+        users:
+          description: |-
+            **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+            List of users.
+            The number of elements must be greater than 0.
+          type: array
+          items:
+            $ref: '#/definitions/User'
+      required:
+        - desktopGroupId
+      additionalProperties: false
+    definitions:
+      User:
+        type: object
+        properties:
+          subjectId:
+            description: |-
+              **string**
+              Required field. Identity of the access binding.
+              The maximum string length in characters is 100.
+            type: string
+          subjectType:
+            description: |-
+              **string**
+              Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+              The maximum string length in characters is 100.
+            type: string
+        required:
+          - subjectId
+          - subjectType
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/create.md
 ---
 
-# Cloud Desktop API, REST: Desktop.Create {#Create}
+# Cloud Desktop API, REST: Desktop.Create
 
 Creates desktop in the specified folder.
 
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopRequest}
@@ -18,9 +68,11 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 ```json
 {
   "desktopGroupId": "string",
+  "subnetId": "string",
   "users": [
     {
-      "subjectId": "string"
+      "subjectId": "string",
+      "subjectType": "string"
     }
   ]
 }
@@ -30,10 +82,19 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops
 ||Field | Description ||
 || desktopGroupId | **string**
 
-Required field. ID of the desktop group. ||
+Required field. ID of the desktop group.
+
+The maximum string length in characters is 50. ||
+|| subnetId | **string**
+
+ID of the subnet for desktop.
+
+The maximum string length in characters is 50. ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
-List of users. ||
+List of users.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
@@ -42,7 +103,14 @@ List of users. ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -88,9 +156,11 @@ Required field. Identity of the access binding. ||
     ],
     "users": [
       {
-        "subjectId": "string"
+        "subjectId": "string",
+        "subjectType": "string"
       }
-    ]
+    ],
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -220,10 +290,17 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
-- `ACTIVE`: Desktop is ready to use.
-- `DELETING`: Desktop is being deleted. ||
+- `ACTIVE`: Desktop is ready to be used.
+- `DELETING`: Desktop is being deleted.
+- `RESTARTING`: Desktop is restarting.
+- `UPDATING`: Desktop is updating.
+- `STARTING`: Desktop is starting.
+- `STOPPING`: Desktop is stopping.
+- `STOPPED`: Desktop is stopped.
+- `ERROR`: Desktop did not manage start or restart.
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||
@@ -232,15 +309,24 @@ Name of the desktop. ||
 Resources of the desktop. ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User2)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64) ||
-|| cores | **string** (int64) ||
-|| coreFraction | **string** (int64) ||
+|| memory | **string** (int64)
+
+The minimum value is 1. ||
+|| cores | **string** (int64)
+
+The minimum value is 1. ||
+|| coreFraction | **string** (int64)
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
@@ -249,10 +335,14 @@ Resources of the desktop. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User2}
@@ -261,5 +351,12 @@ Required field.  ||
 ||Field | Description ||
 || subjectId | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subjectType | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

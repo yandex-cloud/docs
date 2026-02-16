@@ -1,5 +1,1 @@
-{% note warning %}
-
-You cannot edit this setting after you create a cluster.
-
-{% endnote %}
+You will not be able to edit this setting once you create a cluster.

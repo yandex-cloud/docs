@@ -24,13 +24,19 @@ description: Управление доступом в сервисе по соз
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-mysql.svg)
+{% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
 ### Сервисные роли {#service-roles}
+
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../../_roles/managed-mysql/clusters/connector.md) %}
 
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
@@ -39,6 +45,10 @@ description: Управление доступом в сервисе по соз
 #### managed-mysql.viewer {#managed-mysql-viewer}
 
 {% include [managed-mysql.viewer](../../_roles/managed-mysql/viewer.md) %}
+
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../../_roles/managed-mysql/restorer.md) %}
 
 #### managed-mysql.editor {#managed-mysql-editor}
 
@@ -59,6 +69,10 @@ description: Управление доступом в сервисе по соз
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

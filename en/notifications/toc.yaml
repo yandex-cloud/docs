@@ -1,0 +1,157 @@
+title: Yandex Cloud Notification Service
+href: index.yaml
+stage: preview
+items:
+  - name: Getting started
+    expanded: true
+    items:
+      - name: Overview
+        href: quickstart.md
+      - name: Getting started with mobile push notifications
+        href: quickstart-push.md
+      - name: Getting started with in-browser push notifications
+        href: quickstart-browser.md
+      - name: Getting started with SMS
+        href: quickstart-sms.md
+      - name: Getting started with topics
+        href: quickstart-topics.md
+  - name: Step-by-step operations
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Mobile push notifications
+        items:
+          - name: Creating a push notification channel
+            href: operations/push/channel-create.md
+          - name: Updating a push notification channel
+            href: operations/push/channel-update.md
+          - name: Deleting a push notification channel
+            href: operations/push/channel-delete.md
+          - name: Creating an endpoint
+            href: operations/push/endpoint-create.md
+          - name: Updating an endpoint
+            href: operations/push/endpoint-update.md
+          - name: Deleting an endpoint
+            href: operations/push/endpoint-delete.md
+          - name: Sending a push notification
+            href: operations/push/send.md
+      - name: In-browser push notifications
+        items:
+          - name: Creating a channel
+            href: operations/browser/channel-create.md
+          - name: Managing a channel
+            href: operations/browser/channel-manage.md
+          - name: Creating an endpoint
+            href: operations/browser/endpoint-create.md
+          - name: Managing an endpoint
+            href: operations/browser/endpoint-manage.md
+          - name: Sending a push notification to browser
+            href: operations/browser/send.md
+      - name: SMS notifications
+        items:
+          - name: Creating an SMS notification channel
+            href: operations/sms/channel-create.md
+          - name: Deleting an SMS notification channel
+            href: operations/sms/channel-delete.md
+          - name: Adding a test phone number
+            href: operations/sms/test-number-create.md
+          - name: Deleting a test phone number
+            href: operations/sms/test-number-delete.md
+          - name: Sending a test SMS notification
+            href: operations/sms/send.md
+          - name: Exiting the sandbox
+            href: operations/sms/exit-sandbox.md
+      - name: Topics
+        items:
+          - name: Create topic
+            href: operations/topics/topic-create.md
+          - name: Creating a subscription to a topic
+            href: operations/topics/subscription-create.md
+          - name: Sending a notification to a topic
+            href: operations/topics/send.md
+          - name: Managing a topic
+            href: operations/topics/topic-manage.md
+          - name: Managing a subscription
+            href: operations/topics/subscription-manage.md
+      - name: Configuring logging
+        href: operations/configure-logging.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Mobile push notifications
+        href: concepts/push.md
+      - name: In-browser push notifications
+        href: concepts/browser.md
+      - name: SMS
+        href: concepts/sms.md
+      - name: Topics
+        href: concepts/topics.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Tools
+    expanded: true
+    items:
+      - name: All tools
+        href: tools/index.md
+      - name: AWS CLI
+        href: tools/aws-cli.md
+      - name: AWS SDK for C++
+        href: tools/sdk-cpp.md
+      - name: AWS SDK for Go
+        href: tools/sdk-go.md
+      - name: AWS SDK for Java
+        href: tools/sdk-java.md
+      - name: AWS SDK for JavaScript
+        href: tools/sdk-javascript.md
+      - name: AWS SDK for Kotlin
+        href: tools/sdk-kotlin.md
+      - name: AWS SDK for .NET
+        href: tools/sdk-dot-net.md
+      - name: AWS SDK for PHP
+        href: tools/sdk-php.md
+      - name: AWS SDK for Python (boto3)
+        href: tools/sdk-python.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: API reference
+    items:
+      - name: Overview
+        href: api-ref/index.md
+      - name: Sending a request
+        href: api-ref/send-request.md
+      - name: Errors
+        href: api-ref/common-errors.md
+      - name: PlatformApplication
+        items:
+          - name: Create
+            href: api-ref/create-platform-application.md
+          - name: GetAttributes
+            href: api-ref/get-platform-application-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-platform-application-attributes.md
+          - name: List
+            href: api-ref/list-platform-applications.md
+          - name: Delete
+            href: api-ref/delete-platform-application.md
+      - name: Endpoint
+        items:
+          - name: Create
+            href: api-ref/create-platform-endpoint.md
+          - name: GetAttributes
+            href: api-ref/get-endpoint-attributes.md
+          - name: SetAttributes
+            href: api-ref/set-endpoint-attributes.md
+          - name: List
+            href: api-ref/list-endpoints.md
+          - name: Delete
+            href: api-ref/delete-endpoint.md
+      - name: Publish
+        href: api-ref/publish.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
+  - name: Logs {{ cloud-logging-name }}
+    href: concepts/logging.md
+  - name: Release notes
+    href: release-notes.md

@@ -11,6 +11,17 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -21,13 +32,17 @@
 
     1. [Создайте кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md) `ydb1` любой подходящей конфигурации.
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `ydb-account` и ролью `ydb.editor`. Трансфер будет использовать его для доступа к базе данных.
+
 
 * С помощью {{ TF }} {#tf}
 
@@ -52,7 +67,7 @@
 
         * `mos_version` — версия {{ OS }}.
         * `mos_password` — пароль пользователя-владельца базы данных {{ OS }}.
-        * `profile_name` — имя вашего профиля в YC CLI. 
+        * `profile_name` — имя вашего профиля в CLI. 
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -72,7 +87,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md).
 
 1. Создайте тестовый индекс `people` и задайте его схему:
 
@@ -147,7 +162,10 @@
         1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) типа `{{ ydb-short-name }}` со следующими настройками:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных `ydb1` из списка.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите сервисный аккаунт `ydb-account` из списка.
+
 
         1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**, использующий созданные эндпоинты.
 
@@ -205,7 +223,7 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. Удалите ресурсы в зависимости от способа их создания:
 
@@ -217,25 +235,14 @@
         1. [Удалите эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#delete).
         1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
         1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+
+        
         1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+
 
     * С помощью {{ TF }} {#tf}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `opensearch-to-ydb.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `opensearch-to-ydb.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

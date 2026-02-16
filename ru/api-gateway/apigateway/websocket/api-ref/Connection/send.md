@@ -1,9 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}:send
+    method: post
+    path:
+      type: object
+      properties:
+        connectionId:
+          description: |-
+            **string**
+            Required field. ID of the connection to which send.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - connectionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        data:
+          description: |-
+            **string** (bytes)
+            Required field. Data to send.
+            The maximum string length in characters is 131072.
+          type: string
+          format: bytes
+        type:
+          description: |-
+            **enum** (DataType)
+            Type of the sending data.
+            - `BINARY`: Binary data.
+            - `TEXT`: Text data.
+          type: string
+          enum:
+            - DATA_TYPE_UNSPECIFIED
+            - BINARY
+            - TEXT
+      required:
+        - data
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/Connection/send.md
 ---
 
-# API Gateway WebSocket Connection Service, REST: Connection.Send {#Send}
+# API Gateway WebSocket Connection Service, REST: Connection.Send
 
 Sends data to the specified connection.
 
@@ -19,7 +60,9 @@ POST https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/conn
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. ID of the connection to which send. ||
+Required field. ID of the connection to which send.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.serverless.apigateway.websocket.v1.SendToConnectionRequest}
@@ -35,12 +78,13 @@ Required field. ID of the connection to which send. ||
 ||Field | Description ||
 || data | **string** (bytes)
 
-Required field. Data to send. ||
+Required field. Data to send.
+
+The maximum string length in characters is 131072. ||
 || type | **enum** (DataType)
 
 Type of the sending data.
 
-- `DATA_TYPE_UNSPECIFIED`
 - `BINARY`: Binary data.
 - `TEXT`: Text data. ||
 |#

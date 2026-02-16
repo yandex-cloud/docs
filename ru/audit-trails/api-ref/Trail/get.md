@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+    method: get
+    path:
+      type: object
+      properties:
+        trailId:
+          description: |-
+            **string**
+            Required field. ID of the trail to return.
+            To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) request.
+          type: string
+      required:
+        - trailId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/get.md
 ---
 
-# Audit Trails API, REST: Trail.Get {#Get}
+# Audit Trails API, REST: Trail.Get
 
 Returns the specified trail.
 
@@ -38,9 +56,9 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
   "updatedAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "destination": {
-    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+    // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
     "objectStorage": {
       "bucketId": "string",
       "objectPrefix": "string"
@@ -52,7 +70,11 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
     },
     "dataStream": {
       "databaseId": "string",
-      "streamName": "string"
+      "streamName": "string",
+      "codec": "string"
+    },
+    "eventrouter": {
+      "eventrouterConnectorId": "string"
     }
     // end of the list of possible fields
   },
@@ -141,6 +163,11 @@ To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) requ
           ]
         },
         // end of the list of possible fields
+        // Includes only one of the fields `dnsFilter`
+        "dnsFilter": {
+          "includeNonrecursiveQueries": "boolean"
+        },
+        // end of the list of possible fields
         "resourceScopes": [
           {
             "id": "string",
@@ -189,7 +216,7 @@ Name of the trail ||
 || description | **string**
 
 Description of the trail ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
@@ -230,19 +257,24 @@ Describes which groups of events will be sent and which resources will be monito
 
 Configuration for event delivery to Object Storage
 
-Uploaded objects will have prefix <trail_id>/ by default
+Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -255,7 +287,7 @@ Name of the destination bucket ||
 || objectPrefix | **string**
 
 Prefix for exported objects. Optional
-If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
+If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}
@@ -279,6 +311,23 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|| codec | **enum** (Codec)
+
+Codec for compressing events
+
+- `CODEC_UNSPECIFIED`
+- `RAW`
+- `GZIP`
+- `ZSTD` ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}
@@ -444,6 +493,11 @@ Explicitly excluded events of specified service
 New events of the service will be delivered by default
 
 Includes only one of the fields `includedEvents`, `excludedEvents`. ||
+|| dnsFilter | **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+
+Filter is allowed only if service = dns
+
+Includes only one of the fields `dnsFilter`. ||
 || resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail ||
@@ -456,4 +510,13 @@ Policy with explicitly specified event group
 #|
 ||Field | Description ||
 || eventTypes[] | **string** ||
+|#
+
+## DnsDataEventsFilter {#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter}
+
+#|
+||Field | Description ||
+|| includeNonrecursiveQueries | **boolean**
+
+Not only recursive queries will be delivered ||
 |#

@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the RouteTable resource to move.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the destination folder.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/move.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Move {#Move}
+# Virtual Private Cloud API, REST: RouteTable.Move
 
 Move route table to another folder.
 
@@ -66,7 +93,7 @@ Required field. ID of the destination folder. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "staticRoutes": [
       {
@@ -77,7 +104,7 @@ Required field. ID of the destination folder. ||
         "nextHopAddress": "string",
         "gatewayId": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "object"
       }
     ]
   }
@@ -210,7 +237,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -246,7 +273,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -9,6 +9,8 @@ description: Следуя данной инструкции, вы сможете
 
 Заданная в ключе `user-data` конфигурация обрабатываются агентом [cloud-init](https://cloudinit.readthedocs.io/en/latest/), запущенным на ВМ. Cloud-init поддерживает разные форматы передачи метаданных, например [cloud-config](https://cloudinit.readthedocs.io/en/latest/reference/examples.html).
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 ## Создание виртуальной машины с пользовательским скриптом конфигурации {#create-vm-with-user-script}
 
 {% note warning %}
@@ -23,9 +25,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Задайте](create-linux-vm.md) нужные параметры ВМ.
   1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и в появившихся полях укажите:
@@ -48,16 +50,40 @@ description: Следуя данной инструкции, вы сможете
     --name my-sample-instance \
     --zone {{ region-id}}-a \
     --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
-    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<идентификатор_ключа> \
     --metadata-from-file user-data="<путь_к_файлу_конфигурации>"
   ```
 
   Где:
-  * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в [зоне доступности](../../../overview/concepts/geo-scope.md), указанной в параметре `--zone`.
-  * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
+
+  * `--name` — имя ВМ. Требования к имени:
+
+      {% include [name-format](../../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
+
+  * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+  * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
+
+      * `subnet-name` — имя [подсети](../../../vpc/concepts/network.md#subnet), расположенной в [зоне доступности](../../../overview/concepts/geo-scope.md), указанной в параметре `--zone`.
+      * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md).
+
+  * `--create-boot-disk` — настройки загрузочного диска ВМ:
+
+      * `image-family` — [семейство образов](../../concepts/image.md#family), например, `ubuntu-2204-lts`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+      * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+        
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
   * `--metadata-from-file` — ключ `user-data` и его значение — путь к файлу с конфигурацией `cloud-config` в формате YAML. Например: `--metadata-from-file user-data="/home/user/metadata.yaml"`.
-  
+
       Примеры конфигурации для `user-data` см. в подразделе [Примеры](#examples).
+
+  {% include [cli-metadata-variables-substitution-notice](../../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - {{ TF }} {#tf}
 
@@ -93,7 +119,7 @@ description: Следуя данной инструкции, вы сможете
     "platformId": "standard-v3",
     ...
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <имя_пользователя>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/nginx/Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
+      "user-data": "#cloud-config\ndatasource:\n  Ec2:\n    strict_id: false\nssh_pwauth: yes\nusers:\n- name: <имя_пользователя>\n  sudo: 'ALL=(ALL) NOPASSWD:ALL'\n  shell: /bin/bash\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\nwrite_files:\n  - path: '/usr/local/etc/startup.sh'\n    permissions: '755'\n    content: |\n      #!/bin/bash\n      apt-get update\n      apt-get install -y nginx\n      service nginx start\n      sed -i -- 's/ nginx/ Yandex Cloud - ${HOSTNAME}/' /var/www/html/index.nginx-debian.html\n    defer: true\nruncmd:\n  - ['/usr/local/etc/startup.sh']"
     },
     ...
   }
@@ -136,7 +162,7 @@ description: Следуя данной инструкции, вы сможете
         apt-get update
         apt-get install -y nginx
         service nginx start
-        sed -i -- "s/nginx/Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
+        sed -i -- "s/ nginx/ Yandex Cloud - ${HOSTNAME}/" /var/www/html/index.nginx-debian.html
       defer: true
   runcmd:
     - ["/usr/local/etc/startup.sh"]
@@ -209,11 +235,12 @@ description: Следуя данной инструкции, вы сможете
     - <публичный_SSH-ключ>
   write_files:
     - path: "/usr/local/etc/yc-install.sh"
-      permissions: "755"
+      permissions: "0755"
+      owner: <имя_пользователя>:<имя_пользователя>
       content: |
         #!/bin/bash
 
-        # YC CLI
+        # CLI
         echo "Installing Yandex Cloud CLI"
         curl \
           --silent \
@@ -225,12 +252,63 @@ description: Следуя данной инструкции, вы сможете
         # Save YC params
         echo "Saving YC params to the ~/.bashrc"
         cat << EOF >> $HOME/.bashrc
+          export PATH="$HOME/yandex-cloud/bin:$PATH"
+          export YC_CLI_VM_ID="${VM_ID:-unknown}"
+        EOF
       defer: true
   runcmd:
     - [su, <имя_пользователя>, -c, "/usr/local/etc/yc-install.sh"]
   ```
 
   {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
+- {{ unified-agent-full-name }}
+
+  {% note info %}
+
+  При создании виртуальной машины с [{{ unified-agent-full-name }}](../../../monitoring/concepts/data-collection/unified-agent/index.md) привяжите к ней [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на текущий [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+  {% endnote %}
+
+  Чтобы установить {{ unified-agent-short-name }} на создаваемой ВМ, укажите для ключа `user-data` следующее значение:
+
+  ```yaml
+  #cloud-config
+  datasource:
+    Ec2:
+      strict_id: false
+  ssh_pwauth: no
+  users:
+  - name: <имя_пользователя>
+    sudo: 'ALL=(ALL) NOPASSWD:ALL'
+    shell: /bin/bash
+    ssh_authorized_keys:
+    - <публичный_SSH-ключ>
+  runcmd:
+    - wget -O - https://{{ api-host-monitoring-1 }}/monitoring/v2/unifiedAgent/config/install.sh | bash
+  ```
+
+  {% include [cli-install](../../../_includes/compute/create/legend-for-creating-user-data-scripts.md) %}
+
+  Чтобы привязать сервисный аккаунт к ВМ при создании ВМ с помощью {{ TF }}, укажите в конфигурации строку:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    service_account_id = "ajehka*************"
+  }
+  ```
+
+  Чтобы {{ unified-agent-short-name }} записывал метрики в {{ managed-prometheus-full-name }}, укажите в конфигурации идентификатор воркспейса:
+  
+  ```hcl
+  resource "yandex_compute_instance" "my-vm" {
+    ...
+    metadata    = {
+      monitoring_workspaceid = "mon618clr**************"
+    }
+  }
+  ```
 
 - {{ TF }}
 
@@ -367,3 +445,4 @@ description: Следуя данной инструкции, вы сможете
 * [Восстановление работоспособности сетевых интерфейсов ВМ](../../qa/troubleshooting.md#unable-to-connect-to-new-multi-interface-vm)
 * [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)
 * [Установка агента для сбора метрик и логов {{ unified-agent-short-name }}](../../../monitoring/concepts/data-collection/unified-agent/installation.md#setup)
+* [Установка агента для сбора метрик в формате {{ prometheus-name }}](../../../monitoring/operations/prometheus/ingestion/prometheus-agent.md)

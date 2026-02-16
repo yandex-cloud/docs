@@ -3,7 +3,12 @@
 
 В этом руководстве вы узнаете, как с помощью serverless-технологий создать [бота](../../glossary/chat-bot.md) для Slack, который будет выполнять команды в чате и отвечать на сообщения пользователей.
 
-@[youtube](VmqFGYAPN_4)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvy5flbqdb4t6rbaum?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=VmqFGYAPN_4).
+
+
 
 Чтобы создать бота:
 
@@ -19,14 +24,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки чат-бота входят:
 
 * плата за использование API-шлюза (см. тарифы [{{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за использование функций (см. тарифы [{{ sf-full-name }}](../../functions/pricing.md)).
-
 
 ## Подготовьте окружение {#prepare}
 

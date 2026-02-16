@@ -1,0 +1,1 @@
+For image version 2.0, specify the `ubuntu` user; for image version 1.4, specify `root`.

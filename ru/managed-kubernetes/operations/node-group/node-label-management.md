@@ -4,9 +4,15 @@
 
 {% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
+## Ограничения в именах и значениях {{ k8s }}-меток {#restrictions}
+
+[{{ k8s }}-метки](../../concepts/index.md#node-labels) представляют собой пары `ключ:значение`.
+
+{% include [k8s-labels-restrictions-nodes](../../../_includes/managed-kubernetes/k8s-labels-restrictions-nodes.md) %}
+
 ## Назначить {{ k8s }}-метки при создании группы узлов {#node-group-creation}
 
-Вы можете добавлять [{{ k8s }}-метки](../../concepts/index.md#node-labels) сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
+Вы можете добавлять {{ k8s }}-метки сразу на все узлы {{ managed-k8s-name }} в [группе узлов](../../concepts/index.md#node-group). Для этого задайте набор меток в параметре `node_labels` при [создании группы узлов {{ managed-k8s-name }}](../../operations/node-group/node-group-create.md).
 
 1. Создайте [кластер {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster).
 
@@ -48,7 +54,7 @@
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../operations/node-connect-ssh.md#creating-ssh-keys).
      1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-        * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите окно для [обновлений](../../concepts/release-channels-and-updates.md#updates):
+        * В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите окно для [обновлений](../../concepts/release-channels-and-updates.md#updates):
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — отключение автоматических обновлений.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — обновления разрешены в любое время.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — обновления будут происходить во временной интервал, указанный в поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}**.
@@ -153,6 +159,8 @@
      1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
         Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
@@ -281,6 +289,8 @@
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
@@ -336,6 +346,8 @@
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 

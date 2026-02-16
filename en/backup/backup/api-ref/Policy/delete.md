@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Required field. Policy ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - policyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/delete.md
 ---
 
-# Cloud Backup API, REST: Policy.Delete {#Delete}
+# Cloud Backup API, REST: Policy.Delete
 
 Delete specific policy.
 
@@ -19,7 +37,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/policies/{policyId}
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +129,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

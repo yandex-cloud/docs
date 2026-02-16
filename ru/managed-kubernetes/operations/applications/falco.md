@@ -1,3 +1,8 @@
+---
+title: Установка Falco
+description: Следуя данной инструкции, вы сможете установить Falco.
+---
+
 # Установка Falco
 
 
@@ -26,7 +31,7 @@
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Falco](/marketplace/products/yc/falco) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Falco или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `falco-space`). Если вы оставите пространство имен по умолчанию, Falco может работать некорректно.
    * **Название приложения** — укажите название приложения.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
@@ -48,6 +53,8 @@
      --create-namespace \
      falco ./falco
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Falco может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `falco-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

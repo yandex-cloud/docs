@@ -18,7 +18,7 @@ description: Из статьи вы узнаете, как остановить 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.stop }}** и в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
@@ -42,7 +42,6 @@ description: Из статьи вы узнаете, как остановить 
      ```
 
      Результат:
- 
 
      ```bash
      - id: ds79cfnvmti3********
@@ -80,15 +79,13 @@ description: Из статьи вы узнаете, как остановить 
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
 
-
-
   1. Остановите балансировщик, указав в команде его идентификатор или имя:
 
      ```bash
      yc application-load-balancer load-balancer stop <имя_балансировщика>
      ```
 
-     Подробнее о команде `application-load-balancer load-balancer stop` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/stop.md).
+     Подробнее о команде `application-load-balancer load-balancer stop` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/stop.md).
 
 - API {#api}
 
@@ -107,7 +104,7 @@ description: Из статьи вы узнаете, как остановить 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.start }}**.
 
      Чтобы выполнить это действие с несколькими балансировщиками, выделите нужные в списке, в нижней части экрана нажмите кнопку **{{ ui-key.yacloud.common.start }}**, в открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
@@ -131,7 +128,6 @@ description: Из статьи вы узнаете, как остановить 
      ```
 
      Результат:
-
 
      ```bash
      - id: ds79cfnvmti3********
@@ -169,15 +165,13 @@ description: Из статьи вы узнаете, как остановить 
        created_at: "2022-02-11T09:01:46.724279145Z"
      ```
 
-
-
   1. Запустите балансировщик, указав в команде его идентификатор или имя:
 
      ```bash
      yc application-load-balancer load-balancer start <имя_балансировщика>
      ```
 
-     Подробнее о команде `application-load-balancer load-balancer start` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/start.md).
+     Подробнее о команде `application-load-balancer load-balancer start` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/start.md).
 
 - API {#api}
 

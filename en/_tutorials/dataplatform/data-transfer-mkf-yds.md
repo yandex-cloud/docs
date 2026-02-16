@@ -1,333 +1,373 @@
 # Delivering data from an {{ KF }} queue to {{ DS }}
 
 
-A {{ yds-name }} stream can get data from {{ KF }} topics in real time.
+A stream in {{ yds-name }} can receive data from {{ KF }} topics in real time.
 
-To run data delivery:
+To start data delivery:
 
-1. [Create a stream for the {{ yds-name }} target](#create-target-yds).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Create a target stream in {{ yds-name }}](#create-target-yds).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
+
+	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+
+* {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
+
+    * [Based on allocated resources](../../data-streams/pricing.md#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+    * [On-demand](../../data-streams/pricing.md#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
+
+
 ## Getting started {#before-you-begin}
 
-1. Prepare the data transfer infrastructure:
+1. Set up your data delivery infrastructure:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) with any suitable configuration.
-      1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) in any suitable configuration.
-      1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
-      1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the created topic.
 
-   - {{ TF }} {#tf}
+        1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable configuration.
+        1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+        1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
+        1. [In the source cluster, create a user](../../managed-kafka/operations/cluster-accounts.md#create-account) with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` permissions for the new topic.
 
-      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    - {{ TF }} {#tf}
 
-      1. Download the [data-transfer-mkf-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-yds/blob/main/data-transfer-mkf-ydb.tf) configuration file to the same working directory.
+        1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+        1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+        1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+        1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-         This file describes:
+        1. Download the [data-transfer-mkf-ydb.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-yds/blob/main/data-transfer-mkf-ydb.tf) configuration file to the same working directory.
 
-         * [Network](../../vpc/concepts/network.md#network).
-         * [Subnet](../../vpc/concepts/network.md#subnet).
-         * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
-         * {{ mkf-name }} source cluster.
-         * {{ KF }} topic.
-         * {{ KF }} user.
-         * {{ ydb-name }} database.
-         * Transfer.
+            This file describes:
 
-      1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
+            * [Network](../../vpc/concepts/network.md#network).
+            * [Subnet](../../vpc/concepts/network.md#subnet).
+            * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
+            * {{ mkf-name }} source cluster.
+            * {{ KF }} topic.
+            * {{ KF }} user.
+            * {{ ydb-name }} database.
+            * Transfer.
 
-         * `source_kf_version`: {{ KF }} version in the source cluster.
-         * `source_user_name`: Username for establishing a connection to the {{ KF }} topic.
-         * `source_user_password`: User password.
-         * `target_db_name`: {{ ydb-name }} database name.
-         * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
+        1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+            * `source_kf_version`: {{ KF }} version in the source cluster.
+            * `source_user_name`: Username for connection to the {{ KF }} topic.
+            * `source_user_password`: User password.
+            * `target_db_name`: {{ ydb-name }} database name.
+            * `transfer_enabled`: Set to `0` to ensure that no transfer is created until you [create endpoints manually](#prepare-transfer).
 
-         ```bash
-         terraform validate
-         ```
+        1. Validate your {{ TF }} configuration files using this command:
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
-
-      1. Create the required infrastructure:
-
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
-
-   {% endlist %}
-
-   The created {{ KF }} `sensors` topic in the source cluster will receive test data from car sensors in JSON format:
-
-   ```json
-   {
-       "device_id":"iv9a94th6rzt********",
-       "datetime":"2020-06-05 17:27:00",
-       "latitude":"55.70329032",
-       "longitude":"37.65472196",
-       "altitude":"427.5",
-       "speed":"0",
-       "battery_voltage":"23.5",
-       "cabin_temperature":"17",
-       "fuel_level":null
-   }
-   ```
-
-1. Install the utilities:
-
-   - [kafkacat](https://github.com/edenhill/kcat) to read and write data to {{ KF }} topics.
-
-      ```bash
-      sudo apt update && sudo apt install --yes kafkacat
-      ```
-
-      Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
-
-   - [jq](https://stedolan.github.io/jq/) for JSON file stream processing.
-
-      ```bash
-      sudo apt update && sudo apt-get install --yes jq
-      ```
-
-## Create a stream for the {{ yds-name }} target {#create-target-yds}
-
-[Create a stream for the {{ yds-name }} target](../../data-streams/operations/aws-cli/create.md) in the {{ ydb-name }} database.
-
-## Prepare and activate the transfer {#prepare-transfer}
-
-1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ KF }}` source](../../data-transfer/operations/endpoint/source/kafka.md):
-
-   **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
-
-      Select a source cluster from the list and specify its connection settings.
-
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**.
-
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
-      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema in two ways:
-
-         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
-
-            Set a list of topic fields manually:
-
-            | Name | Type | Key |
-            | :-- | :-- | :--- |
-            | `device_id` | `STRING` | Yes |
-            | `datetime` | `STRING` |  |
-            | `latitude` | `DOUBLE` |  |
-            | `longitude` | `DOUBLE` |  |
-            | `altitude` | `DOUBLE` |  |
-            | `speed` | `DOUBLE` |  |
-            | `battery_voltage` | `DOUBLE` |
-            | `cabin_temperature` | `UINT16` |
-            | `fuel_level` | `UINT16` |
-
-         * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`​.
-
-            Create and upload the `json_schema.json` file in JSON format:
-
-            {% cut "json_schema.json" %}
-
-            ```json
-            [
-                {
-                    "name": "device_id",
-                    "type": "string",
-                    "key": true
-                },
-                {
-                    "name": "datetime",
-                    "type": "string"
-                },
-                {
-                    "name": "latitude",
-                    "type": "double"
-                },
-                {
-                    "name": "longitude",
-                    "type": "double"
-                },
-                {
-                    "name": "altitude",
-                    "type": "double"
-                },
-                {
-                    "name": "speed",
-                    "type": "double"
-                },
-                {
-                    "name": "battery_voltage",
-                    "type": "double"
-                },
-                {
-                    "name": "cabin_temperature",
-                    "type": "uint16"
-                },
-                {
-                    "name": "fuel_level",
-                    "type": "uint16"
-                }
-            ]
+            ```bash
+            terraform validate
             ```
 
-            {% endcut %}
+            {{ TF }} will display any configuration errors detected in your files.
+
+        1. Create the required infrastructure:
+
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+            {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+    {% endlist %}
+
+    The new source cluster {{ KF }} topic named `sensors` will receive test data from car sensors in JSON format:
+
+    ```json
+    {
+        "device_id":"iv9a94th6rzt********",
+        "datetime":"2020-06-05 17:27:00",
+        "latitude":"55.70329032",
+        "longitude":"37.65472196",
+        "altitude":"427.5",
+        "speed":"0",
+        "battery_voltage":"23.5",
+        "cabin_temperature":"17",
+        "fuel_level":null
+    }
+    ```
+
+1. Install these tools:
+
+    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+
+        ```bash
+        sudo apt update && sudo apt install --yes kafkacat
+        ```
+
+        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
+
+        ```bash
+        sudo apt update && sudo apt-get install --yes jq
+        ```
+
+## Create a target stream in {{ yds-name }} {#create-target-yds}
+
+[Create a target stream in {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) for your {{ ydb-name }} database.
+
+## Set up and activate the transfer {#prepare-transfer}
+
+1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
+
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.title }}**:
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`
+
+        Select your source cluster from the list and specify its connection settings.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**
+
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: You can specify a schema using one of these two methods:
+
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`
+
+                Set a list of topic fields manually:
+
+                | Name | Type | Key |
+                | :-- | :-- | :--- |
+                |`device_id`|`STRING`| Yes|
+                |`datetime` |`STRING`|  |
+                |`latitude` |`DOUBLE`|  |
+                |`longitude`|`DOUBLE`|  |
+                |`altitude` |`DOUBLE`|  |
+                |`speed`    |`DOUBLE`|  |
+                |`battery_voltage`| `DOUBLE`||
+                |`cabin_temperature`| `UINT16`||
+                | `fuel_level`|`UINT16`||
+
+            * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`
+
+                Create and upload a data schema file in JSON format, `json_schema.json`:
+
+                {% cut "json_schema.json" %}
+
+                ```json
+                [
+                    {
+                        "name": "device_id",
+                        "type": "string",
+                        "key": true
+                    },
+                    {
+                        "name": "datetime",
+                        "type": "string"
+                    },
+                    {
+                        "name": "latitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "longitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "altitude",
+                        "type": "double"
+                    },
+                    {
+                        "name": "speed",
+                        "type": "double"
+                    },
+                    {
+                        "name": "battery_voltage",
+                        "type": "double"
+                    },
+                    {
+                        "name": "cabin_temperature",
+                        "type": "uint16"
+                    },
+                    {
+                        "name": "fuel_level",
+                        "type": "uint16"
+                    }
+                ]
+                ```
+
+                {% endcut %}
 
 1. [Create an endpoint](../../data-transfer/operations/endpoint/index.md#create) for the [`{{ yds-full-name }}` target](../../data-transfer/operations/endpoint/target/data-streams.md):
 
-   **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
+    **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTarget.connection.title }}**:
 
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the {{ yds-name }} data stream.
-   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select or create a service account with the `yds.editor` role.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select your {{ ydb-name }} database from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
+
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
+
 
 1. Create a transfer:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the created endpoints.
-      1. [Activate](../../data-transfer/operations/transfer.md#activate) your transfer.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_** type that will use the endpoints you created.
 
-   - {{ TF }} {#tf}
+            If you want to transform data during the transfer, specify the relevant transformers in the transfer settings:
 
-      1. In the `data-transfer-mkf-ydb.tf` file, specify the variables:
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
 
-         * `source_endpoint_id`: ID of the source endpoint.
-         * `target_endpoint_id`: ID of the target endpoint.
-         * `transfer_enabled`: Set to `1` to enable transfer creation.
+        1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+    - {{ TF }} {#tf}
 
-         ```bash
-         terraform validate
-         ```
+        1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create a transfer.
 
-      1. Create the required infrastructure:
+        1. If you want to transform data during the transfer, add the `transformation` section with a list of relevant transformers to the `yandex_datatransfer_transfer` resource:
 
-         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+            ```hcl
+            resource "yandex_datatransfer_transfer" "mkf-ydb-transfer" {
+              ...
+              transformation {
+                transformers{
+                  <transformer_1>
+                }
+                transformers{
+                  <transformer_2>
+                }
+                ...
+                transformers{
+                  <transformer_N>
+                }
+              }
+            }
+            ```
 
-         Once created, your transfer will be activated automatically.
+            The following transformer types are available:
 
-   {% endlist %}
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
+            For more information on configuring transformers, see [this {{ TF }} provider article]({{ tf-provider-dt-transfer }}).
+
+        1. Validate your {{ TF }} configuration files using this command:
+
+            ```bash
+            terraform validate
+            ```
+
+            {{ TF }} will display any configuration errors detected in your files.
+
+        1. Create the required infrastructure:
+
+            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+            The transfer will be activated automatically upon creation.
+
+    {% endlist %}
 
 ## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Make sure the data from the topic in the source {{ mkf-name }} cluster is being moved to the {{ yds-name }} stream:
+1. Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the stream in {{ yds-name }}:
 
-   1. Create a `sample.json` file with the following test data:
+    1. Create a file named `sample.json` with test data:
 
-      ```json
-      {
-          "device_id": "iv9a94th6rzt********",
-          "datetime": "2020-06-05 17:27:00",
-          "latitude": 55.70329032,
-          "longitude": 37.65472196,
-          "altitude": 427.5,
-          "speed": 0,
-          "battery_voltage": 23.5,
-          "cabin_temperature": 17,
-          "fuel_level": null
-      }
+        ```json
+        {
+            "device_id": "iv9a94th6rzt********",
+            "datetime": "2020-06-05 17:27:00",
+            "latitude": 55.70329032,
+            "longitude": 37.65472196,
+            "altitude": 427.5,
+            "speed": 0,
+            "battery_voltage": 23.5,
+            "cabin_temperature": 17,
+            "fuel_level": null
+        }
 
-      {
-          "device_id": "rhibbh3y08qm********",
-          "datetime": "2020-06-06 09:49:54",
-          "latitude": 55.71294467,
-          "longitude": 37.66542005,
-          "altitude": 429.13,
-          "speed": 55.5,
-          "battery_voltage": null,
-          "cabin_temperature": 18,
-          "fuel_level": 32
-      }
+        {
+            "device_id": "rhibbh3y08qm********",
+            "datetime": "2020-06-06 09:49:54",
+            "latitude": 55.71294467,
+            "longitude": 37.66542005,
+            "altitude": 429.13,
+            "speed": 55.5,
+            "battery_voltage": null,
+            "cabin_temperature": 18,
+            "fuel_level": 32
+        }
 
-      {
-          "device_id": "iv9a94th6r********",
-          "datetime": "2020-06-07 15:00:10",
-          "latitude": 55.70985913,
-          "longitude": 37.62141918,
-          "altitude": 417.0,
-          "speed": 15.7,
-          "battery_voltage": 10.3,
-          "cabin_temperature": 17,
-          "fuel_level": null
-      }
-      ```
+        {
+            "device_id": "iv9a94th6r********",
+            "datetime": "2020-06-07 15:00:10",
+            "latitude": 55.70985913,
+            "longitude": 37.62141918,
+            "altitude": 417.0,
+            "speed": 15.7,
+            "battery_voltage": 10.3,
+            "cabin_temperature": 17,
+            "fuel_level": null
+        }
+        ```
 
-   1. Send data from the `sample.json` file to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
+    1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
-      ```bash
-      jq -rc . sample.json | kafkacat -P \
-         -b <broker_host_FQDN>:9091 \
-         -t sensors \
-         -k key \
-         -X security.protocol=SASL_SSL \
-         -X sasl.mechanisms=SCRAM-SHA-512 \
-         -X sasl.username="<username_in_the_source_cluster>" \
-         -X sasl.password="<user_password_in_the_source_cluster>" \
-         -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
-      ```
+        ```bash
+        jq -rc . sample.json | kafkacat -P \
+           -b <broker_host_FQDN>:9091 \
+           -t sensors \
+           -k key \
+           -X security.protocol=SASL_SSL \
+           -X sasl.mechanisms=SCRAM-SHA-512 \
+           -X sasl.username="<username_in_source_cluster>" \
+           -X sasl.password="<user_password_in_source_cluster>" \
+           -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
+        ```
 
-      The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and working with `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
+        The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-   {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
+    {% include [get-yds-data](../../_includes/data-transfer/get-yds-data.md) %}
 
 ## Delete the resources you created {#clear-out}
 
 {% note info %}
 
-Before deleting the created resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
-1. [Delete endpoints](../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
-1. If you created a service account together with the target endpoint, [delete it](../../iam/operations/sa/delete.md).
+1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 
-Delete the other resources depending on how they were created:
 
-{% list tabs group=instructions %}
+1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
-- Manually {#manual}
 
-   1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
-   1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
+1. Delete the other resources depending on how you created them:
 
-- {{ TF }} {#tf}
+   {% list tabs group=instructions %}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `data-transfer-mkf-ydb.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   - Manually {#manual}
 
-      ```bash
-      terraform validate
-      ```
+       1. [Delete the {{ mkf-name }} cluster](../../managed-kafka/operations/cluster-delete.md).
+       1. [Delete the {{ ydb-name }} database](../../ydb/operations/manage-databases.md#delete-db).
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+   - {{ TF }} {#tf}
 
-   1. Confirm updating the resources.
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the configuration file `data-transfer-mkf-ydb.tf` will be deleted.
-
-{% endlist %}
+   {% endlist %}

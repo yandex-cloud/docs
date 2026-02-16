@@ -2,7 +2,7 @@
 
 {% include [key-without-password-alert](../../../_includes/compute/key-without-password-alert.md) %}
 
-После [включения доступа](./index.md), вы можете подключиться к серийной консоли для взаимодействия с [ВМ](../../concepts/vm.md). Перед [подключением](../../../glossary/ssh-keygen.md) к серийной консоли внимательно ознакомьтесь с разделом [{#T}](#security).
+После [включения доступа](./index.md), вы можете подключиться к серийной консоли для взаимодействия с [ВМ](../../concepts/vm.md). Перед [подключением](../../../glossary/ssh-keygen.md) к серийной консоли внимательно ознакомьтесь с разделом [Безопасность](#security).
 
 ## Безопасность {#security}
 
@@ -18,7 +18,7 @@
   * `NO` — отказаться.
 
   Убедитесь, что отпечаток по ссылке совпадает с отпечатком, полученным от клиента.
-* Вы можете скачивать публичный [SSH-ключ](https://{{ s3-storage-host }}/cloud-certs/serialssh-knownhosts) хоста перед каждым подключением к серийной консоли.
+* Вы можете скачивать публичный [SSH-ключ](https://{{ s3-storage-host }}/serialssh-certs/serialssh-knownhosts) хоста перед каждым подключением к серийной консоли.
 
   Используйте полученный публичный SSH-ключ при подключении к серийной консоли.
 
@@ -42,7 +42,7 @@
 
 Для подключения к ВМ необходимо знать ее идентификатор. Как получить идентификатор ВМ читайте в разделе [{#T}](../vm-info/get-info.md).
 
-Дальнейший порядок действий по подключению зависит от того, включен ли для ВМ доступ по [OS Login](../../../organization/concepts/os-login.md). Если для ВМ [включен](../vm-connect/enable-os-login.md) доступ по OS Login, подключиться к серийной консоли можно с использованием экспортированного SSH-сертификата. Для подключения к ВМ с выключенным доступом по OS Login используются [SSH-ключи](../../../glossary/ssh-keygen.md).
+Дальнейший порядок действий по подключению зависит от того, включен ли для ВМ доступ по [{{ oslogin }}](../../../organization/concepts/os-login.md). Если для ВМ [включен](../vm-connect/enable-os-login.md) доступ по {{ oslogin }}, подключиться к серийной консоли можно с использованием экспортированного SSH-сертификата. Для подключения к ВМ с выключенным доступом по {{ oslogin }} используются [SSH-ключи](../../../glossary/ssh-keygen.md).
 
 Некоторые ОС могут запрашивать данные пользователя для доступа на ВМ. Поэтому перед подключением к серийной консоли таких ВМ необходимо создать локальный пароль пользователя.
 
@@ -50,10 +50,16 @@
 
 - С SSH-ключом
 
+  1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
   1. Создайте локальный пароль пользователя на ВМ:
       1. [Подключитесь](../vm-connect/ssh.md) к ВМ по SSH.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Отключитесь от ВМ. Для этого введите команду `logout`.
+
+  1. {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
 
   1. Подключитесь к ВМ.
 
@@ -74,14 +80,14 @@
 
       При подключении система может запросить логин и пароль для аутентификации на ВМ. Введите созданные ранее логин и пароль, после чего вы получите доступ к серийной консоли.
 
-- С SSH-сертификатом по OS Login
+- С SSH-сертификатом по {{ oslogin }}
 
   1. {% include [cli-install](../../../_includes/cli-install.md) %}
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Создайте локальный пароль пользователя на ВМ:
-      1. [Подключитесь](../vm-connect/os-login.md) к ВМ по OS Login.
+      1. [Подключитесь](../vm-connect/os-login.md) к ВМ по {{ oslogin }}.
       1. {% include [create-serial-console-user](../../../_includes/compute/create-serial-console-user.md) %}
       1. Отключитесь от ВМ. Для этого введите команду `logout`.
 
@@ -91,7 +97,7 @@
 
   1. {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
 
-  1. [Экспортируйте](../vm-connect/os-login-export-certificate.md) сертификат OS Login, указав [идентификатор](../../../organization/operations/organization-get-id.md) вашей организации:
+  1. [Экспортируйте](../vm-connect/os-login-export-certificate.md) сертификат {{ oslogin }}, указав [идентификатор](../../../organization/operations/organization-get-id.md) вашей организации:
 
       ```bash
       yc compute ssh certificate export \
@@ -118,8 +124,15 @@
       Где:
       * `<путь_к_SSH-сертификату>` — путь к экспортированному SSH-сертификату, значение поля `Identity`.
       * `<идентификатор_ВМ>` — идентификатор виртуальной машины, к серийной консоли которой требуется подключиться.
-      * `<имя_пользователя_OS_Login>` — идентификатор пользователя OS Login в организации. Логин пользователя OS Login указан в конце имени экспортированного сертификата после [идентификатора](../../../organization/operations/organization-get-id.md) организации.
-          Также получить логин пользователя можно в [{{ org-full-name }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.page.user.title_tab-os-login }}**.
+      * `<имя_пользователя_OS_Login>` — идентификатор пользователя {{ oslogin }} в организации. Логин пользователя {{ oslogin }} указан в конце имени экспортированного сертификата после [идентификатора](../../../organization/operations/organization-get-id.md) организации.
+
+          Также логин пользователя можно получить с помощью команды `yc organization-manager os-login profile list` [{{ yandex-cloud }} CLI](../../../cli/cli-ref/organization-manager/cli-ref/oslogin/profile/list.md) или в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) в профиле пользователя на вкладке **{{ ui-key.yacloud_org.user.title_oslogin-profiles }}**.
+
+          {% note info %}
+
+          {% include [os-login-profile-tab-access-notice](../../../_includes/organization/os-login-profile-tab-access-notice.md) %}
+
+          {% endnote %}
 
       Пример для пользователя с логином `yid-orgusername` и ВМ с идентификатором `epd22a2tj3gd********`:
 
@@ -140,7 +153,9 @@
   * Нажмите на клавиатуре клавишу **Enter**.
   * Перезапустите ВМ (для ВМ, созданных до 22 февраля 2019 года).
 * Если при подключении с помощью SSH-ключа возникает ошибка `Warning: remote host identification has changed!`, выполните команду `ssh-keygen -R <IP-адрес_ВМ>`.
-* Если при подключении с помощью SSH-сертификата возникает ошибка `Permission denied (publickey).`, убедитесь, что для ВМ включена авторизация по OS Login при подключении к серийной консоли, а сертификат — не просрочен. При необходимости включите для ВМ авторизацию по OS Login при подключении к серийной консоли или повторно экспортируйте SSH-сертификат.
+* Если при подключении с помощью SSH-сертификата возникает ошибка `Permission denied (publickey).`, убедитесь, что для ВМ включена авторизация по {{ oslogin }} при подключении к серийной консоли, а сертификат — не просрочен. При необходимости включите для ВМ авторизацию по {{ oslogin }} при подключении к серийной консоли или повторно экспортируйте SSH-сертификат.
+* Если при подключении с помощью SSH-сертификата возникает ошибка `Connection closed by 2a0d:d6c1:0:**::*** port 9600`, на локальной машине откройте файл `known_hosts` и удалите все строки, которые начинаются с `[serialssh.cloud.yandex.net]:9600`. Затем повторите подключение и на вопрос `Are you sure you want to continue connecting (yes/no/[fingerprint])?` ответьте `yes`.
+
 
 ## Отключиться от серийной консоли {#turn-off-serial-console}
 

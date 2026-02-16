@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/delete.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.Delete {#Delete}
+# Identity Hub API, gRPC: GroupMappingService.Delete
 
 Deletes a group mapping. This will remove all the mapping items
 cascade.
@@ -16,15 +16,17 @@ cascade.
 
 ```json
 {
-  "federationId": "string"
+  "federation_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
-Required field. Federation the group mapping deletion is requested ||
+Required field. Federation the group mapping deletion is requested
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -33,12 +35,12 @@ Required field. Federation the group mapping deletion is requested ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federationId": "string"
+    "federation_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -57,13 +59,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -106,5 +108,5 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federationId | **string** ||
+|| federation_id | **string** ||
 |#

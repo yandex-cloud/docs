@@ -18,22 +18,24 @@ fun handle(request: IntArray): Int {
 Case 1. When invoking a function, the user provides the `[1, 22, 333]` array:
 
 ```bash
-curl -H "Authorization: Bearer <IAM_token>" \
+curl \
+     --header "Authorization: Bearer <IAM_token>" \
      --data "[1, 22, 333]" \
-     "https://functions.yandexcloud.net/<finction_ID>?integration=raw"
+     "https://functions.yandexcloud.net/<function_ID>?integration=raw"
 ```
 
-The function returns `356`, which is the sum of these numbers.
+The function returns `356`, the sum of the numbers.
 
 Case 2. The user provides an empty array:
 
 ```bash
-curl -H "Authorization: Bearer <IAM_token>" \
+curl \
+     --header "Authorization: Bearer <IAM_token>" \
      --data "[]" \
      "https://functions.yandexcloud.net/<function_ID>?integration=raw"
 ```
 
-The runtime environment captures the exception and generates a JSON document that contains an error message (the `errorMessage` field), error type (the `errorType` field), and [stack trace](https://ru.qwe.wiki/wiki/Stack_trace) (the `stackTrace` field).
+The runtime environment captures the exception and generates a JSON document that contains an error message (`errorMessage` field), error type (`errorType` field), and [stack trace](https://ru.qwe.wiki/wiki/Stack_trace) (`stackTrace` field).
 
 JSON document returned:
 
@@ -55,7 +57,8 @@ JSON document returned:
 Case 3. The user provides a string instead of numbers, which results in a deserialization error:
 
 ```bash
-curl -H "Authorization: Bearer <IAM_token>" \
+curl \
+     --header "Authorization: Bearer <IAM_token>" \
      --data "notanarray" \
      "https://functions.yandexcloud.net/<function_ID>?integration=raw"
 ```

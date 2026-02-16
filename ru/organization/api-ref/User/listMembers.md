@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the Organization resource to list members for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListMembersResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListMembersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListMembersResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListMembersResponse)
+            returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/listMembers.md
 ---
 
-# Cloud Organization API, REST: User.ListMembers {#ListMembers}
+# Identity Hub API, REST: User.ListMembers
 
 List organization active members.
 
@@ -19,7 +59,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the Organization resource to list members for. ||
+Required field. ID of the Organization resource to list members for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListMembersRequest}
@@ -31,12 +73,16 @@ Required field. ID of the Organization resource to list members for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListMembersResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListMembersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListMembersResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListMembersResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListMembersResponse}
@@ -101,7 +147,9 @@ Claims representation, see https://openid.net/specs/openid-connect-core-1_0.html
 ||Field | Description ||
 || sub | **string**
 
-Required field. Subject - Identifier for the End-User at the Issuer. ||
+Required field. Subject - Identifier for the End-User at the Issuer.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 End-User's full name in displayable form including all name parts, possibly including titles and suffixes, ordered according to the End-User's locale and preferences. ||
@@ -138,7 +186,6 @@ If the phone number contains an extension, it is RECOMMENDED that the extension 
 
 Subject type.
 
-- `SUBJECT_TYPE_UNSPECIFIED`
 - `USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `GROUP`
@@ -166,7 +213,9 @@ Minimalistic analog of yandex.cloud.organizationmanager.v1.saml.Federation
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the federation. ||
+Required field. ID of the federation.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the federation. The name is unique within the cloud or organization ||

@@ -19,6 +19,6 @@ The `managed-airflow.integrationProvider` role allows the Apache Airflow™ clus
 
 {% endcut %}
 
-This role also includes the `logging.writer`, `monitoring.editor`, `storage.viewer`, and `lockbox.viewer` permissions.
+This role includes the `logging.writer`, `monitoring.editor`, `storage.viewer`, and `lockbox.viewer` permissions.
 
 The role does not provide access to Yandex Lockbox secret contents. To grant the Apache Airflow™ cluster access to Yandex Lockbox secret contents, additionally assign the `lockbox.payloadViewer` [role ](../../lockbox/security/index.md#lockbox-payloadViewer)to the [service account](../../iam/concepts/users/service-accounts.md) either for the relevant folder or for specific secrets.

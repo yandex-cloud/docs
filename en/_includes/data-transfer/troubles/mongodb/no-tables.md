@@ -1,4 +1,4 @@
-### No table found {#no-tables}
+### No tables found {#no-tables}
 
 Error message:
 
@@ -6,6 +6,6 @@ Error message:
 Unable to find any tables
 ```
 
-An empty number of collections was extracted from the database. The user might be missing permissions for the database used in the transfer.
+An empty number of collections was extracted from the database. This error may occur if the user lacks permissions for the database used in the transfer.
 
-**Solution:** for the database to be transferred, grant the user the transfer uses to connect to the source `readWrite` permissions.
+**Solution**: Grant `readWrite` permissions for the database being trasferred to the user on whose behalf the transfer is connecting to the source.

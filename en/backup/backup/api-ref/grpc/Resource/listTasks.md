@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Resource/listTasks.md
 ---
 
-# Cloud Backup API, gRPC: ResourceService.ListTasks {#ListTasks}
+# Cloud Backup API, gRPC: ResourceService.ListTasks
 
 List tasks of resources.
 
@@ -15,23 +15,29 @@ List tasks of resources.
 
 ```json
 {
-  "computeInstanceId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "compute_instance_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
-Required field. Compute Cloud instance ID. ||
-|| pageSize | **int64**
+Required field. Compute Cloud instance ID.
 
-Number of results per page. ||
-|| pageToken | **string**
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
-Token for the results page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Token for the results page.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListTasksResponse {#yandex.cloud.backup.v1.ListTasksResponse}
@@ -42,23 +48,23 @@ Token for the results page. ||
     {
       "id": "int64",
       "cancellable": "bool",
-      "policyId": "string",
+      "policy_id": "string",
       "type": "Type",
       "progress": {
         "current": "int64",
         "total": "int64"
       },
       "status": "Status",
-      "enqueuedAt": "google.protobuf.Timestamp",
-      "startedAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
-      "completedAt": "google.protobuf.Timestamp",
-      "computeInstanceId": "string",
-      "resultCode": "Code",
+      "enqueued_at": "google.protobuf.Timestamp",
+      "started_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
+      "completed_at": "google.protobuf.Timestamp",
+      "compute_instance_id": "string",
+      "result_code": "Code",
       "error": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -67,7 +73,7 @@ Token for the results page. ||
 || tasks[] | **[Task](#yandex.cloud.backup.v1.Task)**
 
 Set of tasks parameters. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for the next results page. ||
 |#
@@ -83,14 +89,13 @@ Task ID. ||
 
 Shows whether the task is cancellable.
 Note: task cancellation is not supported yet. ||
-|| policyId | **string**
+|| policy_id | **string**
 
 Policy ID. ||
 || type | enum **Type**
 
 Type of the task.
 
-- `TYPE_UNSPECIFIED`
 - `BACKUP`
 - `RETENTION`
 - `RECOVERY`
@@ -103,24 +108,22 @@ Task progress. ||
 
 Task status.
 
-- `STATUS_UNSPECIFIED`
 - `ENQUEUED`
 - `ASSIGNED`
 - `STARTED`
 - `PAUSED`
 - `COMPLETED` ||
-|| enqueuedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| completedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| computeInstanceId | **string**
+|| enqueued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
-|| resultCode | enum **Code**
+|| result_code | enum **Code**
 
 Task result code.
 
-- `CODE_UNSPECIFIED`
 - `OK`
 - `ERROR`
 - `WARNING`

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
+    method: get
+    path:
+      type: object
+      properties:
+        apiKeyId:
+          description: |-
+            **string**
+            Required field. ID of the API key to return.
+            To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - apiKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/get.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.Get {#Get}
+# Identity and Access Management API, REST: ApiKey.Get
 
 Returns the specified API key.
 
@@ -22,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 || apiKeyId | **string**
 
 Required field. ID of the API key to return.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ApiKey}
@@ -37,6 +58,9 @@ To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#
   "description": "string",
   "lastUsedAt": "string",
   "scope": "string",
+  "scopes": [
+    "string"
+  ],
   "expiresAt": "string"
 }
 ```
@@ -74,9 +98,9 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| scope | **string**
+|| scopes[] | **string**
 
-Scope of the API key. 0-256 characters long. ||
+Scopes of the API key. 0-256 characters long. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp.

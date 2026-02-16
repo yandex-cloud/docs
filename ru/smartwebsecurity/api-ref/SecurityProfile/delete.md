@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/securityProfiles/{securityProfileId}
+    method: delete
+    path:
+      type: object
+      properties:
+        securityProfileId:
+          description: |-
+            **string**
+            Required field. ID of the security profile to delete.
+          type: string
+      required:
+        - securityProfileId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/api-ref/SecurityProfile/delete.md
 ---
 
-# SmartWebSecurity API, REST: SecurityProfile.Delete {#Delete}
+# SmartWebSecurity API, REST: SecurityProfile.Delete
 
 Deletes the specified security profile.
 

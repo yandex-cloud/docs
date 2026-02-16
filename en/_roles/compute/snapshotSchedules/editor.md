@@ -6,4 +6,4 @@ Users with this role can:
 * View lists of [disk snapshots](../../../compute/concepts/snapshot.md), create and delete snapshots.
 * View a list of disk snapshot operations and information on them.
 
-This role also includes the `compute.snapshotSchedules.viewer` permissions.
+This role includes the `compute.snapshotSchedules.viewer` permissions.

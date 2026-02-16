@@ -1,35 +1,35 @@
-The metric name is written to the `name` label.
+The `name` label contains the metric name.
 
-All {{ api-gw-name }} metrics have common labels:
+All {{ api-gw-name }} metrics share the following labels:
 
-| Label | Value |
+Label | Value
 --- | ---
-| gateway | API gateway ID |
-| path | Request path |
-| service | Service label, always `serverless-apigateway` |
+gateway | API gateway ID
+path | Request path
+service | Service label, always `serverless-apigateway`
 
 ## API metrics {#api-gw-api-metrics}
 
-Common labels for all API gateway metrics:
+Labels shared by all API gateway metrics:
 
-| Label | Value |
+Label | Value
 --- | ---
-| release | API gateway [version](../../../api-gateway/concepts/extensions/canary.md) |
-| operation | Request method, e.g., `GET`, `POST` |
+release | API gateway [version](../../../api-gateway/concepts/extensions/canary.md)
+operation | Request method, e.g., `GET` and `POST`
 
-| Metric name<br>Type, unit | Description<br>Labels |
+Metric name<br>Type, units | Description<br>Labels
 --- | ---
-| `api_gateway.errors_count_per_second`<br>`DGAUGE`, requests/s | Number of invalid requests per second.<br>`code` label: Response code, e.g., `200`, `404`, `502`. |
-| `api_gateway.requests_count_per_second`<br>`DGAUGE`, requests/s | Number of requests per second.<br>`code` label: Response code, e.g., `200`, `404`, `502`. |
-| `api_gateway.requests_latency_milliseconds`<br>`DGAUGE`, milliseconds | Histogram of response latency distribution (time between the API gateway receiving the first request byte and sending the last response byte).<br>`bin` label: Latency histogram buckets in milliseconds. |
-| `api_gateway.requests_latency_milliseconds_count`<br>`DGAUGE`, requests | Total number of requests for which latency was measured. |
-| `api_gateway.requests_latency_milliseconds_sum`<br>`DGAUGE`, milliseconds | Overall latency |
+`api_gateway.errors_count_per_second`<br>`DGAUGE`, requests per second | Number of error requests per second.<br>This metric features the `code` label containing the response code, e.g., `200`, `404`, or `502`.
+`api_gateway.requests_count_per_second`<br>`DGAUGE`, requests per second | Number of requests per second.<br>This metric features the `code` label containing the response code, e.g., `200`, `404`, or `502`.
+`api_gateway.requests_latency_milliseconds`<br>`DGAUGE`, milliseconds | Response latency distribution histogram (API gateway response latency is the time span between it receiving the request's first byte and sending the response's last byte.)<br>This metric features the `bin` label containing histogram buckets for latencies in milliseconds.
+`api_gateway.requests_latency_milliseconds_count`<br>`DGAUGE`, requests | Total requests with measured latency
+`api_gateway.requests_latency_milliseconds_sum`<br>`DGAUGE`, milliseconds | Total request processing latency
 
 ## WebSocket metrics {#api-gw-websocket-metrics}
 
-| Metric name<br>Type, unit | Description<br>Labels |
+Metric name<br>Type, units | Description<br>Labels
 --- | ---
-| `api_gateway.websocket_connections_count`<br>`DGAUGE`, number | Number of active [WebSocket connections](../../../api-gateway/concepts/extensions/websocket.md) |
-| `api_gateway.websocket_disconnections_count_per_second`<br>`DGAUGE`, number/s | Number of broken WebSocket connections per second.<br>`code` label: Response code, e.g., `200`, `404`, `502`. |
-| `api_gateway.websocket_messages_bytes_per_second`<br>`DGAUGE`, bytes/s | Amount of data sent through WebSocket connections in bytes per second.<br>Labels:<ul><li>`type`: Message type, e.g., `text`</li><li>`direction`: Message direction, `incoming` or `outcoming`</li></ul> |
-| `api_gateway.websocket_messages_count_per_second`<br>`DGAUGE`, number/s | Number of messages sent through WebSocket connections per second.<br>Labels:<ul><li>`type`: Message type, e.g., `text`</li><li>`direction`: Message direction, `incoming` or `outcoming`</li></ul> |
+`api_gateway.websocket_connections_count`<br>`DGAUGE`, count | Number of active [WebSocket connections](../../../api-gateway/concepts/extensions/websocket.md)
+`api_gateway.websocket_disconnections_count_per_second`<br>`DGAUGE`, units per second | Number of WebSocket disconnections per second.<br>This metric features the `code` label containing the response code, e.g., `200`, `404`, or `502`.
+`api_gateway.websocket_messages_bytes_per_second`<br>`DGAUGE`, bytes per second | Size of data (in bytes) sent over WebSocket connections per second.<br>Labels:<ul><li>`type`: Message type, e.g., `text`.</li><li>`direction`: Message direction, `incoming` or `outcoming`.</li></ul>
+`api_gateway.websocket_messages_count_per_second`<br>`DGAUGE`, units per second | Number of messages sent over WebSocket connections per second.<br>Labels:<ul><li>`type`: Message type, e.g., `text`.</li><li>`direction`: Message direction, `incoming` or `outcoming`.</li></ul>

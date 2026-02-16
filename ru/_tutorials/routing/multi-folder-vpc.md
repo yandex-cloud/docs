@@ -5,8 +5,8 @@
 
 В зависимости от выбранного интерфейса управления {{ yandex-cloud }} расширение области действия сети в другие каталоги достигается за счет:
 
-* перемещения подсетей в другие каталоги облака — `консоль управления (UI)`, `YC CLI`;
-* создания подсетей в целевых каталогах — `YC CLI`;
+* перемещения подсетей в другие каталоги облака — `консоль управления (UI)`, `CLI`;
+* создания подсетей в целевых каталогах — `CLI`;
 * создания подсетей в целевых каталогах — `Terraform`.
 
 После этого к подсетям в целевых каталогах можно подключать виртуальные машины, кластеры {{ managed-k8s-name }}, хосты БД, балансировщики нагрузки, агенты нагрузочного тестирования или другие ресурсы, находящиеся в этих каталогах. Таким образом можно получить сеть, которая обеспечит связность между ресурсами из разных каталогов.
@@ -46,14 +46,12 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ### Настройте права доступа {#roles}
 
@@ -240,7 +238,7 @@
 
    {% endlist %}
 
-1. Создайте [подсеть](../../vpc/concepts/network.md#subnet) `subnet-a` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`:
+1. Создайте [подсети](../../vpc/concepts/network.md#subnet) `subnet-a`, `subnet-b` и `subnet-d` в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d` соответственно:
 
    {% list tabs group=instructions %}
 
@@ -250,12 +248,10 @@
      1. В списке сервисов выберите **{{ vpc-name }}**.
      1. Нажмите на имя облачной сети `shared-net`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
-     1. Укажите название подсети `subnet-a`.
-     1. Выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+     1. Укажите название подсети `subnet-a`, `subnet-b` или `subnet-d` соответственно.
+     1. Выберите зону доступности `{{ region-id }}-a`, `{{ region-id }}-b` или `{{ region-id }}-d` соответственно из выпадающего списка.
      1. Введите CIDR подсети: IP-адрес `10.1.11.0` и маску подсети `24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-
-     Аналогично создайте подсети `subnet-b` и `subnet-d` в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d` в каталоге **net-folder**.
 
    - CLI {#cli}
 
@@ -390,16 +386,20 @@
   Создайте ВМ `net-vm` с ОС Linux в каталоге `net-folder`:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `net-folder`.
-  1. В списке сервисов выберите **{{ compute-name }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-     * Введите имя `net-vm`.
-     * Выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите подсеть `subnet-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя `ycuser`.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `subnet-a`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `ycuser`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `net-vm`.
   1. Остальные настройки оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Аналогично создайте ВМ `dev-vm` и `prod-vm` в соответствующих каталогах.
@@ -448,23 +448,25 @@
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
        --network-interface subnet-name=subnet-a,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=dev-vm --hostname=dev-vm \
        --zone={{ region-id }}-b \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-b,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-b,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
- 
+
      yc compute instance create --name=prod-vm --hostname=prod-vm \
        --zone={{ region-id }}-d \
        --platform=standard-v3 \
        --cores=2 --memory=4G --core-fraction=100 \
        --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-       --network-interface subnet-name=default-{{ region-id }}-d,ipv4-address=auto,nat-ip-version=ipv4 \
+       --network-interface subnet-name=subnet-d,ipv4-address=auto,nat-ip-version=ipv4 \
        --metadata-from-file user-data=vm-config.txt
      ```
+
+     {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   1. Сохраните публичные IP-адреса ВМ для дальнейшего использования:
 

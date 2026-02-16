@@ -1,11 +1,6 @@
 title: Готовые решения для известных сценариев
 description:
   - >-
-    "Известные решения и советы для оптимального использования сервисов {{
-    yandex-cloud }}."
-meta:
-  title: Troubleshooting
-  description: >-
     Известные решения и советы для оптимального использования сервисов {{
     yandex-cloud }}.
 links:
@@ -54,9 +49,6 @@ links:
   - title: '{{ data-transfer-name }}'
     description: Решения для {{ data-transfer-name }}
     href: data-transfer/
-  - title: '{{ forms-name }}'
-    description: Решения для {{ forms-name }}
-    href: forms/
   - title: '{{ iam-name }}'
     description: Решения для {{ iam-short-name }}
     href: iam/
@@ -78,6 +70,9 @@ links:
   - title: '{{ mpg-name }}'
     description: Решения для {{ mpg-name }}
     href: managed-postgresql/
+  - title: '{{ mkf-name }}'
+    description: Решения для {{ mkf-name }}
+    href: managed-kafka/
   - title: '{{ ydb-name }}'
     description: Решения для {{ ydb-name }}
     href: managed-ydb/
@@ -105,9 +100,11 @@ links:
   - title: '{{ TF }}-провайдер {{ yandex-cloud }}'
     description: Решения для {{ TF }}-провайдера {{ yandex-cloud }}
     href: terraform/
-  - title: '{{ tracker-name }}'
-    description: Решения для {{ tracker-name }}
-    href: tracker/
   - title: '{{ vpc-name }}'
     description: Решения для {{ vpc-short-name}}
     href: vpc/
+meta:
+  title: Troubleshooting
+  description: >-
+    Известные решения и советы для оптимального использования сервисов {{
+    yandex-cloud }}.

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
+    method: get
+    path:
+      type: object
+      properties:
+        sinkId:
+          description: |-
+            **string**
+            Required field. ID of the sink to return.
+            To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request.
+          type: string
+      required:
+        - sinkId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/get.md
 ---
 
-# Cloud Logging Service, REST: Sink.Get {#Get}
+# Cloud Logging Service, REST: Sink.Get
 
 Returns the specified sink.
 
@@ -38,7 +56,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "serviceAccountId": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -79,7 +97,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

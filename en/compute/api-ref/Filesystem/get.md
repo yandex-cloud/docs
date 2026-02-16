@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
+    method: get
+    path:
+      type: object
+      properties:
+        filesystemId:
+          description: |-
+            **string**
+            Required field. ID of the filesystem to return.
+            To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - filesystemId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/get.md
 ---
 
-# Compute Cloud API, REST: Filesystem.Get {#Get}
+# Compute Cloud API, REST: Filesystem.Get
 
 Returns the specified filesystem.
 
@@ -23,7 +42,9 @@ GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 
 Required field. ID of the filesystem to return.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Filesystem}
@@ -37,7 +58,7 @@ To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "typeId": "string",
   "zoneId": "string",
   "size": "string",
@@ -73,7 +94,7 @@ Name of the filesystem. The name is unique within the folder. ||
 || description | **string**
 
 Description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -97,7 +118,6 @@ Block size used for the filesystem, specified in bytes. ||
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

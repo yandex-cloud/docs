@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}
+    method: get
+    path:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/get.md
 ---
 
-# DataSphere API v2, REST: Community.Get {#Get}
+# DataSphere API v2, REST: Community.Get
 
 Returns community.
 
@@ -32,7 +49,7 @@ Required field. ID of the community. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "createdById": "string",
   "organizationId": "string",
   "zoneId": "string"
@@ -60,7 +77,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || createdById | **string**

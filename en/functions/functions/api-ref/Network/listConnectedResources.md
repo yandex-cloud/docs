@@ -1,9 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/networks/connections
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        networkId:
+          description: |-
+            **string**
+            ID of the network to list serverless resources connected to it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+        cloudId:
+          description: |-
+            **string**
+            ID of the cloud to list serverless resources connected to any network from it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list serverless resources connected to any network from it.
+            Includes only one of the fields `networkId`, `cloudId`, `folderId`.
+          type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - networkId
+        - required:
+            - cloudId
+        - required:
+            - folderId
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listConnectedResources.md
 ---
 
-# Cloud Functions Service, REST: Network.ListConnectedResources {#ListConnectedResources}
+# Cloud Functions Service, REST: Network.ListConnectedResources
 
 Retrieves the list of serverless resources connected to any network from the specified scope.
 
@@ -23,11 +76,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request. ||
+[ListConnectedResourcesResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListConnectedResourcesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || networkId | **string**
 
 ID of the network to list serverless resources connected to it.

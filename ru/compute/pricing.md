@@ -1,14 +1,28 @@
 ---
+title: Правила тарификации для {{ compute-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ compute-name }}.
 editable: false
 ---
 
+
 # Правила тарификации для {{ compute-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=f2dac101335a#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 
 ## Из чего складывается стоимость использования {{ compute-short-name }} {#rules}
 
@@ -29,6 +43,16 @@ editable: false
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
+### Использование пулов резервов ВМ {#pool}
+
+{% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}
+
+В стоимость использования [пулов резервов ВМ](./concepts/reserved-pools.md) входит плата за весь свободный объем зарезервированных [вычислительных ресурсов ВМ](#prices-instance-resources), [кластеров GPU](#prices-gpu-clusters) и [программно ускоренных сетей](#software-accelerated-network).
+
+В рамках пула тарифицируются слоты в [статусе](./concepts/reserved-pools.md#slot-stats) `available`, а слоты в статусе `used` [тарифицируются как обычные ВМ](#instance). То есть, если вы привязываете ВМ к пулу, она продолжает тарифицироваться отдельно, но при этом занимает часть вычислительных ресурсов пула. Соответственно, плата за использование пула уменьшается. При исключении ВМ из пула вычислительные ресурсы высвобождаются, а плата за его использование увеличивается.
+
+Слоты в статусах `unavailable` и `pending` не тарифицируются.
+
 ### Использование виртуальных машин {#instance}
 
 Стоимость машины зависит от выделенных вычислительных ресурсов, операционной системы и времени использования. Подключаемые диски и использование сети оплачиваются отдельно.
@@ -41,17 +65,19 @@ editable: false
 
 О тарифах за использование внешнего IP-адреса читайте в разделе [{#T}](../vpc/pricing.md) документации сервиса {{ vpc-full-name }}.
 
+
 #### Вычислительные ресурсы {#instance-resources}
 
 При создании ВМ указывается количество ядер процессора (vCPU), количество графических ускорителей ([GPU](concepts/gpus.md)), базовый уровень производительности ядра и объем оперативной памяти (RAM) в ГБ. Подробнее читайте в разделе [{#T}](concepts/performance-levels.md).
 
 Базовый уровень производительности ядра зависит от выбранной [платформы](concepts/vm-platforms.md).
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
+
 
 #### Пример расчета стоимости вычислительных ресурсов {#instance-resources-example}
 
-Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake c разным [уровнем производительности vCPU](concepts/performance-levels.md).
+Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake с разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
 Созданы две ВМ с операционной системой Linux:
 * 2 × 20% vCPU и 2 ГБ RAM.
@@ -97,15 +123,18 @@ editable: false
 
 Таким образом, стоимость ВМ с 20% vCPU почти в два раза ниже стоимости ВМ со 100% vCPU.
 
+
 #### Операционные системы {#instance-os}
 
 Использование операционной системы на ВМ также тарифицируется. Стоимость зависит от лицензии на операционную систему и количества вычислительных ресурсов. В том числе влияет то, какой тип использования ядра выбран для ВМ.
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
+
 
 #### Использование лицензий Microsoft {#license-microsoft}
 
 Правила использования лицензий Microsoft описаны в разделе [{#T}](../microsoft/licensing.md).
+
 
 ### Использование хранилища (диски, снимки и образы) {#disk}
 
@@ -117,7 +146,7 @@ editable: false
 
 После удаления ВМ диски, снимки и образы продолжат тарифицироваться. Если эти ресурсы не нужны, удалите их.
 
-Цена указывается за 1 месяц использования. Тарификация посекундная.
+_Цена указывается за 1 месяц использования. Тарификация посекундная._
 
 {% note warning %}
 
@@ -127,11 +156,13 @@ editable: false
 
 {% endnote %}
 
+
 ### Использование {{ ig-name }} {#instance-groups}
 
 Использование компонента {{ ig-name }} не тарифицируется. Вы можете создавать группы ВМ, пользоваться хранилищем и вычислительными ресурсами в рамках [доступных лимитов](concepts/limits.md).
 
 Все остальные услуги {{ yandex-cloud }}, например, создание ВМ или выделение внешних IP-адресов, тарифицируются обычным образом. Исходящий трафик [тарифицируется](#prices-traffic) аналогично другим сервисам.
+
 
 
 ### Использование выделенных хостов {#dedicated-hosts}
@@ -142,7 +173,7 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 Использование дополнительных ресурсов, например, образов из {{ marketplace-name }} или сетевых дисков, тарифицируется обычным образом.
 
-{{ price-per-hour-count-per-second }}
+_{{ price-per-hour-count-per-second }}_
 
 {% cut "Пример расчета стоимости выделенного хоста" %}
 
@@ -165,6 +196,33 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% endcut %}
 
+
+### Использование программно ускоренной сети {#software-accelerated-network}
+
+[Программно ускоренная сеть](./concepts/software-accelerated-network.md) в {{ compute-name }} обеспечивается дополнительными ядрами vCPU, за которые взимается плата. Количество дополнительных ядер в зависимости от платформы и количества ядер ВМ приведено в таблице ниже:
+
+
+#|
+|| **Платформа** | **Количество vCPU у ВМ** | **Количество дополнительных vCPU** 
+**для программно ускоренной сети** ||
+|| Intel Broadwell | меньше 18 | 2 ||
+|| ^ | 18 и больше | 4 ||
+|| Intel Cascade Lake | меньше 20 | 2 ||
+|| ^ | 20 и больше | 4 ||
+|| Intel Ice Lake | меньше 36 | 2 ||
+|| ^ | 36 и больше | 4 ||
+|| Intel Ice Lake (Compute Optimized) | меньше 16 | 2 ||
+|| ^ | 16 и больше | 4 ||
+|| AMD Zen 3 | меньше 96 | 2 ||
+|| ^ | 96 и больше | 4 ||
+|| AMD Zen 4 | меньше 96 | 2 ||
+|| ^ | 96 и больше | 4 ||
+|| AMD Zen 4 (Compute-Optimized) | меньше 48 | 2 ||
+|| ^ | 48 и больше | 4 ||
+|#
+
+
+
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
@@ -173,9 +231,14 @@ vCPU и память ВМ, запущенных на выделенном хос
 
 {% note info %}
 
-По схеме CVoS можно заказать только ресурсы определенного вида: для недоступных видов ресурсов в колонках CVoS в разделе [Цены для региона Россия](#prices) стоят прочерки. Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
+Для ресурсов, доступных по схеме CVoS, в разделе [Цены для региона Россия](#prices) представлены отдельные цены с пометкой CVoS и указанием срока резервирования.
+
+Размер хранилища и интернет-трафика заказать таким образом пока невозможно.
 
 {% endnote %}
+
+_{{ price-per-hour-count-per-second }}_
+
 
 ## Цены для региона Россия {#prices}
 
@@ -184,127 +247,21 @@ vCPU и память ВМ, запущенных на выделенном хос
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+Доступ к платформам Gen2 и AMD Zen 3 предоставляется по запросу, при наличии технической возможности.
 
-Все цены указаны с включением НДС.
+Для выделенных хостов указываются цены за 1 vCPU, 1 ГБ RAM и 1 ГБ хранилища на локальном диске. Тарифицируются все ресурсы, доступные на выделенном хосте, вне зависимости от того, используются ли они. Например, на хосте [типа](concepts/dedicated-host.md#host-types) `intel-6338-c108-m704-n3200x6` доступны 108 vCPU, 704 ГБ RAM и 19&nbsp;200 ГБ хранилища на локальных дисках. См. пример расчета [выше](#dedicated-hosts).
 
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|compute }}', '{{ pcs|compute_gpu }}']}
+    excludeSkuIds={['{{ pc|compute.hostgroup.ram.v4a }}', '{{ pc|compute.hostgroup.ram.highfreq-v4a }}', '{{ pc|compute.hostgroup.cpu.c100.v4a }}', '{{ pc|compute.hostgroup.cpu.c100.highfreq-v4a }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-Цена с (CVoS) доступна только для обычных ВМ.
-
-
-### Вычислительные ресурсы ВМ {#prices-instance-resources}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-instance-resources.md](../_pricing/compute/rub-instance-resources.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-instance-resources.md](../_pricing/compute/kzt-instance-resources.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Кластеры GPU {#prices-gpu-clusters}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-gpu-clusters.md](../_pricing/compute/rub-gpu-clusters.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-gpu-clusters.md](../_pricing/compute/kzt-gpu-clusters.md) %}
-
-{% endlist %}
-
-
-
-
-### Диски, снимки и образы {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/compute/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/compute/kzt-storage.md) %}
-
-{% endlist %}
-
-
-
-
-### Файловые хранилища {#prices-nfs}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-nfs.md](../_pricing/compute/rub-nfs.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-nfs.md](../_pricing/compute/kzt-nfs.md) %}
-
-{% endlist %}
-
-
-
-
-
-### Вычислительные ресурсы выделенных хостов {#prices-dedicated-host}
-
-Указываются цены за 1 vCPU, 1 ГБ RAM и 1 ГБ хранилища на локальном диске. Тарифицируются все ресурсы, доступные на выделенном хосте, вне зависимости от того, используются ли они. Например, на хосте [типа](concepts/dedicated-host.md#host-types) `intel-6338-c108-m704-n3200x6` доступны 108 vCPU, 704 ГБ RAM и 19&nbsp;200 ГБ хранилища на локальных дисках. См. пример расчета [выше](#dedicated-hosts).
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-host-resources.md](../_pricing/compute/rub-host-resources.md) %}
-
-  {% include [rub-local-nvme.md](../_pricing/compute/rub-local-nvme.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-host-resources.md](../_pricing/compute/kzt-host-resources.md) %}
-
-  {% include [kzt-local-nvme.md](../_pricing/compute/kzt-local-nvme.md) %}
-
-{% endlist %}
-
-
-
-
-### Программно-ускоренная сеть {#software-accelerated-network}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-network.md](../_pricing/compute/rub-network.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-network.md](../_pricing/compute/kzt-network.md) %}
-
-{% endlist %}
 
 
 

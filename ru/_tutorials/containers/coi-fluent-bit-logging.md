@@ -1,3 +1,5 @@
+# Передача логов с {{ coi }} в {{ cloud-logging-full-name }}
+
 Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../../compute/concepts/vm.md), созданных из образов {{ coi }}, в сервис [{{ cloud-logging-full-name }}](../../logging/). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов с ВМ, созданной из образа {{ coi }}:
@@ -150,7 +152,7 @@ if __name__ == '__main__':
 
      fluentbit:
        container_name: fluentbit
-       image: {{ registry }}/yc/fluent-bit-plugin-yandex:v1.0.3-fluent-bit-1.8.6
+       image: cr.yandex/yc/fluent-bit-plugin-yandex:v2.1.1-fluent-bit-1.8.15
        ports:
          - 24224:24224
          - 24224:24224/udp
@@ -164,6 +166,7 @@ if __name__ == '__main__':
 
 1. Создайте файл `user-data.yaml`. Он описывает правила, по которым будут читаться логи контейнера. Если необходимо, в секции `users` измените имя пользователя и [SSH-ключ](../../glossary/ssh-keygen.md). Подробнее о том, как [сгенерировать SSH-ключи](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
+   
    ```yaml
    #cloud-config
    write_files:
@@ -215,6 +218,7 @@ if __name__ == '__main__':
          - ssh-ed25519 AAAA
    ```
 
+
    В секции `SERVICE` указаны настройки приложения Fluent Bit. [Подробнее о настройках](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit).
 
    В секции `INPUT` указано, откуда и как забирать логи. Для работы с логами в формате Fluentd и Fluent Bit используется протокол `forward`. Fluent Bit слушает логи на порту 24224.
@@ -245,6 +249,8 @@ yc compute instance create \
   --create-boot-disk image-id=${IMAGE_ID} \
   --service-account-name <имя_сервисного_аккаунта>
 ```
+
+{% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 ## Посмотрите логи {#read-logs}
 

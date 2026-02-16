@@ -1,3 +1,8 @@
+---
+title: Справочник аудитных логов {{ compute-full-name }} в {{ at-full-name }}
+description: На этой странице приведен справочник событий уровня сервисов и конфигурации {{ compute-name }}, отслеживаемых в {{ at-name }}.
+---
+
 # Справочник аудитных логов {{ at-full-name }}
 
 
@@ -8,6 +13,8 @@
 ```text
 {{ at-event-prefix }}.audit.compute.<имя_события>
 ```
+
+{% include [about-events-ref](../_includes/audit-trails/about-events-ref.md) %}
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
 

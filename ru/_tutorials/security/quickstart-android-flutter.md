@@ -1,8 +1,3 @@
----
-title: Как встроить {{ captcha-name }} в приложение для Android на платформе Flutter
-description: Следуя данной инструкции, вы сможете добавить капчу в Android-приложение на Flutter.
----
-
 # {{ captcha-full-name }} в приложении Android на Flutter
 
 [Flutter](https://ru.wikipedia.org/wiki/Flutter) — это фреймворк Google для разработки мобильных приложений. Он позволяет создавать приложения для Android и iOS на основе единого кода. Это упрощает процесс разработки и ускоряет выпуск продукта. Flutter использует язык программирования [Dart](https://ru.wikipedia.org/wiki/Dart), в котором есть набор готовых виджетов и инструментов для создания пользовательского интерфейса.
@@ -82,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 
        # валидация ответа
        response = requests.post(
-           "https://smartcaptcha.yandexcloud.net/validate",
+           "https://{{ captcha-domain }}/validate",
            data={
                "secret": SMARTCAPTCHA_SERVER_KEY,
                "token": token,
@@ -200,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
        </script>
 
        <script
-         src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onSmartCaptchaReady"
+         src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onSmartCaptchaReady"
          defer
        ></script>
      </head>

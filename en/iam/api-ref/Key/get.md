@@ -1,9 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/keys/{keyId}
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the Key resource to return.
+            To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        format:
+          description: |-
+            **enum** (KeyFormat)
+            Output format of the key.
+            - `PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.
+          type: string
+          enum:
+            - PEM_FILE
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/get.md
 ---
 
-# Identity and Access Management API, REST: Key.Get {#Get}
+# Identity and Access Management API, REST: Key.Get
 
 Returns the specified Key resource.
 
@@ -22,7 +52,9 @@ GET https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 || keyId | **string**
 
 Required field. ID of the Key resource to return.
-To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request. ||
+To get the ID use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iam.v1.GetKeyRequest}
@@ -89,7 +121,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || publicKey | **string**

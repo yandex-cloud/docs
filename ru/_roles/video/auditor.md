@@ -1,1 +1,1 @@
-Роль `video.auditor` позволяет просматривать информацию о ресурсах сервиса Cloud Video и их параметрах.
+Роль `video.auditor` позволяет просматривать информацию о ресурсах сервиса Cloud Video или отдельного [канала](../../video/concepts/index.md#channels), их настройках и назначенных [правах доступа](../../iam/concepts/access-control/index.md).

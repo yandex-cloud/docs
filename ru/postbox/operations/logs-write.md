@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится адрес.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Выберите адрес, для которого вы хотите настроить логирование.
     1. В блоке **{{ ui-key.yacloud.logging.label_title }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.  
     1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:

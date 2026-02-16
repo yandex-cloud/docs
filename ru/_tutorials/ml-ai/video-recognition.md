@@ -22,14 +22,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datasphere.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость работы модели входит:
 
 * плата за использование бакета (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
 * плата за использование вычислительных ресурсов (см. [тарифы {{ ml-platform-full-name }}](../../datasphere/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -131,7 +129,7 @@
 
    1. Перейдите в каталог `data-folder`.
    1. В списке сервисов выберите **{{ objstorage-name }}**.
-   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+   1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. На странице создания бакета:
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
       

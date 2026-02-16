@@ -14,7 +14,7 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -195,7 +195,6 @@
         }
         ```
 
-
     1. Назначьте пользователю роль `editor` на сервисный аккаунт `my-robot`. В свойстве `action` укажите `ADD`, а в свойстве `subject` - тип `userAccount` и ID пользователя:
 
        ```bash
@@ -219,9 +218,8 @@
 
 ## Примеры {#examples}
 
-* [{#T}](#multiple-roles).
-* [{#T}](#impersonation).
-* [{#T}](#access-to-sa).
+* [Назначить несколько ролей](#multiple-roles).
+* [Настроить доступ сервисного аккаунта к другому сервисному аккаунту](#access-to-sa).
 
 ### Назначить несколько ролей {#multiple-roles}
 
@@ -253,7 +251,6 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
@@ -275,7 +272,6 @@
 
      {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
 
-
      ```hcl
      ...
      resource "yandex_iam_service_account_iam_binding" "admin-account-iam" {
@@ -294,7 +290,6 @@
      }
      ...
      ```
-
 
      {% endcut %}
 
@@ -369,7 +364,6 @@
 
     {% endnote %}
 
-
     ```bash
     curl \
       --request POST \
@@ -385,86 +379,6 @@
       }]}' \
       https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
-
-
-{% endlist %}
-
-### Настроить имперсонацию {#impersonation}
-
-[Имперсонация](../../concepts/access-control/index.md#impersonation) позволяет пользователю выполнять действия от имени сервисного аккаунта с помощью флага `--impersonate-service-account-id`. Для этого у сервисного аккаунта должны быть нужные права, а у пользователя — роль `iam.serviceAccounts.tokenCreator`.
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  1. Узнайте ID сервисного аккаунта, например, `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов (в профиле администратора):
-
-      ```bash
-      yc iam service-account list
-      ```
-
-      Результат:
-
-      ```
-      +----------------------+----------+------------------+
-      |          ID          |   NAME   |   DESCRIPTION    |
-      +----------------------+----------+------------------+
-      | ajebqtreob2d******** | test-sa  | test-description |
-      | aje6o61dvog2******** | my-robot |                  |
-      +----------------------+----------+------------------+
-      ```
-
-  1. Назначьте сервисному аккаунту `test-sa` роль `viewer` на каталог `my-folder`. В типе субъекта укажите `serviceAccount`, а в значении — ID сервисного аккаунта (в профиле администратора):
-
-      ```
-      yc resource-manager folder add-access-binding my-folder \
-        --role viewer \
-        --subject serviceAccount:ajebqtreob2d********
-      ```
-
-  1. Получите ID пользователя и назначьте ему роль `iam.serviceAccounts.tokenCreator` на сервисный аккаунт `test-sa` (в профиле администратора):
-
-      ```
-      yc iam service-account add-access-binding test-sa \
-        --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfh********
-      ```
-
-
-  1. Пользователь может выполнить команду от имени сервисного аккаунта `test-sa` с помощью флага `--impersonate-service-account-id`.
-
-      Например, пользователь может получить список виртуальных машин в каталоге `my-folder`:
-
-      ```
-      yc compute instance list --folder-name my-folder \
-        --impersonate-service-account-id ajebqtreob2d********
-      ```
-
-      Также пользователь может получить [IAM-токен](../../concepts/authorization/iam-token.md) сервисного аккаунта `test-sa` для кратковременного доступа:
-
-      ```
-      yc iam create-token --impersonate-service-account-id ajebqtreob2d********
-      ```
-
-      Срок действия полученного токена закончится автоматически.
-
-  1. Если доступ больше не нужен пользователю, отзовите роль у сервисного аккаунта (в профиле администратора):
-
-      ```
-      yc resource-manager folder remove-access-binding my-folder \
-        --role viewer \
-        --subject serviceAccount:ajebqtreob2d********
-      ```
-  1. Отзовите роль `iam.serviceAccounts.tokenCreator` у пользователя, получавшего права сервисного аккаунта:
-
-      ```
-      yc iam service-account remove-access-binding test-sa \
-        --role iam.serviceAccounts.tokenCreator \
-        --subject userAccount:gfei8n54hmfh********
-      ```
-
 
 {% endlist %}
 
@@ -616,3 +530,7 @@
       ```
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](./impersonate-sa.md)

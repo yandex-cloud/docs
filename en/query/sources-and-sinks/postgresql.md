@@ -21,7 +21,7 @@ Where:
 
 To create a connection to {{ mpg-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -36,7 +36,7 @@ To create a connection to {{ mpg-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mpg-name }} cluster or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mpg-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mpg.viewer }}`](../../managed-postgresql/security/index.md#mpg-viewer) role, and use it to connect to `{{ mpg-name }}` clusters.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
       * **{{ ui-key.yql.yq-connection-form.database.input-label }}**: Select the database you will use when working with the {{ PG }} cluster.
       * **{{ ui-key.yql.yq-connection-form.schema.input-label }}**: Specify the [namespace](https://www.postgresql.org/docs/current/catalog-pg-namespace.html) to use when working with the {{ PG }} database.
@@ -50,7 +50,7 @@ You need a service account to detect {{ mpg-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mpg-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -67,20 +67,35 @@ Where:
 
 ## Limitations {#limits}
 
-There are several restrictions when working with {{ PG }} clusters.
+Some limitations apply when working with {{ PG }} clusters.
 
-Limitations:
+The following restrictions apply:
 1. {% include [!](_includes/supported_requests.md) %}
 1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ PG }} types (`date` and `timestamp`).
-Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+Therefore, {{ yq-short-name }} returns date and time values read from {{ PG }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Supported data types for filter pushdown:
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Int16`|
+|`Int32`|
+|`Int64`|
+|`Float`|
+|`Double`|
+|`Decimal`|
 
 ## Supported data types {#supported_types}
 
-In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented as the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
+In a {{ PG }} DB, the optionality of column values (whether or not the column can contain `NULL` values) does not depend on the type system. The `NOT NULL` constraint for each column is implemented by means of the `attnotnull` attribute in the [pg_attribute](https://www.postgresql.org/docs/current/catalog-pg-attribute.html) system folder, i.e., at the table metadata level. Thus, by default, all {{ PG }} base types can contain `NULL` values and the {{ yq-short-name }} type system will represent them as [optional]({{ ydb.docs }}/yql/reference/types/optional) types.
 
 The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
 
@@ -109,4 +124,4 @@ The table below shows how {{ PG }} and {{ yq-full-name }} types map. All other d
 | `character varying` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `text` | `Optional<Utf8>` | Default [sorting rules](https://www.postgresql.org/docs/current/collation.html) apply. |
 | `json` | `Optional<Json>` | |
-
+| `numeric(p,s)` | `Optional<Decimal(p,s)>` | `p` (precision) is the total character count in the number; `s` (scale) is the decimal character count. `numeric` types without any specific parameters (so called _unconstrained_ types) are transformed into `Optional<Decimal(35, 0)>`. `numeric` types with `p > 35` or `s < 0` are not supported. |

@@ -47,11 +47,11 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
-* [{{ mmg-full-name }}](../managed-mongodb/qa/all.md)
+* [{{ mmg-full-name }}](../storedoc/qa/all.md)
 * [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
 * [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
 * [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
-* [{{ mrd-full-name }}](../managed-redis/qa/general.md)
+* [{{ mrd-full-name }}](../managed-valkey/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
@@ -66,7 +66,6 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
   
 
-
 ### Бессерверные вычисления {#serverless}
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
@@ -79,7 +78,6 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
 
 
-
 ### Безопасность {#security}
 
 * [{{ iam-full-name }}](../iam/qa/index.md)
@@ -89,7 +87,7 @@ description: Из статьи вы узнаете, какими материа�
 
 ### Инструменты разработчика {#developer-tools}
 
-* [{{ ca-full-name }}](../code-assistant/qa.md)
+* [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
@@ -101,26 +99,20 @@ description: Из статьи вы узнаете, какими материа�
 * [{{ resmgr-full-name }}](../resource-manager/qa/index.md)
 
 
-
 ### Машинное обучение {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ foundation-models-full-name }}](../foundation-models/qa/index.md)
+* [{{ foundation-models-full-name }}](../ai-studio/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
 
 
-
-
 ### Бизнес-инструменты {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ tracker-full-name }}](../tracker/faq.md)
-* [{{ video-full-name }}](../video/troubleshooting.md)
-
-
+* [{{ video-full-name }}](../video/troubleshooting/index.md)
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

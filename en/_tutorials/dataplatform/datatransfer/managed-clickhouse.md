@@ -1,118 +1,184 @@
-# Migrating data using {{ data-transfer-full-name }} {#data-transfer}
+# Migrating data using {{ data-transfer-full-name }}
+
+With {{ data-transfer-name }}, you can transfer your database from a third-party {{ CH }} source cluster to a {{ mch-name }} target cluster.
+
+This method enables you to:
+
+* Copy the database without interrupting user service.
+* Eliminate the need for an intermediate VM or public internet access to your {{ mch-name }} target cluster.
+
+You can also use this method to transfer data between two {{ mch-name }} clusters. For a successful transfer, specify the listening ports `8443` and `9440` on the source endpoint and add an [SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert).
+
+For more information, see [{#T}](../../../data-transfer/concepts/use-cases.md).
+
+
+## Getting started {#before-you-begin}
+
+[Enable inbound internet connections to the source cluster](../../../data-transfer/concepts/network.md#source-external).
+
+### Required paid resources {#paid-resources}
+
+* {{ mch-name }} cluster: Use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+
+
+## Transferring data {#data-transfer}
 
 1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-ch).
-1. Prepare the infrastructure:
+1. Set up the infrastructure:
 
-   {% list tabs group=instructions %}
+    {% list tabs group=instructions %}
 
-   - Manually {#manual}
+    - Manually {#manual}
 
-      1. [Create a security group](../../../vpc/operations/security-group-create.md) and [configure it](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+        1. [Create a security group](../../../vpc/operations/security-group-create.md) and [configure it](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
-      1. [Create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md) with the computing capacity and storage size appropriate for the environment where the copied database is deployed.
+        1. [Create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md) with the computing and storage capacity matching the source database’s environment.
 
-         When creating a cluster, specify the security group prepared earlier.
+            When creating a cluster, specify the security group you created earlier.
 
-         The database name in the target cluster must be the same as the source database name.
+            The source and target database names must be the same.
 
-      1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
+            To connect to the cluster via [{{ websql-full-name }}](../../../websql/concepts/index.md), enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}** in the cluster settings.
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.on_premise.title }}`
+        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            Specify the parameters for connecting to the source cluster.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnectionType.on_premise.title }}`.
 
-      1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
+                Specify the source cluster connection settings.
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`
+        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            Select a target cluster from the list and specify its connection settings.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `ClickHouse`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy }}_ type that will use the created endpoints.
-      1. [Activate](../../../data-transfer/operations/transfer.md#activate) your transfer.
+                Select your target cluster from the list and specify its connection settings.
 
-   - Using {{ TF }} {#tf}
+        1. Create a _{{ dt-type-copy }}_-type [transfer](../../../data-transfer/operations/transfer.md#create), configure it to use the previously created endpoints, then [activate](../../../data-transfer/operations/transfer.md#activate) it.
 
-      1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+    - Using {{ TF }} {#tf}
 
-      1. Download the [data-transfer-ch-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-on-premise-clickhouse-to-cloud/blob/main/data-transfer-ch-mch.tf) configuration file to the same working directory.
+        1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+        1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+        1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+        1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-         This file describes:
+        1. Download the [data-transfer-ch-mch.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-on-premise-clickhouse-to-cloud/blob/main/data-transfer-ch-mch.tf) configuration file to the same working directory.
 
-         * [Network](../../../vpc/concepts/network.md#network).
-         * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
-         * {{ mch-name }} target cluster.
-         * Source endpoint.
-         * Target endpoint.
-         * Transfer.
+            This file describes:
 
-      1. In the `data-transfer-ch-mch.tf` file, specify:
+            * [Network](../../../vpc/concepts/network.md#network).
+            * [Subnet](../../../vpc/concepts/network.md#subnet).
+            * [Security group](../../../vpc/concepts/security-groups.md) and the rule required for connecting to a cluster.
+            * {{ mch-name }} target cluster.
+            * Source endpoint.
+            * Target endpoint.
+            * Transfer.
 
-         * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/clickhouse.md#on-premise):
-            * `source_user` and `source_pwd`: Username and password to access the source.
-            * `source_db_name`: Database name.
-            * `source_host`: FQDN or IP address of the {{ CH }} server.
-            * `source_shard`: Shard name.
-            * `source_http_port` and `source_native_port`: HTTP and {{ CH }} native interface connection ports.
+        1. In the `data-transfer-ch-mch.tf` file, specify the following:
 
-         * Target cluster parameters also used as [target endpoint parameters](../../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+            * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/clickhouse.md#on-premise):
+                * `source_user` and `source_pwd`: Username and password to access the source database.
+                * `source_db_name`: Database name.
+                * `source_host`: {{ CH }} server IP address or FQDN.
+                * `source_shard`: Shard name.
+                * `source_http_port` and `source_native_port`: HTTP and {{ CH }} native interface ports.
 
-            * `target_clickhouse_version`: {{ CH }} version.
-            * `target_user` and `target_password`: Database owner username and password.
+            * Target cluster parameters used as [target endpoint parameters](../../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+                * `target_clickhouse_version`: {{ CH }} version.
+                * `target_user` and `target_password`: Database owner username and password.
 
-         ```bash
-         terraform validate
-         ```
+            * [{{ yandex-cloud }} CLI](../../../cli/) parameters for automating cluster activation:
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+                * `profile_name`: {{ yandex-cloud }} CLI profile name.
 
-      1. Create the required infrastructure:
+                    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        1. Optionally, to enable connections via [{{ websql-full-name }}](../../../websql/concepts/index.md), add the `access` section to the cluster resource:
 
-         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+            ```hcl
+            access {
+                web_sql = true
+            }
+            ```
 
-         Once created, your transfer will be activated automatically.
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
-   {% endlist %}
+            ```bash
+            terraform validate
+            ```
 
-1. Wait for the transfer status to change to {{ dt-status-finished }}.
+            {{ TF }} will show any errors found in your configuration files.
 
-   For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
+        1. Create the required infrastructure:
 
-1. Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-   {% list tabs group=instructions %}
+            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-   - Manually {#manual}
+            Once created, your transfer will be activated automatically.
 
-      * [Delete the {{ mch-name }} cluster](../../../managed-clickhouse/operations/cluster-delete.md).
-      * [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
-      * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    {% endlist %}
 
-   - Using {{ TF }} {#tf}
+## Test your transfer {#verify-transfer}
 
-      1. In the terminal window, go to the directory containing the infrastructure plan.
-      1. Delete the `data-transfer-ch-mch.tf` configuration file.
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
+1. Check that the data has been transferred from the source {{ CH }} cluster to the {{ mch-name }} database:
 
-         ```bash
-         terraform validate
-         ```
+    {% list tabs group=instructions %}
+    
+    
+    - {{ websql-full-name }} {#websql}
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+        1. [Create a connection](../../../websql/operations/create-connection.md#connect-cluster) to the database in the {{ mch-name }} cluster.
+        1. Check that the database contains all tables from the source cluster by [running the following query](../../../websql/operations/query-executor.md#execute-query) via the connection you created:
 
-      1. Confirm updating the resources.
+            ```sql
+            SHOW TABLES FROM <DB_name>;
+            ```
 
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        1. Check that the tables contain the same data as the source cluster tables by [running the following query](../../../websql/operations/query-executor.md#execute-query) against them:
 
-         All the resources described in the `data-transfer-ch-mch.tf` configuration file will be deleted.
+            ```sql
+            SELECT * FROM <DB_name>.<table_name>;
+            ```
 
-   {% endlist %}
+
+    - CLI {#cli}
+
+        1. [Get an SSL certificate](../../../managed-clickhouse/operations/connect/index.md#get-ssl-cert) to connect to the {{ mch-name }} cluster.      
+        1. [Connect to the database](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) in the {{ mch-name }} cluster via `clickhouse-client`.
+        1. Check that the database contains all tables from the source cluster:
+
+            ```sql
+            SHOW TABLES FROM <DB_name>;
+            ```
+ 
+        1. Check that the tables contain the same data as the source cluster tables:
+
+            ```sql
+            SELECT * FROM <DB_name>.<table_name>;
+            ```
+
+    {% endlist %}
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
+{% list tabs group=instructions %}
+
+- Manually {#manual}
+
+  1. [Delete the {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md) cluster.
+  1. [Delete the completed transfer](../../../data-transfer/operations/transfer.md#delete).
+  1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+
+- Using {{ TF }} {#tf}
+
+  {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
+{% endlist %}

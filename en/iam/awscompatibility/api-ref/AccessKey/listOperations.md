@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        accessKeyId:
+          description: |-
+            **string**
+            Required field. ID of the key to list operations for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - accessKeyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListAccessKeyOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListAccessKeyOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 2000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/listOperations.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.ListOperations {#ListOperations}
+# Access Key, REST: AccessKey.ListOperations
 
 Retrieves the list of operations for the specified access key.
 
@@ -19,7 +59,9 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 ||Field | Description ||
 || accessKeyId | **string**
 
-Required field. ID of the key to list operations for. ||
+Required field. ID of the key to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsRequest}
@@ -32,11 +74,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListAccessKeyOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListAccessKeyOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse) returned by a previous list request. ||
+[ListAccessKeyOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeyOperationsResponse}

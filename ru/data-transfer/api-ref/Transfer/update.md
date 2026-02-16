@@ -1,9 +1,419 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
+    method: patch
+    path:
+      type: object
+      properties:
+        transferId:
+          description: |-
+            **string**
+            Identifier of the transfer to be updated.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        description:
+          description: |-
+            **string**
+            The new description for the transfer.
+          type: string
+        runtime:
+          description: '**[Runtime](#yandex.cloud.datatransfer.v1.Runtime)**'
+          $ref: '#/definitions/Runtime'
+        name:
+          description: |-
+            **string**
+            The new transfer name. Must be unique within the folder.
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Transfer labels as `key:value` pairs.
+            For details about the concept, see [documentation]({{ api-url-prefix
+            }}/resource-manager/concepts/labels).
+          type: object
+          additionalProperties:
+            type: string
+        transformation:
+          description: '**[Transformation](#yandex.cloud.datatransfer.v1.Transformation)**'
+          $ref: '#/definitions/Transformation'
+        dataObjects:
+          description: '**[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)**'
+          $ref: '#/definitions/DataObjects'
+        replicationRuntime:
+          description: '**[Runtime](#yandex.cloud.datatransfer.v1.Runtime)**'
+          $ref: '#/definitions/Runtime'
+      additionalProperties: false
+    definitions:
+      ShardingUploadParams:
+        type: object
+        properties:
+          jobCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          processCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      YcRuntime:
+        type: object
+        properties:
+          jobCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          uploadShardParams:
+            description: '**[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**'
+            $ref: '#/definitions/ShardingUploadParams'
+      Runtime:
+        type: object
+        properties:
+          ycRuntime:
+            description: |-
+              **[YcRuntime](#yandex.cloud.datatransfer.v1.YcRuntime)**
+              Includes only one of the fields `ycRuntime`.
+            $ref: '#/definitions/YcRuntime'
+        oneOf:
+          - required:
+              - ycRuntime
+      TablesFilter:
+        type: object
+        properties:
+          includeTables:
+            description: |-
+              **string**
+              List of tables that will be included to transfer
+            type: array
+            items:
+              type: string
+          excludeTables:
+            description: |-
+              **string**
+              List of tables that will be excluded to transfer
+            type: array
+            items:
+              type: string
+      MaskFunctionHash:
+        type: object
+        properties:
+          userDefinedSalt:
+            description: |-
+              **string**
+              This string will be used in the HMAC(sha256, salt) function applied to the
+              column data.
+            type: string
+      MaskFunction:
+        type: object
+        properties:
+          maskFunctionHash:
+            description: |-
+              **[MaskFunctionHash](#yandex.cloud.datatransfer.v1.MaskFunctionHash)**
+              Hash mask function
+              Includes only one of the fields `maskFunctionHash`.
+            $ref: '#/definitions/MaskFunctionHash'
+        oneOf:
+          - required:
+              - maskFunctionHash
+      MaskFieldTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
+          columns:
+            description: |-
+              **string**
+              Specify the name of the column for data masking (a regular expression).
+            type: array
+            items:
+              type: string
+          function:
+            description: |-
+              **[MaskFunction](#yandex.cloud.datatransfer.v1.MaskFunction)**
+              Mask function
+            $ref: '#/definitions/MaskFunction'
+      ColumnsFilter:
+        type: object
+        properties:
+          includeColumns:
+            description: |-
+              **string**
+              List of columns that will be included to transfer
+            type: array
+            items:
+              type: string
+          excludeColumns:
+            description: |-
+              **string**
+              List of columns that will be excluded to transfer
+            type: array
+            items:
+              type: string
+      FilterColumnsTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of the tables to filter using lists of included and excluded tables.
+            $ref: '#/definitions/TablesFilter'
+          columns:
+            description: |-
+              **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+              List of the columns to transfer to the target tables using lists of included and
+              excluded columns.
+            $ref: '#/definitions/ColumnsFilter'
+      Table:
+        type: object
+        properties:
+          nameSpace:
+            description: '**string**'
+            type: string
+          name:
+            description: '**string**'
+            type: string
+      RenameTable:
+        type: object
+        properties:
+          originalName:
+            description: |-
+              **[Table](#yandex.cloud.datatransfer.v1.Table)**
+              Specify the current names of the table in the source
+            $ref: '#/definitions/Table'
+          newName:
+            description: |-
+              **[Table](#yandex.cloud.datatransfer.v1.Table)**
+              Specify the new names for this table in the target
+            $ref: '#/definitions/Table'
+      RenameTablesTransformer:
+        type: object
+        properties:
+          renameTables:
+            description: |-
+              **[RenameTable](#yandex.cloud.datatransfer.v1.RenameTable)**
+              List of renaming rules
+            type: array
+            items:
+              $ref: '#/definitions/RenameTable'
+      ReplacePrimaryKeyTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
+          keys:
+            description: |-
+              **string**
+              List of columns to be used as primary keys
+            type: array
+            items:
+              type: string
+      ToStringTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
+          columns:
+            description: |-
+              **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+              List of included and excluded columns
+            $ref: '#/definitions/ColumnsFilter'
+      SharderTransformerTypeRandom:
+        type: object
+        properties: {}
+      SharderTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
+          columns:
+            description: |-
+              **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+              List of included and excluded columns
+              Includes only one of the fields `columns`, `random`.
+            $ref: '#/definitions/ColumnsFilter'
+          random:
+            description: |-
+              **object**
+              Includes only one of the fields `columns`, `random`.
+            $ref: '#/definitions/SharderTransformerTypeRandom'
+          shardsCount:
+            description: |-
+              **string** (int64)
+              Number of shards
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - columns
+          - required:
+              - random
+      TableSplitterTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
+          columns:
+            description: |-
+              **string**
+              Specify the columns in the tables to be partitioned.
+            type: array
+            items:
+              type: string
+          splitter:
+            description: |-
+              **string**
+              Specify the split string to be used for merging components in a new table name.
+            type: string
+      FilterRowsTransformer:
+        type: object
+        properties:
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables.
+            $ref: '#/definitions/TablesFilter'
+          filter:
+            description: |-
+              **string**
+              Filtering criterion. This can be comparison operators for numeric, string, and
+              Boolean values,
+              comparison to NULL, and checking whether a substring is part of a string.
+              Details here:
+              https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+              Deprecated: Use filters instead.
+            deprecated: true
+            type: string
+          filters:
+            description: |-
+              **string**
+              Data is transported if it satisfies at least one of filters. Consider that there
+              is OR statement between filters.
+              Each filter can be comparison operators for numeric, string, and Boolean values,
+              comparison to NULL, and
+              checking whether a substring is part of a string.
+              Details in docs:
+              https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+            type: array
+            items:
+              type: string
+      Transformer:
+        type: object
+        properties:
+          maskField:
+            description: |-
+              **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/MaskFieldTransformer'
+          filterColumns:
+            description: |-
+              **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/FilterColumnsTransformer'
+          renameTables:
+            description: |-
+              **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/RenameTablesTransformer'
+          replacePrimaryKey:
+            description: |-
+              **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/ReplacePrimaryKeyTransformer'
+          convertToString:
+            description: |-
+              **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/ToStringTransformer'
+          sharderTransformer:
+            description: |-
+              **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/SharderTransformer'
+          tableSplitterTransformer:
+            description: |-
+              **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/TableSplitterTransformer'
+          filterRows:
+            description: |-
+              **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+              Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`.
+            $ref: '#/definitions/FilterRowsTransformer'
+        oneOf:
+          - required:
+              - maskField
+          - required:
+              - filterColumns
+          - required:
+              - renameTables
+          - required:
+              - replacePrimaryKey
+          - required:
+              - convertToString
+          - required:
+              - sharderTransformer
+          - required:
+              - tableSplitterTransformer
+          - required:
+              - filterRows
+      Transformation:
+        type: object
+        properties:
+          transformers:
+            description: |-
+              **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
+              Transformers are set as a list.
+              When activating a transfer, a transformation plan is made for the tables that
+              match the specified criteria.
+              Transformers are applied to the tables in the sequence specified in the list.
+            type: array
+            items:
+              $ref: '#/definitions/Transformer'
+      DataObjects:
+        type: object
+        properties:
+          includeObjects:
+            description: '**string**'
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Transfer/update.md
 ---
 
-# Data Transfer API, REST: Transfer.Update {#Update}
+# Data Transfer API, REST: Transfer.Update
+
+Updates the specified transfer.
 
 ## HTTP request
 
@@ -38,7 +448,7 @@ Required field. Identifier of the transfer to be updated. ||
   },
   "name": "string",
   "updateMask": "string",
-  "labels": "string",
+  "labels": "object",
   "transformation": {
     "transformers": [
       {
@@ -135,6 +545,7 @@ Required field. Identifier of the transfer to be updated. ||
               "string"
             ]
           },
+          // Includes only one of the fields `columns`, `random`
           "columns": {
             "includeColumns": [
               "string"
@@ -143,6 +554,8 @@ Required field. Identifier of the transfer to be updated. ||
               "string"
             ]
           },
+          "random": "object",
+          // end of the list of possible fields
           "shardsCount": "string"
         },
         "tableSplitterTransformer": {
@@ -176,6 +589,22 @@ Required field. Identifier of the transfer to be updated. ||
         // end of the list of possible fields
       }
     ]
+  },
+  "dataObjects": {
+    "includeObjects": [
+      "string"
+    ]
+  },
+  "replicationRuntime": {
+    // Includes only one of the fields `ycRuntime`
+    "ycRuntime": {
+      "jobCount": "string",
+      "uploadShardParams": {
+        "jobCount": "string",
+        "processCount": "string"
+      }
+    }
+    // end of the list of possible fields
   }
 }
 ```
@@ -199,8 +628,15 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| dataObjects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
+|| replicationRuntime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
@@ -441,7 +877,12 @@ values will be used for calculating a hash to determine a shard.
 List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
-List of included and excluded columns ||
+List of included and excluded columns
+
+Includes only one of the fields `columns`, `random`. ||
+|| random | **object**
+
+Includes only one of the fields `columns`, `random`. ||
 || shardsCount | **string** (int64)
 
 Number of shards ||
@@ -503,6 +944,13 @@ comparison to NULL, and
 checking whether a substring is part of a string.
 Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| includeObjects[] | **string** ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

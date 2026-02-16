@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите на имя нужного балансировщика.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените необходимые параметры балансировщика:
@@ -20,6 +20,10 @@ description: Следуя данной инструкции, вы сможете
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** измените [группы безопасности](../concepts/application-load-balancer.md#security-groups):
 
           {% include [security-groups](../../_includes/application-load-balancer/security-groups.md) %}
+
+          {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
+
+      1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите или отключите входящий трафик для каждой зоны в отдельности с помощью опции **{{ ui-key.yacloud.alb.label_disable-traffic }}**.
 
       1. В блоке **{{ ui-key.yacloud.alb.section_autoscale-settings }}** укажите ограничения на количество [ресурсных единиц](../concepts/application-load-balancer.md#lcu-scaling).
 
@@ -62,7 +66,6 @@ description: Следуя данной инструкции, вы сможете
 
      Результат:
 
-
      ```bash
      id: a5d88ep483cm********
      name: test-balancer2-updated
@@ -91,8 +94,6 @@ description: Следуя данной инструкции, вы сможете
        - enpg05a3ck35********
      created_at: "2021-04-26T12:12:13.624832586Z"
      ```
-
-
 
   1. (Опционально) Измените параметры записи [логов](../logs-ref.md) в [{{ cloud-logging-full-name }}](../../logging/):
 
@@ -313,6 +314,8 @@ description: Следуя данной инструкции, вы сможете
      yc alb load-balancer get <имя_балансировщика>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [update](../api-ref/LoadBalancer/update.md) для ресурса [LoadBalancer](../api-ref/LoadBalancer/index.md) или вызовом gRPC API [LoadBalancerService/Update](../api-ref/grpc/LoadBalancer/update.md).
@@ -328,7 +331,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Напротив имени нужного балансировщика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** напротив имени нужного обработчика нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -431,6 +434,8 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc alb load-balancer get <имя_L7-балансировщика>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

@@ -1,18 +1,18 @@
 ---
 title: Viewing the execution log in {{ sf-full-name }}
-description: You can view monitoring logs in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. Function execution logs are stored for three days. Time in the log is shown in UTC.
+description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. All times in the log are UTC.
 ---
 
 # Viewing function logs
 
-Function execution logs are stored for three days. All times shown in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click a function to view its runtime log.
     1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
     

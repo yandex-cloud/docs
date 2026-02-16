@@ -1,0 +1,253 @@
+# Integration with Crossplane
+
+[Crossplane](https://crossplane.io/) is an open-source {{ k8s }} add-on that helps you bring solutions from different providers into a single infrastructure and provide application developers with access to this infrastructure via high-level APIs. With Crossplane, users can manage third-party services in the same way they manage {{ k8s }} resources.
+
+To create a {{ compute-full-name }} [VM](../../compute/concepts/vm.md) using [Crossplane](/marketplace/products/yc/crossplane) installed in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
+
+1. [Get your cloud ready](#before-you-begin).
+1. [Create {{ managed-k8s-name }} resources](#k8s-create).
+1. [Create {{ yandex-cloud }} resources using Crossplane](#create-crossplane-res).
+
+If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+The support cost for this solution includes:
+
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../vpc/pricing.md#nat-gateways)).
+
+
+## Get your cloud ready {#before-you-begin}
+
+1. {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+1. Install [jq](https://stedolan.github.io/jq/).
+
+## Create {{ managed-k8s-name }} resources {#k8s-create}
+
+1. Create a {{ k8s }} cluster and [node group](../../managed-kubernetes/concepts/index.md#node-group).
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+     1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
+     1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where the new {{ k8s }} cluster and node group will reside.
+     1. [Create these service accounts](../../iam/operations/sa/create.md):
+        * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a {{ k8s }} cluster. This service account will be used to create resources for your {{ k8s }} cluster.
+        * Service account with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#container-registry-images-puller) [role](../../iam/concepts/access-control/roles.md). The nodes will use this account to pull the required [Docker images](../../container-registry/concepts/docker-image.md) from the [registry](../../container-registry/concepts/registry.md).
+
+        {% note tip %}
+
+        You can use the same [service account](../../iam/concepts/users/service-accounts.md) to manage your {{ k8s }} cluster and its node groups.
+
+        {% endnote %}
+
+     1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+     1. [Create a {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating, specify the preconfigured security groups.
+
+   - {{ TF }} {#tf}
+
+     1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+     1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+     1. Download the [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf) cluster configuration file to the same working directory. This file describes:
+        * [Network](../../vpc/concepts/network.md#network).
+        * [Subnet](../../vpc/concepts/network.md#subnet).
+        * {{ k8s }} cluster.
+        * [Service account](../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and node group.
+        * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+     1. Specify the following in the configuration file:
+        * [Folder ID](../../resource-manager/operations/folder/get-id.md).
+        * {{ k8s }} version for the {{ k8s }} cluster and node groups.
+        * {{ k8s }} cluster CIDR.
+        * Name of the {{ managed-k8s-name }} cluster service account.
+     1. Make sure the {{ TF }} configuration files are correct using this command:
+
+        ```bash
+        terraform validate
+        ```
+
+        {{ TF }} will show any errors found in your configuration files.
+     1. Create the required infrastructure:
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+   {% endlist %}
+
+1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
+
+1. [Install Crossplane in the {{ k8s }} cluster](../../managed-kubernetes/operations/applications/crossplane.md).
+1. [Set up a NAT gateway for the {{ k8s }} cluster node subnet](../../vpc/operations/create-nat-gateway.md).
+
+## Create {{ yandex-cloud }} resources using Crossplane {#create-crossplane-res}
+
+1. Define the resources you want to create with Crossplane. To get the list of available resources, run the following command:
+
+   ```bash
+   kubectl get crd | grep yandex-cloud.jet.crossplane.io
+   ```
+
+1. Define the parameters for your resources. To view the available parameters for a specific resource, run this command:
+
+   ```bash
+   kubectl describe crd <resource_name>
+   ```
+
+1. Create the `vm-instance-template.yml` manifest template that describes the network and subnet existing in the folder as well as `crossplane-vm` you are going to create with Crossplane:
+
+    ```yaml
+    # Adding an existing network to the configuration
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Network
+    metadata:
+      name: <name_of_existing_network>
+      annotations:
+        # Point the provider to the existing network
+        crossplane.io/external-name: <ID_of_existing_network>
+    spec:
+      # Prohibit deletion of the existing network
+      deletionPolicy: Orphan
+      forProvider:
+        name: <name_of_existing_network>
+      providerConfigRef:
+        name: default
+    ---
+    # Adding an existing subnet to the configuration
+    apiVersion: vpc.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Subnet
+    metadata:
+      name: <name_of_existing_subnet>
+      annotations:
+        # Point the provider to the existing subnet
+        crossplane.io/external-name: <ID_of_existing_subnet>
+    spec:
+      # Prohibit deletion of the existing subnet
+      deletionPolicy: Orphan
+      forProvider:
+        name: <name_of_existing_subnet>
+        networkIdRef:
+          name: <name_of_existing_network>
+        v4CidrBlocks:
+          - <IPv4_CIDR_of_existing_subnet>
+      providerConfigRef:
+        name: default
+    ---
+    # Creating a VM
+    apiVersion: compute.yandex-cloud.jet.crossplane.io/v1alpha1
+    kind: Instance
+    metadata:
+      name: crossplane-vm
+    spec:
+      forProvider:
+        name: crossplane-vm
+        platformId: standard-v1
+        zone: {{ region-id }}-a
+        resources:
+          - cores: 2
+            memory: 4
+        bootDisk:
+          - initializeParams:
+              - imageId: fd80bm0rh4rkepi5ksdi
+        networkInterface:
+          - subnetIdRef:
+              name: <name_of_existing_subnet>
+            # Automatically assign a public IP address to the VM
+            nat: true
+        metadata:
+          ssh-keys: "<public_SSH_key>"
+      providerConfigRef:
+        name: default
+      # Write the VM access credentials into a secret
+      writeConnectionSecretToRef:
+        name: instance-conn
+        namespace: default
+      ```
+
+   In the VM configuration section:
+   * `zone: {{ region-id }}-a`: [Availability zone](../../overview/concepts/geo-scope.md) to host the new VM.
+   * `name: crossplane-vm`: Name of the VM to create with Crossplane.
+   * `imageId: fd80bm0rh4rkepi5ksdi`: VM boot image ID. You can get it with the [list of images](../../compute/operations/image-control/get-list.md). This example uses the [Ubuntu 22.04 LTS](https://yandex.cloud/en/marketplace/products/yc/ubuntu-22-04-lts) image.
+
+   For examples of how to configure {{ yandex-cloud }} resources, see the [provider's GitHub repository](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+
+1. Apply the `vm-instance-template.yml` manifest:
+
+   ```bash
+   kubectl apply -f vm-instance-template.yml
+   ```
+
+1. Check the state of the new resources:
+
+   ```bash
+   kubectl get network
+   kubectl get subnet
+   kubectl get instance
+   ```
+
+1. Make sure `crossplane-vm` appeared in the folder:
+
+   ```bash
+   yc compute instance list
+   ```
+
+1. To get the VM access credentials from the secret, run this command:
+   
+   ```bash
+   kubectl get secret instance-conn -o json | jq -r '.data | map_values(@base64d)'
+   ```
+
+   Expected result:
+   
+   ```json
+   {
+     "external_ip": "<public_IP_address>",
+     "fqdn": "<full_domain_name>",
+     "internal_ip": "<internal_IP_address>"
+   }
+   ```
+
+## Delete the resources you created {#clear-out}
+
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
+
+1. Delete `crossplane-vm`:
+
+   ```bash
+   kubectl delete instance crossplane-vm
+   ```
+
+1. Delete the other resources:
+
+   {% list tabs group=instructions %}
+
+   - Manually {#manual}
+
+     1. [Delete the {{ k8s }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+     1. [Delete the created subnets](../../vpc/operations/subnet-delete.md).
+     1. [Delete the route table](../../vpc/operations/delete-route-table.md).
+     1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).
+     1. [Delete the networks](../../vpc/operations/network-delete.md).
+     1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
+
+   - {{ TF }} {#tf}
+
+     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
+
+   {% endlist %}

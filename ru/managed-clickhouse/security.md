@@ -24,11 +24,13 @@ description: Управление доступом в сервисе созда�
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
+В [консоли управления]({{ link-console-main }}), через [CLI](../cli) или [API](./api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../_assets/mdb/roles-managed-clickhouse.svg)
+{% include [roles-managed-clickhouse](../_mermaid/roles/managed-clickhouse.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -39,6 +41,10 @@ description: Управление доступом в сервисе созда�
 #### managed-clickhouse.viewer {#managed-clickhouse-viewer}
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
+
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
@@ -59,6 +65,10 @@ description: Управление доступом в сервисе созда�
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

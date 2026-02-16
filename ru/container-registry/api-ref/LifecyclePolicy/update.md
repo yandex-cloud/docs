@@ -1,9 +1,110 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        lifecyclePolicyId:
+          description: |-
+            **string**
+            Required field. ID of the lifecycle policy.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - lifecyclePolicyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of lifecycle policy.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of lifecycle policy.
+            The maximum string length in characters is 256.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            Required field. Status of the lifecycle policy.
+            - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
+            - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
+            Policies in this status can be used for preparing and testing rules.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - ACTIVE
+            - DISABLED
+        rules:
+          description: |-
+            **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule)**
+            The rules of the lifecycle policy.
+          type: array
+          items:
+            $ref: '#/definitions/LifecycleRule'
+      required:
+        - status
+      additionalProperties: false
+    definitions:
+      LifecycleRule:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the lifecycle policy rule.
+              The maximum string length in characters is 256.
+            type: string
+          expirePeriod:
+            description: |-
+              **string** (duration)
+              Period of time for automatic deletion.
+              Period must be a multiple of 24 hours.
+            type: string
+            format: duration
+          tagRegexp:
+            description: |-
+              **string**
+              Tag for specifying a filter in the form of a regular expression.
+              The maximum string length in characters is 256.
+            type: string
+          untagged:
+            description: |-
+              **boolean**
+              Tag for applying the rule to Docker images without tags.
+            type: boolean
+          retainedTop:
+            description: |-
+              **string** (int64)
+              Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+              The minimum value is 0.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/update.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.Update {#Update}
+# Container Registry API, REST: LifecyclePolicy.Update
 
 Updates the specified lifecycle policy.
 
@@ -19,7 +120,9 @@ PATCH https://container-registry.{{ api-host }}/container-registry/v1/lifecycleP
 ||Field | Description ||
 || lifecyclePolicyId | **string**
 
-Required field. ID of the lifecycle policy. ||
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpdateLifecyclePolicyRequest}
@@ -56,15 +159,18 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of lifecycle policy. ||
+Name of lifecycle policy.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of lifecycle policy. ||
+Description of lifecycle policy.
+
+The maximum string length in characters is 256. ||
 || status | **enum** (Status)
 
 Required field. Status of the lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -79,20 +185,26 @@ The rules of the lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
 || expirePeriod | **string** (duration)
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
 || tagRegexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **boolean**
 
 Tag for applying the rule to Docker images without tags. ||
 || retainedTop | **string** (int64)
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -256,7 +368,6 @@ The maximum string length in characters is 256. ||
 
 Status of lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -281,18 +392,24 @@ The rules of lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
 || expirePeriod | **string** (duration)
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
 || tagRegexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **boolean**
 
 Tag for applying the rule to Docker images without tags. ||
 || retainedTop | **string** (int64)
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#

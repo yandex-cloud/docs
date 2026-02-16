@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/OriginGroup/get.md
 ---
 
-# Cloud CDN API, gRPC: OriginGroupService.Get {#Get}
+# Cloud CDN API, gRPC: OriginGroupService.Get
 
 Gets origin group with specified origin group id.
 
@@ -15,21 +15,25 @@ Gets origin group with specified origin group id.
 
 ```json
 {
-  "folderId": "string",
-  "originGroupId": "int64"
+  "folder_id": "string",
+  "origin_group_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
-|| originGroupId | **int64**
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
+|| origin_group_id | **int64**
 
 ID of the origin group to return.
 
-To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grpc/OriginGroup/list#List) request. ||
+To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grpc/OriginGroup/list#List) request.
+
+Value must be greater than 0. ||
 |#
 
 ## OriginGroup {#yandex.cloud.cdn.v1.OriginGroup}
@@ -37,13 +41,13 @@ To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grp
 ```json
 {
   "id": "int64",
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "useNext": "bool",
+  "use_next": "bool",
   "origins": [
     {
       "id": "int64",
-      "originGroupId": "int64",
+      "origin_group_id": "int64",
       "source": "string",
       "enabled": "bool",
       "backup": "bool",
@@ -62,7 +66,15 @@ To get a origin group ID, make a [OriginGroupService.List](/docs/cdn/api-ref/grp
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "provider_type": "string"
+    }
+  ],
+  "provider_type": "string",
+  "resources_metadata": [
+    {
+      "id": "string",
+      "cname": "string"
     }
   ]
 }
@@ -75,13 +87,13 @@ Origin group parameters. For details about the concept, see [documentation](/doc
 || id | **int64**
 
 ID of the origin group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the origin group belongs to. ||
 || name | **string**
 
 Name of the origin group. ||
-|| useNext | **bool**
+|| use_next | **bool**
 
 This option have two possible conditions:
 true - the option is active. In case the origin responds with 4XX or 5XX codes,
@@ -90,6 +102,12 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
+|| resources_metadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -101,7 +119,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -124,6 +142,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -183,4 +204,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

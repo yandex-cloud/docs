@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the Docker image resource to return.
+            To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Image/get.md
 ---
 
-# Container Registry API, REST: Image.Get {#Get}
+# Container Registry API, REST: Image.Get
 
 Returns the specified Image resource.
 
@@ -23,7 +42,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
 
 Required field. ID of the Docker image resource to return.
 
-To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request. ||
+To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.Image}

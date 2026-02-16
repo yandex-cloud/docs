@@ -1,6 +1,6 @@
 ---
 title: How to work with {{ api-gw-full-name }}
-description: In this tutorial, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view the monitoring chart and execution log.
+description: In this article, you will learn how to work with {{ api-gw-full-name }} in {{ yandex-cloud }}. You will learn to create, edit, and delete API gateways, as well as view monitoring charts and execution logs.
 ---
 
 # Step-by-step guides for {{ api-gw-name }}
@@ -14,6 +14,9 @@ description: In this tutorial, you will learn how to work with {{ api-gw-full-na
 * [{#T}](api-gw-network-add.md)
 * [{#T}](api-gw-vars.md)
 * [{#T}](api-gw-canary.md)
+* [Adding a label](label-add.md)
+* [Updating a label](label-update.md)
+* [Deleting a label](label-delete.md)
 * [Viewing monitoring charts](api-gw-monitoring.md)
 * [Viewing the execution log](api-gw-logs.md)
 * [Writing to the execution log](api-gw-logs-write.md)
@@ -21,10 +24,10 @@ description: In this tutorial, you will learn how to work with {{ api-gw-full-na
 * [{#T}](api-gw-migration.md)
 * [{#T}](api-gw-delete.md)
 
-## Getting information about a trigger {#trigger-info}
+## Getting trigger information {#trigger-info}
 
 * [Getting a list of triggers](trigger/trigger-list.md)
-* [Getting information about a trigger](trigger/trigger-info.md)
+* [Getting trigger information](trigger/trigger-info.md)
 
 ## Creating a trigger {#trigger-create}
 
@@ -56,4 +59,10 @@ description: In this tutorial, you will learn how to work with {{ api-gw-full-na
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ yagpt-name }}](spec-constructor/yagpt.md)
+* [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+* [{{ sw-full-name }}](spec-constructor/workflows.md)
+* [Swagger UI](spec-constructor/swagger.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

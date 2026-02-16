@@ -1,11 +1,18 @@
+---
+title: Права доступа к объектам
+description: Из статьи вы узнаете, как регулируется доступ к объектам в {{ datalens-short-name }}.
+---
+
 # Права доступа к объектам
 
-Разграничение прав доступа в {{ datalens-short-name }} реализовано на уровне объектов и папок.
-К каждому объекту и папке можно назначать пользователю права доступа, которые определяют допустимые операции. Если вы создали или скопировали папку или объект, то у них будут те же права, что и у родительской папки, в которой они будут размещены.
+Разграничение прав доступа в {{ datalens-short-name }} реализовано на уровне папок и объектов. Доступные операции зависят от назначенных прав доступа.
+
+Если вы создаете или копируете папку или объект, то права на них наследуются от родительской папки в момент создания или копирования. Обратите внимание, что права доступа не меняются автоматически при последующем перемещении объектов.
+
 
 Вы можете предоставить пользователю доступ к папке или к любому объекту сервиса:
 
-* [Подключение](../concepts/connection.md)
+* [Подключение](../concepts/connection/index.md)
 * [Датасет](../dataset/index.md)
 * [Чарт](../concepts/chart/index.md)
 * [Дашборд](../concepts/dashboard.md)
@@ -66,7 +73,7 @@
 
 ### {{ permission-admin }} {#permission-admin}
 
-Пользователь с правом доступа `{{ permission-admin }}` может изменять доступные объекты и папки, изменять права доступа.
+Пользователь с правом доступа `{{ permission-admin }}` может изменять доступные объекты и папки, изменять права доступа. Администратор папки может назначать права доступа на все вложенные папки и объекты.
 
 Право доступа `{{ permission-admin }}` включает в себя все разрешения права доступа `{{ permission-write }}`.
 
@@ -79,6 +86,7 @@
 Просмотр папки | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Редактирование папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Переименование папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Удаление папки | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Подключение** |
@@ -86,6 +94,7 @@
 Создание датасета<br/>над подключением | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Просмотр параметров<br/>подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Редактирование подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Удаление подключения | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Датасет** |
@@ -94,6 +103,7 @@
 Просмотр датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Редактирование датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Копирование датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Удаление датасета | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Чарт** |
@@ -101,15 +111,24 @@
 Редактирование чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Копирование чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Удаление чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение чарта | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Предоставить публичный доступ | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 **Дашборд** |
 Просмотр дашборда | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Редактирование дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
-Копирование дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Копирование дашборда | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
 Удаление дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 Предоставить публичный доступ | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+**Отчет** |
+Просмотр дашборда | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Редактирование дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Копирование дашборда | N/A | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg)
+Удаление дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Перемещение дашборда | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
+Изменение прав доступа | N/A | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/no.svg) | ![image](../../_assets/common/yes.svg)
 
 {% note info %}
 
@@ -120,8 +139,7 @@
 
 ## Аудит доступа к объектам {#audit-access}
 
-Пользователь {{ datalens-short-name }} может получить логи доступа к объектам {{ datalens-short-name }} (просмотр, редактирование, удаление).
-Чтобы получить логи, [обратитесь в службу технической поддержки]({{ link-console-support }}).
+Для отслеживания [аудитных логов](../at-ref.md) используется {{ at-full-name }}.
 
 
 

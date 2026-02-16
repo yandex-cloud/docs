@@ -16,11 +16,19 @@ keywords:
 
 Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
 
+
+## Роли для создания кластера {#roles}
+
+Для создания кластера {{ mos-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) или выше.
+
+Если вы хотите привязать сервисный аккаунт к кластеру (например, для [работы с {{ objstorage-full-name }}](s3-access.md)), вашему аккаунту в {{ yandex-cloud }} нужна роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+
 ## Создать кластер {#create-cluster}
 
 При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
-
-Для создания кластера {{ mos-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -29,7 +37,7 @@ keywords:
   Чтобы создать кластер {{ mos-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -43,8 +51,8 @@ keywords:
       1. Выберите версию {{ OS }}.
       1. Выберите [плагины](plugins.md#supported-plugins), которые нужно установить в кластер.
 
-
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
+  
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
   1. В блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1** задайте конфигурацию [группы хостов](../concepts/host-roles.md) `{{ OS }}`:
@@ -63,7 +71,17 @@ keywords:
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
-      1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** настройте автоматическое увеличение размера диска:
+      
+      1. (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+          * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+          * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
+      1. (Опционально) Настройте автоматическое увеличение размера диска:
 
           {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
 
@@ -71,8 +89,8 @@ keywords:
 
       1. Выберите количество создаваемых хостов.
 
-
-      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+      
+      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
           {% note tip %}
 
@@ -81,12 +99,6 @@ keywords:
           {% endnote %}
 
 
-      {% note warning %}
-
-      Изменить конфигурацию хостов после создания кластера можно только с помощью [API](../../glossary/rest-api.md), однако при необходимости вы сможете создать новую группу хостов с другой конфигурацией.
-
-      {% endnote %}
-
   1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-roles.md#dashboards) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
       1. Выберите платформу, тип и класс хостов.
@@ -94,8 +106,8 @@ keywords:
       1. Укажите расположение хостов по зонам доступности и подсетям.
       1. Выберите количество создаваемых хостов.
         
-
-      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect.md) через интернет.
+      
+      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -105,6 +117,8 @@ keywords:
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
       1. Укажите пароль для пользователя `admin`.
+
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
@@ -135,7 +149,7 @@ keywords:
          --name <имя_кластера> \
          --description <описание_кластера> \
          --labels <метки> \
-         --environment <окружение:_production_или_prestable> \
+         --environment <окружение> \
          --network-name <имя_сети> \
          --security-group-ids <идентификаторы_групп_безопасности> \
          --service-account-name <имя_сервисного_аккаунта> \
@@ -143,20 +157,21 @@ keywords:
          --maintenance schedule=<тип_технического_обслуживания>,`
                       `weekday=<день_недели>,`
                       `hour=<час_дня> \
+         --disk-encryption-key-id <идентификатор_ключа_KMS> \
          --version <версия_{{ OS }}> \
          --read-admin-password \
-         --data-transfer-access=<true_или_false> \
-         --serverless-access=<true_или_false> \
+         --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
+         --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
          --plugins <{{ OS }}_плагины> \
          --advanced-params <дополнительные_параметры> \
          --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
                                 `resource-preset-id=<класс_хостов>,`
                                 `disk-size=<размер_диска_в_байтах>,`
-                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-io-m3|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
-                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>,`
+                                `assign-public-ip=<разрешить_публичный_доступ_к_хостам>,`
                                 `roles=<роли_хостов> \
          --dashboards-node-group name=<имя_группы_хостов_Dashboards>,`
                                 `resource-preset-id=<класс_хостов>,`
@@ -165,7 +180,7 @@ keywords:
                                 `hosts-count=<количество_хостов_в_группе>,`
                                 `zone-ids=<зоны_доступности>,`
                                 `subnet-names=<имена_подсетей>,`
-                                `assign-public-ip=<назначить_публичный_адрес:_true_или_false>
+                                `assign-public-ip=<разрешить_публичный_доступ_к_хостам>
       ```
 
       Где:
@@ -178,7 +193,9 @@ keywords:
 
       * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем. Включенная защита от удаления кластера не помешает подключиться к нему вручную и удалить данные.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+      
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
       * `--maintenance` — настройки времени технического обслуживания:
 
@@ -187,7 +204,17 @@ keywords:
 
           Операции по обслуживанию проводятся для включенных и выключенных кластеров. Во время обслуживания могут, например, применяться патчи или обновляться СУБД.
 
+      
+      * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
       * `--read-admin-password` — пароль пользователя `admin`. Если указать параметр в команде, после ее ввода будет предложено ввести пароль.
+
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+          {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
 
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
@@ -220,11 +247,12 @@ keywords:
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
-        name                = "<имя_кластера>"
-        environment         = "<окружение>"
-        network_id          = "<идентификатор_сети>"
-        security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
-        deletion_protection = "<защита_от_удаления>"
+        name                   = "<имя_кластера>"
+        environment            = "<окружение>"
+        network_id             = "<идентификатор_сети>"
+        security_group_ids     = ["<список_идентификаторов_групп_безопасности>"]
+        disk_encryption_key_id = <идентификатор_ключа_KMS>
+        deletion_protection    = "<защитить_кластер_от_удаления>"
 
         config {
 
@@ -234,7 +262,7 @@ keywords:
           opensearch {
             node_groups {
               name             = "<имя_группы_виртуальных_хостов>"
-              assign_public_ip = <публичный_доступ>
+              assign_public_ip = <разрешить_публичный_доступ_к_хостам>
               hosts_count      = <количество_хостов>
               zone_ids         = ["<список_зон_доступности>"]
               subnet_ids       = ["<список_идентификаторов подсетей>"]
@@ -253,7 +281,7 @@ keywords:
           dashboards {
             node_groups {
               name             = "<имя_группы_виртуальных_хостов>"
-              assign_public_ip = <публичный_доступ>
+              assign_public_ip = <разрешить_публичный_доступ_к_хостам>
               hosts_count      = <количество_хостов>
               zone_ids         = ["<список_зон_доступности>"]
               subnet_ids       = ["<список_идентификаторов подсетей>"]
@@ -287,7 +315,23 @@ keywords:
       Где:
 
       * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
-      * `deletion_protection` — защита от удаления: `true` или `false`.
+
+      
+      * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+          Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
+
+      * `admin_password`— пароль пользователя `admin`.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+        {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
       * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
       * `roles` — роли хостов: `DATA` и `MANAGER`.
       * `maintenance_window` — время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров):
@@ -296,8 +340,6 @@ keywords:
               * `WEEKLY` — по расписанию.
           * `day` — день недели для типа `WEEKLY` в формате `DDD`. Например, `MON`.
           * `hour` — час дня по UTC для типа `WEEKLY` в формате `HH`. Например, `21`.
-
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
@@ -311,30 +353,406 @@ keywords:
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать кластер {{ mos-name }}, воспользуйтесь методом REST API [create](../api-ref/Cluster/create.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор каталога, в котором должен быть размещен кластер, в параметре `folderId`.
-  * Имя кластера в параметре `name`.
-  * Версию {{ OS }} в параметре `configSpec.version`.
-  * Пароль пользователя `admin` в параметре `configSpec.adminPassword`.
-  * Конфигурацию одной или нескольких групп хостов с [ролями](../concepts/host-roles.md) `DATA` и `MANAGER` (опционально) в параметре `configSpec.opensearchSpec.nodeGroups`.
-  * Конфигурацию одной или нескольких групп хостов с [ролью](../concepts/host-roles.md#dashboards) `DASHBOARDS` в параметре `configSpec.dashboardsSpec.nodeGroups`.
-  * Список плагинов в параметре `configSpec.opensearchSpec.plugins`.
-  * Настройки доступа из других сервисов в параметре `configSpec.access`.
-  * Идентификатор сети в параметре `networkId`.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      
+      ```json
+      {
+          "folderId": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "networkId": "<идентификатор_сети>",
+          "securityGroupIds": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+          "deletionProtection": <защитить_кластер_от_удаления>,
+          "configSpec": {
+              "version": "<версия_{{ OS }}>",
+              "adminPassword": "<пароль_пользователя-администратора>",
+              "opensearchSpec": {
+                  "plugins": [
+                      "<плагин_{{ OS }}_1>",
+                      "<плагин_{{ OS }}_2>",
+                      ...
+                      "<плагин_{{ OS }}_N>"
+                  ],
+                  "nodeGroups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resourcePresetId": "<класс_хостов>",
+                              "diskSize": "<размер_хранилища_в_байтах>",
+                              "diskTypeId": "<тип_диска>"
+                          },
+                          "roles": ["<роль_1>","<роль_2>"],
+                          "hostsCount": "<число_хостов>",
+                          "zoneIds": [
+                              "<зона_доступности_1>",
+                              "<зона_доступности_2>",
+                              "<зона_доступности_3>"
+                          ],
+                          "subnetIds": [
+                              "<идентификатор_подсети_1>",
+                              "<идентификатор_подсети_2>",
+                              "<идентификатор_подсети_3>"
+                          ],
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хостам>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                              "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                              "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboardsSpec": {
+                  "nodeGroups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resourcePresetId": "<класс_хостов>",
+                              "diskSize": "<размер_хранилища_в_байтах>",
+                              "diskTypeId": "<тип_диска>"
+                          },
+                          "hostsCount": "<число_хостов>",
+                          "zoneIds": ["<зона_доступности>"],
+                          "subnetIds": ["<идентификатор_подсети>"],
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хостам>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<процент_для_планового_увеличения>",
+                              "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                              "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+                  "serverless": <разрешить_доступ_из_Serverless_Containers>
+              }
+          },
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час>"
+              }
+          }
+      }
+      ```
 
 
-  * Идентификаторы групп безопасности в параметре `securityGroupIds`. Может потребоваться дополнительная [настройка групп безопасности](connect.md#security-groups) для того, чтобы можно было подключаться к кластеру.
-  * Идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером, в параметре `serviceAccountId`.
+      Где:
+
+      * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+      
+      * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+      * `serviceAccountId` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
 
 
-  * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
-  * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
+      * `configSpec` — настройки кластера:
+
+          * `version` — версия {{ OS }}.
+          * `adminPassword` — пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
+          * `opensearchSpec` — настройки групп хостов `{{ OS }}`:
+
+              * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.
+              * `nodeGroups` — настройки хостов в виде массива элементов. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                  * `name` — имя группы хостов.
+                  * `resources` — ресурсы кластера:
+
+                      * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                      * `diskSize` — размер диска в байтах;
+                      * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `hostsCount` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `zoneIds` — список зон доступности, где размещаются хосты кластера.
+                  * `subnetIds` — список идентификаторов подсетей.
+
+                  
+                  * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
+
+
+                  * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
+
+                      * `plannedUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                          Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenanceWindow`.
+
+                      * `emergencyUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                        {% note warning %}
+
+                        Если заданы оба порога, значение `emergencyUsageThreshold` должно быть не меньше `plannedUsageThreshold`.
+
+                        {% endnote %}
+
+                      * `diskSizeLimit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
+
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат параметр `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+          
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+              * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+              Возможные значения настроек: `true` или `false`.
+
+
+      * `maintenance_window.weeklyMaintenanceWindow` — расписание окна технического обслуживания:
+
+          * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+          * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      
+      ```json
+      {
+          "folder_id": "<идентификатор_каталога>",
+          "name": "<имя_кластера>",
+          "environment": "<окружение>",
+          "network_id": "<идентификатор_сети>",
+          "security_group_ids": [
+              "<идентификатор_группы_безопасности_1>",
+              "<идентификатор_группы_безопасности_2>",
+              ...
+              "<идентификатор_группы_безопасности_N>"
+          ],
+          "service_account_id": "<идентификатор_сервисного_аккаунта>",
+          "deletion_protection": <защитить_кластер_от_удаления>,
+          "config_spec": {
+              "version": "<версия_{{ OS }}>",
+              "admin_password": "<пароль_пользователя-администратора>",
+              "opensearch_spec": {
+                  "plugins": [
+                      "<плагин_{{ OS }}_1>",
+                      "<плагин_{{ OS }}_2>",
+                      ...
+                      "<плагин_{{ OS }}_N>"
+                  ],
+                  "node_groups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resource_preset_id": "<класс_хостов>",
+                              "disk_size": "<размер_хранилища_в_байтах>",
+                              "disk_type_id": "<тип_диска>"
+                          },
+                          "roles": ["<роль_1>","<роль_2>"],
+                          "hosts_count": "<число_хостов>",
+                          "zone_ids": [
+                              "<зона_доступности_1>",
+                              "<зона_доступности_2>",
+                              "<зона_доступности_3>"
+                          ],
+                          "subnet_ids": [
+                              "<идентификатор_подсети_1>",
+                              "<идентификатор_подсети_2>",
+                              "<идентификатор_подсети_3>"
+                          ],
+                          "assign_public_ip": <разрешить_публичный_доступ_к_хостам>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                              "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                              "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboards_spec": {
+                  "node_groups": [
+                      {
+                          "name": "<название_группы_хостов>",
+                          "resources": {
+                              "resource_preset_id": "<класс_хостов>",
+                              "disk_size": "<размер_хранилища_в_байтах>",
+                              "disk_type_id": "<тип_диска>"
+                          },
+                          "hosts_count": "<число_хостов>",
+                          "zone_ids": ["<зона_доступности>"],
+                          "subnet_ids": ["<идентификатор_подсети>"],
+                          "assign_public_ip": <разрешить_публичный_доступ_к_хостам>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<процент_для_планового_увеличения>",
+                              "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                              "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+                  "serverless": <разрешить_доступ_из_Serverless_Containers>
+              }
+          },
+          "maintenance_window": {
+              "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<час>"
+              }
+          }
+      }
+      ```
+
+
+      Где:
+
+      * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+      * `name` — имя кластера.
+      * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+
+      
+      * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
+      * `service_account_id` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), используемого для работы с кластером.
+
+
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
+
+      * `config_spec` — настройки кластера:
+
+          * `version` — версия {{ OS }}.
+          * `admin_password` — пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
+          * `opensearch_spec` — настройки групп хостов `{{ OS }}`:
+
+              * `plugins` — список [плагинов {{ OS }}](../concepts/plugins.md), которые надо установить в кластер дополнительно.
+              * `node_groups` — настройки хостов в виде массива элементов. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                  * `name` — имя группы хостов.
+                  * `resources` — ресурсы кластера:
+
+                      * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                      * `disk_size` — размер диска в байтах;
+                      * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+                  * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                  * `hosts_count` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `zone_ids` — список зон доступности, где размещаются хосты кластера.
+                  * `subnet_ids` — список идентификаторов подсетей.
+
+                  
+                  * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
+
+
+                  * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
+
+                      * `planned_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                          Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenance_window`.
+
+                      * `emergency_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+
+                          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
+
+                          {% note warning %}
+
+                          Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
+
+                          {% endnote %}
+
+                      * `disk_size_limit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
+
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат параметр `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+          
+          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+              * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+              Возможные значения настроек: `true` или `false`.
+
+
+      * `maintenance_window.weekly_maintenance_window` — расписание окна технического обслуживания:
+
+          * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+          * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.opensearch.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -428,9 +846,9 @@ keywords:
     * Имя сети — `{{ network-name }}`.
     * Идентификатор группы безопасности — `{{ security-group }}`.
     * Имя сервисного аккаунта — `os-account`.
-    * Защита от удаления кластера — отключена.
+    * Защита от удаления — отключена.
     * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
-    * Версия {{ OS }} — `2.8`.
+    * Версия {{ OS }} — `2.12`.
     * Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
     * Доступ к {{ data-transfer-name }} — включен.
     * Доступ к {{ serverless-containers-name }} — включен.
@@ -438,11 +856,11 @@ keywords:
     * Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
     * Конфигурация группы узлов `{{ OS }}`:
 
-        * название группы — `os-group`;
+        * имя группы узлов — `os-group`;
         * класс хостов — `{{ host-class }}`;
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
-        * количество хостов — три;
+        * количество хостов — `3`;
         * зона доступности — `{{ region-id }}-a`;
         * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен;
@@ -450,11 +868,11 @@ keywords:
 
     * Конфигурация группы хостов `Dashboards`:
 
-        * название группы — `dashboard-group`;
+        * имя группы хостов — `dashboard-group`;
         * класс хостов — `{{ host-class }}`;
         * размер диска — `10737418240` (в байтах);
         * тип диска — `network-ssd`;
-        * количество хостов — один;
+        * количество хостов — `1`;
         * зона доступности — `{{ region-id }}-a`;
         * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен.
@@ -474,7 +892,7 @@ keywords:
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \
-       --version 2.8 \
+       --version 2.12 \
        --read-admin-password \
        --data-transfer-access=true \
        --serverless-access=true \
@@ -505,15 +923,29 @@ keywords:
 
     * Имя — `my-os-clstr`.
     * Окружение — `PRODUCTION`.
-    * Версия {{ OS }} — `2.8`.
-    * Пароль пользователя `admin` — `osadminpwd`.
-    * Имя группы узлов `{{ OS }}` — `os-group`.
-    * Класс хостов — `{{ host-class }}`.
-    * Размер диска — `10737418240` (в байтах).
-    * Тип диска — `{{ disk-type-example }}`.
-    * Количество хостов — `1`.
-    * Публичный адрес — выделен.
-    * Роли группы хостов — `DATA` и `MANAGER`.
+    * Версия {{ OS }} — `2.12`.
+    * Пароль пользователя `admin` — `osAdminpwd1`.
+    * Конфигурация группы узлов `{{ OS }}`:
+
+      * имя группы узлов `{{ OS }}` — `os-group`;
+      * класс хостов — `{{ host-class }}`;
+      * размер диска — `10737418240` (в байтах);
+      * тип диска — `{{ disk-type-example }}`;
+      * количество хостов — `3`;
+      * зона доступности — `{{ region-id }}-a`;
+      * публичный адрес — выделен;
+      * роли группы хостов — `DATA` и `MANAGER`.
+    
+    * Конфигурация группы хостов `Dashboards`:
+    
+      * имя группы хостов — `dashboard-group`;
+      * класс хостов — `{{ host-class }}`;
+      * размер диска — `10737418240` (в байтах);
+      * тип диска — `network-ssd`;
+      * количество хостов — `1`;
+      * зона доступности — `{{ region-id }}-a`;
+      * публичный адрес — выделен.
+    
     * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
     * Имя сети — `mynet`.
     * Имя подсети — `mysubnet`.
@@ -532,14 +964,14 @@ keywords:
 
       config {
 
-        version        = "2.8"
-        admin_password = "osadminpwd"
+        version        = "2.12"
+        admin_password = "osAdminpwd1"
 
         opensearch {
           node_groups {
             name             = "os-group"
             assign_public_ip = true
-            hosts_count      = 1
+            hosts_count      = 3
             zone_ids         = ["{{ region-id }}-a"]
             subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
             roles            = ["DATA", "MANAGER"]
@@ -550,7 +982,24 @@ keywords:
             }
           }
         }
+
+        dashboards {
+          node_groups {
+            name             = "dashboard-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["ru-central1-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            resources {
+              resource_preset_id = "s2.micro"
+              disk_size          = 10737418240
+              disk_type_id       = "network-ssd"
+            }
+          }
+        }
+
       }
+
       maintenance_window {
         type = "WEEKLY"
         day  = "MON"
@@ -591,3 +1040,6 @@ keywords:
     ```
 
 {% endlist %}
+
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

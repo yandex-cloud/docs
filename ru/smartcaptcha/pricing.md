@@ -8,13 +8,24 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=c6e16cc61f51#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ captcha-full-name }} {#rules}
 
-Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://smartcaptcha.yandexcloud.net/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:
+Тарифицируются [запросы к API {{ captcha-name }}](./quickstart.md#check-answer) по адресу `https://{{ captcha-domain }}/validate`. Тарифицируются только [корректные запросы](concepts/validation.md#service-response), на которые API вернул статус `ok`. Для этого запросы должны удовлетворять следующим условиям:
 
 * Сервис {{ captcha-name }} определил запрос как исходящий от человека, а не от робота;
 * Переданы корректные значения `secret` и `token`;
@@ -32,7 +43,7 @@ editable: false
 
 1. Пользователь отправил пустой или некорректный `token`, что привело к некорректному запросу `/validate` — не тарифицируется.
 
-1. Разработчик бэкэнда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` — не тарифицируется.
+1. Разработчик бэкенда допустил ошибку и отправил некорректный `secret` или `token` в ответном запросе `/validate`. API вернет ошибку в поле `message` — не тарифицируется.
 
 1. Злоумышленник прошел капчу и, получив `token`, отправил его 10 раз в течение первой минуты. API вернет статус `ok` только на первый запрос, и тарифицируется также только первый запрос.
 
@@ -43,25 +54,24 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|smart-captcha }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
+Оплачивается фактическое количество запросов. Итоговая стоимость вычисляется ступенчато: первые (100 000 - 10 000) запросов в месяц по одной цене, последующие запросы — по другой цене.
 
-  {% include [rub](../_pricing/smartcaptcha/rub.md) %}
+Период тарификации — календарный месяц. 
+  
+{% include [calendar-month](../_includes/smartcaptcha/calendar-month.md) %}
 
-  Оплачивается фактическое количество запросов.
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
-  {% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
+{% include [rub-smartcaptcha](../_pricing_examples/smartcaptcha/rub-smartcaptcha.md) %}
 
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/smartcaptcha/kzt.md) %}
-
-  Оплачивается фактическое количество запросов.
-
-  {% include [kzt-smartcaptcha](../_pricing_examples/smartcaptcha/kzt-smartcaptcha.md) %}
-
-{% endlist %}
 
 
 

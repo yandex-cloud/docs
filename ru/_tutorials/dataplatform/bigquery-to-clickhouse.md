@@ -1,4 +1,4 @@
-# Миграция базы данных из Google BigQuery в {{ mch-name }}
+# Миграция базы данных из Google BigQuery в {{ mch-full-name }}
 
 
 Вы можете перенести базу данных из Google BigQuery в {{ mch-full-name }} и затем проанализировать ее с помощью {{ datalens-full-name }}.
@@ -19,6 +19,17 @@
 1. [Проанализируйте данные с помощью {{ datalens-full-name }}](#datalens).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за использование сервиса {{ datalens-full-name }} (см. [тарифы {{ datalens-name }}](../../datalens/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -50,7 +61,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету {{ objstorage-name }}.
 
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
 
 1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
 
@@ -82,7 +93,7 @@
 
     Где:
 
-    * `gs_service_client_id` — [имя сервисного аккаунта Google Cloud](service-account-name@project-id.iam.gserviceaccount.com) вида `service-account-name@project-id.iam.gserviceaccount.com`.
+    * `gs_service_client_id` — имя [сервисного аккаунта Google Cloud](https://cloud.google.com/iam/docs/service-account-overview) вида `service-account-name@project-id.iam.gserviceaccount.com`.
     * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
     * `aws_access_key_id` — идентификатор ключа сервисного аккаунта {{ yandex-cloud }}.
     * `aws_secret_access_key` — секретный ключ сервисного аккаунта {{ yandex-cloud }}.

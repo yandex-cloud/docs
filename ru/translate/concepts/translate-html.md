@@ -4,13 +4,7 @@ API {{ translate-name }} возвращает тело ответа в форм�
 
 Если отправить модели следующий запрос:
 
-```json
-{
-    "targetLanguageCode": "en",
-    "format": "HTML",
-    "texts": ["<b>Дорогие коллеги!</b> Поздравляю вас с праздником!"]
-}
-```
+{% include [html-req1](../../_untranslatable/translate/html-req1.md) %}
 
 В ответе вернется результат с конвертированными символами:
 
@@ -27,33 +21,7 @@ API {{ translate-name }} возвращает тело ответа в форм�
 
 Чтобы получить текст с нужной разметкой, файл JSON необходимо преобразовать с помощью функции нужного языка или любого другого специализированного инструмента. Пример такого преобразования на языке Python с помощью библиотеки `requests`:
 
-```python
-import requests
-
-IAM_TOKEN = '<IAM-токен>'
-folder_id = '<идентификатор_каталога>'
-target_language = 'en'
-texts = ["<b>Дорогие коллеги!</b> Поздравляю вас с праздником!"]
-
-body = {
-    "targetLanguageCode": target_language,
-    "texts": texts,
-    "folderId": folder_id,
-}
-
-headers = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer {0}".format(IAM_TOKEN)
-}
-
-response = requests.post('https://translate.api.cloud.yandex.net/translate/v2/translate',
-    json = body,
-    headers = headers
-)
-
-body_dict = response.json()
-print(body_dict['translations'])
-```
+{% include [html-req2](../../_untranslatable/translate/html-req2.md) %}
 
 Результат:
 

@@ -2,12 +2,20 @@
 
 Вы можете перенести базу данных из {{ PG }} в {{ CH }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
-1. [Подготовьте трансфер](#prepare-transfer).
-1. [Активируйте трансфер](#activate-transfer).
+1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работу репликации](#example-check-replication).
 1. [Выполните выборку данных в приемнике](#working-with-data-ch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,6 +24,8 @@
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
+
+  {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
   1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
@@ -28,14 +38,14 @@
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `ch-user`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
 
-
+  
   1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
      * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 
-  1. [Выдайте роль](../../managed-postgresql/operations/grant#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
+  1. [Выдайте роль](../../managed-postgresql/operations/grant.md#grant-privilege) `mdb_replication` пользователю `pg-user` в кластере {{ mpg-name }}.
 
 - {{ TF }} {#tf}
 
@@ -74,7 +84,7 @@
 
 {% endlist %}
 
-## Подготовьте трансфер {#prepare-transfer}
+## Подготовьте и активируйте трансфер {#prepare-transfer}
 
 1. [Подключитесь к кластеру {{ mpg-name }}](../../managed-postgresql/operations/connect.md).
 1. Создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
@@ -117,7 +127,7 @@
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — `<пароль_пользователя>`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.cleanup_policy.title }}** — `DROP`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа [**{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}**](../../data-transfer/concepts/index.md#transfer-type), использующий созданные эндпоинты, и [активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     - {{ TF }} {#tf}
 
@@ -135,11 +145,15 @@
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+        {% include [terraform-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        Трансфер активируется автоматически после создания.
+
     {% endlist %}
 
-## Активируйте трансфер {#activate-transfer}
+## Проверьте работу репликации {#example-check-replication}
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Чтобы проверить, что трансфер перенес данные с учетом репликации в приемнике, подключитесь к кластеру-приемнику {{ mch-full-name }} и посмотрите, что таблица `x_tab` в базе `db1` содержит те же колонки, что таблица `x_tab` в базе-источнике, а также [колонки с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`:
 
    ```sql
@@ -151,8 +165,6 @@
    │ 41 │  User2 │   1633417594957267000          │ 0                             │
    └────┴────────┴────────────────────────────────┴───────────────────────────────┘
    ```
-
-## Проверьте работу репликации {#example-check-replication}
 
 1. Подключитесь к кластеру-источнику.
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab` базы-источника {{ PG }}:
@@ -207,37 +219,21 @@ WHERE __data_transfer_delete_time == 0;
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
-* Удалите эндпоинты и кластеры:
+1. Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../data-transfer/operations/transfer.md#delete) его.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [Эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
-        * [{{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Удалите эндпоинт-источник и эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 
-        Если вы создали ресурсы с помощью {{ TF }}:
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `postgresql-to-clickhouse.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `postgresql-to-clickhouse.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

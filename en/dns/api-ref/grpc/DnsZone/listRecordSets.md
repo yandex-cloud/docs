@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dns/v1/api-ref/grpc/DnsZone/listRecordSets.md
 ---
 
-# Cloud DNS API, gRPC: DnsZoneService.ListRecordSets {#ListRecordSets}
+# Cloud DNS API, gRPC: DnsZoneService.ListRecordSets
 
 Retrieves the list of record sets in the specified folder.
 
@@ -15,29 +15,29 @@ Retrieves the list of record sets in the specified folder.
 
 ```json
 {
-  "dnsZoneId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "dns_zone_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dnsZoneId | **string**
+|| dns_zone_id | **string**
 
 ID of the DNS zone to list record sets in.
 
 To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/grpc/DnsZone/list#List) request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse)
+results is larger than `page_size`, the service returns a [ListDnsZoneRecordSetsResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListDnsZoneRecordSetsResponse.nextPageToken](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse) returned by a previous list request. ||
+[ListDnsZoneRecordSetsResponse.next_page_token](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsResponse) returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters record sets listed in the response. The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
@@ -56,7 +56,7 @@ Examples of a filter: `name="my-record-set"`, `type IN ("MX","A") AND name="work
 
 ```json
 {
-  "recordSets": [
+  "record_sets": [
     {
       "name": "string",
       "type": "string",
@@ -66,20 +66,20 @@ Examples of a filter: `name="my-record-set"`, `type IN ("MX","A") AND name="work
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| recordSets[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
+|| record_sets[] | **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
 
 List of record sets in the specified DNS zone. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListDnsZoneRecordSetsRequest.pageSize](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsRequest), use `next_page_token` as the value
-for the [ListDnsZoneRecordSetsRequest.pageToken](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsRequest) parameter in the next list request.
+the specified [ListDnsZoneRecordSetsRequest.page_size](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsRequest), use `next_page_token` as the value
+for the [ListDnsZoneRecordSetsRequest.page_token](#yandex.cloud.dns.v1.ListDnsZoneRecordSetsRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#

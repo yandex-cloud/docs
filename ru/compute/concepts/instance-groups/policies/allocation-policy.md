@@ -1,3 +1,8 @@
+---
+title: Политика распределения
+description: Из этой статьи вы узнаете про политику распределения виртуальных машин.
+---
+
 # Политика распределения
 
 
@@ -85,6 +90,11 @@ allocation_policy:
       - second
       - third
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/vm-autoscale/index.md)
+* [{#T}](../../../tutorials/autoscale-monitoring.md)
 
 ### См. также {#see-also}
 

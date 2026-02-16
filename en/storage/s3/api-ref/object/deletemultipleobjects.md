@@ -1,6 +1,6 @@
 # deleteMultipleObjects method
 
-Deletes objects based on a list of keys passed in a request.
+Deletes objects based on a list of keys provided in a request.
 
 It takes less time than deleting the same objects one by one via separate requests.
 
@@ -28,7 +28,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Query parameters {#request-parameters}
+### Request parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----
@@ -41,15 +41,15 @@ Use the appropriate [common headers](../common-request-headers.md) in your reque
 
 For this request, the `Content-MD5` and `Content-Length` headers are required.
 
-Moreover, if governance-mode [retention](../../../concepts/object-lock.md) is put on object versions in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check retention status, use the [getObjectRetention](getobjectretention.md) method.
+Moreover, if governance-mode [retention](../../../concepts/object-lock.md) is put on object versions in a versioned bucket, make sure to use the below-specified header to bypass retention and confirm deletion. Only users with the [`storage.admin` role](../../../security/index.md) can delete a retained object version. To check the retention status, use the [getObjectRetention](getobjectretention.md) method.
 
 Header | Description
 --- | ---
-`X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance retention. Set it to `true`.
+`X-Amz-Bypass-Governance-Retention` | Header that confirms bypassing of the governance-mode retention. Set it to `true`.
 
 ### Data schema {#request-scheme}
 
-The list of keys to delete is passed in XML format.
+Provide the list of keys to delete in XML format.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -65,7 +65,7 @@ The list of keys to delete is passed in XML format.
 Tag | Description
 ----- | -----
 `Delete` | It contains the response body.<br/><br/>Path: `/Delete`.
-`Quiet` | `<Quiet>true</Quiet>` sets the <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the query will not return the response body. If the specified object does not exist at the time of the query, `Deleted` will be returned.><br/>If omitted, the default value is `false`.><br/>Path: `/Delete/Quiet`.
+`Quiet` | `<Quiet>true</Quiet>`enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the request will not return the response body. If the specified object does not exist when requested, `Deleted` will be returned.<br/><br/>If the tag is not specified, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`.
 `Object` | It contains object deletion parameters.<br/><br/>Path: `/Delete/Object`.
 `Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`.
 
@@ -75,7 +75,7 @@ Tag | Description
 
 ### Headers {#response-headers}
 
-Responses can only contain [common response headers](../common-response-headers.md).
+Responses can only contain [common headers](../common-response-headers.md).
 
 ### Response codes {#response-codes}
 
@@ -101,7 +101,7 @@ A successful response contains additional data in XML format with the schema des
 Tag | Description
 ----- | -----
 `DeleteResult` | Response body.<br/><br/>Path: `/DeleteResult`.
-`Deleted` | Successfully deleted object.<br/><br/>Missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`.
+`Deleted` | Successfully deleted object.<br/><br/>Teh tag is missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`.
 `Key` | Object key.<br/><br/>Path: `/DeleteResult/Deleted/Key` or `/DeleteResult/Error/Key`.
 `Error` | Object deletion error.<br/><br/>Path: `/DeleteResult/Error`.
 `Code` | Error code.<br/>Path: `/DeleteResult/Error/Code`.

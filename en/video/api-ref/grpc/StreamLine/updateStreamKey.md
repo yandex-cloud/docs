@@ -3,9 +3,10 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/updateStreamKey.md
 ---
 
-# Video API, gRPC: StreamLineService.UpdateStreamKey {#UpdateStreamKey}
+# Video API, gRPC: StreamLineService.UpdateStreamKey
 
-Change stream key.
+Regenerates and updates the stream key for a push-type stream line.
+This is useful for security purposes when the existing key may be compromised.
 
 ## gRPC request
 
@@ -15,15 +16,18 @@ Change stream key.
 
 ```json
 {
-  "streamLineId": "string"
+  "stream_line_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| streamLineId | **string**
+|| stream_line_id | **string**
 
-ID of the line. ||
+Required field. ID of the stream line for which to update the stream key.
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -32,12 +36,12 @@ ID of the line. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "streamLineId": "string"
+    "stream_line_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -58,13 +62,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -107,18 +111,18 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| streamLineId | **string**
+|| stream_line_id | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

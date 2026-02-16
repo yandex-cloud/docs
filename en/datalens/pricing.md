@@ -1,4 +1,6 @@
 ---
+title: '{{ datalens-full-name }} pricing policy'
+description: This article covers the {{ datalens-name }} pricing policy.
 editable: false
 ---
 
@@ -10,51 +12,55 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-## {{ datalens-name }} service plans {#effective-rules}
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-{{ datalens-full-name }} features service plans offering different service packages:
+{% include [vat](../_includes/vat.md) %}
 
-* **Community**: Suitable for small teams and non-profit projects.
-* **Business**: Suitable for enterprise deployments and business scenarios.
+## {{ datalens-name }} service plan {#effective-rules}
 
-The plan you choose covers your organization and can only be [changed](./settings/service-plan.md#change-service-plan) by its owner or administrator.
+{{ datalens-full-name }} has a single service plan where access is free for individual users and teams are billed based on the number of [seats](#seats).
 
-Service plans offer different feature sets and [cost](#prices) differently.
+### Seats {#seats}
 
-| **Service plan** | **Community** | **Business** |
------------------- |---------------|---------------
-| Interactive dashboards | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Chart builder | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Data model and computations | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Role-based access management | ![image](../_assets/common/yes.svg) | ![image](../_assets/common/yes.svg) |
-| Authentication | Yandex ID | Yandex ID, corporate accounts / SSO¹ |
-| [{{ datalens-name }} UI customization](./settings/ui-customization.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [Secure embedding for private objects](./security/private-embedded-objects.md) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| [SLA](https://yandex.com/legal/cloud_sla_datalens) | ![image](../_assets/common/no.svg) | ![image](../_assets/common/yes.svg) |
-| Technical support | [Basic plan](../support/pricing.md#base) (if the user does not have [Business](../support/pricing.md#business) or [Premium](../support/pricing.md#premium) enabled) | [Business plan](../support/pricing.md#business) (only applies to {{ datalens-name }}) and priority over the Community plan when processing support requests |
+* Every {{ datalens-full-name }} user needs a seat, even if only to view or edit dashboards.
+* Seats are issued automatically when new users first log in to {{ datalens-full-name }}.
+* Seats can be managed by the administrator, see [this article](./settings/seats.md) for details.
+* You can manage access to objects in {{ datalens-full-name }} using [roles and access permissions](./security/index.md); a seat does not provide access to objects.
 
 {% note info %}
 
-¹ For existing customers who had configured an identity federation and used a corporate account to log in to {{ datalens-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
+By default, seat auto-purchasing is enabled in the instance: a seat is immediately issued to a user upon their first login to {{ datalens-name }}. The administrator can [disable this option](./settings/seats.md#purchase-automatically) in the settings to only assign already available seats to new users. If there are no such seats, the administrator will have to manually issue seats to new users.
 
 {% endnote %}
+
+Seats are counted towards the month's total, regardless of user activity. If the instance contains more than one seat, the total charge is calculated as follows:
+
+> Number of seats × Cost per seat
+
+You may schedule a cut in the number of seats at any time; however, the change will take effect only on the first day of the following calendar month.
+
+Technical support coverage is determined by the [{{ yandex-cloud }}](../support/overview.md) support plan you select.
+
+### Trial period {#trial}
+
+New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce the consumption per instance to one seat.
+
+You can only use the trial period once per {{ datalens-name }} instance: it activates automatically when you activate the instance. When exiting the trial, your first month's cost is prorated based on remaining days in the month.
 
 ## Prices for the Russia region {#prices}
 
-The cost of using {{ datalens-name }} depends on the service plan you select.
-
-{% note info %}
-
-If you change to the _Business_ plan, the price for the first month will be proportional to the remaining portion of the month as of the change date.
-
-{% endnote %}
-
-A user is active and subject to billing if their actions have resulted in a query to a data source, e.g., they opened or edited a dashboard, chart, or dataset. Public URLs to dashboards and charts work without authentication and do not contribute to active user count. You can look up user count in [{{ datalens-name }} usage statistics](./operations/connection/create-usage-tracking.md).
-
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+The cost of using {{ datalens-name }} depends on the number of seats per instance. For individual users with a single seat in the instance, {{ datalens-name }} is available at no charge. If {{ datalens-name }} is used for teamwork, and your instance has more than one seat, each seat will be charged.
 
 
 
 {% include notitle [usd.md](../_pricing/datalens/usd.md) %}
 
+
+
+#### See also {#see-also}
+
+* [Updated pricing policy as of December 1](./pricing-changes.md)
+* [Pricing and payment questions](./qa/pricing.md)
+* [Managing seats in {{ datalens-name }}](./settings/seats.md)

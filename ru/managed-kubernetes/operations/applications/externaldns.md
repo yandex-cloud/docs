@@ -1,3 +1,8 @@
+---
+title: Установка ExternalDNS c плагином для {{ dns-full-name }}
+description: Следуя данной инструкции, вы сможете установить ExternalDNS c плагином для {{ dns-name }}.
+---
+
 # Установка ExternalDNS c плагином для {{ dns-full-name }}
 
 
@@ -11,7 +16,7 @@
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы c {{ dns-name }}.
 1. [Назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `dns.editor`.
-1. [Создайте авторизованный ключ](../../../iam/operations/authorized-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `key.json`:
+1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `key.json`:
 
    ```bash
    yc iam key create \
@@ -28,9 +33,9 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ExternalDNS c плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [ExternalDNS с плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для ExternalDNS или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `externaldns-space`). Если вы оставите пространство имен по умолчанию, ExternalDNS может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисной учетной записи** — вставьте содержимое файла `key.json` или создайте новый авторизованный ключ для сервисного аккаунта. Сервисный аккаунт должен иметь [роль](../../../iam/concepts/access-control/roles.md) `dns.editor`.
    * **ID каталога** — укажите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [зона {{ dns-name }}](../../../dns/concepts/dns-zone.md).
@@ -57,11 +62,13 @@
      externaldns ./externaldns/
     ```
 
+    Если вы укажете в параметре `namespace` пространство имен по умолчанию, ExternalDNS может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `externaldns-space`).
+
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
 ## Особенности работы {#features}
 
-Чтобы автоматически создавать DNS-записи с помощью приложения [ExternalDNS c плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns):
+Чтобы автоматически создавать DNS-записи с помощью приложения [ExternalDNS с плагином для {{ dns-full-name }}](/marketplace/products/yc/externaldns):
 * С [Ingress-контроллерами](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) не нужны дополнительные настройки.
 * Для сервисов типа [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) необходимо использовать аннотацию `"external-dns.alpha.kubernetes.io/hostname=<ваш_домен>"`.
 

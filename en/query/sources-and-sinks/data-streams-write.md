@@ -25,7 +25,7 @@ FROM
 ## Setting up a connection {#connect}
 
 To read data from {{ yds-full-name }}:
-1. Go to **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** in the {{ yq-full-name }} interface and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** section in **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}** and click **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. In the window that opens, specify a name for a connection to {{ yds-full-name }} in the **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** field.
 1. In the drop-down list under **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**, select `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. In the **{{ ui-key.yql.yq-connection-form.database.input-label }}** drop-down list, select the {{ ydb-full-name }} database where the {{ yds-full-name }} stream was created.
@@ -99,9 +99,9 @@ Where:
 |`yds`| |{{ yds-full-name }} connection name|
 |`input_stream`| |Source stream name in the SQL query|
 |`output_stream`| |Target stream name in the SQL query|
-|`host`|String|Query string parameter|
-|`count`|Integer|Query numeric parameter|
-|`raw`|String|Data format. Currently, the only supported format is `raw`|
+|`host`|String|String parameter of the query|
+|`count`|Integer|Numerical parameter of the query|
+|`raw`|String|Data format. Currently, the only supported format is `raw` (raw data)|
 
 The processing results are written to the {{ yds-full-name }} output stream. To facilitate the processing, this data is converted to `JSON` format using the following statement:
 
@@ -114,7 +114,7 @@ The processing results are written to the {{ yds-full-name }} output stream. To 
     ))))
 ```
 
-The YQL documentation provides a detailed description of modules such as [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson), [Json]({{ ydb.docs }}/yql/reference/types/json) and [its functions]({{ ydb.docs }}/yql/reference/builtins/json), [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
+The YQL documentation provides a detailed description of [Yson]({{ ydb.docs }}/yql/reference/udf/list/yson), [Json]({{ ydb.docs }}/yql/reference/types/json) and [its functions]({{ ydb.docs }}/yql/reference/builtins/json), [<|"key": value|>]({{ ydb.docs }}/yql/reference/builtins/struct).
 
 ## Supported write formats
 

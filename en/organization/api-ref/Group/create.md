@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/groups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to create a group in.
+            To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the group.
+            The name must be unique within the organization.
+            Value must match the regular expression ` [a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `.
+          pattern: '[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the group.
+            The maximum string length in characters is 256.
+          type: string
+      required:
+        - organizationId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/create.md
 ---
 
-# Cloud Organization API, REST: Group.Create {#Create}
+# Identity Hub API, REST: Group.Create
 
 Creates a group in the specified organization.
 
@@ -28,14 +62,20 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups
 || organizationId | **string**
 
 Required field. ID of the organization to create a group in.
-To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ` [a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? `. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -66,7 +106,9 @@ Description of the group. ||
     "organizationId": "string",
     "createdAt": "string",
     "name": "string",
-    "description": "string"
+    "description": "string",
+    "subjectContainerId": "string",
+    "externalId": "string"
   }
   // end of the list of possible fields
 }
@@ -196,4 +238,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subjectContainerId | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| externalId | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

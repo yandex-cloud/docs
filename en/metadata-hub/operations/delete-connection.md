@@ -1,20 +1,71 @@
 ---
-title: How to manage connections. Step-by-step guides
-description: Step-by-step guide on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to delete connections.
+title: Deleting a {{ metadata-hub-name }} connection. Step-by-step guides
+description: Step-by-step guides on using {{ connection-manager-name }} in {{ yandex-cloud }}. In this tutorial, you will learn how to delete connections.
 ---
 
 # Deleting a connection
 
-{% include notitle [preview](../../_includes/note-preview.md) %}
+
+You cannot delete a connection you [created manually](../quickstart/connection-manager.md#database-connections) as long as it has at least one [dependency](../concepts/connection-manager.md#dependencies). 
+
+A connection [created automatically](../quickstart/connection-manager.md#mdb-integration) when creating a managed database cluster cannot be deleted. Such connections are deleted automatically when you delete the MDB cluster, but they will be remain intact for as long as there is at least one backup referencing them. After you delete the cluster that created the connection, its automatic backups are stored for another week; therefore, the connection does not get deleted right away together with the cluster.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to delete a connection.
-   1. Select **{{ metadata-hub-full-name }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **Connection Manager**.
-   1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) on the right side of the connection you want to delete.
-   1. Select **Delete**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) in which to delete a connection.
+    1. Select **{{ metadata-hub-full-name }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
+    1. In the list of connections, click ![image](../../_assets/console-icons/ellipsis.svg) to the right of the connection you want to delete.
+    1. Select **{{ ui-key.yacloud.common.delete }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  To delete a connection:
+
+  1. See the description of the CLI command for deleting a connection:
+
+      ```bash
+      yc metadata-hub connection-manager connection delete --help
+      ```
+
+  1. Delete your connection by running this command:
+      
+      ```bash
+      yc metadata-hub connection-manager connection delete <connection_ID>
+      ```
+
+      You can get the connection ID with the [list of connections](view-connection.md#connection-list) in the folder.
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To delete a connection created with {{ TF }}:
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  1. Delete the connection description.
+  1. Make sure the settings are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+
+- API {#api}
+  
+  To delete a {{ connection-manager-name }} connection, use the [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) REST API method or the [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) gRPC API call and provide the connection ID in the request.
+
+   To delete a {{ connection-manager-name }} connection, use the [Connection.Delete](../connection-manager/api-ref/Connection/delete.md) REST API method or the [ConnectionService.Delete](../connection-manager/api-ref/grpc/Connection/delete.md) gRPC API call and provide the connection ID in the request.
 
 {% endlist %}

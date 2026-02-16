@@ -2,7 +2,7 @@
 
 The _execution context_ is a temporary runtime environment that initializes the external dependencies of your function code, such as database connections and HTTP endpoints.
 
-When calling each function, {{ sf-name }} starts the execution context based on the configuration parameters that the user defined when creating this function. The service provides and manages the resources required for function calls.
+When calling each function, {{ sf-name }} starts the execution context based on the configuration parameters that the user defined when creating that function. The service provides and manages the resources required for function calls.
 
 A function may be delayed when called for the first time or after an update, because the service sets up the execution context and initializes the function. For subsequent function calls, the service tries to reuse the execution context. This ensures better performance for subsequent calls, as there is no need to perform the entire startup process again or reinstall the dependencies.
 
@@ -10,7 +10,7 @@ Initialization only takes place when a new function instance is created. {{ sf-n
 
 ## Reusing the execution context {#reuse-context}
 
-Once a function is executed, the context is kept pending for the function to be called again. This means that:
+Once a function is executed, the context is kept pending for the function to be called again. It means that:
 
 * Any declarations in the function code (outside the [handler](../function.md#model-desc) code) remain initialized, providing additional optimization when the function is called again.
 

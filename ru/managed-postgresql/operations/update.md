@@ -21,6 +21,12 @@ description: Из статьи вы узнаете, как изменить на
 * [Изменить группы безопасности кластера](#change-sg-set).
 
 
+{% note info %}
+
+Любые изменения возможны только на запущенном кластере.
+
+{% endnote %}
+
 Подробнее о других изменениях кластера:
 
 * [Обновление версии {{ PG }}](cluster-version-update.md).
@@ -49,8 +55,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов {{ PG }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -70,7 +76,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-pg }} resource-preset list
      ```
@@ -133,7 +139,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -163,7 +169,7 @@ description: Из статьи вы узнаете, как изменить на
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -172,7 +178,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -229,8 +235,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Измените [настройки {{ PG }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -307,7 +313,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -338,11 +344,11 @@ description: Из статьи вы узнаете, как изменить на
 
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -351,7 +357,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -413,8 +419,13 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  
+  
+  1. {% include [diagnostics-settings-console](../../_includes/mdb/mpg/diagnostics-settings-console.md) %}
+  
+
   1. Измените дополнительные настройки кластера:
 
      {% include [mpg-extra-settings](../../_includes/mdb/mpg/extra-settings-web-console.md) %}
@@ -435,26 +446,23 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
         ```bash
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
             --backup-window-start <время_начала_резервного_копирования> \
             --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях> \
-            --datalens-access=<true_или_false> \
+            --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
                                 `hour=<час_дня> \
-            --websql-access=<true_или_false> \
+            --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
-            --serverless-access=<true_или_false> \
-            --yandexquery-access=<доступ_через_{{ yq-name }}> \
-            --performance-diagnostics enabled=<true_или_false>,`
+            --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
+            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
+            --performance-diagnostics enabled=<активировать_сбор_статистики>,`
                                      `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                      `statements-sampling-interval=<интервал_сбора_запросов>
         ```
-
-
 
     Вы можете изменить следующие настройки:
 
@@ -470,29 +478,29 @@ description: Из статьи вы узнаете, как изменить на
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
     
-
+    
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
 
     * `--yandexquery-access` — разрешает доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
 
-    * `--autofailover` – управляет настройкой автоматической смены мастера. Подробнее см. в разделе [Репликация](../concepts/replication.md#replication-auto). Значение по умолчанию — `true`.
-
     * `--connection-pooling-mode` — указывает [режим работы менеджера подключений](../concepts/pooling.md): `SESSION`, `TRANSACTION` или `STATEMENT`.
 
-    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+    * `--deletion-protection` — защита от удаления кластера, его баз данных и пользователей.
 
         По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
         Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
+    
     * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
 
         * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
         * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
         * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+
 
     Имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -526,8 +534,8 @@ description: Из статьи вы узнаете, как изменить на
         ...
         config {
           access {
-            data_lens = <доступ_из_{{ datalens-name }}>
-            web_sql   = <выполнение_SQL-запросов_из_консоли_управления>
+            data_lens = <разрешить_доступ_из_{{ datalens-name }}>
+            web_sql   = <разрешить_доступ_из_{{ websql-name }}>
             ...
         }
         ...
@@ -546,7 +554,7 @@ description: Из статьи вы узнаете, как изменить на
         ...
         config {
           pooler_config {
-            pool_discard = <параметр_Odyssey>
+            pool_discard = <сбрасывать_состояния_клиентов_после_каждой_транзакции>
             pooling_mode = "<режим_работы>"
           }
           ...
@@ -556,19 +564,21 @@ description: Из статьи вы узнаете, как изменить на
 
       Где:
 
-      * `pool_discard`  — параметр Odyssey `pool_discard`: `true` или `false`.
+      * `pool_discard` — определяет, должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`.
       * `pooling_mode` — режим работы: `SESSION`, `TRANSACTION` или `STATEMENT`.
 
   1. {% include [Maintenance window](../../_includes/mdb/mpg/terraform/maintenance-window.md) %}
 
+  
   1. {% include [Performance diagnostics](../../_includes/mdb/mpg/terraform/performance-diagnostics.md) %}
+
 
   1. Чтобы включить защиту кластера, его баз данных и пользователей от непреднамеренного удаления, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
       ```hcl
       resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита_от_удаления>
+        deletion_protection = <защитить_кластер_от_удаления>
       }
       ```
 
@@ -578,7 +588,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-      {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+      {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
   1. Проверьте корректность настроек.
 
@@ -596,52 +606,47 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
-     ```bash
-     curl \
-       --request PATCH \
-       --header "Authorization: Bearer $IAM_TOKEN" \
-       --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
-       --data '{
-                 "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
-                 "configSpec": {
-                   "poolerConfig": {
-                     "poolingMode": "<режим_управления_соединениями>",
-                     "poolDiscard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
-                   },
-                   "backupWindowStart": {
-                     "hours": "<часы>",
-                     "minutes": "<минуты>",
-                     "seconds": "<секунды>",
-                     "nanos": "<наносекунды>"
-                   },
-                   "backupRetainPeriodDays": "<количество_дней>",
-                   "access": {
-                     "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                     "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                     "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                     "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>,
-                     "yandexQuery": <доступ_к_{{ yq-name }}:_true_или_false>
-                   },
-                   "performanceDiagnostics": {
-                     "enabled": <активация_сбора_статистики:_true_или_false>,
-                     "sessionsSamplingInterval": "<интервал_сбора_сессий>",
-                     "statementsSamplingInterval": "<интервал_сбора_запросов>"
-                   }
-                 },
-                 "maintenanceWindow": {
-                   "weeklyMaintenanceWindow": {
-                     "day": "<день_недели>",
-                     "hour": "<час>"
-                   }
-                 },
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
-               }'
+     
+     ```json
+     {
+       "updateMask": "configSpec.poolerConfig,configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics.sessionsSamplingInterval,configSpec.performanceDiagnostics.statementsSamplingInterval,maintenanceWindow,deletionProtection",
+       "configSpec": {
+         "poolerConfig": {
+           "poolingMode": "<режим_управления_соединениями>",
+           "poolDiscard": <сбрасывать_состояния_клиентов_после_каждой_транзакции>
+         },
+         "backupWindowStart": {
+           "hours": "<часы>",
+           "minutes": "<минуты>",
+           "seconds": "<секунды>",
+           "nanos": "<наносекунды>"
+         },
+         "backupRetainPeriodDays": "<количество_дней>",
+         "access": {
+           "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
+         },
+         "performanceDiagnostics": {
+           "enabled": <активировать_сбор_статистики>,
+           "sessionsSamplingInterval": "<интервал_сбора_сессий>",
+           "statementsSamplingInterval": "<интервал_сбора_запросов>"
+         }
+       },
+       "maintenanceWindow": {
+         "weeklyMaintenanceWindow": {
+           "day": "<день_недели>",
+           "hour": "<час>"
+         }
+       },
+       "deletionProtection": <защитить_кластер_от_удаления>
+     }
      ```
 
 
@@ -653,7 +658,7 @@ description: Из статьи вы узнаете, как изменить на
        * `poolerConfig` — настройки менеджера подключений:
 
          * `poolingMode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
-         * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+         * `poolDiscard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backupWindowStart` — настройки окна [резервного копирования](../concepts/backup.md).
 
@@ -666,7 +671,7 @@ description: Из статьи вы узнаете, как изменить на
 
        * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -675,12 +680,16 @@ description: Из статьи вы узнаете, как изменить на
          * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
 
+
+       
        * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessionsSamplingInterval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statementsSamplingInterval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
 
      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
 
@@ -690,17 +699,28 @@ description: Из статьи вы узнаете, как изменить на
          * `day` — день недели в формате `DDD`;
          * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
 
-       По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
         Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --data "@body.json"
+     ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -709,69 +729,63 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
-     ```bash
-     grpcurl \
-       -format json \
-       -import-path ~/cloudapi/ \
-       -import-path ~/cloudapi/third_party/googleapis/ \
-       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
-       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-       -d '{
-             "cluster_id": "<идентификатор_кластера>",
-             "update_mask": {
-               "paths": [
-                 "config_spec.pooler_config",
-                 "config_spec.backup_window_start",
-                 "config_spec.backup_retain_period_days",
-                 "config_spec.access",
-                 "config_spec.performance_diagnostics.sessions_sampling_interval",
-                 "config_spec.performance_diagnostics.statements_sampling_interval",
-                 "maintenance_window",
-                 "deletion_protection"
-               ]
-             },
-             "config_spec": {
-               "pooler_config": {
-                 "pooling_mode": "<режим_управления_соединениями>",
-                 "pool_discard": <сброс_состояния_клиентов_после_каждой_транзакции:_true_или_false>
-               },
-               "backup_window_start": {
-                 "hours": "<часы>",
-                 "minutes": "<минуты>",
-                 "seconds": "<секунды>",
-                 "nanos": "<наносекунды>"
-               },
-               "backup_retain_period_days": "<количество_дней>",
-               "access": {
-                 "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                 "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                 "serverless": <доступ_к_Cloud_Functions:_true_или_false>,
-                 "data_transfer": <доступ_к_Data_Transfer:_true_или_false>,
-                 "yandex_query": <доступ_к_{{ yq-name }}:_true_или_false>
-               },
-               "performance_diagnostics": {
-                 "enabled": <активация_сбора_статистики:_true_или_false>,
-                 "sessions_sampling_interval": "<интервал_сбора_сессий>",
-                 "statements_sampling_interval": "<интервал_сбора_запросов>"
-               }
-             },
-             "maintenance_window": {
-               "weekly_maintenance_window": {
-                 "day": "<день_недели>",
-                 "hour": "<час>"
-               }
-             },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
-           }' \
-       {{ api-host-mdb }}:{{ port-https }} \
-       yandex.cloud.mdb.postgresql.v1.ClusterService.Update
+     
+     ```json
+     {
+       "cluster_id": "<идентификатор_кластера>",
+       "update_mask": {
+         "paths": [
+           "config_spec.pooler_config",
+           "config_spec.backup_window_start",
+           "config_spec.backup_retain_period_days",
+           "config_spec.access",
+           "config_spec.performance_diagnostics.sessions_sampling_interval",
+           "config_spec.performance_diagnostics.statements_sampling_interval",
+           "maintenance_window",
+           "deletion_protection"
+         ]
+       },
+       "config_spec": {
+         "pooler_config": {
+           "pooling_mode": "<режим_управления_соединениями>",
+           "pool_discard": <сбрасывать_состояния_клиентов_после_каждой_транзакции>
+         },
+         "backup_window_start": {
+           "hours": "<часы>",
+           "minutes": "<минуты>",
+           "seconds": "<секунды>",
+           "nanos": "<наносекунды>"
+         },
+         "backup_retain_period_days": "<количество_дней>",
+         "access": {
+           "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+           "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+           "serverless": <разрешить_доступ_из_Cloud_Functions>,
+           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+           "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
+         },
+         "performance_diagnostics": {
+           "enabled": <активировать_сбор_статистики>,
+           "sessions_sampling_interval": "<интервал_сбора_сессий>",
+           "statements_sampling_interval": "<интервал_сбора_запросов>"
+         }
+       },
+       "maintenance_window": {
+         "weekly_maintenance_window": {
+           "day": "<день_недели>",
+           "hour": "<час>"
+         }
+       },
+       "deletion_protection": <защитить_кластер_от_удаления>
+     }
      ```
 
+
+     Где:
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
      * `config_spec` — настройки кластера:
@@ -779,7 +793,7 @@ description: Из статьи вы узнаете, как изменить на
        * `pooler_config` — настройки менеджера подключений:
 
          * `pooling_mode` — режим работы менеджера подключений. Возможные значения: `SESSION`, `TRANSACTION` и `STATEMENT`. Подробнее о каждом режиме читайте в разделе [{#T}](../concepts/pooling.md).
-         * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
+         * `pool_discard` — должны ли клиенты терять свое состояние после каждой транзакции: `true` или `false`. Соответствует параметру [server_reset_query_always](https://www.pgbouncer.org/config.html) для менеджера подключений [PgBouncer](https://www.pgbouncer.org/usage).
 
        * `backup_window_start` — настройки окна [резервного копирования](../concepts/backup.md).
 
@@ -792,7 +806,7 @@ description: Из статьи вы узнаете, как изменить на
 
        * `backup_retain_period_days` — сколько дней хранить резервную копию кластера. Возможные значения: от `7` до `60` дней.
 
-
+       
        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
@@ -801,12 +815,16 @@ description: Из статьи вы узнаете, как изменить на
          * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
+         Возможные значения настроек: `true` или `false`.
 
+
+       
        * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-         * `enabled` — активация сбора статистики.
+         * `enabled` — активация сбора статистики: `true` или `false`.
          * `sessions_sampling_interval` — интервал сбора сессий. Возможные значения: от `1` до `86400` секунд.
          * `statements_sampling_interval` — интервал сбора запросов. Возможные значения: от `60` до `86400` секунд.
+
 
      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
 
@@ -816,19 +834,56 @@ description: Из статьи вы узнаете, как изменить на
          * `day` — день недели в формате `DDD`;
          * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
 
-     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+     * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей: `true` или `false`.
 
-       По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
+        По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
 
         Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d @ \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.postgresql.v1.ClusterService.Update \
+       < body.json
+     ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
+
+
+### {{ connection-manager-name }} {#conn-man}
+
+Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
+
+Для каждого пользователя БД будут созданы:
+
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
+
+* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
+
+Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
+
+{% note info %}
+
+Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+
+{% endnote %}
+
 
 ## Вручную переключить хост-мастер {#start-manual-failover}
 
@@ -847,7 +902,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
   1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** включенной.
@@ -904,7 +959,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.startFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -921,7 +976,7 @@ description: Из статьи вы узнаете, как изменить на
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/startFailover.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -930,7 +985,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -961,7 +1016,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -990,13 +1045,40 @@ description: Из статьи вы узнаете, как изменить на
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените или добавьте в описании кластера {{ mpg-name }} значение параметра `folder_id`:
+
+        ```hcl
+        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
+          ...
+          folder_id = "<идентификатор_каталога_назначения>"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1013,7 +1095,7 @@ description: Из статьи вы узнаете, как изменить на
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -1022,7 +1104,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -1058,8 +1140,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}
@@ -1116,7 +1198,7 @@ description: Из статьи вы узнаете, как изменить на
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1147,7 +1229,7 @@ description: Из статьи вы узнаете, как изменить на
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -1156,7 +1238,7 @@ description: Из статьи вы узнаете, как изменить на
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 

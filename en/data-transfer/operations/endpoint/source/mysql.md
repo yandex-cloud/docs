@@ -18,15 +18,15 @@ description: In this tutorial, you will learn how to configure a {{ MY }} source
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating {{ MY }} clusters](../../../tutorials/managed-mysql-to-mysql.md).
+    * [Migrating a {{ MY }} cluster](../../../tutorials/managed-mysql-to-mysql.md).
     * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
     * [Migration with change of storage from {{ MY }} to {{ PG }}](../../../tutorials/mmy-to-mpg.md).
     * [Migration with change of storage from {{ MY }} to {{ GP }}](../../../tutorials/mmy-to-mgp.md).
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
 
-    * [{{ MY }} change data capture and delivery to {{ DS }}](../../../tutorials/mmy-to-yds.md).
-    * [{{ MY }} change data capture and delivery to {{ KF }}](../../../tutorials/cdc-mmy.md).
+    * [Capturing changes from {{ MY }} and delivering to {{ DS }}](../../../tutorials/mmy-to-yds.md).
+    * [Capturing changes from {{ MY }} and delivering to {{ KF }}](../../../tutorials/cdc-mmy.md).
 
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
@@ -36,7 +36,7 @@ description: In this tutorial, you will learn how to configure a {{ MY }} source
 
     * [Loading {{ MY }} data to the {{ objstorage-name }} scalable storage](../../../tutorials/mmy-objs-migration.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Preparing the source database {#prepare}
 
@@ -54,18 +54,18 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mmy.viewer }}` role](../../../../managed-mysql/security/index.md#mmy-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mmy.viewer }}`](../../../../managed-mysql/security/index.md#mmy-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-source.md) %}
+    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
 - CLI {#cli}
 
@@ -81,7 +81,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -103,7 +103,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -119,7 +119,7 @@ For OnPremise, all fields are filled in manually.
 
 - Management console {#console}
 
-    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-source.md) %}
+    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
 - CLI {#cli}
 
@@ -135,7 +135,7 @@ For OnPremise, all fields are filled in manually.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -145,7 +145,7 @@ For OnPremise, all fields are filled in manually.
           connection {
             on_premise {
               hosts = ["<list_of_hosts>"]
-              port  = <pot_for_connection>
+              port  = <port_for_connection>
             }
           }
           database = "<name_of_database_to_migrate>"
@@ -160,7 +160,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -181,7 +181,13 @@ For OnPremise, all fields are filled in manually.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred. This option is specified using regular expressions.
 
-        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+        Regular expressions for included and excluded tables must meet the ID naming rules in {{ MY }}. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/identifiers.html). Escaping double quotes is not required.
+
+        {% note warning %}
+
+        If a table you want to include or exclude has the same name as your database, specify that table in `<DB_name>.<table_name>` format for the filter to work properly.
+
+        {% endnote %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.object_transfer_settings.title }}**: Allows you to select the DB schema elements that will be transferred when activating or deactivating a transfer.
 
@@ -260,7 +266,7 @@ During a transfer, the database schema is transferred from the source to the tar
 If setting up a transfer from a {{ MY }} cluster to a {{ CH }} cluster, consider these aspects of transferring [date and time data types]({{ my.docs }}/refman/8.0/en/date-and-time-types.html):
 
 * `TIME` type data is transferred as strings with the source and target time zones ignored.
-* When transferring `TIMESTAMP` type data, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see the [{{ MY }} documentation]({{ my.docs }}/refman/8.0/en/datetime.html).
+* When transferring `TIMESTAMP` type data, the time zone set in the {{ MY }} source settings or [advanced endpoint settings](#additional-settings) is used. For more information, see [this {{ MY }} guide]({{ my.docs }}/refman/8.0/en/datetime.html).
 * The source endpoint assigns the UTC+0 time zone to data of the `DATETIME` type.
 
 Transfers from {{ MY }} to a database of a different type do not support fields of the `DECIMAL` type to prevent loss of data accuracy. There is no such limitation for {{ MY }}-to-{{ MY }} transfers.
@@ -277,10 +283,10 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
-* [{{ ES }}](../target/elasticsearch.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ OS }}](../target/opensearch.md)
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
@@ -293,10 +299,11 @@ After configuring the data source and target, [create and start the transfer](..
 Known issues when using a {{ MY }} endpoint:
 
 * [Single transaction log size exceeds 4 GB](#binlog-size).
-* [New tables are not added](#no-new-tables).
+* [New tables cannot be added](#no-new-tables).
 * [Error when transferring from AWS RDS for {{ MY }}](#aws-binlog-time).
 * [Error when transferring tables without primary keys](#primary-keys).
 * [Binary log access error](#binlog-bytes).
+* [Unable to get a binary log position](#binlog-position)
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
 * [Time shift in the DATETIME data type when transferring to {{ CH }}](#timeshift).
 
@@ -311,6 +318,8 @@ For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/in
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [binlog-position](../../../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

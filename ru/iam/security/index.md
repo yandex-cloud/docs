@@ -20,11 +20,42 @@ description: Управление доступом в сервисе идент�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+Вы также можете назначать роли на отдельные ресурсы сервиса:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  В [консоли управления]({{ link-console-main }}) вы можете назначить роли на [сервисный аккаунт](../concepts/users/service-accounts.md).
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/iam/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Сервисный аккаунт](../concepts/users/service-accounts.md)
+  * [Федерация сервисных аккаунтов](../concepts/workload-identity.md)
+
+{% endlist %}
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/iam/security/service-roles-hierarchy.svg)
+{% include [iam](../../_mermaid/roles/iam.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -86,6 +117,14 @@ description: Управление доступом в сервисе идент�
 
 {% include [iam.workloadIdentityFederations.admin](../../_roles/iam/workloadIdentityFederations/admin.md) %}
 
+#### iam.userAccounts.refreshTokenViewer {#iam-userAccounts-refreshTokenViewer}
+
+{% include [iam.userAccounts.refreshTokenViewer](../../_roles/iam/userAccounts/refreshTokenViewer.md) %}
+
+#### iam.userAccounts.refreshTokenRevoker {#iam-userAccounts-refreshTokenRevoker}
+
+{% include [iam.userAccounts.refreshTokenRevoker](../../_roles/iam/userAccounts/refreshTokenRevoker.md) %}
+
 #### iam.auditor {#iam-auditor}
 
 {% include [iam.auditor](../../_roles/iam/auditor.md) %}
@@ -117,7 +156,7 @@ description: Управление доступом в сервисе идент�
 ----- | ----- | -----
 **Просмотр информации** | |
 [Получение IAM-токена](../operations/iam-token/create.md) | `create` | роли не требуются, только аутентификация
-[Просмотр информации о пользователе](../operations/users/get.md) | `get`, `getByLogin` | роли не требуются, только аутентификация
+[Просмотр информации о пользователе](../../organization/operations/users-get.md) | `get`, `getByLogin` | роли не требуются, только аутентификация
 [Просмотр информации о сервисном аккаунте](../operations/sa/get-id.md) | `get`, `list`, `listOperations` | `iam.serviceAccounts.user` или `viewer` на сервисный аккаунт
 Просмотр информации о каталоге или облаке | `get`, `list` | `iam.auditor` на каталог или облако
 Просмотр информации о любом ресурсе | `get`, `list` | `viewer` на этот ресурс
@@ -126,7 +165,6 @@ description: Управление доступом в сервисе идент�
 [Изменение](../operations/sa/update.md), [удаление](../operations/sa/delete.md) сервисных аккаунтов | `update`, `delete` | `editor` на сервисный аккаунт
 Создание и удаление ключей для сервисного аккаунта | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> на сервисный аккаунт
 **Управление доступом к ресурсам** | |
-[Добавление нового пользователя в облако](../operations/users/create.md) | `setAccessBindings` | `admin` на облако
 [Сделать нового пользователя владельцем облака](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` на это облако
 [Назначение роли](../operations/roles/grant.md), [отзыв роли](../operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
 Получение IAM-токена для сервисного аккаунта | `create` | `iam.serviceAccounts.tokenCreator` на сервисный аккаунт

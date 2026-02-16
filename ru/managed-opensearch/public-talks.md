@@ -7,6 +7,18 @@ description: Видеозаписи конференций и вебинаров
 
 ## Конференции и вебинары {#conf-and-webinars}
 
+
+### 2025: Статьи {#article-2025}
+
+* {{ OS }}: стек для поиска, аналитики и ИИ‑решений.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/opensearch-overview).
+
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/performance-gains).
+
+
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.

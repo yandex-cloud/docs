@@ -12,11 +12,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры роутера, виртуального хоста или маршрута.
+  1. Измените параметры роутера, заголовка, виртуального хоста или маршрута.
   1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -38,8 +38,7 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Результат:
-     
-     
+
      ```text
      id: a5dld80l32ed********
      name: new-http-router
@@ -63,8 +62,6 @@ description: Следуя данной инструкции, вы сможете
          append: ru-RU
      created_at: "2021-02-11T21:31:01.676592016Z"
      ```
-
- 
 
 - {{ TF }} {#tf}
 
@@ -93,7 +90,8 @@ description: Следуя данной инструкции, вы сможете
        name           = "my-virtual-host"
        http_router_id = "${yandex_alb_http_router.tf-router.id}"
        route {
-         name = "my-route"
+         name                     = "my-route"
+         disable_security_profile = true|false
          http_route {
            http_route_action {
              backend_group_id = "${yandex_alb_backend_group.backend-group.id}"
@@ -106,39 +104,17 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
 
-  1. Проверьте конфигурацию командой:
+  1. Примените изменения:
 
-     ```bash
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
+     {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Выполните команду:
-
-     ```bash
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение HTTP-роутера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     {{ TF }} изменит все требуемые ресурсы. Проверить изменение HTTP-роутера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc alb http-router get <идентификатор_http-роутера>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 
@@ -148,415 +124,78 @@ description: Следуя данной инструкции, вы сможете
 
 ## Добавить маршрут в виртуальный хост {#add-virtual-host}
 
-Чтобы добавить новый маршрут в виртуальный хост HTTP-роутера:
+Чтобы добавить новый маршрут в [виртуальный хост](../concepts/http-router.md#virtual-host) HTTP-роутера:
+
+{% include [route-create-complete-section](../../_includes/application-load-balancer/instruction-steps/route-create-complete-section.md) %}
+
+## Изменить порядок маршрутов в виртуальном хосте {#change-route-order}
+
+Чтобы изменить порядок маршрутов в [виртуальном хосте](../concepts/http-router.md#virtual-host) HTTP-роутера:
+
+{% include [reorder-routes-complete-section](../../_includes/application-load-balancer/instruction-steps/reorder-routes-complete-section.md) %}
+
+## Изменить таймаут маршрута {#route-timeout}
+
+Изменение таймаута доступно только для маршрутов с типом действия `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+
+Чтобы изменить таймаут маршрута HTTP-роутера:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Нажмите на имя нужного роутера.
   1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Задайте параметры маршрута и нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. В разделе **{{ ui-key.yacloud.alb.label_virtual-hosts }}** для нужного маршрута измените значение поля **{{ ui-key.yacloud.alb.label_timeout }}**.
+  1. Внизу страницы нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
- 
-   Посмотрите описание команды CLI для работы с виртуальными хостами:
- 
-   ```bash
-   yc alb virtual-host --help
-   ```
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   * **HTTP**
+  1. Посмотрите описание команды CLI для изменения маршрута:
 
-    
-      Вы можете добавить новый маршрут в начало, в конец или в определенное место списка маршрутов хоста.
-    
-      **Добавить маршрут в конец списка маршрутов хоста**
-    
-      1. Посмотрите описание команды CLI для добавления маршрута в конец списка маршрутов хоста:
+      ```bash
+        yc alb virtual-host update-http-route --help
+      ```
 
-         ```bash
-         yc alb virtual-host append-http-route --help
-         ```
-    
-      1. Выполните команду:
+  1. Выполните команду:
 
-         ```bash
-         yc alb virtual-host append-http-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --http-router-name <имя_HTTP-роутера> \
-           --match-http-method <метод_HTTP> \
-           --exact-path-match / \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
-         ```
+      ```bash
+      yc alb virtual-host remove-http-route <имя_маршрута> \
+        --virtual-host-name <имя_виртуального_хоста> \
+        --http-router-name <имя_роутера> \
+        --request-timeout <таймаут>
+      ```
 
-         Подробную информацию о параметрах команды `yc alb virtual-host append-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+      Где `--request-timeout` — новое значение таймаута с указанием единиц измерения времени, например `120s`.
 
-         Результат:
+      Результат:
 
-         ```text
-         name: test-virtual-host
-         authority:
-         - your-domain.foo.com
-         routes:
-         - name: test-route
-         ...
-         - name: test-route-toend
-           http:
-             match:
-               path:
-                 prefix_match: /
-             route:
-               backend_group_id: a5d3e9ko2qf0********
-               timeout: 2s
-               idle_timeout: 3s
-         ```
-    
-      **Добавить маршрут в начало списка маршрутов хоста**
-    
-      1. Посмотрите описание команды CLI для добавления маршрута в начало списка маршрутов хоста:
-
-         ```bash
-         yc alb virtual-host prepend-http-route --help
-         ```
-    
-      1. Выполните команду:
-
-         ```bash
-         yc alb virtual-host prepend-http-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --http-router-name <имя_HTTP-роутера> \
-           --match-http-method <метод_HTTP> \
-           --exact-path-match / \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
-         ```
-
-         Подробную информацию о параметрах команды `yc alb virtual-host prepend-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-http-route.md).
-
-         Результат:
-
-         ```text
-         name: test-virtual-host
-         authority:
-         - your-domain.foo.com
-         routes:
-         - name: test-route-tostart
-           http:
-             match:
-               http_method:
-               - GET
-               path:
-                 exact_match: /
-             route:
-               backend_group_id: a5d3e9ko2qf0********
-               timeout: 2s
-               idle_timeout: 3s
-         - name: test-route
-         ...
-         ```
-    
-      **Добавить маршрут перед определенным маршрутом**
-    
-      1. Посмотрите описание команды CLI для добавления маршрута перед определенным маршрутом:
-
-         ```bash
-         yc alb virtual-host insert-http-route --help
-         ```
-    
-      1. Выполните команду:
-
-         ```bash
-         yc alb virtual-host insert-http-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --before <имя_маршрута_перед_которым_надо_поставить_новый_маршрут> \
-           --http-router-name <имя_HTTP-роутера> \
-           --match-http-method <метод_HTTP> \
-           --exact-path-match / \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-timeout <тайм-аут_запроса>s \
-           --request-idle-timeout <тайм-аут_ожидания_запроса>s
-         ```
-
-         Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
-
-         Результат:
-
-         ```text
-         done (2s)
-         name: test-virtual-host
-         authority:
-         - your-domain.foo.com
-         routes:
-         ...
-         - name: test-route-insbefore
-           http:
-             match:
-               http_method:
-               - GET
-               path:
-                 exact_match: /
-             route:
-               backend_group_id: a5d3e9ko2qf0********
-               timeout: 2s
-               idle_timeout: 3s
-         - name: test-route
-         ...
-         ```
-    
-      **Добавить маршрут после определенного маршрута**
-    
-       1. Посмотрите описание команды CLI для добавления нового маршрута после определенного маршрута:
-
-          ```bash
-          yc alb virtual-host insert-http-route --help
-          ```
-    
-       1. Выполните команду:
-
-           ```bash
-           yc alb virtual-host insert-http-route <имя_маршрута> \
-             --virtual-host-name <имя_виртуального_хоста> \
-             --after <имя_маршрута_после_которого_надо_поставить_новый_маршрут> \
-             --http-router-name <имя_HTTP-роутера> \
-             --match-http-method <метод_HTTP> \
-             --exact-path-match / \
-             --backend-group-name <имя_группы_бэкендов> \
-             --request-timeout <тайм-аут_запроса>s \
-             --request-idle-timeout <тайм-аут_ожидания_запроса>s
-           ```
-
-           Подробную информацию о параметрах команды `yc alb virtual-host insert-http-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-http-route.md).
-    
-           Результат:
-    
-           ```text
-           done (2s)
-           name: test-virtual-host
-           authority:
-           - your-domain.foo.com
-           routes:
-           - name: test-route
-           ...
-           - name: test-route-insafter
-             http:
-               match:
-                 path:
-                   prefix_match: /
-               route:
-                 backend_group_id: a5d3e9ko2qf0********
-                 timeout: 2s
-                 idle_timeout: 3s
-           ...
-           ```
-
-   * **gRPC**
-
-      Вы можете добавить новый маршрут в начало, в конец или в определенное место списка маршрутов хоста.
-      
-      **Добавить маршрут в конец списка маршрутов хоста**
-      
-      1. Посмотрите описание команды CLI для добавления маршрута в конец списка маршрутов хоста:
-
-         ```bash
-         yc alb virtual-host append-grpc-route --help
-         ```
-      
-      1. Выполните команду:
-
-         ```bash
-         yc alb virtual-host append-grpc-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --http-router-name <имя_HTTP-роутера> \
-           --prefix-fqmn-match /<первое_слово_названия_сервиса> \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s 
-         ```
-
-         Подробную информацию о параметрах команды `yc alb virtual-host append-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-grpc-route.md).
-
-         Результат:
-
-         ```text
-         name: <имя_виртуального_хоста>
-         authority:
-         - *
-         routes:
-         - name: grpc-route
-         ...
-         - name: grpc-route-toend
-           grpc:
-             match:
-               fqmn:
-                prefix_match: /helloworld
-             route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
-         ```
-      
-      **Добавить маршрут в начало списка маршрутов хоста**
-      
-      1. Посмотрите описание команды CLI для добавления маршрута в начало списка маршрутов хоста:
-
-         ```bash
-         yc alb virtual-host prepend-grpc-route --help
-         ```
-      
-      1. Выполните команду:
-
-         ```bash
-         yc alb virtual-host prepend-grpc-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --http-router-name <имя_HTTP-роутера> \
-           --prefix-fqmn-match /<первое_слово_названия_сервиса> \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s  
-         ```
-
-         Подробную информацию о параметрах команды `yc alb virtual-host prepend-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/prepend-grpc-route.md).
-
-         Результат:
-
-         ```text
-         name: <имя_виртуального_хоста>
-         authority:
-         - *
-         routes:
-         - name: grpc-route-tostart
-           grpc:
-             match:
-               fqmn:
-                prefix_match: /helloworld
-             route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
-         - name: grpc-route
-         ...
-         ```
-      
-      **Добавить маршрут перед определенным маршрутом**
-      
-      1. Посмотрите описание команды CLI для добавления маршрута перед определенным маршрутом:
-
-         ```bash
-         yc alb virtual-host insert-grpc-route --help
-         ```
-      
-      1. Выполните команду:
-
-         ```bash
-         yc alb virtual-host insert-grpc-route <имя_маршрута> \
-           --virtual-host-name <имя_виртуального_хоста> \
-           --before <имя_маршрута> \
-           --http-router-name <имя_HTTP-роутера> \
-           --prefix-fqmn-match /<первое_слово> \
-           --backend-group-name <имя_группы_бэкендов> \
-           --request-max-timeout <таймаут>s  
-         ```
-
-          Где:
-
-          * `--virtual-host-name` — имя виртуального хоста, к которому необходимо добавить маршрут.
-          * `--before` — имя маршрута, перед которым надо поставить новый маршрут.
-          * `--http-router-name` — имя HTTP-роутера.
-          * `--prefix-fqmn-match` — первое слово названия сервиса.
-          * `--backend-group-name` — имя группы бэкендов.
-          * `--request-max-timeout` — таймаут, в секундах.
-
-         Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
-
-         Результат:
-
-         ```text
-         name: grpc-host
-         authority:
-         - *
-         routes:
-         ...
-         - name: grpc-route-before
-           grpc:
-             match:
-               fqmn:
-                prefix_match: /helloworld
-             route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
-         - name: grpc-route
-         ...
-         ```
-      
-      **Добавить маршрут после определенного маршрута**
-      
-      1. Посмотрите описание команды CLI для добавления нового маршрута после определенного маршрута:
-
-          ```bash
-          yc alb virtual-host insert-grpc-route --help
-          ```
-      
-      1. Выполните команду:
-
-          ```bash
-          yc alb virtual-host insert-grpc-route <имя_маршрута> \
-            --virtual-host-name <имя_виртуального_хоста> \
-            --after <имя_маршрута> \
-            --http-router-name <имя_HTTP-роутера> \
-            --prefix-fqmn-match /<первое_слово> \
-            --backend-group-name <имя_группы_бэкендов> \
-            --request-max-timeout <таймаут>s  
-          ```
-
-          Где:
-
-          * `--virtual-host-name` — имя виртуального хоста, к которому необходимо добавить маршрут.
-          * `--after` — имя маршрута, после которого надо поставить новый маршрут.
-          * `--http-router-name` — имя HTTP-роутера.
-          * `--prefix-fqmn-match` — первое слово названия сервиса.
-          * `--backend-group-name` — имя группы бэкендов.
-          * `--request-max-timeout` — таймаут, в секундах.
-
-          Подробную информацию о параметрах команды `yc alb virtual-host insert-grpc-route` см. в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/insert-grpc-route.md).
-
-          Результат:
-      
-          ```text
-          name: grpc-host
-          authority:
-          - *
-          routes:
-          ...
-          - name: grpc-route
-          ...
-          - name: grpc-route-after
-             grpc:
+      ```text
+      name: host-one
+      routes:
+        - name: route-one
+          http:
             match:
-               fqmn:
-               prefix_match: /helloworld
+              path:
+                prefix_match: /
             route:
-               backend_group_id: ds7snban2dvn********
-               max_timeout: 60s
-               auto_host_rewrite: false
-          ...
-          ```
+              backend_group_id: ds7d6hg1dg24********
+              timeout: 120s
+              auto_host_rewrite: false
+      ```
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Откройте файл конфигурации {{ TF }} и измените фрагмент с описанием виртуального хоста, добавив блок `route`:
+  1. Откройте файл конфигурации {{ TF }} и измените значение параметра `timeout` для нужного маршрута:
 
      ```hcl
      resource "yandex_alb_virtual_host" "my-virtual-host" {
@@ -576,103 +215,17 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о параметрах ресурса `yandex_alb_virtual_host` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/alb_virtual_host).
 
-     Порядок маршрутов важен в описании виртуального хоста. Более подробную информацию см. в [концепции](../../application-load-balancer/concepts/http-router.md#virtual-host).
+  1. Примените изменения:
 
-  1. Проверьте конфигурацию командой:
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     ```bash
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```text
-     Success! The configuration is valid.
-     ```
+      {{ TF }} изменит все требуемые ресурсы. Проверить изменение виртуального хоста можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-  1. Выполните команду:
+      ```bash
+      yc alb virtual-host get <идентификатор_виртуального_хоста>
+      ```
 
-     ```bash
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
-
-     Проверить изменение виртуального хоста можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
-
-     ```bash
-     yc alb virtual-host get <идентификатор_виртуального_хоста>
-     ```
-
-- API {#api}
-
-  Воспользуйтесь методом REST API [update](../api-ref/VirtualHost/update.md) для ресурса [VirtualHost](../api-ref/VirtualHost/index.md) или вызовом gRPC API [VirtualHostService/Update](../api-ref/grpc/VirtualHost/update.md).
-
-{% endlist %}
-
-## Изменить порядок маршрутов в виртуальном хосте {#change-route-order}
-
-Чтобы изменить порядок маршрутов HTTP-роутера:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан HTTP-роутер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Нажмите на имя нужного роутера.
-  1. Нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_routes-sort }}**.
-  1. В открывшемся окне перетащите маршрут на новое место в списке.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-  1. Завершите редактирование роутера и нажмите **{{ ui-key.yacloud.common.save }}**.
-  
-- CLI {#cli}
-
-   * **HTTP**
-   
-      1. Посмотрите описание команды CLI для удаления маршрута:
-
-          ```bash
-          yc application-load-balancer virtual-host remove-http-route --help
-          ```
-       
-      1. Удалите маршрут:   
-
-          ```bash
-          yc alb virtual-host remove-http-route <имя_маршрута> \
-            --virtual-host-name <имя_виртуального_хоста> \
-            --http-router-name <имя_роутера>
-          ```
-      
-      1. Добавьте маршрут в нужном месте одним из способов, описанных выше.   
-
-   * **gRPC**
-   
-      1. Посмотрите описание команды CLI для удаления маршрута:
-
-          ```bash
-          yc application-load-balancer virtual-host remove-gRPC-route --help
-          ```
-       
-      1. Удалите маршрут:   
-
-          ```bash
-          yc alb virtual-host remove-grpc-route <имя_маршрута> \
-            --virtual-host-name <имя_виртуального_хоста> \
-            --http-router-name  <имя_роутера>
-          ```
-      
-      1. Добавьте маршрут в нужном месте одним из способов, описанных выше.
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-router-and-host.md) %}
 
 - API {#api}
 

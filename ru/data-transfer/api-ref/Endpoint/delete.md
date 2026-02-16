@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
+    method: delete
+    path:
+      type: object
+      properties:
+        endpointId:
+          description: |-
+            **string**
+            Identifier of the endpoint to delete.
+            To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/delete.md
 ---
 
-# Data Transfer API, REST: Endpoint.Delete {#Delete}
+# Data Transfer API, REST: Endpoint.Delete
+
+Deletes the specified endpoint.
 
 ## HTTP request
 
@@ -17,7 +35,9 @@ DELETE https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 ||Field | Description ||
 || endpointId | **string**
 
-Required field.  ||
+Required field. Identifier of the endpoint to delete.
+
+To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

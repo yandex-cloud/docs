@@ -1,11 +1,13 @@
 ---
-title: Роли для анализа данных Access Transparency в {{ sd-full-name }}
-description: На данной странице приведен список ролей, необходимых для анализа данных Access Transparency в сервисе {{ sd-name }}.
+title: Роли для анализа данных {{ atr-name }} в {{ sd-full-name }}
+description: На данной странице приведен список ролей, необходимых для анализа данных {{ atr-name }} в сервисе {{ sd-name }}.
 ---
 
-# Роли для анализа данных Access Transparency
+# Роли для анализа данных {{ atr-name }}
 
-С помощью сервисных ролей Access Transparency вы сможете настраивать модуль, а также просматривать аналитическую информацию о действиях, производимых инженерами {{ yandex-cloud }} с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности.
+С помощью сервисных ролей {{ atr-name }} вы сможете настраивать модуль, а также просматривать аналитическую информацию о действиях, производимых инженерами {{ yandex-cloud }} с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности.
+
+{% include [roles-security-deck-transparency](../../_mermaid/roles/security-deck-transparency.md) %}
 
 #### access-transparency.viewer {#access-transparency-viewer}
 
@@ -18,3 +20,11 @@ description: На данной странице приведен список р
 #### access-transparency.admin {#access-transparency-admin}
 
 {% include [access-transparency.admin](../../_roles/access-transparency/admin.md) %}
+
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../../_roles/access-transparency/subscriptionManager.md) %}

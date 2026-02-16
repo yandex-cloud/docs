@@ -9,14 +9,32 @@ items:
         href: operations/index.md
       - name: Operations with data
         items:
-          - name: Uploading audio data
-            href: operations/data/upload-data.md
-          - name: Uploading chat conversations
-            href: operations/data/upload-chat-text.md
+          - name: Uploading data
+            items:
+              - name: Uploading audio data via the management console
+                href: operations/data/upload-audio-console.md
+              - name: Uploading audio data via the gRPC API
+                href: operations/data/upload-data.md
+              - name: Uploading long audio files with splitting via the gRPC API
+                href: operations/data/upload-data-split.md
+              - name: Uploading chat conversations
+                href: operations/data/upload-chat-text.md
           - name: Searching data
-            href: operations/data/search-data.md
+            items:
+              - name: Data search via the gRPC API
+                href: operations/data/search-data-grpc.md
+              - name: Data search via the REST API
+                items:
+                  - name: Full-text search in REST API
+                    href: operations/data/rest-full-text-search.md
+                  - name: Filtering by parameters in REST API
+                    href: operations/data/rest-search-filters.md
+                  - name: Getting information about a dialog in REST API
+                    href: operations/data/rest-get-dialog-data.md
           - name: Working with dialogs
             href: operations/data/manage-dialogs.md
+          - name: Viewing related dialogs
+            href: operations/data/related-dialogs.md
           - name: Working with reports
             href: operations/data/manage-reports.md
       - name: Spaces
@@ -25,6 +43,8 @@ items:
             href: operations/space/create.md
           - name: Linking a billing account
             href: operations/space/link-ba.md
+          - name: Changing a billing account
+            href: operations/space/change-ba.md
           - name: Adding a user to a space
             href: operations/space/add-user-to-space.md
           - name: Deleting a space
@@ -35,6 +55,8 @@ items:
         items:
           - name: Creating a connection
             href: operations/connection/create.md
+          - name: Editing a connection
+            href: operations/connection/edit.md
       - name: Projects
         items:
           - name: Creating a project
@@ -45,13 +67,35 @@ items:
             href: operations/project/delete.md
           - name: Removing a user from a project
             href: operations/project/delete-user-from-project.md
+          - name: '{{ yagpt-name }} training'
+            href: operations/project/yandexgpt-training
+      - name: Assistants
+        items:
+          - name: Creating an assistant
+            href: operations/assistant/create.md
+          - name: Editing an assistant
+            href: operations/assistant/edit.md
+          - name: Deleting an assistant
+            href: operations/assistant/delete.md
       - name: Tags
         items:
-          - name: Creating a tag
-            href: operations/project/tag/create.md
-          - name: Changing a tag
-            href: operations/project/tag/change.md
-          - name: Removing a tag
+          - name: Creating a dictionary tag
+            href: operations/project/tag/create-dictionary-tag.md
+          - name: Creating a semantic tag
+            href: operations/project/tag/create-sense-tag.md
+          - name: Creating a semantic Pro tag
+            href: operations/project/tag/create-sense-pro-tag.md
+          - name: Creating a dependent tag
+            href: operations/project/tag/create-dependent-tag.md
+          - name: Creating a dictionary tag
+            href: operations/project/tag/change-dictionary-tag.md
+          - name: Changing a semantic tag
+            href: operations/project/tag/change-sense-tag.md
+          - name: Changing a semantic Pro tag
+            href: operations/project/tag/change-sense-pro-tag.md
+          - name: Testing a tag
+            href: operations/project/tag/test.md
+          - name: Deleting a tag
             href: operations/project/tag/delete.md
       - name: Dictionaries
         items:
@@ -61,12 +105,38 @@ items:
             href: operations/dictionary/change.md
           - name: Adding a dictionary to a tag
             href: operations/dictionary/add.md
-          - name: Removing a dictionary
+          - name: Delete dictionary
             href: operations/dictionary/delete.md
+      - name: Recalculation tasks
+        items:
+          - name: Tag recalculation
+            href: operations/task-recalculation/tags-recalc.md
+          - name: Assistant recalculation
+            href: operations/task-recalculation/assistants-recalc.md
+      - name: External integrations
+        items:
+          - name: >-
+              Creating a connection to {{ speechsense-name }} from {{
+              datalens-short-name }}
+            href: operations/external-integrations/create-datalens-connection.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Uploading data automatically using {{ sw-full-name }}
+        href: tutorials/auto-upload.md
+      - name: Integration with {{ amocrm-name }}
+        href: tutorials/amocrm.md
+      - name: Integration with {{ bitrix24-name }}
+        href: tutorials/bitrix24.md
+      - name: Working with an AI assistant
+        href: tutorials/ai-assistant.md
   - name: Concepts
     items:
       - name: Resource hierarchy
         href: concepts/resources-hierarchy.md
+      - name: Assistants
+        href: concepts/assistants.md
       - name: Dialogs
         href: concepts/dialogs.md
       - name: Dialog tags
@@ -79,18 +149,38 @@ items:
             href: concepts/reports/index.md
           - name: Evaluation form
             href: concepts/reports/evaluation-form.md
+          - name: Comparison
+            href: concepts/reports/comparison.md
           - name: Usage details
             href: concepts/reports/details.md
+          - name: Semantic attributes
+            href: concepts/reports/sense-attributes.md
       - name: Supported audio formats
         href: concepts/formats.md
+      - name: Quotas and limits
+        href: concepts/limits.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/grpc/Assistants/index.md
+              - name: List
+                href: api-ref/grpc/Assistants/list.md
+              - name: ListModels
+                href: api-ref/grpc/Assistants/listModels.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/grpc/Classifiers/index.md
+              - name: List
+                href: api-ref/grpc/Classifiers/list.md
           - name: Operation
             items:
               - name: Overview
@@ -115,17 +205,53 @@ items:
                 href: api-ref/grpc/Talk/upload.md
               - name: UploadText
                 href: api-ref/grpc/Talk/uploadText.md
+              - name: UploadBadge
+                href: api-ref/grpc/Talk/uploadBadge.md
               - name: Search
                 href: api-ref/grpc/Talk/search.md
               - name: Get
                 href: api-ref/grpc/Talk/get.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/Assistants/index.md
+              - name: List
+                href: api-ref/Assistants/list.md
+              - name: ListModels
+                href: api-ref/Assistants/listModels.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/Classifiers/index.md
+              - name: List
+                href: api-ref/Classifiers/list.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Talk
+            items:
+              - name: Overview
+                href: api-ref/Talk/index.md
+              - name: Search
+                href: api-ref/Talk/search.md
+              - name: Get
+                href: api-ref/Talk/get.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: Release notes
+    href: release-notes/index.md
   - name: FAQ
     href: qa/index.md
-base: en/speechsense
-deepBase: 2

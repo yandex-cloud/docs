@@ -1,6 +1,6 @@
 ## Настройте {{ GL }} {#configure-gitlab}
 
-Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для авторизации в CI:
+Чтобы настроить {{ GL }} и подготовить процесс непрерывной интеграции ([Continuous Integration](/blog/posts/2022/10/ci-cd), CI), создайте новый проект и введите параметры для аутентификации в CI:
 
 {% list tabs group=gl_installation %}
 
@@ -32,8 +32,8 @@
      * **Username or email** — `root`.
      * **Password** — пароль, скопированный ранее.
 
-     Если вы не можете войти, [сбросьте пароль учетной записи администратора](https://docs.gitlab.com/ee/security/reset_user_password.html#reset-your-root-password).
-  1. [Смените пароль учетной записи администратора](https://docs.gitlab.com/ee/user/profile/user_passwords.html#change-your-password).
+     Если вы не можете войти, [сбросьте пароль учетной записи администратора](https://docs.gitlab.com/security/reset_user_password/#reset-your-root-password).
+  1. [Смените пароль учетной записи администратора](https://docs.gitlab.com/user/profile/user_passwords/#change-your-password).
   1. Повторно войдите в систему с учетной записью администратора, используя новый пароль.
   1. Выберите **Create a project**.
   1. Задайте имя проекта: `gitlab-test`.

@@ -10,26 +10,31 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [disk-auto-delete](../../_includes_service/disk-auto-delete.md) %}
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkr5xyoivxtxgk5ox?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=SsM2c6YW5sg&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=8&pp=iAQB)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=SsM2c6YW5sg&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=8&pp=iAQB).
 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
   1. Добавьте [диск](../../concepts/disk.md):
 
-      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
       * В открывшемся окне выберите **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}** → `Подключить существующий`.
       * Выберите нужный диск.
-      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
 
   1. {% include [encryption-section-secondary](../../../_includes/compute/encryption-section-secondary.md) %}

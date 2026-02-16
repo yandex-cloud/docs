@@ -1,9 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
+    method: get
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to return.
+            To get a schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/get.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.Get {#Get}
+# Compute Cloud API, REST: SnapshotSchedule.Get
 
 Returns the specified snapshot schedule.
 
@@ -37,7 +53,7 @@ To get a schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-re
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "schedulePolicy": {
     "startAt": "string",
@@ -49,7 +65,7 @@ To get a schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-re
   // end of the list of possible fields
   "snapshotSpec": {
     "description": "string",
-    "labels": "string"
+    "labels": "object"
   }
 }
 ```
@@ -82,14 +98,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the snapshot schedule.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The snapshot schedule is being created.
 - `ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted
 (if [SnapshotSchedule.retentionPolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSchedule.retentionPolicy) is specified).
@@ -155,7 +170,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

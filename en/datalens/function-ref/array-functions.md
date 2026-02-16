@@ -15,6 +15,30 @@ Returns the average of elements in the `array`.
 
 
 
+## [ARR_DISTINCT](ARR_DISTINCT.md)
+
+**Syntax:**`ARR_DISTINCT( array )`
+
+Removes duplicate elements from an array `array`, returning a new array with only unique elements. The order of elements in the returned array is not guaranteed to be the same as the input array.
+
+
+
+## [ARR_INDEX_OF](ARR_INDEX_OF.md)
+
+**Syntax:**`ARR_INDEX_OF( array, value )`
+
+Returns the position (index) of the first occurrence of the value `value` in the array `array`. The indexing starts from 1. If the value `value` is not found in the array, the function returns 0.
+
+
+
+## [ARR_INTERSECT](ARR_INTERSECT.md)
+
+**Syntax:**`ARR_INTERSECT( array_1, array_2, array_3 [ , ... ] )`
+
+Returns an array of elements that occur in every array provided as an argument. The function does not put such elements in any particular order. Duplicate elements are only added once.
+
+
+
 ## [ARR_MAX](ARR_MAX.md)
 
 **Syntax:**`ARR_MAX( array )`

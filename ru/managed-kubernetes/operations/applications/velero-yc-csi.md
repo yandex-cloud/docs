@@ -1,3 +1,8 @@
+---
+title: Установка Velero
+description: Следуя данной инструкции, вы сможете установить Velero.
+---
+
 # Установка Velero
 
 
@@ -28,13 +33,22 @@
      --subject serviceAccount:<идентификатор_сервисного_аккаунта>
    ```
 
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
 
-   ```bash
-   yc iam access-key create \
-     --service-account-name=<имя_сервисного_аккаунта> \
-     --format=json > sa-key.json
-   ```
+   * Если установка Velero будет выполняться в [консоли управления с помощью {{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
+
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<имя_сервисного_аккаунта> \
+       --format=json > sa-key.json
+     ```
+
+   * Если установка Velero будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
+
+     ```bash
+     yc iam access-key create \
+       --service-account-name=<имя_сервисного_аккаунта>
+     ```
 
 1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
@@ -42,17 +56,19 @@
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. Убедитесь, что квот на количество снимков дисков и их объем достаточно для создания резервной копии данных. Для этого можно использовать [сервис проверки квот](../../../quota-manager/operations/read-quotas.md).
+
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Velero](/marketplace/products/yc/velero-yc-csi) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) `velero`. Приложение использует его по умолчанию.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) `velero`. Приложение использует его по умолчанию. Если вы оставите пространство имен по умолчанию, Velero может работать некорректно.
 
      {% note info %}
 
-     Если выбрать другое пространство имен, при работе придется задавать его имя в каждой команде.
+     Если создать пространство с другим именем, при работе придется задавать его в каждой команде в параметре `--namespace <пространство_имен_приложения_Velero>`.
 
      {% endnote %}
 
@@ -66,7 +82,7 @@
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Velero выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Velero выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_velero-yc-csi.helmChart.name }} \
@@ -75,8 +91,9 @@
    helm install \
         --namespace velero \
         --create-namespace \
-        --set configuration.backupStorageLocation.bucket=<имя_бакета> \
-        --set-file serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
+        --set backupStorageLocationCustom.bucket=<имя_бакета> \
+        --set serviceaccountawskeyvalue_generated.accessKeyID=<идентификатор_ключа> \
+        --set serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ> \
         velero ./velero/
    ```
 
@@ -84,4 +101,5 @@
 
 ## См. также {#see-also}
 
-* [Документация Velero](https://velero.io/docs/v1.11/examples/).
+* [Документация Velero](https://velero.io/docs/v1.11/examples/)
+* [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

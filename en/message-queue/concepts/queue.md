@@ -23,7 +23,7 @@ Use FIFO queues if you need strictly ordered message delivery and exactly-once p
 
 ### Message groups {#group-id}
 
-With group IDs, you can send multiple ordered message groups to different consumers within a single FIFO queue. The group ID is specified via the `MessageGroupId` parameter at sending. Within a single group, all messages are enqueued and processed in the order that they are sent.
+With group IDs, you can send multiple ordered message groups to different consumers within a single FIFO queue. The group ID is specified via the `MessageGroupId` parameter when sending. Within a single group, all messages are enqueued and processed in the order that they are sent.
 
 ### Deduplication on enqueueing {#deduplication}
 
@@ -34,3 +34,10 @@ FIFO queues deduplicate messages being enqueued by their deduplication ID or con
 {{ message-queue-full-name }} automatically deletes messages that are in a queue beyond the retention period. The standard message retention period is 4 days. It can be changed within the range of 60 seconds to 14 days. You can change it when creating a queue or by using the [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md) method.
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/autoscale-monitoring.md)
+* [{#T}](../tutorials/video-converting-queue.md)
+* [{#T}](../tutorials/websocket-app.md)
+* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md)

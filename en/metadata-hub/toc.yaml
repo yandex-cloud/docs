@@ -1,80 +1,491 @@
 title: Yandex MetaData Hub
 href: index.yaml
-stage: preview
 items:
-  - name: Getting started
+  - name: About {{ metadata-hub-full-name }}
+    href: concepts/index.md
+  - name: '{{ connection-manager-name }}'
     items:
-      - name: Overview
-        href: quickstart/index.md
-      - name: Connection Manager
+      - name: Getting started
         href: quickstart/connection-manager.md
-      - name: '{{ metastore-full-name }}'
-        href: quickstart/metastore.md
-  - name: Step-by-step guides
-    items:
-      - name: All guides
-        href: operations/index.md
-      - name: Connection Manager
+      - name: Step-by-step guides
         items:
-          - name: Creating a connection
-            href: operations/create-connection.md
           - name: Viewing a connection
             href: operations/view-connection.md
+          - name: Creating a connection
+            href: operations/create-connection.md
           - name: Editing a connection
             href: operations/update-connection.md
-          - name: Deleting a connection
-            href: operations/delete-connection.md
           - name: Configuring connection access permissions
             href: operations/connection-access.md
-      - name: '{{ metastore-full-name }}'
-        items:
-          - name: Creating a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-create.md
-          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
-            href: operations/metastore/dataproc-connect.md
-          - name: Exporting and importing a {{ metastore-name }} cluster
-            href: operations/metastore/export-and-import.md
-          - name: Deleting a {{ metastore-name }} cluster
-            href: operations/metastore/cluster-delete.md
-  - name: Tutorials
-    items:
-      - name: Shared use of tables through {{ metastore-name }}
-        href: tutorials/sharing-tables.md
-      - name: >-
-          Transferring metadata between {{ dataproc-name }} clusters using {{
-          metastore-name }}
-        href: tutorials/metastore-import.md
-  - name: Concepts
-    items:
-      - name: About {{ metadata-hub-full-name }}
-        href: concepts/index.md
-      - name: Connection Manager
+          - name: Deleting a connection
+            href: operations/delete-connection.md
+          - name: Getting operation info
+            href: operations/operation-connection.md
+          - name: Canceling an operation
+            href: operations/cancel-operation.md
+      - name: Concepts
         items:
           - name: Connection
             href: concepts/connection-manager.md
           - name: Secret
             href: concepts/secret.md
-      - name: '{{ metastore-full-name }}'
+      - name: Service roles for access management
+        href: security/connection-manager-roles.md
+      - name: CLI reference
+        href: ../cli/cli-ref/metadata-hub/cli-ref/connection-manager/index.md
+      - name: '{{ TF }} reference'
+        href: connman-tf-ref.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication-connman.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: connection-manager/api-ref/grpc/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: connection-manager/api-ref/grpc/Connection/index.md
+                  - name: Get
+                    href: connection-manager/api-ref/grpc/Connection/get.md
+                  - name: ResolveCluster
+                    href: >-
+                      connection-manager/api-ref/grpc/Connection/resolveCluster.md
+                  - name: List
+                    href: connection-manager/api-ref/grpc/Connection/list.md
+                  - name: Create
+                    href: connection-manager/api-ref/grpc/Connection/create.md
+                  - name: Update
+                    href: connection-manager/api-ref/grpc/Connection/update.md
+                  - name: Delete
+                    href: connection-manager/api-ref/grpc/Connection/delete.md
+                  - name: ListOperations
+                    href: >-
+                      connection-manager/api-ref/grpc/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: connection-manager/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: connection-manager/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: connection-manager/api-ref/grpc/Operation/cancel.md
+          - name: REST
+            items:
+              - name: Overview
+                href: connection-manager/api-ref/index.md
+              - name: Connection
+                items:
+                  - name: Overview
+                    href: connection-manager/api-ref/Connection/index.md
+                  - name: Get
+                    href: connection-manager/api-ref/Connection/get.md
+                  - name: ResolveCluster
+                    href: connection-manager/api-ref/Connection/resolveCluster.md
+                  - name: List
+                    href: connection-manager/api-ref/Connection/list.md
+                  - name: Create
+                    href: connection-manager/api-ref/Connection/create.md
+                  - name: Update
+                    href: connection-manager/api-ref/Connection/update.md
+                  - name: Delete
+                    href: connection-manager/api-ref/Connection/delete.md
+                  - name: ListOperations
+                    href: connection-manager/api-ref/Connection/listOperations.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: connection-manager/api-ref/Operation/index.md
+                  - name: Get
+                    href: connection-manager/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: connection-manager/api-ref/Operation/cancel.md
+  - name: '{{ metastore-full-name }}'
+    items:
+      - name: Getting started
+        href: quickstart/metastore.md
+      - name: Step-by-step guides
+        items:
+          - name: Getting cluster info
+            href: operations/metastore/cluster-list.md
+          - name: Creating a cluster
+            href: operations/metastore/cluster-create.md
+          - name: Updating a cluster
+            href: operations/metastore/cluster-update.md
+          - name: Stopping and starting a cluster
+            href: operations/metastore/cluster-stop.md
+          - name: Configuring security groups
+            href: operations/metastore/configure-security-group.md
+          - name: Connecting {{ dataproc-name }} to {{ metastore-name }}
+            href: operations/metastore/data-processing-connect.md
+          - name: Exporting and importing a cluster
+            href: operations/metastore/export-and-import.md
+          - name: >-
+              Connecting to a {{ objstorage-full-name }} bucket with a bucket
+              policy
+            href: operations/metastore/s3-policy-connect.md
+          - name: Transferring logs to {{ cloud-logging-name }}
+            href: operations/metastore/logging.md
+          - name: Deleting a cluster
+            href: operations/metastore/cluster-delete.md
+      - name: Tutorials
+        items:
+          - name: >-
+              Shared use of {{ dataproc-name }} tables through {{ metastore-name
+              }}
+            href: tutorials/sharing-tables.md
+          - name: >-
+              Transferring metadata between {{ dataproc-name }} clusters using
+              {{ metastore-name }}
+            href: tutorials/metastore-import.md
+          - name: Working with an {{ objstorage-name }} table from a PySpark job
+            href: tutorials/spark-simple-rw-job.md
+          - name: Integrating {{ msp-full-name }} with {{ metastore-name }}
+            href: tutorials/metastore-and-spark.md
+          - name: Automating operations using {{ maf-full-name }}
+            href: tutorials/airflow-automation.md
+          - name: Collaborative table management using {{ metastore-name }}
+            href: tutorials/data-processing-to-data-processing.md
+      - name: Concepts
         items:
           - name: '{{ metastore-name }} clusters'
             href: concepts/metastore.md
           - name: Impersonation in {{ metastore-name }}
             href: concepts/metastore-impersonation.md
-      - name: Quotas and limits
-        href: concepts/limits.md
-  - name: Access management
-    items:
-      - name: Overview
-        href: security/index.md
-      - name: '{{ connection-manager-name }} roles'
-        href: security/connection-manager-roles.md
-      - name: '{{ metastore-name }} roles'
+      - name: Service roles for access management
         href: security/metastore-roles.md
-  - name: Release notes
-    href: release-notes/index.md
+      - name: Troubleshooting
+        href: qa/metastore-qa.md
+      - name: CLI reference
+        items:
+          - name: Overview
+            href: cli-ref/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/cluster/add-access-binding.md
+              - name: create
+                href: cli-ref/cluster/create.md
+              - name: delete
+                href: cli-ref/cluster/delete.md
+              - name: export-data
+                href: cli-ref/cluster/export-data.md
+              - name: get
+                href: cli-ref/cluster/get.md
+              - name: import-data
+                href: cli-ref/cluster/import-data.md
+              - name: list
+                href: cli-ref/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/cluster/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/cluster/start.md
+              - name: stop
+                href: cli-ref/cluster/stop.md
+              - name: update
+                href: cli-ref/cluster/update.md
+      - name: '{{ TF }} reference'
+        href: metastore-tf-ref.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication-metastore.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: api-ref/grpc/index.md
+              - name: Cluster
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Cluster/index.md
+                  - name: Get
+                    href: api-ref/grpc/Cluster/get.md
+                  - name: List
+                    href: api-ref/grpc/Cluster/list.md
+                  - name: Create
+                    href: api-ref/grpc/Cluster/create.md
+                  - name: Update
+                    href: api-ref/grpc/Cluster/update.md
+                  - name: Delete
+                    href: api-ref/grpc/Cluster/delete.md
+                  - name: Start
+                    href: api-ref/grpc/Cluster/start.md
+                  - name: Stop
+                    href: api-ref/grpc/Cluster/stop.md
+                  - name: ImportData
+                    href: api-ref/grpc/Cluster/importData.md
+                  - name: ExportData
+                    href: api-ref/grpc/Cluster/exportData.md
+                  - name: ListOperations
+                    href: api-ref/grpc/Cluster/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Cluster/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Cluster/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Cluster/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/grpc/Operation/cancel.md
+          - name: REST
+            items:
+              - name: Overview
+                href: api-ref/index.md
+              - name: Cluster
+                items:
+                  - name: Overview
+                    href: api-ref/Cluster/index.md
+                  - name: Get
+                    href: api-ref/Cluster/get.md
+                  - name: List
+                    href: api-ref/Cluster/list.md
+                  - name: Create
+                    href: api-ref/Cluster/create.md
+                  - name: Update
+                    href: api-ref/Cluster/update.md
+                  - name: Delete
+                    href: api-ref/Cluster/delete.md
+                  - name: Start
+                    href: api-ref/Cluster/start.md
+                  - name: Stop
+                    href: api-ref/Cluster/stop.md
+                  - name: ImportData
+                    href: api-ref/Cluster/importData.md
+                  - name: ExportData
+                    href: api-ref/Cluster/exportData.md
+                  - name: ListOperations
+                    href: api-ref/Cluster/listOperations.md
+                  - name: ListAccessBindings
+                    href: api-ref/Cluster/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: api-ref/Cluster/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Cluster/updateAccessBindings.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: api-ref/Operation/index.md
+                  - name: Get
+                    href: api-ref/Operation/get.md
+                  - name: Cancel
+                    href: api-ref/Operation/cancel.md
+      - name: '{{ at-name }} events'
+        href: at-ref.md
+  - name: '{{ schema-registry-name }}'
+    items:
+      - name: Getting started
+        href: quickstart/schema-registry.md
+      - name: Step-by-step guides
+        items:
+          - name: Namespace
+            items:
+              - name: Creating a namespace
+                href: operations/create-name-space.md
+              - name: Viewing a list of namespaces
+                href: operations/list-name-space.md
+              - name: Editing a namespace
+                href: operations/update-name-space.md
+              - name: Connecting to a namespace
+                href: operations/connect-to-namespace.md
+              - name: Deleting a namespace
+                href: operations/delete-name-space.md
+          - name: Schemas
+            items:
+              - name: Uploading a schema to a new subject
+                href: operations/upload-schema-to-subject.md
+              - name: Adding a schema to an existing subject
+                href: operations/add-schema.md
+              - name: Viewing a schema
+                href: operations/view-schema.md
+              - name: Comparing schemas
+                href: operations/compare-schemas.md
+              - name: Deleting a schema
+                href: operations/delete-schema.md
+          - name: Subjects
+            items:
+              - name: Creating a subject
+                href: operations/create-subject.md
+              - name: Changing a subject
+                href: operations/update-subject.md
+              - name: Deleting a subject
+                href: operations/delete-subject.md
+      - name: Tutorials
+        items:
+          - name: Delivering data in Debezium CDC format from {{ KF }}
+            href: tutorials/schema-registry-cdc-debezium-kafka.md
+      - name: Concepts
+        items:
+          - name: Schema registry
+            href: concepts/schema-registry.md
+          - name: JSON schema compatibility
+            href: concepts/schema-compatibility.md
+          - name: Content models and JSON schema evolution issues
+            href: concepts/schema-registry-content-model.md
+          - name: Compatibility policies
+            href: concepts/compatibility-check-policy.md
+      - name: Service roles for access management
+        href: security/schema-registry-roles.md
+      - name: Troubleshooting
+        href: qa/schema-registry-qa.md
+      - name: API reference
+        items:
+          - name: API authentication
+            href: api-ref/authentication.md
+          - name: Schema Registry
+            href: api-ref/schema-registry/index.md
+  - name: '{{ data-catalog-name }}'
+    items:
+      - name: Getting started
+        items:
+          - name: Getting started as a metadata steward
+            href: quickstart/data-steward-quickstart.md
+          - name: Getting started as a metadata analyst
+            href: quickstart/data-analyst-quickstart.md
+      - name: Step-by-step guides
+        items:
+          - name: Metadata catalogs
+            items:
+              - name: Getting a list of metadata catalogs
+                href: operations/data-catalog/catalog-list.md
+              - name: Creating a metadata catalog
+                href: operations/data-catalog/create-catalog.md
+              - name: Updating a metadata catalog
+                href: operations/data-catalog/update-catalog.md
+              - name: Getting a list of operations with a metadata catalog
+                href: operations/data-catalog/catalog-operations.md
+              - name: Deleting a metadata catalog
+                href: operations/data-catalog/delete-catalog.md
+          - name: Ingestions
+            items:
+              - name: Getting a list of ingestions
+                href: operations/data-catalog/list-ingestions.md
+              - name: Creating an ingestion
+                href: operations/data-catalog/create-ingestion.md
+              - name: Starting an ingestion
+                href: operations/data-catalog/start-ingestion.md
+              - name: Updating an ingestion
+                href: operations/data-catalog/update-ingestion.md
+              - name: Getting ingestion info
+                href: operations/data-catalog/get-info-ingestion.md
+              - name: Deleting an ingestion
+                href: operations/data-catalog/delete-ingestion.md
+          - name: Classifications
+            items:
+              - name: Getting a list of classifications
+                href: operations/data-catalog/list-classifications.md
+              - name: Creating a classification
+                href: operations/data-catalog/create-classification.md
+              - name: Updating a classification
+                href: operations/data-catalog/update-classification.md
+              - name: Deleting a classification
+                href: operations/data-catalog/delete-classification.md
+          - name: Tags
+            items:
+              - name: Getting a list of tags
+                href: operations/data-catalog/list-tags.md
+              - name: Creating a tag
+                href: operations/data-catalog/create-tag.md
+              - name: Updating a tag
+                href: operations/data-catalog/update-tag.md
+              - name: Deleting a tag
+                href: operations/data-catalog/delete-tag.md
+          - name: Glossaries
+            items:
+              - name: Getting a list of glossaries
+                href: operations/data-catalog/list-glossaries.md
+              - name: Creating a glossary
+                href: operations/data-catalog/create-glossary.md
+              - name: Updating a glossary
+                href: operations/data-catalog/update-glossary.md
+              - name: Deleting a glossary
+                href: operations/data-catalog/delete-glossary.md
+          - name: Terms
+            items:
+              - name: Getting a list of terms
+                href: operations/data-catalog/list-terms.md
+              - name: Getting a list of child terms
+                href: operations/data-catalog/list-terms-child.md
+              - name: Creating a term
+                href: operations/data-catalog/create-term.md
+              - name: Creating a child term
+                href: operations/data-catalog/create-term-child.md
+              - name: Updating a term
+                href: operations/data-catalog/update-term.md
+              - name: Deleting a term
+                href: operations/data-catalog/delete-term.md
+              - name: Deleting a child term
+                href: operations/data-catalog/delete-term-child.md
+          - name: Domains
+            items:
+              - name: Getting a list of domains and subdomains
+                href: operations/data-catalog/list-domains.md
+              - name: Creating a domain
+                href: operations/data-catalog/create-domain.md
+              - name: Updating a domain
+                href: operations/data-catalog/update-domain.md
+              - name: Deleting a domain
+                href: operations/data-catalog/delete-domain.md
+          - name: Sources
+            items:
+              - name: Getting a list of sources
+                href: operations/data-catalog/source-list.md
+              - name: Creating a source
+                href: operations/data-catalog/create-source.md
+              - name: Edit origin
+                href: operations/data-catalog/update-source.md
+              - name: Deleting an origin
+                href: operations/data-catalog/delete-source.md
+          - name: Operations with data
+            items:
+              - name: Metadata markup
+                href: operations/data-catalog/markup-metadata.md
+              - name: Metadata search
+                href: operations/data-catalog/search-metadata.md
+              - name: Analyzing links between metadata
+                href: operations/data-catalog/analysis-metadata.md
+              - name: Getting a data profile
+                href: operations/data-catalog/get-data-profile.md
+              - name: Queries against datasets with {{ websql-full-name }}
+                href: operations/data-catalog/web-sql-query.md
+      - name: Concepts
+        items:
+          - name: Metadata catalogs
+            href: concepts/data-catalog.md
+      - name: Service roles for access management
+        href: security/data-catalog-roles.md
+  - name: Access management
+    href: security/index.md
+  - name: Quotas and limits
+    href: concepts/limits.md
   - name: Pricing policy
     href: pricing.md
-  - name: FAQ
+  - name: Public materials
+    href: public-talks.md
+  - name: Release notes
+    href: release-notes/index.md
+  - name: Troubleshooting
     href: qa/index.md
-base: en/metadata-hub
-deepBase: 2
+    hidden: true
+  - name: Getting started with the service
+    href: quickstart/index.md
+    hidden: true
+  - name: All step-by-step guides
+    href: operations/index.md
+    hidden: true
+  - name: All tutorials
+    href: tutorials/index.md
+    hidden: true

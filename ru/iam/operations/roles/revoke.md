@@ -19,7 +19,7 @@
 
     * Чтобы отозвать сразу все роли в каталоге или облаке:
 
-        1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог или облако.
+        1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог или облако.
         1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
         1. Выберите пользователя в списке и нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив имени пользователя.
         1. Если вы хотите отозвать все роли пользователя в облаке — нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** и подтвердите отзыв.
@@ -49,7 +49,6 @@
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
     1. Чтобы отозвать роль у субъекта на ресурс, найдите в конфигурационном файле описание ресурса:
-
 
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
@@ -116,7 +115,6 @@
             ]
         }
         ```
-
 
     1. Отзовите роль, удалив назначенные права доступа:
 

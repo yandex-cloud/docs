@@ -2,18 +2,16 @@
 
 Синтез по шаблонам в {{ brand-voice-premium }} и {{ brand-voice-core }} доступен только для голосов [{{ brand-voice-name }}](../brand-voice/index.md).
 
-
 {% note warning %}
 
 Сервисы {{ brand-voice-premium }} и {{ brand-voice-core }} предоставляются по запросу. Для доступа к технологии [заполните форму](#contact-form).
 
 {% endnote %}
 
-
 Чтобы синтезировать фразу по шаблону:
 
-1. [{#T}](#prepare-template).
-1. [{#T}](#send-to-api).
+1. [Подготовьте шаблон аудиозаписи](#prepare-template).
+1. [Отправьте данные в API v3](#send-to-api).
 
 ## Перед началом работы {#before-you-begin}
 

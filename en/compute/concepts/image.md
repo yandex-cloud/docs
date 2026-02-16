@@ -21,6 +21,10 @@ To regularly back up your data on disks, use [snapshots](snapshot.md).
 
 {% endnote %}
 
+Each image will get assigned a particular [virtualized hardware generation](./hardware-generations.md) on which you can deploy a VM instance from that image. You can assign a particular hardware generation to an image only at the time of creating it.
+
+Once the image is created, you cannot change the generation assigned to it. Instead, you can [create](../operations/image-create/create-from-image.md) a new image from the current one with another hardware generation assigned.
+
 You can create an image from a [disk](../operations/image-create/create-from-disk.md), [snapshot](../operations/image-create/create-from-snapshot.md), or [another image](../operations/image-create/create-from-image.md). If you have an image file, you can [import](../operations/image-create/upload.md) it to {{ yandex-cloud }}.
 
 {% include [create-unreplicated-instance-via-cli-tf-api](../_includes_service/create-unreplicated-instance-via-cli-tf-api.md) %}
@@ -74,6 +78,13 @@ Fast deployment is achieved by using multiple layers for storing data in a stora
 Regular images from {{ marketplace-name }} are already optimized for deployment. To optimize your image, select the **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}** option when uploading the image.
 
 By default, optimized images have a zero [quota](../concepts/limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/packer-quickstart.md)
+* [{#T}](../tutorials/packer-custom-image.md)
+* [{#T}](../tutorials/bind-domain-vm/index.md)
+* [{#T}](../tutorials/hystax-migration.md)
 
 ## See also {#see-also}
 

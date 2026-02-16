@@ -1,0 +1,8 @@
+#|
+|| | **Alice AI LLM** | **{{ gpt-pro }} 5.1** | **Qwen3 235B** ||
+|| Токенов в запросе | 164 | 164 | 248 ||
+|| Токенов в ответе | 22 | 22 | 39 ||
+|| Стоимость запроса | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 164 %} | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 164 %} | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 248 %} ||
+|| Стоимость ответа | {% calc [currency=RUB] round((10 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 22 %} | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 22 %} | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 39 %} ||
+|| Итого | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 164 + round((10 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 22 %} | {% calc [currency=RUB] round((2 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 186 %} | {% calc [currency=RUB] round((2,5 × {{ sku|RUB|foundation_models.text_generation.v1|number }}) × 100) / 100 / 1000 × 287 %} ||
+|#

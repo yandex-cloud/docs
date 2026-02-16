@@ -1,15 +1,16 @@
 ---
-title: Как подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту
-description: Следуя данной инструкции, вы сможете подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту.
+title: Как подключить профиль безопасности {{ sws-full-name }} к виртуальному хосту, домену или API-шлюзу
+description: Следуя данной инструкции, вы сможете подключить профиль безопасности {{ sws-full-name }} к защищаемому ресурсу.
 ---
 
-# Подключить профиль безопасности к виртуальному хосту
+# Подключить профиль безопасности к ресурсу
+
+## Подключить к виртуальному хосту {#host}
 
 Способ подключения профиля безопасности зависит от того, кто управляет балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
 * Если балансировщик управляется вами, то используйте интерфейсы {{ yandex-cloud }}.
-
-* Если балансировщик управляется [Ingress-контроллером](../../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }}, используйте [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+* Если балансировщик управляется [контроллером](../../application-load-balancer/tools/index.md), используйте аннотацию.
 
     {% note warning %}
 
@@ -19,18 +20,17 @@ description: Следуя данной инструкции, вы сможете
 
     {% endnote %}
 
-    О настройке Ingress-контроллера читайте в [документации {{ managed-k8s-full-name }}](../../managed-kubernetes/tutorials/alb-ingress-controller.md).
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
 
-    {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
-
-Чтобы подключить профиль безопасности с помощью интерфейсов {{ yandex-cloud }}:
+Чтобы подключить профиль безопасности к виртуальному хосту:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
   1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** и в открывшемся окне выберите:
       * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
         Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_add-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
 
-      На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** появятся подключенные виртуальные хосты.
+      В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные виртуальные хосты.
 
 - CLI {#cli}
 
@@ -132,15 +132,90 @@ description: Следуя данной инструкции, вы сможете
        security_profile_id: fev3s055oq64********
       ```
 
-  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/update.md).
+  Подробнее о команде `yc application-load-balancer virtual-host update` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Профиль безопасности {{ sws-full-name }} подключается к балансировщику [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) в настройках виртуального хоста.
+
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_alb_virtual_host` в блокe `route_options` укажите параметр `security_profile_id` — идентификатор профиля безопасности.
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<имя_виртуального_хоста>"
+        ...
+
+        route_options {
+          security_profile_id   = "<идентификатор_профиля_безопасности>"
+        }
+      }
+      ```
+
+  1. Примените изменения:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc alb http-router get <идентификатор_HTTP-роутера>
+  ```
 
 - API {#api}
 
   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
 
+- Аннотация {#annotation}
+
+  {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+
+  Используйте аннотации:
+
+  * для [контроллера Gwin](../../application-load-balancer/tools/gwin/index.md) — [HTTPRoute](../../application-load-balancer/gwin-ref/httproute.md#security-configuration) или [RoutePolicy](../../application-load-balancer/gwin-ref/routepolicy.md#cheatsheet);
+  * для [Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md) — [аннотацию ресурса Ingress](../../application-load-balancer/k8s-ref/ingress.md#annot-security-profile-id).
+
+      {% include [sws-editor-role](../../_includes/managed-kubernetes/alb-ref/sws-editor-role.md) %}
+
 {% endlist %}
 
 {% include [auto-scaling-tip](../../_includes/smartwebsecurity/auto-scaling-tip.md) %}
+
+{% include [disable-sp-route](../../_includes/smartwebsecurity/disable-sp-route.md) %}
+
+## Подключить к домену {#domain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Выберите раздел **Защита доменов** → **Домены**.
+  1. Выберите домен. 
+  1. Нажмите **Подключить профиль безопасности** и выберите профиль.
+
+{% endlist %}
+
+## Подключить к API-шлюзу {#gateway}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
+  1. Скопируйте идентификатор нужного профиля.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md).
+  1. Укажите в расширении скопированный идентификатор.
+
+{% endlist %}
 
 ## См. также {#see-also}
 

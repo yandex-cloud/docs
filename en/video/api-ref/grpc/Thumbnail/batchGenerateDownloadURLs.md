@@ -3,9 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/batchGenerateDownloadURLs.md
 ---
 
-# Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs {#BatchGenerateDownloadURLs}
+# Video API, gRPC: ThumbnailService.BatchGenerateDownloadURLs
 
-Generate urls for download images.
+Generates download URLs for multiple thumbnails in a single request.
+The response includes URLs for both original and scaled versions of each thumbnail.
+This is useful for efficiently retrieving multiple thumbnails at once.
 
 ## gRPC request
 
@@ -15,8 +17,8 @@ Generate urls for download images.
 
 ```json
 {
-  "channelId": "string",
-  "thumbnailIds": [
+  "channel_id": "string",
+  "thumbnail_ids": [
     "string"
   ]
 }
@@ -24,22 +26,34 @@ Generate urls for download images.
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| thumbnailIds[] | **string**
+Required field. ID of the channel containing the thumbnails.
 
-List of thumbnails IDs. ||
+The maximum string length in characters is 50. ||
+|| thumbnail_ids[] | **string**
+
+List of thumbnail IDs for which to generate download URLs.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
 |#
 
 ## BatchGenerateDownloadURLsResponse {#yandex.cloud.video.v1.BatchGenerateDownloadURLsResponse}
 
 ```json
 {
-  "downloadUrls": [
+  "download_urls": [
     {
-      "thumbnailId": "string",
-      "downloadUrl": "string"
+      "thumbnail_id": "string",
+      "original_url": "string",
+      "scaled_urls": [
+        {
+          "url": "string",
+          "max_width": "int64",
+          "max_height": "int64",
+          "image_format": "ImageFormat"
+        }
+      ]
     }
   ]
 }
@@ -47,19 +61,55 @@ List of thumbnails IDs. ||
 
 #|
 ||Field | Description ||
-|| downloadUrls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
+|| download_urls[] | **[ThumbnailDownloadURL](#yandex.cloud.video.v1.ThumbnailDownloadURL)**
 
-List of download urls. ||
+List of download URLs for the requested thumbnails.
+Each entry contains URLs for both the original image and various scaled versions. ||
 |#
 
 ## ThumbnailDownloadURL {#yandex.cloud.video.v1.ThumbnailDownloadURL}
 
 #|
 ||Field | Description ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
-ID of the thumbnail. ||
-|| downloadUrl | **string**
+ID of the thumbnail for which download URLs are provided. ||
+|| original_url | **string**
 
-Download url. ||
+URL for downloading the original, unmodified thumbnail image.
+This provides access to the image at its original resolution and format. ||
+|| scaled_urls[] | **[ScaledURL](#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL)**
+
+List of URLs for downloading scaled versions of the thumbnail.
+Different scaled versions are optimized for different display sizes and purposes. ||
+|#
+
+## ScaledURL {#yandex.cloud.video.v1.ThumbnailDownloadURL.ScaledURL}
+
+Represents a URL for a specific scaled version of a thumbnail image.
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL for downloading this scaled version of the thumbnail. ||
+|| max_width | **int64**
+
+Maximum width in pixels of the scaled image.
+The actual width may be smaller to maintain the aspect ratio. ||
+|| max_height | **int64**
+
+Maximum height in pixels of the scaled image.
+The actual height may be smaller to maintain the aspect ratio. ||
+|| image_format | enum **ImageFormat**
+
+Format of the scaled image (JPEG, WebP, etc.).
+Different formats offer different trade-offs between quality and file size.
+
+- `JPEG`: JPEG image format.
+Provides good compression with some quality loss.
+Widely supported across all platforms and browsers.
+- `WEBP`: WebP image format.
+Provides better compression than JPEG with similar quality.
+May not be supported on all platforms and older browsers. ||
 |#

@@ -3,7 +3,7 @@
 
 В этом руководстве вы настроите мониторинг и уведомления об изменениях показаний датчиков, подключенных к сервису [{{ iot-name }}](../../iot-core/). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/). Если у вас есть подключенные датчики, используйте их.
 
-Для работы с руководством вам не нужно создавать и настраивать [виртуальные машины](../../compute/concepts/vm.md) — вся работа основана на бессерверных вычислениях {{ sf-name }}. Исходный код, который используется в этом руководстве, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios/ServerRoomMonitoring).
+Для работы с руководством вам не нужно создавать и настраивать [виртуальные машины](../../compute/concepts/vm.md) — вся работа основана на бессерверных вычислениях {{ sf-name }}. Исходный код руководства доступен на [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring).
 
 Чтобы настроить мониторинг показаний датчиков в серверной комнате:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -101,7 +101,7 @@
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
           * Имя файла — `device-emulator.js`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/ServerRoomMonitoring/device-emulator.js).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/device-emulator.js).
       1. Аналогичным образом создайте файл `package.json` со следующим содержимым:
 
           ```json
@@ -248,7 +248,7 @@
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
           * Имя файла — `monitoring.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/ServerRoomMonitoring/monitoring.py).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-server-room-iot-monitoring/blob/master/monitoring.py).
 
               В этой функции подготовка данных для отправки в сервис мониторинга находится в методе `makeAllMetrics`. Если вы захотите добавить или удалить параметры, выполните изменения в этом методе.
 
@@ -354,7 +354,7 @@
 
 Для наблюдения за показаниями датчиков используется дашборд в сервисе [{{ monitoring-full-name }}](../../monitoring/). Показания датчиков поступают с контроллера на сервер раз в минуту по [MQTT-протоколу](../../glossary/mqtt-server.md#mqtt-protocol). Когда показания датчиков достигают заданных значений, {{ monitoring-name }} отправляет уведомления пользователям.
 
-{% cut "Формат передачи данных"%}
+{% cut "Формат передачи данных" %}
 
 ```json
 {
@@ -501,7 +501,7 @@
 
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_recipients }}** выберите учетную запись.
 
-      Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../iam/operations/users/create.md).
+      Вы можете выбрать несколько получателей уведомлений. В качестве получателей вы можете указать аккаунты пользователей, у которых есть доступ к вашему [облаку](../../resource-manager/concepts/resources-hierarchy.md#cloud). Подробнее о том, [как добавить пользователя в {{ yandex-cloud }}](../../organization/operations/add-account.md).
   1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
 {% endlist %}
@@ -531,7 +531,7 @@
       1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** выберите `{{ ui-key.yacloud_monitoring.alert.title_comparison-gt }}`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** введите `50`.
       1. В поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** введите `70`.
-      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}** выберите `5 минут`.
+      1. В списке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}** выберите `5 минут`.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите кнопку **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}**, затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.notification-method }}** выберите `my-message-channel` и нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. В нижней части окна нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.

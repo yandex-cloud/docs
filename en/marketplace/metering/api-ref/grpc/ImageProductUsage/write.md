@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/marketplace/metering/v1/metering/api-ref/grpc/ImageProductUsage/write.md
 ---
 
-# Marketplace Metering API, gRPC: ImageProductUsageService.Write {#Write}
+# Marketplace Metering API, gRPC: ImageProductUsageService.Write
 
 Writes image product's usage. Authentication is by user's service account.
 
@@ -15,12 +15,12 @@ Writes image product's usage. Authentication is by user's service account.
 
 ```json
 {
-  "validateOnly": "bool",
-  "productId": "string",
-  "usageRecords": [
+  "validate_only": "bool",
+  "product_id": "string",
+  "usage_records": [
     {
       "uuid": "string",
-      "skuId": "string",
+      "sku_id": "string",
       "quantity": "int64",
       "timestamp": "google.protobuf.Timestamp"
     }
@@ -30,13 +30,13 @@ Writes image product's usage. Authentication is by user's service account.
 
 #|
 ||Field | Description ||
-|| validateOnly | **bool**
+|| validate_only | **bool**
 
 Checks whether you have the access required for the emit usage. ||
-|| productId | **string**
+|| product_id | **string**
 
 Required field. Marketplace Product's ID. ||
-|| usageRecords[] | **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
+|| usage_records[] | **[UsageRecord](#yandex.cloud.marketplace.metering.v1.UsageRecord)**
 
 List of product usage records (up to 25 per request). ||
 |#
@@ -48,7 +48,7 @@ List of product usage records (up to 25 per request). ||
 || uuid | **string**
 
 Required field. Unique identifier of the usage record (UUID format). ||
-|| skuId | **string**
+|| sku_id | **string**
 
 Required field. Consumed Marketplace SKU ID, linked to `UsageRecord.product_id`. ||
 || quantity | **int64**

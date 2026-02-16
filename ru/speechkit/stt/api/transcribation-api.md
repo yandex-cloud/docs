@@ -5,11 +5,12 @@ description: Следуя данному руководству, вы научи
 
 # API v2 асинхронного распознавания
 
+
 Для работы с API v2 понадобятся:
 
 * [Бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md), в который вы загружаете аудиофайл для распознавания.
 * [Сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `{{ roles-speechkit-stt }}` и `storage.uploader`, которые нужны для работы со {{ speechkit-name }} и {{ objstorage-name }}.
-* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/api-key/create.md) для аутентификации.
+* [IAM-токен](../../../iam/operations/iam-token/create-for-sa.md) или [API-ключ](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для аутентификации.
 
 Подробнее о предварительной работе см. в разделе [{#T}](../transcribation.md#async-recognition).
 
@@ -55,7 +56,7 @@ description: Следуя данному руководству, вы научи
 || config.<br>specification.<br>model | **string**<br>[Языковая модель](../models.md#tags) для распознавания речи.<br>Значение параметра по умолчанию: `general`.<br>Выбор модели влияет на [стоимость использования](../../pricing.md#rules-stt-long). ||
 || config.<br>specification.<br>profanityFilter | **boolean**<br>Фильтр ненормативной лексики.<br/>Допустимые значения:<ul><li>`true` — замаскировать ненормативную лексику звездочками в результатах распознавания.</li><li>`false` (по умолчанию) — не маскировать ненормативную лексику.</li></ul> ||
 || config.<br>specification.<br>literature_text | **boolean**<br>Включает [режим нормализации](../normalization.md). ||
-|| config.<br>specification.<br>audioEncoding | **string**<br>[Формат](../../formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](../../formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [OggOpus](../../formats.md#oggopus).</li><li>`MP3` — формат [MP3](../../formats.md#MP3).</li></ul> ||
+|| config.<br>specification.<br>audioEncoding | **string**<br>[Формат](../../formats.md) передаваемого аудио.<br/>Допустимые значения:<ul><li>`LINEAR16_PCM` — [LPCM без WAV-заголовка](../../formats.md#lpcm).</li><li>`OGG_OPUS` (по умолчанию) — формат [Ogg](../../formats.md#oggopus) с кодеком OPUS.</li><li>`MP3` — формат [MP3](../../formats.md#MP3).</li></ul> ||
 || config.<br>specification.<br>sampleRateHertz | **integer** (int64)<br>Частота дискретизации передаваемого аудио.<br/>Этот параметр обязателен, если значение `format` равно `LINEAR16_PCM`. Допустимые значения:<ul><li>`48000` (по умолчанию) — частота дискретизации 48 кГц;</li><li>`16000` — частота дискретизации 16 кГц;</li><li>`8000` — частота дискретизации 8 кГц.</li></ul> ||
 || config.<br>specification.<br>audioChannelCount | **integer** (int64)<br>Количество каналов для аудиофайлов в [формате LPCM](../../formats.md#lpcm). По умолчанию используется значение `1`.<br>Не используйте это поле для аудиофайлов в формате [OggOpus](../../formats.md#oggopus) и [MP3](../../formats.md#MP3). Информация о количестве каналов уже содержится в этих файлах. ||
 || config.<br>specification.<br>rawResults | **boolean** <br>Флаг, указывающий, как писать числа.</br>Допустимые значения:<ul><li>`true` — писать прописью.</li><li>`false` (по умолчанию) — писать цифрами.</li></ul> ||
@@ -80,7 +81,7 @@ description: Следуя данному руководству, вы научи
 
 ## Получить результаты распознавания {#get-result}
 
-Чтобы проверить статус операции и получить результат распознавания, отправьте запрос по адресу: `operation.api.cloud.yandex.net`
+Чтобы проверить статус операции и получить результат распознавания, отправьте запрос по адресу: `operation.{{ api-host }}`.
 
 Проверяйте результаты распознавания, используя полученный идентификатор. Количество запросов на проверку результатов [ограничено](../../concepts/limits.md), 1 минута одноканального аудио распознается примерно за 10 секунд.
 
@@ -149,7 +150,7 @@ operationId | Идентификатор операции, полученный 
 || response.<br>@type | **string**
 Тип ответа на запрос. ||
 || response.<br>chunks | **array**
-Массив с результатами распознавания. ||
+Массив с результатами распознавания.<br>Если распознать речь в переданном файле не удастся, в ответе может отсутствовать массив с результатами. ||
 || response.<br>chunks.<br>alternatives | **array**
 Массив с вариантами распознанного текста. ||
 || response.<br>chunks.<br>alternatives.<br>words | **array**

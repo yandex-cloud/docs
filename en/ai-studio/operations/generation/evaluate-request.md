@@ -1,0 +1,121 @@
+---
+title: How to learn the prompt size in tokens
+description: Follow this guide to learn how to figure out the size of prompts to {{ gpt-lite }} and {{ gpt-pro }} models in tokens.
+---
+
+# Estimating prompt size in tokens
+
+Neural networks work with texts by representing words and sentences as [tokens](../../concepts/generation/tokens.md).
+
+{{ foundation-models-name }} uses its own tokenizer for text processing. To calculate the token size of a text or prompt to a {{ yagpt-name }} model, use the [Tokenize](../../text-generation/api-ref/Tokenizer/index.md) method of the text generation API or [{{ ml-sdk-full-name }}](../../sdk/index.md).
+
+The token count of the same text may vary from one [model](../../concepts/generation/models.md) to the next.
+
+## Getting started {#before-begin}
+
+To use the examples:
+
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  {% include [sdk-before-begin-ai-langmodel-user](../../../_includes/ai-studio/sdk-before-begin-ai-langmodel-user.md) %}
+
+- cURL {#curl}
+
+  {% include [ai-before-beginning](../../../_includes/ai-studio/yandexgpt/ai-before-beginning.md) %}
+
+  {% include [curl](../../../_includes/curl.md) %}
+
+{% endlist %}
+
+## Calculating prompt size {#evaluate}
+
+The example below estimates the size of a prompt to a {{ yagpt-name }} model.
+
+{% list tabs group=programming_language %}
+
+- SDK {#sdk}
+
+  1. Create a file named `token.py` and paste the following code into it:
+
+      {% include [yandexgpt-tokenize-sdk](../../../_includes/ai-studio/examples/yandexgpt-tokenize-sdk.md) %}
+
+      Where:
+
+      {% note info %}
+
+      {% include [sdk-input-format](../../../_includes/ai-studio/sdk-input-format.md) %}
+
+      {% endnote %}
+
+      * `messages`: Message text.
+
+      {% include [sdk-code-legend](../../../_includes/ai-studio/examples/sdk-code-legend.md) %}
+
+      * `model`: Model URI. For more information, see [{#T}](../../sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).
+
+  1. Run the file you created:
+
+      ```bash
+      python3 token.py
+      ```
+
+      The request will return a list of all received tokens. 
+
+
+      
+      {% cut "Result" %}
+
+      {% include [token-result](../../../_untranslatable/ai-studio/tokens-result-en.md) %}
+
+      {% endcut %}
+
+
+
+- cURL {#curl}
+
+  1. Create a file named `tbody.json` with the request parameters:
+  
+     ```json
+     {
+       "modelUri": "gpt://<folder_ID>/yandexgpt",
+       "text": "Generative models are managed using prompts. A good prompt should contain the context of your request to the model (instruction) and the actual task the model should complete based on the provided context. The more specific your prompt is, the more accurate the model's output is going to be."
+     }
+     ```
+  
+     {% include [folder-id](../../../_includes/ai-studio/yandexgpt/folder-id.md) %}
+  
+  1. Send a request to the model:
+  
+     ```bash
+     export IAM_TOKEN=<IAM_token>
+     curl --request POST \
+       --header "Authorization: Bearer ${IAM_TOKEN}" \
+       --data "@tbody.json" \
+       "https://llm.api.cloud.yandex.net/foundationModels/v1/tokenize"
+     ```
+  
+     Where:
+  
+     * `<IAM_token>`: Value of the [IAM token](../../../iam/concepts/authorization/iam-token.md) you got for your account.
+     * `tbody.json`: JSON file with the request parameters.
+  
+     The request will return a list of all received tokens. 
+
+
+     
+     {% cut "Result" %}
+
+     {% include [token-result](../../../_untranslatable/ai-studio/tokens-result-en.md) %}
+
+     {% endcut %}
+
+
+{% endlist %}
+
+#### See also {#see-also}
+
+* [{#T}](../../concepts/generation/tokens.md)
+* [{#T}](../../concepts/generation/index.md)
+* Examples of working with {{ ml-sdk-name }} on [GitHub](https://github.com/yandex-cloud/yandex-ai-studio-sdk/tree/master/examples/sync/completions)

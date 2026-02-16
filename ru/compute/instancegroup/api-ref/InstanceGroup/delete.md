@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        instanceGroupId:
+          description: |-
+            **string**
+            Required field. ID of the instance group to delete.
+            To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - instanceGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/instancegroup/api-ref/InstanceGroup/delete.md
 ---
 
-# Compute Cloud Instance Groups API, REST: InstanceGroup.Delete {#Delete}
+# Compute Cloud Instance Groups API, REST: InstanceGroup.Delete
 
 Deletes the specified instance group.
 
@@ -20,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId
 || instanceGroupId | **string**
 
 Required field. ID of the instance group to delete.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -111,7 +132,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 || instanceGroupId | **string**
 
 ID of the instance group that is being deleted.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
 |#
 
 ## Status {#google.rpc.Status}

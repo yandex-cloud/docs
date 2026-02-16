@@ -5,17 +5,21 @@ description: Follow this guide to top up your personal account.
 
 # Top up your personal account
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
-
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
 
+{{ yandex-cloud }} reserves the right to automatically debit your linked card during the current reporting period if your account balance exceeds the established credit limit.
+
+ 
 
 The method for topping up your personal account depends on your legal status.
 
+{% note info %}
+
+A billing cycle runs automatically for [individuals](../payment/billing-cycle-individual.md) as well as [businesses and individual entrepreneurs](../payment/billing-cycle-business.md) if they have a bank card linked to their billing account.
+
+{% endnote %}
 
 ## Individuals {#individuals}
-
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
 
 To top up your personal account:
 
@@ -23,11 +27,21 @@ To top up your personal account:
 
 - {{ billing-interface }} {#billing}
 
-   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-   1. Select a billing account.
-   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-   1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-   1. Enter your card details and click **Pay**.
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select a billing account.
+  1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. In the window that opens, enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+  1. Choose [how top up your balance](../payment/payment-methods-individual.md):
+     * SBP (Faster Payment System):
+        1. Click **Pay via SBP**.
+        1. Scan the QR code using your bank’s mobile app and confirm the payment.
+
+        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+     * Credit or debit card associated with your [Yandex ID](../../iam/concepts/users/accounts.md#passport).  
+     * Adding a card:
+        1. Enter your card details.
+        1. Click **Pay**.
 
 {% endlist %}
 
@@ -45,24 +59,42 @@ To top up your personal account:
 1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. This button is only available after [switching to paid consumption](activate-commercial.md).
 1. Select a payment method:
 
-{% list tabs group=payments %}
+  {% list tabs group=payments %}
 
-- Bank transfer {#transfer}
+   - Wire transfer {#transfer}
 
-   Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+     Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
 
-   The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
+     The system will generate a payment invoice. Print the invoice and use it to make a payment in a bank or using a banking client system.
 
-   Before paying, please make sure the following is correct in your payment order:
-   * Payment amount.
-   * Banking information of Yandex.Cloud LLC (Russia), Cloud Services Kazakhstan LLP (Kazakhstan), and Iron Hive doo Beograd (Serbia) for non-residents of Russia and Kazakhstan.
-   * Your company or individual entrepreneur TIN.
-   * [Personal account number](../concepts/personal-account.md#id) in the payment details.
-   * [Contract number](../concepts/contract.md) in the payment details.
+     Before paying, please make sure the following is correct in your payment order:
+     * Payment amount.
+     * Banking details of Yandex.Cloud LLC (for Russia), Cloud Services Kazakhstan LLP (for Kazakhstan), Iron Hive doo Beograd (Serbia), or Direct Cursus Technology L.L.C. (Dubai) (for non-resients of Russia and Kazakhstan).
 
-   [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
+       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
 
-   {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
+     * Your company or individual entrepreneur TIN.
+     * [Account number](../concepts/personal-account.md#id) in the payment purpose.
+     * [Agreement number](../concepts/contract.md) in the payment purpose.
 
+     [How fast the funds will be credited to your personal account](../payment/payment-methods-business.md#limits) depends on the bank performing the transaction.
 
-{% endlist %}
+     {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
+
+  - Credit or debit card {#card}
+
+    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Then enter your card details and click **Pay**.
+
+    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
+
+    Your payment will be processed in real time and completed within 15 minutes.
+
+  - SBP (Faster Payment System) {#sbp}
+
+    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+    Enter the payment amount and click **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Select the SBP top-up method and click **Pay via SBP**.
+    
+    Scan the QR code using your bank’s app and confirm the payment.
+    
+  {% endlist %}

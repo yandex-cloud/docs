@@ -1,13 +1,3 @@
----
-description: Network Time Protocol Servers (NTP) – позволяет выполнять настройку синхронизации с общедоступными NTP серверами времени на виртуальных машинах {{ yandex-cloud }} под управлением Windows Server и Linux. Описан порядок настройки серверов для синхронизации.
-keywords:
-  - ntp
-  - ntp server
-  - sntp
-  - синхронизация времени
-  - нтп сервер
-  - ntp сервер
----
 
 # Настройка синхронизации часов с помощью NTP
 
@@ -75,13 +65,10 @@ keywords:
       ```
 
   1. Укажите адреса рекомендуемых серверов в секции `[Time]` в параметре `FallbackNTP=`, например:
-     
 
       ```text
       FallbackNTP=0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de
       ```
-
-
 
   1. В конфигурационном файле `systemd.network` укажите параметр `UseNTP=true`. Конфигурационный файл обычно размещен в директориях `/etc/systemd/network/` или `/var/lib/systemd/network/`.
 
@@ -119,7 +106,6 @@ keywords:
       ```
 
   1. Укажите адреса рекомендуемых серверов. Адреса серверов по умолчанию закомментируйте символом `#` в начале строки, например:
-     
 
       ```text
       # Use servers from the NTP Pool Project. Approved by Ubuntu Technical Board
@@ -136,8 +122,6 @@ keywords:
       server ntp.ix.ru
       server ntps1-1.cs.tu-berlin.de
       ```
-
-
 
   1. Перезапустите сервис синхронизации времени:
 
@@ -165,13 +149,9 @@ keywords:
 
   1. Укажите адреса рекомендуемых серверов, например:
 
-
-
       ```powershell
       w32tm /config /syncfromflags:manual /manualpeerlist:"0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de"
       ```
-
-
 
       Результат:
 
@@ -237,7 +217,6 @@ keywords:
 
   Результат:
 
-
   ```bash
       remote           refid      st t when poll reach   delay   offset  jitter
   ==============================================================================
@@ -253,8 +232,6 @@ keywords:
   185.125.190.58  145.238.203.14   2 u    -   64    1   57.460   -0.464   0.000
   ```
 
-
-
 - Windows Server {#windows}
 
   Выполните команду, указав имя ВМ:
@@ -265,7 +242,6 @@ keywords:
 
   Результат:
 
-
   ```powershell
   ...
   [TimeProviders]
@@ -273,8 +249,6 @@ keywords:
   NtpServer: 0.ru.pool.ntp.org 1.ru.pool.ntp.org ntp0.NL.net ntp2.vniiftri.ru ntp.ix.ru ntps1-1.cs.tu-berlin.de (Local)
   ...
   ```
-
-
 
 {% endlist %}
 

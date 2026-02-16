@@ -2,9 +2,9 @@
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the appropriate folder.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
+   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
 - CLI {#cli}
 
@@ -12,12 +12,43 @@
    {{ yc-mdb-kf }} cluster list-hosts <cluster_name_or_ID>
    ```
 
-   The FQDN is specified in the command output under `NAME`.
+   You will see the FQDN under `NAME` in the command output.
 
-- API {#api}
+- REST API {#api}
 
-   Use the [listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) REST API method for the [Cluster](../../../managed-kafka/api-ref/Cluster/index.md) resource or the [ClusterService/listHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter. To find out the cluster ID, [get a list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+    1. Call the [Cluster.listHosts](../../../managed-kafka/api-ref/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-   The FQDN is specified in the response under `hosts[].name`.
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/hosts'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+
+    1. Check the [server response](../../../managed-kafka/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the FQDN in the `hosts[].name` field of the response.
+
+- gRPC API {#grpc-api}
+
+    1. Call the [ClusterService/ListHosts](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:443 \
+            yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](../../../managed-kafka/operations/cluster-list.md#list-clusters).
+
+    1. Check the [server response](../../../managed-kafka/api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse) to make sure your request was successful. You will find the FQDN in the `hosts[].name` field of the response.
 
 {% endlist %}

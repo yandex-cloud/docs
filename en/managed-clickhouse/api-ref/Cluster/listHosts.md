@@ -1,9 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster.
+            To get the ClickHouse cluster ID use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.  To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse)
+            returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.ListHosts {#ListHosts}
+# Managed Service for ClickHouse API, REST: Cluster.ListHosts
 
 Retrieves a list of hosts for the specified cluster.
 
@@ -20,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster.
-To get the ClickHouse cluster ID use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the ClickHouse cluster ID use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsRequest}
@@ -31,11 +71,15 @@ To get the ClickHouse cluster ID use a [ClusterService.List](/docs/managed-click
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.  To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse}
@@ -104,9 +148,9 @@ ID of the availability zone where the ClickHouse host resides. ||
 
 Type of the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Host type is unspecified. Default value.
 - `CLICKHOUSE`: ClickHouse host.
-- `ZOOKEEPER`: ZooKeeper host. ||
+- `ZOOKEEPER`: ZooKeeper host.
+- `KEEPER`: ClickHouse Keeper host. ||
 || resources | **[Resources](#yandex.cloud.mdb.clickhouse.v1.Resources)**
 
 Resources allocated to the ClickHouse host. ||
@@ -117,7 +161,9 @@ Aggregated health of the host. If the field has default value, it is not returne
 - `UNKNOWN`: Health of the host is unknown.
 - `ALIVE`: The host is performing all its functions normally.
 - `DEAD`: The host is inoperable, and cannot perform any of its essential functions.
-- `DEGRADED`: The host is degraded, and can perform only some of its essential functions. ||
+- `DEGRADED`: The host is degraded, and can perform only some of its essential functions.
+- `READONLY`: The host is read-only and cannot perform write requests.
+- `RESTORING`: The host is restoring from backup or syncronzing from other replica. ||
 || services[] | **[Service](#yandex.cloud.mdb.clickhouse.v1.Service)**
 
 Services provided by the host. ||
@@ -158,14 +204,16 @@ Possible values:
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `CLICKHOUSE`: The host is a ClickHouse server.
-- `ZOOKEEPER`: The host is a ZooKeeper server. ||
+- `ZOOKEEPER`: The host is a ZooKeeper server.
+- `KEEPER`: The host is a ClickHouse Keeper server. ||
 || health | **enum** (Health)
 
 Aggregated health of the service. If the field has default value, it is not returned in the response.
 
 - `UNKNOWN`: Health of the server is unknown. Default value.
 - `ALIVE`: The server is working normally.
-- `DEAD`: The server is dead or unresponsive. ||
+- `DEAD`: The server is dead or unresponsive.
+- `READONLY`: The service is read-only.
+- `RESTORING`: The service is restoring from backup or syncronzing from other replica. ||
 |#

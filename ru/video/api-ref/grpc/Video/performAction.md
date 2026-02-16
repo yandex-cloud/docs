@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/performAction.md
 ---
 
-# Video API, gRPC: VideoService.PerformAction {#PerformAction}
+# Video API, gRPC: VideoService.PerformAction
 
-Perform an action on the episode.
+Performs a specific action on a video, such as publishing or unpublishing.
 
 ## gRPC request
 
@@ -15,7 +15,7 @@ Perform an action on the episode.
 
 ```json
 {
-  "videoId": "string",
+  "video_id": "string",
   // Includes only one of the fields `publish`, `unpublish`
   "publish": "PublishVideoAction",
   "unpublish": "UnpublishVideoAction"
@@ -25,18 +25,32 @@ Perform an action on the episode.
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
-ID of the video. ||
+Required field. ID of the video on which to perform the action.
+
+The maximum string length in characters is 50. ||
 || publish | **[PublishVideoAction](#yandex.cloud.video.v1.PublishVideoAction)**
 
-Includes only one of the fields `publish`, `unpublish`. ||
+Publish the video, making it available for watching.
+Changes the video's visibility status to PUBLISHED.
+
+Includes only one of the fields `publish`, `unpublish`.
+
+Specifies the action to perform on the video (exactly one must be chosen). ||
 || unpublish | **[UnpublishVideoAction](#yandex.cloud.video.v1.UnpublishVideoAction)**
 
-Includes only one of the fields `publish`, `unpublish`. ||
+Unpublish the video, making it unavailable for watching.
+Changes the video's visibility status to UNPUBLISHED.
+
+Includes only one of the fields `publish`, `unpublish`.
+
+Specifies the action to perform on the video (exactly one must be chosen). ||
 |#
 
 ## PublishVideoAction {#yandex.cloud.video.v1.PublishVideoAction}
+
+Parameters for the publish action.
 
 #|
 ||Field | Description ||
@@ -44,6 +58,8 @@ Includes only one of the fields `publish`, `unpublish`. ||
 |#
 
 ## UnpublishVideoAction {#yandex.cloud.video.v1.UnpublishVideoAction}
+
+Parameters for the unpublish action.
 
 #|
 ||Field | Description ||
@@ -56,36 +72,56 @@ Includes only one of the fields `publish`, `unpublish`. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "videoId": "string"
+    "video_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "channelId": "string",
+    "channel_id": "string",
     "title": "string",
     "description": "string",
-    "thumbnailId": "string",
+    "thumbnail_id": "string",
     "status": "VideoStatus",
+    "error_message": "string",
+    "visibility_status": "VisibilityStatus",
     "duration": "google.protobuf.Duration",
-    "visibilityStatus": "VisibilityStatus",
+    "auto_transcode": "AutoTranscode",
+    "style_preset_id": "string",
+    "enable_ad": "google.protobuf.BoolValue",
+    "subtitle_ids": [
+      "string"
+    ],
+    "features": {
+      "summary": {
+        "result": "FeatureResult",
+        "urls": [
+          {
+            "url": "string",
+            "track_index": "int64",
+            "src_lang": "string"
+          }
+        ]
+      }
+    },
     // Includes only one of the fields `tusd`
     "tusd": {
-      "url": "string"
+      "url": "string",
+      "file_size": "int64"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
-    "publicAccess": "VideoPublicAccessRights",
-    "authSystemAccess": "VideoAuthSystemAccessRights",
+    // Includes only one of the fields `public_access`, `sign_url_access`
+    "public_access": "VideoPublicAccessRights",
+    "sign_url_access": "VideoSignURLAccessRights",
     // end of the list of possible fields
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
-    "labels": "string"
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -101,13 +137,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -150,98 +186,191 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
-ID of the video. ||
+ID of the video on which the action is being performed.
+This identifier can be used to track the action operation
+and to verify that the action is being applied to the correct video. ||
 |#
 
 ## Video {#yandex.cloud.video.v1.Video}
+
+Main entity representing a video in the platform.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the video. ||
-|| channelId | **string**
+Unique identifier of the video. ||
+|| channel_id | **string**
 
-ID of the channel where the video was created. ||
+Identifier of the channel where the video is created and managed. ||
 || title | **string**
 
-Video title. ||
+Title of the video displayed to users in interfaces and players. ||
 || description | **string**
 
-Video description. ||
-|| thumbnailId | **string**
+Detailed description of the video content and context. ||
+|| thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the video visually. ||
 || status | enum **VideoStatus**
 
-Video status.
+Current processing status of the video.
 
-- `VIDEO_STATUS_UNSPECIFIED`: Video status unspecified.
-- `WAIT_UPLOADING`: Waiting for the whole number of bytes to be loaded.
-- `PROCESSING`: Video processing.
-- `READY`: Video is ready, processing is completed.
+- `WAIT_UPLOADING`: The video upload is in progress, waiting for all bytes to be received.
+- `UPLOADED`: The video has been fully uploaded and is ready for transcoding.
+- `PROCESSING`: The video is currently being processed.
+- `READY`: The video has been successfully processed and is ready for watching.
 - `ERROR`: An error occurred during video processing. ||
+|| error_message | **string**
+
+Error message describing the reason for video processing failure, if any. ||
+|| visibility_status | enum **VisibilityStatus**
+
+Current visibility status controlling whether the video is publicly available.
+
+- `PUBLISHED`: The video is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The video is available only to administrators. ||
 || duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Video duration. Optional, may be empty until the transcoding result is ready. ||
-|| visibilityStatus | enum **VisibilityStatus**
+Total duration of the video.
+Optional, may be empty until the transcoding result is ready. ||
+|| auto_transcode | enum **AutoTranscode**
 
-Video visibility status.
+Auto-transcoding setting that controls the video processing workflow.
+Set ENABLE to automatically initiate transcoding after upload,
+or DISABLE for manual initiation via the Transcode() method.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
-- `PUBLISHED`: Video is published and available for viewing.
-- `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
+- `ENABLE`: Automatically start transcoding after the video upload is complete.
+- `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
+|| style_preset_id | **string**
+
+Identifier of the style preset applied to the video during processing. ||
+|| enable_ad | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Controls the ability to display advertisements for this video.
+Default: true.
+Set explicitly to false to disable advertisements for a specific video. ||
+|| subtitle_ids[] | **string**
+
+List of identifiers defining the active subtitles available for the video. ||
+|| features | **[VideoFeatures](#yandex.cloud.video.v1.VideoFeatures)**
+
+Additional video processing features and their results, such as summarization. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
-Upload video using the tus protocol.
+Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
+@see https://tus.io/
 
 Includes only one of the fields `tusd`.
 
-Source type. ||
-|| publicAccess | **[VideoPublicAccessRights](#yandex.cloud.video.v1.VideoPublicAccessRights)**
+Specifies the video upload source method (one source variant must be chosen). ||
+|| public_access | **[VideoPublicAccessRights](#yandex.cloud.video.v1.VideoPublicAccessRights)**
 
-Video is available to everyone.
+Allows unrestricted public access to the video via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
-|| authSystemAccess | **[VideoAuthSystemAccessRights](#yandex.cloud.video.v1.VideoAuthSystemAccessRights)**
+Specifies the video access permission settings. ||
+|| sign_url_access | **[VideoSignURLAccessRights](#yandex.cloud.video.v1.VideoSignURLAccessRights)**
 
-Checking access rights using the authorization system.
+Restricts video access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `public_access`, `sign_url_access`.
 
-Video access rights. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Specifies the video access permission settings. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when video was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Timestamp when the video was initially created in the system. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last video update. ||
-|| labels | **string**
+Timestamp of the last modification to the video or its metadata. ||
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per video.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
-## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+## VideoFeatures {#yandex.cloud.video.v1.VideoFeatures}
+
+Contains additional processing features and their results for the video.
+
+#|
+||Field | Description ||
+|| summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
+
+Results of the video content summarization process. ||
+|#
+
+## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
+
+Contains the results of video summarization.
+
+#|
+||Field | Description ||
+|| result | enum **FeatureResult**
+
+Current status of the summarization process.
+
+- `NOT_REQUESTED`: The feature processing has not been requested.
+- `PROCESSING`: The feature is currently being processed.
+- `SUCCESS`: The feature processing has completed successfully.
+- `FAILED`: The feature processing has failed. ||
+|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)**
+
+List of URLs to summarization results for different audio tracks. ||
+|#
+
+## SummaryURL {#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL}
+
+Contains a URL to a summarization result for a specific audio track.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-URL for uploading video via the tus protocol. ||
+URL to the summarization result file. ||
+|| track_index | **int64**
+
+Input audio track index (one-based) that was summarized. ||
+|| src_lang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T. ||
+|#
+
+## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+
+Represents a video upload source using the TUS (Tus Resumable Upload Protocol) protocol.
+This is a push-based upload method where the client pushes data to the server.
+@see https://tus.io/
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL endpoint for uploading the video via the TUS protocol. ||
+|| file_size | **int64**
+
+Total size of the uploaded file, in bytes. ||
 |#
 
 ## VideoPublicAccessRights {#yandex.cloud.video.v1.VideoPublicAccessRights}
+
+Represents public access rights for a video.
+When this access type is set, the video is publicly accessible via direct link.
 
 #|
 ||Field | Description ||
 || Empty | > ||
 |#
 
-## VideoAuthSystemAccessRights {#yandex.cloud.video.v1.VideoAuthSystemAccessRights}
+## VideoSignURLAccessRights {#yandex.cloud.video.v1.VideoSignURLAccessRights}
+
+Represents access rights controlled by URL signatures.
+When this access type is set, the video is accessible only via properly signed temporary link.
 
 #|
 ||Field | Description ||

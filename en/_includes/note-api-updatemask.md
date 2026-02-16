@@ -1,5 +1,5 @@
 {% note warning %}
 
-This API method overrides all parameters of the object being modified that were not explicitly passed in the request to the default values. To avoid this, list the settings you want to change in the `updateMask` parameter (one line separated by commas).
+The API method will assign default values to all the parameters of the object you are modifying unless you explicitly provide them in your request. To avoid this, list the settings you want to change in the `updateMask` parameter as a single comma-separated string.
 
 {% endnote %}

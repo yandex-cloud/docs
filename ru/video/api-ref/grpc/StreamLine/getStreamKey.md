@@ -3,9 +3,10 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/StreamLine/getStreamKey.md
 ---
 
-# Video API, gRPC: StreamLineService.GetStreamKey {#GetStreamKey}
+# Video API, gRPC: StreamLineService.GetStreamKey
 
-Returns unique stream key.
+Retrieves the unique stream key for a push-type stream line.
+This key is used to authenticate when pushing video streams to the platform.
 
 ## gRPC request
 
@@ -15,15 +16,18 @@ Returns unique stream key.
 
 ```json
 {
-  "streamLineId": "string"
+  "stream_line_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| streamLineId | **string**
+|| stream_line_id | **string**
 
-ID of the line. ||
+Required field. ID of the stream line for which to retrieve the stream key.
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PushStreamKey {#yandex.cloud.video.v1.PushStreamKey}
@@ -34,11 +38,11 @@ ID of the line. ||
 }
 ```
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

@@ -1,7 +1,7 @@
 
 {% include [full-overview](./full-overview.md) %}
 
-By default, buckets are created with restricted access, as specified in the [IAM](../../../iam/concepts/index.md) settings. You can [allow public access](../../../storage/operations/buckets/bucket-availability.md):
+By default, bucket access is restricted, as specified in the [IAM](../../../iam/concepts/index.md) settings. You can [enable public access](../../../storage/operations/buckets/bucket-availability.md):
 
 {% include [storage-public-operations](../../../storage/_includes_service/storage-public-operations.md) %}
 

@@ -1,3 +1,8 @@
+---
+title: Статические ключи доступа, совместимые с AWS API
+description: Из статьи вы узнаете, зачем нужен статический ключ доступа, какой у него формат и какие сервисы поддерживают этот способ аутентификации.
+---
+
 # Статические ключи доступа, совместимые с AWS API
 
 
@@ -10,7 +15,7 @@
 
 Обе части используются в запросах к AWS-совместимому API. Идентификатор ключа указывается в открытом виде. Секретным ключом подписывают параметры запроса. Сам секретный ключ в запросе не указывается.
 
-Секретный ключ пользователь хранит самостоятельно. {{ yandex-cloud }} дает доступ к ключу только в процессе [создания статического ключа](../../operations/sa/create-access-key.md).
+Секретный ключ пользователь хранит самостоятельно. {{ yandex-cloud }} дает доступ к ключу только в процессе [создания статического ключа](../../operations/authentication/manage-access-keys.md#create-access-key).
 
 Срок действия статического ключа не ограничен.
 
@@ -46,7 +51,7 @@
 
 Пример секретного ключа: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
-Чтобы ознакомиться с примером использования секретного ключа и его идентификатора в AWS-совестимом API, смотрите раздел [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files).
+Чтобы ознакомиться с примером использования секретного ключа и его идентификатора в AWS-совместимом API, смотрите раздел [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files).
 
 ## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
 
@@ -56,10 +61,15 @@
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
+* [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
+
+## Примеры использования {#examples}
+
+* [Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../operations/sa/create-access-key.md)
+* [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

@@ -3,9 +3,9 @@ href: index.yaml
 items:
   - name: Technical support procedure
     href: overview.md
-  - name: Support Center
-    href: support-center.md
-  - name: '{{ yandex-cloud }} notifications'
+  - name: Support in Cloud Center
+    href: cloud-center.md
+  - name: Notifications from {{ yandex-cloud }}
     href: notify.md
   - name: Telegram chat
     href: tg-chat.md
@@ -13,11 +13,12 @@ items:
     href: request.md
   - name: Copying errors from the browser console
     href: browser-console.md
-  - name: Saving browser and server interactions to a HAR file
+  - name: Saving browser-server interactions to a HAR file
     href: create-har.md
   - name: Pricing policy
     href: pricing.md
   - name: FAQ
     href: qa.md
-base: en/support
-deepBase: 2
+  - name: Release notes
+    href: release-notes.md
+    hidden: true

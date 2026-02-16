@@ -8,7 +8,7 @@
 
 Чтобы управлять инфраструктурой {{ yandex-cloud }} с помощью {{ TF }}, используйте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
 
-Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport) или [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation), однако этот способ является менее безопасным. Подробности см. в конце раздела.
+Также вы можете использовать {{ TF }} от имени [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного](../../iam/concepts/users/accounts.md#saml-federation) или [локального](../../iam/concepts/users/accounts.md#local) пользователя, однако этот способ является менее безопасным. Подробности см. в конце раздела.
 
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите](../../cli/quickstart.md#install) его.
 
@@ -72,14 +72,11 @@
 
     {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 
-
-{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
+{% cut "Управление ресурсами от имени аккаунта на Яндексе, локального или федеративного аккаунта" %}
 
 {% include [terraform-credentials-user](../_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
-
-
 
 ### Создайте файл конфигурации {{ TF }} {#configure-terraform}
 

@@ -1,6 +1,7 @@
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
-1. [Настройте WordPress](#wordpress-config)
+1. [Получите данные для аутентификации в веб-интерфейсе](#get-auth-data).
+1. [Подключитесь к веб-интерфейсу WordPress](#connect-wordpress-interface).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -27,7 +28,7 @@
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/www.example.com/doc-files/wordpress.zip) (1 КБ).
+     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/wordpress.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress.tf`.
 
    - Вручную {#manual}
@@ -45,25 +46,29 @@
 
    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
     * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
-    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/yandex_vpc_security_group)
+    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
     * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
     * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
     * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone)
     * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset)
-1. В блоке `metadata` укажите метаданные для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа WordPress. В разных образах это разные пользователи. Подробнее см. в разделе [{#T}](../../../compute/concepts/vm-metadata.md#keys-processed-in-public-images).
+1. В блоке `metadata` укажите метаданные для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа WordPress. В разных образах это разные пользователи. Подробнее см. в разделе [{#T}](../../../compute/concepts/metadata/public-image-keys.md).
 1. Создайте ресурсы:
 
    {% include [terraform-validate-plan-apply](../../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-## Настройте WordPress {#wordpress-config}
+## Получите данные для аутентификации в веб-интерфейсе {#get-auth-data}
 
-Чтобы настроить WordPress:
+{% include [get-auth-data](get-auth-data.md) %}
+
+## Подключитесь к веб-интерфейсу WordPress {#connect-wordpress-interface}
+
+Чтобы подключиться к веб-интерфейсу WordPress:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  {% include [wordpress-config](wordpress-config.md) %}
+  {% include [connect-wordpress-interface](connect-wordpress-interface.md) %}
 
 {% endlist %}
 

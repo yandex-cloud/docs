@@ -1,36 +1,38 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in {{ OS }}, the database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ OS }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required for specific actions](#required-roles).
 
-To use the service, log in to the management console with a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation).
+To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-opensearch.admin`, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-opensearch.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 To allow access to {{ mos-name }} resources (clusters and hosts, cluster backups, and accounts), assign the user the appropriate roles for a folder, cloud, or organization containing these resources.
 
-## Which roles exist in the service {#roles-list}
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+## Roles this service has {#roles-list}
 
-![image](../../_assets/mdb/roles-managed-opensearch.svg)
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+
+{% include [roles-managed-opensearch](../../_mermaid/roles/managed-opensearch.md) %}
 
 ### Service roles {#service-roles}
 
@@ -41,6 +43,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### managed-opensearch.viewer {#managed-opensearch-viewer}
 
 {% include [opensearch.viewer](../../_roles/managed-opensearch/viewer.md) %}
+
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
 
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
@@ -62,6 +68,10 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -73,18 +83,18 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## Roles required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, you need the [{{ roles.mos.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mos.viewer }}` role enables you only to view the list of clusters.
+As a user, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mos.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mos.admin }}` instead of `{{ roles.mos.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mos.admin }}` role instead of `{{ roles.mos.editor }}`.
 
 ## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 

@@ -8,9 +8,9 @@
 
 ## Размещение и именование образов {#registry}
 
-* [Helm chart](https://helm.sh/docs/topics/charts/) продукта и все docker-образы, входящие в него, должны быть размещены в [реестре](../../container-registry/concepts/registry.md) издателя, созданном в {{ container-registry-full-name }}. О том, как [создать реестр](../../container-registry/operations/registry/registry-create.md) и как [загрузить образ](../../container-registry/operations/docker-image/docker-image-push.md), см. в соответствующих разделах документации.
+* [Helm-чарт](https://helm.sh/docs/topics/charts/) продукта и все Docker-образы, входящие в него, должны быть размещены в [реестре](../../container-registry/concepts/registry.md) издателя, созданном в {{ container-registry-full-name }}. О том, как [создать реестр](../../container-registry/operations/registry/registry-create.md) и как [загрузить образ](../../container-registry/operations/docker-image/docker-image-push.md), см. в соответствующих разделах документации.
 
-* Имя helm chart продукта должно иметь вид:
+* Имя Helm-чарта продукта должно иметь вид:
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
@@ -21,9 +21,9 @@
    * `<registry-id>` — идентификатор реестра издателя;
    * `<vendor-name>` — наименования компании-издателя продукта;
    * `<product-name>` — наименования продукта;
-   * `<chart>` — название helm chart.
+   * `<chart>` — название Helm-чарта.
 
-* Имена docker-образов продукта должны иметь вид:
+* Имена Docker-образов продукта должны иметь вид:
 
    ```
    {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
@@ -34,18 +34,18 @@
    * `<registry-id>` — идентификатор реестра издателя;
    * `<vendor-name>` — наименования компании-издателя продукта;
    * `<product-name>` — наименования продукта;
-   * `<component-name>` — наименование компонента продукта, поставляемого в виде docker-образа;
-   * `<tag>` — тег docker-образа. Не используйте тег `latest`.
+   * `<component-name>` — наименование компонента продукта, поставляемого в виде Docker-образа;
+   * `<tag>` — тег Docker-образа. Не используйте тег `latest`.
 
-Во время публикации все образы, входящие в продукт, из реестра издателя перемещаются в публично доступный реестр `yc-marketplace`. При этом вся иерархия продукта, определенная издателем, сохраняется.
+По умолчанию во время публикации все образы, входящие в продукт, из реестра издателя перемещаются в публично доступный реестр `yc-marketplace`. При этом вся иерархия продукта, определенная издателем, сохраняется. Чтобы не перемещать образы в реестр `yc-marketplace`, используйте параметр `private_artifacts` в [спецификации продукта](#manifest).
 
 > Например, образ `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` будет опубликован под именем `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
 Подробнее о работе с реестром см. в разделах [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) и [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
-## Особенности сборки helm chart {#special-requirements}
+## Особенности сборки Helm-чарта {#special-requirements}
 
-Helm chart должен содержать файл `values.yaml`, в котором в виде параметров будут перечислены все используемые docker-образы. Имена docker-образов в файле `values.yaml` должны начинаться с префикса `.Values` и указывать на образы, размещенные в реестре издателя, чтобы публикация и дальнейшая установка продукта в кластере пользователя прошли без ошибок.
+Helm-чарт должен содержать файл `values.yaml`, в котором в виде параметров будут перечислены все используемые Docker-образы. Имена Docker-образов в файле `values.yaml` должны начинаться с префикса `.Values` и указывать на образы, размещенные в реестре издателя, чтобы публикация и дальнейшая установка продукта в кластере пользователя прошли без ошибок.
 
 Спецификация пода без параметров в общем виде:
 
@@ -71,29 +71,37 @@ images:
   pushgateway: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
-## Манифест {#manifest}
+## Спецификация продукта {#manifest}
 
-Для публикации продукта необходим манифест — документ, в котором будут описаны параметры развертывания продукта. Подготовьте манифест и [загрузите](../../storage/operations/objects/upload.md) его в {{ objstorage-full-name }}.
+Для публикации продукта необходима спецификация — документ, в котором будут описаны параметры развертывания продукта. Подготовьте спецификацию и [загрузите](../../storage/operations/objects/upload.md) ее в {{ objstorage-full-name }}.
 
-Манифест описывается в формате YAML и содержит следующие данные:
+Спецификация продукта описывается в формате YAML и содержит следующие данные:
 
-1. `helm_chart` — обязательное поле. Содержит имя и тег helm chart продукта.
-
-   ```yaml
-   helm_chart:
-     name: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>
-     tag: <tag>
-   ```
-
-1. `requirements` — обязательное поле. Обязательные параметры кластера, в котором продукт будет разворачиваться. Раздел должен содержать параметр `k8s_version`, определяющий диапазон поддерживаемых версий {{ k8s }}.
+1. `name` — название приложения по умолчанию при установке в кластер пользователя.
 
    ```yaml
-   requirements:
-     k8s_version: ">=1.18"
+   name: "our-app"
    ```
 
-1. `images` — обязательное поле. Содержит список метаданных образов, входящих в продукт. Значения переменных параметров метаданных образа — это ссылки в формате YAML Path на переменные из файла `values.yaml`. Записи могут быть оформлены в одном из форматов:
+1. `helm_charts` — обязательное поле. Содержит список имен и тегов Helm-чарта продукта. Можно указать только один Helm-чарт.
 
+   ```yaml
+   helm_charts:
+     - name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
+       tag: 1.0-0
+       images:
+         - registry: app1.image.registry
+           name_without_registry: app1.image.name
+           tag: app1.image.tag
+         - name_with_registry: app2.config.image.name
+           tag: app2.config.image.tag
+         - full: another-whatever-key.subkey.name
+       # Указывает на то, что все заданные values относятся к этому чарту.
+       reuse_values: true
+   ```
+
+   В Helm-чарте должно быть указано поле `images`. Содержит список метаданных образов, входящих в продукт. Значения переменных параметров метаданных образа — это ссылки в формате YAML Path на переменные из файла `values.yaml`. Записи могут быть оформлены в одном из форматов:
+   
    * Имя образа, адрес реестра и тег описаны отдельными полями:
 
       ```yaml
@@ -146,6 +154,13 @@ images:
             name: "{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>"
       ```
 
+1. `requirements` — обязательное поле. Обязательные параметры кластера, в котором продукт будет разворачиваться. Раздел должен содержать параметр `min_k8s_version`, определяющий диапазон поддерживаемых версий {{ k8s }}.
+
+   ```yaml
+   requirements:
+     min_k8s_version: ">=1.18"
+   ```
+
 1. `user_values` — необязательный параметр. Список переменных продукта, которые пользователь может переопределить во время установки или редактирования уже установленного продукта через консоль управления {{ yandex-cloud }}. Каждая переменная описывается обязательными полями:
    * `name` — YAML Path переменной из файла `values.yaml`;
    * `title` — краткое название переменной, может быть на русском и английском языке. Значение должно начинаться с заглавной буквы.
@@ -178,7 +193,7 @@ images:
           - name: <название>
             disabled: true
             title: <Заголовок>
-            string_value:
+            simple_disabled:
               required: true
               default_value: "simple_string_value"
         ```
@@ -252,8 +267,23 @@ images:
               required: true
               secret: true
               length_restrictions:
-                min: <min_длина_строки>
-                max: <max_длина_строки>
+                min: <минимальная_длина_строки>
+                max: <максимальная_длина_строки>
+        ```
+
+      * `list_value`. Может содержать поля, доступные для указанного типа элементов списка. Элементы списка могут быть любого типа, который поддержан в `user_values`. При этом все элементы списка должны быть одного типа.
+
+        ```yaml
+        user_values:
+          - name: <название>
+            title: <Заголовок>
+            description: <Описание>
+            list_value:
+              item:
+               <тип_элемента_списка>: 
+                 required: true
+              min_items: <минимальная_длина_списка>
+              max_items: <максимальная_длина_списка>
         ```
 
       * `cloudiddisabled` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) в {{ yandex-cloud }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
@@ -347,11 +377,11 @@ images:
               required: true
         ```
 
-        Чтобы использовать значение этого поля в helm chart или передавать его в файле при ручной установке, необходимо добавить в конец шаблона `templates/_helpers.tpl` следующий код:
+        Чтобы использовать значение этого поля в Helm-чарте или передавать его в файле при ручной установке, необходимо добавить в конец шаблона `templates/_helpers.tpl` следующий код:
 
         {% note warning %}
 
-        После значения поля `name` из манифеста обязательно укажите `_generated`.
+        После значения поля `name` из спецификации обязательно укажите `_generated`.
 
         {% endnote %}
 
@@ -361,7 +391,7 @@ images:
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.access_key.key_id -}}
         not_var{{- else }}
-        {{- .Values.<значение_поля_name_из_манифеста>_generated.accessKeyID -}}
+        {{- .Values.<значение_поля_name_из_спецификации>_generated.accessKeyID -}}
         not_var{{- end }}
         not_var{{- end }}
 
@@ -370,7 +400,7 @@ images:
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.secret -}}
         not_var{{- else }}
-        {{- .Values.<значение_поля_name_из_манифеста>_generated.secretAccessKey -}}
+        {{- .Values.<значение_поля_name_из_спецификации>_generated.secretAccessKey -}}
         not_var{{- end }}
         not_var{{- end }}
         ```
@@ -396,7 +426,7 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `ciliumvalue` — использование провайдера сетевых политик Cilium.
@@ -405,7 +435,7 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          cilium_value: {}
+            cilium_value: {}
         ```
 
       * `kubednsclusteripvaluedisabled` — IP-адрес кластера {{ k8s }}. Если параметр был передан, соответствующее поле продукта в консоли управления будет недоступно для редактирования и автоматически предзаполнится.
@@ -414,8 +444,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `kubednsclusteripvalue` — IP-адрес кластера {{ k8s }}.
@@ -424,8 +454,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kube_dns_cluster_ip_value:
-            required: true
+            kube_dns_cluster_ip_value:
+              required: true
         ```
 
       * `loggroupidvalue` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
@@ -434,8 +464,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          log_group_id_value:
-            required: true
+            log_group_id_value:
+              required: true
         ```
 
       * `kmskeyidvalue` — содержимое [ключа {{ kms-full-name }}](../../kms/concepts/key.md).
@@ -444,8 +474,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          kms_key_id_value:
-            required: true
+            kms_key_id_value:
+              required: true
         ```
 
       * `domainvalue` — домен, в котором будет расположен кластер {{ k8s }}.
@@ -454,8 +484,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          domain_value:
-            required: true
+            domain_value:
+              required: true
         ```
 
       * `iamapikeyvalue` — значение [API-ключа](../../iam/concepts/authorization/api-key.md) сервисного аккаунта. Передается в формате JSON.
@@ -464,8 +494,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          iam_api_key_value:
-            required: true
+            iam_api_key_value:
+              required: true
         ```
 
       * `storagebucketvalue` — [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
@@ -474,8 +504,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          storage_bucket_value:
-            required: true
+            storage_bucket_value:
+              required: true
         ```
 
       * `prometheusworkspaceidvalue` — название рабочего пространства {{ prometheus-name }}.
@@ -484,8 +514,8 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          prometheus_workspace_id_value:
-            required: false
+            prometheus_workspace_id_value:
+              required: false
         ```
 
       * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
@@ -494,15 +524,113 @@ images:
         user_values:
           - name: <название>
             title: <Заголовок>
-          license_id_value:
-            required: false
+            license_id_value:
+              required: false
         ```
+
+1. `private_artifacts` — необязательный параметр. Позволяет не перемещать все образы, входящие в продукт, из реестра издателя в публично доступный реестр `yc-marketplace`. Доступны значения `true` и `false`, значение по умолчанию — `false`.
+
+   Параметр задается для версии продукта. Версию, для которой задан параметр `private_artifacts = true`, пользователь сможет установить только с помощью [интерфейсов](../../overview/concepts/interfaces.md) {{ yandex-cloud }}. Установка с помощью команды `helm install` будет недоступна.
+
+   Доступ на скачивание компонентов, опубликованных на карточке продукта в разделе **Состав продукта**, будет выдаваться только сервисному аккаунту, от имени которого пользователь устанавливает продукт. Если пользователь удалит продукт, {{ marketplace-short-name }} отзовет доступ у сервисного аккаунта.
 
 Значения переменных, указанные пользователем при установке продукта в кластер {{ k8s }}, будут переопределять значения из файла `values.yaml`.
 
-## Пример манифеста и соответствующего файла переменных {#examples}
+## Пример спецификации продукта и соответствующего файла переменных {#examples}
 
-### Манифест {#manifest}
+### Спецификация продукта {#manifest}
+
+```yaml
+name: "our-app" 
+
+helm_charts:
+  - name: {{ registry }}/{{ tf-cloud-id }}/Vendor/Product/chart
+    tag: 1.0-0
+    images:
+      - registry: app1.image.registry
+        name_without_registry: app1.image.name
+        tag: app1.image.tag
+      - name_with_registry: app2.config.image.name
+        tag: app2.config.image.tag
+      - full: another-whatever-key.subkey.name    
+    reuse_values: true
+
+requirements:
+  min_k8s_version: ">=1.18"
+
+# Configurable parameters that might be changed by end user during installation of product. Should be presented in values.yaml
+# Supported types: integer, boolean, string, string selector, integer selector.
+user_values:
+  - name: app.port
+    title:
+      en: Application port
+      ru: Порт приложения
+    description:
+      en: Port that application will listen to
+      ru: Порт, на котором приложение принимает входящие запросы
+    integer_value:
+      default_value: 8080
+      required: true
+      restrictions:
+        min: 8000
+        max: 9000
+  - name: app.tls.use
+    title:
+      en: TLS
+      ru: TLS
+    description:
+      en: Use TLS
+      ru: Использовать TLS
+    boolean_value:
+      default_value: true
+  - name: app.admin.password
+    title:
+      en: Admin password
+      ru: Пароль администратора
+    description:
+      en: Password of administrator, should be at least 8 symbols
+      ru: Пароль администратора, должен быть длиной не менее 8 символов
+    string_value:
+      required: true
+      secret: true
+      length_restrictions:
+        min: 8
+        max: 20
+  - name: app.selector.string
+    title:
+      en: Custom string selector
+      ru: Строковая опция
+    description:
+      en: One value string selector
+      ru: Выбор одного строкового значения
+    string_selector_value:
+      default_value: opt1
+      required: true
+      values:
+        - opt1
+        - opt2
+        - opt3
+  - name: app.selector.integer
+    title:
+      en: Custom integer selector
+      ru: Числовая опция
+    description:
+      en: One value integer selector
+      ru: Выбор одного integer значения
+    integer_selector_value:
+      default_value: 1
+      required: true
+      values:
+        - 1
+        - 2
+        - 3
+
+# Optional: if set to `true`, the Helm chart and Docker images will not be placed in a public repo.
+# This will make the product only installable via Marketplace (and not with `helm install ...`).
+private_artifacts: false
+```
+
+{% cut "Предыдущая версия спецификации продукта" %}
 
 ```yaml
 # Link to helm chart in publisher registry.
@@ -588,12 +716,18 @@ user_values:
         - 1
         - 2
         - 3
+
+# Optional: if set to `true`, the Helm chart and Docker images will not be placed in a public repo.
+# This will make the product only installable via Marketplace (and not with `helm install ...`).
+private_artifacts: false
 ```
+
+{% endcut %}
 
 ### Файл переменных values.yaml {#values}
 
 ```yaml
-# An example of values.xml related to publisher manifest above.
+# An example of values.yaml related to publisher manifest above.
 replicaCount: 1
 podAnnotations: {}
 podSecurityContext: {}

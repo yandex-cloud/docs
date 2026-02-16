@@ -1,7 +1,15 @@
-# Deploying the UI for {{ KF }}
+# Unassisted deployment of the {{ KF }} web interface
 
 
-You can install the [UI for {{ KF }}](https://docs.kafka-ui.provectus.io/overview/readme) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
+
+{% note info %}
+
+{{ mkf-name }} has [native support for {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). If this option does not suit you, proceed with this tutorial.
+
+{% endnote %}
+
+
+You can install the [UI for {{ KF }}]({{ kafka-ui-kafbat }}) for your {{ mkf-name }} cluster. With a web interface, you can track data streams, troubleshoot, manage [brokers](../../managed-kafka/concepts/brokers.md), cluster, [producers, and consumers](../../managed-kafka/concepts/producers-consumers.md).
 
 
 You can deploy the UI for {{ KF }} in two ways:
@@ -20,15 +28,25 @@ To deploy the UI for {{ KF }} in a Docker container:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* VM fee: using computing resources, operating system, and storage (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses for VMs and cluster hosts if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+
+
 ### Getting started {#before-you-begin-to-work-with-docker}
 
-Prepare the infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-
+   
    1. [Configure a security group](../../managed-kafka/operations/connect/index.md#configuring-security-groups) for your {{ mkf-name }} cluster and VM so that you can connect to topics from a cloud-based VM.
 
 
@@ -50,21 +68,21 @@ Prepare the infrastructure:
       * Subnet.
       * VM running Ubuntu 22.04.
 
-
-      * Default security group and rules required to connect to the cluster and VM from the internet.
+      
+      * Default security group and inbound internet rules for your cluster and VM.
 
 
       * {{ mkf-name }} cluster.
       * {{ KF }} user.
 
-   1. Specify the variable values in the `kafka-ui-via-docker.tf` file.
+   1. In the `kafka-ui-via-docker.tf` file, specify the values of variables.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -82,7 +100,7 @@ Prepare the infrastructure:
    ssh <username>@<VM_public_IP_address>
    ```
 
-   Where `<username>` is the VM account username. You can find the VM's public IP address in the [management console]({{ link-console-main }}), on the VM page.
+   Where `<username>` is the VM account username. You can find the VM's public IP address on the VM page in the [management console]({{ link-console-main }}).
 
 1. To check that the {{ mkf-name }} cluster is available, connect to one of its hosts with the `KAFKA` role:
 
@@ -92,9 +110,9 @@ Prepare the infrastructure:
 
    You can view the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the value in the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column, in the row of the host with the `KAFKA` role.
+      1. Navigate to the cluster page.
+      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:
 
@@ -134,9 +152,9 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
       -e KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL=SASL_SSL \
       -e KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM=PLAIN \
       -e KAFKA_CLUSTERS_0_PROPERTIES_CLIENT_DNS_LOOKUP=use_all_dns_ips \
-      -e KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG='org.apache.kafka.common.security.plain.PlainLoginModule required username="<user_name>" password="<user_password>";' \
+      -e KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG='org.apache.kafka.common.security.plain.PlainLoginModule required username="<user_login>" password="<user_password>";' \
       -e KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_LOCATION=/truststore/truststore.jks \
-      -e KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD=<TrustStore_password> \
+      -e KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD=<password_for_TrustStore> \
       -v /truststore/truststore.jks:/truststore/truststore.jks \
       provectuslabs/kafka-ui
    ```
@@ -145,11 +163,11 @@ When deploying {{ KF }} in a Docker container, TrustStore commands run on a VM.
 
    * `KAFKA_CLUSTERS_0_NAME`: {{ mkf-name }} cluster name.
    * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS`: FQDN of the host with the `KAFKA` role in the {{ mkf-name }} cluster.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username`: {{ KF }} user name.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username`: {{ KF }} user login.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password`: {{ KF }} user password.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD`: Password you set when creating the `truststore.jks` file.
 
-   Once started, the command does not terminate. While it is running, the UI for {{ KF }} is available.
+   The command does not complete after you run it. While it is running, the UI for {{ KF }} is available.
 
 1. On a local machine, go to `http://<VM_public_IP_address>:8080` in your browser. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
@@ -167,9 +185,20 @@ To deploy the UI for {{ KF }} in a {{ managed-k8s-name }} cluster:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+### Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including ZooKeeper hosts) and disk storage (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* Fee for {{ managed-k8s-name }} cluster: using the master and outbound traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in {{ managed-k8s-name }} cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for public IP addresses for {{ mkf-name }} cluster hosts and {{ managed-k8s-name }} cluster nodes if public access is enabled for them (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
 ### Getting started {#before-you-begin-to-work-with-kubernetes}
 
-Prepare the infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -208,14 +237,14 @@ Prepare the infrastructure:
       * {{ managed-k8s-name }} cluster.
       * {{ managed-k8s-name }} node group.
 
-   1. Specify the variable values in the `kafka-ui-via-kubernetes.tf` file.
+   1. Specify the values of variables in the `kafka-ui-via-kubernetes.tf` file.
    1. Make sure the {{ TF }} configuration files are correct using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will show any errors found in your configuration files.
 
    1. Create the required infrastructure:
 
@@ -238,9 +267,9 @@ On a local machine:
 
    You can view the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the value in the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column, in the row of the host with the `KAFKA` role.
+      1. Navigate to the cluster page.
+      1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. In the row of the host with the `KAFKA` role, copy the value of the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column.
 
    If the cluster is available, you will get this message:
 
@@ -283,9 +312,9 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
       KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: SASL_SSL
       KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: PLAIN
       KAFKA_CLUSTERS_0_PROPERTIES_CLIENT_DNS_LOOKUP: use_all_dns_ips
-      KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.plain.PlainLoginModule required username="<user_name>" password="<user_password>";'
+      KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG: 'org.apache.kafka.common.security.plain.PlainLoginModule required username="<user_login>" password="<user_password>";'
       KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_LOCATION: /truststore/truststore.jks
-      KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD: <TrustStore_password>
+      KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD: <password_for_TrustStore>
       AUTH_TYPE: "DISABLED"
       MANAGEMENT_HEALTH_LDAP_ENABLED: "FALSE"
    ```
@@ -294,11 +323,11 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
 
    * `KAFKA_CLUSTERS_0_NAME`: {{ mkf-name }} cluster name.
    * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS`: FQDN of the host with the `KAFKA` role in the {{ mkf-name }} cluster.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username`: {{ KF }} user name.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username`: {{ KF }} user login.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password`: {{ KF }} user password.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD`: Password you set when creating the `truststore.jks` file.
 
-1. Create a file named `kafka-ui-pod.yaml` with the configuration of the pod to deploy your application with the UI for {{ KF }} in:
+1. Create a file named `kafka-ui-pod.yaml` with the configuration of the pod in which to deploy your application with the {{ KF }} UI:
 
    ```yaml
    apiVersion: v1
@@ -360,18 +389,18 @@ When deploying {{ KF }} in a {{ managed-k8s-name }} cluster, TrustStore commands
    2024-01-23 12:13:25,747 INFO  [main] c.p.k.u.KafkaUiApplication: No active profile set, falling back to 1 default profile: "default"
    ```
 
-1. Set the UI for {{ KF }} port to `8080`:
+1. Assign the {{ KF }} UI to port `8080`:
 
    ```bash
    kubectl --namespace default port-forward kafka-ui-pod 8080:8080
    ```
 
-1. In your browser, open `http://127.0.0.1:8080/`. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
+1. In the browser, go to `http://127.0.0.1:8080/`. The UI for {{ KF }} with {{ mkf-name }} cluster data will open.
 
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
@@ -379,7 +408,7 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
    Delete:
 
-
+   
    1. {{ mkf-name }} [cluster](../../managed-kafka/operations/cluster-delete.md)
    1. [Virtual machine](../../compute/operations/vm-control/vm-delete.md)
    1. {{ managed-k8s-name }} [node group](../../managed-kubernetes/operations/node-group/node-group-delete.md)
@@ -388,20 +417,6 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `kafka-ui-via-docker.tf` or the `kafka-ui-via-kubernetes.tf` configuration file depending on the deployment method used.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the configuration file will be deleted.
+   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

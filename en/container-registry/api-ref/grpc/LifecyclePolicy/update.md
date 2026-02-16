@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/update.md
 ---
 
-# Container Registry API, gRPC: LifecyclePolicyService.Update {#Update}
+# Container Registry API, gRPC: LifecyclePolicyService.Update
 
 Updates the specified lifecycle policy.
 
@@ -15,18 +15,18 @@ Updates the specified lifecycle policy.
 
 ```json
 {
-  "lifecyclePolicyId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "lifecycle_policy_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "status": "Status",
   "rules": [
     {
       "description": "string",
-      "expirePeriod": "google.protobuf.Duration",
-      "tagRegexp": "string",
+      "expire_period": "google.protobuf.Duration",
+      "tag_regexp": "string",
       "untagged": "bool",
-      "retainedTop": "int64"
+      "retained_top": "int64"
     }
   ]
 }
@@ -34,23 +34,28 @@ Updates the specified lifecycle policy.
 
 #|
 ||Field | Description ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
-Required field. ID of the lifecycle policy. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+Required field. ID of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the lifecycle policy resource are going to be updated. ||
 || name | **string**
 
-Name of lifecycle policy. ||
+Name of lifecycle policy.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of lifecycle policy. ||
+Description of lifecycle policy.
+
+The maximum string length in characters is 256. ||
 || status | enum **Status**
 
 Required field. Status of the lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -65,20 +70,26 @@ The rules of the lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
-|| expirePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
+|| expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
-|| tagRegexp | **string**
+|| tag_regexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **bool**
 
 Tag for applying the rule to Docker images without tags. ||
-|| retainedTop | **int64**
+|| retained_top | **int64**
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -87,29 +98,29 @@ Number of Docker images (falling under the specified filter by tags) that must b
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "lifecyclePolicyId": "string"
+    "lifecycle_policy_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
     "name": "string",
-    "repositoryId": "string",
+    "repository_id": "string",
     "description": "string",
     "status": "Status",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "rules": [
       {
         "description": "string",
-        "expirePeriod": "google.protobuf.Duration",
-        "tagRegexp": "string",
+        "expire_period": "google.protobuf.Duration",
+        "tag_regexp": "string",
         "untagged": "bool",
-        "retainedTop": "int64"
+        "retained_top": "int64"
       }
     ]
   }
@@ -127,13 +138,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -176,7 +187,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy resource that is being updated. ||
 |#
@@ -191,7 +202,7 @@ ID of the lifecycle policy. ||
 || name | **string**
 
 Name of the lifecycle policy. ||
-|| repositoryId | **string**
+|| repository_id | **string**
 
 ID of the repository that the lifecycle policy belongs to.
 Required. The maximum string length in characters is 50. ||
@@ -203,11 +214,10 @@ The maximum string length in characters is 256. ||
 
 Status of lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || rules[] | **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule2)**
@@ -221,18 +231,24 @@ The rules of lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
-|| expirePeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
+|| expire_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
-|| tagRegexp | **string**
+|| tag_regexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **bool**
 
 Tag for applying the rule to Docker images without tags. ||
-|| retainedTop | **int64**
+|| retained_top | **int64**
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#

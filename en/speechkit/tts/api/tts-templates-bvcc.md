@@ -29,8 +29,8 @@ Below are some examples of how to use API v3 to synthesize speech into a standar
 
 To synthesize template phrases for a call center:
 
-1. [{#T}](#prepare-template).
-1. [{#T}](#send-to-api).
+1. [Prepare an audio recording template](#prepare-template).
+1. [Send data to the API](#send-to-api).
 
 ## Getting started {#before-you-begin}
 
@@ -77,7 +77,7 @@ Create and run a client app to send your data to the API:
     1. Go to the folder with the {{ yandex-cloud }} API repository, create a folder named `output` and generate the client interface code in it:
 
         ```bash
-        cd <path_to_cloudapi_directory> && \
+        cd <path_to_cloudapi_folder> && \
         mkdir output && \
         python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
           --python_out=output \
@@ -92,7 +92,7 @@ Create and run a client app to send your data to the API:
 
         The `tts_pb2.py`, `tts_pb2_grpc.py`, `tts_service_pb2.py`, and `tts_service_pb2_grpc.py` client interface files, as well as dependency files, will be created in the `output` folder.
 
-    1. Create a file named `test.py` in the root of the `output` folder and add to it the code for API v3 pattern-based synthesis.
+    1. Create a file named `test.py` in the root of the `output` folder and add into it the code for API v3 pattern-based synthesis.
 
         Use one of the files below depending on whether you want to use one of the container formats or the raw format:
 
@@ -126,9 +126,9 @@ Create and run a client app to send your data to the API:
                           # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                           tts_pb2.TextVariable(
                               variable_name = "<variable_name_in_template>",
-                              # Example: '{time}'
+                              # Example: '{time}'.
                               variable_value = "<text_for_synthesis>"
-                              # Example: 'eight hours and thirty minutes'
+                              # Example: 'eight hours and thirty minutes'.
                           )
                       ]
                   ),
@@ -247,9 +247,9 @@ Create and run a client app to send your data to the API:
                           # The number of tts_pb2.TextVariable() list items depends on the number of template variables.
                           tts_pb2.TextVariable(
                               variable_name = "<variable_name_in_template>",
-                              # Example: '{time}'
+                              # Example: '{time}'.
                               variable_value = "<text_for_synthesis>"
-                              # Example: 'eight hours and thirty minutes'
+                              # Example: 'eight hours and thirty minutes'.
                           )
                       ]
                   ),
@@ -296,7 +296,7 @@ Create and run a client app to send your data to the API:
 
               # Establish a connection with the server.
               cred = grpc.ssl_channel_credentials()
-              channel = grpc.secure_channel('tts.api.cloud.yandex.net:443', cred)
+              channel = grpc.secure_channel('{{ api-host-sk-tts }}:443', cred)
               stub = tts_service_pb2_grpc.SynthesizerStub(channel)
 
               # Send data for recognition.

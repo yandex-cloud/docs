@@ -1,16 +1,13 @@
 # Создание веб-хука резолвера ACME для ответов на DNS01-проверки
 
 
-Чтобы автоматически проходить проверки [прав на домен](../../certificate-manager/concepts/challenges.md) с использованием утилиты [cert-manager](https://cert-manager.io/docs/), добавьте веб-хук с резолвером DNS01 в конфигурацию утилиты.
-
-Ниже приведен пример создания объекта `ClusterIssuer` с веб-хуком резолвера DNS01 для домена, зарегистрированного в {{ dns-full-name }}.
+Чтобы автоматически проходить проверки [прав на домен](../../certificate-manager/concepts/challenges.md), зарегистрированный в {{ dns-full-name }}, установите приложение [cert-manager](https://cert-manager.io/docs/) с веб-хуком резолвера DNS01.
 
 Чтобы запустить веб-хук в кластере {{ managed-k8s-name }}:
 
 1. [Подготовьте кластер {{ managed-k8s-name }} к работе](#before-managed-kubernetes).
-1. [Установите менеджер сертификатов последней версии](#install-certs-manager).
-1. [Установите менеджер пакетов Helm](#helm-install).
 1. [Установите и запустите веб-хук в кластере {{ managed-k8s-name }}](#yandex-webhook).
+1. [Проверьте работу веб-хука](#check-yandex-webhook).
 1. [Удалите созданные ресурсы](#clear-out).
 
 {% note info %}
@@ -23,6 +20,16 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Подготовьте окружение {#prepare-environment}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -33,7 +40,7 @@
 1. [Создайте сервисные аккаунты](../../iam/operations/sa/create.md):
 
    * `sa-kubernetes` с [ролями](../../managed-kubernetes/security/index.md#yc-api):
-     
+
      * `{{ roles.k8s.clusters.agent }}` и `{{ roles-vpc-public-admin }}` на каталог, в котором создается кластер {{ managed-k8s-name }}.
      * `{{ roles-cr-puller }}` на каталог с [реестром](../../container-registry/concepts/registry.md) Docker-образов.
 
@@ -41,11 +48,15 @@
 
    * `sa-dns-editor` с ролью `dns.editor` на каталог с [публичной зоной](../../dns/concepts/dns-zone.md#public-zones). От его имени будут создаваться [ресурсные записи](../../dns/concepts/resource-record.md) DNS.
 
+1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+
+1. {% include [configure-cert-manager](../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
+
 ## Подготовьте кластер {{ managed-k8s-name }} к работе {#before-managed-kubernetes}
 
 ### Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
-
-Чтобы [создать кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md):
 
 {% list tabs group=instructions %}
 
@@ -63,8 +74,8 @@
      * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — выберите способ назначения [IP-адреса](../../vpc/concepts/address.md):
        * `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}` — чтобы назначить случайный IP-адрес из пула IP-адресов {{ yandex-cloud }}.
      * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — выберите тип мастера:
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_zone }}` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
-       * `{{ ui-key.yacloud.k8s.clusters.create.switch_region }}` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
+       * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
      * Выберите [группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
   1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
      * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](../../managed-kubernetes/concepts/index.md#pod).
@@ -77,8 +88,6 @@
 
 ### Добавьте учетные данные в конфигурационный файл kubectl {#add-conf}
 
-Чтобы добавить учетные данные кластера {{ managed-k8s-name }} в конфигурационный файл kubectl:
-
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -89,7 +98,7 @@
      yc managed-kubernetes cluster get-credentials kubernetes-cluster-wh --external
      ```
 
-     По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`. Если необходимо изменить расположение конфигураций, используйте флаг `--kubeconfig <путь_к_файлу>`.
+     По умолчанию учетные данные добавляются в директорию `$HOME/.kube/config`. Если необходимо изменить расположение конфигураций, используйте параметр `--kubeconfig <путь_к_файлу>`.
 
   1. Проверьте конфигурацию kubectl после добавления учетных данных:
 
@@ -110,8 +119,6 @@
 {% endlist %}
 
 ### Создайте группу узлов {#node-group-create}
-
-Чтобы [создать группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md):
 
 {% list tabs group=instructions %}
 
@@ -154,48 +161,39 @@
 
 {% endlist %}
 
-## Установите менеджер сертификатов последней версии {#install-certs-manager}
+## Установите и запустите веб-хук в кластере {{ managed-k8s-name }} {#yandex-webhook}
 
-1. Установите [актуальную версию](https://github.com/cert-manager/cert-manager/releases) менеджера сертификатов, настроенного для выпуска сертификатов от Let's Encrypt. Например, для версии 1.21.1 выполните команду:
-
-   ```bash
-   kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.12.1/cert-manager.yaml
-   ```
-
-1. Убедитесь, что в [пространстве имен](../../managed-kubernetes/concepts/index.md#имен-namespace) `cert-manager` создано три [пода](../../managed-kubernetes/concepts/index.md#pod) с готовностью `1/1` и статусом `Running`:
-
-   ```bash
-   kubectl get pods -n cert-manager --watch
-   ```
-
-   Результат:
-
-   ```text
-   NAME                                      READY  STATUS   RESTARTS  AGE
-   cert-manager-69********-ghw6s             1/1    Running  0         54s
-   cert-manager-cainjector-76********-gnrzz  1/1    Running  0         55s
-   cert-manager-webhook-77********-wz9bh     1/1    Running  0         54s
-   ```
-
-## Установите менеджер пакетов Helm {#helm-install}
-
-[Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) для управления пакетами на вашем кластере {{ k8s }}.
-
-## Установите и запустите веб-хук в кластере {{ managed-k8s-name }}{#yandex-webhook}
-
-### Установите веб-хук {#install-yandex-webhook}
-
-1. Клонируйте репозиторий веб-хука:
+1. Клонируйте репозиторий веб-хука с менеджером сертификатов, настроенным для выпуска сертификатов от Let's Encrypt:
 
    ```bash
    git clone https://github.com/yandex-cloud/cert-manager-webhook-yandex.git
    ```
 
+1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) для управления пакетами в вашем кластере {{ k8s }}.
 1. Установите веб-хук с помощью Helm:
 
    ```bash
-   helm install -n cert-manager yandex-webhook ./deploy/cert-manager-webhook-yandex
+   helm install \
+     --namespace cert-manager \
+     --create-namespace \
+     yandex-webhook ./cert-manager-webhook-yandex/deploy/cert-manager-webhook-yandex
    ```
+
+1. Убедитесь, что веб-хук запущен:
+
+   ```bash
+   kubectl get pods -n cert-manager --watch
+   ```
+
+   Проверьте, что среди записей присутствует веб-хук ACME для {{ dns-full-name }}:
+
+   ```text
+   NAME                                                          READY   STATUS    RESTARTS   AGE
+   ... 
+   yandex-webhook-cert-manager-webhook-yandex-55********-tw4mq   1/1     Running   1          43m
+   ```
+
+## Проверьте работу веб-хука {#check-yandex-webhook}
 
 ### Подготовьте конфигурационные файлы {#prepare-files}
 
@@ -214,7 +212,7 @@
    kubectl create secret generic cert-manager-secret --from-file=iamkey.json -n cert-manager
    ```
 
-1. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`:
+1. Создайте файл `cluster-issuer.yml` с манифестом объекта `ClusterIssuer`, в котором используется веб-хук резолвера DNS01 для домена {{ dns-name }}:
 
    ```yml
    apiVersion: cert-manager.io/v1
@@ -224,21 +222,15 @@
     namespace: default
    spec:
     acme:
-     # You must replace this email address with your own.
-     # Let's Encrypt will use this to contact you about expiring
-     # certificates, and issues related to your account.
-     email: your@email.com
+     email: <адрес_электронной_почты_для_уведомлений_от_Lets_Encrypt>
      server: https://acme-v02.api.letsencrypt.org/directory
      privateKeySecretRef:
-      # Secret resource that will be used to store the account's private key.
       name: secret-ref
      solvers:
       - dns01:
          webhook:
            config:
-             # The ID of the folder where dns-zone located in
-             folder: <идентификатор_каталога>
-             # This is the secret used to access the service account
+             folder: <идентификатор_каталога_с_публичной_зоной>
              serviceAccountSecretRef:
                name: cert-manager-secret
                key: iamkey.json
@@ -252,19 +244,18 @@
    apiVersion: cert-manager.io/v1
    kind: Certificate
    metadata:
-    name: your-site-com
+    name: your-site
     namespace: default
    spec:
-    secretName: example-com-secret
+    secretName: your-site-secret
     issuerRef:
-     # The issuer created previously
      name: clusterissuer
      kind: ClusterIssuer
     dnsNames:
-      - your-site.com
+      - <имя_домена>
    ```
 
-### Запустите менеджер сертификатов с веб-хуком {#run-webhook}
+### Выпустите сертификат с помощью веб-хука {#run-webhook}
 
 1. Создайте объекты в кластере {{ k8s }}:
 
@@ -273,19 +264,20 @@
    kubectl apply -f cluster-certificate.yml
    ```
 
-1. Убедитесь, что веб-хук запущен:
+1. Проверьте готовность сертификата:
 
    ```bash
-   kubectl get pods -n cert-manager --watch
+   kubectl get certificate
    ```
 
-   Проверьте, что среди записей присутствует веб-хук ACME для {{ dns-full-name }}:
+   Результат:
 
    ```text
-   NAME                                                         READY   STATUS    RESTARTS   AGE
-   ... 
-   yandex-webhook-cert-manager-webhook-yandex-5578cfb98-tw4mq   1/1     Running   1          43h
+   NAME        READY  SECRET            AGE
+   your-site   True   your-site-secret  45m
    ```
+
+    Статус `True` в колонке `READY` означает, что сертификат был выпущен успешно.
 
 ## Удалите созданные ресурсы {#clear-out}
 

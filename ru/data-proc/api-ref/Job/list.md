@@ -1,9 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to list jobs for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListJobsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListJobsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters jobs listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Job.name](#yandex.cloud.dataproc.v1.Job) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-job`.
+            The maximum string length in characters is 1000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/list.md
 ---
 
-# Data Proc API, REST: Job.List {#List}
+# Yandex Data Processing API, REST: Job.List
 
 Retrieves a list of jobs for a cluster.
 
@@ -19,7 +69,9 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster to list jobs for. ||
+Required field. ID of the cluster to list jobs for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.ListJobsRequest}
@@ -31,11 +83,15 @@ Required field. ID of the cluster to list jobs for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListJobsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListJobsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobsResponse) returned by a previous list request. ||
+[ListJobsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters jobs listed in the response.
@@ -44,7 +100,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Job.name](#yandex.cloud.dataproc.v1.Job) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-job`. ||
+Example of a filter: `name=my-job`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListJobsResponse}
@@ -77,7 +135,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         // Includes only one of the fields `mainJarFileUri`, `mainClass`
         "mainJarFileUri": "string",
         "mainClass": "string"
@@ -96,7 +154,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "mainJarFileUri": "string",
         "mainClass": "string",
         "packages": [
@@ -122,7 +180,7 @@ Example of a filter: `name=my-job`. ||
         "archiveUris": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "mainPythonFileUri": "string",
         "pythonFileUris": [
           "string"
@@ -138,9 +196,9 @@ Example of a filter: `name=my-job`. ||
         ]
       },
       "hiveJob": {
-        "properties": "string",
+        "properties": "object",
         "continueOnFailure": "boolean",
-        "scriptVariables": "string",
+        "scriptVariables": "object",
         "jarFileUris": [
           "string"
         ],
@@ -185,7 +243,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
 
-A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
+A Yandex Data Processing job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
 
 #|
 ||Field | Description ||
@@ -194,7 +252,7 @@ A Data Proc job. For details about the concept, see [documentation](/docs/data-p
 ID of the job. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the job belongs to. ||
+ID of the Yandex Data Processing cluster that the job belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -235,7 +293,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.
@@ -285,17 +342,17 @@ Attributes of YARN application. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
 || mainJarFileUri | **string**
 
 HCFS URI of the .jar file containing the driver class.
@@ -317,17 +374,17 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark. ||
 || mainJarFileUri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
@@ -354,17 +411,17 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
 || mainPythonFileUri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
@@ -386,13 +443,13 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| scriptVariables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
 || jarFileUris[] | **string**

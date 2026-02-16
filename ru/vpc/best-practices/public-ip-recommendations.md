@@ -22,10 +22,7 @@
 
 Подробнее:
 * [{#T}](../../storage/operations/hosting/setup.md).
-
-
 * [{#T}](../../tutorials/web/blue-green-canary-deployment.md).
-
 
 #### Используйте Site-to-Site VPN {#site-to-site}
 
@@ -37,13 +34,12 @@
 * [Настройка VPN с облаком AWS](https://github.com/yandex-cloud/yc-solution-library-for-aws/tree/main/VPN/modules/vpn).
 
 
-
 #### Используйте {{ interconnect-full-name }} {#cic}
 
 Свяжите вашу локальную сетевую инфраструктуру с облачной с помощью сервиса [{{ interconnect-name }}](../../interconnect/index.yaml). Это позволит не использовать публичные IP-адресов как со стороны вашей сети, так и со стороны {{ yandex-cloud }}. Вместо этого вы сможете использовать [внутренние IP-адреса](../concepts/address.md#internal-addresses) из [подсетей](../../vpc/concepts/network.md#subnet), диапазоны которых определите сами.
 
 Подробнее:
-* [Маршрутизация трафика с помощью {{ interconnect-name }}](../../interconnect/concepts/routing.md).
+* [Маршрутизация трафика с помощью {{ interconnect-name }}](../../cloud-router/concepts/routing-instance.md).
 
 
 #### Подключайтесь к ВМ через серийную консоль {#serial-console}

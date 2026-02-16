@@ -1,11 +1,17 @@
 ---
-title: How to connect to a VM via OS Login
-description: Follow this guide to connect to a VM via OS Login.
+title: How to connect to a VM via {{ oslogin }}
+description: Follow this guide to connect to a VM via {{ oslogin }}.
 ---
 
-# Connecting to a virtual machine via OS Login
+# Connecting to a VM via {{ oslogin }}
 
-[OS Login](../../../organization/concepts/os-login.md) is used to provide users and [service accounts](../../../iam/concepts/users/service-accounts.md) with SSH access to VMs using {{ iam-short-name }}.
+[{{ oslogin }}](../../../organization/concepts/os-login.md) provides users and [service accounts](../../../iam/concepts/users/service-accounts.md) access to [VMs](../../../compute/concepts/vm.md#project) relying solely on the [{{ iam-full-name }}](../../../iam/concepts/index.md) mechanisms, without requiring you to upload SSH keys to each new VM when creating it.
+
+{% note warning %}
+
+{% include [os-login-sa-default-profile-notice](../../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+{% endnote %}
 
 ## Getting started {#before-you-begin}
 
@@ -13,34 +19,56 @@ description: Follow this guide to connect to a VM via OS Login.
 
 {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-[Create](./os-login-create-vm.md) a new virtual machine with OS Login support or [set up](./enable-os-login.md) access via OS Login for an existing VM as needed.
-
-## Connecting to a VM via OS Login using an SSH certificate over the YC CLI {#connect-via-cli}
-
-{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
-
-{% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
-
-## Connecting to a VM via OS Login using an SSH certificate over a standard SSH client {#connect-via-exported-certificate}
-
-{% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
+[Create](./os-login-create-vm.md) a new virtual machine with {{ oslogin }} support or [configure](./enable-os-login.md) {{ oslogin }} access for an existing VM as needed.
 
 {% note info %}
 
-The certificate is valid for one hour. After this time has elapsed, you will need to [export](./os-login-export-certificate.md) a new certificate to connect to the VM.
+{% include [os-login-roles-needed-for-vm-access](../../../_includes/organization/os-login-roles-needed-for-vm-access.md) %}
 
 {% endnote %}
 
-## Connecting to a VM via OS Login using an SSH key over the YC CLI {#connect-via-key}
+## Connecting using a standard SSH client {#connect-with-ssh-client}
 
-{% include [os-login-yc-cli-roles-needed](../../../_includes/organization/os-login-yc-cli-roles-needed.md) %}
+You can connect to a VM with {{ oslogin }} access enabled using a standard SSH client with either an SSH key [saved](../../../organization/operations/add-ssh.md) in the {{ oslogin }} profile of an organization user or service account, or a short-lived SSH certificate exported for that user or service account.
 
-{% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
+
+  {% include [oslogin-ssh-connect-with-ssh-key](../../../_includes/compute/oslogin-ssh-connect-with-ssh-key.md) %}
+
+- Connecting with an SSH certificate {#ssh-cert}
+
+  {% include [oslogin-connect-with-exported-cert](../../../_includes/compute/oslogin-connect-with-exported-cert.md) %}
+
+  {% include [os-login-certificate-short-lived](../../../_includes/compute/os-login-certificate-short-lived.md) %}
+
+{% endlist %}
+
+You will then be connected to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM operating system.
+
+## Connecting via the {{ yandex-cloud }} CLI {#connect-with-yc-cli}
+
+You can connect to a VM with {{ oslogin }} access enabled using the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md) with either an SSH key [saved](../../../organization/operations/add-ssh.md) in the profile of an organization user or service account, or an SSH certificate of that user or service account.
+
+{% list tabs group=os_login_type %}
+
+- Connecting with an SSH key {#ssh-key}
+
+  {% include [oslogin-connect-with-key](../../../_includes/compute/oslogin-connect-with-key.md) %}
+
+- Connecting with an SSH certificate {#ssh-cert}
+
+  {% include [oslogin-connect-with-cli](../../../_includes/compute/oslogin-connect-with-cli.md) %}
+
+{% endlist %}
+
+You will then be connected to the specified VM. If this is your first time connecting to this VM, a new user profile will be created in the VM operating system.
 
 #### See also {#see-also}
 
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)
 * [{#T}](./os-login-export-certificate.md)
-* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
-* [Using a service account with an OS Login profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Using a service account with an {{ oslogin }} profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

@@ -1,4 +1,9 @@
-# File check failed
+---
+title: '{{ datalens-full-name }} error ERR.FILE.UNSUPPORTED_DOCUMENT'
+description: This page describes the File check failed {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] File check failed
 
 `ERR.FILE.UNSUPPORTED_DOCUMENT`
 

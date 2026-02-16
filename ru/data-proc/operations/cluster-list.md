@@ -8,7 +8,8 @@
 
 - Консоль управления {#console}
 
-    Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 
 - CLI {#cli}
 
@@ -34,7 +35,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -74,7 +76,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для кластера {{ dataproc-name }}.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
   1. Выберите нужный кластер.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.dataproc.switch_operations }}** для выбранного кластера.
 
@@ -95,16 +97,16 @@
   Результат:
 
   ```text
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
-  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |       DESCRIPTION        |
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
-  | c9q2n4s13p5v******** | 2024-08-06 06:19:47 | ajej2i98kcjd******** | 2024-08-06 06:21:36 | DONE   | Create Data Proc cluster |
-  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------+
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |          DESCRIPTION           |
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
+  | c9q2n4s13p5v******** | 2024-08-06 06:19:47 | ajej2i98kcjd******** | 2024-08-06 06:21:36 | DONE   | Create Data Processing cluster |
+  +----------------------+---------------------+----------------------+---------------------+--------+--------------------------------+
   ```
 
   Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](#list).
 
-  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
 
   ```bash
   yc dataproc cluster list-operations epdplu8jn7sr******** --format yaml
@@ -114,7 +116,7 @@
 
   ```text
   - id: c9q2n4s13p5v********
-    description: Create Data Proc cluster
+    description: Create Data Processing cluster
     created_at: "2024-08-06T06:19:47.755364Z"
     created_by: ajej2i98kcjd********
     modified_at: "2024-08-06T06:21:36.095300Z"
@@ -159,7 +161,7 @@
 
      ```text
      id: c9q2n4s13p5v********
-     description: Create Data Proc cluster
+     description: Create Data Processing cluster
      created_at: "2024-08-06T06:19:47.755364Z"
      created_by: ajej2i98kcjd********
      modified_at: "2024-08-06T06:21:36.095300Z"

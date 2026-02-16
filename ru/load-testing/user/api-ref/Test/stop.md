@@ -1,9 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}:stop
+    method: post
+    path:
+      type: object
+      properties:
+        testId:
+          description: |-
+            **string**
+            ID of the test to stop.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/stop.md
 ---
 
-# Load Testing API, REST: Test.Stop {#Stop}
+# Load Testing API, REST: Test.Stop
 
 Stops the specified test.
 
@@ -57,14 +72,7 @@ Required field. ID of the test to stop. ||
           "anonymousAgent": "boolean"
           // end of the list of possible fields
         },
-        "files": {
-          // Includes only one of the fields `objectStorage`
-          "objectStorage": {
-            "bucket": "string",
-            "name": "string"
-          }
-          // end of the list of possible fields
-        }
+        "files": "object"
       }
     ],
     "details": {
@@ -231,7 +239,7 @@ Configuration of the test.
 
 A test can have multiple configurations if it can be
 executed on multiple agents simultaneously. For more information, see
-[Load testing using multiple agents](docs/load-testing/tutorials/loadtesting-multiply). ||
+[Load testing using multiple agents](/docs/load-testing/tutorials/loadtesting-multiply). ||
 || details | **[Details](#yandex.cloud.loadtesting.api.v1.test.Details)**
 
 Test meta information. Name, description, etc. ||
@@ -255,7 +263,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 
@@ -409,14 +417,15 @@ Status of the test.
 - `POST_PROCESSING`: Execution stage: results post-processing.
 - `FAILED`: Test has failed due to some error.
 - `STOPPING`: Test is being stopped.
-- `STOPPED`: Test has been stopped.
+- `STOPPED`: Test has been stopped by user.
 - `AUTOSTOPPED`: Test has been stopped automatically by satisfying autostop condition.
 - `WAITING`: Execution stage: waiting for a trigger to start.
 - `DELETING`: Test is being deleted.
 - `LOST`: Test status has not been reported in a while during execution stage.
 
   Means that either an agent is too busy to send it, got offline, or failed without
-reporting a final status. ||
+reporting a final status.
+- `CANCELLED`: Test has been cancelled. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.

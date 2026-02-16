@@ -1,11 +1,17 @@
-# Chart
+---
+title: '{{ datalens-full-name }} chart'
+description: A {{ datalens-full-name }} chart is a dataset visualization in the form of a table, diagram, or map."
+---
 
-_Charts_ visualize the data from a dataset as tables, diagrams, or maps.
+# {{ datalens-full-name }} chart
 
-There are two types of charts in {{ datalens-short-name }} that differ by how they receive data from their sources:
+A _chart_ is a dataset visualization in the form of a table, diagram, or map.
 
-* [Dataset-based charts](./dataset-based-charts.md) are created in a wizard based on the data from one or more [datasets](../../dataset/index.md).
+There are several types of charts in {{ datalens-short-name }}:
+
+* [Wizard charts](./dataset-based-charts.md) are created in a wizard based on data from one or more [datasets](../../dataset/index.md).
 * [QL charts](./ql-charts.md) are created through direct queries to the source.
+* [Editor charts](../../charts/editor/index.md) are visualizations and selectors created using JavaScript code.
 
 {{ datalens-short-name }} supports different types of visualization: charts, tables, maps, etc. For more information, see the [Visualization reference](../../visualization-ref/index.md).
 
@@ -23,6 +29,7 @@ For more information about charts, see the following sections:
   * [{#T}](../../operations/chart/create-sql-chart.md)
   * [{#T}](../../operations/chart/replace-dataset.md)
   * [{#T}](../../operations/chart/create-multidataset-chart.md)
+  * [{#T}](../../operations/chart/add-description.md)
   * [{#T}](../../operations/chart/add-hierarchy.md)
   * [{#T}](../../operations/chart/config-chart-navigator.md)
   * [{#T}](../../operations/chart/chart-null-settings.md)

@@ -7,29 +7,33 @@ description: Follow this guide to edit a playlist in {{ video-name }}.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
-   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-   1. Select a channel.
-   1. On the ![image](../../../_assets/console-icons/bars-play.svg) **Playlists** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the playlist and select **{{ ui-key.yacloud_video.common.action_edit }}**.
-   1. Edit your playlist title and description.
-   1. In the **Playback order** section:
+  1. Open the {{ video-name }} [home page]({{ link-video-main }}).
+  1. Select a channel.
+  1. On the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the playlist and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. Edit your playlist title and description.
+  1. Under **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**:
 
-      * To delete a video or broadcast from a playlist, click ![image](../../../_assets/console-icons/trash-bin.svg) in the appropriate row.
+     * To delete a video or broadcast from a playlist, click ![image](../../../_assets/console-icons/trash-bin.svg) in the appropriate row.
 
-      * To reorder videos or broadcasts in a playlist, move them around by holding down ![image](../../../_assets/console-icons/grip.svg).
+     * To reorder videos or broadcasts in a playlist, move them around by holding down ![image](../../../_assets/console-icons/grip.svg).
+       
+       {% note info %}
 
-         {% note info %}
+        After you reorder videos or broadcasts in a playlist, viewers will only see the changes after refreshing the video player page.
 
-         After you reorder videos or broadcasts in a playlist, viewers will only see the changes after refreshing the video player page.
+       {% endnote %}
 
-         {% endnote %}
+     * To add a video or completed broadcast to a playlist, click **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**. In the window that opens:
 
-      * To add a video or completed broadcast to a playlist, click **Add video**. In the window that opens:
+       1. In the **{{ ui-key.yacloud_video.playlists.switch_video-select }}** or **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** tab, select the videos or broadcasts of your choice.
 
-         1. On the `Videos` or `Broadcasts` tab, select the videos or broadcasts you want to add.
-         1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
-   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
+          In playlists, only videos with [permanent links](../../concepts/videos.md#permanent-link) will be available for viewing.
+
+       1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](../../concepts/presets.md) for from the list of available presets in the channel or create a new one.
+  1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}
 

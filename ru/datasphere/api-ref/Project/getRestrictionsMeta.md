@@ -1,9 +1,16 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/restrictionsMeta
+    method: get
+    path: null
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getRestrictionsMeta.md
 ---
 
-# DataSphere API v2, REST: Project.GetRestrictionsMeta {#GetRestrictionsMeta}
+# DataSphere API v2, REST: Project.GetRestrictionsMeta
 
 Get meta information about available restrictions.
 

@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Асинхронное распознавание аудиофайлов в формате OggOpus в API v2
 
+
 Ниже рассмотрены примеры [асинхронного распознавания речи](../transcribation.md) из аудиофайла с помощью [API v2](transcribation-api.md) {{ speechkit-name }}. В примерах заданы параметры:
 
 * [язык](../models.md#languages) — русский;
@@ -52,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
       Где:
 
       * `languageCode` — [язык](../models.md#languages), для которого будет выполнено распознавание.
-      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host }}/speechkit/speech.opus`.
+      * `uri` — ссылка на аудиофайл в {{ objstorage-name }}. Пример ссылки: `https://{{ s3-storage-host-ru }}/speechkit/speech.opus`.
 
          Для бакета с ограниченным доступом в ссылке присутствуют дополнительные query-параметры (после знака `?`). Эти параметры не нужно передавать в {{ speechkit-name }} — они игнорируются.
 
@@ -125,6 +126,8 @@ description: Следуя данной инструкции, вы сможете
        "modifiedAt": "2019-04-21T22:49:36Z"
       }
       ```
+
+      {% include [absent-chunks-notice](../../../_includes/speechkit/absent-chunks-notice.md) %}
 
 - Python 3 {#python}
 

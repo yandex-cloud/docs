@@ -11,7 +11,7 @@
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `monitoring.viewer`.
-1. [Создайте авторизованный ключ доступа](../../../iam/operations/authorized-key/create.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+1. [Создайте авторизованный ключ доступа](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
@@ -29,7 +29,7 @@
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ MP }}](/marketplace/products/yc/metric-provider) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `metrics-provider-space`). Если вы оставите пространство имен по умолчанию, {{ MP }} может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать {{ MP }}.
    * **Ширина временного окна** — укажите ширину временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например, `5d10h30m20s`).
@@ -58,7 +58,6 @@
 1. {% include [install-kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. Добавьте репозиторий `metric-provider`:
 
-
    ```bash
    cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
    helm pull oci://{{ mkt-k8s-key.yc_metric-provider.helmChart.name }} \
@@ -66,6 +65,7 @@
      --untar
    ```
 
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, {{ MP }} может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `metrics-provider-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

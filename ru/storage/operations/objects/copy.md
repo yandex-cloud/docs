@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
 Большие объекты, загруженные с помощью [составной загрузки](../../concepts/multipart.md), хранятся в бакете частями. Копирование таких объектов происходит путем вызова [copyPart](../../s3/api-ref/multipart/copypart.md) для каждой его части. Таким образом, расходы при копировании составных объектов выше, чем при копировании обычных.
 
-Вы можете скопировать как [все содержимое бакета](#copy-from-bucket-to-bucket), так и [отдельный его объект](#copy-single-object). Также доступно копирование объектов между [бакетами разных организаций](#copy-to-another-org-bucket).
+Вы можете скопировать как [все содержимое бакета](#copy-from-bucket-to-bucket), так и [отдельный его объект](#copy-single-object).
 
 
 {% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
@@ -23,7 +23,61 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для копирования объекта:
+
+      ```bash
+      yc storage s3api copy-object --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api copy-object \
+        --copy-source <бакет_источник>/<ключ_объекта> \
+        --bucket <бакет_приемник> \
+        --key <ключ_объекта>
+      ```
+
+      Где:
+
+      * `--copy-source` — имя бакета-источника и [ключ](../../concepts/object.md#key) объекта, который нужно скопировать.
+      * `--bucket` — имя бакета, в который нужно скопировать объект.
+      * `--key` — ключ, по которому объект будет храниться в бакете.
+
+      Результат:
+
+      ```bash
+      copy_object_result:
+        etag: '"d41d8cd98f00b204e9800998********"'
+        last_modified_at: "2024-10-08T14:21:41.628Z"
+      request_id: 61523025********
+      copy_source_version_id: "null"
+      ```
+
+      Альтернативная команда:
+
+      ```bash
+      yc storage s3 cp \
+        s3://<бакет_источник>/<ключ_объекта-оригинала> \
+        s3://<бакет_приемник>/<ключ_объекта-копии>
+      ```
+
+      Результат:
+
+      ```text
+      copy: s3://my-bucket/object.txt to s3://new-bucket/object-copy.txt
+      ```
+
+      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
+
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -52,7 +106,42 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для копирования объектов:
+
+      ```bash
+      yc storage s3 cp --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3 cp \
+        s3://<бакет_источник>/ \
+        s3://<бакет_приемник>/ \
+        --recursive
+      ```
+
+      Где `--recursive` — параметр для копирования всех объектов.
+
+      Результат:
+
+      ```text
+      copy: s3://my-bucket/object-1.txt to s3://new-bucket/object-1-copy.txt
+      copy: s3://my-bucket/object-2.txt to s3://new-bucket/object-2-copy.txt
+      ...
+      copy: s3://my-bucket/object-n.txt to s3://new-bucket/object-n-copy.txt
+      ```
+
+      Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).
+
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -81,55 +170,28 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Копирование объектов в бакет другой организации {#copy-to-another-org-bucket}
 
-Чтобы скопировать объекты в бакет другой [организации](../../../overview/roles-and-resources.md), [создайте](../../../iam/operations/sa/create.md) два сервисных аккаунта: один с ролью [`storage.viewer`](../../security/index.md#storage-viewer) на бакет-источник, а второй — с ролью [`storage.editor`](../../security/index.md#storage-editor) на бакет-приемник.
+## Настройка параметров для команды yc storage s3 cp {#yc-s3-cp-config}
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md) для каждой из организаций.
-  1. Убедитесь, что профили для сервисных аккаунтов источника и приемника есть в файле `~/.aws/credentials`
-  1. Задайте [список управления доступом](../../concepts/acl.md) бакета-приемника с полным доступом для сервисного аккаунта исходного бакета:
-
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3api put-bucket-acl --profile <имя_профиля_приемника> \
-        --bucket <имя_бакета_приемника> \
-        --grant-full-control id=<идентификатор_сервисного_аккаунта_источника>
-      ```
-
-      Где:
-
-      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
-      * `--profile` — имя профиля в [конфигурационном файле](../../tools/aws-cli.md#config-files) AWS CLI для организации, в которой находится бакет-приемник.
-      * `--bucket` — имя бакета-приемника.
-      * `--grant-full-control` — параметр для выдачи доступа сервисному аккаунту бакета-источника к бакету-приемнику. Указывается идентификатор сервисного аккаунта организации, откуда копируются объекты.
-
-  1. Скопируйте объекты:
-
-      ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --profile <имя_профиля_источника> \
-        s3://<бакет_источник>/<ключ_объекта> \
-        s3://<бакет_приемник>/<ключ_объекта>
-      ```
-
-      Где:
-
-      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
-      * `--profile` — имя профиля в [конфигурационном файле](../../tools/aws-cli.md#config-files) AWS CLI для организации, в которой находится бакет-источник.
-      * `s3 cp` — команда для копирования объектов.
-
-      Чтобы скопировать все объекты бакета-источника, используйте параметр `--recursive`.
-
-      Результат:
-
-      ```text
-      copy: s3://<бакет_источник>/<ключ_объекта> to s3://<бакет_приемник>/<ключ_объекта>
-      ```
-
-      Подробнее о команде `aws s3 cp` см. в документации [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
+  {% include [s3-cp-config](../../../_includes/storage/s3-cp-config.md) %}
 
 {% endlist %}
+
+## Ошибки при загрузке {#errors}
+
+При загрузке больших файлов с помощью {{ yandex-cloud }} CLI может возникнуть ошибка `fatal error: runtime: out of memory`. Объем памяти, необходимый для загрузки больших файлов, рассчитывается по формуле:
+
+```text
+s3.max-concurrent-requests × s3.multipart-chunksize
+```
+
+Где:
+
+* `s3.max-concurrent-requests` — максимальное количество одновременных запросов. Значение по умолчанию — `10`.
+* `s3.multipart-chunksize` — размер частей, на которые будет делиться объект при составной (multipart) загрузке. Значение по умолчанию — `8 MB`.
+
+Подробнее о настройке команды см. в подразделе [{#T}](#yc-s3-cp-config).

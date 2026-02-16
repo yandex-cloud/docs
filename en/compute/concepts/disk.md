@@ -1,5 +1,6 @@
 ---
-description: Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines. Detaching a disk does not delete its data.
+title: Disks in {{ compute-name }}
+description: Disks are virtual counterparts of physical storage devices, such as SSDs and HDDs. Disk enable data storage and operate connected to virtual machines.
 keywords:
   - disk
   - ssh
@@ -17,23 +18,29 @@ Disk enable data storage and operate connected to virtual machines. Detaching a 
 
 Each disk is located in one of the [availability zones](../../overview/concepts/geo-scope.md) and [replicated](#backup) within it (unless it is a non-replicated disk) for data protection. Disks are not replicated to other zones.
 
-After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) the disk size.
+After creating a disk, you can [change](../operations/disk-control/update.md#change-disk-name) its name and description and [increase](../operations/disk-control/update.md#change-disk-size) its size.
 
-## Disks as a {{ yandex-cloud }} resource {#disk-as-resource}
+Each boot disk will get assigned a particular [virtualized hardware generation](./hardware-generations.md) on which a VM instance can be deployed with this boot disk. You can assign a particular hardware generation to a disk only at the time of creating it. 
 
-Disks are created within folders and inherit their access rights.
+Once a disk is created, you cannot change the generation assigned to it. Instead, you can create a [snapshot](./snapshot.md) or [image](./image.md) of the disk with preferred hardware generation assigned and then proceed to create a new disk from the resulting snapshot or image.
 
-Disks take up storage space, which incurs additional fees. For more information, see [{#T}](../pricing.md). You specify the disk size when you create it, and this is the storage capacity you will be charged for.
+Disks are subject to [technical restrictions on reads and writes](storage-read-write.md), as well as {{ compute-name }} [quotas](limits.md#compute-quotas) and [limits](limits.md#compute-limits-disks).
 
-In case you create a disk from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk use cost are also inherited from the source.
+## Disk as a {{ yandex-cloud }} resource {#disk-as-resource}
+
+A disk is created inside a folder and inherits its access permissions.
+
+Disks take up storage space, which comes at an extra charge. For more information, see [{#T}](../pricing.md). You specify the disk size when you create a new disk. This is exactly the volume you get charged for.
+
+If the disk is created from a snapshot or image, its information will contain the ID of its source. The license IDs (`product_ids`) used to calculate the disk usage cost are also inherited from the source.
 
 ## Disk types {#disks-types}
 
 {{ yandex-cloud }} VMs can use the following disk types:
-* Network SSD (`network-ssd`): Fast network drive, which is an SSD based network block storage.
-* Network HDD (`network-hdd`): Standard network drive, which is an HDD based network block storage.
-* Non-replicated SSD (`network-ssd-nonreplicated`): Network drive with enhanced performance without redundancy.
-* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`) is a high-performance SSD that offers the same speed as `network-ssd-nonreplicated` but also provides redundancy.
+* Network SSD (`network-ssd`): Fast network drive; SSD network block storage.
+* Network HDD (`network-hdd`): Standard network drive; HDD network block storage.
+* Non-replicated SSD (`network-ssd-nonreplicated`): Enhanced performance network drive without redundancy.
+* Ultra high-speed network storage with three replicas (SSD) (`network-ssd-io-m3`): High-performance SSD offering the same speed as `network-ssd-nonreplicated`, plus redundancy.
 * [Local disk](dedicated-host.md#resource-disks) drives on dedicated hosts.
 
 Network SSDs, high-performance SSDs, and network HDDs provide sufficient redundancy for reliable data storage and enable continuous read and write operations, even when multiple physical disks fail at the same time. Non-replicated disks do not ensure data durability.
@@ -72,11 +79,81 @@ A VM must have a boot disk attached. You can also attach extra disks to your VM.
 
 {% include [attach-empty-disk](../_includes_service/attach-empty-disk.md) %}
 
-When selecting a disk to attach to a VM, you can specify that the disk should be deleted once you delete the VM. This option is available when you create a VM, reconfigure it, or attach a new disk to it.
+## Disk auto-deletion {#autodelete-disks}
 
-If a VM had any previously created disks attached, they will be detached when you delete the VM. The data on the disk will be still there, and you will be able to attach the disk to a different VM later.
+{{ compute-name }} supports auto-deletion of disks together with VMs. The **default** auto-deletion settings differ for boot and secondary disks. The behavior will also vary depending on the interface used to create your VM:
 
-If you would like to delete a disk with a VM, specify this option when creating the VM, reconfiguring it, or attaching the disk. Such disks will be deleted along with the VM.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+
+    {% note info %}
+
+    The [management console]({{ link-console-main }}) does not support updating the boot disk auto-deletion settings. Use such tools as the {{ yandex-cloud }} CLI, {{ TF }}, or API. For examples, see [{#T}](../operations/vm-create/create-linux-vm.md).
+
+    {% endnote %}
+
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default. 
+    
+    To enable auto-deletion, when creating or updating a VM, enable **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}** in the **{{ ui-key.yacloud.compute.field_additional_vt356 }}** field in the disk parameters.
+
+- CLI {#cli}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+
+  You can set the auto-deletion configuration both when creating or updating a VM using the `auto-delete` parameter, which can either be `true` or `false`. You can use this parameter in the following flags:
+  * `--create-disk`: To create a secondary disk.
+  * `--attach-disk`: To attach an existing disk as a secondary disk.
+  * `--create-boot-disk`: To create a boot disk.
+  * `--use-boot-disk`: To use an existing boot disk.
+
+- {{ TF }} {#tf}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _enabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _enabled_.
+  
+    {% note warning %}
+
+    By default, the boot disk will be deleted along with the VM regardless of whether it was created using {{ TF }} or another interface and whether it remains in the manifest as a separate resource or not.
+
+    {% endnote %}
+
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+
+  You can set the auto-deletion configuration both when creating or updating a VM by adding the `auto_delete` parameter, which can be either `true` or `false`, to the `boot_disk` or `secondary_disk` resource description.
+
+- API {#api}
+
+  * **Boot disk**
+
+    * If you created a disk together with a VM, auto-deletion is _disabled_.
+    * If you connected an existing disk to a VM, auto-deletion is _disabled_.
+  * **Secondary disk**
+
+    Auto-deletion of secondary disks is _disabled_ by default.
+  
+  You can set the auto-deletion configuration both when creating or updating a VM by adding the `autoDelete` parameter, which can be either `true` or `false`, to the request body in the boot disk (`bootDiskSpec`) or secondary disk (`secondaryDiskSpecs`) description.
+
+{% endlist %}
+
+For interface-specific examples of auto-delete configuration, see [{#T}](../operations/vm-create/create-linux-vm.md).
 
 ## Backups {#backup}
 
@@ -91,18 +168,25 @@ Sometimes, you may want to restore a disk to a specific state on a regular basis
 
 {% include [boot-disk-recover](../../_includes/compute/boot-disk-recover.md) %}
 
-For more information on backing up and restoring VMs, see [{#T}](backups.md).
+For general recommendations on backing up and restoring VMs, see [{#T}](backups.md).
 
 
-## Encrypting disks {#encryption}
+## Disk encryption {#encryption}
 
 To protect critical data in {{ compute-name }}, we recommend encrypting disks with [{{ kms-full-name }}](../../kms/) keys.
 
 For more information, see [{#T}](encryption.md).
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sap.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/index.md)
+* [{#T}](../tutorials/packer-quickstart.md)
+* [{#T}](../tutorials/hpc-on-preemptible.md)
+* [{#T}](../tutorials/minecraft-server.md)
 
 #### See also {#see-also}
 
-* [Guides on creating disks](../operations/#disk-create)
-* [Guides on managing disks](../operations/#disk-control)
-* [Guides on disk snapshots and schedules](../operations/#snapshots)
+* [Guides on creating disks](../operations/index.md#disk-create)
+* [Guides on managing disks](../operations/index.md#disk-control)
+* [Guides on disk snapshots and schedules](../operations/index.md#snapshots)

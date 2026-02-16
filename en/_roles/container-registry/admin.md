@@ -14,4 +14,4 @@ Users with this role can:
 * View info on the Container Registry [quotas](../../container-registry/concepts/limits.md#container-registry-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
-This role also includes the `container-registry.editor` permissions.
+This role includes the `container-registry.editor` permissions.

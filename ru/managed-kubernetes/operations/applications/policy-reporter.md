@@ -1,7 +1,12 @@
+---
+title: Установка Policy Reporter
+description: Следуя данной инструкции, вы сможете установить Policy Reporter.
+---
+
 # Установка Policy Reporter
 
 
-[Policy Reporter](https://kyverno.github.io/policy-reporter/) предназначен для работы с результатами срабатываний Kyverno-политик — [PolicyReports](https://kyverno.io/docs/policy-reports/). Также он поддерживает инструменты Falco, jsPolicy, Kube Bench и Trivy. Policy Reporter позволяет визуализировать результаты в графическом виде. Для долгосрочного хранения или дальнейшей загрузки в SIEM-систему результаты можно выгрузить во внешнее хранилище, например в [{{ objstorage-full-name }} (S3)](../../../storage/) или [{{ yds-full-name }}](../../../data-streams/).
+[Policy reporter](https://kyverno.github.io/policy-reporter/) предназначен для работы с результатами срабатываний Kyverno-политик — [PolicyReports](https://kyverno.io/docs/policy-reports/). Также он поддерживает инструменты Falco, jsPolicy, Kube Bench и Trivy. Policy Reporter позволяет визуализировать результаты в графическом виде. Для долгосрочного хранения или дальнейшей загрузки в SIEM-систему результаты можно выгрузить во внешнее хранилище, например в [{{ objstorage-full-name }} (S3)](../../../storage/) или [{{ yds-full-name }}](../../../data-streams/).
 
 {% note warning %}
 
@@ -24,7 +29,7 @@
     * **{{ objstorage-name }}**
 
       1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.uploader`. Он необходим для доступа к {{ objstorage-name }}.
-      1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
+      1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON и сохраните его в файл `sa-key.json`:
 
          ```bash
          yc iam access-key create \
@@ -42,9 +47,9 @@
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Policy Reporter](/marketplace/products/yc/policy-reporter) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Policy reporter](/marketplace/products/yc/policy-reporter) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Policy Reporter или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `policy-reporter-space`). Если вы оставите пространство имен по умолчанию, Policy Reporter может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор кластера** — выберите кластер {{ managed-k8s-name }} из списка.
    * **Установить Policy Reporter UI** — включите опцию, чтобы установить компонент **Policy Reporter UI** для отображения результатов в графическом виде.
@@ -63,7 +68,7 @@
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Policy Reporter выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Policy Reporter выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_policy-reporter.helmChart.name }} \
@@ -82,6 +87,8 @@
      --set target.kinesis.streamName=<имя_потока_Data_Streams> \
      policy-reporter ./policy-reporter/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Policy Reporter может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `policy-reporter-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

@@ -1,21 +1,35 @@
-1. Перейдите в директорию `~/.aws/` (для macOS и Linux) или `C:\Users\<имя_пользователя>\.aws\` (для Windows).
-1. Создайте файл `credentials` с аутентификационными данными для {{ objstorage-name }} и скопируйте в него следующую информацию:
+1. Создайте директорию для хранения аутентификационных данных и перейдите в нее: 
+
+    Для macOS и Linux:
+
+    ```bash
+    mkdir ~/.aws/
+    ```
+
+    Для Windows:
+
+    ```bash
+    mkdir C:\Users\<имя_пользователя>\.aws\
+    ```
+
+1.  В директории `.aws` создайте файл `credentials` и скопируйте в него аутентификационные данные, [полученные ранее](#before-you-begin):
 
     ```text
     [default]
-      aws_access_key_id = <идентификатор_статического_ключа>
-      aws_secret_access_key = <секретный_ключ>
+    aws_access_key_id = <идентификатор_статического_ключа>
+    aws_secret_access_key = <секретный_ключ>
     ```
 
 1. Создайте файл `config` с параметрами региона по умолчанию и скопируйте в него следующую информацию:
 
     ```text
     [default]
-      region={{ region-id }}
+    region = {{ region-id }}
+    endpoint_url = https://{{ s3-storage-host }}
     ```
 
     {% note info %}
 
-    Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому {{ objstorage-name }} принимает также значение `us-east-1`.
+    Некоторые приложения, предназначенные для работы с Amazon S3, не позволяют указывать регион, поэтому {{ objstorage-name }} принимает также значение основного региона AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
 
     {% endnote %}

@@ -1,13 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+    method: get
+    path:
+      type: object
+      properties:
+        accessKeyId:
+          description: |-
+            **string**
+            Required field. ID of the AccessKey resource to return.
+            To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - accessKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/get.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.Get {#Get}
+# Access Key, REST: AccessKey.Get
 
 Returns the specified access key.
 
-To get the list of available access keys, make a [List](/docs/iam/api-ref/AccessKey/list#List) request.
+To get the list of available access keys, make a [List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 || accessKeyId | **string**
 
 Required field. ID of the AccessKey resource to return.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.awscompatibility.AccessKey}

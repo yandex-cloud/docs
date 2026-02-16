@@ -1,6 +1,6 @@
 ---
-title: How to delete a registry
-description: Follow this guide to delete a registry.
+title: How to delete a {{ iot-full-name }}
+description: Follow this guide to delete a {{ iot-short-name }}.
 ---
 
 # Deleting a registry
@@ -20,7 +20,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
    To delete a registry:
 
    1. In the [management console]({{ link-console-main }}), select the folder you want to delete the registry from.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. To the right of the name of the registry to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}** from the drop-down list.
    1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -69,7 +69,7 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       }
       ```
 
-      For more information about the `yandex_iot_core_registry` parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
+      For more information about the `yandex_iot_core_registry` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_registry).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -89,8 +89,8 @@ To access a [registry](../../concepts/index.md#registry), use its unique ID or n
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply

@@ -118,3 +118,8 @@ FROM
 INNER JOIN $host_dictionary AS host_dictionary
     ON events.hostid=host_dictionary.hostid;
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cloud-logging.md).
+* [{#T}](../tutorials/debezium.md).

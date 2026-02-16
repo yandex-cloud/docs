@@ -16,4 +16,4 @@ Users with this role can:
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View info on [Network Load Balancer](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) and [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas) quotas.
 
-This role includes the `load-balancer.privateAdmin` permissions.
+This role includes the `load-balancer.editor` permissions.

@@ -1,9 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListResourcePresetsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListResourcePresetsResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Data Proc API, REST: ResourcePreset.List {#List}
+# Yandex Data Processing API, REST: ResourcePreset.List
 
 Retrieves the list of available ResourcePreset resources.
 
@@ -21,11 +47,15 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/resourcePresets
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListResourcePresetsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListResourcePresetsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListResourcePresetsResponse}
@@ -58,7 +88,9 @@ List of ResourcePreset resources. ||
 This token allows you to get the next page of results for list requests. If the number of results
 is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.dataproc.v1.ListResourcePresetsRequest), use the `nextPageToken` as the value
 for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.dataproc.v1.ListResourcePresetsRequest) parameter in the next list request. Each subsequent
-list request will have its own `nextPageToken` to continue paging through the results. ||
+list request will have its own `nextPageToken` to continue paging through the results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.dataproc.v1.ResourcePreset}
@@ -75,8 +107,8 @@ ID of the ResourcePreset resource. ||
 IDs of availability zones where the resource preset is available. ||
 || cores | **string** (int64)
 
-Number of CPU cores for a Data Proc host created with the preset. ||
+Number of CPU cores for a Yandex Data Processing host created with the preset. ||
 || memory | **string** (int64)
 
-RAM volume for a Data Proc host created with the preset, in bytes. ||
+RAM volume for a Yandex Data Processing host created with the preset, in bytes. ||
 |#

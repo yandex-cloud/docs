@@ -21,6 +21,14 @@ items:
             href: operations/api-gw-vars.md
           - name: Настроить канареечный релиз
             href: operations/api-gw-canary.md
+          - name: Управлять метками
+            items:
+              - name: Добавить метку
+                href: operations/label-add.md
+              - name: Изменить метку
+                href: operations/label-update.md
+              - name: Удалить метку
+                href: operations/label-delete.md
           - name: Посмотреть графики мониторинга
             href: operations/api-gw-monitoring.md
           - name: Управлять логами
@@ -95,8 +103,12 @@ items:
             href: operations/spec-constructor/ydb.md
           - name: '{{ ml-platform-short-name }}'
             href: operations/spec-constructor/datasphere.md
-          - name: '{{ yagpt-full-name }}'
+          - name: '{{ foundation-models-full-name }}'
             href: operations/spec-constructor/yagpt.md
+          - name: '{{ sw-full-name }}'
+            href: operations/spec-constructor/workflows.md
+          - name: Swagger UI
+            href: operations/spec-constructor/swagger.md
       - name: Просмотр операций с ресурсами сервиса
         href: operations/operation-logs.md
   - name: Практические руководства
@@ -111,6 +123,8 @@ items:
         href: tutorials/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: tutorials/telegram-bot-serverless.md
+      - name: Разработка Telegram-бота для распознавания текста и аудио
+        href: tutorials/recognizer-bot.md
       - name: Разработка пользовательской интеграции
         href: tutorials/api-gw-integration.md
       - name: Разработка CRUD API для сервиса фильмов
@@ -118,13 +132,13 @@ items:
       - name: Работа с API-шлюзом по протоколу WebSocket
         href: tutorials/api-gw-websocket.md
       - name: >-
-          Построение пайплайна CI/CD в {{ GL }} с использованием
-          serverless-продуктов
-        href: tutorials/ci-cd-serverless.md
-      - name: >-
           Создание интерактивного serverless-приложения с использованием
           WebSocket
         href: tutorials/websocket-app.md
+      - name: >-
+          Построение пайплайна CI/CD в {{ GL }} с использованием
+          serverless-продуктов
+        href: tutorials/ci-cd-serverless.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: tutorials/serverless-live-debug.md
       - name: >-
@@ -137,6 +151,18 @@ items:
           Использование {{ api-gw-name }} для настройки синтеза речи в {{
           speechkit-full-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
+      - name: >-
+          Запуск контейнерного приложения в {{ serverless-containers-full-name
+          }}
+        href: tutorials/deploy-app-container.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: Ввод данных в системы хранения
+        href: tutorials/data-ingestion.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: tutorials/api-gw-sws-integration.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: tutorials/streaming-openai-agent.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -169,6 +195,8 @@ items:
                 href: concepts/extensions/ymq.md
               - name: '{{ ydb-name }}'
                 href: concepts/extensions/ydb.md
+              - name: Swagger UI
+                href: concepts/extensions/swagger.md
           - name: Жадные параметры
             href: concepts/extensions/greedy-parameters.md
           - name: Обобщенный HTTP-метод
@@ -219,12 +247,18 @@ items:
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инструменты
+    href: tools.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/serverless/api-gateway/index.md
-  - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: '{{ api-gw-name }}'
+        href: ../cli/cli-ref/serverless/cli-ref/api-gateway/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -249,6 +283,10 @@ items:
                 href: apigateway/api-ref/grpc/ApiGateway/update.md
               - name: Delete
                 href: apigateway/api-ref/grpc/ApiGateway/delete.md
+              - name: Resume
+                href: apigateway/api-ref/grpc/ApiGateway/resume.md
+              - name: Stop
+                href: apigateway/api-ref/grpc/ApiGateway/stop.md
               - name: AddDomain
                 href: apigateway/api-ref/grpc/ApiGateway/addDomain.md
               - name: RemoveDomain
@@ -289,6 +327,10 @@ items:
                 href: apigateway/api-ref/ApiGateway/update.md
               - name: Delete
                 href: apigateway/api-ref/ApiGateway/delete.md
+              - name: Resume
+                href: apigateway/api-ref/ApiGateway/resume.md
+              - name: Stop
+                href: apigateway/api-ref/ApiGateway/stop.md
               - name: AddDomain
                 href: apigateway/api-ref/ApiGateway/addDomain.md
               - name: RemoveDomain
@@ -415,11 +457,11 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/api-gateway
-deepBase: 2

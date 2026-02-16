@@ -1,0 +1,16 @@
+title: Архитектурные решения
+href: index.yaml
+noIndex: true
+items:
+  - name: Рекомендации по отказоустойчивости в {{ yandex-cloud }}
+    href: fault-tolerance.md
+  - name: >-
+      Развертывание веб-приложения в отказоустойчивой конфигурации в {{
+      yandex-cloud }}
+    href: app-in-k8s.md
+  - name: Тестирование отказоустойчивости в {{ yandex-cloud }}
+    items:
+      - name: Тестирование инфраструктуры на основе {{ alb-name }}
+        href: testing-zone-failure-for-alb.md
+      - name: Тестирование инфраструктуры на основе {{ network-load-balancer-name }}
+        href: testing-zone-failure.md

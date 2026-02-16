@@ -1,4 +1,9 @@
-# Invalid top-level LOD dimension found in expression
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS
+description: На странице приведено описание ошибки {{ datalens-full-name }} Invalid top-level LOD dimension found in expression.
+---
+
+# [{{ datalens-full-name }}] Invalid top-level LOD dimension found in expression
 
 `ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS`
 

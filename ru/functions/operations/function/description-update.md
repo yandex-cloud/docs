@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите изменить описание [функции](../../concepts/function.md).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
     1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. В открывшемся окне укажите нужное описание функции.
@@ -110,11 +110,6 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
     Чтобы изменить описание функции, воспользуйтесь методом REST API [update](../../functions/api-ref/Function/update.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Изменить описание функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 
 {% endlist %}

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryId}
+    method: get
+    path:
+      type: object
+      properties:
+        repositoryId:
+          description: |-
+            **string**
+            Required field. ID of the Repository resource to return.
+            To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - repositoryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/get.md
 ---
 
-# Container Registry API, REST: Repository.Get {#Get}
+# Container Registry API, REST: Repository.Get
 
 Returns the specified Repository resource.
 
@@ -23,7 +42,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 
 Required field. ID of the Repository resource to return.
 
-To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request. ||
+To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.Repository}

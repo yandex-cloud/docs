@@ -9,13 +9,10 @@ description: В данном разделе описана опция CDN-рес
 
 Например, с помощью этой опции вы можете перенастроить пути запросов к контенту, если на [источнике](./origins.md) оказалась изменена структура файлов и папок. Также перенаправление можно использовать, если при переезде ресурса на новый адрес вы хотите сохранить ранжирование вашего контента в поисковых системах.
 
-Включить перенаправление запросов для CDN-ресурса вы можете с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/managed-services/cdn/resource/update.md) или [API](../api-ref/Resource/update.md).
+Включить перенаправление запросов для CDN-ресурса вы можете с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md) или [API](../api-ref/Resource/update.md).
 
 Чтобы настроить перенаправление запросов, необходимо задать [правило Rewrite](#rewrite-rule) и указать [флаг](#flag).
 
-Подробности о перенаправлении запросов см. в документации CDN-провайдера EdgeЦентр:
-* [Rewrite. Настроить перенаправление запросов](https://edgecenter.ru/knowledge-base/cdn/cdn-rewrite?c=17)
-* [Документация API](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
 ## Правило Rewrite {#rewrite-rule}
 
@@ -43,6 +40,13 @@ description: В данном разделе описана опция CDN-рес
 Флаги позволяют прекратить дальнейшую обработку директив `Rewrite` или вернуть пользователю `redirect`. Для правил `Rewrite` доступны следующие флаги:
 
 {% include [rewrite-flag-list](../../_includes/cdn/rewrite-flag-list.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+
 
 #### См. также {#see-also}
 

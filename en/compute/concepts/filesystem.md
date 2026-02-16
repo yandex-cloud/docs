@@ -1,3 +1,8 @@
+---
+title: File storages
+description: In this article, you will learn about the concept of file storages, their types, as well as related requirements and limitations.
+---
+
 # File storages
 
 
@@ -5,9 +10,9 @@ A _file storage_ is a virtual file system that can be attached to multiple {{ co
 
 Each file storage resides in an availability zone where it is replicated for data protection. File storages are not replicated across availability zones.
 
-A storage is attached to a VM through the [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) (FUSE) interface as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device that is not linked to the host file system directly.
+A storage is attached to a VM through [Filesystem in Userspace](https://en.wikipedia.org/wiki/Filesystem_in_Userspace) (FUSE) as a [virtiofs](https://www.kernel.org/doc/html/latest/filesystems/virtiofs.html) device without a direct link to the host file system.
 
-By default, file storages have a zero [quota](limits.md#compute-quotas). To increase the [quota]({{ link-console-quotas }}), contact [support](../../support/overview.md).
+File storages are subject to [technical restrictions on reads and writes](storage-read-write.md), as well as {{ compute-name }} [quotas](limits.md#compute-quotas) and [limits](limits.md#compute-limits-disks). By default, file storages have a zero quota. To get your [quotas]({{ link-console-quotas }}) increased, contact [support](../../support/overview.md).
 
 ## File storage as a {{ yandex-cloud }} resource {#file-storage-as-resource}
 
@@ -18,8 +23,8 @@ You are charged for the space used by a storage depending on its size. For more 
 ## File storage types {#types}
 
 When creating a file storage, you can choose one of the following types:
-* SSD (`network-ssd`): Fast file storage on SSDs.
-* HDD (`network-hdd`): Standard network storage on HDDs.
+* SSD storage (`network-ssd`): High-speed SSD-based file storage.
+* HDD storage (`network-hdd`): Standard HDD-based file storage.
 
 Once you have created a storage, you cannot change its type.
 
@@ -36,6 +41,12 @@ When you delete a VM, any attached storages are detached from it. In this case, 
 You can attach a file storage to VMs running Linux with kernel version 5.4 or higher. To check the kernel version, use the `uname -r` command. If you create a VM from a custom [image](image.md), prepare it using [this guide](../operations/image-create/custom-image.md).
 
 Attaching file storages to Windows-based VMs in {{ compute-name }} is currently not supported.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/ha-regional-glusterfs-high-performance.md)
+* [{#T}](../tutorials/ha-regional-glusterfs.md)
+* [{#T}](../tutorials/backup-with-bacula.md)
 
 **See also**
 

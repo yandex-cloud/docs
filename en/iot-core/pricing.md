@@ -1,6 +1,6 @@
 ---
 title: '{{ iot-full-name }} pricing policy'
-description: This article describes the {{ iot-name }} pricing policy.
+description: This article covers the {{ iot-name }} pricing policy.
 editable: false
 ---
 
@@ -12,15 +12,19 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ iot-name }} {#rules}
 
-In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula:
+In {{ iot-name }}, you are charged for the number of messages. The message count is rounded up using the following formula: 
 
 ```text
 Message Count = Command Size / 1 KB
 ```
 
-For example:
+Here is an example:
 * If the command size is 800 B, it is a single message.
 * If the command size is 2,800 B (2.73 KB), it is three messages.
 
@@ -42,7 +46,7 @@ The [broker](concepts/index.md#broker) is at the [Preview](../overview/concepts/
 
 ### MQTT {#mqtt}
 
-List of commands charged under {{ iot-name }}:
+Here are the commands that are charged under {{ iot-name }}: 
 * `CONNECT`: Connect a client (device or registry) to the service's MQTT server.
 * `PUBLISH`: Send a message from the client (device or registry) to the service's MQTT server.
 * `SUBSCRIBE`: Subscribe the client (device or registry) to messages from the service's MQTT server.
@@ -53,9 +57,15 @@ List of commands charged under {{ iot-name }}:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Data volume {#volumes}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|iot }}']}
+    excludeSkuIds={['{{ pc|iot.mqtt.basic_ingest }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include notitle [usd.md](../_pricing/iot-core/usd.md) %}
 

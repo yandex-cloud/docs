@@ -1,5 +1,9 @@
-# Экспорт аудитных логов в SIEM
+---
+title: Экспорт аудитных логов в SIEM
+description: Из статьи вы узнаете об экспорте аудитных логов в SIEM.
+---
 
+# Экспорт аудитных логов в SIEM
 
 
 Файлы аудитного лога доступны для экспорта в SIEM.
@@ -13,7 +17,6 @@
 <small>Схема принятия решения по выбору архитектуры</small>
 
 В настоящее время подготовлены решения для следующих SIEM:
-* [{{ mos-full-name }}](../tutorials/trails-logs-opensearch.md).
 * [ArcSight](../tutorials/export-logs-to-arcsight.md).
 * [Splunk](../tutorials/export-logs-to-splunk.md).
 * [MaxPatrol SIEM](../tutorials/maxpatrol.md).

@@ -1,3 +1,8 @@
+---
+title: Триггер для {{ yds-full-name }}, который отправляет сообщения в WebSocket-соединения
+description: Из статьи вы узнаете о триггере для {{ yds-name }}, формате отправляемых сообщений и необходимых ролях для работы с триггером.
+---
+
 # Триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения
 
 [Триггер](../trigger/) для {{ yds-name }} отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
@@ -5,6 +10,8 @@
 Триггеру для {{ yds-name }} необходимы [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для управления потоком и отправки сообщений в WebSocket-соединения. Вы можете использовать один и тот же сервисный аккаунт для обеих операций.
 
 О том, как создать триггер для {{ yds-name }}, читайте в инструкции [{#T}](../../operations/trigger/data-streams-trigger-create.md).
+
+{% include [batching-messages](../../../_includes/api-gateway/batching-messages.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ yds-name }} {#roles}
 
@@ -15,7 +22,9 @@
 
 ## Формат сообщения от триггера для {{ yds-name }} {#format}
 
-После того как триггер сработает, он отправит в WebSocket-соединения сообщение. Формат сообщения зависит от источника и представляет собой массив `messages`:
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+После того как триггер сработает, он отправит в WebSocket-соединения сообщение с массивом `messages`:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

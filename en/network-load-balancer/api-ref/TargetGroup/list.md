@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list target groups in.
+            To get the folder ID, use a [TargetGroupService.List](#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListTargetGroupsResponse.nextPageToken](#yandex.cloud.loadbalancer.v1.ListTargetGroupsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can only filter by the [TargetGroup.name](#yandex.cloud.loadbalancer.v1.TargetGroup) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/list.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.List {#List}
+# Network Load Balancer API, REST: TargetGroup.List
 
 Retrieves the list of TargetGroup resources in the specified folder.
 
@@ -54,7 +98,7 @@ The expression must specify:
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "regionId": "string",
       "targets": [
         {
@@ -112,7 +156,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the target group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

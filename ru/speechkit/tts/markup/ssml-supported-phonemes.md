@@ -10,5 +10,7 @@ description: Использование фонем в SSML поддержива�
 Использование фонем в SSML (тег [`<phoneme>`](ssml.md#phoneme)) поддерживается только для русского языка (`ru-RU`).
 [Подробнее о русской фонологии](https://en.wikipedia.org/wiki/Russian_phonology).
 
+См. [примеры](tts-markup.md#rus-examples) использования фонем.
+
 {% include [phonemes-ru-ru_untranslatable](../../../_includes/speechkit/phonemes-ru-ru_untranslatable.md) %}
 

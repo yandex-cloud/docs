@@ -1,4 +1,4 @@
-# All solutions for {{ mpg-short-name }}
+# Solutions for {{ mpg-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

@@ -3,7 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 ---
 
-# Data Transfer API, gRPC: TransferService.Deactivate {#Deactivate}
+# Data Transfer API, gRPC: TransferService.Deactivate
+
+Deactivates the specified transfer.
+
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Transfer/list#List) request.
 
 ## gRPC request
 
@@ -13,13 +17,17 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 
 ```json
 {
-  "transferId": "string"
+  "transfer_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| transferId | **string** ||
+|| transfer_id | **string**
+
+Identifier of the transfer to be deactivated.
+
+To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -28,9 +36,9 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/deactivate.md
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -50,13 +58,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

@@ -1,9 +1,16 @@
-# Create an instance in a placement group
+---
+title: Creating a VM in a placement group
+description: Follow this guide to create a VM in a placement group.
+---
+
+# Creating a VM in a placement group
 
 
 Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}
 
@@ -13,17 +20,17 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
   {% include [default-catalogue.md](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli/) command to create a placement group:
+  1. See the description of the [CLI](../../../cli/) command for creating a placement group:
 
      ```bash
      yc compute placement-group create --help
      ```
 
-  1. Create a placement group in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with one of the placement strategies:
+  1. Create a placement group in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with one of the following placement strategies:
 
      {% include [pg-create](../../../_includes/compute/placement-groups-create.md) %}
 
-  1. See the description of the CLI command to create a VM:
+  1. See the description of the CLI command for creating a VM:
 
      ```bash
      yc compute instance create --help
@@ -60,7 +67,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
        placement_group_id: fd83bv4rnsna********
      ```
 
-  1. Check the new instance and its placement group:
+  1. Check the new VM and its placement group:
 
      ```bash
      yc compute placement-group list-instances --name my-group
@@ -84,8 +91,8 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To create a VM instance in a placement group:
-  1. In the configuration file, describe the VM parameters specifying the `yandex_compute_placement_group` resource in the `placement_group_id` field. The `yandex_compute_instance` resource describes the VM parameters.
+  To create a VM in a placement group:
+  1. In the configuration file, define the VM parameters indicating the `yandex_compute_placement_group` resource in the `placement_group_id` field. The `yandex_compute_instance` resource describes the VM parameters.
 
      Here is an example of the configuration file structure:
 
@@ -107,7 +114,7 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
      Where `placement_group_id` is the placement group ID.
 
-     For more information about the `yandex_compute_instance` and `yandex_compute_placement_group` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about the `yandex_compute_instance` and `yandex_compute_placement_group` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_instance).
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
@@ -127,16 +134,16 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check that the VM has been created and added to the placement group using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check that the VM has been created and added to the placement group using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -144,6 +151,6 @@ Create a [VM](../../concepts/vm.md) in a [placement group](../../concepts/placem
 
 {% endlist %}
 
-## See also {see-also}
+## See also {#see-also}
 
 * [Adding a VM to a placement group](add-vm.md)

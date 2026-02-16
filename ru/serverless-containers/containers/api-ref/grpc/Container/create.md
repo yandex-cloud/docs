@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/containers/v1/containers/api-ref/grpc/Container/create.md
 ---
 
-# Serverless Containers Service, gRPC: ContainerService.Create {#Create}
+# Serverless Containers Service, gRPC: ContainerService.Create
 
 Creates a container in the specified folder.
 
@@ -15,16 +15,16 @@ Creates a container in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a container in.
 
@@ -32,13 +32,19 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the container.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the container. ||
-|| labels | **string**
+Description of the container.
 
-Resource labels as `key:value` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -47,22 +53,22 @@ Resource labels as `key:value` pairs. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "containerId": "string"
+    "container_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "url": "string",
     "status": "Status"
   }
@@ -80,13 +86,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -129,7 +135,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| containerId | **string**
+|| container_id | **string**
 
 ID of the container that is being created. ||
 |#
@@ -141,10 +147,10 @@ ID of the container that is being created. ||
 || id | **string**
 
 ID of the container. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the container belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the container. ||
 || name | **string**
@@ -153,7 +159,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**
@@ -163,7 +169,6 @@ URL that needs to be requested to call the container. ||
 
 Status of the container.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Container is being created.
 - `ACTIVE`: Container is ready for use.
 - `DELETING`: Container is being deleted.

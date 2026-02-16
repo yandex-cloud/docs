@@ -72,7 +72,7 @@ Stylizes the passed text in cursive font.
 
 ## [MARKUP](MARKUP.md)
 
-**Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`MARKUP(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
@@ -83,6 +83,14 @@ Merges marked up text pieces. Can also be used for converting strings to marked 
 **Syntax:**`SIZE( text, size )`
 
 Enables specifying the size (in pixels) for the provided text.
+
+
+
+## [TOOLTIP](TOOLTIP.md)
+
+**Syntax:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom`, `left` or `auto`. The default value is `auto`.
 
 
 

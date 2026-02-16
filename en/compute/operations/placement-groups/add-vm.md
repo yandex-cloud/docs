@@ -1,6 +1,6 @@
 # Adding a VM to a placement group
 
-Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../../concepts/placement-groups.md).
+Add an existing [VM](../../concepts/vm.md) to a [placement group](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
 
@@ -9,17 +9,17 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the placement group belongs to.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
-  1. Select a placement group to add your VM to.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
+  1. Navigate to the **{{ ui-key.yacloud.compute.placement-groups.label_tab-instances }}** tab.
+  1. Select the placement group to add a VM to.
   1. Go to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
   1. In the top-right corner, click ![image](../../../_assets/plus-sign.svg) **{{ ui-key.yacloud.compute.placement-group.instances.button_add-instance }}**.
-  1. In the window that opens, select the appropriate VM and click **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
+  1. In the window that opens, select the VM and click **{{ ui-key.yacloud.compute.placement-group.instances.popup-add_button_add }}**.
 
   {% note info %}
 
-  You can only add a [stopped VM](../../concepts/vm-statuses.md) (`stopped`) to a placement group.
+  You can only add a [VM with the `stopped` status](../../concepts/vm-statuses.md) to a placement group.
 
   {% endnote %}
 
@@ -67,7 +67,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
      +----------------------+---------------------+-------------------+---------+-------------+-------------+
      ```
 
-  1. Stop the VM instance by including its name in the command below:
+  1. Stop the VM by specifying its name in the command below:
 
      ```bash
      yc compute instance stop instance-in-group-2
@@ -81,7 +81,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
      status: STOPPED
      ```
 
-  1. Add a VM instance to the placement group:
+  1. Add the VM to the placement group:
 
      ```bash
      yc compute instance update \
@@ -110,7 +110,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
        placement_group_id: fd83bv4rnsna********
      ```
 
-  1. Check that the VM instance was added to the placement group:
+  1. Check that the VM is now in the placement group:
 
      ```bash
      yc compute placement-group list-instances \
@@ -130,7 +130,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
      +----------------------+---------------------+-------------------+---------+-------------+-------------+
      ```
 
-  1. Start the VM instance by including its name in the command below:
+  1. Start the VM by specifying its name in the command below:
 
      ```bash
      yc compute instance start instance-in-group-2
@@ -150,8 +150,8 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To add an existing VM instance to a placement group:
-  1. To the configuration file of the existing VM, add the `placement_group_id` field specifying the `yandex_compute_placement_group` placement group resource.
+  To add an existing VM to a placement group:
+  1. To the configuration file of the existing VM, add the `placement_group_id` field indicating the `yandex_compute_placement_group` placement group resource.
 
      Here is an example of the configuration file structure:
 
@@ -179,7 +179,7 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
      {% endnote %}
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/compute_instance).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/compute_instance).
   1. In the command line, go to the directory with the {{ TF }} configuration file.
   1. Check the configuration using this command:
 
@@ -199,16 +199,16 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
-     All the resources you need will then be created in the specified folder. You can check that the VM has been added to a placement group using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check that the VM has been added to the placement group using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -218,4 +218,4 @@ Add an existing [VM](../../concepts/vm.md) instance to a [placement group](../..
 
 ## See also {#see-also}
 
-* [Creating a VM in a placement group](create-vm-in-pg.md)
+* [How to create a VM in a placement group](create-vm-in-pg.md)

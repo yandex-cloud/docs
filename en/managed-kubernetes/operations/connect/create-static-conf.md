@@ -1,8 +1,10 @@
 # Creating a static configuration file
 
-Static configuration files allow you to access a [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster without using the CLI, e.g., from continuous integration systems.
+Static configuration files allow you to access a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) without using the CLI, e.g., from continuous integration systems.
 
-You can also use a static configuration file to configure access to multiple {{ managed-k8s-name }} clusters. You can quickly switch between {{ managed-k8s-name }} clusters described in configuration files using the `kubectl config use-context` command. For more information about how to configure access to multiple {{ managed-k8s-name }} clusters, see the [{{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) documentation.
+{% include [tip-gitlab](../../../_includes/managed-kubernetes/tip-gitlab-integration.md) %}
+
+You can also use a static configuration file to configure access to multiple {{ managed-k8s-name }} clusters. You can quickly switch between {{ managed-k8s-name }} clusters described in configuration files using the `kubectl config use-context` command. Learn more about configuring access to multiple {{ managed-k8s-name }} clusters in [this {{ k8s }} guide](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 To create a configuration file:
 * [Get a unique cluster ID](#k8s-id).
@@ -12,19 +14,19 @@ To create a configuration file:
 * [Create and populate a configuration file](#create-conf-file).
 * [Check the result](#check-result).
 
-To run bash commands, you will need a JSON parser: [jq](https://stedolan.github.io/jq/download/).
+To run bash commands, you will need a JSON parser, [jq](https://stedolan.github.io/jq/download/).
 
 ## Getting started {#before-you-begin}
 
 1. [Create a service account](../../../iam/operations/sa/create.md).
-1. [Create a {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) cluster with any suitable configuration.
-1. [Create a node group](../node-group/node-group-create.md) of any suitable configuration.
-1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [set it up to work with the created cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuratioin file using the `--kubeconfig=test.kubeconfig` flag.
+1. [Create a {{ managed-k8s-name }} cluster](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with any suitable configuration.
+1. [Create a node group](../node-group/node-group-create.md) with any suitable configuration.
+1. [Install kubect]({{ k8s-docs }}/tasks/tools/install-kubectl) and [set it up to work with the new cluster](index.md#kubectl-connect). Add the credentials to the `test.kubeconfig` configuration file using the `--kubeconfig=test.kubeconfig` parameter.
 
 ## Get a unique cluster ID {#k8s-id}
 
 To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a variable and use it in other commands.
-1. Find the unique ID of the {{ managed-k8s-name }} cluster:
+1. Get the unique ID of the {{ managed-k8s-name }} cluster:
 
    {% list tabs group=instructions %}
 
@@ -53,7 +55,7 @@ To access a {{ managed-k8s-name }} cluster, use its unique ID. Save it to a vari
 
     {% endlist %}
 
-1. Save the unique ID of the {{ managed-k8s-name }} cluster to a variable.
+1. Save the unique ID of the {{ managed-k8s-name }} cluster to a variable:
 
    {% list tabs group=programming_language %}
 
@@ -80,9 +82,9 @@ Save the {{ managed-k8s-name }} cluster certificate to the `ca.pem` file. This c
 - Bash {#bash}
 
   Run a command that:
-  * Retrieves {{ managed-k8s-name }} cluster information in JSON format.
-  * Retains certificate information only and removes excessive quotation marks from the certificate contents.
-  * Removes unnecessary characters from the certificate contents.
+  * Retrieves the {{ managed-k8s-name }} cluster information in JSON format.
+  * Only retains the certificate information and removes excessive quotation marks from the certificate contents.
+  * Removes excessive characters from the certificate contents.
   * Saves the certificate to the `ca.pem` file.
 
   ```bash
@@ -93,7 +95,7 @@ Save the {{ managed-k8s-name }} cluster certificate to the `ca.pem` file. This c
 
 - PowerShell {#powershell}
 
-  1. Get detailed information about the {{ managed-k8s-name }} cluster in JSON format and save it to the `$CLUSTER` variable:
+  1. Get the {{ managed-k8s-name }} cluster details in JSON format and save it to the `$CLUSTER` variable:
 
      ```shell script
      $CLUSTER = yc managed-kubernetes cluster get --id $CLUSTER_ID --format json | ConvertFrom-Json
@@ -109,10 +111,10 @@ Save the {{ managed-k8s-name }} cluster certificate to the `ca.pem` file. This c
 
 ## Create a ServiceAccount object {#create-sa}
 
-Create an object named `ServiceAccount` to interact with the {{ k8s }} API inside the {{ managed-k8s-name }} cluster.
+Create a `ServiceAccount` object to interact with the {{ k8s }} API inside the {{ managed-k8s-name }} cluster.
 1. Save the following specification for creating the `ServiceAccount` object and its secret to a YAML file named `sa.yaml`.
 
-   For more information about the `ServiceAccount` object, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
+   For more information about the `ServiceAccount` object, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
 
    {% list tabs %}
 
@@ -173,13 +175,13 @@ Create an object named `ServiceAccount` to interact with the {{ k8s }} API insid
 
    {% endlist %}
 
-1. Create the `ServiceAccount` object and a secret for it:
+1. Create a `ServiceAccount` object and a secret for it:
 
    ```bash
    kubectl create -f sa.yaml
    ```
 
-## Prepare the ServiceAccount token {#prepare-token}
+## Prepare a ServiceAccount token {#prepare-token}
 
 This token is used to authenticate the `ServiceAccount` object in the {{ managed-k8s-name }} cluster.
 
@@ -189,7 +191,7 @@ This token is used to authenticate the `ServiceAccount` object in the {{ managed
 
   Run a command that:
   * Retrieves information about the previously created `admin-user` [service account](../../../iam/concepts/users/service-accounts.md) in JSON format.
-  * Retains token information only and removes excessive quotation marks from the token contents.
+  * Only retains the token information and removes excessive quotation marks from the token contents.
   * Decodes the token from Base64.
   * Saves the token contents to the `SA_TOKEN` variable.
 
@@ -220,7 +222,7 @@ This token is used to authenticate the `ServiceAccount` object in the {{ managed
 
 {% endlist %}
 
-## Get the cluster IP {#get-cluster-ip}
+## Get the cluster IP address {#get-cluster-ip}
 
 Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/address.md) and add it to the `MASTER_ENDPOINT` variable for future use.
 
@@ -229,8 +231,8 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
 - Bash {#bash}
 
   Run a command that:
-  * Retrieves {{ managed-k8s-name }} cluster details in JSON format based on its unique ID.
-  * Leaves only the {{ managed-k8s-name }} cluster IP address.
+  * Retrieves the {{ managed-k8s-name }} cluster details in JSON format based on its unique ID.
+  * Retains only the {{ managed-k8s-name }} cluster IP address.
   * Removes excessive quotation marks from its contents.
   * Writes the IP address to the `MASTER_ENDPOINT` variable.
 
@@ -279,6 +281,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
      ```bash
      kubectl config set-cluster sa-test2 \
        --certificate-authority=ca.pem \
+       --embed-certs \
        --server=$MASTER_ENDPOINT \
        --kubeconfig=test.kubeconfig
      ```
@@ -290,6 +293,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
      ```bash
      kubectl config set-cluster sa-test2 `
        --certificate-authority=ca.pem `
+       --embed-certs `
        --server=$MASTER_ENDPOINT `
        --kubeconfig=test.kubeconfig
      ```
@@ -350,7 +354,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
 
    {% endlist %}
 
-1. Use the created configuration for further work.
+1. Use the configuration you created for further operations.
 
    {% list tabs group=programming_language %}
 
@@ -376,7 +380,7 @@ Get the {{ managed-k8s-name }} cluster [IP address](../../../vpc/concepts/addres
 
 ## Check the result {#check-result}
 
-Make sure that the configuration is correct by running the following command:
+Make sure the configuration is correct by running this command:
 
 ```bash
 kubectl get namespace --kubeconfig=test.kubeconfig
@@ -388,3 +392,11 @@ Result:
 NAME     STATUS  AGE
 default  Active  9d
 ```
+
+The `test.kubeconfig` file enables you to connect to the cluster without the CLI, e.g., from continuous integration systems, as well as use the `kubectl config use-context` command to switch between clusters.
+
+{% note warning %}
+
+To store the static configuration file, use a storage for secrets or encryption.
+
+{% endnote %}

@@ -6,6 +6,6 @@
 
 #### Что дальше {#what-is-next}
 
-* [{#T}](create-access-key.md).
+* [{#T}](../authentication/manage-access-keys.md#create-access-key).
 * [{#T}](set-access-bindings.md).
 * [Назначить несколько ролей сразу](../roles/grant.md#multiple-roles).

@@ -10,11 +10,6 @@ description:
     включительно.
 nav:
   title: Yandex Data Streams
-meta:
-  title: Yandex Data Streams
-  description: >-
-    Yandex Data Streams — масштабируемый сервис для управления потоками данных в
-    режиме реального времени.
 links:
   - title: Начало работы
     description: Создайте поток данных, настройте поставку и сохранение данных
@@ -42,3 +37,18 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Data Streams
+  description: >-
+    Yandex Data Streams — масштабируемый сервис для управления потоками данных в
+    режиме реального времени.
+  keywords:
+    - yds
+    - '{{ yds-name }}'
+    - '{{ yds-full-name }}'
+    - сервис {{ yds-name }}
+    - потоки данных в {{ yandex-cloud }}
+    - потоки передачи данных в {{ yandex-cloud }}
+    - потоки данных
+    - потоки передачи данных
+    - управления потоками данных в {{ yandex-cloud }}

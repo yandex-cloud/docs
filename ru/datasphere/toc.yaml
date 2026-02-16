@@ -17,6 +17,8 @@ items:
             href: operations/community/manage-community-labels.md
           - name: Управление ограничениями сообщества
             href: operations/community/manage-community-config.md
+          - name: Создать сервисного агента
+            href: operations/community/create-ssa.md
           - name: Добавить ссылку для сообщества
             href: operations/community/link-channel.md
           - name: Привязать платежный аккаунт
@@ -76,7 +78,7 @@ items:
           - name: Работа с секретами
             href: operations/data/secrets.md
           - name: Работа с шаблонами {{ dataproc-name }}
-            href: operations/data-proc-template.md
+            href: operations/data-processing-template.md
           - name: Работа с Docker-образами
             href: operations/user-images.md
           - name: Работа с датасетами
@@ -87,6 +89,8 @@ items:
             href: operations/data/spark-connectors.md
           - name: Работа с моделями
             href: operations/data/models.md
+          - name: Работа с файловыми хранилищами
+            href: operations/data/filestores.md
       - name: Подключение к источникам данных
         items:
           - name: Подключение к S3 с помощью библиотеки boto3
@@ -131,6 +135,8 @@ items:
             href: operations/projects/jobs-toolkit.md
           - name: Использование результатов работы выполненных заданий
             href: operations/projects/use-job-results.md
+          - name: Работа с сервисным агентом из задания
+            href: operations/projects/jobs-with-ssa.md
       - name: Совместный доступ
         items:
           - name: Опубликовать ноутбук
@@ -164,11 +170,11 @@ items:
           - name: Вычисления на кластерах Apache Spark™
             items:
               - name: Способы работы с кластерами Apache Spark™
-                href: concepts/data-proc.md
+                href: concepts/data-processing.md
               - name: Вычисления на кластерах Apache Spark™
-                href: concepts/data-proc-operations.md
+                href: concepts/data-processing-operations.md
               - name: Особенности работы с временными кластерами {{ dataproc-name }}
-                href: concepts/temporary-data-proc-clusters.md
+                href: concepts/temporary-data-processing-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Ноды и алиасы
@@ -191,6 +197,8 @@ items:
             href: concepts/jobs/fork.md
           - name: Интеграция с {{ maf-name }}
             href: concepts/jobs/airflow.md
+          - name: Работа с коннекторами Spark
+            href: concepts/jobs/work-with-spark.md
       - name: Ресурсы
         items:
           - name: Обзор
@@ -202,15 +210,15 @@ items:
           - name: Датасеты
             href: concepts/dataset.md
           - name: Шаблоны {{ dataproc-name }}
-            href: concepts/data-proc-template.md
+            href: concepts/data-processing-template.md
           - name: Коннекторы S3
             href: concepts/s3-connector.md
           - name: Коннекторы Spark
             href: concepts/spark-connector.md
           - name: Модели
             href: concepts/models/index.md
-          - name: Дообученные фундаментальные модели
-            href: concepts/models/tuned-models.md
+          - name: Файловые хранилища
+            href: concepts/filestores.md
       - name: Фундаментальные модели
         href: concepts/models/foundation-models.md
       - name: Квоты и лимиты
@@ -226,7 +234,7 @@ items:
       - name: Автоматизировать настройку проектов
         href: tutorials/automation-community-settings.md
       - name: Интегрировать сервис {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
+        href: tutorials/data-processing-integration.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -239,6 +247,10 @@ items:
             href: tutorials/regular-launch.md
           - name: Запуск вычислений с помощью API
             href: tutorials/batch-code-execution.md
+          - name: >-
+              Геокодинг с помощью API Яндекс Карт для визуализации в {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
           - name: Обучение модели на данных из {{ objstorage-full-name }}
             href: tutorials/s3-to-datasphere.md
           - name: Создание сервера MLFlow для логирования экспериментов и артефактов
@@ -253,23 +265,23 @@ items:
             href: tutorials/node-from-model.md
           - name: Развертывание gRPC-сервиса на основе Docker-образа
             href: tutorials/grpc-node.md
-          - name: Дообучение модели {{ yagpt-name }}
-            href: tutorials/yagpt-tuning.md
-          - name: Дообучение классификаторов на базе {{ yagpt-name }}
-            href: tutorials/yagpt-tuning-classifier.md
           - name: Генерация изображения с помощью модели Stable Diffusion
             href: tutorials/stable-diffusion.md
+          - name: Создание интеллектуального ассистента для Telegram
+            href: tutorials/tg-bot-assistant.md
       - name: Аналитика данных
         items:
           - name: Веб-аналитика с расчетом воронок и когорт на данных Яндекс Метрики
             href: tutorials/data-from-metrica-yc-visualization.md
-          - name: Анализ данных с помощью {{ yq-full-name }}
+          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
+          - name: Анализ данных с помощью {{ yq-name }}
             href: tutorials/yq.md
-          - name: Работа с данными в {{ objstorage-full-name }}
+          - name: Работа с данными в {{ objstorage-name }}
             href: tutorials/yq-storage.md
-          - name: Работа с данными в {{ mch-full-name }}
+          - name: Работа с данными в {{ mch-name }}
             href: tutorials/yq-clickhouse.md
-          - name: Работа с данными в {{ mpg-full-name }}
+          - name: Работа с данными в {{ mpg-name }}
             href: tutorials/yq-postgre.md
           - name: Федеративные запросы к данным
             href: tutorials/yq-federative-queries.md
@@ -559,5 +571,3 @@ items:
         href: troubleshooting/troubles-with-spark.md
       - name: Вопросы и ответы
         href: qa/index.md
-base: ru/datasphere
-deepBase: 2

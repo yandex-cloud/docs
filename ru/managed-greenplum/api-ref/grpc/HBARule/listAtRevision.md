@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/greenplum/v1/api-ref/grpc/HBARule/listAtRevision.md
 ---
 
-# Managed Service for Greenplum® API, gRPC: HBARuleService.ListAtRevision {#ListAtRevision}
+# Managed Service for Greenplum® API, gRPC: HBARuleService.ListAtRevision
 
 Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 
@@ -15,34 +15,38 @@ Retrieves a list of HBA rules for Greenplum clusters for particular revision.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "revision": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Greenplum cluster.
-To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request. ||
+To get the Greenplum cluster ID use a [ClusterService.List](/docs/managed-greenplum/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || revision | **int64**
 
-Cluster revision ||
+Cluster revision
+
+Value must be greater than 0. ||
 |#
 
 ## ListHBARulesResponse {#yandex.cloud.mdb.greenplum.v1.ListHBARulesResponse}
 
 ```json
 {
-  "hbaRules": [
+  "hba_rules": [
     {
       "priority": "int64",
-      "connectionType": "ConnectionType",
+      "connection_type": "ConnectionType",
       "database": "string",
       "user": "string",
       "address": "string",
-      "authMethod": "AuthMethod"
+      "auth_method": "AuthMethod"
     }
   ]
 }
@@ -50,7 +54,7 @@ Cluster revision ||
 
 #|
 ||Field | Description ||
-|| hbaRules[] | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
+|| hba_rules[] | **[HBARule](#yandex.cloud.mdb.greenplum.v1.HBARule)**
 
 Requested list of hba rules for the cluster. ||
 |#
@@ -61,10 +65,11 @@ Requested list of hba rules for the cluster. ||
 ||Field | Description ||
 || priority | **int64**
 
-Priority of the Greenplum cluster rule. ||
-|| connectionType | enum **ConnectionType**
+Priority of the Greenplum cluster rule.
 
-- `CONNECTION_TYPE_UNSPECIFIED`
+Acceptable values are 0 to 1000, inclusive. ||
+|| connection_type | enum **ConnectionType**
+
 - `HOST`: Matches connection attempts made using TCP/IP.
 - `HOSTSSL`: Matches connection attempts made using TCP/IP, but only when the connection is made with SSL encryption.
 - `HOSTNOSSL`: Matches connection attempts made over TCP/IP that do not use SSL. ||
@@ -77,13 +82,13 @@ Required field. Specifies which database role names this user matches. ||
 || address | **string**
 
 Required field. Specifies the client machine addresses that this record matches. ||
-|| authMethod | enum **AuthMethod**
+|| auth_method | enum **AuthMethod**
 
 Specifies the authentication method to use when a connection matches this record.
 https://gpdb.docs.pivotal.io/6-6/security-guide/topics/Authenticate.html
 
-- `AUTH_METHOD_UNSPECIFIED`
 - `MD5`: Perform SCRAM-SHA-256 or MD5 authentication to verify the user's password.
 - `LDAP`: Perform LDAP authentication, if MDB_GREENPLUM_LDAP flag is set
-- `REJECT`: Disable authentication ||
+- `REJECT`: Disable authentication
+- `IAM`: Perform authentication with IAM token ||
 |#

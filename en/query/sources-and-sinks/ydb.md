@@ -22,7 +22,7 @@ Where:
 To create a connection to {{ ydb-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -35,7 +35,7 @@ To create a connection to {{ ydb-name }}:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ ydb-name }} database or create a new one.
       * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select the {{ ydb-name }} [service account](../../iam/concepts/users/service-accounts.md) to use for connecting to `{{ ydb-name }}` clusters and database authentication. If you do not have a service account, create one and assign the `ydb.viewer` [role](../../ydb/security/index.md#ydb-viewer) to it.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
@@ -58,7 +58,35 @@ Where:
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+|Description|Example|I/O|
+|---|---|---|
+|Filters like `IS NULL`/`IS NOT NULL`|`WHERE column1 IS NULL` or `WHERE column1 IS NOT NULL`||
+|The `OR`, `NOT`, or `AND` logical conditions or parentheses to prioritize calculations |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.||
+|Comparison operators (`=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, or `<=`) against other columns or constants|`WHERE column1 > column2 OR column3 <= 10`.||
+|The `LIKE` string pattern matching operator|`WHERE column1 LIKE '_abc%'`|Currently, pushdown only supports simple patterns based on prefixes (`'abc_'` or `'abc%'`), suffixes (`'_abc'` or `'%abc'`), or searching for a substring in a string (`'_abc_'`, `'%abc%'`, `'_abc%'`, or `'%abc_'`). Use `REGEXP` to push down more complex patterns.|
+|The `REGEXP` string pattern matching operator|`WHERE column1 REGEXP '.*abc.*'`||
+
+Other filter types do not support any pushdown on the source side: the external table rows will be filtered on the federated {{ yq-full-name }} side, i.e., {{ yq-full-name }} will perform a full scan of the external table when processing the query.
+
+Supported data types for filter pushdown:
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
+|`String`|
+|`Utf8`|
 
 ## Supported data types {#supported_types}
 
@@ -85,6 +113,7 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 | `String` | `String` |
 | `Utf8` | `Utf8` |
 | `Json` | `Json` |
+| `JsonDocument` | `Json` |
 
 ### Optional data types {#supported_types_nullable}
 
@@ -107,4 +136,4 @@ The tables below show how {{ ydb-name }} and {{ yq-full-name }} data types map. 
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
 | `Optional<Json>` | `Optional<Json>` |
-
+| `Optional<JsonDocument>` | `Optional<Json>` |

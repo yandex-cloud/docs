@@ -1,9 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups/{name}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to delete the OpenSearch type host group in.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the OpenSearch type host group to delete.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteOpenSearchNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.DeleteOpenSearchNodeGroup {#DeleteOpenSearchNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.DeleteOpenSearchNodeGroup
 
 Deletes an OpenSearch type host group.
 
@@ -21,7 +45,9 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/ope
 
 Required field. ID of the OpenSearch cluster to delete the OpenSearch type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the OpenSearch type host group to delete. ||

@@ -1,3 +1,8 @@
+---
+title: Установка Thumbor
+description: Следуя данной инструкции, вы сможете установить Thumbor.
+---
+
 # Установка Thumbor
 
 
@@ -6,7 +11,7 @@
 Возможности Thumbor:
 * Поддержка всех популярных форматов изображений.
 * Умная обрезка и масштабирование.
-* Ускорение обработки изображений за счет кэширования.
+* Ускорение обработки изображений за счет кеширования.
 * Поддержка различных типов хранилищ (локальный диск, {{ objstorage-full-name }} и другие).
 * Распознавание лиц и предметов (очки, особенности внешности) на базе [технологии компьютерного зрения](https://github.com/opencv/opencv).
 * Интеграция с различными языками программирования.
@@ -16,7 +21,7 @@
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 1. [Загрузите изображения в бакет](../../../storage/operations/objects/upload.md#simple).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Thumbor.
-1. Создайте для него [статический ключ](../../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
+1. Создайте для него [статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните в файл `sa-key.json`:
 
    ```bash
    yc iam access-key create \
@@ -36,7 +41,7 @@
 1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Thumbor](/marketplace/products/yc/thumbor) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Thumbor или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `thumbor-space`). Если вы оставите пространство имен по умолчанию, Thumbor может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Имя бакета** — укажите [имя бакета](#before-you-begin), созданного ранее.
    * **Статический ключ для доступа к {{ objstorage-name }}** — вставьте содержимое файла `sa-key.json`.
@@ -55,7 +60,7 @@
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Thumbor выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Thumbor выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
    {% list tabs %}
 
@@ -75,6 +80,8 @@
       thumbor ./thumbor
      ```
 
+     Если вы укажете в параметре `namespace` пространство имен по умолчанию, Thumbor может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `thumbor-space`).
+
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
    - URL без подписи запрещены
@@ -93,6 +100,8 @@
        --set-file saAccessKeyFile='sa-key.json' \
       thumbor ./thumbor/
      ```
+
+     Если вы укажете в параметре `namespace` пространство имен по умолчанию, Thumbor может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `thumbor-space`).
 
      {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

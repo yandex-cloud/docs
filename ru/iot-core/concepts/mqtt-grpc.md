@@ -1,3 +1,8 @@
+---
+title: Отправка сообщений MQTT-серверу через gRPC
+description: Из статьи вы узнаете про отправку сообщений MQTT-серверу через gRPC, как выглядит структура сериализуемых данных, а также познакомитесь с примером работы.
+---
+
 # Отправка сообщений MQTT-серверу через gRPC
 
 [MQTT-серверу](../../glossary/mqtt-server.md) можно отправлять сообщения от имени устройства или реестра с помощью [gRPC](https://grpc.io/docs/). Для сериализации данных используется [Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
@@ -113,4 +118,4 @@ message PublishBrokerDataResponse {
 
 ## Пример работы
 
-Пример работы с MQTT-сервером с помощью gRPC для языка JavaScript приведен в [коде](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/terraform/emulator_publish/publish/iot_data.js) функции, эмулирующей отправку сообщений от имени множества устройств.
+Пример работы с MQTT-сервером с помощью gRPC для языка JavaScript приведен в [коде](https://github.com/yandex-cloud-examples/yc-emulator-publish-with-iot/blob/main/publish/iot_data.js) функции, эмулирующей отправку сообщений от имени множества устройств.

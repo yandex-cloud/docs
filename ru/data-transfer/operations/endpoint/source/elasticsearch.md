@@ -26,15 +26,16 @@ description: Из статьи вы узнаете, как задать наст
 
 ## Подготовка базы данных источника {#prepare}
 
-{% include [prepare elasticsearch db](../../../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
+{% include [elastic-version](../../../../_includes/data-transfer/elastic-version-note.md) %}
+
+{% include notitle [White IP list](../../../../_includes/data-transfer/configure-white-ip.md) %}
 
 ## Настройка эндпоинта-источника {{ ES }} {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* Настройки подключения к [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
+* Настройки подключения к [пользовательской инсталляции](#on-premise). Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
-
 
 ### Пользовательская инсталляция {#on-premise}
 
@@ -44,7 +45,26 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [On premise Elasticsearch UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-elasticsearch.md) %}
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.addresses.title }}** — нажмите на значок ![image](../../../../_assets/console-icons/plus.svg), чтобы добавить новый узел с данными. Для каждого узла укажите:
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearchHostPort.host.title }}** — IP-адрес или FQDN хоста с ролью `DATA`, к которому необходимо подключиться.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearchHostPort.port.title }}** — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к хосту с ролью `DATA`.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ssl_enabled.title }}** — выберите, если используется безопасное соединение SSL.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.ca_certificate.title }}** — загрузите файл сертификата или добавьте его содержимое в текстовом виде, если требуется шифрование передаваемых данных, например, для соответствия требованиям PCI DSS.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.OnPremiseElasticSearch.subnet_id.title }}** — выберите или [создайте](../../../../vpc/operations/subnet-create.md) подсеть в нужной [зоне доступности](../../../../overview/concepts/geo-scope.md).
+      Если значение в этом поле задано для обоих эндпоинтов, то обе подсети должны быть размещены в одной зоне доступности.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к кластеру.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.password.title }}** — укажите пароль пользователя для доступа к кластеру.
+
+   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.elasticsearch.console.form.elasticsearch.ElasticSearchConnection.security_groups.title }}** — выберите облачную сеть для размещения эндпоинта и группы безопасности для сетевого трафика.
+
+     Это позволит применить к ВМ и кластерам в выбранной сети указанные правила групп безопасности без изменения настроек этих ВМ и кластеров. Подробнее см. в разделе [{#T}](../../../../data-transfer/concepts/network.md).
 
 {% endlist %}
 
@@ -76,14 +96,3 @@ description: Из статьи вы узнаете, как задать наст
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
-
-## Решение проблем, возникающих при переносе данных {#troubleshooting}
-
-* [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
-* [Дублирование документов на приемнике](#duplication)
-
-См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
-
-{% include [ambiguous-object-resolution-es](../../../../_includes/data-transfer/troubles/elastic-opensearch/ambiguous-object-resolution-es.md) %}
-
-{% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}

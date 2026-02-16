@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        type:
+          description: |-
+            **enum** (Type)
+            Required field. Required. ResourcePreset type - master or segment.
+            - `MASTER`: Greenplum® master host.
+            - `SEGMENT`: Greenplum® segment host.
+          type: string
+          enum:
+            - TYPE_UNSPECIFIED
+            - MASTER
+            - SEGMENT
+      required:
+        - type
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/ResourcePreset/list.md
 ---
 
-# Managed Service for Greenplum® API, REST: ResourcePreset.List {#List}
+# Managed Service for Greenplum® API, REST: ResourcePreset.List
 
 Retrieves the list of available resource presets.
 
@@ -21,15 +58,18 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request. ||
+Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 || type | **enum** (Type)
 
 Required field. Required. ResourcePreset type - master or segment.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 |#
@@ -71,7 +111,9 @@ This token allows you to get the next page of results for list requests.
 
 If the number of results is larger than [ListResourcePresetsRequest.pageSize](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest), use the `nextPageToken` as the value for the [ListResourcePresetsRequest.pageToken](#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest) parameter in the next list request.
 
-Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
+Each subsequent list request has its own `nextPageToken` to continue paging through the results.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.greenplum.v1.ResourcePreset}
@@ -99,7 +141,6 @@ RAM volume for a Greenplum® host created with the preset, in bytes. ||
 
 Host type.
 
-- `TYPE_UNSPECIFIED`
 - `MASTER`: Greenplum® master host.
 - `SEGMENT`: Greenplum® segment host. ||
 || hostCountDivider | **string** (int64)

@@ -1,8 +1,13 @@
-# Authenticating and connecting to a database using the Kafka API
+---
+title: Authentication and database connection using the Kafka API
+description: In this tutorial, you will learn how to authenticate and establish a database connection using the Kafka API.
+---
+
+# Authentication and database connection using the Kafka API
 
 ## Endpoint {#endpoint}
 
-The Kafka API endpoint is displayed in the [management console]({{ link-console-main }}) on the data stream page under the **Overview** tab in the **Kafka API endpoint** field.
+The Kafka API endpoint appears in the [management console]({{ link-console-main }}) under: **Data Streams** → [Your Stream] → **Overview** → **Kafka API endpoint**.
 
 The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.serverless.yandexcloud.net:9093`.
 
@@ -11,10 +16,10 @@ The endpoint has the following format: `<FQDN_YDB>:PORT`. For example, `ydb-01.s
 To authenticate, take these steps:
 
 1. [Create a service account](../../iam/operations/sa/create).
-1. [Assign roles to the service account](../../iam/operations/sa/assign-role-for-sa):
-   * For reading from a data stream: `ydb.kafkaApi.client` and `ydb.viewer`.
-   * For writing to a data stream: `ydb.kafkaApi.client` and `ydb.editor`.
-1. [Create an API key](../../iam/operations/api-key/create).
+1. [Assign the following roles to the service account](../../iam/operations/sa/assign-role-for-sa):
+   * `ydb.kafkaApi.client` and `ydb.viewer`: for reading from a data stream.
+   * `ydb.kafkaApi.client` and `ydb.editor`: for writing to a data stream.
+1. [Create an API key](../../iam/operations/authentication/manage-api-keys.md) with the `yc.ydb.topics.manage` scope.
 
 
 ## Authentication {#auth}
@@ -23,68 +28,96 @@ The Kafka API uses the [SASL_SSL/PLAIN](https://docs.confluent.io/platform/curre
 
 The following parameters are required:
 
-* `<database>`: Database path. To view the database path, in the [management console]({{ link-console-main }}), go to the data stream page and open the **Overview** tab. The path is specified in the **Endpoint** field after `database=`.
+* `<database>`: Database path. The database path appears in the [management console]({{ link-console-main }}) under: **Data Streams** → [Your Stream] → **Overview** → **Endpoint** (a substring following `database=`).
 
-   For example, in the `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}` endpoint, `{{ ydb.path-serverless }}` is the database path.
+    For example, if the **Endpoint** field contains `{{ ydb.ep-serverless }}/?database={{ ydb.path-serverless }}`, the database path is `{{ ydb.path-serverless }}`.
 
 * `<api-key>`: [API key](../../iam/concepts/authorization/api-key).
 
-Parameters used for authentication when reading and writing messages:
+These parameters will be used for authentication when reading and writing messages:
 
-* `<sasl.username>` = `@<database>`
+* `<sasl.username>` = `@<database>` (Note that the database path must be prefixed with the `@` symbol)
 * `<sasl.password>` = `<api-key>`
 
 ## Example of writing and reading a message {#example}
 
-The example uses the following parameters:
+This example uses the following parameters:
 
-* `<kafka-api-endpoint>`: [Endpoint](#endpoint)
-* `<stream-name>`: [Data stream](../concepts/glossary.md#stream-concepts) name
+ * `<kafka-api-endpoint>`: [Endpoint](#endpoint).
+ * `<stream-name>`: [Data stream](../concepts/glossary.md#stream-concepts) name.
 
-1. Install an SSL certificate:
+1. If you are using a dedicated database, you need to Install an SSL certificate:
 
    ```bash
-    mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-    wget "https://crls.yandex.net/YandexInternalRootCA.crt" \
+    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
+    wget "{{ crt-web-path }}" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
    The certificate will be saved to the `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt` file.
 
-1. Install `kcat`, an open source utility that can function as a generic data producer or consumer:
+1. Install `kcat`, an open-source tool for producing and consuming data:
 
    ```bash
    sudo apt-get install kafkacat
    ```
 
-1. Run this command to get messages from the stream:
+1. Run the following command to get messages from the stream:
 
-   ```ini
-   kcat -C \
-       -b <kafka-api-endpoint> \
-       -t <stream-name> \
-       -X security.protocol=SASL_SSL \
-       -X sasl.mechanism=PLAIN \
-       -X sasl.username="<sasl.username>" \
-       -X sasl.password="<sasl.password>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-   ```
+    {% list tabs %}
+    - Serverless database
+      ```bash
+      kcat -C \
+        -b <kafka-api-endpoint> \
+        -t <stream-name> \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanism=PLAIN \
+        -X sasl.username="<sasl.username>" \
+        -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated database
+      ```bash
+      kcat -C \
+        -b <kafka-api-endpoint> \
+        -t <stream-name> \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanism=PLAIN \
+        -X sasl.username="<sasl.username>" \
+        -X sasl.password="<sasl.password>" \
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
 
-   The command will continuously read new messages from the stream.
+    This command will continuously read new messages from the stream.
 
-1. In a separate terminal, run this command to send a message to the stream:
+1. In a separate terminal, run the following command to send a message to the stream:
 
-   ```ini
-   echo "test message" | kcat -P \
-       -b <kafka-api-endpoint> \
-       -t <stream-name> \
-       -k key \
-       -X security.protocol=SASL_SSL \
-       -X sasl.mechanism=PLAIN \
-       -X sasl.username="<sasl.username>" \
-       -X sasl.password="<sasl.password>" \
-       -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-   ```
+    {% list tabs %}
+    - Serverless database
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated database
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>" \
+          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
 
-For core information on how to work with {{ yds-name }} using the Kafka API, see the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).
+
+For details on working with {{ yds-name }} via the Kafka API and more examples, refer to the [YDB documentation]({{ ydb.docs }}/reference/kafka-api).

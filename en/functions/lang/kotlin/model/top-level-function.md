@@ -20,12 +20,13 @@ You can test the function from the above example in the following ways:
 * Using the following HTTPS request with the [?integration=raw](../../../concepts/function-invoke.md#http) parameter:
 
    ```bash
-   curl -H "Authorization: Bearer <IAM_token>" \
+   curl \
+        --header "Authorization: Bearer <IAM_token>" \
         --data "<number>" \
         "https://functions.yandexcloud.net/<function_ID>?integration=raw"
    ```
 
-   In the `--data` parameter, specify the number for the function to return.
+   In the `--data` parameter, specify the number to be returned by the function.
 
 ## Examples {#examples}
 
@@ -33,7 +34,7 @@ You can test the function from the above example in the following ways:
 
 The script below processes an [incoming HTTP request](../../../concepts/function-invoke.md#http) and outputs the results: HTTP response code and response body.
 
-The `Handler.kt` file:
+`Handler.kt` file:
 
 ```kotlin
 data class Request(
@@ -54,28 +55,28 @@ fun handle(request: Request): Response {
 
 The result format depends on whether the user provided the `?integration=raw` parameter in the request:
 
-* With `?integration=raw` provided:
+* If `?integration=raw` was provided:
 
-   ```json
-   {
-       "statusCode": 200,
-       "body": "Hello World!"
-   }
-   ```
+    ```json
+    {
+        "statusCode": 200,
+        "body": "Hello World!"
+    }
+    ```
 
-* With no `?integration=raw` provided:
+* If `?integration=raw` was not provided:
 
-   ```text
-   "Hello World!"
-   ```
+    ```text
+    "Hello World!"
+    ```
 
-   The `200` code will be delivered as an HTTP status code, not as part of the response body as it would be with the `?integration=raw` parameter provided.
+    The `200` code will be delivered not as part of the response body, as in the case with the `?integration=raw` parameter, but as an HTTP response code.
 
 ### HTTP request structure output {#http-request-structure}
 
 The script below processes an incoming HTTP request and outputs its structure and HTTP response code.
 
-The `Handler.kt` file:
+`Handler.kt` file:
 
 ```kotlin
 data class Response(

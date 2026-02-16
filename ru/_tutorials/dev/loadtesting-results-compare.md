@@ -55,7 +55,7 @@
 	1. В качестве логина укажите, например, `ycuser`.
    1. Укажите группу безопасности `load-target-sg` в блоке сетевых настроек.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH, выполнив комманду:
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по SSH, выполнив команду:
 	```bash
 	ssh ycuser@<публичный_IP-адрес_ВМ>
 	```
@@ -110,7 +110,7 @@
 
 1. Сформируйте тестовые данные в формате [URI](../../load-testing/concepts/payloads/uri.md):
    ```text
-   [Host: <внутренний_IP_адрес_цели_тестирования>]
+   [Host: <внутренний_IP-адрес_цели_тестирования>]
    [Connection: Close]
    / index
    /test?param1=1&param2=2 get_test
@@ -192,7 +192,7 @@
                - id: HTTP
                   gun:
                   type: http # Протокол.
-                  target: <внутренний_IP_адрес_цели_тестирования>:443 
+                  target: <внутренний_IP-адрес_цели_тестирования>:443 
                   ssl: true
                   ammo:
                   type: uri
@@ -260,7 +260,10 @@
 ## Сравните результаты {#compare-results}
 
 
-@[youtube](eEKKZ1M7IWU)
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvlfh7uue6z55k7ek6?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=eEKKZ1M7IWU).
+
 
 
 Чтобы сравнить результаты:

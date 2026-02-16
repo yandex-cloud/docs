@@ -1,16 +1,79 @@
 # Deleting a cloud
 
-
-To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
+To delete a cloud, you must have the [{{ roles-resource-manager-editor }}](../../security/index.md#resource-manager-editor) role or higher for that cloud. If you cannot perform this operation, contact the [cloud owner](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the appropriate cloud from the list on the left.
-  1. In the top-right corner of the page, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
-  1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `Delete now`. The default cloud deletion delay is 7 days.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+  1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg).
+  1. Select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.CloudActions.button_action-delete-cloud_3simi }}**.
+
+     ![delete-cloud1](../../../_assets/resource-manager/delete-cloud-en1.png)
+
+  1. Select a cloud deletion delay, after which the cloud will be deleted. Select one of the suggested periods or `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. The default period is seven days.
+  1. Enter the cloud name to confirm deletion.
   1. Click **{{ ui-key.yacloud.common.delete }}**.
+
+     ![delete-cloud2](../../../_assets/resource-manager/delete-cloud-en2.png)
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  1. View a description of the cloud delete command:
+
+      ```bash
+      yc resource-manager cloud delete --help
+      ```
+
+  1. Get a list of available clouds:
+
+      {% include [get-cloud-list](../../../_includes/resource-manager/get-cloud-list.md) %}
+
+  1. Delete the cloud by specifying its name or ID:
+
+      ```bash
+      yc resource-manager cloud delete <cloud_name_or_ID> \
+        --delete-after <cloud_deletion_delay> \
+        --async
+      ```
+
+      Where:
+
+      * `--delete-after`: Cloud deletion delay in `HhMmSs` format. Cloud deletion process will start after the specified delay, e.g., `--delete-after 22h30m50s`.
+      
+          Specify `0s` to delete the cloud now.
+      * `--async`: Asynchronous deletion flag.
+      
+          Deleting a cloud can take up to 72 hours. Run the command in asynchronous mode to return to terminal management without waiting for the command to complete.
+
+      Result:
+
+      ```text
+      id: b1gqkbbj04d9********
+      description: Delete cloud
+      created_at: "2024-10-17T05:16:30.648219069Z"
+      created_by: ajei280a73vc********
+      modified_at: "2024-10-17T05:16:30.648219069Z"
+      metadata:
+        '@type': type.googleapis.com/yandex.cloud.resourcemanager.v1.DeleteCloudMetadata
+        cloud_id: b1g66mft1vop********
+        delete_after: "2024-10-18T03:47:19.441433Z"
+      ```
+
+      Where `id` is the operation ID you can use to track the operation status later.
+
+  1. (Optional) Get information about the deletion operation status:
+
+      ```bash
+      yc operation get <operation_ID>
+      ```
+
+      After cloud deletion is complete, the response will contain the `done` field set to `true` (`done: true`).
+
+  For more information about the `yc resource-manager cloud delete` command, see the [CLI reference](../../../cli/cli-ref/resource-manager/cli-ref/cloud/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -33,7 +96,8 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
 
       {% endcut %}
 
-      For more information about the `yandex_resourcemanager_cloud` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+      For more information about `yandex_resourcemanager_cloud` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/resourcemanager_cloud).
+
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -42,7 +106,7 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
       ```
 
       If the configuration is correct, you will get this message:
-
+     
       ```bash
       Success! The configuration is valid.
       ```
@@ -53,8 +117,9 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+
+  1. Apply the changes:
 
       ```bash
       terraform apply
@@ -74,8 +139,8 @@ To delete a cloud, you must have the [editor](../../../iam/roles-reference.md#ed
 
 {% endlist %}
 
-The resources will be stopped, and the cloud status will change to `PENDING_DELETION`. You can [cancel](delete-cancel.md) the deletion of a cloud when it is `PENDING_DELETION`.
+Deletion starts from stopping the resources. The cloud enters the `PENDING_DELETION` status. Preparation for deletion starts. The exact time in this status depends on selected deletion delay period. You can [cancel](delete-cancel.md) the deletion of the cloud while it is `PENDING_DELETION`.
 
 {% include [alert-pending-deletion](../../../_includes/resource-manager/alert-pending-deletion.md) %}
 
-Once the waiting timeout expires, the cloud status switches to `DELETING`. This status means it is being permanently deleted, which can take up to 72 hours.
+As soon as the deletion preparation and delay periods are over, the cloud enters the `DELETING` status. This status means it is being permanently deleted, which can take up to 72 hours. All the cloud's resources will be deleted together with it.

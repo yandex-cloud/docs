@@ -5,37 +5,62 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать профиль безопасности
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать [профиль безопасности](../concepts/profiles.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Выберите один из вариантов создания:
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (рекомендуется). Преднастроенный профиль содержит:
+      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (рекомендуется).
 
-        * [базовое правило](../concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../concepts/rules.md#rule-action) — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}`;
-        * [правило Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с типом действия — `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+        {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
+        
       * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. Профиль содержит только базовое правило по умолчанию, включенное для всего трафика.
 
   1. Введите имя профиля.
-  1. (опционально) Введите описание.
-  1. (опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
+  1. (Опционально) Введите описание.
+  1. (Опционально) Добавьте профилю [метки](../../resource-manager/concepts/labels.md).
   1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите, что делать с трафиком, который не попал под условия других правил: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Выберите или создайте [профиль ARL](../operations/arl-profile-create.md), чтобы установить лимиты на количество запросов.
   1. Выберите или создайте капчу [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов:
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
+  1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+  
+  1. (Опционально) Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** и настройте логирование:
+     1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите, какие логи будут записываться: **{{ cloud-logging-name }}**, **{{ at-name }}**.
+     1. Для {{ cloud-logging-name }} выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи.
+     1. Для записи в логи можно выбрать только те запросы, для которых сработали:
+        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**.
+        * Правила **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}**.
+        * Все выбранные правила применили действие (вердикт) **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
+        * Все выбранные правила применили действие **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** (легитимные запросы).
+  
+     Подробнее о настройке логирования см. в разделе [{#T}](configure-logging.md).
+
   1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. В окне создания правила:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
+  1. Если для базового правила по умолчанию установлено действие `Запретить` и запросы отправляются на проверку в {{ captcha-name }}, [добавьте](captcha-rule.md) разрешающее правило.
   1. Последовательно добавьте все правила, которые вы хотите задействовать в профиле.
 
       В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появятся созданные вами правила.
+  1. (Опционально) Включите или отключите использование информации об HTTP-запросах для улучшения моделей машинного обучения в разделе **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -86,7 +111,88 @@ description: Следуя данной инструкции, вы сможете
      created_at: "2024-07-25T19:21:05.039610Z"
      ```
 
-  Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
+  Подробнее о команде `yc smartwebsecurity security-profile create` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<имя_профиля_безопасности>"
+        default_action                   = "DENY"
+        captcha_id                       = "<идентификатор_капчи>"
+        advanced_rate_limiter_profile_id = "<идентификатор_ARL_профиля>"
+
+        # Правило Smart Protection
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        # Базовое правило
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # Правило c WAF профилем
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<идентификатор_WAF_профиля>"
+          }
+        }
+      }
+      ```
+
+      Где:
+      * `name` — имя профиля безопасности.
+      * `default_action` — действие для базового правила по умолчанию. Будет применяться к трафику, который не попал под условия других правил.  Возможные значения: `ALLOW` — разрешает все запросы к сервису, `DENY` — запрещает.
+      * `captcha_id` — идентификатор капчи [{{ captcha-full-name }}](../../smartcaptcha/) для проверки подозрительных запросов. Необязательный параметр.
+      * `advanced_rate_limiter_profile_id` — идентификатор [ARL профиля безопасности](../concepts/arl.md). Необязательный параметр.
+      * `security_rule` — описание [правила](../concepts/rules.md) безопасности:
+         * `name` — имя правила безопасности.
+         * `priority` — [приоритет](../concepts/rules.md) правила. Возможные значения от 1 до 1000000.
+         * `smart_protection` — описание [правила Smart Protection](../concepts/rules.md#smart-protection-rules), включенное для всего трафика, с указанным типом действия в параметре `mode`.
+            * `mode` — [действие правила](../concepts/rules.md#rule-action). Возможные значения: `FULL` — полная защита (подозрительные запросы отправляются на капчу) или `API` — защита API (подозрительные запросы блокируются).
+         * `waf` — описание правила Web Application Firewall. Чтобы добавить правило WAF, сначала надо [создать профиль WAF](waf-profile-create.md). Необязательный блок параметров, содержит:
+            * `waf_profile_id` — идентификатор [WAF профиля](../concepts/waf.md).
+
+      Если не указать тип правила `smart_protection` или `waf`, будет создано базовое правило с простой фильтрацией по заданным условиям в блоке `rule_condition`.
+
+      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Создайте ресурсы:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc smartwebsecurity security-profile get <идентификатор_профиля_безопасности>
+  ```
 
 - API {#api}
 

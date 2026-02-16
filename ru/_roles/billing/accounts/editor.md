@@ -1,3 +1,39 @@
-Роль `billing.accounts.editor` назначается на [платежный аккаунт](../../../billing/concepts/billing-account.md). Роль дает право получать [счета на оплату](../../../billing/concepts/bill.md), активировать [промокоды](../../../billing/concepts/promo-code.md), привязывать [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и [сервисы](../../../overview/concepts/services.md) к платежному аккаунту, создавать [экспорт детализации](../../../billing/operations/get-folder-report.md), создавать [бюджеты](../../../billing/concepts/budget.md), генерировать [акты сверки](../../../billing/concepts/act.md#reconciliation-report) и [резервировать ресурсы](../../../billing/concepts/cvos.md).
+Роль `billing.accounts.editor` назначается на платежный аккаунт. Позволяет получать счета на оплату, активировать промокоды, привязывать облака и сервисы к платежному аккаунту, создавать экспорт детализации, создавать бюджеты, генерировать акты сверки и резервировать ресурсы.
+
+{% cut "В сервисе Yandex Cloud Billing пользователи с этой ролью могут:" %}
+
+* показывать [платежные аккаунты](../../../billing/concepts/billing-account.md) в списке всех аккаунтов;
+* просматривать данные платежных аккаунтов;
+* просматривать [коммерческие предложения](../../../billing/concepts/glossary.md#client-offer);
+* просматривать и скачивать [отчетные (закрывающие) документы](../../../billing/payment/documents.md);
+* генерировать новые [акты сверки](../../../billing/concepts/act.md#reconciliation-report);
+* просматривать и скачивать сгенерированные акты сверки;
+* получать и просматривать уведомления о потреблении;
+* проверять расходы;
+* [просматривать детализацию](../../../billing/operations/check-charges.md);
+* создавать [экспорт детализации](../../../billing/operations/get-folder-report.md);
+* создавать [бюджеты](../../../billing/concepts/budget.md);
+* [резервировать потребление ресурсов](../../../billing/concepts/cvos.md);
+* пополнять [лицевой счет](../../../billing/concepts/personal-account.md) с помощью расчетного счета;
+* привязывать [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) к платежному аккаунту;
+* переименовывать платежные аккаунты;
+* активировать промокоды.
+
+{% endcut %}
+
+{% cut "На партнерском портале Yandex Cloud пользователи с этой ролью могут:" %}
+
+* просматривать историю начисления [рибейта](../../../partner/terms.md#rebate);
+* просматривать присвоенные [специализации](../../../partner/specializations/index.md);
+* просматривать историю начисления вознаграждений по [реферальной программе](../../../partner/program/referral.md);
+* выводить [вознаграждение](../../../partner/program/referral.md#premium) по реферальной программе;
+* просматривать статус расчетов с [компанией-реферером](../../../partner/terms.md#referral-partner);
+* просматривать список реферальных ссылок;
+* создавать реферальные ссылки;
+* активировать реферальные ссылки;
+* изменять реферальные ссылки;
+* привязывать [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) к [сабаккаунтам](../../../partner/terms.md#sub-account).
+
+{% endcut %}
 
 Включает разрешения, предоставляемые ролью `billing.accounts.viewer`.

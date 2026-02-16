@@ -1,1 +1,1 @@
-О том, как получить FQDN хоста, см. [инструкцию](../../../managed-mongodb/operations/connect/index.md#get-fqdn).
+О том, как получить FQDN хоста, см. [инструкцию](../../../storedoc/operations/connect/index.md#get-fqdn).

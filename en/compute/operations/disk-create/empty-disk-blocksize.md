@@ -1,6 +1,6 @@
 ---
 title: How to create an empty disk with a large block
-description: Use this guide to create an empty disk with a large block.
+description: Follow this guide to create an empty disk with a large block.
 ---
 
 # Creating an empty disk with a large block
@@ -18,7 +18,7 @@ description: Use this guide to create an empty disk with a large block.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    1. See the description of the CLI create disk commands:
+    1. See the description of the CLI commands for creating disks:
 
         ```bash
         yc compute disk create --help
@@ -76,3 +76,8 @@ description: Use this guide to create an empty disk with a large block.
   Use the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/Disk/create.md) gRPC API call.
 
 {% endlist %}
+
+
+#### See also {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)

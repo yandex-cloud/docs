@@ -1,4 +1,4 @@
-# Using parameters
+# Using parameters in calculated fields
 
 
 A parameter is a variable that can substitute constant values in calculated fields.
@@ -42,7 +42,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    ![image](../../_assets/datalens/solution-parameters/add-table.png)
 
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 
    ![image](../../_assets/datalens/solution-parameters/dataset-field-tab.png)
 
@@ -97,7 +97,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 ## Create a chart with a configurable date dimension {#create-chart-grouping}
 
 1. In the top-right corner of the dataset, click **Create chart**.
-1. Select **Stacked area chart** as the visualization type.
+1. Select **Area chart** as the visualization type.
 
    ![image](../../_assets/datalens/solution-parameters/select-area-chart.png)
 
@@ -159,7 +159,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a dashboard {#create-dashboard}
 
-Create a [dashboard](../../datalens/concepts/dashboard.md) to add these charts to.
+Create a [dashboard](../../datalens/concepts/dashboard.md) for the charts.
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. Click **Create dashboard**.
@@ -236,7 +236,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter name**, enter `dimension`. The value from the selector will be provided to this dataset parameter.
+   1. Under **Field or parameter name**, enter `dimension`. The value from the selector will be passed to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:
 

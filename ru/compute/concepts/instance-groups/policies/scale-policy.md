@@ -100,6 +100,10 @@ scale_policy:
 
 Для `test_auto_scale` используются такие же ключи, [как и для `auto_scale`](#auto-scale-policy).
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/vm-autoscale/index.md)
+
 #### См. также {#see-also}
 
 * [{#T}](healing-policy.md)

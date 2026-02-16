@@ -1,9 +1,112 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+    method: patch
+    path:
+      type: object
+      properties:
+        routeTableId:
+          description: |-
+            **string**
+            Required field. ID of the RouteTable resource to update.
+          type: string
+      required:
+        - routeTableId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the route table.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the route table.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        staticRoutes:
+          description: |-
+            **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
+            List of static routes.
+          type: array
+          items:
+            $ref: '#/definitions/StaticRoute'
+      additionalProperties: false
+    definitions:
+      StaticRoute:
+        type: object
+        properties:
+          destinationPrefix:
+            description: |-
+              **string**
+              Destination subnet in CIDR notation
+              Includes only one of the fields `destinationPrefix`.
+            type: string
+          nextHopAddress:
+            description: |-
+              **string**
+              Next hop IP address
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          gatewayId:
+            description: |-
+              **string**
+              Next hop gateway id
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
+            type: object
+            additionalProperties:
+              type: string
+        allOf:
+          - oneOf:
+              - required:
+                  - destinationPrefix
+          - oneOf:
+              - required:
+                  - nextHopAddress
+              - required:
+                  - gatewayId
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/update.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Update {#Update}
+# Virtual Private Cloud API, REST: RouteTable.Update
 
 Updates the specified route table.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -30,7 +133,7 @@ Required field. ID of the RouteTable resource to update. ||
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "staticRoutes": [
     {
       // Includes only one of the fields `destinationPrefix`
@@ -40,7 +143,7 @@ Required field. ID of the RouteTable resource to update. ||
       "nextHopAddress": "string",
       "gatewayId": "string",
       // end of the list of possible fields
-      "labels": "string"
+      "labels": "object"
     }
   ]
 }
@@ -65,7 +168,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the route table. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 || staticRoutes[] | **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
@@ -94,7 +197,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#
@@ -128,7 +231,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "staticRoutes": [
       {
@@ -139,7 +242,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
         "nextHopAddress": "string",
         "gatewayId": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "object"
       }
     ]
   }
@@ -272,7 +375,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -308,7 +411,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -1,20 +1,20 @@
 ---
-title: How to edit an origin group in {{ cdn-full-name }}
-description: In this tutorial, you will learn how to edit a {{ cdn-name }} origin group.
+title: How to update an origin group in {{ cdn-full-name }}
+description: In this tutorial, you will learn how to update a {{ cdn-name }} origin group.
 ---
 
-# Editing an origin group
+# Updating an origin group
 
 ## Editing a group {#editing-groups}
 
-To edit an [origin group](../../concepts/origins.md):
+To update an [origin group](../../concepts/origins.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Select the group to edit.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -27,7 +27,7 @@ To edit an [origin group](../../concepts/origins.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI origin group edit command below:
+  1. View the description of the CLI command to edit an origin group:
 
      ```bash
      yc cdn origin-group update --help
@@ -55,7 +55,7 @@ To edit an [origin group](../../concepts/origins.md):
 
      ```bash
      yc cdn origin-group update --id <origin_group_ID> \
-       --name <new_name_for_group> \
+       --name <new_group_name> \
        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true \
        --origin source=<new_origin_IP_address_or_domain_name>,enabled=true,backup=true
      ```
@@ -77,7 +77,27 @@ To edit an [origin group](../../concepts/origins.md):
        enabled: true
      ```
 
-     For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/origin-group/update.md).
+     For more information about the `yc cdn origin-group update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/origin-group/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the `yandex_cdn_origin_group` description:
+
+     {% include [create-origin-group-tf](../../../_includes/cdn/create-origin-group-tf.md) %}
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the updates in the [management console]({{ link-console-main }}) or using this CLI command:
+
+     ```bash
+     yc cdn origin-group get <origin_group_ID>
+     ```
 
 - API {#api}
 
@@ -85,7 +105,7 @@ To edit an [origin group](../../concepts/origins.md):
 
 {% endlist %}
 
-## Removing one origin from a group {#group-source-deletion}
+## Deleting one origin from a group {#group-source-deletion}
 
 {% note info %}
 
@@ -93,15 +113,15 @@ You can only delete backup origins.
 
 {% endnote %}
 
-To remove an origin from an origin group:
+To delete an origin from an origin group:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group from which you want to delete an origin.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete an origin from.
   1. Select the appropriate origin and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -111,7 +131,7 @@ To remove an origin from an origin group:
 
 {% endlist %}
 
-## Removing multiple origins from a group {#summ-group-source-deletion}
+## Deleting multiple origins from a group {#summ-group-source-deletion}
 
 {% note info %}
 
@@ -119,15 +139,15 @@ You can only delete backup origins.
 
 {% endnote %}
 
-To remove multiple origins from a group:
+To delete multiple origins from a group:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a resource group.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group from which you want to delete origins.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** and click the name of the group to delete origins from.
   1. Select the appropriate origins and click **{{ ui-key.yacloud.common.delete }}** in the bottom panel.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 

@@ -1,5 +1,5 @@
 ---
-title: How to configure a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
+title: How to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ ydb-name }} target endpoint in {{ data-transfer-full-name }}.
 ---
 # Transferring data to a {{ ydb-name }} target endpoint
@@ -19,19 +19,19 @@ description: In this tutorial, you will learn how to set up a {{ ydb-name }} tar
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-   * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
-   * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
-   * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
+    * [Migration with change of storage from {{ MY }} to {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md).
+    * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
+    * [Migration with change of storage from {{ OS }} to {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
 
-   * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
-
+    * [Delivering data from {{ KF }} to {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
+    * [Delivering data from {{ DS }} to {{ ydb-short-name }}](../../../tutorials/yds-to-ydb.md).
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
-   * [Loading data from {{ objstorage-name }} to {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
+    * [Loading data from {{ objstorage-name }} to {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
 
-For a detailed description of possible {{ data-transfer-full-name }} data transfer scenarios, see [Tutorials](../../../tutorials/index.md).
+For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
 ## Configuring the data source {#supported-sources}
 
@@ -39,14 +39,14 @@ Configure one of the supported data sources:
 
 * [{{ MY }}](../source/mysql.md)
 * [{{ KF }}](../source/kafka.md)
-* [{{ AB }}](../../../transfer-matrix.md#airbyte)​
-* [{{ DS }}](../source/data-streams.md)​
-* [{{ objstorage-full-name }}](../source/object-storage.md).
-* [{{ PG }}](../source/postgresql.md)​
-* [{{ ES }}](../source/elasticsearch.md)​
-* [{{ OS }}](../source/opensearch.md)​
+* [{{ AB }}](../../../transfer-matrix.md#airbyte)
+* [{{ DS }}](../source/data-streams.md)
+* [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
+* [{{ PG }}](../source/postgresql.md)
+* [{{ OS }}](../source/opensearch.md).
 
-For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available Transfers](../../../transfer-matrix.md).
+For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
 
 ## Preparing the target database {#prepare}
 
@@ -64,18 +64,43 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`ydb.viewer` role](../../../../ydb/security/index.md#ydb-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`ydb.viewer`](../../../../ydb/security/index.md#ydb-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
+    {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
+
+- {{ TF }} {#tf}
+
+    * Endpoint type: `ydb_target`.
+
+    {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-target.md) %}
+
+    Here is an example of the configuration file structure (this may include other parameters):
+
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "ydb-target" {
+    name        = "<target_endpoint_name>"
+    settings {
+        ydb_target {
+          database           = "<target_database_path>"
+          cleanup_policy     = "<data_cleanup_policy>"
+          service_account_id = "<service_account_ID>"
+        }
+      }
+    }
+    ```
+
+
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 
@@ -85,34 +110,46 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 - Management console {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required `N` number of shards.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.shard_count.title }}**: Specify the required number of `N` shards.
 
-      If the setting is specified, the `_shard_col` column is added to tables. The values in it are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time and `N` is the number of shards specified by the setting.
+        If the setting is specified, the `_shard_col` column is added to tables. Its values are calculated as the remainder of `H/N`, where `H` is the result of the hash function at the current time, and `N` is the number of shards according to the setting.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.default_compression.title }}**: Set the `COMPRESSION` setting for the default column group (FAMILY default).
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory]({{ ydb.docs }}/concepts/datamodel/dir) to place tables in.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.path.title }}**: Specify the [subdirectory]({{ ydb.docs }}/concepts/datamodel/dir) to host your tables.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.partition_policy.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.part_type.title }}**: Hour, day, or month.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.part_size.title }}**: In the selected units.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.part_size.title }}**: In the selected units of measurement.
 
             When the time interval equal to the selected unit of measurement ends, the oldest database table will be deleted and a new one will be created.
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.keep_part_count.title }}**: Required number of tables in the target database.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Split (_partition_) a table by the specified column's values. The column must be of the **time** type.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}**: Column to split (_partition_) the table based on. The column must be of the _time_ type.
 
-
-            For more information about table partitioning, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
+            
+            For more information about partitioning tables, see the [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning) documentation.
 
 
         If this setting is used, the specified number of data tables for different intervals is created in the target database. The name of each table is selected automatically by the date and time of the start of the interval. Depending on the values in the specified column of the source table, the original rows are distributed across the respective tables in the target database.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill it in if you need to rename tables in the source database when transferring data to the target database.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}**: Fill if you need to rename the source database tables when transferring them to the target database.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}**: Select this option to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used. 
+
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
+- {{ TF }} {#tf}
+
+    * `path`: Subdirectory to host your tables.
+
+    * `default_compression`: Compression setting for the default column group.
+
+    * `is_table_column_oriented`: Set to `true` to create column-oriented OLAP tables. By default, row-oriented OLTP tables are used.
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 {% endlist %}
 
@@ -124,4 +161,4 @@ Known issues when using a {{ ydb-name }} endpoint:
 
 {% include [overloaded](../../../../_includes/data-transfer/troubles/overloaded.md) %}
 
-See a full list of recommendations in the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).

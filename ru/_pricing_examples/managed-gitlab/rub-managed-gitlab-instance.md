@@ -1,3 +1,3 @@
-> 5&nbsp;011,20&nbsp;₽ + 659,10&nbsp;₽ = 5&nbsp;670,30&nbsp;₽
+> {% calc [currency=RUB] 720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }}) %} + {% calc [currency=RUB] 30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }} %} = {% calc [currency=RUB] (720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }})) + (30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }}) %}
 
-  Где 5&nbsp;670,30&nbsp;₽ — стоимость использования инстанса в течение 30 дней.
+  Где {% calc [currency=RUB] (720 × (2 × {{ sku|RUB|gitlab.instance.free.cpu|number }} + 8 × {{ sku|RUB|gitlab.instance.free.ram|number }})) + (30 × {{ sku|RUB|gitlab.instance.disk|month|number }} + 20 × 7 × {{ sku|RUB|gitlab.backup|month|number }}) %} — стоимость использования инстанса в течение 30 дней.

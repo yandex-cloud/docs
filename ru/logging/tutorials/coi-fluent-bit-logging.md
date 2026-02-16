@@ -1,3 +1,8 @@
+---
+canonical: '{{ link-docs }}/tutorials/security/coi-fluent-bit-logging'
+sourcePath: ru/logging_includes/tutorials/coi-fluent-bit-logging.md
+---
+
 # Передача логов с {{ coi }} в {{ cloud-logging-name }}
 
-{% include [Передача логов с Container Optimized Image в Cloud Logging](../../_tutorials/containers/coi-fluent-bit-logging.md) %}
+{% include notitle [Передача логов с Container Optimized Image в Cloud Logging](../../_tutorials/containers/coi-fluent-bit-logging.md) %}

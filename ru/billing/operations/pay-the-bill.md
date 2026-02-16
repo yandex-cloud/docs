@@ -5,16 +5,14 @@ description: Следуя данной инструкции, вы сможете
 
 # Пополнить лицевой счет
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
-
 {% include [personal-account-balance](../_includes/personal-account-balance.md) %}
-
 
 {{ yandex-cloud }} оставляет за собой право автоматически списать средства с привязанной карты в течение текущего отчетного периода, если баланс вашего лицевого счета превысит установленный размер порога оплаты.
 
+ 
+{% include [initial_payment](../../_includes/billing/initial-payment-amount.md) %} 
 
 Способ пополнения лицевого счета зависит от вашего юридического статуса.
-
 
 {% note info %}
 
@@ -22,10 +20,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-
 ## Физическим лицам {#individuals}
-
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
 
 Чтобы пополнить лицевой счет:
 
@@ -37,7 +32,17 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите платежный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. Введите данные карты и нажмите кнопку **Оплатить**.
+  1. Выберите [способ пополнения баланса](../payment/payment-methods-individual.md):
+     * СБП (Система быстрых платежей):
+        1. Нажмите кнопку **Оплатить СБП**.
+        1. Отсканируйте QR-код с помощью мобильного приложения вашего банка и подтвердите платеж.
+
+        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+     * Банковская карта, привязанная к [Яндекс ID](../../iam/concepts/users/accounts.md#passport).  
+     * Добавить карту:
+        1. Введите данные карты.
+        1. Нажмите кнопку **Оплатить**.
 
 {% endlist %}
 
@@ -72,7 +77,10 @@ description: Следуя данной инструкции, вы сможете
 
      Перед проведением оплаты убедитесь, что в платежном поручении корректно указаны:
      * сумма платежа;
-     * банковские реквизиты ООО «Яндекс.Облако» для Российской Федерации (РФ), ТОО «Облачные Сервисы Казахстан» для Республики Казахстан (РК) и Iron Hive doo Beograd (Serbia) для нерезидентов Российской Федерации и Республики Казахстан;
+     * банковские реквизиты ООО «Яндекс.Облако» для Российской Федерации (РФ), ТОО «Облачные Сервисы Казахстан» для Республики Казахстан (РК), Iron Hive doo Beograd (Serbia) или Direct Cursus Technology L.L.C. (Dubai) для нерезидентов Российской Федерации и Республики Казахстан;
+
+       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
+
      * ИНН вашей организации или ИП;
      * [номер лицевого счета](../concepts/personal-account.md#id) в назначении платежа;
      * [номер договора](../concepts/contract.md) в назначении платежа.
@@ -81,16 +89,20 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
 
-
   - Банковская карта {#card}
 
     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
 
-    {% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
     Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
-  
 
+  - СБП (Система быстрых платежей) {#sbp}
+
+    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+
+    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Выберите способ пополнения баланса через СБП и нажмите кнопку **Оплатить СБП**.
+    
+    Отсканируйте QR-код с помощью приложения вашего банка и подтвердите платеж.
+    
   {% endlist %}
-
-  

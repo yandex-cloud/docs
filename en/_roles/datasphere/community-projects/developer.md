@@ -6,6 +6,6 @@ Users with this role can:
 * Run IDEs and code cells in projects.
 * View info on granted [access permissions](../../../iam/concepts/access-control/index.md) for projects.
 
-This role also includes the `datasphere.community-projects.viewer` permissions.
+This role includes the `datasphere.community-projects.viewer` permissions.
 
 In the DataSphere interface, users with the `datasphere.community-projects.developer` role have the `Developer` role in the **Members** tab on the community page.

@@ -9,6 +9,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 
@@ -20,21 +28,25 @@
 
     1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-        * Количество хостов {{ CH }} — не меньше 2 (для включения репликации в кластере).
-        * Выделен публичный доступ к хостам кластера.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_пользователя>`.
+        * Количество хостов {{ CH }} — не меньше 2 (для включения репликации в кластере).
+        * Выделен публичный доступ к хостам кластера.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+    
     1. Если вы используете группы безопасности в кластере, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `storage-viewer` и ролью `storage.viewer`. Трансфер будет использовать его для доступа к бакету.
 
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-viewer`.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-viewer`.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -108,8 +120,12 @@
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
@@ -229,39 +245,23 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Трансфер](../../data-transfer/operations/transfer.md#delete).
-* [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-* Остальные ресурсы удалите в зависимости от способа их создания:
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-        * [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-        * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
     - С помощью {{ TF }} {#tf}
 
-        Если вы создавали ресурсы с помощью {{ TF }}:
-
-        1. Удалите все объекты из бакета.
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `object-storage-to-clickhouse.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `object-storage-to-clickhouse.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

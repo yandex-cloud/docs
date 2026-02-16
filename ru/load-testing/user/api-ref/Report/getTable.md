@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/reports/{testId}/table
+    method: get
+    path:
+      type: object
+      properties:
+        testId:
+          description: |-
+            **string**
+            Required field. ID of the test for which report table will be returned.
+          type: string
+      required:
+        - testId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Report/getTable.md
 ---
 
-# Load Testing API, REST: Report.GetTable {#GetTable}
+# Load Testing API, REST: Report.GetTable
 
 Returns a report table for the specified test.
 
@@ -30,8 +47,8 @@ Required field. ID of the test for which report table will be returned. ||
 {
   "status": "string",
   "overall": {
-    "httpCodes": "string",
-    "netCodes": "string",
+    "httpCodes": "object",
+    "netCodes": "object",
     "quantiles": {
       "q50": "string",
       "q75": "string",
@@ -44,21 +61,7 @@ Required field. ID of the test for which report table will be returned. ||
       "q100": "string"
     }
   },
-  "cases": {
-    "httpCodes": "string",
-    "netCodes": "string",
-    "quantiles": {
-      "q50": "string",
-      "q75": "string",
-      "q80": "string",
-      "q85": "string",
-      "q90": "string",
-      "q95": "string",
-      "q98": "string",
-      "q99": "string",
-      "q100": "string"
-    }
-  }
+  "cases": "object"
 }
 ```
 
@@ -75,7 +78,7 @@ Status of report table.
 || overall | **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**
 
 Result for all test cases combined ("overall" test case). ||
-|| cases | **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**
+|| cases | **object** (map<**string**, **[Report](#yandex.cloud.loadtesting.api.v1.report.table.Report)**>)
 
 Results for individual test cases, mapped as `case_name:report`. ||
 |#
@@ -86,10 +89,10 @@ Aggregated test results.
 
 #|
 ||Field | Description ||
-|| httpCodes | **string** (int64)
+|| httpCodes | **object** (map<**string**, **string** (int64)>)
 
 Total count of HTTP responses, grouped by HTTP response code. ||
-|| netCodes | **string** (int64)
+|| netCodes | **object** (map<**string**, **string** (int64)>)
 
 Total count of network responses, grouped by response code. ||
 || quantiles | **[Quantiles](#yandex.cloud.loadtesting.api.v1.common.Quantiles)**

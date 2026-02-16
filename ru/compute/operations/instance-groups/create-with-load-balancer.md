@@ -1,3 +1,8 @@
+---
+title: Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
+description: Следуя данной инструкции, вы сможете создать группу виртуальных машин фиксированного размера с L7-балансировщиком.
+---
+
 # Создать группу виртуальных машин фиксированного размера с L7-балансировщиком
 
 
@@ -6,6 +11,8 @@
 {% include [alb-warning.md](../../../_includes/instance-groups/alb-warning.md) %}
 
 {% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor).
 
 {% include [password-reset-note](../../../_includes/compute/password-reset-note.md) %}
 
@@ -16,8 +23,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
      * Введите имя и описание группы ВМ. Требования к имени:
@@ -26,7 +33,7 @@
 
        {% include [name-fqdn](../../../_includes/compute/name-fqdn.md) %}
 
-     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции с группами ВМ выполняются от имени сервисного аккаунта.
+     * Выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor). По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -35,7 +42,7 @@
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание [шаблона](../../concepts/instance-groups/instance-template.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите, какую систему развернуть на загрузочном [диске](../../concepts/disk.md) ВМ.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
        * Выберите [тип диска](../../../compute/concepts/disk.md#disks_types).
        * Укажите размер диска.
        * Чтобы добавить дополнительные диски, нажмите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
@@ -43,7 +50,7 @@
        * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
        * Укажите необходимое количество vCPU, [гарантированную долю vCPU](../../concepts/performance-levels.md) и объем RAM.
        * {% include [include](../../../_includes/instance-groups/specify-preemptible-vm.md) %}
-       * (опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+       * (опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
        {% include [network-settings-group](../../../_includes/compute/network-settings-group.md) %}
@@ -51,7 +58,7 @@
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
        * Выберите сервисный аккаунт, который следует привязать к ВМ.
        * Если выбран [образ](../../concepts/image.md) на основе Linux, заполните поля **{{ ui-key.yacloud.compute.instances.create.field_user }}** и **{{ ui-key.yacloud.compute.instances.create.field_key }}**. В качестве ключа укажите содержимое файла [открытого ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-       * При необходимости выберите опцию `{{ ui-key.yacloud.compute.instances.create.field_serial-port-enable }}`.
+       * При необходимости выберите опцию `{{ ui-key.yacloud.compute.instance.overview.field_serial-port-enable }}`.
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}**:
       * В поле **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** укажите, на какое количество ВМ можно превышать размер группы.
@@ -116,6 +123,8 @@
        Где:
        * `name` — произвольное имя группы ВМ. Имя должно быть уникальным в рамках каталога. Имя может содержать строчные буквы латинского алфавита, цифры и дефисы. Первый символ должен быть буквой. Последний символ не может быть дефисом. Максимальная длина имени — 63 символа.
        * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
+
+         Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) и [alb.editor](../../../application-load-balancer/security/index.md#alb-editor). По умолчанию все операции с группой ВМ выполняются от имени сервисного аккаунта.
 
          {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
@@ -275,9 +284,15 @@
        description = "Сервисный аккаунт для управления группой ВМ."
      }
 
-     resource "yandex_resourcemanager_folder_iam_member" "editor" {
+     resource "yandex_resourcemanager_folder_iam_member" "compute_editor" {
        folder_id = "<идентификатор_каталога>"
-       role      = "editor"
+       role      = "compute.editor"
+       member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
+     }
+
+     resource "yandex_resourcemanager_folder_iam_member" "load-balancer-editor" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "alb.editor"
        member    = "serviceAccount:${yandex_iam_service_account.ig-sa.id}"
      }
 
@@ -349,7 +364,9 @@
 
        {% include [sa-dependence-brief](../../../_includes/instance-groups/sa-dependence-brief.md) %}
 
-     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервисный аккаунт. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../../iam/concepts/access-control/roles.md) `editor`.
+     * `yandex_resourcemanager_folder_iam_member` — описание прав доступа сервисного аккаунта к [каталогу](../../../resource-manager/concepts/resources-hierarchy.md#folder), где:
+       * `role = "compute.editor"` — назначение сервисному аккаунту роли [compute.editor](../../security/index.md#compute-editor) для создания, обновления и удаления ВМ в группе.
+       * `role = "alb.editor"` — назначение сервисному аккаунту роли [alb.editor](../../../application-load-balancer/security/index.md#alb-editor) для интеграции группы ВМ с балансировщиком {{ alb-name }}.
      * `yandex_compute_instance_group` — описание группы ВМ:
        * Общая информация о группе ВМ:
          * `name` — имя группы ВМ.

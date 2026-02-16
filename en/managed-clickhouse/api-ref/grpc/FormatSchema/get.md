@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/FormatSchema/get.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Get {#Get}
+# Managed Service for ClickHouse API, gRPC: FormatSchemaService.Get
 
 Returns detailed information about a given format schema.
 
@@ -15,23 +15,27 @@ Returns detailed information about a given format schema.
 
 ```json
 {
-  "clusterId": "string",
-  "formatSchemaName": "string"
+  "cluster_id": "string",
+  "format_schema_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method. ||
-|| formatSchemaName | **string**
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
+|| format_schema_name | **string**
 
 Required field. Format schema name.
 
-To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method. ||
+To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## FormatSchema {#yandex.cloud.mdb.clickhouse.v1.FormatSchema}
@@ -39,7 +43,7 @@ To get a format schema name, use the [FormatSchemaService.List](/docs/managed-cl
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "type": "FormatSchemaType",
   "uri": "string"
 }
@@ -50,7 +54,7 @@ To get a format schema name, use the [FormatSchemaService.List](/docs/managed-cl
 || name | **string**
 
 Format schema name. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ClickHouse cluster ID. ||
 || type | enum **FormatSchemaType**
@@ -60,7 +64,6 @@ Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**

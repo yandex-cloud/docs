@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}:cancelVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the key to cancel a version's destruction for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the version whose scheduled destruction should be cancelled.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/cancelVersionDestruction.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.CancelVersionDestruction {#CancelVersionDestruction}
+# Key Management Service API, REST: SymmetricKey.CancelVersionDestruction
 
 Cancels previously scheduled version destruction, if the version hasn't been destroyed yet.
 
@@ -19,7 +48,9 @@ POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:cancelVersionDestruction
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the key to cancel a version's destruction for. ||
+Required field. ID of the key to cancel a version's destruction for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.CancelSymmetricKeyVersionDestructionRequest}
@@ -34,7 +65,9 @@ Required field. ID of the key to cancel a version's destruction for. ||
 ||Field | Description ||
 || versionId | **string**
 
-Required field. ID of the version whose scheduled destruction should be cancelled. ||
+Required field. ID of the version whose scheduled destruction should be cancelled.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -189,7 +222,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroyAt` field.
@@ -198,11 +230,11 @@ is specified in the `SymmetricKeyVersion.destroyAt` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || createdAt | **string** (date-time)
 
 Time when the key version was created.

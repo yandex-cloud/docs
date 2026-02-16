@@ -1,3 +1,8 @@
+---
+title: Изменение настроек {{ CH }} на уровне запроса
+description: Следуя данной инструкции, вы сможете изменить настройки {{ CH }} на уровне запроса.
+---
+
 # Изменение настроек {{ CH }} на уровне запроса
 
 Вы можете задать [настройки {{ CH }} на уровне запроса](https://clickhouse.com/docs/en/operations/settings/query-level), чтобы гибко настроить базы данных в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
@@ -46,7 +51,8 @@
 
    Чтобы задать настройки {{ CH }}:
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Нажмите на имя нужного кластера, затем перейдите в раздел **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
    1. В строке с именем нужного пользователя нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. В списке **{{ ui-key.yacloud.mdb.forms.section_additional }}** разверните **settings** и задайте [настройки {{ CH }}](../concepts/settings-list.md#user-level-settings).
@@ -75,7 +81,8 @@
    1. Установите нужные значения параметров:
 
       ```bash
-      {{ yc-mdb-ch }} user update <имя_пользователя> <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-ch }} user update <имя_пользователя> \
+         --cluster-name=<имя_кластера> \
          --settings="<имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,..."
       ```
 
@@ -90,18 +97,13 @@
    1. В описании пользователя кластера {{ mch-name }}, в блоке `settings`, измените значения параметров:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+      resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
         ...
-        user {
-          name = <имя_пользователя>
+        settings {
+          <имя_параметра_1> = <значение_1>
+          <имя_параметра_2> = <значение_2>
           ...
-          settings {
-            <имя_параметра1> = <значение1>
-            <имя_параметра2> = <значение2>
-            ...
-          }
         }
-        ...
       }
       ```
 
@@ -113,9 +115,7 @@
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
-
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
 - REST API {#api}
 
@@ -123,7 +123,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -147,7 +147,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Имя пользователя можно запросить со [списком пользователей в кластере](./cluster-users.md#list-users).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -157,7 +157,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -357,7 +357,7 @@
                            <флаги_с_настройками_{{ CH }}>
          ```
 
-
+      
       * Подключение с SSL:
 
          ```bash
@@ -374,7 +374,7 @@
       * Пример подключения без SSL с настройкой [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
 
          ```bash
-         clickhouse-client --host rc1d-***.mdb.yandexcloud.net \
+         clickhouse-client --host {{ host-name }}.{{ dns-zone }} \
                            --user user1 \
                            --database db1 \
                            --port 9440 \

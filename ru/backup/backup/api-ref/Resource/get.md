@@ -1,9 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        includeTenantInfo:
+          description: |-
+            **boolean**
+            If flag is set tenant informantion would be added to the response.
+          type: boolean
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/get.md
 ---
 
-# Cloud Backup API, REST: Resource.Get {#Get}
+# Cloud Backup API, REST: Resource.Get
 
 Get specific Compute Cloud instance.
 
@@ -19,7 +45,18 @@ GET https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Query parameters {#yandex.cloud.backup.v1.GetResourceRequest}
+
+#|
+||Field | Description ||
+|| includeTenantInfo | **boolean**
+
+If flag is set tenant informantion would be added to the response. ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.GetResourceResponse}
@@ -43,7 +80,17 @@ Required field. Compute Cloud instance ID. ||
     "isActive": "boolean",
     "initStatus": "string",
     "metadata": "string",
-    "type": "string"
+    "type": "string",
+    "tenantInfo": {
+      "folderId": "string",
+      "personalTenantId": "string",
+      "userId": "string"
+    },
+    "agentInfo": {
+      "currentVersion": "string",
+      "latestVersion": "string",
+      "canUpdate": "boolean"
+    }
   }
 }
 ```
@@ -86,7 +133,6 @@ If this field is true, it means that instance is online. ||
 If this field is true, it means that backup is enabled to instance. ||
 || status | **enum** (Status)
 
-- `STATUS_UNSPECIFIED`
 - `IDLE`: Compute Cloud instance is doing nothing right now.
 - `BACKUPING`: Compute Cloud instance is currently backing up itself.
 - `RECOVERING`: Compute Cloud instance is currently recovering itself.
@@ -130,7 +176,6 @@ Cloud Backup resource. ||
 
 Status of resource initialization in cloud backup service.
 
-- `INIT_STATUS_UNSPECIFIED`
 - `REGISTERING`: Registration of instance in cloud backups have started.
 - `REGISTRED`: Instance is registered in cloud backups.
 - `FAILED_REGISTRATION`: Instance registration failed.
@@ -143,7 +188,38 @@ if status is FAILED_REGISTRATION or REGISTERING ||
 
 Type of resource. Could be compute VM or baremetal server.
 
-- `RESOURCE_TYPE_UNSPECIFIED`
 - `COMPUTE`: Resource is Compute Cloud VM
-- `BMS`: Resource is baremetal server ||
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
+|| tenantInfo | **[TenantInfo](#yandex.cloud.backup.v1.TenantInfo)**
+
+Additional info about tenant which resource belongs to ||
+|| agentInfo | **[AgentInfo](#yandex.cloud.backup.v1.AgentInfo)**
+
+Additional Info about agent version ||
+|#
+
+## TenantInfo {#yandex.cloud.backup.v1.TenantInfo}
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+Folder ID ||
+|| personalTenantId | **string**
+
+Personal tenant id from backup provider ||
+|| userId | **string**
+
+User id from provider ||
+|#
+
+## AgentInfo {#yandex.cloud.backup.v1.AgentInfo}
+
+#|
+||Field | Description ||
+|| currentVersion | **string** ||
+|| latestVersion | **string** ||
+|| canUpdate | **boolean** ||
 |#

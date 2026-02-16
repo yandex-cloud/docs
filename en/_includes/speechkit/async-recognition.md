@@ -33,10 +33,11 @@
 
    ```bash
    export API_KEY=<service_account_API_key> && \
-   curl -k \
-        -H "Authorization: Api-Key ${API_KEY}" \
-        -d "@body.json"\
-        https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
+   curl \
+     --insecure \
+     --header "Authorization: Api-Key ${API_KEY}" \
+     --data "@body.json"\
+     https://transcribe.{{ api-host }}/speech/stt/v2/longRunningRecognize
    ```
 
    Result example:
@@ -53,12 +54,14 @@
 
    Save the recognition operation `id` you get in the response.
 
-1. Wait for the recognition to complete. It takes about 10 seconds to recognize one minute of single-channel audio.
+1. Wait until the recognition is completed. It takes about 10 seconds to recognize one minute of single-channel audio.
 1. Send a request to [get information about the operation](../../api-design-guide/concepts/operation.md#monitoring):
 
    ```bash
-   curl -k -H "Authorization: Api-key ${API_KEY}" \
-      https://operation.{{ api-host }}/operations/<recognition_operation_ID>
+   curl \
+     --insecure \
+     --header "Authorization: Api-key ${API_KEY}" \
+     https://operation.{{ api-host }}/operations/<recognition_operation_ID>
    ```
 
    Result example:
@@ -100,3 +103,5 @@
       "modifiedAt": "2024-08-22T11:39:23Z"
    }
    ```
+
+   {% include [absent-chunks-notice](./absent-chunks-notice.md) %}

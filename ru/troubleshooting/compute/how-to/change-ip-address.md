@@ -14,12 +14,15 @@
 - CLI
 
     * [Установка и настройка CLI](../../../cli/quickstart.md);
-    * [Команда](../../../cli/cli-ref/managed-services/compute/instance/update-network-interface) `yc compute instance update-network-interface`.
+    * [Команда](../../../cli/cli-ref/compute/cli-ref/instance/update-network-interface) `yc compute instance update-network-interface`.
+
     Пример команды:
+
     ```
     yc compute instance update-network-interface <ID ВМ> --network-interface-index=0 --ipv4-address=<новый IP из диапазона подсети>
     ```
-    Флаг `--network-interface-index` отвечает за номер обновляемого сетевого интерфейса, нумерация начинается с нуля.
+
+    Параметр `--network-interface-index` отвечает за номер обновляемого сетевого интерфейса, нумерация начинается с нуля.
 
 - {{ TF }}
 
@@ -29,7 +32,7 @@
 - API
 
     * [REST](../../../compute/api-ref/Instance/updateNetworkInterface);
-    * [gRPC](../../../compute/api-ref/grpc/instance_service#UpdateNetworkInterface).
+    * [gRPC](../../../compute/api-ref/grpc/Instance/updateNetworkInterface).
 
     Выполните команду ```yc compute instance update-network-interface <идентификатор_вм> --network-interface-index=0 --ipv4-address=<новый_IP_адрес>```.
 

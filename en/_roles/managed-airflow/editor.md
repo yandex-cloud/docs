@@ -5,6 +5,6 @@ Users with this role can:
 * Use the Apache Airflow™ [web interface](../../managed-airflow/operations/af-interfaces.md#web-gui).
 * [Send requests](../../managed-airflow/operations/af-interfaces.md#rest-api) to the Apache Airflow™ API.
 
-This role also includes the `managed-airflow.user` permissions.
+This role includes the `managed-airflow.user` permissions.
 
 To create Apache Airflow™ clusters, you also need the `vpc.user` role.

@@ -1,9 +1,94 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:stream_logs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the ClickHouse cluster.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        columnFilter:
+          description: |-
+            **string**
+            Columns from logs table to get in the response.
+          type: array
+          items:
+            type: string
+        serviceType:
+          description: |-
+            **enum** (ServiceType)
+            Required field.
+            - `CLICKHOUSE`: Logs of ClickHouse activity.
+            - `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity.
+          type: string
+          enum:
+            - SERVICE_TYPE_UNSPECIFIED
+            - CLICKHOUSE
+            - CLICKHOUSE_KEEPER
+        fromTime:
+          description: |-
+            **string** (date-time)
+            Start timestamp for the logs request.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        toTime:
+          description: |-
+            **string** (date-time)
+            End timestamp for the logs request.
+            If this field is not set, all existing logs will be sent and then the new ones as
+            they appear. In essence it has `tail -f` semantics.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        recordToken:
+          description: |-
+            **string**
+            Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
+            request to start streaming from next log record.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname], [LogRecord.logs.message.severity] fields.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
+            Examples of a filter:
+            - `message.hostname='node1.db.cloud.yandex.net'`
+            - `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
+            The maximum string length in characters is 1000.
+          type: string
+      required:
+        - serviceType
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/streamLogs.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.StreamLogs {#StreamLogs}
+# Managed Service for ClickHouse API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for `tail -f` semantics.
 
@@ -19,7 +104,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}:stream
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the ClickHouse cluster. ||
+Required field. Required. ID of the ClickHouse cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.StreamClusterLogsRequest}
@@ -31,10 +118,10 @@ Required field. Required. ID of the ClickHouse cluster. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-Required field. 
+Required field.
 
-- `SERVICE_TYPE_UNSPECIFIED`
-- `CLICKHOUSE`: Logs of ClickHouse activity. ||
+- `CLICKHOUSE`: Logs of ClickHouse activity.
+- `CLICKHOUSE_KEEPER`: Logs of ClickHouse Keeper activity. ||
 || fromTime | **string** (date-time)
 
 Start timestamp for the logs request.
@@ -60,7 +147,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || recordToken | **string**
 
 Record token. Set `recordToken` to the [StreamLogRecord.nextRecordToken](#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord) returned by a previous StreamLogs
-request to start streaming from next log record. ||
+request to start streaming from next log record.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -70,7 +159,9 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-63 characters long and match the regular expression `[a-z0-9.-]{1,61}`.
 Examples of a filter:
 - `message.hostname='node1.db.cloud.yandex.net'`
-- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`. ||
+- `message.severity IN ('Error', 'Fatal') AND message.hostname != 'node2.db.cloud.yandex.net'`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.StreamLogRecord}
@@ -81,7 +172,7 @@ Examples of a filter:
 {
   "record": {
     "timestamp": "string",
-    "message": "string"
+    "message": "object"
   },
   "nextRecordToken": "string"
 }
@@ -114,7 +205,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

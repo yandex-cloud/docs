@@ -1,4 +1,6 @@
 ---
+title: Trial period restrictions
+description: In this article, you will learn about quotas and limits that apply to {{ yandex-cloud }} services during your trial period.
 editable: false
 ---
 
@@ -22,12 +24,7 @@ Technical support is provided in full during the trial period. For more informat
 
 ## {{ marketplace-full-name }} {#marketplace}
 
-
-Some products are not available during the trial period, such as:
-* Microsoft SQL Server
-* Windows Server Standard
-* Windows RDS
-
+During the trial period, no {{ marketplace-full-name }} paid products are available. However, once your paid consumption starts, you will be able to use the balance of your starting grant to pay for them.
 
 
 ## Service quotas and limits {#quotes-and-limits}
@@ -82,11 +79,9 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 {% include [mpg-limits.md](../../../_includes/mdb/mpg-limits.md) %}
 
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../../_includes/mdb/mrd-limits.md) %}
-
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -104,11 +99,8 @@ Quotas and limits for {{ yandex-cloud }} services during the trial period are li
 {% include [translate-limits](../../../_includes/translate-limits.md) %}
 
 
-
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
-
-
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

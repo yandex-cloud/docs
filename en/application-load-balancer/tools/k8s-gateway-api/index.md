@@ -1,32 +1,77 @@
 ---
-title: Gateway API for {{ managed-k8s-name }}
-description: '{{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in {{ managed-k8s-full-name }} clusters.'
+title: Gateway API for {{ managed-k8s-full-name }}
+description: '{{ alb-name }} provides the Gateway API tool for creating and managing load balancers in {{ managed-k8s-full-name }} clusters.'
 ---
 
 # Gateway API for {{ managed-k8s-name }}
 
+{% include [ingress-to-gwin-tip](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
-{{ alb-name }} provides the Gateway API as a tool to create and manage load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). For more information about the Gateway API project, visit its [website](https://gateway-api.sigs.k8s.io/).
+{{ alb-name }} provides the Gateway API tool for creating and managing load balancers in [{{ managed-k8s-full-name }} clusters](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster). To learn more about the Gateway API project, visit its official [website](https://gateway-api.sigs.k8s.io/).
 
-Once you install the Gateway API, you can use it to create a resource named `Gateway` and associated `HTTPRoute` resources:
-* The `Gateway` resource is managed by the cluster operator. This resource describes how incoming traffic is received and the rules for selecting routes for the traffic (`HTTPRoute` resources). To receive traffic through `Gateway`, an [L7 load balancer](../../concepts/application-load-balancer.md) is created. To route the traffic, [HTTP routers](../../concepts/http-router.md) are linked to the load balancer.
-* The `HTTPRoute` resources are managed by the developers of the applications representing the {{ k8s }} services. `HTTPRoute` is a description of the route for the received incoming traffic. Based on this description, the traffic can be routed to a {{ k8s }} service acting as a backend or redirected to another URI. The `HTTPRoute` is used to create virtual hosts and routes in HTTP routers and [backend groups](../../concepts/backend-group.md).
+Once you install the Gateway API, you can use it to create the `Gateway` resource as well as the linked `HTTPRoute` and `GRPCRoute` resources:
+* The `Gateway` resource is managed by the cluster operator. The resource describes the incoming traffic reception and routing (`HTTPRoute` and `GRPCRoute`) rules. The system creates an [L7 load balancer](../../concepts/application-load-balancer.md) to handle traffic for the `Gateway`. The load balancer uses [HTTP routers](../../concepts/http-router.md) to route incoming traffic.
+* Managed by developers of {{ k8s }} service apps, the `HTTPRoute` and `GRPCRoute` resources describe the route for received incoming traffic. According to this description, traffic can be routed to the {{ k8s }} service operating as a backend or redirected to another URI. With `HTTPRoute` and `GRPCRoute` you create virtual hosts and routes in HTTP routers and [backend groups](../../concepts/backend-group.md).
 
-For full configuration of the resources for Gateway API, see the following sections:
+See the full configuration of Gateway API resources in the following sections:
 
-* [Gateway](../../k8s-ref/gateway.md): Rules for receiving incoming traffic and selecting routes (`HTTPRoute`) for the traffic.
-* [HTTPRoute](../../k8s-ref/http-route.md): Rules for routing traffic across backends or redirecting it.
+* [Gateway](../../k8s-ref/gateway.md): Incoming traffic reception and routing (`HTTPRoute`) rules.
+* [GatewayPolicy](../../k8s-ref/gateway-policy.md): `Gateway` resource policy, incoming traffic processing configuration.
+* [YCCertificate](../../k8s-ref/yc-certificate.md): {{ certificate-manager-name }} certificate parameters for setting up TLS connections in the `Gateway` resource.
+* [HTTPRoute](../../k8s-ref/http-route.md) and [GRPCRoute](../../k8s-ref/grpc-route.md): Rules for traffic routing between backends or redirection.
+* [RoutePolicy](../../k8s-ref/route-policy.md): `HTTPRoute` resource policy and backend access rule configuration.
+* [YCStorageBucket](../../k8s-ref/yc-storage-bucket.md): {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
 * [Service](../../k8s-ref/service-for-gateway.md): Description of {{ k8s }} services used as backends.
 
-## Sample configuration {#example}
+## Route order in virtual hosts {#route-order}
 
-Below is a sample configuration of `Gateway` and `HTTPRoute` resources. It will be used to create a load balancer to receive HTTPS traffic and to distribute it to two services based on the URI request path.
+The order of routes in virtual hosts is as per the algorithms described in the Gateway API specification. These algorithms are different for HTTP requests and gRPC calls.
+
+{% list tabs %}
+
+- HTTP requests
+
+  The [algorithm](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.HTTPRouteRule) sorts routes by how well their parameters match those of the incoming HTTP request.
+
+  Match conditions in descending order of priority:
+
+  1. Exact path match.
+  1. Longest path prefix match.
+  1. Method match.
+  1. Greatest number of matching headers.
+  1. Greatest number of matching request parameters.
+
+  For requests matching none of the rules associated with the current parent element, code `404` will be returned.
+
+- gRPC calls
+
+  The [algorithm](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2Fv1.GRPCRouteRule) sorts routes by the number of characters in the parameters of the route and the incoming gRPC call. Matches are counted only based on headers.
+
+  Comparison conditions in descending order of priority:
+
+  1. Greatest number of characters in domain name without asterisks `*`.
+  1. Greatest number of characters in domain name.
+  1. Greatest number of characters in service name.
+  1. Greatest number of characters in method name.
+  1. Greatest number of matching headers.
+
+{% endlist %}
+
+If these conditions still leave routes of equal precedence from different resources, such routes will first be prioritized based on their timestamp (older routes first), then alphabetically by name in `{namespace}/{name}` format.
+
+If there are still routes of equal precedence within the same HTTPRoute/GRPCRoute, the system will select the first suitable one listed based on the foregoing criteria.
+
+The route order may have an impact on the request/call processing logic.
+
+## Configuration example {#example}
+
+Below you can see a sample `Gateway` and `HTTPRoute` resource configuration describing a load balancer that receives HTTPS requests and routes them to one of two service backends based on their URI paths.
 
 {% cut "Example" %}
 
 ```yaml
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: alb-gwapi-gw
@@ -61,7 +106,7 @@ metadata:
     gatewayName: alb-gwapi-gw
 
 ---
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: alb-gwapi-route
@@ -100,7 +145,7 @@ To install the Gateway API, you need:
 
 * {{ managed-k8s-name }} cluster.
 * Cluster node group.
-* Cluster namespace to store the [service account](../k8s-ingress-controller/service-account.md) key.
+* Cluster namespace to store your [service account](../k8s-ingress-controller/service-account.md) key.
 
 To learn how to install the Gateway API, see [this guide](../../operations/k8s-gateway-api-install.md).
 

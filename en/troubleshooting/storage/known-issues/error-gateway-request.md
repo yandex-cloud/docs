@@ -1,9 +1,10 @@
-# Resolving GATEWAY_REQUEST_ERROR
+# Fixing the `GATEWAY_REQUEST_ERROR` error
 
 
-## **Problem description** {#issue-description}
 
-When trying to change the ACL configuration of the {{ objstorage-short-name }} bucket, you see this error message:
+## Issue description {#issue-description}
+
+When editing the ACL configuration of the {{ objstorage-short-name }} bucket, you get this error message:
 
 ```
 message: Access Denied;
@@ -14,17 +15,15 @@ Request ID: undefined;
 Trace ID: undefined;
 ```
 
-## **Solution** {#issue-resolution}
+## Solution {#issue-resolution}
 
-The `Access Denied` error most often arises due to a poorly configured access policy.
-To change the ACL configuration of the bucket, you need the role of `storage.admin` or `storage.editor`.
+The `Access Denied` error most often occurs due to a poorly configured access policy. To edit the ACL configuration of the bucket, you need the `storage.admin` role.
 
-Make sure that these two values are specified in the **Resource** field within the access policy: `bucket_name/*` and `bucket_name/`.
+Make sure the **Resource** field within the access policy contains these two values: `bucket_name/*` and `bucket_name/`.
 
-## **If the issue persists** {#if-issue-still-persists}
+## If the issue persists {#if-issue-still-persists}
 
-If the above actions did not help solve the problem, create a [request for technical support]({{ link-console-support }}).
-When creating a request, please specify:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
 1. {{ objstorage-short-name }} bucket name.
-2. Screenshot or full text of the error message.
+1. Screenshot or full text of the error message.

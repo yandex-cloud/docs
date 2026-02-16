@@ -1,9 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster to list subclusters in.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters subclusters listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Subcluster.name](#yandex.cloud.dataproc.v1.Subcluster) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=dataproc123_subcluster456`.
+            The maximum string length in characters is 1000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/list.md
 ---
 
-# Data Proc API, REST: Subcluster.List {#List}
+# Yandex Data Processing API, REST: Subcluster.List
 
 Retrieves a list of subclusters in the specified cluster.
 
@@ -19,7 +69,9 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Data Proc cluster to list subclusters in. ||
+Required field. ID of the Yandex Data Processing cluster to list subclusters in.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.ListSubclustersRequest}
@@ -31,11 +83,15 @@ Required field. ID of the Data Proc cluster to list subclusters in. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request. ||
+[ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters subclusters listed in the response.
@@ -44,7 +100,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Subcluster.name](#yandex.cloud.dataproc.v1.Subcluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=dataproc123_subcluster456`. ||
+Example of a filter: `name=dataproc123_subcluster456`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListSubclustersResponse}
@@ -100,7 +158,7 @@ Each subsequent page will have its own `next_page_token` to continue paging thro
 
 ## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
 
-A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -109,7 +167,7 @@ A Data Proc subcluster. For details about the concept, see [documentation](/docs
 ID of the subcluster. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the subcluster belongs to. ||
+ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -122,12 +180,13 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | **enum** (Role)
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -138,14 +197,14 @@ Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -195,7 +254,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -216,8 +277,12 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

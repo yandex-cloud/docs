@@ -22,7 +22,7 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
-* Плата за использование виртуальных машин (см. [тарифы {{ compute-name }} ](../../compute/pricing.md)).
+* Плата за использование виртуальных машин (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 
 ## Скачайте проект {#download}
@@ -328,7 +328,7 @@ zip src.zip index.go go.mod
         yc compute instance create \
            --name target-instance-1 \
            --labels target-for-stop=true \
-           --zone {{ region-id }}-a \
+           --zone {{ region-id }}-d \
            --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
            --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
            --ssh-key ~/.ssh/<имя_ключа>.pub
@@ -353,7 +353,7 @@ zip src.zip index.go go.mod
         name: target-instance-1
         labels:
           target-for-stop: "true"
-        zone_id: {{ region-id }}-a
+        zone_id: {{ region-id }}-d
         platform_id: standard-v2
         resources:
           memory: "2147483648"

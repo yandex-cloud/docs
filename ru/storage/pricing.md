@@ -1,14 +1,28 @@
 ---
+title: Правила тарификации для {{ objstorage-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ objstorage-name }}.
 editable: false
 ---
 
+
 # Правила тарификации для {{ objstorage-name }}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d6b2f413dcf#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 
 ## Из чего складывается стоимость использования {{ objstorage-short-name }} {#rules}
 
@@ -25,9 +39,11 @@ editable: false
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
+
 ### Использование хранилища {#rules-storage}
 
 Использование хранилища измеряется в ГБ в месяц. Объемом хранимых в течение месяца данных считается среднее значение за месяц, согласно данным, гранулированным посекундно. Минимальная единица тарификации — **час хранения 1 МБ данных**.
+
 
 ### Выполнение операций с данными {#rules-operations}
 
@@ -37,6 +53,7 @@ editable: false
 * Удаление данных (операция DELETE) не тарифицируется.
 
 
+
 ## Цены для региона Россия {#prices}
 
 
@@ -44,27 +61,25 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|storage }}']}
+    includeSkuIds={['{{ pc|storage.api.network.inet.egress }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
+## Примеры расчета стоимости {#price-example}
+
 ### Хранение данных {#prices-storage}
 
-Цены за ГБ в месяц фиксированы и не зависят от количества дней в месяце.
+#### Стандартное хранилище {#standard-storage}
 
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-used_space.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-used_space.md) %}
-
-{% endlist %}
-
-
-
-
-^1^ Стоимость услуги хранения в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
+Стоимость услуги хранения в день рассчитывается как `Цена_за_ГБ_в_месяц / кол-во_дней_в_месяце`. Для более коротких месяцев цена за день будет выше, для более длинных — ниже.
 
 Пример пропорционального расчета: пусть пользователь хранит 15 ГБ в течение 11 часов и 30 минут в месяце длиной 30 календарных дней. Общую цену хранения можно рассчитать по формуле:
 
@@ -72,7 +87,7 @@ editable: false
 Цена_хранения = Цена_за_ГБ_в_месяц × 15 × 12 / 24 / 30
 ```
 
-^2^ Каждый месяц первый 1 ГБ хранения данных в стандартном хранилище не тарифицируется.
+Каждый месяц первый 1 ГБ хранения данных в стандартном хранилище не тарифицируется.
 
 
 {% list tabs group=pricing %}
@@ -90,9 +105,9 @@ editable: false
 
 
 
+#### Ледяное хранилище {#ice-storage}
 
-
-^3^ Минимальное тарифицируемое время хранения объекта в ледяном хранилище — 12 месяцев. Если вы удалите объект, хранившийся меньше 12 месяцев, после удаления будет списан остаток стоимости хранения.
+Минимальное тарифицируемое время хранения объекта в ледяном хранилище — 12 месяцев. Если вы удалите объект, хранившийся меньше 12 месяцев, после удаления будет списан остаток стоимости хранения.
 
 
 {% list tabs group=pricing %}
@@ -111,24 +126,7 @@ editable: false
 
 
 
-
 ### Операции с данными {#prices-operations}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-operations.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-operations.md) %}
-
-{% endlist %}
-
-
-
 
 {% note info %}
 
@@ -136,7 +134,7 @@ editable: false
 
 {% endnote %}
 
-Каждый месяц первые 10 000 операций PUT, POST, PATCH и LIST а также первые 100 000 операций GET, HEAD, OPTIONS в стандартном хранилище не тарифицируются.
+Каждый месяц первые 10 000 операций PUT, POST, PATCH и LIST, а также первые 100 000 операций GET, HEAD, OPTIONS в стандартном хранилище не тарифицируются.
 
 
 {% list tabs group=pricing %}
@@ -155,28 +153,11 @@ editable: false
 
 
 
-
 ### Исходящий трафик {#prices-traffic}
 
 При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }}, как и входящий трафик из интернета, не тарифицируется.
 
 Минимальная единица тарификации — 1 МБ. Период тарификации — календарный месяц.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/storage/rub-egress.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/storage/kzt-egress.md) %}
-
-{% endlist %}
-
-
-
 
 Каждый месяц первые 100 ГБ исходящего трафика для {{ objstorage-name }} не тарифицируются.
 
@@ -194,6 +175,76 @@ editable: false
 {% endlist %}
 
 
+
+
+
+
+## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
+
+**Пример 1**
+
+Сравним стоимость хранения и доступа для сайта объемом 3 ГБ и средней посещаемостью 200 пользователей в день. Один пользователь загружает примерно 20 объектов (HTML, CSS, JS и изображения). Это 4 000 запросов в день или около 120 000 в месяц.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ) и 10 000 операций PUT в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-1](../_pricing_examples/storage/rub-comparison-1.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [rub-comparison-1](../_pricing_examples/storage/kzt-comparison-1.md) %}
+
+{% endlist %}
+
+
+
+
+
+**Пример 2**
+
+Сравним стоимость хранения и доступа для репозитория объемом 20 ГБ. В месяц к репозиторию происходит около 150 000 запросов на чтение данных.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ) и 100 000 операций GET в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-2](../_pricing_examples/storage/rub-comparison-2.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [kzt-comparison-2](../_pricing_examples/storage/kzt-comparison-2.md) %}
+
+{% endlist %}
+
+
+
+
+
+**Пример 3**
+
+Сравним стоимость хранения и доступа для пополняемого архива данных объемом 100 ГБ. В месяц к архиву происходит 10 000 запросов на чтение данных и 1 000 запросов на запись.
+
+Для стандартного хранилища не тарифицируются хранение первого гигабайта данных (1 ГБ), 10 000 операций PUT и 100 000 операций GET в месяц.
+
+
+{% list tabs group=pricing %}
+
+- Сравнение в рублях {#prices-rub}
+
+  {% include [rub-comparison-3](../_pricing_examples/storage/rub-comparison-3.md) %}
+
+- Сравнение в тенге {#prices-kzt}
+
+  {% include [kzt-comparison-3](../_pricing_examples/storage/kzt-comparison-3.md) %}
+
+{% endlist %}
 
 
 

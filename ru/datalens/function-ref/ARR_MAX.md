@@ -45,4 +45,4 @@ ARR_MAX( array )
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`.

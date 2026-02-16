@@ -1,61 +1,61 @@
 ---
-title: How to add a {{ captcha-full-name }} widget
-description: Follow this guide to add a {{ captcha-name }} widget using the advanced method or as required.
+title: How to add the {{ captcha-full-name }} widget
+description: Follow this guide to add the {{ captcha-name }} widget either via the advanced method or whenever required.
 ---
 
-# Add a {{ captcha-name }} widget
+# Adding the {{ captcha-name }} widget
 
-## Add a {{ captcha-name }} widget using the advanced method {#advanced}
+## Adding the {{ captcha-name }} widget via the advanced method {#advanced}
 
-You control how the widget loads using the `window.smartCaptcha` [object](../concepts/widget-methods.md#methods). The `onloadFunction` callback function is used for this in the guide:
+You control how the widget loads via the `window.smartCaptcha` [object](../concepts/widget-methods.md#methods). This guide uses the `onloadFunction` callback function for this:
 
-1. Add the JS script to the user page. To do this, place the following code anywhere on the page, for example, inside the `<head>` tag:
+1. Add the JS script to the user page. Do it by placing the following code anywhere on the page, e.g., inside the `<head>` tag:
 
-   ```html
-   <script
-       src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
-       defer
-   ></script>
-   ```
+    ```html
+    <script
+        src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
+        defer
+    ></script>
+    ```
 
-1. Add an empty container where you want to install your widget, to the page:
+1. Add to the page an empty container for the widget:
 
-   ```html
-   <div id="<container_ID>"></div>
-   ```
+    ```html
+    <div id="<container_ID>"></div>
+    ```
 
-   Where `--id` is an ad-hoc ID.
+    Where `id` is a random ID.
 
 1. Add the code of the callback function to the page:
 
-   ```html
-   <script>
-       function onloadFunction() {
-       if (window.smartCaptcha) {
-           const container = document.getElementById('<container_ID>');
+    ```html
+    <script>
+        function onloadFunction() {
+        if (window.smartCaptcha) {
+            const container = document.getElementById('<container_ID>');
 
-           const widgetId = window.smartCaptcha.render(container, {
+            const widgetId = window.smartCaptcha.render(container, {
                 sitekey: '<client_key>',
                 hl: '<language>',
-           });
-       }
-       }
-   </script>
-   ```
+            });
+        }
+        }
+    </script>
+    ```
 
-   Where:
+    Where:
 
-   * `<container_ID>`: ID generated at the previous step.
-   * `sitekey`: [Client-side key](../concepts/keys.md).
-   * `hl`: Widget and challenge [language](../concepts/widget-methods.md#render).
+    * `<container_ID>`: ID generated at the previous step.
+    * `sitekey`: [Client-side key](../concepts/keys.md).
+    * `hl`: Widget and task [language](../concepts/widget-methods.md#render).
 
-   Add a check for existence of the `window.smartCaptcha` object to avoid an error when the function is called before the JS script loading is complete.
+    Consider adding an existence check for the `window.smartCaptcha` object into the callback function code to avoid error should the function be called before the JS script has finished loading.
 
-   {% include [info-container-height](../../_includes/smartcaptcha/info-container-height.md) %}
+    {% include [info-container-height](../../_includes/smartcaptcha/info-container-height.md) %}
 
-## Add a {{ captcha-name }} widget as required {#dynamic}
+## Adding the {{ captcha-name }} widget that loads whenever required {#dynamic}
 
-To add a widget and load CAPTCHA as required, use the following approach:
+To add the widget and have your CAPTCHA load whenever required, use the following approach:
 
 ```js
 window.onloadFunction = () => {
@@ -65,11 +65,11 @@ window.onloadFunction = () => {
 }
 
 function handleScriptLoadingError() {
-  // Handling errors
+  // Error handling
 }
 
 const scriptElement = document.createElement('script');
-scriptElement.src = 'https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.src = 'https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction';
 scriptElement.onerror = handleScriptLoadingError;
 document.body.appendChild(scriptElement);
 ```

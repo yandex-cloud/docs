@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys/{userSshKeyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        userSshKeyId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - userSshKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/delete.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Delete {#Delete}
+# Identity Hub API, REST: UserSshKey.Delete
 
 ## HTTP request
 
@@ -17,7 +35,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/userS
 ||Field | Description ||
 || userSshKeyId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

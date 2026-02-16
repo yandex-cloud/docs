@@ -1,6 +1,6 @@
 ---
-title: How to work with a network load balancer. Step-by-step guides
-description: Step-by-step guide for working with a network load balancer in {{ yandex-cloud }}. In this tutorial, you'll learn how to create load balancers, monitor the status of resources, and work with target groups.
+title: Working with a network load balancer. Step-by-step guides
+description: Step-by-step guides on using a network load balancer in {{ yandex-cloud }}. In these articles, you will learn how to create load balancers, monitor target statuses, and manage target groups.
 ---
 
 # Step-by-step guides for {{ network-load-balancer-name }}
@@ -9,13 +9,20 @@ description: Step-by-step guide for working with a network load balancer in {{ y
 
 - [{#T}](load-balancer-list.md)
 - [{#T}](load-balancer-create.md)
+- [{#T}](internal-lb-create.md)
 - [{#T}](load-balancer-start-and-stop.md)
+- [{#T}](deletion-protection.md)
 - [{#T}](load-balancer-update.md)
 - [{#T}](load-balancer-change-zone.md)
 - [{#T}](load-balancer-delete.md)
 - [{#T}](check-resource-health.md)
 - [{#T}](listener-add.md)
 - [{#T}](listener-remove.md)
+
+## Availability zone management
+
+- [{#T}](manage-zone/allow-and-deny-shift.md)
+- [{#T}](manage-zone/disable-enable-zone.md)
 
 ## Target group {#target-group}
 

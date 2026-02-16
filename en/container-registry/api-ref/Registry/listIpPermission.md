@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}:listIpPermission
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the Registry to return ip permission list.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/listIpPermission.md
 ---
 
-# Container Registry API, REST: Registry.ListIpPermission {#ListIpPermission}
+# Container Registry API, REST: Registry.ListIpPermission
 
 List ip permissions for the specified registry.
 
@@ -19,7 +37,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the Registry to return ip permission list. ||
+Required field. ID of the Registry to return ip permission list.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ListIpPermissionsResponse}
@@ -50,7 +70,6 @@ List of ip permissions for registry ||
 ||Field | Description ||
 || action | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

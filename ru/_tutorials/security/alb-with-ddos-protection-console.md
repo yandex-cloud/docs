@@ -26,6 +26,14 @@
 {% include [paid-resources](../_tutorials_includes/alb-with-ddos-protection/paid-resources.md) %}
 
 
+## Подготовьте сервисный аккаунт {#prepare-sa}
+
+{% include [alb-warning.md](../../_includes/instance-groups/alb-warning.md) %}
+
+{% include [sa.md](../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`.
+
 ## Создайте облачную сеть {#create-network}
 
 Все ресурсы, созданные в практическом руководстве, будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
@@ -55,9 +63,9 @@
        --name ddos-network
      ```
 
-     Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью флага `--network-name`:
+  1. Создайте [подсети](../../vpc/concepts/network.md#subnet) в каждой [зоне доступности](../../overview/concepts/geo-scope.md), указав идентификатор облачной сети с помощью параметра `--network-name`:
 
      ```bash
      yc vpc subnet create \
@@ -83,7 +91,7 @@
        --range 192.168.2.0/24
      ```
 
-     Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 {% endlist %}
 
@@ -99,7 +107,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
 
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -161,7 +169,7 @@
 
   Где `security-group-id` — идентификатор группы безопасности `ddos-sg-balancer`.
 
-  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 {% endlist %}
 
@@ -177,18 +185,18 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
      * Введите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `ddos-group`.
-     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+     * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с L7-балансировщиком {{ alb-name }}, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`.
 
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и укажите конфигурацию базовой ВМ:
 
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите **{{ ui-key.yacloud.common.description }}** шаблона.
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите:
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите:
 
        * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `HDD`.
        * **{{ ui-key.yacloud.compute.disk-form.field_size }}** диска — `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -223,18 +231,18 @@
 
   1. Получите идентификаторы ресурсов, необходимые для создания группы ВМ, с помощью команд:
 
-     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/managed-services/iam/service-account/get.md) — для сервисного аккаунта.
-     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md) — для сети `ddos-network`.
-     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/managed-services/vpc/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-d`.
-     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md) — для образа загрузочного диска.
-     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
+     * [yc iam service-account get <имя_сервисного_аккаунта>](../../cli/cli-ref/iam/cli-ref/service-account/get.md) — для сервисного аккаунта.
+     * [yc vpc network get ddos-network](../../cli/cli-ref/vpc/cli-ref/network/get.md) — для сети `ddos-network`.
+     * [yc vpc subnet get <имя_подсети>](../../cli/cli-ref/vpc/cli-ref/subnet/get.md) — для подсетей `ddos-network-ru-a`, `ddos-network-ru-b` и `ddos-network-ru-d`.
+     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md) — для образа загрузочного диска.
+     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/vpc/cli-ref/security-group/get.md) — для группы безопасности `ddos-sg-vms`.
 
   1. Создайте YAML-файл с именем `specification.yaml`.
   1. Добавьте в него описание конфигурации базовой ВМ:
 
      ```yaml
      name: ddos-group
-     service_account_id: <идентификатор_сервисного_аккаунта>
+     service_account_id: <идентификатор_сервисного_аккаунта> // сервисный аккаунт должен иметь роль editor
      description: "DDoS alb scenario"
      instance_template:
          platform_id: standard-v3
@@ -337,7 +345,7 @@
        target_group_id: ds78imh0ds2e********
      ```
 
-     Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+     Подробнее о команде `yc compute instance-group create` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 {% endlist %}
 
@@ -410,7 +418,7 @@
      created_at: "2021-08-08T20:46:21.688940670Z"
      ```
 
-     Подробнее о команде `yc alb backend-group create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/create.md).
+     Подробнее о команде `yc alb backend-group create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/create.md).
 
   1. Добавьте в группу бэкенд и проверку состояния:
 
@@ -461,7 +469,7 @@
      created_at: "2021-08-08T07:59:22.922603189Z"
      ```
 
-     Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
+     Подробнее о команде `yc alb backend-group add-http-backend` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/add-http-backend.md).
 
 {% endlist %}
 
@@ -510,7 +518,7 @@
      created_at: "2021-08-08T21:04:59.438292069Z"
      ```
 
-     Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     Подробнее о команде `yc alb http-router create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
   1. Создайте виртуальный хост, указав имя HTTP-роутера:
 
@@ -520,7 +528,7 @@
        --authority alb-with-ddos.com
      ```
 
-     Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     Подробнее о команде `yc alb virtual-host create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
   1. Добавьте маршрут, указав имя роутера и параметры маршрутизации:
 
@@ -549,7 +557,7 @@
             timeout: 60s
      ```
 
-     Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     Подробнее о команде `yc alb virtual-host append-http-route` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 {% endlist %}
 
@@ -590,7 +598,7 @@
        --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
      ```
 
-     Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     Подробнее о команде `yc alb load-balancer create` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Добавьте обработчик:
 
@@ -601,7 +609,7 @@
        --external-ipv4-endpoint port=80, address=<IP-адрес_с_защитой_от_DDoS>
      ```
 
-     Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     Подробнее о команде `yc alb load-balancer add-listener` читайте в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 {% endlist %}
 

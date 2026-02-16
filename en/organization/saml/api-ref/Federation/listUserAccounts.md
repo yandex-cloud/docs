@@ -1,9 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:listUserAccounts
+    method: get
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the federation to list user accounts for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 2000.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on the [nameId](#yandex.cloud.organizationmanager.v1.SamlUserAccount) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
+            `[a-z0-9A-Z/@_.\-=+*\\]+`.
+            The maximum string length in characters is 1010.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/listUserAccounts.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.ListUserAccounts {#ListUserAccounts}
+# SAML Federation API, REST: Federation.ListUserAccounts
 
 Lists users for the specified federation.
 
@@ -19,7 +70,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to list user accounts for. ||
+Required field. ID of the federation to list user accounts for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsRequest}
@@ -31,12 +84,16 @@ Required field. ID of the federation to list user accounts for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListFederatedUserAccountsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -44,7 +101,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on the [nameId](#yandex.cloud.organizationmanager.v1.SamlUserAccount) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
-`[a-z0-9A-Z/@_.\-=+*\\]+`. ||
+`[a-z0-9A-Z/@_.\-=+*\\]+`.
+
+The maximum string length in characters is 1010. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse}
@@ -64,11 +123,7 @@ The expression must specify:
       "samlUserAccount": {
         "federationId": "string",
         "nameId": "string",
-        "attributes": {
-          "value": [
-            "string"
-          ]
-        }
+        "attributes": "object"
       }
       // end of the list of possible fields
     }
@@ -92,7 +147,7 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 ## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -114,7 +169,7 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 ## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -129,18 +184,22 @@ Default email of the Yandex user account. ||
 ## SamlUserAccount {#yandex.cloud.organizationmanager.v1.SamlUserAccount}
 
 A SAML federated user.
-For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+For more information, see [federations](/docs/iam/concepts/users/accounts#saml-federation).
 
 #|
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation that the federation belongs to. ||
+Required field. ID of the federation that the federation belongs to.
+
+The maximum string length in characters is 50. ||
 || nameId | **string**
 
 Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**
+The name is unique within the federation. 1-256 characters long.
+
+The string length in characters must be 1-256. ||
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

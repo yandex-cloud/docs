@@ -1,13 +1,20 @@
-# Dataset in {{ datalens-name }}
+---
+title: Dataset in {{ datalens-full-name }}
+description: A dataset in {{ datalens-full-name }} describes a set of data and its structure. Data in a dataset is represented as fields.
+---
+
+# Dataset in {{ datalens-full-name }}
 
 A _dataset_ describes a set of data and its structure. Data in a dataset is represented as fields.
 
-{{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection.md).
+{{ datalens-short-name }} creates a dataset based on a data source for which there is a [connection](../concepts/connection/index.md).
 
 
-A dataset works with sources in direct access mode: {{ datalens-short-name }} runs all data queries on the source side.
+A dataset works with sources in direct access mode: it runs all data queries on the source side. At the same time, you cannot change data in the source itself using {{ datalens-short-name }}.
 
 
+
+{% include [datalens-dataset-timeout-note](../../_includes/datalens/datalens-dataset-timeout-note.md) %}
 
 ## Dataset page {#dataset-page}
 
@@ -55,3 +62,4 @@ A dataset page consists of several tabs:
 * [{#T}](./data-model.md)
 * [{#T}](./data-types.md)
 * [{#T}](./settings.md)
+* [{#T}](../tutorials/data-from-ch-dataset-parametrization.md)

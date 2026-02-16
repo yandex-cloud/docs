@@ -1,4 +1,4 @@
-# Cluster read/write issues
+# Cluster read and write issues
 
 {% include [read-write-minitoc](../../_qa/managed-mysql/minitoc/read-write.md) %}
 

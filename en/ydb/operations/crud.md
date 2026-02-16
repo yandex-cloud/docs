@@ -1,6 +1,6 @@
 ---
 title: How to read and write data in {{ ydb-full-name }}
-description: Follow this guide to read and write data.
+description: Follow this guide to learn how to read and write data.
 ---
 
 # Reading and writing data
@@ -11,29 +11,29 @@ To run queries, you will need to create a [database](manage-databases.md) and a 
 
 ## SQL queries in the management console {#web-sql}
 
-To send an SQL query to a database from the management console:
-1. In the [management console]({{ link-console-main }}), select the folder with the desired DB.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-1. Select the database from the list.
-1. Go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
-1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use the following templates:
+To query a database in SQL from the management console:
+1. In the [management console]({{ link-console-main }}), select the folder containing your database.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+1. Select your database from the list.
+1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
+1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** and enter the query text. When making queries, you can use templates:
    * To use one of the standard templates, select it from the drop-down list to the right of the **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** button.
-   * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row next to the table and select a template.
+   * To populate a template with data from a specific table, click ![image](../../_assets/horizontal-ellipsis.svg) in the row with the table and select the template.
 1. Click **{{ ui-key.yacloud.ydb.sql.button_run }}**.
 
-## Insert and update data {#change-data}
+## Insert and edit data {#change-data}
 
-To insert data into {{ ydb-short-name }}, use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into), [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into), and [INSERT]({{ ydb.docs }}/yql/reference/syntax/insert_into) statements.
+To insert data in {{ ydb-short-name }}, use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into), [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into), and [INSERT]({{ ydb.docs }}/yql/reference/syntax/insert_into) statements.
 
-When executing REPLACE and UPSERT statements, a blind write is performed. With an INSERT statement, data is read before writing. This ensures that the primary key is unique.
+REPLACE and UPSERT statements result in a blind write. With an INSERT statement, data is read before writing. This ensures that the primary key is unique.
 
-We recommend using REPLACE and UPSERT statements to write and modify data.
+We recommend using REPLACE and UPSERT statements to write and edit data.
 
 A single REPLACE, UPSERT, or INSERT query can insert multiple rows into a table.
 
 {% note warning %}
 
-The YQL management console includes PRAGMA AutoCommit. This means that COMMIT is automatically executed after each query. For example, if you enter multiple statements (as shown in the example below) and execute the query, a COMMIT is made automatically after the query.
+The YQL management console includes PRAGMA AutoCommit. This means that a COMMIT runs automatically after each query. For example, if you enter multiple statements (as shown in the example below) and run your query, a COMMIT will run automatically after it.
 
 ```sql
 REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 1, "Yesterday's Jam");
@@ -44,21 +44,21 @@ REPLACE INTO episodes (series_id, season_id, episode_id, title) VALUES (1, 1, 2,
 
 ### REPLACE {#replace}
 
-Once you create the `series`, `seasons`, and `episodes` tables, you can insert data into the table using the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement. Basic syntax:
+Once the `series`, `seasons`, and `episodes` tables are created, you can insert data into a table using the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement. The basic syntax is as follows:
 
 ```sql
-REPLACE INTO <table_name> (<column_list>) VALUES (<list_of_added_values>);
+REPLACE INTO <table_name> (<list_of_columns>) VALUES (<list_of_values_to_add>);
 ```
 
-The [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *The values of columns not involved in the operation are set to their default values.* This is the only way the `UPSERT` statement is different.
+Use the [REPLACE]({{ ydb.docs }}/yql/reference/syntax/replace_into) statement to add a new row or change an existing one based on the specified primary key value. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new ones. *The values of columns not involved in the operation are set to their defaults.* This is the only difference from the UPSERT statement.
 
 {% note info %}
 
-When performing a REPLACE operation, a blind write is performed. For write or change operations, we recommend using REPLACE and UPSERT statements.
+A REPLACE statement results in a blind write. For data writes or updates, we recommend using the REPLACE or UPSERT statements.
 
 {% endnote %}
 
-Data added using the following code sample will be used later in this section.
+Data added using the following code sample will be used further on in this section.
 
 ```sql
 REPLACE INTO series (series_id, title, release_date, series_info)
@@ -96,11 +96,11 @@ VALUES
 
 ### UPSERT {#upsert}
 
-The [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into) statement is used to add a new or change an existing row at a given value of the primary key. If a row with the specified primary key value does not exist, it is created. If the row exists already, the column values of the existing row are replaced with the new values. *However, the values of columns not involved in the operation are not changed. This is what makes it different from the REPLACE statement.*
+Use the [UPSERT]({{ ydb.docs }}/yql/reference/syntax/upsert_into) statement to add a new row or change an existing one based on a specified value of the primary key. If a row with the specified primary key value does not exist, it will be created. If the row already exists, the column values of the existing row will be replaced with the new ones. *However, the values of columns not involved in the operation remain unchanged. This is the only difference from the REPLACE statement.*
 
 {% note info %}
 
-When making an UPSERT, a blind write is performed. For writing data, we recommend using REPLACE and UPSERT statements.
+An UPSERT statement results in a blind write. For data writes, we recommend using the REPLACE or UPSERT statements.
 
 {% endnote %}
 
@@ -128,11 +128,11 @@ VALUES
 
 ### INSERT {#insert}
 
-The [INSERT]({{ ydb.docs }}/yql/reference/syntax/insert_into) statement is used to insert one or more rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} returns the following error message: `Transaction rolled back due to constraint violation: insert_pk.`.
+Use the [INSERT]({{ ydb.docs }}/yql/reference/syntax/insert_into) statement to insert one or multiple rows. If you try to insert a row into a table with an existing primary key value, {{ ydb-short-name }} will return the following error message: `Transaction rolled back due to constraint violation: insert_pk.`.
 
 {% note info %}
 
-When an INSERT operation is executed, the data is read before it is written. This makes it less efficient than REPLACE and UPSERT operations. For writing data, we recommend using REPLACE and UPSERT operations.
+With an INSERT statement, data is read before writing. This makes it less efficient than REPLACE and UPSERT statements. For data writes, we recommend using the REPLACE and UPSERT statements.
 
 {% endnote %}
 
@@ -160,13 +160,13 @@ VALUES
 
 ### UPDATE {#update}
 
-The [UPDATE]({{ ydb.docs }}/yql/reference/syntax/update) statement changes the values of columns for the table rows filtered by the WHERE clause. Basic syntax:
+The [UPDATE]({{ ydb.docs }}/yql/reference/syntax/update) statement changes the column values for table rows filtered by the predicate in the WHERE clause. The basic syntax is as follows:
 
 ```sql
-UPDATE <table_name> SET <column_1_name>=<new_column_1_value>, ... ,<column_N_name>=<new_column_N_value> WHERE <condition_for_row_filter>;
+UPDATE <table_name> SET <column_1_name>=<new_column_1_value>, ... ,<column_N_name>=<new_column_N_value> WHERE <row_filtering_clause>;
 ```
 
-UPDATE statements cannot change primary key values. Enter and execute the following UPDATE statement to change the value of the `title` column from "Test Episode" to "Test Episode Updated" for the episode with `series_id = 2`, `season_id = 1`, and `episode_id = 3`.
+UPDATE statements cannot change primary key values. Run the following UPDATE statement to change the value of the `title` column from _Test Episode_ to _Test Episode Updated_ for the episode with the `series_id = 2`, `season_id = 1`, and `episode_id = 3` column values.
 
 ```sql
 UPDATE episodes
@@ -180,7 +180,7 @@ WHERE
 
 ### DELETE {#delete}
 
-The [DELETE]({{ ydb.docs }}/yql/reference/syntax/delete) statement deletes the rows from the table filtered by the WHERE clause. The code below removes an `episode` with `series_id = 2`, `season_id = 5`, and `episode_id = 21` from the episodes table.
+The [DELETE]({{ ydb.docs }}/yql/reference/syntax/delete) statement deletes table rows filtered by the predicate in the WHERE clause. The code below removes the episode with the `series_id = 2`, `season_id = 5`, and `episode_id = 21` column values from the `episodes` table.
 
 ```sql
 DELETE
@@ -194,9 +194,9 @@ WHERE
 
 ## Query data using SELECT {#select}
 
-To read data in the table, use the [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) statement.
+Use the [SELECT]({{ ydb.docs }}/yql/reference/syntax/select) statement to read data from a table.
 
-To query data from the `series` table, execute the code shown below.
+To query data from the `series` table, run the code below.
 
 ```sql
 SELECT
@@ -206,7 +206,7 @@ SELECT
 FROM series;
 ```
 
-You can use an asterisk to select all the columns in a table. To obtain the values of all columns from the `series` table, execute the code shown below.
+You can use an asterisk to select all the columns in a table. To get the values of all columns from the `series` table, run the code below.
 
 ```sql
 SELECT
@@ -216,7 +216,7 @@ FROM series;
 
 {% note info %}
 
-To learn more about querying data by a secondary index, [read the YQL documentation]({{ ydb.docs }}/yql/reference/syntax/select#secondary_index).
+For more information about querying data by secondary index, see [this YQL guide]({{ ydb.docs }}/yql/reference/syntax/select#secondary_index).
 
 {% endnote %}
 
@@ -224,18 +224,18 @@ To learn more about querying data by a secondary index, [read the YQL documentat
 
 Use parameterized queries to improve performance by reducing the frequency of compiling and recompiling your queries.
 
-> Example
+>Example
 >
-> ```sql
-> DECLARE $seriesId AS Uint64;
-> DECLARE $seasonId AS Uint64;
+>```sql
+>DECLARE $seriesId AS Uint64;
+>DECLARE $seasonId AS Uint64;
 >
-> $seriesId = 1;
-> $seasonId = 2;
+>$seriesId = 1;
+>$seasonId = 2;
 >
-> SELECT sa.title AS season_title, sr.title AS series_title
-> FROM seasons AS sa
-> INNER JOIN series AS sr
-> ON sa.series_id = sr.series_id
-> WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
-> ```
+>SELECT sa.title AS season_title, sr.title AS series_title
+>FROM seasons AS sa
+>INNER JOIN series AS sr
+>ON sa.series_id = sr.series_id
+>WHERE sa.series_id = $seriesId AND sa.season_id = $seasonId;
+>```

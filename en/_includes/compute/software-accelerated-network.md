@@ -1,11 +1,12 @@
 ## Regular VM network {#reg-vm}
 
-In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. A *hypervisor* proportionally distributes the computing load across all processor cores allocated to a VM.
+In the {{ yandex-cloud }} infrastructure, all VMs run in the [QEMU-KVM](https://en.wikipedia.org/wiki/QEMU) virtualization environment. The *hypervisor* proportionally distributes compute load across all CPU cores allocated to the VM.
 
 The computing load can be logically divided into three parts:
-* User load: OS processes and user processes run in the OS of a user VM.
+
+* User load, i.e., OS processes and user processes run in the OS of a user VM.
 * Processes maintaining the operation of [network disks](../../compute/concepts/disk.md).
-* Processes for handling the VM's network traffic.
+* Processes for handling network traffic of the VM.
 
 The load distribution across compute cores can be presented as follows:
 
@@ -15,7 +16,7 @@ The diagram shows that the user load and VM network traffic handling are distrib
 
 The processes maintaining the operation of [network disks](../../compute/concepts/disk.md) are separated from the user load and run on compute cores from a separate pool, the service cores labeled as `Core S1` and `Core Sn` in the diagram.
 
-You can isolate VM network traffic from the user load using the [software-accelerated network (SAN)](#san) mechanism.
+You can isolate VM network traffic processing from the user load using the [software-accelerated network (SAN)](#san) mechanism.
 
 ## Software-accelerated network {#san}
 
@@ -38,19 +39,19 @@ You cannot enable SAN on a VM with [performance level](../../compute/concepts/pe
 
 {% endnote %}
 
-This way, SAN ensures that there is no competition between user and service loads for the VM's hardware resources, as all network traffic is processed separately. This minimizes lags and packet losses when transmitting traffic, while the VM's computing resources are freed up to serve the user load.
+This way, SAN ensures there is no contention between user and service loads for the VM's hardware resources as all network traffic is processed separately. This minimizes lags and packet losses when transmitting traffic, while the VM's computing resources are freed up to serve the user load.
 
 The [cost](../../compute/pricing.md#software-accelerated-network) of additional hardware resources depends on the [platform](../../compute/concepts/vm-platforms.md) and the number of VM cores.
 
-To enable a software-accelerated network:
+To enable a software-accelerated network, do the following:
 
-* Select the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
+* Select the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option when [creating a new VM](../../compute/operations/vm-create/create-linux-vm.md) or [reconfigure](../../compute/operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) an existing VM.
 
-* Enable the **{{ ui-key.yacloud.component.compute.resources.label_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
+* Enable the **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** option in the basic VM configuration when [creating an instance group](../../compute/operations/instance-groups/create-fixed-group.md) or set the `network_settings.type` key to `SOFTWARE_ACCELERATED` in the [YAML specification](../../compute/concepts/instance-groups/specification.md).
 
 ## Recommendations for using a software-accelerated network {#use-cases}
 
-We recommend enabling a software-accelerated network to speed up request handling:
+We recommend enabling a software-accelerated network to shorten request processing time:
 
 * On VMs with custom DB installations in the case of high [disk](../../compute/concepts/disk.md) and CPU utilization (over 70-80%).
 * If you see a high `CPU steal time` metric value inside a VM.

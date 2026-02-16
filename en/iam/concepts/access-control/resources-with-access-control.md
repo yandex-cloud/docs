@@ -1,101 +1,39 @@
 ---
-title: List of resources you can assign roles for in {{ iam-full-name }}
+title: Resources for which you can assign roles in {{ iam-full-name }}
 description: In this tutorial, you will learn which {{ yandex-cloud }} resources you can assign roles for.
 ---
 
-# List of resources that you can assign roles for
+# Resources that roles can be assigned for
 
 
-{{ yandex-cloud }} has various resources for which you can [assign](../../operations/roles/grant.md), [view](../../operations/roles/get-assigned-roles.md), and [revoke](../../operations/roles/revoke.md) roles.
+{{ yandex-cloud }} uses [roles](./roles.md) to manage access permissions.
 
-If you need to grant access to a resource that is not on the list, assign the role for the parent resource it [inherits](index.md#inheritance) permissions from. For example, [{{ mpg-full-name }} clusters](../../../managed-postgresql/concepts/index.md) inherit access permissions from their folder.
+{% include [operate-via-roles-paragraph](../../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-The list of resources will vary depending on the {{ yandex-cloud }} interface used to assign a role.
+## Inheriting access permissions {#permission-inheritance}
 
-{% list tabs group=instructions %}
+Roles are [assigned](../../operations/roles/grant.md) for {{ yandex-cloud }} [resources](../../../resource-manager/concepts/resources-hierarchy.md). The standard permission [inheritance](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) model applies to resources of most {{ yandex-cloud }} [services](../../../overview/concepts/services.md):
 
-- Management console {#console}
+{% include [basic-role-inheritance-chain](../../../_includes/basic-role-inheritance-chain.md) %}
 
-  **{{ container-registry-name }}**
-  * [Registry](../../../container-registry/operations/roles/grant.md)
+### Exceptions to permission inheritance rules {#inheritance-exceptions}
 
-  **{{ compute-name }}**
+Some {{ yandex-cloud }} services do not support the standard role inheritance model. Here are the services in which you need to specifically assign roles to users:
 
-  {% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
+* [{{ billing-name }}](../../../billing/security/index.md)
+* [{{ tracker-full-name }}]({{ link-tracker-cloudless }}access)
+* [{{ datalens-full-name }}](../../../datalens/security/index.md)
+* [{{ wiki-full-name }}]({{ link-wiki-cloudless }}/page-management/access-setup)
+* [{{ forms-full-name }}]({{ link-forms-cloudless }}/access)
+* [{{ ml-platform-full-name }}](../../../datasphere/security/index.md)
+* [{{ speechsense-full-name }}](../../../speechsense/security/index.md)
 
-  **{{ iam-name }}**
-  * [Service account](../../operations/sa/assign-role-for-sa.md)
+## Granular role assignment {#granular-assignment}
 
-  **{{ kms-name }}**
+Some {{ yandex-cloud }} services allow you to assign roles in a more granular way, i.e., for individual resources within a service. For example, in [{{ compute-full-name }}](../../../compute/index.yaml), you can assign roles for the following resources:
 
-  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
+{% include notitle [compute-resources](../../../_includes/iam/resources-with-access-control/compute.md) %}
 
-  **{{ ydb-name }}**
-  * [YDB DBMS](../../../ydb/operations/manage-databases.md#add-access-binding)
+Note that some [interfaces](../../../overview/concepts/interfaces.md) do not support granular assignment of roles for resources. For example, you can assign a role for a {{ compute-name }} [instance group](../../../compute/concepts/instance-groups/index.md) using the [management console]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../../../cli/index.yaml) or [API](../../../api-design-guide/index.yaml), but not with [{{ TF }}](../../../terraform/index.yaml).
 
-  **{{ metadata-hub-full-name }}**
-  * [Connection to managed databases](../../../metadata-hub/operations/connection-access.md) in {{ connection-manager-full-name }}
-
-  **{{ objstorage-name }}**
-  * [Bucket](../../../storage/operations/buckets/iam-access.md)
-
-  **{{ resmgr-name }}**
-  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
-
-  **{{ lockbox-name }}**
-  * [Secret](../../../lockbox/operations/secret-access.md)
-
-- CLI {#cli}
-
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
-
-- {{ TF }} {#tf}
-
-  **{{ container-registry-name }}**
-  * [Registry](../../../container-registry/operations/roles/grant.md)
-  * [Repository](../../../container-registry/operations/roles/grant.md)
-
-  **{{ ml-platform-name }}**
-  * [Project](../../../datasphere/security/index.md)
-  * [Community](../../../datasphere/security/index.md)
-
-  **{{ dns-name }}**
-  * [DNS zone](../../../dns/operations/zone-access.md)
-
-  **{{ sf-name }}**
-  * [Function](../../../functions/operations/function/role-add.md)
-
-  **{{ compute-name }}**
-
-  {% include notitle [compute-resources-tf](../../../_includes/iam/resources-with-access-control/compute-tf.md) %}
-
-  **{{ iam-name }}**
-  * [Service account](../../operations/sa/assign-role-for-sa.md)
-
-  **{{ kms-name }}**
-
-  {% include notitle [kms-resources](../../../_includes/iam/resources-with-access-control/kms.md) %}
-
-  **{{ lockbox-name }}**
-  * [Secret](../../../lockbox/operations/secret-access.md)
-
-  **{{ resmgr-name }}**
-  * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md)
-  * [Folder](../../../resource-manager/operations/folder/set-access-bindings.md)
-
-  **{{ serverless-containers-name }}**
-  * [Container](../../../serverless-containers/operations/role-add.md)
-
-  **{{ ydb-name }}**
-  * [YDB DBMS](../../../ydb/security/index.md)
-
-  **{{ org-name }}**
-
-  {% include notitle [organization-resources](../../../_includes/iam/resources-with-access-control/organization.md) %}
-
-- API {#api}
-
-  {% include notitle [cli-api](../../../_includes/iam/resources-with-access-control/cli-api.md) %}
-
-{% endlist %}
+For more information about resources you can assign roles for, available roles, and specifics of their assignment, see the **Access management** page for the relevant service, e.g., [{#T}](../../../compute/security/index.md).

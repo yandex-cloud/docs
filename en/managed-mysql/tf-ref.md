@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mmy-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mmy-name }}.
+description: This page gives information about the {{ TF }} provider resources and data sources supported by {{ mmy-name }}.
 ---
 
 # {{ TF }} reference for {{ mmy-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mmy-name }}:
+{{ mmy-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -23,5 +23,6 @@ The following {{ TF }} provider resources are supported for {{ mmy-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_cluster) | [Cluster](./concepts/index.md) information |
-| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/datasource_mdb_mysql_user) | Database user information |
+| [yandex_mdb_mysql_cluster]({{ tf-provider-datasources-link }}/mdb_mysql_cluster) | [Cluster](./concepts/index.md) information |
+| [yandex_mdb_mysql_database]({{ tf-provider-datasources-link }}/mdb_mysql_database) | Database information |
+| [yandex_mdb_mysql_user]({{ tf-provider-datasources-link }}/mdb_mysql_user) | Database user information |

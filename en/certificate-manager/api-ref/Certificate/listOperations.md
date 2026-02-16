@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. ID of the certificate to list operations for.
+            To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listOperations.md
 ---
 
-# Certificate Manager API, REST: Certificate.ListOperations {#ListOperations}
+# Certificate Manager API, REST: Certificate.ListOperations
 
 Lists operations for the specified certificate.
 
@@ -21,7 +61,9 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{cert
 
 Required field. ID of the certificate to list operations for.
 
-To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, use a [CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.ListCertificateOperationsRequest}
@@ -33,11 +75,15 @@ To get the certificate ID, use a [CertificateService.List](/docs/certificate-man
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request. ||
+[ListCertificateOperationsResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.ListCertificateOperationsResponse}

@@ -128,7 +128,7 @@
 
   Где:
 
-  * `aws_access_key_id` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md), [сгенерированный](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта проекта.
+  * `aws_access_key_id` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md), [сгенерированный](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта проекта.
   * `aws_secret_access_key` — секретный ключ, сгенерированный для того же сервисного аккаунта.
 
 - Яндекс Диск

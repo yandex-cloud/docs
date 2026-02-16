@@ -16,8 +16,8 @@
 
 Чтобы создать группу ВМ:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа ВМ.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
     * Введите имя и описание группы ВМ. Требования к имени:
@@ -34,7 +34,7 @@
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание базовой ВМ.
    * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
      * Укажите размер диска.
      * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**, чтобы добавить дополнительные диски.

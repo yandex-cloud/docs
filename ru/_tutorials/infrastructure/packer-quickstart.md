@@ -23,16 +23,17 @@ Packer создаст и запустит виртуальную машину с
 
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
-1. Установите [интерфейс командной строки](../../cli/quickstart.md#install) {{ yandex-cloud }}.
-
-    {% note tip %}
-
-    Если вы работаете с облаком с помощью [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) и хотите использовать CLI изнутри ВМ, [аутентифицируйтесь в CLI от имени сервисного аккаунта](../../cli/operations/authentication/service-account.md#vm-auth-as-sa).
-    
-    {% endnote %}
-
 1. [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-1. Получите [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport) или [IAM-токен](../../iam/operations/iam-token/create-for-federation.md) для [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation).
+1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
+
+    * [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
+    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation), [локального](../../iam/concepts/users/accounts.md#local) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунта.
+
+1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе {{ compute-name }}. У вас должна быть минимальная [роль](../../compute/security/index.md#compute-editor) `compute.editor` на каталог.
+
+    Если вы работаете от имени сервисного аккаунта, [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `compute.editor` на каталог.
+
+    Если вы хотите создавать ресурсы в других сервисах {{ yandex-cloud }}, например подсети в {{ vpc-short-name }}, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -109,11 +110,7 @@ Packer создаст и запустит виртуальную машину с
   1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в папку `packer`.
   1. Добавьте папку `packer` в переменную `PATH`:
 
-      1. Нажмите кнопку **Пуск** и в строке поиска Windows введите **Изменение системных переменных среды**.
-      1. Справа снизу нажмите кнопку **Переменные среды...**.
-      1. В открывшемся окне найдите параметр `PATH` и нажмите **Изменить**.
-      1. Добавьте путь до папки `packer` в список.
-      1. Нажмите кнопку **ОК**.
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
   1. Запустите новую сессию командной строки и убедитесь, что Packer установлен:
 
@@ -122,7 +119,7 @@ Packer создаст и запустит виртуальную машину с
       ```
 
       Результат:
-      
+
       ```text
       Packer v1.11.2
       ```
@@ -142,7 +139,7 @@ Packer создаст и запустит виртуальную машину с
   1. Добавьте Packer в переменную `PATH`: 
 
       ```bash
-      echo 'export PATH="$PATH:$HOME/<имя_пользователя>/packer"' >> ~/.bash_profile
+      echo 'export PATH="$PATH:$HOME/packer"' >> ~/.bash_profile
       source ~/.bash_profile
       ```
 
@@ -204,10 +201,10 @@ Packer создаст и запустит виртуальную машину с
 ## Подготовьте конфигурацию образа {#prepare-image-config}
 
 1. [Узнайте](../../resource-manager/operations/folder/get-id.md) идентификатор каталога.
-1. [Узнайте](../../vpc/operations/subnet-get-info.md) идентификатор подсети.
-1. Подготовьте идентификатор подсети, выполнив команду `yc vpc subnet list`.
-1. Создайте JSON-файл с любым именем, например, `image.json`. Запишите туда следующую конфигурацию:
+1. [Узнайте](../../vpc/operations/subnet-get-info.md) идентификатор подсети и [зону доступности](../../overview/concepts/geo-scope.md), в которой она расположена.
+1. Создайте JSON-файл с любым именем, например: `image.json`. Запишите туда следующую конфигурацию:
 
+    
     ```json
     {
       "builders": [
@@ -215,7 +212,7 @@ Packer создаст и запустит виртуальную машину с
           "type":      "yandex",
           "token":     "<OAuth-токен_или_IAM-токен>",
           "folder_id": "<идентификатор_каталога>",
-          "zone":      "{{ region-id }}-a",
+          "zone":      "<зона_доступности>",
 
           "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
           "image_family":      "debian-web-server",
@@ -244,9 +241,14 @@ Packer создаст и запустит виртуальную машину с
     }
     ```
 
+
+
+
     Где:
-    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного аккаунта.
+
+    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного или сервисного аккаунтов.
     * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
+    * `zone` — зона доступности, в которой будет создана ВМ. Например: `{{ region-id }}-d`.
     * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
 
 {% include [warning-provisioner-metadata](../../_includes/tutorials/infrastructure-management/warning-provisioner-metadata.md) %}
@@ -282,7 +284,7 @@ Packer создаст и запустит виртуальную машину с
 
   1. Перейдите в [консоль управления]({{ link-console-main }}).
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.switch_images }}**. Убедитесь, что там появился новый образ диска.
+  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**. Убедитесь, что там появился новый образ диска.
 
 - CLI {#cli}
 
@@ -311,6 +313,7 @@ Packer создаст и запустит виртуальную машину с
 
 ### Удалите созданные ресурсы {#clear-out}
 
-Если созданный образ вам больше не нужен, [удалите его](../../compute/operations/image-control/delete.md).
+Чтобы перестать платить за созданные ресурсы:
 
-Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения руководства.
+* [Удалите](../../compute/operations/image-control/delete.md) созданный образ.
+* Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения руководства.

@@ -1,1 +1,0 @@
-Роль `managed-elasticsearch.viewer` позволяет просматривать информацию о [кластерах](../../managed-elasticsearch/concepts/index.md) Elasticsearch и логи их работы, а также данные о [квотах](../../managed-elasticsearch/concepts/limits.md#mes-quotas) и операциях с ресурсами сервиса Managed Service for Elasticsearch.

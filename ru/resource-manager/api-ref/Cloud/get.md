@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
+    method: get
+    path:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the Cloud resource to return.
+            To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - cloudId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/get.md
 ---
 
-# Resource Manager API, REST: Cloud.Get {#Get}
+# Resource Manager API, REST: Cloud.Get
 
 Returns the specified Cloud resource.
 
@@ -22,7 +41,9 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
 || cloudId | **string**
 
 Required field. ID of the Cloud resource to return.
-To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request. ||
+To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.resourcemanager.v1.Cloud}
@@ -36,7 +57,7 @@ To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/Cl
   "name": "string",
   "description": "string",
   "organizationId": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -66,7 +87,7 @@ Description of the cloud. 0-256 characters long. ||
 || organizationId | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

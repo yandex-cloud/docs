@@ -1,4 +1,4 @@
-# Просмотр операций с ресурсами сервиса
+# Просмотр операций с ресурсами сервиса {{ api-gw-name }}
 
 Все действия с ресурсами сервиса {{ api-gw-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
@@ -11,10 +11,10 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для API-шлюза. Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится API-шлюз.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Выберите нужный API-шлюз.
-  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_operations }}** для выбранного API-шлюза.
+  1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного API-шлюза.
 
      В открывшемся списке отображаются операции с выбранным API-шлюзом.
 
@@ -49,7 +49,7 @@
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
 
   ```bash
   yc serverless api-gateway list-operations <имя_или_идентификатор_API-шлюза> --format yaml
@@ -117,7 +117,7 @@
           created_at: "2024-06-21T09:51:17.489Z"
           name: operation-logs
           status: ACTIVE
-          domain: d5dig9e60uco********.apigw.yandexcloud.net
+          domain: {{ api-host-apigw }}
           connectivity: {}
           log_options:
             folder_id: b1g681qpemb4********

@@ -1,9 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to delete.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        decommissionTimeout:
+          description: |-
+            **string** (int64)
+            Timeout to gracefully decommission nodes. In seconds. Default value: 0
+            Acceptable values are 0 to 86400, inclusive.
+          default: '0'
+          type: string
+          format: int64
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/delete.md
 ---
 
-# Data Proc API, REST: Cluster.Delete {#Delete}
+# Yandex Data Processing API, REST: Cluster.Delete
 
 Deletes the specified cluster.
 
@@ -21,7 +51,9 @@ DELETE https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
 
 Required field. ID of the cluster to delete.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.DeleteClusterRequest}
@@ -30,7 +62,9 @@ To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluste
 ||Field | Description ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -120,7 +154,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that is being deleted. ||
+ID of the Yandex Data Processing cluster that is being deleted. ||
 |#
 
 ## Status {#google.rpc.Status}

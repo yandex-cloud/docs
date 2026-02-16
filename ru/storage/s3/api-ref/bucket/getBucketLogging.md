@@ -1,3 +1,8 @@
+---
+title: Метод getBucketLogging
+description: Из статьи вы узнаете, что такое метод getBucketLogging, как выглядит его запрос и ответ.
+---
+
 # Метод getBucketLogging
 
 

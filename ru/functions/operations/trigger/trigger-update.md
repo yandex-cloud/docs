@@ -1,3 +1,8 @@
+---
+title: Изменить триггер в {{ sf-name }}
+description: Из статьи вы узнаете, как изменить все параметры триггера в {{ sf-name }}, кроме типа триггера и запускаемого ресурса.
+---
+
 # Изменить триггер в {{ sf-name }}
 
 Вы можете изменить все параметры, кроме типа триггера и запускаемого ресурса.
@@ -13,7 +18,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Выберите триггер, параметры которого хотите изменить.
     1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.
@@ -42,7 +47,6 @@
 
       Результат:
 
-
       ```text
       id: dd0gj5tsj2**********
       folder_id: aoek49ghmk**********
@@ -70,9 +74,6 @@
       status: ACTIVE
       ```
 
-
-
-
 - {{ TF }} {#tf}
 
   Информацию о {{ TF }} [читайте в документации](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -98,7 +99,7 @@
       ...
       ```
 
-      Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-link }}/function_trigger).
+      Более подробную информацию о параметрах ресурса `yandex_function_trigger` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Создайте ресурсы:
 

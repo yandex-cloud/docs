@@ -26,19 +26,19 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. To configure:
         * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
             1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
             1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
-            1. In the window that opens, specify:
+            1. In the window that opens, specify the following:
                 * **zone_instances_limit**: Number of function instances in an availability zone.
                 * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
                 * **provisioned_instances_count**: Number of provisioned instances.
             1. Click **{{ ui-key.yacloud.common.save }}**.
         * [Number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`):
-            1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+            1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
             1. Under **Additional settings**, in the **Concurrent function instance calls** section, check **Enable** and enter the number of concurrent function instance calls.
             1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -59,7 +59,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         Where:
 
-        * `--id`: ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
+        * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
         * `--tag`: Function version [tag](../../concepts/function.md#tag).
         * `--zone-instances-limit`: Number of function instances.
         * `--zone-requests-limit`: Number of calls in progress.
@@ -92,10 +92,10 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         * `--function-name`: Name of the function whose version you want to create.
         * `--runtime`: Function [runtime environment](../../concepts/index.md).
-        * `--entrypoint`: Entry point in the following format: `file_name_without_extension>.<handler_name>`.
+        * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
         * `--memory`: Amount of RAM.
         * `--concurrency`: Maximum number of calls processed concurrently by a single function instance.
-        * `--execution-timeout`: Maximum function running time before the timeout is reached.
+        * `--execution-timeout`: Maximum function running time before timeout.
         * `--source-path`: ZIP archive with the function code and required dependencies.
 
         Result:
@@ -127,21 +127,21 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     To add scaling settings:
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
-         * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
+         * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
          * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
-         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<handler_name>`.
+         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
          * `memory`: Amount of memory allocated for the function, in MB.
          * `concurrency`: [Maximum number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency).
-         * `execution_timeout`: Maximum function running time before the timeout is reached.
-         * `service_account_id`: ID of the service account to call the function under.
+         * `execution_timeout`: Maximum function running time before timeout.
+         * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
        * `yandex_function_scaling_policy`: Description of function scaling settings.
-         * `function_id`: ID of the function.
+         * `function_id`: Function ID.
          * `policy`: Scaling settings:
            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
            * `policy.0.zone_instances_limit`: Number of function instances.
@@ -158,7 +158,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         resource "yandex_function" "test-function" {
             name               = "<function_name>"
-            user_hash          = "<digest>"
+            user_hash          = "<hash>"
             runtime            = "<runtime_environment>"
             entrypoint         = "<entry_point>"
             memory             = "128"
@@ -180,7 +180,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         }
         ```
 
-        For more information about resource parameters, see [yandex_function]({{ tf-provider-resources-link }}/yandex_function) and [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/yandex_function_scaling_policy).
+        For more information about resource parameters, see [yandex_function]({{ tf-provider-resources-link }}/function) and [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
     1. Check the configuration using this command:
         
@@ -200,14 +200,14 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        terraform plan
        ```
 
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
 
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
 
     You can check that the scaling settings are added using the [management console]({{ link-console-main }}) or these [CLI](../../../cli/quickstart.md) commands:
     
@@ -219,13 +219,10 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - API {#api}
 
-   To add function scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
+    To configure any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
 
     To set the number of calls processed concurrently by a single function instance (`concurrency`), create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call. Add the `concurrency` field to the request body.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can configure any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

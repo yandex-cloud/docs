@@ -41,6 +41,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Deleting a message queue
         href: operations/message-queue-delete-queue.md
+      - name: Managing queue labels
+        href: operations/message-queue-tags.md
       - name: Monitoring processes in queues
         href: operations/monitoring.md
   - name: Concepts
@@ -57,12 +59,14 @@ items:
         href: concepts/visibility-timeout.md
       - name: Long Polling
         href: concepts/long-polling.md
-      - name: What is Dead Letter Queue (DLQ)?
+      - name: What is a Dead Letter Queue (DLQ)?
         href: concepts/dlq.md
       - name: Delay queues
         href: concepts/delay-queues.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Queue labels
+        href: concepts/tags.md
       - name: Comparison with {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
   - name: Tutorials
@@ -71,16 +75,22 @@ items:
         href: tutorials/index.md
       - name: Converting a video to a GIF in Python
         href: tutorials/video-converting-queue.md
-      - name: >-
-          Automatically scaling an instance group to process messages from a
-          queue
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -107,6 +117,12 @@ items:
             href: api-ref/queue/PurgeQueue.md
           - name: SetQueueAttributes
             href: api-ref/queue/SetQueueAttributes.md
+          - name: TagQueue
+            href: api-ref/queue/TagQueue.md
+          - name: UntagQueue
+            href: api-ref/queue/UntagQueue.md
+          - name: ListQueueTags
+            href: api-ref/queue/ListQueueTags.md
       - name: Message
         items:
           - name: ChangeMessageVisibility
@@ -145,11 +161,11 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Common errors
         href: api-ref/common-errors.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: Public materials
     href: public-talks.md
   - name: FAQ
     href: qa/index.md
-base: en/message-queue
-deepBase: 2

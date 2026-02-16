@@ -24,8 +24,7 @@ description: После удаления кластера баз данных Po
 
 - Консоль управления {#console}
 
-  1. Откройте страницу каталога в консоли управления.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
 
 - CLI {#cli}
@@ -54,7 +53,7 @@ description: После удаления кластера баз данных Po
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.delete](../api-ref/Cluster/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Delete](../api-ref/Cluster/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -65,7 +64,7 @@ description: После удаления кластера баз данных Po
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/delete.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -74,7 +73,7 @@ description: После удаления кластера баз данных Po
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Delete](../api-ref/grpc/Cluster/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -92,6 +91,6 @@ description: После удаления кластера баз данных Po
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

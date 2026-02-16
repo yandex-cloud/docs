@@ -19,14 +19,16 @@ items:
         href: operations/crud.md
       - name: Мониторинг состояния базы данных
         href: operations/monitoring.md
+      - name: >-
+          Работа с {{ ydb-short-name }} через ydb-mcp сервер на примере IDE
+          Cursor
+        href: operations/ydb-mcp-cursor.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
       - name: Развертывание веб-приложения
         href: tutorials/java-servlet-todo-list.md
-      - name: Разработка Slack-бота
-        href: tutorials/slack-bot-serverless.md
       - name: >-
           Подключение к {{ ydb-short-name }} из функции {{ sf-full-name }} на
           Python
@@ -87,8 +89,38 @@ items:
           Поставка данных из {{ mkf-full-name }} с помощью {{
           data-transfer-full-name }}
         href: tutorials/mkf-ydb-stream.md
+      - name: Сохранение потока данных {{ yds-name }} в {{ mch-name }}
+        href: tutorials/yds-to-clickhouse.md
+      - name: >-
+          Поставка данных из очереди {{ yds-name }} в {{ mkf-name }} с помощью
+          {{ data-transfer-name }}
+        href: tutorials/yds-to-kafka.md
+      - name: >-
+          Поставка данных из очереди {{ yds-name }} в {{ ydb-name }} с помощью
+          {{ data-transfer-name }}
+        href: tutorials/yds-to-ydb.md
+      - name: Захват изменений {{ MY }} и поставка в {{ DS }}
+        href: tutorials/mmy-to-yds.md
+      - name: Захват изменений {{ PG }} и поставка в {{ DS }}
+        href: tutorials/mpg-to-yds.md
+      - name: Интерактивная отладка функций {{ sf-name }}
+        href: tutorials/serverless-live-debug.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: Разработка CRUD API для сервиса фильмов
+        href: tutorials/movies-database.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: tutorials/maxpatrol.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
   - name: Концепции
     items:
       - name: Обзор
@@ -97,8 +129,12 @@ items:
         href: concepts/resources.md
       - name: Режимы работы Serverless и Dedicated
         href: concepts/serverless-and-dedicated.md
+      - name: Автоматическое масштабирование
+        href: concepts/autoscaling.md
       - name: Режимы работы OLTP или OLAP
         href: concepts/oltp-and-olap.md
+      - name: Трансфер
+        href: concepts/transfer.md
       - name: Таблицы DynamoDB
         href: concepts/dynamodb-tables.md
       - name: Квоты и лимиты
@@ -109,9 +145,9 @@ items:
     items:
       - name: Обзор
         href: pricing/index.md
-      - name: Бессерверный режим
+      - name: Режим Serverless
         items:
-          - name: Правила тарификации для бессерверного режима
+          - name: Правила тарификации для режима Serverless
             href: pricing/serverless.md
           - name: Стоимость запроса для YQL
             href: pricing/ru-yql.md
@@ -121,10 +157,84 @@ items:
             href: pricing/ru-special.md
           - name: Стоимость операций с топиками
             href: pricing/ru-topics.md
-      - name: Режим с выделенными инстансами
-        href: pricing/dedicated.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/ydb/index.md
+      - name: Режим Dedicated
+        items:
+          - name: Правила тарификации для режима Dedicated
+            href: pricing/dedicated.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: backup
+        items:
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: add-access-binding
+            href: cli-ref/backup/add-access-binding.md
+          - name: delete
+            href: cli-ref/backup/delete.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+          - name: list-access-bindings
+            href: cli-ref/backup/list-access-bindings.md
+          - name: remove-access-binding
+            href: cli-ref/backup/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/backup/set-access-bindings.md
+      - name: database
+        items:
+          - name: Overview
+            href: cli-ref/database/index.md
+          - name: add-access-binding
+            href: cli-ref/database/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/database/add-labels.md
+          - name: backup
+            href: cli-ref/database/backup.md
+          - name: create
+            href: cli-ref/database/create.md
+          - name: delete
+            href: cli-ref/database/delete.md
+          - name: get
+            href: cli-ref/database/get.md
+          - name: list
+            href: cli-ref/database/list.md
+          - name: list-access-bindings
+            href: cli-ref/database/list-access-bindings.md
+          - name: move
+            href: cli-ref/database/move.md
+          - name: remove-access-binding
+            href: cli-ref/database/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/database/remove-labels.md
+          - name: restore
+            href: cli-ref/database/restore.md
+          - name: set-access-bindings
+            href: cli-ref/database/set-access-bindings.md
+          - name: start
+            href: cli-ref/database/start.md
+          - name: stop
+            href: cli-ref/database/stop.md
+          - name: update
+            href: cli-ref/database/update.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: storage-type
+        items:
+          - name: Overview
+            href: cli-ref/storage-type/index.md
+          - name: get
+            href: cli-ref/storage-type/get.md
+          - name: list
+            href: cli-ref/storage-type/list.md
   - name: Document API, совместимый с Amazon DynamoDB
     items:
       - name: Инструменты
@@ -393,8 +503,8 @@ items:
         href: ./terraform/serverless-database.md
       - name: Создание и изменение параметров выделенной базы данных
         href: ./terraform/dedicated-database.md
-      - name: Создание строковых таблиц в базе данных
-        href: ./terraform/row-tables.md
+      - name: Создание строковых и колоночных таблиц в базе данных
+        href: ./terraform/tables.md
       - name: Создание документных таблиц в базе данных
         href: ./terraform/dynamodb-tables.md
       - name: Создание потока изменений таблицы
@@ -409,5 +519,3 @@ items:
     href: https://ydb.tech/docs/ru/public-talks
   - name: Обучающие курсы
     href: training.md
-base: ru/ydb
-deepBase: 2

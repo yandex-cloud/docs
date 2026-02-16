@@ -10,25 +10,31 @@ A _disk snapshot_ is a copy of the disk file system at a specific point in time.
 
 {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
-## Setup {#prepare}
+## Preparation steps {#prepare}
 
 {% include [prepare-snapshots](../../../_includes/compute/prepare-snapshots.md) %}
 
 ## Creating a snapshot {#create}
 
+{% note info %}
+
+The disk snapshot you create will get assigned the [virtualized hardware generation](../../concepts/hardware-generations.md) on which a VM instance can be deployed from this snapshot. You can assign to a snapshot a generation different from the one assigned to the source disk using the [{{ yandex-cloud }} CLI](../../../cli/index.yaml), [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md), or [API](../../../api-design-guide/index.yaml).
+
+{% endnote %}
+
 To create a disk snapshot:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}
 
-An HDD or SSD snapshot is created asynchronously. The snapshot is created as soon as you run the create command and gets the `Creating` status. From this point on, you can resume writing data to disk, and disk operations will not affect the data in the snapshot.
+HDD or SSD snapshots are created asynchronously. The snapshot is created as soon as you run the create command and gets the `Creating` status. You can now resume writing data to the disk, as further disk operations will not affect the data in the snapshot.
 
-Once the snapshot creation is completed, its status will change to `Ready`. From this point on, you can use the snapshot to create images, populate disks, and so on.
+Once the snapshot creation is complete, the snapshot status will change to `Ready`. You can now use the snapshot to create images, disks, and more.
 
 {% note alert %}
 
 {% include [include](../../../_includes/compute/duplicated-uuid-note.md) %}
 
-To avoid this, attach the disk to the VM and change all the duplicate UUIDs. For more information, see the [guide on attaching a disk](../vm-control/vm-attach-disk.md).
+To avoid this, attach the disk to the VM and change all duplicate UUIDs. For more information, see [Attaching a disk to a VM](../vm-control/vm-attach-disk.md).
 
 {% endnote %}
 

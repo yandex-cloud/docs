@@ -14,7 +14,7 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
 
       {% endnote %}
 
-      1. Get an [IAM token](../../iam/operations/iam-token/create-for-sa.md).
+      1. [Get an IAM token](../../iam/operations/iam-token/create-for-sa.md).
       1. Provide the IAM token in the `Authorization` header in the following format:
 
           ```yaml
@@ -29,7 +29,7 @@ To use the {{ speechsense-name }} API, [create](../../iam/operations/sa/create.m
 
       {% endnote %}
 
-      1. [Get an API key](../../iam/operations/api-key/create.md).
+      1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) with `yc.speech-sense.use` as the specified [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
       1. Provide the API key in the `Authorization` header in the following format:
 
           ```yaml

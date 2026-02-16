@@ -1,0 +1,3 @@
+В блоке **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** включите стандартный или расширенный режим диагностики. Расширенный режим дополнительно включает сбор и анализ планов запросов.
+    
+Чтобы использовать инструмент [Диагностика производительности](../../../managed-postgresql/operations/performance-diagnostics.md), выберите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** и настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Единицы измерения обеих настроек — секунды.

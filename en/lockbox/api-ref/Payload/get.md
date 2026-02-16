@@ -1,9 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/{secretId}/payload
+    method: get
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Optional ID of the version.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Payload/get.md
 ---
 
-# Lockbox API, REST: Payload.Get {#Get}
+# Lockbox API, REST: Payload.Get
 
 Returns the payload of the specified secret.
 

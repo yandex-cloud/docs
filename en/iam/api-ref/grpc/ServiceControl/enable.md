@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/enable.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.Enable {#Enable}
+# Identity and Access Management API, gRPC: ServiceControlService.Enable
 
 Enable a service in the specified resource container.
 
@@ -15,7 +15,7 @@ Enable a service in the specified resource container.
 
 ```json
 {
-  "serviceId": "string",
+  "service_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
@@ -25,9 +25,11 @@ Enable a service in the specified resource container.
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container to enable a service in.
@@ -43,10 +45,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -55,12 +61,12 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "serviceId": "string",
+    "service_id": "string",
     "resource": {
       "id": "string",
       "type": "string"
@@ -69,12 +75,12 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "serviceId": "string",
+    "service_id": "string",
     "resource": {
       "id": "string",
       "type": "string"
     },
-    "updatedAt": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -91,13 +97,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -140,7 +146,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the Service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
@@ -156,10 +162,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Service {#yandex.cloud.iam.v1.Service}
@@ -168,20 +178,19 @@ A Service.
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
 
 Resource that the service belongs to. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last status update of the service. ||
 || status | enum **Status**
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.

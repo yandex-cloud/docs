@@ -1,1035 +1,1082 @@
 - **Archive timeout**{#setting-archive-timeout} {{ tag-all }}
 
-   Period (in milliseconds) for archiving the {{ PG }} transaction log.
+  {{ PG }} transaction log archiving interval, in milliseconds.
 
-   The minimum value is `10000`, the maximum one is `86400000`. The default value is `30000`.
+  The valid values range from `10000` to `86400000`. The default value is `30000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
+  For more information, see the `archive_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-ARCHIVE-TIMEOUT).
 
 - **Array nulls**{#setting-array-nulls} {{ tag-all }}
 
-   Used to manage recognition of `NULL` elements when inserting an array. If this setting is enabled, these elements are recognized as a `NULL` field. Otherwise, they are recognized as a string containing the word `NULL`.
+  Manages the recognition of the `NULL` elements during array insertion. If enabled, they are interpreted as SQL `NULL` values. If disabled, they are interpreted as the literal string `NULL`.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
+  For more information, see the `array_nulls` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ARRAY-NULLS).
 
 - **Auto explain log analyze**{#setting-auto-explain-log-analyze} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether to automatically output query plan statistics to the {{ PG }} log without having to run `EXPLAIN` manually. This allows you to track unoptimized queries. This setting uses the `auto_explain` module. To enable it, [connect the `auto_explain` library](#setting-shared-libraries).
+  Determines whether query plan statistics are automatically written to the {{ PG }} log, without using the `EXPLAIN` statement. This allows you to track unoptimized queries. This setting uses the `auto_explain` module. To enable it, [load the `auto_explain` library](#setting-shared-libraries).
 
-   It is disabled by default (query plan statistics are not logged).
+  By default, this setting is disabled, meaning query plan statistics are not logged.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_analyze` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log buffers**{#setting-auto-explain-log-buffers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether to output buffer usage statistics to the {{ PG }} log using the `auto_explain` module. Similar to the `BUFFERS` parameter in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Determines whether buffer usage statistics are written to the {{ PG }} log by the `auto_explain` module. It works the same as the `BUFFERS` option in the `EXPLAIN` statement. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   This setting is disabled by default (buffer usage statistics are not logged).
+  By default, this setting is disabled, meaning buffer usage statistics are not logged.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_buffers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log min duration**{#setting-auto-explain-log-min-duration} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The minimum query execution time (in milliseconds) when logging is enabled in the `auto_explain` module.
+  Minimum query execution time (in ms) required to activate logging in the `auto_explain` module.
 
-   The minimum value is `-1` (logging disabled), while the maximum one is `2147483647`. The default value is `-1`. When the value is `0`, execution plans for all queries are logged regardless of their execution time.
+  The minimum and default value is `-1` (logging disabled) and the maximum is `2147483647`. If set to `0`, all query plans are logged, regardless of their execution time.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_min_duration` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log nested statements**{#setting-auto-explain-log-nested-statements} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether the `auto_explain` module will log the execution of nested queries inside SQL functions. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Determines whether the `auto_explain` module will log the execution of nested queries inside SQL functions. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   This setting is disabled by default (execution plans are logged for top-level statements).
+  By default, this setting is disabled, meaning only top-level query plans are logged.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_nested_statements` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log timing**{#setting-auto-explain-log-timing} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether the `auto_explain` module will log timing information for individual query execution plan steps. Similar to the `TIMING` parameter in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Determines whether the `auto_explain` module will log the execution time for each step of the query plan. It works the same as the `TIMING` option in the `EXPLAIN` command. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   This setting is disabled by default (timing information for individual steps is not logged).
+  By default, this setting is disabled, meaning that execution time for individual query steps is not logged.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_timing` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log triggers**{#setting-auto-explain-log-triggers} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether to output trigger execution statistics in the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Determines whether the `auto_explain` module will output trigger execution statistics. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   This setting is disabled by default (trigger execution statistics are not output).
+  By default, this setting is disabled, meaning trigger execution statistics are not reported.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_triggers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain log verbose**{#setting-auto-explain-log-verbose} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines whether to provide log details in the `auto_explain` module. Similar to the `VERBOSE` parameter in the `EXPLAIN` command. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Determines whether the `auto_explain` module will generate detailed logs. It works the same as the `VERBOSE` option in the `EXPLAIN` command. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   This setting is disabled by default (no logging details).
+  By default, this setting is disabled, meaning no logging details are provided.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.log_verbose` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Auto explain sample rate**{#setting-auto-explain-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Percentage of queries logged per session using the `auto_explain` module. Applies only when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
+  Fraction of queries logged by the `auto_explain` module in each session. This setting only applies when [Auto explain log analyze](#setting-auto-explain-log-analyze) is enabled.
 
-   The minimum value is `0.0` (no queries are logged), while the maximum one is `1.0` (all queries are logged). The default value is `1.0`.
+  The minimum value is `0.0`, and the maximum value is `1.0` (all queries are logged). The default value is `1.0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/auto-explain.html).
+  For more information, see the `auto_explain.sample_rate` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/auto-explain.html).
 
 - **Autovacuum analyze scale factor**{#setting-autovacuum-analyze-scale-factor} {{ tag-all }}
 
-   Percentage of changed or deleted records in the table that, when reached, triggers [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) to start the `ANALYZE` statistics collection command.
+  Fraction of changed or deleted rows in a table that will trigger the [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) process to run the `ANALYZE` command for statistics collection.
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.0001`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.0001`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
+  For more information, see the `autovacuum_analyze_scale_factor` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-ANALYZE-SCALE-FACTOR).
 
 - **Autovacuum max workers**{#setting-autovacuum-max-workers} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
-   The maximum number of [autovacuum worker processes](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) running in parallel. Autovacuuming runs on for each DB a regular basis, determines the table records marked for deletion, and deletes them.
+  Maximum number of [autovacuum worker processes](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) running in parallel. Autovacuuming runs periodically for each database. It identifies which rows in tables are marked for deletion and removes them.
 
-   The minimum value is `1`, while the maximum one is `32`. The default value [depends on the selected host class](#settings-instance-dependent) and is equal to the number of vCPUs on a single host, with a minimum of `3`.
+  This setting can range from `1` to `32`. The default value [depends on the selected host class](#settings-instance-dependent) and is equal to the number of vCPUs on a single host, with a minimum of `3`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
+  For more information, see the `autovacuum_max_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-MAX-WORKERS).
 
 - **Autovacuum naptime**{#setting-autovacuum-naptime} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Sets the minimum interval (in milliseconds) between [autovacuums](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM). If your data changes frequently, you can increase this interval to avoid overloading your database.
+  Determines the minimum interval (in ms) between [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) jobs. To avoid overloading the database during periods of frequent data changes, increase this setting.
 
-   The minimum value is `1000`, while the maximum one is `86400000`. The default value is `15000`.
+  The valid values range from `1000` to `86400000`. The default value is `15000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
+  For more information, see the `autovacuum_naptime` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-NAPTIME).
 
 - **Autovacuum vacuum cost delay**{#setting-autovacuum-vacuum-cost-delay} {{ tag-all }}
 
-   The amount of time (in milliseconds) for the [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) process to sleep when the [cost limit](#setting-autovacuum-vacuum-cost-limit) has been exceeded.
+  Time (in ms) the [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) process will idle after exceeding the [cost limit](#setting-autovacuum-vacuum-cost-limit).
 
-   The minimum value is `-1` (the setting is not applied), while the maximum one is `100`. The default value [depends on the selected host class](#settings-instance-dependent).
+  The minimum value is `-1` (disables the setting) and the maximum is `100`. The default value [depends on the selected host class](#settings-instance-dependent).
 
-  - If the number of vCPUs for the selected host class is 10 or more, the value is set to `5`.
-  - In other cases, the default value is calculated using the following formula:
+  - If the number of vCPUs for the selected host class is 10 or more, the default value is set to `5`.
+  - In other cases, the default value is computed as follows:
 
-      ```text
-      55 - 5 × <number_of_vCPUs_per_host>
-      ```
+    ```text
+    55 - 5 × <number_of_vCPUs_per_host>
+    ```
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
+  For more information, see the `autovacuum_vacuum_cost_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-DELAY).
 
 - **Autovacuum vacuum cost limit**{#setting-autovacuum-vacuum-cost-limit} {{ tag-all }}
 
-   The cost limit that, when exceeded, will freeze the [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) for the time specified by the [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay) parameter.
+  Cost limit which, when exceeded, will pause the [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) for the duration specified in the [Autovacuum vacuum cost delay](#setting-autovacuum-vacuum-cost-delay) setting.
 
-   The minimum value is `-1` (the setting is not applied), while the maximum one is `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is determined by the formula:
+  The minimum value is `-1` (disables the setting) and the maximum is `10000`. The default value [depends on the selected host class](#settings-instance-dependent) and is computed as follows:
 
-   ```text
-   150 × <number_of_vCPUs_per_host> + 400
-   ```
+  ```text
+  150 × <number_of_vCPUs_per_host> + 400
+  ```
 
-   For example:
+  Here is an example:
 
-   | Host class | vCPU | Default value |
-   ---|----|-----
-   | s2.small | 4 | `150 × 4 + 400 = 1000` |
-   | m2.medium | 6 | `150 × 6 + 400 = 1300` |
+  Host class | vCPU | Default value
+  ---|----|-----
+  s2.small | 4 | `150 × 4 + 400 = 1000`
+  m2.medium| 6 | `150 × 6 + 400 = 1300`
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
+  For more information, see the `autovacuum_vacuum_cost_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-COST-LIMIT).
 
 - **Autovacuum vacuum insert scale factor**{#setting-autovacuum-vacuum-insert-scale-factor} {{ tag-all }}
 
-   Percentage of the table size added to the [Autovacuum vacuum insert threshold](#setting-autovacuum-vacuum-insert-threshold) value that, when reached, triggers the [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
+  Fraction of a table’s size that is added to [Autovacuum vacuum insert threshold](#setting-autovacuum-vacuum-insert-threshold) to determine the condition for triggering an [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.2`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.2`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `autovacuum_vacuum_insert_scale_factor` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-SCALE-FACTOR).
 
 - **Autovacuum vacuum insert threshold**{#setting-autovacuum-vacuum-insert-threshold} {{ tag-all }}
 
-   Sets the number of rows that, when inserted into a table, triggers the [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
+  Determines the number of rows inserted into a table that will trigger an [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
-   The minimum value is `-1` (the setting is not applied), while the maximum one is `2147483647`. The default value is `1000`.
+  The minimum value is `-1` (disables the setting), the maximum is `2147483647`, and the default is `1000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `autovacuum_vacuum_insert_threshold` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-INSERT-THRESHOLD).
 
 - **Autovacuum vacuum scale factor**{#setting-autovacuum-vacuum-scale-factor} {{ tag-all }}
 
-   Percentage of changed or deleted records in the table that, when reached, triggers [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) to start the `VACUUM` cleaning command.
+  Fraction of changed or deleted rows in a table that will trigger the [autovacuum](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM) process to run the `VACUUM` command for reclaiming storage occupied by dead tuples.
 
-   The minimum value is `0.0` (the setting is not applied), while the maximum one is `1.0`. The default value is `0.00001`.
+  The minimum value is `0.0` (disables the setting), the maximum is `1.0`, and the default is `0.00001`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
+  For more information, see the `autovacuum_vacuum_scale_factor` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html#GUC-AUTOVACUUM-VACUUM-SCALE-FACTOR).
 
 - **Autovacuum work mem**{#setting-autovacuum-work-mem} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
-   The amount of memory (in bytes) allocated to each [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
+  Memory (in bytes) allocated to each [autovacuum process](https://www.postgresql.org/docs/current/routine-vacuuming.html#AUTOVACUUM).
 
-   The minimum value is `-1` (the setting is not applied), while the maximum one is `2147483647`. The default value is `-1`.
+  The minimum value is `-1` (disables the setting), the maximum is `2147483647`, and the default is `-1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
+  For more information, see the `autovacuum_work_mem` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-AUTOVACUUM-WORK-MEM).
 
 - **Backend flush after**{#setting-backend-flush-after} {{ tag-all }}
 
-   The maximum amount of data (in kilobytes) that a utility process can write to the OS kernel's page cache. If it is exceeded, the DBMS commands the OS to flush data to the disk. The higher the parameter, the less likely a slowdown is when flushing data to the disk using `fsync` (for example, on completing a checkpoint).
+  Maximum amount of data (in KB) a utility process can write to the OS kernel’s page cache. When this amount is exceeded, the DBMS instructs the OS to flush the data to disk. The higher value for this setting reduces the likelihood of write slowdowns when data is flushed to disk by the `fsync`, e.g., after a checkpoint is completed.
 
-   The minimum value is `0` (the setting is not applied), while the maximum one is `2048`. The default value is `0`.
+  The minimum value is `0` (disables the setting), the maximum is `2048`, and the default is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
+  For more information, see the `backend_flush_after` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BACKEND-FLUSH-AFTER).
 
 - **Backslash quote**{#setting-backslash-quote} {{ tag-all }}
 
-   Controls representation of quotation mark in an SQL string.
+  Controls how a quotation mark is represented within an SQL string.
 
-   Acceptable values include:
+  The allowed values are:
 
-  - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'` (equivalent to `on`).
-  - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation marks can be represented as `\'`.
-  - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation marks may only be used in the usual SQL way (`''`).
-  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Quotation marks may be represented as `\'` only for the client encodings that do not use `\` in multi-byte characters.
+  - `backslash_quote` (`BACKSLASH_QUOTE` for {{ TF }}, API, and CLI): Quotation mark can be represented as `\'` (same as `on`).
+  - `on` (`BACKSLASH_QUOTE_ON` for {{ TF }}, API, and CLI): Quotation mark can be represented as `\'`.
+  - `off` (`BACKSLASH_QUOTE_OFF` for {{ TF }}, API, and CLI): Quotation mark can only be represented using the standard SQL syntax `''`.
+  - `safe_encoding` (`BACKSLASH_QUOTE_SAFE_ENCODING` for {{ TF }}, API, and CLI): Representing a quotation mark as `\'` is only permitted for client encodings where `\` is not used for multibyte characters.
 
-   The default value is `safe_encoding`.
+  The default value is `safe_encoding`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
+  For more information, see the `backslash_quote` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-BACKSLASH-QUOTE).
 
 - **Bgwriter delay**{#setting-bgwriter-delay} {{ tag-all }}
 
-   Time to sleep (in milliseconds) after running the background writer. This process writes new or changed items from the {{ PG }} buffer to the disk. The delay helps avoid rewriting the same page many times for every page modification and reduce IO load.
+  Time (in ms) between background writer runs. This process writes new or changed pages from the {{ PG }} buffer cache to the disk. The delay prevents rewriting the same page on every update, thus reducing disk load.
 
-   The minimum value is `10`, while the maximum one is `10000`. The default value is `200`.
+  The valid values range from `10` to `10000`. The default value is `200`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
+  For more information, see the `bgwriter_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-DELAY).
 
 - **Bgwriter flush after**{#setting-bgwriter-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Limits the amount of data processed by the background writer (in kilobytes). When the limit is exceeded, the DBMS instructs the OS to flush this data to disk. This parameter limits the amount of <q>dirty</q> data in the kernel's page cache, reducing the likelihood of stalls when an `fsync` command is issued when the checkpoint is complete, or when the OS writes the data to the disk in the background.
+  Maximum amount of data (in KB) processed by the background writer. When this limit is exceeded, the DBMS instructs the OS to flush the data to disk. This setting limits the amount of <q>dirty</q> data in the kernel page cache, reducing the risk of slowdowns when executing `fsync` at the end of a checkpoint or during the OS’s background writeback process.
 
-   The minimum value is `0`, while the maximum one is `2048`. The default value is `512`.
+  The valid values range from `0` to `2048`. The default value is `512`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
+  For more information, see the `bgwriter_flush_after` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-FLUSH-AFTER).
 
 - **Bgwriter lru maxpages**{#setting-bgwriter-lru-maxpages} {{ tag-all }}
 
-   Maximum number of {{ PG }} buffers that can be written by the background writer per activity round. The value of zero disables background writing.
+  Maximum number of {{ PG }} buffer cache pages the background writer can save per activity round. A value of zero disables background writing.
 
-   The minimum value is `0`, while the maximum one is `1073741823`. The default value is `100`.
+  The valid values range from `0` to `1073741823`. The default value is `100`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
+  For more information, see the `bgwriter_lru_maxpages` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MAXPAGES).
 
 - **Bgwriter lru multiplier**{#setting-bgwriter-lru-multiplier} {{ tag-all }}
 
-   Multiplies the average need in buffers over the previous rounds to calculate the background writer's buffer need for the next round.
+  Multiplier determining the factor by which the average number of buffers held by the background writeback process will be increased during the next round.
 
-   The minimum value is `0`, while the maximum one is `10`. The default value is `2`.
+  The valid values range from `0` to `10`. The default value is `2`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
+  For more information, see the `bgwriter_lru_multiplier` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-BGWRITER-LRU-MULTIPLIER).
 
 - **Bytea output**{#setting-bytea-output} {{ tag-all }}
 
-   Sets the output format for [binary string values](https://www.postgresql.org/docs/current/datatype-binary.html) (the `bytea` type):
+  Defines the `bytea` output format for [binary string values](https://www.postgresql.org/docs/current/datatype-binary.html):
 
-  - `hex` (`BYTEA_OUTPUT_HEX` for {{ TF }}, API, and CLI) encodes binary data as two hexadecimal digits per byte, for example, '`SELECT '\xDEADBEEF';`'.
-  - `escape` (`BYTEA_OUTPUT_ESCAPE` for {{ TF }}, API, and CLI) means the standard {{ PG }} format (ASCII characters only).
+  - `hex` (`BYTEA_OUTPUT_HEX` for {{ TF }}, API, and CLI): Each byte is represented by two hexadecimal characters, e.g., '`SELECT '\xDEADBEEF';`'.
+  - `escape` (`BYTEA_OUTPUT_ESCAPE` for {{ TF }}, API, and CLI): Standard {{ PG }} format with ASCII characters only.
 
-   The default value is `hex`.
+  The default value is `hex`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/datatype-binary.html).
+  For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/datatype-binary.html).
 
 - **Checkpoint completion target**{#setting-checkpoint-completion-target} {{ tag-all }}
 
-   A fraction of the checkpoint interval that defines the maximum length of issuing a checkpoint. For example, if the value is `0.5`, the system will try to complete the checkpoint in about half the interval before the next checkpoint is issued.
+  Fraction of the checkpoint interval determining the maximum allowed time for a checkpoint to complete. For example, if this value is set to `0.5`, the checkpoint will finish with about half the time left until the next checkpoint.
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.5`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.5`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/wal-configuration.html).
+  For more information, see the `checkpoint_completion_target` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/wal-configuration.html).
 
 - **Checkpoint flush after**{#setting-checkpoint-flush-after} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Size of page cache (in kilobytes) that triggers data flush at a checkpoint. The pages beyond the value are flushed to the disk and deleted from the OS page cache.
+  The amount of dirty data in memory (in KB) that triggers a flush during a checkpoint. Pages beyond this limit will be flushed to disk and deleted from the OS page cache.
 
-   The minimum value is `0`, while the maximum one is `2048`. The default value is `256`.
+  The valid values range from `0` to `2048`. The default value is `256`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
+  For more information, see the `checkpoint_flush_after` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-FLUSH-AFTER).
 
 - **Checkpoint timeout**{#setting-checkpoint-timeout} {{ tag-all }}
 
-   The interval between checkpoints (in milliseconds).
+  Interval between checkpoints (in ms).
 
-   The minimum value is `30 000`, while the maximum one is `86400000`. The default value is `300 000`.
+  The valid values range from `30000` to `86400000`. The default value is `300000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
+  For more information, see the `checkpoint_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-CHECKPOINT-TIMEOUT).
 
 - **Client connection check interval**{#setting-client-connection-check-interval} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Client connection check interval when executing queries (in milliseconds). The check polls the server socket for a connection and aborts long-running queries if it detects that the connection has been terminated. {{ PG }} supports this feature starting from version 14.
+  Client connection check interval during query execution (in ms). The check polls the server’s connection socket and aborts long queries upon detecting that the connection has been terminated.
 
-   The minimum value is `0` (no check is run), while the maximum one is `2147483647`. By default, the minimum value is used.
+  The minimum value is `0` (disables checks) and the maximum is `2147483647`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `client_connection_check_interval` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-CLIENT-CONNECTION-CHECK-INTERVAL).
 
 - **Client min messages**{#setting-client-min-messages} {{ tag-all }}
 
-   The level of logging messages sent to client applications. Acceptable values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for {{ TF }}, API, CLI `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
+  Level of logging messages sent to client applications. Possible values (in ascending order of severity): `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `log`, `fatal`, and `panic` (for {{ TF }}, API, and CLI, `LOG_LEVEL_DEBUG5`, `LOG_LEVEL_DEBUG4`, `LOG_LEVEL_DEBUG3`, `LOG_LEVEL_DEBUG2`, `LOG_LEVEL_DEBUG1`, `LOG_LEVEL_INFO`, `LOG_LEVEL_NOTICE`, `LOG_LEVEL_WARNING`, `LOG_LEVEL_ERROR`, `LOG_LEVEL_LOG`, `LOG_LEVEL_FATAL`, and `LOG_LEVEL_PANIC`).
 
-   The default value is `NOTICE`.
+  The default value is `NOTICE`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
+  For more information, see the `client_min_messages` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-CLIENT-MIN-MESSAGES).
 
 - **Constraint exclusion**{#setting-constraint-exclusion} {{ tag-all }}
 
-   Allows the query planner to use table constraints to optimize queries.
+  Allows the planner to use table constraints for query optimization.
 
-   Acceptable values include:
+  Valid values:
 
   - `on` (`CONSTRAINT_EXCLUSION_ON` for {{ TF }}, API, and CLI): Use constraints for all tables.
   - `off` (`CONSTRAINT_EXCLUSION_OFF` for {{ TF }}, API, and CLI): Do not use constraints.
   - `partition` (`CONSTRAINT_EXCLUSION_PARTITION` for {{ TF }}, API, and CLI): Only use constraints for child tables and `UNION ALL` clauses.
 
-   The default value is `partition`.
+  The default value is `partition`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
+  For more information, see the `constraint_exclusion` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CONSTRAINT-EXCLUSION).
 
 - **Cursor tuple fraction**{#setting-cursor-tuple-fraction} {{ tag-all }}
 
-   Sets the planner's estimate of the fraction of rows to be retrieved via a cursor.
+  Defines the planner's estimate for the fraction of rows that will be retrieved via a cursor.
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.1`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
+  For more information, see the `cursor_tuple_fraction` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-CURSOR-TUPLE-FRACTION).
 
 - **Deadlock timeout**{#setting-deadlock-timeout} {{ tag-con }} {{ tag-api }} {{ tag-tf }} {{ tag-cli }}
 
-   Waiting time (in milliseconds) before checking for a deadlock condition.
+  Timeout period (in ms) before the system will check for a deadlock condition.
 
-   The minimum value is `1`, while the maximum one is `2147483647`. The default value is `1000`.
+  The valid values range from `1` to `2147483647`. The default value is `1000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
+  For more information, see the `deadlock_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-DEADLOCK-TIMEOUT).
 
 - **Default statistics target**{#setting-default-statistics-target} {{ tag-all }}
 
-   The maximum number of statistics records for each DB table column. The query planner uses statistics to estimate the number of rows returned by queries to select the most suitable query plan.
+  Maximum number of statistical records per column in database tables. Using these statistics, the planner estimates the number of rows returned by queries in order to choose the most optimal query plan.
 
-   To improve the quality of the planner's estimates, increase the target.
+  For more accurate planner estimates, increase this setting.
 
-   The minimum value is `1`, while the maximum one is `10000`. The default value is `1000`.
+  The valid values range from `1` to `10000`. The default value is `1000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
+  For more information, see the `default_statistics_target` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-DEFAULT-STATISTICS-TARGET).
 
 - **Default transaction isolation**{#setting-default-transaction-isolation} {{ tag-all }}
 
-   This setting determines the default isolation level to be used for new SQL transactions.
+  This setting determines the default isolation level for new SQL transactions.
 
-   Acceptable values include:
+  Valid values:
 
-  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): The query only sees the rows that were committed before it started.
-  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): The behavior of this isolation level in {{ PG }} is identical to `read committed`.
-  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for {{ TF }}, API, and CLI): All queries in the current transaction only see the rows that were committed before the first query to select or update data in this transaction.
-  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for {{ TF }}, API, and CLI): The strictest isolation level of all those mentioned. The behavior of this isolation level in {{ PG }} is identical to `repeatable read`. However, if the overlap of read and write operations of parallel serializable transactions is incompatible with their serial execution, one of the transactions is rolled back with the <q>serialization failure</q> error.
+  - `read committed` (`TRANSACTION_ISOLATION_READ_COMMITTED` for {{ TF }}, API, and CLI): A query can only see rows that were committed before it started.
+  - `read uncommitted` (`TRANSACTION_ISOLATION_READ_UNCOMMITTED` for {{ TF }}, API, and CLI): In {{ PG }}, this isolation level is identical to `read committed`.
+  - `repeatable read` (`TRANSACTION_ISOLATION_REPEATABLE_READ` for {{ TF }}, API, and CLI): All queries in the current transaction see only those rows that were committed before the first SELECT or UPDATE query in this transaction.
+  - `serializable` (`TRANSACTION_ISOLATION_SERIALIZABLE` for {{ TF }}, API, and CLI): The strictest isolation level. In {{ PG }}, this isolation level is identical to `repeatable read`. However, if the interleaving of read and write operations in concurrent serializable transactions is incompatible with their serial execution, one of the transactions will be rolled back with the <q>serialization failure</q> error.
 
-   The default value is `read committed`.
+  The default value is `read committed`.
 
-   To learn more about isolation levels, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
+  To learn more about isolation levels, see [this {{ PG }} article](https://www.postgresql.org/docs/current/transaction-iso.html).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Default transaction read only**{#setting-default-transaction-read-only} {{ tag-all }}
 
-   Sets the <q>read only</q> mode in each new transaction for any tables except temporary ones.
+  Sets the default transaction access mode to <q>read only</q> for all tables except temporary ones.
 
-   This setting is disabled by default (both reads and writes are allowed).
+  By default, this setting is disabled, meaning that both reads and writes are permitted.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
+  For more information, see the `default_transaction_read_only` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY).
 
 - **Default with oids**{#setting-default-with-oids} {{ tag-all }}
 
-   Adds an `OID` column containing a unique row ID. The setting has effect if the table is created:
+  Adds an `OID` column containing a unique row ID. This setting only applies when a table is created:
 
-  - Without specifying `WITH OIDS` or `WITHOUT OIDS`.
-  - Using the `SELECT INTO` command.
+  - Without an explicit `WITH OIDS` or `WITHOUT OIDS` clause, OR.
+  - Using the `SELECT INTO` statement.
 
-   Using `OID` is considered deprecated in user tables, so enable this setting for backward compatibility reasons only.
+  By default, this setting is disabled, meaning no `OID` column is added.
 
-   Disabled by default (no `OID` column is added).
+  Support for this feature was removed in {{ PG }} version 12. Use this setting only for compatibility with legacy applications.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
+  For more information, see the `default_with_oids` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/11/runtime-config-compatible.html#GUC-DEFAULT-WITH-OIDS).
 
 - **Effective cache size**{#setting-effective-cache-size} {{ tag-all }}
 
-   Sets the assumption about the effective size of the disk cache that is available to a single query. With a higher value, index scans are more likely to be used by the query planner. With a lower value, sequential scans are more likely.
+  An estimate of the effective disk cache size (in bytes) available for a single query. Higher values of this setting increase the possibility of the query planner to use an index scan. Conversely, lower values make the planner more likely to choose a sequential scan.
 
-   The minimum value is `0`, while the maximum one is `549755813888` (512 GB). The default value is `107374182400` (100 GB).
+  The minimum value is `0`, the maximum is `549755813888` (512 GB), and the default is `107374182400` (100 GB).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
+  For more information, see the `effective_cache_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-EFFECTIVE-CACHE-SIZE).
 
 - **Effective io concurrency**{#setting-effective-io-concurrency} {{ tag-all }}
 
-   The number of concurrent disk I/O operations for an individual DB session. The higher this number, the more operations {{ PG }} will attempt to initiate in parallel within a session.
+  Maximum of concurrent disk I/O operations per database session. A higher value increases the number of operations that a {{ PG }} session will try to run concurrently.
 
-   The minimum value is `0`, while the maximum one is `1000`. The default value is `1`.
+  The valid values range from `0` to `1000`. The default value is `1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
+  For more information, see the `effective_io_concurrency` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-EFFECTIVE-IO-CONCURRENCY).
 
 - **Enable async append**{#setting-enable-async-append} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Allows the query planner to consider asynchronous execution of the query plan on different hosts when adding data from external sources. {{ PG }} supports this feature starting from version 14.
+  Allows the planner to account for asynchronous query plan execution on multiple hosts during data ingestion from external sources.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `enable_async_append` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-ASYNC-APPEND).
 
 - **Enable bitmapscan**{#setting-enable-bitmapscan} {{ tag-all }}
 
-   Allows the query planner to use the bitmap-scan plan types, even if this is not specified in the query explicitly. This access method is similar to regular access by index, but occurs in two steps:
+  Allows the planner to perform a Bitmap Index Scan, even if it is not explicitly specified in the query. This access method is similar to a regular index scan, but occurs in two stages:
 
-   1. The index is scanned (Bitmap Index Scan) and a bitmap is built where the rows to be read by the query are flagged.
-   1. The table is scanned (Bitmap Heap Scan). Note that:
+  1. A Bitmap Index Scan builds a bitmap, marking all relevant row locations.
+  1. Then the system performs a Bitmap Heap Scan on the table. For this operation, the following requirements apply:
 
-      - The pages are read sequentially (this increases the likelihood of using the OS cache).
-      - Each page is viewed only once.
+     - Sequential page reads increase the chance of hitting the OS cache.
+     - The system reads each page only once.
 
-   The setting is effective when repeating queries to tables.
+  This setting is most effective for repeated queries to the same tables.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
+  For more information, see the `enable_bitmapscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-BITMAPSCAN).
 
 - **Enable gathermerge**{#setting-enable-gathermerge} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   Allows the query planner to use a Gather Merge node for merging query execution results while preserving their order in the parallel query plan. {{ PG }} supports this feature starting from version 14.
+  Allows the planner to use the Gather Merge node to merge rows produced by parallel processes while preserving the original output order.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `enable_gathermerge` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-GATHERMERGE).
 
 - **Enable hashagg**{#setting-enable-hashagg} {{ tag-all }}
 
-   Allows the planner to build a hash table from the result set, even if this is not specified in the query explicitly. This setting is effective for frequent unsorted queries to large database tables.
+  Allows the planner to build a hash table from the initial results, even if it is not explicitly specified in the query. This setting is most effective for frequent, unsorted queries on large tables.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
+  For more information, see the `enable_hashagg` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHAGG).
 
 - **Enable hashjoin**{#setting-enable-hashjoin} {{ tag-all }}
 
-   Allows the scheduler to `JOIN` tables using the row hash values, even if this is not specified in the query explicitly. This setting is effective when handling large amounts of data or when the tables are not sorted by the join columns.
+  Allows the planner to perform hash joins (`JOIN`) on tables, even if it is not explicitly specified in the query. This setting is most effective when working with large data volumes or when the tables are not pre-sorted by their join keys.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
+  For more information, see the `enable_hashjoin` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-HASHJOIN).
 
 - **Enable incremental sort**{#setting-enable-incremental-sort} {{ tag-all }}
 
-   Allows the query planner to use incremental sorting. This type of sorting can reduce query execution time and RAM requirements if rows need to be sorted by multiple columns, and one or more of them have already been sorted. {{ PG }} supports this feature starting from version 13.
+  Allows the planner to use incremental sort. This sorting method reduces query execution time and the amount of RAM required when you need to sort by multiple columns, and one or more of them are already sorted.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `enable_incremental_sort` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INCREMENTAL-SORT).
 
 - **Enable indexonlyscan**{#setting-enable-indexonlyscan} {{ tag-all }}
 
-   Allows the query planner to use a table index without accessing the data, even if this is not specified in the query explicitly.
+  Allows the planner to perform an index-only scan, even if it is not explicitly specified in the query.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
+  For more information, see the `enable_indexonlyscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/indexes-index-only-scans.html).
 
 - **Enable indexscan**{#setting-enable-indexscan} {{ tag-all }}
 
-   Allows the query planner to use a table index, even if this is not explicitly specified in the query.
+  Allows the planner to use an index scan, even if it is not explicitly specified in the query.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
+  For more information, see the `enable_indexscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-INDEXSCAN).
 
 - **Enable material**{#setting-enable-material} {{ tag-all }}
 
-   Allows the query planner to use materialization.
+  Allows the planner to use materialize nodes.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
+  For more information, see the `enable_material` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MATERIAL).
 
 - **Enable mergejoin**{#setting-enable-mergejoin} {{ tag-all }}
 
-   Allows the query planner to merge `JOIN` operations with tables.
+  Allows the query planner to use the merge `JOIN` method.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
+  For more information, see the `enable_mergejoin` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-MERGEJOIN).
 
 - **Enable nestloop**{#setting-enable-nestloop} {{ tag-all }}
 
-   Allows the query planner to use `JOIN` with nested loops. When the setting is disabled, the query planner will use other methods.
+  Allows the planner to use the nested loop `JOIN` method. When this setting is disabled, the planner will use alternative methods.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
+  For more information, see the `enable_nestloop` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-NESTLOOP).
 
 - **Enable parallel append**{#setting-enable-parallel-append} {{ tag-all }}
 
-   Allows the query planner to use parallel-aware append.
+  Allows the planner to use parallel-aware append.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
+  For more information, see the `enable_parallel_append` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-APPEND).
 
 - **Enable parallel hash**{#setting-enable-parallel-hash} {{ tag-all }}
 
-   Allows the query planner to use hash-join with parallel hash. The setting only applies when [Enable hashjoin](#setting-enable-hashjoin) is enabled.
+  Allows the planner to use parallel hash joins. This setting only applies when [Enable hashjoin](#setting-enable-hashjoin) is turned on.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
+  For more information, see the `enable_parallel_hash` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARALLEL-HASH).
 
 - **Enable partition pruning**{#setting-enable-partition-pruning} {{ tag-all }}
 
-   Allows the query planner to remove unneeded partitions from the query plans for partitioned tables.
+  Allows the planner to prune unnecessary partitions when building query plans for partitioned tables.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
+  For more information, see the `enable_partition_pruning` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-partitioning.html#DDL-PARTITION-PRUNING).
 
 - **Enable partitionwise aggregate**{#setting-enable-partitionwise-aggregate} {{ tag-all }}
 
-   Allows the query planner to perform grouping or aggregation on partitioned tables separately for each partition.
+  Allows the planner to perform grouping and aggregate operations, partition-by-partition.
 
-   This setting is disabled by default (query planner ignores partitions).
+  By default, this setting is disabled, meaning that the planner ignores partitions.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
+  For more information, see the `enable_partitionwise_aggregate` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-AGGREGATE).
 
 - **Enable partitionwise join**{#setting-enable-partition-join} {{ tag-all }}
 
-   Allows the query planner to plan queries partitionwise. The setting lets you join partitioned tables by joining their matching partitions.
+  Allows the planner to use partition-wise joins. This setting enables the execution of joins on partitioned tables by joining their matching partitions.
 
-   This setting is disabled by default (query planner ignores partitions).
+  By default, this setting is disabled, meaning that the planner ignores partitions.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
+  For more information, see the `enable_partitionwise_join` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-PARTITIONWISE-JOIN).
 
 - **Enable seqscan**{#setting-enable-seqscan} {{ tag-all }}
 
-   Allows the query planner to use sequential table scan plans.
+  Allows the planner to use sequential table scans.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
+  For more information, see the `enable_seqscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-ENABLE).
 
 - **Enable sort**{#setting-enable-sort} {{ tag-all }}
 
-   Allows the query planner to use explicit sort steps.
+  Allows the planner to use explicit sort operations.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
+  For more information, see the `enable_sort` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-ENABLE-SORT).
 
 - **Enable tidscan**{#setting-enable-tidscan} {{ tag-all }}
 
-   Allows the query planner to use TID (tuple identifier) scan plans to speed up queries.
+  Allows the planner to use TID (tuple ID) scans for faster query performance.
 
-   This setting is enabled by default (the planner uses TID scans).
+  This setting is enabled by default (the planner uses TID scans).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/ddl-system-columns.html).
+  For more information, see the `enable_tidscan` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/ddl-system-columns.html).
 
 - **Escape string warning**{#setting-escape-string-warning} {{ tag-all }}
 
-   A warning is issued if a backslash (`\`) appears in a regular string constant (`'...'` syntax). Only applies if [Standard conforming strings](#setting-standard-strings) is off.
+  Enables a warning for situations when a backslash (`\`) appears in a regular string constant (with the `'...'` syntax). This setting only applies if [Standard conforming strings](#setting-standard-strings) is disabled.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
+  For more information, see the `escape_string_warning` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-ESCAPE-STRING-WARNING).
 
 - **Exit on error**{#setting-exit-on-error} {{ tag-all }}
 
-   Enables session interruption in case of any error in the query.
+  Enables session termination upon any query error.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
+  For more information, see the `exit_on_error` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-error-handling.html).
 
 - **Force parallel mode**{#setting-force-parallel-mode} {{ tag-all }}
 
-   Allows executing queries in parallel mode for testing purposes:
+  Allows query parallelization for testing purposes:
 
-  - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Use parallel mode only when performance increase is expected.
-  - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallelize all the queries where it is safe.
-  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but the standard output is the same as when using `off`.
+  - `off` (`FORCE_PARALLEL_MODE_OFF` for {{ TF }}, API, and CLI): Enable parallel mode only if it is expected to increase performance.
+  - `on` (`FORCE_PARALLEL_MODE_ON` for {{ TF }}, API, and CLI): Force parallel mode for all queries that can be executed safely in parallel.
+  - `regress` (`FORCE_PARALLEL_MODE_REGRESS` for {{ TF }}, API, and CLI): Equivalent to `on`, but generates output identical to the `off` state.
 
-   The default value is `off`.
+  The default value is `off`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-developer.html).
+  For more information, see the `force_parallel_mode` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-developer.html).
 
 - **From collapse limit**{#setting-from-collapse-limit} {{ tag-all }}
 
-   Maximum number of items in the `FROM` list. As long as this number is not exceeded, the query planner will merge nested queries with upper queries. You can decrease planning time using smaller values, but your query plan might get less effective.
+  As long as the number of elements in the `FROM` clause does not exceed this setting, the query planner will merge subqueries with the outer query. Decreasing this value reduces planning time, but can result in a less efficient query plan.
 
-   The minimum value is `1`, while the maximum one is `2147483647`. The default value is `8`.
+  The valid values range from `1` to `2147483647`. The default value is `8`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
+  For more information, see the `from_collapse_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-FROM-COLLAPSE-LIMIT).
 
 - **Geqo**{#setting-geqo} {{ tag-con }} {{ tag-api }}
 
-   Enables genetic query optimization ([GEQO](https://www.postgresql.org/docs/current/geqo.html)).
+  Enables genetic query optimization ([GEQO](https://www.postgresql.org/docs/current/geqo.html)).
 
-   Default value: `false` (genetic optimization is disabled).
+  The default value is `true`, i.e., genetic optimization is disabled.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
+  For more information, see the `geqo` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO).
 
 - **Geqo effort**{#setting-geqo-effort} {{ tag-con }} {{ tag-api }}
 
-   Used in the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm to set the ratio between the time allotted for query planning and quality of the query execution plan.
+  Sets the trade-off between query planning time and plan quality in the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm.
 
-   The higher is the value, the longer it takes to plan the query. However, the probability of selecting an efficient query execution plan increases. This setting does not affect the algorithm operation directly but is used to calculate default values for other settings.
+  A higher value increases query planning time but also raises the probability of selecting an efficient query plan. This setting does not directly control the algorithm; instead, it is used to calculate default values for other settings.
 
-   The minimum value is `1`, while the maximum one is `10`. The default value is `5`.
+  The valid values range from `1` to `10`. The default value is `5`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
+  For more information, see the `geqo_effort` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-EFFORT).
 
 - **Geqo generations**{#setting-geqo-generations} {{ tag-con }} {{ tag-api }}
 
-   Sets the number of iterations for the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm.
+  Defines the number of generations in the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm.
 
-   Useful values are in the range between `100` and `1000`.
+  The practical range for this setting is from `100` to `1000`.
 
-   If the value of the setting is `0` (default), the number of algorithm iterations is selected based on the [**Geqo pool size**](#setting-geqo-pool-size) setting.
+  If this setting’s value is left to default, i.e.,`0`, the number of generations is selected based on [**Geqo pool size**](#setting-geqo-pool-size).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
+  For more information, see the `geqo_generations` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-GENERATIONS).
 
 - **Geqo pool size**{#setting-geqo-pool-size} {{ tag-con }} {{ tag-api }}
 
-   Sets the number of species in the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm's genetic population.
+  Specifies the number of individuals in the genetic population for the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm.
 
-   Cannot be equal to `1`. Useful values are in the range between `100` and `1000`.
+  This value cannot be `1`. The practical range for this setting is from `100` to `1000`.
 
-   If the setting is `0` (default), the number of species is selected depending on the [**Geqo effort**](#setting-geqo-effort) setting and the number of tables in the query.
+  If this setting’s value is left to default, i.e., `0`, the number of individuals is selected based on [**Geqo effort**](#setting-geqo-effort) and the number of tables in the query.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
+  For more information, see the `geqo_pool_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-POOL-SIZE).
 
 - **Geqo seed**{#setting-geqo-seed} {{ tag-con }} {{ tag-api }}
 
-   Sets an initial value for the random number generator used by the [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm to select paths in the join sequence search space.
+  Defines the seed value for the [GEQO](https://www.postgresql.org/docs/current/geqo.html)‘s random number generator used when exploring the join order search space.
 
-   When you change the setting, you alter the set of join paths examined which might either improve or degrade the resulting path.
+  Changing this setting alters the set of join paths explored, which may either improve or degrade the effectiveness of the resulting path.
 
-   The minimum value is `0`, while the maximum one is `1`. The default value is `0`.
+  The valid values range from `0` to `1`. The default value is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
+  For more information, see the `geqo_seed` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SEED).
 
 - **Geqo selection bias**{#setting-geqo-selection-bias} {{ tag-con }} {{ tag-api }}
 
-   Sets the selective pressure within the [GEQO](https://www.postgresql.org/docs/current/geqo.html) population.
+  Defines the selection pressure within the [GEQO](https://www.postgresql.org/docs/current/geqo.html) population.
 
-   The minimum value is `1.50`, while the maximum one is `2.00`. The default value is `2.00`.
+  The valid values range from `1.50` to `2.00`. The default value is `2.00`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
+  For more information, see the `geqo_selection_bias` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-SELECTION-BIAS).
 
 - **Geqo threshold**{#setting-geqo-threshold} {{ tag-con }} {{ tag-api }}
 
-   The [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm will only be used to plan such queries where the number of tables in the [`FROM` clause](https://www.postgresql.org/docs/current/sql-select.html#SQL-FROM) is equal to or greater than this setting.
+  The [GEQO](https://www.postgresql.org/docs/current/geqo.html) algorithm will only be used to plan queries where the number of tables in the [`FROM` clause](https://www.postgresql.org/docs/current/sql-select.html#SQL-FROM) is equal to or greater than this setting.
 
-   For small queries, we recommend the standard planner that uses full scan. However, for the queries across many tables, a full scan might take more time than a suboptimal plan.
+  For small queries, it is generally better to use the standard planner performing an exhaustive search. However, for queries involving a large number of tables, an exhaustive search method may take longer than just using a suboptimal plan.
 
-   The minimum value is `2`, while the maximum one is `2147483647`. The default value is `12`.
+  The valid values range from `2` to `2147483647`. The default value is `12`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
+  For more information, see the `geqo_threshold` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-GEQO-THRESHOLD).
 
 - **Gin pending list limit**{#setting-gin-list-limit} {{ tag-all }}
 
-   Sets the maximum size of a [GIN index's](https://www.postgresql.org/docs/current/gin-intro.html) pending list in bytes. The pending list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, its entries are moved to the index's main GIN data structure in bulk and the list is cleared.
+  Defines the maximum size (in bytes) of the [GIN index's](https://www.postgresql.org/docs/current/gin-intro.html) pending list. This list is used when `fastupdate` mode is enabled. If the pending list exceeds the specified limit, all its entries are moved to the main GIN index structure and the list is cleared.
 
-   The minimum value is `64`, while the maximum one is `2147483647` (2 GB). The default value is `4194304`.
+  The minimum value is `64`, the maximum is `2147483647` (2 GB), and the default is `4194304`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
+  For more information, see the `gin_pending_list_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-GIN-PENDING-LIST-LIMIT).
 
 - **Hash mem multiplier**{#setting-hash-mem-multiplier} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Defines the maximum amount of memory that operations with hash tables can use The amount is calculated by multiplying the setting value by [Work mem](#setting-work-mem).
+  Defines the maximum amount of memory available for hash table operations. The total amount is calculated as this setting’s value multiplied by [Work mem](#setting-work-mem).
 
-   The minimum value is `0.0`, while the maximum one is `1000.0`. The default value is `1.0`.
+  The valid values range from `0.0` to `1000.0`. The default value is `1.0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `hash_mem_multiplier` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-HASH-MEM-MULTIPLIER).
 
 - **Idle in transaction session timeout**{#setting-idle-session-timeout} {{ tag-all }}
 
-   The maximum idle time of an open transaction (in milliseconds). When exceeded, the session running this transaction terminates.
+  Open transaction idle timeout (in ms). If exceeded, the transaction's session will be terminated.
 
-   The minimum value is `0`, while the maximum one is `2147483647`. The default value is `0`.
+  The valid values range from `0` to `2147483647`. The default value is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
+  For more information, see the `idle_in_transaction_session_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-IDLE-IN-TRANSACTION-SESSION-TIMEOUT).
 
 - **Jit**{#setting-jit} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Enables [Just-in-Time (JIT) compilation](https://www.postgresql.org/docs/current/jit.html) of queries for {{ PG }}. If this setting is enabled, SQL queries are compiled into machine code directly at runtime. This will speed up execution of complex CPU-intensive queries.
+  Enables [Just-in-Time (JIT) compilation](https://www.postgresql.org/docs/current/jit.html) of {{ PG }} queries. If this setting is enabled, SQL queries are compiled into machine code at runtime, which accelerates the execution of complex CPU-intensive queries.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
+  For more information, see the `jit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JIT).
 
 - **Join collapse limit**{#setting-join-collapse-limit} {{ tag-all }}
 
-   Maximum number of items in the `FROM` list. As long as this value is not exceeded, the planner will move explicit `JOIN` constructs (except `FULL JOIN`s) to the list. You can decrease planning time using smaller values, but your query plan might get less effective.
+  Defines a threshold for the number of elements in the `FROM` list. Until it is exceeded, the planner will transfer explicit `JOIN` constructs (with the exception of `FULL JOIN`) into the list. Decreasing this value reduces planning time, but can result in a less efficient query plan.
 
-   The minimum value is `1`, while the maximum one is `2147483647`. The default value is `8`.
+  The valid values range from `1` to `2147483647`. The default value is `8`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
+  For more information, see the `join_collapse_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-JOIN-COLLAPSE-LIMIT).
 
 - **Lo compat privileges**{#setting-lo-compat-privileges} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Disables access permission check for large objects. Prior to version 9.0, large objects were not covered by access permissions, so any user could access them for reading and writing. Enable this setting if you need compatibility with {{ PG }} versions below 9.0.
+  Disables access permission checks for large objects. Prior to version 9.0, access permissions did not apply to large objects, allowing any user to read and write them. Enable this setting if you need compatibility with pre-9.0 releases of {{ PG }}.
 
-   The setting is disabled by default (privilege checks are enabled).
+  This setting is disabled by default, meaning that access permission checks are enabled.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
+  For more information, see the `lo_compat_privileges` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-LO-COMPAT-PRIVILEGES).
 
 - **Lock timeout**{#setting-lock-timeout} {{ tag-all }}
 
-   Specifies how long to wait for the lock to be released (in milliseconds). Locks can be used for tables, indexes, rows, and other database objects. If the timeout for an operation has expired, the operation is aborted.
+  Specifies the waiting time (in ms) for the lock to be released. Locks can be used for tables, indexes, rows, and other database objects. If the timeout for an operation has expired, the operation is aborted.
 
-   The minimum value is `0` (timeout is off, lock waiting time can be indefinite), the maximum one is `2147483647`. The default value is `1000`.
+  The minimum value is `0` (disables the timeout; allowing the system to wait for a lock indefinitely), the maximum is `2147483647`, and the default is `1000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
+  For more information, see the `lock_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-LOCK-TIMEOUT).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log checkpoints**{#setting-log-checkpoints} {{ tag-all }}
 
-   Enables logging of checkpoints and server restart points.
+  Enables logging of checkpoints and server restarts.
 
-   The setting is disabled by default (no logging).
+  The setting is disabled by default (no logging).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
+  For more information, see the `log_checkpoints` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CHECKPOINTS).
 
 - **Log connections**{#setting-log-connections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Enables logging of all attempts to connect to the {{ PG }} server, including those where clients were successfully authenticated.
+  Enables logging of all {{ PG }} server connection attempts, including those where client authentication was successful.
 
-   The setting is disabled by default (no logging).
+  The setting is disabled by default (no logging).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
+  For more information, see the `log_connections` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-CONNECTIONS).
 
 - **Log disconnections**{#setting-log-disconnections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Enables logging of session terminations.
+  Enables logging of session terminations.
 
-   The setting is disabled by default (no logging).
+  The setting is disabled by default (no logging).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
+  For more information, see the `log_disconnections` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DISCONNECTIONS).
 
 - **Log duration**{#setting-log-duration} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Enables logging of the duration of each completed statement.
+  Enables logging of the execution time for each completed command.
 
-   The setting is disabled by default (no logging).
+  The setting is disabled by default (no logging).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
+  For more information, see the `log_duration` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-DURATION).
 
 - **Log error verbosity**{#setting-log-error-verbosity} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Sets the level of detail for the {{ PG }} log entry per message. Log detail levels in ascending order of verbosity:
+  Defines the verbosity level for {{ PG }} log entries. Log detail levels, from least to most verbose:
 
-  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for {{ TF }}, CLI, and API). The `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
-  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for {{ TF }}, CLI, and API). Default.
-  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for {{ TF }}, CLI, and API). The error message includes the `SQLSTATE` error code, the source code file name, function name, and line number that generated the error.
+  - `terse` (`LOG_ERROR_VERBOSITY_TERSE` for {{ TF }}, CLI, and API): `DETAIL`, `HINT`, `QUERY`, and `CONTEXT` fields are excluded from the error message.
+  - `default` (`LOG_ERROR_VERBOSITY_DEFAULT` for {{ TF }}, CLI, and API): Default.
+  - `verbose` (`LOG_ERROR_VERBOSITY_VERBOSE` for {{ TF }}, CLI, and API): Error message includes the `SQLSTATE` error code, source filename, function name, and the line number where the error occurred.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
+  For more information, see the `log_error_verbosity` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-ERROR-VERBOSITY).
 
 - **Log lock waits**{#setting-log-lock-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Controls logging of long lock waits. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to get a lock.
+  Controls the logging of long lock waits. When this setting is enabled, the system writes a log entry whenever a {{ PG }} session’s lock acquisition time exceeds the [Deadlock timeout](#setting-deadlock-timeout) value.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
+  For more information, see the `log_lock_waits` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-LOCK-WAITS).
 
 - **Log min duration sample**{#setting-log-min-duration-sample} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The setting is similar to [Log min duration statement](#setting-log-min-duration-statement), but only applies to the statements listed in [Log statement sample rate](#setting-log-statement-sample-rate).
+  This setting works the same as [Log min duration statement](#setting-log-min-duration-statement), but only applies to the statements listed in [Log statement sample rate](#setting-log-statement-sample-rate).
 
-   When the value is `0`, the duration is logged for all the specified statements.
+  A value of `0` enables execution time logging for all listed statements.
 
-   The minimum value is `-1` (disables logging of the statement duration), while the maximum one is `2147483647`. The default value is `-1`.
+  The minimum value is `-1` (disables execution time logging), the maximum is `2147483647`, and the default is `-1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `log_min_duration_sample` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-SAMPLE).
 
 - **Log min duration statement**{#setting-log-min-duration-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Sets the threshold for statement duration logging (in milliseconds).
+  Defines the minimum statement runtime (in ms) required for it to be logged.
 
-   When the value is `0`, the duration is logged for all the specified statements.
+  A value of `0` enables execution time logging for all statements.
 
-   The minimum value is `-1` (disables duration logging), while the maximum one is `2147483647`. The default value is `-1`.
+  The minimum value is `-1` (disables execution time logging), the maximum is `2147483647`, and the default is `-1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
+  For more information, see the `log_min_duration_statement` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-DURATION-STATEMENT).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log min error statement**{#setting-log-min-error-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Defines the logging level for errors of SQL statement execution. A message about statement execution is logged if it at least has the specified severity level. Acceptable values: `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
+  Defines the logging level for SQL runtime errors. The system logs statement execution information if the statement completes with an error of the specified severity level or higher. The possible values are `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
-   The default value is `ERROR`. This means that the {{ PG }} log will include all the statements that ended with a message having the `ERROR`, `LOG`, `FATAL`, and `PANIC` severity level.
+  The default value is `ERROR`. This means {{ PG }} will log all statements that ended with an error of the `ERROR`, `LOG`, `FATAL`, or `PANIC` severity level.
 
-   To disable logging of most failed statements, select the `PANIC` value.
+  To disable logging for most failed statements, select the `PANIC` value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
+  For more information, see the `log_min_error_statement` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-ERROR-STATEMENT).
 
 - **Log min messages**{#setting-log-min-messages} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Defines the logging level in {{ PG }}. All messages of the selected severity level (or higher) are logged. Acceptable values (in ascending severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL` , and `PANIC`.
+  Defines the {{ PG }} logging level. The system logs all messages with the selected severity level or higher. Possible values (in ascending order of severity): `DEBUG5`, `DEBUG4`, `DEBUG3`, `DEBUG2`, `DEBUG1`, `INFO`, `NOTICE`, `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC`.
 
-   The default value is `WARNING`. This means that the {{ PG }} log will include all the messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC` severity level.
+  The default value is `WARNING`. This means {{ PG }} will log all messages with the `WARNING`, `ERROR`, `LOG`, `FATAL`, and `PANIC` severity level.
 
-   To disable logging of most messages, select the `PANIC` value.
+  To disable logging for most messages, select `PANIC`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
+  For more information, see the `log_min_messages` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-MIN-MESSAGES).
 
 - **Log parameter max length**{#setting-log-parameter-max-length} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Reduces to a specified number of bytes the value of each referenced SQL parameter that is output along with SQL operators when logging all messages except error ones.
+  Shortens the value of each bound SQL parameter to the specified number of bytes for output with SQL statements in non-error log messages.
 
-   Logging is disabled when the value is `0`.
+  A value of `0` disables logging.
 
-   The minimum value is `-1` (parameter values are completely logged), while the maximum one is `1073741823`. By default, the minimum value is used.
+  The minimum value is `-1` (parameter values are logged in full) and the maximum is `1073741823`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `log_parameter_max_length` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH).
 
 - **Log parameter max length on error**{#setting-log-parameter-max-length} {{ tag-all }}
 
-   Reduces to a specified number of bytes the value of each referenced SQL parameter that is output along with SQL operators when logging error messages.
+  Shortens the value of each bound SQL parameter to the specified number of bytes for output with SQL statements in error log messages.
 
-   Logging is disabled when the value is `0`.
+  A value of `0` disables logging.
 
-   The minimum value is `-1` (parameter values are completely logged), while the maximum one is `1073741823`. By default, the minimum value is used.
+  The minimum value is `-1` (parameter values are logged in full) and the maximum is `1073741823`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `log_parameter_max_length_on_error` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-PARAMETER-MAX-LENGTH-ON-ERROR).
 
 - **Log recovery conflict waits**{#setting-log-recovery-conflict-waits} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Controls logging of long recovery conflict waits when reading WAL to continue replication. When enabled, a log entry is created when a {{ PG }} session waits longer than [Deadlock timeout](#setting-deadlock-timeout) to resolve a recovery conflict. {{ PG }} supports this feature starting from version 14.
+  Enables logging of replication delays caused by recovery conflicts during WAL reading. The system adds log entries if conflict resolution timeout exceeds the [Deadlock timeout](#setting-deadlock-timeout) value.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `log_recovery_conflict_waits` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-RECOVERY-CONFLICT-WAITS).
 
 - **Log statement**{#setting-log-statement} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   A filter for SQL statements to be written to the {{ PG }} log:
+  Filter for SQL statements to be logged by {{ PG }}:
 
-  - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): Filter is disabled and SQL statements are not logged.
-  - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): SQL statements that allow you to change data definitions, such as `CREATE`, `ALTER`, and `DROP`, are logged.
-  - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): All `ddl` statements and data-modifying statements, such as `INSERT` and `UPDATE`, are logged.
-  - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): All SQL statements are logged.
+  - `none` (`LOG_STATEMENT_NONE` for {{ TF }}, CLI, and API): The filter is disabled, no SQL statements are logged.
+  - `ddl` (`LOG_STATEMENT_DDL` for {{ TF }}, CLI, and API): System logs DDL statements, e.g., `CREATE`, `ALTER`, `DROP` etc.
+  - `mod` (`LOG_STATEMENT_MOD` for {{ TF }}, CLI, and API): System logs `ddl`-statements along with data modification commands, e.g., `INSERT`, `UPDATE`, etc.
+  - `all` (`LOG_STATEMENT_ALL` for {{ TF }}, CLI, and API): System logs all SQL statements.
 
-   The default value is `none`.
+  The default value is `none`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
+  For more information, see the `log_statement` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Log statement sample rate**{#setting-log-statement-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The rate of SQL statements that will be logged in addition to statements logged for other reasons.
+  Fraction of SQL statements that will be logged as a supplement to statements logged for other reasons.
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.0`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `log_statement_sample_rate` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-STATEMENT-SAMPLE-RATE).
 
 - **Log temp files**{#setting-log-temp-files} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   Sets the minimum size of a temporary file to be logged in {{ PG }} when deleted.
+  Sets the minimum size of a temporary file, triggering {{ PG }} to log its details upon deletion.
 
-   The minimum value is `-1` (information about deleted files is not logged). The maximum value is `2147483647` (2 GB). If `0`, the sizes and names of all temporary files are logged. The default value is `-1`.
+  The minimum value is `-1` (information about deleted files is not logged) and the maximum is `2147483647` (2 GB). A value of `0` enables logging of all temporary file names and sizes. The default value is `-1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
+  For more information, see the `log_temp_files` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TEMP-FILES).
 
 - **Log transaction sample rate**{#setting-log-transaction-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The rate of transactions whose statements will be logged in addition to statements logged for other reasons.
+  Fraction of transactions whose statements will be logged as a supplement to statements logged for other reasons.
 
-   The minimum value is `0.0`, while the maximum one is `1.0`. The default value is `0.0`.
+  The valid values range from `0.0` to `1.0`. The default value is `0.0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
+
+  For more information, see the `log_transaction_sample_rate` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-logging.html#GUC-LOG-TRANSACTION-SAMPLE-RATE).
 
 - **Logical decoding work mem**{#setting-logical-decoding-work-mem} {{ tag-all }}
 
-   The maximum amount of memory (in bytes) allocated for [logical decoding](https://www.postgresql.org/docs/current/logicaldecoding.html) before writing to a local storage. The setting limits the amount of memory used in the connection for logical replication.
+  Maximum memory (in bytes) allocated for [logical decoding](https://www.postgresql.org/docs/current/logicaldecoding.html) before writing to a local storage. This setting limits the amount of memory used by the logical replicatoin connection.
 
-   The minimum value is `65536` (64 KB), while the maximum one is `1099511627776` (1 TB). The default value is `67108864` (64 MB).
+  The minimum value is `65536` (64 KB), the maximum is `1099511627776` (1 TB), and the default is `67108864` (64 MB).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `logical_decoding_work_mem` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-LOGICAL-DECODING-WORK-MEM).
 
 - **Maintenance io concurrency**{#setting-maintenance-io-concurrency} {{ tag-all }}
 
-   The maximum number of concurrent disk I/O operations when maintaining {{ PG }} with the commands `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY` for an individual DB session. The higher this number, the more maintenance commands {{ PG }} will attempt to initiate in parallel within a session.
+  Maximum concurrent disk I/O operations per session during {{ PG }} maintenance involving `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY` statements. Increasing this value will allow more {{ PG }} maintenance statements to run in parallel.
 
-   The minimum value is `0`, while the maximum one is `1000`. The default value is `10`.
+  The valid values range from `0` to `1000`. The default value is `10`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `maintenance_io_concurrency` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-IO-CONCURRENCY).
 
 - **Maintenance work mem**{#setting-maintenance-work-mem} {{ tag-all }}
 
-   The maximum amount of memory (in bytes) to be used by {{ PG }} maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY`. The value must be a multiple of 1024.
+  Maximum memory (in bytes) available for {{ PG }} maintenance operations, such as `VACUUM`, `CREATE INDEX`, and `ALTER TABLE ADD FOREIGN KEY`. The value must be a multiple of 1,024.
 
-   The minimum value is `1048576` (1 MB), while the maximum one is `137438953472` (128 GB). The default value is `67108864` (64 MB).
+  The minimum value is `1048576` (1 MB), the maximum is `137438953472` (128 GB), and the default is `67108864` (64 MB).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
+  For more information, see the `maintenance_work_mem` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAINTENANCE-WORK-MEM).
 
 - **Max connections**{#setting-max-connections} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum number of simultaneous connections to the {{ PG }} host.
+  Maximum simultaneous {{ PG }} host connections.
 
-   The minimum value is `1`. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are determined by the formula:
+  The minimum value is `16`, that is, `1` user connection and `15` connections reserved by the service. The maximum and default values [depend on the selected host class](#settings-instance-dependent) and are calculated as follows:
 
-   ```text
-   200 × <number_of_vCPUs_per_host>
-   ```
+  ```text
+  200 × <number_of_vCPUs_per_host>
+  ```
 
-   Hosts with guaranteed vCPU performance under 100% (`burstable`) use the fixed maximum value: `200`.
+  Hosts with a guaranteed vCPU share below 100% (`burstable`) use the fixed maximum value of `200`.
 
-   By default, the maximum value is used.
+  By default, the system uses the maximum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
+  {% include [note-pg-user-connections.md](../../mdb/note-pg-user-connections.md) %}
+
+  For more information, see the `max_connections` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-MAX-CONNECTIONS).
 
 - **Max locks per transaction**{#setting-max-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum number of objects that can be locked by a single transaction. Individual transactions can lock more objects if the locks of all transactions fit in the lock table.
+  Average number of objects that can be locked by a single transaction. Individual transactions can lock more objects as long as the total number of objects locked by all transactions fits in the lock table.
 
-   The minimum value is `10`, while the maximum one is `2147483647`. The default value is `64`.
+  The valid values range from `10` to `2147483647`. The default value is `64`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
+  For more information, see the `max_locks_per_transaction` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-LOCKS-PER-TRANSACTION).
 
 - **Max logical replication workers**{#setting-max-logical-replication-workers} {{ tag-con }}
 
-   The maximum number of {{ PG }} logical replication workers.
+  Maximum number of {{ PG }} logical replication processes.
 
-   The minimum value is `4`, while the maximum one is `100`. By default, the minimum value is used.
+  This setting can range from `4` to `100`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
+  For more information, see the `max_logical_replication_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-LOGICAL-REPLICATION-WORKERS).
 
 - **Max parallel maintenance workers**{#setting-max-parallel-maintenance-workers} {{ tag-all }}
 
-   The maximum number of parallel {{ PG }} workers that can be started by a single utility command (for example, `CREATE INDEX`).
+  Maximum number of parallel {{ PG }} processes that can be initiated by a single maintenance statement, e.g., `CREATE INDEX`.
 
-   The minimum value is `0`, while the maximum one is `1024`. The default value is `2`.
+  The valid values range from `0` to `1024`. The default value is `2`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
+  For more information, see the `max_parallel_maintenance_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-MAINTENANCE-WORKERS).
 
 - **Max parallel workers**{#setting-max-parallel-workers} {{ tag-all }}
 
-   The maximum number of parallel {{ PG }} workers.
+  Maximum number of parallel {{ PG }} processes.
 
-   The minimum value is `0`, while the maximum one is `1024`. The default value is `8`.
+  The valid values range from `0` to `1024`. The default value is `8`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
+  For more information, see the `max_parallel_workers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS).
 
 - **Max parallel workers per gather**{#setting-max-parallel-workers-gather} {{ tag-all }}
 
-   The maximum number of parallel workers that can be started by a single [Gather](https://www.postgresql.org/docs/current/how-parallel-query-works.html) node.
+  Maximum number of parallel processes that can be launched by a single [Gather](https://www.postgresql.org/docs/current/how-parallel-query-works.html) node.
 
-   The minimum value is `0`, while the maximum one is `1024`. The default value is `2`.
+  The valid values range from `0` to `1024`. The default value is `2`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
+  For more information, see the `max_parallel_workers_per_gather` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PARALLEL-WORKERS-PER-GATHER).
 
 - **Max pred locks per transaction**{#setting-max-pred-locks-transaction} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum number of objects that can be locked by [predicate locks](https://www.postgresql.org/docs/current/transaction-iso.html#XACT-SERIALIZABLE) per transaction. Individual transactions can lock more objects than specified in the setting if the locks of all transactions fit in the lock table.
+  Average number of objects lockable by [predicate locks](https://www.postgresql.org/docs/current/transaction-iso.html#XACT-SERIALIZABLE) per transaction. Individual transactions can lock more objects than specified as long as the total number of objects locked by all transactions fits in the lock table.
 
-   The minimum value is `10`, while the maximum one is `2147483647` (2 GB). The default value is `64`.
+  The minimum value is `10`, the maximum is `2147483647` (2 GB), and the default is `64`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
+  For more information, see the `max_pred_locks_per_transaction` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-locks.html#GUC-MAX-PRED-LOCKS-PER-TRANSACTION).
 
 - **Max prepared transactions**{#setting-max-prepared-transactions} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum number of transactions that can be in the [prepared state](https://www.postgresql.org/docs/current/sql-prepare-transaction.html) at the same time.
+  Maximum number of transactions that can be in a [prepared state](https://www.postgresql.org/docs/current/sql-prepare-transaction.html) simultaneously.
 
-   The minimum value is `0`, while the maximum one is `262143`. The default value is `0`.
+  The valid values range from `0` to `262143`. The default value is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
+  For more information, see the `max_prepared_transactions` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS).
 
 - **Max replication slots**{#setting-max-replication-slots} {{ tag-con }}
 
-   The maximum number of [replication slots](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS). Replication slots automatically provide a mechanism for saving [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) files until they are received by all replicas.
+  Maximum number of [replication slots](https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS). Replication slots automatically ensure that [WAL](https://www.postgresql.org/docs/current/wal-intro.html) (Write-Ahead Log) files are preserved until they have been received by all replicas.
 
-   The minimum value is `20`, while the maximum one is `100`. By default, the minimum value is used.
+  This setting can range from `20` to `100`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
+  For more information, see the `max_replication_slots` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-REPLICATION-SLOTS).
 
 - **Max slot wal keep size**{#setting-max-slot-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The maximum size (in bytes) of the files of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) stored on the master host during replication.
+  Maximum size (in bytes) of the [Write-Ahead Log (WAL)](https://www.postgresql.org/docs/current/wal-intro.html) files stored on the master host during replication.
 
-   The minimum value is `67108864` (64 MB). The maximum value is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size. The default value is `-1` (unlimited). The value must be a multiple of 1024.
+  The minimum value is `67108864` (64 MB), the maximum is 50% of the [storage](../../../managed-postgresql/concepts/storage.md) size, and the default is `-1` (unlimited). This value must be a multiple of 1,024.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `max_slot_wal_keep_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE).
 
 - **Max standby streaming delay**{#setting-max-standby-streaming-delay} {{ tag-all }}
 
-   Waiting time (in milliseconds) after which the hot standby host replica will start canceling the queries that conflict with the about-to-be-applied [WAL](https://www.postgresql.org/docs/current/wal-intro.html) entries.
+  The timeout period (in ms) before a hot standby replica begins terminating the queries conflicting with pending [WAL](https://www.postgresql.org/docs/current/wal-intro.html) updates.
 
-   The minimum value is `-1` (unlimited waiting time), the maximum one is `2147483647`. The default value is `30000` (30 seconds).
+  The minimum value is `-1` (unlimited waiting time), the maximum is `2147483647`, and the default is `30000` (30 seconds).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
+  For more information, see the `max_standby_streaming_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-STANDBY-STREAMING-DELAY).
 
 - **Max wal senders**{#setting-max-wal-senders} {{ tag-con }}
 
-   The maximum number of concurrent connections from streaming replication source hosts.
+  Maximum number of parallel connections allowed from replication source hosts.
 
-   The minimum value is `20`, while the maximum one is `100`. By default, the minimum value is used.
+  The valid values range from `20` to `100`. By default, the system uses the minimum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
+  For more information, see the `max_wal_senders` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-WAL-SENDERS).
 
 - **Max wal size**{#setting-max-wal-size} {{ tag-all }}
 
-   The maximum [WAL](https://www.postgresql.org/docs/current/wal-intro.html) file size (in bytes) that, when reached, triggers automatic checkpoints.
+  Maximum [WAL](https://www.postgresql.org/docs/current/wal-intro.html) file size (in bytes) that triggers automatic checkpoints.
 
-   The minimum value is `2`. The maximum value [depends on the storage size](#settings-instance-dependent) and is equal to 10% of this value, with a maximum of `8589934592` (8 GB). By default, the maximum value is used.
+  The minimum value is `2`. The maximum value equals 10% of the [storage size](#settings-instance-dependent), capped at `8589934592` (8 GB). By default, the system uses the maximum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
+  For more information, see the `max_wal_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MAX-WAL-SIZE).
 
 - **Max worker processes**{#setting-max-worker-processes} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum number of {{ PG }} background processes that can be run on the current system.
+  Maximum number of {{ PG }} background processes that can be run on the current system.
 
-   The minimum value is `0`, while the maximum one is `1024`. The default value is `8`.
+  The valid values range from `0` to `1024`. The default value is `8`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
+  For more information, see the `max_worker_processes` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-WORKER-PROCESSES).
 
 - **Min wal size**{#setting-min-wal-size} {{ tag-all }}
 
-   The amount of disk space (in bytes) occupied by the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) that, when exceeded, triggers deletion of old WAL files at checkpoints.
+   [WAL](https://www.postgresql.org/docs/current/wal-intro.html) disk usage threshold (in bytes) triggering the deletion of old WAL files during checkpoints.
 
-   The minimum value is `2`. The maximum value [depends on the storage size](#settings-instance-dependent) and is equal to 5% of this value, with a maximum of `1073741824` (1 GB). By default, the maximum value is used.
+  The minimum value is `2`. The maximum value equals 5% of the [storage size](#settings-instance-dependent), capped at `1073741824` (1 GB). By default, the system uses the maximum value.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
+  For more information, see the `min_wal_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-MIN-WAL-SIZE).
 
 - **Old snapshot threshold**{#setting-old-snapshot-threshold} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The minimum time (in milliseconds) that a query snapshot can be used without risk of an error.
+  Minimum time (in ms) a snapshot can be safely used for query execution without risk of an error.
 
-   The minimum value is `-1` (unlimited), while the maximum one is `86400000` (24 hours). The default value is `-1`.
+  The minimum and default values are `-1` (unlimited), and the maximum is `86400000` (24 hours).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
+  For more information, see the `old_snapshot_threshold` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-OLD-SNAPSHOT-THRESHOLD).
 
 - **Online analyze enable**{#setting-online-analyze} {{ tag-con }} {{ tag-api }}
 
-   Enables the `online_analyze` module that updates statistics after the `INSERT`, `UPDATE`, `DELETE`, or `SELECT INTO` operations in the target tables.
+  Enables the `online_analyze` module, which updates statistics after the `INSERT`, `UPDATE`, `DELETE`, and `SELECT INTO` operations on the target tables.
 
 - **Operator precedence warning**{#setting-operator-precedence-warning} {{ tag-all }}
 
-   Allows the query parser to emit a warning for any constructs that changed their behavior since version 9.4 as a result of changes in operator precedence. This feature is not supported by {{ PG }} starting from version 14.
+  Enables the query parser to issue warnings for all constructs whose behavior changed due to the precedence rule updates in version 9.5.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
+  Support for this feature was removed in {{ PG }} version 14.
+
+  For more information, see the `operator_precedence_warning` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/13/runtime-config-compatible.html#GUC-OPERATOR-PRECEDENCE-WARNING).
 
 - **Parallel leader participation**{#setting-parallel-leader-participation} {{ tag-all }}
 
-   Allows the leader process to execute the query plan under Gather and Gather Merge nodes without waiting for worker processes.
+  Allows the leader process to execute sections of the query plan below Gather and Gather Merge nodes without waiting for worker processes.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
+  For more information, see the `parallel_leader_participation` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-PARALLEL-LEADER-PARTICIPATION).
+
+- **Password Encryption**{#setting-password-encryption} {{ tag-con }} {{ tag-api }}
+
+  Defines the password verification algorithm. The possible values are:
+
+  - **MD5**
+  - **SCRAM-SHA-256**
+
+  The default value is `MD5`.
+
+  For more information, see the `password_encryption` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-connection.html#GUC-PASSWORD-ENCRYPTION).
 
 - **Pg hint plan debug print**{#setting-pghint-plan-debug} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Sets the level of output and detail of debugging information for the `pg_hint_plan` module. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. Possible values (in ascending order of verbosity):
+  Debug output configuration and verbosity for the `pg_hint_plan` module. This setting only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. The possible values, in ascending order of verbosity, are:
 
   - `off` (`PG_HINT_PLAN_DEBUG_PRINT_OFF` for {{ TF }} and API): The output is disabled.
   - `on` (`PG_HINT_PLAN_DEBUG_PRINT_ON` for {{ TF }} and API): Default.
@@ -1038,20 +1085,20 @@
 
 - **Pg hint plan enable hint**{#setting-pg-hint-plan-enable} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Enables the `pg_hint_plan` module that lets you adjust automatic execution plans using so-called <q>hints</q> that are simple descriptions in the SQL comments of special format.
+  Enables the `pg_hint_plan` module, which adjusts automatic query plans by applying <q>hints</q> written as simple directives within special SQL comments.
 
 - **Pg hint plan enable hint table**{#setting-pg-hint-plan-enable-hint-table} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Enables the use of the `hint_plan.hints` table. It contains <q>hints</q> for the `pg_hint_plan` module and is used when it is not possible edit queries. The table contains the following columns:
+  Enables the use of the `hint_plan.hints` table containing <q>hints</q> for the `pg_hint_plan` module that you can use when you cannot modify queries. This table has the following columns:
 
-  - `id`: A unique ID of the row with the <q>hint</q>. This column is populated automatically.
-  - `norm_query_string`: A pattern to match the <q>hinted</q> queries. Replace constants with a `?`. Whitespace characters are significant in the pattern.
-  - `application_name`: The application that initiated the sessions to apply the <q>hint</q> to.
-  - `hint`: A series of <q>hints</q> excluding surrounding comment marks.
+  - `id`: Unique row ID of a <q>hint</q>. This column is populated automatically.
+  - `norm_query_string`: Pattern for selecting queries targeted by the <q>hint</q>. Replace constants with the `?` character. Whitespace characters are treated as part of the pattern and affect matching.
+  - `application_name`: Initiating application for the sessions where the <q>hint</q> applies.
+  - `hint`: <q>Hints</q> not wrapped in comment markers.
 
 - **Pg hint plan message level**{#setting-pg-hint-plan-message} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The level of debug messages for the `pg_hint_plan` module that will be included in the {{ PG }} log. Only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. The possible values include:
+  Verbosity level for the `pg_hint_plan` debug messages written to the {{ PG }} log. This setting only applies when [Pg hint plan enable hint](#setting-pg-hint-plan-enable) is enabled. The possible values are:
 
   - `error`
   - `warning`
@@ -1062,330 +1109,340 @@
 
 - **Pg qualstats enabled**{#setting-pg-qualstats-enabled} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Enables the `pg_qualstats` module to collect statistics on predicates in `WHERE` operators and `JOIN` blocks. Used to analyze the most frequently calculated query predicates.
+  Enables the `pg_qualstats` module to collect statistics on predicates in `WHERE` operators and `JOIN` blocks. This setting is used to analyze the most frequently evaluated query predicates.
 
 - **Pg qualstats max**{#setting-pg-qualstats-max} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   The maximum number of tracked predicates for the `pg_qualstats` module. Only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is enabled.
+  Maximum number of predicates tracked by the `pg_qualstats` module. This setting only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on.
 
-   The minimum value is `100`, while the maximum one is `2147483647`. The default value is `1000`.
+  The minimum value is `100`, the maximum is `2147483647`, and the default is `1000`.
 
 - **Pg qualstats resolve oids**{#setting-pg-qualstats-resolve-oids} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Enables table name recovery using `OID` when collecting statistics for the `pg_qualstats` module. The setting makes it easier to analyze data, but requires more disk space for storing statistics. Only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is enabled.
+  Enables table `OID`-to-name recovery during query statistics collection for the `pg_qualstats` module. This setting simplifies data analysis, but requires more disk space to store statistics. This setting only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
 - **Pg qualstats sample rate**{#setting-pg-qualstats-sample-rate} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Percentage of queries (from 0 to 1) that the `pg_qualstats` module collects statistics for. Only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is enabled. Specific setting values:
+  Fraction of queries (0-1) for which statistics are collected by the `pg_qualstats` module. This setting only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on. Special setting values:
 
   - `0`: Disables the setting.
   - `1`: All queries are analyzed.
-  - `-1`: Automatic mode, percentage of queries is inverse to the value of the [Max connections](#setting-max-connections) setting and [depends on the selected host class](#settings-instance-dependent).
+  - `-1`: Automatic mode. The sampling rate is the reciprocal of the [Max connections](#setting-max-connections) setting and [depends on the selected host class](#settings-instance-dependent).
 
-   By default, `-1`.
+  The default value is `-1`.
 
 - **Pg qualstats track constants**{#setting-pg-qualstats-track-constants} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   Enables tracking of already encountered predicates in further queries when statistics are collected by the `pg_qualstats` module. Only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is enabled.
+  Enables tracking of previously encountered predicates in subsequent queries during statistics collection by the `pg_qualstats` module. This setting only applies when [Pg qualstats enabled](#setting-pg-qualstats-enabled) is on.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
 - **Plan cache mode**{#setting-plan-cache-mode} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Determines the type of query plan (generic or custom) to be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). The possible values include:
+  Determines the query plan type, i.e., generic or custom, that will be used to execute [prepared statements](https://www.postgresql.org/docs/current/sql-prepare.html). The possible values are:
 
   - `auto` (`PLAN_CACHE_MODE_AUTO` for {{ TF }} and API): Automatic selection.
-  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Force custom plans.
-  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Force generic plans.
+  - `force_custom_plan` (`PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN` for {{ TF }} and API): Forces the use of custom plans.
+  - `force_generic_plan` (`PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` for {{ TF }} and API): Forces the use of generic plans.
 
-   The default value is `auto`.
+  The default value is `auto`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-12.md) %}
+
+  For more information, see [this {{ PG }} guide](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-PLAN-CACHE_MODE).
 
 - **Plantuner fix empty table**{#setting-plantuner-fix-empty-table} {{ tag-con }} {{ tag-api }}
 
-   Allows the `plantuner` module to hide certain indexes from the planner to prevent them from being used in query plans.
+  Allows the `plantuner` module to hide individual indexes from the planner to prevent their use in query plans.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
 - **Quote all identifiers**{#setting-quote-identifiers} {{ tag-all }}
 
-   Forces quoting of all identifiers when generating SQL queries from a database, for example, when running the `EXPLAIN` operation.
+  Forces quoting all identifiers in SQL queries generated from a database, e.g., during an `EXPLAIN` operation.
 
-   This setting is disabled by default.
+  This setting is disabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
+  For more information, see the `quote_all_identifiers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-QUOTE-ALL-IDENTIFIERS).
 
 - **Random page cost**{#setting-random-page-cost} {{ tag-all }}
 
-   Sets the planner's estimate of the cost of reading an arbitrary disk page. If the setting value is less than [Seq page cost](#setting-seq-page-cost), the planner will prefer index scans.
+  Defines the planner's estimated cost of reading one arbitrary disk page. If this setting’s value is less than [Seq page cost](#setting-seq-page-cost), the planner will favor index scans.
 
-   The minimum value is `0`. The default value is `1`.
+  The minimum value is `0` and the default is `1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
+  For more information, see the `random_page_cost` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#GUC-RANDOM-PAGE-COST).
 
 - **Row security**{#setting-row-security} {{ tag-all }}
 
-   Controls processing of queries that apply at least one [row security policy](https://www.postgresql.org/docs/current/sql-createpolicy.html). If you disable the setting, such queries will return an error.
+  Manages processing of queries subject to at least one [row-level security policy](https://www.postgresql.org/docs/current/sql-createpolicy.html). If you disable this setting, such queries will return an error.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
+  For more information, see the `row_security` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-ROW-SECURITY).
 
 - **Search path**{#setting-search-path} {{ tag-all }}
 
-   A comma-separated list of DB schemas. When accessing objects in these schemas, the schema name can be omitted.
+  Comma-separated list of database schema names. When accessing objects in these schemas, the schema name can be omitted.
 
-   The default value is `$user, public` (the current user schema and `public` schema).
+  The default value is `$user, public`, i.e., the current user’s schema and the `public` schema.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
+  For more information, see the `search_path` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SEARCH-PATH).
 
 - **Seq page cost**{#setting-seq-page-cost} {{ tag-all }}
 
-   Sets the planner's estimate of the cost of a disk page read when doing a series of sequential reads.
+  Defines the planner's estimated cost of reding one page from disk during a series of sequential reads.
 
-   The minimum value is `0`. The default value is `1`.
+  The minimum value is `0` and the default is `1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
+  For more information, see the `seq_page_cost` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-query.html#RUNTIME-CONFIG-QUERY-CONSTANTS).
 
 - **Session duration timeout**{#setting-session-duration-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }}
 
-   The maximum TTL of the longest active session or transaction (in milliseconds). It applies only to sessions with the `active` and `idle in transaction` status.
+  Maximum TTL (in ms) of the longest active session or transaction. This setting only applies to sessions with the `active` or `idle in transaction` status.
+  
+  To prevent this setting from impacting cluster performance, the system checks the longest transaction/session at certain intervals. The interval between checks is chosen randomly within a range of 5 to 10 minutes. For example, if you set this parameter to `1000`, a session will terminate within 1 second + 5 to 10 minutes.
+  
+  A value higher than default may increase the database size and slow down the operating system.
 
-   To make sure the setting does not impact the cluster performance, the longest transaction/session is checked on a regular basis. The checking interval is selected randomly and ranges from 5 to 10 minutes. For example, if you set the setting to `1000`, a session will terminate within 1 second + 5 to 10 minutes.
+  The minimum value is `0` (no limit on active session/transaction TTL), the maximum value is `2147483647`, and the default is `43200000` (12 hours). The minimum adjustment granularity for this setting is `1000`.
 
-   If the value you set is larger than the default one, this may increase the DB size and slow down the OS.
-
-   The minimum value is `0` (the active session/transaction TTL is unlimited). The maximum value is `2147483647`. The default value is `43200000` (12 hours). The minimum granularity for changing the setting value is `1000`.
-
-   For more information about possible session statuses, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+  Learn more about session statuses in [this {{ PG }} article](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 - **Shared buffers**{#setting-shared-buffers} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The amount of memory (in bytes) that {{ PG }} can use for shared memory buffers.
+  Memory (in bytes) that {{ PG }} can use for shared memory buffers.
 
-   The minimum value is `131072` (128 KB). The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the total RAM size of the {{ mpg-name }} cluster host. By default, the value is 25% of the total RAM size, with a maximum of 8 GB.
+  The minimum value is `131072` (128 KB). The maximum value [depends on the selected host class](#settings-instance-dependent) and is equal to 80% of the {{ mpg-name }} cluster host's total RAM. The default value is set to 25% of the total RAM, capped at 8 GB.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
+  For more information, see the `shared_buffers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-SHARED-BUFFERS).
 
 - **Shared preload libraries**{#setting-shared-libraries} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   A comma-separated list of shared libraries to preload when the {{ PG }} server starts. Libraries are required for using some [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md).
+  Comma-separated list of shared libraries to load upon {{ PG }} server startup. These libraries are required for some [{{ PG }} extensions](../../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
+  For more information, see the `shared_preload_libraries` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-SHARED-PRELOAD-LIBRARIES).
 
 - **Standard conforming strings**{#setting-standard-strings} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   Treating backslashes (`\`) in regular string constants (`'...'`) literally (as specified in the SQL standard) rather than as a special character.
+  Enables interpreting backslashes (`\`) in regular string constants (`'...'`) as a literal rather than a special character, as per SQL standard.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
+  For more information, see the `standard_conforming_strings` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-STANDARD-CONFORMING-STRINGS).
 
 - **Statement timeout**{#setting-statement-timeout} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum statement duration (in milliseconds) after which the command is aborted.
+  Maximum statement runtime (in ms) before it is aborted.
 
-   The minimum value is `0`, while the maximum one is `2147483647`. The default value is `0`.
+  The valid values range from `0` to `2147483647`. The default value is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
+  For more information, see the `statement_timeout` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-STATEMENT-TIMEOUT).
 
 - **Synchronize seqscans**{#setting-synchronize-seqscans} {{ tag-all }}
 
-   Allows sequential scans of large tables to synchronize with each other, so that concurrent scans read the same block at about the same time. When disabled, ensures pre-8.3 behavior where a sequential scan always started from the beginning of the table.
+  Enables synchronized scanning for large table sequential scans, causing concurrent operations to read the same block at roughly the same time. When this setting is disabled, a sequential scan will always start from the beginning of the table, reverting to pre-8.3 behavior.
 
-   This setting is enabled by default.
+  This setting is enabled by default.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
+  For more information, see the `synchronize_seqscans` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-SYNCHRONIZE-SEQSCANS).
 
 - **Synchronous commit**{#setting-synchronous-commit} {{ tag-all }}
 
-   Determines at what stage of [WAL](https://www.postgresql.org/docs/current/wal-intro.html) data processing the server will commit a transaction.
+  Determines the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) processing stage at which a transaction is considered committed.
 
-   Acceptable values include:
+  Valid values:
 
-   {% list tabs group=instructions %}
+  {% list tabs group=instructions %}
 
   - Management console/CLI {#console}
 
-    - `on`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-    - `off`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-    - `local`: A transaction is committed if the WAL is written to the master disk.
-    - `remote_write`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-    - `remote_apply`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `on`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
+    - `off`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
+    - `local`: Transaction is committed once its WAL record is written to the master’s disk.
+    - `remote_write`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
+    - `remote_apply`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and applied the changes it contains.
 
-      The default value is `on`.
+    The default value is `on`.
 
   - {{ TF }} {#tf}
 
-    - `1` or `"SYNCHRONOUS_COMMIT_ON"`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-    - `2` or `"SYNCHRONOUS_COMMIT_OFF"` : A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-    - `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: A transaction is committed if the WAL is written to the master disk.
-    - `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-    - `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `1` or `"SYNCHRONOUS_COMMIT_ON"`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
+    - `2` or `"SYNCHRONOUS_COMMIT_OFF"`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
+    - `3` or `"SYNCHRONOUS_COMMIT_LOCAL"`: Transaction is committed once its WAL record is written to the master’s disk.
+    - `4` or `"SYNCHRONOUS_COMMIT_REMOTE_WRITE"`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
+    - `5` or `"SYNCHRONOUS_COMMIT_REMOTE_APPLY"`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replica have received the WAL and applied the changes it contains.
 
-      The default value is `"SYNCHRONOUS_COMMIT_ON"`.
+    The default value is `"SYNCHRONOUS_COMMIT_ON"`.
 
   - API {#api}
 
-    - `SYNCHRONOUS_COMMIT_ON`: A transaction is committed if the WAL is written to the master disk and quorum replica disk.
-    - `SYNCHRONOUS_COMMIT_OFF`: A transaction is committed even if its data is not yet in the WAL. Writes are not synchronous, and the transaction data might be lost as a result of a disk subsystem failure.
-    - `SYNCHRONOUS_COMMIT_LOCAL`: A transaction is committed if the WAL is written to the master disk.
-    - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: A transaction is committed if the WAL is written to the master disk, and the quorum replica received the WAL and forwarded it to the OS to write it to the disk. If the master disk system is lost and the OS on the quorum replica fails, transaction data with this level of synchronization may be lost.
-    - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: A transaction is committed if the WAL is written to the master disk, and the quorum replica accepted the WAL and applied the changes from it.
+    - `SYNCHRONOUS_COMMIT_ON`: Transaction is committed once its WAL record is written both to the master’s disk and to the disks of every quorum replica.
+    - `SYNCHRONOUS_COMMIT_OFF`: Transaction is committed even before its data has been written to the WAL. Due to the asynchronous nature of writes, transaction data in this case can be lost in the event of a disk subsystem failure.
+    - `SYNCHRONOUS_COMMIT_LOCAL`: Transaction is committed once its WAL record is written to the master’s disk.
+    - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and provided it to the OS for writing to disk. If the master’s disk fails and the operating systems on quorum replicas crash, transaction data with this synchronization level can be lost.
+    - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Transaction is committed once its WAL record is written to the master’s disk and all quorum replicas have received the WAL and applied the changes it contains.
 
-      The default value is `SYNCHRONOUS_COMMIT_ON`.
+    The default value is `SYNCHRONOUS_COMMIT_ON`.
 
-   {% endlist %}
+  {% endlist %}
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
+  For more information, see the `synchronous_commit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Temp buffers**{#setting-temp-buffers} {{ tag-all }}
 
-   The maximum amount of memory (in bytes) allocated for temporary buffers in each session.
+  Maximum memory (in bytes) allocated for temporary buffers in each session.
 
-   The minimum value is `100`, while the maximum one is `1073741823` (1 GB). The default value is `8388608` (8 MB).
+  The minimum value is `100`, the maximum is `1073741823` (1 GB), and the default is `8388608` (8 MB).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
+  For more information, see the `temp_buffers` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-BUFFERS).
 
 - **Temp file limit**{#setting-temp-file-limit} {{ tag-con }} {{ tag-api }} {{ tag-cli }} {{ tag-tf }}
 
-   The maximum storage space size (in kilobytes) that a single process can use to create temporary files. A transaction that tries to exceed this limit will be canceled.
+  Maximum disk space (in bytes) a single process can use for temporary files. Any transaction attempting to exceed this limit will be aborted.
 
-   Large queries are executed in the disk space rather than in RAM. Queries that are too large overload the disk and prevent other queries from being executed. The setting prevents queries that degrade performance by limiting the size of temporary files.
+  Large queries are executed on disk rather than in memory. Excessively large queries overload the disk and impede the execution of other queries. This setting prevents the execution of performance-degrading queries by limiting the size of temporary files.
 
-   The minimum value is `-1` (no limit), while the maximum one is `2147483647` (2 GB). The default value is `-1`.
+  The minimum value is `-1` (no limits); the maximum value is `2147483647` (2 GB); the default value is `-1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
+  For more information, see the `temp_file_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-TEMP-FILE-LIMIT).
 
-   The setting applies at the {{ mpg-name }} cluster level, but it can be [overridden at the user level](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
+  The setting applies at the {{ mpg-name }} cluster level, but can be [overridden for individual users](../../../managed-postgresql/concepts/settings-list.md#dbms-user-settings).
 
 - **Timezone**{#setting-timezone} {{ tag-all }}
 
-   Time zone for output and input of time values.
+  Timezone for time input and output.
 
-   Default value: `Europe/Moscow`.
+  The default value is `Europe/Moscow`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
+  For more information, see the `timezone` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-TIMEZONE).
 
 - **Track activity query size**{#setting-track-activity-query-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The amount of memory (in bytes) reserved to store the text of the currently executing command for each active session.
+  Memory (in bytes) per active session to store the text of the currently executed statement.
 
-   The minimum value is `100`, while the maximum one is `102400`. The default value is `1024`.
+  The valid values range from `100` to `102400`. The default value is `1024`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
+  For more information, see the `track_activity_query_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-statistics.html#GUC-TRACK-ACTIVITY-QUERY-SIZE).
 
 - **Transform null equals**{#setting-transform-null-equals} {{ tag-all }}
 
-   Enables treating the condition `expression = NULL` as `expression IS NULL`. The condition is true if the expression has the value `NULL`, otherwise it is false. According to the SQL standard, `expression = NULL` always returns `NULL` (an unknown value).
+  Enables treating the condition `expression = NULL` as `expression IS NULL`. The condition is true if the expression is `NULL`, and false otherwise. As per SQL standard, `expression = NULL` always returns `NULL` (an unknown value).
 
-   This setting is disabled by default (the SQL standard applies).
+  By default, this setting is disabled, meaning that the SQL standard is in effect.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
+  For more information, see the `transform_null_equals` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-compatible.html#GUC-TRANSFORM-NULL-EQUALS).
 
 - **Vacuum cleanup index scale factor**{#setting-vacuum-index-scale-factor} {{ tag-all }}
 
-   The fraction of heap tuples counted in the previous statistics collection. When running the `VACUUM` operation, index statistics are considered to be stale if the ratio of newly inserted tuples to the total number of heap tuples exceeds this fraction. In this case, the index will be re-scanned. This feature is not supported by {{ PG }} starting from version 14.
+  Fraction of index rows used in the previous statistics sample. During the `VACUUM` operation, index statistics are considered obsolete if the ratio of newly added index rows to the total current rows exceeds the specified threshold. This will trigger a new index scan.
 
-   The minimum value is `0.0`, while the maximum one is `10000000000.0`. The default value is `0.1`.
+  The minimum value is `0.0`, the maximum is `10000000000.0`, and the default is `0.1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
+  Support for this feature was removed in {{ PG }} version 14.
+
+  For more information, see the `vacuum_cleanup_index_scale_factor` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/12/runtime-config-client.html#GUC-VACUUM-CLEANUP-INDEX-SCALE-FACTOR).
 
 - **Vacuum cost delay**{#setting-vacuum-cost-delay} {{ tag-all }}
 
-   The amount of time (in milliseconds) for the `VACUUM` and `ANALYZE` operations to sleep when the cost limit has been exceeded (see [Vacuum cost limit](#setting-vacuum-cost-limit)).
+  Idle time (in ms) for a `VACUUM` or `ANALYZE` process that has exceeded the [vacuum cost limit](#setting-vacuum-cost-limit).
 
-   The minimum value is `0`, while the maximum one is `100`. The default value is `0`.
+  The valid values range from `0` to `100`. The default value is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
+  For more information, see the `vacuum_cost_delay` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#RUNTIME-CONFIG-RESOURCE-VACUUM-COST).
 
 - **Vacuum cost limit**{#setting-vacuum-cost-limit} {{ tag-all }}
 
-   The accumulated cost that will cause the `VACUUM` process to sleep.
+  Accumulated cost threshold at which the `VACUUM` process will enter sleep mode.
 
-   The minimum value is `1`, while the maximum one is `10000`. The default value is `200`.
+  The valid values range from `1` to `10000`. The default value is `200`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
+  For more information, see the `vacuum_cost_limit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-LIMIT).
 
 - **Vacuum cost page dirty**{#setting-vacuum-cost-page-dirty} {{ tag-all }}
 
-   The estimated cost that is charged when `VACUUM` modifies a block that was previously clean.
+  Estimated cost of a `VACUUM` operation processing a previously unmodified block.
 
-   The minimum value is `0`, while the maximum one is `10000`. The default value is `20`.
+  The valid values range from `0` to `10000`. The default value is `20`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
+  For more information, see the `vacuum_cost_page_dirty` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-DIRTY).
 
 - **Vacuum cost page hit**{#setting-vacuum-cost-page-hit} {{ tag-all }}
 
-   The estimated cost for vacuuming a buffer found in the shared buffer cache.
+  Estimated cost of vacuuming a buffer found in shared cache.
 
-   The minimum value is `0`, while the maximum one is `10000`. The default value is `1`.
+  The valid values range from `0` to `10000`. The default value is `1`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
+  For more information, see the `vacuum_cost_page_hit` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-HIT).
 
 - **Vacuum cost page miss**{#setting-vacuum-cost-page-miss} {{ tag-all }}
 
-   The estimated cost for vacuuming a buffer that has to be read from a disk.
+  Estimated cost of vacuuming a buffer that must be read from disk.
 
-   The minimum value is `0`, while the maximum one is `10000`. The default value is `10`.
+  The valid values range from `0` to `10000`. The default value is `10`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
+  For more information, see the `vacuum_cost_page_miss` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-VACUUM-COST-PAGE-MISS).
 
 - **Vacuum failsafe age**{#setting-vacuum-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a <q>frozen</q> (already ended) transaction measured as the number of transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid transaction counter overflow. {{ PG }} supports this feature starting from version 14.
+  Maximum age of a <q>frozen</q>, i.e., completed, transaction measured in the number of transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent transaction ID wraparound.
 
-   The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
+  The valid values range from `0` to `2100000000`. The default value is `1600000000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `vacuum_failsafe_age` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-FAILSAFE-AGE).
 
 - **Vacuum multixact failsafe age**{#setting-vacuum-multixact-failsafe-age} {{ tag-con }} {{ tag-api}} {{ tag-cli }}
 
-   The maximum age of a frozen (already ended) [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured as the number of multi-transactions initiated after it. After this value is reached, the `VACUUM` process triggers vacuuming to avoid multi-transaction counter overflow. {{ PG }} supports this feature starting from version 14.
+  Maximum age of a <q>frozen</q>, i.e., completed, [multi-transaction](https://www.postgresql.org/docs/14/routine-vacuuming.html#VACUUM-FOR-MULTIXACT-WRAPAROUND) measured in the number of multi-transactions that have been started after it. Once this threshold is reached, the system runs the `VACUUM` process to prevent multixact ID wraparound.
 
-   The minimum value is `0`, while the maximum one is `2100000000`. The default value is `1600000000`.
+  The valid values range from `0` to `2100000000`. The default value is `1600000000`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-14.md) %}
+
+  For more information, see the `vacuum_multixact_failsafe_age` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-VACUUM-MULTIXACT-FAILSAFE-AGE).
 
 - **Wal keep size**{#setting-wal-keep-size} {{ tag-con }} {{ tag-api }} {{ tag-tf }}
 
-   The minimum size (in bytes) of past log segments kept in the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) directory so that [replicas](../../../managed-postgresql/concepts/replication.md#replication) could fetch them, if needed.
+  Minimum amount of obsolete WAL data (in bytes) to retain in the [WAL](https://www.postgresql.org/docs/current/wal-intro.html) directory, allowing [replicas](../../../managed-postgresql/concepts/replication.md#replication) to fetch it if needed.
 
-   The minimum value is `0` (past segments are not saved for replication), while the maximum one is `2251799812636672` (2 TB). The default value is `0`.
+  The minimum value is `0` (no WAL retention for replication), the maximum is `2251799812636672` (2 TB), and the default is `0`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
+  {% include [settings-version](../../../_includes/mdb/mpg/mpg-settings-v-13.md) %}
+
+  For more information, see the `wal_keep_size` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE).
 
 - **Work mem**{#setting-work-mem} {{ tag-all }}
 
-   The base maximum amount of memory to be used by an internal query operation (such as a sort or hash table) before writing to temporary disk files.
+  Base memory allocation (in bytes) for internal query processing operations, e.g., sorting and hash tables, before spilling over to temporary disk files.
 
-   The minimum value is `64`, while the maximum one is `2147483647` (2 GB). The default value is `4194304` (4 MB).
+  The minimum value is `64`, the maximum is `2147483647` (2 GB), and the default is `4194304` (4 MB).
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
+  For more information, see the `work_mem` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-WORK-MEM).
 
 - **Xmlbinary**{#setting-xmlbinary} {{ tag-all }}
 
-   The method used for encoding binary data in XML. The possible values include:
+  Method for encoding binary data in XML. The possible values are:
 
-  - `base64` (`XML_BINARY_BASE64` for {{ TF }}, API, and CLI): BASE64 encoding.
+  - `base64` (`XML_BINARY_BASE64` for {{ TF }}, CLI, and API): Base64 encoding.
   - `hex` (`XML_BINARY_HEX` for {{ TF }}, API, and CLI): Hexadecimal encoding.
 
-   The default value is `base64`.
+  The default value is `base64`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
+  For more information, see the `xmlbinary` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY).
 
 - **Xmloption**{#setting-xmloption} {{ tag-all }}
 
-   The default type of conversion between the XML and character string data. The possible values include:
+  Default XML-to-text conversion type. The possible values are:
 
-  - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, API, and CLI): An XML document.
-  - `content` (`XML_OPTION_CONTENT` for {{ TF }}, API, and CLI): A fragment of an XML document.
+  - `document` (`XML_OPTION_DOCUMENT` for {{ TF }}, CLI, and API): XML document.
+  - `content` (`XML_OPTION_CONTENT` for {{ TF }}, CLI, and API): XML fragment.
 
-   The default value is `content`.
+  The default value is `content`.
 
-   For more information, see the [{{ PG }} documentation](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).
+  For more information, see the `xmloption` setting description in [this {{ PG }} article](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION).

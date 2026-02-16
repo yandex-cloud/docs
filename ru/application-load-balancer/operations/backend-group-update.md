@@ -18,7 +18,7 @@ description: Пошаговая инструкция по изменению г�
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создана [группа бэкендов](../concepts/backend-group.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -69,7 +69,14 @@ description: Пошаговая инструкция по изменению г�
 
      * `--description` — описание группы бэкендов. Необязательный параметр.
      * `--labels key=value` — список меток в формате `ключ=значение`. Необязательный параметр.
-     * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по [IP-адресу](../../vpc/concepts/address.md) (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы `--cookie-affinity` (по cookie) и `--header-affinity` (по HTTP-заголовку). Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), режим привязки может быть только `--connection-affinity`.
+     * `--connection-affinity` — режим [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) по [IP-адресу](../../vpc/concepts/address.md) (`source-ip`). Может принимать значения `true` или `false`. Необязательный параметр. Также доступны режимы:
+       * `--cookie-affinity` — привязка по cookie. Доступные параметры:
+         * `name` — имя cookie. Обязательный параметр.
+         * `path` — путь к разделу сайта, на котором будет действовать cookie. Если путь не указан, запросы от одного пользователя могут попадать в разные бэкенды.
+         * `ttl` — время жизни cookie.
+       * `--header-affinity` (по HTTP-заголовку). В параметре `name` укажите имя заголовка запроса, который будет использоваться для привязки.
+
+       Может быть указан только один из режимов. Если группа бэкендов [типа Stream](../concepts/backend-group#group-types), режим привязки может быть только `--connection-affinity`.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
 
@@ -135,11 +142,18 @@ description: Пошаговая инструкция по изменению г�
      * `name` — имя группы бэкендов.
      * `description` — описание группы бэкендов. Необязательный параметр.
      * `labels` — список меток в формате `ключ=значение`. Необязательный параметр.
-     * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity) (необязательный параметр).
+     * `session_affinity` — настройки [привязки сессий](../../application-load-balancer/concepts/backend-group.md#session-affinity). Необязательный параметр. Укажите один из режимов:
+
+       * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`.
+       * `cookie` — режим привязки сессий по cookie. Укажите следующие параметры в формате `<параметр_1>=<значение>,<параметр_2>=<значение>`:
+         * `name` — имя cookie. Обязательный параметр.
+         * `path` — путь к разделу сайта, на котором будет действовать cookie. Если путь не указан, запросы от одного пользователя могут попадать в разные бэкенды.
+         * `ttl` — время жизни cookie в секундах.
+       * `header` — режим привязки сессий по заголовку. В параметре `header_name` укажите имя заголовка запроса, который будет использоваться для привязки.
+
+       Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
        {% include [session-affinity-prereqs](../../_includes/application-load-balancer/session-affinity-prereqs.md) %}
-
-       * `connection` — режим привязки сессий по [IP-адресу](../../vpc/concepts/address.md) (`source_ip`). Может принимать значения `true` или `false`. Также доступны режимы `cookie` и `header`. Должен быть указан только один из режимов. Если группа бэкендов имеет тип `Stream` (состоит из ресурсов `stream_backend`), то привязка сессий может иметь только режим `connection`.
 
      Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
   1. Примените изменения:
@@ -151,6 +165,8 @@ description: Пошаговая инструкция по изменению г�
      ```bash
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
 
 - API {#api}
 
@@ -165,7 +181,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.alb.button_add-backend }}**.
@@ -283,6 +299,8 @@ description: Пошаговая инструкция по изменению г�
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
+
 - API {#api}
 
   Чтобы изменить базовые параметры группы, воспользуйтесь методом REST API [addBackend](../api-ref/BackendGroup/addBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/AddBackend](../api-ref/grpc/BackendGroup/addBackend.md).
@@ -296,7 +314,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -324,12 +342,12 @@ description: Пошаговая инструкция по изменению г�
      ```bash
      yc alb backend-group update-http-backend \
        --backend-group-name <имя_группы_бэкендов> \
-       --name <имя_добавляемого_бэкенда> \
+       --name <имя_бэкенда> \
        --weight <вес_бэкенда> \
        --port <порт_бэкенда> \
        --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
-       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
+       --http-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,expected-statuses=211,\
      timeout=10s,interval=2s,host=your-host.com,path=/ping
      ```
 
@@ -395,6 +413,7 @@ description: Пошаговая инструкция по изменению г�
        --target-group-id=<идентификатор_целевой_группы> \
        --panic-threshold 90 \
        --enable-proxy-protocol \
+       --keep-connections-on-host-health-failure \
        --stream-healthcheck port=80,healthy-threshold=10,unhealthy-threshold=15,\
      timeout=10s,interval=2s,send-text=<данные_к_эндпоинту>,receive-text=<данные_от_эндпоинта>
      ```
@@ -446,6 +465,8 @@ description: Пошаговая инструкция по изменению г�
      yc alb backend-group get --name <имя_группы_бэкендов>
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
+
 - API {#api}
 
   Чтобы изменить параметры бэкенда в группе, воспользуйтесь методом REST API [updateBackend](../api-ref/BackendGroup/updateBackend.md) для ресурса [BackendGroup](../api-ref/BackendGroup/index.md) или вызовом gRPC API [BackendGroupService/UpdateBackend](../api-ref/grpc/BackendGroup/updateBackend.md).
@@ -461,7 +482,7 @@ description: Пошаговая инструкция по изменению г�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан бэкенд.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите на имя нужной группы.
   1. Напротив имени бэкенда нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.

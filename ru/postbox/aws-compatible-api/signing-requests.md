@@ -1,3 +1,8 @@
+---
+title: Подписывание запросов к {{ postbox-full-name }}
+description: Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке.
+---
+
 # Подписывание запросов
 
 Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке. {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Она используется в заголовке `Authorization`.
@@ -10,12 +15,12 @@
 
 Чтобы получить подпись:
 
-1. [{#T}](#canonical-request).
-1. [{#T}](#string-to-sign-gen).
-1. [{#T}](#signing-key-gen).
-1. [{#T}](#signing).
-1. [{#T}](#debugging).
-1. [{#T}](#authorization-header).
+1. [Составьте канонический запрос](#canonical-request).
+1. [Сгенерируйте строку для подписи](#string-to-sign-gen).
+1. [Сгенерируйте подписывающий ключ](#signing-key-gen).
+1. [Подпишите строку с помощью ключа](#signing).
+1. (Опционально) [Отладьте полученные данные с помощью AWS CLI](#debugging).
+1. [Составьте заголовок Authorization](#authorization-header).
 
 Для подписи используйте механизм [HMAC](https://ru.wikipedia.org/wiki/HMAC) с хеширующей функцией [SHA256](https://ru.wikipedia.org/wiki/SHA-2). Этот механизм поддерживают многие языки программирования. В примерах ниже предполагается, что в коде используются функции для кодирования и хеширования строк с нужным механизмом.
 
@@ -29,7 +34,7 @@
 <CanonicalQueryString>\n
 <CanonicalHeaders>\n
 <SignedHeaders>\n
-UNSIGNED-PAYLOAD
+<HashedPayload>
 ```
 
 Где:
@@ -66,7 +71,20 @@ UNSIGNED-PAYLOAD
 
    Пример: `content-type;host;x-amz-date`.
 
-В конце канонического запроса добавьте строку `UNSIGNED-PAYLOAD`.
+* `HashedPayload` — хеш тела запроса. Если тело запроса:
+
+   * присутствует, укажите хеш в шестнадцатеричном представлении:
+    
+      ```
+      Hex(SHA256Hash(<payload>))
+      ```
+  
+   * отсутствует (например, это GET-запрос), укажите хеш пустой строки:
+  
+      ```
+      Hex(SHA256Hash(""))
+      ```
+  
 
 ## Сгенерируйте строку для подписи {#string-to-sign-gen}
 
@@ -85,7 +103,7 @@ Hex(SHA256Hash(<канонический_запрос>))
 
 Перед началом работы [подготовьте статический ключ доступа](index.md#before-you-begin).
 
-{% include [generate-signing-key](../../_includes/storage/generate-signing-key.md) %}
+{% include [generate-signing-key](../../_includes/postbox/generate-signing-key.md) %}
 
 ## Подпишите строку с помощью ключа {#signing}
 
@@ -150,7 +168,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 Сформируйте заголовок `Authorization` по следующему формату:
 
 ```text
-Authorization: AWS4-HMAC-SHA256 Credential=<идентификатор_статического_ключа>/<дата>/{{ region-id }}/ses/aws4_request SignedHeaders=<подписанные_заголовки> Signature=<подпись>
+Authorization: AWS4-HMAC-SHA256 Credential=<идентификатор_статического_ключа>/<дата>/{{ region-id }}/ses/aws4_request, SignedHeaders=<подписанные_заголовки>, Signature=<подпись>
 ```
 
 Используйте такой заголовок, если обращаетесь к API напрямую, без [AWS CLI](../tools/aws-cli.md) и приложений.

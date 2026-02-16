@@ -5,12 +5,17 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать виртуальную машину из публичного образа Linux
 
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv2quzqpa76crq4el5?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=PN3b26KXb78)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=PN3b26KXb78).
+
 
 
   {% include [create-instance-via-console-linux](../../_includes_service/create-instance-via-console-linux.md) %}
@@ -21,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды [CLI](../../../cli/) для создания [ВМ](../../concepts/vm.md):
+  1. Посмотрите описание команды [CLI](../../../cli/) для создания ВМ:
 
      ```bash
      yc compute instance create --help
@@ -55,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
        --name first-instance \
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа>,auto-delete=true \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -74,7 +79,16 @@ description: Следуя данной инструкции, вы сможете
          {% include [add-several-net-interfaces-notice-cli](../../../_includes/compute/add-several-net-interfaces-notice-cli.md) %}
 
      * `--create-boot-disk` — настройки загрузочного диска ВМ:
+         * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
          * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
+
      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
          {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
@@ -110,6 +124,7 @@ description: Следуя данной инструкции, вы сможете
        }
 
        boot_disk {
+         auto_delete = true
          disk_id = yandex_compute_disk.boot-disk.id
        }
 
@@ -151,7 +166,8 @@ description: Следуя данной инструкции, вы сможете
        * `platform_id` — [платформа](../../concepts/vm-platforms.md).
        * `zone` — зона доступности, в которой будет находиться ВМ.
        * `resources` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска. 
+       * `boot_disk` — настройки загрузочного диска. Укажите идентификатор диска.
+       * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
        * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ. Укажите идентификатор выбранной [подсети](../../../vpc/concepts/network.md#subnet). Чтобы автоматически назначить ВМ [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses), укажите `nat = true`.
 
            {% include [add-several-net-interfaces-notice-tf](../../../_includes/compute/add-several-net-interfaces-notice-tf.md) %}
@@ -181,10 +197,11 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте ВМ с помощью метода REST API [create](../../api-ref/Instance/create.md) для ресурса [Instance](../../api-ref/Instance/):
   1. [Подготовьте](../vm-connect/ssh.md#creating-ssh-keys) пару ключей (открытый и закрытый) для [SSH-доступа](../../../glossary/ssh-keygen.md) на ВМ.
-  1. Получите [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
      * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
      * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
      * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+     * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
   1. [Получите идентификатор](../../../resource-manager/operations/folder/get-id.md) [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder).
   1. Получите информацию об [образе](../../concepts/image.md), из которого надо создать ВМ (идентификатор образа и минимальный размер [диска](../../concepts/disk.md)):
      * Если вы знаете [семейство образа](../../concepts/image.md#family), получите информации о последнем образе в этом семействе:
@@ -246,8 +263,9 @@ description: Следуя данной инструкции, вы сможете
          "user-data": "#cloud-config\nusers:\n  - name: user\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ssh-ed25519 AAAAB3N... user@example.com"
        },
        "bootDiskSpec": {
+         "autoDelete": true,
          "diskSpec": {
-           "size": "2621440000",
+           "size": "8589934592",
            "imageId": "fd8rc75pn12f********"
          }
        },
@@ -272,11 +290,12 @@ description: Следуя данной инструкции, вы сможете
      * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска.
+     * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
 
        {% include [id-info](../../../_includes/compute/id-info.md) %}
 
        Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
-     * `networkInterfaceSpecs` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ.
+     * `networkInterfaceSpecs` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
        * `subnetId` — идентификатор выбранной подсети.
        * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
 

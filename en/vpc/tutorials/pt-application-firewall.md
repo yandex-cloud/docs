@@ -1,1 +1,0 @@
-{% include [pt-application-firewall](../../_tutorials/routing/pt-application-firewall.md) %}

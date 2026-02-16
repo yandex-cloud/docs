@@ -83,7 +83,7 @@
                 --data '{
                           "configSpec": {
                             "performanceDiagnostics": {
-                              "enabled": <активация_сбора_статистики:_true_или_false>,
+                              "enabled": <активировать_сбор_статистики>,
                               "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                               "statementsSamplingInterval": "<интервала_сбора_запросов>"
                             },
@@ -95,11 +95,11 @@
 
             Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-            * `enabled` — активация сбора статистики;
+            * `enabled` — активация сбора статистики: `true` или `false`;
             * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
     1. Чтобы включить сбор статистики при изменении существующего кластера:
 
@@ -117,7 +117,7 @@
                           "updateMask": "configSpec.performanceDiagnostics",
                           "configSpec": {
                             "performanceDiagnostics": {
-                              "enabled": <активация_сбора_статистики:_true_или_false>,
+                              "enabled": <активировать_сбор_статистики>,
                               "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                               "statementsSamplingInterval": "<интервала_сбора_запросов>"
                             }
@@ -127,11 +127,11 @@
 
             Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-            * `enabled` — активация сбора статистики;
+            * `enabled` — активация сбора статистики: `true` или `false`;
             * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statementsSamplingInterval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 * gRPC API {#grpc-api}
 
@@ -154,7 +154,7 @@
                 -d '{
                       "config_spec": {
                         "performance_diagnostics": {
-                          "enabled": <активация_сбора_статистики:_true_или_false>,
+                          "enabled": <активировать_сбор_статистики>,
                           "sessions_sampling_interval": "<интервал_сбора_сессий>",
                           "statements_sampling_interval": "<интервала_сбора_запросов>"
                         },
@@ -168,7 +168,7 @@
 
             Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-            * `enabled` — активация сбора статистики;
+            * `enabled` — активация сбора статистики: `true` или `false`;
             * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
@@ -196,7 +196,7 @@
                       },
                       "config_spec": {
                         "performance_diagnostics": {
-                          "enabled": <активация_сбора_статистики:_true_или_false>,
+                          "enabled": <активировать_сбор_статистики>,
                           "sessions_sampling_interval": "<интервал_сбора_сессий>",
                           "statements_sampling_interval": "<интервала_сбора_запросов>"
                         }
@@ -208,17 +208,17 @@
 
             Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-            * `enabled` — активация сбора статистики;
+            * `enabled` — активация сбора статистики: `true` или `false`;
             * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
             * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
 
-        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation1).
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
 ## Получить статистику по сессиям {#get-sessions}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     Для просмотра статистики по сессиям или истории запросов в рамках сессии выберите соответствующую вкладку.
@@ -244,10 +244,9 @@
 
     {% endlist %}
 
-
 ## Получить статистику по запросам {#get-queries}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     Для просмотра статистики по запросам или сравнения их статистических данных на двух временных интервалах выберите соответствующую вкладку.
@@ -273,4 +272,33 @@
 
     {% endlist %}
 
-Подробнее про отображаемые сведения см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-quick-start.html).
+### Доступные метрики {#metrics}
+
+В этом разделе перечислены метрики, по которым собирается статистика запросов, и соответствующие им метрики сервиса {{ mmy-name }} в [{{ monitoring-name }}](../../monitoring/).
+
+Метрика статистики | Метрика {{ monitoring-name }} | Описание
+----- | ----- | -----
+**Total query latency** | - | Время выполнения запроса, суммарно.
+**Total lock latency** | - | Время ожидания блокировок, суммарно.
+**Avg query latency** | `mysql_latency_query_avg`<br/>`DGAUGE`, миллисекунды | Среднее время выполнения запроса.
+**Avg lock latency** | - | Среднее время ожидания блокировок.
+**Rows examined** | - | Количество прочитанных строк.
+**Calls** | - | Количество обращений к базе данных.
+**Rows sent** | - | Количество возвращенных строк в ответе.
+**Rows affected** | - | Количество измененных, удаленных, добавленных или возвращенных в ответе строк.
+**Tmp tables** | `mysql_Created_tmp_tables_rate`<br/>`DGAUGE`, таблиц/с | Количество временных таблиц, созданных при обработке запроса.
+**Tmp disk tables** | `mysql_Created_tmp_disk_tables_rate`<br/>`DGAUGE`, таблиц/с | Количество временных таблиц, созданных на диске при обработке запроса.
+**Select full join** | `mysql_Select_full_join_rate`<br/>`DGAUGE`, запросы/с | Количество джоинов, которые используют скан таблицы вместо индекса.
+**Select full range join** | `mysql_Select_full_range_join_rate`<br/>`DGAUGE`, запросы/с | Количество джоинов, которые используют поиск по интервалу в референсной таблице.
+**Select range** | - | Количество выборок по интервалам.
+**Select scan** | - | Количество выборок с использованием скана таблицы.
+**Sort merge passes** | - | Количество сортировок по слияниям таблиц.
+**Sort range** | `mysql_Sort_range_rate`<br/>`DGAUGE`, запросы/с | Количество сортировок по интервалам в единицу времени.
+**Sort rows** | `mysql_Sort_rows_rate`<br/>`DGAUGE`, запросы/с | Количество отсортированных строк в единицу времени.
+**Sort scan** | `mysql_Sort_scan_rate`<br/>`DGAUGE`, запросы/с | Количество сортировок с использованием скана таблицы в единицу времени.
+**No index used** | - | `1`, если при сканировании таблицы не использовался индекс, `0` в ином случае.
+**No good index used** | - | `1`, если для выполнения запроса не найден подходящий индекс, `0` в ином случае.
+**Errors** | - | Количество ошибок при выполнении запроса.
+**Warnings** | - | Количество предупреждений при выполнении запроса.
+
+Подробнее про отображаемые сведения см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/performance-schema-events-statements-current-table.html).

@@ -24,21 +24,20 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
-* плата за вычислительные ресурсы и объем хранилища кластера {{ OS }} (см. [тарифы {{ mos-full-name }}](../../managed-opensearch/pricing.md)).
-* использование потока данных (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)).
-* использование {{ ydb-full-name }} в бессерверном режиме (см. [тарифы {{ ydb-name }}](../../ydb/pricing/serverless.md)).
+    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
+
+* База данных {{ ydb-name }}, работающая в бессерверном режиме: операции с данными, объем хранимых данных и резервных копий (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)).
 
 ## Создайте трейл, который отправляет логи в поток данных {{ yds-name }} {#create-trail}
 
-Подготовьте окружение и создайте трейл в зависимости от ресурсов {{ yandex-cloud }}:
+[Создайте трейл](../../audit-trails/operations/create-trail.md), который отправляет логи в поток данных с именем `audit‑trails`. Использование потока с таким именем позволяет упростить загрузку объектов библиотеки [Security Content](#additional-content).
 
-* [Организации](../../audit-trails/operations/export-organization-data-streams.md).
-* [Облака](../../audit-trails/operations/export-cloud-data-streams.md).
-* [Каталога](../../audit-trails/operations/export-folder-data-streams.md).
-
-Обязательно назовите поток `audit‑trails`, чтобы упростить загрузку объектов библиотеки [Security Content](#additional-content).
+При создании трейла выберите нужную [область сбора логов](../../audit-trails/concepts/trail.md#collecting-area).
 
 ## Создайте кластер {{ mos-name }} {#create-os}
 
@@ -155,7 +154,7 @@
 Убедитесь, что данные из {{ at-name }} успешно загружаются в {{ OS }}:
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `audit-trails*`:
 
@@ -191,7 +190,7 @@
     git clone https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-opensearch.git
     ```
 
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
 1. В разделе **Management** выберите **Stack Management**.
 1. Перейдите в раздел **Saved Objects** и импортируйте файлы из каталога `yc-export-auditlogs-to-opensearch/update-opensearch-scheme/content-for-transfer/`:
@@ -239,45 +238,36 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 1. [Удалите созданные сервисные аккаунты](../../iam/operations/sa/delete.md).
 1. Удалите [трейл {{ at-name }}](../../audit-trails/concepts/trail.md).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
 
-    [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+   - С помощью {{ TF }} {#tf}
 
-- С помощью {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `trails-to-opensearch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `trails-to-opensearch.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}
 
 
 ## Дополнительные материалы {#video}
 
 Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
-@[youtube](bzWmmPp6KFg)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkntkhjbfsn2c7ptv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=bzWmmPp6KFg).
+
+
+

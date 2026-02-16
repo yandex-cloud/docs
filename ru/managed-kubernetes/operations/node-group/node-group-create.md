@@ -1,9 +1,16 @@
+---
+title: Создание группы узлов
+description: Следуя данной инструкции, вы сможете создать группы узлов.
+---
+
 # Создание группы узлов
 
 
 [Группа узлов](../../concepts/index.md#node-group) — это группа виртуальных машин с одинаковой конфигурацией в [кластере {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster), на которых запускаются пользовательские контейнеры.
 
 Перед тем как создавать группу узлов, [создайте](../kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }} и убедитесь, что в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) достаточно [свободных ресурсов](../../concepts/limits.md).
+
+{% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
 {% list tabs group=instructions %}
 
@@ -35,16 +42,19 @@
        --disk-size <размер_хранилища_ГБ> \
        --disk-type <тип_хранилища> \
        --fixed-size <фиксированное_количество_узлов_в_группе> \
-       --location <настройки_размещения_хостов_кластера> \
+       --max-expansion <расширение_размера_группы_при_обновлении> \
+       --max-unavailable <количество_недоступных_узлов_при_обновлении> \
+       --location zone=[<зона_доступности>],subnet-id=[<идентификатор_подсети>] \
        --memory <количество_ГБ_RAM> \
        --name <имя_группы_узлов> \
        --network-acceleration-type <тип_ускорения_сети> \
-       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],subnets=[<имена_подсетей>],ipv4-address=<способ_назначения_IP-адреса> \
+       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],ipv4-address=<способ_назначения_IP-адреса> \
        --platform-id <идентификатор_платформы> \
        --container-runtime containerd \
        --preemptible \
        --public-ip \
-       --template-labels <облачные_метки_группы_узлов> \
+       --template-labels <ключ_облачной_метки=значение_облачной_метки> \
+       --node-labels <ключ_k8s-метки=значение_k8s-метки>
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
        --node-taints <taint-политики> \
@@ -70,7 +80,14 @@
 
        Тип масштабирования нельзя изменить после создания группы узлов.
 
-     * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md), [сеть](../../../vpc/concepts/network.md#network) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов.
+     * `--max-expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+       {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+     * `--max-unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+     * `--location` — [зона доступности](../../../overview/concepts/geo-scope.md) и [подсеть](../../../vpc/concepts/network.md#subnet), в которых будут расположены узлы {{ managed-k8s-name }}. Можно указать несколько вариантов, но нельзя указывать несколько подсетей для одной зоны. Для каждой зоны доступности следует использовать отдельный параметр `--location`.
+
+       {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
        Если в одной команде передать параметры `--location`, `--network-interface` и `--public-ip`, [возникнет ошибка](../../qa/troubleshooting.md#conflicting-flags). Расположение группы узлов {{ managed-k8s-name }} достаточно указать в `--location` или `--network-interface`.
 
@@ -80,7 +97,7 @@
      * `--name` — имя группы узлов {{ managed-k8s-name }}.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
        * `standard` — без ускорения.
-       * `software-accelerated` — программно-ускоренная сеть.
+       * `software-accelerated` — программно ускоренная сеть.
 
        {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
@@ -92,7 +109,8 @@
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
-     * `--template-labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>`. Можно указать несколько меток через запятую.
+     * `--template-labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
+     * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
      * `--version` — версия {{ k8s }} на узлах группы {{ managed-k8s-name }}.
      * `--node-name` — шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
@@ -137,13 +155,15 @@
 
   1. Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}:
      1. Получите список групп размещения с помощью команды `yc compute placement-group list`.
-     1. Передайте имя или идентификатор группы размещения во флаге `--placement group` при создании группы узлов {{ managed-k8s-name }}:
+     1. Передайте имя или идентификатор группы размещения в параметре `--placement-group` при создании группы узлов {{ managed-k8s-name }}:
 
         ```bash
         {{ yc-k8s }} node-group create \
         ...
           --placement-group <имя_или_идентификатор_группы_размещения>
         ```
+
+      {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
 
 - {{ TF }} {#tf}
 
@@ -161,18 +181,34 @@
        instance_template {
          name       = "<шаблон_имени_узлов>"
          platform_id = "<платформа_для_узлов>"
+         placement_policy {
+           placement_group_id = "<группа_размещения>"
+         }
          network_acceleration_type = "<тип_ускорения_сети>"
          container_runtime {
            type = "containerd"
          }
          labels {
-           "<имя_метки>"="<значение_метки>"
+           "<имя_облачной_метки>"="<значение_облачной_метки>"
+         }
+         node_labels {
+           "<имя_{{ k8s }}-метки>"="<значение_{{ k8s }}-метки>"
          }
          ...
        }
        ...
        scale_policy {
          <настройки_масштабирования_группы_узлов>
+       }
+       deploy_policy {
+         max_expansion   = <расширение_размера_группы_при_обновлении>
+         max_unavailable = <количество_недоступных_узлов_при_обновлении>
+       }
+       ...
+       allocation_policy {
+         location {
+           zone = "<зона_доступности>"
+         }
        }
      }
      ```
@@ -186,23 +222,33 @@
          {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
 
        * `platform_id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
+       * `placement_group_id` — [группа размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}.
+
+          {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
+
        * `network_acceleration_type` — тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
          * `standard` — без ускорения.
-         * `software-accelerated` — программно-ускоренная сеть.
+         * `software-accelerated` — программно ускоренная сеть.
 
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type` — среда запуска контейнеров [containerd](https://containerd.io/).
-       * `labels` — [облачные метки группы узлов](../../../resource-manager/concepts/labels.md). Можно указать несколько меток через запятую.
+       * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
+       * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
        * `scale_policy` — настройки масштабирования. 
 
          Тип масштабирования нельзя изменить после создания группы узлов.
 
-     {% note warning %}
+       * `deploy_policy` — настройки развертывания группы:
+         * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
 
-     Файл с описанием группы узлов {{ managed-k8s-name }} должен находиться в одном каталоге с [файлом описания кластера](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create).
+           {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
-     {% endnote %}
+         * `max_unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+
+       * `allocation_policy` — настройки размещения. Содержат блок `location` с параметром `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой вы хотите разместить узлы группы. Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого укажите каждую зону доступности в отдельном блоке `location`.
+
+         {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
      * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
 
@@ -231,7 +277,7 @@
          }
        }
        ```
-
+       
      * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -282,6 +328,8 @@
 
      {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) и передайте в запросе:
@@ -292,11 +340,23 @@
     {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
   * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
-  * [Облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в параметре `nodeTemplate.labels`.
+  * [Облачные метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeTemplate.labels`.
+  * [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeLabels`.
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
+
+  * Настройки развертывания группы узлов в параметре `deployPolicy`:
+    * `maxExpansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+      {% include [note-expansion-group-vm](../../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+    * `maxUnavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+
   * [Настройки размещения](../../../overview/concepts/geo-scope.md) группы узлов {{ managed-k8s-name }} в параметрах `allocationPolicy`.
+
+    {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
   * Список изменяемых настроек в параметре `updateMask`.
 
@@ -315,6 +375,10 @@
   * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
+
+    {% include [placement-groups](../../../_includes/managed-kubernetes/placement-groups.md) %}
 
   * Чтобы добавить метаданные для узлов, передайте их в параметре `nodeTemplate.metadata`.
 
@@ -368,7 +432,7 @@
   * Назначение узлам публичного и внутреннего IP-адресов — включено.
 * [{{ k8s }}-метка](../../concepts/index.md#node-labels) — `node-label1=node-value1`.
 * [Taint-политика](../../concepts/index.md#taints-tolerations) {{ k8s }} — `taint1=taint-value1:NoSchedule`.
-* [Ресурсная метка {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md), которая назначается ВМ, — `template-label1=template-value1`.
+* [Облачная метка](../../concepts/index.md#node-labels) — `template-label1=template-value1`.
 * Разрешение на использование [небезопасных параметров ядра](../../concepts/index.md#config) — включено. Добавлены параметры `kernel.msg*` и `net.core.somaxconn`.
 * ВМ, которая является единственным узлом группы, — [прерываемая](../../../compute/concepts/preemptible-vm.md).
 
@@ -462,6 +526,7 @@
         }
         allowed_unsafe_sysctls = ["kernel.msg*", "net.core.somaxconn"]
       }
+      ```
 
   1. Проверьте корректность конфигурационного файла.
 

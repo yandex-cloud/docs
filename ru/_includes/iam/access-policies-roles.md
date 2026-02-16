@@ -1,0 +1,4 @@
+Управлять политиками авторизации может пользователь, которому назначена одна из следующих ролей:
+
+* [`resource-manager.admin`](../../resource-manager/security/index.md#resource-manager-admin) или [`admin`](../../iam/roles-reference.md#admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) или [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud), чтобы управлять политиками авторизации соответственно на уровне каталога или облака;
+* [`organization-manager.admin`](../../organization/security/index.md#organization-manager-admin) или [`admin`](../../iam/roles-reference.md#admin) на [организацию](../../organization/concepts/organization.md), чтобы управлять политиками авторизации на уровне организации.

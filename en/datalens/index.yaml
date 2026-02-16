@@ -1,46 +1,68 @@
 title: Yandex DataLens
 description:
   - >-
-    Yandex DataLens is a business analytics service that allows you to connect
-    to various data sources, visualize data, create dashboards, and share your
-    results.
+    Yandex DataLens is a business analytics tool for visualizing your data.
+    Visualize data from various sources, build dashboards, and generate reports
+    in the form of interactive slide decks.
   - >-
-    With Yandex DataLens, you can track your product and business metrics
-    directly from data sources to make data-driven decisions.
-meta:
-  title: Yandex DataLens
-  description: >-
-    Yandex DataLens is a business analytics service that allows you to connect
-    to various data sources, visualize data, create dashboards, and share your
-    results.
+    Track critical product and business metrics in real time, share results with
+    your team, and make informed decisions.
+  - >-
+    Use the Neuroanalyst to automatically analyze your data, get insights,
+    create and edit visualizations.
 links:
   - title: Getting started
     description: Getting started with DataLens
     href: quickstart
-  - title: Tutorials
-    description: See the tutorials with DataLens usage examples
-    href: tutorials/
-  - title: Connection
-    description: Connect to various data sources
+  - title: Neuroanalyst
+    description: Your data interpretation and coding assistant
+    href: concepts/neuroanalyst
+  - title: Connections
+    description: Connect various data sources
     href: concepts/connection
   - title: Datasets
-    description: Describe the structure of the data you got from the source
+    description: Describe the structure of data you get from the source
     href: dataset/
   - title: Charts
-    description: Visualize your data based on the dataset
+    description: >-
+      Build charts using the self-service visualization builder or use
+      JavaScript customization
     href: concepts/chart/
   - title: Dashboards
-    description: Build your charts on a single page
+    description: Keep your charts on the same page
     href: concepts/dashboard
+  - title: Reports
+    description: Make print-ready multipage documents
+    href: reports/
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Permissions required to use the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: Courses
     description: Available courses and training programs
     href: training
+  - title: DataLens Gallery
+    description: Ready-made dashboards for inspiration and business.
+    href: concepts/gallery
+meta:
+  title: Yandex DataLens
+  description: >-
+    Yandex DataLens is a business analytics tool for visualizing your data.
+    Visualize data from various sources, build dashboards, generate reports in
+    the form of interactive slide deck, and make data-driven decisions using the
+    Neuroanalyst.
+  keywords:
+    - '{{ datalens-name }}'
+    - '{{ datalens-full-name }}'
+    - '{{ datalens-name }}'
+    - Business analytics service
+    - BI analytics
+    - Data visualization in {{ yandex-cloud }}
+    - How to connect to a data source
+    - business metrics in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} analytics'

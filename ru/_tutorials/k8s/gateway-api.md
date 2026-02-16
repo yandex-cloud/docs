@@ -1,5 +1,4 @@
-
-# Настройка Gateway API
+# Настройка Gateway API в {{ managed-k8s-full-name }}
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
@@ -14,13 +13,25 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за DNS-зону и DNS-запросы (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Плата за публичные IP-адреса (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Зарегистрируйте публичную доменную зону и делегируйте домен](../../dns/operations/zone-create-public.md).
+1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}
 
 ## Создайте ресурсы {{ managed-k8s-name }} {#k8s-create}
 
@@ -82,7 +93,7 @@
    * `certificate-manager.admin` — для работы с сертификатами, зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer` — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) [балансировщика нагрузки](../../application-load-balancer/concepts/application-load-balancer.md).
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#vpc-public-admin).
-1. Создайте для него [статический ключ](../../iam/operations/sa/create-access-key.md) и сохраните в файл `sa-key.json`:
+1. Создайте для него [статический ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
@@ -201,7 +212,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-dev
@@ -256,7 +267,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: dev-app-http-route
@@ -337,7 +348,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: Gateway
    metadata:
      name: gateway-api-prod
@@ -392,7 +403,7 @@
 
    ```yaml
    ---
-   apiVersion: gateway.networking.k8s.io/v1alpha2
+   apiVersion: gateway.networking.k8s.io/v1
    kind: HTTPRoute
    metadata:
      name: prod-app-http-route
@@ -519,19 +530,6 @@
 
 - {{ TF }} {#tf}
 
-  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-gateway-api.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-     ```bash
-     terraform validate
-     ```
-
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-gateway-api.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

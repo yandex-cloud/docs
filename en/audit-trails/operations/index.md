@@ -1,21 +1,22 @@
-# Step-by-step instructions for {{ at-full-name }}
+---
+title: Step-by-step guides for {{ at-full-name }}
+description: This page provides a list of step-by-step guides for {{ at-full-name }}.
+---
 
+# Step-by-step guides for {{ at-full-name }}
 
-## Uploading audit logs to {{ cloud-logging-name }} {#logging}
+* [{#T}](./create-trail.md)
+* [{#T}](./manage-trail.md)
+* [{#T}](./error.md)
 
-* [{#T}](export-organization-logging.md)
-* [{#T}](export-cloud-logging.md)
-* [{#T}](export-folder-logging.md)
+## Managing permissions to access a trail {#rule-access-rights}
 
-## Uploading audit logs to {{ yds-name }} {#data-streams}
+* [{#T}](role-list.md)
+* [{#T}](role-add.md)
+* [{#T}](role-revoke.md)
 
-* [{#T}](export-organization-data-streams.md)
-* [{#T}](export-cloud-data-streams.md)
-* [{#T}](export-folder-data-streams.md)
+## Getting additional information {#get-additional-info}
 
-
-## Uploading audit logs to {{ objstorage-name }} {#bucket}
-
-* [{#T}](export-organization-bucket.md)
-* [{#T}](export-cloud-bucket.md)
-* [{#T}](export-folder-bucket.md)
+* [{#T}](get-list.md)
+* [{#T}](get-info.md)
+* [{#T}](operation-logs.md)

@@ -17,21 +17,7 @@ description: Из этой статьи вы узнаете, как создат
 
 ## Создать дополнительную организацию {#create-additional-org}
 
-{% list tabs group=instructions %}
-
-- Интерфейс {{ cloud-center }} {#cloud-center}
-
-  1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
-
-  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.form.organization.create.action.create }}**.
-
-  1. В открывшемся окне введите название и описание организации.
-
-  1. Нажмите **{{ ui-key.yacloud_org.form.organization.select.action.create }}**.
-
-{% endlist %}
-
-После создания организации вы станете ее владельцем и сможете ей управлять.
+{% include [create-additional-org](../../_includes/organization/create-additional-org.md) %}
 
 ## Переключиться на другую организацию или федерацию {#switch-to-another-org}
 
@@ -67,3 +53,7 @@ description: Из этой статьи вы узнаете, как создат
 {% endlist %}
 
 Если в вашем аккаунте зарегистрировано несколько организаций, вы можете [переносить](../../resource-manager/operations/cloud/change-organization.md) облака из одной организации в другую. Для этого у вас должна быть [роль](../../resource-manager/security/index.md#resource-manager-clouds-owner) `{{ roles-cloud-owner }}` на переносимое облако и [роль](../security/index.md#organization-manager-organizations-owner) `{{ roles-organization-owner }}` на организацию, в которую вы это облако собираетесь перенести.
+
+#### См. также {#see-also}
+
+* [{#T}](../../billing/operations/change-organization.md)

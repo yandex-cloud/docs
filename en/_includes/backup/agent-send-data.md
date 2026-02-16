@@ -1,0 +1,1 @@
+When you enable the service, the backup provider starts. For more information about the backup provider and data sent to it, see [{#T}](../../backup/concepts/index.md#providers).

@@ -1,13 +1,13 @@
 ---
-title: How to update a {{ CH }} cluster version in {{ mch-full-name }}
-description: Follow this guide to update a {{ CH }} cluster version.
+title: How to change a {{ CH }} cluster version in {{ mch-full-name }}
+description: Follow this guide to change a {{ CH }} cluster version.
 ---
 
-# Upgrading the {{ CH }} version
+# {{ CH }} version upgrade
 
-You can update the {{ CH }} version used by the cluster to any of the [supported {{ mch-name }} versions](../concepts/update-policy.md#versioning-policy); however, switching from versions lower than 23.8 to 23.8 or higher is performed in steps. For example, to upgrade {{ mch-name }} from 22.8 to 24.3, follow these steps: 22.8 → 23.3 → 23.8 → 24.3.
+You can change the {{ CH }} version used by your cluster to any of the [versions supported by {{ mch-name }}](../concepts/update-policy.md#versioning-policy).
 
-To learn more about updates within a single version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+Learn more about minor version updates and host maintenance in [Maintenance](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -15,114 +15,223 @@ To learn more about updates within a single version and host maintenance, see [M
 
 - Management console {#console}
 
-   In the [management console]({{ link-console-main }}), open the page where {{ mos-name }} clusters are [created](cluster-create.md) or [updated](update.md). You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    In the [management console]({{ link-console-main }}), open the {{ mch-name }} cluster [create](cluster-create.md) or [update](update.md) page. You can view the list in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of available versions, run the following command:
+    To get a list of available versions, run this command:
 
-   ```bash
-   yc managed-clickhouse version list
-   ```
+    ```bash
+    yc managed-clickhouse version list
+    ```
 
-- API {#api}
+- REST API {#api}
 
-   To view the list of available versions, use the [list](../api-ref/Versions/list.md) REST API method for the [Versions](../api-ref/Versions/index.md) resource or the [VersionsService/List](../api-ref/grpc/Versions/list.md) gRPC API call.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Versions.List](../api-ref/Versions/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/versions'
+        ```
+
+    1. View the [server response](../api-ref/Versions/list.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [VersionsService.List](../api-ref/grpc/Versions/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/versions_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.VersionsService.List
+        ```
+
+    1. View the [server response](../api-ref/grpc/Versions/list.md#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) to make sure your request was successful.
 
 {% endlist %}
 
-## Before updating the version {#before-update}
+## Before upgrading a version {#before-update}
 
-Make sure this does not affect your applications:
+Make sure the upgrade will not disrupt your applications:
 
-1. See the {{ CH }} [changelog](https://clickhouse.com/docs/category/changelog) to check how updates might affect your applications.
-1. Try updating the version on a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only recover MergeTree tables.
-1. [Create a backup](cluster-backups.md) of the main cluster before updating the version.
+1. Check the {{ CH }} [release notes](https://clickhouse.com/docs/category/changelog) to learn how upgrades may affect your applications.
+1. Try upgrading a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only restore MergeTree tables.
+1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
 
-## Updating the version {#start-update}
+## Upgrading the version {#start-update}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** page in the folder where you want to update the {{ CH }} version.
-   1. In the list of clusters, select the one to change.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the appropriate version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to update the {{ CH }} version.
+    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. 
+    1. In the list of clusters, select the one to update.
+    1. Click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select the version in the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field.
+    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
-   When the change starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+    As soon as you run the upgrade, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. Get a list of your {{ CH }} clusters and view their versions:
+    1. Get a list of your {{ CH }} clusters and view their versions:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster list
+        ```bash
+        {{ yc-mdb-ch }} cluster list
 
-      +----------------------+------+-------------+---------+---------------------+--------+---------+
-      |          ID          | NAME | ENVIRONMENT | VERSION |     CREATED AT      | HEALTH | STATUS  |
-      +----------------------+------+-------------+---------+---------------------+--------+---------+
-      | c9qf1kmm0ebi******** | mych | PRODUCTION  |    23.8 | 2024-06-06 10:23:22 | ALIVE  | RUNNING |
-      +----------------------+------+-------------+---------+---------------------+--------+---------+
-      ```
+        +----------------------+------+-------------+---------+---------------------+--------+---------+
+        |          ID          | NAME | ENVIRONMENT | VERSION |     CREATED AT      | HEALTH | STATUS  |
+        +----------------------+------+-------------+---------+---------------------+--------+---------+
+        | c9qf1kmm0ebi******** | mych | PRODUCTION  |    23.8 | 2024-06-06 10:23:22 | ALIVE  | RUNNING |
+        +----------------------+------+-------------+---------+---------------------+--------+---------+
+        ```
 
-   1. Update the {{ CH }} version for any cluster as needed:
+    1. Upgrade the {{ CH }} version for the cluster you need:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster update --id <cluster_ID> --version <{{ CH }}_version>
-      ```
+        ```bash
+        {{ yc-mdb-ch }} cluster update --id <cluster_ID> --version <{{ CH }}_version>
+        ```
 
-      Specify the {{ CH }} version: {{ versions.cli.str }}.
+        Specify the {{ CH }} version: {{ versions.cli.str }}.
 
-   When the update starts, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
+    As soon as you run the upgrade, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
 
-   1. To the {{ mch-name }} cluster description, add the `version` field or change its value if it is already there:
+    1. Add the `version` field to the {{ mch-name }} cluster description or edit its value if it is already there:
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        version = "<{{ CH }}_version>"
-      }
-      ```
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          ...
+          version = "<{{ CH }}_version>"
+        }
+        ```
 
-      Specify the {{ CH }} version: {{ versions.tf.str }}.
+        Specify the {{ CH }} version: {{ versions.tf.str }}.
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-   To update a version, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](./cluster-list.md#list-clusters).
-   * {{ CH }} version in the `configSpec.version` parameter: {{ versions.api.str }}.
-   * List of settings to update (in our case, `configSpec.version`) in the `updateMask` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+            --data '{
+                      "updateMask": "configSpec.version",
+                      "configSpec": {
+                        "version": "<{{ CH }}_version>"
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated list of settings you want to update.
+
+            Here, we only specified a single setting, `configSpec.version`.
+
+        * `configSpec.version`: Target {{ CH }} version, {{ versions.api.str }}.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.version"
+                    ]
+                  },
+                  "config_spec": {
+                    "version": "<{{ CH }}_version>"
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+
+            Here, we only specified a single setting, `config_spec.version`.
+
+        * `config_spec.version`: Target {{ CH }} version, {{ versions.api.str }}.
+
+        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

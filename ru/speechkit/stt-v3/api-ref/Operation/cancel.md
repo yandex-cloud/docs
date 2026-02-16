@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ sk-operations-host }}/operations/{operationId}:cancel
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the operation to cancel.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ai/stt/v3/stt-v3/api-ref/Operation/cancel.md
 ---
 
-# SpeechKit Recognition API v3, REST: Operation.Cancel {#Cancel}
+# SpeechKit Recognition API v3, REST: Operation.Cancel
 
 Cancels the specified operation.
 
@@ -12,7 +29,7 @@ Note that currently Object Storage API does not support cancelling operations.
 ## HTTP request
 
 ```
-GET https://operation.{{ api-host }}/operations/{operationId}:cancel
+GET https://{{ sk-operations-host }}/operations/{operationId}:cancel
 ```
 
 ## Path parameters

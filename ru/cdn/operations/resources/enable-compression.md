@@ -5,13 +5,15 @@ description: Следуя данной инструкции, вы сможете
 
 # Включение сжатия файлов
 
-Чтобы включить [сжатие](../../concepts/compression.md) файлов [ресурса](../../concepts/resource.md):
-
 {% note info %}
 
 Перед доставкой контент будет сжиматься CDN-серверами с помощью алгоритма сжатия gzip. В этом же формате контент отправляется клиентам с использованием HTTP-заголовка `Content-Encoding`. У источников запрашивается только несжатый контент.
 
 {% endnote %}
+
+Включение сжатия файлов также помогает избежать ситуации, когда сжатые файлы получают пользователи, которые не запрашивали сжатый контент. Подробнее см. в разделе [Решение проблем в {{ cdn-name }}](../../troubleshooting.md#compressed-files).
+
+Чтобы включить [сжатие](../../concepts/compression.md) файлов [ресурса](../../concepts/resource.md):
 
 {% list tabs group=instructions %}
 
@@ -19,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -96,14 +98,13 @@ description: Следуя данной инструкции, вы сможете
       yc cdn resource update <идентификатор_ресурса> --gzip-on
       ```
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
-
 
       ```hcl
       terraform {
@@ -133,8 +134,6 @@ description: Следуя данной инструкции, вы сможете
           }
       }
       ```
-
-
 
       Где:
 

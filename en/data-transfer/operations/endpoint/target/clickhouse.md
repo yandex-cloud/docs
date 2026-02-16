@@ -19,8 +19,7 @@ description: In this tutorial, you will learn how to set up a {{ CH }} target en
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
-    * [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
-    * [{#T}](../../../tutorials/opensearch-to-clickhouse.md)
+    * [{#T}](../../../tutorials/opensearch-to-clickhouse.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Delivering data from {{ KF }} to {{ CH }}](../../../tutorials/mkf-to-mch.md).
@@ -51,8 +50,8 @@ Configure one of the supported data sources:
 * [{{ metrika }}](../source/metrika.md)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [Oracle](../source/oracle.md)
-* [{{ ES }}](../source/elasticsearch.md)
 * [{{ OS }}](../source/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
@@ -74,17 +73,19 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 * [{{ mch-full-name }} cluster](#managed-service) connection or [custom installation](#on-premise) settings, including those based on {{ compute-full-name }} VMs. These are required parameters.
 * [Additional parameters](#additional-settings).
 
+See also the [endpoint setup recommendations](#recommended-settings-queue) if [{{ CH }} gets data from queues](#scenarios).
+
 ### {{ mch-name }} cluster {#managed-service}
 
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -104,9 +105,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -132,7 +133,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -142,13 +143,13 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connecting to the database with explicitly specified network addresses and ports.
+Connection to the database with explicitly specified network addresses and ports.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse.md) %}
+    {% include [On premise ClickHouse UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-clickhouse-target.md) %}
 
 - CLI {#cli}
 
@@ -162,9 +163,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-target.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -180,7 +181,7 @@ Connecting to the database with explicitly specified network addresses and ports
                 native_port = "<port_for_native_interface_connection>"
                 shards {
                   name  = "<shard_name>"
-                  hosts = [ “list of IP addresses and FQDNs of shard hosts" ]
+                  hosts = [ "list of IP addresses and FQDNs of shard hosts" ]
                 }
                 tls_mode {
                   enabled {
@@ -202,7 +203,7 @@ Connecting to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -220,9 +221,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     * {% include [sharding_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/sharding-settings.md) %}
 
-    * {% include [alt_names](../../../../_includes/data-transfer/fields/clickhouse/ui/alt-names.md) %}
-
-    * {% include [flush_interval](../../../../_includes/data-transfer/fields/clickhouse/ui/flush-interval.md) %}
+    * {% include [advanced_settings](../../../../_includes/data-transfer/fields/clickhouse/ui/advanced-settings.md) %}
 
 - CLI {#cli}
 
@@ -262,6 +261,8 @@ Connecting to the database with explicitly specified network addresses and ports
 
         You can only specify one of the sharding options: `sharding.column_value_hash.column_name`, `sharding.transfer_id`, `sharding.custom_mapping`, or `sharding.round_robin`. If no sharding option is specified, all data will be transferred to a single shard.
 
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
+
 - API {#api}
 
     * {% include [altNames](../../../../_includes/data-transfer/fields/clickhouse/api/alt-names.md) %}
@@ -274,18 +275,58 @@ Connecting to the database with explicitly specified network addresses and ports
 
 After configuring the data source and target, [create and start the transfer](../../transfer.md#create).
 
+## Endpoint setup recommendations {#recommended-settings-queue}
+
+To accelerate the delivery of large volumes of data to {{ CH }} from queues associated with{{ yds-name }} or {{ mkf-name }}, configure endpoints as follows:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the target settings: **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.AltName.to_name.title }}**.
+    * If in the source you selected JSON in **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}**, then you should specify `UTF-8` instead of `STRING` for string types in the data schema.
+    * If you select **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}**, your data transfers may slow down.
+    * If you need to migrate multiple topics, in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTargetAdvancedSettings.alt_names.title }}** target setting, specify the same {{ CH }} table name for all topic names of the source.
+
+- CLI {#cli}
+
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `--alt-name` setting for the target.
+    * If you need to migrate multiple topics, in the `--alt-name` attribute of the target endpoint, specify the same target {{ CH }} table name for all topics of the source.
+
+- {{ TF }} {#tf}
+
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `alt_names.to_name` setting for the target.
+    * If in the source you selected JSON in `parser.json_parser`:
+      * You should specify `UTF-8` instead of `STRING` for string types in the `parser.json_parser.data_schema` data schema.
+      * The `parser.json_parser.add_rest_column=true` attribute may slow down your transfer.
+    * If you need to migrate multiple topics, in the `alt_names` attribute of the target endpoint, specify the same {{ CH }} table name in `alt_names.to_name` for all topics in `alt_names.from_name`.
+
+- API {#api}
+
+    * If the target {{ CH }} cluster has sharding enabled and the data is migrated into a sharded table, write the data into an [ underlying](../../../../managed-clickhouse/tutorials/sharding.md) table based on the `ReplicatedMergeTree` engine, not a distributed table (`Distributed` engine). In the target, select the migrated data from the distributed table. To redefine the write table, specify it in the `altNames.toName` setting for the target.
+    * If in the source you selected JSON in `parser.jsonParser`:
+      * You should specify `UTF-8` instead of `STRING` for string types in the `parser.jsonParser.dataSchema` data schema.
+      * The `parser.jsonParser.addRestColumn=true` parameter may slow down your transfer.
+    * If you need to migrate multiple topics, in the `altNames` parameter of the target endpoint, specify the same {{ CH }} table name in `altNames.toName` for all topics in `altNames.fromName`.
+
+{% endlist %}
+
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables).
+* [New tables cannot be added](#no-new-tables).
 * [Data is not transferred](#no-transfer).
 * [Unsupported date range](#date-range).
+* [Lack of resources or increasing data latency](#pod-restarted).
+* [Data blocks limit exceeded](#partition-blocks).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables-mch.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
+{% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
-{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
+{% include [pod-restarted](../../../../_includes/data-transfer/troubles/clickhouse/pod-restarted.md) %}
+
+{% include [max-partitions](../../../../_includes/data-transfer/troubles/clickhouse/max-partitions.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

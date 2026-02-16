@@ -9,6 +9,16 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+
 ## Перед началом работы {#before-you-begin}
 
 
@@ -24,9 +34,11 @@
 
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `s3-ydb-account` и ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к бакету и базе данных.
 
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `s3-ydb-account`.
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `s3-ydb-account`.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -96,8 +108,12 @@
 
     * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
+
+        
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Если вы создали инфраструктуру с помощью {{ TF }}, [скопируйте значение ключа из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.csv.title }}`.
@@ -119,7 +135,10 @@
         1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/yandex-database.md#endpoint-settings) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к кластеру:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-short-name }} из списка.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите сервисный аккаунт `s3-ydb-account`.
+
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
 
@@ -242,39 +261,23 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Трансфер](../../data-transfer/operations/transfer.md#delete).
-* [Эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-* Остальные ресурсы удалите в зависимости от способа их создания:
+1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [Эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-        * [Базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
-        * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+        1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
 
     - С помощью {{ TF }} {#tf}
 
-        Если вы создавали ресурсы с помощью {{ TF }}:
-
-        1. Удалите все объекты из бакета.
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `object-storage-to-ydb.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `object-storage-to-ydb.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

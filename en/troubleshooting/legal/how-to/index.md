@@ -1,3 +1,3 @@
-# Sample configurations and use cases for Legal
+## Examples of legal configurations and use cases {#configuration-examples}
 
-* [Determine the physical (geographical) address of the Yandex Cloud Data Center](data-centers-physical-addresses.md)
+* [How to find out the physical address of a {{ yandex-cloud }} data center](data-centers-physical-addresses.md)

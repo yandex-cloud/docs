@@ -16,8 +16,8 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
       1. Set the required playback parameters for the video:
 
-          1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`.
-          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`.
+          1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`
+          1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`
           1. `Display controls in the player`.
 
           {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
@@ -29,8 +29,30 @@ description: Follow this guide to get an embed code or link to a video in {{ vid
 
       1. Click ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
 
-- API {#api}
+- REST API {#api}
 
-  Use the [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md) gRPC API call or the [getPlayerURL](../../api-ref/Video/getPlayerURL.md) REST API method for the [Video](../../api-ref/Video/index.md) resource.
+  Run the following command:
+
+  {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
+
+  Where:
+  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+  * `<video_ID>`: ID of the video you want to get a link to.
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
+
+- gRPC API {#grpc-api}
+
+  Run the following command:
+
+  {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
+
+  Where:
+  * `<IAM_token>`: [IAM token](../../../iam/concepts/authorization/iam-token.md) required for [authenticating](../../api-ref/authentication.md) with the {{ video-name }} API.
+  * `<video_ID>`: ID of the video you want to get a link to.
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 {% endlist %}
+
+{% include [video-object-fit](../../../_includes/video/video-object-fit.md) %}

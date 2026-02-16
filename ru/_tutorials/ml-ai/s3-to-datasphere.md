@@ -113,7 +113,7 @@
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
 - API {#api}
@@ -171,7 +171,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-link }}/storage_bucket) провайдера {{ TF }}.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

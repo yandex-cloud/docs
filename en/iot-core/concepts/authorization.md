@@ -26,7 +26,7 @@ When authenticating with X.509 certificates, private keys and certificates store
 * For a private key, you specify the path to the .pem file when sending messages or subscribing to receive messages.
 * You add the certificate to the device or registry and specify the path to the .pem file with the certificate when sending messages or subscribing to receive messages.
 
-Each certificate must be unique. You can't add the same certificate to two different [devices](./index.md#device) or a device and a [registry](./index.md#registry). To [send](../operations/publish.md) and [receive](../operations/subscribe.md) messages in a [topic](topic/index.md), you need to use two different certificates.
+Each certificate must be unique. You can't add the same certificate to two different [devices](./index.md#device) or a device and a [registry](./index.md#registry). To [send](../operations/publish.md) and [receive](../operations/subscribe.md) messages in a [topic](topic/index.md), you need to use two different certificates. 
 
 {% include [mqtt-note](../../_includes/iot-core/mqtt-note.md) %}
 
@@ -34,7 +34,7 @@ Each certificate must be unique. You can't add the same certificate to two diffe
 
 When authenticating with your username and password:
 * The username is the ID of the device or registry.
-* The password is a combination of characters that you specify. You can also generate your password via the YC CLI.
+* The password is a combination of characters that you specify. You can also generate your password in the CLI.
     * Minimum password length is 14 characters.
     * The password must contain three groups of characters out of these four: lowercase Latin letters, uppercase Latin letters, numbers, and special characters.
 

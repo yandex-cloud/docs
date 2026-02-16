@@ -1,3 +1,8 @@
+---
+title: Аутентификация в API {{ data-transfer-full-name }}
+description: Для выполнения операций через API в сервисе {{ data-transfer-name }}, необходимо получить IAM-токен для своего аккаунта.
+---
+
 # Аутентификация в API {{ data-transfer-name }}
 
 

@@ -1,45 +1,134 @@
-# Viewing details of service usage by customers
+---
+title: Viewing usage details for subaccounts
+description: Follow this guide to view detailed information on how the customers are using the services.
+---
 
-You can view details of how customers use services:
+# Viewing usage details for subaccounts
 
-* In the management console
-* On the partner portal
+You can [view](#get-client-stat) detailed information on how the customers are using {{ yandex-cloud }} services, presented as [charts](#graph).
 
-{% list tabs group=instructions %}
 
-- Management console {#console}
+## Viewing usage details on the partner portal {#get-client-stat}
 
-   To view charts and tables with information about {{ yandex-cloud }} service usage:
+1. Go to the [partner portal]({{ link-cloud-partners }}).
+1. In the left-hand panel, select ![image](../../_assets/console-icons/scales-balanced.svg) **Finance**.
+1. Go to the ![image](../../_assets/console-icons/chart-column.svg) **Subaccount details** tab. View the usage details:
 
-   1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/dots-9.svg) **All services**.
-   1. Select ![image](../../_assets/console-icons/credit-card.svg) [**{{ billing-name }}**]({{ link-console-billing }}).
-   1. Click the appropriate account name and select ![image](../../_assets/console-icons/layout-cells-large.svg) **Usage details**.
+    {% note info %}
 
-      For more information about the settings of the **Usage details** page, see the [{{ billing-name }} documentation](../../billing/operations/check-charges.md).
+    By default, usage details show the cost of consumed resources. Usage details in consumption units are available on the **By product** tab.
 
-- Partner portal {#partner}
+    {% endnote %}
 
-   Log in to the [partner portal]({{ link-cloud-partners }}) with the Yandex ID to which your partner account in {{ yandex-cloud }} is linked. There are several ways to check details of service usage by customers:
+    {% list tabs group=details %}
 
-   * **Dashboard** section
+    - For clouds {#clouds}
 
-      1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
-      1. Select the customer's account from the list and click it.
-      1. Go to the **Service usage** tab.
+      You can view usage details for one or more clouds. By default, the details cover all the linked clouds.
 
-   * **Rewards** section
+      1. In the **Clouds** list, select a cloud.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Products**: By specific products.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
 
-      1. In the left-hand panel, select ![icon](../../_assets/console-icons/medal.svg) **Rewards**.
-      1. Specify the statistics period. The chart will display the total consumption by month for all customers.
+      {% note info %}
 
-         {% note info %}
+      If a cloud was previously linked to another billing account, consider the period when viewing usage details: details are available to the current billing account for the time starting when the new account was linked. For usage prior to the link, details are available to the previous account.
 
-         The maximum statistics period is 92 days.
+      {% endnote %}
 
-         {% endnote %}
+    - For folders {#folders}
 
-         You can download a `.csv` file with detailed statistics by customer. To do this, click **Download CSV**.
+      You can view usage details for one or more folders. By default, the details cover all the selected cloud's folders.
 
-{% endlist %}
+      1. In the **Clouds** list, select a cloud.
+      1. In the **Folders** list, select a folder.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Products**: By specific products.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
 
-You can also [view your service usage information](../../billing/operations/dashboard.md) in {{ datalens-full-name }}.
+    - For services {#services}
+
+      You can view usage details for one or more services in different clouds. You can also view usage details for one or more services in different folders of the selected cloud. By default, the details cover all services across all clouds and folders.
+
+      1. In the **Clouds** list, select a cloud.
+      1. In the **Folders** list, select a folder. 
+      1. In the **Services** list, select a service.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
+
+    - For products {#products}
+
+      You can view usage details for one or more products in different clouds. You can also view usage details for one or more products in different folders of the selected cloud. By default, the details cover all products across all clouds.
+
+      1. In the **Clouds** list, select a cloud.
+      1. In the **Folders** list, select a folder.
+      1. In the **Products** list, select a product.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
+
+    - By labels {#labels}
+
+      You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to any resource. If there are details available for the selected label, the info will be displayed in the chart, and the table below it will list all the values corresponding to the selected label.
+
+      1. In the **Clouds** list, select a cloud.
+      1. In the **Folders** list, select a folder.
+      1. In the **Label key** list, select a label.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Products**: By specific products.
+         * **Labels**: By specific labels.
+         * **Subaccounts**: By specific subaccounts.
+
+    - By subaccounts {#subacc}
+
+      You can view usage details for one or more subaccounts in different clouds. By default, the details cover all subaccounts across all clouds and folders.
+
+      1. In the **Clouds** list, select a cloud.
+      1. In the **Folders** list, select a folder. 
+      1. In the **Subaccounts** list, select a subaccount.
+      1. Set up data filtering:
+         * **Grouping**: By days, weeks, or months.
+         * **Products**: By specific products.
+         * **Labels**: By specific labels.
+
+    {% endlist %}
+
+    By default, you get data for the current month. To change this period, click ![image](../../_assets/console-icons/calendar.svg) and set the **From** and **To** dates or select a time period from the list. A date is set as an interval from 0:00 to 23:59 (UTC+3). Data may be updated with a slight delay (up to several hours).
+
+
+## Interpreting a chart {#graph}
+
+Charts show how tracked metrics change over time. The number of details and their values depend on the selected detail depth, chart type, and filters:
+
+  * **Consumption**: Cost of consumed services before discount.
+  * **Due and payable**: Cost of consumed services after discount.
+
+The columns below the chart represent:
+
+  * **Consumption cost**: Cost of services consumed by subaccounts before discount.
+  * **Discount**: Customer-specific discount for services consumed by subaccounts.
+  * **To be paid by client**: Cost of services consumed by subaccounts after discount.
+  * **Reward**: Partner bonus for services consumed by subaccounts after the customer-specific discount (excluding the rebate).
+  * **Adjustment**: Adjustment of the final cost of services consumed by subaccounts after the customer-specific discount and partner bonus.
+  * **To be paid by partner**: Cost of services consumed by subaccounts after the customer-specific discount, partner bonus, and adjustment.
+
+{% include [currency](../../billing/_includes/currency.md) %}
+
+Hover over a chart lines to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
+
+Chart | Measures
+:-----: | -----
+![image](../../_assets/billing/graph-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/folder/service/product/subaccount.<br/>- Name of cloud/folder/service/product/subaccount.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/folder/service/product/subaccount.<br/>- Name of cloud/folder/service/product/subaccount.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/norm-gistogram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/folder/service/product/subaccount versus total consumption.<br/>- Cost of services consumed within cloud/folder/service/product/subaccount.<br/>- Name of cloud/folder/service/product/subaccount.<br/>- Total cost of consumed services.<br/>- View type: chart.
+![image](../../_assets/billing/diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Cost of services consumed within cloud/folder/service/product/subaccount.<br/>- Name of cloud/folder/service/product/subaccount.<br/>- Total cost of consumed services.
+![image](../../_assets/billing/norm-diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/folder/service/product/subaccount versus total consumption.<br/>- Cost of services consumed within cloud/folder/service/product/subaccount.<br/>- Name of cloud/folder/service/product/subaccount.<br/>- Total cost of consumed services.<br/>- View type: diagram.

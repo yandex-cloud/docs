@@ -1,0 +1,2 @@
+* `{{ ui-key.yacloud_org.security.controls.ResourceExceptionForm.title_reportCompliance_re4wo }}` — при соответствии заданным в исключении условиям ресурс будет генерировать только сигналы о соответствии правилу.
+* `{{ ui-key.yacloud_org.security.controls.ResourceExceptionForm.title_exclude_uK4FD }}` — при соответствии заданным в исключении условиям ресурс не будет генерировать никакие сигналы: ни о соответствии, ни о нарушении правила.

@@ -1,0 +1,1 @@
+Select **Map** for chart type.

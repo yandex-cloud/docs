@@ -1,5 +1,4 @@
-
-* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_mode }}** – `SESSION` (сессионный, по умолчанию) или `TRANSACTION` (транзакционный).
-* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_size }}** — количество клиентских соединений.
-* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_client-idle-timeout }}** — время неактивности клиентского соединения (в миллисекундах), после которого соединение разрывается.
-
+* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_mode }}** — `SESSION` (сессионный) или `TRANSACTION` (транзакционный, по умолчанию).
+* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_size }}** — количество клиентских соединений. По умолчанию — `0` (не ограничено).
+* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_client-idle-timeout }}** — время неактивности клиентского соединения в секундах, после которого соединение разрывается. По умолчанию — `28800`.
+* **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_idle-in-transaction-timeout }}** — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается. По умолчанию — `0` (не ограничено).

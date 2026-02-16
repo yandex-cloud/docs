@@ -27,7 +27,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы добавить ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить шифрование.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите настроить шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ или создайте новый:
@@ -46,14 +48,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-
-     ```
+     ```hcl
      provider "yandex" {
        cloud_id                 = "<идентификатор_облака>"
        folder_id                = "<идентификатор_каталога>"
        zone                     = "{{ region-id }}-a"
        service_account_key_file = "key.json"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<имя_сервисного_аккаунта>"
@@ -93,8 +94,6 @@ description: Следуя данной инструкции, вы сможете
        }
      }
      ```
-
-
 
      Где:
 
@@ -136,7 +135,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы убрать шифрование, удалите ключ {{ kms-short-name }}:
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите убрать шифрование.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите убрать шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите **{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}**.
@@ -146,7 +147,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

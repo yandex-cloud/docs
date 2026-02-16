@@ -1,9 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+    method: patch
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the OIDC workload identity federation to update.
+            To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the OIDC workload identity federation.
+            The name must be unique within the folder.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the OIDC workload identity federation.
+            The maximum string length in characters is 256.
+          type: string
+        disabled:
+          description: |-
+            **boolean**
+            True - the OIDC workload identity federation is disabled and cannot be used for authentication.
+            False - the OIDC workload identity federation is enabled and can be used for authentication.
+          type: boolean
+        audiences:
+          description: |-
+            **string**
+            List of trusted values for aud claim.
+            The maximum number of elements is 100. The maximum string length in characters for each value is 255.
+          type: array
+          items:
+            type: string
+        jwksUrl:
+          description: |-
+            **string**
+            URL reference to trusted keys in format of JSON Web Key Set.
+            The maximum string length in characters is 8000.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/update.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation.Update {#Update}
+# Federation, REST: Federation.Update
 
 Updates the specified OIDC workload identity federation.
 
@@ -20,7 +95,9 @@ PATCH https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
 || federationId | **string**
 
 Required field. ID of the OIDC workload identity federation to update.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.workload.oidc.UpdateFederationRequest}
@@ -35,7 +112,7 @@ To get the OIDC workload identity federation ID, make a [FederationService.List]
     "string"
   ],
   "jwksUrl": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -54,21 +131,29 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the OIDC workload identity federation.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the OIDC workload identity federation. ||
+Description of the OIDC workload identity federation.
+
+The maximum string length in characters is 256. ||
 || disabled | **boolean**
 
 True - the OIDC workload identity federation is disabled and cannot be used for authentication.
 False - the OIDC workload identity federation is enabled and can be used for authentication. ||
 || audiences[] | **string**
 
-List of trusted values for aud claim. ||
+List of trusted values for aud claim.
+
+The maximum number of elements is 100. The maximum string length in characters for each value is 255. ||
 || jwksUrl | **string**
 
-URL reference to trusted keys in format of JSON Web Key Set. ||
-|| labels | **string**
+URL reference to trusted keys in format of JSON Web Key Set.
+
+The maximum string length in characters is 8000. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||
 |#
@@ -107,7 +192,7 @@ Resource labels as `` key:value `` pairs ||
     ],
     "issuer": "string",
     "jwksUrl": "string",
-    "labels": "string",
+    "labels": "object",
     "createdAt": "string"
   }
   // end of the list of possible fields
@@ -241,7 +326,7 @@ URL of the external IdP server to be used for authentication. ||
 || jwksUrl | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||
 || createdAt | **string** (date-time)

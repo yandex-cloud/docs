@@ -1,16 +1,221 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a DesktopGroup in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        desktopImageId:
+          description: |-
+            **string**
+            Required field. An image used to create a desktop boot disk
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the DesktopGroup.
+            The name must be unique within the folder.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9]) `.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the DesktopGroup.
+            The maximum string length in characters is 1024.
+          type: string
+        resourcesSpec:
+          description: |-
+            **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+            Resource specification of the desktop group.
+          $ref: '#/definitions/ResourcesSpec'
+        networkInterfaceSpec:
+          description: |-
+            **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
+            Network interface specification of the desktop group.
+          $ref: '#/definitions/NetworkInterfaceSpec'
+        bootDiskSpec:
+          description: |-
+            **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+            Boot disk specification of the desktop group.
+          $ref: '#/definitions/DiskSpec'
+        dataDiskSpec:
+          description: |-
+            **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+            Data disk specification of the desktop group.
+          $ref: '#/definitions/DiskSpec'
+        groupConfig:
+          description: |-
+            **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
+            Configuration of the desktop group.
+          $ref: '#/definitions/DesktopGroupConfiguration'
+      required:
+        - folderId
+        - desktopImageId
+      additionalProperties: false
+    definitions:
+      ResourcesSpec:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              RAM volume, in bytes.
+              The minimum value is 1.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Number of CPU cores.
+              The minimum value is 1.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Baseline level of CPU performance with the ability to burst performance above that baseline level.
+              This field sets baseline performance for each core.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Required field. ID of the network interface specification.
+              The maximum string length in characters is 50.
+            type: string
+          subnetIds:
+            description: |-
+              **string**
+              List of subnet IDs.
+              The number of elements must be greater than 0. The maximum string length in characters for each value is 50.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+        required:
+          - networkId
+      DiskSpec:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Required field. Type of disk.
+              - `HDD`: HDD disk type.
+              - `SSD`: SSD disk type.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - HDD
+              - SSD
+          size:
+            description: |-
+              **string** (int64)
+              Size of disk.
+              Value must be greater than 0.
+            type: string
+            format: int64
+        required:
+          - type
+      Subject:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the subject.
+              It can contain one of the following values:
+              * `allAuthenticatedUsers`: A special public group that represents anyone
+              who is authenticated. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              * `allUsers`: A special public group that represents anyone. No authentication is required.
+              For example, you don't need to specify the IAM token in an API query.
+              It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              * `group:organization:<id>:users`: A special system group that represents all members of organization
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              * `group:federation:<id>:users`: A special system group that represents all users of federation
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `system`.
+              * `<cloud generated id>`: An identifier that represents a user account.
+              It can be used only if the [type](#yandex.cloud.clouddesktop.v1.api.DiskSpec) is `userAccount`, `federatedUser` or `serviceAccount`.
+              The maximum string length in characters is 100.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the subject.
+              It can contain one of the following values:
+              * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+              * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
+              * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+              * `system`: System group. This type represents several accounts with a common system identifier.
+              For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+              The maximum string length in characters is 100.
+            type: string
+        required:
+          - id
+          - type
+      DesktopGroupConfiguration:
+        type: object
+        properties:
+          minReadyDesktops:
+            description: |-
+              **string** (int64)
+              Minimum number of ready desktops.
+              Acceptable values are 1 to 512, inclusive.
+            type: string
+            format: int64
+          maxDesktopsAmount:
+            description: |-
+              **string** (int64)
+              Maximum number of desktops.
+              Acceptable values are 0 to 512, inclusive.
+            type: string
+            format: int64
+          desktopType:
+            description: |-
+              **enum** (DesktopType)
+              Type of the desktop.
+              - `PERSISTENT`
+              - `NON_PERSISTENT`
+            type: string
+            enum:
+              - DESKTOP_TYPE_UNSPECIFIED
+              - PERSISTENT
+              - NON_PERSISTENT
+          members:
+            description: |-
+              **[Subject](#yandex.cloud.access.Subject)**
+              List of members of the desktop group.
+              The number of elements must be in the range 0-10.
+            type: array
+            items:
+              $ref: '#/definitions/Subject'
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/create.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.Create {#Create}
+# Cloud Desktop API, REST: DesktopGroup.Create
 
 Creates desktop group in the specified folder.
 
 ## HTTP request
 
 ```
-POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopGroupRequest}
@@ -31,6 +236,25 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
     "subnetIds": [
       "string"
     ]
+  },
+  "bootDiskSpec": {
+    "type": "string",
+    "size": "string"
+  },
+  "dataDiskSpec": {
+    "type": "string",
+    "size": "string"
+  },
+  "groupConfig": {
+    "minReadyDesktops": "string",
+    "maxDesktopsAmount": "string",
+    "desktopType": "string",
+    "members": [
+      {
+        "id": "string",
+        "type": "string"
+      }
+    ]
   }
 }
 ```
@@ -41,23 +265,40 @@ POST https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups
 
 Required field. ID of the folder to create a DesktopGroup in.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || desktopImageId | **string**
 
-Required field. An image used to create a desktop boot disk ||
+Required field. An image used to create a desktop boot disk
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the DesktopGroup.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9]) `. ||
 || description | **string**
 
-Description of the DesktopGroup. ||
+Description of the DesktopGroup.
+
+The maximum string length in characters is 1024. ||
 || resourcesSpec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
 
 Resource specification of the desktop group. ||
 || networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec)**
 
 Network interface specification of the desktop group. ||
+|| bootDiskSpec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+
+Boot disk specification of the desktop group. ||
+|| dataDiskSpec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
+
+Data disk specification of the desktop group. ||
+|| groupConfig | **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
+
+Configuration of the desktop group. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.clouddesktop.v1.api.ResourcesSpec}
@@ -66,14 +307,20 @@ Network interface specification of the desktop group. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-RAM volume, in bytes. ||
+RAM volume, in bytes.
+
+The minimum value is 1. ||
 || cores | **string** (int64)
 
-Number of CPU cores. ||
+Number of CPU cores.
+
+The minimum value is 1. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec}
@@ -82,10 +329,97 @@ This field sets baseline performance for each core. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the network interface specification. ||
+Required field. ID of the network interface specification.
+
+The maximum string length in characters is 50. ||
 || subnetIds[] | **string**
 
-List of subnet IDs. ||
+List of subnet IDs.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 50. ||
+|#
+
+## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
+
+Disk specificaton.
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Required field. Type of disk.
+
+- `HDD`: HDD disk type.
+- `SSD`: SSD disk type. ||
+|| size | **string** (int64)
+
+Size of disk.
+
+Value must be greater than 0. ||
+|#
+
+## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration}
+
+#|
+||Field | Description ||
+|| minReadyDesktops | **string** (int64)
+
+Minimum number of ready desktops.
+
+Acceptable values are 1 to 512, inclusive. ||
+|| maxDesktopsAmount | **string** (int64)
+
+Maximum number of desktops.
+
+Acceptable values are 0 to 512, inclusive. ||
+|| desktopType | **enum** (DesktopType)
+
+Type of the desktop.
+
+- `PERSISTENT`
+- `NON_PERSISTENT` ||
+|| members[] | **[Subject](#yandex.cloud.access.Subject)**
+
+List of members of the desktop group.
+
+The number of elements must be in the range 0-10. ||
+|#
+
+## Subject {#yandex.cloud.access.Subject}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the subject.
+
+It can contain one of the following values:
+* `allAuthenticatedUsers`: A special public group that represents anyone
+who is authenticated. It can be used only if the `type` is `system`.
+* `allUsers`: A special public group that represents anyone. No authentication is required.
+For example, you don't need to specify the IAM token in an API query.
+It can be used only if the `type` is `system`.
+* `group:organization:<id>:users`: A special system group that represents all members of organization
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
+* `group:federation:<id>:users`: A special system group that represents all users of federation
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
+* `<cloud generated id>`: An identifier that represents a user account.
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
+|| type | **string**
+
+Required field. Type of the subject.
+
+It can contain one of the following values:
+* `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+* `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
+* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+* `system`: System group. This type represents several accounts with a common system identifier.
+
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -128,7 +462,31 @@ List of subnet IDs. ||
       "subnetIds": [
         "string"
       ]
-    }
+    },
+    "labels": "object",
+    "bootDiskSpec": {
+      "type": "string",
+      "size": "string"
+    },
+    "dataDiskSpec": {
+      "type": "string",
+      "size": "string"
+    },
+    "groupConfig": {
+      "minReadyDesktops": "string",
+      "maxDesktopsAmount": "string",
+      "desktopType": "string",
+      "members": [
+        {
+          "id": "string",
+          "type": "string"
+        }
+      ]
+    },
+    // Includes only one of the fields `autoUpdatePolicy`, `manualUpdatePolicy`
+    "autoUpdatePolicy": "object",
+    "manualUpdatePolicy": "object"
+    // end of the list of possible fields
   }
   // end of the list of possible fields
 }
@@ -255,10 +613,10 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the desktop group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop group is being created.
 - `ACTIVE`: Desktop group is ready to use.
-- `DELETING`: Desktop group is being deleted. ||
+- `DELETING`: Desktop group is being deleted.
+- `UPDATING`: Desktop group is updating. ||
 || name | **string**
 
 Name of the desktop group. ||
@@ -271,6 +629,28 @@ Resource specification of the desktop group. ||
 || networkInterfaceSpec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2)**
 
 Network interface specification of the desktop group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop group. ||
+|| bootDiskSpec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec2)**
+
+Boot disk specification of the desktop group. ||
+|| dataDiskSpec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec2)**
+
+Data disk specification of the desktop group. ||
+|| groupConfig | **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration2)**
+
+Desktop group configuration. ||
+|| autoUpdatePolicy | **object**
+
+Includes only one of the fields `autoUpdatePolicy`, `manualUpdatePolicy`.
+
+Desktop group update policy. ||
+|| manualUpdatePolicy | **object**
+
+Includes only one of the fields `autoUpdatePolicy`, `manualUpdatePolicy`.
+
+Desktop group update policy. ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.clouddesktop.v1.api.ResourcesSpec2}
@@ -279,14 +659,20 @@ Network interface specification of the desktop group. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-RAM volume, in bytes. ||
+RAM volume, in bytes.
+
+The minimum value is 1. ||
 || cores | **string** (int64)
 
-Number of CPU cores. ||
+Number of CPU cores.
+
+The minimum value is 1. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2}
@@ -295,8 +681,95 @@ This field sets baseline performance for each core. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field. ID of the network interface specification. ||
+Required field. ID of the network interface specification.
+
+The maximum string length in characters is 50. ||
 || subnetIds[] | **string**
 
-List of subnet IDs. ||
+List of subnet IDs.
+
+The number of elements must be greater than 0. The maximum string length in characters for each value is 50. ||
+|#
+
+## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec2}
+
+Disk specificaton.
+
+#|
+||Field | Description ||
+|| type | **enum** (Type)
+
+Required field. Type of disk.
+
+- `HDD`: HDD disk type.
+- `SSD`: SSD disk type. ||
+|| size | **string** (int64)
+
+Size of disk.
+
+Value must be greater than 0. ||
+|#
+
+## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration2}
+
+#|
+||Field | Description ||
+|| minReadyDesktops | **string** (int64)
+
+Minimum number of ready desktops.
+
+Acceptable values are 1 to 512, inclusive. ||
+|| maxDesktopsAmount | **string** (int64)
+
+Maximum number of desktops.
+
+Acceptable values are 0 to 512, inclusive. ||
+|| desktopType | **enum** (DesktopType)
+
+Type of the desktop.
+
+- `PERSISTENT`
+- `NON_PERSISTENT` ||
+|| members[] | **[Subject](#yandex.cloud.access.Subject2)**
+
+List of members of the desktop group.
+
+The number of elements must be in the range 0-10. ||
+|#
+
+## Subject {#yandex.cloud.access.Subject2}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the subject.
+
+It can contain one of the following values:
+* `allAuthenticatedUsers`: A special public group that represents anyone
+who is authenticated. It can be used only if the `type` is `system`.
+* `allUsers`: A special public group that represents anyone. No authentication is required.
+For example, you don't need to specify the IAM token in an API query.
+It can be used only if the `type` is `system`.
+* `group:organization:<id>:users`: A special system group that represents all members of organization
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
+* `group:federation:<id>:users`: A special system group that represents all users of federation
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
+* `<cloud generated id>`: An identifier that represents a user account.
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
+|| type | **string**
+
+Required field. Type of the subject.
+
+It can contain one of the following values:
+* `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+* `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
+* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+* `system`: System group. This type represents several accounts with a common system identifier.
+
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#

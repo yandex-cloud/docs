@@ -1,15 +1,18 @@
 #### Quotas {#quotas}
 
-| Type of limit | Value |
------ | -----
-| Maximum number of secrets per cloud | 10,000 |
+#|
+|| Type of limitation | Value ||
+|| Maximum number of secrets per cloud
+`lockbox.secrets.count`| 10,000 ||
+|| Maximum number of versions per secret
+`lockbox.versions.count` | 1,000 ||
+|#
 
 #### Limits {#limits}
 
-| Type of limit | Value |
+Type of limit | Value
 ----- | -----
-| Maximum number of key-value pairs in the secret version | 32 |
-| Maximum total size of values in the key-value pairs of the secret version | 64 KB |
-| Maximum number of versions per secret ^*^ | 1,000 |
+Maximum total size of values in the key-value pairs of the secret version | 64 KB
+Maximum number of versions per secret ^*^ | 1,000
 
 \* Deleted versions are ignored.

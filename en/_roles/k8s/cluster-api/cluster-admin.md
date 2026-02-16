@@ -1,1 +1,1 @@
-Users with the `k8s.cluster-api.cluster-admin` role get the `yc:cluster-admin` group and the `cluster-admin` role in Kubernetes RBAC.
+Users with the `k8s.cluster-api.cluster-admin` role get the `yc:admin` group and the `cluster-admin` role in Kubernetes RBAC.

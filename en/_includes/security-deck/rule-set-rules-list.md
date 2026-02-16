@@ -1,0 +1,4 @@
+* {% include [sec-rules-criticality-levels](./sec-rules-criticality-levels.md) %}
+* **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}**: Control rule name.
+* **{{ ui-key.yacloud_org.security.controls.rule-result.module_63uuk }}**: {{ sd-name }} module to check your infrastructure for compliance with that rule: `{{ ui-key.yacloud_org.security.workspaces.module-cspm_gozhj }}` or `Kubernetes Security Posture Management® (KSPM)`.
+* **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}**: Number of rule violations detected in the selected [workspace](../../security-deck/concepts/workspace.md).

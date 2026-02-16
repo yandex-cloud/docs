@@ -7,7 +7,7 @@ items:
         href: quickstart/index.md
       - name: Getting started with {{ objstorage-name }}
         href: quickstart.md
-      - name: Getting started with AWS CLI
+      - name: Getting started with the AWS CLI
         href: quickstart/quickstart-aws-cli.md
   - name: Step-by-step guides
     items:
@@ -21,7 +21,7 @@ items:
             href: operations/buckets/delete.md
           - name: Limiting the maximum size of a bucket
             href: operations/buckets/limit-max-volume.md
-          - name: Bucket encryption
+          - name: Encrypting a bucket
             href: operations/buckets/encrypt.md
           - name: Managing object lifecycles
             href: operations/buckets/lifecycles.md
@@ -31,7 +31,7 @@ items:
             href: operations/buckets/iam-access.md
           - name: Editing a bucket's ACL
             href: operations/buckets/edit-acl.md
-          - name: Access policy management
+          - name: Managing access policies
             href: operations/buckets/policy.md
           - name: Configuring public access to a bucket
             href: operations/buckets/bucket-availability.md
@@ -45,9 +45,9 @@ items:
             href: operations/buckets/versioning.md
           - name: Enabling logging
             href: operations/buckets/enable-logging.md
-          - name: Object lock management
+          - name: Managing object locks
             href: operations/buckets/configure-object-lock.md
-          - name: Bucket label management
+          - name: Managing bucket labels
             href: operations/buckets/tagging.md
           - name: Getting bucket information and statistics
             href: operations/buckets/get-info.md
@@ -57,6 +57,10 @@ items:
         items:
           - name: Uploading an object
             href: operations/objects/upload.md
+          - name: Multipart upload of an object
+            href: operations/objects/multipart-upload.md
+          - name: Get a list of bucket objects
+            href: operations/objects/list.md
           - name: Getting information about an object
             href: operations/objects/info.md
           - name: Downloading an object
@@ -67,7 +71,7 @@ items:
             href: operations/objects/rename-move.md
           - name: Copying objects
             href: operations/objects/copy.md
-          - name: Getting a public link to an object
+          - name: Getting a pre-signed URL to download an object
             href: operations/objects/link-for-download.md
           - name: Configuring an object lock
             href: operations/objects/edit-object-lock.md
@@ -79,35 +83,63 @@ items:
             href: operations/objects/deleting-multipart.md
           - name: Editing an object's ACL
             href: operations/objects/edit-acl.md
-          - name: Object label management
+          - name: Managing object labels
             href: operations/objects/tagging.md
-          - name: Managing an object's custom metadata
+          - name: Managing object custom metadata
             href: operations/objects/object-meta.md
       - name: Hosting static websites
         items:
-          - name: Hosting setup
+          - name: Setting up hosting
             href: operations/hosting/setup.md
           - name: Support for your own domain
             href: operations/hosting/own-domain.md
           - name: Support for multiple domain names
-            href: operations/hosting/multiple-domains.md
+            items:
+              - name: Overview
+                href: operations/hosting/multiple-domains/index.md
+              - name: Management console, CLI, and API
+                href: operations/hosting/multiple-domains/console.md
+              - name: '{{ TF }}'
+                href: operations/hosting/multiple-domains/terraform.md
           - name: Configuring HTTPS
             href: operations/hosting/certificate.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Getting object query statistics with S3 Select
+      - name: Backups
+        items:
+          - name: Overview
+            href: tutorials/storage-backup-overview.md
+          - name: Backing up to {{ objstorage-name }} with AWS S3 Sync
+            href: tutorials/storage-backup-aws-s3-sync.md
+          - name: Backing up to {{ objstorage-name }} with rclone
+            href: tutorials/storage-backup-rclone.md
+          - name: Backing up to {{ objstorage-name }} with GeeseFS
+            href: tutorials/storage-backup-geesefs.md
+          - name: Backing up to {{ objstorage-name }} with CloudBerry Desktop Backup
+            href: tutorials/object-storage-cloudberry.md
+          - name: Backing up to {{ objstorage-name }} with Duplicati
+            href: tutorials/object-storage-duplicati.md
+          - name: Backing up to {{ objstorage-name }} with Bacula
+            href: tutorials/backup-with-bacula.md
+          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
+            href: tutorials/object-storage-veritas.md
+          - name: Backing up to {{ objstorage-name }} with Veeam Backup
+            href: tutorials/backup-with-veeam.md
+          - name: Backing up a VM with Hystax Acura Backup
+            href: tutorials/hystax-backup.md
+          - name: >-
+              Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
+              }}
+            href: tutorials/kubernetes-backup.md
+      - name: Getting statistics on object queries with S3 Select
         href: tutorials/server-logs.md
-      - name: >-
-          Getting statistics of queries to {{ objstorage-full-name }} objects
-          using {{ yq-full-name }}
-        href: tutorials/server-logs-yq.md
       - name: Getting website traffic statistics with S3 Select
         href: tutorials/user-agent-statistics.md
-      - name: Getting statistics of queries to objects using {{ yq-full-name }}
+      - name: Getting statistics on object queries using {{ yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: Generating a billing report with resource break-down using S3 Select
+      - name: Cost analysis by resource
         href: tutorials/billing-resource-detailing.md
       - name: Server-side encryption
         href: tutorials/server-side-encryption.md
@@ -117,8 +149,24 @@ items:
         href: tutorials/blue-green-canary-deployment.md
       - name: Analyzing logs in DataLens
         href: tutorials/storage-logs-analysis.md
-      - name: Mounting buckets to the file system of {{ dataproc-full-name }} hosts
-        href: tutorials/data-proc-init-actions-geesefs.md
+      - name: Searching for events in audit logs
+        items:
+          - name: Overview
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Audit log management tools
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Sample queries for event search
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
+      - name: Mounting buckets to {{ dataproc-full-name }} host filesystems
+        href: tutorials/data-processing-init-actions-geesefs.md
+      - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+        href: tutorials/copy-files-from-object-storage.md
+      - name: >-
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          it to {{ mch-name }}
+        href: tutorials/s3-data-processing-ch.md
       - name: Connecting a bucket as a disk in Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
@@ -133,7 +181,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Automatically copying objects from one bucket to another
         href: tutorials/bucket-to-bucket.md
-      - name: Regular recognition of audio files in buckets
+      - name: Regular asynchronous recognition of audio files in a bucket
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Training a model in {{ ml-platform-full-name }} on data from {{
@@ -167,15 +215,47 @@ items:
         href: tutorials/ydb-to-object-storage.md
       - name: Hosting a static Gatsby website in {{ objstorage-name }}
         href: tutorials/gatsby-static-website.md
+      - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+        href: tutorials/ghost-cms-cloudapp.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Overview
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
+      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
+        href: tutorials/mpg-to-objstorage.md
+      - name: >-
+          Exchanging data between {{ mch-full-name }} and {{ dataproc-full-name
+          }}
+        href: tutorials/dp-mch-data-exchange.md
+      - name: >-
+          Importing data from {{ mpg-full-name }} to {{ dataproc-full-name }}
+          using Sqoop
+        href: tutorials/sqoop-mpg.md
+      - name: >-
+          Importing data from {{ mmy-full-name }} to {{ dataproc-full-name }}
+          using Sqoop
+        href: tutorials/sqoop-mmy.md
+      - name: >-
+          Migrating data from {{ objstorage-full-name }} to {{ mmy-full-name }}
+          using {{ data-transfer-full-name }}
+        href: tutorials/objs-mmy-migration.md
+      - name: >-
+          Migrating a database from {{ mmy-full-name }} to {{
+          objstorage-full-name }}
+        href: tutorials/mmy-objs-migration.md
+      - name: >-
+          Exporting {{ GP }} data to a cold storage in {{ objstorage-full-name
+          }}
+        href: tutorials/greenplum-yezzey.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Migrating data from {{ ES }} to {{ mos-full-name }}
-        href: tutorials/elasticsearch-to-opensearch.md
       - name: Uploading {{ TF }} states to {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Locking {{ TF }} states using {{ ydb-name }}
@@ -188,20 +268,86 @@ items:
             href: tutorials/static/console.md
           - name: Terraform
             href: tutorials/static/terraform.md
+      - name: Visualizing {{ yq-full-name }} data
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: Creating a VM backup with Hystax Acura Backup
-        href: tutorials/hystax-backup.md
-      - name: Backup to {{ objstorage-name }} via CloudBerry Desktop Backup
-        href: tutorials/object-storage-cloudberry.md
-      - name: Backup to {{ objstorage-name }} via Duplicati
-        href: tutorials/object-storage-duplicati.md
-      - name: Backup to {{ objstorage-name }} via Bacula
-        href: tutorials/backup-with-bacula.md
-      - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
-        href: tutorials/object-storage-veritas.md
-      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
-        href: tutorials/kubernetes-backup.md
+      - name: Developing a custom integration in {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
+      - name: Storing application runtime logs
+        href: tutorials/log-ingestion.md
+      - name: Developing a skill for Alice and a website with authorization
+        href: tutorials/alice-shareable-todolist.md
+      - name: Creating an interactive serverless application using WebSocket
+        href: tutorials/websocket-app.md
+      - name: Deploying a web application using the Java Servlet API
+        href: tutorials/java-servlet-todo-list.md
+      - name: Developing a Telegram bot
+        href: tutorials/telegram-bot-serverless.md
+      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
+      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+        href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Uploading audit logs to ArcSight SIEM
+        href: tutorials/export-logs-to-arcsight.md
+      - name: Uploading audit logs to Splunk SIEM
+        href: tutorials/export-logs-to-splunk.md
+      - name: Creating an MLFlow server for logging experiments and artifacts
+        href: tutorials/mlflow-datasphere.md
+      - name: Operations with data in {{ yq-full-name }}
+        href: tutorials/yq-storage.md
+      - name: Federated data queries using {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Recognizing text in image archives using {{ vision-name }}
+        href: tutorials/archive-from-vision-to-object-storage.md
+      - name: >-
+          Regular recognition of images and PDF documents from an {{
+          objstorage-short-name }} bucket
+        href: tutorials/vision-ocrrecognizer-storage.md
+      - name: Converting a video to a GIF in Python
+        href: tutorials/video-converting-queue.md
+      - name: Automating tasks using {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
+      - name: Processing files with usage details in {{ billing-name }}
+        href: tutorials/billing.md
+      - name: >-
+          Deploying a web app with JWT authorization in {{ api-gw-name }} and
+          authentication in Firebase
+        href: tutorials/jwt-authorizer-firebase.md
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
+        href: tutorials/search-events-query.md
+      - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+        href: tutorials/search-events-bucket.md
+      - name: >-
+          Creating an external table from a bucket table using a configuration
+          file
+        href: tutorials/mgp-config-server-for-s3.md
+      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
+      - name: >-
+          Setting up static website hosting in a {{ objstorage-full-name }}
+          bucket with {{ cdn-full-name }} access
+        items:
+          - name: Overview
+            href: tutorials/cdn-hosting/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
+      - name: Using {{ objstorage-name }} in {{ msp-full-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Concepts
     items:
       - name: Overview
@@ -228,7 +374,7 @@ items:
         href: concepts/pre-signed-urls.md
       - name: Multipart upload
         href: concepts/multipart.md
-      - name: Access control lists (ACLs)
+      - name: Access control list (ACL)
         href: concepts/acl.md
       - name: Bucket policy
         href: concepts/policy.md
@@ -238,7 +384,7 @@ items:
         href: concepts/storage-class.md
       - name: Bucket actions logging mechanism
         href: concepts/server-logs.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: TLS protocol
         href: concepts/tls.md
@@ -254,6 +400,8 @@ items:
         href: tools/index.md
       - name: Console clients
         items:
+          - name: '{{ yandex-cloud }} CLI'
+            href: tools/yc-cli.md
           - name: AWS CLI
             href: tools/aws-cli.md
           - name: S3cmd
@@ -302,7 +450,7 @@ items:
         href: security/overview.md
       - name: '{{ iam-name }}'
         href: security/index.md
-      - name: Access control lists (ACLs)
+      - name: Access control list (ACL)
         href: security/acl.md
       - name: Bucket policy
         href: security/policy.md
@@ -313,22 +461,104 @@ items:
       - name: '{{ sts-name }}'
         href: security/sts.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
+    href: pricing.md
   - name: YC CLI reference
-    href: ../cli/cli-ref/managed-services/storage/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bucket
+        items:
+          - name: Overview
+            href: cli-ref/bucket/index.md
+          - name: create
+            href: cli-ref/bucket/create.md
+          - name: delete
+            href: cli-ref/bucket/delete.md
+          - name: delete-https
+            href: cli-ref/bucket/delete-https.md
+          - name: get
+            href: cli-ref/bucket/get.md
+          - name: get-https
+            href: cli-ref/bucket/get-https.md
+          - name: list
+            href: cli-ref/bucket/list.md
+          - name: set-https
+            href: cli-ref/bucket/set-https.md
+          - name: stats
+            href: cli-ref/bucket/stats.md
+          - name: update
+            href: cli-ref/bucket/update.md
+      - name: s3
+        items:
+          - name: Overview
+            href: cli-ref/s3/index.md
+          - name: cp
+            href: cli-ref/s3/cp.md
+          - name: mv
+            href: cli-ref/s3/mv.md
+          - name: presign
+            href: cli-ref/s3/presign.md
+          - name: rm
+            href: cli-ref/s3/rm.md
+      - name: s3api
+        items:
+          - name: Overview
+            href: cli-ref/s3api/index.md
+          - name: abort-multipart-upload
+            href: cli-ref/s3api/abort-multipart-upload.md
+          - name: complete-multipart-upload
+            href: cli-ref/s3api/complete-multipart-upload.md
+          - name: copy-object
+            href: cli-ref/s3api/copy-object.md
+          - name: create-multipart-upload
+            href: cli-ref/s3api/create-multipart-upload.md
+          - name: delete-object
+            href: cli-ref/s3api/delete-object.md
+          - name: delete-object-tagging
+            href: cli-ref/s3api/delete-object-tagging.md
+          - name: delete-objects
+            href: cli-ref/s3api/delete-objects.md
+          - name: get-bucket-acl
+            href: cli-ref/s3api/get-bucket-acl.md
+          - name: get-object
+            href: cli-ref/s3api/get-object.md
+          - name: get-object-acl
+            href: cli-ref/s3api/get-object-acl.md
+          - name: get-object-legal-hold
+            href: cli-ref/s3api/get-object-legal-hold.md
+          - name: get-object-retention
+            href: cli-ref/s3api/get-object-retention.md
+          - name: get-object-tagging
+            href: cli-ref/s3api/get-object-tagging.md
+          - name: head-object
+            href: cli-ref/s3api/head-object.md
+          - name: list-multipart-uploads
+            href: cli-ref/s3api/list-multipart-uploads.md
+          - name: list-objects
+            href: cli-ref/s3api/list-objects.md
+          - name: list-parts
+            href: cli-ref/s3api/list-parts.md
+          - name: put-bucket-acl
+            href: cli-ref/s3api/put-bucket-acl.md
+          - name: put-object
+            href: cli-ref/s3api/put-object.md
+          - name: put-object-acl
+            href: cli-ref/s3api/put-object-acl.md
+          - name: put-object-legal-hold
+            href: cli-ref/s3api/put-object-legal-hold.md
+          - name: put-object-retention
+            href: cli-ref/s3api/put-object-retention.md
+          - name: put-object-tagging
+            href: cli-ref/s3api/put-object-tagging.md
+          - name: upload-part
+            href: cli-ref/s3api/upload-part.md
+          - name: upload-part-copy
+            href: cli-ref/s3api/upload-part-copy.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST (Amazon S3-compatible)
         items:
@@ -336,6 +566,8 @@ items:
             href: s3/index.md
           - name: Signing requests
             href: s3/signing-requests.md
+          - name: Getting started with the S3 API
+            href: s3/s3-api-quickstart.md
           - name: REST
             items:
               - name: All services and methods
@@ -534,6 +766,20 @@ items:
                     href: api-ref/grpc/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Bucket/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/grpc/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/grpc/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/grpc/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/grpc/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview
@@ -542,6 +788,12 @@ items:
                     href: api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: api-ref/grpc/Operation/cancel.md
+              - name: Presign
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Presign/index.md
+                  - name: Create
+                    href: api-ref/grpc/Presign/create.md
           - name: REST
             items:
               - name: Overview
@@ -568,6 +820,20 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/Bucket/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview
@@ -586,5 +852,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa.md
-base: en/storage
-deepBase: 2

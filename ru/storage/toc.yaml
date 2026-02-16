@@ -1,4 +1,4 @@
-title: Yandex Object Storage
+title: '{{ objstorage-full-name }}'
 href: index.yaml
 items:
   - name: Начало работы
@@ -35,8 +35,12 @@ items:
             href: operations/buckets/policy.md
           - name: Настройка публичного доступа к бакету
             href: operations/buckets/bucket-availability.md
+          - name: Запретить доступ со статическими ключами
+            href: operations/buckets/disable-statickey-auth.md
           - name: Доступ в бакет с помощью {{ sts-name }}
             href: operations/buckets/create-sts-key.md
+          - name: Доступ в бакет с помощью эфемерного ключа доступа
+            href: operations/buckets/manage-ephemeral-keys.md
           - name: >-
               Доступ в бакет с помощью сервисного подключения из {{
               vpc-short-name }}
@@ -57,6 +61,10 @@ items:
         items:
           - name: Загрузка объекта
             href: operations/objects/upload.md
+          - name: Составная загрузка объекта
+            href: operations/objects/multipart-upload.md
+          - name: Получение списка объектов в бакете
+            href: operations/objects/list.md
           - name: Получение информации об объекте
             href: operations/objects/info.md
           - name: Скачивание объекта
@@ -67,8 +75,10 @@ items:
             href: operations/objects/rename-move.md
           - name: Копирование объектов
             href: operations/objects/copy.md
-          - name: Получение публичной ссылки на объект
+          - name: Скачивание объекта по подписанной ссылке (pre-signed URL)
             href: operations/objects/link-for-download.md
+          - name: Загрузка объекта по подписанной ссылке (pre-signed URL)
+            href: operations/objects/link-for-upload.md
           - name: Настройка блокировок версии объекта
             href: operations/objects/edit-object-lock.md
           - name: Удаление объекта
@@ -90,41 +100,97 @@ items:
           - name: Поддержка собственного домена
             href: operations/hosting/own-domain.md
           - name: Поддержка нескольких доменных имен
-            href: operations/hosting/multiple-domains.md
+            items:
+              - name: Обзор
+                href: operations/hosting/multiple-domains/index.md
+              - name: Консоль управления, CLI и API
+                href: operations/hosting/multiple-domains/console.md
+              - name: '{{ TF }}'
+                href: operations/hosting/multiple-domains/terraform.md
           - name: Настройка HTTPS
             href: operations/hosting/certificate.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: Резервное копирование
+        items:
+          - name: Обзор
+            href: tutorials/storage-backup-overview.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью aws s3
+              sync
+            href: tutorials/storage-backup-aws-s3-sync.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью rclone
+            href: tutorials/storage-backup-rclone.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
+            href: tutorials/storage-backup-geesefs.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
+              Desktop Backup
+            href: tutorials/object-storage-cloudberry.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
+            href: tutorials/object-storage-duplicati.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+            href: tutorials/backup-with-bacula.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veritas
+              Backup Exec
+            href: tutorials/object-storage-veritas.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veeam
+              Backup
+            href: tutorials/backup-with-veeam.md
+          - name: Резервное копирование ВМ с помощью Хайстекс Акура
+            href: tutorials/hystax-backup.md
+          - name: >-
+              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              objstorage-name }}
+            href: tutorials/kubernetes-backup.md
       - name: Получение статистики запросов к объекту с использованием S3 Select
         href: tutorials/server-logs.md
-      - name: >-
-          Получение статистики запросов к объектам {{ objstorage-full-name }} с
-          использованием {{ yq-full-name }}
-        href: tutorials/server-logs-yq.md
       - name: Получение статистики посещения сайта с использованием S3 Select
         href: tutorials/user-agent-statistics.md
       - name: >-
           Получение статистики запросов к объектам с использованием {{
           yq-full-name }}
         href: tutorials/server-logs-yq.md
-      - name: >-
-          Формирование отчета по ресурсной детализации расходов с использованием
-          S3 Select
+      - name: Анализ поресурсной детализации расходов
         href: tutorials/billing-resource-detailing.md
       - name: Шифрование на стороне сервера
         href: tutorials/server-side-encryption.md
-      - name: Интеграция L7-балансировщика с CDN и Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
       - name: Анализ логов с использованием DataLens
         href: tutorials/storage-logs-analysis.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: tutorials/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: tutorials/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: tutorials/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-full-name }}
+            href: tutorials/search-events-audit-logs/query.md
       - name: >-
           Монтирование бакетов к файловой системе хостов {{ dataproc-full-name
           }}
-        href: tutorials/data-proc-init-actions-geesefs.md
+        href: tutorials/data-processing-init-actions-geesefs.md
+      - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+        href: tutorials/copy-files-from-object-storage.md
+      - name: >-
+          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+          mch-name }}
+        href: tutorials/s3-data-processing-ch.md
       - name: Подключение бакета как диска в Windows
         href: tutorials/s3-disk-connect.md
       - name: >-
@@ -139,7 +205,7 @@ items:
         href: tutorials/opensearch-to-object-storage.md
       - name: Автоматическое копирование объектов из бакета в бакет
         href: tutorials/bucket-to-bucket.md
-      - name: Регулярное распознавание аудиофайлов в бакете
+      - name: Регулярное асинхронное распознавание аудиофайлов в бакете
         href: tutorials/batch-recognition-stt.md
       - name: >-
           Обучение модели в {{ ml-platform-full-name }} на данных из {{
@@ -173,8 +239,16 @@ items:
           Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name
           }}
         href: tutorials/gatsby-static-website.md
+      - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
+        href: tutorials/ghost-cms-cloudapp.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
       - name: Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}
         href: tutorials/mpg-to-objstorage.md
       - name: Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
@@ -204,13 +278,11 @@ items:
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Миграция данных из {{ ES }} в {{ mos-full-name }}
-        href: tutorials/elasticsearch-to-opensearch.md
       - name: Загрузка состояний {{ TF }} в {{ objstorage-name }}
         href: tutorials/terraform-state-storage.md
       - name: Блокировка состояний {{ TF }} с помощью {{ ydb-name }}
         href: tutorials/terraform-state-lock.md
-      - name: Статический веб-сайт в {{ objstorage-full-name }}
+      - name: Статический сайт в {{ objstorage-full-name }}
         items:
           - name: Обзор
             href: tutorials/static/index.md
@@ -218,26 +290,88 @@ items:
             href: tutorials/static/console.md
           - name: Terraform
             href: tutorials/static/terraform.md
+      - name: Визуализация данных {{ yq-full-name }}
+        href: tutorials/data-from-yandex-query-visualization.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
-      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
-        href: tutorials/hystax-backup.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: Хранение журналов работы приложения
+        href: tutorials/log-ingestion.md
+      - name: Разработка навыка Алисы и сайта с авторизацией
+        href: tutorials/alice-shareable-todolist.md
       - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью CloudBerry
-          Desktop Backup
-        href: tutorials/object-storage-cloudberry.md
-      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
-        href: tutorials/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
-        href: tutorials/backup-with-bacula.md
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
+      - name: Развертывание веб-приложения с использованием Java Servlet API
+        href: tutorials/java-servlet-todo-list.md
+      - name: Разработка Telegram-бота
+        href: tutorials/telegram-bot-serverless.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+        href: tutorials/replicate-logs-to-storage.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+        href: tutorials/replicate-logs-to-storage-via-data-streams.md
+      - name: Загрузка аудитных логов в SIEM ArcSight
+        href: tutorials/export-logs-to-arcsight.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: tutorials/export-logs-to-splunk.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
+      - name: Работа с данными с помощью {{ yq-full-name }}
+        href: tutorials/yq-storage.md
+      - name: Федеративные запросы к данным с помощью {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Распознавание архива изображений в {{ vision-name }}
+        href: tutorials/archive-from-vision-to-object-storage.md
       - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
-          Exec
-        href: tutorials/object-storage-veritas.md
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
+      - name: Конвертация видео в GIF на Python
+        href: tutorials/video-converting-queue.md
+      - name: Автоматизация задач с помощью {{ maf-short-name }}
+        href: tutorials/airflow-auto-tasks.md
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
+        href: tutorials/billing.md
       - name: >-
-          Резервное копирование кластера {{ managed-k8s-name }} в {{
-          objstorage-name }}
-        href: tutorials/kubernetes-backup.md
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
+          аутентификацией в Firebase
+        href: tutorials/jwt-authorizer-firebase.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}
+        href: tutorials/search-events-query.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+        href: tutorials/search-events-bucket.md
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета с помощью
+          конфигурационного файла
+        href: tutorials/mgp-config-server-for-s3.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: tutorials/bigquery-to-clickhouse.md
+      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
+      - name: >-
+          Настройка хостинга статического сайта в бакете {{ objstorage-full-name
+          }} с доступом через {{ cdn-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/cdn-hosting/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
+      - name: Использование {{ objstorage-name }} в {{ msp-full-name }}
+        href: tutorials/spark-objstorage-integration.md
   - name: Концепции
     items:
       - name: Обзор
@@ -290,6 +424,8 @@ items:
         href: tools/index.md
       - name: Консольные клиенты
         items:
+          - name: '{{ yandex-cloud }} CLI'
+            href: tools/yc-cli.md
           - name: AWS CLI
             href: tools/aws-cli.md
           - name: S3cmd
@@ -348,18 +484,102 @@ items:
         href: security/pre-signed-urls.md
       - name: '{{ sts-name }}'
         href: security/sts.md
+      - name: Эфемерные ключи
+        href: security/ephemeral-keys.md
   - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник YC CLI (англ.)
     items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bucket
         items:
-          - name: До 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
-          - name: С 1 января до 1 марта 2019 года
-            href: pricing-archive/pricing-01032019.md
-  - name: Справочник YC CLI
-    href: ../cli/cli-ref/managed-services/storage/index.md
+          - name: Overview
+            href: cli-ref/bucket/index.md
+          - name: create
+            href: cli-ref/bucket/create.md
+          - name: delete
+            href: cli-ref/bucket/delete.md
+          - name: delete-https
+            href: cli-ref/bucket/delete-https.md
+          - name: get
+            href: cli-ref/bucket/get.md
+          - name: get-https
+            href: cli-ref/bucket/get-https.md
+          - name: list
+            href: cli-ref/bucket/list.md
+          - name: set-https
+            href: cli-ref/bucket/set-https.md
+          - name: stats
+            href: cli-ref/bucket/stats.md
+          - name: update
+            href: cli-ref/bucket/update.md
+      - name: s3
+        items:
+          - name: Overview
+            href: cli-ref/s3/index.md
+          - name: cp
+            href: cli-ref/s3/cp.md
+          - name: mv
+            href: cli-ref/s3/mv.md
+          - name: presign
+            href: cli-ref/s3/presign.md
+          - name: rm
+            href: cli-ref/s3/rm.md
+      - name: s3api
+        items:
+          - name: Overview
+            href: cli-ref/s3api/index.md
+          - name: abort-multipart-upload
+            href: cli-ref/s3api/abort-multipart-upload.md
+          - name: complete-multipart-upload
+            href: cli-ref/s3api/complete-multipart-upload.md
+          - name: copy-object
+            href: cli-ref/s3api/copy-object.md
+          - name: create-multipart-upload
+            href: cli-ref/s3api/create-multipart-upload.md
+          - name: delete-object
+            href: cli-ref/s3api/delete-object.md
+          - name: delete-object-tagging
+            href: cli-ref/s3api/delete-object-tagging.md
+          - name: delete-objects
+            href: cli-ref/s3api/delete-objects.md
+          - name: get-bucket-acl
+            href: cli-ref/s3api/get-bucket-acl.md
+          - name: get-object
+            href: cli-ref/s3api/get-object.md
+          - name: get-object-acl
+            href: cli-ref/s3api/get-object-acl.md
+          - name: get-object-legal-hold
+            href: cli-ref/s3api/get-object-legal-hold.md
+          - name: get-object-retention
+            href: cli-ref/s3api/get-object-retention.md
+          - name: get-object-tagging
+            href: cli-ref/s3api/get-object-tagging.md
+          - name: head-object
+            href: cli-ref/s3api/head-object.md
+          - name: list-multipart-uploads
+            href: cli-ref/s3api/list-multipart-uploads.md
+          - name: list-objects
+            href: cli-ref/s3api/list-objects.md
+          - name: list-parts
+            href: cli-ref/s3api/list-parts.md
+          - name: put-bucket-acl
+            href: cli-ref/s3api/put-bucket-acl.md
+          - name: put-object
+            href: cli-ref/s3api/put-object.md
+          - name: put-object-acl
+            href: cli-ref/s3api/put-object-acl.md
+          - name: put-object-legal-hold
+            href: cli-ref/s3api/put-object-legal-hold.md
+          - name: put-object-retention
+            href: cli-ref/s3api/put-object-retention.md
+          - name: put-object-tagging
+            href: cli-ref/s3api/put-object-tagging.md
+          - name: upload-part
+            href: cli-ref/s3api/upload-part.md
+          - name: upload-part-copy
+            href: cli-ref/s3api/upload-part-copy.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -372,6 +592,8 @@ items:
             href: s3/index.md
           - name: Подписывание запросов
             href: s3/signing-requests.md
+          - name: Начало работы с S3 API
+            href: s3/s3-api-quickstart.md
           - name: REST
             items:
               - name: Все сервисы и методы
@@ -570,6 +792,20 @@ items:
                     href: api-ref/grpc/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/grpc/Bucket/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/grpc/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/grpc/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/grpc/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/grpc/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/grpc/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/grpc/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview
@@ -578,6 +814,12 @@ items:
                     href: api-ref/grpc/Operation/get.md
                   - name: Cancel
                     href: api-ref/grpc/Operation/cancel.md
+              - name: Presign
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/Presign/index.md
+                  - name: Create
+                    href: api-ref/grpc/Presign/create.md
           - name: REST (англ.)
             items:
               - name: Overview
@@ -604,6 +846,20 @@ items:
                     href: api-ref/Bucket/setHTTPSConfig.md
                   - name: DeleteHTTPSConfig
                     href: api-ref/Bucket/deleteHTTPSConfig.md
+                  - name: SetAccessBindings
+                    href: api-ref/Bucket/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: api-ref/Bucket/updateAccessBindings.md
+                  - name: ListAccessBindings
+                    href: api-ref/Bucket/listAccessBindings.md
+                  - name: CreateInventoryConfiguration
+                    href: api-ref/Bucket/createInventoryConfiguration.md
+                  - name: GetInventoryConfiguration
+                    href: api-ref/Bucket/getInventoryConfiguration.md
+                  - name: DeleteInventoryConfiguration
+                    href: api-ref/Bucket/deleteInventoryConfiguration.md
+                  - name: ListInventoryConfigurations
+                    href: api-ref/Bucket/listInventoryConfigurations.md
               - name: Operation
                 items:
                   - name: Overview
@@ -624,5 +880,3 @@ items:
     href: qa.md
   - name: Обучающие курсы
     href: training.md
-base: ru/storage
-deepBase: 2

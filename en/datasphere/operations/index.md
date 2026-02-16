@@ -1,23 +1,24 @@
 ---
 title: How to work with {{ ml-platform-full-name }}
-description: The page contains all guides on working with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code sample in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from a variety of sources, and deploy a trained model as a microservice.
+description: This page gives all the guides on how to work with {{ ml-platform-full-name }} in {{ yandex-cloud }}. Learn how to create a project, install dependencies, run a code snippet in a notebook, work with checkpoints, manage computing resources, publish a notebook, use Git, upload data from various sources, and deploy a trained model as a microservice.
 ---
 
 # Step-by-step guides for {{ ml-platform-name }}
 
-## Community management {#community}
+## Managing a community {#community}
 
 * [{#T}](community/create.md)
 * [{#T}](community/add-user.md)
 * [{#T}](community/manage-community-labels.md)
 * [{#T}](community/manage-community-config.md)
+* [{#T}](community/create-ssa.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
 * [{#T}](community/delete.md)
 * [{#T}](community/delete-user.md)
 
-## Project management {#project}
+## Managing a project {#project}
 
 * [{#T}](projects/create.md)
 * [{#T}](projects/add-user.md)
@@ -46,12 +47,13 @@ description: The page contains all guides on working with {{ ml-platform-full-na
 ## Working with resources {#resources}
 
 * [{#T}](data/secrets.md)
-* [{#T}](data-proc-template.md)
+* [{#T}](data-processing-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
 * [{#T}](data/s3-connectors.md)
 * [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
+* [{#T}](data/filestores.md)
 
 ## Connecting to data sources {#connections-to-data-sources}
 
@@ -79,14 +81,17 @@ description: The page contains all guides on working with {{ ml-platform-full-na
 * [{#T}](projects/authentication.md)
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
+* [{#T}](projects/use-job-results.md)
+* [{#T}](projects/jobs-with-ssa.md)
 
 ## Shared access to resources, projects, and computation results {#share}
 
 * [{#T}](data/dataset.md#share)
+* [{#T}](data/filestores.md#share)
 * [{#T}](data/s3-connectors.md#share)
 * [{#T}](data/secrets.md#share)
 * [{#T}](user-images.md#share)
-* [{#T}](data-proc-template.md#share)
+* [{#T}](data-processing-template.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 * [{#T}](projects/open-in-datasphere.md)
@@ -95,4 +100,3 @@ description: The page contains all guides on working with {{ ml-platform-full-na
 ## Additional {{ ml-platform-name }} features {#additional-feature}
 
 * [{#T}](migration.md)
-

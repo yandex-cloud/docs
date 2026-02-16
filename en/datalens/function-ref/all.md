@@ -223,6 +223,30 @@ Returns the average of elements in the `array`.
 
 
 
+## [ARR_DISTINCT](ARR_DISTINCT.md)
+
+**Syntax:**`ARR_DISTINCT( array )`
+
+Removes duplicate elements from an array `array`, returning a new array with only unique elements. The order of elements in the returned array is not guaranteed to be the same as the input array.
+
+
+
+## [ARR_INDEX_OF](ARR_INDEX_OF.md)
+
+**Syntax:**`ARR_INDEX_OF( array, value )`
+
+Returns the position (index) of the first occurrence of the value `value` in the array `array`. The indexing starts from 1. If the value `value` is not found in the array, the function returns 0.
+
+
+
+## [ARR_INTERSECT](ARR_INTERSECT.md)
+
+**Syntax:**`ARR_INTERSECT( array_1, array_2, array_3 [ , ... ] )`
+
+Returns an array of elements that occur in every array provided as an argument. The function does not put such elements in any particular order. Duplicate elements are only added once.
+
+
+
 ## [ARR_MAX](ARR_MAX.md)
 
 **Syntax:**`ARR_MAX( array )`
@@ -462,6 +486,14 @@ Converts the numeric representation of an ASCII character to a value.
 
 
 
+## [CITYHASH64](CITYHASH64.md)
+
+**Syntax:**`CITYHASH64( value )`
+
+Returns the CityHash64 hash of `value` as an integer.
+
+
+
 ## [COLOR](COLOR.md)
 
 **Syntax:**`COLOR( text, color )`
@@ -487,7 +519,7 @@ Returns:
 
 ## [CONCAT](CONCAT.md)
 
-**Syntax:**`CONCAT( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`CONCAT(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Merges any number of strings. When non-string types are used, they're converted to strings and then merged.
 
@@ -776,6 +808,135 @@ If the additional parameter `firstday` is specified, this day is considered the 
 
 
 
+## [DB_CALL_AGG_FLOAT](DB_CALL_AGG_FLOAT.md)
+
+**Syntax:**<br/>`DB_CALL_AGG_FLOAT( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`<br/>or<br/>`DB_CALL_AGG_FLOAT( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ]
+                   [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                   [ BEFORE FILTER BY ... ]
+                 )`
+
+Calls a native database aggregate function by its name. Native function should return a value of type `Fractional number`. The function is executed as an aggregation across grouped rows.
+
+The first argument `db_agg_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_AGG_INT](DB_CALL_AGG_INT.md)
+
+**Syntax:**<br/>`DB_CALL_AGG_INT( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`<br/>or<br/>`DB_CALL_AGG_INT( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ]
+                 [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                 [ BEFORE FILTER BY ... ]
+               )`
+
+Calls a native database aggregate function by its name. Native function should return a value of type `Integer`. The function is executed as an aggregation across grouped rows.
+
+The first argument `db_agg_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_AGG_STRING](DB_CALL_AGG_STRING.md)
+
+**Syntax:**<br/>`DB_CALL_AGG_STRING( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`<br/>or<br/>`DB_CALL_AGG_STRING( db_agg_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ]
+                    [ FIXED ... | INCLUDE ... | EXCLUDE ... ]
+                    [ BEFORE FILTER BY ... ]
+                  )`
+
+Calls a native database aggregate function by its name. Native function should return a value of type `String`. The function is executed as an aggregation across grouped rows.
+
+The first argument `db_agg_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_ARRAY_FLOAT](DB_CALL_ARRAY_FLOAT.md)
+
+**Syntax:**`DB_CALL_ARRAY_FLOAT( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Array of fractional numbers`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_ARRAY_INT](DB_CALL_ARRAY_INT.md)
+
+**Syntax:**`DB_CALL_ARRAY_INT( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Array of integers`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_ARRAY_STRING](DB_CALL_ARRAY_STRING.md)
+
+**Syntax:**`DB_CALL_ARRAY_STRING( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Array of strings`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_BOOL](DB_CALL_BOOL.md)
+
+**Syntax:**`DB_CALL_BOOL( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Boolean`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_FLOAT](DB_CALL_FLOAT.md)
+
+**Syntax:**`DB_CALL_FLOAT( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Fractional number`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_INT](DB_CALL_INT.md)
+
+**Syntax:**`DB_CALL_INT( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `Integer`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
+## [DB_CALL_STRING](DB_CALL_STRING.md)
+
+**Syntax:**`DB_CALL_STRING( db_function_name [ , arg_1 [ , arg_2 [ , ... ] ] ] )`
+
+Calls a native database function by its name. Native function should return a value of type `String`. The function is executed for every row in the dataset (non-aggregated).
+
+The first argument `db_function_name` must be a constant string with the name of the database function to call. All subsequent arguments are passed to the native function in the same order as written in the formula and can be of any type, including types that are not currently supported by {{ datalens-short-name }}.
+
+The function name must contain only alphanumeric characters, underscore and colon characters.
+
+
+
 ## [DB_CAST](DB_CAST.md)
 
 **Syntax:**`DB_CAST( expression, native_type [ , param_1 [ , param_2 ] ] )`
@@ -1033,6 +1194,14 @@ Converts the `expression` expression to integer format according to the followin
 
 
 
+## [INTHASH64](INTHASH64.md)
+
+**Syntax:**`INTHASH64( value )`
+
+Returns the 64-bit hash of the integer `value`.
+
+
+
 ## [IS FALSE](ISFALSE.md)
 
 **Syntax:**`value IS [ NOT ] FALSE`
@@ -1206,7 +1375,7 @@ Returns the string `string` without spaces at the beginning of the string.
 
 ## [MARKUP](MARKUP.md)
 
-**Syntax:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Syntax:**`MARKUP(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Merges marked up text pieces. Can also be used for converting strings to marked up text.
 
@@ -1291,6 +1460,14 @@ Returns the moving count of (non-`NULL`) values in a fixed-size window defined b
 Window functions with a similar behavior: [MSUM](MSUM.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
 See also [COUNT](COUNT.md), [RCOUNT](RCOUNT.md).
+
+
+
+## [MD5](MD5.md)
+
+**Syntax:**`MD5( value )`
+
+Returns the MD5 hash of `value` as a hexadecimal string.
 
 
 
@@ -1423,6 +1600,14 @@ Returns the moving sum of values in a fixed-size window defined by the sort orde
 Window functions with a similar behavior: [MCOUNT](MCOUNT.md), [MMIN](MMIN.md), [MMAX](MMAX.md), [MAVG](MAVG.md).
 
 See also [SUM](SUM.md), [RSUM](RSUM.md).
+
+
+
+## [MURMURHASH2_64](MURMURHASH2_64.md)
+
+**Syntax:**`MURMURHASH2_64( value )`
+
+Returns the MurmurHash2 64-bit hash of `value` as an integer.
 
 
 
@@ -1785,6 +1970,22 @@ Returns the number of the second in the minute of the specified date `datetime`.
 
 
 
+## [SHA1](SHA1.md)
+
+**Syntax:**`SHA1( value )`
+
+Returns the SHA-1 hash of `value` as a hexadecimal string.
+
+
+
+## [SHA256](SHA256.md)
+
+**Syntax:**`SHA256( value )`
+
+Returns the SHA-256 hash of `value` as a hexadecimal string.
+
+
+
 ## [SIGN](SIGN.md)
 
 **Syntax:**`SIGN( number )`
@@ -1801,6 +2002,14 @@ Returns the sign of the number `number`:
 **Syntax:**`SIN( number )`
 
 Returns the sine of `number` in radians.
+
+
+
+## [SIPHASH64](SIPHASH64.md)
+
+**Syntax:**`SIPHASH64( value )`
+
+Returns the SipHash64 hash of `value` as an integer.
 
 
 
@@ -1969,6 +2178,14 @@ Returns the tangent of `number` in radians.
 **Syntax:**`TODAY()`
 
 Returns the current date, depending on the data source and connection type.
+
+
+
+## [TOOLTIP](TOOLTIP.md)
+
+**Syntax:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Adds a small tooltip to a text or other markup function results. The `placement` argument manages the text positioning: `top`, `right`, `bottom`, `left` or `auto`. The default value is `auto`.
 
 
 

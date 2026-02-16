@@ -1,3 +1,8 @@
+---
+title: Установка Chaos Mesh
+description: Следуя данной инструкции, вы сможете установить Chaos Mesh.
+---
+
 # Установка Chaos Mesh
 
 
@@ -24,7 +29,7 @@
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Chaos Mesh или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `chaos-mech-space`). Если вы оставите пространство имен по умолчанию, Chaos Mesh может работать некорректно.
    * **Название приложения** — укажите название приложения.
 
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
@@ -46,6 +51,8 @@
      --create-namespace \
      chaos-mesh ./chaos-mesh/
    ```
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Chaos Mesh может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `chaos-mesh-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
@@ -91,6 +98,79 @@
          ```bash
          kubectl create token <название_аккаунта>
          ```
+
+## Работа с ресурсами {{ yandex-cloud }} {#yandex-cloud-resources}
+
+В приложении доступен сценарий `YCChaos`, который позволяет моделировать отказы ВМ узлов (например, перезапуск или остановку). С его помощью можно проверять отказоустойчивость систем, зависящих от облачной инфраструктуры.
+
+Например, чтобы смоделировать перезапуск ВМ узлов с помощью `YCChaos`:
+
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `compute.operator`.
+1. [Выпустите авторизованный ключ](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните его в файл `sa-key.json`
+1. Создайте пространство имен `chaos-testing`.
+1. Создайте секрет {{ k8s }} на основе созданного ранее авторизованного ключа:
+
+   ```shell
+   kubectl create secret generic yc-sa-secret \
+       --from-file=sa-key.json=./sa-key.json \
+       -n chaos-testing
+   ```
+
+1. Сохраните в файле `chaos.yaml` пример workflow со сценарием `YCChaos`:
+
+   ```yaml
+   apiVersion: chaos-mesh.org/v1alpha1
+   kind: Workflow
+   metadata:
+     name: yc-random-batch
+     namespace: chaos-testing
+   spec:
+     entry: parallel
+     templates:
+     - name: parallel
+       templateType: Parallel
+       children: [yc-1, yc-2]
+
+     - name: yc-1
+       templateType: YCChaos
+       deadline: 5m
+       ycChaos:
+         action: compute-restart
+         computeInstance: <идентификатор_ВМ_1>
+         secretName: yc-sa-secret
+
+     - name: yc-2
+       templateType: YCChaos
+       deadline: 5m
+       ycChaos:
+         action: compute-restart
+         computeInstance: <идентификатор_ВМ_2>
+         secretName: yc-sa-secret
+   ```
+
+   Описание доступных полей сценария `YCChaos`:
+
+   * `action` — выполняемое действие. Возможные значения: `compute-stop` — остановить ВМ, `compute-restart` — перезапустить ВМ. Значение по умолчанию — `compute-stop`.
+   * `computeInstance` — идентификатор ВМ, с которой выполняются действия сценария.
+   * (опционально) `duration` — длительность сценария.
+   * (опционально) `remoteCluster` — кластер, где должен быть запущен сценарий.
+   * (опционально) `secretName` — имя секрета {{ k8s }} с авторизованным ключом сервисного аккаунта, от имени которого выполняется сценарий.
+
+1. Создайте workflow с помощью команды:
+
+   ```shell
+   kubectl apply -f chaos.yaml
+   ```
+
+1. Убедитесь, что указанные виртуальные машины перезапустились после создания workflow.
+
+   Также вы можете посмотреть результаты работы workflow в [веб-интерфейсе Chaos Mesh](#interface-and-authorization).
+
+{% note info %}
+
+Вы можете проводить эксперименты с использованием сценария `YCChaos` непосредственно в веб-интерфейсе Chaos Mesh.
+
+{% endnote %}
 
 ## См. также {#see-also}
 

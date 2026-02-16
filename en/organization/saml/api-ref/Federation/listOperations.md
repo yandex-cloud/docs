@@ -1,9 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to list operations for.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 2000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/listOperations.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.ListOperations {#ListOperations}
+# SAML Federation API, REST: Federation.ListOperations
 
 Lists operations for the specified federation.
 
@@ -19,7 +57,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fed
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to list operations for. ||
+Required field. ID of the federation to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsRequest}
@@ -31,12 +71,16 @@ Required field. ID of the federation to list operations for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListFederationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederationOperationsResponse}

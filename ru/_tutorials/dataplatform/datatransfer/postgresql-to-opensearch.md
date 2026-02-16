@@ -7,6 +7,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -15,6 +23,8 @@
 
 - Вручную {#manual}
 
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Создайте кластер-источник {{ mpg-name }} любой подходящей [конфигурации](../../../managed-postgresql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
@@ -22,9 +32,9 @@
 
     1. [Создайте кластер-приемник {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
 
-    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -51,7 +61,7 @@
         * `pg_password` — пароль пользователя {{ PG }};
         * `mos_version` — версия {{ OS }};
         * `mos_password` — пароль пользователя {{ OS }};
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -140,7 +150,7 @@
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
 1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
+1. Подключитесь к кластеру-приемнику с помощью [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards).
 1. Выберите общий тенант `Global`.
 1. Создайте новый шаблон индекса с именем `public.x_tab`:
 
@@ -156,38 +166,22 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-[Удалите эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите эндпоинт для приемника](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+       1. [Удалите эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 
-    1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
-    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-    1. [Удалите эндпоинт для источника](../../../data-transfer/operations/endpoint/index.md#delete).
-    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `postgresql-to-opensearch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, описанные в конфигурационном файле `postgresql-to-opensearch.tf`, будут удалены.
-
-{% endlist %}
-
+   {% endlist %}

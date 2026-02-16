@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community to list projects in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListProjectsResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListProjectsResponse) returned by a previous list request.
+          type: string
+        projectNamePattern:
+          description: |-
+            **string**
+            Name pattern to filter projects that are returned.
+            Only projects with names matching the pattern will be returned.
+          type: string
+        ownedById:
+          description: |-
+            **string**
+            User ID to filter projects that are returned.
+            Only projects that are owned by specified user will be returned.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/list.md
 ---
 
-# DataSphere API v2, REST: Project.List {#List}
+# DataSphere API v2, REST: Project.List
 
 Lists projects for the specified community.
 
@@ -52,7 +96,7 @@ Only projects that are owned by specified user will be returned. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "createdById": "string",
       "settings": {
         "serviceAccountId": "string",
@@ -117,7 +161,7 @@ Name of the project. 1-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || createdById | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 

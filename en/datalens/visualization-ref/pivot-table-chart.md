@@ -1,14 +1,53 @@
-# Pivot table ![](../../_assets/datalens/pivot-table.svg)
+---
+title: Pivot table in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to create and customize the pivot table visualization type in {{ datalens-full-name }}.
+---
 
-A table is a standard form of data representation with as many details as possible. Tables are most suitable for detailed analysis (a deep dive into figures) and problem detection. It is best to place tables at the end of a dashboard. Graphical representations are simpler for reading information, while tables take you deeper into the data and require more time to read.
+# Pivot table ![](../../_assets/datalens/pivot-table.svg) in {{ datalens-full-name }}
 
-Unlike a flat [table](table-chart.md), categories in a pivot table can be stored both in columns and rows. They may contain multiple categories, while cells at their intersection contain measure values.
+A table is a standard form of presenting data with maximum level of detail.
 
-Pivot tables make it easier to work with large amounts of data and let you analyze the relationship between different measures. For example, you can use this type of table to analyze product sales depending on the delivery type by brand and product category over a specific year.
+{% note tip %}
 
-![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png)
+It is best to place tables at the end of a dashboard.
 
-{% cut "Source table" %}
+Graphics are easier to "read", whereas delving into tabular data requires more time and attention.
+
+{% endnote %}
+
+Tables are good for detailed analytics (a deep dive into figures) and problem detection.
+
+* [Features](#features)
+* [Wizard sections](#wizard-sections)
+* [Creating a pivot table](#create-diagram)
+* [Additional settings](#additional-settings)
+
+### Features
+
+Here is how a pivot table is different from a flat [table](table-chart.md):
+
+- Categories can reside both in columns and rows.
+- Columns and rows may contain several categories, the cells at their intersections containing the measure values.
+- Suitable for large volumes of data and for analysis of links between measures.
+
+**Example**
+Product sales based on delivery type with a breakdown by brand and product category for a given year:
+
+{% list tabs %}
+
+- Visualization
+
+  ![pivot-table-chart](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-chart.png)
+
+- Source table
+
+  {% include [pivot-table-1](../../_includes/datalens/visualization-ref/pivot-table-1.md) %}
+
+{% endlist %}
+
+
+
+<!--{% cut "Source table" %}
 
 Categories |	Product brand |	Delivery type |	2019 |	2020 |	2021 |	2022
 ---------|---------|---------|---------|---------|---------|---------
@@ -37,27 +76,28 @@ Home appliances |	TechBeauty |	Pickup |	623 684 |	1 675 606 |	2 891 334 |	2
 Home appliances |	Razumnyy Dom |	Pickup |	1 917 822 |	5 520 617 |	8 538 419 |	6 468 868
 Home appliances |	Fabrika Komforta |	Pickup |	1 072 286 |	2 170 431 |	4 178 690 |	2 827 290
 
-{% endcut %}
+{% endcut %}-->
 
-When [creating a pivot table](#create-diagram), you can use these advanced settings:
+<!--When [creating a pivot table](#create-diagram), you can use these advanced settings:
 
-* [{#T}](#change-columns-names)
-* [{#T}](#hint-column)
-* [{#T}](#set-column-width)
-* [{#T}](#column-fixation)
-* [{#T}](#add-totals)
-* [{#T}](#set-field-color)
-* [{#T}](#add-linear-indicator)
+* [Renaming table columns and rows](#change-columns-names)
+* [Adding a tooltip to table headers](#hint-column)
+* [Setting the width of table columns and rows](#set-column-width)
+* [Freezing table columns](#column-fixation)
+* [Managing the number of rows](#pagination-limit)
+* [Adding rows with subtotals](#add-totals)
+* [Setting field fill color](#set-field-color)
+* [Adding a linear indicator to a column with a measure](#add-linear-indicator)-->
 
 ## Wizard sections {#wizard-sections}
 
 Wizard<br/> section| Description
 ----- | ----
 Columns | Dimensions
-Strings | Dimensions
-Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. [Measure Names](../concepts/chart/measure-values.md) can be moved to **Rows**.
-Colors | Measure. Affects shading of all cells containing indicators. It may only contain one measure.
-Sorting | Dimensions and measures under **Columns** and **Rows**. Multiple dimensions and measures can be used.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon.<br><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to **Sorting**.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure only impacts a query to the source and does not affect the pivot table.
+Rows | Dimensions
+Measures | Measures. If you add more than one measure to a section, the **Columns** section will contain the [Measure Names](../concepts/chart/measure-values.md) dimension that defines the location of the measure headers. You can move `Measure Names` to **Rows**.
+Colors | Measure. Affects the fill of all cells containing measures. It may only contain one measure.
+Sorting | Dimensions and measures under **Columns** and **Rows**. Multiple dimensions and measures can be used.<br/><br/>The sorting direction is marked with an icon next to the field: ![image](../../_assets/console-icons/bars-ascending-align-left.svg) for ascending or ![image](../../_assets/console-icons/bars-descending-align-left.svg) for descending. To change the sorting direction, click the icon. <br/><br/>{{ datalens-short-name }} first groups columns or rows in the order they are listed in their respective sections, and only then sorts the groups according to the **Sorting** section.<br/>The order of fields in the section affects the sorting order of the table fields.<br/><br/>Sorting by measure affects only the query to the source, not the pivot table.
 Filters | Dimension or measure. Used as a filter.
 
 ## Creating a pivot table {#create-diagram}
@@ -74,10 +114,10 @@ To create a pivot table:
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. In the left-hand panel, select ![chart](../../_assets/console-icons/chart-column.svg) **Charts**.
-1. Click **Create chart** → **Chart**.
-1. At the top left, click ![image](../../_assets/console-icons/circles-intersection.svg) **Select dataset** and specify the dataset to visualize.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select the **Pivot table** chart type.
 1. Drag a dimension from the dataset to the **Columns** section.
 1. Drag a dimension from the dataset to the **Rows** section.
@@ -93,22 +133,62 @@ To create a pivot table:
 
 ## Additional settings {#additional-settings}
 
-### Renaming table columns and rows {#change-columns-names}
+{% cut "Appearance" %}
+
+#### Renaming columns and rows {#change-columns-names}
 
 1. Under **Columns** or **Rows**, click the icon to the left of the dimension name.
 1. In the window that opens, change the **Name** field value and click **Apply**.
 
-### Adding a tooltip to a table header {#hint-column}
+#### Adding tooltips to table headers {#hint-column}
 
 1. Under **Rows**, click the icon to the left of the dimension or measure name.
-1. In the window that opens, enable the **Tooltip** option, enter the text in the field below and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
+1. In the window that opens, enable the **Tooltip** option, enter the text in the field below, and click **Apply**. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../dataset/index.md).
 
 When the option is enabled, the ![image](../../_assets/console-icons/circle-question.svg) icon appears next to the table column header. Hover over the icon to bring up the tooltip.
 
-### Setting up the width of table columns and rows {#set-column-width}
+#### Setting field fill color {#set-field-color}
+
+1. Under **Columns**, **Rows**, or **Measures**, click the icon to the left of the field name.
+1. In the window that opens, enable **Column fill color**.
+1. In the **By field** list, select the field whose values the fill will be based on.
+1. Set the **Fill type**:
+
+   {% note info %}
+
+   * You can use the **Palette** type for dimensions and the **Gradient** type for measures.
+   * Fill is not supported for the **Total** columns and rows.
+
+   {% endnote %}
+
+   {% list tabs group=fill %}
+
+   - For a dimension {#measure}
+
+     1. Click the color scheme selection field and set a color for each dimension value.
+     1. Click **Apply**.
+
+   - For a measure {#indicator}
+
+     1. Click the gradient selection field and set the following properties:
+
+        {% include [color-setting](../../_includes/datalens/visualization-ref/color-setting.md) %}
+
+     1. Click **Apply**.
+
+   {% endlist %}
+
+1. For the **Gradient** fill type, specify the coloring option for `null` values: `Do not color` or `Color as 0`.
+1. Click **Apply**.
+
+{% endcut %}
+
+{% cut "Columns and rows" %}
+
+#### Setting the width of table columns and rows {#set-column-width}
 
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
-1. In the **Column and row width** window that opens, set up the width of columns and rows:
+1. Under **Width**, select the values for columns and rows:
 
    * `Auto`: Automatic column/row width.
    * `%`: Column/row width as a percentage of the table's total width.
@@ -126,7 +206,7 @@ When the option is enabled, the ![image](../../_assets/console-icons/circle-ques
 
 To set the width of any column to `Auto`, click **Reset**.
 
-### Freezing table columns {#column-fixation}
+#### Freezing table columns {#column-fixation}
 
 {% note info %}
 
@@ -135,10 +215,25 @@ You can only freeze columns generated from dimensions in the **Rows** section.
 {% endnote %}
 
 1. In the top-right corner of the **Columns** or **Rows** section, click ![image](../../_assets/console-icons/gear.svg) (this icon appears when you hover over the section).
-1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will be frozen in place as you scroll horizontally.
+1. In the **Freeze** window that opens, enter the number of columns to freeze. These columns will stay in place as you scroll horizontally.
 1. Click **Apply**.
 
-### Adding rows with subtotals {#add-totals}
+#### Changing the number of rows {#pagination-limit}
+
+{% include [change-rows-amount](../../_includes/datalens/visualization-ref/change-rows-amount.md) %}
+
+{% endcut %}
+
+#### Enabling pagination {#pagination}
+
+Enable pagination if your table has many rows:
+
+1. At the top of the screen, click ![image](../../_assets/console-icons/gear.svg) next to the chart type.
+1. Enable **Pagination** and click **Apply**.
+
+This option is not available if only one page is displayed or there is no data.
+
+#### Adding rows with subtotals {#add-totals}
 
 1. Under **Columns** or **Rows**, click the icon in front of the field name.
 1. In the field settings window, enable **Sub-totals**.
@@ -161,44 +256,9 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% endnote %}
 
-### Setting up a field fill color {#set-field-color}
+{% endcut %}
 
-1. Under **Columns**, **Rows**, or **Measures**, click the icon to the left of the field name.
-1. In the window that opens, enable **Column fill color**.
-1. In the **By field** list, select the field whose values the fill will be based on.
-1. Set the **Fill type**:
-
-   {% note info %}
-
-   You can use the **Palette** type for dimensions and the **Gradient** type for measures.
-
-   {% endnote %}
-
-   {% list tabs group=fill %}
-
-   - For a dimension {#measure}
-
-     1. Click the color scheme selection field and set a color for each dimension value.
-     1. Click **Apply**.
-
-   - For a measure {#indicator}
-
-     1. Click the gradient selection field and set up:
-
-        * **Gradient type**: Select two or three colors.
-
-          * Gradient color: Select a color palette for the gradient from the list.
-          * Gradient direction: Change the gradient direction using the ![image](../../_assets/console-icons/arrow-right-arrow-left.svg) icon.
-
-        * **Set threshold values**: Set numeric thresholds for each color.
-
-     1. Click **Apply**.
-
-   {% endlist %}
-
-1. Click **Apply**.
-
-### Adding a linear indicator to a column with a measure {#add-linear-indicator}
+#### Adding a linear indicator to a column with a measure {#add-linear-indicator}
 
 1. Under **Measures**, click the icon to the left of the measure name.
 1. In the window that opens, enable **Linear indicator**.
@@ -222,15 +282,48 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 ## Recommendations {#recomendations}
 
-* Use a pivot table to represent aggregate data in table format.
-* Place dimensions on the left and measures on the right. This makes the data easier to comprehend.
-* Make sure column names you use are short and readable.
-* Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
+{% note tip %}
+
+Use tables for their intended purpose only, e.g., to represent aggregate data in table format.
+
+Tables are not a replacement for other data visualization types.
+
+{% endnote %}
+
+{% cut "Appearance" %}
+
+* Place dimensions on the left and measures on the right. This makes your data more readable.
+* Use short, simple, and clear column headers.
 * You can color table cells depending on the values of a measure. This will help you to highlight the values.
-* Use tables for their intended purpose only. Do not replace all data visualization types with them.
+
+{% endcut %}
+
+{% cut "Sizes" %}
+
+* Limit the size of your table or use filters and sorting. Tables with too many rows or columns are hard to read.
 * When posting a table on a dashboard, enable auto height in the widget settings. This will help you save dashboard space.
 
-  {% cut "Setting up auto height" %}
+  {% list tabs radio %}
+
+  - Setting up auto height
+
+    ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)  
+
+  - Using a filter with the auto height option enabled
+
+    If you use a filter, the table height will automatically adapt to the number of rows.
+
+    If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
+  
+    ![pivot-table-auto-height-2](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-2.png)
+
+    If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
+
+    ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
+
+  {% endlist %}
+
+  <!--{% cut "Setting up auto height" %}
 
   ![pivot-table-auto-height](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height.png)
 
@@ -239,16 +332,19 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
   If you use a filter, the table height will automatically adapt to the number of rows.
 
   {% cut "Using a filter with the auto height option enabled" %}
-
+  
   If no value is set in the filter, a table displays all rows depending on the limit to the number of rows per page.
-
+  
   ![pivot-table-auto-height-2](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-2.png)
 
   If the number of displayed rows decreases when using the filter, the table height is reduced automatically.
 
   ![pivot-table-auto-height-3](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-auto-height-3.png)
 
-  {% endcut %}
+  {% endcut %}-->
+
+{% endcut %}
+
 
 * Represent totals (or subtotals) as a column. To do this, use calculated fields based on [window functions](../concepts/window-function-tutorial.md) or [LOD expressions](../concepts/lod-aggregation.md). For example:
 
@@ -260,7 +356,7 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
     ![pivot-table-sum](../../_assets/datalens/visualization-ref/pivot-table-chart/pivot-table-sum.png)
 
     {% endcut %}
-
+  
   * Maximum order count per month grouped by product category: `MaxCountByCategory` with the `MAX(COUNTD([OrderID] INCLUDE [ProductCategory]))` formula.
 
     {% cut "Table example" %}
@@ -270,5 +366,13 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
     {% endcut %}
 
 * Use sorting. This makes the data easier to comprehend.
+
 * Use the [URL](../function-ref/URL.md) function in table cells to enable users to follow a link.
-* When displaying numeric data, specify the dimension and the number of decimal places. For example, if you select `Millions, M` in the **Dimension** drop-down list, you will see `10.3 M` rather than `10,345,234.23`. If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
+
+* When displaying numeric data, specify the dimension and the number of decimal places. 
+
+  **Example** 
+  -> If you select `Millions, M` in the **Dimension** drop-down list, you will see `10,3 M` rather than `10 345 234.23`. 
+  -> If you set the `Decimal places` field to `2`, you will see `123.12` rather than `123.1234`.
+
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

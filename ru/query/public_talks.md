@@ -7,15 +7,30 @@ description: На странице представлены публичные �
 
 ## Визуализация данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }} {#shorts3}
 
-@[YouTube](https://youtu.be/17cAGgG2YFU?si=yXz9uMpiGqS72CfV)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvsneufm7vvvqjtec2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=17cAGgG2YFU).
+
+
 
 ## Федеративные запросы в {{ yq-full-name }} {#shorts2}
 
-@[YouTube](https://youtu.be/1EN28LVncPM?si=6cYlykLAv5i8C3nc)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvtaitffc5pk6hpa24?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=1EN28LVncPM).
+
+
 
 ## Обработка данных в {{ objstorage-full-name }} с помощью {{ yq-full-name }} {#shorts1}
 
-@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=w_q14UJ_qa92eBkL)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjempmq5jgv2oycex?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=HMcXKy0Xz4Q).
+
+
 
 ## 26.01.2023. Вебинар «Бессерверная аналитика с помощью {{ yq-full-name }}» {#webinar20230126}
 

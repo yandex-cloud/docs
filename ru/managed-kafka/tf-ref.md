@@ -14,7 +14,7 @@ description: На этой странице приведен справочни�
 | **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
 | [yandex_mdb_kafka_cluster]({{ tf-provider-resources-link }}/mdb_kafka_cluster) | [Кластер {{ KF }}](./concepts/index.md) |
-| [yandex_mdb_kafka_connect]({{ tf-provider-resources-link }}/mdb_kafka_connect) | [Коннектор](./concepts/connectors.md) |
+| [yandex_mdb_kafka_connect]({{ tf-provider-resources-link }}/mdb_kafka_connector) | [Коннектор](./concepts/connectors.md) |
 | [yandex_mdb_kafka_topic]({{ tf-provider-resources-link }}/mdb_kafka_topic) | [Топик](./concepts/topics.md) |
 | [yandex_mdb_kafka_user]({{ tf-provider-resources-link }}/mdb_kafka_user) | [Пользователь](./concepts/managed-schema-registry.md#msr-auth) |
 

@@ -1,9 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/repositories
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the repository.
+            The name of the repository should match the name of the images that will be pushed in the repository.
+            Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
+          pattern: '[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*'
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/upsert.md
 ---
 
-# Container Registry API, REST: Repository.Upsert {#Upsert}
+# Container Registry API, REST: Repository.Upsert
 
 Upserts a repository in the specified registry.
 
@@ -27,7 +47,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/repositorie
 
 Required field. Name of the repository.
 
-The name of the repository should match the name of the images that will be pushed in the repository. ||
+The name of the repository should match the name of the images that will be pushed in the repository.
+
+Value must match the regular expression ` [a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

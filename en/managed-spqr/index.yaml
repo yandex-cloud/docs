@@ -1,0 +1,55 @@
+title: '{{ mspqr-full-name }}'
+description:
+  - >-
+    With {{ mspqr-name }}, you can deploy sharded {{ PG }} (<a
+    href="https://pg-sharding.tech/">SPQR</a>) clusters in the {{ yandex-cloud
+    }} infrastructure.
+  - >-
+    SPQR (Stateless Postgres Query Router) is a system for horizontal scaling of
+    {{ PG }} via sharding, based on <a
+    href="https://opensource.yandex/projects/">Yandex Open Source</a>
+    technologies.
+  - >-
+    This service is at the <a
+    href="/docs/overview/concepts/launch-stages">Preview</a> stage. You can
+    request access <a
+    href="https://yandex.cloud/en/services/managed-spqr">here</a>.
+  - >-
+    The {{ yandex-cloud }} infrastructure is <a
+    href="/docs/security/conform">protected</a> pursuant to the following
+    standards: <ul> <li>Russian Federal Law No. 152-FZ on Personal Data</li>
+    <li>Payment Card Industry Data Security Standard (PCI DSS).</li> <li>ISO
+    27001.</li> <li>ISO 27017.</li> <li>ISO 27018.</li> <li>GOST
+    57580.1-2017.</li> </ul>
+links:
+  - title: Getting started
+    description: Get started with {{ mspqr-name }}
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about basic concepts and how this service works
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
+meta:
+  title: '{{ mspqr-full-name }}'
+  description: >-
+    {{ mspqr-name }} helps you deploy and maintain sharded {{ PG }} clusters in
+    the {{ yandex-cloud }} infrastructure.
+  keywords:
+    - sharded PostgreSQL
+    - SPQR
+    - SPQR cluster
+    - '{{ SPQR }} clusters'
+    - '{{ mspqr-name }}'
+    - SPQR server clusters
+    - '{{ mspqr-name }} server clusters'
+    - SPQR in {{ yandex-cloud }}
+    - '{{ mspqr-name }} in {{ yandex-cloud }}'
+    - '{{ mspqr-name }}'

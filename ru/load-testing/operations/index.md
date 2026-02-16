@@ -14,3 +14,9 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](regressions.md)
 * [{#T}](save-artifacts.md)
 * [{#T}](operation-logs.md)
+
+## Управление дашбордом регрессий {#regressions-manage}
+
+* [{#T}](regressions/create.md)
+* [{#T}](regressions/update.md)
+* [{#T}](regressions/delete.md)

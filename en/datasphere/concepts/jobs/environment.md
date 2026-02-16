@@ -36,6 +36,7 @@ env:
     root-path:
       - other.py
     pip:
+      index-url: https://pypi.org/simple
       extra-index-urls:
         - https://pypi.ngc.nvidia.com
       trusted-hosts:
@@ -46,8 +47,9 @@ env:
 Where:
 
 * `root-path`: Explicitly specifies [additional entry points](#entry-points).
-* `extra-index-urls`: Specifies [additional repository addresses](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url) the pip package manager can use to install the required environment packages.
-* `trusted-hosts`: [List of trusted hosts](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host) which enables accessing the hosts specified as `<host>:<port>`, even if they do not support HTTPS.
+* `index-urls`: Specifies [the address of the main repository](https://pip.pypa.io/en/stable/cli/pip_install/#install-index-url) pip will use to install the required environment packages.
+* `extra-index-urls`: Specifies [the addresses of additional repositories](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url) pip can use to install packages in case they are missing from the main repository.
+* `trusted-hosts`: [List of trusted hosts](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host) which allows addressing the hosts specified as `<host>:<port>` even if they do not support HTTPS.
 * `no-deps`: `pip install` command [argument](https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-no-deps) which prevents installing package dependencies.
 
 ### Configuring a Python environment manually {#manual}
@@ -58,8 +60,17 @@ When setting up a Python environment manually, you can explicitly specify the Py
 env:
  python:
    type: manual     # Specify manual environment configuration
-   version: 3.10.13 # Optional
-   requirements-file: requirements.txt  # Optional
+   version: 3.10.13 # optional
+   pip:
+      index-url: https://pypi.org/simple
+      extra-index-urls:
+        - https://pypi.ngc.nvidia.com
+      trusted-hosts:
+        - nvidia.com
+      no-deps: true  # The default value is `false`
+   requirements-file: requirements.txt  # optional
+   root-path:
+      - other.py
    local-paths:     # Optional, cannot be used together with `root-paths`
      - foo.py
      - lib/
@@ -68,11 +79,16 @@ env:
 Where:
 
 * `version`: Python version. If omitted, the job's runtime environment version will be used.
+* `index-urls`: Specifies [the address of the main repository](https://pip.pypa.io/en/stable/cli/pip_install/#install-index-url) pip will use to install the required environment packages.
+* `extra-index-urls`: Specifies [the addresses of additional repositories](https://pip.pypa.io/en/stable/cli/pip_install/#install-extra-index-url) pip can use to install packages in case they are missing from the main repository.
+* `trusted-hosts`: [List of trusted hosts](https://pip.pypa.io/en/stable/cli/pip/#cmdoption-trusted-host) which allows addressing the hosts specified as `<host>:<port>` even if they do not support HTTPS.
+* `no-deps`: `pip install` command [argument](https://pip.pypa.io/en/stable/cli/pip_install/#cmdoption-no-deps) which prevents installing package dependencies.
 * `requirements-file`: Path to the `requirements.txt` file listing all the packages and pip flags required for the job. If omitted, the list of dependencies will be formed automatically.
+* `root-path`: Explicitly specifies [additional entry points](#entry-points).
 * `local-paths`: List of local Python files to transfer. You can specify both individual files and whole directories. If omitted, the list of files will be formed automatically.
   If the job consists of a single main Python script, specify `local-paths: []` in the `env` section.
 
-If the configuration file contains all three parameters (`version`, `requirements-file`, and `local-paths`), {{ ml-platform-name }} will not check the environment to identify missing dependencies. This can be of use if you cannot or do not want to reproduce the environment to run the job locally, as required by [automated environment build](#auto).
+If the configuration file contains the `version`, `requirements-file`, and `local-paths` parameters, {{ ml-platform-name }} will not check the environment to identify missing dependencies. This can be of use if you cannot or do not want to reproduce the environment to run the job locally, as required by [automated environment build](#auto).
 
 ### Specifying entry points explicitly {#entry-points}
 

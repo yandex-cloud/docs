@@ -7,23 +7,22 @@ description: Следуя данной инструкции, вы научите
 
 [Версионирование](../../concepts/versioning.md) бакета — это возможность хранить историю объекта с помощью версий.
 
-{% note info %}
+{% include [versioning-irreversible](../../../_includes/storage/versioning-irreversible.md) %}
 
-Операция включения необратима: отключить версионирование нельзя, можно только приостановить создание новых версий. После приостановки версионирования новые объекты будут сохраняться с версией `null`.
+{% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
-{% endnote %}
-
-Включить версионирование бакета:
+Чтобы включить версионирование бакета:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя нужного бакета.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_versioning }}**.
-  1. Чтобы включить или выключить версионирование, используйте опцию **{{ ui-key.yacloud.storage.bucket.versioning.field_status }}**.
+  1. Чтобы включить или приостановить версионирование, используйте опцию **{{ ui-key.yacloud.storage.form.BucketVersioningFormSection.label_versioning-disabled_ngMWc }}**.
   1. Нажмите **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -75,7 +74,9 @@ description: Следуя данной инструкции, вы научите
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
+    method: get
+    path:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the ServiceAccount resource to return.
+            To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/get.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.Get {#Get}
+# Identity and Access Management API, REST: ServiceAccount.Get
 
 Returns the specified ServiceAccount resource.
 
@@ -22,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
 || serviceAccountId | **string**
 
 Required field. ID of the ServiceAccount resource to return.
-To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
+To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ServiceAccount}
@@ -36,7 +57,7 @@ To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "lastAuthenticatedAt": "string"
 }
 ```
@@ -68,7 +89,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || lastAuthenticatedAt | **string** (date-time)

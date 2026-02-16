@@ -1,6 +1,6 @@
 ---
 title: What are quotas and limits in {{ yandex-cloud }}
-description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support on request. Limits are technical constraints due to {{ yandex-cloud }} architecture. Limits cannot be changed.'
+description: '{{ yandex-cloud }} services can be subject to quotas and limits. Quotas are organizational constraints that can be changed by technical support upon request. Limits are technical constraints of the {{ yandex-cloud }} architecture. Limits cannot be changed.'
 ---
 
 # {{ yandex-cloud }} service quotas and limits
@@ -9,30 +9,31 @@ description: '{{ yandex-cloud }} services can be subject to quotas and limits. Q
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 
-When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum limits that {{ yandex-cloud }} can provide you with. Quotas are restrictions that can potentially be increased up to their limits.
-
+When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum limits that {{ yandex-cloud }} can provide you with. Quotas are modifiable constraints that can potentially be increased up to the limit values. Quotas do not guarantee that resources are available.
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft constraint for requesting resources and enable {{ yandex-cloud }} to guarantee service stability: with quotas, new users cannot take up too much resources for testing purposes.
+Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too much resources for testing purposes.
 
 If ready to use more resources, you can increase your quotas in the following ways:
 
-* [Generate a request for a quota increase]({{ link-console-quotas }}). You must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher, such as `editor` or `admin`.
-* Contact [technical support]({{ link-console-support }}) and tell us which quotas you want increased and by how much.
+* [Make a request to increase your quotas]({{ link-console-quotas }}).
+* Contact [support]({{ link-console-support }}) and specify which quotas you want increased and by how much.
+
+To have your request processed, you must have the `quota-manager.requestOperator` [role](../../iam/roles-reference.md#quota-manager-requestoperator) or higher (`editor` or `admin`).
+
+You can manage quotas with [{{ quota-manager-name }}](../../quota-manager/quickstart.md).
 
 ## Default quotas and limits for {{ yandex-cloud }} services {#quotas-limits-default}
 
-
 Quotas are listed with default values that match the quotas of the [trial period](../../getting-started/free-trial/concepts/quickstart.md).
 
-
+For each quota, the table provides an ID you can use to manage quotas via {{ quota-manager-name }}.
 
 
 ### {{ api-gw-full-name }} {#api-gw}
 
 {% include [api-gateway-limits.md](../../_includes/api-gateway/api-gateway-limits.md) %}
-
 
 
 ### {{ alb-full-name }} {#alb}
@@ -50,12 +51,14 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
-
 ### {{ backup-full-name }} {#backup}
 
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}
 
 
+### {{ baremetal-full-name }} {#baremetal}
+
+{% include [baremetal-limits.md](../../_includes/baremetal-limits.md) %}
 
 
 ### {{ billing-name }} {#billing}
@@ -63,13 +66,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [billing-limits](../../_includes/billing/billing-limits.md) %}
 
 
-
-
 ### {{ cdn-full-name }} {#cdn}
 
 {% include [cdn-limits](../../_includes/cdn/limits.md) %}
-
-
 
 
 ### {{ cloud-desktop-full-name }} {#cloud-desktop}
@@ -77,11 +76,14 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [limits](../../_includes/cloud-desktop/limits.md) %}
 
 
-
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
 
+
+### {{ foundation-models-full-name }} {#foundation-models}
+
+{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
 
 ### {{ sf-full-name }} {#sf}
@@ -89,12 +91,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [functions-limits.md](../../_includes/functions-limits.md) %}
 
 
-
-
 ### {{ interconnect-full-name }} {#interconnect}
 
 {% include [interconnect-limits.md](../../_includes/interconnect-limits.md) %}
-
 
 
 ### {{ cloud-logging-full-name }} {#logging}
@@ -102,16 +101,24 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [logging-limits.md](../../_includes/logging/logging-limits.md) %}
 
 
+### {{ cns-full-name }} {#cns}
+
+{% include [cns-limits.md](../../_includes/cns-limits.md) %}
+
+
 ### {{ org-full-name }} {#organization}
 
 {% include [org-limits.md](../../_includes/organization/org-limits.md) %}
-
 
 
 ### {{ postbox-full-name }} {#postbox}
 
 {% include [postbox-limits](../../_includes/postbox/postbox-limits.md) %}
 
+
+### {{ cloud-shell-full-name }} {#cloud-shell}
+
+{% include [cloud-shell](../../_includes/console/cloud-shell-limits.md) %}
 
 
 ### {{ video-full-name }} {#video}
@@ -129,18 +136,14 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [container-registry-limits.md](../../_includes/container-registry-limits.md) %}
 
 
-
 ### {{ dataproc-full-name }} {#dataproc}
 
-{% include [dataproc-limits.md](../../_includes/data-proc/dataproc-limits.md) %}
-
-
+{% include [data-processing-limits.md](../../_includes/data-processing/data-processing-limits.md) %}
 
 
 ### {{ yds-full-name }} {#yds}
 
 {% include [yds-limits.md](../../_includes/yds-limits.md) %}
-
 
 
 ### {{ data-transfer-full-name }} {#data-transfer}
@@ -153,11 +156,9 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [datalens-limits.md](../../_includes/datalens/datalens-limits.md) %}
 
 
-
 ### {{ ml-platform-full-name }} {#ml-platform}
 
 {% include [ml-platform-limits.md](../../_includes/datasphere-limits.md) %}
-
 
 
 ### {{ iam-full-name }} {#iam}
@@ -165,17 +166,14 @@ Quotas are listed with default values that match the quotas of the [trial period
 {% include [iam-limits.md](../../_includes/iam/iam-limits.md) %}
 
 
-
 ### {{ iot-full-name }} {#iot}
 
 {% include [iot-limits.md](../../_includes/iot-limits.md) %}
 
 
-
 ### {{ kms-full-name }} {#kms}
 
 {% include [kms-limits.md](../../_includes/kms/kms-limits.md) %}
-
 
 
 ### {{ load-testing-full-name }} {#load-testing}
@@ -185,11 +183,9 @@ There are no active quotas in {{ load-testing-name }}.
 The computing resources consumed by [agents](../../load-testing/concepts/agent.md) are counted towards the [quotas]({{ link-console-quotas }}) and subject to the [{{ compute-full-name }}](../../compute/concepts/limits.md) limits.
 
 
-
 ### {{ lockbox-name }} {#lockbox}
 
 {% include [lockbox-limits.md](../../_includes/lockbox-limits.md) %}
-
 
 
 ### {{ maf-full-name }} {#airflow}
@@ -197,10 +193,14 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [airflow-limits.md](../../_includes/mdb/maf/limits.md) %}
 
 
-
 ### {{ mkf-full-name }} {#mkf}
 
 {% include [mkf-limits.md](../../_includes/mdb/mkf-limits.md) %}
+
+
+### {{ msp-full-name }} {#msp}
+
+{% include [msp-limits.md](../../_includes/managed-spark/limits.md) %}
 
 
 ### {{ mch-full-name }} {#mch}
@@ -208,13 +208,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [mch-limits.md](../../_includes/mdb/mch-limits.md) %}
 
 
-
-
-
 ### {{ mgl-full-name }} {#mgl}
 
 {% include [mgl-limits](../../_includes/managed-gitlab/limits.md) %}
-
 
 
 
@@ -229,11 +225,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [managed-kube-limits.md](../../_includes/managed-kube-limits.md) %}
 
 
-
 ### {{ mmg-full-name }} {#mmg}
 
 {% include [mmg-limits.md](../../_includes/mdb/mmg-limits.md) %}
-
 
 
 ### {{ mmy-full-name }} {#mmy}
@@ -250,10 +244,15 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+
+### {{ mtr-full-name }} {#mtr}
+
+{% include [mtr-limits.md](../../_includes/managed-trino/limits.md) %}
+
+
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../_includes/mdb/mrd-limits.md) %}
-
 
 
 ### {{ ydb-full-name }} {#ydb}
@@ -261,12 +260,31 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [ydb-limits.md](../../_includes/ydb/ydb-limits.md) %}
 
 
+### {{ myt-full-name }} {#myt}
+
+{% include [myt-limits.md](../../_includes/managed-ytsaurus/limits.md) %}
 
 
 ### {{ message-queue-full-name }} {#mq}
 
 {% include [ymq-limits.md](../../_includes/message-queue/ymq-limits.md) %}
 
+
+### {{ metadata-hub-full-name }} {#metadata-hub}
+
+#### {{ connection-manager-name }} quotas {#connection-manager-quota}
+
+{% include [connection-manager-quotas](../../_includes/metadata-hub/connection-manager-quotas.md) %}
+
+#### {{ metastore-name }} quotas {#metastore-quota}
+
+{% include [metastore-quotas](../../_includes/metadata-hub/metastore-quotas.md) %}
+
+#### {{ schema-registry-name }} quotas {#schema-registry-quota}
+
+{% include [schema-registry-quotas](../../_includes/metadata-hub/schema-registry-quotas.md) %}
+
+There are no limits for {{ metadata-hub-full-name }}.
 
 
 ### {{ monitoring-full-name }} {#monitoring}
@@ -289,11 +307,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [limits.md](../../query/_includes/limits.md) %}
 
 
-
 ### {{ resmgr-full-name }} {#resource-manager}
 
 {% include [resource-manager-limits.md](../../_includes/resource-manager-limits.md) %}
-
 
 
 ### {{ search-api-full-name }} {#search-api}
@@ -301,6 +317,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [search-api-limits](../../_includes/search-api-limits.md) %}
 
 
+### {{ sd-full-name }} {#sd}
+
+{% include [sd-limits](../../_includes/security-deck/sd-limits.md) %}
 
 
 ### {{ serverless-containers-full-name }} {#serverless-containers}
@@ -308,6 +327,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [serverless-containers-limits.md](../../_includes/serverless-containers/serverless-containers-limits.md) %}
 
 
+### {{ si-full-name }} {#serverless-integrations}
+
+{% include [serverless-integrations-limits](../../_includes/si-limits.md) %}
 
 
 ### {{ captcha-full-name }} {#captcha}
@@ -315,18 +337,25 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [smartcaptcha-limits](../../_includes/smartcaptcha-limits.md) %}
 
 
-
-
 ### {{ sws-full-name }} {#sws}
 
 {% include [smartwebsecurity-limits](../../_includes/sws-limits.md) %}
 
+
+### {{ ca-full-name }} {#ca}
+
+#### Quotas {#ca-quotas}
+
+{% include [ca-limits](../../_includes/ca-limits.md) %}
 
 
 ### {{ speechkit-full-name }} {#speechkit}
 
 {% include [speechkit-limits](../../_includes/speechkit-limits.md) %}
 
+### {{ speechsense-full-name }} {#speechsense}
+
+{% include [speechsense-limits.md](../../_includes/speechsense-limits.md) %}
 
 
 ### {{ translate-full-name }} {#translate}
@@ -334,11 +363,9 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [translate-limits](../../_includes/translate-limits.md) %}
 
 
-
 ### {{ vpc-full-name }} {#vpc}
 
 {% include [vpc-limits.md](../../_includes/vpc-limits.md) %}
-
 
 
 ### {{ vision-full-name }} {#vision}
@@ -346,18 +373,6 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 {% include [vision-limits](../../_includes/vision-limits.md) %}
 
 
-
-
 ### {{ websql-full-name }} {#websql}
 
 {% include [websql-limits](../../_includes/websql-limits.md) %}
-
-
-
-
-### {{ yagpt-full-name }} {#yagpt}
-
-{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
-
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

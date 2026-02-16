@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the Organization resource to return.
+            To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/get.md
 ---
 
-# Cloud Organization API, REST: Organization.Get {#Get}
+# Identity Hub API, REST: Organization.Get
 
 Returns the specified Organization resource.
 
@@ -22,7 +41,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 || organizationId | **string**
 
 Required field. ID of the Organization resource to return.
-To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.Organization}
@@ -36,7 +57,7 @@ To get the organization ID, use a [OrganizationService.List](/docs/organization/
   "name": "string",
   "description": "string",
   "title": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -66,7 +87,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

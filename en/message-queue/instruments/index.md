@@ -1,21 +1,18 @@
 # Tools for working with {{ message-queue-full-name }}
 
-{% note warning %}
-
-Currently, there is no support for the latest versions of the `AWS CLI` and `AWS SDK` with JSON protocol. Use [AWS CLI and AWS SDK](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-json-faqs.html#json-protocol-getting-started) without JSON support.
-
-{% endnote %}
-
-To work with the API, you can use any tools that are compatible with Amazon SQS: AWS CLI, Boto3 (prior to version 1.28.0), and other tools [supported by the SDK](https://aws.amazon.com/tools/#sdk).
+To access the API, use any Amazon SQS compatible tools, such as AWS CLI, Boto3, or other [supported by SDK](https://aws.amazon.com/tools/#sdk).
 
 ## Getting started {#preparations}
 
-{% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
+1. [Create a service account](../../iam/operations/sa/create.md).
+1. [Assign to the service account the roles](../../iam/operations/sa/assign-role-for-sa.md) required for your project. For more information about roles, see the [{{ iam-name }} documentation](../../iam/concepts/access-control/roles.md).
+1. [Create a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+
 
 Use the following parameters when configuring the tools:
 
-* `AWS_ACCESS_KEY_ID`: Static key ID.
-* `AWS_SECRET_ACCESS_KEY`: Secret key.
-* Region: `{{ region-id }}`.
-* Endpoint: `https://message-queue.{{ api-host }}`.
+* Static key ID for `AWS_ACCESS_KEY_ID`
+* Secret key for `AWS_SECRET_ACCESS_KEY`
+* `{{ region-id }}` for the region
+* `https://message-queue.{{ api-host }}` for the endpoint
 

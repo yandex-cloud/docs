@@ -1,6 +1,9 @@
+---
+sourcePath: ru/monitoring_includes/operations/unified-agent/pull_prometheus.md
+---
 # Поставка метрик пользовательских приложений
 
-{{unified-agent-full-name}} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{unified-agent-short-name}} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
+{{ unified-agent-full-name }} собирает метрики в формате {{ prometheus-name }} и конвертирует их в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
 Для поставки в {{ monitoring-full-name }} метрик пользовательских приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает приложение по HTTP, ожидая получить метрики в формате {{ prometheus-name }}.
 
@@ -14,7 +17,7 @@
 
    1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{unified-agent-short-name}}.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой будет установлен {{ unified-agent-short-name }}.
 
 1. Запустите тестовое Python-приложение, предоставляющее метрики в формате {{ prometheus-name }}.
 
@@ -117,6 +120,7 @@
               plugin: metrics_pull
               config:
                 url: http://<публичный_адрес_ВМ>:8000/metrics
+                metric_name_label:  my_name  # необязательный, позволяет переименовать метку name вашего приложения, поскольку это имя зарезервировано агентом.
                 format:
                   prometheus: {}
                 namespace: app
@@ -136,15 +140,19 @@
                       match: "{scope=health}"
               channel_ref:
                 name: cloud_monitoring
-
-        import:
-          - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
        Где:
 
        * `folder_id` — идентификатор каталога, в который будут записываться метрики.
        * `url` — публичный адрес ВМ с тестовым приложением, предоставляющим метрики.
+       * `metric_name_label` — определяет, в какую метку агент записывает название метрики для данных {{ prometheus-name }}. По умолчанию используется метка `name`, что может вызвать конфликт, если ваше приложение уже использует эту метку. В этом случае при записи метрик появляется ошибка:
+
+         ```bash
+         label name 'name' is reserved
+         ```
+
+       Чтобы избежать ошибки, укажите любое другое уникальное имя.
 
    1. Установите {{ unified-agent-short-name }}, выполнив в домашнем каталоге следующую команду:
 
@@ -153,7 +161,7 @@
       -p 16241:16241 -it --detach --uts=host \
       --name=ua \
       -v /proc:/ua_proc \
-      -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
+      -v $(pwd)/config.yml:/etc/yandex/unified_agent/conf.d/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=<идентификатор_каталога> \
       {{ registry }}/yc/unified-agent

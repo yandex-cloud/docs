@@ -12,8 +12,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо изменить API-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-edit }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Отредактируйте параметры API-шлюза или спецификацию OpenAPI при необходимости.
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -38,10 +38,19 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      {{ yc-serverless }} api-gateway update \
-       --id <идентификатор_шлюза> \
-       --new-name <новое_имя_шлюза> \
+       --id <идентификатор_API-шлюза> \
+       --new-name <новое_имя_API-шлюза> \
+       --execution-timeout <таймаут_обработки_запроса> \
        --spec=<путь_к_новому_файлу_спецификации>
      ```
+
+     Где:
+     * `--id` — идентификатор API-шлюза, который требуется изменить.
+     * `--new-name` — новое имя API-шлюза. Необязательный параметр. Требования к имени:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+     * `--execution-timeout` — таймаут обработки запроса. Значение задается в секундах и не должно превышать установленный [лимит](../concepts/limits.md#api-gw-limits). Необязательный параметр. Значение по умолчанию – `300` сек.
+     * `--spec` — путь к файлу с обновленной спецификацией API-шлюза.
 
 - {{ TF }} {#tf}
 
@@ -50,7 +59,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   Чтобы изменить имя, описание или спецификацию API-шлюза:
-  1. Откройте файл конфигурации {{ TF }} и измените параметры `name`, `description` или `spec` соответственно.
+  1. Откройте файл конфигурации {{ TF }} и измените параметры `name`, `description`, `execution_timeout` или `spec` соответственно.
 
      Пример структуры конфигурационного файла:
 
@@ -63,7 +72,8 @@ description: Следуя данной инструкции, вы сможете
          label       = "label"
          empty-label = ""
        }
-       spec = <<-EOT
+       execution_timeout = "<таймаут_обработки_запроса>"
+       spec              = <<-EOT
          openapi: "3.0.0"
          info:
            version: 1.0.0
@@ -138,8 +148,5 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы изменить имя, описание или спецификацию API-шлюза, воспользуйтесь методом REST API [update](../apigateway/api-ref/ApiGateway/update.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Update](../apigateway/api-ref/grpc/ApiGateway/update.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Изменить имя, описание или спецификацию API-шлюза можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

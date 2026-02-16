@@ -1,0 +1,1 @@
+[Список публичных IP-адресов {{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json)

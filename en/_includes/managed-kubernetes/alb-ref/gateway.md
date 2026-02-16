@@ -1,65 +1,119 @@
 # Gateway resource fields
 
+The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
 
-The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
-
-* [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) with the required listeners.
+* [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) and its listeners.
 * [Backend groups](../../../application-load-balancer/concepts/backend-group.md).
-* [HTTP routers](../../../application-load-balancer/concepts/http-router.md) (if the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) resources are used).
+* [HTTP routers](../../../application-load-balancer/concepts/http-router.md). They are only created if the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) or [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) resources are used.
 
-`Gateway` is designed for cluster operators. Application developers should use `TLSRoute` or `HTTPRoute`.
+The `Gateway` resource is designed for cluster operators. Application developers should use the `TLSRoute`, `HTTPRoute`, or `GRPCRoute` resources.
 
-`Gateway` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project. Below, you can find the descriptions of the resource fields and annotations {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.Gateway).
+`Gateway` is a [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/) resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.Gateway).
 
 ## Gateway {#gateway}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: <string>
   namespace: <string>
   annotations:
     gateway.alb.yc.io/security-groups: <string>
+    gateway.alb.yc.io/subnets: <string>
+    gateway.alb.yc.io/autoScale.minZoneSize: <string>
+    gateway.alb.yc.io/autoScale.maxSize: <string>
+    gateway.alb.yc.io/zone.<availability_zone>.receiveTraffic: <bool>
+    gateway.alb.yc.io/logs.logGroupId: <string>
+    gateway.alb.yc.io/logs.disable: <bool>
+    gateway.alb.yc.io/logs.discardRule.<rule_name>.httpCodes: <string>
+    gateway.alb.yc.io/logs.discardRule.<rule_name>.httpCodeIntervals: <string>
+    gateway.alb.yc.io/logs.discardRule.<rule_name>.grpcCodes: <string>
+    gateway.alb.yc.io/logs.discardRule.<rule_name>.discardPercent: <string>
 spec: <GatewaySpec>
 ```
 
 Where:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `Gateway`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
+  
+  Resource metadata.
 
-   Resource metadata.
+  * `name` (`string`; this is a required field)
 
-   * `name` (`string`, required)
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-      Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Do not mistake this name for the {{ alb-name }} load balancer name.
+  
+  * `namespace` (`string`)
+  
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-      This name is not the balancer name in {{ alb-name }}.
+  * `annotations` (`map[string]string`; this is a required field)
 
-   * `namespace` (`string`)
+    Resource annotations.
 
-      [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
+    {% note info %}
 
-   * `annotations` (`map[string]string`, required)
+    You can define the [GatewayPolicy](../../../application-load-balancer/k8s-ref/gateway-policy.md) resource instead of annotations. The `GatewayPolicy` resource parameters and `Gateway` annotations are equivalent.
 
-      Resource annotation.
+    {% endnote %}
 
-      * `gateway.alb.yc.io/security-groups` (`string`, required)
+    * `gateway.alb.yc.io/security-groups` (`string`; this is a required field)
 
-         List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. Group IDs are provided in a comma-separated list, e.g.:
+      List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. This is a comma separated list of group IDs, e.g.:
 
-         ```
-         gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
-         ```
+      ```
+      gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
+      ```
 
-         For the proper load balancer and Gateway API operation, security groups must be configured as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+      For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
-* `spec` (`GatewaySpec`, required)
+    * `gateway.alb.yc.io/subnet-ids` (`string`)
 
-   Resource specification. For more information, see [below](#spec).
+      List of {{ vpc-name }} [subnets](../../../vpc/concepts/network.md#subnet) in the load balancer's [availability zones](../../../overview/concepts/geo-scope.md). This is a comma separated list of subnet IDs.
 
+    * `gateway.alb.yc.io/autoScale.minZoneSize` (`string`)
+
+      Minimum number of [resource units](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) per availability zone. The default minimum is 2. You cannot set a limit lower than two resource units per zone.
+
+    * `gateway.alb.yc.io/autoScale.maxSize` (`string`)
+
+      Maximum total number of resource units. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
+
+    * `gateway.alb.yc.io/zone.<availability_zone>.receiveTraffic` (`bool`)
+
+      Setting this parameter to `true` disables traffic to load balancer nodes in the specified availability zone.
+
+    * `gateway.alb.yc.io/logs.disable` (`bool`)
+
+      Setting this parameter to `true` disables load balancer logging.
+
+    * `gateway.alb.yc.io/logs.logGroupId` (`string`)
+
+      ID of the [log group](../../../logging/concepts/log-group.md) to write [load balancer](../../../application-load-balancer/logs-ref.md) logs to in {{ cloud-logging-full-name }}.
+
+    * `gateway.alb.yc.io/logs.discardRule.<rule_name>.httpCodes` (`string`)
+
+      List of HTTP status codes separated by commas. This is a log discard rule parameter. The rule name may only contain Latin letters, numbers, and hyphens.
+
+    * `gateway.alb.yc.io/logs.discardRule.<rule_name>.httpCodeIntervals` (`string`)
+
+      List of HTTP status code classes, such as `HTTP_4XX`, separated by commas. This is a log discard rule parameter. The rule name may only contain Latin letters and numbers.
+
+    * `gateway.alb.yc.io/logs.discardRule.<rule_name>.grpcCodes` (`string`)
+
+      List of gRPC status codes separated by commas. This is a log discard rule parameter. The rule name may only contain Latin letters and numbers.
+
+    * `gateway.alb.yc.io/logs.discardRule.<rule_name>.discardPercent` (`string`)
+
+      Log discard percentage. This is a log discard rule parameter. The rule name may only contain Latin letters and numbers.
+
+* `spec` (`GatewaySpec`; this is a required field)
+
+  Resource specification. For more information, see [below](#spec).
 
 ## GatewaySpec {#spec}
 
@@ -103,120 +157,121 @@ Where:
 * `gatewayClassName`: `yc-df-class`
 * `listeners` (`[]Listener`)
 
-   Load balancer listeners.
+  Load balancer listeners.
 
-   * `name` (`string`)
+  * `name` (`string`)
+    
+    Listener internal name.
+    
+    This name is only used by {{ k8s }}. Do not mistake it for the {{ alb-name }} listener name.
+  
+    The internal name should be in domain format, i.e., match the following regular expression:
+    
+    ```[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*```
+  
+    For example, `example`, `example.com`, and `foo.example.com` are valid internal names, while `example.com/bar` and `-example.` are not.
+    
+    The name may be up to 63 characters long.
+    
+  * `hostname` (`string`)
 
-      Internal name of the listener.
+    Listener domain name.
 
-      This name only serves the {{ k8s }} needs and is not the listener name in {{ alb-name }}.
+    {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+  
+    The listener will only process routes, i.e., the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources, if their domain names, i.e., the `spec.hostnames` fields, match the value specified in this setting.
 
-      A name should have the domain format, i.e., correspond to the following regular expression:
+  * `port` (`int32`)
+    
+    Listener incoming traffic port.
+    
+  * `protocol` (`string`)
+    
+    Listener incoming traffic protocol: `HTTP`, `HTTPS` or `TLS`.
 
-      ```[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*```
+  * `tls` (`GatewayTlsConfig`)
 
-      For instance, such names as `example`, `example.com`, or `foo.example.com` are suitable, while `example.com/bar` and `-example.` are not.
+    TLS settings for incoming HTTPS and TLS traffic.
+  
+    * `mode` (`string`)
+      
+      Mode for terminating TLS connections.
+      
+      You can only use the default `Terminate` setting, where incoming traffic is decrypted using certificates from `certificateRefs` and then routed to backends. `Passthrough` mode without connection termination is not supported.
 
-      The name may be up to 63 characters long.
+    * `certificateRefs` (`[]SecretObjectReference`)
+  
+      {{ k8s }} resources containing TLS certificates.
 
-   * `hostname` (`string`)
+      You can only use this setting if `protocol` is specified as `HTTPS` or `TLS`. The list must contain at least one certificate.
 
-      Domain name that the listener is enabled for.
+      The load balancer will only use the first certificate from the list while ignoring the others.
+  
+      You can specify a certificate from {{ certificate-manager-name }} (the [YCCertificate](../../../application-load-balancer/k8s-ref/yc-certificate.md) resource) or add a certificate to a cluster as a secret (the `Secret` resource) in the {{ managed-k8s-name }} management console or using `kubectl`:
+  
+      ```
+      kubectl create secret tls <secret_name> \
+        -n <namespace_name> \
+        --cert <certificate_file_path> \
+        --key <path_to_file_with_certificate_private_key>
+      ```
+  
+      * `group` (`string`)
 
-      {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+        Name of the {{ k8s }} API group associated with the certificate resource, e.g., `networking.k8s.io`.
 
-      Only the routes ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) whose domain names (`spec.hostnames` field) <q>overlap</q> with the domain name specified in this field will be linked to the listener.
+        The default value is an empty string that indicates the root API group.
 
-   * `port` (`int32`)
+      * `kind` (`string`)
 
-      Port the listener uses for incoming traffic.
+        Type of the {{ k8s }} certificate storage resource.
+  
+        The default value is `Secret`. For a certificate from {{ certificate-manager-name }}, use the `YCCertificate` value.
 
-   * `protocol` (`string`)
+      * `name` (`string`)
 
-      Protocol the listener uses for incoming traffic: `HTTP`, `HTTPS`, or `TLS`.
+        Name of the {{ k8s }} certificate storage resource.
 
-   * `tls` (`GatewayTlsConfig`)
+      * `namespace` (`string`)
+  
+        Certificate resource namespace.
 
-      TLS settings used for incoming HTTPS or TLS traffic.
+  * `allowedRoutes` (`AllowedRoutes`)
 
-      * `mode` (`string`)
+    Rules for selecting listener routes, i.e., the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources. To ensure route selection, these resources must have `Gateway` specified in their `spec.parentRefs` fields.
 
-         Mode for terminating TLS connections.
+    The system will use these routes to create [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can associate with the listener. If using `HTTPRoute` or `GRPCRoute`, the system will also create [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
 
-         The only supported and default value is `Terminate`: connections are terminated using certificates from the `certificateRefs` field, and decrypted traffic is routed to backends. `Passthrough` mode (without connection termination) is not supported.
+    * `namespaces` (`RouteNamespaces`)
+  
+      Namespace selection rule for the `HTTPRoute`, `GRPCRoute`, and `TLSRoute` listener resources.
+  
+      * `from` (`string`)
+        
+        Rule type:
+  
+        * `All`: All namespaces are available for resource selection.
+        * `Same`: Only the `Gateway` resource namespace specified in the `metadata.namespace` field is available for selection.
+        * `Selector`: Only namespaces meeting criteria specified in the `selector` field are available for selection.
 
-      * `certificateRefs` (`[]SecretObjectReference`)
-
-         List of {{ k8s }} resources where TLS certificates are stored.
-
-         Only used if the `protocol` field value is `HTTPS` or `TLS`. In which case the list must contain at least one certificate.
-
-         The load balancer only uses the first certificate from the list while ignoring the other ones.
-
-         You can add a certificate to a cluster as a secret (`Secret` resource) using the {{ managed-k8s-name }} management console or kubectl:
-
-         ```
-         kubectl create secret tls <secret_name> \
-           -n <namespace_name> \
-           --cert <path_to_certificate_file> \
-           --key <path_to_file_with_certificate_private_key>
-         ```
-
-         * `group` (`string`)
-
-            Name of the {{ k8s }} API group that the resource with the certificate belongs to, such as `networking.k8s.io`.
-
-            The default value is an empty line that indicates the root API group.
-
-         * `kind` (`string`)
-
-            Type of the {{ k8s }} resource that stores the certificate.
-
-            The default value is `Secret`.
-
-         * `name` (`string`)
-
-            Name of the {{ k8s }} resource that stores the certificate.
-
-         * `namespace` (`string`)
-
-            Namespace that the name of the resource with the certificate belongs to.
-
-   * `allowedRoutes` (`AllowedRoutes`)
-
-      Rules for selecting routes for the listener ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources). For a route to be selected, the resources must refer to the `Gateway` resource in the `spec.parentRefs` field in their configuration.
-
-      These routes are used to create the [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can link to the listener. If using `HTTPRoute`, [HTTP routers](../../../application-load-balancer/concepts/http-router.md) are also created.
-
-      * `namespaces` (`RouteNamespaces`)
-
-         Rule for selecting the namespaces of the `HTTPRoute` and `TLSRoute` resources you can link to the listener.
-
-         * `from` (`string`)
-
-            Rule type:
-
-            * `All`: Resources from all namespaces are selected.
-            * `Same`: Resources are only selected from the same namespace as that of the `Gateway` resource (`metadata.namespace` field).
-            * `Selector`: Resources are selected from namespaces that meet the requirements from the `selector` field.
-
-         * `selector` (`LabelSelector`)
-
-            A selector is a set of namespace requirements. Only namespaces that meet all the requirements from the `matchExpressions` and `matchLabels` fields are selected.
-
-            For more information, see the [{{ k8s }} API reference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.23/#labelselector-v1-meta).
-
-            If the `from` field value is different from `Selector`, the `selector` field is ignored.
+      * `selector` (`LabelSelector`)
+  
+        Namespace selection requirements. To be selected, a namespace must meet all criteria specified in the `matchExpressions` and `matchLabels` fields.
+  
+        For more information, see the [{{ k8s }} API reference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#labelselector-v1-meta).
+  
+        If you specify a value other than `Selector` in the `from` field, the `selector` field will be ignored.
 
 * `addresses` (`[]GatewayAddress`)
 
-   Load balancer's public IP settings.
+  Load balancer public IP settings.
 
-   If omitted, the load balancer is automatically assigned one public IP address.
+  If you skip this field, the system will automatically assign one public IP address to the load balancer.
 
-   * `type`: `IPAddress`
-   * `value` (`string`)
+  * `type`: `IPAddress`
 
-      {{ vpc-full-name }} public IP assigned to the load balancer.
-
-      Before specifying an IP address in this field, make sure to reserve it by following [this guide](../../../vpc/operations/get-static-ip.md).
+  * `value` (`string`)
+  
+    {{ vpc-full-name }} public IP address assigned to the load balancer.
+  
+    To use a public IP address, first, you need to reserve it by following [this guide](../../../vpc/operations/get-static-ip.md).

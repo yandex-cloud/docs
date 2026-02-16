@@ -1,0 +1,1 @@
+In the **{{ ui-key.yacloud_org.form.mfa-enforcement.caption.creation_time }}** field, specify the period in days during which the user must add a second authentication factor after registration.

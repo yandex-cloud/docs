@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/dataplatform/managed-greenplum'
+---
+
 # Миграция кластера {{ GP }}
 
 {% include notitle [Data migration MGP](../../_tutorials/dataplatform/datatransfer/managed-greenplum.md) %}

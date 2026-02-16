@@ -1,6 +1,17 @@
+---
+title: Создать триггер для {{ yds-full-name }}, который вызывает контейнер {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}.
+---
+
 # Создать триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
  Создайте [триггер для {{ yds-name }}](../concepts/trigger/data-streams-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../data-streams/concepts/glossary.md#stream-concepts). 
+
+{% note info %}
+
+{% include [trigger-message-format-note](../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -33,7 +44,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -183,7 +194,7 @@
 
          * `service_account_id` — идентификатор сервисного аккаунта, у которого есть права на чтение из потока данных и запись в него.
 
-         * `batch_cutoff` — максимальное время ожидания. Необязательный параметр. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch_cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch_size`.
+         * `batch_cutoff` — максимальное время ожидания. Допустимые значения от 1 до 60 секунд, значение по умолчанию — 1 секунда. Триггер группирует сообщения не дольше `batch_cutoff` и отправляет их в контейнер. Число сообщений при этом не превышает `batch_size`.
          * `batch_size` — размер группы сообщений. Необязательный параметр. Допустимые значения от 1 Б до 64 КБ, значение по умолчанию — 1 Б.
 
      {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}

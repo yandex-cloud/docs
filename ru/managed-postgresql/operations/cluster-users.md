@@ -5,6 +5,7 @@ description: Из статьи вы узнаете, как добавлять и
 
 # Управление пользователями {{ PG }}
 
+
 Вы можете добавлять и удалять пользователей, а также управлять их индивидуальными настройками.
 
 {% note warning %}
@@ -19,7 +20,7 @@ description: Из статьи вы узнаете, как добавлять и
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
 
 - CLI {#cli}
@@ -43,7 +44,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.list](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.List](../api-ref/User/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -54,7 +55,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/list.md#yandex.cloud.mdb.postgresql.v1.ListUsersResponse).
 
 - gRPC API {#grpc-api}
 
@@ -63,7 +64,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.List](../api-ref/grpc/User/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -93,13 +94,41 @@ description: Из статьи вы узнаете, как добавлять и
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Введите имя пользователя базы данных и пароль.
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+  
+  1. Выберите способ аутентификации:
 
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_password_gbuZC }}** — аутентификация по имени пользователя и паролю.
+
+       1. Введите имя пользователя базы данных.
+
+           {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+       
+       1. Выберите, как задать пароль:
+
+           * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+           * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
+
+           Чтобы увидеть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
+     * **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}** — аутентификация с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../../iam/concepts/users/accounts.md#local).
+
+       В поле **{{ ui-key.yacloud.common.user }}** откройте список доступных аккаунтов пользователей и выберите нужный аккаунт. Чтобы найти нужный аккаунт, используйте строку поиска над списком.
+
+
+  1. Выберите протокол проверки пароля. Возможные значения:
+  
+     * **MD5**
+     * **SCRAM-SHA-256**
+       
+     Если протокол не выбран, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `Password Encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `MD5`.
+  
   1. Выберите тип защиты от удаления.
 
      Возможные значения:
@@ -133,13 +162,20 @@ description: Из статьи вы узнаете, как добавлять и
   Где:
 
   * `cluster-name` — имя кластера.
-  * `password` — пароль для пользователя.
+  * `password` — пароль для пользователя. Длина пароля — от 8 до 128 символов.
+
+      
+      Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `--password=<пароль>` укажите `--generate-password`.
+
+      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
   * `permissions` — список баз, к которым пользователь должен иметь доступ.
   * `conn-limit` — максимальное количество соединений для пользователя.
 
   В этой команде указаны только основные настройки пользователя.
 
-  {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+  {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
 
   Чтобы задать настройки СУБД для пользователя, воспользуйтесь параметрами, описанными в разделе [Пользовательские настройки](../concepts/settings-list.md#dbms-user-settings).
 
@@ -177,7 +213,15 @@ description: Из статьи вы узнаете, как добавлять и
         * `login` — разрешение на вход в БД: `true` или `false`.
         * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
-      {% include [user-name-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+      {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+      Длина пароля — от 8 до 128 символов.
+
+      
+      Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль>"` укажите `generate_password = true`.
+
+      Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   1. Проверьте корректность настроек.
 
@@ -193,7 +237,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Create](../api-ref/User/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -211,7 +255,8 @@ description: Из статьи вы узнаете, как добавлять и
                      }
                    ],
                    "connLimit": "<максимальное_количество_подключений_к_БД>",
-                   "deletionProtection": <защита_от_удаления:_true_или_false>
+                   "deletionProtection": <защита_от_удаления>,
+                   "userPasswordEncryption": <протокол_проверки_пароля>
                  }
                }'
      ```
@@ -219,17 +264,30 @@ description: Из статьи вы узнаете, как добавлять и
      Где `userSpec` — настройки нового пользователя БД:
 
      * `name` — имя пользователя.
-     * `password` — пароль пользователя.
 
-       {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+        {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+     * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+        
+        Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
+
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите нужный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
      * `permissions.databaseName` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `connLimit` — максимальное количество подключений к БД для пользователя.
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`. 
+     * `userPasswordEncryption` — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `password_encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `USER_PASSWORD_ENCRYPTION_MD5`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -238,7 +296,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Create](../api-ref/grpc/User/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -258,7 +316,8 @@ description: Из статьи вы узнаете, как добавлять и
                  }
                ],
                "conn_limit": "<максимальное_количество_подключений_к_БД>",
-               "deletion_protection": <защита_от_удаления:_true_или_false>
+               "deletion_protection": <защита_от_удаления>,
+               "user_password_encryption": <протокол_проверки_пароля>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -268,13 +327,26 @@ description: Из статьи вы узнаете, как добавлять и
      Где `user_spec` — настройки нового пользователя БД:
 
      * `name` — имя пользователя.
-     * `password` — пароль пользователя.
 
-       {% include [username-and-password-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+        {% include [username-limits](../../_includes/mdb/mpg/note-info-user-name-and-pass-limits.md) %}
+
+     * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+        
+        Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
+
+        Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нового пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
      * `permissions.database_name` — массив баз данных, к которым должен иметь доступ пользователь. Каждый элемент массива соответствует отдельной БД.
      * `conn_limit` — максимальное количество подключений к БД для пользователя.
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
+     * `user_password_encryption` — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, берется значение [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings) `password_encryption`, заданной на уровне кластера. Значение настройки по умолчанию — `USER_PASSWORD_ENCRYPTION_MD5`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -294,12 +366,30 @@ description: Из статьи вы узнаете, как добавлять и
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
-  1. Задайте новый пароль и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
-  {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+  
+  1. Выберите, как задать новый пароль:
+
+      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — сгенерировать пароль с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man).
+
+
+  1. (Опционально) Выберите протокол проверки пароля. Возможные значения:
+  
+     * **MD5**
+     * **SCRAM-SHA-256**
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
+
+      
+      Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+      Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
 - CLI {#cli}
 
@@ -315,7 +405,15 @@ description: Из статьи вы узнаете, как добавлять и
        --password=<новый_пароль>
   ```
 
-  {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+    Длина пароля — от 8 до 128 символов.
+
+    
+    Новый пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
+
+    Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+    Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
@@ -339,7 +437,19 @@ description: Из статьи вы узнаете, как добавлять и
       }
       ```
 
-      {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+      Длина пароля — от 8 до 128 символов.
+
+      
+      Новый пароль также можно сгенерировать с помощью сервиса [Connection Manager](cluster-create.md#conn-man). Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
+
+      Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+      {% note info %}
+
+      Если старый пароль был сгенерирован, его нельзя перегенерировать с помощью {{ TF }} из-за ограничений провайдера.
+
+      {% endnote %}
+
 
   1. Проверьте корректность настроек.
 
@@ -355,7 +465,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -366,8 +476,9 @@ description: Из статьи вы узнаете, как добавлять и
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
-                 "updateMask": "password",
-                 "password": "<новый_пароль>"
+                 "updateMask": "<перечень_изменяемых_параметров>",
+                 "password": "<новый_пароль>",
+                 "userPasswordEncryption": <протокол_проверки_пароля>
                }'
      ```
 
@@ -375,15 +486,34 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-       В данном случае передается только один параметр.
+     * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
-     * `password` — новый пароль.
+       
+       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого измените содержимое поля `data`:
 
-       {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+          ```bash
+          {
+            "updateMask": "<перечень_изменяемых_параметров>",
+            "generatePassword": true,
+            "userPasswordEncryption": <протокол_проверки_пароля>
+          }
+          ```
 
+       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+       Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
+     * `userPasswordEncryption` (опционально) — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, его значение при изменении пароля не меняется.
+     
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -392,7 +522,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -408,10 +538,11 @@ description: Из статьи вы узнаете, как добавлять и
              "user_name": "<имя_пользователя>",
              "update_mask": {
                "paths": [
-                 "password"
+                 <перечень_изменяемых_параметров>
                ]
              },
-             "password": "<новый_пароль>"
+             "password": "<новый_пароль>",
+             "user_password_encryption": <протокол_проверки_пароля>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.UserService.Update
@@ -421,15 +552,40 @@ description: Из статьи вы узнаете, как добавлять и
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-       В данном случае передается только один параметр.
+     * `password` — новый пароль. Длина пароля — от 8 до 128 символов.
 
-     * `password` — новый пароль.
+       
+       Пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого измените содержимое параметра `d`:
 
-       {% include [password-limits](../../_includes/mdb/mpg/note-info-password-limits.md) %}
+          ```bash
+          {
+            "cluster_id": "<идентификатор_кластера>",
+            "user_name": "<имя_пользователя>",
+            "update_mask": {
+              "paths": [
+                <перечень_изменяемых_параметров>
+              ]
+            },
+            "generate_password": true,
+            "user_password_encryption": <протокол_проверки_пароля>
+          }
+          ```
+
+       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+
+       Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
+     * `user_password_encryption` (опционально) — протокол проверки пароля. Возможные значения:
+            
+       * `USER_PASSWORD_ENCRYPTION_MD5`
+       * `USER_PASSWORD_ENCRYPTION_SCRAM_SHA_256`
+     
+       Если протокол не передан, его значение при изменении пароля не меняется. 
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -447,7 +603,7 @@ description: Из статьи вы узнаете, как добавлять и
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Настройте права пользователя на доступ к определенным базам данных:
@@ -556,7 +712,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -580,11 +736,11 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `settings` — новые настройки. Доступный набор настроек см. в [описании метода](../api-ref/User/update.md#body_params) и в разделе [{#T}](../concepts/settings-list.md#dbms-user-settings).
+     * `settings` — новые настройки. Доступный набор настроек см. в [описании метода](../api-ref/User/update.md#yandex.cloud.mdb.postgresql.v1.UpdateUserRequest) и в разделе [{#T}](../concepts/settings-list.md#dbms-user-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -593,7 +749,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -626,11 +782,11 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `settings` — новые настройки. Доступный набор настроек см. в [описании метода](../api-ref/grpc/user_service.md#UserSettings3 и в разделе [{#T}](../concepts/settings-list.md#dbms-user-settings).
+     * `settings` — новые настройки. Доступный набор настроек см. в [описании метода](../api-ref/grpc/User/get.md#yandex.cloud.mdb.postgresql.v1.UserSettings) и в разделе [{#T}](../concepts/settings-list.md#dbms-user-settings).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -640,10 +796,10 @@ description: Из статьи вы узнаете, как добавлять и
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Настройте защиту от удаления пользователя. Для этого выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
+  1. Настройте защиту пользователя от удаления. Для этого выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - {{ TF }} {#tf}
@@ -676,7 +832,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -688,12 +844,10 @@ description: Из статьи вы узнаете, как добавлять и
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
+                 "deletionProtection": <защита_от_удаления>
                  }
                }'
      ```
-
-     Где:
 
      Где:
 
@@ -701,11 +855,11 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -714,7 +868,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -733,7 +887,7 @@ description: Из статьи вы узнаете, как добавлять и
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
+             "deletion_protection": <защита_от_удаления>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.UserService.Update
@@ -745,11 +899,11 @@ description: Из статьи вы узнаете, как добавлять и
 
        В данном случае передается только один параметр.
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита пользователя от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -769,7 +923,7 @@ description: Из статьи вы узнаете, как добавлять и
 
   Чтобы удалить пользователя:
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Подтвердите удаление.
@@ -815,7 +969,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [User.delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Delete](../api-ref/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -826,7 +980,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/User/delete.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -835,7 +989,7 @@ description: Из статьи вы узнаете, как добавлять и
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [UserService/Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Delete](../api-ref/grpc/User/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -854,7 +1008,7 @@ description: Из статьи вы узнаете, как добавлять и
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя пользователя — со [списком пользователей в кластере](#list-users).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/create.md#yandex.cloud.operation.Operation2).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

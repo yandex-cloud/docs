@@ -1,4 +1,9 @@
-# Memory limit has been exceeded during query execution
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Memory limit has been exceeded during query execution.
+---
+
+# [{{ datalens-full-name }}] Memory limit has been exceeded during query execution
 
 `ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED`
 
@@ -18,7 +23,9 @@
 
 Если источник данных — {{ CH }}, найдите запросы от {{ datalens-short-name }} в [system.query_log]({{ ch.docs }}/operations/system-tables/query_log/).
 
+
 Если  источник данных — MBD {{ PG }}, посмотрите [анализ производительности](../../../tutorials/dataplatform/mpg-profiling.md).
+
 
 {% endnote %}
 

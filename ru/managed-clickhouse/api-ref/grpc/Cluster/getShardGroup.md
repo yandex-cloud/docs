@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/getShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.GetShardGroup {#GetShardGroup}
+# Managed Service for ClickHouse API, gRPC: ClusterService.GetShardGroup
 
 Returns the specified shard group.
 
@@ -15,23 +15,27 @@ Returns the specified shard group.
 
 ```json
 {
-  "clusterId": "string",
-  "shardGroupName": "string"
+  "cluster_id": "string",
+  "shard_group_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster that the shard group belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| shardGroupName | **string**
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| shard_group_name | **string**
 
 Required field. Name of the shard group to request information about.
 
-To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShardGroups#ListShardGroups) request. ||
+To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/grpc/Cluster/listShardGroups#ListShardGroups) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## ShardGroup {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}
@@ -39,9 +43,9 @@ To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/
 ```json
 {
   "name": "string",
-  "clusterId": "string",
+  "cluster_id": "string",
   "description": "string",
-  "shardNames": [
+  "shard_names": [
     "string"
   ]
 }
@@ -52,13 +56,13 @@ To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/
 || name | **string**
 
 Name of the shard group. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the shard group belongs to. ||
 || description | **string**
 
 Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
+|| shard_names[] | **string**
 
 List of shard names contained in the shard group. ||
 |#

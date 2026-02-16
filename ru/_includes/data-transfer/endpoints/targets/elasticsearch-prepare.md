@@ -1,10 +1,3 @@
-{% list tabs %}
+{% include notitle [White IP list](../../configure-white-ip.md) %}
 
-
-- {{ ES }}
-    
-    * {% include notitle [White IP list](../../configure-white-ip.md) %}
-
-  {% include [prepare-es](../../prepare-es.md) %}
-
-{% endlist %}
+{% include [prepare-es](../../prepare-es.md) %}

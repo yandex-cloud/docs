@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Instance/getSerialPortOutput.md
 ---
 
-# Compute Cloud API, gRPC: InstanceService.GetSerialPortOutput {#GetSerialPortOutput}
+# Compute Cloud API, gRPC: InstanceService.GetSerialPortOutput
 
 Returns the serial port output of the specified Instance resource.
 
@@ -15,16 +15,18 @@ Returns the serial port output of the specified Instance resource.
 
 ```json
 {
-  "instanceId": "string",
+  "instance_id": "string",
   "port": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| instanceId | **string**
+|| instance_id | **string**
 
-Required field. ID of the instance to return the serial port output for. ||
+Required field. ID of the instance to return the serial port output for.
+
+The maximum string length in characters is 50. ||
 || port | **int64**
 
 Serial port to retrieve data from. The default is 1. ||

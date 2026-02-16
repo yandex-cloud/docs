@@ -1,5 +1,6 @@
 # Установка CLI
 
+
 Вы можете устанавливать [CLI](../../glossary/cli.md) в разных режимах: 
 - [Интерактивная установка CLI](#interactive)
 - [Неинтерактивная установка CLI](#non-interactive)
@@ -48,3 +49,6 @@
 
 {% endlist %}
 
+## См. также {#see-also}
+
+* [{#T}](update-cli.md)

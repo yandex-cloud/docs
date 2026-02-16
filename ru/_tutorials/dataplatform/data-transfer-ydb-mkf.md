@@ -1,4 +1,4 @@
-# Поставка данных из {{ mkf-full-name }} в {{ ydb-full-name }}
+# Поставка данных из {{ ydb-full-name }} в {{ mkf-full-name }}
 
 
 Вы можете отслеживать изменения данных в _источнике_ {{ ydb-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC). Эти данные будут автоматически добавлены в топики {{ mkf-short-name }} с именами таблиц {{ ydb-name }}.
@@ -13,6 +13,19 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру поставки данных:
@@ -21,17 +34,20 @@
 
    - Вручную {#manual}
 
+
        1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
        1. Если вы выбрали режим БД {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
        1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
+          {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+       
         1. Если вы используете группы безопасности, [настройте их так, чтобы к кластеру можно было подключаться из интернета](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
-       1. Настройте в кластере-приемнике топики {{ KF }}. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_{{ ydb-short-name}}>`. В этом руководстве в качестве примера используется префикс `cdc`.
+       1. Настройте в кластере-приемнике топики {{ KF }}. Настройки различаются в зависимости от используемого [способа управления топиками](../../managed-kafka/concepts/topics.md#management). Имена топиков для данных формируются как `<префикс_топика>.<имя_таблицы_{{ ydb-short-name }}>`. В этом руководстве в качестве примера используется префикс `cdc`.
 
           * Если выбрано управление топиками через стандартные интерфейсы {{ yandex-cloud }} (Консоль управления, CLI, API):
 
@@ -155,7 +171,11 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+           
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `editor`.
+
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите имена таблиц и директорий базы данных {{ ydb-name }} для переноса.
 
            {% note warning %}
@@ -408,37 +428,26 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+
+
 1. Если при создании эндпоинта для источника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
-Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs group=instructions %}
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+   {% list tabs group=instructions %}
 
-    1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+   - Вручную {#manual}
 
-- {{ TF }} {#tf}
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-ydb-mkf.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-ydb.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

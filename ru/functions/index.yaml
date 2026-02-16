@@ -4,12 +4,6 @@ description:
     Сервис {{ sf-name }} позволяет запускать приложения в безопасном,
     отказоустойчивом и масштабируемом окружении без создания и обслуживания
     виртуальных машин.
-meta:
-  title: '{{ sf-full-name }}'
-  description: >-
-    Сервис Yandex Cloud Functions позволяет запускать приложения в безопасном,
-    отказоустойчивом и масштабируемом окружении без создания и обслуживания
-    виртуальных машин.
 links:
   - title: Начало работы
     description: Создайте первую функцию
@@ -47,7 +41,7 @@ links:
   - title: R
     description: Разработка функций на языке R
     href: lang/r/
-  - title: C#
+  - title: .NET Core
     description: Разработка функций на языке C#
     href: lang/csharp/
   - title: Справочник API Functions (англ.)
@@ -74,3 +68,19 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: '{{ sf-full-name }}'
+  description: >-
+    Сервис Yandex Cloud Functions позволяет запускать приложения в безопасном,
+    отказоустойчивом и масштабируемом окружении без создания и обслуживания
+    виртуальных машин.
+  keywords:
+    - '{{ sf-short-name }}'
+    - '{{ sf-name }}'
+    - '{{ sf-full-name }}'
+    - сервис {{ sf-name }}
+    - functions в {{ yandex-cloud }}
+    - функции в {{ yandex-cloud }}
+    - бессерверные функции
+    - бессерверные вычисления
+    - облачные функции

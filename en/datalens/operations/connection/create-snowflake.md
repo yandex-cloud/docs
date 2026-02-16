@@ -44,7 +44,9 @@ To create a Snowflake connection:
    * **Warehouse**: [Storage](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#create-warehouse) used by the database.
    * **User role**: [Role of the user](https://docs.snowflake.com/en/sql-reference/sql/create-role#create-role) who has access to the database you are connecting to.
 
-1. (Optional) Make sure the connection works properly. To do this, click **Check connection**.
+   ![image](../../../_assets/datalens/operations/connection/connection-snowflake-db.png)
+
+1. (Optional) Test the connection. To do this, click **Check connection**.
 1. Click **Create connection**.
 
 

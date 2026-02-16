@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/listPasswords.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.ListPasswords {#ListPasswords}
+# IoT Core Service, gRPC: RegistryService.ListPasswords
 
 Retrieves the list of passwords for the specified registry.
 
@@ -15,13 +15,13 @@ Retrieves the list of passwords for the specified registry.
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to list passwords in.
 
@@ -34,9 +34,9 @@ To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/grpc/R
 {
   "passwords": [
     {
-      "registryId": "string",
+      "registry_id": "string",
       "id": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -55,13 +55,13 @@ A registry password.
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the password belongs to. ||
 || id | **string**
 
 ID of the password. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

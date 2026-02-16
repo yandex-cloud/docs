@@ -1,6 +1,6 @@
 # Viewing operations with a secret
 
-All actions with {{ lockbox-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+The system logs all actions with {{ lockbox-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -9,7 +9,7 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
@@ -37,7 +37,7 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
   +----------------------+---------------------+----------------------+---------------------+--------+---------------+
   ```
 
-  By default, information about operations is provided as text. To get detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc lockbox secret list-operations <secret_name_or_ID> --format yaml
@@ -78,11 +78,11 @@ All actions with {{ lockbox-name }} resources are logged as a list of operations
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
-1. Get detailed information about the operation:
+1. Copy the operation ID.
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

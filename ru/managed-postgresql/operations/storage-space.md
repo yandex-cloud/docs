@@ -1,5 +1,5 @@
 ---
-title: Управление дисковым пространством
+title: Управление дисковым пространством {{ mpg-name }}
 description: При заполнении хранилища более чем на 97% хост автоматически переходит в режим read-only. Вы можете отслеживать степень заполнения хранилища, настраивать автоматическое увеличение его размера, отключать режим read-only
 ---
 
@@ -13,14 +13,14 @@ description: При заполнении хранилища более чем н
 
 
 * [Выведите кластер из режима read-only вручную](#read-only-solutions) и освободите место в хранилище, удалив часть данных.
-* [Увеличьте размер хранилища](#change-disk-size), чтобы снять режим read-only автоматически.
+* [Увеличьте размер хранилища](#change-disk-size), чтобы снять режим read-only автоматически. Вы также можете сменить тип диска.
 * [Настройте автоматическое увеличение размера хранилища](#disk-size-autoscale).
 
 
 ## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
 
-1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Выберите сервисный дашборд **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
@@ -76,7 +76,7 @@ description: При заполнении хранилища более чем н
 > COMMIT;
 > ```
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
@@ -90,11 +90,15 @@ description: При заполнении хранилища более чем н
 
 - Консоль управления {#console}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+        * Выберите [тип диска](../concepts/storage.md).
+        * Укажите нужный размер диска.
+
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -103,7 +107,7 @@ description: При заполнении хранилища более чем н
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -111,16 +115,17 @@ description: При заполнении хранилища более чем н
         {{ yc-mdb-pg }} cluster update --help
         ```
 
-    1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+    1. Укажите [тип диска](../concepts/storage.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
         ```bash
         {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+            --disk-type <тип_диска> \
             --disk-size <размер_хранилища_ГБ>
         ```
 
 - {{ TF }} {#tf}
 
-    Чтобы увеличить размер хранилища для кластера:
+    Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -128,14 +133,15 @@ description: При заполнении хранилища более чем н
 
         Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
 
-    1. Измените в описании кластера {{ mpg-name }} значение атрибута `disk_size` в блоке `config.resources`:
+    1. Измените в описании кластера {{ mpg-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `config.resources`:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
           ...
           config {
             resources {
-              disk_size = <размер_хранилища_в_гигабайтах>
+              disk_type_id = "<тип_диска>"
+              disk_size    = <размер_хранилища_в_гигабайтах>
               ...
             }
           }
@@ -158,7 +164,7 @@ description: При заполнении хранилища более чем н
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -169,9 +175,10 @@ description: При заполнении хранилища более чем н
        --header "Content-Type: application/json" \
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
-                 "updateMask": "configSpec.resources.diskSize",
+                 "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                  "configSpec": {
                    "resources": {
+                     "diskTypeId": "<тип_диска>",
                      "diskSize": "<размер_хранилища_в_байтах>"
                    }
                  }
@@ -182,13 +189,14 @@ description: При заполнении хранилища более чем н
 
      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-       В данном случае передается только один параметр.
+     * `configSpec.resources` — параметры хранилища:
 
-     * `configSpec.resources.diskSize` — новый размер хранилища в байтах.
+         * `diskTypeId` — [тип диска](../concepts/storage.md).
+         * `diskSize` — новый размер хранилища в байтах.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -197,7 +205,7 @@ description: При заполнении хранилища более чем н
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -212,11 +220,13 @@ description: При заполнении хранилища более чем н
              "cluster_id": "<идентификатор_кластера>",
              "update_mask": {
                "paths": [
+                 "config_spec.resources.disk_type_id",
                  "config_spec.resources.disk_size"
                ]
              },
              "config_spec": {
                "resources": {
+                 "disk_type_id": "<тип_диска>",
                  "disk_size": "<размер_хранилища_в_байтах>"
                }
              }
@@ -229,13 +239,14 @@ description: При заполнении хранилища более чем н
 
      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-       В данном случае передается только один параметр.
+     * `config_spec.resources` — параметры хранилища:
 
-     * `config_spec.resources.disk_size` — новый размер хранилища в байтах.
+         * `disk_type_id` — [тип диска](../concepts/storage.md).
+         * `disk_size` — новый размер хранилища в байтах.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
 
@@ -253,7 +264,7 @@ description: При заполнении хранилища более чем н
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ mpg-name }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ mpg-name }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 
@@ -263,6 +274,8 @@ description: При заполнении хранилища более чем н
             * незамедлительно.
 
             Можно задать оба правила, но порог для незамедлительного увеличения должен быть выше порога для увеличения в окно обслуживания.
+
+            Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
 
         1. В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
 
@@ -295,13 +308,45 @@ description: При заполнении хранилища более чем н
 
         Если настроено увеличение хранилища в окно обслуживания, настройте расписание окна обслуживания.
 
+        Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
+        
+- {{ TF }} {#tf}
+
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
+        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+
+    1. Добавьте в блок `config` блок `disk_size_autoscaling`:
+
+        {% include [disk-size-autoscaling](../../_includes/mdb/mpg/terraform/disk-size-autoscaling.md) %}
+        
+        {% note warning %}
+        
+        Если заданы оба порога, значение `emergency_usage_threshold` должно быть не меньше `planned_usage_threshold`.
+        
+        {% endnote %}
+    
+    1. Если задан параметр `planned_usage_threshold`, настройте [расписание окна технического обслуживания](cluster-maintenance.md#set-maintenance-window).
+    
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
+
 - REST API {#api}
 
   1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -315,15 +360,15 @@ description: При заполнении хранилища более чем н
                  "updateMask": "configSpec.diskSizeAutoscaling,maintenanceWindow",
                  "configSpec": {
                    "diskSizeAutoscaling": {
-                     "plannedUsageThreshold": "<процент_для_планового_увеличения>",
-                     "emergencyUsageThreshold": "<процент_для_незамедлительного_увеличения>",
+                     "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                     "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
                      "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
                    }
                  },
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<час>"
+                     "hour": "<час_дня>"
                    }
                  }
                }'
@@ -335,28 +380,24 @@ description: При заполнении хранилища более чем н
 
        В данном случае надо передать только параметры `configSpec.diskSizeAutoscaling` и `maintenanceWindow`.
 
-     * `configSpec.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища:
-
-       * `plannedUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
-
-         Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
-
-         Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenanceWindow`.
-
-       * `emergencyUsageThreshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
+     * `configSpec` — настройки кластера:
+       
+       {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
          Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено). Должно быть не меньше значения `plannedUsageThreshold`.
 
        * `diskSizeLimit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
 
+        Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
+
      * `maintenanceWindow` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `plannedUsageThreshold`. Содержит следующие параметры:
 
        * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -365,7 +406,7 @@ description: При заполнении хранилища более чем н
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -386,15 +427,15 @@ description: При заполнении хранилища более чем н
              },
              "config_spec": {
                "disk_size_autoscaling": {
-                 "planned_usage_threshold": "<процент_для_планового_увеличения>",
-                 "emergency_usage_threshold": "<процент_для_незамедлительного_увеличения>",
+                 "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                 "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
                }
              },
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<час>"
+                 "hour": "<час_дня>"
                }
              }
            }' \
@@ -408,28 +449,20 @@ description: При заполнении хранилища более чем н
 
        В данном случае надо передать только параметры `config_spec.disk_size_autoscaling` и `maintenance_window`.
 
-     * `config_spec.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
+     * `config_spec` — настройки кластера:
 
-       * `planned_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено в следующее окно обслуживания.
+       {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mpg/disk-size-autoscaling-grpc.md) %}
 
-         Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено).
-
-         Если вы задали этот параметр, настройте расписание окна технического обслуживания в параметре `maintenance_window`.
-
-       * `emergency_usage_threshold` — процент заполнения хранилища, при котором хранилище будет увеличено немедленно.
-
-         Значение задается в процентах от `0` до `100`. По умолчанию — `0` (автоматическое расширение отключено). Должно быть не меньше значения `planned_usage_threshold`.
-
-       * `disk_size_limit` — максимальный размер хранилища (в байтах), который может быть установлен при достижении одного из заданных процентов заполнения.
+        Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
 
      * `maintenance_window` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `planned_usage_threshold`. Содержит следующие параметры:
 
        * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
+       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster).
 
 {% endlist %}
 

@@ -1,6 +1,7 @@
 ---
 title: How to read records
-description: This guide describes how you can read records.
+description: Follow this guide to read records.
+sourcePath: en/logging_includes/operations/read-logs.md
 ---
 
 # Reading records

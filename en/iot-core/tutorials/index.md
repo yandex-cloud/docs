@@ -1,6 +1,6 @@
 # All tutorials for {{ iot-name }}
 
-Examples of how to use {{ iot-full-name }} on Android devices in different programming languages can be found on [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot).
+Examples of how to use {{ iot-full-name }} on Android devices in different programming languages can be found on [GitHub](https://github.com/yandex-cloud-examples/?q=iot).
 
 ## Working with Mosquitto {#mosquitto}
 

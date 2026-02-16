@@ -1,11 +1,151 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/videos
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel where the video will be created.
+            The maximum string length in characters is 50.
+          type: string
+        title:
+          description: |-
+            **string**
+            Required field. Title of the video to be displayed in interfaces and players.
+            The maximum string length in characters is 300.
+          type: string
+        description:
+          description: |-
+            **string**
+            Detailed description of the video content and context.
+            Optional field that can provide additional information about the video.
+            The maximum string length in characters is 5000.
+          type: string
+        thumbnailId:
+          description: |-
+            **string**
+            ID of the thumbnail image to be used for the video.
+            If not provided, a thumbnail may be automatically generated during transcoding.
+            The maximum string length in characters is 50.
+          type: string
+        autoTranscode:
+          description: |-
+            **enum** (AutoTranscode)
+            Controls whether transcoding starts automatically after upload.
+            Set to ENABLE to automatically initiate transcoding after upload,
+            or DISABLE for manual initiation via the Transcode() method.
+            - `ENABLE`: Automatically start transcoding after the video upload is complete.
+            - `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method.
+          type: string
+          enum:
+            - AUTO_TRANSCODE_UNSPECIFIED
+            - ENABLE
+            - DISABLE
+        stylePresetId:
+          description: |-
+            **string**
+            ID of the style preset to apply to the video during processing.
+            Style presets define visual appearance settings for the video player.
+            The maximum string length in characters is 50.
+          type: string
+        autoPublish:
+          description: |-
+            **boolean**
+            Controls whether the video is automatically published after transcoding.
+            When set to true, the video's visibility status will be set to PUBLISHED
+            once transcoding is complete, making it available for watching.
+          type: boolean
+        enableAd:
+          description: |-
+            **boolean**
+            Controls the ability to display advertisements for this video.
+            Default: true
+            Set explicitly to false to disable advertisements for this specific video.
+          type: boolean
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom user-defined labels as `key:value` pairs.
+            Maximum 64 labels per video.
+            Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+            Values can contain alphanumeric characters and various symbols.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        tusd:
+          description: |-
+            **[VideoTUSDParams](#yandex.cloud.video.v1.VideoTUSDParams)**
+            Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
+            This is a push-based upload method where the client pushes data to the server.
+            Includes only one of the fields `tusd`.
+            Specifies the video upload source method (exactly one must be chosen).
+          $ref: '#/definitions/VideoTUSDParams'
+        publicAccess:
+          description: |-
+            **object**
+            Video is publicly available.
+            Includes only one of the fields `publicAccess`, `signUrlAccess`.
+            Video access permission settings (exactly one must be chosen).
+          $ref: '#/definitions/VideoPublicAccessParams'
+        signUrlAccess:
+          description: |-
+            **object**
+            Access to the video is restricted by temporarily signed links.
+            Includes only one of the fields `publicAccess`, `signUrlAccess`.
+            Video access permission settings (exactly one must be chosen).
+          $ref: '#/definitions/VideoSignURLAccessParams'
+      required:
+        - channelId
+        - title
+      additionalProperties: false
+      oneOf:
+        - required:
+            - publicAccess
+        - required:
+            - signUrlAccess
+    definitions:
+      VideoTUSDParams:
+        type: object
+        properties:
+          fileSize:
+            description: |-
+              **string** (int64)
+              Total size of the file to be uploaded, in bytes.
+              Value must be greater than 0.
+            type: string
+            format: int64
+          fileName:
+            description: |-
+              **string**
+              Original name of the file being uploaded.
+              This is used for reference and does not affect the upload process.
+            type: string
+      VideoPublicAccessParams:
+        type: object
+        properties: {}
+      VideoSignURLAccessParams:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/video/v1/api-ref/Video/create.md
 ---
 
-# Video API, REST: Video.Create {#Create}
+# Video API, REST: Video.Create
 
-Create video.
+Creates a new video in the specified channel.
+The video can be created from different sources: TUS upload, direct link, or S3 storage.
 
 ## HTTP request
 
@@ -21,16 +161,20 @@ POST https://video.{{ api-host }}/video/v1/videos
   "title": "string",
   "description": "string",
   "thumbnailId": "string",
-  "labels": "string",
+  "autoTranscode": "string",
+  "stylePresetId": "string",
+  "autoPublish": "boolean",
+  "enableAd": "boolean",
+  "labels": "object",
   // Includes only one of the fields `tusd`
   "tusd": {
     "fileSize": "string",
     "fileName": "string"
   },
   // end of the list of possible fields
-  // Includes only one of the fields `publicAccess`, `authSystemAccess`
+  // Includes only one of the fields `publicAccess`, `signUrlAccess`
   "publicAccess": "object",
-  "authSystemAccess": "object"
+  "signUrlAccess": "object"
   // end of the list of possible fields
 }
 ```
@@ -39,40 +183,80 @@ POST https://video.{{ api-host }}/video/v1/videos
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel where the video will be created.
+
+The maximum string length in characters is 50. ||
 || title | **string**
 
-Video title. ||
+Required field. Title of the video to be displayed in interfaces and players.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Video description. ||
+Detailed description of the video content and context.
+Optional field that can provide additional information about the video.
+
+The maximum string length in characters is 5000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
-|| labels | **string**
+ID of the thumbnail image to be used for the video.
+If not provided, a thumbnail may be automatically generated during transcoding.
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+The maximum string length in characters is 50. ||
+|| autoTranscode | **enum** (AutoTranscode)
+
+Controls whether transcoding starts automatically after upload.
+Set to ENABLE to automatically initiate transcoding after upload,
+or DISABLE for manual initiation via the Transcode() method.
+
+- `ENABLE`: Automatically start transcoding after the video upload is complete.
+- `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
+|| stylePresetId | **string**
+
+ID of the style preset to apply to the video during processing.
+Style presets define visual appearance settings for the video player.
+
+The maximum string length in characters is 50. ||
+|| autoPublish | **boolean**
+
+Controls whether the video is automatically published after transcoding.
+When set to true, the video's visibility status will be set to PUBLISHED
+once transcoding is complete, making it available for watching. ||
+|| enableAd | **boolean**
+
+Controls the ability to display advertisements for this video.
+Default: true
+Set explicitly to false to disable advertisements for this specific video. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per video.
+Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
+Values can contain alphanumeric characters and various symbols.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || tusd | **[VideoTUSDParams](#yandex.cloud.video.v1.VideoTUSDParams)**
 
-Upload video using the tus protocol.
+Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
+This is a push-based upload method where the client pushes data to the server.
 
 Includes only one of the fields `tusd`.
 
-Source type. ||
+Specifies the video upload source method (exactly one must be chosen). ||
 || publicAccess | **object**
 
-Video is available to everyone.
+Video is publicly available.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access rights. ||
-|| authSystemAccess | **object**
+Video access permission settings (exactly one must be chosen). ||
+|| signUrlAccess | **object**
 
-Checking access rights using the authorization system.
+Access to the video is restricted by temporarily signed links.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access rights. ||
+Video access permission settings (exactly one must be chosen). ||
 |#
 
 ## VideoTUSDParams {#yandex.cloud.video.v1.VideoTUSDParams}
@@ -81,10 +265,13 @@ Video access rights. ||
 ||Field | Description ||
 || fileSize | **string** (int64)
 
-File size. ||
+Total size of the file to be uploaded, in bytes.
+
+Value must be greater than 0. ||
 || fileName | **string**
 
-File name. ||
+Original name of the file being uploaded.
+This is used for reference and does not affect the upload process. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -117,20 +304,40 @@ File name. ||
     "description": "string",
     "thumbnailId": "string",
     "status": "string",
-    "duration": "string",
+    "errorMessage": "string",
     "visibilityStatus": "string",
+    "duration": "string",
+    "autoTranscode": "string",
+    "stylePresetId": "string",
+    "enableAd": "boolean",
+    "subtitleIds": [
+      "string"
+    ],
+    "features": {
+      "summary": {
+        "result": "string",
+        "urls": [
+          {
+            "url": "string",
+            "trackIndex": "string",
+            "srcLang": "string"
+          }
+        ]
+      }
+    },
     // Includes only one of the fields `tusd`
     "tusd": {
-      "url": "string"
+      "url": "string",
+      "fileSize": "string"
     },
     // end of the list of possible fields
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
+    // Includes only one of the fields `publicAccess`, `signUrlAccess`
     "publicAccess": "object",
-    "authSystemAccess": "object",
+    "signUrlAccess": "object",
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -211,7 +418,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || videoId | **string**
 
-ID of the video. ||
+Unique identifier of the video. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -233,66 +440,95 @@ A list of messages that carry the error details. ||
 
 ## Video {#yandex.cloud.video.v1.Video}
 
+Main entity representing a video in the platform.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the video. ||
+Unique identifier of the video. ||
 || channelId | **string**
 
-ID of the channel where the video was created. ||
+Identifier of the channel where the video is created and managed. ||
 || title | **string**
 
-Video title. ||
+Title of the video displayed to users in interfaces and players. ||
 || description | **string**
 
-Video description. ||
+Detailed description of the video content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the video visually. ||
 || status | **enum** (VideoStatus)
 
-Video status.
+Current processing status of the video.
 
-- `VIDEO_STATUS_UNSPECIFIED`: Video status unspecified.
-- `WAIT_UPLOADING`: Waiting for the whole number of bytes to be loaded.
-- `PROCESSING`: Video processing.
-- `READY`: Video is ready, processing is completed.
+- `WAIT_UPLOADING`: The video upload is in progress, waiting for all bytes to be received.
+- `UPLOADED`: The video has been fully uploaded and is ready for transcoding.
+- `PROCESSING`: The video is currently being processed.
+- `READY`: The video has been successfully processed and is ready for watching.
 - `ERROR`: An error occurred during video processing. ||
-|| duration | **string** (duration)
+|| errorMessage | **string**
 
-Video duration. Optional, may be empty until the transcoding result is ready. ||
+Error message describing the reason for video processing failure, if any. ||
 || visibilityStatus | **enum** (VisibilityStatus)
 
-Video visibility status.
+Current visibility status controlling whether the video is publicly available.
 
-- `VISIBILITY_STATUS_UNSPECIFIED`: Visibility status unspecified.
-- `PUBLISHED`: Video is published and available for viewing.
-- `UNPUBLISHED`: Video is unpublished, only admin can watch. ||
+- `PUBLISHED`: The video is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The video is available only to administrators. ||
+|| duration | **string** (duration)
+
+Total duration of the video.
+Optional, may be empty until the transcoding result is ready. ||
+|| autoTranscode | **enum** (AutoTranscode)
+
+Auto-transcoding setting that controls the video processing workflow.
+Set ENABLE to automatically initiate transcoding after upload,
+or DISABLE for manual initiation via the Transcode() method.
+
+- `ENABLE`: Automatically start transcoding after the video upload is complete.
+- `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
+|| stylePresetId | **string**
+
+Identifier of the style preset applied to the video during processing. ||
+|| enableAd | **boolean**
+
+Controls the ability to display advertisements for this video.
+Default: true.
+Set explicitly to false to disable advertisements for a specific video. ||
+|| subtitleIds[] | **string**
+
+List of identifiers defining the active subtitles available for the video. ||
+|| features | **[VideoFeatures](#yandex.cloud.video.v1.VideoFeatures)**
+
+Additional video processing features and their results, such as summarization. ||
 || tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
 
-Upload video using the tus protocol.
+Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
+@see https://tus.io/
 
 Includes only one of the fields `tusd`.
 
-Source type. ||
+Specifies the video upload source method (one source variant must be chosen). ||
 || publicAccess | **object**
 
-Video is available to everyone.
+Allows unrestricted public access to the video via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access rights. ||
-|| authSystemAccess | **object**
+Specifies the video access permission settings. ||
+|| signUrlAccess | **object**
 
-Checking access rights using the authorization system.
+Restricts video access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Video access rights. ||
+Specifies the video access permission settings. ||
 || createdAt | **string** (date-time)
 
-Time when video was created.
+Timestamp when the video was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -302,7 +538,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last video update.
+Timestamp of the last modification to the video or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -310,16 +546,72 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per video.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
-## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+## VideoFeatures {#yandex.cloud.video.v1.VideoFeatures}
+
+Contains additional processing features and their results for the video.
+
+#|
+||Field | Description ||
+|| summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
+
+Results of the video content summarization process. ||
+|#
+
+## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
+
+Contains the results of video summarization.
+
+#|
+||Field | Description ||
+|| result | **enum** (FeatureResult)
+
+Current status of the summarization process.
+
+- `NOT_REQUESTED`: The feature processing has not been requested.
+- `PROCESSING`: The feature is currently being processed.
+- `SUCCESS`: The feature processing has completed successfully.
+- `FAILED`: The feature processing has failed. ||
+|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)**
+
+List of URLs to summarization results for different audio tracks. ||
+|#
+
+## SummaryURL {#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL}
+
+Contains a URL to a summarization result for a specific audio track.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-URL for uploading video via the tus protocol. ||
+URL to the summarization result file. ||
+|| trackIndex | **string** (int64)
+
+Input audio track index (one-based) that was summarized. ||
+|| srcLang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T. ||
+|#
+
+## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
+
+Represents a video upload source using the TUS (Tus Resumable Upload Protocol) protocol.
+This is a push-based upload method where the client pushes data to the server.
+@see https://tus.io/
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL endpoint for uploading the video via the TUS protocol. ||
+|| fileSize | **string** (int64)
+
+Total size of the uploaded file, in bytes. ||
 |#

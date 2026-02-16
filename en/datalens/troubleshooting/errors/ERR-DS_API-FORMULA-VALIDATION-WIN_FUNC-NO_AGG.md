@@ -1,4 +1,9 @@
-# Window function has no aggregated expressions among its arguments
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG'
+description: This page describes the Window function has no aggregated expressions among its arguments {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Window function has no aggregated expressions among its arguments
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG`
 

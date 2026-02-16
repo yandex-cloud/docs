@@ -1,15 +1,25 @@
 # Migrating collections from {{ MG }} to {{ mmg-name }}
 
 
-To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to directly transfer the data, make the old databases read-only, and transfer the load to the {{ yandex-cloud }} cluster.
+To migrate collections stored in a third-party {{ MG }} cluster to a {{ mmg-name }} cluster, you need to transfer the data, write-lock the old database, and transfer the load to a {{ yandex-cloud }} cluster.
+
+
+## Required paid resources {#paid-resources}
+
+The support cost for this solution includes:
+
+* {{ mmg-name }} target cluster fee: use of computing resources allocated to hosts and disk space (see [{{ mmg-name }} pricing](../../storedoc/pricing.md)).
+* Per-transfer fee: use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
 Make sure that you can connect to the source cluster hosts from the internet.
 
-## Transferring data using {{ data-transfer-full-name }} {#data-transfer}
+## Migrating data using {{ data-transfer-full-name }} {#data-transfer}
 
-{% include notitle [MMG collections migration with Data Transfer](datatransfer/managed-mongodb.md) %}
+{% include notitle [MMG collections migration with Data Transfer](datatransfer/storedoc.md) %}
 
 ## Example of migrating a collection {#example}
 
@@ -21,8 +31,8 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 ### Set up the source cluster {#source-setup}
   
-1. Connect to the `mongos` host of the {{ MG }} source cluster using [`mongosh`](https://docs.mongodb.com/mongodb-shell).
-1. Create a `db1` database.
+1. Connect to the `mongos` host of the {{ MG }} source cluster using `mongosh`.
+1. Create a `db1`.
 1. Create a user with the `db1` owner permissions and log in with that user's credentials:
 
     ```javascript
@@ -70,17 +80,17 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
 - Non-sharded target cluster {#non-sharded}
 
-  1. [Create](../../managed-mongodb/operations/cluster-create.md) a {{ mmg-name }} cluster with any suitable configuration.
-  1. [Create](../../managed-mongodb/operations/databases.md#add-db) a database named `db1`.
-  1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database.
+  1. [Create](../../storedoc/operations/cluster-create.md) a {{ mmg-name }} cluster with any suitable configuration.
+  1. [Create](../../storedoc/operations/databases.md#add-db) a database named `db1`.
+  1. [Create a user](../../storedoc/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../storedoc/concepts/users-and-roles.md#readWrite) role for the new database.
   
 - Sharded target cluster {#sharded}
 
-  1. [Create](../../managed-mongodb/operations/cluster-create.md) a {{ mmg-name }} cluster with any suitable configuration. There must be at least two hosts in the cluster.
-  1. [Enable sharding](../../managed-mongodb/operations/shards.md).
-  1. [Create](../../managed-mongodb/operations/databases.md#add-db) a database named `db1`.
-  1. [Create a user](../../managed-mongodb/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../managed-mongodb/concepts/users-and-roles.md#readWrite) role for the created database and the [`mdbShardingManager`](../../managed-mongodb/concepts/users-and-roles.md#mdbShardingManager) role for the `admin` service base.
-  1. Following [these steps](../../managed-mongodb/tutorials/sharding.md), create an empty sharded collection named `collection1` in `db1` and configure it.
+  1. [Create](../../storedoc/operations/cluster-create.md) a {{ mmg-name }} cluster with any suitable configuration. There must be at least two hosts in the cluster.
+  1. [Enable sharding](../../storedoc/operations/shards.md).
+  1. [Create](../../storedoc/operations/databases.md#add-db) a database named `db1`.
+  1. [Create a user](../../storedoc/operations/cluster-users.md#adduser) named `user_transfer` with the [`readWrite`](../../storedoc/concepts/users-and-roles.md#readWrite) role for the created database and the [`mdbShardingManager`](../../storedoc/concepts/users-and-roles.md#mdbShardingManager) role for the `admin` service base.
+  1. Following [these steps](../../storedoc/tutorials/sharding.md), create an empty sharded collection named `collection1` in `db1` and configure it.
 
 {% endlist %}
 
@@ -144,9 +154,9 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
   1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
   1. Wait for the transfer status to change to {{ dt-status-repl }}.
-  1. Switch the source cluster to _read-only_ mode and transfer the load to the target cluster.
+  1. Switch the source cluster to <q>read-only</q> mode and transfer the load to the target cluster.
   1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-  1. [Connect](../../managed-mongodb/operations/connect/index.md) to the target cluster.
+  1. [Connect](../../storedoc/operations/connect/index.md) to the target cluster.
   1. Make sure `collection1` has been transferred and contains 200,000 documents as in the source cluster:
   
      ```javascript
@@ -162,9 +172,9 @@ Make sure that you can connect to the source cluster hosts from the internet.
 
   1. [Activate](../../data-transfer/operations/transfer.md#activate) the created transfer.
   1. Wait for the transfer status to change to {{ dt-status-repl }}.
-  1. Switch the source cluster to _read-only_ mode and transfer the load to the target cluster.
+  1. Switch the source cluster to <q>read-only</q> mode and transfer the load to the target cluster.
   1. On the [transfer monitoring](../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data copying was completed are transferred to the target cluster.
-  1. [Connect](../../managed-mongodb/operations/connect/index.md) to the target cluster.
+  1. [Connect](../../storedoc/operations/connect/index.md) to the target cluster.
   1. Make sure `collection1` has been transferred, contains 200,000 documents as in the source cluster, and the documents are distributed across shards:
        
       ```javascript
@@ -210,8 +220,8 @@ Some resources are not free of charge. To avoid paying for them, delete the reso
 
 1. [Deactivate](../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
-    To learn more about the transfer lifecycle, see the [{{ data-transfer-full-name }}](../../data-transfer/concepts/transfer-lifecycle.md) documentation.
+    To learn more about the transfer lifecycle, see this [{{ data-transfer-full-name }} guide](../../data-transfer/concepts/transfer-lifecycle.md).
 
 1. [Delete](../../data-transfer/operations/transfer.md#delete) the stopped transfer.
 1. [Delete endpoints for both the source and target](../../data-transfer/operations/endpoint/index.md#delete).
-1. [Delete the created {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md) cluster.
+1. [Delete the created {{ mmg-name }} cluster](../../storedoc/operations/cluster-delete.md).

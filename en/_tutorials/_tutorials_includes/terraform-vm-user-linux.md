@@ -7,8 +7,8 @@
 
    ```hcl
    metadata = {
-     user-data = "${file("<file_path>/meta.txt")}"
+     user-data = "${file("<path_to_file>/meta.txt")}"
    }
    ```
 
-For more information about working with metadata, see [{#T}](../../compute/concepts/vm-metadata).
+For more information about working with metadata, see [{#T}](../../compute/concepts/vm-metadata.md).

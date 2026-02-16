@@ -1,15 +1,252 @@
+---
+title: How to encrypt a disk in {{ compute-full-name }}
+description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
+---
+
 # Encrypting a disk
 
-1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
-1. [Create](../image-create/create-from-disk.md) an image of the disk you want to encrypt.
-1. Create an encrypted disk from the image: 
+{% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
 
-   {% include [encryption-disk-from-image](../../../_includes/compute/encryption-disk-from-image.md) %}
+{% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
-1. [Delete](../image-control/delete.md) the image.
-1. [Delete](../disk-control/delete.md) the unencrypted disk.
+{% list tabs group=instructions %}
 
-### See also
+- Management console {#console}
+
+  1. {% include [encryption-preparations](../../../_includes/compute/encryption-preparations.md) %}
+  1. [Create](../image-create/create-from-disk.md) an image of the disk you want to encrypt.
+  1. Create an encrypted disk from the image:
+
+      {% include [encryption-disk-from-image-withoutnotes](../../../_includes/compute/encryption-disk-from-image-withoutnotes.md) %}
+
+      {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+
+  1. [Delete](../image-control/delete.md) the image.
+  1. [Delete](../disk-control/delete.md) the unencrypted disk.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Create a {{ kms-full-name }} encryption key:
+
+      ```bash
+      yc kms symmetric-key create \
+        --name <key_name> \
+        --default-algorithm aes-256 \
+        --rotation-period 24h \
+        --deletion-protection
+      ```
+
+      Where `--name` is the name of the new {{ kms-name }} key.
+
+      Result:
+
+      ```text
+      id: abj73fd9mekk********
+      folder_id: b1geoelk7fld********
+      created_at: "2025-05-20T17:27:35Z"
+      name: my-key1
+      status: ACTIVE
+      primary_version:
+        id: abjdno4pqi67********
+        key_id: abj73fd9mekk********
+        status: ACTIVE
+        algorithm: AES_256
+        created_at: "2025-05-20T17:27:35Z"
+        primary: true
+      default_algorithm: AES_256
+      rotation_period: 86400s
+      deletion_protection: true
+      ```
+
+  1. Get a list of all disks in the default folder:
+
+      ```bash
+      yc compute disk list
+      ```
+
+      Result:
+      ```text
+      +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
+      |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
+      +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
+      +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
+      ```
+
+  1. Create an image of the disk you want to encrypt.
+
+      ```bash
+      yc compute image create \
+        --name <image_name> \
+        --source-disk-name <unencrypted_disk_name>
+      ```
+
+      Where:
+      * `--name`: Name of the image you are creating.
+      * `--source-disk-name`: Name of the unencrypted disk you are creating the image for.
+
+      Result:
+
+      ```text
+      done (9s)
+      id: fd8lb5jnr2m2********
+      folder_id: b1geoelk7fld********
+      created_at: "2025-05-20T17:30:33Z"
+      name: fromcli
+      min_disk_size: "21474836480"
+      status: READY
+      os:
+        type: LINUX
+      hardware_generation:
+        legacy_features:
+          pci_topology: PCI_TOPOLOGY_V1
+      ```
+
+  1. Create an encrypted disk from the image:
+
+      ```bash
+      yc compute disk create <encrypted_disk_name> \
+        --source-image-name <image_name> \
+        --kms-key-name <key_name>
+      ```
+
+      Where:
+      * `--source-image-name`: Image name to create an encrypted disk.
+      * `--kms-key-name`: Encryption key name.
+
+      Result:
+
+      ```text
+      done (53s)
+      id: fhmihpagi991********
+      folder_id: b1geoelk7fld********
+      created_at: "2025-05-20T17:39:01Z"
+      name: fromcliencrypted
+      type_id: network-hdd
+      zone_id: {{ region-id }}-a
+      size: "21474836480"
+      block_size: "4096"
+      status: READY
+      source_image_id: fd8lb5jnr2m2********
+      disk_placement_policy: {}
+      hardware_generation:
+        legacy_features:
+          pci_topology: PCI_TOPOLOGY_V1
+      kms_key:
+        key_id: abj73fd9mekk********
+        version_id: abjdno4pqi67********
+      ```
+
+      {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+
+  1. Delete the image:
+
+      ```bash
+      yc compute image delete <image_name>
+      ```
+
+      Result:
+
+      ```text
+      done (15s)
+      ```
+
+  1. Delete the unencrypted disk:
+
+      ```bash
+      yc compute disk delete <unencrypted_disk_name>
+      ```
+
+      Result:
+
+      ```text
+      done (7s)
+      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  To encrypt a disk using {{ TF }}:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
+
+      ```hcl
+      # Creating a {{ kms-full-name }} key
+
+      resource "yandex_kms_symmetric_key" "my-key" {
+        name                = "Encrypt key"
+        default_algorithm   = "AES_256"
+        rotation_period     = "8760h"
+        deletion_protection = true
+        lifecycle {
+          prevent_destroy = true
+        }
+      }
+
+      # Creating an image
+
+      resource "yandex_compute_image" "image-1" {
+        name        = "disk-image"
+        source_disk = "<unencrypted_disk_ID>"
+      }
+
+      # Creating an encrypted disk
+
+      resource "yandex_compute_disk" "empty-disk" {
+        name       = "<encrypted_disk_name>"
+        type       = "network-hdd"
+        zone       = "{{ region-id}}-a"
+        size       = 20
+        block_size = 4096
+        image_id   = yandex_compute_image.image-1.id
+        kms_key_id = yandex_kms_symmetric_key.my-key.id
+        depends_on = [yandex_compute_image.image-1]
+      }
+      ```
+
+      Where:
+      * `source_disk`: Unencrypted disk ID.
+      * `name`: Name of the encrypted disk you are creating.
+
+     For more information about `yandex_compute_disk` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+
+  1. [Delete](../image-control/delete.md) the image.
+  1. [Delete](../disk-control/delete.md) the unencrypted disk.
+
+
+- API {#api}
+
+  1. Create a {{ kms-full-name }} encryption key using the [create](../../../kms/api-ref/SymmetricKey/create.md) REST API method for the [SymmetricKey](../../../kms/api-ref/SymmetricKey/index.md) resource or the [SymmetricKeyService/Create](../../../kms/api-ref/grpc/SymmetricKey/create.md) gRPC API call.
+
+  1. Create an image using the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call. Specify the disk ID in your request.
+
+      To request a list of available disks, use the [list](../../api-ref/Disk/list.md) REST API method or the [DiskService/List](../../api-ref/grpc/Disk/list.md) gRPC API call.
+
+  1. Create an encrypted disk from an image using the [create](../../api-ref/Disk/create.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Create](../../api-ref/grpc/Disk/create.md) gRPC API call.
+
+      {% include [disk-ready](../../../_includes/compute/disk-ready.md) %}
+
+  1. Delete an image using the [delete](../../api-ref/Image/delete.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Delete](../../api-ref/grpc/Image/delete.md) gRPC API call.
+
+  1. Delete an unencrypted disk using the [delete](../../api-ref/Disk/delete.md) REST API method for the [Disk](../../api-ref/Disk/index.md) resource or the [DiskService/Delete](../../api-ref/grpc/Disk/delete.md) gRPC API call.
+
+{% endlist %}
+
+
+#### See also {#see-also}
 
 * [{#T}](../../concepts/encryption.md)
+* [{#T}](../image-control/encrypt.md)
 * [{#T}](../snapshot-control/snapshot-encrypt.md)

@@ -22,12 +22,12 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. Add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name  you will use to identify a value.
         * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
         You can create multiple key-value pairs per version.
         
@@ -39,7 +39,7 @@ With secret version management, you can:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       resource "yandex_lockbox_secret_version_hashed" "my_version" {
@@ -57,18 +57,18 @@ With secret version management, you can:
 
       * `secret_id`: ID of the secret you are creating a version for.
       * (Optional) `description`: Any comment on the secret version.
-      * `key_N`: Secret key. Non-secret name that identifies a value.
+      * `key_N`: Secret key. Non-secret name you will use to identify a value.
       * `text_value_N`: Explicitly represented secret data.
 
       The `key_N/text_value_N` pairs are numbered sequentially from 1 to 10 (10 pairs are supported). If only one pair is required, use `key_1/text_value_1`.
 
       {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This creates a new version of the specified secret. You can check the new version and its configuration using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+  This creates a new version of the specified secret. You can check the new version and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
   ```bash
   yc lockbox secret list-versions <secret_ID>
@@ -87,7 +87,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
     1. (Optional) Add **{{ ui-key.yacloud.common.description }}** of the version.
@@ -99,6 +99,116 @@ With secret version management, you can:
           You can create multiple key-value pairs per version.
     1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}** or **{{ ui-key.yacloud.common.save }}**.
 
+
+- {{ TF }} {#tf}
+
+    #### Secret generation with {{ yandex-cloud }}
+
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+    {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+    1. You can create a new generated secret version when [creating](secret-create.md) it. Specify the secret generation parameters in the `yandex_lockbox_secret` resource description under `password_payload_specification` and create a new secret version with a reference to the secret:
+  
+       ```hcl
+       # Creating a generated secret
+       resource "yandex_lockbox_secret" "my_secret" {
+         name = "<secret_name>"
+
+         password_payload_specification {
+           password_key        = "<secret_key>"
+           length              = "<length>"
+           include_uppercase   = true
+           include_lowercase   = true
+           include_digits      = true
+           include_punctuation = true
+         }
+       }
+
+       # Creating a secret version
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = yandex_lockbox_secret.my_secret.id
+       }
+       ```
+  
+       Where:
+       * `password_payload_specification`: Secret generating parameters:
+         * `password_key`: Secret key. Non-secret name you will use to identify a value.
+         * `length`: Length of the generated secret value. This is a required setting.
+         * `include_uppercase `: Use uppercase Latin letters (A...Z). The default value is `true`.
+         * `include_lowercase`: Use lowercase Latin letters (a...z). The default value is `true`.
+         * `include_digits`: Use numbers (0...9). The default value is `true`.
+         * `include_punctuation`: Use special characters. The default value is `true`.
+
+       For more information about the `yandex_lockbox_secret` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret).
+
+    1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    You can check the new secret and its contents using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  
+    ```bash
+    yc lockbox payload get <secret_name_or_ID>
+    ```
+
+    #### Secret generation with a custom script
+
+    You can create a new generated secret version using a secret generation script of your own. The script's output value will not be displayed in {{ TF }} State.
+
+    {% cut "Example of a bash secret generation script" %}
+    
+    ```bash
+    #!/bin/bash
+    choose() { echo ${1:RANDOM%${#1}:1}; }
+    
+    {
+        choose 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        choose 'abcdefghijklmnopqrstuvwxyz'
+        choose '0123456789'
+        choose '!@#$%^\&'
+        for i in $( seq 1 $(( 4 + RANDOM % 8 )) )
+        do
+            choose '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        done
+    } | sort -R | tr -d '\n'
+    ```
+   
+    {% endcut %}
+
+    1. In the `yandex_lockbox_secret_version` resource description under `entries`, specify the `command.path` parameter, i.e., path to the secret generation script.
+
+       ```hcl
+       # Creating a secret version with a password generation script
+       resource "yandex_lockbox_secret_version" "my_version" {
+         secret_id = "<secret_ID>"
+
+         entries {
+           key = "<secret_key>"
+           command {
+             path = "<path_to_script>"
+           }
+         }
+       }
+       ```
+
+       Where:
+       * `secret_id`: ID of the secret you are creating a version for.
+       * `key`: Secret key. Non-secret name you will use to identify a value.
+       * `path`: Path to the secret generation script.
+
+       For more information about the `yandex_lockbox_secret_version` settings, see [this {{ TF }} guide]({{ tf-provider-resources-link }}/lockbox_secret_version).
+
+    1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+  
+    You can check the new secret and its contents using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+  
+    ```bash
+    yc lockbox payload get <secret_name_or_ID>
+    ```
+
 {% endlist %}
 
 ## Getting information about a version {#get-version}
@@ -108,7 +218,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
     1. Click a version to see the details about its key-value pairs.
@@ -145,13 +255,13 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. Select **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
     1. Edit or add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name that identifies a value.
+        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name  you will use to identify a value.
         * For a user secret, **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Secret data in an explicit form.
         You can create multiple key-value pairs per version.
         * For a generated secret, you can change the key and the value parameters. To do this, click **Edit secret** and [specify new parameters](secret-update.md).
@@ -173,7 +283,7 @@ With secret version management, you can:
       ```bash
       yc lockbox secret add-version <secret_name> \
         --description <secret_version_description> \
-        --payload "<secret_version_contents_array>" \
+        --payload "<array_with_secret_version_contents>" \
         --base-version-id <existing_secret_version_ID>
       ```
 
@@ -208,7 +318,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. Select **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
@@ -227,7 +337,7 @@ With secret version management, you can:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
     1. Select **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
@@ -266,7 +376,7 @@ With secret version management, you can:
 
 - {{ TF }} {#tf}
 
-  To schedule the removal of a version, remove the resource description for that version from the configuration file. Using {{ TF }} you cannot set the time until deletion, the time will be set by default: 7 days.
+  To schedule the removal of a version, remove the resource description for that version from the configuration file. You cannot use {{ TF }} to set time to deletion, it will be set by default: 7 days.
 
 - API {#api}
 

@@ -1,9 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:logs
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster that the job is being created for.
+            The maximum string length in characters is 50.
+          type: string
+        jobId:
+          description: |-
+            **string**
+            ID of the job being created.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum bytes of job log per response to return. If the number of available
+            bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse)
+            that can be used to get the next page of output in subsequent list requests.
+            Default value: 1048576.
+            The maximum value is 1048576.
+          default: '1048576'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/listLog.md
 ---
 
-# Data Proc API, REST: Job.ListLog {#ListLog}
+# Yandex Data Processing API, REST: Job.ListLog
 
 Returns a log for specified job.
 
@@ -19,10 +64,14 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-Required field. ID of the job being created. ||
+Required field. ID of the job being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.ListJobLogRequest}
@@ -34,11 +83,15 @@ Required field. ID of the job being created. ||
 The maximum bytes of job log per response to return. If the number of available
 bytes is larger than `pageSize`, the service returns a [ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse)
 that can be used to get the next page of output in subsequent list requests.
-Default value: 1048576. ||
+Default value: 1048576.
+
+The maximum value is 1048576. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request. ||
+[ListJobLogResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListJobLogResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListJobLogResponse}
@@ -56,7 +109,7 @@ Page token. To get the next page of results, set `page_token` to the
 ||Field | Description ||
 || content | **string**
 
-Requested part of Data Proc Job log. ||
+Requested part of Yandex Data Processing Job log. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for ListLog requests,

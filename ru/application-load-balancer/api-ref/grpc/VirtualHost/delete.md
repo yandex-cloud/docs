@@ -3,35 +3,37 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/VirtualHost/delete.md
 ---
 
-# Application Load Balancer API, gRPC: VirtualHostService.Delete {#Delete}
+# Application Load Balancer API, gRPC: VirtualHostService.Delete
 
 Deletes the specified virtual host.
 
 ## gRPC request
 
-**rpc Delete ([DeleteVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Delete ([DeleteVirtualHostRequest](#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## DeleteVirtualHostRequest {#yandex.cloud.apploadbalancer.v1.DeleteVirtualHostRequest}
 
 ```json
 {
-  "httpRouterId": "string",
-  "virtualHostName": "string"
+  "http_router_id": "string",
+  "virtual_host_name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 Required field. ID of the HTTP router to delete a virtual host from.
 
 To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/grpc/HttpRouter/list#List) request. ||
-|| virtualHostName | **string**
+|| virtual_host_name | **string**
 
 Required field. Name of the virtual host to delete.
 
-To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/grpc/VirtualHost/list#List) request. ||
+To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/grpc/VirtualHost/list#List) request.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -40,13 +42,13 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "httpRouterId": "string",
-    "virtualHostName": "string"
+    "http_router_id": "string",
+    "virtual_host_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -65,13 +67,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -114,10 +116,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| httpRouterId | **string**
+|| http_router_id | **string**
 
 ID of the HTTP router that the virtual host is being deleted from. ||
-|| virtualHostName | **string**
+|| virtual_host_name | **string**
 
 Name of the virtual host that is being deleted. ||
 |#

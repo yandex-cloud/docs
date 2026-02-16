@@ -1,6 +1,5 @@
 # Автоматическая привязка политики резервного копирования {{ backup-full-name }} к ВМ с помощью консоли управления, CLI или API
 
-
 Чтобы создать виртуальную машину с автоматической привязкой к политике резервного копирования {{ backup-name }}:
 
 1. [Подготовьте облако к работе](#before-begin).
@@ -59,7 +58,7 @@
       name: backup-sa
       ```
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте сервисному аккаунту роль `backup.editor` на каталог:
 
@@ -82,7 +81,7 @@
               type: serviceAccount
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -125,7 +124,7 @@
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Создайте подсеть `cloud-network-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
 
@@ -149,7 +148,7 @@
       - 10.1.0.0/16
       ```
 
-      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -160,7 +159,7 @@
 
 ## Создайте и настройте группу безопасности {#create-sg}
 
-Чтобы агент {{ backup-name }} мог обмениваться данными с серверами [провайдера резервного копирования](../../backup/concepts/index.md#providers), группа безопасности должна содержать правила, разрешающие сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }}.
+Чтобы [агент {{ backup-name }}](../../backup/concepts/agent.md) мог обмениваться данными с серверами [провайдера резервного копирования](../../backup/concepts/index.md#providers), группа безопасности должна содержать правила, разрешающие сетевой доступ к IP-адресам ресурсов сервиса {{ backup-name }}.
 
 Также в группу безопасности будет добавлено правило для доступа на ВМ по SSH.
 
@@ -170,7 +169,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите создать ВМ с подключением к {{ backup-name }}.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `backup-sg`.
   1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `cloud-network`.
@@ -250,7 +249,7 @@
           - 0.0.0.0/0
   ```
 
-  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -273,11 +272,12 @@
   1. Укажите параметры политики:
 
       * **{{ ui-key.yacloud.common.name }}** — `weekly-backup`.
-      * **{{ ui-key.yacloud.backup.field_repeat-period-type }}** — `{{ ui-key.yacloud.backup.value_period-time-weekly }}`.
-      * **{{ ui-key.yacloud.backup.field_days-of-week }}** — `{{ ui-key.yacloud.backup.value_day-fri }}`.
-      * **{{ ui-key.yacloud.backup.field_time }}** — `03:00`.
-      * **{{ ui-key.yacloud.backup.field_backup-scheme }}** — `{{ ui-key.yacloud.backup.value_type-incremental }}`.
-      * **{{ ui-key.yacloud.backup.field_auto-delete }}** — `{{ ui-key.yacloud.backup.value_retention-save-all }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}** — `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_schedule-type }}** — `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}** — `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}** — `{{ ui-key.yacloud.common.units.label_day-Fr }}`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}** — `03:00`.
+      * **{{ ui-key.yacloud.backup.policy-form.field_retention }}** — `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -420,7 +420,7 @@
 
       Сохраните идентификатор (`id`) политики.
 
-      Подробнее о команде `yc backup policy create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/backup/policy/create.md).
+      Подробнее о команде `yc backup policy create` см. в [справочнике CLI](../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - API {#api}
 
@@ -434,32 +434,36 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ВМ.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Введите имя ВМ: `backup-instance`.
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md): `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      1. Выберите подсеть `cloud-network-{{ region-id }}-d`.
-      1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Выберите группу безопасности `backup-sg`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `cloud-network` и подсеть `cloud-network-{{ region-id }}-d`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `backup-sg`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-      1. Выберите сервисный аккаунт `backup-sa`.
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `vm-user`.
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя: `vm-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `backup-instance`.
 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      1. Включите опцию **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-      1. Выберите политику резервного копирования, [созданную ранее](#create-policy).
+      * Выберите сервисный аккаунт `backup-sa`.
+      * Включите опцию **{{ backup-name }}**.
+      * Выберите политику резервного копирования, [созданную ранее](#create-policy).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   1. Опишите конфигурацию пользовательских метаданных в файле `user-data.yaml`:
 
@@ -480,7 +484,7 @@
         - perl
         - jq
       runcmd:
-        - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+        - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
   1. Сохраните идентификатор политики `weekly-backup` в файле `cloudbackup.json`:
@@ -503,7 +507,7 @@
         --service-account-name backup-sa
       ```
 
-      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
+      Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
@@ -511,7 +515,7 @@
 
   В теле запроса передайте:
 
-  * в поле `metadata`: объект `user-data`, содержащий конфигурацию пользовательских метаданных со скриптом для установки агента резервного копирования;
+  * в поле `metadata`: объект `user-data`, содержащий конфигурацию пользовательских метаданных со скриптом для установки агента {{ backup-name }};
   * в поле `cloudbackup`: идентификатор политики резервного копирования. Подробности о получении идентификатора политики см. на странице [{#T}](../../backup/operations/policy-vm/get-info.md).
 
   Используйте `\n` в качестве разделителя строк:
@@ -529,7 +533,7 @@
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <публичный_SSH-ключ>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<идентификатор_политики>\"]}"
     },
     "bootDiskSpec": {

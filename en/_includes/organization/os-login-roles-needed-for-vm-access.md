@@ -1,0 +1,1 @@
+For connection to a virtual machine or {{ k8s }} node with {{ oslogin }} access enabled, assign the `compute.osLogin` or `compute.osAdminLogin` role to the user or [service account](../../iam/concepts/users/service-accounts.md). When connecting using the {{ yandex-cloud }} CLI, you additionally need the `compute.operator` role.

@@ -1,9 +1,83 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        logGroupId:
+          description: |-
+            **string**
+            Required field. ID of the log group to update.
+            To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGroup/list#List) request.
+          type: string
+      required:
+        - logGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the log group.
+            The name must be unique within the folder.
+          pattern: ([a-z]([-a-z0-9]{1,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            New Description of the log group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New log group labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        retentionPeriod:
+          description: |-
+            **string** (duration)
+            New log group entry retention period.
+            Entries will be present in group during this period.
+            If specified, must be non-negative.
+            Empty or zero value is treated as no limit.
+          type: string
+          format: duration
+        dataStream:
+          description: |-
+            **string**
+            If specified, log records will be written to this data stream
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/LogGroup/update.md
 ---
 
-# Cloud Logging Service, REST: LogGroup.Update {#Update}
+# Cloud Logging Service, REST: LogGroup.Update
 
 Updates the specified log group.
 
@@ -31,7 +105,7 @@ To get a log group ID make a [LogGroupService.List](/docs/logging/api-ref/LogGro
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "retentionPeriod": "string",
   "dataStream": "string"
 }
@@ -56,7 +130,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New Description of the log group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New log group labels as `key:value` pairs. ||
 || retentionPeriod | **string** (duration)
@@ -101,7 +175,7 @@ If specified, log records will be written to this data stream ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "retentionPeriod": "string",
     "dataStream": "string"
@@ -234,7 +308,7 @@ Log group name. ||
 || description | **string**
 
 Log group description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Log group labels. ||
 || status | **enum** (Status)

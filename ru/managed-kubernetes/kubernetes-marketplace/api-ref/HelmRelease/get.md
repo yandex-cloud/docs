@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. The ID of the Helm release to retrieve.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/get.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.Get {#Get}
+# Kubernetes Marketplace, REST: HelmRelease.Get
 
 Returns the specified Helm release.
 
@@ -69,7 +86,6 @@ Kubernetes marketplace product version. ||
 
 Status of a helm release.
 
-- `STATUS_UNSPECIFIED`
 - `UNKNOWN`: Helm release status is unknown
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.

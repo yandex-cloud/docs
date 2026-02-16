@@ -4,9 +4,15 @@
 
 {% include [node-vm-manipulation-warning](../../../_includes/managed-kubernetes/node-vm-manipulation-warning.md) %}
 
-## Assigning {{ k8s }} labels when creating a node group {#node-group-creation}
+## Restrictions for {{ k8s }} label names and values {#restrictions}
 
-You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at the same time. To do this, specify the labels in the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group.](../../operations/node-group/node-group-create.md).
+[{{ k8s }} labels](../../concepts/index.md#node-labels) are `key:value` pairs.
+
+{% include [k8s-labels-restrictions-nodes](../../../_includes/managed-kubernetes/k8s-labels-restrictions-nodes.md) %}
+
+## Adding {{ k8s }} labels when creating a node group {#node-group-creation}
+
+You can add {{ k8s }} labels to all {{ managed-k8s-name }} nodes in a [node group](../../concepts/index.md#node-group) at once. To do this, specify the labels in the `node_labels` parameter when [creating a {{ managed-k8s-name }} node group](../../operations/node-group/node-group-create.md).
 
 1. Create a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster).
 
@@ -24,37 +30,37 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
      1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
      1. Enter a name for the {{ managed-k8s-name }} node group.
-     1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select a {{ k8s }} version for {{ managed-k8s-name }} nodes.
+     1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select the {{ k8s }} version for the {{ managed-k8s-name }} nodes.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_scale }}**:
         * Select the scaling policy type.
         * Specify the number of nodes in the {{ managed-k8s-name }} node group.
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [instances](../../../compute/concepts/vm.md) by which you can exceed or reduce the size of the {{ managed-k8s-name }} group.
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the maximum number of [VMs](../../../compute/concepts/vm.md) by which you can exceed or reduce the {{ managed-k8s-name }} group size.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-        * Choose a [platform](../../../compute/concepts/vm-platforms.md).
+        * Select a [platform](../../../compute/concepts/vm-platforms.md).
         * Specify the required number of vCPUs, [guaranteed vCPU performance](../../../compute/concepts/performance-levels.md), and the amount of RAM.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_disk }}**:
         * Specify the {{ managed-k8s-name }} node **{{ ui-key.yacloud.k8s.node-groups.create.field_disk-type }}**:
-          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; network block storage on an HDD.
-          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; network block storage on an SSD.
-          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by removing redundancy. You can only change the size of this type of disk in 93 GB increments.
-          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance characteristics as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this type of disk in 93 GB increments.
+          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-hdd }}`: Standard network drive; HDD network block storage.
+          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd }}`: Fast network drive; SSD network block storage.
+          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`: Network drive with enhanced performance achieved by eliminating redundancy. You can only change the size of this disk type in 93 GB increments.
+          * `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-io-m3 }}`: Network drive with the same performance specifications as `{{ ui-key.yacloud.k8s.node-group.overview.label_network-ssd-nonreplicated }}`, plus redundancy. You can only change the size of this disk type in 93 GB increments.
         * Specify the {{ managed-k8s-name }} node [disk](../../../compute/concepts/disk.md) size.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
-        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, choose a method for assigning an IP address:
+        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
           * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
-        * Specify how {{ managed-k8s-name }} nodes should be distributed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
-     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the information required to access the {{ managed-k8s-name }} node:
-        * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+        * Specify how {{ managed-k8s-name }} nodes should be placed across the [availability zones](../../../overview/concepts/geo-scope.md) and [networks](../../../vpc/concepts/network.md#network).
+     1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the credentials to access the {{ managed-k8s-name }} node:
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
         * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../operations/node-connect-ssh.md#creating-ssh-keys) file.
      1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_maintenance }}**:
-        * In the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
+        * In the **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** field, select your preferred [maintenance](../../concepts/release-channels-and-updates.md#updates) window:
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}`: Automatic updates disabled.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}`: Updates allowed at any time.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-daily }}** field.
           * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-weekly }}`: Updates will take place within the time interval specified in the **{{ ui-key.yacloud.k8s.clusters.create.label_maintenance-weekly }}** field.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_additional }}**:
-        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify the label key and value. Add multiple labels if needed.
+        * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-labels }}** field, click **{{ ui-key.yacloud.k8s.node-groups.create.button_add-node-label }}** and specify its key and value. Add multiple labels if needed.
      1. Click **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
@@ -125,14 +131,14 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
      {% note warning %}
 
-     A {{ managed-k8s-name }} node group will be recreated from scratch.
+     A {{ managed-k8s-name }} node group will be recreated.
 
      {% endnote %}
 
      1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
         For more information about creating this file, see [{#T}](node-group-create.md).
-     1. Add the `node_labels` parameter to the {{ managed-k8s-name }} node group description:
+     1. Add the `node_labels` property to the {{ managed-k8s-name }} node group description:
 
         ```hcl
         resource "yandex_kubernetes_node_group" "<node_group_name>" {
@@ -154,7 +160,9 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-        For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+        {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+        For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
    - API {#api}
 
@@ -170,9 +178,9 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
      1. In the [management console]({{ link-console-main }}), select the folder where you created the {{ managed-k8s-name }} cluster.
      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-     1. Select the {{ managed-k8s-name }} cluster where the node group was created.
+     1. Select the {{ managed-k8s-name }} cluster where you created the node group.
      1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
-     1. Open the page of one of the {{ managed-k8s-name }} nodes and go to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.
+     1. Open the page of one of the {{ managed-k8s-name }} nodes and navigate to the **{{ ui-key.yacloud.k8s.node.overview.label_labels }}** tab. The tab lists the system and user {{ k8s }} node labels.
 
    - CLI {#cli}
 
@@ -191,7 +199,7 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
         catkuapro07e********-lskc   Ready    <none>   1h   v1.17.8
         ```
 
-     1. Get information on a selected {{ managed-k8s-name }} cluster node:
+     1. Get information about the {{ managed-k8s-name }} cluster node:
 
         ```bash
         kubectl describe node catkuapro07e********-hgjd
@@ -221,13 +229,13 @@ You can add [{{ k8s }} labels](../../concepts/index.md#node-labels) to all {{ ma
 
    - API {#api}
 
-     To view {{ managed-k8s-name }} node details, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+     To view the {{ managed-k8s-name }} node details, use the [list](../../managed-kubernetes/api-ref/NodeGroup/list.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
 
    {% endlist %}
 
-## Assigning a {{ k8s }} label for an existing node group {#assign-label}
+## Adding a {{ k8s }} label to an existing node group {#assign-label}
 
-Assigning {{ k8s }} labels does not result in recreation of a node group.
+Adding {{ k8s }} labels does not result in recreation of a node group.
 
 {% list tabs group=instructions %}
 
@@ -237,7 +245,7 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To assign a {{ k8s }} label for an existing node group, run this command:
+  To add a {{ k8s }} label to an existing node group, run this command:
 
   ```bash
   {{ yc-k8s }} node-group add-node-labels \
@@ -248,11 +256,11 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
   The command contains the following parameters:
 
   * `--id`: Node group ID. You can [get it with the list](node-group-list.md#list) of node groups in the {{ managed-k8s-name }} cluster.
-  * `--labels`: {{ k8s }} labels formatted as `<key>=<value>`. You can specify one label or multiple labels separated by commas.
+  * `--labels`: {{ k8s }} labels in `<key>=<value>` format. You can specify one or multiple labels separated by commas.
 
 - {{ TF }} {#tf}
 
-  To assign a {{ k8s }} label for an existing node group:
+  To add a {{ k8s }} label to an existing node group:
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
@@ -271,7 +279,7 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
      }
      ```
 
-     You can assign multiple labels. To do so, specify each label in a separate line.
+     You can add multiple labels by specifying each label in a separate line.
 
   1. Make sure the configuration files are correct.
 
@@ -281,11 +289,13 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-  To assign a {{ k8s }} label to an existing node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  To add a {{ k8s }} label to an existing node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
 
   * {{ k8s }} labels in the `nodeLabels` parameter.
   * `nodeLabels` parameter to update in the `updateMask` parameter.
@@ -294,9 +304,9 @@ Assigning {{ k8s }} labels does not result in recreation of a node group.
 
 {% endlist %}
 
-## Deleting a {{ k8s }} label from a node group {#remove-label}
+## Removing a {{ k8s }} label from a node group {#remove-label}
 
-Deleting {{ k8s }} labels does not result in recreation of a node group.
+Removing {{ k8s }} labels does not result in recreation of a node group.
 
 {% list tabs group=instructions %}
 
@@ -317,7 +327,7 @@ Deleting {{ k8s }} labels does not result in recreation of a node group.
   The command contains the following parameters:
 
   * `--id`: Node group ID. You can [get it with the list](node-group-list.md#list) of node groups in the {{ managed-k8s-name }} cluster.
-  * `--labels`: Keys of the {{ k8s }} labels to remove. You can specify one label or multiple labels separated by commas.
+  * `--labels`: Keys of the {{ k8s }} labels to remove. You can specify one or multiple labels separated by commas.
 
 - {{ TF }} {#tf}
 
@@ -327,7 +337,7 @@ Deleting {{ k8s }} labels does not result in recreation of a node group.
 
      For more information about creating this file, see [{#T}](node-group-create.md).
 
-  1. In the node group description, delete the {{ k8s }} labels you no longer need from `node_labels`.
+  1. In the node group description, remove the {{ k8s }} labels you no longer need from `node_labels`.
 
   1. Make sure the configuration files are correct.
 
@@ -337,7 +347,9 @@ Deleting {{ k8s }} labels does not result in recreation of a node group.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     For more information, see the [{{ TF }} provider documentation]({{ tf-provider-k8s-nodegroup }}).
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 

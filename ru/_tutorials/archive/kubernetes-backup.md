@@ -5,13 +5,24 @@
 
 Вы можете создавать резервные копии данных из групп узлов кластера {{ managed-k8s-name }} с помощью инструмента [Velero](https://velero.io/). Этот инструмент поддерживает работу с [дисками](../../compute/concepts/disk.md) {{ yandex-cloud }} с помощью CSI-драйвера {{ k8s }}, и позволяет создавать моментальные [снимки дисков](../../compute/concepts/snapshot.md) [томов](../../managed-kubernetes/concepts/volume.md).
 
-При работе с Velero, установленным вручную, вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero. Velero, установленный из [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi), плагин restic не включает.
+При работе с Velero, установленным вручную, вы можете использовать [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальный](https://kubernetes.io/docs/concepts/storage/volumes/#local) или любой другой тип тома, в котором нет встроенной поддержки моментальных снимков. Чтобы использовать такой тип тома, задействуйте [плагин restic](https://velero.io/docs/v1.8/restic/) при установке Velero. Плагин restic не включен в Velero, установленный из [{{ marketplace-name }}](/marketplace/products/yc/velero-yc-csi).
 
 Из этой статьи вы узнаете, как создать резервную копию группы узлов одного кластера {{ managed-k8s-name }} с помощью Velero, сохранить ее в {{ objstorage-name }}, а затем восстановить в группе узлов другого кластера:
 1. [Создайте резервную копию группы узлов {{ managed-k8s-name }}](#backup).
 1. [Восстановите группу узлов другого кластера {{ managed-k8s-name }} из резервной копии](#restore).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за каждый кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за ВМ (две группы узлов и ВМ для управления кластером без публичного доступа): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса для узлов кластеров (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -37,7 +48,7 @@
   1. [Создайте бакет в {{ objstorage-name }}](../../storage/operations/buckets/create.md).
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `compute.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) для работы с Velero.
   1. Выдайте [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) права **READ и WRITE** к [бакету](../../storage/concepts/bucket.md) в {{ objstorage-name }}. Для этого [выполните настройки ACL бакета](../../storage/operations/buckets/edit-acl.md).
-  1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его идентификатор и значение. Получить значение ключа снова будет невозможно.
+  1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта и сохраните его идентификатор и значение. Получить значение ключа снова будет невозможно.
 
 - {{ TF }} {#tf}
 
@@ -125,6 +136,7 @@
    {% include [kubectl info](../../_includes/managed-kubernetes/kubectl-info.md) %}
 
 1. {% include [install-velero](../../_includes/managed-kubernetes/install-velero.md) %}
+1. Убедитесь, что квот на количество снимков дисков и их объем достаточно для создания резервной копии данных. Для этого можно использовать [сервис проверки квот](../../quota-manager/operations/read-quotas.md).
 1. Выполните резервное копирование данных с группы узлов кластера {{ managed-k8s-name }}:
 
    ```bash
@@ -151,7 +163,7 @@
    my-backup  Completed  0       0         2020-10-19 17:13:25 +0300 MSK  29d      default           <none>
    ```
 
-## Восстановление данных их резервной копии {#restore}
+## Восстановление данных из резервной копии {#restore}
 
 Чтобы восстановить данные группы узлов кластера {{ managed-k8s-name }}:
 1. [Настройте kubectl](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) на работу со вторым кластером {{ managed-k8s-name }}.
@@ -220,19 +232,6 @@
 
 - {{ TF }} {#tf}
 
-  1. В терминале перейдите в директорию с планом инфраструктуры.
-  1. Удалите конфигурационный файл `velero-backup.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-     ```bash
-     terraform validate
-     ```
-
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `velero-backup.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

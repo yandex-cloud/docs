@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/backups/{backupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to return.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: Backup.Get {#Get}
+# Managed Service for OpenSearch API, REST: Backup.Get
 
 Returns the specified backup of an OpenSearch cluster.
 
@@ -38,7 +55,10 @@ Required field. ID of the backup to return. ||
   ],
   "opensearchVersion": "string",
   "sizeBytes": "string",
-  "indicesTotal": "string"
+  "indicesTotal": "string",
+  "incrementalSizeBytes": "string",
+  "totalSizeBytes": "string",
+  "freeSpaceRequiredBytes": "string"
 }
 ```
 
@@ -75,7 +95,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearchVersion | **string**
 
 OpenSearch version used to create the backup. ||
@@ -85,4 +107,13 @@ Size of the backup in bytes. ||
 || indicesTotal | **string** (int64)
 
 The number of indices in the backup. ||
+|| incrementalSizeBytes | **string** (int64)
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| totalSizeBytes | **string** (int64)
+
+Size of files that are referenced by the snapshot. ||
+|| freeSpaceRequiredBytes | **string** (int64)
+
+The space amount required to restore from this backup. ||
 |#

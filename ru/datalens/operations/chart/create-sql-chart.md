@@ -1,4 +1,9 @@
-# Создание QL-чарта
+---
+title: Создание QL-чарта в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать QL-чарт в {{ datalens-full-name }}.
+---
+
+# Создание QL-чарта в {{ datalens-full-name }}
 
 
 
@@ -10,6 +15,8 @@
 {% include [datalens-monitoring-prometheus-access-note](../../../_includes/datalens/datalens-monitoring-prometheus-access-note.md) %}
 
 Для QL-чартов доступны те же [общие настройки](../../concepts/chart/settings.md#common-settings) и [настройки секций](../../concepts/chart/settings.md#section-settings), что и для чартов на основе датасета. Для полей чарта доступны только некоторые [настройки показателей](../../concepts/chart/settings.md#indicator-settings).
+
+На каждом шаге можно [отменить или повторно выполнить](../../concepts/chart/settings.md#undo-redo) внесенные изменения в пределах текущей версии.
 
 ## Создание QL-чарта через главную страницу {#main-page}
 
@@ -67,7 +74,7 @@
 
    - {{ monitoring-short-name }}
 
-
+     
      1. Нажмите **Выбрать подключение**.
      1. Выберите из списка подключение {{ monitoring-short-name }}, к которому у вас есть доступ.
      1. Нажмите **Создать**.
@@ -154,7 +161,7 @@ ORDER BY datedate
 * единичного значения — если выбран один элемент;
 * кортежа ([tuple](https://docs.python.org/3/library/stdtypes.html#tuples)) — если выбрано несколько элементов.
 
-Если в тексте запроса перед параметром указан оператор `in`, то подставляемое значение всегда преобразовывается в кортеж. Такой запрос отработает корректно, если выбрано одно или несколько значений.
+Если в тексте запроса для подключений {{ CH }} или {{ PG }} перед параметром указан оператор `in`, то подставляемое значение всегда преобразовывается в кортеж. Для остальных подключений автоматического преобразования в кортеж не происходит. Запрос с оператором `in` отработает корректно, если выбрано одно или несколько значений.
 
 {% cut "Пример запроса с оператором `in`" %}
 
@@ -195,5 +202,10 @@ CASE
     ELSE column IN not_var{{param}}
 END
 ```
+
+#### См. также {#see-also}
+
+* [{#T}](../../concepts/chart/index.md)
+* [{#T}](../dashboard/add-chart.md)
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

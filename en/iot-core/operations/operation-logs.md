@@ -1,6 +1,6 @@
-# Viewing operations with the service's resources
+# Viewing operations with {{ iot-name }} resources
 
-All actions with {{ iot-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+The system logs all actions with {{ iot-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,10 +8,10 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other service resources.
+  You can get a list of operations for a specific resource. The steps below describe how you can do this for a registry. The same steps apply to other resources as well.
 
   1. In the [management console]({{ link-console-main }}), open the folder the registry is in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Select the registry.
   1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected registry.
@@ -20,17 +20,17 @@ All actions with {{ iot-name }} resources are logged as a list of operations. Ea
 
 - API {#api}
 
-  Use the `listOperations` REST API method for the relevant resource or the gRPC API call `<service>/ListOperations`.
+  Use the `listOperations` REST API method for the relevant resource or the `<service>/ListOperations` gRPC API call.
 
   For example, for a registry, use either the [listOperations](../api-ref/Registry/listOperations.md) REST API method for the [Registry](../api-ref/Registry/index.md) resource or the [RegistryService/ListOperations](../api-ref/grpc/Registry/listOperations.md) gRPC API call.
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
-1. Copy the ID of the operation.
-1. Get detailed information about the operation:
+1. Copy the operation ID.
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

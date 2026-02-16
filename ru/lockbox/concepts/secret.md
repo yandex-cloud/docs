@@ -23,13 +23,15 @@ description: Из статьи вы узнаете, что такое секре
 
 * _Пользовательский секрет_ создается вручную. Подходит для секретов, которые генерируются в сторонней системе. В качестве конфиденциального значения для пользовательского секрета можно указать не только строку, но и файл.
 
+    {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
+
 ## Версия {#version}
 
 В {{ lockbox-full-name }} секреты хранятся в виде версий. Каждая версия содержит метаданные и одну или больше пар ключ-значение, что позволяет отслеживать изменения и управлять жизненным циклом секрета.
 
-Версию нельзя изменить после создания. Для любого изменения пар ключей-значений необходимо [создать новую версию](../operations/secret-version-manage#create-version). Помимо создания новой версии секрета, можно создать версию [на основе уже существующей](../operations/secret-version-manage#create-version-based-on-other) с новыми значениями.
+Версию нельзя изменить после создания. Для любого изменения пар ключей-значений необходимо [создать новую версию](../operations/secret-version-manage.md#create-version). Помимо создания новой версии секрета, можно создать версию [на основе уже существующей](../operations/secret-version-manage.md#create-version-based-on-other) с новыми значениями.
 
-Единовременно может быть активна только одна версия секрета. Вы можете управлять активной версией секрета, добавляя новые версии или [откатываясь к предыдущим](../operations/secret-version-manage#backup).
+Единовременно может быть активна только одна версия секрета. Вы можете управлять активной версией секрета, добавляя новые версии или [откатываясь к предыдущим](../operations/secret-version-manage.md#backup).
 
 К версиям секрета можно настроить доступ дополнительно к доступу к самому секрету. Для этого нужно назначить роль `{{ roles-lockbox-admin }}` или `{{ roles-lockbox-payloadviewer }}`. Подробнее об управлении доступом читайте в разделе [Управление доступом {{ lockbox-full-name }} - Какие роли мне необходимы](../security/index.md#choosing-roles).
 
@@ -55,5 +57,14 @@ description: Из статьи вы узнаете, что такое секре
 ## Смотрите также
 
 * [{#T}](../security/index.md)
-* [{#T}](../tutorials/index.md)
 * [{#T}](../pricing.md)
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/static-key-in-lockbox/console.md)
+* [{#T}](../tutorials/lockbox-and-airflow.md)
+* [{#T}](../tutorials/websocket-app.md)
+* [{#T}](../tutorials/bucket-to-bucket-copying.md)
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../tutorials/secure-password-script.md)

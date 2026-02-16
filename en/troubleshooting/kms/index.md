@@ -1,4 +1,4 @@
-# All solutions for {{ kms-name }}
+# Solutions for {{ kms-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

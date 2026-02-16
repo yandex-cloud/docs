@@ -29,10 +29,26 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
 
-- API {#api}
+- REST API {#api}
 
-  Воспользуйтесь методом REST API [getPlayerURL](../../api-ref/Video/getPlayerURL.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/GetPlayerURL](../../api-ref/grpc/Video/getPlayerURL.md).
-  
-  Подробности о получении ссылки на видео см. в инструкции [Как начать работать с API {{ video-full-name }}](../../api-ref/quickstart.md#get-link).
+  Выполните команду:
+
+  {% include [get-video-link-rest](../../../_includes/video/get-video-link-rest.md) %}
+
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
+
+- gRPC API {#grpc-api}
+
+  Выполните команду:
+
+  {% include [get-video-link-grpc](../../../_includes/video/get-video-link-grpc.md) %}
+
+  {% include [get-link-api-parameters-description](../../../_includes/video/get-link-api-parameters-description.md) %}
+
+  {% include [get-video-link-output](../../../_includes/video/get-video-link-output.md) %}
 
 {% endlist %}
+
+{% include [video-object-fit](../../../_includes/video/video-object-fit.md) %}

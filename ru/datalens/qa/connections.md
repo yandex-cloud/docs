@@ -1,6 +1,12 @@
+---
+title: Подключения
+description: На странице представлены вопросы и ответы про подключения.
+---
+
 # Подключения
 
 {% include [postgre-type.md](../../_qa/datalens/postgre-type.md) %}
+
 
 
 {% include [metrica-clickhouse-connection](../../_qa/datalens/metrica-clickhouse-connection.md) %}
@@ -12,11 +18,12 @@
 {% include [csv-long-loading](../../_qa/datalens/csv-long-loading.md) %}
 
 {% include [csv-network-error](../../_qa/datalens/csv-network-error.md) %}
-
+
 
 {% include [google-sheets-error](../../_qa/datalens/google-sheets-error.md) %}
 
 {% include [yadocs-error](../../_qa/datalens/yadocs-link.md) %}
+
 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

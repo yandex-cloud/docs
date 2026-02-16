@@ -65,7 +65,7 @@
 `table.query.compilation.active_count`<br>`IGAUGE`, штуки | Количество компиляций, которые находятся в процессе выполнения в данный момент времени.
 `table.query.compilation.count`<br>`RATE`, штуки | Количество компиляций, которые успешно завершились в определенный период времени.
 `table.query.compilation.error_count`<br>`RATE`, штуки | Количество компиляций, которые завершились с ошибкой в определенный период времени.
-`table.query.compilation.cache_hits`<br>`RATE`, штуки | Количество запросов в определенный период времени, для выполнения которых не потребовалось компилировать запрос, так как в кэше подготовленных запросов был созданный ранее план.
+`table.query.compilation.cache_hits`<br>`RATE`, штуки | Количество запросов в определенный период времени, для выполнения которых не потребовалось компилировать запрос, так как в кеше подготовленных запросов был созданный ранее план.
 `table.query.compilation.cache_misses`<br>`RATE`, штуки | Количество запросов в определенный период времени, для выполнения которых потребовалось компилировать запрос.
 `table.query.execution.latency_milliseconds`<br>`HIST_RATE`, штуки | Гистограммный счетчик. Интервалы заданы в миллисекундах. Показывает количество запросов, время выполнения которых попадает в определенный интервал.
 `table.query.request.bytes`<br>`RATE`, байты | Размер текста YQL-запросов и значений параметров к запросам, которые поступили в базу данных в определенный период времени.
@@ -94,10 +94,12 @@
 
 Имя метрики<br/>Тип, единицы измерения | Описание<br>Метки
 --- | ---
-`table.columnshard.bulk_upsert.bytes`<br>`RATE`, байты/с | Размер данных, которые добавлены через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе в определенный период времени.
-`table.columnshard.bulk_upsert.rows`<br>`RATE`, строки/с | Количество строк, которые добавлены через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе данных в определенный период времени.
-`table.columnshard.scan.bytes`<br>`RATE`, байты/с | Размер данных, которые прочитаны через вызов gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе в определенный период времени.
-`table.columnshard.scan.rows`<br>`RATE`, строки/с | Количество строк, которые прочитаны через вызовы gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе данных в определенный период времени.
+`table.columnshard.bulk_upsert.bytes`<br>`RATE`, байты/с | Скорость добавления данных через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе.
+`table.columnshard.bulk_upsert.rows`<br>`RATE`, строки/с | Скорость добавления строк через вызов gRPC API `BulkUpsert` во все партиции всех таблиц в базе данных.
+`table.columnshard.scan.bytes`<br>`RATE`, байты/с | Скорость чтения данных через вызов gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе.
+`table.columnshard.scan.rows`<br>`RATE`, строки/с | Скорость чтения строк через вызовы gRPC API `StreamExecuteScanQuery` или `StreamReadTable` всеми партициями всех таблиц в базе данных.
+`table.columnshard.write.bytes`<br>`RATE`, байты/с | Скорость записи данных во все партиции всех таблиц в базе.
+`table.columnshard.write.rows`<br>`RATE`, строки/с | Скорость записи строк во все партиции всех таблиц в базе.
 
 ## Метрики использования ресурсов (только для режима Dedicated) {#ydb_dedicated_resources}
 
@@ -112,6 +114,6 @@
 
 Имя метрики<br>Тип<br>единицы измерения | Описание<br>Метки
 --- | ---
-`table.query.compilation.cache_evictions`<br>`RATE`, штуки | Количество запросов, вытесненных из кэша [подготовленных запросов]({{ ydb.docs }}/docs/reference/ydb-sdk/example/#param-queries) в определенный период времени.
-`table.query.compilation.cache_size_bytes`<br>`IGAUGE`, байты | Размер кэша подготовленных запросов.
-`table.query.compilation.cached_query_count`<br>`IGAUGE`, штуки | Размер кэша подготовленных запросов.
+`table.query.compilation.cache_evictions`<br>`RATE`, штуки | Количество запросов, вытесненных из кеша [подготовленных запросов]({{ ydb.docs }}/docs/reference/ydb-sdk/example/#param-queries) в определенный период времени.
+`table.query.compilation.cache_size_bytes`<br>`IGAUGE`, байты | Размер кеша подготовленных запросов.
+`table.query.compilation.cached_query_count`<br>`IGAUGE`, штуки | Размер кеша подготовленных запросов.

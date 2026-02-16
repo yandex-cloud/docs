@@ -1,0 +1,1 @@
+By default, the CLI uses the cloud specified in the CLI profile. You can set a different cloud in the `--cloud-id` parameter.

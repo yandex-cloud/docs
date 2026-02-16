@@ -1,0 +1,4 @@
+Optionally, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_title }}** and specify:
+
+* **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_attempts }}**: Number of message retries before {{ er-name }} moves the messages to the dead-letter queue (DLQ). Valid values range from 0 to 1,000. The default value is 3.
+* **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_age }}**: Time, in hours, before a retry attempt to send the messages if the current attempt fails. Valid values range from 0 to 60 hours. The default value is 10.

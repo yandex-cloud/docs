@@ -1,11 +1,11 @@
 ---
-title: '{{ message-queue-full-name }}. Questions and answers'
-description: How do I get the logs of my activity in {{ message-queue-full-name }}? Find the answer to this and other questions in this article.
+title: '{{ message-queue-full-name }}. FAQ'
+description: How do I get the logs of my actions in {{ message-queue-full-name }}? Find the answer to this and other questions in this article.
 ---
 
 # General questions about {{ message-queue-name }}
 
-#### What does the "Cannot create queue: Too many queues" error mean when returned at creating a new queue? {#to-many-queues-err}
+#### What does the "Cannot create queue: Too many queues" error mean when creating a new queue? {#to-many-queues-err}
 
 This error means that the limit on the maximum number of queues has been reached. To increase the limit, contact [support]({{ link-console-support }}). In your request, specify:
 
@@ -19,11 +19,11 @@ No, you can use the AWS CLI without creating an account in AWS and obtaining AWS
 
 #### What kind of access key do I need to use {{ message-queue-name }}?
 
-To work with the AWS CLI and {{ message-queue-name }}, a static access key is required. To create a key, follow this [guide](../../iam/operations/sa/create-access-key.md).
+To work with the AWS CLI and {{ message-queue-name }}, a static access key is required. To create a key, follow this [guide](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 #### What is the maximum message size?
 
-The maximum size of a message is 256 KB. For information about other limits, see [{#T}](../concepts/limits.md).
+The maximum size of a message is 256 KB. To learn more about other limits, see [{#T}](../concepts/limits.md).
 
 #### What SLA applies to {{ message-queue-name }}?
 
@@ -43,7 +43,7 @@ This may be due to a large [visibility timeout](../concepts/visibility-timeout.m
 
 #### How do I delete a message and its duplicate from a queue if I can only use ReceiptHandle for deleting and cannot sort messages by MessageDeduplicationId?
 
-No message duplicates will be recorded for 5 minutes. After 5 minutes, a message duplicate should be deleted based on its own `ReceiptHandle`.
+No message duplicates will be recorded for 5 minutes. After 5 minutes, you should delete a message duplicate based on its own `ReceiptHandle`.
 
 You may see duplicates while reading if the service has not yet deleted the message after the [visibility timeout](../concepts/visibility-timeout.md) expired. In this case, consider extending the timeout.
 

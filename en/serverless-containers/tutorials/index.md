@@ -1,11 +1,16 @@
 ---
-title: Tutorials for {{ serverless-containers-name }}
-description: This page gives a list of tutorials for {{ serverless-containers-name }}.
+title: '{{ serverless-containers-name }} tutorials'
+description: This page features a list of {{ serverless-containers-name }} tutorials.
 ---
 
 # {{ serverless-containers-name }} tutorials
 
 * [{#T}](movies-database.md)
 * [{#T}](ci-cd-serverless.md)
+* [{#T}](ci-cd-sourcecraft-github-actions.md)
+* [{#T}](serverless-gitlab-runner.md)
 * [{#T}](pg-connect.md)
 * [{#T}](deploy-app-container.md)
+* [{#T}](api-gw-integration.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](vision-ocrrecognizer-storage.md)

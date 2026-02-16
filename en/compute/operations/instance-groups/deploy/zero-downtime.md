@@ -1,15 +1,15 @@
-# Uninterrupted updates
+# Zero-downtime updates
 
-To avoid service unavailability, you can update an instance group by creating additional instances with a new configuration.
-As you add instances with a new configuration to the group, the instances with the old configuration are deleted.
+To keep your service available, you can update instance groups by creating additional instances with new configurations. 
+As you add VM instances with the new configuration to the group, those with the old configuration will be removed.
 
-To do this:
+For this, follow these steps:
 
-1. Describe the appropriate instance [template](../../../concepts/instance-groups/instance-template.md).
-1. Set the [deployment policy](../../../concepts/instance-groups/policies/deploy-policy.md) with a non-zero value of `max_expansion`: the maximum number of additionally created instances.
-1. Run a group's [update operation](../../../operations/instance-groups/update.md).
+1. Define the instance [template](../../../concepts/instance-groups/instance-template.md) you need.
+1. Set the [deployment policy](../../../concepts/instance-groups/policies/deploy-policy.md) with a non-zero value for `max_expansion`, which stands for the maximum number of additional instances to create.
+1. Start group [updating](../../../operations/instance-groups/update.md).
 
-For example, to update a group using the algorithm described, set the following parameters in the `deploy-policy`:
+For example, to update a group by adding and removing one VM instance at a time, configure `deploy-policy` as follows:
 
 ```
 ...

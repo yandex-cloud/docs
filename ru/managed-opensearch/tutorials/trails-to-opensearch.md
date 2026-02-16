@@ -1,3 +1,8 @@
+---
+noIndex: true
+canonical: '{{ link-docs }}/tutorials/security/trails-logs-opensearch'
+---
+
 # Загрузка логов из {{ at-full-name }}
 
 [{{ at-name }}](../../audit-trails/index.yaml) — сервис сбора и выгрузки аудитных логов, который позволяет применять инструменты анализа и оперативного реагирования к событиям на уровне ресурсов {{ yandex-cloud }}. [{{ OS }}](../index.yaml) выступает в роли SIEM-системы для анализа логов и реагирования на события безопасности.

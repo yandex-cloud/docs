@@ -1,8 +1,8 @@
 # Connecting to a database
 
-Because the {{ GP }} DBMS is based on {{ PG }}, the same tools are used to connect to both DBMSs.
+Since {{ GP }} is based on {{ PG }}, the same tools are used for connecting to both.
 
-You can connect to a {{ mgp-short-name }} cluster only via the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](./hosts/cluster-hosts.md).
+You can only connect to a {{ GP }} cluster through the [primary master host](../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](cluster-list.md#get-hosts).
 
 You can connect to a cluster:
 
@@ -11,9 +11,13 @@ You can connect to a cluster:
 
 ## Configuring security groups {#configuring-security-groups}
 
-{% include [sg-rules](../../_includes/mdb/sg-rules-connect.md) %}
+You can assign one or more security groups to a {{ GP }} cluster. To connect to a cluster, security groups must include rules allowing traffic on port {{ port-mgp }} from certain IP addresses or other security groups.
 
-To ensure {{ mgp-name }} cluster functionality and network connectivity between its hosts, you need at least one cluster security group to include rules allowing any incoming and outgoing traffic from any IPs using any protocol.
+{% note info %}
+
+A security group assigned to a cluster controls traffic between the cluster and other cloud or external resources. You do not need to configure interaction between cluster hosts, as it is controlled by a separate system security group.
+
+{% endnote %}
 
 Rule settings depend on the connection method you select:
 
@@ -25,19 +29,33 @@ Rule settings depend on the connection method you select:
 
 - From a VM in {{ yandex-cloud }} {#cloud}
 
-    1. {% include [Cluster security group rules](../../_includes/mdb/mgp/cluster-sg-rules.md) %}
+    1. Add the following rules to the cluster security group:
 
-    1. [Configure the security group](../../vpc/operations/security-group-add-rule.md) where the VM is located to enable connections to the VM and traffic between the VM and the cluster hosts.
+        1. For incoming traffic:
 
-        For example, you can set the following rules for a VM:
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM share the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+
+         1. For outgoing traffic:
+
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+            This rule enables {{ mgp-name }} to use external data sources, e.g., PXF or GPFDIST.
+
+    1. [Configure the VM security group](../../vpc/operations/security-group-add-rule.md) to allow connections to the VM as well as traffic between the VM and the cluster hosts.
 
         * For incoming traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: Range of addresses to connect from.
 
-            This rule allows you to connect to a VM over SSH.
+            This rule allows VM connections over SSH.
 
         * For outgoing traffic:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
@@ -51,10 +69,6 @@ Rule settings depend on the connection method you select:
 
 
 
-## Automatic primary master host selection {#automatic-master-host-selection}
-
-To automatically select a host to connect to a cluster, use a [special primary master FQDN](#fqdn-master).
-
 ## Getting an SSL certificate {#get-ssl-cert}
 
 To use an SSL connection, get a certificate:
@@ -65,31 +79,45 @@ To use an SSL connection, get a certificate:
 
 ## {{ GP }} host FQDN {#fqdn}
 
-To connect to a master host, you need its fully qualified domain name ([FQDN](../concepts/network.md#hostname)). You can obtain it in one of the following ways:
+To connect to a master host, you need its [FQDN](../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host.
 
-* [Request a list of cluster hosts](hosts/cluster-hosts.md).
-* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains a list of FQDNs for master hosts. To get the command, go to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+Host FQDN example:
+
+```text
+{{ host-name }}.{{ dns-zone }}
+```
+
+### Getting a host FQDN {#get-fqdn}
+
+There are several ways to get a {{ GP }} host's FQDN:
+
 * Look up the FQDN in the management console:
 
-   1. Go to the cluster page.
-   1. Go to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-   1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
+    1. Navigate to the cluster page.
+    1. Navigate to **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Copy the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** column value.
 
-Primary master hosts also use [special FQDNs](#fqdn-master).
+* In the [management console]({{ link-console-main }}), copy the command for connecting to the cluster. This command contains the host FQDN. To get the command, navigate to the cluster page and click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
 
-## Special primary master FQDN {#fqdn-master}
+* [Request a list of cluster hosts](cluster-list.md#get-hosts) using the CLI or API.
 
-If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted and both read and write operations are allowed.
+### Special primary master FQDN {#fqdn-master}
 
-Here is an example of connecting to a primary master host in a cluster with the `c9qash3nb1v9********` ID:
+If you do not want to manually connect to another master host when the current one becomes unavailable, use a special FQDN in `c-<cluster_ID>.rw.{{ dns-zone }}` format. It always points to the primary master host in the cluster. Connection to this FQDN is permitted, with both read and write operations allowed.
+
+A special FQDN may temporarily point to an unavailable master host (for up to 10 minutes). This is because it takes time to update DNS records for special FQDNs. If your request returns an error, repeat it later.
+
+Here is an example of connecting to a primary master host in a cluster with the `{{ cluster-id }}` ID:
 
 ```bash
-psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
+psql "host=c-{{ cluster-id }}.rw.{{ dns-zone }} \
       port={{ port-mgp }} \
       sslmode=verify-full \
       dbname=<DB_name> \
       user=<username>"
 ```
+
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -108,9 +136,9 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. Select **File** → **New** → **Data Source** → **{{ GP }}**.
         1. On the **General** tab:
 
-            1. Specify the connection parameters:
+            1. Configure the connection as follows:
 
-                * **User**, **Password**: DB user's name and password.
+                * **User**, **Password**: DB user name and password.
                 * **URL**: Connection string. Use the [special primary master FQDN](#fqdn-master):
 
                     ```http
@@ -119,9 +147,9 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
 
             1. Click **Download** to download the connection driver.
         1. On the **SSH/SSL** tab:
-            1. Enable the **Use SSL** setting.
-            1. In the **CA file** field, specify the path to the file with an [SSL certificate for the connection](#get-ssl-cert).
-    1. Click **Test Connection** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+            1. Enable **Use SSL**.
+            1. In the **CA file** field, specify the path to the [SSL certificate for your connection](#get-ssl-cert).
+    1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **OK** to save the data source.
 
 - DBeaver {#dbeaver}
@@ -130,18 +158,80 @@ You can only use graphical IDEs to connect to a public cluster using SSL certifi
         1. In the **Database** menu, select **New connection**.
         1. Select **{{ GP }}** from the DB list.
         1. Click **Next**.
-        1. Specify the connection parameters on the **Main** tab:
+        1. Specify the connection settings on the **Main** tab:
             * **Host**: [Special FQDN of the primary master](#fqdn-master), `c-<cluster_ID>.rw.{{ dns-zone }}`.
             * **Port**: `{{ port-mgp }}`.
             * **Database**: DB to connect to.
-            * Under **Authentication**, specify the DB user's name and password.
+            * Under **Authentication**, specify the DB user name and password.
         1. On the **SSL** tab:
             1. Enable **Use SSL**.
             1. In the **Root certificate** field, specify the path to the saved [SSL certificate](#get-ssl-cert) file.
-    1. Click **Test Connection ...** to test the connection. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+    1. Click **Test Connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
     1. Click **Ready** to save the database connection settings.
 
 {% endlist %}
+
+
+## Connecting with IAM authentication {#iam}
+
+You can connect to a {{ GP }} database from the [{{ yandex-cloud }} CLI](../../cli/quickstart.md#install) using IAM authentication. To do this, associate a [Yandex account](../../iam/concepts/users/accounts.md#passport) or [federated account](../../iam/concepts/users/accounts.md#saml-federation) with the {{ GP }} user. You can only use IAM authentication to connect to a public cluster, in which case you do not need an SSL certificate.
+
+Before connecting, install the {{ PG }} client:
+
+```bash
+sudo apt update && sudo apt install --yes postgresql-client
+```
+
+Set up your {{ mgp-name }} cluster for connection:
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+
+  1. Click the name of your cluster.
+
+  1. [Enable public access to the cluster](./update.md#change-public-access).
+ 
+  1. Assign a role to the user account connecting to the database:
+     1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Enter the user account’s email.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-greenplum.clusters.connector` role.
+     1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+  1. Create a {{ GP }} user and grant them access to the database:
+     1. Connect to the {{ mgp-name }} cluster using any method of your choice.
+     1. Create a {{ GP }} user, specifying their account’s email as their username.
+
+        ```sql
+        CREATE ROLE "<account_email>"
+            LOGIN
+            ENCRYPTED PASSWORD '<password>';
+        ```
+     1. If required, [configure privileges](./roles-and-users.md#privileges) and attributes of the {{ GP }} user you created.
+
+  1. Add the authentication rule for the user you created:
+     1. Select the **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
+     1. Click **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_edit-rules }}**.
+     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.greenplum.cluster.user-auth.action_add-rule }}** and specify its parameters:
+
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-type }}**: Interconnect type.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-databases }}**: Database name.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-user }}**: User account's email.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-address }}**: IP range to connect to the database from.
+        * **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_column-method }}**: `iam`.
+
+     1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+To connect to the {{ GP }} database, run this command:
+
+```bash
+{{ yc-mdb-gp }} connect <cluster_name_or_ID> --db <DB_name>
+```
+
 
 ## Connecting from {{ pgadmin }} {#connection-pgadmin}
 
@@ -152,8 +242,8 @@ You can only use {{ pgadmin }} to connect to public cluster hosts [using an SSL 
 Create a new server connection:
 
 1. Select **Object** → **Register** → **Server...**
-1. On the **General** tab, in the **Name** field, specify the name for the cluster. This name will be shown in the {{ pgadmin }} interface. You can set any name.
-1. In the **Connection** tab, specify the connection parameters:
+1. On the **General** tab, in the **Name** field, specify the cluster name to be shown in the {{ pgadmin }} interface. You can set any name.
+1. In the **Connection** tab, specify the connection settings:
 
     * **Host name/address**: [Special master host FQDN](#fqdn-master) or regular host FQDN.
     * **Port**: `{{ port-mgp }}`.
@@ -163,24 +253,24 @@ Create a new server connection:
 
 1. In the **Parameters** tab:
 
-    * Set **SSL mode** to `verify-full`.
+    * Set the **SSL mode** parameter to `verify-full`.
     * Add a new **Root certificate** parameter and specify the path to the saved SSL certificate file in it.
 
 1. Click **Save** to save the server connection settings.
 
 As a result, the cluster appears in the server list in the navigation menu.
 
-To monitor the cluster status, use [{{ monitoring-full-name }}](monitoring.md) instead of the **Dashboard** tab in {{ pgadmin }} which might generate an error:
+To monitor the cluster status, use [{{ monitoring-full-name }}](monitoring.md) rather than the **Dashboard** tab in {{ pgadmin }}, since the latter might generate an error:
 
 ```text
 column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait_event AS wait_event, ^
 ```
 
-This error does not occur in other tabs in {{ pgadmin }}.
+This error does not occur in other {{ pgadmin }} tabs.
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ mgp-name }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ GP }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 
@@ -193,7 +283,7 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
     ```
 
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     ```bash
     RUN apt-get update && \
@@ -210,14 +300,14 @@ To connect to a {{ mgp-name }} cluster from a Docker container, add the followin
 
 {% include [conn-strings-environment](../../_includes/mdb/mgp/conn-strings-env.md) %}
 
-When creating a {{ GP }} cluster, the user database is not created. To test the connection, use the `postgres` service database.
+Creating a {{ GP }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
-To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). The examples assume that the `root.crt` SSL certificate is located in the following directory:
+To connect to a publicly accessible cluster, prepare an [SSL certificate](#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
 
 * `/home/<home_directory>/.postgresql/` for Ubuntu.
 * `$HOME\AppData\Roaming\postgresql` for Windows.
 
-You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host FQDN, see [this guide](#fqdn).
+You can connect to a cluster using either a master host's regular FQDN or a primary master host's [special FQDN](#fqdn-master). To learn how to get a host's FQDN, see [this guide](#fqdn).
 
 {% include [see-fqdn-in-console](../../_includes/mdb/see-fqdn-in-console.md) %}
 

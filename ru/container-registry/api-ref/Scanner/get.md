@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}
+    method: get
+    path:
+      type: object
+      properties:
+        scanResultId:
+          description: |-
+            **string**
+            Required field. ID of the ScanResult to return.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - scanResultId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/get.md
 ---
 
-# Container Registry API, REST: Scanner.Get {#Get}
+# Container Registry API, REST: Scanner.Get
 
 Returns the specified ScanResult resource.
 
@@ -21,7 +39,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanR
 ||Field | Description ||
 || scanResultId | **string**
 
-Required field. ID of the ScanResult to return. ||
+Required field. ID of the ScanResult to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -69,7 +89,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

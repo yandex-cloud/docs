@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан реестр.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Выберите реестр, доступ к которому нужно настроить.
   1. На панели слева нажмите ![IP-access](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.cr.registry.label_ip-permissions }}**.
   1. Нажмите **{{ ui-key.yacloud.cr.registry.button_update-ip-permissions }}**.
@@ -45,7 +45,7 @@
      * `--pull` — флаг, разрешающий скачивание [Docker-образов](../../concepts/docker-image.md) из реестра.
      * `--push` — флаг, разрешающий загрузку Docker-образов в реестр.
 
-     Более подробную информацию о команде смотрите в [справочнике CLI](../../../cli/cli-ref/managed-services/container/registry/set-ip-permissions).
+     Более подробную информацию о команде смотрите в [справочнике CLI](../../../cli/cli-ref/container/cli-ref/registry/set-ip-permissions).
 
      Выполнение этой команды приведет к удалению всех существующих разрешений для IP-адресов. Чтобы продолжить, введите значение `yes` и нажмите **Enter**.
 

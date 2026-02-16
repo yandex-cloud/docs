@@ -1,6 +1,6 @@
 # Information about existing {{ GP }} clusters
 
-You can request detailed information about each {{ mgp-name }} cluster you created.
+You can get detailed information about each {{ GP }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -8,23 +8,72 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console {#console}
 
-   Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To request a list of {{ GP }} clusters in a folder, run the following command:
+    To get a list of {{ GP }} clusters in a folder, run this command:
 
-   ```bash
-   {{ yc-mdb-gp }} cluster list
-   ```
+    ```bash
+    {{ yc-mdb-gp }} cluster list
+    ```
 
-- API {#api}
+- REST API {#api}
 
-   To get a list of DB clusters in a folder, use the [list](../api-ref/Cluster/list.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/List](../api-ref/grpc/Cluster/list.md) gRPC API call.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Cluster.List](../api-ref/Cluster/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters' \
+            --url-query folderId=<folder_ID>
+        ```
+
+        
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [ClusterService.List](../api-ref/grpc/Cluster/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "folder_id": "<folder_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.List
+        ```
+
+        
+        You can get the folder ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+
+
+    1. Check the [server response](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.greenplum.v1.ListClustersResponse) to make sure your request was successful.
 
 {% endlist %}
 
@@ -34,60 +83,197 @@ You can request detailed information about each {{ mgp-name }} cluster you creat
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Click the name of your cluster.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get information about a {{ GP }} cluster, run the following command:
+    To get {{ GP }} cluster details, run the following command:
 
-   ```bash
-   {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
-   ```
+    ```bash
+    {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
+    ```
 
-   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+    You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-   To get cluster details, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
-   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Get
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.greenplum.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Viewing a list of operations in a cluster {#list-operations}
+## Getting information about cluster hosts {#get-hosts}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Click the cluster name and select the ![operations.svg](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+
+    In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
+
+    * `MASTER`: Primary master host to receive user connections.
+    * `REPLICA`: Standby master host to replicate the primary master host's data.
+    * `SEGMENT`: Segment host to store part of the cluster data.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of operations, run the following command:
+    To get a list of cluster master hosts, run this command:
 
-   ```bash
-   {{ yc-mdb-gp }} cluster list-operations <cluster_name_or_ID>
-   ```
+    ```bash
+    {{ yc-mdb-gp }} hosts list master \
+       --cluster-name=<cluster_name>
+    ```
 
-   You can request the cluster ID and name with a [list of clusters in the folder](#list-clusters).
+    To get a list of cluster segment hosts, run this command:
 
-- API {#api}
+    ```bash
+    {{ yc-mdb-gp }} hosts list segment \
+       --cluster-name=<cluster_name>
+    ```
 
-   To get a list of operations, use the [listOperations](../api-ref/Cluster/listOperations.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    You can get the cluster name with the [list of clusters in the folder](#list-clusters).
 
-   You can get the cluster ID with a [list of clusters in the folder](#list-clusters).
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. To get a list of cluster master hosts:
+
+        1. Call the [Cluster.ListMasterHosts](../api-ref/Cluster/listMasterHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/master-hosts'
+            ```
+
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+        1. View the [server response](../api-ref/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
+
+    1. To get a list of cluster segment hosts:
+
+        1. Call the [Cluster.ListSegmentHosts](../api-ref/Cluster/listSegmentHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/segment-hosts'
+            ```
+
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+        1. Check the [server response](../api-ref/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. To get a list of cluster master hosts:
+
+        1. Use the [ClusterService.ListMasterHosts](../api-ref/grpc/Cluster/listMasterHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListMasterHosts
+            ```
+
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+        1. View the [server response](../api-ref/grpc/Cluster/listMasterHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
+
+    1. To get a list of cluster segment hosts:
+
+        1. Use the [ClusterService.ListSegmentHosts](../api-ref/grpc/Cluster/listSegmentHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<cluster_ID>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.greenplum.v1.ClusterService.ListSegmentHosts
+            ```
+
+            You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+
+        1. View the [server response](../api-ref/grpc/Cluster/listSegmentHosts.md#yandex.cloud.mdb.greenplum.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

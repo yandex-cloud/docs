@@ -1,9 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list trails in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListTrailsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListTrailsRequest.next_page_token] returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters subscription locks listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering on [Trail.name, Trail.created_at] fields.
+            2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
+            3. The value. Must be in double quotes `""`. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name="my-name"`.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            By which column the listing should be ordered and in which direction.
+            format is "&lt;field&gt; desc|acs"
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/list.md
 ---
 
-# Audit Trails API, REST: Trail.List {#List}
+# Audit Trails API, REST: Trail.List
 
 Retrieves the list of trails in the specified folder.
 
@@ -29,7 +78,7 @@ Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrailsRequest.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailsResponse) returned by a previous list request. ||
+[ListTrailsRequest.next_page_token] returned by a previous list request. ||
 || filter | **string**
 
 A filter expression that filters subscription locks listed in the response.
@@ -42,7 +91,7 @@ Example of a filter: `name="my-name"`. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction.
-format is "<field> desc\|acs" ||
+format is "&lt;field&gt; desc\|acs" ||
 |#
 
 ## Response {#yandex.cloud.audittrails.v1.ListTrailsResponse}
@@ -59,9 +108,9 @@ format is "<field> desc\|acs" ||
       "updatedAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "destination": {
-        // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`
+        // Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`
         "objectStorage": {
           "bucketId": "string",
           "objectPrefix": "string"
@@ -73,7 +122,11 @@ format is "<field> desc\|acs" ||
         },
         "dataStream": {
           "databaseId": "string",
-          "streamName": "string"
+          "streamName": "string",
+          "codec": "string"
+        },
+        "eventrouter": {
+          "eventrouterConnectorId": "string"
         }
         // end of the list of possible fields
       },
@@ -162,6 +215,11 @@ format is "<field> desc\|acs" ||
               ]
             },
             // end of the list of possible fields
+            // Includes only one of the fields `dnsFilter`
+            "dnsFilter": {
+              "includeNonrecursiveQueries": "boolean"
+            },
+            // end of the list of possible fields
             "resourceScopes": [
               {
                 "id": "string",
@@ -229,7 +287,7 @@ Name of the trail ||
 || description | **string**
 
 Description of the trail ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
@@ -270,19 +328,24 @@ Describes which groups of events will be sent and which resources will be monito
 
 Configuration for event delivery to Object Storage
 
-Uploaded objects will have prefix <trail_id>/ by default
+Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || cloudLogging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
 
 Configuration for event delivery to Cloud Logging
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 || dataStream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
 
 Configuration for event delivery to YDS
 
-Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`. ||
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
 |#
 
 ## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
@@ -295,7 +358,7 @@ Name of the destination bucket ||
 || objectPrefix | **string**
 
 Prefix for exported objects. Optional
-If specified, uploaded objects will have prefix <object_prefix>/<trail_id>/ ||
+If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
 |#
 
 ## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}
@@ -319,6 +382,23 @@ ID of the database hosting the destination YDS ||
 || streamName | **string**
 
 Name of the destination YDS ||
+|| codec | **enum** (Codec)
+
+Codec for compressing events
+
+- `CODEC_UNSPECIFIED`
+- `RAW`
+- `GZIP`
+- `ZSTD` ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouterConnectorId | **string**
+
+ID of the EventRouter Connector ||
 |#
 
 ## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}
@@ -484,6 +564,11 @@ Explicitly excluded events of specified service
 New events of the service will be delivered by default
 
 Includes only one of the fields `includedEvents`, `excludedEvents`. ||
+|| dnsFilter | **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+
+Filter is allowed only if service = dns
+
+Includes only one of the fields `dnsFilter`. ||
 || resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail ||
@@ -496,4 +581,13 @@ Policy with explicitly specified event group
 #|
 ||Field | Description ||
 || eventTypes[] | **string** ||
+|#
+
+## DnsDataEventsFilter {#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter}
+
+#|
+||Field | Description ||
+|| includeNonrecursiveQueries | **boolean**
+
+Not only recursive queries will be delivered ||
 |#

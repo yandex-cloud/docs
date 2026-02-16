@@ -17,6 +17,8 @@
    mkdir $HOME\.kafka; curl.exe -o $HOME\.kafka\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
-   The certificate is saved to the `$HOME\.kafka\{{ crt-local-file }}` file.
+   The certificate will be saved to the `$HOME\.kafka\{{ crt-local-file }}` file.
+
+   Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-kafka/qa/index.md#get-ssl-error).
 
 {% endlist %}

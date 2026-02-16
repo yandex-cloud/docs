@@ -1,5 +1,5 @@
 ---
-title: Инструкция по удалению Docker-образ из реестра {{ container-registry-full-name }}
+title: Инструкция по удалению Docker-образа из реестра {{ container-registry-full-name }}
 description: Из статьи вы узнаете, как удалить Docker-образ из реестра {{ container-registry-full-name }}.
 ---
 
@@ -7,7 +7,7 @@ description: Из статьи вы узнаете, как удалить Docker
 
 {% note alert %}
 
-Удаление [Docker-образа](../../concepts/docker-image.md) — это операция с отложенным действием: при удалении Docker-образа его слои физически удаляются **через 1 час**. Информация о суммарном размере реестра обновляется также через 1 час.
+Удаление [Docker-образа](../../concepts/docker-image.md) — это операция с отложенным действием: при удалении Docker-образа его слои физически удаляются через некоторое время, которое зависит от общего объема данных. Информация о суммарном размере реестра обновляется через 1 час после физического удаления.
 
 {% endnote %}
 
@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как удалить Docker
 
   Чтобы удалить Docker-образ:
   1. Перейдите в репозиторий, из которого надо удалить образ:
-     1. Перейдите [на страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Откройте нужный реестр.
      1. Откройте нужный репозиторий.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке Docker-образа, который требуется удалить.

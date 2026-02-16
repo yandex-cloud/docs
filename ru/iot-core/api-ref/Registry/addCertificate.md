@@ -1,9 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/certificates
+    method: post
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry for which the certificate is being added.
+            To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        certificateData:
+          description: |-
+            **string**
+            Public part of the certificate that is being added.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/addCertificate.md
 ---
 
-# IoT Core Service, REST: Registry.AddCertificate {#AddCertificate}
+# IoT Core Service, REST: Registry.AddCertificate
 
 Adds a certificate.
 

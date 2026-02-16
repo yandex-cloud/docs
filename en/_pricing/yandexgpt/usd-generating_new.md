@@ -1,16 +1,13 @@
-| Number | Cost, <br>without VAT |
-| ----- | ----- |
-| 1,000 units | $0.0016 |
+#|
+|| **Model** | **Price per 1,000 input tokens, synchronous mode,</br>without VAT** | **Price per 1,000 output tokens, synchronous mode,</br>without VAT** | **Price per 1,000 input tokens, asynchronous mode,</br>without VAT** | **Price per 1,000 output tokens, asynchronous mode,</br>without VAT** ||
+|| Alice AI LLM | {% calc [currency=USD] 2,5 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 10 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 1,25 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 5 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ||
+|| {{ gpt-pro }} 5.1 | {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} + 0,000053 %} | {% calc [currency=USD] 4 × {{ sku|USD|foundation_models.text_generation.v1|number }} + 0,000053 %} | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} + 0,000027 %} | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} + 0,000027 %} ||
+|| {{ gpt-pro }} 5 | {% calc [currency=USD] 6 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 6 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 3 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 3 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ||
+|| {{ gpt-lite }} | {{ sku|USD|foundation_models.text_generation.v1|string }} | {{ sku|USD|foundation_models.text_generation.v1|string }} | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ||
+|| Qwen3 235B | {% calc [currency=USD] 2,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ^1^ | {% calc [currency=USD] 2,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} ^1^ | — | — ||
+|| gpt-oss-120b | {% calc [currency=USD] 1,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | {% calc [currency=USD] 1,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — | — || 
+|| gpt-oss-20b | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | {% calc [currency=USD] 0,5 × {{ sku|USD|foundation_models.text_generation_alt.v1|number }} %} | — | — || 
+|| Gemma3 27B | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^1^ | {% calc [currency=USD] 2 × {{ sku|USD|foundation_models.text_generation.v1|number }} %} ^1^ | — | — ||
+|#
 
-<br>
-
-| Model parameters | Number of units per token | Cost per 1,000 tokens, </br> without VAT |
-|---------------------------------------------------------|:-------:|----------------------------------------|
-| {{ gpt-lite }}, synchronous mode | 1 | $0.0016 |
-| {{ gpt-lite }}, asynchronous mode | 0.5 | $0.0008 |
-| {{ gpt-pro }}, synchronous mode | 6 | $0.0096 |
-| {{ gpt-pro }}, asynchronous mode | 3 | $0.0048 |
-| Summary model, synchronous mode | 1 | $0.0016 |
-| Summary model, asynchronous mode | 0 | $0.0008 |
-| Models fine-tuned in {{ ml-platform-name }}, synchronous mode | 6 | $0.0096 |
-| Models fine-tuned in {{ ml-platform-name }}, asynchronous mode | 3 | $0.0048 |
+^1^ The price is based on the current 50% discount.

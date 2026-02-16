@@ -1,3 +1,8 @@
+---
+title: Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
+description: Следуя данной инструкции, вы сможете установить cert-manager c плагином {{ dns-name }} ACME webhook.
+---
+
 # Установка cert-manager c плагином {{ dns-full-name }} ACME webhook
 
 
@@ -24,10 +29,11 @@
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
+1. {% include [configure-cert-manager](../../../_includes/managed-kubernetes/security-groups/configure-cert-manager.md) %}
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, необходимый для работы cert-manager.
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль `dns.editor` на каталог, где расположена публичная зона DNS.
-1. [Создайте](../../../iam/operations/authorized-key/create.md) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
+1. [Создайте](../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для этого сервисного аккаунта и сохраните ключ в файл `key.json`.
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
@@ -35,10 +41,10 @@
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [cert-manager c плагином {{ dns-full-name }} ACME webhook](/marketplace/products/yc/cert-manager-webhook-yandex) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `cert-manager-dns-space`). Если вы оставите пространство имен по умолчанию, cert-manager с плагином {{ dns-full-name }} может работать некорректно.
    * **Название приложения** — укажите название приложения, например, `cert-manager`.
    * **Ключ сервисной учетной записи** — вставьте содержимое файла `key.json` или создайте новый [ключ](../../../iam/concepts/authorization/key.md).
-   * **ID каталога** — укажите идентификатор каталога, в котором находится зона {{ dns-name }}, для подтверждения владением доменом при проверке DNS-01.
+   * **ID каталога** — укажите идентификатор каталога, в котором находится зона {{ dns-name }}, для подтверждения владения доменом при проверке DNS-01.
    * **Адрес электронной почты для получения уведомлений от Let's Encrypt** — укажите адрес электронной почты для получения оповещений от Let's Encrypt®.
    * **Адрес сервера Let's Encrypt** — выберите из списка адрес сервера Let's Encrypt®:
      * `https://acme-v02.api.letsencrypt.org/directory` — основной URL.
@@ -71,6 +77,8 @@
    * `https://acme-staging-v02.api.letsencrypt.org/directory` — тестовый URL.
 
    Эта команда также создаст новое пространство имен, необходимое для работы cert-manager.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, cert-manager может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `cert-manager-dns-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

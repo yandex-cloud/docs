@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
+    method: get
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            ID of the certificate to download content.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Optional ID of the version.
+          type: string
+        privateKeyFormat:
+          description: |-
+            **enum** (PrivateKeyFormat)
+            Desired format of private key
+            - `PKCS1`
+            - `PKCS8`
+          type: string
+          enum:
+            - PRIVATE_KEY_FORMAT_UNSPECIFIED
+            - PKCS1
+            - PKCS8
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/CertificateContent/get.md
 ---
 
-# Certificate Manager API, REST: CertificateContent.Get {#Get}
+# Certificate Manager API, REST: CertificateContent.Get
 
 Returns chain and private key of the specified certificate.
 
@@ -33,7 +67,6 @@ Optional ID of the version. ||
 
 Desired format of private key
 
-- `PRIVATE_KEY_FORMAT_UNSPECIFIED`
 - `PKCS1`
 - `PKCS8` ||
 |#

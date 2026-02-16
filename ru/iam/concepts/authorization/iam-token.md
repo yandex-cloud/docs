@@ -1,10 +1,22 @@
 # IAM-токен
 
-IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации.
+IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. Это предпочтительный способ аутентификации как для пользователей, так и для программ (с помощью [сервисных аккаунтов](../users/service-accounts.md)). Получить IAM-токен можно с помощью [CLI](../../../cli/) или [API](../../../overview/api.md).
+
+Аутентификацию с помощью IAM-токена поддерживается для большинства операций, кроме операций в отдельных сервисах или API, где предполагается использование других типов учетных данных.
 
 ## Использование токена {#use}
 
-{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+IAM-токены используются в сервисах {{ yandex-cloud }} для аутентификации. IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md), [федеративных](../../operations/iam-token/create-for-federation.md) и [локальных](../../operations/iam-token/create-for-local.md) аккаунтов.
+
+Также IAM-токены используются для аутентификации клиентов [Docker](../../../container-registry/operations/authentication.md) и [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) в {{ container-registry-full-name }}.
+
+Если вы работаете через консоль управления или интерфейс командной строки (CLI), то получение и использование токена будет незаметным.
+
+Вы можете использовать IAM-токены для аутентификации при вызовах API к сервисам {{ yandex-cloud }}. Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API в заголовке `Authorization` в следующем формате:
+
+```yaml
+Authorization: Bearer <IAM-токен>
+```
 
 Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
@@ -13,8 +25,6 @@ provider "yandex" {
   token = "<IAM-токен>"
 }
 ```
-
-Если пользователь работает через консоль управления или интерфейс командной строки (CLI), то процесс получения и использования токена незаметен для пользователя.
 
 ## Время жизни {#lifetime}
 
@@ -32,11 +42,7 @@ API сервиса {{ iam-short-name }} может вернуть один и т
 
 В случае, если IAM-токен оказался [скомпрометирован](../../operations/compromised-credentials.md), или в целях безопасности вы хотите прекратить действие старого IAM-токена при выпуске нового, IAM-токен можно [отозвать](../../operations/iam-token/revoke-iam-token.md) до истечения срока его жизни.
 
-Отозвать IAM-токен может любой аутентифицированный пользователь с помощью [YC CLI](../../../cli/quickstart.md) или [API](../../api-ref/authentication.md).
-
-## Сервисы, поддерживающие этот способ аутентификации {#supported-services}
-
-Этот способ аутентификации поддерживают все сервисы, кроме сервисов с AWS-совместимым API (в них IAM-токен нужен только для управления [ключами доступа](access-key.md) и [сервисными аккаунтами](../users/service-accounts.md)).
+Отозвать IAM-токен может любой аутентифицированный пользователь с помощью [CLI](../../../cli/quickstart.md) или [API](../../api-ref/authentication.md).
 
 ## Представление токена {#iam-token-format}
 
@@ -59,6 +65,12 @@ t1\.[A-Z0-9a-z_-]+[=]{0,2}\.[A-Z0-9a-z_-]{86}[=]{0,2}
 ```text
 t1.7euelSbPyceKx87JqpuRl1qZiY-Ryi3rnpWaksrKaZqUppnLncmDnpeajZvl8_dZNAFl-e8ENXMH_t3z9xljfmT57wQ1cwf-.-LErty1vRh4S__VEp-aDnM5huB5MEfm_Iu1u2IzNgyrn0emiWDYA6rSQXDvzjE0O3HBbUlqoDeCmXYYInzZ6Cg
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+* [{#T}](../../../tutorials/archive/copy-files-from-object-storage.md)
+* [{#T}](../../../tutorials/serverless/websocket-app.md)
 
 #### См. также {#see-also}
 

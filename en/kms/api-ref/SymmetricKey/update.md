@@ -1,9 +1,115 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to update.
+            To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the symmetric KMS key.
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the symmetric KMS key.
+            The maximum string length in characters is 1024.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            New status for the symmetric KMS key.
+            Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
+            - `CREATING`: The key is being created.
+            - `ACTIVE`: The key is active and can be used for encryption and decryption.
+            Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
+            - `INACTIVE`: The key is inactive and unusable.
+            Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - CREATING
+            - ACTIVE
+            - INACTIVE
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        defaultAlgorithm:
+          description: |-
+            **enum** (SymmetricAlgorithm)
+            Default encryption algorithm to be used with new versions of the symmetric KMS key.
+            - `AES_128`: AES algorithm with 128-bit keys.
+            - `AES_192`: AES algorithm with 192-bit keys.
+            - `AES_256`: AES algorithm with 256-bit keys.
+            - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+            - `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm
+          type: string
+          enum:
+            - SYMMETRIC_ALGORITHM_UNSPECIFIED
+            - AES_128
+            - AES_192
+            - AES_256
+            - AES_256_HSM
+            - GOST_R_3412_2015_K
+        rotationPeriod:
+          description: |-
+            **string** (duration)
+            Time period between automatic symmetric KMS key rotations.
+          type: string
+          format: duration
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/update.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Update {#Update}
+# Key Management Service API, REST: SymmetricKey.Update
 
 Updates the specified symmetric KMS key.
 
@@ -20,7 +126,9 @@ PATCH https://{{ api-host-kms }}/kms/v1/keys/{keyId}
 || keyId | **string**
 
 Required field. ID of the symmetric KMS key to update.
-To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request. ||
+To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.UpdateSymmetricKeyRequest}
@@ -31,7 +139,7 @@ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/
   "name": "string",
   "description": "string",
   "status": "string",
-  "labels": "string",
+  "labels": "object",
   "defaultAlgorithm": "string",
   "rotationPeriod": "string",
   "deletionProtection": "boolean"
@@ -52,33 +160,38 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name for the symmetric KMS key. ||
+New name for the symmetric KMS key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-New description for the symmetric KMS key. ||
+New description for the symmetric KMS key.
+
+The maximum string length in characters is 1024. ||
 || status | **enum** (Status)
 
 New status for the symmetric KMS key.
 Using the [SymmetricKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption.
 Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [SymmetricKeyService.Update](#Update) method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
+Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || defaultAlgorithm | **enum** (SymmetricAlgorithm)
 
 Default encryption algorithm to be used with new versions of the symmetric KMS key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || rotationPeriod | **string** (duration)
 
 Time period between automatic symmetric KMS key rotations. ||
@@ -116,7 +229,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "primaryVersion": {
       "id": "string",
@@ -260,14 +373,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption.
 Can be set to INACTIVE using the [SymmetricKeyService.Update](#Update) method.
@@ -281,11 +393,11 @@ when no version ID is specified. ||
 
 Default encryption algorithm to be used with new versions of the key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || rotatedAt | **string** (date-time)
 
 Time of the last key rotation (time when the last version was created).
@@ -321,7 +433,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroyAt` field.
@@ -330,11 +441,11 @@ is specified in the `SymmetricKeyVersion.destroyAt` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || createdAt | **string** (date-time)
 
 Time when the key version was created.

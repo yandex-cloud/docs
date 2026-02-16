@@ -1,0 +1,1 @@
+**Copy with static table**: Select this option to perform copy operations via temporary static tables. For the `Drop` cleanup policy, existing data in the target will be deleted once the copying is completed. If no drop mode is used, new and existing data will be merged.

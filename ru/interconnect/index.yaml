@@ -2,18 +2,12 @@ title: Yandex Cloud Interconnect
 description:
   - >-
     Yandex Cloud Interconnect позволяет организовать выделенное физическое
-    соединение  между инфраструктурой клиента и облачными ресурсами в Yandex
+    соединение между инфраструктурой клиента и облачными ресурсами в Yandex
     Cloud.
   - >-
     Инфраструктура Yandex Cloud <a
     href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с ФЗ-152.
-meta:
-  title: Yandex Cloud Interconnect
-  description: >-
-    Yandex Cloud Interconnect позволяет организовать выделенное физическое
-    соединение между инфраструктурой клиента и облачными ресурсами в Yandex
-    Cloud.
 links:
   - title: Концепции
     description: Узнайте про возможности сервиса
@@ -21,6 +15,32 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
-  - title: Инструкции
-    description: Как пользоваться сервисом
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутиных операций
     href: operations/
+  - title: Практические руководства
+    description: Инструкции по применению {{ interconnect-name }}
+    href: tutorials/
+meta:
+  title: Yandex Cloud Interconnect
+  description: >-
+    Yandex Cloud Interconnect позволяет организовать выделенное физическое
+    соединение между инфраструктурой клиента и облачными ресурсами в Yandex
+    Cloud.
+  keywords:
+    - interconnect
+    - '{{ interconnect-full-name }}'
+    - транковое подключение
+    - '{{ interconnect-name }}'
+    - сервис {{ interconnect-name }}
+    - '{{ interconnect-name }} в {{ yandex-cloud }}'
+    - приватное подключение
+    - подключение в {{ interconnect-name }}
+    - BGP {{ yandex-cloud }}
+    - точка присутствия
+    - кроссировка в {{ interconnect-name }}
+    - кроссировка
+    - трансивер {{ interconnect-name }}
+    - маршрутизация {{ interconnect-name }}
+    - транк
+    - транк {{ interconnect-name }}

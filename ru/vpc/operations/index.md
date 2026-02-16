@@ -21,7 +21,6 @@ description: На странице представлен список поша�
 - [{#T}](subnet-update.md)
 - [{#T}](subnet-get-info.md)
 - [{#T}](subnet-move.md)
-- [{#T}](subnet-relocate.md)
 - [{#T}](subnet-used-addresses.md)
 
 ## Адреса {#addresses}
@@ -29,6 +28,7 @@ description: На странице представлен список поша�
 - [{#T}](get-static-ip.md)
 - [{#T}](set-static-ip.md)
 - [{#T}](set-dynamic-ip.md)
+- [{#T}](deletion-protection.md)
 - [{#T}](address-move.md)
 - [{#T}](address-get-info.md)
 - [{#T}](address-delete.md)
@@ -49,6 +49,7 @@ description: На странице представлен список поша�
 - [{#T}](private-endpoint-create.md)
 - [{#T}](private-endpoint-get-info.md)
 - [{#T}](private-endpoint-storage-policy.md)
+- [{#T}](private-endpoint-storage-restriction.md)
 - [{#T}](private-endpoint-delete.md)
 
 ## Группы безопасности {#security-groups}

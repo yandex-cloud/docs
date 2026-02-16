@@ -1,11 +1,165 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/channels/{channelId}
+    method: patch
+    path:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel to update.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - channelId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        fieldMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        title:
+          description: |-
+            **string**
+            New title for the channel.
+            The maximum string length in characters is 300.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the channel.
+            The maximum string length in characters is 4000.
+          type: string
+        defaultStylePresetId:
+          description: |-
+            **string**
+            New default style preset ID for the channel.
+            This preset will be applied to new videos created in this channel unless explicitly overridden.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New custom labels for the channel as `key:value` pairs.
+            Maximum 64 labels per channel.
+            If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        settings:
+          description: |-
+            **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
+            New configuration settings for the channel's behavior and features.
+          $ref: '#/definitions/ChannelSettings'
+      required:
+        - fieldMask
+      additionalProperties: false
+    definitions:
+      YandexDirect:
+        type: object
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Enables or disables Partner Ad for both Live and VOD content.
+              When set to true, advertisements will be shown with content.
+              When set to false, no advertisements will be shown.
+            type: boolean
+          pageId:
+            description: |-
+              **string** (int64)
+              Yandex.Direct page identifier.
+              This ID is used to associate the channel with a specific page
+              in the Yandex.Direct system for targeting and reporting.
+            type: string
+            format: int64
+          category:
+            description: |-
+              **string** (int64)
+              Yandex.Direct category identifier.
+              This ID is used to categorize the channel's content for
+              appropriate advertisement targeting and compliance.
+            type: string
+            format: int64
+      AdvertisementSettings:
+        type: object
+        properties:
+          yandexDirect:
+            description: |-
+              **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+              Yandex.Direct advertisement provider settings.
+              When specified, advertisements will be served through Yandex.Direct.
+              Includes only one of the fields `yandexDirect`.
+              Specifies the advertisement provider to use.
+              Only one provider can be active at a time.
+            $ref: '#/definitions/YandexDirect'
+        oneOf:
+          - required:
+              - yandexDirect
+      RefererVerificationSettings:
+        type: object
+        properties:
+          enable:
+            description: |-
+              **boolean**
+              Enables or disables Referer verification for this channel.
+              When set to true, only requests from allowed domains will be permitted.
+              When set to false, content can be embedded on any domain.
+            type: boolean
+          allowedDomains:
+            description: |-
+              **string**
+              List of domains allowed to embed content from this channel.
+              Only relevant when enable is set to true.
+              Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+              Each value must match the regular expression ` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ `. The string length in characters for each value must be 4-255. The maximum number of elements is 100.
+            pattern: ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$
+            type: array
+            items:
+              type: string
+      ChannelSettings:
+        type: object
+        properties:
+          advertisement:
+            description: |-
+              **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
+              Settings for advertisement display and behavior.
+              Controls whether and how advertisements are shown with content in this channel.
+              If not specified, default advertisement settings are applied.
+            $ref: '#/definitions/AdvertisementSettings'
+          refererVerification:
+            description: |-
+              **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
+              Settings for HTTP Referer verification to control content embedding.
+              Restricts which domains can embed content from this channel.
+              If not specified or disabled, content can be embedded on any domain.
+            $ref: '#/definitions/RefererVerificationSettings'
 sourcePath: en/_api-ref/video/v1/api-ref/Channel/update.md
 ---
 
-# Video API, REST: Channel.Update {#Update}
+# Video API, REST: Channel.Update
 
-Update channel.
+Updates an existing channel's metadata and settings.
+Only fields specified in the field_mask will be updated.
 
 ## HTTP request
 
@@ -19,7 +173,9 @@ PATCH https://video.{{ api-host }}/video/v1/channels/{channelId}
 ||Field | Description ||
 || channelId | **string**
 
-Required field. ID of the channel. ||
+Required field. ID of the channel to update.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateChannelRequest}
@@ -29,7 +185,25 @@ Required field. ID of the channel. ||
   "fieldMask": "string",
   "title": "string",
   "description": "string",
-  "labels": "string"
+  "defaultStylePresetId": "string",
+  "labels": "object",
+  "settings": {
+    "advertisement": {
+      // Includes only one of the fields `yandexDirect`
+      "yandexDirect": {
+        "enable": "boolean",
+        "pageId": "string",
+        "category": "string"
+      }
+      // end of the list of possible fields
+    },
+    "refererVerification": {
+      "enable": "boolean",
+      "allowedDomains": [
+        "string"
+      ]
+    }
+  }
 }
 ```
 
@@ -37,7 +211,7 @@ Required field. ID of the channel. ||
 ||Field | Description ||
 || fieldMask | **string** (field-mask)
 
-A comma-separated names off ALL fields to be updated.
+Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
 If the field is specified in `` updateMask `` and no value for that field was sent in the request,
 the field's value will be reset to the default. The default value for most fields is null or 0.
@@ -47,13 +221,113 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-Channel title. ||
+New title for the channel.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Channel description. ||
-|| labels | **string**
+New description for the channel.
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+The maximum string length in characters is 4000. ||
+|| defaultStylePresetId | **string**
+
+New default style preset ID for the channel.
+This preset will be applied to new videos created in this channel unless explicitly overridden. ||
+|| labels | **object** (map<**string**, **string**>)
+
+New custom labels for the channel as `key:value` pairs.
+Maximum 64 labels per channel.
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
+
+New configuration settings for the channel's behavior and features. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings}
+
+Configuration settings for the channel's behavior and features.
+These settings apply to all content in the channel and control
+various aspects of how the channel and its content behave.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
+
+Settings for advertisement display and behavior.
+Controls whether and how advertisements are shown with content in this channel.
+If not specified, default advertisement settings are applied. ||
+|| refererVerification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
+
+Settings for HTTP Referer verification to control content embedding.
+Restricts which domains can embed content from this channel.
+If not specified or disabled, content can be embedded on any domain. ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings}
+
+Settings for advertisement display and behavior in the channel.
+These settings control whether and how advertisements are shown
+with content in this channel, including both videos and streams.
+
+#|
+||Field | Description ||
+|| yandexDirect | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+
+Yandex.Direct advertisement provider settings.
+When specified, advertisements will be served through Yandex.Direct.
+
+Includes only one of the fields `yandexDirect`.
+
+Specifies the advertisement provider to use.
+Only one provider can be active at a time. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect}
+
+Configuration for the Yandex.Direct advertisement provider.
+These settings are specific to the Yandex.Direct advertising platform.
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enables or disables Partner Ad for both Live and VOD content.
+When set to true, advertisements will be shown with content.
+When set to false, no advertisements will be shown. ||
+|| pageId | **string** (int64)
+
+Yandex.Direct page identifier.
+This ID is used to associate the channel with a specific page
+in the Yandex.Direct system for targeting and reporting. ||
+|| category | **string** (int64)
+
+Yandex.Direct category identifier.
+This ID is used to categorize the channel's content for
+appropriate advertisement targeting and compliance. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings}
+
+Settings for HTTP Referer verification to control where content can be embedded.
+When enabled, the system checks the HTTP Referer request header to ensure
+that content is only embedded on allowed domains.
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enables or disables Referer verification for this channel.
+When set to true, only requests from allowed domains will be permitted.
+When set to false, content can be embedded on any domain. ||
+|| allowedDomains[] | **string**
+
+List of domains allowed to embed content from this channel.
+Only relevant when enable is set to true.
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -84,9 +358,27 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
     "organizationId": "string",
     "title": "string",
     "description": "string",
+    "defaultStylePresetId": "string",
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object",
+    "settings": {
+      "advertisement": {
+        // Includes only one of the fields `yandexDirect`
+        "yandexDirect": {
+          "enable": "boolean",
+          "pageId": "string",
+          "category": "string"
+        }
+        // end of the list of possible fields
+      },
+      "refererVerification": {
+        "enable": "boolean",
+        "allowedDomains": [
+          "string"
+        ]
+      }
+    }
   }
   // end of the list of possible fields
 }
@@ -167,7 +459,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+ID of the channel being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -189,25 +481,39 @@ A list of messages that carry the error details. ||
 
 ## Channel {#yandex.cloud.video.v1.Channel}
 
-Root entity for content separation.
+Root entity for content organization and separation within the video platform.
+A channel serves as a container for videos and streams, providing a way to
+group related content and apply common settings and access controls.
+Each channel belongs to a specific organization and can have its own
+configuration for advertisements, content cleanup, and embedding restrictions.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the channel. ||
+Unique identifier of the channel.
+This ID is used to reference the channel in API calls and URLs. ||
 || organizationId | **string**
 
-ID of the organization where channel should be created. ||
+Identifier of the organization to which this channel belongs.
+Each channel must be associated with exactly one organization. ||
 || title | **string**
 
-Channel title. ||
+Title of the channel displayed in interfaces.
+This is the primary display name shown to users. ||
 || description | **string**
 
-Channel description. ||
+Detailed description of the channel's purpose and content.
+This optional field provides additional context about the channel. ||
+|| defaultStylePresetId | **string**
+
+Identifier of the default style preset applied to videos in this channel.
+Videos, episodes, and playlists created in this channel
+inherit this preset unless explicitly overridden. ||
 || createdAt | **string** (date-time)
 
-Time when channel was created.
+Timestamp when the channel was initially created.
+This value is set automatically by the system and cannot be modified.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -217,7 +523,8 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last channel update.
+Timestamp of the last modification to the channel or its settings.
+This value is updated automatically whenever the channel is modified.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -225,7 +532,99 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per channel.
+Labels can be used for organization, filtering, and metadata purposes. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings2)**
+
+Configuration settings for the channel's behavior and features.
+These settings control advertisements, content cleanup policies,
+and embedding restrictions for all content in the channel. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings2}
+
+Configuration settings for the channel's behavior and features.
+These settings apply to all content in the channel and control
+various aspects of how the channel and its content behave.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings2)**
+
+Settings for advertisement display and behavior.
+Controls whether and how advertisements are shown with content in this channel.
+If not specified, default advertisement settings are applied. ||
+|| refererVerification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings2)**
+
+Settings for HTTP Referer verification to control content embedding.
+Restricts which domains can embed content from this channel.
+If not specified or disabled, content can be embedded on any domain. ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings2}
+
+Settings for advertisement display and behavior in the channel.
+These settings control whether and how advertisements are shown
+with content in this channel, including both videos and streams.
+
+#|
+||Field | Description ||
+|| yandexDirect | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2)**
+
+Yandex.Direct advertisement provider settings.
+When specified, advertisements will be served through Yandex.Direct.
+
+Includes only one of the fields `yandexDirect`.
+
+Specifies the advertisement provider to use.
+Only one provider can be active at a time. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2}
+
+Configuration for the Yandex.Direct advertisement provider.
+These settings are specific to the Yandex.Direct advertising platform.
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enables or disables Partner Ad for both Live and VOD content.
+When set to true, advertisements will be shown with content.
+When set to false, no advertisements will be shown. ||
+|| pageId | **string** (int64)
+
+Yandex.Direct page identifier.
+This ID is used to associate the channel with a specific page
+in the Yandex.Direct system for targeting and reporting. ||
+|| category | **string** (int64)
+
+Yandex.Direct category identifier.
+This ID is used to categorize the channel's content for
+appropriate advertisement targeting and compliance. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings2}
+
+Settings for HTTP Referer verification to control where content can be embedded.
+When enabled, the system checks the HTTP Referer request header to ensure
+that content is only embedded on allowed domains.
+
+#|
+||Field | Description ||
+|| enable | **boolean**
+
+Enables or disables Referer verification for this channel.
+When set to true, only requests from allowed domains will be permitted.
+When set to false, content can be embedded on any domain. ||
+|| allowedDomains[] | **string**
+
+List of domains allowed to embed content from this channel.
+Only relevant when enable is set to true.
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#

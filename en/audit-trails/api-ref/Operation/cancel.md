@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}:cancel
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the operation to cancel.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Operation/cancel.md
 ---
 
-# Audit Trails API, REST: Operation.Cancel {#Cancel}
+# Audit Trails API, REST: Operation.Cancel
 
 Cancels the specified operation.
 

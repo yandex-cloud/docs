@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mgp-full-name }}
-description: This page provides a list of step-by-step guides for {{ mpg-name }}.
+description: This page provides a list of step-by-step guides for {{ mgp-name }}.
 ---
 
 # Step-by-step guides for {{ mgp-name }}
@@ -8,19 +8,19 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 ## Clusters {#clusters}
 
 * [Information about existing clusters](cluster-list.md)
-* [{#T}](calculate-specs.md)
 * [Creating a cluster](cluster-create.md)
+* [Editing a cluster's configuration](cluster-config.md)
 * [Updating cluster settings](update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
-* [Information about cluster hosts](./hosts/cluster-hosts.md)
-* [{#T}](./hosts/cluster-expand.md)
-* [Migrating cluster hosts to a different availability zone](./hosts/host-migration.md)
+* [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Databases {#databases}
 
 * [{#T}](connect.md)
+* [{#T}](databases.md)
 
 ## Users and sessions {#users-and-sessions}
 
@@ -30,7 +30,7 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [{#T}](command-center.md)
 * [{#T}](cluster-process.md)
 
-## PXF external tables {#pxf}
+## External PXF tables {#pxf}
 
 * [{#T}](external-tables.md)
 * [{#T}](pxf/create-s3-source.md)
@@ -40,21 +40,25 @@ description: This page provides a list of step-by-step guides for {{ mpg-name }}
 * [{#T}](pxf/create-table.md)
 * [{#T}](pxf/settings.md)
 
-## Working with `gpfdist` {#gpfdist}
+## Using `gpfdist` {#gpfdist}
 
 * [{#T}](gpfdist/connect.md)
 
 ## {{ GP }} extensions {#extensions}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
-* [Using pgcrypto](./extensions/pgcrypto.md)
-* [Using uuid-cb](./extensions/uuid-cb.md)
+* [Using `gp_relsizes_stats`](./extensions/gp-relsizes-stats.md)
+* [Using `gp_url_tools`](./extensions/gp-url-tools.md)
+* [Using `pgcrypto`](./extensions/pgcrypto.md)
+* [Using `uuid-cb`](./extensions/uuid-cb.md)
 
 ## Logs and monitoring {#logs-and-monitoring}
 
 * [Viewing cluster logs](cluster-logs.md)
+* [Viewing cluster operations](cluster-operations.md)
 * [{#T}](performance-diagnostics.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
+* [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
 
 ## Auxiliary utilities {#tools}
 

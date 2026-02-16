@@ -1,18 +1,23 @@
-# Fixing the "WARNING REMOTE HOST IDENTIFICATION HAS CHANGED" error
+# Fixing the `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED` error
+
 
 
 ## Issue description {#issue-description}
 
-When attempting to connect via SSH, you see this error: `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED`.
+When attempting to connect over SSH, you get the `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED` error.
 
 ## Solution {#issue-resolution}
 
-You need to verify that you are connecting to your server, after which you can delete the record pointing to the server's IP address from the `known_hosts` file:
+You need to verify that you are connecting to the correct server, and then delete the record pointing to the server IP address from the `known_hosts` file:
 
 ```
 ssh-keygen -f C:\User\Username/.ssh/known_hosts -R "00.000.00.000"
 ```
 
-and reconnect to the VM with a static IP address `00.000.00.000`.
+Following these steps, you can reconnect to the VM with the `00.000.00.000` static IP address.
 
-This error may occur if you previously created a VM, then deleted it, and created a new VM with the same static IP. In this case, SSH will be protected against man-in-the-middle attacks and communication channel compromise.
+{% note info %}
+
+This error may occur if you previously created a VM, deleted it, and then created a new VM with the same static IP address. This protects the SSH connection against man-in-the-middle attacks and communication channel compromise.
+
+{% endnote %}

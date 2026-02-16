@@ -1,3 +1,8 @@
+---
+title: Обучающие курсы по {{ mkf-full-name }}
+description: В этом разделе собраны обучающие курсы по {{ mkf-full-name }}.
+---
+
 # Обучающие курсы по {{ mkf-full-name }}
 
 {% include [training-intro](../_includes/training/training-intro.md) %}

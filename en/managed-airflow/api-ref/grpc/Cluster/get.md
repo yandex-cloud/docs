@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/airflow/v1/api-ref/grpc/Cluster/get.md
 ---
 
-# Managed Service for Apache Airflow™ API, gRPC: ClusterService.Get {#Get}
+# Managed Service for Apache Airflow™ API, gRPC: ClusterService.Get
 
 Returns the specified Apache Airflow Cluster resource.
 
@@ -15,13 +15,13 @@ Returns the specified Apache Airflow Cluster resource.
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the Apache Airflow Cluster resource to return. ||
 |#
@@ -31,11 +31,11 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "monitoring": [
     {
       "name": "string",
@@ -44,74 +44,103 @@ Required field. ID of the Apache Airflow Cluster resource to return. ||
     }
   ],
   "config": {
-    "versionId": "string",
+    "version_id": "string",
     "airflow": {
-      "config": "string"
+      "config": "map<string, string>"
     },
     "webserver": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "scheduler": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "triggerer": {
       "count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "worker": {
-      "minCount": "int64",
-      "maxCount": "int64",
+      "min_count": "int64",
+      "max_count": "int64",
       "resources": {
-        "resourcePresetId": "string"
+        "resource_preset_id": "string"
       }
     },
     "dependencies": {
-      "pipPackages": [
+      "pip_packages": [
         "string"
       ],
-      "debPackages": [
+      "deb_packages": [
         "string"
       ]
     },
     "lockbox": {
       "enabled": "bool"
+    },
+    "airflow_version": "string",
+    "python_version": "string",
+    "dag_processor": {
+      "count": "int64",
+      "resources": {
+        "resource_preset_id": "string"
+      }
     }
   },
   "health": "Health",
   "status": "Status",
   "network": {
-    "subnetIds": [
+    "subnet_ids": [
       "string"
     ],
-    "securityGroupIds": [
+    "security_group_ids": [
       "string"
     ]
   },
-  "codeSync": {
-    // Includes only one of the fields `s3`
+  "code_sync": {
+    // Includes only one of the fields `s3`, `git_sync`
     "s3": {
       "bucket": "string"
+    },
+    "git_sync": {
+      "repo": "string",
+      "branch": "string",
+      "sub_path": "string",
+      "ssh_key": "string"
     }
     // end of the list of possible fields
   },
-  "deletionProtection": "bool",
-  "webserverUrl": "string",
-  "serviceAccountId": "string",
+  "deletion_protection": "bool",
+  "webserver_url": "string",
+  "service_account_id": "string",
   "logging": {
     "enabled": "bool",
-    // Includes only one of the fields `folderId`, `logGroupId`
-    "folderId": "string",
-    "logGroupId": "string",
+    // Includes only one of the fields `folder_id`, `log_group_id`
+    "folder_id": "string",
+    "log_group_id": "string",
     // end of the list of possible fields
-    "minLevel": "Level"
+    "min_level": "Level"
+  },
+  "maintenance_window": {
+    // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+    "anytime": "AnytimeMaintenanceWindow",
+    "weekly_maintenance_window": {
+      "day": "WeekDay",
+      "hour": "int64"
+    }
+    // end of the list of possible fields
+  },
+  "planned_operation": {
+    "info": "string",
+    "delayed_until": "google.protobuf.Timestamp",
+    "latest_maintenance_time": "google.protobuf.Timestamp",
+    "next_maintenance_window_time": "google.protobuf.Timestamp"
   }
 }
 ```
@@ -124,10 +153,10 @@ Apache Airflow cluster.
 
 Unique ID of the Apache Airflow cluster.
 This ID is assigned by Cloud during cluster creation. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the Apache Airflow cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Apache Airflow cluster was created. ||
 || name | **string**
@@ -137,7 +166,7 @@ The name is unique within the folder. 1-64 characters long. ||
 || description | **string**
 
 Description of the Apache Airflow cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.airflow.v1.Monitoring)**
@@ -169,22 +198,28 @@ Cluster status.
 || network | **[NetworkConfig](#yandex.cloud.airflow.v1.NetworkConfig)**
 
 Network related configuration options. ||
-|| codeSync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
+|| code_sync | **[CodeSyncConfig](#yandex.cloud.airflow.v1.CodeSyncConfig)**
 
 Parameters of the location and access to the code that will be executed in the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster. ||
-|| webserverUrl | **string**
+|| webserver_url | **string**
 
 Address of Apache Airflow web UI. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Service account used to access Cloud resources.
 For more information, see [documentation](/docs/managed-airflow/concepts/impersonation). ||
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -208,9 +243,10 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
-Version of Apache that runs on the cluster. ||
+Version of Apache Airflow that runs on the cluster.
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -232,13 +268,22 @@ The list of additional packages installed in the cluster. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
 
 Configuration of Lockbox Secret Backend. ||
+|| airflow_version | **string**
+
+Apache Airflow version. Format: "Major.Minor" ||
+|| python_version | **string**
+
+Python version. Format: "Major.Minor" ||
+|| dag_processor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
 
 #|
 ||Field | Description ||
-|| config | **string**
+|| config | **object** (map<**string**, **string**>)
 
 Properties to be passed to Apache Airflow configuration file. ||
 |#
@@ -259,7 +304,7 @@ Resources allocated to webserver instances. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the preset for computational resources available to an instance (CPU, memory etc.). ||
 |#
@@ -292,10 +337,10 @@ Resources allocated to triggerer instances. ||
 
 #|
 ||Field | Description ||
-|| minCount | **int64**
+|| min_count | **int64**
 
 The minimum number of worker instances in the cluster. ||
-|| maxCount | **int64**
+|| max_count | **int64**
 
 The maximum number of worker instances in the cluster. ||
 || resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
@@ -307,10 +352,10 @@ Resources allocated to worker instances. ||
 
 #|
 ||Field | Description ||
-|| pipPackages[] | **string**
+|| pip_packages[] | **string**
 
 Python packages that are installed in the cluster. ||
-|| debPackages[] | **string**
+|| deb_packages[] | **string**
 
 System packages that are installed in the cluster. ||
 |#
@@ -324,14 +369,26 @@ System packages that are installed in the cluster. ||
 The setting allows to enable Lockbox Secret Backend. ||
 |#
 
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **int64**
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
+|#
+
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}
 
 #|
 ||Field | Description ||
-|| subnetIds[] | **string**
+|| subnet_ids[] | **string**
 
 IDs of VPC network subnets where instances of the cluster are attached. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
 |#
@@ -342,7 +399,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `git_sync`. ||
+|| git_sync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Includes only one of the fields `s3`, `git_sync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config}
@@ -354,6 +414,24 @@ Includes only one of the fields `s3`. ||
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
 |#
 
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig}
+
+#|
+||Field | Description ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| sub_path | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| ssh_key | **string**
+
+SSH private key for repository authentication. ||
+|#
+
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}
 
 #|
@@ -361,21 +439,21 @@ The name of the Object Storage bucket that stores DAG files used in the cluster.
 || enabled | **bool**
 
 Logs generated by the Airflow components are delivered to Cloud Logging. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Logs should be written to default log group for specified folder.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Logs should be written to log group resolved by ID.
 
-Includes only one of the fields `folderId`, `logGroupId`.
+Includes only one of the fields `folder_id`, `log_group_id`.
 
 Destination of log records. ||
-|| minLevel | enum **Level**
+|| min_level | enum **Level**
 
 Minimum log entry level.
 
@@ -402,4 +480,52 @@ See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.airflow.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **int64**
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

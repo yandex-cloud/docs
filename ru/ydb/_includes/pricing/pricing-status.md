@@ -1,6 +1,3 @@
----
-sourcePath: overlay/_includes/pricing/pricing-status.md
----
 ## Статус кластера {#running-stopped}
 
 В зависимости от статуса кластера тарифы применяются различным образом:

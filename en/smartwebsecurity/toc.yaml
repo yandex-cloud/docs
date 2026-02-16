@@ -2,26 +2,19 @@ title: Yandex Smart Web Security
 href: index.yaml
 items:
   - name: Getting started
-    expanded: true
-    items:
-      - name: Overview
-        href: quickstart/index.md
-      - name: Getting started with {{ sws-name }}
-        href: quickstart.md
-      - name: Getting started with WAF
-        href: quickstart/quickstart-waf.md
-      - name: Getting started with ARL
-        href: quickstart/quickstart-arl.md
+    href: quickstart.md
   - name: Step-by-step guides
     items:
       - name: All guides
         href: operations/index.md
-      - name: Managing security profiles
+      - name: Security profiles
         items:
           - name: Creating a profile
             href: operations/profile-create.md
           - name: Editing basic profile settings
             href: operations/profile-update.md
+          - name: Getting profile information
+            href: operations/profile-get.md
           - name: Deleting a profile
             href: operations/profile-delete.md
           - name: Adding a rule
@@ -30,32 +23,38 @@ items:
             href: operations/rule-update.md
           - name: Deleting a rule
             href: operations/rule-delete.md
-          - name: Connecting a profile to a host
+          - name: Connecting a profile to a resource
             href: operations/host-connect.md
-          - name: Disconnecting a profile from a host
+          - name: Disconnecting a profile from a resource
             href: operations/host-delete.md
-      - name: Managing WAF profiles
+      - name: WAF profiles
         items:
           - name: Creating a profile
             href: operations/waf-profile-create.md
           - name: Editing basic profile settings
             href: operations/waf-profile-update.md
+          - name: Getting profile information
+            href: operations/waf-profile-get.md
           - name: Deleting a profile
             href: operations/waf-profile-delete.md
-          - name: Configuring a basic rule set
+          - name: Configuring rule sets
             href: operations/configure-set-rules.md
+          - name: Getting information about a rule set
+            href: operations/get-set-rules.md
           - name: Adding an exclusion rule
             href: operations/exclusion-rule-add.md
           - name: Updating an exclusion rule
             href: operations/exclusion-rule-update.md
           - name: Deleting an exclusion rule
             href: operations/exclusion-rule-delete.md
-      - name: Managing ARL profiles
+      - name: ARL profiles
         items:
           - name: Creating a profile
             href: operations/arl-profile-create.md
           - name: Editing basic profile settings
             href: operations/arl-profile-update.md
+          - name: Getting profile information
+            href: operations/arl-profile-get.md
           - name: Deleting a profile
             href: operations/arl-profile-delete.md
           - name: Adding a rule
@@ -64,12 +63,54 @@ items:
             href: operations/arl-rule-update.md
           - name: Deleting a rule
             href: operations/arl-rule-delete.md
-      - name: Viewing operations with profiles
+      - name: Domains
+        items:
+          - name: Creating a proxy server
+            href: operations/proxy-create.md
+          - name: Creating a domain
+            href: operations/domain-create.md
+          - name: Setting up the infrastructure
+            href: operations/setup-infrastructure.md
+          - name: Checking resources for availability
+            href: operations/validate-availability.md
+      - name: Address lists
+        href: operations/list-create.md
+      - name: Required and recommended rules
+        items:
+          - name: Rule for captcha
+            href: operations/captcha-rule.md
+          - name: Rule for blocking black addresses
+            href: operations/black-list-rule.md
+      - name: Viewing operations
         href: operations/operation-logs.md
+      - name: Configuring monitoring
+        href: operations/monitoring.md
+      - name: Setting up alerts
+        href: operations/alerting.md
+      - name: Configuring logs via {{ sws-name }}
+        href: operations/configure-logging.md
+      - name: Configuring logs via {{ alb-name }}
+        href: operations/configure-logging-alb.md
+      - name: Migrating to WAF with support for Yandex rules
+        href: operations/waf-migration.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Basic SWS setup
+        href: tutorials/sws-basic-protection.md
       - name: Creating an L7 load balancer with a security profile
-        href: tutorials/balancer-with-sws-profile.md
+        items:
+          - name: Overview
+            href: tutorials/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: tutorials/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: tutorials/balancer-with-sws-profile/terraform.md
+      - name: >-
+          Creating an L7 load balancer with a security profile through an {{
+          alb-name }} ingress controller
+        href: tutorials/alb-ingress-with-sws-profile.md
       - name: Creating an L7 load balancer with DDoS protection at OSI L3-L4
         items:
           - name: Overview
@@ -78,6 +119,68 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+        href: tutorials/api-gw-sws-integration.md
+      - name: Emergency L7 DDoS protection in {{ alb-name }}
+        href: tutorials/sws-protection-ongoing-ddos.md
+      - name: Centralized online publication and DDoS protection of applications
+        href: tutorials/different-folders-services.md
+      - name: Creating a distributed infrastructure with secure access
+        href: tutorials/distributed-secured-infrastructure.md
+      - name: >-
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
+        items:
+          - name: Overview
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: NLB with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB with an instance group as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB as a target for ALB
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
+      - name: >-
+          Deploying a web application on {{ baremetal-name }} servers with an L7
+          load balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     expanded: true
     items:
@@ -93,6 +196,14 @@ items:
         href: concepts/rules.md
       - name: Conditions
         href: concepts/conditions.md
+      - name: Lists
+        href: concepts/lists.md
+      - name: Managing bot traffic
+        href: concepts/botes.md
+      - name: Protecting domains
+        href: concepts/domain-protect.md
+      - name: Logging
+        href: concepts/logging.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -100,10 +211,28 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/smartwebsecurity/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: security-profile
+        items:
+          - name: Overview
+            href: cli-ref/security-profile/index.md
+          - name: create
+            href: cli-ref/security-profile/create.md
+          - name: delete
+            href: cli-ref/security-profile/delete.md
+          - name: get
+            href: cli-ref/security-profile/get.md
+          - name: list
+            href: cli-ref/security-profile/list.md
+          - name: update
+            href: cli-ref/security-profile/update.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -291,5 +420,3 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/smartwebsecurity
-deepBase: 2

@@ -1,9 +1,410 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create an agent in.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the agent.
+            A created compute instance will have the same name.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the agent.
+            A created compute instance will have the same description.
+          type: string
+        computeInstanceParams:
+          description: |-
+            **[CreateComputeInstance](#yandex.cloud.loadtesting.api.v1.agent.CreateComputeInstance)**
+            Parameters for compute instance to be created.
+          $ref: '#/definitions/CreateComputeInstance'
+        agentVersion:
+          description: |-
+            **string**
+            Version of the agent.
+            If not provided, the most recent agent version will be used.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Agent labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        logSettings:
+          description: |-
+            **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
+            Agent log settings
+          $ref: '#/definitions/LogSettings'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      ResourcesSpec:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Required field. The amount of memory available to the instance, specified in bytes.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Required field. The number of cores available to the instance.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Baseline level of CPU performance with the ability to burst performance above that baseline level.
+              This field sets baseline performance for each core.
+              For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
+              For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+            type: string
+            format: int64
+          gpus:
+            description: |-
+              **string** (int64)
+              The number of GPUs available to the instance.
+            type: string
+            format: int64
+        required:
+          - memory
+          - cores
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      DiskSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the disk.
+            pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+            type: string
+          description:
+            description: |-
+              **string**
+              Description of the disk.
+            type: string
+          typeId:
+            description: |-
+              **string**
+              ID of the disk type.
+              To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+            type: string
+          size:
+            description: |-
+              **string** (int64)
+              Required field. Size of the disk, specified in bytes.
+            type: string
+            format: int64
+          imageId:
+            description: |-
+              **string**
+              ID of the image to create the disk from.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          snapshotId:
+            description: |-
+              **string**
+              ID of the snapshot to restore the disk from.
+              Includes only one of the fields `imageId`, `snapshotId`.
+            type: string
+          diskPlacementPolicy:
+            description: |-
+              **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+              Placement policy configuration.
+            $ref: '#/definitions/DiskPlacementPolicy'
+          blockSize:
+            description: |-
+              **string** (int64)
+              Block size of the disk, specified in bytes. The default is 4096.
+            type: string
+            format: int64
+          kmsKeyId:
+            description: |-
+              **string**
+              ID of KMS key for disk encryption
+            type: string
+        required:
+          - size
+        oneOf:
+          - required:
+              - imageId
+          - required:
+              - snapshotId
+      AttachedDiskSpec:
+        type: object
+        properties:
+          mode:
+            description: |-
+              **enum** (Mode)
+              The mode in which to attach this disk.
+              - `MODE_UNSPECIFIED`
+              - `READ_ONLY`: Read-only access.
+              - `READ_WRITE`: Read/Write access. Default value.
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          deviceName:
+            description: |-
+              **string**
+              Specifies a unique serial number of your choice that is reflected into the /dev/disk/by-id/ tree
+              of a Linux operating system running within the instance.
+              This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+              If not specified, a random value will be generated.
+            pattern: '[a-z][a-z0-9-_]{,19}'
+            type: string
+          autoDelete:
+            description: |-
+              **boolean**
+              Specifies whether the disk will be auto-deleted when the instance is deleted.
+            type: boolean
+          diskSpec:
+            description: |-
+              **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
+              Disk specification.
+              Includes only one of the fields `diskSpec`, `diskId`.
+            $ref: '#/definitions/DiskSpec'
+          diskId:
+            description: |-
+              **string**
+              ID of the disk that should be attached.
+              Includes only one of the fields `diskSpec`, `diskId`.
+            type: string
+        oneOf:
+          - required:
+              - diskSpec
+          - required:
+              - diskId
+      DnsRecordSpec:
+        type: object
+        properties:
+          fqdn:
+            description: |-
+              **string**
+              Required field. FQDN (required)
+            type: string
+          dnsZoneId:
+            description: |-
+              **string**
+              DNS zone id (optional, if not set, private zone used)
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              DNS record ttl, values in 0-86400 (optional)
+            type: string
+            format: int64
+          ptr:
+            description: |-
+              **boolean**
+              When set to true, also create PTR DNS record (optional)
+            type: boolean
+        required:
+          - fqdn
+      OneToOneNatSpec:
+        type: object
+        properties:
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              External IP address version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4 address, for example 192.0.2.235.
+              - `IPV6`: IPv6 address. Not available yet.
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+          address:
+            description: |-
+              **string**
+              set static IP by value
+            type: string
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+              External DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      PrimaryAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              An IPv4 internal network address that is assigned to the instance for this network interface.
+              If not specified by the user, an unused internal IP is assigned by the system.
+            type: string
+          oneToOneNatSpec:
+            description: |-
+              **[OneToOneNatSpec](#yandex.cloud.compute.v1.OneToOneNatSpec)**
+              An external IP address configuration.
+              If not specified, then this instance will have no external internet access.
+            $ref: '#/definitions/OneToOneNatSpec'
+          dnsRecordSpecs:
+            description: |-
+              **[DnsRecordSpec](#yandex.cloud.compute.v1.DnsRecordSpec)**
+              Internal DNS configuration
+            type: array
+            items:
+              $ref: '#/definitions/DnsRecordSpec'
+      NetworkInterfaceSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the subnet.
+            type: string
+          primaryV4AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv4 address that will be assigned to the instance for this network interface.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          primaryV6AddressSpec:
+            description: |-
+              **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)**
+              Primary IPv6 address that will be assigned to the instance for this network interface. IPv6 not available yet.
+            $ref: '#/definitions/PrimaryAddressSpec'
+          securityGroupIds:
+            description: |-
+              **string**
+              ID's of security groups attached to the interface
+            type: array
+            items:
+              type: string
+          index:
+            description: |-
+              **string**
+              The index of the network interface, will be generated by the server, 0,1,2... etc if not specified.
+            type: string
+        required:
+          - subnetId
+      CreateComputeInstance:
+        type: object
+        properties:
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `key:value` pairs.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_./\@0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_./\@0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the instance resides.
+              To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request
+            type: string
+          resourcesSpec:
+            description: |-
+              **[ResourcesSpec](#yandex.cloud.compute.v1.ResourcesSpec)**
+              Required field. Computing resources of the instance, such as the amount of memory and number of cores.
+              To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+            $ref: '#/definitions/ResourcesSpec'
+          metadata:
+            description: |-
+              **object** (map<**string**, **string**>)
+              The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
+              The total size of all keys and values must be less than 512 KB.
+              Values are free-form strings, and only have meaning as interpreted by the programs which configure the instance.
+              The values must be 256 KB or less.
+              For example, you may use the metadata in order to provide your public SSH key to the instance.
+              For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
+            type: object
+            additionalProperties:
+              type: string
+          bootDiskSpec:
+            description: |-
+              **[AttachedDiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec)**
+              Required field. Boot disk to attach to the instance.
+            $ref: '#/definitions/AttachedDiskSpec'
+          networkInterfaceSpecs:
+            description: |-
+              **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.NetworkInterfaceSpec)**
+              Network configuration for the instance. Specifies how the network interface is configured
+              to interact with other services on the internal network and on the internet.
+              Currently only one network interface is supported per instance.
+            type: array
+            items:
+              $ref: '#/definitions/NetworkInterfaceSpec'
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account to use for [authentication inside the instance](/docs/compute/operations/vm-connect/auth-inside-vm).
+              To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            type: string
+          platformId:
+            description: |-
+              **string**
+              ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
+              Default value: "standard-v2"
+            default: standard-v2
+            type: string
+        required:
+          - zoneId
+          - resourcesSpec
+          - bootDiskSpec
+      LogSettings:
+        type: object
+        properties:
+          cloudLogGroupId:
+            description: |-
+              **string**
+              Id of Yandex Cloud log group to upload agent logs to
+            type: string
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/create.md
 ---
 
-# Load Testing API, REST: Agent.Create {#Create}
+# Load Testing API, REST: Agent.Create
 
 Creates an agent in the specified folder.
 
@@ -23,7 +424,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
   "name": "string",
   "description": "string",
   "computeInstanceParams": {
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -31,7 +432,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
       "coreFraction": "string",
       "gpus": "string"
     },
-    "metadata": "string",
+    "metadata": "object",
     "bootDiskSpec": {
       "mode": "string",
       "deviceName": "string",
@@ -42,15 +443,16 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
         "description": "string",
         "typeId": "string",
         "size": "string",
-        "blockSize": "string",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "string"
         },
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string"
-        // end of the list of possible fields
+        "blockSize": "string",
+        "kmsKeyId": "string"
       },
       "diskId": "string"
       // end of the list of possible fields
@@ -114,7 +516,7 @@ POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent
     "platformId": "string"
   },
   "agentVersion": "string",
-  "labels": "string",
+  "labels": "object",
   "logSettings": {
     "cloudLogGroupId": "string"
   }
@@ -144,7 +546,7 @@ Parameters for compute instance to be created. ||
 Version of the agent.
 
 If not provided, the most recent agent version will be used. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**
@@ -156,7 +558,7 @@ Agent log settings ||
 
 #|
 ||Field | Description ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -167,7 +569,7 @@ To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.L
 
 Required field. Computing resources of the instance, such as the amount of memory and number of cores.
 To get a list of available values, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs that will be assigned to this instance. This includes custom metadata and predefined keys.
 The total size of all keys and values must be less than 512 KB.
@@ -191,7 +593,7 @@ ID of the service account to use for [authentication inside the instance](/docs/
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
 || platformId | **string**
 
-ID of the [Compute VM platform](docs/compute/concepts/vm-platforms) on which the agent will be created.
+ID of the [Compute VM platform](/docs/compute/concepts/vm-platforms) on which the agent will be created.
 Default value: "standard-v2" ||
 |#
 
@@ -267,12 +669,6 @@ To get a list of available disk types, use the [yandex.cloud.compute.v1.DiskType
 || size | **string** (int64)
 
 Required field. Size of the disk, specified in bytes. ||
-|| blockSize | **string** (int64)
-
-Block size of the disk, specified in bytes. The default is 4096. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
-
-Placement policy configuration. ||
 || imageId | **string**
 
 ID of the image to create the disk from.
@@ -283,6 +679,15 @@ Includes only one of the fields `imageId`, `snapshotId`. ||
 ID of the snapshot to restore the disk from.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+
+Placement policy configuration. ||
+|| blockSize | **string** (int64)
+
+Block size of the disk, specified in bytes. The default is 4096. ||
+|| kmsKeyId | **string**
+
+ID of KMS key for disk encryption ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -414,7 +819,7 @@ Id of Yandex Cloud log group to upload agent logs to ||
     ],
     "currentJobId": "string",
     "agentVersionId": "string",
-    "labels": "string",
+    "labels": "object",
     "logSettings": {
       "cloudLogGroupId": "string"
     }
@@ -571,7 +976,7 @@ ID of the test that is currently being executed by the agent. ||
 || agentVersionId | **string**
 
 Version of the agent. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings2)**

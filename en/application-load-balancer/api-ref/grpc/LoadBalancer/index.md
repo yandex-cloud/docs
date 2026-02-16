@@ -26,4 +26,8 @@ A set of methods for managing application load balancers.
 || [RemoveSniMatch](removeSniMatch.md) | Deletes the specified SNI handler. ||
 || [GetTargetStates](getTargetStates.md) | Returns the statuses of all targets of the specified backend group in all their availability zones. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified application load balancer. ||
+|| [StartZonalShift](startZonalShift.md) | Start ZonalShift for the specified load balancer. ||
+|| [CancelZonalShift](cancelZonalShift.md) | Cancel ZonalShift for the specified load balancer. ||
+|| [DisableZones](disableZones.md) | Disable L7 traffic routing in zones for the specified load balancer. ||
+|| [EnableZones](enableZones.md) | Enable L7 traffic routing back in zones for the specified load balancer. ||
 |#

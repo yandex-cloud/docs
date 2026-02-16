@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Registry/create.md
 ---
 
-# Container Registry API, gRPC: RegistryService.Create {#Create}
+# Container Registry API, gRPC: RegistryService.Create
 
 Creates a registry in the specified folder.
 
@@ -15,28 +15,34 @@ Creates a registry in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "secure": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to create a registry in.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the registry.
 
-There may be only one registry per folder. ||
-|| labels | **string**
+There may be only one registry per folder.
 
-Resource labels as `key:value` pairs. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || secure | **bool**
 
 If true, registry will be created with pre-setup scanning policy (on push and on schedule every 7 days) ||
@@ -48,22 +54,22 @@ If true, registry will be created with pre-setup scanning policy (on push and on
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "registryId": "string"
+    "registry_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
+    "folder_id": "string",
     "name": "string",
     "status": "Status",
-    "createdAt": "google.protobuf.Timestamp",
-    "labels": "string"
+    "created_at": "google.protobuf.Timestamp",
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -79,13 +85,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -128,7 +134,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that is being created. ||
 |#
@@ -142,7 +148,7 @@ A Registry resource. For more information, see the [Registry](/docs/container-re
 || id | **string**
 
 Output only. ID of the registry. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the registry belongs to. ||
 || name | **string**
@@ -152,14 +158,13 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

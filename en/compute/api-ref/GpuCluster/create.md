@@ -1,9 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/gpuClusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create a GPU cluster in.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the GPU cluster.
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the GPU cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            GPU cluster labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            **string**
+            ID of the availability zone where the GPU cluster resides.
+            To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        interconnectType:
+          description: |-
+            **enum** (GpuInterconnectType)
+            Type of interconnect to use for this GPU cluster.
+            - `INFINIBAND`: InfiniBand interconnect.
+          type: string
+          enum:
+            - GPU_INTERCONNECT_TYPE_UNSPECIFIED
+            - INFINIBAND
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/create.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Create {#Create}
+# Compute Cloud API, REST: GpuCluster.Create
 
 Creates a GPU cluster in the specified folder.
 
@@ -20,7 +69,7 @@ POST https://compute.{{ api-host }}/compute/v1/gpuClusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "interconnectType": "string"
 }
@@ -41,7 +90,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -52,7 +101,6 @@ To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.Li
 
 Type of interconnect to use for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#
 
@@ -85,7 +133,7 @@ Type of interconnect to use for this GPU cluster.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "zoneId": "string",
     "interconnectType": "string"
@@ -191,7 +239,7 @@ A list of messages that carry the error details. ||
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||
@@ -219,14 +267,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
@@ -238,6 +285,5 @@ ID of the availability zone where the GPU cluster resides. ||
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

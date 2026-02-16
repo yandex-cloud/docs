@@ -21,7 +21,7 @@ Where:
 
 To create a connection to {{ mmy-name }}:
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -49,7 +49,7 @@ You need a service account to detect {{ mmy-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mmy-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mmy-name }} clusters. To do this, enable **Access from {{ yq-full-name }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -69,11 +69,29 @@ Where:
 There are several limitations when working with {{ MY }} clusters.
 
 * {% include [!](_includes/supported_requests.md) %}
-* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (the `Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+* {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ MY }} types (`date`, `datetime`, and `timestamp`). Therefore, {{ yq-short-name }} returns date and time values read from {{ MY }} as plain strings (`Optional<Utf8>` type) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Supported data types for filter pushdown:
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
 
 ## Supported data types {#supported_types}
 

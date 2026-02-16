@@ -1,6 +1,6 @@
 {% note info %}
 
-Минимальная роль в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), необходимая для [активации сервиса](../../../backup/concepts/index.md#providers), — `backup.editor` (см. [описание роли](../../../backup/security/index.md#backup-editor)).
+{% include [activate-provider-roles](../../../_includes/backup/activate-provider-roles.md) %}
 
 {% endnote %}
 
@@ -13,5 +13,9 @@
   1. Если сервис {{ backup-name }} еще не активирован, нажмите **{{ ui-key.yacloud.backup.button_action-activate }}**.
 
       Если кнопки **{{ ui-key.yacloud.backup.button_action-activate }}** нет, и вам доступно создание ВМ с подключением к {{ backup-name }}, значит, сервис уже активирован. Переходите к следующему шагу.
+
+- CLI {#cli}
+
+  {% include [default-policies](../../../_includes/backup/operations/cli-activate-service.md) %}
 
 {% endlist %}

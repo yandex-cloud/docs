@@ -1,9 +1,65 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/images
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list images in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListImagesResponse.nextPageToken](#yandex.cloud.compute.v1.ListImagesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListImagesResponse.nextPageToken](#yandex.cloud.compute.v1.ListImagesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
+            Each condition has the form `<field> <operator> <value>`, where:
+            1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
+            2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
+            3. `<value>` represents a value.
+            String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+            The maximum string length in characters is 1000.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            By which column the listing should be ordered and in which direction,
+            format is "createdAt desc". "id asc" if omitted.
+            The default sorting order is ascending
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/list.md
 ---
 
-# Compute Cloud API, REST: Image.List {#List}
+# Compute Cloud API, REST: Image.List
 
 Retrieves the list of Image resources in the specified folder.
 
@@ -20,17 +76,23 @@ GET https://compute.{{ api-host }}/compute/v1/images
 || folderId | **string**
 
 Required field. ID of the folder to list images in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListImagesResponse.nextPageToken](#yandex.cloud.compute.v1.ListImagesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListImagesResponse.nextPageToken](#yandex.cloud.compute.v1.ListImagesResponse) returned by a previous list request. ||
+[ListImagesResponse.nextPageToken](#yandex.cloud.compute.v1.ListImagesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -40,12 +102,16 @@ Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
-String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash). ||
+String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
-The default sorting order is ascending ||
+The default sorting order is ascending
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListImagesResponse}
@@ -61,7 +127,7 @@ The default sorting order is ascending ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "family": "string",
       "storageSize": "string",
       "minDiskSize": "string",
@@ -70,7 +136,10 @@ The default sorting order is ascending ||
       ],
       "status": "string",
       "os": {
-        "type": "string"
+        "type": "string",
+        "nvidia": {
+          "driver": "string"
+        }
       },
       "pooled": "boolean",
       "hardwareGeneration": {
@@ -80,6 +149,10 @@ The default sorting order is ascending ||
         },
         "generation2Features": "object"
         // end of the list of possible fields
+      },
+      "kmsKey": {
+        "keyId": "string",
+        "versionId": "string"
       }
     }
   ],
@@ -116,6 +189,8 @@ ID of the image. ||
 ID of the folder that the image belongs to. ||
 || createdAt | **string** (date-time)
 
+Creation timestamp.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -128,7 +203,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**
@@ -158,7 +233,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -173,6 +247,9 @@ When true, indicates there is an image pool for fast creation disks from the ima
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}
@@ -185,9 +262,21 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -216,7 +305,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ managed-k8s-full-name }}
+description: Из статьи вы узнаете про метрики {{ managed-k8s-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-kubernetes-ref.md
 ---
 
 # Метрики {{ managed-k8s-full-name }}

@@ -1,3 +1,6 @@
+---
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/outputs.md
+---
 # Outputs
 
 You can describe an output in the `routes` section within the `channel`:`output` element. Alternatively, you can do this in the named channel section, `channels`.
@@ -6,7 +9,7 @@ The common output description format is:
 
 ```yaml
 - output:
-    plugin: ... # Plugin name
+    plugin: ... # plugin name
     id: ... # (recommended) output ID, which is used in metrics and agent logs
 ```
 
@@ -14,7 +17,7 @@ The common output description format is:
 
 This is a debug output that outputs incoming messages to a file or console.
 
-Given that the storage does not support local data view, you can set up data export to a file using this output. You can use the `logrotate` utility to set up log rotation. For the agent to start writing logs to a new file, use the `reopen_file` method.
+Given that the storage does not support local data view, you can set up data export to a file using this output. You can use the `logrotate` utility to set up log rotation. For the agent to start writing logs to a new file, use the `reopen_file` method. 
 
 Configuration example:
 
@@ -43,13 +46,13 @@ Parameter descriptions:
 
             # Name of the file to write messages to.
             # To output data to the console, specify "/dev/stdout".
-            file_name: out.txt  # Optional, not set by default.
+            file_name: out.txt  # optional, not set by default
 
             # Directory name. If specified, the data for each session is written to a separate file in this directory with a name equal to the session ID.
-            directory: output_directory  # Optional, not set by default.
+            directory: output_directory  # optional, not set by default
 
             # Message separator used in the file, for example, "\n".
-            delimiter: null  # Required.
+            delimiter: null  # required
 ```
 
 ## dev_null output {#dev_null_output}
@@ -73,7 +76,7 @@ Parameter descriptions:
         folder_id: b1ge2vt0gml6********  # Required, folder ID.
 
         # IAM authentication settings.
-        iam:  # Required.
+        iam:  # required
             # Either the cloud_meta or jwt element must be specified.
 
             # If specified, the IAM token is taken from the metadata service.
@@ -82,13 +85,13 @@ Parameter descriptions:
             # If specified, the JWT is exchanged for the IAM token.
             jwt: # Optional, not set by default.
             # Name of the file containing the JWT parameters in the format returned by the `yc iam key create` command.
-                file: "jwt_params.json"  # Required.
+                file: "jwt_params.json"  # required
 
                 endpoint: iam.{{ api-host }}  # Optional, the default value is iam.{{ api-host }}.
 
                 refresh_period: 1h  # Optional, the default value is 1h.
 
-                request_timeout: 10s  # Optional, the default value is 10s.
+                request_timeout: 10s  # Optional, the default value is 10s
 
         # Number of repeat attempts if the request failed.
         # If all the repeat attempts fail, i.e., no status 200 response is received, the message is discarded (for that message, an acknowledgement to the agent is generated).
@@ -96,7 +99,7 @@ Parameter descriptions:
         retry_count: inf  # Optional, the default value is max_int (messages will not be discarded).
 
         # Interval between repeat attempts.
-        retry_delay: 1s  # Optional, the default value is 1 second.
+        retry_delay: 1s  # optional, the default value is 1 second
 
         # Request timeout, including all repeat attempts.
         timeout: inf  # Optional, the default value is max_int seconds (messages will not be discarded).
@@ -124,15 +127,15 @@ Parameter descriptions:
     output:
       plugin: yc_logs
       config:
-        # Optional. The URL to send logs to.
-        url: "ingester.logging.yandexcloud.net:443"
+        # It is optional. The URL to send logs to.
+        url: "{{ logging-endpoint-ingester }}:443"
 
-        # Optional. Use an SSL connection.
+        # It is optional. Use an SSL connection.
         use_ssl: null # The directive disables SSL, by default SSL is enabled.
           # Optionally, you can explicitly specify a list of server root certificates
           # as a file path in PEM format.
           # The contents of the file are provided to the pem_root_certs parameter.
-          root_certs_file: null  # Optional, not set by default.
+          root_certs_file: null  # optional, not set by default
 
         # Target log group settings.
         # One of the following elements must be specified: message_log_group_id, message_folder_id, log_group_id, or folder_id.
@@ -148,41 +151,41 @@ Parameter descriptions:
         # First the message metadata is searched for a log group (if the parameter is specified).
         # Next the message metadata is searched for a folder, and the session metadata is searched for a log group.
         # Then the session metadata is searched for a folder. The one found first will be selected.
-        log_group_id: "b1ge2vt0gml6********"  # Not set by default.
+        log_group_id: "b1ge2vt0gml6********"  # Optional, not set by default
 
         folder_id: "b1ge2vt0gml6********"  # Not set by default; if specified, the default log group will be used.
 
-        message_log_group_id: "b1ge2vt0gml6********" # Not set by default.
+        message_log_group_id: "b1ge2vt0gml6********" # Optional, not set by default
 
         message_folder_id: "b1ge2vt0gml6********"  # Not set by default; if specified, the default log group will be used.
 
         # Limit on the number of unique log groups to send logs to at the same time within a single session.
         # If a message arrives with a new unique log group to which no logs are being sent at the moment
         # and the buffer limit is reached, such message will be discarded.
-        buffer_count_limit: 50 # Optional, the default value is 50.
+        buffer_count_limit: 50 # Optional, the default value is 50
 
         # Batching settings:
         batch:
           # Limit on the size of the result.
           # A new message is generated if the size of received ones reaches the limit.
-          limit: # Optional.
+          limit: # optional
             # The limit can be specified in message units or bytes.
             # If both are specified, the first one reached will apply.
 
             # Number of incoming messages.
-            count: 100  # Optional, the default value is 100. Possible values: [1-100].
+            count: 100  # Optional, the default value is 100. Possible values: [1-100]
 
             # Size of incoming messages in bytes.
             # It only factors in the size of the message body.
-            bytes: null  # Optional, not set by default.
+            bytes: null  # optional, not set by default
 
           # Waiting time limit.
           # A new message is generated if the waiting time has reached the limit since receipt.
           # It is generated if more time has passed since the first batch message was received.
-          flush_period: 1s  # Optional, the default value is 1s.
+          flush_period: 1s  # Optional, the default value is 1s
 
         # Request timeout per attempt.
-        grpc_call_timeout: 3s  # Optional, the default value is 3s.
+        grpc_call_timeout: 3s  # Optional, the default value is 3s
 
         # Number of repeat attempts if the request failed.
         # If the request was not completed successfully during the specified time period,
@@ -195,7 +198,7 @@ Parameter descriptions:
         # If the request fails as many times as set in retry_count, retry attempts
         # will be resumed with an exponentially increasing delay.
         # The parameter sets the minimum delay value.
-        backoff_min_delay: 1s  # Optional, the default value is 1 second.
+        backoff_min_delay: 1s  # Optional, the default value is 1 second
 
         # If the request fails as many times as set in retry_count, retry attempts
         # will be resumed with an exponentially increasing delay.
@@ -206,21 +209,21 @@ Parameter descriptions:
         message_quota: 1000
 
         # IAM authentication settings.
-        iam:  # Required, not set by default.
+        iam:  # Optional, not set by default
           # Either the cloud_meta or jwt element must be specified.
 
           # If specified, the IAM token is taken from the metadata service.
-          cloud_meta:  # Optional, not set by default.
-            url:  # Optional.
+          cloud_meta:  #Optional, not set by default.
+            url:  # optional
 
             refresh_period: 1h  # Optional, the default value is 1h.
 
             request_timeout: 3s  # Optional, the default value is 10s.
 
           # If specified, a JWT token is exchanged for an IAM token.
-          jwt:  # Optional, not set by default.
+          jwt:  # optional, not set by default
             # Name of the file containing JWT parameters in the format returned by the `yc iam key create` command.
-            file: "jwt_params.json"  # Required.
+            file: "jwt_params.json"  # required
 
             endpoint: iam.api.cloud.yandex.net  # Optional, the default value is iam.api.cloud.yandex.net.
 
@@ -233,7 +236,7 @@ Parameter descriptions:
         # List of exported message metadata. Metadata with keys from this list will be sent to
         # Yandex Cloud Logging as json_payload.
         # List of strings with metadata keys.
-        export_message_meta_keys:  # Optional, not set by default.
+        export_message_meta_keys:  # optional, not set by default
           - "_app"
           - "_random"
 
@@ -246,35 +249,35 @@ Parameter descriptions:
         #   1. The message body will be replaced with that payload.
         #   2. If special fields (timestamp, priority) are detected and parsed successfully, they will replace the respective message fields.
         #   3. All other fields will be transferred to json_payload.
-        parse_json: # Optional.
+        parse_json: # optional
           # Rule specifying the source for a new message body.
-          payload: # Required.
+          payload: # required
             # List of first level keys.
             # The value matching the first key will be selected.
             keys: ["msg", "message"]
 
           # Keys in JSON matching the message time.
           # If there are no keys in JSON, or value parsing fails, the message receipt time will be used.
-          # Acceptable values:
+          # The allowed values are
           # - unix timestamp (in seconds or adjusted unix_timestamp_format with an optional fractional part).
           # - ISO 8601
           # - RFC 822
           # - log4j {"epochSecond":123,"nanoOfSecond":456}
-          timestamp: # Optional.
+          timestamp: # optional
             keys: ["ts", "timestamp", "instant"]
 
-          # Timestamp is measured in seconds, milliseconds, and microseconds.
-          unix_timestamp_format: seconds # Optional.
+          # Timestamp measurement units: seconds, milliseconds, microseconds.
+          unix_timestamp_format: seconds # optional
 
           # Keys in JSON matching the priority.
           # If there are no keys in JSON, or value parsing fails, the value from meta information will be used.
           # Acceptable values: TRACE, DEBUG, INFO, WARN, ERROR, or FATAL (case insensitive).
-          priority: # Optional.
+          priority: # optional
             keys: ["level"]
 
         # Parameters for LogEntryResource https://cloud.yandex.ru/docs/logging/api-ref/grpc/log_ingestion_service#LogEntryResource
-        resource_id: some_id # Optional, not set by default.
-        resource_type: some_type # Optional, not set by default.
-        stream_name: some_name # Optional, not set by default.
+        resource_id: some_id # optional, not set by default
+        resource_type: some_type # optional, not set by default
+        stream_name: some_name # optional, not set by default
 
 ```

@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/originGroups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin group belongs to..
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/list.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.List {#List}
+# Cloud CDN API, REST: OriginGroup.List
 
 Lists origins of origin group.
 
@@ -19,18 +55,24 @@ GET https://cdn.{{ api-host }}/cdn/v1/originGroups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin group belongs to.. ||
+Required field. ID of the folder that the origin group belongs to..
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListOriginGroupsResponse}
@@ -67,7 +109,15 @@ returned by a previous list request. ||
               "id": "string"
             }
             // end of the list of possible fields
-          }
+          },
+          "providerType": "string"
+        }
+      ],
+      "providerType": "string",
+      "resourcesMetadata": [
+        {
+          "id": "string",
+          "cname": "string"
         }
       ]
     }
@@ -114,6 +164,12 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
+|| resourcesMetadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -148,6 +204,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -207,4 +266,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

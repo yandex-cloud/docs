@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Найдите в списке сертификат, который необходимо удалить.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

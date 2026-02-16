@@ -12,18 +12,71 @@
 
 _Инстанс_ {{ GL }} — основная сущность, которой оперирует сервис. Это ВМ, размещенная в {{ yandex-cloud }}. {{ mgl-name }} берет на себя рутинные операции по техническому обслуживанию этой ВМ, например, обеспечение отказоустойчивости хранилища, установку обновлений безопасности, автоматизированное обновление до новых версий {{ GL }} и т. д.
 
+Пользователь может управлять инстансами с помощью [консоли управления {{ yandex-cloud }}]({{ link-console-main }}), [CLI](../cli-ref/index.md) и [API](../api-ref/authentication.md).
+
 ## Конфигурация инстанса {#config}
 
 При создании инстанса указываются:
-* Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md). После создания инстанса изменить его тип можно только через обращение в [техническую поддержку]({{ link-console-support }}).
+* Тип инстанса — [количество ядер (vCPU) и объем памяти (RAM)](../../compute/concepts/vm-platforms.md). Доступные типы инстансов:
+
+  | Тип            | Вычислительные ресурсы |
+  |----------------|------------------------|
+  | s2.micro       | 2 vCPU, 8 ГБ RAM       |
+  | s2.small       | 4 vCPU, 16 ГБ RAM      |
+  | s2.medium      | 8 vCPU, 32 ГБ RAM      |
+  | s2.large       | 16 vCPU, 64 ГБ RAM     |
+
+  После создания инстанса можно [изменить его тип](../operations/instance/instance-update.md) на более производительный.
 * [Подсеть](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
 
-* Размер хранилища. После создания инстанса увеличить размер хранилища можно только через обращение в техническую поддержку. Уменьшить размер хранилища нельзя.
+* Размер диска. После создания инстанса размер его диска [можно увеличить](../operations/instance/instance-update.md).
 * Имя в домене `.gitlab.yandexcloud.net` — адрес вашего экземпляра {{ GL }} в интернете.
 * Данные администратора:
   * Электронная почта.
   * Логин.
 
 {% include [HTTPS info](../../_includes/managed-gitlab/note-https.md) %}
+
+## {{ GLR }} {#runners}
+
+[{{ GLR }}](https://docs.gitlab.com/runner/) — приложение с открытым исходным кодом, которое выполняет задания конвейерной обработки {{ GL }} [CI/CD](/blog/posts/2022/10/ci-cd) по инструкциям из специального файла `.gitlab-ci.yml`. Оно позволяет запускать автоматизированные сборки внутри [кластеров {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и на [виртуальных машинах {{ compute-name }}](../../compute/concepts/vm.md).
+
+Начать работу с {{ GLR }} можно следующими способами:
+
+* [Установить {{ GLR }} в кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/applications/gitlab-runner.md).
+* Создать виртуальную машину {{ compute-name }} и [вручную установить на нее {{ GLR }}](../tutorials/install-gitlab-runner.md#install).
+* [Создать с помощью консоли управления раннер](../tutorials/install-gitlab-runner.md#create-runner), который автоматически развернет указанное число виртуальных машин {{ compute-name }}.
+
+    При создании раннера из консоли управления вы можете выбрать для хранилища ВМ следующие типы дисков объемом от 15 до 500 ГБ:
+
+    * HDD-диски.
+    * SSD-диски.
+
+    Доступны следующие конфигурации вычислительных ресурсов:
+
+    * 2 vCPU, 4 ГБ RAM.
+    * 2 vCPU, 8 ГБ RAM.
+    * 4 vCPU, 16 ГБ RAM.
+    * 8 vCPU, 64 ГБ RAM.
+    * 16 vCPU, 128 ГБ RAM.
+
+    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+
+## {{ GL }} Pages {#pages}
+
+{{ GL }} Pages — инструмент для публикации статических сайтов на основе файлов, расположенных в репозитории {{ GL }}. Сайты разворачиваются по заданиям {{ GL }} CI/CD. {{ GL }} Pages работает с генераторами статических сайтов и обычными файлами HTML, CSS и JavaScript.
+
+{{ GL }} Pages позволяет использовать собственные домены и сертификаты SSL/TLS, а также настраивать доступ к сайтам.
+
+[Подробнее в официальной документации {{ GL }}](https://docs.gitlab.com/user/project/pages/).
+
+{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/gitlab-lockbox-integration.md)
+* [{#T}](../tutorials/ci-cd-serverless.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+* [{#T}](../tutorials/gitlab-containers.md)

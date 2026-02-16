@@ -1,6 +1,6 @@
 ---
 title: Информация о кластерах в {{ mkf-name }}
-description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mkf-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и выберите сервис {{ mkf-name }}.
+description: Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mkf-name }}. Чтобы получить список кластеров БД в каталоге, перейдите на страницу каталога и перейдите в сервис {{ mkf-name }}.
 ---
 
 # Информация об имеющихся кластерах в {{ mkf-name }}
@@ -14,8 +14,7 @@ description: Вы можете запросить детальную инфор�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 
 - CLI {#cli}
 
@@ -40,12 +39,57 @@ description: Вы можете запросить детальную инфор�
   +----------------------+----------+---------------------+--------+---------+
   ```
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список кластеров БД в каталоге, воспользуйтесь методом REST API [list](../api-ref/Cluster/list.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/List](../api-ref/grpc/Cluster/list.md) и передайте в запросе идентификатор требуемого каталога в параметре `folderId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  В ответе будут содержаться имена и идентификаторы кластеров.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Воспользуйтесь методом [Cluster.list](../api-ref/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters' \
+        --url-query folderId=<идентификатор_каталога>
+      ```
+
+      
+      Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/list.md#yandex.cloud.mdb.kafka.v1.ListClustersResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/List](../api-ref/grpc/Cluster/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "folder_id": "<идентификатор_каталога>"
+              }' \
+          {{ api-host-mdb }}:443 \
+          yandex.cloud.mdb.kafka.v1.ClusterService.List
+      ```
+
+      
+      Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/list.md#yandex.cloud.mdb.kafka.v1.ListClustersResponse).
 
 {% endlist %}
 
@@ -56,9 +100,8 @@ description: Вы можете запросить детальную инфор�
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера.
-
 
 - CLI {#cli}
 
@@ -74,12 +117,52 @@ description: Вы можете запросить детальную инфор�
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить детальную информацию о кластере, воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и передайте в запросе идентификатор требуемого кластера.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](#list-clusters).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Воспользуйтесь методом [Cluster.get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:443 \
+          yandex.cloud.mdb.kafka.v1.ClusterService.Get
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.kafka.v1.Cluster).
 
 {% endlist %}
 
@@ -96,7 +179,7 @@ description: Вы можете запросить детальную инфор�
   Чтобы получить список операций для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится кластер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Выберите нужный кластер.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного кластера.
@@ -127,7 +210,7 @@ description: Вы можете запросить детальную инфор�
 
   Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](#list-clusters).
 
-  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
 
   ```bash
   yc managed-kafka cluster list-operations c9qk2926qqu9******** --format yaml
@@ -150,11 +233,52 @@ description: Вы можете запросить детальную инфор�
       message: OK
   ```
 
-- API {#api}
+- REST API {#api}
 
-  Воспользуйтесь методом REST API [listOperations](../api-ref/Cluster/listOperations.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) и передайте в запросе идентификатор кластера.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.listOperations](../api-ref/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/operations'
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.kafka.v1.ListClusterOperationsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Воспользуйтесь вызовом [ClusterService/ListOperations](../api-ref/grpc/Cluster/listOperations.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+              }' \
+          {{ api-host-mdb }}:443 \
+          yandex.cloud.mdb.kafka.v1.ClusterService.ListOperations
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров в каталоге](#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.kafka.v1.ListClusterOperationsResponse).
 
 {% endlist %}
 
@@ -195,9 +319,47 @@ description: Вы можете запросить детальную инфор�
      ...
      ```
 
-   - API {#api}
+   - REST API {#api}
 
-     Воспользуйтесь методом REST API [get](../api-ref/Cluster/get.md) для ресурса [Operation](../api-ref/Operation/index.md) или вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md) и передайте в запросе идентификатор операции.
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+       1. Воспользуйтесь методом [Operation.get](../api-ref/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-operation }}/operations/<идентификатор_операции>'
+          ```
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Operation/get.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+       1. Воспользуйтесь вызовом [OperationService/Get](../api-ref/grpc/Operation/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/operation/operation_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "operation_id": "<идентификатор_операции>"
+                  }' \
+              {{ api-host-operation }}:{{ port-https }} \
+              yandex.cloud.operation.OperationService.Get
+          ```
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Operation/get.md#yandex.cloud.operation.Operation).
 
    {% endlist %}
 

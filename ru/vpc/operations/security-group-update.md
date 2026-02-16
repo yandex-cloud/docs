@@ -1,6 +1,6 @@
 # Изменить имя и описание
 
-После создания группы безопасности вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.
+После создания [группы безопасности](../concepts/security-groups.md) вы можете изменить ее имя и описание, а также [добавить](security-group-add-rule.md) или [удалить](security-group-delete-rule.md) правила.
 
 {% list tabs group=instructions %}
 
@@ -10,7 +10,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить группу безопасности.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, которую требуется изменить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в имя и описание группы и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

@@ -1,4 +1,9 @@
-# Data source is unavailable
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DATABASE_UNAVAILABLE
+description: На странице приведено описание ошибки {{ datalens-full-name }} Data source is unavailable.
+---
+
+# [{{ datalens-full-name }}] Data source is unavailable
 
 `ERR.DS_API.DATABASE_UNAVAILABLE`
 

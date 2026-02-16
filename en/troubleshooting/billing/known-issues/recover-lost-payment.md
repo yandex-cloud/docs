@@ -1,39 +1,38 @@
-# What to do if money takes a long time to arrive on the balance after payment
+# Money fails to appear on the account for some time after you make a wire transfer as a business
+
 
 
 ## Issue description {#issue-description}
 
-* You transferred money to the balance of your billing account, but the payment data does not show up in the console for a long period of time.
+After transferring money to your billing account from a bank account for businesses, the payment data does not show up in the console for a while.
 
 ## Solution {#issue-resolution}
 
-Funds are automatically credited to the account as soon as {{ yandex-cloud }} receives a confirmation from the bank's payment system.
-Payments from legal entities are usually credited to accounts in the first half of the next business day.
+Funds are automatically credited to your account as soon as {{ yandex-cloud }} receives payment confirmation from your bank. Payments from legal entities are usually credited to accounts by early afternoon of the next business day.
 
 
-Check that the following details in the payment order are correct:
 
-* Payment amount
-* Bank details of 
+Check that the following details are correctly specified in your payment order:
+
+* Payment amount.
+* Bank details of .
 * Your company or individual entrepreneur TIN.
-* Account number in the payment purpose
-* Contract number in the payment purpose
+* Account number in the payment purpose description.
+* Agreement number in the payment purpose description.
 
-The payment should be transferred from a [bank account](../../../billing/operations/pay-the-bill.md#organizaciyam-i-ip) opened for the organization or individual entrepreneur the billing account was created for.
+Funds should be transferred from a [bank account](../../../billing/operations/pay-the-bill.md#organizaciyam-i-ip) of the organization or individual entrepreneur owning the billing account.
 
-You can find the bank details in the [Legal documents](https://yandex.ru/legal/cloud_oferta/?lang=en) section (paragraph **18. Yandex Details**).
+You can find the bank details in [Yandex Legal documents]({{ billing-oferta-url }}) (paragraph **18. Yandex Details**).
 
 {% note alert %}
 
-Funds transfers via bank details are processed only on business days.
+Funds transfers via bank account details are processed only on business days.
 
 {% endnote %}
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-When creating the request, provide the following information:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. ID of the billing account to which the payment cannot be received.
-   The billing account ID has the format: `d2nXXXXXXXXXXXXXXXXX`. You can find it on the [page with your billing account details]({{ link-console-billing }}).
-2. Filled payment order in PDF format with the bank's execution stamp.
+1. ID of the billing account that cannot receive the payment.  You can find it on the [page with your billing account details]({{ link-console-billing }}).
+1. Completed PDF payment order stamped by your bank as executed.

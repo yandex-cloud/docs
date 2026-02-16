@@ -4,11 +4,9 @@
 
 {% list tabs group=web_browsers %}
 
-
 - Яндекс Браузер {#yandex}
 
   {% include [browser-console-yandex](../_includes/support/browser-console-yandex.md) %}
-
 
 - Google Chrome {#chrome}
 
@@ -137,6 +135,5 @@
   1. Приложите лог ошибок или скриншоты к сообщению в [техническую поддержку]({{ link-console-support }}).
 
   Для получения дополнительной информации сделайте скриншот содержимого вкладки **Сеть**.
-
 
 {% endlist %}

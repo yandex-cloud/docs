@@ -6,5 +6,5 @@ Where:
 * 720: Number of hours in 30 days.
 * 2: Number of 20% vCPUs.
 * {{ sku|USD|compute.vm.cpu.c20.v3|string }}: Cost of using 20% vCPU per hour.
-* 2: Amount of RAM (in GB).
+* 2: Amount of RAM (GB).
 * {{ sku|USD|compute.vm.ram.v3|string }}: Cost of using 1 GB of RAM per hour.

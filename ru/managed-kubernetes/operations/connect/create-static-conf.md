@@ -2,6 +2,8 @@
 
 Статические файлы конфигурации позволяют получить доступ к [кластеру {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.
 
+{% include [tip-gitlab](../../../_includes/managed-kubernetes/tip-gitlab-integration.md) %}
+
 Также с помощью статического файла конфигурации можно настроить доступ к нескольким кластерам {{ managed-k8s-name }}. Между описанными в конфигурациях кластерами {{ managed-k8s-name }} можно быстро переключаться с помощью команды `kubectl config use-context`. Подробнее о настройке доступа к нескольким кластерам {{ managed-k8s-name }} читайте в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 Чтобы создать файл конфигурации:
@@ -19,7 +21,7 @@
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) любой подходящей конфигурации.
 1. [Создайте группу узлов](../node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью флага `--kubeconfig=test.kubeconfig`.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью параметра `--kubeconfig=test.kubeconfig`.
 
 ## Получите уникальный идентификатор кластера {#k8s-id}
 
@@ -279,6 +281,7 @@
      ```bash
      kubectl config set-cluster sa-test2 \
        --certificate-authority=ca.pem \
+       --embed-certs \
        --server=$MASTER_ENDPOINT \
        --kubeconfig=test.kubeconfig
      ```
@@ -290,6 +293,7 @@
      ```bash
      kubectl config set-cluster sa-test2 `
        --certificate-authority=ca.pem `
+       --embed-certs `
        --server=$MASTER_ENDPOINT `
        --kubeconfig=test.kubeconfig
      ```
@@ -388,3 +392,11 @@ kubectl get namespace --kubeconfig=test.kubeconfig
 NAME     STATUS  AGE
 default  Active  9d
 ```
+
+С помощью полученного файла `test.kubeconfig` вы можете подключаться к кластеру без использования CLI, например из систем непрерывной интеграции, а также переключаться между разными кластерами с помощью команды `kubectl config use-context`.
+
+{% note warning %}
+
+Для хранения статического файла конфигурации используйте хранилище секретов или шифрование.
+
+{% endnote %}

@@ -1,6 +1,6 @@
 {% note alert %}
 
-You can't disable {{ CK }} after you create a cluster. {{ ZK }} hosts will also become unavailable.
+You cannot disable {{ CK }} after creating a cluster. You will not be able to use {{ ZK }} hosts as well.
 
 {% endnote %}
 

@@ -39,4 +39,4 @@ CONTAINS_SUBSEQUENCE( array_1, array_2 )
 
 #### Поддержка источников данных {#data-source-support}
 
-`ClickHouse 21.8`.
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Яндекс Документы`.

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: |-
+            **string**
+            Required field. ID of the placement group to delete.
+            To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskPlacementGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/delete.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Delete {#Delete}
+# Compute Cloud API, REST: DiskPlacementGroup.Delete
 
 Deletes the specified placement group.
 
@@ -20,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacem
 || diskPlacementGroupId | **string**
 
 Required field. ID of the placement group to delete.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

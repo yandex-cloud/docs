@@ -1,5 +1,5 @@
 ---
-title: How do I use the {{ objstorage-name }} S3 API?
+title: How to use the {{ objstorage-name }} S3 API
 description: In this article, you will learn how to get started with the API, what an {{ objstorage-name }} API request is, and how to use cross-domain requests.
 keywords:
   - s3
@@ -15,68 +15,74 @@ keywords:
 
 ## Getting started {#before-you-start}
 
+{% include [s3-api-auth-intro](../../_includes/storage/s3-api-auth-intro.md) %}
+
 To use the API:
 
 {% include [aws-tools-prepare](../../_includes/aws-tools/aws-tools-prepare.md) %}
-
-To access the HTTP API directly, you need static key authentication, which is supported by the tools listed in [{#T}](../tools/index.md).
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
 
 For a list of supported Amazon S3 HTTP API methods, see the [API reference](api-ref/index.md).
 
 ## General API request format {#common-request-form}
 
-{% note info %}
-
-To access the S3 API from {{ objstorage-name }}, we recommend the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
-
-{% endnote %}
-
-General {{ objstorage-name }} API request format:
+The general {{ objstorage-name }} API request format is as follows:
 
 ```
 {GET|HEAD|PUT|DELETE} /<bucket_name>/<object_key> HTTP/2
 Host: {{ s3-storage-host }}
 Content-Length: length
 Date: date
-Authorization: authorization string (AWS Signature Version 4)
+Authorization: authorization string
 
 Request_body
 ```
 
 The request contains an HTTP method, bucket name, and [object key](../concepts/object.md).
 
-The bucket name can be specified as part of the host name. In this case, the request will look like this:
+The bucket name can be specified as part of the host name. In this case, the request will be as follows:
 
 ```
-{GET|HEAD|PUT|DELETE} /<object_key>} HTTP/2
+{GET|HEAD|PUT|DELETE} /<object_key> HTTP/2
 Host: <bucket_name>.{{ s3-storage-host }}
 ...
 ```
 
-The set of headers depends on the specific request and is described in the documentation for the corresponding request.
+The set of headers is request-specific and described in the documentation for the relevant request.
 
-When using the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+### Signing requests {#signing-requests}
 
-{% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+{% list tabs group=auth_keys %}
+
+- IAM token authentication {#iam-token}
+
+  If authenticating with the API via an IAM token, you do not have to additionally sign HTTP requests.
+
+  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
+
+- Static key authentication {#static-key}
+
+  When using a static access key to authenticate with the API and accessing the API directly (without an SDK or apps), you need to generate the `Authorization` header yourself for signing requests. Find out how to do this in the Amazon S3 documentation: [Authenticating Requests (AWS Signature Version 4)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+
+  When using static access key authentication to access the S3 API from {{ objstorage-name }}, we recommend using the [AWS CLI](../tools/aws-cli.md) or [AWS SDK](../tools/sdk/index.md) suitable for your development environment.
+
+  {% include [s3api-debug-and-curl](../../_includes/storage/s3api-debug-and-curl.md) %}
+
+{% endlist %}
 
 ### Request URL {#request-url}
 
-URLs can take one of the following forms:
+URLs can have the following formats:
 
-* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>`
-* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<query_parameters>`
+* `http(s)://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>`
+* `http(s)://<bucket_name>.{{ s3-storage-host }}/<object_key>?<request_parameters>`
 
 {% note info %}
 
-For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL in `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<query_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
+For buckets with periods in their names, e.g., `example.ru`, HTTPS is available only with a URL of the `https://{{ s3-storage-host }}/<bucket_name>/<object_key>?<request_parameters>` format. For more information, see [Accessing a bucket over HTTPS](../concepts/bucket.md#bucket-https).
 
 {% endnote %}
 
-The URL contains the bucket name, object key, and query parameters. See an example of possible query parameters in the [Get object method description](api-ref/object/get.md).
+The URL contains the bucket name, object key, and request parameters. See an example of possible request parameters in the [Get object method description](api-ref/object/get.md).
 
 {% include [storage-dotnet-host](../_includes_service/storage-dotnet-host.md) %}
 

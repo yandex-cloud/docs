@@ -5,14 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Предварительная настройка для подключения к кластеру {{ KF }}
 
+
 К хостам кластера {{ mkf-name }} можно подключиться:
 
 * Через интернет, если вы настроили [публичный доступ](../cluster-update.md#change-sg-set) для кластера. К такому кластеру можно подключиться только используя [SSL-соединение](#get-ssl-cert).
-
-
 * С виртуальных машин {{ yandex-cloud }}, расположенных в той же [облачной сети](../../../vpc/concepts/network.md). Если к кластеру нет публичного доступа, для подключения с таких ВМ SSL-соединение использовать необязательно.
-
-
 
 К кластеру {{ KF }} можно подключиться как с использованием шифрования (`SASL_SSL`) — порт {{ port-mkf-ssl }}, так и без него (`SASL_PLAINTEXT`) — порт {{ port-mkf-text }}.
 
@@ -44,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-  Чтобы разрешить подключение к [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), добавьте правило для входящего трафика:
+  Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -60,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
      * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
 
-     Чтобы разрешить подключение к [{{ mkf-msr }}](../../concepts/managed-schema-registry.md), добавьте правило для входящего трафика:
+     Чтобы разрешить использование [API {{ mkf-name }}](../../concepts/available-apis.md) (например, для работы с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md)), добавьте правило для входящего трафика:
 
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
@@ -106,17 +103,29 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [install-certificate](../../../_includes/mdb/mkf/install-certificate.md) %}
 
-Полученный SSL-сертификат также используется при работе с [{{ mkf-msr }}](../../concepts/managed-schema-registry.md).
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) используется этот же сертификат.
 
 ## Получение FQDN хостов {{ KF }} {#get-fqdn}
 
-Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Его можно получить несколькими способами:
+Для подключения к хосту потребуется его [FQDN](../../concepts/network.md#hostname) — доменное имя. Пример FQDN хоста {{ KF }}:
 
-* [Запросите список хостов в кластере](../cluster-hosts.md#list-hosts), чтобы получить имя хоста. FQDN совпадает с именем хоста.
+```text
+{{ host-name }}.{{ dns-zone }}
+```
 
-    {% include [list-hosts](../../../_includes/mdb/mkf/list-hosts.md) %}
+FQDN можно получить несколькими способами:
+
+* Посмотрите FQDN в консоли управления:
+
+    1. Перейдите на страницу кластера.
+    1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**.
 
 * Скопируйте команду для подключения к кластеру в [консоли управления]({{ link-console-main }}). Команда содержит заполненный FQDN хоста-брокера. Чтобы получить команду, перейдите на страницу кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+
+* [Запросите список хостов в кластере](../cluster-hosts.md#list-hosts) с помощью CLI или API.
+
+При работе с [{{ mkf-short-name }} REST API](../../concepts/available-apis.md) можно отсылать запросы к любому хосту-брокеру: API доступно со всех хостов-брокеров кластера.
 
 ## Что дальше {#whats-next}
 

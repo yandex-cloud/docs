@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/resources
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to request listing for.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results,
+            set `pageToken` to the [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/list.md
 ---
 
-# Cloud CDN API, REST: Resource.List {#List}
+# Cloud CDN API, REST: Resource.List
 
 Lists CDN resources.
 
@@ -19,18 +55,24 @@ GET https://cdn.{{ api-host }}/cdn/v1/resources
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to request listing for. ||
+Required field. ID of the folder to request listing for.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListResourcesResponse.nextPageToken](#yandex.cloud.cdn.v1.ListResourcesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListResourcesResponse}
@@ -57,7 +99,7 @@ returned by a previous list request. ||
           // Includes only one of the fields `value`, `defaultValue`
           "value": {
             "simpleValue": "string",
-            "customValues": "string"
+            "customValues": "object"
           },
           "defaultValue": "string"
           // end of the list of possible fields
@@ -140,7 +182,7 @@ returned by a previous list request. ||
         },
         "staticHeaders": {
           "enabled": "boolean",
-          "value": "string"
+          "value": "object"
         },
         "cors": {
           "enabled": "boolean",
@@ -170,7 +212,7 @@ returned by a previous list request. ||
         },
         "staticRequestHeaders": {
           "enabled": "boolean",
-          "value": "string"
+          "value": "object"
         },
         "customServerName": {
           "enabled": "boolean",
@@ -196,6 +238,22 @@ returned by a previous list request. ||
           "exceptedValues": [
             "string"
           ]
+        },
+        "followRedirects": {
+          "enabled": "boolean",
+          "codes": [
+            "string"
+          ],
+          "useCustomHost": "boolean"
+        },
+        "websockets": {
+          "enabled": "boolean"
+        },
+        "headerFilter": {
+          "enabled": "boolean",
+          "headers": [
+            "string"
+          ]
         }
       },
       "secondaryHostnames": [
@@ -215,7 +273,9 @@ returned by a previous list request. ||
           // end of the list of possible fields
         }
       },
-      "labels": "string"
+      "labels": "object",
+      "providerType": "string",
+      "providerCname": "string"
     }
   ],
   "nextPageToken": "string"
@@ -292,7 +352,6 @@ Name of the origin group. ||
 
 Specify the protocol schema to be used in communication with origin.
 
-- `ORIGIN_PROTOCOL_UNSPECIFIED`
 - `HTTP`: CDN servers will connect to your origin via HTTP.
 - `HTTPS`: CDN servers will connect to your origin via HTTPS.
 - `MATCH`: Connection protocol will be chosen automatically (content on the
@@ -300,9 +359,15 @@ origin source should be available for the CDN both through HTTP and HTTPS). ||
 || sslCertificate | **[SSLCertificate](#yandex.cloud.cdn.v1.SSLCertificate)**
 
 SSL certificate options. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the resource. ||
+|| providerType | **string**
+
+Type of the CDN provider for this resource. ||
+|| providerCname | **string**
+
+CNAME provided by the CDN provider for this resource. ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -396,6 +461,17 @@ Secure token to protect contect and limit access by IP addresses and time limits
 
 Manage the state of the IP access policy option.
 The option controls access to content from the specified IP addresses. ||
+|| followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
+
+Manage the state of the Redirection from origin option.
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
+
+Configuration for WebSocket protocol support. ||
+|| headerFilter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -449,7 +525,7 @@ A set of the caching response time parameters.
 Caching time for a response with codes 200, 206, 301, 302.
 Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
 Use `customValues` field to specify a custom caching time for a response with specific codes. ||
-|| customValues | **string** (int64)
+|| customValues | **object** (map<**string**, **string** (int64)>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
 Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
@@ -608,7 +684,7 @@ A set of the strings map parameters.
 
 True - the option is enabled and its `value` is applied to the resource.
 False - the option is disabled and its default value is used for the resource. ||
-|| value | **string**
+|| value | **object** (map<**string**, **string**>)
 
 Value of the option. ||
 |#
@@ -633,7 +709,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -657,7 +732,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -674,12 +748,48 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || exceptedValues[] | **string**
 
 The list of IP addresses to be allowed or denied. ||
+|#
+
+## FollowRedirectsOption {#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True - the option is enabled and its [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+False - the option is disabled and its default value of the [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource. ||
+|| codes[] | **string** (int64)
+
+Add the redirect HTTP status codes that the source returns. ||
+|| useCustomHost | **boolean**
+
+Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
+|#
+
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
 |#
 
 ## SSLCertificate {#yandex.cloud.cdn.v1.SSLCertificate}
@@ -692,7 +802,6 @@ A SSL certificate parameters.
 
 Type of the certificate.
 
-- `SSL_CERTIFICATE_TYPE_UNSPECIFIED`: SSL certificate is unspecified.
 - `DONT_USE`: No SSL certificate is added, the requests are sent via HTTP.
 - `LETS_ENCRYPT_GCORE`: The option is deprecated. Works only if you have already pointed your domain name to the protected IP address in your DNS.
 - `CM`: Add your SSL certificate by uploading the certificate in PEM format and your private key. ||
@@ -700,7 +809,6 @@ Type of the certificate.
 
 Active status.
 
-- `SSL_CERTIFICATE_STATUS_UNSPECIFIED`: SSL certificate is unspecified.
 - `READY`: SSL certificate is ready to use.
 - `CREATING`: The option is deprecated. SSL certificate is creating. ||
 || data | **[SSLCertificateData](#yandex.cloud.cdn.v1.SSLCertificateData)**

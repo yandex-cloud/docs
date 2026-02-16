@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/MlModel/create.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: MlModelService.Create {#Create}
+# Managed Service for ClickHouse API, gRPC: MlModelService.Create
 
 Creates a machine learning model in the specified cluster.
 
@@ -15,8 +15,8 @@ Creates a machine learning model in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "mlModelName": "string",
+  "cluster_id": "string",
+  "ml_model_name": "string",
   "type": "MlModelType",
   "uri": "string"
 }
@@ -24,19 +24,22 @@ Creates a machine learning model in the specified cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to create a model in.
 
-To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| mlModelName | **string**
+To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
 
-Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse. ||
+The maximum string length in characters is 50. ||
+|| ml_model_name | **string**
+
+Required field. Model name. The model name is one of the arguments of the modelEvaluate() function, which is used to call the model in ClickHouse.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || type | enum **MlModelType**
 
 Required field. Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 
@@ -49,19 +52,19 @@ Required field. Model file URL. You can only use models stored in Object Storage
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "mlModelName": "string"
+    "cluster_id": "string",
+    "ml_model_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string",
+    "cluster_id": "string",
     "type": "MlModelType",
     "uri": "string"
   }
@@ -79,13 +82,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -128,10 +131,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the cluster that a model is being added to. ||
-|| mlModelName | **string**
+|| ml_model_name | **string**
 
 Name of the the model that is being created. ||
 |#
@@ -143,14 +146,13 @@ Name of the the model that is being created. ||
 || name | **string**
 
 Name of the the model. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the model belongs to. ||
 || type | enum **MlModelType**
 
 Type of the model.
 
-- `ML_MODEL_TYPE_UNSPECIFIED`
 - `ML_MODEL_TYPE_CATBOOST`: CatBoost model. ||
 || uri | **string**
 

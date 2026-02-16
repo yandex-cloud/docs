@@ -2,6 +2,8 @@
 
 С помощью сервисных ролей {{ metastore-name }} вы можете просматривать информацию о кластерах {{ metastore-name }} и управлять ими.
 
+{% include [roles-metastore](../../_mermaid/roles/metastore.md) %}
+
 ## {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../../_roles/managed-metastore/auditor.md) %}
@@ -21,3 +23,5 @@
 ## {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
 
 {% include [managed-metastore.integrationProvider](../../_roles/managed-metastore/integrationProvider.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

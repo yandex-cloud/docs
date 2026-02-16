@@ -1,19 +1,41 @@
 ---
-title: Получение ссылки на скачивание объекта из бакета в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы сможете получить ссылку на скачивание объекта из бакета в {{ objstorage-name }}.
+title: Получение подписанной ссылки на скачивание объекта из бакета в {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете получить подписанную ссылку (pre-signed URL) на скачивание объекта из бакета в {{ objstorage-name }}.
 ---
 
-# Получение ссылки на скачивание
+# Получение подписанной ссылки (pre-signed URL) на скачивание объекта
 
-Если у вас публичный бакет, объекты доступны всегда, даже если для бакета не настроен [хостинг веб-сайта](../../concepts/hosting.md). Ссылку можно получить по этой инструкции либо сформировать самостоятельно. [Подробнее про формат ссылки](../../concepts/object.md#object-url).
+Если у вас публичный бакет, объекты доступны всегда, даже если для бакета не настроен [хостинг сайта](../../concepts/hosting.md). Ссылку можно получить по этой инструкции либо сформировать самостоятельно. [Подробнее про формат ссылки](../../concepts/object.md#object-url).
 
 Если у вас бакет с ограниченным доступом, то {{ objstorage-name }} позволяет сгенерировать подписанную ссылку на объект. Любой человек, получивший эту ссылку, сможет скачать объект даже из бакета с ограниченным доступом. [Подробнее про подписанные ссылки, их генерацию и использование](../../concepts/pre-signed-urls.md).
+
+{% note info %}
+
+Если для бакета настроена [политика доступа](../buckets/policy.md), запрещающая создание подписанных ссылок, создать ссылку не получится. 
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   {% include [storage-get-link-for-download](../../_includes_service/storage-get-link-for-download.md) %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [storage-get-link-for-download-cli](../../_includes_service/storage-get-link-for-download-cli.md) %}
+
+- AWS CLI {#aws-cli}
+
+  {% include [storage-get-link-for-download-aws-cli](../../_includes_service/storage-get-link-for-download-aws-cli.md) %}
+
+- SDK для Python (boto3) {#sdk-python}
+
+  {% include [storage-get-link-for-download-sdk-python](../../_includes_service/storage-get-link-for-download-sdk-python.md) %}
+
+- SDK для JavaScript {#sdk-javascript}
+
+  {% include [storage-get-link-for-download-sdk-javascript](../../_includes_service/storage-get-link-for-download-sdk-javascript.md) %}
 
 {% endlist %}
 
@@ -22,3 +44,7 @@ description: Следуя данной инструкции, вы сможете
 Продлить срок действия подписанной ссылки на объект в бакете с ограниченным доступом нельзя. Если срок действия ссылки истек, сформируйте новую ссылку.
 
 {% endnote %}
+
+#### См. также {#see-also}
+
+* [{#T}](./link-for-upload.md)

@@ -20,7 +20,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать таблицу.
   1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
@@ -53,7 +54,7 @@
 
 - {{ TF }} {#tf}
 
-   О том, как создать строковую таблицу с помощью {{ TF }}, можно узнать из статьи [{#T}](../terraform/row-tables.md).
+   О том, как создать строковую таблицу с помощью {{ TF }}, можно узнать из статьи [{#T}](../terraform/tables.md).
 
 {% endlist %}
 
@@ -69,7 +70,8 @@
 
   {% endnote %}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать таблицу.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
   1. Настройте параметры таблицы:
@@ -88,6 +90,50 @@
 
 {% endlist %}
 
+### Колоночная таблица {#create-column-table}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Выберите базу данных, в которой нужно создать таблицу.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
+  1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
+  1. Настройте параметры таблицы:
+     * **{{ ui-key.yacloud.ydb.table.form.field_name }}** таблицы. Должно быть уникальным в рамках базы данных.
+     * **{{ ui-key.yacloud.ydb.table.form.field_type }}** — `{{ ui-key.yacloud.ydb.table.form.label_column-table }}`.
+  1. Добавьте колонки:
+     * **{{ ui-key.yacloud.ydb.table.form.column_name }}** колонки. Должно быть уникальным в рамках таблицы.
+     * **{{ ui-key.yacloud.ydb.table.form.column_type }}** данных колонки.
+     * **{{ ui-key.yacloud.ydb.table.form.column_primary-key }}**. Укажите, входит ли колонка в состав первичного ключа. По первичному ключу автоматически строится первичный индекс.
+
+        {% note info %}
+
+        Порядок колонок в первичном ключе определяется порядком колонок в создаваемой таблице.
+
+        {% endnote %}
+
+     * **{{ ui-key.yacloud.ydb.table.form.column_not-null}}**. Укажите, может ли колонка содержать значение `NULL`.
+     <!-- * **{{ ui-key.yacloud.ydb.table.form.column_default}}**. Укажите значение колонки по умолчанию. -->
+  1. Настройте параметры TTL таблицы:
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Укажите время жизни строк таблицы.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Выберите единицу измерения указанного времени жизни строк таблицы.
+  1. Настройте партицирование:
+     * **{{ ui-key.yacloud.ydb.table.form.field_partition-key }}** — Укажите колонку, по которой будет партицироваться таблица.
+     * **{{ ui-key.yacloud.ydb.table.form.field_partition-count }}** — Укажите количество партиций таблицы.
+  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.table.create.button_create }}**.
+
+  Для создания колоночных таблиц также можно воспользоваться командой [`CREATE TABLE`]({{ ydb.docs }}/yql/reference/syntax/create_table).
+
+
+- {{ TF }} {#tf}
+
+   О том, как создать колоночную таблицу с помощью {{ TF }}, можно узнать из статьи [{#T}](../terraform/tables.md).
+
+{% endlist %}
 
 ## Изменить структуру таблицы {#alter-table}
 
@@ -99,7 +145,8 @@
 
    В облачной консоли {{ ydb-short-name }} можно добавлять неключевые колонки в таблицу и изменять настройки автопартицирования таблиц.
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
    1. Добавьте новые колонки в таблицу и укажите их параметры:
@@ -118,7 +165,7 @@
 
 - {{ TF }} {#tf}
 
-   Сущности таблицы, которые  можно изменять с помощью {{ TF }} описаны в статье [{#T}](../terraform/row-tables.md).
+   Сущности таблицы, которые можно изменять с помощью {{ TF }}, описаны в статье [{#T}](../terraform/tables.md).
 
 {% endlist %}
 
@@ -134,7 +181,8 @@
 
    {% endnote %}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
    1. Найдите таблицу в списке и кликнете по ней.
    1. Нажмите кнопку **Добавить строку**.
@@ -148,6 +196,45 @@
 
 Для изменения строковых таблиц также предназначена команда [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table).
 
+### Колоночная таблица {#alter-column-table}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Выберите базу данных, в которой нужно изменить таблицу.
+   1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
+
+        Выполните необходимые изменения в структуре таблицы. Доступны следующие действия:
+
+        -  Добавьте новые колонки в таблицу и укажите их параметры:
+            * **{{ ui-key.yacloud.ydb.table.form.column_name }}** колонки. Должно быть уникальным в рамках таблицы.
+            * **{{ ui-key.yacloud.ydb.table.form.column_type }}** данных колонки. Независимо от типа данных, каждая колонка может содержать значение `NULL`.
+        -  Удалите неключевые колонки из таблицы, нажмите на значок ![image](../../_assets/cross.svg) в нужной строке. Удалить колонки, которые образуют первичный ключ, невозможно.
+        -  Настройте параметры TTL таблицы:
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Выберите колонку, значение которой будет использоваться для вычисления времени жизни строк.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Укажите время жизни строк таблицы.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Выберите единицу измерения указанного времени жизни строк таблицы.
+
+   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
+
+  Для изменения колоночных таблиц также можно воспользоваться командой [`ALTER TABLE`]({{ ydb.docs }}/yql/reference/syntax/alter_table).
+
+
+- {{ TF }} {#tf}
+
+   Сущности таблицы, которые можно изменять с помощью {{ TF }}, описаны в статье [{#T}](../terraform/tables.md).
+
+   {% note info %}
+
+   Изменение параметров колоночной таблицы `store` и `partition_by` приведет к пересозданию таблицы.
+
+   {% endnote %}
+
+{% endlist %}
+
 ## Удалить таблицу {#drop-table}
 
 ### Строковая таблица {#drop-ydb-table}
@@ -156,7 +243,8 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно удалить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Подтвердите удаление.
@@ -173,7 +261,8 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Перейдите базу данных, в которой нужно удалить документную таблицу.
    1. Выберите документную таблицу из списка таблиц, нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Подтвердите удаление.
@@ -184,8 +273,25 @@
 
 {% endlist %}
 
+### Колоночная таблица {#drop-ydb-column-table}
 
-Для удаления строковых таблиц также предназначена команда [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table).
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Выберите базу данных, в которой нужно удалить таблицу.
+   1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
+   1. Подтвердите удаление.
+
+- {{ TF }} {#tf}
+
+   Для удаления колоночной таблицы удалите ресурс `yandex_ydb_table`.
+
+{% endlist %}
+
+Для удаления таблиц также предназначена команда [`DROP TABLE`]({{ ydb.docs }}/yql/reference/syntax/drop_table).
 
 ## Создать и удалить директории {#directories}
 
@@ -193,7 +299,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать директорию.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_directory }}** в правой части страницы.
   1. Введите имя директории и нажмите кнопку **{{ ui-key.yacloud.ydb.browse.dialogs.button_create-directory }}**.

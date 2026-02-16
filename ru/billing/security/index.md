@@ -1,5 +1,5 @@
 ---
-title: Управление доступом в сервисе Billing
+title: Управление доступом в сервисе {{ billing-name }}
 description: Доступ к платежному аккаунту предоставляется через сервис {{ billing-name }}. Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью.
 ---
 
@@ -7,12 +7,12 @@ description: Доступ к платежному аккаунту предос�
 
 ## Доступ к платежному аккаунту {#billing-account}
 
-Доступ к [платежному аккаунту](../concepts/billing-account.md) предоставляется через сервис {{ billing-name }}. Платежный аккаунт могут создавать пользователи с зарегистрированным аккаунтом на Яндексе или в Яндекс 360:
+Доступ к [платежному аккаунту](../concepts/billing-account.md) можно предоставить через [интерфейс сервиса {{ billing-name }}]({{ link-console-billing }}) или [{{ yandex-cloud }} API](../api-ref/authentication.md). Платежный аккаунт могут создавать пользователи с зарегистрированным аккаунтом на Яндексе или в Яндекс 360:
 
 * Если у вас или вашего сотрудника еще нет аккаунта, создайте его на [Яндексе](https://passport.yandex.ru/registration) или в [Яндекс 360](https://yandex.ru/support/business/add-users.html).
 * Если для авторизации на Яндексе вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
 
-Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
+Операции, которые пользователь может выполнять над платежным аккаунтом, определяются назначенной ему ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md).
 
 {% note info %}
 
@@ -22,11 +22,13 @@ description: Доступ к платежному аккаунту предос�
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [billing](../../_mermaid/roles/billing.md) %}
+
 ### Сервисные роли {#service-roles}
 
-#### billing.accounts.owner {#billing-accounts-owner}
+#### billing.accounts.member {#billing-accounts-member}
 
-{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
+{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.viewer {#billing-accounts-viewer}
 
@@ -36,25 +38,25 @@ description: Доступ к платежному аккаунту предос�
 
 {% include [billing.accounts.accountant](../../_roles/billing/accounts/accountant.md) %}
 
+#### billing.partners.editor {#billing-partners-editor}
+
+{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../../_roles/billing/accounts/editor.md) %}
-
-#### billing.accounts.admin {#billing-accounts-admin}
-
-{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
-
-#### billing.accounts.member {#billing-accounts-member}
-
-{% include [billing.accounts.member](../../_roles/billing/accounts/member.md) %}
 
 #### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
 
 {% include [billing.accounts.varwithoutdiscounts](../../_roles/billing/accounts/varWithoutDiscounts.md) %}
 
-#### billing.partners.editor {#billing-partners-editor}
+#### billing.accounts.admin {#billing-accounts-admin}
 
-{% include [billing.partners.editor](../../_roles/billing/partners/editor.md) %}
+{% include [billing.accounts.admin](../../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../../_roles/billing/accounts/owner.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
@@ -83,32 +85,35 @@ description: Доступ к платежному аккаунту предос�
 | Пополнение лицевого счета с помощью расчетного счета    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Генерация нового акта сверки                            | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Активация промокодов                                    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| Привязка облаков к платежному аккаунту                  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Привязка облачной организации и других сущностей к платежному аккаунту | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Связь с облачной организацией                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Создание экспорта детализации                           | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Создание бюджета                                        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Резервирование ресурсов                                 | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Переименование платежного аккаунта                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| Просматривать коммерческие предложения                  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | Выдача ролей на платежный аккаунт                       | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | 
 | Просмотр и редактирование ролей                         | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | 
+| Управление тарифом технической поддержки                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/yes.svg) | 
 | Изменение контактов плательщика                         | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение платежных реквизитов                          | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение банковской карты                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Изменение способа оплаты                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
-| Активация пробного периода                              | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Активация платной версии                                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 | Пополнение лицевого счета с помощью банковской карты    | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
+| Принимать коммерческие предложения                      | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  | ![image](../../_assets/common/no.svg)  |
 
 ## Добавление пользователя {#set-member-role}
 
 Процесс добавления новых пользователей платежного аккаунта зависит от того, привязан ли платежный аккаунт к организации.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- С организацией
+- С организацией {#organization}
 
   [Назначьте](#set-role) нужную роль на платежный аккаунт любому пользователю или сервисному аккаунту в вашей организации.
 
-- Без организации
+- Без организации {#no-organization}
 
   {% note info %}
 
@@ -131,9 +136,9 @@ description: Доступ к платежному аккаунту предос�
 
 Процесс назначения роли на платежный аккаунт зависит от того, привязан платежный аккаунт к организации или нет.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- С организацией
+- С организацией {#organization}
 
   Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, относящемуся к той же организации, что и платежный аккаунт. Для этого:
 
@@ -153,7 +158,7 @@ description: Доступ к платежному аккаунту предос�
 
   {% endnote %}
 
-- Без организации
+- Без организации {#no-organization}
 
   Пользователь, которому назначена роль `billing.accounts.admin`, может предоставить доступ к платежному аккаунту любому пользователю или сервисному аккаунту, добавленному в список **{{ ui-key.yacloud_components.notify-subs.label_users }}**. Для этого:
  
@@ -175,9 +180,9 @@ description: Доступ к платежному аккаунту предос�
 
 Процесс отзыва роли на платежный аккаунт зависит от того, привязан ли платежный аккаунт к организации.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- С организацией
+- С организацией {#organization}
 
   В любой момент пользователь, которому выдана роль `billing.accounts.admin`, может отозвать у пользователя или сервисного аккаунта в своей организации роль на платежный аккаунт. Для этого:
 
@@ -190,7 +195,7 @@ description: Доступ к платежному аккаунту предос�
       1. Нажмите значок ![image](../../_assets/cross.svg) справа от роли, которую необходимо отозвать.
       1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**. Роль будет отозвана.
 
-- Без организации
+- Без организации {#no-organization}
 
   В любой момент пользователь, которому выдана роль `billing.accounts.admin`, может отозвать роль на платежный аккаунт у пользователя или сервисного аккаунта из списка. Для этого:
 
@@ -211,14 +216,18 @@ description: Доступ к платежному аккаунту предос�
 
 {% endlist %}
 
-## Удаление пользователя {#delete-user}
+## Удаление пользователя платежного аккаунта {#delete-user}
 
 Удаление пользователей возможно лишь в платежных аккаунтах, которые не привязаны к организации. Для этого:
 
 1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
 1. Выберите платежный аккаунт.
-1. Найдите пользователя или сервисный аккаунт в списке.
+1. На панели слева выберите ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}** и в открывшемся списке найдите нужного пользователя или сервисный аккаунт.
+
+    При необходимости воспользуйтесь фильтром в верхней части экрана.
 1. В строке с нужным пользователем или сервисным аккаунтом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.users.button_remove-user }}**.
 1. Пользователь будет удален из списка пользователей этого платежного аккаунта.
 
-Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Вы можете [исключить пользователя из организации](../../organization/operations/edit-account.md#remove-user), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.
+Если платежный аккаунт привязан к организации, просто [отзовите](#delete-role) нужную роль у пользователя или сервисного аккаунта. Также вы можете [удалить пользователя из организации](../../organization/operations/edit-account.md), чтобы закрыть для него доступ ко всем облакам и ресурсам в ней.
+
+Кроме того, [федеративного](../../iam/concepts/users/accounts.md#saml-federation) и [локального](../../iam/concepts/users/accounts.md#local) пользователя вы можете [деактивировать](../../organization/operations/user-pools/deactivate-user.md). В результате пользователь потеряет доступ к ресурсам организации до тех пор, пока вы вновь не [активируете](../../organization/operations/user-pools/activate-user.md) его.

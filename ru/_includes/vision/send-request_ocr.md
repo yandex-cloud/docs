@@ -1,6 +1,6 @@
-{% list tabs group=programming_language %}
-
 Отправьте запрос с помощью метода [recognize](../../vision/ocr/api-ref/TextRecognition/recognize.md) и сохраните ответ в файл, например `output.json`:
+
+{% list tabs group=programming_language %}
 
 - UNIX {#unix}
 
@@ -12,7 +12,12 @@
     --header "Authorization: Bearer ${IAM_TOKEN}" \
     --header "x-folder-id: <идентификатор_каталога>" \
     --header "x-data-logging-enabled: true" \
-    --data "@body.json" \
+    --data '{
+      "mimeType": "JPEG",
+      "languageCodes": ["ru","en"],
+      "model": "handwritten",
+      "content": "<изображение_в_кодировке_base64>"
+    }' \
     https://ocr.{{ api-host }}/ocr/v1/recognizeText \
     --output output.json
   ```
@@ -26,7 +31,7 @@
 
   ```python
   data = {"mimeType": <mime_type>,
-          "languageCodes": ["*"],
+          "languageCodes": ["ru","en"],
           "content": content}
 
   url = "https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText"
@@ -36,7 +41,7 @@
             "x-folder-id": "<идентификатор_каталога>",
             "x-data-logging-enabled": "true"}
     
-    w = requests.post(url=url, headers=headers, data=json.dumps(data))
+  w = requests.post(url=url, headers=headers, data=json.dumps(data))
   ```
 
 {% endlist %}

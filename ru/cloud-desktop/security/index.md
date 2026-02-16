@@ -17,13 +17,25 @@ description: Управление доступом в сервисе {{ cloud-de
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+На [группу рабочих столов](../concepts/desktops-and-groups.md) роль можно назначить через [консоль управления]({{ link-console-main }}), {{ yandex-cloud }} [CLI](../../cli/cli-ref/desktops/cli-ref/group/add-access-bindings.md) или [API](../api-ref/authentication.md).
+
 ## Какие роли действуют в сервисе {#roles-list}
+
+{% include [cloud-desktop](../../_mermaid/roles/cloud-desktop.md) %}
 
 ### Сервисные роли {#service-roles}
 
 #### vdi.viewer {#vdi-viewer}
 
 {% include [vdi.viewer](../../_roles/vdi/viewer.md) %}
+
+#### vdi.desktopGroups.maintainer {#vdi-desktopGroups-maintainer}
+
+{% include [vdi.desktopGroups.maintainer](../../_roles/vdi/desktopGroups/maintainer.md) %}
+
+#### vdi.desktopGroups.user {#vdi-desktopGroups-user}
+
+{% include [vdi.desktopGroups.maintainer](../../_roles/vdi/desktopGroups/user.md) %}
 
 #### vdi.editor {#vdi-editor}
 

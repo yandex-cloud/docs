@@ -1,6 +1,6 @@
-# Уведомления о доставке писем
+# Уведомления об операциях с письмами
 
-Чтобы получать уведомления о доставке писем, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).
+Чтобы получать уведомления об операциях с письмами, необходимо [создать конфигурацию](../operations/create-configuration.md) и [привязать ее к адресу](../operations/bind-configuration.md).
 
 ## Типы уведомлений {#types}
 
@@ -23,6 +23,23 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "send": {  },
@@ -49,6 +66,32 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+               "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "ses:outgoing-tls-cipher": [
+                "AES_128_GCM_SHA256"
+            ],
+            "ses:outgoing-tls-version": [
+                "TLSv1.3"
+            ],
+            "ses:outgoing-ip": [
+                "51.250.56.125"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "bounce": null,
@@ -82,6 +125,23 @@
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "bounce": {
@@ -102,6 +162,206 @@
 }
 ```
 
+### Уведомление о том, что письмо открыто {#open}
+
+Приходит, когда получатель открыл письмо.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Open",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "open": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Уведомление о том, что получатель перешел по ссылке в письме {#click}
+
+Приходит, когда получатель перешел по ссылке в письме.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Click",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using {{ postbox-full-name }}"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "click": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60",
+        "url": "https://example.com/some-link",
+        "linkTags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Уведомление о том, что доставка письма задерживается {#delayed-delivery}
+
+После того как {{ postbox-name }} успешно принял письмо, обычно оно отправляется немедленно. Однако иногда может возникнуть небольшая задержка доставки. В таком случае приходит данное уведомление.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "DeliveryDelay",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "deliveryDelay": {
+        "delayType": "General",
+        "delayedRecipients": [
+            {
+                "emailAddress": "recipient@example.com"
+            }
+        ],
+        "timestamp": "2024-04-25T18:10:04.973666+03:00"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Уведомление о том, что получатель отписался от рассылки {#subscription}
+
+Приходит, когда получатель отписался от рассылки через механизм «отказ от подписки в один клик» (`one-click unsubscribe`), добавленный {{ postbox-name }} в письмо.
+
+Пример уведомления:
+
+```json
+{
+    "eventType": "Unsubscribe",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "subscription": {
+        "contactList": "my-list",
+        "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "source": "UnsubscribeHeader"
+    }
+}
+```
+
 ## Формат уведомлений {#format}
 
 Уведомление записывается в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }} в формате JSON. Последовательность и набор полей могут отличаться от описанных ниже.
@@ -114,6 +374,8 @@
 `mail` | Объект [Mail](#mail-object) | Объект, который содержит общую информацию об отправленном письме.
 `bounce` | Объект [Bounce](#bounce-object) | Объект, который содержит информацию о том, что письмо не доставлено. Обязателен, если `notificationType` — `Bounce`, иначе отсутствует.
 `delivery` | Объект [Delivery](#delivery-object) | Объект, который содержит информацию о доставке письма отдельному получателю. Обязателен, если `notificationType` — `Delivery`, иначе отсутствует.
+`subscription` | Объект [Subscription](#subscription-object) | Объект, который содержит информацию о том, что получатель отписался от рассылки. Обязателен, если `notificationType` — `Subscription`, иначе отсутствует.
+`open` | Объект [Open](#open-object) | Объект, который содержит информацию о том, что письмо было открыто. Обязателен, если `notificationType` — `Open`, иначе отсутствует.
 `eventId` | Строка | Уникальный идентификатор события.
 
 ### Объект Mail {#mail-object}
@@ -124,6 +386,7 @@
 `messageId` | Строка | Уникальный идентификатор письма. У одного письма может быть несколько получателей. Выдается {{ postbox-name }} при приеме письма в обработку.
 `identityId` | Строка | Идентификатор адреса {{ postbox-name }}, который используется при отправке письма.
 `commonHeaders` | Объект [CommonHeaders](#common-headers-object) | Объект, который содержит основные заголовки письма.
+`tags` | Объект | Объект, который содержит теги, добавленные к письму.
 
 ### Объект CommonHeaders {#common-headers-object}
 
@@ -157,6 +420,16 @@
 `status` | Строка | Необязательное поле. SMTP-код ответа.
 `diagnosticCode` | Строка | Необязательное поле. Расширенный текст ошибки. Может содержать текст ошибки от почтового клиента получателя.
 
+### Объект Click {#click-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`ipAddress` | Строка | IP-адрес устройства получателя, с которого перешли по ссылке.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда получатель перешел по ссылке.
+`userAgent` | Строка | Идентификационная строка (`User-Agent`) устройства или почтового клиента, с которого перешли по ссылке.
+`url` | Строка | Оригинальный URL, по которому перешел получатель.
+`linkTags` | Объект | Объект, который содержит теги, добавленные к ссылке.
+
 ### Объект Delivery {#delivery-object}
 
 Название | Тип | Описание
@@ -164,6 +437,56 @@
 `timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда {{ postbox-name }} отправил письмо и получил успешный ответ от почтового клиента получателя.
 `processingTimeMillis` | Целое число | Время, которое потребовалось на обработку письма в миллисекундах.
 `recipients` | Массив строк | Адреса получателей.
+
+### Объект DeliveryDelay {#delivery-delay-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`delayType` | Строка | Тип задержки. Возможные значения: `General`.
+`delayedRecipients` | Массив объектов [DelayedRecipient](#delayed-recipient-object) | Массив, который содержит информацию о получателе письма и связанной с ним задержке доставки.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда случилась задержка доставки.
+
+### Объект DelayedRecipient {#delayed-recipient-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`emailAddress` | Строка | Электронный адрес получателя.
+
+### Объект Subscription {#subscription-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`contactList` | Строка | Имя списка контактов, с которым связано письмо.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда получатель отписался от рассылки.
+`source` | Строка | Источник отписки. Возможные значения: `UnsubscribeHeader`.
+
+### Объект Open {#open-object}
+
+Название | Тип | Описание
+--- | --- | ---
+`ipAddress` | Строка | IP-адрес устройства получателя, с которого было открыто письмо.
+`timestamp` | Строка | Дата в формате [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`). Время, когда письмо было открыто.
+`userAgent` | Строка | Идентификационная строка (`User-Agent`) устройства или почтового клиента, с которого было открыто письмо.
+
+## Системные теги {#system-tags}
+
+При отправке письма {{ postbox-name }} добавляет к письму следующие системные теги, которые затем включаются в уведомления.
+
+Общие теги:
+
+Название | Описание
+--- | ---
+`ses:configuration-set` | Идентификатор [конфигурации](glossary.md#configuration), использованной при отправке письма.
+`ses:from-domain` | Домен, с которого отправлено письмо.
+`ses:source-ip` | IP-адрес сервера, с которого пользователь отправил письмо в {{ postbox-name }}.
+
+Дополнительные теги, которые включаются только в [уведомления о доставке](#delivery):
+
+Название | Описание
+--- | ---
+`ses:outgoing-tls-version` | Версия TLS, использованная при отправке письма на сервер получателя.
+`ses:outgoing-tls-cipher` | Шифр TLS, использованный при отправке письма на сервер получателя.
+`ses:outgoing-ip` | IP-адрес сервера, с которого {{ postbox-name }} отправил письмо на сервер получателя.
 
 ## Уровень качества обслуживания (QoS) {#qos}
 

@@ -1,12 +1,12 @@
 # get-query-results
 
-The method returns query execution results. If the query contains multiple `SELECT` statements, multiple query execution results are generated. In this case, get the results by their index.
+The method returns query results. If a query contains multiple `SELECT` statements, there will be multiple query results. In this case, you need to get the results by their index.
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Query {#request}
+## Request {#request}
 
-`GET`-query to `/queries/{query_id}/results/{<query_execution_result_number_starting_with_0>}?project={folder_id}`, where `{folder_id}` is the folder ID, and the `{query_id}` is the query ID.
+`GET` request to `/queries/{query_id}/results/{<query_result_number_starting_from_0>}?project={folder_id}`, where `{folder_id}` is a folder ID and `{query_id}` is the query ID.
 
 Parameters are provided in URLs as query parameters.
 
@@ -49,18 +49,19 @@ If successful, an HTTP response with code 200 and query execution results is ret
 | `columns` | Array of returned value columns |
 | `columns[].name` | Column name |
 | `columns[].type` | Column data type |
-| `rows` | Array of result rows with the returned value. The number of array elements of each row is the same as the number of columns from the `columns` parameter. |
+| `rows` | Array of result rows with the returned value. The number of array elements in each row is the same as the number of columns from the `columns` parameter. |
 
 The rules for converting YQL data types to JSON-compatible data types are described in the [Correspondence of YQL and JSON types](../yql-json-conversion-rules.md) section.
 
 ## Example {#example}
 
-Query:
+Request:
 
 ```json
-curl -X 'GET' \
+curl \
+  --request 'GET' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries/cseugn35bc3r********/results/0?project=b1gaue5b382m********&offset=0&limit=100' \
-  -H 'accept: application/json'
+  --header 'accept: application/json'
 ```
 
 Response:

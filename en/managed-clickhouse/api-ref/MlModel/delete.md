@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to delete the model in.
+            To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        mlModelName:
+          description: |-
+            **string**
+            Required field. Name of the the model to delete.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - mlModelName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/MlModel/delete.md
 ---
 
-# Managed Service for ClickHouse API, REST: MlModel.Delete {#Delete}
+# Managed Service for ClickHouse API, REST: MlModel.Delete
 
 Deletes the specified machine learning model.
 
@@ -21,10 +48,14 @@ DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlM
 
 Required field. ID of the cluster to delete the model in.
 
-To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get a cluster ID make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || mlModelName | **string**
 
-Required field. Name of the the model to delete. ||
+Required field. Name of the the model to delete.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

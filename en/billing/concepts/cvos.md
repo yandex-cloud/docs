@@ -1,5 +1,9 @@
-# Committed volume of services
+---
+title: Committed volume of services
+description: In this article, you will learn what a committed volume of services (CVoS) is and which services support it.
+---
 
+# Committed volume of services
 
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
@@ -37,6 +41,8 @@ After purchasing the CVoS, the discount on the use of services is applied automa
 
 During the selected validity period, you must pay for the CVoS even if you don't use any {{ yandex-cloud }} services. The [payment method](../payment/index.md) depends on your legal status ([billing account type](../concepts/billing-account.md#ba-types)).
 
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+
 See details of using and paying for your CVoS below.
 
 ![image](../../_assets/billing/cud-scheme.svg)
@@ -44,9 +50,9 @@ See details of using and paying for your CVoS below.
 1. You can purchase a CVoS for 6 months or 1 year. The CVoS is valid from the date you selected when purchasing it.
 1. The CVoS validity period is verified throughout the entire billing period.
 
-   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard prices](/prices) apply to {{ yandex-cloud }} service usage.
+   2.1. If the validity period expired (the current date > the CVoS expiration date), [standard plans](/prices) apply to {{ yandex-cloud }} service usage.
 
-   2.2. If the validity period hasn't expired (the current date < the CVoS expiration date), the terms of the agreement apply to {{ yandex-cloud }} service usage. Go to step 3.
+   2.2. If the validity period has not expired (the current date < the CVoS expiration date), the terms of the agreement apply to {{ yandex-cloud }} service usage. Go to step 3.
 
 1. Your personal account is charged hourly for the [amount](#formula) pursuant to the agreement, regardless of whether you use any {{ yandex-cloud }} services. Go to step 4.
 
@@ -54,11 +60,11 @@ See details of using and paying for your CVoS below.
 
    4.1. If the actual volume is less than or equal to the CVoS, the amount is only charged pursuant to the agreement. To calculate the amount charged, use one of the following [formulas](#formula).
 
-   {{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. Go to step 5.
+    {{ yandex-cloud }} services not covered by a CVoS are billed based on standard prices. Go to step 5.
 
    4.2. If the actual volume exceeds the CVoS, the difference between the total volume and the CVoS will be additionally charged based on [standard prices](/prices). Go to step 5.
 
-1. At the beginning of the next billing period, your personal account balance and payments for the services are reviewed. Depending on your [billing account type](../concepts/billing-account.md#ba-types), you may get an invoice. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
+1. At the beginning of the next billing period, your personal account balance and payments for the services are reviewed. Depending on your [billing account type](../concepts/billing-account.md#ba-types), you may get an invoice or have your linked bank card debited. For more information, see [Billing cycle for individuals](../../billing/payment/billing-cycle-individual.md) and [Billing cycle for businesses and individual entrepreneurs](../../billing/payment/billing-cycle-business.md).
 
 ## Charged amount {#formula}
 
@@ -68,15 +74,15 @@ The amount charged for the CVoS is determined using the following formulas:
 
 - Amount charged per hour {#hour}
 
-   ![image](../../_assets/billing/cud-hour-amount.svg)
+  ![image](../../_assets/billing/cud-hour-amount.svg)
 
 - Amount charged per day {#day}
 
-   ![image](../../_assets/billing/cud-day-amount.svg)
+  ![image](../../_assets/billing/cud-day-amount.svg)
 
 - Amount charged per month {#month}
 
-   ![image](../../_assets/billing/cud-month-amount.svg)
+  ![image](../../_assets/billing/cud-month-amount.svg)
 
 {% endlist %}
 
@@ -100,7 +106,7 @@ Prices for services that you can purchase a CVoS for:
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
-* [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
-* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)
+* [{{ mrd-name }}](../../managed-valkey/pricing.md#cvos)
+* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos) 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

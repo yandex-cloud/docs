@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/deletePassword.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.DeletePassword {#DeletePassword}
+# IoT Core Service, gRPC: RegistryService.DeletePassword
 
 Deletes the specified password.
 
@@ -15,19 +15,19 @@ Deletes the specified password.
 
 ```json
 {
-  "registryId": "string",
-  "passwordId": "string"
+  "registry_id": "string",
+  "password_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to delete a password for.
 
 To get a registry ID make a [DeviceService.List](/docs/iot-core/api-ref/grpc/Device/list#List) request. ||
-|| passwordId | **string**
+|| password_id | **string**
 
 Required field. ID of the password to delete.
 
@@ -40,13 +40,13 @@ To get a password ID make a [RegistryService.ListPasswords](/docs/iot-core/api-r
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "registryId": "string",
-    "passwordId": "string"
+    "registry_id": "string",
+    "password_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -65,13 +65,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -114,10 +114,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of a registry for which the password is being delete. ||
-|| passwordId | **string**
+|| password_id | **string**
 
 Required field. ID of the password to delete.
 

@@ -8,15 +8,15 @@ The `x-yc-apigateway-integration:dummy` extension returns fixed content with the
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description 
 ----|----|----
-| `http_code` | `int` | HTTP response code. |
-| `http_headers` | `map[string](string\|[]string)` | It shows the list of headers to send in the response. `http_headers` is used for parameter substitution. |
-| `content` | `map[string]string` | Data to send in response. <br>It can be either actual content or the result of mapping the requested `Content-Type` into data. This allows you to send errors in the requested format: JSON or XML. The `*` key is used for the default value. `content` is used for parameter substitution. |
+`http_code` | `int` | HTTP response code.
+`http_headers` | `map[string](string\|[]string)` | It shows the list of headers to send in the response. The parameters are subsituted into `http_headers`.
+`content` | `map[string]string` | Data to send in response. <br>It can be either actual content or the result of mapping the requested `Content-Type` to data. This allows you to send errors in the requested format: JSON or XML. The `*` key is used for the default value. The parameters are subsituted into `content`.
 
 ## Extension specification {#spec}
 
-Specification example:
+Specification example: 
 
 ```yaml
 x-yc-apigateway-integration:
@@ -29,10 +29,17 @@ x-yc-apigateway-integration:
     "application/json": "{ \"message\": \"You've been redirected.\" }"
 ```
 
-Extension specifics:
-* If the request has the `Accept` header:
-   * The best match is selected first.
-   * If there is no match, the `*` key is selected.
-   * If there is no key, the `415 Media not supported` response is returned.
+Extension features:
+* If the request contains the `Accept` header:
+    * The best match is selected first.
+    * If there is no match, the `*` key is selected.
+    * If there is no key, the `415 Media not supported` response is returned. 
 * If the `Accept` header is missing, any response may be selected.
-* If the content option is selected by the `*` key, the response's `Content-Type` is picked from `http_headers`. If it is not specified there, the actual `Content-Type` is returned.
+* If the content option is selected by the `*` key, the response's `Content-Type` will be picked from `http_headers`. If it is not specified there, the actual `Content-Type` is returned.
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/api-gw-sws-integration.md)
+* [{#T}](../../tutorials/api-gw-websocket.md)
+* [{#T}](../../tutorials/slack-bot-serverless.md)

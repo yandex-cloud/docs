@@ -1,0 +1,1 @@
+An IAM token can be issued for either a user account or a service account, and any actions using the IAM token are performed on behalf of the account for which the token was issued. However, using a service account to manage buckets and objects is more secure.

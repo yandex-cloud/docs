@@ -8,6 +8,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -15,6 +23,8 @@
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
 
@@ -34,7 +44,7 @@
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [{{ mmy-name }}](../../../managed-mysql/operations/connect.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups).
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
@@ -78,7 +88,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../../managed-mysql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 
@@ -117,7 +127,7 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_источника_{{ MY }}>` из выпадающего списка.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `mmy_db`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mmy_db`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy_user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — `<пароль_пользователя>`.
 
@@ -167,7 +177,7 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../../managed-mysql/operations/connect.md).
+1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md).
 1. Добавьте данные в таблицу `measurements`:
 
     ```sql
@@ -192,35 +202,19 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [Кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-    * [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 
-    Если вы создавали ресурсы с помощью {{ TF }}:
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `mysql-postgresql.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `mysql-postgresql.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

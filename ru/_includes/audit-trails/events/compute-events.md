@@ -7,20 +7,26 @@
 `ChangeDiskStatus` | Изменение статуса нереплицируемого диска
 `CrashInstance` | Аварийное отключение ВМ
 `CreateDisk` | Создание диска
+`CreateDiskPlacementGroup` | Создание группы размещения диска
 `CreateFilesystem` | Создание файловой системы
 `CreateGpuCluster` | Создание кластера GPU
 `CreateHostGroup` | Создание группы выделенных хостов
 `CreateImage` | Создание образа диска
 `CreateInstance` | Создание ВМ
+`CreatePlacementGroup` | Создание группы размещения
+`CreateReservedInstancePool` | Создание пула резервов ВМ
 `CreateSnapshot` | Создание снимка диска
 `CreateSnapshotSchedule` | Создание расписания снимков диска
 `DecommissionHost` | Вывод выделенного хоста в [обслуживание](../../../compute/concepts/dedicated-host.md#maintenance)
 `DeleteDisk` | Удаление диска
+`DeleteDiskPlacementGroup` | Удаление группы размещения диска
 `DeleteFilesystem` | Удаление файловой системы
 `DeleteGpuCluster` | Удаление кластера GPU
 `DeleteHostGroup` | Удаление группы выделенных хостов
 `DeleteImage` | Удаление образа диска
 `DeleteInstance` | Удаление ВМ
+`DeletePlacementGroup` | Удаление группы размещения
+`DeleteReservedInstancePool` | Удаление пула резервов ВМ
 `DeleteSnapshot` | Удаление снимка диска
 `DeleteSnapshotSchedule` | Удаление расписания снимков диска
 `DetachInstanceDisk` | Отключение диска от ВМ
@@ -35,6 +41,7 @@
 `StartInstance` | Запуск ВМ
 `StopInstance` | Остановка ВМ
 `UpdateDisk` | Изменение диска
+`UpdateDiskPlacementGroup` | Изменение группы размещения диска
 `UpdateFilesystem` | Изменение файловой системы
 `UpdateGpuCluster` | Изменение кластера GPU
 `UpdateHost` | Обновление [даты автоматического освобождения](../../../compute/concepts/dedicated-host.md#maintenance) выделенного хоста
@@ -43,6 +50,8 @@
 `UpdateInstance` | Изменение ВМ
 `UpdateInstanceMetadata` | Изменение метаданных ВМ
 `UpdateInstanceNetworkInterface` | Изменение сетевых настроек ВМ
+`UpdatePlacementGroup` | Изменение группы размещения
+`UpdateReservedInstancePool` | Изменение пула резервов ВМ
 `UpdateSnapshot` | Изменение снимка диска
 `UpdateSnapshotSchedule` | Изменение параметров расписания снимков диска
 `UpdateSnapshotScheduleDisks` | Изменение параметров расписания снимков дисков
@@ -50,6 +59,8 @@
 `instancegroup.CreateInstanceGroup` | Создание группы ВМ
 `instancegroup.DeleteInstanceGroup` | Удаление группы ВМ
 `instancegroup.DeleteInstanceGroupInstances` | Удаление ВМ из группы
+`instancegroup.DisableZones` | [Временное отключение](../../../compute/concepts/instance-groups/disable-enable-zone.md) зон доступности
+`instancegroup.EnableZones` | Включение зон доступности
 `instancegroup.PauseInstanceGroup` | Приостановка процессов управления группой ВМ
 `instancegroup.ResumeInstanceGroup` | Возобновление процессов управления группой ВМ
 `instancegroup.RollingRestartInstanceGroupInstances` | Поочередная перезагрузка ВМ из группы

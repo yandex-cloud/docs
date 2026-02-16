@@ -8,16 +8,16 @@ The `x-yc-apigateway-integration:http` extension redirects a request to the rele
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description 
 ----|----|----
-| `url` | `string` | URL to redirect the invocation to. <br>`url` is used for parameter substitution. |
-| `method` | `enum` | This is an optional parameter. It sets the HTTP method used for the invocation. If it is not specified, the method to send a request to {{ api-gw-short-name }} is used by default. |
-| `headers` | `map[string](string \| string[])` | HTTP headers to provide. By default, the headers of the original request are not provided. <br>`headers` is used for parameter substitution. |
-| `query` | `map[string](string \| string[])` | Query parameters to provide. By default, the query parameters of the original request are not provided. <br>`query` is used for parameter substitution. |
-| `timeouts` | `object` | This is an optional parameter. It sets the `read` and `connect` invocation timeouts in seconds. |
-| `omitEmptyHeaders` | `boolean` | This is an optional parameter. If the value is `true`, empty headers are not provided. |
-| `omitEmptyQueryParameters` | `boolean` | This is an optional parameter. If the value is `true`, empty query parameters are not provided. |
-| `serviceAccountId` | `string` | Service account ID. It is used for authorization when accessing the specified URL. The value of the `serviceAccountId` [parent parameter](index.md#top-level) is ignored. |
+`url`|`string`| URL to redirect the invocation to. It must be accessible from the internet or the [user network](../networking.md#user-network) specified in the API gateway settings. <br>The parameters are subsituted into `url`.
+`method`|`enum`| This is an optional parameter. It sets the HTTP method for invocation. If it is not specified, the method to send a request to {{ api-gw-short-name }} will be used.
+`headers`|`map[string](string \| string[])`| HTTP headers to provide. By default, headers of the original request are not provided. <br>The parameters are subsituted into `headers`.
+`query`|`map[string](string \| string[])`| Query parameters to provide. By default, query parameters of the original request are not provided. <br>The parameters are subsituted into `query`.
+`timeouts`|`object`| `read` and `connect` invocation timeouts. The value is specified in seconds and must not exceed the [set limit](../limits.md#api-gw-limits). This is an optional parameter. If no value is specified, HTTP requests will be aborted after the timeout specified for the API gateway.
+`omitEmptyHeaders`|`boolean`| This is an optional parameter. If set to `true`, empty headers are not provided.
+`omitEmptyQueryParameters`|`boolean`| This is an optional parameter. If set to `true`, empty query parameters are not provided.
+`serviceAccountId` | `string` | Service account ID. It is used for authorization when accessing the specified URL. The `serviceAccountId` [top-level parameter](index.md#top-level) value is ignored.
 
 ## Extension specification {#spec}
 
@@ -38,13 +38,17 @@ x-yc-apigateway-integration:
 ```
 
 Extension features:
-* If the value of a header or query parameter is an array, it is provided as a single row separated by commas.
-* By default, any headers other than `User-Agent` and the original request query parameters are not provided. To send all original request headers and query parameters that are not overridden in the specification, add `'*': '*'` to the `query` and `headers` sections. If you need to prevent certain headers from being provided, set their values to empty and the `omitEmptyHeaders` field value, to `true`. Similarly, you can omit certain query parameters by using the `omitEmptyQueryParameters` field.
+* If the value of a header or query parameter is an array, it is provided as a single string separated by commas.
+* By default, headers other than `User-Agent` and query parameters of the original request are not provided. To provide all the original request's headers and query parameters that are not overridden in the specification, add the string containing `'*': '*'` to the `query` and `headers` sections. To leave out some headers, give them empty values and set the `omitEmptyHeaders` field to `true`. Similarly, you can leave out some query parameters by using the `omitEmptyQueryParameters` field.
 * The `User-Agent` header is provided by default unless it is overridden in the specification.
-* To redirect all requests, use [greedy parameters](./greedy-parameters.md) and the [generalized HTTP method](./any-method.md).
+* To redirect all requests, use [greedy parameters](./greedy-parameters.md) and the [generic HTTP method](./any-method.md).
 
-Below, there is an example of proxying all requests to `https://example.com` with the `Content-Type` header and the `param` query parameter provided:
+Here is an example of proxying all requests to `https://example.com`, where the `Content-Type` header and the `param` query parameter are provided:
 ```yaml
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
 paths:
   /{path+}:
     x-yc-apigateway-any-method:
@@ -76,10 +80,14 @@ paths:
           type: string
 ```
 
-Here is another example of proxying all requests to `https://example.com`, where:
-* All headers, except `Foo-Header`, and all query parameters, except `foo_param`, are provided.
-* The `Bar-Header` header and the `bar_param` query parameter with an array as a value are added.
+Here is an example of proxying all requests to `https://example.com`, where:
+* All headers except `Foo-Header` and all query parameters except `foo_param` are provided.
+* The `Bar-Header` header and the `bar_param` query parameter are added whose values are an array.
 ```yaml
+openapi: 3.0.0
+info:
+  title: Sample API
+  version: 1.0.0
 paths:
   /{path+}:
     x-yc-apigateway-any-method:
@@ -106,3 +114,7 @@ paths:
         schema:
           type: string
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/jwt-authorizer-firebase.md)

@@ -1,9 +1,17 @@
+{% note info %}
+
+На уровне [политики доступа](../../storage/concepts/policy.md) можно разрешить доступ в бакет из сервисных подключений {{ vpc-short-name }} с идентификаторами, указанными в политике. Однако, согласно [схеме механизмов доступа](../../storage/security/overview.md#scheme), все еще остается возможность доступа в бакет из публичной сети, например с помощью [ACL](../../storage/concepts/acl.md) объекта или при наличии другого разрешающего правила в политике.
+
+Также при такой настройке остается возможность [копирования объектов на стороне сервера (Server Side Copy)](../../storage/operations/objects/copy.md) в такой бакет и из него.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** в меню слева.
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.

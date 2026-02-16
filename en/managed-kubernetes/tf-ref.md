@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ managed-k8s-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ managed-k8s-name }}.
+description: This page provides information about the {{ TF }} provider resources and data sources that {{ managed-k8s-name }} supports.
 ---
 
 # {{ TF }} reference for {{ managed-k8s-full-name }}
@@ -9,18 +9,21 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ managed-k8s-name }}:
+{{ managed-k8s-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_kubernetes_cluster]({{ tf-provider-resources-link }}/kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) |
 | [yandex_kubernetes_node_group]({{ tf-provider-resources-link }}/kubernetes_node_group) | [Node group](./concepts/index.md#node-group) |
+| [yandex_kubernetes_cluster_iam_binding]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a {{ k8s }} cluster. <br>We recommend using `yandex_kubernetes_cluster_iam_member` instead of `yandex_kubernetes_cluster_iam_binding`. |
+| [yandex_kubernetes_cluster_iam_member]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_member) | [Assigning](../iam/concepts/access-control/index.md#access-bindings) access permissions for a {{ k8s }} cluster |
 
-## {#data-sources} data sources
+
+## Data sources {#data-sources}
 
 {{ managed-k8s-name }} supports the following {{ TF }} provider data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/datasource_kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) information |
-| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/datasource_kubernetes_node_group) | [Node group](./concepts/index.md#node-group) information |
+| [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/kubernetes_cluster) | [{{ k8s }} cluster](./concepts/index.md#kubernetes-cluster) information |
+| [yandex_kubernetes_node_group]({{ tf-provider-datasources-link }}/kubernetes_node_group) | [Node group](./concepts/index.md#node-group) information |

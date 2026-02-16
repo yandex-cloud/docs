@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{databaseName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster that the database belongs to.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the database to return information about.
+            To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/get.md
 ---
 
-# Managed Service for MySQL API, REST: Database.Get {#Get}
+# Managed Service for MySQL API, REST: Database.Get
 
 Retrieves information about the specified database.
 
@@ -21,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases/{
 
 Required field. ID of the cluster that the database belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to return information about.
 
-To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request. ||
+To get this name, make a [DatabaseService.List](/docs/managed-mysql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.Database}

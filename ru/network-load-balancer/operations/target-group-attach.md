@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы подключить [целевую группу](../concepts/target-resources.md) к сетевому балансировщику:
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется подключить целевую группу к балансировщику.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. В строке балансировщика, к которому требуется подключить целевую группу, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_attach-tg }}**.
   1. Выберите целевую группу или [создайте новую](target-group-create.md).
   1. Задайте настройки проверки состояния.
@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
 
-     Подробнее о параметрах проверок читайте в разделе [Проверка состояния ресурсов](../concepts/health-check).
+     Подробнее о параметрах проверок читайте в разделе [Проверка состояния ресурсов](../concepts/health-check.md).
 
 - {{ TF }} {#tf}
 

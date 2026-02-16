@@ -27,12 +27,12 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 * Сервисный аккаунт можно привязывать к [виртуальным машинам](../../../compute/operations/vm-connect/auth-inside-vm.md) и [функциям](../../../functions/operations/function-sa.md), в которых запускается ваша программа.
 
     Это упрощает масштабирование приложений, работающих с {{ yandex-cloud }}:
-    * Вам не надо изменять код программы, чтобы она заработала на новой виртуальной машине или функции. IAM-токен для аутентификации уже доступен изнутри.
+    * Вам не надо изменять код программы, чтобы она заработала на новой виртуальной машине или функции. IAM-токен для аутентификации в API {{ yandex-cloud }} уже доступен изнутри виртуальной машины.
     * Чтобы разрешить и запретить всем запущенным экземплярам программы выполнять какие-либо операции в {{ yandex-cloud }}, вы назначаете или отзываете роли у одного сервисного аккаунта.
 
 ## Ключи сервисного аккаунта {#sa-key}
 
-Для аутентификации сервисного аккаунта в {{ yandex-cloud }} используются:
+Для аутентификации сервисного аккаунта в API {{ yandex-cloud }} используются:
 
 * [авторизованные ключи](../authorization/key.md) — используются [при получении IAM-токена](../../operations/iam-token/create-for-sa.md);
 * [API-ключи](../authorization/api-key.md) — используются в некоторых сервисах для упрощенной аутентификации вместо IAM-токена;
@@ -42,7 +42,17 @@ description: "Сервисный аккаунт\_— аккаунт, от име
 
 {% include [key-has-last-used-data](../../../_includes/iam/key-has-last-used-data.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [{#T}](../../../tutorials/analysis/search-events-query.md)
+* [{#T}](../../../tutorials/archive/kubernetes-backup.md)
+* [{#T}](../../tutorials/wlif-github-integration.md)
+* [{#T}](../../tutorials/wlif-gitlab-integration.md)
+* [{#T}](../../tutorials/wlif-k8s-integration.md)
+
 #### См. также {#see-also}
 
-- [{#T}](../../quickstart-sa.md)
-- [Авторизация от имени сервисного аккаунта](../authorization/index.md#sa)
+* [{#T}](../../quickstart-sa.md)
+* [{#T}](../../operations/sa/list-get.md)
+* [Аутентификация от имени сервисного аккаунта](../authorization/index.md#sa)

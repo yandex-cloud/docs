@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the asymmetric KMS key to return.
+            To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/get.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Get {#Get}
+# Key Management Service API, REST: AsymmetricSignatureKey.Get
 
 Returns the specified asymmetric KMS key.
 
@@ -22,7 +41,9 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 || keyId | **string**
 
 Required field. ID of the asymmetric KMS key to return.
-To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List) request. ||
+To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignatureKey}
@@ -36,7 +57,7 @@ To get the ID of an asymmetric KMS key use a [AsymmetricSignatureKeyService.List
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "signatureAlgorithm": "string",
   "deletionProtection": "boolean"
@@ -69,14 +90,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -86,7 +106,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

@@ -21,7 +21,7 @@ description: На странице представлены вопросы и о
 
 {% include [update-minitoc](../../_qa/managed-greenplum/minitoc/update.md) %}
 
-### Кластеры и хосты {{ mgp-short-name }} {#toc-cluster-hosts}
+### Кластеры и хосты {{ GP }} {#toc-cluster-hosts}
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 
@@ -49,7 +49,7 @@ description: На странице представлены вопросы и о
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 
-## Кластеры и хосты {{ mgp-short-name }} {#cluster-hosts}
+## Кластеры и хосты {{ GP }} {#cluster-hosts}
 
 {% include [cluster-hosts](../../_qa/managed-greenplum/cluster-hosts.md) %}
 

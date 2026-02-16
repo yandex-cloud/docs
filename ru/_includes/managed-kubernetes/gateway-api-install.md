@@ -1,5 +1,7 @@
 # Установка Gateway API
 
+{% include [ingress-to-gwin-tip](../application-load-balancer/ingress-to-gwin-tip.md) %}
+
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) — набор ресурсов [API](../../glossary/rest-api.md), моделирующих сетевое взаимодействие в [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Среди них `GatewayClass`, `Gateway`, `HTTPRoute` и другие.
 
 В сервисе {{ managed-k8s-name }} Gateway API запускает [{{ alb-full-name }}](../../application-load-balancer/) и необходимые вспомогательные ресурсы, когда пользователь {{ k8s }} объявляет ресурс `Gateway` в кластере {{ managed-k8s-name }}.
@@ -16,7 +18,7 @@
    * `vpc.publicAdmin` — для управления [внешней связностью](../../vpc/security/index.md#roles-list).
    * `certificate-manager.admin` — для работы с [сертификатами](../../certificate-manager/concepts/index.md#types), зарегистрированными в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/).
    * `compute.viewer` — для использования [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) балансировщика.
-1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/authorized-key/create.md) и сохраните ключ в файл `sa-key.json`:
+1. Создайте для сервисного аккаунта [авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните ключ в файл `sa-key.json`:
 
    ```bash
    yc iam key create \
@@ -28,14 +30,14 @@
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
-
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gateway API](/marketplace/products/yc/gateway-api) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../managed-kubernetes/concepts/index.md#namespace) (например, `gateway-api-space`). Если вы оставите пространство имен по умолчанию, Gateway API может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Идентификатор каталога** — выберите каталог, в котором нужно создавать балансировщики.
    * **Идентификатор сети** — выберите [облачную сеть](../../vpc/concepts/network.md#network), в которой нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
@@ -44,13 +46,11 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
-
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. {% include [Установка Helm](helm-install.md) %}
 1. {% include [Install and configure kubectl](kubectl-install.md) %}
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Gateway API выполните команду:
-
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_gateway-api.helmChart.name }} \
@@ -68,10 +68,36 @@
      gateway-api ./gateway-api/
    ```
 
-
    В команде укажите сеть и ее подсети, в которых нужно [располагать балансировщики](../../application-load-balancer/concepts/application-load-balancer.md#lb-location).
 
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Gateway API может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `gateway-api-space`).
+
    {% include [Support OCI](../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+## Автоматическое обновление приложения {#auto-update}
+
+Версия приложения Gateway API 0.6.0 содержит обновление версии CRD Gateway API с [0.6.2](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v0.6.2) до [1.2.1](https://github.com/kubernetes-sigs/gateway-api/releases/tag/v1.2.1). Если вы обновляете Gateway API с версии 0.5.0 и ниже до версии 0.6.0, то при установке из Helm-чарта будет выполнено автоматическое обновление CRD Gateway API и всех зависимых ресурсов в кластере {{ managed-k8s-name }}. Обновление безопасно, то есть ресурсы {{ alb-name }} не будут удалены или пересозданы.
+
+Автоматическое обновление с версии 0.5.0 и ниже происходит следующим образом:
+
+1. Выполняется проверка наличия в кластере пользовательских ресурсов `GRPCRoute` или `ReferenceGrant`. Если они обнаружены, то обновление не выполняется во избежание конфликтов, так как в новой версии CRD этих ресурсов несовместимы с прежней версией. Обновление можно выполнить вручную (см. ниже).
+1. Останавливается контроллер Gateway API, количество реплик уменьшается до нуля.
+1. Удаляется CRD ресурсов `GRPCRoute` и применяются CRD остальных зависимых ресурсов Gateway API новой версии.
+1. Запускается контроллер Gateway API, количество реплик восстанавливается до прежнего.
+
+Чтобы отключить автоматическое обновление CRD, добавьте параметр команды установки Helm-чарта `--set crdsAutoUpgrade=false`. В этом случае ваши ресурсы будут обновлены, но CRD Gateway API нужно будет обновить вручную. Файл CRD можно взять из папки `crds` архива Helm-чарта.
+
+{% cut "Обновление Gateway API вручную" %}
+
+1. Сделайте резервную копию ресурсов Gateway API.
+1. Остановите контроллер Gateway API.
+1. Удалите все ресурсы `GRPCRoute` в кластере.
+1. Примените новые версии CRD-ресурсов Gateway API. Файл CRD можно взять из папки `crds` архива Helm-чарта.
+1. Запустите контроллер Gateway API.
+1. Измените значение версии `apiVersion` на `gateway.networking.k8s.io/v1` в спецификации ваших ресурсов `GRPCRoute` и примените ее.
+1. Установите новую версию Helm-чарта.
+
+{% endcut %}
 
 ## Примеры использования {#examples}
 

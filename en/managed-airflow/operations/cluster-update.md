@@ -1,6 +1,6 @@
 ---
-title: Updating an {{ AF }} cluster
-description: After creating a cluster, you can change its basic and advanced settings.
+title: Updating a {{ AF }} cluster
+description: After creating an {{ AF }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ AF }} cluster
   - '{{ AF }} cluster'
@@ -8,32 +8,54 @@ keywords:
   - Airflow
 ---
 
-# Updating an {{ AF }} cluster
+# Updating a {{ AF }} cluster
 
-After creating a cluster, you can change its basic and advanced settings.
+After creating a cluster, you can edit its basic and advanced settings.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+    To change the cluster settings:
 
-    1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+
+    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, edit the cluster name and description, delete labels, or add new ones.
 
-    1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-airflow.integrationProvider` role. Thus the cluster will get the permissions required for working with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../../vpc/concepts/security-groups.md) for cluster network traffic or create a new group.
+    1. Under **{{ ui-key.yacloud.airflow.section_accesses }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `{{ roles.maf.integrationProvider }}` role. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+
+        To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
+
+        {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [security group](../concepts/network.md#security-groups) for cluster network traffic or create a new group.
 
        {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-    1. Under the settings of {{ maf-name }} [components](../concepts/index.md#components), such as **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, and **{{ ui-key.yacloud.airflow.section_workers }}**, specify the number of instances and resources.
+    1. In the settings sections of the {{ maf-name }} [components](../concepts/index.md#components), i.e., **{{ ui-key.yacloud.airflow.section_webserver }}**, **{{ ui-key.yacloud.airflow.section_scheduler }}**, **{{ ui-key.yacloud.airflow.section_workers }}**, and **{{ ui-key.yacloud.airflow.section_dag_processor }}** specify the number of instances and [computing resource configuration](../concepts/instance-types.md).
 
-    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable the `Triggerer` service. If it is enabled, specify the number of instances and resources.
+       {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
-    1. Under **{{ ui-key.yacloud.airflow.section_dependencies }}**, delete or add names of pip and deb packages.
+    1. Under **{{ ui-key.yacloud.airflow.section_triggerer }}**, enable or disable Triggerer. If it is enabled, specify the number of instances and resources.
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, enable or disable deletion protection.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, delete or add names of pip and deb packages.
+
+    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select **Source type** and specify its parameters:
+       * **S3**: Select an existing bucket or create a new one. This bucket will store DAG files.
+
+          Make sure to [grant the `READ` permission](../../storage/operations/buckets/edit-acl.md) for this bucket to the cluster service account.
+
+       * **Git**: Specify the repository address, working branch, path to the folder with DAG files, and the contents of the private SSH access key.
+
+          {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+        * Update the cluster [maintenance](../concepts/maintenance.md) time.
+        * Enable or disable deletion protection.
 
     1. Under **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
 
@@ -45,6 +67,534 @@ After creating a cluster, you can change its basic and advanced settings.
 
             {% include [sa-roles-for-lockbox](../../_includes/managed-airflow/sa-roles-for-lockbox.md) %}
 
-    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Under **Logging**, enable or disable logging. If logging is enabled, specify the log group to write logs to and the minimum logging level. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}.
+
+    1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To change the cluster settings:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-af }} cluster update --help
+        ```
+
+    1. Provide a list of settings to update in the update cluster command:
+
+        ```bash
+        {{ yc-mdb-af }} cluster update <cluster_name_or_ID> \
+           --new-name <new_cluster_name> \
+           --description <cluster_description> \
+           --labels <label_list> \
+           --service-account-id <service_account_ID> \
+           --security-group-ids <security_group_IDs> \
+           --webserver count=<number_of_instances>,`
+                      `resource-preset-id=<resource_ID> \
+           --scheduler count=<number_of_instances>,`
+                      `resource-preset-id=<resource_ID> \
+           --worker min-count=<minimum_number_of_instances>,`
+                   `max-count=<maximum_number_of_instances>,`
+                   `resource-preset-id=<resource_ID> \
+           --triggerer count=<number_of_instances>,`
+                      `resource-preset-id=<resource_ID> \
+           --dag-processor count=<number_of_instances>,`
+                      `resource-preset-id=<resource_ID> \ 
+           --deb-packages <list_of_deb_packages> \
+           --pip-packages <list_of_pip_packages> \
+           --dags-bucket <bucket_name> \
+           --gitsync repo=<repository_SSH_address>,`
+                     `branch=<working_branch>,`
+                     `subpath=<path_to_DAG_file_folder>,`
+                     `ssh-key=<private_SSH_key>,`
+                     `ssh-key-path=<path_to_private_SSH_key_file> \
+           --maintenance-window type=<maintenance_type>,`
+                                `day=<day_of_week>,`
+                                `hour=<hour> \
+           --deletion-protection \
+           --lockbox-secrets-backend \
+           --log-enabled \
+           --log-folder-id <folder_ID> \
+           --log-min-level <logging_level>
+        ```
+
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
+
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
+
+        You can get the cluster ID and name with the [list of clusters in the folder](../operations/cluster-list.md#list-clusters).
+
+- {{ TF }} {#tf}
+
+    To change the cluster settings:
+
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
+
+    1. To change cluster settings, change the required field values in the configuration file.
+
+        {% note alert %}
+
+        Do not change the cluster name and password using {{ TF }}. This will delete the existing cluster and create a new one.
+
+        {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
+
+        * `subnet_ids`: List of subnet IDs.
+
+            {% note info %}
+
+            Once a cluster is created, you cannot change its subnets.
+
+            {% endnote %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm updating the resources.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
+
+- REST API {#api}
+
+    To change the cluster settings:
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "updateMask": "<list_of_parameters_to_update>",
+          "name": "<cluster_name>",
+          "description": "<cluster_description>",
+          "labels": { <label_list> },
+          "configSpec": {
+            "airflow": {
+              "config": { <list_of_properties> }
+            },
+            "webserver": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
+            },
+            "scheduler": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
+            },
+            "triggerer": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
+            },
+            "worker": {
+              "minCount": "<minimum_number_of_instances>",
+              "maxCount": "<maximum_number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
+            },
+            "dependencies": {
+              "pipPackages": [ <list_of_pip_packages> ],
+              "debPackages": [ <list_of_deb_packages> ]
+            },
+            "lockbox": {
+              "enabled": <usage_of_secrets>
+            },
+            "dagProcessor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resourcePresetId": "<resource_ID>"
+              }
+            }
+          },
+          "codeSync": {
+            "s3": {
+              "bucket": "<bucket_name>"
+            },
+            "gitSync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "subPath": "<path_to_DAG_file_folder>",
+              "sshKey": "<private_SSH_key>"
+            }
+          },  
+          "networkSpec": {
+            "securityGroupIds": [ <list_of_security_group_IDs> ]
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "deletionProtection": <deletion_protection>,
+          "serviceAccountId": "<service_account_ID>",
+          "logging": {
+            "enabled": <use_of_logging>,
+            "minLevel": "<logging_level>",
+            "folderId": "<folder_ID>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated string of settings you want to update.
+
+            {% note warning %}
+
+            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `updateMask` parameter.
+
+            {% endnote %}
+
+        * `name`: Cluster name.
+        * `description`: Cluster description.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
+        * `config`: Cluster configuration:
+
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
+
+                ```json
+                "airflow": {
+                  "config": {
+                    "core.load_examples": "False"
+                  }
+                }
+                ```
+
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
+                * `minCount`, `maxCount`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resourcePresetId`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
+                    * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
+                    * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
+                    * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
+                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
+            * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
+
+                * `pipPackages`: List of pip packages.
+                * `debPackages`: List of deb packages.
+
+                You can set version restrictions for the installed packages, e.g.:
+
+                ```bash
+                "dependencies": {
+                  "pipPackages": [
+                    "pandas==2.0.2",
+                    "scikit-learn>=1.0.0",
+                    "clickhouse-driver~=0.2.0"
+                  ]
+                }
+                ```
+
+                The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+
+            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
+
+        * `network.securityGroupIds`: List of [security group](../concepts/network.md#security-groups) IDs.
+
+        * `codeSync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `gitSync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `subPath`: Path to the DAG file folder in the repository.
+              * `sshKey`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `gitSync`.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
+
+        * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
+
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
+
+        * `serviceAccountId`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+
+            To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+        * `logging`: Logging parameters:
+
+            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
+            * `minLevel`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+            * `logGroupId`: Custom log group ID. Logs will be written to this group.
+
+                Specify either `folderId` or `logGroupId`.
+
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<cluster_ID>' \
+            --data '@body.json'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    To change the cluster settings:
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "cluster_id": "<cluster_ID>",
+          "update_mask": "<list_of_settings_to_update>",
+          "name": "<cluster_name>",
+          "description": "<cluster_description>",
+          "labels": { <label_list> },
+          "config_spec": {
+            "airflow": {
+              "config": { <list_of_properties> }
+            },
+            "webserver": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
+            },
+            "scheduler": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
+            },
+            "triggerer": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
+            },
+            "worker": {
+              "min_count": "<minimum_number_of_instances>",
+              "max_count": "<maximum_number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
+            },
+            "dependencies": {
+              "pip_packages": [ <list_of_pip_packages> ],
+              "deb_packages": [ <list_of_deb_packages> ]
+            },
+            "lockbox": {
+              "enabled": <usage_of_secrets>
+            },
+            "dag_processor": {
+              "count": "<number_of_instances>",
+              "resources": {
+                "resource_preset_id": "<resource_ID>"
+              }
+            }
+          },
+          "code_sync": {
+            "s3": {
+              "bucket": "<bucket_name>"
+            },
+            "git_sync": {
+              "repo": "<repository_SSH_address>",
+              "branch": "<working_branch>",
+              "sub_path": "<path_to_DAG_file_folder>",
+              "ssh_key": "<private_SSH_key>"
+            }
+          },
+          "network_spec": {
+            "security_group_ids": [ <list_of_security_group_IDs> ]
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<day_of_week>",
+              "hour": "<hour>"
+            }
+          },
+          "deletion_protection": <deletion_protection>,
+          "service_account_id": "<service_account_ID>",
+          "logging": {
+            "enabled": <use_of_logging>,
+            "min_level": "<logging_level>",
+            "folder_id": "<folder_ID>"
+          }
+        }
+        ```
+
+        Where:
+
+        * `cluster_id`: Cluster ID. You can get it with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+
+            {% cut "Format for listing settings" %}
+
+            ```yaml
+            "update_mask": {
+                "paths": [
+                    "<setting_1>",
+                    "<setting_2>",
+                    ...
+                    "<setting_N>"
+                ]
+            }
+            ```
+
+            {% endcut %}
+
+            {% note warning %}
+
+            When you update a cluster, all parameters of the object you are changing that have not been explicitly provided in the request will take their defaults. To avoid this, list the settings you want to change in the `update_mask` parameter.
+
+            {% endnote %}
+
+        * `name`: Cluster name.
+        * `description`: Cluster description.
+        * `labels`: List of labels provided in `"<key>": "<value>"` format.
+        * `config_spec`: Cluster configuration:
+
+            * `airflow.config`: [Advanced {{ AF }} properties](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html) provided in `"<configuration_section>.<key>": "<value>"` format, e.g.:
+
+                ```json
+                "airflow": {
+                  "config": {
+                    "core.load_examples": "False"
+                  }
+                }
+                ```
+
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor`: {{ maf-name }} [component](../concepts/index.md#components) configuration:
+
+                * `count`: Number of instances in the cluster for the web server, scheduler, DAG processor, and Triggerer.
+                * `min_count`, `max_count`: Minimum and maximum number of instances in the cluster for the worker.
+                * `resources.resource_preset_id`: ID of the computing resources of the web server, scheduler, DAG processor, worker, and Triggerer. The possible values are:
+
+                    * `c1-m2`: 1 vCPU, 2 GB RAM
+                    * `c1-m4`: 1 vCPU, 4 GB RAM
+                    * `c2-m4`: 2 vCPUs, 4 GB RAM
+                    * `c2-m8`: 2 vCPUs, 8 GB RAM
+                    * `c4-m8`: 4 vCPUs, 8 GB RAM
+                    * `c4-m16`: 4 vCPUs, 16 GB RAM
+                    * `c8-m16`: 8 vCPUs, 16 GB RAM
+                    * `c8-m32`: 8 vCPUs, 32 GB RAM
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
+            * `dependencies`: Lists of packages enabling you to install additional libraries and applications for running DAG files in the cluster:
+
+                * `pip_packages`: List of pip packages.
+                * `deb_packages`: List of deb packages.
+
+                You can set version restrictions for the installed packages, e.g.:
+
+                ```bash
+                "dependencies": {
+                  "pip_packages": [
+                    "pandas==2.0.2",
+                    "scikit-learn>=1.0.0",
+                    "clickhouse-driver~=0.2.0"
+                  ]
+                }
+                ```
+
+                The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
+
+            * `lockbox.enabled`: Enables using secrets in [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) to [store {{ AF }} configuration data, variables, and connection parameters](../concepts/impersonation.md#lockbox-integration). The possible values are `true` or `false`.
+
+        * `network_spec.security_group_ids`: List of [security group](../concepts/network.md#security-groups) IDs.
+
+        * `code_sync`: DAG file source type and parameters.
+
+            * `s3.bucket`: Bucket name.
+
+            * `git_sync`: Git repo parameters:
+
+              * `repo`: Repository address.
+              * `branch`: Working branch.
+              * `sub_path`: Path to the DAG file folder in the repository.
+              * `ssh_key`: Private SSH repository access key, single-line with new line characters `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Specify either `s3` or `git_sync`.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
+
+        * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
+
+            Even if it is enabled, one can still connect to the cluster manually and delete it.
+
+        * `service_account_id`: ID of the service account with the `managed-airflow.integrationProvider` [role](../../iam/concepts/access-control/roles.md). The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
+
+            To update a service account in a {{ maf-name }} cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+        * `logging`: Logging parameters:
+
+            * `enabled`: Enables logging. Logs generated by {{ AF }} components will be sent to {{ cloud-logging-full-name }}. The possible values are `true` or `false`.
+            * `min_level`: Minimum logging level. The possible values are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`.
+            * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
+            * `log_group_id`: Custom log group ID. Logs will be written to this group.
+
+                Specify either `folder_id` or `log_group_id`.
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/airflow/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            {{ api-host-airflow }}:{{ port-https }} \
+            yandex.cloud.airflow.v1.ClusterService.Update \
+            < body.json
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

@@ -16,6 +16,14 @@
 
 Размер и количество резервных копий не ограничены. Резервные копии, созданные автоматически, хранятся 7 дней, а созданные вручную — бессрочно.
 
+#### Можно ли удалить резервную копию? {#delete-backup}
+
+Да, если она была создана вручную. Чтобы удалить резервную копию, [следуйте инструкции](../../managed-clickhouse/operations/cluster-backups.md#delete-backup).
+
+#### Я могу изменить срок хранения автоматических резервных копий? {#backup-retain-days}
+
+При [создании](../../managed-clickhouse/operations/cluster-create.md) или [изменении](../../managed-clickhouse/operations/update.md#change-additional-settings) кластера можно задать срок хранения автоматических резервных копий.
+
 #### Что входит в ежедневные резервные копии? {#daily-backups}
 
 В резервной копии хранятся данные только для движков семейства `MergeTree`. Для остальных движков хранятся только схемы таблиц. Подробнее см. в разделе [Резервные копии](../../managed-clickhouse/concepts/backup.md).
@@ -27,3 +35,13 @@
 #### Как перенести существующий кластер {{ CH }} в {{ yandex-cloud }}? {#migration}
 
 Воспользуйтесь сервисом [{{ data-transfer-full-name }}](../../data-transfer/quickstart.md).
+
+#### Можно ли восстановить шард из резервной копии в шард существующего кластера? {#shard-to-shard}
+
+Нет, такой возможности нет.
+
+Но вы можете [восстановить шард](../../managed-clickhouse/operations/cluster-backups.md#restore) из резервной копии в новый кластер {{ CH }}, а затем перенести данные из этого кластера в существующий кластер с помощью следующих средств:
+
+* [Сервис {{ data-transfer-name }}](../../managed-clickhouse/tutorials/ch-to-mch-migration.md). Он позволяет перенести в кластер {{ mch-name }} базу данных или отдельные таблицы.
+* [Встроенная функция {{ CH }} `remote`](../../managed-clickhouse/tutorials/data-migration.md#transfer-remote). С ее помощью можно перенести в кластер {{ mch-name }} отдельные таблицы.
+* [Команды {{ CH }} `BACKUP` и `RESTORE`](../../managed-clickhouse/tutorials/data-migration.md#backup-objstorage). С их помощью можно сохранить резервную копию базы данных или отдельной таблицы в бакет [{{ objstorage-full-name}}](../../storage), а затем восстановить данные из бакета в кластер {{ mch-name }}.

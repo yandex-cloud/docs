@@ -17,37 +17,40 @@ To evaluate the performance of Spark applications in a {{ dataproc-name }} clust
 
 {% note info %}
 
-Make sure the cluster has the [component web interfaces](../concepts/interfaces.md) enabled. If it does not, [enable the ones you need](./connect-interfaces.md#ui-proxy-enable).
+Make sure the cluster has the [component web interfaces](../concepts/interfaces.md) enabled. If not, [enable them](./connect-interfaces.md#ui-proxy-enable).
 
 {% endnote %}
 
 ## Checking the application list {#list}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select the `YARN Resource Manager Web UI`.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
 
 It shows information about all running and completed applications.
 
 ## Checking application logs {#logs}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
 1. Find the application you need and click its ID in the **ID** column.
 
-   This will open a window with information about the application's performance and a table with a list of application run attempts.
+    This will open a window with info on the application's performance and a table listing its run attempts.
 
 1. Click the link next to the attempt in question in the **Logs** column.
 
 ## Checking the application queue {#queue}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
-1. In the left-hand menu, go to **Scheduler**.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+1. In the left-hand menu, navigate to **Scheduler**.
 
-The **Application Queues** section shows the queue of applications and resources used by them.
+The **Application Queues** section shows the queue of applications and the resources they use.
 
 ## Checking application details {#info}
 
@@ -55,31 +58,33 @@ The **Application Queues** section shows the queue of applications and resources
 
 * YARN Resource Manager Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name.
-   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
-   1. Find the application in question and follow the link in the **Tracking UI** column. The link name depends on the application status:
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster.
+    1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `YARN Resource Manager Web UI`.
+    1. Find the application in question and follow the link in the **Tracking UI** column. The link name depends on the application status:
 
-      * **ApplicationMaster** for running applications
-      * **History** for finished applications
+        * **ApplicationMaster** for running applications
+        * **History** for completed applications
 
 * Spark History Server Web UI
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the cluster name.
-   1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Click the name of your cluster.
+    1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
 
-      This will open the list of finished applications. To switch to the list of running applications, click **Show incomplete applications** at the bottom of the table.
+        This will open the list of completed applications. To switch to the list of running applications, click **Show incomplete applications** at the bottom of the table.
 
-   1. Find the application in question and follow the link in the **App ID** column.
+    1. Find the application in question and follow the link in the **App ID** column.
 
 {% endlist %}
 
-This will open the **Spark History Server Web UI** window with details of the selected application:
+This will open the **Spark History Server Web UI** window with details on the application you selected:
 
-* **Event Timeline**: History of job runs with info about added and removed [executors](../concepts/spark-sql.md#tasks)
-* **Active Jobs**: List of jobs being run or waiting to be run.
-* **Completed Jobs**: List of finished jobs.
+* **Event Timeline**: History of job runs with info on added and removed [executors](../concepts/spark-sql.md#tasks).
+* **Active Jobs**: List of jobs being run or pending.
+* **Completed Jobs**: List of completed jobs.
 
 For each job, the table specifies:
 
@@ -90,50 +95,53 @@ For each job, the table specifies:
 
 ## Checking resources allocated to the application {#resources}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
-1. In the top menu, go to **Executors**.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. In the top menu, navigate to **Executors**.
 
 The UI will display two tables:
 
-* **Summary**: High-level information, such as the number and status of [executors](../concepts/spark-sql.md#tasks) and resources used.
+* **Summary**: High-level information, such as the number and status of [executors](../concepts/spark-sql.md#tasks) and resources in use.
 * **Executors**: Information about each executor.
 
 The tables specify the following:
 
 * Amount of resources available per resource executor.
 * Number of running and completed [tasks](../concepts/spark-sql.md#tasks).
-* Task duration (**Task Time**), including the time spent for garbage collection (**GC Time**).
+* Task duration (**Task Time**), including the time spent on garbage collection (**GC Time**).
 
 {% note tip %}
 
 If garbage collection takes much time:
 
-{% include [gc-time-fix](../../_includes/data-proc/gc-time-fix.md) %}
+{% include [gc-time-fix](../../_includes/data-processing/gc-time-fix.md) %}
 
 {% endnote %}
 
 ## Checking persisted RDDs {#tables}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
-1. In the top menu, go to **Storage**.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. In the top menu, navigate to **Storage**.
 
 The UI displays the list of cacheable tables ([RDDs](https://spark.apache.org/docs/latest/rdd-programming-guide.html#resilient-distributed-datasets-rdds)). For each RDD, it shows information about the used memory and disk space, as well as caching progress.
 
-To view detailed statistics, click the RDD name.
+To view details, click the RDD name.
 
 ## Checking the list of SQL queries and their execution plans {#sql}
 
-1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-1. Click the cluster name.
-1. In **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
-1. In the top menu, go to **SQL**.
+1. Open the [folder dashboard]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Click the name of your cluster.
+1. Under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**, select `Spark History Server Web UI`.
+1. In the top menu, navigate to **SQL**.
 
 The table lists executed SQL queries, including their start time and duration.
 
 To see the query execution plan, click the query text in the **Description** column. The query execution plan is displayed as a flowchart. To view it as text, click **Details** at the bottom of the figure.
 
-The query execution plan contains statistics for each operator with the number of completed tasks and their duration. If the query is still running, the current statistics will be shown.
+The query execution plan contains stats for each operator along with the number of completed tasks and their duration. If the query is still running, the current stats will be shown.

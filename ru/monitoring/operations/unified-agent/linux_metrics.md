@@ -1,6 +1,9 @@
+---
+sourcePath: ru/monitoring_includes/operations/unified-agent/linux_metrics.md
+---
 # Поставка системных метрик Linux
 
-Общие метрики виртуальной машины сервис {{ monitoring-full-name }} получает от сервиса {{ compute-full-name }}. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи таких метрик предназначена утилита {{ unified-agent-full-name }}.
+Общие метрики виртуальной машины сервис {{ monitoring-full-name }} получает от сервиса {{ compute-full-name }}. Например, количество оперативной памяти, выделенной ВМ в момент запуска. Но как ВМ использует память, можно измерить только собирая данные внутри ВМ. Для сбора и передачи [системных метрик Linux](../../metrics-ref/unifiedagent-ref.md) предназначена утилита {{ unified-agent-full-name }}.
 
 {% note warning %}
 
@@ -9,17 +12,9 @@
 {% endnote %}
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvnxotvmul6bua5kcg?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239451&hash=71e48c070a2f8fc3" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe>
-
-- YouTube
-
-  @[youtube](https://youtu.be/9Z9ugkMnRcI)
-
-{% endlist %}
+[Смотреть видео на YouTube](https://youtu.be/9Z9ugkMnRcI).
 
 
 

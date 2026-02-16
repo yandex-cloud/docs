@@ -14,7 +14,7 @@
 
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 ## Распознать язык фразы {#simple-example}
 
@@ -24,24 +24,24 @@
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```bash
     export FOLDER_ID=<идентификатор_каталога>
-    export IAM_TOKEN=<IAM-токен>
+    export API_KEY=<API-ключ>
     export TEXT="Hello, world"
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data "{\"folderId\": \"${FOLDER_ID}\", \"text\": \"${TEXT}\"}" \
       "https://translate.{{ api-host }}/translate/v2/detect"
     ```
 
     Где:
 
-    * `FOLDER_ID` — идентификатор каталога, полученный [перед началом работы](#before-begin).
-    * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
+    * {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе сервис вернет код [языка](../concepts/supported-languages.md), на котором написан текст:
 
@@ -61,7 +61,7 @@
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -73,18 +73,18 @@
 
     Где:
 
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `languageCodeHints` — языки, которым отдается приоритет при определении языка текста.
     * `text` — текст для перевода в виде строки.
 
     Сохраните тело запроса в файле, например `body.json`, и передайте его с помощью метода [detectLanguage](../api-ref/Translation/detectLanguage):
 
     ```bash
-    export IAM_TOKEN=<IAM-токен>
+    export API_KEY=<API-ключ>
     curl \
       --request POST \
       --header "Content-Type: application/json" \
-      --header "Authorization: Bearer ${IAM_TOKEN}" \
+      --header "Authorization: Api-Key ${API_KEY}" \
       --data '@body.json' \
       "https://translate.{{ api-host }}/translate/v2/detect"
 
@@ -93,6 +93,6 @@
     }
     ```
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
 {% endlist %}

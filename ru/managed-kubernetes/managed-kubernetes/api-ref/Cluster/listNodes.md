@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}/nodes
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Kubernetes cluster to list nodes in.
+            To get the Kubernetes cluster ID use a [ClusterService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/list#List) request.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListClusterNodesResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterNodesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListClusterNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.ListClusterNodeGroupsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/listNodes.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.ListNodes {#ListNodes}
+# Managed Services for Kubernetes API, REST: Cluster.ListNodes
 
 Lists cluster's nodes.
 
@@ -33,11 +73,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListClusterNodesResponse.nextPageToken](#yandex.cloud.k8s.v1.ListClusterNodesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClusterNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.ListClusterNodeGroupsResponse) returned by a previous list request. ||
+[ListClusterNodeGroupsResponse.nextPageToken](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/listNodeGroups#yandex.cloud.k8s.v1.ListClusterNodeGroupsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.k8s.v1.ListClusterNodesResponse}
@@ -120,7 +164,6 @@ in the next list request. Each subsequent list request will have its own
 
 Computed node status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Node instance is not yet created (e.g. in progress).
 - `NOT_CONNECTED`: Node instance is created but not registered
 (e.g. is still initializing).
@@ -164,17 +207,25 @@ Node group specified disk. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the node, specified in bytes. ||
+Amount of memory available to the node, specified in bytes.
+
+The minimum value is 0. ||
 || cores | **string** (int64)
 
-Number of cores available to the node. ||
+Number of cores available to the node.
+
+The minimum value is 0. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 || gpus | **string** (int64)
 
-Number of GPUs available to the node. ||
+Number of GPUs available to the node.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.k8s.v1.DiskSpec}
@@ -183,10 +234,14 @@ Number of GPUs available to the node. ||
 ||Field | Description ||
 || diskTypeId | **string**
 
-ID of the disk type. ||
+ID of the disk type.
+
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 0 to 4398046511104, inclusive. ||
 |#
 
 ## CloudStatus {#yandex.cloud.k8s.v1.Node.CloudStatus}
@@ -276,7 +331,6 @@ The taint value corresponding to the taint key. ||
 
 The effect of the taint on pods that do not tolerate the taint.
 
-- `EFFECT_UNSPECIFIED`
 - `NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint,
 but allow all pods submitted to Kubelet without going through the scheduler
 to start, and allow all already-running pods to continue running.

@@ -7,7 +7,9 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/index.md
 
 This API reference is organized around CDN resources. Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
-See the interface definitions of the API on [GitHub](https://github.com/yandex-cloud/cloudapi).
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/cdn/v1).
+
+**Service URL**: `https://cdn.{{ api-host }}`
 
 #|
 ||Service | Description ||
@@ -22,4 +24,5 @@ Origin is not a standalone entity. It can live only within origin group. ||
 
 Used for Resources Rules management. ||
 || [Resource](Resource/index.md) | Provider's resources management service. ||
+|| [Shielding](Shielding/index.md) | Shielding management service. ||
 |#

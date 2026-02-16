@@ -11,6 +11,7 @@ The **{{ ui-key.yacloud.load-testing.label_results-comparison-section-title }}**
 
 You can find a table with results on the **{{ ui-key.yacloud.load-testing.label_tables }}** page.
 
-# See also
+## Use cases {#examples}
 
-[Tutorial on how to compare load tests](../tutorials/loadtesting-results-compare.md).
+* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [{#T}](../tutorials/loadtesting-multiply.md)

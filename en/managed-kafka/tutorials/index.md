@@ -1,17 +1,18 @@
 # {{ mkf-name }} tutorials
 
-You can use {{ mkf-name }} to transfer data between databases. Sources and targets can be {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases.
+You can use {{ mkf-name }} to transfer data between databases. {{ mkf-name }} clusters, third-party {{ KF }} clusters, or {{ yandex-cloud }} managed databases can be used as sources and targets.
 
 ## Moving data from {{ KF }} {#moving-data}
 
-* [Configuring {{ KFC }} for {{ mkf-name }} clusters](./kafka-connect.md)
+* [Configuring {{ KFC }} to work with a {{ mkf-name }} cluster](./kafka-connect.md)
 * [{#T}](./kafka-connectors.md)
 * [{#T}](./mkf-to-mkf-transfer.md)
 
-## Using the registry of data format schemas with {{ mkf-name }} {#schema-registry}
+## Using a schema registry with {{ mkf-name }} {#schema-registry}
 
 * [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
+* [{#T}](./managed-schema-registry-rest.md)
 * [{#T}](./confluent-schema-registry.md)
 
 ## Delivering data using {{ data-transfer-name }} {#data-transfer}
@@ -22,6 +23,7 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ KF }} to {{ ydb-short-name }}](mkf-ydb-stream.md)
 * [From {{ KF }} to {{ CH }}](mkf-to-mch-migration.md)
 * [From {{ KF }} to {{ yds-name }}](mkf-yds-stream.md)
+* [From {{ yds-name }} to {{ KF }}](yds-to-kafka.md)
 * [From {{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
 * [From {{ KF }} to {{ MG }}](mkf-to-mmg-migration.md)
 * [From {{ MY }} to {{ KF }}](cdc/cdc-mmy.md)
@@ -34,13 +36,13 @@ You can use {{ mkf-name }} to transfer data between databases. Sources and targe
 * [From {{ MY }} to {{ KF }} using Debezium](cdc/debezium-mmy.md)
 * [From {{ KF }} to {{ CH }}](send-data-to-mch.md)
 * [From {{ KF }} to ksqlDB](use-ksqldb-with-mkf.md)
+* [From {{ KF }} to {{ objstorage-name }} without using the internet](kafka-topic-s3-sync-private.md)
 
 ## Other {#other}
 
 * [{#T}](deploy-kafka-ui.md)
-
-
-* [{#T}](data-proc.md)
-
+* [{#T}](zk-kraft-kafka-migration.md)
+* [{#T}](data-processing.md)
+* [{#T}](retention-policy.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

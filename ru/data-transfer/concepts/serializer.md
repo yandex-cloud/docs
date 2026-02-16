@@ -1,5 +1,6 @@
 ---
 title: Сериализация в {{ data-transfer-full-name }}
+description: Из статьи вы узнаете, что такое сериализация и какие типы сериализации можно использовать в зависимости от поставки.
 ---
 
 # Сериализация
@@ -41,15 +42,15 @@ Text string
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}
 
     ```text
-    <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,Text string
-    <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,"{""device_id"":""iv9"",""speed"":5}"
+    {"data":"Text string","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
+    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
     ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}
 
     ```text
-    {"data":"Text string","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
-    {"data":"{\"device_id\":\"iv9\",\"speed\":5}","partition":<ключ_сегмента>,"seq_no":<порядковый_номер_сообщения>,"topic":"<имя_потока>","write_time":"<дата_и_время_записи_данных>"}
+    <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,Text string
+    <имя_потока>,<ключ_сегмента>,<порядковый_номер_сообщения>,<дата_и_время_записи_данных>,"{""device_id"":""iv9"",""speed"":5}"
     ```
 
 - {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}
@@ -115,6 +116,24 @@ Text string
 
     Значение по умолчанию — `false`.
 
+* **dt.batching.max.size** — максимальный размер пакета сообщений в байтах.
+
+    Значение по умолчанию — `0` байт (пакетирование отключено). Рекомендуемое значение — `1048576` байт (1 МБ). Ненулевое значение включает пакетирование.
+
+    Настройка актуальна, если используется JSON-сериализация со {{ schema-registry-name }} (см. параметры **key.converter** и **value.converter**). При использовании {{ schema-registry-name }} сообщения, приходящие в очередь, могут стать очень маленькими. Пакетирование в таком случае позволяет увеличить пропускную способность очередей.
+
+    При включенном пакетировании в одно сообщение очереди помещаются последовательно несколько логических сообщений в формате [Confluent wire format](https://docs.confluent.io/cloud/current/sr/fundamentals/serdes-develop/index.html#wire-format). Данные, сериализованные таким образом, можно однозначно декодировать.
+
+    При включенном пакетировании сообщения накапливаются в буфере. Если новое сообщение увеличивает размер пакета сверх установленного значения `dt.batching.max.size`, то текущий буфер сохраняется, а новое сообщение добавляется в пустой буфер. Если одно логическое сообщение из источника превышает значение `dt.batching.max.size`, то будет сформирован пакет из одного такого сообщения. Пакетирование происходит до компрессии в клиенте очереди.
+
+    Включать пакетирование может быть полезно, чтобы оптимизировать тяжелую поставку в очередь, из которой сообщения считываются трансфером.
+
+    {% note warning %}
+
+    Пакетированные сообщения могут быть декодированы только трансфером.
+
+    {% endnote %}
+
 * **dt.mysql.timezone** — часовой пояс для типов данных даты и времени {{ MY }} в формате [IANA](https://www.iana.org/time-zones).
 
     Значение по умолчанию — `UTC`.
@@ -168,7 +187,21 @@ Text string
     * пустая строка (значение по умолчанию) — не добавлять описание схемы;
     * строковое значение URL, определяющее путь к сервису реестра схем. 
 
-* **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для авторизации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.dt.json.generate.closed.content.schema** и **value.converter.dt.json.generate.closed.content.schema** — определяют, будет ли схема производителя данных для ключа и значения генерироваться в закрытой контентной модели. Это нужно для проверки совместимости через конвертацию открытой модели потребителя в закрытую и поиск аналогичной схемы среди зарегистрированных для производителя схем. 
+
+    Значение по умолчанию — `false`.
+
+    Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме ключа:
+
+    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
+    1. В настройках сериализации эндпоинта-приемника {{ mkf-name }} [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **key.converter.dt.json.generate.closed.content.schema** — `true`.
+
+    Чтобы сохранять полную транзитивную совместимость при добавлении и удалении опциональных полей в схеме значения:
+
+    1. Выберите в пространстве имен {{ schema-registry-name }} политику проверки совместимости `Optional-friendly`.
+    1. В настройках сериализации эндпоинта-приемника [задайте настройку](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** — `true`.    
+
+* **key.converter.basic.auth.user.info** и **value.converter.basic.auth.user.info** — имя пользователя и пароль для аутентификации в Confluent Schema Registry для ключей и значений при использовании конвертера `io.confluent.connect.json.JsonSchemaConverter`.
 
     Формат значения: `<имя_пользователя>:<пароль>`.
 
@@ -176,6 +209,25 @@ Text string
 
     Если значение настройки не указано, SSL-сертификат не проверяется.
 
+* **tombstones.on.delete** — определяет, будет ли Debezium генерировать tombstone-маркеры удаления для топиков {{ KF }}.
+
+    Tombstone-маркеры записываются в лог кластера-источника {{ KF }} во время удаления сообщений из топика. Они указывают на записи в логе, которые хранят предыдущие значения удаленных сообщений.
+
+    Если [политика очистки лога](../../managed-kafka/concepts/settings-list.md#settings-topic-cleanup-policy) в кластере-источнике установлена в режим `Compact` или `CompactAndDelete`, во время сжатия лога будут удалены все записи, на которые указывают tombstone-маркеры.
+
+    Значение по умолчанию — `true`.
+
+    Подробнее о настройке см. в [документации Debezium](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
+
 * **unavailable.value.placeholder** — значение, которое устанавливается вместо данных, если их тип не поддерживается.
 
     Значение по умолчанию — `__debezium_unavailable_value`.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/mkf-to-mch.md)
+* [{#T}](../tutorials/mkf-to-mpg.md)
+* [{#T}](../tutorials/yds-to-clickhouse.md)
+* [{#T}](../tutorials/yds-to-objstorage.md)
+* [{#T}](../tutorials/data-ingestion.md)
+

@@ -1,5 +1,6 @@
 # Разметка текста для синтеза
 
+
 Вы можете управлять произношением при синтезе речи, размечая текст для синтеза. {{ speechkit-full-name }} полностью поддерживает использование разметки только для текстов на русском языке. Отдельные функции управления произношением доступны также для других языков.
 
 {% include [note-not-silence](../../../_includes/speechkit/note-templates-markup.md) %}
@@ -11,9 +12,7 @@
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
 
-
 В {{ speechkit-name }} доступно два формата разметки:
 
 * [TTS](tts-markup.md) – для API v1 и API v3.
 * [SSML](ssml.md) – только для API v1.
-

@@ -1,9 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
+            returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for OpenSearch API, REST: Cluster.ListBackups
 
 Returns a list of available backups for the specified OpenSearch cluster.
 
@@ -21,7 +59,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backup
 
 Required field. ID of the OpenSearch cluster.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsRequest}
@@ -32,11 +72,15 @@ To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Clus
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse}
@@ -57,7 +101,10 @@ returned by the previous list request. ||
       ],
       "opensearchVersion": "string",
       "sizeBytes": "string",
-      "indicesTotal": "string"
+      "indicesTotal": "string",
+      "incrementalSizeBytes": "string",
+      "totalSizeBytes": "string",
+      "freeSpaceRequiredBytes": "string"
     }
   ],
   "nextPageToken": "string"
@@ -114,7 +161,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearchVersion | **string**
 
 OpenSearch version used to create the backup. ||
@@ -124,4 +173,13 @@ Size of the backup in bytes. ||
 || indicesTotal | **string** (int64)
 
 The number of indices in the backup. ||
+|| incrementalSizeBytes | **string** (int64)
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| totalSizeBytes | **string** (int64)
+
+Size of files that are referenced by the snapshot. ||
+|| freeSpaceRequiredBytes | **string** (int64)
+
+The space amount required to restore from this backup. ||
 |#

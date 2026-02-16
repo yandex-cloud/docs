@@ -1,9 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/endpoints
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list private endpoints in.
+            To get the folder ID use a
+            [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            Includes only one of the fields `folderId`.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of
+            available results is larger than `page_size`, the service returns a
+            [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) that can be used to get the
+            next page of results in subsequent list requests. Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListPrivateEndpointsResponse.nextPageToken](#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsResponse) returned by a previous list
+            request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters PrivateEndpoint listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on
+            [PrivateEndpoint.name](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match
+            the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
+            `name=my-private-endpoint`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/list.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.List {#List}
+# Virtual Private Cloud API, REST: PrivateEndpoint.List
 
 Retrieves the list of PrivateEndpoint resources in the specified folder.
 
@@ -62,7 +109,7 @@ the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. Example of a filter:
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "networkId": "string",
       "status": "string",
       "address": {
@@ -128,7 +175,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

@@ -14,4 +14,4 @@ For example, you can use these headers to let us know that your text was poorly 
 
 ## Response headers {#response-headers}
 
-{% include [response-headers](../../_includes/ai-common/response-headers.md) %}
+{% include [response-headers-translate](../../_includes/ai-common/response-headers-translate.md) %}

@@ -1,24 +1,25 @@
-title: Yandex Object Storage
+title: '{{ objstorage-full-name }}'
 description:
   - >-
-    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
-    хранения данных. Оно подходит как для высоконагруженных сервисов, которым
-    требуется надежный и быстрый доступ к данным, так и для проектов с
+    Сервис {{ objstorage-full-name }} — это универсальное масштабируемое решение
+    для хранения данных. Оно подходит как для высоконагруженных сервисов,
+    которым требуется надежный и быстрый доступ к данным, так и для проектов с
     невысокими требованиями к инфраструктуре хранения.
   - >-
-    Используя Object Storage, вы можете: <ul> <li>Хранить данные произвольного
-    формата как <a href="/docs/storage/concepts/object">объекты</a> с доступом
-    по текстовому идентификатору.</li> <li>Использовать различные <a
+    Используя {{ objstorage-name }}, вы можете: <ul><li>Хранить данные
+    произвольного формата как <a
+    href="/docs/storage/concepts/object">объекты</a> с доступом по текстовому
+    идентификатору.</li> <li>Использовать различные <a
     href="/docs/storage/concepts/storage-class">классы хранилища</a> для
     объектов и управлять их <a
     href="/docs/storage/concepts/lifecycles">жизненным циклом</a>.</li>
     <li>Хранить <a href="/docs/storage/concepts/multipart">большие объекты</a>
     размером в несколько терабайт.</li> <li>Опубликовать статический <a
-    href="/docs/storage/concepts/hosting">веб-сайт</a>.</li> </ul>
+    href="/docs/storage/concepts/hosting">сайт</a>.</li></ul>
   - >-
     <a href="/docs/storage/s3/">HTTP API сервиса</a> совместим с API Amazon S3,
-    то есть для работы с Object Storage вы можете использовать множество <a
-    href="/docs/storage/tools/">инструментов</a>, созданных для работы с
+    то есть для работы с {{ objstorage-name }} вы можете использовать множество
+    <a href="/docs/storage/tools/">инструментов</a>, созданных для работы с
     объектными хранилищами.
   - >-
     Инфраструктура Yandex Cloud <a
@@ -29,14 +30,9 @@ description:
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_storage">Уровень
-    обслуживания Yandex Object Storage</a>.
+    обслуживания {{ objstorage-full-name }}</a>.
 nav:
-  title: Yandex Object Storage
-meta:
-  title: Yandex Object Storage
-  description: >-
-    Сервис Yandex Object Storage — это универсальное масштабируемое решение для
-    хранения данных.
+  title: '{{ objstorage-full-name }}'
 links:
   - title: Начало работы
     description: Создайте первый бакет и загрузите данные
@@ -59,3 +55,23 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: '{{ objstorage-full-name }}'
+  description: >-
+    Сервис {{ objstorage-full-name }} — это универсальное масштабируемое решение
+    для хранения данных.
+  keywords:
+    - storage
+    - cloud storage
+    - yandex storage
+    - '{{ objstorage-name }}'
+    - '{{ yandex-cloud }} {{ objstorage-name }}'
+    - '{{ objstorage-full-name }}'
+    - сервис {{ objstorage-name }}
+    - бакет
+    - хранилище
+    - бакет {{ objstorage-name }}
+    - бакеты {{ objstorage-name }}
+    - бакет {{ yandex-cloud }}
+    - бакеты {{ yandex-cloud }}
+    - хранилище {{ yandex-cloud }}

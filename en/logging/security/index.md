@@ -1,29 +1,46 @@
 # Access management in {{ cloud-logging-name }}
 
-{{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ cloud-logging-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `logging.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `logging.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
-{% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+{% list tabs group=instructions %}
 
-## Which roles exist in the service {#roles-list}
+- CLI {#cli}
 
-The list below shows all roles considered when verifying access permissions in {{ cloud-logging-name }}.
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/logging/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Log group](../concepts/log-group.md)
+  * [Log target](../operations/create-sink.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }} API](../api-ref/authentication.md) to assign roles for the following resources:
+
+  {% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+
+{% endlist %}
+
+## Roles this service has {#roles-list}
+
+The list below shows all roles used for access control in {{ cloud-logging-name }}.
+
+{% include [logging](../../_mermaid/roles/logging.md) %}
 
 ### Service roles {#service-roles}
 

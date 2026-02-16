@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ data-transfer-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ data-transfer-name }}.
 editable: false
 ---
 
@@ -9,6 +11,9 @@ editable: false
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat.md](../_includes/vat.md) %}
 
 Стоимость использования {{ data-transfer-name }} зависит от объема использованных вычислительных ресурсов и количества переданных строк данных трансферами, которые находятся на стадии [GA](../overview/concepts/launch-stages.md): 
 
@@ -27,52 +32,36 @@ editable: false
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md);
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md).
 
+{% note info %}
+
+Оплата за потребление ресурсов списывается для трансферов в [статусах](concepts/transfer-lifecycle.md#statuses) {{ dt-status-repl }}(`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`) или {{ dt-status-stopping }} (`STOPPING`). Статус трансфера можно [посмотреть в списке трансферов](operations/transfer.md#list).
+
+{% endnote %}
 
 Передача данных для трансферов, находящихся на стадии Preview, не тарифицируется. Перечень доступных трансферов и стадий их готовности см. в разделе [Доступные трансферы](transfer-matrix.md).
 
-## Цены {#prices}
+## Цены для региона Россия {#prices}
 
-### Количество строк, перенесенных трансфером {#data}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-transfer/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt.md) %}
-
-{% endlist %}
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|datatransfer }}']}
+    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-### Вычислительные ресурсы {#cpu-ram}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/data-transfer/rub-cpu.md) %}
-
-  {% include [rub.md](../_pricing/data-transfer/rub-ram.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt-cpu.md) %}
-
-  {% include [kzt.md](../_pricing/data-transfer/kzt-ram.md) %}
-
-{% endlist %}
 
 
 
 ## Примеры расчета стоимости {#price-example}
 
-При расчете стоимости необходимо учитывать, что по умолчанию один [воркер](concepts/index.md#worker) использует 2 vCPU и 4 ГБ RAM.
+При расчете стоимости учитывайте, что один [воркер](concepts/index.md#worker) может использовать следующие вычислительные ресурсы:
+
+{% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
 
 ### Однократное копирование данных из {{ PG }} в {{ CH }} {#copy}
 
@@ -83,39 +72,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  Стоимость CPU:
-
-  > 24 * 2 * 1,31 ₽ = 62,88 ₽
-
-  Стоимость RAM:
-
-  > 24 * 4 * 0,35 ₽ = 33,60 ₽
-
-  Стоимость передачи данных:
-
-  > (500 - 100) * 2,70 ₽ = 1 080,00 ₽
-
-  **Общая стоимость**:
-
-  > 62,88 ₽ + 33,60 ₽ + 1 080,00 ₽ = 1 176,48 ₽
+  {% include [rub-copy](../_pricing_examples/data-transfer/rub-copy.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Стоимость CPU:
-
-  > 24 * 2 * 6,55 ₸ = 314,40 ₸
-
-  Стоимость RAM:
-
-  > 24 * 4 * 1,75 ₸ = 168,00 ₸
-
-  Стоимость передачи данных:
-
-  > (500 - 100) * 13,50 ₸ = 5 400,00 ₸
-
-  **Общая стоимость**:
-
-  > 314,40 ₸ + 168,00 ₸ + 5 400,00 ₸ = 5 882,40 ₸
+  {% include [kzt-copy](../_pricing_examples/data-transfer/kzt-copy.md) %}
 
 {% endlist %}
 
@@ -130,39 +91,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  Стоимость CPU:
-
-  > 30 * 24 * 12 * 1,31 ₽ = 11 318,40 ₽
-
-  Стоимость RAM:
-
-  > 30 * 24 * 24 * 0,35 ₽ = 6 048,00 ₽
-
-  Стоимость передачи данных:
-
-  50 000 000 строк входят в объем бесплатного потребления и не тарифицируются.
-
-  **Общая стоимость**:
-
-  > 11 318,40 ₽ + 6 048,00 ₽ = 17 366,40 ₽
+  {% include [rub-replication](../_pricing_examples/data-transfer/rub-replication.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  Стоимость CPU:
-
-  > 30 * 24 * 12 * 6,55 ₸ = 56 592,00 ₸
-
-  Стоимость RAM:
-
-  > 30 * 24 * 24 * 1,75 ₸ = 30 240,00 ₸
-
-  Стоимость передачи данных:
-
-  50 000 000 строк входят в объем бесплатного потребления и не тарифицируются.
-
-  **Общая стоимость**:
-
-  > 56 592,00 ₸ + 30 240,00 ₸ = 86 832,00 ₸
+  {% include [kzt-replication](../_pricing_examples/data-transfer/kzt-replication.md) %}
 
 {% endlist %}
 

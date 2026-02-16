@@ -1,4 +1,3 @@
-
 ```hcl
 # Объявление переменных для пользовательских параметров
 
@@ -156,5 +155,3 @@ resource "yandex_dns_recordset" "rs-cname" {
   data    = [ var.dns_zone ]
 }
 ```
-
-

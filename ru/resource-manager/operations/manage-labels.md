@@ -12,9 +12,9 @@
 
   В примере ниже показано добавление метки к виртуальной машине {{ compute-name }}. Аналогично вы можете добавить метку другому ресурсу.
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -109,11 +109,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../_includes/labels-rewrite-warning.md) %}
 
   Чтобы изменить метку ресурса сервиса воспользуйтесь командой:
 
@@ -177,9 +173,9 @@
 
   В примере ниже показано удаление метки виртуальной машины {{ compute-name }}. Аналогично вы можете удалить метку другого ресурса.
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ВМ.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В списке ВМ выберите нужную.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** выберите нужную метку и нажмите ![cross](../../_assets/console-icons/xmark.svg) справа от ее имени.

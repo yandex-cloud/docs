@@ -1,0 +1,9 @@
+title: '{{ gost-gateway-name }}'
+href: index.yaml
+items:
+  - name: Concepts
+    items:
+      - name: About {{ gost-gateway-name }}
+        href: concepts/index.md
+  - name: Pricing policy
+    href: pricing.md

@@ -36,11 +36,19 @@ description: При создании кластера {{ PG }} вы можете
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
+Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect.md#configuring-security-groups).
+
 {% note tip %}
 
-При подключении к кластеру из той же облачной сети, в которой он находится, не забудьте [настроить](../operations/connect.md#configuring-security-groups) группы безопасности не только для кластера, но и для хоста, с которого выполняется подключение.
+При подключении к кластеру из той же облачной сети, в которой он находится, настройте группы безопасности не только для кластера, но и для хоста, с которого выполняется подключение.
 
 {% endnote %}
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/cdc-data-transfer.md)
+* [{#T}](../tutorials/cdc-debezium.md)
+* [{#T}](../tutorials/outbound-replication.md)

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/smartwebsecurity/v1/api-ref/grpc/SecurityProfile/get.md
 ---
 
-# SmartWebSecurity API, gRPC: SecurityProfileService.Get {#Get}
+# SmartWebSecurity API, gRPC: SecurityProfileService.Get
 
 Returns the specified SecurityProfile resource.
 
@@ -15,13 +15,13 @@ Returns the specified SecurityProfile resource.
 
 ```json
 {
-  "securityProfileId": "string"
+  "security_profile_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| securityProfileId | **string**
+|| security_profile_id | **string**
 
 Required field. ID of the SecurityProfile resource to return. ||
 |#
@@ -31,70 +31,70 @@ Required field. ID of the SecurityProfile resource to return. ||
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "labels": "string",
+  "folder_id": "string",
+  "labels": "map<string, string>",
   "name": "string",
   "description": "string",
-  "defaultAction": "DefaultAction",
-  "securityRules": [
+  "default_action": "DefaultAction",
+  "security_rules": [
     {
       "name": "string",
       "priority": "int64",
-      "dryRun": "bool",
-      // Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`
-      "ruleCondition": {
+      "dry_run": "bool",
+      // Includes only one of the fields `rule_condition`, `smart_protection`, `waf`
+      "rule_condition": {
         "action": "Action",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -104,34 +104,34 @@ Required field. ID of the SecurityProfile resource to return. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -139,59 +139,59 @@ Required field. ID of the SecurityProfile resource to return. ||
           }
         }
       },
-      "smartProtection": {
+      "smart_protection": {
         "mode": "Mode",
         "condition": {
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -201,34 +201,34 @@ Required field. ID of the SecurityProfile resource to return. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
@@ -242,53 +242,53 @@ Required field. ID of the SecurityProfile resource to return. ||
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "httpMethod": {
-            "httpMethods": [
+          "http_method": {
+            "http_methods": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             ]
           },
-          "requestUri": {
+          "request_uri": {
             "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+              "exact_match": "string",
+              "exact_not_match": "string",
+              "prefix_match": "string",
+              "prefix_not_match": "string",
+              "pire_regex_match": "string",
+              "pire_regex_not_match": "string"
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                  "exact_match": "string",
+                  "exact_not_match": "string",
+                  "prefix_match": "string",
+                  "prefix_not_match": "string",
+                  "pire_regex_match": "string",
+                  "pire_regex_not_match": "string"
                   // end of the list of possible fields
                 }
               }
@@ -298,50 +298,54 @@ Required field. ID of the SecurityProfile resource to return. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                // Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`
+                "exact_match": "string",
+                "exact_not_match": "string",
+                "prefix_match": "string",
+                "prefix_not_match": "string",
+                "pire_regex_match": "string",
+                "pire_regex_not_match": "string"
                 // end of the list of possible fields
               }
             }
           ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
+          "source_ip": {
+            "ip_ranges_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "ipRangesNotMatch": {
-              "ipRanges": [
+            "ip_ranges_not_match": {
+              "ip_ranges": [
                 "string"
               ]
             },
-            "geoIpMatch": {
+            "geo_ip_match": {
               "locations": [
                 "string"
               ]
             },
-            "geoIpNotMatch": {
+            "geo_ip_not_match": {
               "locations": [
                 "string"
               ]
             }
           }
         },
-        "wafProfileId": "string"
+        "waf_profile_id": "string"
       },
       // end of the list of possible fields
       "description": "string"
     }
   ],
-  "createdAt": "google.protobuf.Timestamp",
-  "cloudId": "string",
-  "captchaId": "string",
-  "advancedRateLimiterProfileId": "string"
+  "created_at": "google.protobuf.Timestamp",
+  "cloud_id": "string",
+  "captcha_id": "string",
+  "advanced_rate_limiter_profile_id": "string",
+  "analyze_request_body": {
+    "size_limit": "int64",
+    "size_limit_action": "Action"
+  }
 }
 ```
 
@@ -352,40 +356,48 @@ A SecurityProfile resource.
 || id | **string**
 
 ID of the security profile. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the security profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
+Labels as `` key:value `` pairs. Maximum of 64 per resource.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || name | **string**
 
-Required field. Name of the security profile. The name is unique within the folder. 1-50 characters long. ||
+Required field. Name of the security profile. The name is unique within the folder. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
-Optional description of the security profile. ||
-|| defaultAction | enum **DefaultAction**
+Optional description of the security profile.
+
+The maximum string length in characters is 512. ||
+|| default_action | enum **DefaultAction**
 
 Required field. Action to perform if none of rules matched.
 
-- `DEFAULT_ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
+|| security_rules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule)**
 
 List of security rules. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 ID of the cloud that the security profile belongs to. ||
-|| captchaId | **string**
+|| captcha_id | **string**
 
 Captcha ID to use with this security profile. Set empty to use default. ||
-|| advancedRateLimiterProfileId | **string**
+|| advanced_rate_limiter_profile_id | **string**
 
 Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
+|| analyze_request_body | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody)**
+
+Parameters for request body analyzer. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule}
@@ -396,37 +408,43 @@ A SecurityRule object, see [Rules](/docs/smartwebsecurity/concepts/rules).
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **int64**
 
 Determines the priority for checking the incoming traffic.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire security profile.
 A lower numeric value means a higher priority.
-The default_action has the lowest priority. ||
-|| dryRun | **bool**
+The default_action has the lowest priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
+|| dry_run | **bool**
 
 This mode allows you to test your security profile or a single rule.
 For example, you can have the number of alarms for a specific rule displayed.
 Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. ||
-|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+|| rule_condition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
 
 Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
+|| smart_protection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
 
 Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
 
 Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
 
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+Includes only one of the fields `rule_condition`, `smart_protection`, `waf`. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 |#
 
 ## RuleCondition {#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition}
@@ -439,7 +457,6 @@ RuleCondition object.
 
 Action to perform if this rule matched.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
@@ -457,16 +474,18 @@ See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers des
 || authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
 
 Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+|| http_method | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
 
 Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+|| request_uri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
 
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
-Match HTTP headers. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
+|| source_ip | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
 |#
@@ -479,7 +498,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -488,24 +509,36 @@ StringMatcher object.
 
 #|
 ||Field | Description ||
-|| exactMatch | **string**
+|| exact_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| exact_not_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_match | **string**
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
+The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| prefix_not_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
+|| pire_regex_not_match | **string**
+
+The string length in characters must be 0-255.
+
+Includes only one of the fields `exact_match`, `exact_not_match`, `prefix_match`, `prefix_not_match`, `pire_regex_match`, `pire_regex_not_match`. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -514,9 +547,11 @@ HttpMethodMatcher object.
 
 #|
 ||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+|| http_methods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -530,7 +565,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher}
@@ -541,7 +578,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the query parameter. ||
@@ -555,7 +594,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the header. ||
@@ -567,10 +608,10 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ip_ranges_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| ip_ranges_not_match | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
+|| geo_ip_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| geo_ip_not_match | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -579,9 +620,11 @@ IpRangesMatcher object.
 
 #|
 ||Field | Description ||
-|| ipRanges[] | **string**
+|| ip_ranges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -592,7 +635,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## SmartProtection {#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection}
@@ -605,7 +650,6 @@ SmartProtection object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -625,7 +669,6 @@ Waf object.
 
 Mode of protection.
 
-- `MODE_UNSPECIFIED`
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
 - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -633,7 +676,22 @@ requests to SmartCaptcha. The suspicious requests will be blocked. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
 The condition for matching the rule. ||
-|| wafProfileId | **string**
+|| waf_profile_id | **string**
 
 Required field. ID of WAF profile to use in this rule. ||
+|#
+
+## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody}
+
+#|
+||Field | Description ||
+|| size_limit | **int64**
+
+Maximum size of body to pass to analyzer. In kilobytes. ||
+|| size_limit_action | enum **Action**
+
+Action to perform if maximum size of body exceeded.
+
+- `IGNORE`: Ignore body.
+- `DENY`: Deny request. ||
 |#

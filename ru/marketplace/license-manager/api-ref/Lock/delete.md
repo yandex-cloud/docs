@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://marketplace.{{ api-host }}/marketplace/license-manager/v1/locks/{lockId}
+    method: delete
+    path:
+      type: object
+      properties:
+        lockId:
+          description: |-
+            **string**
+            Required field. ID of the subscription lock.
+          type: string
+      required:
+        - lockId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/marketplace/licensemanager/v1/license-manager/api-ref/Lock/delete.md
 ---
 
-# Yandex Cloud Marketplace License Manager, REST: Lock.Delete {#Delete}
+# Yandex Cloud Marketplace License Manager, REST: Lock.Delete
 
 Unlocks the specified subscription lock.
 

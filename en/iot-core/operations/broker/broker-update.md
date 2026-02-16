@@ -18,7 +18,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker name in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.name }}** field.
@@ -52,7 +52,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
   To update the name of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `name` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the `name` parameter value in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -65,7 +65,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -85,14 +85,14 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
       You can check the updated broker name in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
@@ -115,7 +115,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
    To update the broker description:
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker description in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.common.description }}** field.
@@ -150,7 +150,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
 
   To update the description of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and edit the value of the `description` parameter in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the `description` parameter value in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -163,7 +163,7 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -183,14 +183,14 @@ To access a broker, use its unique ID or name. For info on how to get the unique
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can check the updated broker description in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
@@ -219,10 +219,10 @@ You can perform the following actions with broker labels:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to add the broker label to.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
-   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.iot.button_add-label }}**.
+   1. Fill in the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields and click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -275,7 +275,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -295,14 +295,14 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -323,7 +323,7 @@ You can perform the following actions with broker labels:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to update the broker label in.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. Edit the **{{ ui-key.yacloud.component.key-values-input.label_key }}** and **{{ ui-key.yacloud.component.key-values-input.label_value }}** fields.
@@ -337,11 +337,7 @@ You can perform the following actions with broker labels:
 
   Update a broker label:
 
-  {% note warning %}
-
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc iot broker update my-broker --labels test_label=my_broker_label
@@ -365,7 +361,7 @@ You can perform the following actions with broker labels:
 
   To update the label of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and update the label value in the `labels` section, in the fragment with the broker description.
+  1. Open the {{ TF }} configuration file and edit the label value in the `labels` section, in the broker description fragment.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -380,7 +376,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -400,14 +396,14 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 
@@ -428,7 +424,7 @@ You can perform the following actions with broker labels:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder to delete the broker label from.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. To the right of the name of the broker you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}** from the drop-down list.
    1. To the right of the label to delete, click ![image](../../../_assets/console-icons/xmark.svg).
@@ -462,7 +458,7 @@ You can perform the following actions with broker labels:
 
   To delete the label of a broker created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the value of the label in the `labels` section, in the fragment with the broker description. To delete all labels, delete the entire `labels` section.
+  1. Open the {{ TF }} configuration file and delete the label value in the `labels` section, in the broker description fragment. To delete all labels, delete the entire `labels` section.
 
       Example broker description in the {{ TF }} configuration:
 
@@ -477,7 +473,7 @@ You can perform the following actions with broker labels:
       }
       ```
 
-      For more information about the `yandex_iot_core_broker` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
+      For more information about the `yandex_iot_core_broker` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_broker).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -497,14 +493,14 @@ You can perform the following actions with broker labels:
       terraform plan
       ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-  1. Apply the configuration changes:
+      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+  1. Apply the changes:
 
       ```bash
       terraform apply
       ```
 
-  1. Confirm the changes made: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
       You can verify broker labels using the following [CLI](../../../cli/quickstart.md) command:
 

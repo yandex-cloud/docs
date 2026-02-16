@@ -5,13 +5,13 @@ description: Follow this guide to authenticate {{ TF }} in {{ yandex-cloud }} us
 
 # Getting authentication credentials
 
-To authenticate in {{ yandex-cloud }} and manage {{ ydb-short-name }} databases using {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and work in {{ TF }} with {{ ydb-short-name }}, you will also need the {{ yandex-cloud }} CLI. If you do not have it yet, follow [this guide](../../cli/quickstart.md#install) to install it.
+To authenticate in {{ yandex-cloud }} and manage {{ ydb-short-name }} databases with {{ TF }}, you can use a [service account](../../iam/concepts/users/service-accounts.md), a [Yandex account](../../iam/concepts/users/accounts.md#passport), a [local account](../../iam/concepts/users/accounts.md#local), or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). To authenticate and use {{ TF }} with {{ ydb-short-name }}, you will also need the {{ yandex-cloud }} CLI. If you do not have the CLI yet, follow [this guide](../../cli/quickstart.md#install) to install it.
 
-You can create and set up a service account by following these steps:
-1. In the management console, select the folder to create a service account in.
+You can [create](../../iam/operations/sa/create.md) and set up a service account by following these steps:
 
-1. In the **Service accounts** tab, click `Create service account`.
-
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
+1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Enter a name for the service account.
     * The name must be 3 to 63 characters long.
     * The name may contain lowercase Latin letters, numbers, and hyphens.
@@ -20,14 +20,14 @@ You can create and set up a service account by following these steps:
 
 1. Click **Create**.
 
-Go to **Service account** and create an authorized key for {{ TF }} authentication in {{ yandex-cloud }}:
+Go to **Service account** and create an authorized key for {{ TF }}authentication in {{ yandex-cloud }}:
 1. Click `Create new key` and select `Create authorized key`.
 
 1. Enter the **Key description** (optional) and click **Create**.
 
 1. Click **Download key file** to download the key file locally.
 
-Now to the final step in authentication setup: create a special profile for connecting to {{ yandex-cloud }} on the local machine using yc CLI.
+Now to the final authentication setup step: create a special profile for connection to {{ yandex-cloud }} on the local machine using the {{ yandex-cloud }} CLI.
 
 Run the following commands:
 1. Create a `yc` profile to run operations under the service account. Specify the profile name: `yc config profile create <profile_name>`. The terminal will display the following message: `Profile '<profile_name>' created and activated.`
@@ -43,7 +43,7 @@ Where:
 * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
 * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-Add the credentials to the environment variables:
+Add your credentials to the environment variables:
 
 {% list tabs group=programming_language %}
 
@@ -62,9 +62,9 @@ Add the credentials to the environment variables:
     $Env:YC_CLOUD_ID=$(yc config get cloud-id)
     $Env:YC_FOLDER_ID=$(yc config get folder-id)
     ```
-{% endlist %}
+{% endlist %}    
 
-{{ TF }} will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, {{ TF }} will be returning an authentication error. In that case, update the environment variable: re-run the `YC_TOKEN=$(yc iam create-token)` command.
+{{ TF }} will use the defined environment variables for authentication, so keep in mind that the `IAM token` lifetime cannot exceed 12 hours. After the token expires, {{ TF }} will be returning an authentication error. In that case, update the environment variable: re-run the `YC_TOKEN=$(yc iam create-token)` command. 
 
 You can automate the process of getting a new token with`crontab`: enter `crontab -e`, and then enter `0 * * * * export YC_TOKEN=$(yc iam create-token)`. Now, `crontab` will independently update the token every hour within the current session. To update the token when opening a new session, run one of the following commands:
 ```bash

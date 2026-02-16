@@ -1,1 +1,1 @@
-If the connection to the cluster and the test query are successful, the {{ MY }} version is output.
+If your cluster connection and test query are successful, you will see the {{ MY }} version.

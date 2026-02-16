@@ -1,9 +1,998 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a trigger in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the trigger.
+            The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the trigger.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        rule:
+          description: |-
+            **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)**
+            Required field. Trigger type.
+          $ref: '#/definitions/Rule'
+      required:
+        - folderId
+        - rule
+      additionalProperties: false
+    definitions:
+      InvokeFunctionOnce:
+        type: object
+        properties:
+          functionId:
+            description: |-
+              **string**
+              Required field. ID of the function to invoke.
+              The maximum string length in characters is 50.
+            type: string
+          functionTag:
+            description: |-
+              **string**
+              Version tag of the function to execute.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account that should be used to invoke the function.
+            type: string
+        required:
+          - functionId
+      RetrySettings:
+        type: object
+        properties:
+          retryAttempts:
+            description: |-
+              **string** (int64)
+              Maximum number of retries (extra invokes) before the action is considered failed.
+              Acceptable values are 1 to 5, inclusive.
+            type: string
+            format: int64
+          interval:
+            description: |-
+              **string** (duration)
+              Required field. Time in seconds to wait between individual retries.
+            type: string
+            format: duration
+        required:
+          - interval
+      PutQueueMessage:
+        type: object
+        properties:
+          queueId:
+            description: |-
+              **string**
+              ID of the queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. Service account which has write permission on the queue.
+              The maximum string length in characters is 50.
+            type: string
+        required:
+          - serviceAccountId
+      InvokeFunctionWithRetry:
+        type: object
+        properties:
+          functionId:
+            description: |-
+              **string**
+              Required field. ID of the function to invoke.
+              The maximum string length in characters is 50.
+            type: string
+          functionTag:
+            description: |-
+              **string**
+              Version tag of the function to execute.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to invoke the function.
+            type: string
+          retrySettings:
+            description: |-
+              **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+              Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+            $ref: '#/definitions/RetrySettings'
+          deadLetterQueue:
+            description: |-
+              **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+              DLQ policy (no value means discarding a message).
+            $ref: '#/definitions/PutQueueMessage'
+        required:
+          - functionId
+      InvokeContainerWithRetry:
+        type: object
+        properties:
+          containerId:
+            description: |-
+              **string**
+              Required field. ID of the container to invoke.
+              The maximum string length in characters is 50.
+            type: string
+          path:
+            description: |-
+              **string**
+              Endpoint HTTP path to invoke.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to invoke the container.
+            type: string
+          retrySettings:
+            description: |-
+              **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+              Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+            $ref: '#/definitions/RetrySettings'
+          deadLetterQueue:
+            description: |-
+              **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+              DLQ policy (no value means discarding a message).
+            $ref: '#/definitions/PutQueueMessage'
+        required:
+          - containerId
+      GatewayWebsocketBroadcast:
+        type: object
+        properties:
+          gatewayId:
+            description: |-
+              **string**
+              Required field.
+              The maximum string length in characters is 50.
+            type: string
+          path:
+            description: |-
+              **string**
+              Required field.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. sa which has permission for writing to websockets
+              The maximum string length in characters is 50.
+            type: string
+        required:
+          - gatewayId
+          - path
+          - serviceAccountId
+      Timer:
+        type: object
+        properties:
+          cronExpression:
+            description: |-
+              **string**
+              Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
+              The maximum string length in characters is 100.
+            type: string
+          payload:
+            description: |-
+              **string**
+              Payload to be passed to function.
+              The maximum string length in characters is 4096.
+            type: string
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+              Instructions for invoking a function once.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeFunctionOnce'
+          invokeFunctionWithRetry:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retry.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainerWithRetry:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retry.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - cronExpression
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeFunctionWithRetry
+          - required:
+              - invokeContainerWithRetry
+          - required:
+              - gatewayWebsocketBroadcast
+      BatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the function
+              when the number of messages in the queue reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+              Acceptable values are 0 to 1000, inclusive.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Required field. Maximum wait time. Trigger will send the batch of messages to the function when
+              the number of messages in the queue reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: duration
+        required:
+          - cutoff
+      InvokeContainerOnce:
+        type: object
+        properties:
+          containerId:
+            description: |-
+              **string**
+              Required field. ID of the container to invoke.
+              The maximum string length in characters is 50.
+            type: string
+          path:
+            description: |-
+              **string**
+              Endpoint HTTP path to invoke.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to invoke the container.
+            type: string
+        required:
+          - containerId
+      MessageQueue:
+        type: object
+        properties:
+          queueId:
+            description: |-
+              **string**
+              Required field. ID of the message queue in Message Queue.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. ID of the service account which has read access to the message queue.
+              The maximum string length in characters is 50.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Required field. Batch settings for processing messages in the queue.
+            $ref: '#/definitions/BatchSettings'
+          visibilityTimeout:
+            description: |-
+              **string** (duration)
+              Queue visibility timeout override.
+            type: string
+            format: duration
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
+              Instructions for invoking a function once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/InvokeFunctionOnce'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
+              Instructions for invoking a container once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/InvokeContainerOnce'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - queueId
+          - serviceAccountId
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      IoTMessage:
+        type: object
+        properties:
+          registryId:
+            description: |-
+              **string**
+              Required field. ID of the IoT Core registry.
+            type: string
+          deviceId:
+            description: |-
+              **string**
+              ID of the IoT Core device in the registry.
+            type: string
+          mqttTopic:
+            description: |-
+              **string**
+              MQTT topic whose messages activate the trigger.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - registryId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      IoTBrokerMessage:
+        type: object
+        properties:
+          brokerId:
+            description: |-
+              **string**
+              Required field. ID of the IoT Core broker.
+            type: string
+          mqttTopic:
+            description: |-
+              **string**
+              MQTT topic whose messages activate the trigger.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Action to be executed when the there's a new message in the MQTT topic.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - brokerId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ObjectStorage:
+        type: object
+        properties:
+          eventType:
+            description: |-
+              **enum** (ObjectStorageEventType)
+              Type (name) of events, at least one value is required.
+              The number of elements must be greater than 0.
+              - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
+              - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
+              - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`
+            type: array
+            items:
+              type: string
+              enum:
+                - OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED
+                - OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT
+                - OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT
+                - OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT
+          bucketId:
+            description: |-
+              **string**
+              ID of the bucket.
+            type: string
+          prefix:
+            description: |-
+              **string**
+              Prefix of the object key. Filter, optional.
+            type: string
+          suffix:
+            description: |-
+              **string**
+              Suffix of the object key. Filter, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ContainerRegistry:
+        type: object
+        properties:
+          eventType:
+            description: |-
+              **enum** (ContainerRegistryEventType)
+              Type (name) of events, at least one value is required.
+              The number of elements must be greater than 0.
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`
+            type: array
+            items:
+              type: string
+              enum:
+                - CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED
+                - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE
+                - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE
+                - CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG
+                - CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG
+          registryId:
+            description: |-
+              **string**
+              ID of the registry.
+            type: string
+          imageName:
+            description: |-
+              **string**
+              Docker-image name. Filter, optional.
+            type: string
+          tag:
+            description: |-
+              **string**
+              Docker-image tag. Filter, optional.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      CloudLogsBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the function
+              when the number of messages in the log group reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages to the function when
+              the number of messages in the log group reaches [size](#yandex.cloud.serverless.triggers.v1.BatchSettings), or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+            type: string
+            format: duration
+      CloudLogs:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Log group identifiers, at least one value is required.
+            type: array
+            items:
+              type: string
+          batchSettings:
+            description: |-
+              **[CloudLogsBatchSettings](#yandex.cloud.serverless.triggers.v1.CloudLogsBatchSettings)**
+              Required field. Batch settings for processing log events.
+            $ref: '#/definitions/CloudLogsBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+        required:
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+      LoggingBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size. Trigger will send the batch of messages to the associated function
+              when the number of log events reaches this value, or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+              Acceptable values are 1 to 1000, inclusive.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages the time since the last batch
+              exceeds the `cutoff` value, regardless of the amount of log events.
+            type: string
+            format: duration
+      Logging:
+        type: object
+        properties:
+          logGroupId:
+            description: |-
+              **string**
+              Log events filter settings.
+              The maximum string length in characters is 50.
+            type: string
+          resourceType:
+            description: |-
+              **string**
+              Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+            pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
+            type: array
+            items:
+              type: string
+          resourceId:
+            description: |-
+              **string**
+              Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
+            pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
+            type: array
+            items:
+              type: string
+          streamName:
+            description: |-
+              **string**
+              Each value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: array
+            items:
+              type: string
+          levels:
+            description: |-
+              **enum** (Level)
+              The maximum number of elements is 10.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: array
+            items:
+              type: string
+              enum:
+                - LEVEL_UNSPECIFIED
+                - TRACE
+                - DEBUG
+                - INFO
+                - WARN
+                - ERROR
+                - FATAL
+          batchSettings:
+            description: |-
+              **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings)**
+              Required field. Batch settings for processing log events.
+            $ref: '#/definitions/LoggingBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - batchSettings
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      BillingBudget:
+        type: object
+        properties:
+          billingAccountId:
+            description: |-
+              **string**
+              Required field.
+              The maximum string length in characters is 50.
+            type: string
+          budgetId:
+            description: |-
+              **string**
+              The maximum string length in characters is 50.
+            type: string
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        required:
+          - billingAccountId
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      DataStreamBatchSettings:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              Batch size in bytes. Trigger will send the batch of messages to the associated function
+              when size of log events reaches this value, or the [cutoff](#yandex.cloud.serverless.triggers.v1.BatchSettings) time has passed.
+              Acceptable values are 1 to 65536, inclusive.
+            type: string
+            format: int64
+          cutoff:
+            description: |-
+              **string** (duration)
+              Maximum wait time. Trigger will send the batch of messages the time since the last batch
+              exceeds the `cutoff` value, regardless of the amount of log events.
+            type: string
+            format: duration
+      DataStream:
+        type: object
+        properties:
+          endpoint:
+            description: |-
+              **string**
+              Data stream endpoint.
+            type: string
+          database:
+            description: |-
+              **string**
+              Data stream database.
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream name.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to read data stream.
+            type: string
+          batchSettings:
+            description: |-
+              **[DataStreamBatchSettings](#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/DataStreamBatchSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      ObjectStorageBucketSettings:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Bucket for saving.
+              The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Required field. SA which has write permission on storage.
+              The maximum string length in characters is 50.
+            type: string
+        required:
+          - serviceAccountId
+      Mail:
+        type: object
+        properties:
+          email:
+            description: |-
+              **string**
+              Address to receive emails for trigger activation.
+              Field is ignored for write requests and populated on trigger creation.
+            type: string
+          batchSettings:
+            description: |-
+              **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
+              Batch settings for processing events.
+            $ref: '#/definitions/BatchSettings'
+          attachmentsBucket:
+            description: |-
+              **[ObjectStorageBucketSettings](#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings)**
+              Bucket settings for saving attachments.
+            $ref: '#/definitions/ObjectStorageBucketSettings'
+          invokeFunction:
+            description: |-
+              **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeFunctionWithRetry'
+          invokeContainer:
+            description: |-
+              **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/InvokeContainerWithRetry'
+          gatewayWebsocketBroadcast:
+            description: |-
+              **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+            $ref: '#/definitions/GatewayWebsocketBroadcast'
+        oneOf:
+          - required:
+              - invokeFunction
+          - required:
+              - invokeContainer
+          - required:
+              - gatewayWebsocketBroadcast
+      Rule:
+        type: object
+        properties:
+          timer:
+            description: |-
+              **[Timer](#yandex.cloud.serverless.triggers.v1.Trigger.Timer)**
+              Rule for a timed trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Timer'
+          messageQueue:
+            description: |-
+              **[MessageQueue](#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue)**
+              Rule for a message queue trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/MessageQueue'
+          iotMessage:
+            description: |-
+              **[IoTMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage)**
+              Rule for a IoT Core trigger.
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/IoTMessage'
+          iotBrokerMessage:
+            description: |-
+              **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/IoTBrokerMessage'
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/ObjectStorage'
+          containerRegistry:
+            description: |-
+              **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/ContainerRegistry'
+          cloudLogs:
+            description: |-
+              **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/CloudLogs'
+          logging:
+            description: |-
+              **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Logging'
+          billingBudget:
+            description: |-
+              **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/BillingBudget'
+          dataStream:
+            description: |-
+              **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/DataStream'
+          mail:
+            description: |-
+              **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
+              Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
+            $ref: '#/definitions/Mail'
+        oneOf:
+          - required:
+              - timer
+          - required:
+              - messageQueue
+          - required:
+              - iotMessage
+          - required:
+              - iotBrokerMessage
+          - required:
+              - objectStorage
+          - required:
+              - containerRegistry
+          - required:
+              - cloudLogs
+          - required:
+              - logging
+          - required:
+              - billingBudget
+          - required:
+              - dataStream
+          - required:
+              - mail
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/create.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.Create {#Create}
+# Cloud Functions Triggers Service, REST: Trigger.Create
 
 Creates a trigger in the specified folder.
 
@@ -20,7 +1009,7 @@ POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "rule": {
     // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
     "timer": {
@@ -492,13 +1481,19 @@ To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/
 || name | **string**
 
 Name of the trigger.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the trigger. ||
-|| labels | **string**
+Description of the trigger.
 
-Resource labels as `key:value` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || rule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule)**
 
 Required field. Trigger type. ||
@@ -559,10 +1554,14 @@ Rule for activating a timed trigger.
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). ||
+Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
+
+The maximum string length in characters is 100. ||
 || payload | **string**
 
-Payload to be passed to function. ||
+Payload to be passed to function.
+
+The maximum string length in characters is 4096. ||
 || invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
 
 Instructions for invoking a function once.
@@ -601,7 +1600,9 @@ A single function invocation.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -618,7 +1619,9 @@ A function invocation with retries.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -641,7 +1644,9 @@ Settings for retrying to invoke a function.
 ||Field | Description ||
 || retryAttempts | **string** (int64)
 
-Maximum number of retries (extra invokes) before the action is considered failed. ||
+Maximum number of retries (extra invokes) before the action is considered failed.
+
+Acceptable values are 1 to 5, inclusive. ||
 || interval | **string** (duration)
 
 Required field. Time in seconds to wait between individual retries. ||
@@ -656,7 +1661,9 @@ Required field. Time in seconds to wait between individual retries. ||
 ID of the queue. ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## InvokeContainerWithRetry {#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry}
@@ -667,7 +1674,9 @@ A container invocation with retries.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -688,13 +1697,17 @@ DLQ policy (no value means discarding a message). ||
 ||Field | Description ||
 || gatewayId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
-Required field.  ||
+Required field. ||
 || serviceAccountId | **string**
 
-Required field. sa which has permission for writing to websockets ||
+Required field. sa which has permission for writing to websockets
+
+The maximum string length in characters is 50. ||
 |#
 
 ## MessageQueue {#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue}
@@ -708,7 +1721,9 @@ Rule for activating a message queue trigger.
 Required field. ID of the message queue in Message Queue. ||
 || serviceAccountId | **string**
 
-Required field. ID of the service account which has read access to the message queue. ||
+Required field. ID of the service account which has read access to the message queue.
+
+The maximum string length in characters is 50. ||
 || batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings)**
 
 Required field. Batch settings for processing messages in the queue. ||
@@ -747,7 +1762,9 @@ Settings for batch processing of messages in a queue.
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Required field. Maximum wait time. Trigger will send the batch of messages to the function when
@@ -762,7 +1779,9 @@ A single container invocation.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -858,7 +1877,8 @@ Action to be executed when the there's a new message in the MQTT topic. ||
 
 Type (name) of events, at least one value is required.
 
-- `OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
@@ -899,7 +1919,8 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 
 Type (name) of events, at least one value is required.
 
-- `CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
@@ -962,7 +1983,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 100, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages to the function when
@@ -975,15 +1998,22 @@ the number of messages in the log group reaches `size`, or the `cutoff` time has
 ||Field | Description ||
 || logGroupId | **string**
 
-Log events filter settings. ||
-|| resourceType[] | **string** ||
-|| resourceId[] | **string** ||
-|| streamName[] | **string** ||
+Log events filter settings.
+
+The maximum string length in characters is 50. ||
+|| resourceType[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| resourceId[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| streamName[] | **string**
+
+Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -1029,7 +2059,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the associated function
-when the number of log events reaches this value, or the `cutoff` time has passed. ||
+when the number of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -1042,8 +2074,12 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 ||Field | Description ||
 || billingAccountId | **string**
 
-Required field.  ||
-|| budgetId | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| budgetId | **string**
+
+The maximum string length in characters is 50. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
@@ -1092,7 +2128,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size in bytes. Trigger will send the batch of messages to the associated function
-when size of log events reaches this value, or the `cutoff` time has passed. ||
+when size of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 65536, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -1130,10 +2168,14 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 ||Field | Description ||
 || bucketId | **string**
 
-Bucket for saving. ||
+Bucket for saving.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || serviceAccountId | **string**
 
-Required field. SA which has write permission on storage. ||
+Required field. SA which has write permission on storage.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -1165,7 +2207,7 @@ Required field. SA which has write permission on storage. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "rule": {
       // Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`
       "timer": {
@@ -1736,7 +2778,9 @@ A trigger to invoke a serverless function. For more information, see [Triggers](
 ID of the trigger. Generated at creation time. ||
 || folderId | **string**
 
-Required field. ID of the folder that the trigger belongs to. ||
+Required field. ID of the folder that the trigger belongs to.
+
+The maximum string length in characters is 50. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp for the trigger.
@@ -1749,11 +2793,15 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the trigger. ||
+Name of the trigger.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the trigger. ||
-|| labels | **string**
+Description of the trigger.
+
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Trigger labels as `key:value` pairs. ||
 || rule | **[Rule](#yandex.cloud.serverless.triggers.v1.Trigger.Rule2)**
@@ -1763,7 +2811,6 @@ Required field. Rule for trigger activation (always consistent with the trigger 
 
 Trigger status.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`
 - `PAUSED` ||
 |#
@@ -1823,10 +2870,14 @@ Rule for activating a timed trigger.
 ||Field | Description ||
 || cronExpression | **string**
 
-Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer). ||
+Required field. Description of a schedule as a [cron expression](/docs/functions/concepts/trigger/timer).
+
+The maximum string length in characters is 100. ||
 || payload | **string**
 
-Payload to be passed to function. ||
+Payload to be passed to function.
+
+The maximum string length in characters is 4096. ||
 || invokeFunction | **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce2)**
 
 Instructions for invoking a function once.
@@ -1865,7 +2916,9 @@ A single function invocation.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -1882,7 +2935,9 @@ A function invocation with retries.
 ||Field | Description ||
 || functionId | **string**
 
-Required field. ID of the function to invoke. ||
+Required field. ID of the function to invoke.
+
+The maximum string length in characters is 50. ||
 || functionTag | **string**
 
 Version tag of the function to execute. ||
@@ -1905,7 +2960,9 @@ Settings for retrying to invoke a function.
 ||Field | Description ||
 || retryAttempts | **string** (int64)
 
-Maximum number of retries (extra invokes) before the action is considered failed. ||
+Maximum number of retries (extra invokes) before the action is considered failed.
+
+Acceptable values are 1 to 5, inclusive. ||
 || interval | **string** (duration)
 
 Required field. Time in seconds to wait between individual retries. ||
@@ -1920,7 +2977,9 @@ Required field. Time in seconds to wait between individual retries. ||
 ID of the queue. ||
 || serviceAccountId | **string**
 
-Required field. Service account which has write permission on the queue. ||
+Required field. Service account which has write permission on the queue.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## InvokeContainerWithRetry {#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2}
@@ -1931,7 +2990,9 @@ A container invocation with retries.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -1952,13 +3013,17 @@ DLQ policy (no value means discarding a message). ||
 ||Field | Description ||
 || gatewayId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
-Required field.  ||
+Required field. ||
 || serviceAccountId | **string**
 
-Required field. sa which has permission for writing to websockets ||
+Required field. sa which has permission for writing to websockets
+
+The maximum string length in characters is 50. ||
 |#
 
 ## MessageQueue {#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue2}
@@ -1972,7 +3037,9 @@ Rule for activating a message queue trigger.
 Required field. ID of the message queue in Message Queue. ||
 || serviceAccountId | **string**
 
-Required field. ID of the service account which has read access to the message queue. ||
+Required field. ID of the service account which has read access to the message queue.
+
+The maximum string length in characters is 50. ||
 || batchSettings | **[BatchSettings](#yandex.cloud.serverless.triggers.v1.BatchSettings2)**
 
 Required field. Batch settings for processing messages in the queue. ||
@@ -2011,7 +3078,9 @@ Settings for batch processing of messages in a queue.
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the queue reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the queue reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Required field. Maximum wait time. Trigger will send the batch of messages to the function when
@@ -2026,7 +3095,9 @@ A single container invocation.
 ||Field | Description ||
 || containerId | **string**
 
-Required field. ID of the container to invoke. ||
+Required field. ID of the container to invoke.
+
+The maximum string length in characters is 50. ||
 || path | **string**
 
 Endpoint HTTP path to invoke. ||
@@ -2122,7 +3193,8 @@ Action to be executed when the there's a new message in the MQTT topic. ||
 
 Type (name) of events, at least one value is required.
 
-- `OBJECT_STORAGE_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
 - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
@@ -2163,7 +3235,8 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 
 Type (name) of events, at least one value is required.
 
-- `CONTAINER_REGISTRY_EVENT_TYPE_UNSPECIFIED`
+The number of elements must be greater than 0.
+
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
 - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
@@ -2226,7 +3299,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`. ||
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the function
-when the number of messages in the log group reaches `size`, or the `cutoff` time has passed. ||
+when the number of messages in the log group reaches `size`, or the `cutoff` time has passed.
+
+Acceptable values are 0 to 100, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages to the function when
@@ -2239,15 +3314,22 @@ the number of messages in the log group reaches `size`, or the `cutoff` time has
 ||Field | Description ||
 || logGroupId | **string**
 
-Log events filter settings. ||
-|| resourceType[] | **string** ||
-|| resourceId[] | **string** ||
-|| streamName[] | **string** ||
+Log events filter settings.
+
+The maximum string length in characters is 50. ||
+|| resourceType[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| resourceId[] | **string**
+
+Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
+|| streamName[] | **string**
+
+Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
 
-- `LEVEL_UNSPECIFIED`: Default log level.
+The maximum number of elements is 10.
 
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -2293,7 +3375,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size. Trigger will send the batch of messages to the associated function
-when the number of log events reaches this value, or the `cutoff` time has passed. ||
+when the number of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 1000, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -2306,8 +3390,12 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 ||Field | Description ||
 || billingAccountId | **string**
 
-Required field.  ||
-|| budgetId | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| budgetId | **string**
+
+The maximum string length in characters is 50. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
@@ -2356,7 +3444,9 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 || size | **string** (int64)
 
 Batch size in bytes. Trigger will send the batch of messages to the associated function
-when size of log events reaches this value, or the `cutoff` time has passed. ||
+when size of log events reaches this value, or the `cutoff` time has passed.
+
+Acceptable values are 1 to 65536, inclusive. ||
 || cutoff | **string** (duration)
 
 Maximum wait time. Trigger will send the batch of messages the time since the last batch
@@ -2394,8 +3484,12 @@ Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWeb
 ||Field | Description ||
 || bucketId | **string**
 
-Bucket for saving. ||
+Bucket for saving.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || serviceAccountId | **string**
 
-Required field. SA which has write permission on storage. ||
+Required field. SA which has write permission on storage.
+
+The maximum string length in characters is 50. ||
 |#

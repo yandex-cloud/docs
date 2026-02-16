@@ -12,9 +12,9 @@ A secret is a set of versions that store your data. A version contains sets of k
 * A key is a non-secret name that identifies a value.
 * The value is your secret data.
 
-Versions can't be changed. Whenever you need to change the number of key-value pairs or their contents, you must create a new version.
+Versions cannot be changed. Whenever you need to change the number of key-value pairs or their contents, you must create a new version.
 
-## Creating secrets {#secret}
+## Creating a secret {#secret}
 
 {% include [secret-create](../_includes/lockbox/secret-create.md) %}
 
@@ -31,7 +31,7 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
@@ -61,9 +61,9 @@ Versions can't be changed. Whenever you need to change the number of key-value p
 
       Where:
 
-      * `--id`: Secret ID. This is a required parameter.
-      * `--key`: Secret contents key required to get the single value. This is an optional parameter.
-      * `--version-id`: Secret version. This is an optional parameter. Defaults to the current secret version.
+      * `--id`: Secret ID. This is a required setting.
+      * `--key`: Secret contents key required to get the single value. This is an optional setting.
+      * `--version-id`: Secret version. This is an optional setting. Defaults to the current secret version.
 
       An example of a command used to get the contents of a secret:
 
@@ -86,9 +86,11 @@ Versions can't be changed. Whenever you need to change the number of key-value p
           text_value: value_2
       ```
 
+      {% include [secret-content-base64-cli](../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - API {#api}
 
-    If you make a request without specifying a version, the contents of the current (latest) version is returned.
+    If you make a request without specifying a version, the response will return the contents of the current (latest) version.
 
     You can use this logic in scripts, services, and applications where you need to use the contents of your secret.
 
@@ -102,15 +104,20 @@ Versions can't be changed. Whenever you need to change the number of key-value p
         You can also get an IAM token for your service account from inside the VM the token is linked to. To do this, send a request to the [metadata service](../compute/operations/vm-info/get-info.md#request-examples). An example with the [jq](https://stedolan.github.io/jq/) utility:
         
         ```
-        export IAM_TOKEN=$(curl -H Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
+        export IAM_TOKEN=$(curl --header Metadata-Flavor:Google http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token | jq -r .access_token)
         ```
 
-    1. Run the following query:
+    1. Run this request:
 
         ```
-        curl -X GET -H "Authorization: Bearer ${IAM_TOKEN}" \
-        https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
+        curl \
+          --request GET \
+          --header "Authorization: Bearer ${IAM_TOKEN}" \
+          https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<secret_ID>/payload
         ```
+
+    {% include [secret-content-base64](../_includes/lockbox/secret-content-base64.md) %}
+
 {% endlist %}
 
 You can manage secrets and their contents not only through the [management console]({{ link-console-main }}), [CLI](../cli/quickstart.md), and [API](../overview/api.md), but also using SDKs for popular programming languages. For more information, see [{#T}](./concepts/index.md#interface).

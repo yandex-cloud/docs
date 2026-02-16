@@ -14,8 +14,6 @@
 
     Этот способ подходит для любых кластеров {{ ES }}.
 
-    Пример такого переноса см. в практическом руководстве [Миграция данных в {{ OS }} с помощью {{ data-transfer-full-name }}](../../data-transfer/tutorials/mes-to-mos.md).
-
 * [Снапшотов](../../glossary/snapshot.md) (snapshots).
 
     Этот способ подходит для кластеров {{ ES }} версии не выше 7.11.
@@ -25,6 +23,16 @@
 * Удаленной [переиндексации]({{ os.docs }}/opensearch/reindex-data/) (reindex data).
 
     С ее помощью можно перенести существующие индексы, псевдонимы (aliases) или потоки данных. Этот способ подходит для всех кластеров {{ ES }} версии 7.
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mos-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам с ролью `MANAGER`), и дискового пространства (см. [тарифы {{ OS }}](../../managed-opensearch/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
 
 ## Миграция с помощью снапшотов {#snapshot}
 
@@ -47,8 +55,7 @@
     1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с ограниченным доступом. Этот бакет будет использоваться в качестве репозитория снапшотов.
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`. Сервисный аккаунт необходим для доступа к бакету из кластера-источника и кластера-приемника.
 
-    1. Если вы переносите данные из стороннего кластера {{ ES }}, [создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для этого сервисного аккаунта.
-
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для этого сервисного аккаунта.
 
         {% note warning %}
 
@@ -56,10 +63,9 @@
 
         {% endnote %}
 
-    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации со следующими настройками:
+    1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
-        * Плагин — `repository-s3`.
-        * Публичный доступ к группе хостов с ролью `DATA`.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 - С помощью {{ TF }} {#tf}
 
@@ -111,21 +117,17 @@
 
 1. Настройте кластер-источник {{ ES }}:
 
-
     {% include [source-3p](es-mos-migration/source-3p.md) %}
 
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
-1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
-
-1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect/index.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 ### Создайте снапшот на кластере-источнике {#create-snapshot}
 
 1. Подключите бакет в качестве репозитория снапшотов на кластере-источнике:
 
-
     {% include [connect-bucket-3p](es-mos-migration/connect-bucket-3p.md) %}
-
 
     Подробнее о подключении репозитория см. в [документации плагина]({{ links.es.docs }}/elasticsearch/plugins/7.11/repository-s3.html).
 
@@ -135,15 +137,11 @@
 
     Пример создания снапшота с именем `snapshot_1` для всего кластера:
 
-
     {% include [create-snapshot-3p](es-mos-migration/create-snapshot-3p.md) %}
-
 
     Процесс создания снапшота может занять длительное время. Отслеживайте ход выполнения операции [с помощью инструментов {{ ES }}]({{ links.es.docs }}/elasticsearch/reference/current/snapshots-take-snapshot.html#monitor-snapshot), например:
 
-
     {% include [track-snapshot-creation-3p](es-mos-migration/track-snapshot-creation-3p.md) %}
-
 
 ### Восстановите снапшот в кластере-приемнике {#restore-snapshot}
 
@@ -227,7 +225,7 @@
 
     - {{ OS }} Dashboards {#opensearch}
     
-      1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+      1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
       1. Выберите общий тенант `Global`.
       1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
       1. В разделе **{{ OS }} Plugins** выберите **Index Management**.
@@ -254,21 +252,8 @@
 - С помощью {{ TF }} {#tf}
 
     1. Удалите все объекты из бакета.
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `es-mos-migration-snapshot.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `es-mos-migration-snapshot.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 
@@ -294,6 +279,8 @@
     - Вручную {#manual}
 
         [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     - С помощью {{ TF }} {#tf}
 
@@ -334,7 +321,7 @@
 
     {% include [install-certificate](../../_includes/mdb/mos/install-certificate.md) %}
 
-1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
+1. Убедитесь, что вы можете [подключиться к кластеру-приемнику](../../managed-opensearch/operations/connect/index.md) {{ mos-name }} с помощью {{ OS }} API и Dashboards.
 
 
 1. Убедитесь, что у кластера-источника {{ ES }} есть доступ в интернет.
@@ -473,7 +460,7 @@
 
 - {{ OS }} Dashboards {#opensearch}
 
-  1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+  1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
   1. Выберите общий тенант `Global`.
   1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
   1. В разделе **{{ OS }} Plugins** выберите **Index Management**.
@@ -490,6 +477,7 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
+* [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
 * Удалите ресурсы в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
@@ -500,21 +488,7 @@
 
     - С помощью {{ TF }} {#tf}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `es-mos-migration-reindex.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `es-mos-migration-reindex.tf`, будут удалены.
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}
 

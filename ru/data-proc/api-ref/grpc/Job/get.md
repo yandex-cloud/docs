@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Job/get.md
 ---
 
-# Data Proc API, gRPC: JobService.Get {#Get}
+# Yandex Data Processing API, gRPC: JobService.Get
 
 Returns the specified job.
 
@@ -15,21 +15,25 @@ Returns the specified job.
 
 ```json
 {
-  "clusterId": "string",
-  "jobId": "string"
+  "cluster_id": "string",
+  "job_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required field. ID of the cluster to request a job from. ||
-|| jobId | **string**
+Required field. ID of the cluster to request a job from.
+
+The maximum string length in characters is 50. ||
+|| job_id | **string**
 
 Required field. ID of the job to return.
 
-To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#List) request. ||
+To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
@@ -37,75 +41,75 @@ To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#L
 ```json
 {
   "id": "string",
-  "clusterId": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "startedAt": "google.protobuf.Timestamp",
-  "finishedAt": "google.protobuf.Timestamp",
+  "cluster_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "started_at": "google.protobuf.Timestamp",
+  "finished_at": "google.protobuf.Timestamp",
   "name": "string",
-  "createdBy": "string",
+  "created_by": "string",
   "status": "Status",
-  // Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`
-  "mapreduceJob": {
+  // Includes only one of the fields `mapreduce_job`, `spark_job`, `pyspark_job`, `hive_job`
+  "mapreduce_job": {
     "args": [
       "string"
     ],
-    "jarFileUris": [
+    "jar_file_uris": [
       "string"
     ],
-    "fileUris": [
+    "file_uris": [
       "string"
     ],
-    "archiveUris": [
+    "archive_uris": [
       "string"
     ],
-    "properties": "string",
-    // Includes only one of the fields `mainJarFileUri`, `mainClass`
-    "mainJarFileUri": "string",
-    "mainClass": "string"
+    "properties": "map<string, string>",
+    // Includes only one of the fields `main_jar_file_uri`, `main_class`
+    "main_jar_file_uri": "string",
+    "main_class": "string"
     // end of the list of possible fields
   },
-  "sparkJob": {
+  "spark_job": {
     "args": [
       "string"
     ],
-    "jarFileUris": [
+    "jar_file_uris": [
       "string"
     ],
-    "fileUris": [
+    "file_uris": [
       "string"
     ],
-    "archiveUris": [
+    "archive_uris": [
       "string"
     ],
-    "properties": "string",
-    "mainJarFileUri": "string",
-    "mainClass": "string",
+    "properties": "map<string, string>",
+    "main_jar_file_uri": "string",
+    "main_class": "string",
     "packages": [
       "string"
     ],
     "repositories": [
       "string"
     ],
-    "excludePackages": [
+    "exclude_packages": [
       "string"
     ]
   },
-  "pysparkJob": {
+  "pyspark_job": {
     "args": [
       "string"
     ],
-    "jarFileUris": [
+    "jar_file_uris": [
       "string"
     ],
-    "fileUris": [
+    "file_uris": [
       "string"
     ],
-    "archiveUris": [
+    "archive_uris": [
       "string"
     ],
-    "properties": "string",
-    "mainPythonFileUri": "string",
-    "pythonFileUris": [
+    "properties": "map<string, string>",
+    "main_python_file_uri": "string",
+    "python_file_uris": [
       "string"
     ],
     "packages": [
@@ -114,20 +118,20 @@ To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#L
     "repositories": [
       "string"
     ],
-    "excludePackages": [
+    "exclude_packages": [
       "string"
     ]
   },
-  "hiveJob": {
-    "properties": "string",
-    "continueOnFailure": "bool",
-    "scriptVariables": "string",
-    "jarFileUris": [
+  "hive_job": {
+    "properties": "map<string, string>",
+    "continue_on_failure": "bool",
+    "script_variables": "map<string, string>",
+    "jar_file_uris": [
       "string"
     ],
-    // Includes only one of the fields `queryFileUri`, `queryList`
-    "queryFileUri": "string",
-    "queryList": {
+    // Includes only one of the fields `query_file_uri`, `query_list`
+    "query_file_uri": "string",
+    "query_list": {
       "queries": [
         "string"
       ]
@@ -135,48 +139,47 @@ To get a job ID make a [JobService.List](/docs/data-proc/api-ref/grpc/Job/list#L
     // end of the list of possible fields
   },
   // end of the list of possible fields
-  "applicationInfo": {
+  "application_info": {
     "id": "string",
-    "applicationAttempts": [
+    "application_attempts": [
       {
         "id": "string",
-        "amContainerId": "string"
+        "am_container_id": "string"
       }
     ]
   }
 }
 ```
 
-A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
+A Yandex Data Processing job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of the job. Generated at creation time. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-ID of the Data Proc cluster that the job belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+ID of the Yandex Data Processing cluster that the job belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the job was started. ||
-|| finishedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| finished_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the job was finished. ||
 || name | **string**
 
 Name of the job, specified in the [JobService.Create](/docs/data-proc/api-ref/grpc/Job/create#Create) request. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 The id of the user who created the job ||
 || status | enum **Status**
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.
@@ -184,35 +187,35 @@ Job status.
 - `DONE`: Job is finished.
 - `CANCELLED`: Job is cancelled.
 - `CANCELLING`: Job is waiting for cancellation. ||
-|| mapreduceJob | **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
+|| mapreduce_job | **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
 
 Specification for a MapReduce job.
 
-Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+Includes only one of the fields `mapreduce_job`, `spark_job`, `pyspark_job`, `hive_job`.
 
 Specification for the job. ||
-|| sparkJob | **[SparkJob](#yandex.cloud.dataproc.v1.SparkJob)**
+|| spark_job | **[SparkJob](#yandex.cloud.dataproc.v1.SparkJob)**
 
 Specification for a Spark job.
 
-Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+Includes only one of the fields `mapreduce_job`, `spark_job`, `pyspark_job`, `hive_job`.
 
 Specification for the job. ||
-|| pysparkJob | **[PysparkJob](#yandex.cloud.dataproc.v1.PysparkJob)**
+|| pyspark_job | **[PysparkJob](#yandex.cloud.dataproc.v1.PysparkJob)**
 
 Specification for a PySpark job.
 
-Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+Includes only one of the fields `mapreduce_job`, `spark_job`, `pyspark_job`, `hive_job`.
 
 Specification for the job. ||
-|| hiveJob | **[HiveJob](#yandex.cloud.dataproc.v1.HiveJob)**
+|| hive_job | **[HiveJob](#yandex.cloud.dataproc.v1.HiveJob)**
 
 Specification for a Hive job.
 
-Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+Includes only one of the fields `mapreduce_job`, `spark_job`, `pyspark_job`, `hive_job`.
 
 Specification for the job. ||
-|| applicationInfo | **[ApplicationInfo](#yandex.cloud.dataproc.v1.ApplicationInfo)**
+|| application_info | **[ApplicationInfo](#yandex.cloud.dataproc.v1.ApplicationInfo)**
 
 Attributes of YARN application. ||
 |#
@@ -224,29 +227,29 @@ Attributes of YARN application. ||
 || args[] | **string**
 
 Optional arguments to pass to the driver. ||
-|| jarFileUris[] | **string**
+|| jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
-|| fileUris[] | **string**
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+|| file_uris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
-|| archiveUris[] | **string**
+|| archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
-|| mainJarFileUri | **string**
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
+|| main_jar_file_uri | **string**
 
 HCFS URI of the .jar file containing the driver class.
 
-Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
-|| mainClass | **string**
+Includes only one of the fields `main_jar_file_uri`, `main_class`. ||
+|| main_class | **string**
 
 The name of the driver class.
 
-Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
+Includes only one of the fields `main_jar_file_uri`, `main_class`. ||
 |#
 
 ## SparkJob {#yandex.cloud.dataproc.v1.SparkJob}
@@ -256,23 +259,23 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 || args[] | **string**
 
 Optional arguments to pass to the driver. ||
-|| jarFileUris[] | **string**
+|| jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
-|| fileUris[] | **string**
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+|| file_uris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
-|| archiveUris[] | **string**
+|| archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
-|| mainJarFileUri | **string**
+Property names and values, used to configure Yandex Data Processing and Spark. ||
+|| main_jar_file_uri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
-|| mainClass | **string**
+|| main_class | **string**
 
 The name of the driver class. ||
 || packages[] | **string**
@@ -281,7 +284,7 @@ List of maven coordinates of jars to include on the driver and executor classpat
 || repositories[] | **string**
 
 List of additional remote repositories to search for the maven coordinates given with --packages. ||
-|| excludePackages[] | **string**
+|| exclude_packages[] | **string**
 
 List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
 |#
@@ -293,23 +296,23 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 || args[] | **string**
 
 Optional arguments to pass to the driver. ||
-|| jarFileUris[] | **string**
+|| jar_file_uris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
-|| fileUris[] | **string**
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
+|| file_uris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
-|| archiveUris[] | **string**
+|| archive_uris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
-|| mainPythonFileUri | **string**
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
+|| main_python_file_uri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
-|| pythonFileUris[] | **string**
+|| python_file_uris[] | **string**
 
 URIs of Python files to pass to the PySpark framework. ||
 || packages[] | **string**
@@ -318,7 +321,7 @@ List of maven coordinates of jars to include on the driver and executor classpat
 || repositories[] | **string**
 
 List of additional remote repositories to search for the maven coordinates given with --packages. ||
-|| excludePackages[] | **string**
+|| exclude_packages[] | **string**
 
 List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts. ||
 |#
@@ -327,28 +330,28 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
-|| continueOnFailure | **bool**
+Property names and values, used to configure Yandex Data Processing and Hive. ||
+|| continue_on_failure | **bool**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| script_variables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
-|| jarFileUris[] | **string**
+|| jar_file_uris[] | **string**
 
 JAR file URIs to add to CLASSPATH of the Hive driver and each task. ||
-|| queryFileUri | **string**
+|| query_file_uri | **string**
 
 URI of the script with all the necessary Hive queries.
 
-Includes only one of the fields `queryFileUri`, `queryList`. ||
-|| queryList | **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
+Includes only one of the fields `query_file_uri`, `query_list`. ||
+|| query_list | **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
 
 List of Hive queries to be used in the job.
 
-Includes only one of the fields `queryFileUri`, `queryList`. ||
+Includes only one of the fields `query_file_uri`, `query_list`. ||
 |#
 
 ## QueryList {#yandex.cloud.dataproc.v1.QueryList}
@@ -367,7 +370,7 @@ List of Hive queries. ||
 || id | **string**
 
 ID of YARN application ||
-|| applicationAttempts[] | **[ApplicationAttempt](#yandex.cloud.dataproc.v1.ApplicationAttempt)**
+|| application_attempts[] | **[ApplicationAttempt](#yandex.cloud.dataproc.v1.ApplicationAttempt)**
 
 YARN application attempts ||
 |#
@@ -379,7 +382,7 @@ YARN application attempts ||
 || id | **string**
 
 ID of YARN application attempt ||
-|| amContainerId | **string**
+|| am_container_id | **string**
 
 ID of YARN Application Master container ||
 |#

@@ -10,6 +10,8 @@
 
 О том, как создать триггер для {{ message-queue-short-name }}, читайте в инструкции [{#T}](../../operations/trigger/ymq-trigger-create.md).
 
+{% include [batching-messages](../../../_includes/functions/batching-messages.md) %}
+
 ## Роли, необходимые для корректной работы триггера для {{ message-queue-short-name }} {#roles}
 
 * Для создания триггера вам необходимы: 
@@ -27,6 +29,11 @@
 После того как триггер примет сообщение из очереди, он передаст его в функцию в следующем формате: 
 
 {% include [ymq-format](../../../_includes/functions/ymq-format.md) %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../../tutorials/video-converting-queue.md)
 
 ## См. также {#see-also}
 

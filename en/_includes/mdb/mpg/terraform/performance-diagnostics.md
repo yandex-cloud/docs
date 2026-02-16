@@ -1,4 +1,4 @@
-To set up statistics collection, to the `config` section, add the `performance_diagnostics` section:
+To set up statistics collection, add the `performance_diagnostics` block to the `config` section:
 
 ```hcl
 resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -6,9 +6,9 @@ resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
   config {
     ...
     performance_diagnostics {
-      enabled = <enables statistics collection: true or false>
-      sessions_sampling_interval  = <sessions sampling interval>
-      statements_sampling_interval = <statements sampling interval>
+      enabled                      = <activate_statistics_collection>
+      sessions_sampling_interval   = <session_sampling_interval>
+      statements_sampling_interval = <statement_sampling_interval>
     }
     ...
   }

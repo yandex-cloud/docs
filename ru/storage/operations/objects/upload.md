@@ -1,6 +1,6 @@
 ---
 title: Загрузка объекта в бакет в {{ objstorage-full-name }}
-description: Следуя данной инструкции, вы сможете загрузить объект в бакет в {{ objstorage-name }}.
+description: Следуя данной инструкции, вы сможете загрузить объект в бакет в {{ objstorage-name }}, а также задать условия загрузки (conditional writes).
 ---
 
 # Загрузка объекта
@@ -25,7 +25,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в который нужно загрузить объект.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, в который нужно загрузить объект.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Если вы хотите загрузить объект в бакет впервые, нажмите **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если вам нужно создать новую папку, нажмите **{{ ui-key.yacloud.storage.bucket.button_create }}**.
@@ -37,21 +39,29 @@ description: Следуя данной инструкции, вы сможете
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  {% include [upload-object-via-cli](../../../_includes/storage/upload-obect-via-cli.md) %}
+
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Чтобы загрузить один объект, выполните команду:
- 
+
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-       s3 cp <путь_к_локальному_файлу>/ s3://<имя_бакета>/<ключ_объекта>
+       s3 cp <путь_к_локальному_файлу> s3://<имя_бакета>/<ключ_объекта>
      ```
-     
+
      Где:
-   
+
      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
      * `s3 cp` — команда для загрузки объекта. Чтобы загрузить объект, в первой части команды укажите путь к локальному файлу, который нужно загрузить, а во второй — имя вашего бакета и [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете.
-   
+
      Чтобы загрузить все объекты из локальной директории, используйте команду:
    
      ```bash
@@ -74,29 +84,37 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Перед началом работы получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Перед началом работы получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   Чтобы создать объект в существующем бакете:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать.
 
      ```hcl
+     # Создание сервисного аккаунта
+
      resource "yandex_iam_service_account" "sa" {
        name = "<имя_сервисного_аккаунта>"
      }
 
-     // Назначение роли сервисному аккаунту
+     # Назначение роли сервисному аккаунту
+
      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
        folder_id = "<идентификатор_каталога>"
        role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
-     // Создание статического ключа доступа
+     # Создание статического ключа доступа
+     
      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = yandex_iam_service_account.sa.id
        description        = "static access key for object storage"
      }
+
+     # Создание объекта
 
      resource "yandex_storage_object" "test-object" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -119,35 +137,17 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
-  1. Проверьте корректность конфигурационных файлов.
+1. Создайте ресурсы:
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
-
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
   Чтобы загрузить объект, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md).
 
 {% endlist %}
-
 
 ## Загрузка версии объекта с блокировкой (object lock) {#w-object-lock}
 
@@ -157,7 +157,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в который нужно загрузить объект.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, в который нужно загрузить объект.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Если вы хотите загрузить объект в бакет впервые, нажмите **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
   1. Если вы хотите загрузить объект в конкретную папку, перейдите в нее, нажав на имя. Если хотите создать новую папку, создайте ее, нажав на панели сверху **{{ ui-key.yacloud.storage.bucket.button_create }}**.
@@ -167,15 +169,67 @@ description: Следуя данной инструкции, вы сможете
   1. Чтобы настроить блокировку загружаемых объектов, в выпадающем списке **{{ ui-key.yacloud.storage.title_object-lock }}** выберите вид блокировки:
      * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}** — блокировка бессрочно запрещает удаление или перезапись версии объекта, но при этом не запрещает загружать новые версии объекта. Пользователь с ролью `storage.uploader` может установить и снять блокировку. Обойти блокировку нельзя. В сочетании с временной блокировкой имеет приоритет.
      * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}** — блокировка запрещает удаление или перезапись версии объекта на определенный срок, но при этом не запрещает загружать новые версии объекта. Пользователь с ролью `storage.uploader` может установить блокировку. В сочетании с бессрочной блокировкой не имеет приоритета.
-  1. Если вы выбрали вид **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, укажите **{{ ui-key.yacloud.storage.bucket.object-lock.field_mode }}**:
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
-     * **{{ ui-key.yacloud.storage.bucket.object-lock.title-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
-  1. Установите **{{ ui-key.yacloud.storage.bucket.object-lock.field_retention-period }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Если вы выбрали вид **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, укажите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+  1. Установите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
   1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}** и обновите страницу.
 
   В консоли управления информация о количестве объектов в бакете и занятом месте обновляется с задержкой в несколько минут.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для загрузки файла в бакет:
+
+      ```bash
+      yc storage s3api put-object --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api put-object \
+       --body <путь_к_локальному_файлу> \
+       --bucket <имя_бакета> \
+       --key <ключ_объекта> \
+       --object-lock-mode <тип_временной_блокировки> \
+       --object-lock-retain-until-date <дата_и_время_окончания_временной_блокировки> \
+       --object-lock-legal-hold-status <статус_бессрочной_блокировки>
+      ```
+
+     Где:
+
+     * `--body` — путь к файлу, который нужно загрузить в бакет.
+     * `--bucket` — имя вашего бакета.
+     * `--key` — [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете.
+     * `--object-lock-mode` — [тип](../../concepts/object-lock.md#types) временной блокировки:
+
+       * `GOVERNANCE` — временная управляемая блокировка.
+       * `COMPLIANCE` — временная строгая блокировка.
+  
+     * `--object-lock-retain-until-date` — дата и время окончания временной блокировки в любом из форматов, описанных в [стандарте HTTP](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats). Например, `2025-01-02T15:04:05Z`. Указывается только вместе с параметром `--object-lock-mode`.
+  
+     * `--object-lock-legal-hold-status` — статус [бессрочной блокировки](../../concepts/object-lock.md#types):
+  
+       * `ON` — блокировка установлена.
+       * `OFF` — блокировка не установлена.
+
+     Вы можете установить на версию объекта только временную блокировку (параметры `object-lock-mode` и `object-lock-retain-until-date`), только бессрочную блокировку (`object-lock-legal-hold-status`) или обе сразу. Подробнее об их совместной работе см. в разделе [{#T}](../../concepts/object-lock.md#types).
+
+     Результат:
+
+     ```bash
+     etag: '"d41d8cd98f00b204e9800998********"'
+     request_id: e19afe50********
+     version_id: 0006241E********
+     ```
+
+- AWS CLI {#aws-cli}
 
   1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
   1. Выполните команду:
@@ -222,10 +276,54 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   1. Вычислите MD5-хэш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
- 
+
+     ```bash
+     md5=($(md5sum <путь_к_локальному_файлу>))
+     md5_base64=$(echo $md5 | base64)
+     ```
+
+  1. Посмотрите описание команды CLI для загрузки файла в бакет:
+
+     ```bash
+     yc storage s3api put-object --help
+     ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Загрузите объект в бакет:
+
+     ```bash
+      yc storage s3api put-object \
+       --body <путь_к_локальному_файлу> \
+       --bucket <имя_бакета> \
+       --key <ключ_объекта> \
+       --content-md5 $md5_base64
+     ```
+
+     Где:
+
+     * `--body` — путь к файлу, который нужно загрузить в бакет.
+     * `--bucket` — имя вашего бакета.
+     * `--key` — [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете.
+     * `--content-md5` — закодированный MD5-хеш объекта.
+
+     Также вы можете добавить к команде параметры:
+
+     * `--object-lock-mode` и `--object-lock-retain-until-date`, чтобы установить на версию объекта временную блокировку, отличную от настроек бакета по умолчанию;
+     * `--object-lock-legal-hold-status`, чтобы установить на версию объекта бессрочную блокировку.
+
+     Подробнее об этих параметрах см. в инструкции выше.
+
+- AWS CLI {#aws-cli}
+
+  1. Вычислите MD5-хэш файла и закодируйте его по схеме [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+
      ```bash
      md5=($(md5sum <путь_к_локальному_файлу>))
      md5_base64=$(echo $md5 | base64)
@@ -266,6 +364,87 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 
+## Условная загрузка объекта (conditional writes) {#conditional-writes}
+
+Вы можете использовать [условия](../../concepts/object.md#conditional-writes) при загрузке объекта, а также при [завершении составной загрузки](multipart-upload.md#conditional-writes).
+
+{% note tip %}
+
+{% include [use-forced-conditions](../../../_includes/storage/use-forced-conditions.md) %}
+
+{% endnote %}
+
+
+### Загрузка объекта с условием по ETag {#if-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  1. Чтобы загрузить объект только при существовании объекта с определенным `ETag`, выполните команду:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <путь_к_локальному_файлу> \
+          --bucket <имя_бакета> \
+          --key <путь_к_объекту> \
+          --if-match "<ETag_объекта>"
+      ```
+
+      Где:
+
+      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+      * `--body` — путь к файлу, который нужно загрузить в бакет. Например: `./my-folder/my-file.txt`.
+      * `--bucket` — имя вашего бакета.
+      * `--key` — [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете. Например: `my-folder/my-file.txt`.
+      * `--if-match` — текущий `ETag` объекта, например `\"d41d8cd98f00b204e9800998********\"`. Запись выполнится, только если по указанному ключу уже существует объект и его текущий `ETag` совпадает.
+
+- API {#api}
+
+  Чтобы загрузить объект только при существовании объекта с определенным `ETag`, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md) с заголовком `--if-match`.
+
+{% endlist %}
+
+
+### Загрузка объекта с условием отсутствия {#if-none-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
+  1. Чтобы загрузить объект только при отсутствии в бакете объекта с определенным ключом, выполните команду:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <путь_к_локальному_файлу> \
+          --bucket <имя_бакета> \
+          --key <путь_к_объекту> \
+          --if-none-match "*"
+      ```
+
+      Где:
+
+      * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+      * `--body` — путь к файлу, который нужно загрузить в бакет. Например: `./my-folder/my-file.txt`.
+      * `--bucket` — имя вашего бакета.
+      * `--key` — [ключ](../../concepts/object.md#key), по которому объект будет храниться в бакете. Например: `my-folder/my-file.txt`.
+      * `--if-none-match` — укажите `"*"`, чтобы запись выполнилась, только если по указанному ключу еще нет объекта.
+
+- API {#api}
+
+  Чтобы загрузить объект только при отсутствии в бакете объекта с определенным ключом, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md) с заголовком `--if-none-match`.
+
+{% endlist %}
+
+
+
 #### См. также {#see-also}
 
 * [{#T}](../../tutorials/storage-vpc-access.md)
+

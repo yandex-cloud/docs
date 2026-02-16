@@ -1,9 +1,14 @@
+---
+title: Подключение тома в блочном режиме
+description: Следуя данной инструкции, вы сможете подключить том в блочном режиме.
+---
+
 # Подключение тома в блочном режиме
 
 
 Чтобы подключить [том в режиме](../../concepts/volume.md#block) `volumeMode: Block`:
-1. [{#T}](#create-pvc).
-1. [{#T}](#create-pod).
+1. [Создайте объект PersistentVolumeClaim](#create-pvc).
+1. [Создайте под с подключенным томом](#create-pod).
 
 {% include [Перед началом установите kubectl](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
@@ -13,17 +18,13 @@
 
    Сохраните следующую спецификацию для создания объекта [PersistentVolumeClaim](dynamic-create-pv.md) в YAML-файл с названием `pvc-block.yaml`.
 
-
    {% note info %}
 
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
-
 
    ```yaml
    apiVersion: v1
@@ -39,8 +40,6 @@
        requests:
          storage: 1Gi
    ```
-
-
 
 1. Создайте объект `PersistentVolumeClaim`:
 

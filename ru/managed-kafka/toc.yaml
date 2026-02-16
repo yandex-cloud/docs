@@ -23,8 +23,14 @@ items:
             href: operations/cluster-stop.md
           - name: Получение списка хостов кластера
             href: operations/cluster-hosts.md
+          - name: Получение патч-версии {{ KF }}
+            href: operations/cluster-patch-version.md
           - name: Миграция хостов в другую зону доступности
             href: operations/host-migration.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение
@@ -41,6 +47,8 @@ items:
         href: operations/cluster-accounts.md
       - name: Управление коннекторами
         href: operations/cluster-connector.md
+      - name: Веб-интерфейс {{ kafka-ui }} для {{ KF }}
+        href: operations/kafka-ui-enable.md
       - name: Логи и мониторинг
         items:
           - name: Просмотр логов кластера
@@ -51,8 +59,12 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Развертывание веб-интерфейса {{ KF }}
+      - name: Самостоятельное развертывание веб-интерфейса {{ KF }}
         href: tutorials/deploy-kafka-ui.md
+      - name: >-
+          Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name
+          }}
+        href: tutorials/zk-kraft-kafka-migration.md
       - name: Перемещение данных из {{ KF }}
         items:
           - name: Настройка {{ KFC }} для работы с {{ mkf-name }}
@@ -69,6 +81,10 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Работа с управляемым реестром схем формата данных
             href: tutorials/managed-schema-registry.md
+          - name: >-
+              Работа с управляемым реестром схем формата данных с помощью REST
+              API
+            href: tutorials/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
       - name: Поставка данных с помощью {{ data-transfer-name }}
@@ -85,9 +101,11 @@ items:
             href: tutorials/mkf-to-mch-migration.md
           - name: Поставка из {{ KF }} в {{ yds-name }}
             href: tutorials/mkf-yds-stream.md
+          - name: Поставка из {{ yds-name }} в {{ KF }}
+            href: tutorials/yds-to-kafka.md
           - name: Поставка из {{ KF }} в {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: Поставка из {{ KF }} в {{ MG }}
+          - name: Поставка из {{ KF }} в {{ SD }}
             href: tutorials/mkf-to-mmg-migration.md
           - name: Поставка из {{ MY }} в {{ KF }}
             href: tutorials/cdc/cdc-mmy.md
@@ -105,10 +123,14 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Поставка в ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
-      - name: Развертывание веб-интерфейса {{ KF }}
-        href: tutorials/deploy-kafka-ui.md
+          - name: >-
+              Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
+              использования интернета
+            href: tutorials/kafka-topic-s3-sync-private.md
       - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
-        href: tutorials/data-proc.md
+        href: tutorials/data-processing.md
+      - name: Отслеживание потери сообщений в топике {{ KF }}
+        href: tutorials/retention-policy.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -121,10 +143,18 @@ items:
         href: concepts/kraft.md
       - name: Производители и потребители
         href: concepts/producers-consumers.md
+      - name: Роли пользователей
+        href: concepts/account-roles.md
       - name: Управление схемами данных
         href: concepts/managed-schema-registry.md
+      - name: Веб-интерфейс для {{ KF }}
+        href: concepts/kafka-ui.md
+      - name: API в {{ mkf-name }}
+        href: concepts/available-apis.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Высокая доступность кластера
+        href: concepts/ha-cluster.md
       - name: Сеть в {{ mkf-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
@@ -137,12 +167,114 @@ items:
         href: concepts/maintenance.md
       - name: Настройки {{ KF }}
         href: concepts/settings-list.md
+      - name: Политика работы с версиями {{ KF }}
+        href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-kafka/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/cluster/list-hosts.md
+          - name: list-logs
+            href: cli-ref/cluster/list-logs.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: move
+            href: cli-ref/cluster/move.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: connector
+        items:
+          - name: Overview
+            href: cli-ref/connector/index.md
+          - name: delete
+            href: cli-ref/connector/delete.md
+          - name: get
+            href: cli-ref/connector/get.md
+          - name: list
+            href: cli-ref/connector/list.md
+          - name: pause
+            href: cli-ref/connector/pause.md
+          - name: resume
+            href: cli-ref/connector/resume.md
+      - name: connector-mirrormaker
+        items:
+          - name: Overview
+            href: cli-ref/connector-mirrormaker/index.md
+          - name: create
+            href: cli-ref/connector-mirrormaker/create.md
+          - name: update
+            href: cli-ref/connector-mirrormaker/update.md
+      - name: connector-s3-sink
+        items:
+          - name: Overview
+            href: cli-ref/connector-s3-sink/index.md
+          - name: create
+            href: cli-ref/connector-s3-sink/create.md
+          - name: update
+            href: cli-ref/connector-s3-sink/update.md
+      - name: topic
+        items:
+          - name: Overview
+            href: cli-ref/topic/index.md
+          - name: create
+            href: cli-ref/topic/create.md
+          - name: delete
+            href: cli-ref/topic/delete.md
+          - name: get
+            href: cli-ref/topic/get.md
+          - name: list
+            href: cli-ref/topic/list.md
+          - name: update
+            href: cli-ref/topic/update.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: create
+            href: cli-ref/user/create.md
+          - name: delete
+            href: cli-ref/user/delete.md
+          - name: get
+            href: cli-ref/user/get.md
+          - name: grant-permission
+            href: cli-ref/user/grant-permission.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: revoke-permission
+            href: cli-ref/user/revoke-permission.md
+          - name: update
+            href: cli-ref/user/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -183,6 +315,12 @@ items:
                 href: api-ref/grpc/Cluster/listOperations.md
               - name: ListHosts
                 href: api-ref/grpc/Cluster/listHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Connector
             items:
               - name: Overview
@@ -283,6 +421,12 @@ items:
                 href: api-ref/Cluster/listOperations.md
               - name: ListHosts
                 href: api-ref/Cluster/listHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Connector
             items:
               - name: Overview
@@ -361,5 +505,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/managed-kafka
-deepBase: 2

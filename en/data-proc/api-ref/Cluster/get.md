@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster.
+            To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/get.md
 ---
 
-# Data Proc API, REST: Cluster.Get {#Get}
+# Yandex Data Processing API, REST: Cluster.Get
 
 Returns the specified cluster.
 
@@ -21,9 +40,11 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Data Proc cluster.
+Required field. ID of the Yandex Data Processing cluster.
 
-To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.Cluster}
@@ -37,7 +58,7 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "monitoring": [
     {
       "name": "string",
@@ -51,7 +72,7 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
       "services": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "sshPublicKeys": [
         "string"
       ],
@@ -63,7 +84,8 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
           ],
           "timeout": "string"
         }
-      ]
+      ],
+      "osloginEnabled": "boolean"
     }
   },
   "health": "string",
@@ -79,11 +101,13 @@ To get a cluster ID make a [ClusterService.List](/docs/data-proc/api-ref/Cluster
     "string"
   ],
   "deletionProtection": "boolean",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "environment": "string",
+  "autoscalingServiceAccountId": "string"
 }
 ```
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -105,13 +129,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
-|| labels | **string**
+Description of the cluster.
 
-Cluster labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -142,10 +172,10 @@ Cluster status.
 ID of the availability zone where the cluster resides. ||
 || serviceAccountId | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
 || uiProxy | **boolean**
 
 Whether UI Proxy feature is enabled. ||
@@ -162,11 +192,20 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `PRODUCTION`
+- `PRESTABLE` ||
+|| autoscalingServiceAccountId | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -191,7 +230,7 @@ Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig}
@@ -205,7 +244,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -219,7 +257,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
@@ -232,6 +270,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}

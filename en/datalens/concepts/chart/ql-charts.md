@@ -1,4 +1,9 @@
-# QL charts: Overview
+---
+title: QL charts in {{ datalens-full-name }}. Overview
+description: In this tutorial, you will learn about QL charts in {{ datalens-full-name }} and their features.
+---
+
+# QL charts in {{ datalens-full-name }}. Overview
 
 
 _QL charts_ are charts created from a connection if the connection source is a database, {{ prometheus-name }}, or {{ monitoring-short-name }}. To create such charts, one uses direct queries to the source. Depending on the chart type, the query can be run in the source database's SQL dialect, as well as the {{ prometheus-name }} or {{ monitoring-short-name }} query languages. This helps you to expand visualization capabilities by using language-specific transactions.
@@ -6,12 +11,17 @@ _QL charts_ are charts created from a connection if the connection source is a d
 
 Running a query does not create a separate [dataset](../../dataset/index.md) object: a chart is generated on the fly and displayed in the preview panel.
 
-Unlike [dataset-based charts](dataset-based-charts.md), the logic of a visualization area in QL charts favors queries against the source, i.e., the visualization area only displays the data from the query.
+Unlike [dataset-based charts](dataset-based-charts.md), the logic of a visualization area in QL charts favors queries against the source, i.e., the visualization area only displays the data from the query. You can also save QL charts and [add](../../operations/dashboard/add-chart.md) them to dashboards as widgets.
+
 
 
 {% note alert %}
 
-If users are granted [permission to view](../../security/manage-access#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
+If users are granted [permission to view](../../security/manage-access.md#permission-read) your QL chart, they will be able to make any queries to any source data of this QL chart.
+
+When using QL charts, configure access restrictions on the data source side.
+
+If you need to [restrict access at the data row level (RLS)](../../security/row-level-security.md), use [dataset-based charts](./dataset-based-charts.md).
 
 {% endnote %}
 
@@ -23,7 +33,7 @@ The following types of QL charts are supported:
 
   * Reduce database workload by using direct queries.
   * Are only suitable for `SELECT` queries.
-  * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregate functions in SQL queries.
+  * Enable the use of `JOIN`, `GROUP BY`, and `SORT BY` queries and aggregation functions in SQL queries.
   * Enable the parameterization of any part of a SQL query.
   * Support a limited set of [visualizations types](../../visualization-ref/index.md).
   * Do not support [RLS](../../security/row-level-security.md) and [calculable fields](../calculations/index.md).
@@ -44,6 +54,12 @@ The following types of QL charts are supported:
 
 
 To create a QL chart, follow [this guide](../../operations/chart/create-sql-chart.md).
+
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)
+
 
 #### See also {#see-also}
 

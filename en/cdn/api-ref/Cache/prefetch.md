@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:prefetch
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource to perform prefetch operation on.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        paths:
+          description: |-
+            **string**
+            Set of paths to prefetch.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/prefetch.md
 ---
 
-# Cloud CDN API, REST: Cache.Prefetch {#Prefetch}
+# Cloud CDN API, REST: Cache.Prefetch
 
 Uploads specified files from origins to cache of the specified resource. For defails about prefetching, see [documentation](/docs/cdn/concepts/caching#prefetch).
 
@@ -19,7 +47,9 @@ POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:prefetch
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource to perform prefetch operation on. ||
+Required field. ID of the resource to perform prefetch operation on.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cdn.v1.PrefetchCacheRequest}
@@ -126,7 +156,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

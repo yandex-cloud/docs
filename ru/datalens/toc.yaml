@@ -5,9 +5,6 @@ items:
     items:
       - name: Обзор сервиса
         href: concepts/index.md
-      - name: Навигация и интерфейс
-        href: getting-started/navigation.md
-        hidden: true
       - name: Начало работы
         href: quickstart.md
       - name: Квоты и лимиты
@@ -22,8 +19,14 @@ items:
         href: workbooks-collections/workbooks-collections-create.md
       - name: Миграция объектов в воркбуки
         href: workbooks-collections/migrations.md
+      - name: Экспорт и импорт воркбуков
+        href: workbooks-collections/export-and-import.md
+      - name: Ошибки и предупреждения при экспорте и импорте
+        href: workbooks-collections/export-import-notifications.md
       - name: Настройка доступа
         href: workbooks-collections/security.md
+  - name: Нейроаналитик DataLens
+    href: concepts/neuroanalyst.md
   - name: Практические руководства
     items:
       - name: Обзор
@@ -48,7 +51,7 @@ items:
               Геокодинг с помощью API Яндекс Карт для визуализации в {{
               datalens-short-name }}
             href: tutorials/data-from-ch-geocoder.md
-          - name: Визуализация данных с использованием инструмента "Тепловые карты"
+          - name: Визуализация данных с использованием инструмента Тепловые карты
             hidden: true
             href: tutorials/data-on-heat-map-dashboard.md
           - name: Мониторинг состояния географически распределенных устройств
@@ -67,6 +70,8 @@ items:
             href: tutorials/data-from-bitrix24-visualization.md
           - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
             href: tutorials/data-from-tracker.md
+          - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
+            href: tutorials/storage-logs-analysis.md
           - name: 'Подкасты Яндекс Музыки: статистика'
             href: tutorials/data-from-podcasts.md
           - name: Визуализация данных {{ yq-full-name }}
@@ -79,20 +84,38 @@ items:
               Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и
               их анализ с помощью {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
+          - name: >-
+              Поставка данных из {{ forms-full-name }} в {{ datalens-full-name
+              }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
+            items:
+              - name: Обзор
+                href: tutorials/forms-and-datalens-integration/index.md
+              - name: Консоль управления
+                href: tutorials/forms-and-datalens-integration/console.md
+              - name: Terraform
+                href: tutorials/forms-and-datalens-integration/terraform.md
+          - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+            href: tutorials/bigquery-to-clickhouse.md
       - name: Функциональные
         items:
-          - name: Использование параметров
+          - name: Использование параметров в вычисляемых полях
             href: tutorials/data-from-ch-with-parameters.md
+          - name: Параметризация источников
+            href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Примеры создания QL-чартов
             href: tutorials/data-from-ch-to-sql-chart.md
   - name: Подключения
     items:
       - name: Обзор
-        href: concepts/connection.md
+        href: concepts/connection/index.md
+      - name: Версионирование
+        href: concepts/connection/versioning.md
       - name: Кеширование
         href: concepts/caching.md
       - name: Объединение данных
         href: concepts/data-join.md
+      - name: Добавление информации о подключении
+        href: operations/connection/add-description.md
       - name: Базы данных
         items:
           - name: Создание подключения к {{ CH }}
@@ -119,10 +142,10 @@ items:
             href: operations/connection/create-oracle.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
-          - name: Создание подключения к BigQuery
-            href: operations/connection/create-big-query.md
           - name: Создание подключения к Snowflake
             href: operations/connection/create-snowflake.md
+          - name: Создание подключения к {{ TR }}
+            href: operations/connection/create-trino.md
       - name: Файлы и сервисы
         items:
           - name: Создание подключения к файлам
@@ -142,7 +165,15 @@ items:
           - name: Создание подключения к {{ monitoring-full-name }}
             href: operations/connection/create-monitoring.md
           - name: Создание подключения к {{ datalens-short-name }} Usage Analytics
-            href: operations/connection/create-usage-tracking.md
+            items:
+              - name: Обзор
+                href: concepts/datalens-usage-analytics.md
+              - name: Подключение
+                href: operations/connection/create-usage-tracking.md
+          - name: Создание подключения API Connector
+            href: operations/connection/create-api-connector.md
+          - name: Создание подключения к {{ speechsense-name }}
+            href: operations/connection/create-speechsense.md
       - name: Партнерские подключения
         items:
           - name: Создание подключения к Экстрактору 1С
@@ -151,6 +182,8 @@ items:
             href: operations/connection/create-bitrix24.md
           - name: Создание подключения к подкастам Яндекс Музыки
             href: operations/connection/create-podcasts.md
+          - name: Предложить свой партнерский коннектор
+            href: operations/marketplace/create-connector-for-partners.md
   - name: Датасеты
     items:
       - name: Обзор
@@ -161,6 +194,12 @@ items:
         href: dataset/data-model.md
       - name: Настройки датасета
         href: dataset/settings.md
+      - name: Версионирование
+        href: dataset/versioning.md
+      - name: Добавление информации о датасете
+        href: dataset/add-description.md
+      - name: Параметризация источников
+        href: dataset/parametrization.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных
@@ -171,6 +210,8 @@ items:
         href: concepts/calculations/index.md
       - name: Синтаксис формул
         href: concepts/calculations/formula-syntax.md
+      - name: Нейроаналитик для создания вычисляемых полей
+        href: concepts/calculations/formulas-helper.md
       - name: Справочник функций
         items:
           - name: Все функции
@@ -301,6 +342,30 @@ items:
                 href: function-ref/SQUARE.md
               - name: TAN
                 href: function-ref/TAN.md
+          - name: Нативные функции
+            items:
+              - name: Обзор
+                href: function-ref/native-functions.md
+              - name: DB_CALL_AGG_FLOAT
+                href: function-ref/DB_CALL_AGG_FLOAT.md
+              - name: DB_CALL_AGG_INT
+                href: function-ref/DB_CALL_AGG_INT.md
+              - name: DB_CALL_AGG_STRING
+                href: function-ref/DB_CALL_AGG_STRING.md
+              - name: DB_CALL_ARRAY_FLOAT
+                href: function-ref/DB_CALL_ARRAY_FLOAT.md
+              - name: DB_CALL_ARRAY_INT
+                href: function-ref/DB_CALL_ARRAY_INT.md
+              - name: DB_CALL_ARRAY_STRING
+                href: function-ref/DB_CALL_ARRAY_STRING.md
+              - name: DB_CALL_BOOL
+                href: function-ref/DB_CALL_BOOL.md
+              - name: DB_CALL_FLOAT
+                href: function-ref/DB_CALL_FLOAT.md
+              - name: DB_CALL_INT
+                href: function-ref/DB_CALL_INT.md
+              - name: DB_CALL_STRING
+                href: function-ref/DB_CALL_STRING.md
           - name: Оконные функции
             items:
               - name: Обзор
@@ -499,6 +564,12 @@ items:
                 href: function-ref/ARRAY.md
               - name: ARR_AVG
                 href: function-ref/ARR_AVG.md
+              - name: ARR_DISTINCT
+                href: function-ref/ARR_DISTINCT.md
+              - name: ARR_INDEX_OF
+                href: function-ref/ARR_INDEX_OF.md
+              - name: ARR_INTERSECT
+                href: function-ref/ARR_INTERSECT.md
               - name: ARR_MAX
                 href: function-ref/ARR_MAX.md
               - name: ARR_MIN
@@ -585,10 +656,30 @@ items:
                 href: function-ref/MARKUP.md
               - name: SIZE
                 href: function-ref/SIZE.md
+              - name: TOOLTIP
+                href: function-ref/TOOLTIP.md
               - name: URL
                 href: function-ref/URL.md
               - name: USER_INFO
                 href: function-ref/USER_INFO.md
+          - name: Хеш-функции
+            items:
+              - name: Обзор
+                href: function-ref/hash-functions.md
+              - name: CITYHASH64
+                href: function-ref/CITYHASH64.md
+              - name: INTHASH64
+                href: function-ref/INTHASH64.md
+              - name: MD5
+                href: function-ref/MD5.md
+              - name: MURMURHASH2_64
+                href: function-ref/MURMURHASH2_64.md
+              - name: SHA1
+                href: function-ref/SHA1.md
+              - name: SHA256
+                href: function-ref/SHA256.md
+              - name: SIPHASH64
+                href: function-ref/SIPHASH64.md
           - name: Поддержка функций
             href: function-ref/availability.md
       - name: Примеры использования функций
@@ -631,7 +722,7 @@ items:
                 href: operations/chart/config-chart-navigator.md
               - name: Настройка отображения пустых (null) значений
                 href: operations/chart/chart-null-settings.md
-              - name: Создание цветовой палитры
+              - name: Настройка цветовой палитры
                 href: operations/chart/create-palette.md
       - name: QL-чарты
         items:
@@ -639,13 +730,57 @@ items:
             href: concepts/chart/ql-charts.md
           - name: Создание QL-чарта
             href: operations/chart/create-sql-chart.md
+      - name: Чарты в Editor
+        items:
+          - name: Обзор
+            href: charts/editor/index.md
+          - name: Быстрый старт в Editor
+            items:
+              - name: Обзор
+                href: charts/editor/quickstart/index.md
+              - name: Создание таблицы на основе датасета
+                href: charts/editor/quickstart/from-dataset.md
+              - name: Создание таблицы на основе SQL-запроса
+                href: charts/editor/quickstart/from-database.md
+              - name: Создание таблицы на основе API Connector
+                href: charts/editor/quickstart/from-api-connector.md
+          - name: Нейроаналитик в Editor
+            href: charts/editor/code-helper.md
+          - name: Вкладки
+            href: charts/editor/tabs.md
+          - name: Источники
+            href: charts/editor/sources.md
+          - name: Доступные методы
+            href: charts/editor/methods.md
+          - name: Уведомления
+            href: charts/editor/notifications.md
+          - name: Связи чарта в дашбордах и отчетах
+            href: charts/editor/links.md
+          - name: Кросс-фильтрация
+            href: charts/editor/cross-filtration.md
+          - name: Отладка чартов
+            href: charts/editor/debug.md
+          - name: Типы визуализаций
+            items:
+              - name: Обзор
+                href: charts/editor/widgets/index.md
+              - name: Таблица
+                href: charts/editor/widgets/table.md
+              - name: График (Gravity UI Charts)
+                href: charts/editor/widgets/chart.md
+              - name: Markdown
+                href: charts/editor/widgets/markdown.md
+              - name: Advanced-чарт
+                href: charts/editor/widgets/advanced.md
+              - name: Селектор
+                href: charts/editor/widgets/controls.md
       - name: Справочник визуализаций
         items:
           - name: Все визуализации
             href: visualization-ref/index.md
           - name: Линейная диаграмма
             href: visualization-ref/line-chart.md
-          - name: Накопительная диаграмма с областями
+          - name: Диаграмма с областями
             href: visualization-ref/area-chart.md
           - name: Нормированная диаграмма с областями
             href: visualization-ref/normalized-area-chart.md
@@ -695,8 +830,14 @@ items:
             href: operations/chart/add-guid.md
           - name: Добавление параметра в чарт
             href: operations/chart/add-parameter-chart.md
+      - name: Добавление информации о чарте
+        href: operations/chart/add-description.md
+      - name: Открытие чарта как таблицы
+        href: operations/chart/open-as-table.md
       - name: Версионирование
         href: concepts/chart/versioning.md
+      - name: Экспорт данных из чартов
+        href: concepts/chart/data-export.md
       - name: Инспектор чартов
         href: concepts/chart/inspector.md
       - name: Управление доступом
@@ -719,6 +860,8 @@ items:
         href: dashboard/versioning.md
       - name: Параметры
         href: dashboard/dashboard_parameters.md
+      - name: Нейроаналитик на дашборде
+        href: dashboard/insights.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -733,12 +876,14 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
-          - name: Добавление описания к дашборду
+          - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
           - name: Добавление сообщения при обращении в поддержку
             href: operations/dashboard/add-support-message.md
           - name: Добавление сообщения при ошибке доступа
             href: operations/dashboard/add-access-message.md
+          - name: Настройка связей на дашборде
+            href: operations/dashboard/dashboard-links.md
           - name: Создание алиаса
             href: operations/dashboard/create-alias.md
           - name: Удаление алиаса
@@ -753,20 +898,28 @@ items:
             href: operations/dashboard/auto-update.md
           - name: Изменение настроек дашборда
             href: operations/dashboard/dash-settings.md
+          - name: Запрет Нейроаналитика на дашборде
+            href: operations/dashboard/dashboard-neuroanalyst-off.md
           - name: Порядок отображения виджетов на мобильном устройстве
             href: operations/dashboard/display-modes.md
+          - name: Добавление селектора JS на дашборд
+            href: charts/editor/add-js-selector.md
   - name: Отчеты
     items:
       - name: Обзор
         href: reports/index.md
       - name: Работа с отчетами
         href: reports/report-operations.md
+      - name: Селекторы в отчетах
+        href: reports/add-selector.md
+      - name: Версионирование
+        href: reports/versioning.md
+      - name: Нейроаналитик в отчетах
+        href: reports/insights.md
   - name: Управление доступом
     items:
       - name: Обзор
         href: security/index.md
-      - name: Добавление пользователей
-        href: security/add-new-user.md
       - name: Роли в {{ datalens-short-name }}
         href: security/roles.md
       - name: Организации в {{ datalens-name }}
@@ -797,46 +950,144 @@ items:
             href: security/private-embedded-objects.md
   - name: Настройки сервиса
     items:
-      - name: Стилизация интерфейса
-        href: settings/ui-customization.md
-      - name: Отключение навигации по папкам
-        href: settings/disable-folder-navigation.md
-  - name: Marketplace
-    items:
       - name: Обзор
-        href: concepts/marketplace.md
-      - name: Добавление продукта из Marketplace
-        href: operations/marketplace/add-marketplace-product.md
-      - name: Создание партнерского коннектора
-        href: operations/marketplace/create-connector-for-partners.md
+        href: settings/index.md
+      - name: Рабочие места
+        href: settings/seats.md
+      - name: Пользователи
+        href: security/add-new-user.md
+      - name: Тарифы и оплата
+        href: settings/service-plan.md
+      - name: Оформление
+        href: settings/appearance.md
+      - name: Безопасность
+        href: settings/restrictions.md
+      - name: Навигация
+        href: settings/navigation.md
+  - name: DataLens Gallery
+    href: concepts/gallery.md
   - name: Правила тарификации
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: Настройка тарифного плана
-        href: settings/service-plan.md
+      - name: Изменения в правилах тарификации 1 декабря
+        href: pricing-changes.md
       - name: Архив
         items:
-          - name: До 1 июня 2024 года
-            href: pricing-archive/pricing01062024.md
-          - name: До 23 апреля 2024 года
-            href: pricing-archive/pricing23042024.md
+          - name: Правила тарификации до 1 декабря 2025
+            href: pricing-old.md
+          - name: Тарифные планы до 1 декабря 2025
+            href: concepts/service-plans-comparison.md
+  - name: '{{ datalens-name }} Public API'
+    items:
+      - name: Как пользоваться Public API
+        href: operations/api-start.md
+      - name: '{{ datalens-name }} API (англ.)'
+        items:
+          - name: Overview
+            href: openapi-ref/index.md
+          - name: getConnection
+            href: openapi-ref/getConnection.md
+          - name: createConnection
+            href: openapi-ref/createConnection.md
+          - name: updateConnection
+            href: openapi-ref/updateConnection.md
+          - name: deleteConnection
+            href: openapi-ref/deleteConnection.md
+          - name: getDashboard
+            href: openapi-ref/getDashboard.md
+          - name: createDashboard
+            href: openapi-ref/createDashboard.md
+          - name: updateDashboard
+            href: openapi-ref/updateDashboard.md
+          - name: deleteDashboard
+            href: openapi-ref/deleteDashboard.md
+          - name: getDataset
+            href: openapi-ref/getDataset.md
+          - name: createDataset
+            href: openapi-ref/createDataset.md
+          - name: updateDataset
+            href: openapi-ref/updateDataset.md
+          - name: deleteDataset
+            href: openapi-ref/deleteDataset.md
+          - name: validateDataset
+            href: openapi-ref/validateDataset.md
+          - name: getEntriesRelations
+            href: openapi-ref/getEntriesRelations.md
+          - name: getEntries
+            href: openapi-ref/getEntries.md
+          - name: getQLChart
+            href: openapi-ref/getQlChart.md
+          - name: deleteQLChart
+            href: openapi-ref/deleteQlChart.md
+          - name: getWizardChart
+            href: openapi-ref/getWizardChart.md
+          - name: deleteWizardChart
+            href: openapi-ref/deleteWizardChart.md
+          - name: getEditorChart
+            href: openapi-ref/getEditorChart.md
+          - name: deleteEditorChart
+            href: openapi-ref/deleteEditorChart.md
+          - name: createEditorChart
+            href: openapi-ref/createEditorChart.md
+          - name: updateEditorChart
+            href: openapi-ref/updateEditorChart.md
+          - name: getEntriesPermissions
+            href: openapi-ref/getEntriesPermissions.md
+          - name: getAuditEntriesUpdates
+            href: openapi-ref/getAuditEntriesUpdates.md
+          - name: listDirectory
+            href: openapi-ref/listDirectory.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     items:
-      - name: Сентябрь 2024
+      - name: Январь 2026
         href: release-notes/index.md
-      - name: Август 2024
-        href: release-notes/2408.md
-      - name: Июль 2024
-        href: release-notes/2407.md
-      - name: Июнь 2024
-        href: release-notes/2406.md
-      - name: Май 2024
-        href: release-notes/2405.md
-      - name: Апрель 2024
-        href: release-notes/2404.md
+      - name: Декабрь 2025
+        href: release-notes/2512.md
+      - name: Ноябрь 2025
+        href: release-notes/2511.md
+      - name: Октябрь 2025
+        href: release-notes/2510.md
+      - name: Сентябрь 2025
+        href: release-notes/2509.md
+      - name: Август 2025
+        href: release-notes/2508.md
       - name: Архив
         items:
+          - name: Июль 2025
+            href: release-notes/2507.md
+          - name: Июнь 2025
+            href: release-notes/2506.md
+          - name: Май 2025
+            href: release-notes/2505.md
+          - name: Апрель 2025
+            href: release-notes/2504.md
+          - name: Март 2025
+            href: release-notes/2503.md
+          - name: Февраль 2025
+            href: release-notes/2502.md
+          - name: Январь 2025
+            href: release-notes/2501.md
+          - name: Декабрь 2024
+            href: release-notes/2412.md
+          - name: Ноябрь 2024
+            href: release-notes/2411.md
+          - name: Октябрь 2024
+            href: release-notes/2410.md
+          - name: Сентябрь 2024
+            href: release-notes/2409.md
+          - name: Август 2024
+            href: release-notes/2408.md
+          - name: Июль 2024
+            href: release-notes/2407.md
+          - name: Июнь 2024
+            href: release-notes/2406.md
+          - name: Май 2024
+            href: release-notes/2405.md
+          - name: Апрель 2024
+            href: release-notes/2404.md
           - name: Март 2024
             href: release-notes/2403.md
           - name: Февраль 2024
@@ -853,7 +1104,7 @@ items:
         items:
           - name: Все вопросы
             href: qa/index.md
-          - name: Права доступа
+          - name: Пользователи и управление доступом
             href: qa/permissions.md
           - name: Тарификация и оплата
             href: qa/pricing.md
@@ -869,10 +1120,12 @@ items:
             href: qa/dashboards.md
           - name: Воркбуки и коллекции
             href: qa/workbooks-collections.md
+          - name: Отчеты
+            href: qa/reports.md
+          - name: Непубличное встраивание
+            href: qa/embedded.md
           - name: Другое
             href: qa/other.md
-      - name: Резервное копирование
-        href: concepts/backup.md
       - name: Access denied
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED.md
@@ -885,10 +1138,16 @@ items:
       - name: Backend app request timeout exceeded
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REQUEST_TIMEOUT.md
+      - name: Blocks have different column count
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md
       - name: Cannot join a concatenation of tables with another table
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md
+      - name: Cannot parse
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE.md
       - name: Cannot parse datetime
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md
@@ -972,6 +1231,9 @@ items:
       - name: Measure filter is unsupported for this type of query
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md
+      - name: Подготовка данных еще не завершилась
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md
       - name: Memory limit has been exceeded during query execution
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md
@@ -992,18 +1254,28 @@ items:
       - name: Requested database column does not exist
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md
+      - name: Подготовка данных еще не завершилась
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md
       - name: Subquery exceeds data weight limit
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md
+      - name: Использование QL-чартов запрещено на уровне подключения
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md
       - name: Subquery source is disallowed in the connection settings
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md
-      - name: Table is not ready yet
+      - name: Нарушена конфигурация таблицы
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md
+      - name: Empty document
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-SOURCE-FILE-NO_DATA.md
       - name: Too many series on the chart
         hidden: true
         href: troubleshooting/errors/ERR-CK_TOO_MANY_LINES.md
@@ -1048,6 +1320,21 @@ items:
       - name: Ошибка на стороне БД
         hidden: true
         href: troubleshooting/errors/ERR-US-BAD_REQUEST-ALREADY_EXISTS.md
+      - name: Access to the connection was denied
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-ACCESS_DENIED-CONNECTION.md
+      - name: Connection not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-OBJ_NOT_FOUND-CONNECTION.md
+      - name: 'Invalid input data: validation failed'
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED.md
+      - name: Invalid connection ID
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-US-VALIDATION_FAILED-CONNECTION.md
+      - name: Ошибка при обработке ответа
+        hidden: true
+        href: troubleshooting/errors/SDK_REQUEST_ERROR.md
       - name: Ошибка в синтаксисе формулы
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md
@@ -1057,5 +1344,3 @@ items:
       - name: Обращение к несуществующему объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
-base: ru/datalens
-deepBase: 2

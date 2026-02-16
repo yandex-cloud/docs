@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router to get operations for.
+            To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - httpRouterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListHttpRouterOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListHttpRouterOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/HttpRouter/listOperations.md
 ---
 
-# Application Load Balancer API, REST: HttpRouter.ListOperations {#ListOperations}
+# Application Load Balancer API, REST: HttpRouter.ListOperations
 
 Lists operations for the specified HTTP router.
 
@@ -21,7 +61,9 @@ GET https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/ope
 
 Required field. ID of the HTTP router to get operations for.
 
-To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request. ||
+To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsRequest}
@@ -33,11 +75,15 @@ To get the HTTP router ID, use a [HttpRouterService.List](/docs/application-load
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListHttpRouterOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListHttpRouterOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse) returned by a previous list request. ||
+[ListHttpRouterOperationsResponse.nextPageToken](#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.apploadbalancer.v1.ListHttpRouterOperationsResponse}

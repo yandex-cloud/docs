@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/listProfiles.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.ListProfiles {#ListProfiles}
+# Identity Hub API, gRPC: OsLoginService.ListProfiles
 
 ## gRPC request
 
@@ -13,20 +13,26 @@ sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/listPro
 
 ```json
 {
-  "organizationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "organization_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
-Required field.  ||
-|| pageSize | **int64** ||
-|| pageToken | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters profiles listed in the response.
@@ -34,7 +40,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering by subject_id, uid or login.
 2. An `=` operator.
 3. The value in double quotes (`"`).
-E.g. login="example-login" ||
+E.g. login="example-login"
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListOsLoginProfilesResponse {#yandex.cloud.organizationmanager.v1.ListOsLoginProfilesResponse}
@@ -44,23 +52,23 @@ E.g. login="example-login" ||
   "profiles": [
     {
       "id": "string",
-      "organizationId": "string",
-      "subjectId": "string",
+      "organization_id": "string",
+      "subject_id": "string",
       "login": "string",
       "uid": "int64",
-      "isDefault": "bool",
-      "homeDirectory": "string",
+      "is_default": "bool",
+      "home_directory": "string",
       "shell": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || profiles[] | **[OsLoginProfile](#yandex.cloud.organizationmanager.v1.OsLoginProfile)** ||
-|| nextPageToken | **string** ||
+|| next_page_token | **string** ||
 |#
 
 ## OsLoginProfile {#yandex.cloud.organizationmanager.v1.OsLoginProfile}
@@ -68,11 +76,11 @@ E.g. login="example-login" ||
 #|
 ||Field | Description ||
 || id | **string** ||
-|| organizationId | **string** ||
-|| subjectId | **string** ||
+|| organization_id | **string** ||
+|| subject_id | **string** ||
 || login | **string** ||
 || uid | **int64** ||
-|| isDefault | **bool** ||
-|| homeDirectory | **string** ||
+|| is_default | **bool** ||
+|| home_directory | **string** ||
 || shell | **string** ||
 |#

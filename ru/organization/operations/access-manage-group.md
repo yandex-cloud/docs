@@ -3,22 +3,23 @@ title: Как настроить доступ к управлению групп
 description: Следуя данной инструкции, вы сможете настроить доступ к управлению группой пользователей в {{ org-name }}.
 ---
 
-## Настроить доступ к управлению группой {#access-manage-group}
+# Настроить доступ к управлению группой
 
 Вы можете предоставить доступ к группе пользователей:
 
 * [пользователям с аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport);
 * [федеративным пользователям](../../iam/concepts/users/accounts.md#saml-federation);
+* [локальным пользователям](../../iam/concepts/users/accounts.md#local);
 * [сервисным аккаунтам](../../iam/concepts/users/service-accounts.md);
 * другим [группам пользователей](../../organization/concepts/groups.md).
 
 Для этого назначьте [роли](../../iam/concepts/access-control/roles.md) на группу. Чтобы выбрать нужные, [узнайте](../security/index.md#roles-list), какие роли действуют в сервисе.
 
-### Назначить роль {#add-access-binding}
+## Назначить роль {#add-access-binding}
 
 {% include [accessbinding-group-as-object](../../_includes/organization/accessbinding-group-as-object.md) %}
 
-### Назначить несколько ролей {#set-access-bindings}
+## Назначить несколько ролей {#set-access-bindings}
 
 {% list tabs group=instructions %}
 
@@ -60,17 +61,17 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       yc organization-manager group set-access-bindings --help
       ```
-
+ 
    1. Получите список групп пользователей вместе с идентификаторами этих групп:
 
       ```bash
       yc organization-manager group list
       ```
+   1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md), которым назначаете роли.
 
-   1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
    1. С помощью команды `yc organization-manager group set-access-bindings` назначьте роли:
 
-      * Пользователю с аккаунтом на Яндексе:
+      * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
          ```bash
          yc organization-manager group set-access-bindings \
@@ -102,7 +103,7 @@ description: Следуя данной инструкции, вы сможете
            --access-binding role=<роль>,subject=group:<идентификатор_группы>
          ```
 
-      Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
+      Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
       ```bash
       yc organization-manager group set-access-bindings \
@@ -124,6 +125,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Отозвать роль {#remove-access-binding}
+## Отозвать роль {#remove-access-binding}
 
 {% include [accessbinding-remove](../../_includes/organization/accessbinding-remove.md) %}

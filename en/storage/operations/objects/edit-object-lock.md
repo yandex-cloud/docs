@@ -1,21 +1,86 @@
-# Configuring an object lock
+---
+title: Configuring object locks in a bucket in {{ objstorage-full-name }}
+description: Follow this guide to configure object locks in a bucket in {{ objstorage-name }}.
+---
 
-If [versioning](../buckets/versioning.md) and [object version locks](../buckets/configure-object-lock.md) are enabled in the bucket, you can configure locking for a version already uploaded to the bucket.
+# Configuring object locks
 
-## Put or configure a retention (governance- or compliance-mode) {#edit-retention}
+With [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled in your bucket, you can configure an object lock for a version already uploaded to the bucket.
 
-Minimum required roles:
+## Setting or configuring retention (governance- or compliance-mode) {#edit-retention}
 
-* `storage.uploader`: To set lock.
+The minimum required roles are as follows:
+
+* `storage.uploader`: To set an object lock.
 * `storage.admin`: To change an existing lock.
 
-You can only extend a compliance-mode retention. You cannot shrink it or replace with a governance-mode retention.
+In compliance mode, you can only extend the retention period. You cannot shorten the retention period or change the retention mode to governance.
 
-To put or configure a retention:
+To set or configure an object lock:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you want to configure an object lock for.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the window that opens, enable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
+  1. Select **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for configuring retention for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Set up retention for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --retention Mode=<lock_type>,RetainUntilDate="<retention_end_date>" \
+        --bypass-governance-retention
+      ```
+
+      {% include [object-lock-retention-cli-legend](../../../_includes/storage/object-lock-retention-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: c5984d03********
+      ```
+
+  1. {% include [get-object-retention-cli-command](../../../_includes/storage/get-object-retention-cli-command.md) %}
+
+      Result:
+
+      ```text
+      request_id: 077b184e********
+      retention:
+        mode: GOVERNANCE
+        retain_until_date: "2024-12-01T10:49:08.363Z"
+      ```
+
+      The `mode` field states the lock [type](../../concepts/object-lock.md#types), while the `retain_until_date` field states its end date.
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -26,25 +91,11 @@ To put or configure a retention:
        --bucket <bucket_name> \
        --key <object_key> \
        --version-id <version_ID> \
-       --retention Mode=<lock_type>,RetainUntilDate="<date_and_time>" \
+       --retention Mode=<lock_type>,RetainUntilDate="<retention_end_date>" \
        --bypass-governance-retention
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--retention`: Temporary lock settings (both parameters are required):
-
-       * `Mode`: Lock [type](../../concepts/object-lock.md#types):
-
-         * `GOVERNANCE`: Temporary managed lock. You cannot set this type if an object version is already locked in compliance mode.
-         * `COMPLIANCE`: Temporary strict lock.
-
-       * `RetainUntilDate`: Lock end date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The lock end time value is specified in the [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00) time zone. To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record. For more information, see [this example](#example-lock). If a version object is already locked in compliance mode, you can only extend it by setting new retain until date and time that are later than the current ones.
-
-     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed. Select it if an object version is already locked in governance mode.
+     {% include [object-lock-retention-cli-legend](../../../_includes/storage/object-lock-retention-cli-legend.md) %}
 
 - API {#api}
 
@@ -52,15 +103,66 @@ To put or configure a retention:
 
 {% endlist %}
 
-## Removing a governance-mode retention {#remove-governance-retention}
+## Removing governance-mode retention {#remove-governance-retention}
 
 The minimum required role is `storage.admin`.
 
-To remove a retention:
+To remove retention:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you need from the list.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the window that opens, disable **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for configuring retention for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Set up retention for an object version:
+
+      ```bash
+      yc storage s3api put-object-retention \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --retention "{}" \
+        --bypass-governance-retention
+      ```
+
+      {% include [object-lock-retention-remove-cli-legend](../../../_includes/storage/object-lock-retention-remove-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: m6384f81********
+      ```
+
+  1. {% include [get-object-retention-cli-command](../../../_includes/storage/get-object-retention-cli-command.md) %}
+
+      Running this command will return an error saying there is no lock configured for the object:
+
+      ```text
+      The specified object does not have a ObjectLock configuration.
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -71,34 +173,93 @@ To remove a retention:
        --bucket <bucket_name> \
        --key <object_key> \
        --version-id <version_ID> \
-       --retention '{}' \
+       --retention "{}" \
        --bypass-governance-retention
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--retention`: Temporary lock settings. In both parameters, empty lines are specified to remove a lock.
-     * `--bypass-governance-retention`: Flag that shows that a lock is bypassed.
+     {% include [object-lock-retention-remove-cli-legend](../../../_includes/storage/object-lock-retention-remove-cli-legend.md) %}
 
 - API {#api}
 
-  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and an empty `Retention` element.
+  Use the [putObjectRetention](../../s3/api-ref/object/putobjectretention.md) S3 API method with the `X-Amz-Bypass-Governance-Retention: true` header and empty `Retention` element.
 
 {% endlist %}
 
 
-## Putting or removing legal holds {#edit-legal-hold}
+## Setting or removing legal hold {#edit-legal-hold}
 
 The minimum required role is `storage.uploader`.
 
-To put or configure a legal hold:
+To set or remove legal hold:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket you need from the list.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. To show all object versions in the list, enable **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}** to the right of the object search field in the bucket.
+  1. In the list of objects, select the one you need, click ![image](../../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
+  1. In the window that opens, enable or disable **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for setting up legal hold for an object version:
+
+      ```bash
+      yc storage s3api put-object-legal-hold --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Set up legal hold for an object version:
+
+      ```bash
+      yc storage s3api put-object-legal-hold \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID> \
+        --legal-hold Status=<lock_status>
+      ```
+
+      {% include [legal-hold-cli-legend](../../../_includes/storage/legal-hold-cli-legend.md) %}
+
+      Result:
+
+      ```bash
+      request_id: cb262625********
+      ```
+
+  1. Make sure the object lock settings are updated:
+
+      ```bash
+      yc storage s3api get-object-legal-hold \
+        --bucket <bucket_name> \
+        --key <object_key> \
+        --version-id <version_ID>
+      ```
+
+      Where:
+
+      * `--bucket`: Name of your bucket.
+      * `--key`: Object key.
+      * `--version-id`: Object version ID.
+
+      Result:
+
+      ```text
+      request_id: 0bef4a0b********
+      legal_hold:
+        status: ON
+      ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
@@ -113,17 +274,7 @@ To put or configure a legal hold:
        --legal-hold Status=<lock_status>
      ```
 
-     Where:
-
-     * `--bucket`: Name of your bucket.
-     * `--key`: Object [key](../../concepts/object.md#key).
-     * `--version-id`: Object version ID.
-     * `--legal-hold`: Indefinite lock settings:
-
-       * `Status`: Lock status:
-
-         * `ON`: Enabled.
-         * `OFF`: Disabled.
+     {% include [legal-hold-cli-legend](../../../_includes/storage/legal-hold-cli-legend.md) %}
 
 - API {#api}
 
@@ -133,13 +284,29 @@ To put or configure a legal hold:
 
 ## Examples {#examples}
 
-### Setting up a governance-mode retention with the Moscow time offset (UTC+3) {#example-lock}
+### Setting governance-mode retention with Moscow time offset (UTC+3) {#example-lock}
 
-> ```bash
-> aws --endpoint-url=https://{{ s3-storage-host }}/ \
->   s3api put-object-retention \
->   --bucket test-bucket \
->   --key object-key/ \
->   --version-id 0005FA15******** \
->   --retention Mode=GOVERNANCE,RetainUntilDate="2025-01-01T00:00:00+03:00" \
-> ```
+{% list tabs group=instructions %}
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  > ```bash
+  > yc storage s3api put-object-retention \
+  >   --bucket test-bucket \
+  >   --key object-key/ \
+  >   --version-id 0005FA15******** \
+  >   --retention Mode=GOVERNANCE,RetainUntilDate=2025-01-01T00:00:00+03:00 \
+  > ```
+
+- AWS CLI {#aws-cli}
+
+  > ```bash
+  > aws --endpoint-url=https://{{ s3-storage-host }}/ \
+  >   s3api put-object-retention \
+  >   --bucket test-bucket \
+  >   --key object-key/ \
+  >   --version-id 0005FA15******** \
+  >   --retention Mode=GOVERNANCE,RetainUntilDate="2025-01-01T00:00:00+03:00" \
+  > ```
+
+{% endlist %}

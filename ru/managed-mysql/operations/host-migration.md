@@ -1,3 +1,8 @@
+---
+title: Миграция хостов кластера {{ MY }} в другую зону доступности
+description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ MY }} в другую зону доступности.
+---
+
 # Миграция хостов кластера {{ MY }} в другую зону доступности
 
 
@@ -10,7 +15,7 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Укажите параметры хоста:
@@ -34,7 +39,7 @@
          --cluster-name <имя_кластера> \
          --host zone-id=<зона_доступности>,`
                `subnet-id=<ID_новой_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту:_true_или_false>
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту>
       ```
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
@@ -49,7 +54,7 @@
            host {
              zone             = "<зона_доступности>"
              subnet_id        = "<идентификатор_новой_подсети>"
-             assign_public_ip = <публичный_доступ_к_хосту:_true_или_false>
+             assign_public_ip = <разрешить_публичный_доступ_к_хосту>
            }
          }
          ```
@@ -83,7 +88,7 @@
                         {
                           "zoneId": "<зона_доступности>",
                           "subnetId": "<идентификатор_новой_подсети>",
-                          "assignPublicIp": <публичный_доступ_к_хосту:_true_или_false>
+                          "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
                         }
                       ]
                     }'
@@ -91,7 +96,7 @@
 
          Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
    - gRPC API {#grpc-api}
 
@@ -115,7 +120,7 @@
                     {
                       "zone_id": "<зона_доступности>",
                       "subnet_id": "<идентификатор_новой_подсети>",
-                      "assign_public_ip": <публичный_доступ_к_хосту:_true_или_false>
+                      "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
                     }
                   ]
                 }' \
@@ -137,7 +142,7 @@
    {{ yc-mdb-my }} host list --cluster-name <имя_кластера>
    ```
 
-   FQDN указан в выводе команды, в столбце `NAME`. Также вы можете использовать [особый FQDN](connect.md#special-fqdns) для подключения.
+   FQDN указан в выводе команды, в столбце `NAME`. Также вы можете использовать [особый FQDN](./connect/fqdn.md#fqdn-master) для подключения.
 
 1. Удалите хосты в первоначальной зоне доступности:
 
@@ -145,7 +150,7 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
       1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
@@ -189,7 +194,7 @@
 
          В одном запросе можно передать только один FQDN хоста. Если нужно удалить несколько хостов, выполните запрос для каждого хоста.
 
-      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
    - gRPC API {#grpc-api}
 

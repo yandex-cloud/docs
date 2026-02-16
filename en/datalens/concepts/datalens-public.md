@@ -12,12 +12,12 @@ Before publishing data, make sure that:
 * Your charts and dashboards do not contain any personal data or trade secrets. Access to published data is not restricted.
 * The connection your objects run on top of supports data publication. You cannot publish data from the following connections:
 
-  * [Google BigQuery](../operations/connection/create-big-query.md)
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
   * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
     {% note info %}
 
@@ -50,6 +50,7 @@ The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-adm
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Security** tab.
 1. Under **Publication**, click **View published**.
 
 ## Sharing a chart based on Yandex Metrica or AppMetrica data {#metrica-share}
@@ -62,8 +63,6 @@ To share a chart or dashboard containing Yandex Metrica or AppMetrica data, use 
 
 ## Disabling publication {#publication-disable}
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 By default, users can publish charts and dashboards for which they have the admin permissions. You can disable this option at the {{ datalens-short-name }} instance level. After you disable publication:
 
 * All previously published objects will no longer be public.
@@ -75,6 +74,7 @@ To disable object publication:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
 1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Security** tab.
 1. Under **Publication**:
 
    1. View a list of published objects that will no longer be publicly accessible. To do this, click **View published**.

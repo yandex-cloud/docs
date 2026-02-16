@@ -25,8 +25,14 @@ items:
             href: operations/replication-slots.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing backup policies
+            href: operations/backup-retention-policies.md
           - name: Managing disk space
             href: operations/storage-space.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Updating the PostgreSQL version
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
@@ -59,6 +65,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: postgresql_anonymizer
+            href: operations/extensions/pg_anon.md
           - name: Hunspell dictionaries for full-text search
             href: operations/extensions/hunspell.md
       - name: Logs and monitoring
@@ -67,7 +75,7 @@ items:
             href: operations/cluster-logs.md
           - name: Performance diagnostics
             href: operations/performance-diagnostics.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host status monitoring
             href: operations/monitoring.md
           - name: Connecting to DataLens
             href: operations/datalens-connect.md
@@ -75,7 +83,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating a {{ PG }} cluster for 1С
+      - name: Creating a {{ PG }} cluster for 1C
         href: tutorials/1c-postgresql.md
       - name: >-
           Creating a cluster of 1C:Enterprise Linux servers with a {{ mpg-name
@@ -88,8 +96,8 @@ items:
       - name: Performance analysis and tuning
         href: tutorials/profiling.md
       - name: >-
-          Setting up a connection from a {{ serverless-containers-name }}
-          container
+          Setting up a connection from a container in {{
+          serverless-containers-name }}
         href: tutorials/container-connect.md
       - name: >-
           Delivering data to {{ mkf-full-name }} using {{
@@ -108,12 +116,12 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-to-mpg.md
       - name: >-
-          Migrating data from {{ objstorage-full-name }} using {{
+          Transferring data from {{ objstorage-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/object-storage-to-postgresql.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Creating a Joomla website with a PostgreSQL database
+      - name: Creating a Joomla website with a {{ PG }} database
         items:
           - name: Overview
             href: tutorials/joomla-postgresql/index.md
@@ -121,24 +129,34 @@ items:
             href: tutorials/joomla-postgresql/console.md
           - name: '{{ TF }}'
             href: tutorials/joomla-postgresql/terraform.md
-      - name: Status monitoring of geographically distributed devices
+      - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
+      - name: Creating an MLFlow server for logging experiments and artifacts
+        href: tutorials/mlflow-datasphere.md
+      - name: Working with data using {{ yq-name }}
+        href: tutorials/yq-postgre.md
+      - name: Federated data queries using {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Fixing string sorting issues after upgrading glibc
+        href: tutorials/glibc-collation-issues.md
+      - name: Writing data from a device to a database
+        href: tutorials/data-recording.md
       - name: Replication and migration
         items:
-          - name: Logical replication {{ PG }}
+          - name: Logical replication in {{ PG }}
             href: tutorials/replication-overview.md
           - name: Migrating a database to {{ mpg-name }}
             href: tutorials/data-migration.md
-          - name: Migrating databases from {{ mpg-name }}
+          - name: Migrating a database from {{ mpg-name }}
             href: tutorials/outbound-replication.md
           - name: >-
               Creating a logical replica of Amazon RDS for {{ PG }} in {{
               mpg-name }}
-            href: operations/logical-replica-from-rds.md
+            href: tutorials/logical-replica-from-rds.md
           - name: >-
-              Migrating databases from {{ mpg-full-name }} to {{
+              Migrating a database from {{ mpg-full-name }} to {{
               objstorage-full-name }}
             href: tutorials/mpg-to-objstorage.md
           - name: >-
@@ -153,6 +171,8 @@ items:
               Migrating data from AWS RDS for {{ PG }} to {{ mpg-name }} using
               {{ data-transfer-full-name }}
             href: tutorials/rds-to-mpg.md
+          - name: Migrating a database from {{ GP }} to {{ PG }}
+            href: tutorials/greenplum-to-postgresql.md
           - name: >-
               Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
               data-transfer-full-name }}
@@ -175,6 +195,10 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Using deprecated host classes
             href: concepts/using-deprecated-instances.md
+      - name: Planning a cluster topology
+        href: concepts/planning-cluster-topology.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: Networking in {{ mpg-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -195,34 +219,162 @@ items:
         href: concepts/supported-clients.md
       - name: PostgreSQL settings
         href: concepts/settings-list.md
+      - name: Indexes
+        href: concepts/indexes.md
       - name: SQL command limits
         href: concepts/sql-limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
-          - name: From March 1, 2019 to February 1, 2020
-            href: pricing-archive/pricing-01022020.md
+    href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-postgresql/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: backup
+        items:
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: delete
+            href: cli-ref/backup/delete.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: backup
+            href: cli-ref/cluster/backup.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-backups
+            href: cli-ref/cluster/list-backups.md
+          - name: list-logs
+            href: cli-ref/cluster/list-logs.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: move
+            href: cli-ref/cluster/move.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
+          - name: restore
+            href: cli-ref/cluster/restore.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: start-failover
+            href: cli-ref/cluster/start-failover.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+          - name: update-config
+            href: cli-ref/cluster/update-config.md
+      - name: connect
+        href: cli-ref/connect.md
+      - name: database
+        items:
+          - name: Overview
+            href: cli-ref/database/index.md
+          - name: create
+            href: cli-ref/database/create.md
+          - name: delete
+            href: cli-ref/database/delete.md
+          - name: get
+            href: cli-ref/database/get.md
+          - name: list
+            href: cli-ref/database/list.md
+          - name: update
+            href: cli-ref/database/update.md
+      - name: hosts
+        items:
+          - name: Overview
+            href: cli-ref/hosts/index.md
+          - name: add
+            href: cli-ref/hosts/add.md
+          - name: delete
+            href: cli-ref/hosts/delete.md
+          - name: list
+            href: cli-ref/hosts/list.md
+          - name: update
+            href: cli-ref/hosts/update.md
+          - name: update-config
+            href: cli-ref/hosts/update-config.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: create
+            href: cli-ref/user/create.md
+          - name: delete
+            href: cli-ref/user/delete.md
+          - name: get
+            href: cli-ref/user/get.md
+          - name: grant-permission
+            href: cli-ref/user/grant-permission.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: revoke-permission
+            href: cli-ref/user/revoke-permission.md
+          - name: update
+            href: cli-ref/user/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/grpc/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/grpc/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/grpc/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -277,6 +429,12 @@ items:
                 href: api-ref/grpc/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/grpc/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -337,6 +495,16 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -391,6 +559,12 @@ items:
                 href: api-ref/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -459,9 +633,13 @@ items:
         href: qa/configuration.md
       - name: Moving and restoring a cluster
         href: qa/backup.md
+      - name: Users and roles
+        href: qa/users.md
+      - name: High availability and load balancing
+        href: qa/ha.md
       - name: Monitoring and logs
         href: qa/monitoring.md
+      - name: Error messages
+        href: qa/errors.md
       - name: All questions on one page
         href: qa/all.md
-base: en/managed-postgresql
-deepBase: 2

@@ -1,6 +1,6 @@
 ---
 title: How to configure test target security groups
-description: This guide describes how you can configure test target security groups.
+description: Follow this guide to configure test target security groups.
 ---
 
 # Configuring test target security groups
@@ -9,8 +9,8 @@ description: This guide describes how you can configure test target security gro
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
 
-It is important to have security groups properly configured for all subnets hosting test targets.
+Make sure security groups are properly configured for all subnets that will host test targets.
 
 {% endnote %}

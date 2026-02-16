@@ -1,3 +1,5 @@
+# Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-full-name }}
+
 Приложение [{{ unified-agent-full-name }}](../../monitoring/concepts/data-collection/unified-agent/) позволяет принимать и передавать логи пользовательских приложений в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 В этом руководстве вы настроите передачу логов из тестового Python-приложения. Приложение будет передавать логи в {{ unified-agent-short-name }} на [вход http](../../monitoring/concepts/data-collection/unified-agent/inputs.md#http_input). Полученные логи {{ unified-agent-short-name }} будет отправлять через выход [yc_logs](../../monitoring/concepts/data-collection/unified-agent/outputs.md#yc_logs_output) в {{ cloud-logging-name }} в лог-группу по умолчанию — `default`.
@@ -15,13 +17,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 1. Плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 
 1. Плата за запись и хранение логов в лог-группе (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
-
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 

@@ -1,19 +1,22 @@
 ---
 title: Tutorial on working with the command line interface (CLI)
-description: From this tutorial, you'll learn how to work with the command line interface in {{ yandex-cloud }}. We'll tell you how to authenticate on behalf of a user or service account, how to manage your profile (add, delete, activate, and change its parameters).
+description: In this article, you will learn how to work with the command line interface in {{ yandex-cloud }}. We'll tell you how to authenticate on behalf of a user or service account, how to manage your profile (add, delete, activate, and change its parameters).
 ---
 
 # All instructions for the CLI
 
-- [{#T}](install-cli.md)
+- [{#T}](install-cli.md) 
+- [{#T}](update-cli.md)
+- [{#T}](remove-cli.md)
 
 ## Authentication {#auth}
 
 - [{#T}](authentication/user.md)
 - [{#T}](authentication/service-account.md)
 - [{#T}](authentication/federated-user.md)
+- [{#T}](authentication/local-user.md)
 
-## Profile management {#profile}
+## Managing a profile {#profile}
 
 - [{#T}](profile/profile-create.md)
 - [{#T}](profile/manage-properties.md)

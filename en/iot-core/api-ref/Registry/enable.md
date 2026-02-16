@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}:enable
+    method: post
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to enable.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/enable.md
 ---
 
-# IoT Core Service, REST: Registry.Enable {#Enable}
+# IoT Core Service, REST: Registry.Enable
 
 Enables the specified registry.
 
@@ -51,7 +68,7 @@ Required field. ID of the registry to enable. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logGroupId": "string",
     "logOptions": {
@@ -190,7 +207,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

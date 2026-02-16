@@ -2,6 +2,8 @@
 
 Вы можете настроить аутентификацию пользователей в облаке через [федерацию удостоверений](../concepts/add-federation.md). Федерации удостоверений совместимы с любыми поставщиками удостоверений (IdP), которые поддерживают стандарт [SAML 2.0](https://wiki.oasis-open.org/security/FrontPage).
 
+Для настройки аутентификации через федерацию удостоверений, у вас должна быть _минимальная_ [роль](../../organization/security/index.md#organization-manager-federations-editor) `organization-manager.federations.editor` на [организацию](../../organization/concepts/organization.md).
+
 Чтобы настроить аутентификацию через федерацию удостоверений:
 
 1. [Создайте федерацию удостоверений](#create-federation).
@@ -13,7 +15,7 @@
 
 Примеры настройки аутентификации для отдельных поставщиков удостоверений приведены в практических руководствах:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
@@ -54,9 +56,12 @@
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+        * **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить SAML-сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+
+            {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
+
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}** — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — при истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
+        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}** — по истечении сессии в {{ yandex-cloud }} поставщик удостоверений запросит у пользователя повторную аутентификацию.
 
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
@@ -78,45 +83,45 @@
 
         ```bash
         yc organization-manager federation saml create \
-            --name <имя_федерации> \
-            --organization-id <идентификатор_организации> \
-            --cookie-max-age <время_жизни_cookies> \
-            --issuer "<идентификатор_IdP-сервера>" \
-            --sso-binding <POST_или_REDIRECT> \
-            --sso-url "<адрес_страницы_для перенаправления>" \
-            --encrypted-assertions \
-            --auto-create-account-on-login \
-            --case-insensitive-name-ids \
-            --force-authn
+          --name <имя_федерации> \
+          --organization-id <идентификатор_организации> \
+          --cookie-max-age <время_жизни_cookies> \
+          --issuer "<идентификатор_IdP-сервера>" \
+          --sso-binding <POST_или_REDIRECT> \
+          --sso-url "<адрес_страницы_для перенаправления>" \
+          --encrypted-assertions \
+          --auto-create-account-on-login \
+          --case-insensitive-name-ids \
+          --force-authn
         ```
 
         Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * `organization-id` — идентификатор организации.
-        * `cookie-max-age` — время, в течение которого браузер не будет требовать у пользователя повторной аутентификации, например: `12h`.
-        * `issuer` — идентификатор IdP-сервера, на котором будет происходить аутентификация пользователя.
+        * `--name` — имя федерации. Имя должно быть уникальным в каталоге.
+        * `--organization-id` — идентификатор организации.
+        * `--cookie-max-age` — время, в течение которого браузер не будет требовать у пользователя повторной аутентификации, например: `12h`.
+        * `--issuer` — идентификатор IdP-сервера, на котором будет происходить аутентификация пользователя.
 
             Чтобы узнать, как получить идентификатор IdP-сервера, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
-        * `sso-binding` — тип привязки для Single Sign-on. Возможные значения — `POST` или `REDIRECT`. Большинство поставщиков поддерживают тип привязки `POST`.
-        * `sso-url` — URL-адрес страницы, на которую браузер перенаправит пользователя для аутентификации.
+        * `--sso-binding` — тип привязки для Single Sign-on. Возможные значения — `POST` или `REDIRECT`. Большинство поставщиков поддерживают тип привязки `POST`.
+        * `--sso-url` — URL-адрес страницы, на которую браузер перенаправит пользователя для аутентификации.
 
             Чтобы узнать, как получить адрес страницы для перенаправления, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
             {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * (Опционально) `--encrypted-assertions` — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
-        * (Опционально) `auto-create-account-on-login` — аутентифицированные через федерацию пользователи будут автоматически добавлены в организацию. Если опция не выбрана, федеративных пользователей потребуется [добавить вручную](./add-account.md#add-user-sso).
+        * `--encrypted-assertions` — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений. Необязательный параметр.
+        * `--auto-create-account-on-login` — аутентифицированные через федерацию пользователи будут автоматически добавлены в организацию. Если опция не выбрана, федеративных пользователей потребуется [добавить вручную](./add-account.md#add-user-sso). Необязательный параметр.
 
             {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * (Опционально) `--case-insensitive-name-ids` — идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
+        * `--case-insensitive-name-ids` — идентификаторы имен федеративных пользователей будут нечувствительны к регистру. Необязательный параметр.
         * {% include [forceauthn-cli-enable](../../_includes/organization/forceauth-cli-enable.md) %}
 
 - {{ TF }} {#tf}
 
-  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   1. {% include [terraform-install](../../_includes/terraform-install.md) %}
 
@@ -137,35 +142,40 @@
         case_insensitive_name_ids = "<true_или_false>"
         security_settings {
           encrypted_assertions = "<true_или_false>"
-          }
+          force_authn          = "<true_или_false>"
+        }
       }
       ```
 
       Где:
 
-        * `name` — имя федерации. Имя должно быть уникальным в каталоге.
-        * (Опционально) `description` — описание федерации.
-        * `organization_id` — идентификатор организации.
-        * `issuer` — идентификатор IdP-сервера, на котором будет происходить аутентификация пользователя.
+      * `name` — имя федерации. Имя должно быть уникальным в каталоге.
+      * `description` — описание федерации. Необязательный параметр.
+      * `organization_id` — идентификатор организации.
+      * `issuer` — идентификатор IdP-сервера, на котором будет происходить аутентификация пользователя.
 
-            Чтобы узнать, как получить идентификатор IdP-сервера, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
+          Чтобы узнать, как получить идентификатор IdP-сервера, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
-        * `sso_binding` — тип привязки для Single Sign-on. Возможные значения — `POST` или `REDIRECT`. Большинство поставщиков поддерживают тип привязки `POST`.
-        * `sso_url` — URL-адрес страницы, на которую браузер перенаправит пользователя для аутентификации.
+      * `sso_binding` — тип привязки для Single Sign-on. Возможные значения — `POST` или `REDIRECT`. Большинство поставщиков поддерживают тип привязки `POST`.
+      * `sso_url` — URL-адрес страницы, на которую браузер перенаправит пользователя для аутентификации.
 
-            Чтобы узнать, как получить адрес страницы для перенаправления, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
+          Чтобы узнать, как получить адрес страницы для перенаправления, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
-            {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
+          {% include [ssourl_protocol](../../_includes/organization/ssourl_protocol.md) %}
 
-        * `cookie_max_age` — время в секундах, в течение которого браузер не будет требовать у пользователя повторной аутентификации. По умолчанию — `28800` (8 часов).
-        * `auto_create_account_on_login` — если `true`, аутентифицированные через федерацию пользователи будут автоматически добавлены в организацию. Если опция не выбрана, федеративных пользователей потребуется [добавить вручную](./add-account.md#add-user-sso).
+      * `cookie_max_age` — время в секундах, в течение которого браузер не будет требовать у пользователя повторной аутентификации. По умолчанию — `28800` (8 часов).
+      * `auto_create_account_on_login` — если `true`, аутентифицированные через федерацию пользователи будут автоматически добавлены в организацию. Если опция не выбрана, федеративных пользователей потребуется [добавить вручную](./add-account.md#add-user-sso).
 
-            {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
+          {% include [fed-users-note](../../_includes/organization/fed-users-note.md) %}
 
-        * `case_insensitive_name_ids` — если `true`, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
-        * `security_settings` — настройки безопасности федерации:
+      * `case_insensitive_name_ids` — если `true`, идентификаторы имен федеративных пользователей будут нечувствительны к регистру.
+      * `security_settings` — настройки безопасности федерации:
 
-            * `encrypted_assertions` — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+          * `encrypted_assertions` — запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Потребуется установить сертификат {{ yandex-cloud }} на стороне поставщика удостоверений.
+
+          * {% include [force-authn-tf](../../_includes/organization/force-authn-tf.md) %}
+
+      {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
   1. Проверьте корректность файлов конфигурации {{ TF }}:
 
@@ -209,7 +219,7 @@
 
       * `name` — имя федерации. Имя должно быть уникальным в каталоге.
       * `organizationId` — идентификатор организации.
-      * (Опционально) `description` — описание федерации.
+      * `description` — описание федерации. Необязательный параметр.
       * `cookieMaxAge` — время в секундах, в течение которого браузер не будет требовать у пользователя повторной аутентификации. По умолчанию — `28800` (8 часов).
       * `issuer` — идентификатор IdP-сервера, на котором будет происходить аутентификация пользователя.
 
@@ -247,10 +257,10 @@
 1. Приведите файл сертификата к PEM-формату:
 
     ```text
-      -----BEGIN CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
       <значение сертификата>
-      -----END CERTIFICATE-----
-      ```
+    -----END CERTIFICATE-----
+    ```
 
 1. Добавьте сертификат в федерацию:
 
@@ -308,7 +318,7 @@
           }
           ```
 
-      1. Воспользуйтесь методом REST API [create](../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../saml/api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../../grpc/certificate_service#Create) и передайте в запросе файл с параметрами запроса.
+      1. Воспользуйтесь методом REST API [create](../saml/api-ref/Certificate/create.md) для ресурса [Certificate](../saml/api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/Create](../saml/api-ref/grpc/Certificate/create.md) и передайте в запросе файл с параметрами запроса.
 
       Пример cURL-запроса:
 
@@ -321,33 +331,39 @@
         --data '@body.json' \
         "https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates"
       ```
-  {% endlist %}
+    {% endlist %}
 
-{% note tip %}
-
-Чтобы аутентификация не прерывалась, когда у очередного сертификата закончится срок действия, добавьте в федерацию несколько сертификатов — текущий и те, которые будут использоваться после текущего. Когда один сертификат станет недействительным, {{ yandex-cloud }} проверит подпись другим сертификатом.
-
-{% endnote %}
+{% include [federation-certificates-note](../../_includes/organization/federation-certificates-note.md) %}
 
 ## Передать сертификат федерации на IdP-сервер {#add-certificate-idp}
 
 Если при создании федерации вы включили опцию **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**, запросы аутентификации от {{ yandex-cloud }} будут содержать цифровую подпись. Чтобы IdP-сервер мог проверить эту подпись, добавьте сертификат {{ yandex-cloud }} на IdP-сервер:
 
-1. Скачайте сертификат {{ yandex-cloud }}:
+1. Если вы не скачивали SAML-сертификат {{ yandex-cloud }} при создании федерации удостоверений, скачайте его сейчас:
 
     {% list tabs group=instructions %}
 
     - Интерфейс {{ cloud-center }} {#cloud-center}
 
       1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
-
       1. На панели слева выберите ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
+      1. В открывшемся списке выберите нужную федерацию удостоверений и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}**.
 
-      1. Нажмите на строку с нужной федерацией и в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}** нажмите **{{ ui-key.yacloud_org.page.federation.link.download-cert }}**.
+          Если слева от кнопки ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** отображается значок ![TriangleExclamation](../../_assets/console-icons/triangle-exclamation.svg), значит срок действия текущего SAML-сертификата {{ yandex-cloud }} закончился или вот-вот закончится.
+
+          [Скачайте и установите](./renew-yc-certificate.md) перевыпущенный SAML-сертификат {{ yandex-cloud }} в вашей федерации удостоверений.
+
+          {% note tip %}
+
+          Чтобы узнать дату истечения срока действия текущего SAML-сертификата, в правом верхнем углу нажмите ![pencil](../../_assets/console-icons/pencil.svg) **Изменить**. Нужная дата будет указана в блоке **Дополнительно** в секции **Сертификат SAML**.
+
+          Сохраните дату истечения срока действия SAML-сертификата в свой календарь. За несколько месяцев до указанной даты вам будет необходимо [скачать и установить](../../organization/operations/renew-yc-certificate.md) в вашей федерации и на IdP-сервере перевыпущенный SAML-сертификат {{ yandex-cloud }}.
+
+          {% endnote %}
 
     {% endlist %}
 
-1. Передайте сертификат на IdP-сервер. Чтобы узнать, как это сделать, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
+1. Передайте скачанный SAML-сертификат {{ yandex-cloud }} на IdP-сервер. Чтобы узнать, как это сделать, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений.
 
 ## Настроить SAML-приложение на стороне IdP-сервера {#configure-sso}
 
@@ -429,7 +445,7 @@
 
   {% endcut %}
 
-
+  
   {% cut "Как получить ACS URL федерации" %}
 
   {% include [get-acs-url](../../_includes/organization/get-acs-url.md) %}
@@ -444,12 +460,14 @@
 
 Чтобы получить более подробную информацию о настройке SAML-приложения, обратитесь к документации или в службу технической поддержки используемого поставщика удостоверений. Также примеры настройки для отдельных поставщиков удостоверений приведены в практических руководствах:
 
-* [Active Directory](../tutorials/federations/integration-adfs.md).
+* [{{ microsoft-idp.ad-short }}](../tutorials/federations/integration-adfs.md).
 * [Google Workspace](../tutorials/federations/integration-gworkspace.md).
 * [{{ microsoft-idp.entra-id-full }}](../tutorials/federations/integration-azure.md).
 * [Keycloak](../tutorials/federations/integration-keycloak.md).
 
 ## Настроить сопоставление атрибутов пользователей {#claims-mapping}
+
+{% include notitle [fed-user-data-after-login-notice](../../_includes/organization/fed-user-data-after-login-notice.md) %}
 
 После аутентификации пользователя IdP-сервер отправляет в {{ yandex-cloud }} SAML-сообщение, которое содержит информацию об успешной аутентификации и атрибуты пользователя, такие как идентификатор, имя, адрес электронной почты и так далее.
 

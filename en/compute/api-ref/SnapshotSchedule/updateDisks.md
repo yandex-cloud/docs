@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}:updateDisks
+    method: patch
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to update.
+            To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        remove:
+          description: |-
+            **string**
+            List of IDs of the disks to detach from the specified schedule.
+            To get an ID of a disk attached to the schedule, make a [SnapshotScheduleService.ListDisks](/docs/compute/api-ref/SnapshotSchedule/listDisks#ListDisks) request.
+          type: array
+          items:
+            type: string
+        add:
+          description: |-
+            **string**
+            List of IDs of the disks to attach to the specified schedule.
+            To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/updateDisks.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.UpdateDisks {#UpdateDisks}
+# Compute Cloud API, REST: SnapshotSchedule.UpdateDisks
 
 Updates the list of disks attached to the specified schedule.
 
@@ -82,7 +117,7 @@ To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/comput
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "schedulePolicy": {
       "startAt": "string",
@@ -94,7 +129,7 @@ To get a disk ID, make a [yandex.cloud.compute.v1.DiskService.List](/docs/comput
     // end of the list of possible fields
     "snapshotSpec": {
       "description": "string",
-      "labels": "string"
+      "labels": "object"
     }
   }
   // end of the list of possible fields
@@ -226,14 +261,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the snapshot schedule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot schedule labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the snapshot schedule.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The snapshot schedule is being created.
 - `ACTIVE`: The snapshot schedule is on: new disk snapshots will be created, old ones deleted
 (if [SnapshotSchedule.retentionPolicy](/docs/compute/api-ref/SnapshotSchedule/get#yandex.cloud.compute.v1.SnapshotSchedule.retentionPolicy) is specified).
@@ -299,7 +333,7 @@ A resource for attributes of snapshots created by the snapshot schedule.
 || description | **string**
 
 Description of the created snapshot. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Snapshot labels as `key:value` pairs. ||
 |#

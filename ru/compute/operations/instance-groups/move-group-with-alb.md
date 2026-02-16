@@ -6,12 +6,6 @@ description: Из статьи вы узнаете, как можно перен
 # Перенести группу виртуальных машин с L7-балансировщиком в другую зону доступности
 
 
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
 Чтобы перенести [группу ВМ](../../concepts/instance-groups/index.md) с [L7-балансировщиком](../../../application-load-balancer/concepts/application-load-balancer.md) [{{ alb-full-name }}](../../../application-load-balancer/):
 
 1. [Создайте](../../../vpc/operations/subnet-create.md) [подсеть](../../../vpc/concepts/network.md#subnet) в [зоне доступности](../../../overview/concepts/geo-scope.md), в которую вы хотите перенести группу [ВМ](../../concepts/vm.md).
@@ -22,7 +16,7 @@ description: Из статьи вы узнаете, как можно перен
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-      1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ alb-name }}**.
       1. В строке с нужным балансировщиком нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
       1. В открывшемся окне в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** включите прием трафика в той зоне доступности, в которую хотите перенести группу ВМ.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

@@ -5,13 +5,92 @@ description: Следуя данной инструкции, вы сможете
 
 # Удаление всех объектов из бакета
 
+{% include [restore-only-versioning](../../../_includes/storage/restore-only-versioning.md) %}
+
 {% include [auto-delete-all-multipart](../../../_includes/storage/auto-delete-all-multipart.md) %}
 
 Чтобы очистить бакет и не [платить](../../pricing.md) за хранение:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для удаления объектов:
+
+      ```bash
+      yc storage s3api delete-objects --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Подготовьте файл JSON со списком объектов для удаления. Пример наполнения:
+
+      ```json
+      {
+          "Objects": [
+              {
+                  "Key": "<ключ_объекта>"
+              },
+              {
+                  "Key": "<ключ_объекта>"
+              },
+              ...
+          ]          
+      }
+      ```
+
+      Где:
+
+      * `Objects` — массив объектов для удаления.
+      * `Key` — [ключ](../../concepts/object.md#key) объекта. 
+
+  1. Выполните команду:
+
+      ```bash
+      yc storage s3api delete-objects \
+        --bucket <имя_бакета> \
+        --delete <путь_к_файлу_json>
+      ```
+
+      Где:
+
+      * `--bucket` — имя вашего бакета.
+      * `--delete` — путь к файлу JSON со списком объектов для удаления.
+
+      Результат:
+
+      ```bash
+      deleted:
+        - key: file-1
+          version_id: "null"
+        - key: file-2
+          version_id: "null"
+      request_id: 4c35e7d4********
+      ```
+
+      Альтернативная команда:
+
+      ```bash
+      yc storage s3 rm \
+        s3://<имя_бакета>/ \
+        --recursive
+      ```
+
+      Где `--recursive` — параметр для удаления всех объектов.
+
+      Результат:
+
+      ```text
+      delete: s3://my-bucket/object-1.txt
+      delete: s3://my-bucket/object-2.txt
+      ...
+      delete: s3://my-bucket/object-n.txt
+      ```
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -93,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
      
-     С помощью этой команды можно удалить до 1000 delete-маркеров: это связано с ограничением операции `aws s3api delete-objects`. Если в бакете больше версий, повторите команду несколько раз.
+     С помощью этой команды можно удалить до 1000 delete-маркеров: это связано с ограничением операции `aws s3api delete-objects`. Если в бакете больше delete-маркеров, повторите команду несколько раз.
    
   1. Удалите частично загруженные объекты:
     

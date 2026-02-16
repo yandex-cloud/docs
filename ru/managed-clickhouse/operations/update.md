@@ -7,39 +7,27 @@ description: Следуя данной инструкции, вы сможете
 
 После создания кластера вы можете:
 
-
 * [Изменить настройки сервисного аккаунта](#change-service-account).
-
-
-* [{#T}](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
-* [{#T}](#SQL-management).
-
+* [Изменить класс хостов](#change-resource-preset).
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
+* [Настроить сервис координации](#coordination).
+* [Включить управление пользователями и базами данных через SQL](#SQL-management).
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
-
 * [Переместить кластер](#move-cluster) в другой каталог.
-
-
 * [Изменить группы безопасности кластера](#change-sg-set).
-
-
 * [Изменить настройки гибридного хранилища](#change-hybrid-storage).
 
 Подробнее о других изменениях кластера:
 
 * [Перенос кластера в другую зону доступности](host-migration.md).
-
 * [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
-
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).
 
 
 ## Изменить настройки сервисного аккаунта {#change-service-account}
 
 
-Для привязки сервисного аккаунта к кластеру {{ mch-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+Для привязки сервисного аккаунта к кластеру {{ mch-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 
 {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
@@ -50,8 +38,9 @@ description: Следуя данной инструкции, вы сможете
 
     Чтобы изменить настройки сервисного аккаунта:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
 {% endlist %}
@@ -71,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
 * В кластере из нескольких хостов каждый хост по очереди будет остановлен и обновлен. Остановленный хост будет недоступен несколько минут.
 * Подключение по [особому FQDN](connect/fqdn.md#auto) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
 
-Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
 Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
@@ -81,8 +70,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Чтобы изменить класс хостов {{ CH }}, в блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста.
   1. Чтобы изменить класс хостов {{ ZK }}, в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -103,7 +93,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-ch }} resource-preset list
 
@@ -166,22 +156,154 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить класс хостов, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Нужные значения в параметре `configSpec.clickhouse.resources.resourcePresetId` (для ZooKeeper — `configSpec.zookeeper.resources.resourcePresetId`).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      Список поддерживаемых значений запрашивайте методом [list](../api-ref/ResourcePreset/list.md) для ресурсов `ResourcePreset`.
+    1. Запросите список доступных классов хостов:
 
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+        1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ResourcePreset/list.md#responses).
+
+    1. Измените класс хостов на нужный:
+
+        1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+            {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+            ```bash
+            curl \
+                --request PATCH \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+                --data '{
+                          "updateMask": "configSpec.clickhouse.resources.resourcePresetId,configSpec.zookeeper.resources.resourcePresetId",
+                          "configSpec": {
+                            "clickhouse": {
+                              "resources": {
+                                "resourcePresetId": "<идентификатор_класса_хостов_{{ CH }}>"
+                              }
+                            },
+                            "zookeeper": {
+                              "resources": {
+                                "resourcePresetId": "<идентификатор_класса_хостов_{{ ZK }}>"
+                              }
+                            }
+                          }
+                        }'
+            ```
+
+            Где:
+
+            * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+                Укажите нужные параметры:
+                * `configSpec.clickhouse.resources.resourcePresetId` — если нужно изменить класс хостов {{ CH }}.
+                * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
+
+                В примере запроса класс хостов изменяется и для хостов {{ CH }}, и для хостов {{ ZK }}.
+
+            * `configSpec.clickhouse.resources.resourcePresetId` — идентификатор класса хостов {{ CH }}.
+            * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор класса хостов {{ ZK }}.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Запросите список доступных классов хостов:
+
+        1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/resource_preset_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse).
+
+    1. Измените класс хостов на нужный:
+
+        1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>",
+                      "update_mask": {
+                        "paths": [
+                          "config_spec.clickhouse.resources.resource_preset_id",
+                          "config_spec.zookeeper.resources.resource_preset_id"
+                        ]
+                      },
+                      "config_spec": {
+                        "clickhouse": {
+                          "resources": {
+                            "resource_preset_id": "<идентификатор_класса_хостов_{{ CH }}>"
+                          }
+                        },
+                        "zookeeper": {
+                          "resources": {
+                            "resource_preset_id": "<идентификатор_класса_хостов_{{ ZK }}>"
+                          }
+                        }
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+            ```
+
+            Где:
+
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+                Укажите нужные параметры:
+                * `config_spec.clickhouse.resources.resource_preset_id` — если нужно изменить класс хостов {{ CH }}.
+                * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
+
+                В примере запроса класс хостов изменяется и для хостов {{ CH }}, и для хостов {{ ZK }}.
+
+            * `config_spec.clickhouse.resources.resource_preset_id` — идентификатор класса хостов {{ CH }}.
+            * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор класса хостов {{ ZK }}.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% note info %}
 
@@ -191,15 +313,25 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
+{% note info %}
+
+Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ CH }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ ZK }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -208,7 +340,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -216,24 +348,31 @@ description: Следуя данной инструкции, вы сможете
      {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+  1. Укажите нужный [тип диска](../concepts/storage.md) и размер хранилища в команде изменения кластера:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
-       --clickhouse-disk-size <размер_хранилища_ГБ>
+       --clickhouse-disk-size <размер_хранилища_ГБ> \
+       --clickhouse-disk-type <тип_диска>
      ```
 
-  1. Чтобы увеличить размер хранилища хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-disk-size`.
+          
+     Новый размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера.
+
+
+     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+  1. Чтобы изменить тип диска и увеличить размер хранилища хостов {{ ZK }}, передайте нужные значения в параметре `--zookeeper-disk-size`.
 
 - {{ TF }} {#tf}
 
-  Чтобы увеличить размер хранилища:
+  Чтобы изменить [тип диска](../concepts/storage.md) и увеличить размер хранилища:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mch-name }} значение параметра `disk_size` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
+    1. Измените в описании кластера {{ mch-name }} значения параметров `disk_size` и `disk_type_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
@@ -241,12 +380,14 @@ description: Следуя данной инструкции, вы сможете
           clickhouse {
             resources {
               disk_size = <размер_хранилища_ГБ>
+              disk_type_id = "<тип_диска>"
               ...
             }
           }
           zookeeper {
             resources {
               disk_size = <размер_хранилища_ГБ>
+              disk_type_id = "<тип_диска>"
               ...
             }
           }
@@ -265,16 +406,214 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы увеличить размер хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-  * Нужный размер хранилища хостов {{ CH }} в параметре `configSpec.clickhouse.resources.diskSize`.
-  * Нужный размер хранилища хостов {{ ZK }} в параметре `configSpec.zookeeper.resources.diskSize`.
-  * Список полей конфигурации кластера, которые необходимо изменить, в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId",
+                      "configSpec": {
+                        "clickhouse": {
+                          "resources": {
+                            "diskSize": "<размер_хранилища_в_байтах>",
+                            "diskTypeId": "<тип_диска>"
+                          }
+                        },
+                        "zookeeper": {
+                          "resources": {
+                            "diskSize": "<размер_хранилища_в_байтах>",
+                            "diskTypeId": "<тип_диска>"
+                          }
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            Укажите нужные параметры:
+
+            * `configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId` — если нужно изменить тип диска и увеличить размер хранилища хостов {{ CH }}.
+            * `configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска и увеличить размер хранилища хостов {{ ZK }}.
+
+            В примере запроса размер хранилища и тип диска изменяются и для хостов {{ CH }}, и для хостов {{ ZK }}.
+
+        * `configSpec.clickhouse.resources.diskSize` — размер хранилища хостов {{ CH }} в байтах.
+        * `configSpec.clickhouse.resources.diskTypeId` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
+        * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов {{ ZK }} в байтах.
+        * `configSpec.zookeeper.resources.diskTypeId` — тип диска хостов {{ ZK }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.clickhouse.resources.disk_size",
+                      "config_spec.clickhouse.resources.disk_type_id",
+                      "config_spec.zookeeper.resources.disk_size",
+                      "config_spec.zookeeper.resources.disk_type_id"
+                    ]
+                  },
+                  "config_spec": {
+                    "clickhouse": {
+                      "resources": {
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
+                      }
+                    },
+                    "zookeeper": {
+                      "resources": {
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
+                      }
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            Укажите нужные параметры:
+
+            * `config_spec.clickhouse.resources.disk_size` — если нужно увеличить размер хранилища хостов {{ CH }}.
+            * `config_spec.clickhouse.resources.disk_type_id` — если нужно изменить тип диска хостов {{ CH }}.
+            * `config_spec.zookeeper.resources.disk_size` — если нужно увеличить размер хранилища хостов {{ ZK }}.
+            * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска хостов {{ ZK }}.
+
+            В примере запроса размер хранилища и тип диска изменяются и для хостов {{ CH }}, и для хостов {{ ZK }}.
+
+        * `config_spec.clickhouse.resources.disk_size` — размер хранилища хостов {{ CH }} в байтах.
+        * `config_spec.clickhouse.resources.disk_type_id` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
+        * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов {{ ZK }} в байтах.
+        * `config_spec.zookeeper.resources.disk_type_id` — тип диска хостов {{ ZK }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Настроить сервис координации {#coordination}
+
+Вы можете [включить сервис координации](#enable-coordination) {{ CK }} или {{ ZK }}, если он не был задан. Для включенного сервиса координации можно [изменить его настройки](#change-coordination).
+
+### Включить сервис координации {#enable-coordination}
+
+{% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
+  1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/replication.md).
+  1. В зависимости от выбранного сервиса задайте следующие настройки:
+      
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ ZK }}.
+
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**:
+          
+          * При необходимости измените настройки автоматически добавленных хостов {{ ZK }}.
+        
+            Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+          
+            * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+            * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
+          * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+          
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+            
+            После включения этой настройки ее нельзя отключить.
+
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**:
+        
+          * При необходимости измените настройки автоматически добавленных хостов {{ CK }}.
+        
+            Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
+          
+            * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+            * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+
+          * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+          
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+            
+            После включения этой настройки ее нельзя отключить.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+
+{% endlist %}
+
+### Изменить настройки включенного сервиса координации {#change-coordination}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В зависимости от выбранного сервиса координации задайте следующие настройки:
+      
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md);
+        * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте [настройки автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
+
+      * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
+
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md);
+        * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте [настройки автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ ZK }}.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 {% endlist %}
 
@@ -295,8 +634,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
   1. Для [управления базами данных через SQL](./databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -354,13 +694,109 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы включить управление пользователями и базами данных через SQL, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе нужные значения в параметре `configSpec.clickhouse.config`:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * `sqlUserManagement` — задайте значение `true` для включения режима [управления пользователями через SQL](cluster-users.md#sql-user-management).
-    * `sqlDatabaseManagement` — задайте значение `true` для включения режима [управления базами данных через SQL](databases.md#sql-database-management). Необходимо, чтобы был включен режим управления пользователями через SQL.
-    * `adminPassword` — задайте пароль пользователя `admin`, с помощью которого осуществляется управление.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.adminPassword,configSpec.sqlUserManagement,configSpec.sqlDatabaseManagement",
+                      "configSpec": {
+                        "adminPassword": "<пароль_пользователя_admin>",
+                        "sqlUserManagement": <управление_пользователями_через_SQL>,
+                        "sqlDatabaseManagement": <управление_базами_данных_через_SQL>
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            Укажите нужные параметры:
+
+            * `configSpec.adminPassword` — пароль пользователя `admin`, с помощью которого осуществляется управление.
+            * `configSpec.sqlUserManagement` — если нужно включить управление пользователями через SQL.
+            * `configSpec.sqlDatabaseManagement` — если нужно включить управление базами данных через SQL.
+
+            В примере запроса включается и управление пользователями, и управление базами данных черех SQL.
+
+        * `configSpec.adminPassword` — пароль пользователя `admin`.
+        * `configSpec.sqlUserManagement` — режим управления пользователями через SQL: `true` или `false`.
+        * `configSpec.sqlDatabaseManagement` — режим управления базами данных через SQL: `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.admin_password",
+                      "config_spec.sql_user_management",
+                      "config_spec.sql_database_management"
+                    ]
+                  },
+                  "config_spec": {
+                    "admin_password": "<пароль_пользователя_admin>",
+                    "sql_user_management": <управление_пользователями_через_SQL>,
+                    "sql_database_management": <управление_базами_данных_через_SQL>
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            Укажите нужные параметры:
+
+            * `config_spec.admin_password` — пароль пользователя `admin`, с помощью которого осуществляется управление.
+            * `config_spec.sql_user_management` — если нужно включить управление пользователями через SQL.
+            * `config_spec.sql_database_management` — если нужно включить управление базами данных через SQL.
+
+            В примере запроса включается и управление пользователями, и управление базами данных черех SQL.
+
+        * `config_spec.admin_password` — пароль пользователя `admin`.
+        * `config_spec.sql_user_management` — режим управления пользователями через SQL: `true` или `false`.
+        * `config_spec.sql_database_management` — режим управления базами данных через SQL: `true` или `false`. Необходимо, чтобы был включен режим управления пользователями через SQL.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -370,8 +806,17 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+     * (Опционально) Задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CH }}:
+
+       {% include [disk-size-autoscaling-console](../../_includes/mdb/mch/disk-size-autoscaling-console.md) %}
+
+       Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем существующим шардам. При добавлении нового шарда значения настроек берутся с самого старого шарда.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** измените дополнительные настройки кластера:
 
      {% include [mch-extra-settings](../../_includes/mdb/mch/extra-settings-web-console.md) %}
@@ -394,16 +839,23 @@ description: Следуя данной инструкции, вы сможете
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
-
+        
         ```bash
         {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
            --backup-window-start <время_начала_резервного_копирования> \
+           --backup-retain-period-days <срок_хранения_автоматических_резервных_копий> \
            --datalens-access=<true_или_false> \
            --metrika-access=<true_или_false> \
            --serverless-access=<true_или_false> \
            --websql-access=<true_или_false> \
            --yandexquery-access=<true_или_false> \
            --deletion-protection \
+           --disk-size-autoscaling clickhouse-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `clickhouse-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `clickhouse-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>,`
+                                  `zookeeper-disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                                  `zookeeper-planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                  `zookeeper-emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
                                `hour=<час_дня>
@@ -414,9 +866,11 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
+    * `--backup-retain-period-days` – срок хранения автоматических резервных копий (в днях).
+
     * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
 
-
+    
     * `--metrika-access` — разрешает [импорт данных из AppMetrika в кластер](https://appmetrica.yandex.ru/docs/common/cloud/about.html). Значение по умолчанию — `false`.
 
     * `--serverless-access` — разрешает доступ к кластеру из сервиса [{{ sf-full-name }}](../../functions/concepts/index.md). Значение по умолчанию — `false`. Подробнее о настройке доступа см. в документации [{{ sf-name }}](../../functions/operations/database-connection.md).
@@ -431,6 +885,10 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+    * `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
+        
+        {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
+    
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
@@ -458,7 +916,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Чтобы разрешить доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, измените значения соответствующих полей в блоке `access`:
 
-
+        
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
@@ -478,7 +936,7 @@ description: Следуя данной инструкции, вы сможете
 
         * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
 
-
+        
         * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
         * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
 
@@ -493,7 +951,7 @@ description: Следуя данной инструкции, вы сможете
         ```hcl
         resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
           ...
-          deletion_protection = <защита_от_удаления_кластера>
+          deletion_protection = <защита_кластера_от_удаления>
         }
         ```
 
@@ -511,23 +969,244 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить дополнительные настройки кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Настройки доступа из других сервисов и к SQL-запросам из консоли управления с помощью сервиса {{ websql-full-name }} в параметре `configSpec.access`.
-    * Настройки окна резервного копирования в параметре `configSpec.backupWindowStart`.
-    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
-    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            
+            ```json
+            {
+              "updateMask": "<перечень_изменяемых_настроек>",
+              "configSpec": {
+                "backupWindowStart": {
+                  "hours": "<часы>",
+                  "minutes": "<минуты>",
+                  "seconds": "<секунды>",
+                  "nanos": "<наносекунды>"
+                },
+                "clickhouse": {
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "zookeeper": {
+                  "diskSizeAutoscaling": {
+                    "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "access": {
+                  "dataLens": <доступ_из_{{ datalens-name }}>,
+                  "webSql": <выполнение_SQL-запросов>,
+                  "metrika": <импорт_данных_из_AppMetrica>,
+                  "serverless": <доступ_из_{{ sf-full-name }}>,
+                  "dataTransfer": <доступ_из_{{ data-transfer-full-name }}>,
+                  "yandexQuery": <доступ_из_{{ yq-full-name }}>
+                }    
+              },
+              "maintenanceWindow": {
+                "anytime": {},
+                "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня_по_UTC>"
+                }
+              },
+              "deletionProtection": <защита_кластера_от_удаления>
+            }
+            ```
+
+
+            Где:
+
+            * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
+
+            * `configSpec.access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
+
+                {% include [rest-access-settings](../../_includes/mdb/mch/api/rest-access-settings.md) %}
+
+            * `configSpec.clickhouse.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
+            
+                {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
+            
+            * `configSpec.zookeeper.diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
+                      
+                {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
+            
+            * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
+
+                * `anytime` — (по умолчанию) — в любое время.
+                * `weeklyMaintenanceWindow` — по расписанию:
+                    * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                    * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+
+            * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+              --data '@body.json'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            
+            ```json
+            {
+              "cluster_id": "<идентификатор_кластера>",
+              "update_mask": {
+                "paths": [
+                  <перечень_изменяемых_настроек>
+                ]
+              },
+              "config_spec": {
+                "backup_window_start": {
+                  "hours": "<часы>",
+                  "minutes": "<минуты>",
+                  "seconds": "<секунды>",
+                  "nanos": "<наносекунды>"
+                },
+                "clickhouse": {
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "zookeeper": {
+                  "disk_size_autoscaling": {
+                    "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                    "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                    "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                  }
+                },
+                "access": {
+                  "data_lens": <доступ_из_{{ datalens-name }}>,
+                  "web_sql": <выполнение_SQL-запросов>,
+                  "metrika": <импорт_данных_из_AppMetrica>,
+                  "serverless": <доступ_из_{{ sf-full-name }}>,
+                  "data_transfer": <доступ_из_{{ data-transfer-full-name }}>,
+                  "yandex_query": <доступ_из_{{ yq-full-name }}>
+                }
+              },
+              "maintenance_window": {
+                "anytime": {},
+                "weekly_maintenance_window": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня_по_UTC>"
+                }
+              },
+              "deletion_protection": <защита_кластера_от_удаления>
+            }
+            ```
+
+
+            Где:
+
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
+
+            * `config_spec.access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
+
+                {% include [grpc-access-settings](../../_includes/mdb/mch/api/grpc-access-settings.md) %}
+
+            * `config_spec.clickhouse.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
+            
+                {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
+
+            * `config_spec.zookeeper.disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
+                      
+                {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
+
+            * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Выберите один из вариантов:
+
+                * `anytime` — (по умолчанию) — в любое время.
+                * `weekly_maintenance_window` — по расписанию:
+                    * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+                    * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
+
+            * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d @ \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.Update \
+              < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+
+### {{ connection-manager-name }} {#conn-man}
+
+Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
+
+Для каждого пользователя БД будут созданы:
+
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
+
+* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
+
+  Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+  Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
+
+  {% note info %}
+
+  Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+
+  {% endnote %}
+
 
 ## Переместить кластер {#move-cluster}
 
@@ -535,7 +1214,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.common.move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -564,12 +1244,88 @@ description: Следуя данной инструкции, вы сможете
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- {{ TF }} {#tf}
 
-    Чтобы переместить кластер, воспользуйтесь методом REST API [move](../api-ref/Cluster/move.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Move](../api-ref/grpc/Cluster/move.md) и передайте в запросе:
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Идентификатор каталога назначения в параметре `destinationFolderId`.
+        О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
+
+    1. Измените или добавьте в описании кластера {{ mch-name }} значение параметра `folder_id`:
+
+        ```hcl
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          ...
+          folder_id = "<идентификатор_каталога_назначения>"
+        }
+        ```
+
+    1. Проверьте корректность настроек.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Подтвердите изменение ресурсов.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:move' \
+            --data '{
+                      "destinationFolderId": "<идентификатор_каталога_назначения>"
+                    }'
+        ```
+
+        Где `destinationFolderId` — идентификатор каталога назначения, в который нужно переместить кластер. Этот идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "destination_folder_id": "<идентификатор_каталога_назначения>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Move
+        ```
+
+        Где `destination_folder_id` — идентификатор каталога назначения, в который нужно переместить кластер. Этот идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -580,8 +1336,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}
@@ -632,15 +1389,102 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить группы безопасности, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "securityGroupIds",
+                      "securityGroupIds": [
+                        <список_идентификаторов_групп_безопасности>
+                      ]
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `securityGroupIds`.
+
+        * `securityGroupIds` — массив строк. Каждая строка — идентификатор группы безопасности.
+
+            {% note warning %}
+
+            Список назначенных кластеру групп безопасности будет полностью перезаписан списком, переданным в параметре `securityGroupIds`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные идентификаторы групп безопасности, в том числе существующие.
+
+            {% endnote %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "security_group_ids"
+                    ]
+                  },
+                  "security_group_ids": [
+                    <список_идентификаторов_групп_безопасности>
+                  ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `security_group_ids`.
+
+        * `security_group_ids` — массив строк. Каждая строка — идентификатор группы безопасности.
+
+            {% note warning %}
+
+            Список назначенных кластеру групп безопасности будет полностью перезаписан списком, переданным в параметре `security_group_ids`.
+
+            Перед выполнением запроса убедитесь, что вы включили в этот список все нужные идентификаторы групп безопасности, в том числе существующие.
+
+            {% endnote %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -692,22 +1536,98 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [Hybrid Storage settings CLI](../../_includes/mdb/mch/hybrid-storage-settings-cli.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы изменить настройки гибридного хранилища, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Значение `true` в параметре `configSpec.cloudStorage.enabled`, если гибридное хранилище еще не включено.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Hybrid Storage cannot be switched off](../../_includes/mdb/mch/hybrid-storage-cannot-be-switched-off.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
-  * [Настройки гибридного хранилища](../concepts/storage.md#hybrid-storage-settings) в параметрах `configSpec.cloudStorage`:
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-      {% include [Hybrid Storage settings API](../../_includes/mdb/mch/hybrid-storage-settings-api.md) %}
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "<перечень_изменяемых_настроек>",
+                      "configSpec": {
+                        "cloudStorage": {
+                          "enabled": <использование_гибридного_хранилища>,
+                          "moveFactor": "<доля_свободного_места>",
+                          "dataCacheEnabled": <временное_хранение_файлов>,
+                          "dataCacheMaxSize": "<максимальный_объем_памяти_для_хранения_файлов>",
+                          "preferNotToMerge": <отключение_слияния_кусков_данных>
+                        }
+                      }
+                    }'
+        ```
 
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+        Где:
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        * `configSpec.cloudStorage` — настройки гибридного хранилища:
+
+            {% include [rest-cloud-storage-settings](../../_includes/mdb/mch/api/rest-cloud-storage-settings.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      <перечень_изменяемых_настроек>
+                    ]
+                  },
+                  "config_spec": {
+                    "cloud_storage": {
+                      "enabled": <использование_гибридного_хранилища>,
+                      "move_factor": "<доля_свободного_места>",
+                      "data_cache_enabled": <временное_хранение_файлов>,
+                      "data_cache_max_size": "<максимальный_объем_памяти_для_хранения_файлов>",
+                      "prefer_not_to_merge": <отключение_слияния_кусков_данных>
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        * `config_spec.cloud_storage` — настройки гибридного хранилища:
+
+            {% include [grpc-cloud-storage-settings](../../_includes/mdb/mch/api/grpc-cloud-storage-settings.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

@@ -6,19 +6,19 @@
 
 ### Get the authentication credentials {#get-credentials}
 
-Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you flexibly configure access permissions to resources.
+Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure via {{ TF }}. It will help you flexibly configure access permissions to resources.
 
-You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users/accounts.md#passport),, or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
+You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport), as well as a [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) user account, but this method is less secure. For more information, see the end of this section.
 
-1. If you do not have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up the CLI profile to run operations under the service account:
 
     {% list tabs group=instructions %}
 
     - CLI {#cli}
 
-      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
+      1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save it to the file:
 
           ```bash
           yc iam key create \
@@ -53,7 +53,7 @@ You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users
           Profile 'sa-terraform' created and activated
           ```
 
-      1. Set the profile configuration:
+      1. Configure the profile:
 
           ```bash
           yc config set service-account-key key.json
@@ -62,29 +62,26 @@ You can also access {{ TF }} from your [Yandex account](../../iam/concepts/users
           ```
 
           Where:
-          * `service-account-key`: File with the service account authorized key.
+          * `service-account-key`: Service account authorized key file.
           * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
           * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
     {% endlist %}
 
-1. Add the credentials to the environment variables:
+1. Add your credentials to the environment variables:
 
     {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
 
-
-{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
+{% cut "Managing resources under a Yandex account, local account, or federated account" %}
 
 {% include [terraform-credentials-user](../_tutorials_includes/terraform-credentials-user.md) %}
 
 {% endcut %}
 
-
-
 ### Create a {{ TF }} configuration file {#configure-terraform}
 
 {% include [configure-terraform](../_tutorials_includes/configure-terraform.md) %}
 
-### Configure a provider {#configure-provider}
+### Configure your provider {#configure-provider}
 
 {% include [terraform-configure-provider](../_tutorials_includes//terraform-configure-provider.md) %}

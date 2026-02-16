@@ -12,69 +12,143 @@ To create a [resource](../../concepts/resource.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a resource.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-  1. {% include [activate-provider](../../../_includes/cdn/activate-provider.md) %}
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_section-content }}**, select the **{{ ui-key.yacloud.cdn.label_content-query-type }}**: `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` or `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
-     * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`, select an **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`. Specify an [origin](../../concepts/origins.md).
-     * When requesting content from an `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
-        * Click **{{ ui-key.yacloud.common.label_create-new_female }}**.
-        * Enter **{{ ui-key.yacloud.cdn.field_group-name }}**.
-        * Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
-           * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
-           * Specify an origin.
-           * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` or `{{ ui-key.yacloud.cdn.label_status-backup }}`.
-        * Add other origins if needed.
-        * Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
+  1. Configure the basic CDN resource settings:
 
-     For more information, see [{#T}](../../concepts/origins.md).
-  1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, enter **{{ ui-key.yacloud.cdn.label_personal-domain }}**. You can add multiple **Domain names**. Names may include characters other than [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), e.g., Сyrillic, or [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). The first name is considered the primary domain name.
+      {% note tip %}
 
-     {% note warning %}
+      {% include [copy-configuration](../../../_includes/cdn/copy-configuration.md) %}
 
-     After you create a resource, you cannot change the primary domain name.
+      {% endnote %}
 
-     {% endnote %}
+      * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Enable or disable **{{ ui-key.yacloud.cdn.label_access }}**.
+        * In the **{{ ui-key.yacloud.cdn.label_content-query-type }}** field, select `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` or `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`:
+          * When requesting `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}` content, select the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`, and specify the [origin](../../concepts/origins.md).
+          * When requesting content `{{ ui-key.yacloud.cdn.value_query-type-group-origin }}`, select an [origin group](../../concepts/origins.md#groups) or create a new one:
+            1. Click **{{ ui-key.yacloud.common.create }}**.
+            1. Specify **{{ ui-key.yacloud.cdn.field_group-name }}**.
+            1. Configure **{{ ui-key.yacloud.cdn.label_section-origins-list }}**:
+                * Specify the **{{ ui-key.yacloud.cdn.label_source-type }}**: `{{ ui-key.yacloud.cdn.value_source-type-url }}`, `{{ ui-key.yacloud.cdn.value_source-type-bucket }}`, or `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+                * Specify an origin.
+                * Select the **{{ ui-key.yacloud.cdn.field_origin-state }}**: `{{ ui-key.yacloud.cdn.label_status-active }}` or `{{ ui-key.yacloud.cdn.label_status-backup }}`.
+            1. Add other origins if needed.
+            1. Click **{{ ui-key.yacloud.common.create }}**. In the **{{ ui-key.yacloud.cdn.label_origins-group }}** field, you will see the name of the created origin group.
 
-     In the settings of your DNS hosting, create [CNAME records](../../../dns/concepts/resource-record.md#cname) for the specified domain names using the value displayed at the bottom of the **{{ ui-key.yacloud.cdn.label_section-domain }}** section. For more information, see [{#T}](../../concepts/resource.md#hostnames).
-  1. Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
-     1. Select **{{ ui-key.yacloud.cdn.label_protocol }}**.
-     1. Select a client redirect method: `{{ ui-key.yacloud.cdn.value_do-not-use }}` or `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
+          For more information, see [{#T}](../../concepts/origins.md).
+        * In the **{{ ui-key.yacloud.cdn.label_protocol }}** field, select a protocol for the origins.
+        * In the **{{ ui-key.yacloud.cdn.label_personal-domain }}** field, specify the primary domain name you will use in your website links to CDN-hosted content, e.g., `cdn.example.com`.
 
-        To enable redirecting clients from HTTP to HTTPS, create a CDN resource without a redirect and get a [TLS certificate](../../concepts/clients-to-servers-tls.md) for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` client redirect method.
-     1. Enable or disable **{{ ui-key.yacloud.cdn.label_access }}**.
-     1. In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
-         * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
+          You can add multiple **Domain names**. Names may include characters other than [ASCII](https://{{ lang }}.wikipedia.org/wiki/ASCII), e.g., Cyrillic or [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode). The first name is considered the primary domain name.
 
+          {% note alert %}
 
-         * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
+          You cannot change the primary domain name used for content distribution after creating a CDN resource.
 
-           {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
+          {% endnote %}
 
-           {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
+        * Optionally, add [labels](../../concepts/labels.md):
+          1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Enter a label in `key: value` format.
+          1. Press **Enter**.
 
-         For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
-     1. Select the **{{ ui-key.yacloud.cdn.label_host-header }}** value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or choose `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. For more information, see [{#T}](../../concepts/servers-to-origins-host.md).
-     1. To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
+      * Under **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_redirect }}** field, select `{{ ui-key.yacloud.cdn.value_do-not-use }}` or `{{ ui-key.yacloud.cdn.value_redirect-https-to-http }}`.
 
-         1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
-         1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
+          To enable redirecting clients from HTTP to HTTPS, create a CDN resource without a redirect and get a [TLS certificate](../../concepts/clients-to-servers-tls.md) for your domain name. Next, in the CDN resource settings, [select](configure-basics.md) the `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}` client redirect method.
+        * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
+          * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
+          * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
 
-             {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
+          {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-         1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** field, specify the required [flag](../../concepts/http-rewrite.md#flag):
+          [Learn more about configuring TLS certificates for HTTPS connections](../../concepts/clients-to-servers-tls.md).
+        * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select the value (`{{ ui-key.yacloud.cdn.value_host-header-default }}` or `{{ ui-key.yacloud.cdn.value_host-header-resend }}`) or opt for `{{ ui-key.yacloud.cdn.value_host-header-custom }}` and enter the **{{ ui-key.yacloud.cdn.label_custom-host-header }}**. 
+      
+          [Learn more about the `Host` header in CDN server requests to origins](../../concepts/servers-to-origins-host.md).
+        * Optionally, to enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, do the following:
+          1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
+          1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
 
-             {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+              {% include [rewrite-rule-description](../../../_includes/cdn/rewrite-rule-description.md) %}
 
-     1. To restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
+          1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-flag }}** field, specify the required [flag](../../concepts/http-rewrite.md#flag):
+
+              {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
+
+        * Optionally, to restrict access to resource content with [secure tokens](../../concepts/secure-tokens.md), enable **{{ ui-key.yacloud.cdn.field_secure-key-enabled }}**:
 
           {% include [enable-secure-token](../../../_includes/cdn/enable-secure-token.md) %}
 
-        For more information, see [{#T}](enable-secure-token.md).
+          [Learn more about access via a secure token](enable-secure-token.md).
 
-     1. {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
+        * {% include [enable-ip-policy](../../../_includes/cdn/enable-ip-policy.md) %}
 
-  1. Click **{{ ui-key.yacloud.common.create }}**.
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Optionally, under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, do the following:
+
+      {% include [setup-later](../../../_includes/cdn/setup-later.md) %}
+
+      * Under **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+        * Select the setting type: `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-source-settings }}` or `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}`.
+        * Select the cache lifetime from the list.
+        * Optionally, for the `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` setting type, set the cache lifetime for the required HTTP response codes.
+      * Under **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache }}**:
+        * Enable **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache-enabled }}**.
+        * Select the cache lifetime from the list.
+      * Under **{{ ui-key.yacloud.cdn.label_additional }}**:
+        * Select the option to ignore Cookies.
+        * Select the option to ignore the Query parameters.
+      * For CDN servers to compress content before sending it to clients, select **{{ ui-key.yacloud.cdn.label_resource-content-gzip-on }}**.
+
+        The content will be sent in `gzip` format with the `Content-Encoding` HTTP header. From origins, only uncompressed content will be requested.
+
+        [Learn more about file compression](enable-compression.md).
+
+      * If you want files larger than 10 MB to be requested and cached in parts, each part no larger than 10 MB, select **{{ ui-key.yacloud.cdn.label_resource-content-slice }}**.
+
+        For segmentation to work, content origins must support partial GET requests with the `Range` header.
+
+        [Learn more about segmentation](enable-segmentation.md).
+
+      [Learn more about caching](configure-caching.md).
+
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**:
+
+      {% include [setup-later](../../../_includes/cdn/setup-later.md) %}
+
+      * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-request-headers }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
+        * Enter names and values of the headers you need.
+      * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-response-headers }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_headers }}** field, click **{{ ui-key.yacloud.common.add }}**.
+        * Enter names and values of the headers you need.
+
+        [Learn more about configuring HTTP headers for requests and responses](configure-headers.md).
+      * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**:
+        * In the **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-access }}** field, specify whether to add this header to responses.
+        * When adding a header, select the values of the `Origin` header that allow access to the content. To grant access only to specific origins, select `{{ ui-key.yacloud.cdn.label_resource-http-headers-cors-settings-http-origin-for-source-domains }}`, specify the origin domain names and click **{{ ui-key.yacloud.cdn.button_add-domain }}**.
+
+        [Learn more about configuring CORS for responses to clients](configure-cors.md).
+
+      * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}**, select **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** from the drop-down list.
+
+        [Learn more about configuring HTTP methods](configure-http.md).
+  1. Click **Create and continue**.
+  1. Optionally, under **Advanced**, do the following:
+
+      {% include [setup-later](../../../_includes/cdn/setup-later.md) %}
+
+      * Under **Log export settings**, enable log export.
+
+        [Learn more about log export](configure-logs.md).
+      * Under **Origin shielding settings**, enable shielding and select the location you need in the **{{ ui-key.yacloud.cdn.label_shielding-location }}** field.
+
+        [Learn more about shielding](enable-shielding.md).
+  1. Click **{{ ui-key.yacloud.common.continue }}**.
 
 - CLI {#cli}
 
@@ -82,13 +156,7 @@ To create a [resource](../../concepts/resource.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. If you have not created resources before, connect to the provider first:
-
-     ```bash
-     yc cdn provider activate --type gcore
-     ```
-
-  1. View the description of the [CLI](../../../cli/) create resource command:
+  1. View the description of the [CLI](../../../cli/) command to create a resource:
 
      ```bash
      yc cdn resource create --help
@@ -142,11 +210,11 @@ To create a [resource](../../concepts/resource.md):
      ```
 
      * Instead of `--origin-group-id`, you can specify the [origin](../../concepts/origins.md) domain name using the `--origin-custom-source` flag.
-     * Possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
+     * The possible `--origin-protocol` values are `HTTP`, `HTTPS`, and `MATCH` (same as the client's).
 
      {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
-     To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
+     To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
 
      * `--rewrite-body`: Rewrite rule, e.g., `--rewrite-body '/(.*) /new-folder/$1'`.
 
@@ -156,88 +224,47 @@ To create a [resource](../../concepts/resource.md):
 
          {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
 
+     * To add [labels](../../concepts/labels.md), use the `--add-labels` parameter, e.g., `--add-labels key1=value1`.
+
      {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
-     For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
-  1. Get the [CNAME record](../../../dns/concepts/resource-record.md#cname) value for the CDN resource:
-
-     ```bash
-     yc cdn resource get-provider-cname
-     ```
-
-     Result:
-
-     ```text
-     cname: cl-ms6*****90.edgecdn.ru
-     folder_id: b1gt6g8ht345********
-     ```
-
-  1. In [{{ dns-full-name }}](../../../dns/), [create a resource record](../../../dns/operations/resource-record-create.md) with the obtained value.
+     For more information about the `yc cdn resource create` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - {{ TF }} {#tf}
-
-  Make sure to activate the CDN provider before creating a resource. You can activate it in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
-
-  ```bash
-  yc cdn provider activate \
-    --folder-id <folder_ID> \
-    --type gcore
-  ```
-
-  Where:
-  * `--folder-id`: [ID of the folder](../../../resource-manager/operations/folder/get-id.md) where you want to activate the CDN provider.
-  * `--type`: Provider type. The only possible value is `gcore`.
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the CDN resource to create:
+  1. In the configuration file, describe the properties of the CDN resource to create:
 
      {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new CDN resource in the [management console]({{ link-console-main }}) or using this CLI command:
+     {{ TF }} will create all the required resources. You can check the new CDN resource using the [management console]({{ link-console-main }}) or this CLI command:
 
      ```bash
      yc cdn resource list
      ```
 
-  1. Get the [CNAME record](../../../dns/concepts/resource-record.md#cname) value for the CDN resource:
-
-     ```bash
-     yc cdn resource get-provider-cname
-     ```
-
-     Result:
-
-     ```text
-     cname: cl-ms6*****90.edgecdn.ru
-     folder_id: b1gt6g8ht345********
-     ```
-
-  1. In [{{ dns-full-name }}](../../../dns/), [create a resource record](../../../dns/operations/resource-record-create.md) with the obtained value.
-
 - API {#api}
 
-  If you have not created any resources before, connect to the CDN provider. To do this, use the [activate](../../api-ref/Provider/activate.md) REST API method for the [Provider](../../api-ref/Provider/index.md) resource or the [ProviderService/Activate](../../api-ref/grpc/Provider/activate.md) gRPC API call.
-  1. Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
+  Use the [create](../../api-ref/Resource/create.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/Create](../../api-ref/grpc/Resource/create.md) gRPC API call.
 
-     You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
-  1. Create a [CNAME record](../../../dns/concepts/resource-record.md#cname) for the CDN resource in [{{ dns-full-name }}](../../../dns):
-     * To get the CNAME record value for a CDN resource, use the [getProviderCName](../../api-ref/Resource/getProviderCName.md) REST API method for the [Resource](../../api-ref/Resource/index.md) resource or the [ResourceService/GetProviderCName](../../api-ref/grpc/Resource/getProviderCName.md) gRPC API call.
-     * To create a resource record in a DNS zone, use the [updateRecordSets](../../../dns/api-ref/DnsZone/updateRecordSets.md) REST API method for the [DnsZone](../../../dns/api-ref/DnsZone/index.md) resource or the [DnsZoneService/UpdateRecordSets](../../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) gRPC API call.
+  You can restrict access to the resource with [secure tokens](../../concepts/secure-tokens.md) and an [IP-based access policy](../../concepts/ip-address-acl.md).
 
 {% endlist %}
+
+{% include [create-resource-time](../../../_includes/cdn/create-resource-time.md) %}
+
+{% include [get-and-create-cname](../../../_includes/cdn/get-and-create-cname.md) %}
 
 {% include [after-creation-tip](../../../_includes/cdn/after-creation-tip.md) %}
 
 {% include [note-dns-aname](../../../_includes/cdn/note-dns-aname.md) %}
-
-{% include [edge-center-features-note](../../../_includes/cdn/edge-center-features-note.md) %}
 
 ## Examples {#examples}
 

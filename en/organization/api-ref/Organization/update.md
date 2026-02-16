@@ -1,9 +1,78 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}
+    method: patch
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to update.
+            To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the organization.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the organization.
+            The maximum string length in characters is 256.
+          type: string
+        title:
+          description: |-
+            **string**
+            Display name of the organization.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/update.md
 ---
 
-# Cloud Organization API, REST: Organization.Update {#Update}
+# Identity Hub API, REST: Organization.Update
 
 Updates the specified organization.
 
@@ -20,7 +89,9 @@ PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organi
 || organizationId | **string**
 
 Required field. ID of the organization to update.
-To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.UpdateOrganizationRequest}
@@ -31,7 +102,7 @@ To get the organization ID, use a [OrganizationService.List](/docs/organization/
   "name": "string",
   "description": "string",
   "title": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -49,16 +120,24 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the organization. ||
+Name of the organization.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the organization. ||
+Description of the organization.
+
+The maximum string length in characters is 256. ||
 || title | **string**
 
-Display name of the organization. ||
-|| labels | **string**
+Display name of the organization.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -90,7 +169,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "title": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -219,7 +298,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -1,9 +1,65 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/services
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](#yandex.cloud.iam.v1.Resource)**
+            Required field. Resource container to list a services.
+            It is supported only resource-manager.cloud resource container now.
+          $ref: '#/definitions/Resource'
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 2000.
+          type: string
+      required:
+        - resource
+      additionalProperties: false
+    body: null
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the resource.
+              The maximum string length in characters is 50.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+              The maximum string length in characters is 64.
+            type: string
+        required:
+          - id
+          - type
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/list.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.List {#List}
+# Identity and Access Management API, REST: ServiceControl.List
 
 Retrieves the list of Service in the specified resource container.
 
@@ -28,12 +84,16 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
+Default value: 100
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Resource {#yandex.cloud.iam.v1.Resource}
@@ -44,10 +104,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.ListServicesResponse}
@@ -112,7 +176,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
@@ -132,8 +195,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

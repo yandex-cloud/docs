@@ -1,37 +1,53 @@
 title: Yandex Load Testing
 description:
   - >-
-    This service allows you to run load testing and analyze the performance of
-    your services and applications.
+    Yandex Load Testing helps analyze the performance of your services and
+    applications.
   - |-
-    This service allows you to: <ul>
-      <li>Create a pre-configured <a
-    href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
-      <li>Set up tests in the interface and generate the load from the generator created.</li>
+    Use this service to: <ul>
+      <li>Create a pre-configured <a href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
+      <li>Set up a test in the interface and generate the load from the new generator.</li>
       <li>View test reports.</li>
-      <li>Store and manage data about previously conducted tests.</li>
-    </ul> The service can be managed from the console.
-meta:
-  title: Yandex Load Testing
-  description: >-
-    This service allows you to run load testing and analyze the performance of
-    your services and applications.
+      <li>Store and manage data on earlier tests.</li>
+    </ul> You can manage this service using the management console.
 links:
   - title: Getting started
-    description: How to run load tests with Yandex Load Testing
+    description: Getting started with Yandex Load Testing
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Service operation and basic concepts
     href: concepts/
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Quotas and limits
-    description: Technical and organizational limitations
+    description: Technical and management-related limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Load Testing
+  description: >-
+    Yandex Load Testing helps analyze the performance of your services and
+    applications.
+  keywords:
+    - '{{ load-testing-full-name }}'
+    - Load Testing
+    - '{{ load-testing-name }}'
+    - '{{ load-testing-full-name }} in {{ yandex-cloud }}'
+    - load analysis
+    - load in {{ load-testing-full-name }}
+    - load test
+    - testing in {{ load-testing-full-name }}
+    - load generator
+    - load testing in {{ load-testing-name }}
+    - '{{ load-testing-full-name }} load generator'
+    - test data
+    - '{{ load-testing-full-name }} data'
+    - loadtesting
+    - '{{ load-testing-full-name }} agent'
+    - testing {{ load-testing-full-name }}

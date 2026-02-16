@@ -4,6 +4,12 @@ _Агент_ — это [виртуальная машина](../../glossary/vm.
 
 Обратите внимание, что при генерации нагрузки необходимо следить за системными ресурсами агента — vCPU, памятью, дисками и использованием сети. При исчерпании одного из ресурсов правильная подача нагрузки и точные замеры ответов становятся невозможными. 
 
+{% note info %}
+
+Агенты автоматически очищают место на диске. По умолчанию агент очищает 2 ГБ места. Объемом освобождаемого места можно управлять с помощью параметра `disk_limit` [плагина Resource Check](resource-check.md).
+
+{% endnote %}
+
 На агентах установлен инструмент для нагрузочного тестирования и коннектор для его работы с сервисом {{ load-testing-name }}.
 
 ## Производительность агентов {#benchmark}
@@ -18,3 +24,14 @@ _Агент_ — это [виртуальная машина](../../glossary/vm.
 
 Если для ваших задач не хватает агента типа **large**, обратитесь [в поддержку](../../support/overview.md).
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)
+* [{#T}](../tutorials/loadtesting-jmeter.md)
+* [{#T}](../tutorials/loadtesting-multiply.md)
+* [{#T}](../tutorials/loadtesting-external-agent.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)

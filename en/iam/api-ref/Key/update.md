@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/keys/{keyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the Key resource to update.
+            To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            Description of the key pair.
+            The maximum string length in characters is 256.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/update.md
 ---
 
-# Identity and Access Management API, REST: Key.Update {#Update}
+# Identity and Access Management API, REST: Key.Update
 
 Updates the specified key pair.
 
@@ -20,7 +60,9 @@ PATCH https://iam.{{ api-host }}/iam/v1/keys/{keyId}
 || keyId | **string**
 
 Required field. ID of the Key resource to update.
-To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request. ||
+To get key pair ID, use a [KeyService.List](/docs/iam/api-ref/Key/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.UpdateKeyRequest}
@@ -46,7 +88,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-Description of the key pair. ||
+Description of the key pair.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -219,7 +263,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || publicKey | **string**

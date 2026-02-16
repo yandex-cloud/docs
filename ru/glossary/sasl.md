@@ -61,8 +61,8 @@ _SASL_ (Simple Authentication and Security Layer) — фреймворк для 
 
 ## Применение SASL в {{ yandex-cloud }} {#yc}
 
-Среди облачных сервисов {{ yandex-cloud }} фреймворк SASL используется в [{{ mkf-full-name }}](../managed-kafka/). К кластерам {{ KF }} можно подключиться с использованием шифрования (SASL_SSL) — порт 9091, так и без него (SASL_PLAINTEXT) — порт 9092.
+Среди облачных сервисов {{ yandex-cloud }} фреймворк SASL используется в [{{ mkf-full-name }}](/services/managed-kafka/). К кластерам {{ KF }} можно подключиться с использованием шифрования (SASL_SSL) — порт 9091, так и без него (SASL_PLAINTEXT) — порт 9092. Подробнее см. в [документации](../managed-kafka/).
 
-Чтобы безопасно поставлять данные из топиков {{ KF }} в облачные хранилища, воспользуйтесь [руководствами сервиса {{ data-transfer-full-name }}](../data-transfer/tutorials/index.md#delivery-to-queue).
+Чтобы безопасно поставлять данные из топиков {{ KF }} в облачные хранилища, воспользуйтесь [руководствами](../data-transfer/tutorials/index.md#delivery-to-queue) сервиса [{{ data-transfer-full-name }}](/services/data-transfer/).
 
-Сервис [{{ mch-full-name }}](../managed-clickhouse/) также позволяет использовать SASL для аутентификации в любых кластерах {{ KF }} и [получения данных](../tutorials/dataplatform/fetch-data-from-mkf.md) оттуда.
+Сервис [{{ mch-full-name }}](/services/managed-clickhouse/) также позволяет использовать SASL для аутентификации в любых кластерах {{ KF }} и [получения данных](../tutorials/dataplatform/fetch-data-from-mkf.md) оттуда. Подробнее см. в [документации](../managed-clickhouse/).

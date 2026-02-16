@@ -1,0 +1,1 @@
+The trigger for {{ yds-name }} accepts and sends messages in [JSON](https://{{ lang }}wikipedia.org/wiki/JSON) format only.

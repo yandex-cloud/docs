@@ -1,5 +1,6 @@
 ---
 title: Preemptible VMs in {{ compute-full-name }}
+description: In this article, you will learn what preemptible VMs are, how to use them, and learn about their limitations.
 ---
 
 # Preemptible VMs
@@ -22,6 +23,7 @@ In addition to the fact that preemptible VMs can be forcibly stopped, they have 
 * If there are not enough resources in the specified availability zone to launch a preemptible VM, it will not get launched.
 * Preemptible VMs are not subject to the [SLA](../../overview/sla.md).
 
+
 ## Working with preemptible VMs {#work-with-preemptible-vm}
 
 When a preemptible VM is stopped, it is not deleted and all its data is saved. When you need the VM again, you can just [start it](../operations/vm-control/vm-stop-and-start#start).
@@ -35,3 +37,8 @@ In [{{ ig-name }}](instance-groups/index.md), stopped VMs start automatically ba
 With {{ ig-name }}, preemptible VMs in the group get stopped after a random interval of 22 to 24 hours, rather than exactly after 24 hours. This helps avoid situations when all VMs in the group restart at the same time and stop handling the load of running applications.
 
 {% endnote %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/nodejs-cron-restart-vm.md)
+* [{#T}](../tutorials/hpc-on-preemptible.md)

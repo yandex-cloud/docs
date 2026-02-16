@@ -1,16 +1,20 @@
-Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, specify which traffic the rule will be used to analyze:
-* `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`: The rule will be used to analyze the whole traffic.
-* `Conditional`: The rule will be used to analyze the traffic specified in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field:
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`: String in the HTTP body.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`: Request path.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.
-   * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`: Cookie header string.
+Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-section }}**, specify the traffic the rule will apply to:
+* `{{ ui-key.yacloud.component.condition-column.condition_full-trafic }}`: Rule will apply to all traffic.
+* `On condition`: Rule will apply to the traffic defined in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field:
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`: HTTP body string.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`: Request path.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.
+    * `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`: Cookie header string.
+    * `Bot name`: Legitimate bots belonging to various businesses and services.
+    * `Bot category`: Categories of verified bots by purpose or type of activity.
+    * `Verified bot`: Filtering based on whether the bot is verified (`yes` or `no`).
+    * `Bot score`: Filtering by score from `0` (lowest probability, i.e., human) to `100` (highest probability, i.e., bot).
 
-   You can set multiple conditions of the same type. To do this, select all the condition types you need in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field.
+    You can set multiple conditions of the same type by selecting all the condition types you need in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field.
 
-   You can also set multiple conditions of the same type at the same time. To do this, click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** or ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}** in the section with the condition you need.
+    You can also set multiple conditions of the same type at the same time by clicking ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_and }}** or ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.condition-column.condition_or }}** in the section with the condition you need.
 
-   To delete a condition, click ![options](../../_assets/console-icons/trash-bin.svg).
+    To delete a condition, click ![options](../../_assets/console-icons/trash-bin.svg).

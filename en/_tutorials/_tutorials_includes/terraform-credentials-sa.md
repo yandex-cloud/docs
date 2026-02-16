@@ -1,18 +1,19 @@
-Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure using {{ TF }}. It will help you flexibly configure access permissions to resources.
+Use a [service account](../../iam/concepts/users/service-accounts.md) to manage the {{ yandex-cloud }} infrastructure via {{ TF }}. It will help you flexibly configure access permissions to resources.
 
-You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport) or a [federated account](../../iam/concepts/users/accounts.md#saml-federation), but this method is less secure. For more information, see the end of this section.
-1. If you do not have the {{ yandex-cloud }} command line interface, [install it](../../cli/quickstart.md#install).
+You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local user](../../iam/concepts/users/accounts.md#local) account, but this method is less secure. For more information, see the end of this section.
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install it](../../cli/quickstart.md#install).
 1. If you do not have a service account, create one:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a service account.
-     1. In the **Service accounts** tab, click **Create service account**.
+     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
+     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account.
 
-        The name format requirements are as follows:
+        Follow these naming requirements:
 
         {% include [name-format](../../_includes/name-format.md) %}
 
@@ -22,7 +23,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-     Run the command to create a service account:
+     Run the following command to create a service account:
 
      ```bash
      yc iam service-account create --name <service_account_name>
@@ -55,7 +56,7 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
    - Management console {#console}
 
-     To assign to a service account a role for the folder:
+     To assign a role for a folder to a service account:
 
      {% include [grant-role-console-sa](../../_includes/grant-role-console-sa.md) %}
 
@@ -70,11 +71,12 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
         Result:
 
         ```text
-        +----------------------+--------------+
-        |          ID          |     NAME     |
-        +----------------------+--------------+
-        | aje6ij7qvdhb******** | sa-terraform |
-        +----------------------+--------------+
+        +----------------------+--------------+--------+---------------------+-----------------------+
+        |          ID          |     NAME     | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
+        +----------------------+--------------+--------+---------------------+-----------------------+
+        | ajeg2b2et02f******** | terraform-sa |        | 2024-09-08 18:59:45 | 2025-08-21 06:40:00   |
+        | ajegtlf2q28a******** | default-sa   |        | 2023-06-27 16:18:18 | 2025-08-21 06:30:00   |
+        +----------------------+--------------+--------+---------------------+-----------------------+
         ```
 
      1. Assign the role for the resource to the service account:
@@ -91,9 +93,9 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
         * `<resource-name>`: Resource name. You can specify a resource by its name or ID (cloud or folder name).
         * `<resource-id>`: Resource ID (cloud or folder ID).
         * `<role-id>`: Role being assigned, e.g., `{{ roles-cloud-owner }}`.
-        * `<service-account-id>`: ID of the service account getting the role.
+        * `<service-account-id>`: ID of the service account the role is assigned to.
 
-        >Example:
+        >Here is an example:
         > 
         >```bash
         >yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
@@ -111,65 +113,42 @@ You can also use {{ TF }} under your [Yandex account](../../iam/concepts/users/a
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Add your credentials to the environment variables. When creating an [IAM token](../../iam/concepts/authorization/iam-token.md), use the [impersonation](../../iam/concepts/access-control/impersonation.md) of the service account you created earlier, specifying its ID in the `--impersonate-service-account-id` parameter:
 
-   {% list tabs group=instructions %}
+    {% include [impersonation-role-notice](../../_includes/cli/impersonation-role-notice.md) %}
 
-   - CLI {#cli}
+    {% list tabs group=programming_language %}
 
-     1. Create an [authorized key](../../iam/concepts/authorization/key.md) for your service account and save the file:
+    - Bash {#bash}
 
-        ```bash
-        yc iam key create \
-          --service-account-id <service_account_ID> \
-          --folder-name <service_account_folder_name> \
-          --output key.json
-        ```
+      ```bash
+      export YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <service_account_ID>)
+      export YC_CLOUD_ID=$(yc config get cloud-id)
+      export YC_FOLDER_ID=$(yc config get folder-id)
+      ```
 
-        Where:
-        * `service-account-id`: Service account ID.
-        * `folder-name`: Name of the folder in which the service account was created.
-        * `output`: Name of the file with the authorized key.
+      Where:
+      * `YC_TOKEN`: Service account [IAM token](../../iam/concepts/authorization/iam-token.md).
+      * `YC_CLOUD_ID`: Cloud ID.
+      * `YC_FOLDER_ID`: Folder ID.
 
-        Result:
+    - PowerShell {#powershell}
 
-        ```text
-        id: aje8nn871qo4********
-        service_account_id: ajehr0to1g8********
-        created_at: "2022-09-14T09:11:43.479156798Z"
-        key_algorithm: RSA_2048
-        ```
+      ```powershell
+      $Env:YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <service_account_ID>)
+      $Env:YC_CLOUD_ID=$(yc config get cloud-id)
+      $Env:YC_FOLDER_ID=$(yc config get folder-id)
+      ```
 
-     1. Create a CLI profile to run operations on behalf of the service account. Name the profile:
+      Where:
+      * `YC_TOKEN`: Service account [IAM token](../../iam/concepts/authorization/iam-token.md).
+      * `YC_CLOUD_ID`: Cloud ID.
+      * `YC_FOLDER_ID`: Folder ID.
 
-        ```bash
-        yc config profile create <profile_name>
-        ```
+    {% endlist %}
 
-        Result:
+    {% note info %}
 
-        ```text
-        Profile 'sa-terraform' created and activated
-        ```
+    {% include [iam-token-lifetime](../../_includes/iam-token-lifetime.md) %}
 
-     1. Set the profile configuration:
-
-
-        ```bash
-        yc config set service-account-key key.json
-        yc config set cloud-id <cloud_ID>
-        yc config set folder-id <folder_ID>
-        ```
-
-
-
-        Where:
-        * `service-account-key`: File with the service account authorized key.
-        * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
-        * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
-
-   {% endlist %}
-
-1. Add the credentials to the environment variables:
-
-   {% include [terraform-token-variables](../../_includes/terraform-token-variables.md) %}
+    {% endnote %}

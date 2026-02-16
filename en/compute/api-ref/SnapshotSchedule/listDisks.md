@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/disks
+    method: get
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to list attached disks for.
+            To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSnapshotScheduleDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSnapshotScheduleDisksResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleDisksResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listDisks.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.ListDisks {#ListDisks}
+# Compute Cloud API, REST: SnapshotSchedule.ListDisks
 
 Retrieves the list of disks attached to the specified snapshot schedule.
 
@@ -54,7 +89,7 @@ Page token. To get the next page of results, set `pageToken` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "typeId": "string",
       "zoneId": "string",
       "size": "string",
@@ -81,6 +116,10 @@ Page token. To get the next page of results, set `pageToken` to the
         },
         "generation2Features": "object"
         // end of the list of possible fields
+      },
+      "kmsKey": {
+        "keyId": "string",
+        "versionId": "string"
       }
     }
   ],
@@ -128,7 +167,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**
@@ -157,7 +196,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -182,6 +220,9 @@ Placement policy configuration. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -220,7 +261,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

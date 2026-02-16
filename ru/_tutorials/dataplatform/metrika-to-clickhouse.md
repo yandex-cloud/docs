@@ -1,6 +1,3 @@
----
-noIndex: true
----
 
 # Загрузка данных из {{ metrika }} в витрину {{ CH }} с помощью {{ data-transfer-full-name }}
 
@@ -19,6 +16,14 @@ noIndex: true
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Пакет [Метрика Про]({{ link-yandex }}/support/metrica/pro/price.html).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -87,7 +92,7 @@ noIndex: true
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.

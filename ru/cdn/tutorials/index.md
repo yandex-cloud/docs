@@ -7,6 +7,8 @@ description: Различные сценарии использования {{ c
 
 * [{#T}](prefetch.md)
 * [{#T}](thumbor.md)
-* [{#T}](cdn-storage-integration.md)
+* [{#T}](cdn-storage-integration/index.md)
 * [{#T}](blue-green-canary-deployment.md)
-* [{#T}](protected-access-to-content.md)
+* [{#T}](protected-access-to-content/index.md)
+* [{#T}](migrate-to-yc-cdn.md)
+* [{#T}](cdn-hosting/index.md)

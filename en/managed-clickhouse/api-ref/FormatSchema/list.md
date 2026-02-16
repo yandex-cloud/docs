@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ClickHouse cluster ID.
+            To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/list.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.List {#List}
+# Managed Service for ClickHouse API, REST: FormatSchema.List
 
 Returns a list of format schemas in a cluster.
 
@@ -21,7 +56,9 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/format
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method. ||
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasRequest}
@@ -30,10 +67,14 @@ To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clic
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list. ||
+The maximum number of results per page to return. If the number of the results is larger than `pageSize`, the service returns [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse). You can use it to get the next page of the results in subsequent requests of a format schema list.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
-Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request. ||
+Page token. To get the next page of results, set `pageToken` to the [ListFormatSchemasResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) returned by the previous format schema list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse}
@@ -81,7 +122,6 @@ Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**

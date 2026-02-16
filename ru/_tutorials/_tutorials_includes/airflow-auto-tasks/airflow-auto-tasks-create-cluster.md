@@ -28,7 +28,7 @@
 
         {% include [sg-ui-access](../../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите название pip-пакета и ограничение на его версии:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите название pip-пакета и ограничение на его версии:
 
       ```text
       apache-airflow-providers-yandex>=3.10

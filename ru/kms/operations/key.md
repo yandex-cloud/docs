@@ -11,13 +11,16 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
+
      * Имя и опциональное описание в свободной форме.
-     * Алгоритм шифрования, например `AES-256`.
+     * [Алгоритм шифрования](../concepts/key.md#parameters), например `AES-256`.
      * Период [ротации](../concepts/index.md#rotation) (частота смены версии ключа по умолчанию).
-     * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     * (Опционально) Включите защиту от удаления.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
@@ -29,14 +32,16 @@
   yc kms symmetric-key create \
     --name example-key \
     --default-algorithm aes-256 \
-    --rotation-period 24h
+    --rotation-period 24h \
+    --deletion-protection
   ```
 
   Где:
 
   * `--name` — имя ключа.
-  * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+  * `--default-algorithm` — [алгоритм шифрования](../concepts/key.md#parameters): `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, `gost-r-3412-2015-k`.
   * `--rotation-period` — период ротации ключа. Чтобы создать ключ без автоматической ротации, не указывайте параметр `--rotation-period`.
+  * `--deletion-protection` — защита от удаления ключа. Чтобы создать ключ без защиты от удаления, не указывайте параметр `--deletion-protection`.
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
@@ -56,7 +61,7 @@
 
 ## Изменить ключ {#update}
 
-После создания ключа вы можете изменить любой из его атрибутов. Если вы измените алгоритм шифрования, то новый алгоритм будет использоваться начиная со следующей версии ключа. Чтобы сразу создать новую версию и сделать ее версией по умолчанию, ротируйте ключ.
+После создания ключа вы можете изменить любой из его атрибутов. Если вы измените алгоритм шифрования, то новый алгоритм будет использоваться начиная со следующей версии ключа. Чтобы сразу создать новую версию и сделать ее версией по умолчанию, [ротируйте ключ](#rotate).
 
 Чтобы изменить ключ:
 
@@ -65,7 +70,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Изменив атрибуты ключа, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -79,15 +84,17 @@
     --name example-key \
     --new-name example-key-2 \
     --default-algorithm aes-128 \
-    --rotation-period 48h
+    --rotation-period 48h \
+    --deletion-protection
   ```
 
   Где:
 
   * `--name` — имя ключа. Если в каталоге есть несколько ключей с одинаковыми именами, используйте идентификатор ключа.
   * `--new-name` — новое имя ключа.
-  * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+  * `--default-algorithm` — [алгоритм шифрования](../concepts/key.md#parameters): `aes-128`, `aes-192`, `aes-256`, `aes-256-hsm`, `gost-r-3412-2015-k`.
   * `--rotation-period` — период ротации ключа. Чтобы отключить автоматическую ротацию измененного ключа, не указывайте параметр `--rotation-period`.
+  * `--deletion-protection` — защита от удаления ключа. Чтобы отключить защиту от удаления, вместо этого укажите параметр `--no-deletion-protection`.
 
 - {{ TF }} {#tf}
 
@@ -99,10 +106,11 @@
      ```hcl
      ...
      resource "yandex_kms_symmetric_key" "key-a" {
-       name              = "example-symmetric-key"
-       description       = "description for key"
-       default_algorithm = "AES_128"
-       rotation_period   = "8760h"
+       name                = "example-symmetric-key"
+       description         = "description for key"
+       default_algorithm   = "AES_128"
+       rotation_period     = "8760h"
+       deletion_protection = true
      }
      ...
      ```
@@ -147,9 +155,106 @@
 
 {% endlist %}
 
+## Активировать и деактивировать ключ {#active-inactive}
+
+После создания ключа вы можете изменить текущий [статус ключа](../concepts/key.md#parameters).
+
+{% note info %}
+
+Деактивация ключа (изменение статуса ключа с `Active` на `Inactive`) относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
+
+Чтобы изменить статус ключа:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+  1. Чтобы деактивировать ключ, в строке с нужным ключом в статусе `Active` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-deactivate }}**.
+  1. Чтобы активировать ключ, в строке с нужным ключом в статусе `Inactive` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-activate }}**.
+
+- CLI {#cli}
+
+  Выполните команду:
+
+  ```bash
+  yc kms symmetric-key update \
+    --name example-key \
+    --status active
+  ```
+
+  Где:
+
+  * `--name` — имя ключа. Если в каталоге есть несколько ключей с одинаковыми именами, используйте идентификатор ключа в параметре `--id`.
+  * `--status` — новый статус ключа. Возможные значения: `active`, `inactive`.
+
+- {{ TF }} {#tf}
+
+  1. Откройте файл конфигурации {{ TF }} и добавьте к описанию ресурса `yandex_kms_symmetric_key` параметр `status` со значением `ACTIVE` или `INACTIVE`.
+
+     Пример структуры конфигурационного файла:
+
+     ```hcl
+     ...
+     resource "yandex_kms_symmetric_key" "key-a" {
+       name                = "example-symmetric-key"
+       description         = "description for key"
+       ...
+       status              = "INACTIVE"
+     }
+     ...
+     ```
+
+     Более подробную информацию о параметрах ресурса `yandex_kms_symmetric_key` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_symmetric_key).
+
+  1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
+
+     Если конфигурация является корректной, появится сообщение:
+
+     ```text
+     Success! The configuration is valid.
+     ```
+
+  1. Выполните команду:
+
+     ```bash
+     terraform plan
+     ```
+
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+  1. Примените изменения конфигурации:
+
+     ```bash
+     terraform apply
+     ```
+
+  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+
+  Проверить изменение статуса ключа можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```bash
+     yc kms symmetric-key get <имя_ключа>
+     ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../kms/api-ref/SymmetricKey/update.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Update](../../kms/api-ref/grpc/SymmetricKey/update.md).
+
+{% endlist %}
+
 ## Ротировать ключ {#rotate}
 
 При ротации ключа генерируется новая версия, которая сразу назначается версией по умолчанию. Вы можете настроить автоматическую периодическую ротацию, но также можете ротировать ключ вручную в любой момент.
+
+{% include [rotation-delay](../../_includes/kms/rotation-delay.md) %}
 
 Чтобы ротировать ключ:
 
@@ -158,7 +263,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-keys.button_action-rotate }}**.
   1. Подтвердите ротацию (убедитесь, что смена версии по умолчанию не повредит вашей работе).
@@ -187,6 +292,8 @@
 
 {% endnote %}
 
+Если у ключа включена защита от удаления, предварительно [отключите](#update) ее.
+
 Чтобы удалить ключ:
 
 {% list tabs group=instructions %}
@@ -194,7 +301,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. В строке с нужным ключом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -264,6 +371,12 @@
   Воспользуйтесь методом REST API [delete](../../kms/api-ref/SymmetricKey/delete.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Delete](../../kms/api-ref/grpc/SymmetricKey/delete.md).
 
 {% endlist %}
+
+{% note info %}
+
+Удаление ключа относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
 
 ## См. также {#see-also}
 

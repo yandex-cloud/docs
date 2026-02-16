@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster the user belongs to.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to delete.
+            To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+            The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/delete.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Delete {#Delete}
+# Managed Service for Apache Kafka® API, REST: User.Delete
 
 Deletes the specified Kafka user.
 
@@ -20,11 +48,15 @@ DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{u
 || clusterId | **string**
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to delete.
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

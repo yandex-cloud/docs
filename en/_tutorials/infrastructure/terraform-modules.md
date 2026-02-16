@@ -1,29 +1,29 @@
 # Using {{ yandex-cloud }} modules in {{ TF }}
 
 
-{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg)[set of modules for Terraform](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables.
+{{ yandex-cloud }} provides a ![](../../_assets/overview/solution-library-icon.svg)[set of modules for Terraform](https://github.com/terraform-yc-modules). {{ TF }} modules combine a number of cloud resources that should work together. Modules simplify the cloud infrastructure configuration, make it easier to reuse its blocks, and allow you to specify any parameters required for creating resources in variables. 
 
 This page explains how to enable the modules and use them to create a test infrastructure with a [cloud network](../../vpc/concepts/network.md#network), three [{{ vpc-full-name }}](../../vpc/) [subnets](../../vpc/concepts/network.md#subnet), and a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
 
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Install {{ TF }}](#install-terraform).
-1. [Get the authentication data](#get-credentials)
+1. [Get the authentication data](#get-credentials).
 1. [Create a {{ TF }} configuration file](#configure-terraform).
-1. [Configure a provider](#configure-provider).
+1. [Configure your provider](#configure-provider).
 
 If you no longer need the resources, [delete them](#delete-resources).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
 
 The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
-* Fee for a [{{ managed-k8s-name }} regional master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for the [{{ managed-k8s-name }} highly available master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) in the [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 ## Install {{ TF }} {#install-terraform}
 
@@ -33,7 +33,7 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 {% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
 
-{% cut "Managing resources on behalf of a Yandex account or a federated account" %}
+{% cut "Managing resources under a Yandex account or a federated account" %}
 
 {% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
 
@@ -43,7 +43,7 @@ The cost of support for the infrastructure deployed through {{ TF }} in this tut
 
 {% include [terraform-configure](../../_tutorials/_tutorials_includes/terraform-configure.md) %}
 
-## Configure a provider {#configure-provider}
+## Configure your provider {#configure-provider}
 
 {% include [terraform-configure-provider](../../_tutorials/_tutorials_includes/terraform-configure-provider.md) %}
 
@@ -75,9 +75,9 @@ module "yc-vpc" {
 }
 ```
 
-## Enable the {{ managed-k8s-name }} module {#k8s-module}
+## Enable {{ managed-k8s-name }} {#k8s-module}
 
-Add the `terraform-yc-vpc` module to the configuration and the {{ managed-k8s-name }} cluster configuration with a regional master and two node groups:
+Add the `terraform-yc-vpc` module to the configuration. Also, add the {{ managed-k8s-name }} cluster configuration with a highly available master and two node groups:
 
 ```hcl
 module "kube" {

@@ -1,10 +1,9 @@
 ---
 title: Integrating {{ certificate-manager-full-name }} with {{ yandex-cloud }} services
-description: In this tutorial, you will learn in which {{ yandex-cloud }} services you can use certificates from {{ certificate-manager-name }}.
+description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ certificate-manager-name }} certificates.
 ---
 
 # Integration with {{ yandex-cloud }} services
-
 
 
 You can use {{ certificate-manager-name }} certificates in the following {{ yandex-cloud }} services:
@@ -12,22 +11,20 @@ You can use {{ certificate-manager-name }} certificates in the following {{ yand
 * [{{ alb-full-name }}](#alb).
 * [{{ api-gw-full-name }}](#api-gw).
 * [{{ cdn-full-name }}](#cdn).
+* [{{ sws-full-name }}](#sws).
 
-You can also store a user certificate's public part as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
-
-
+You can also store a user certificate's private key as a [{{ lockbox-full-name }}](#lockbox) secret using {{ TF }}.
 
 ## {{ objstorage-full-name }} {#os}
 
-If you use a bucket to host a static website, [use a {{ certificate-manager-name }} certificate](../../storage/operations/hosting/certificate.md#cert-manager) to access the website over `HTTPS`. When you change a certificate in {{ certificate-manager-name }}, it updates automatically in all the buckets that use it.
+If using a bucket to host a static website, use a {{ certificate-manager-name }} [certificate](../../storage/operations/hosting/certificate.md#cert-manager) to access the website over `HTTPS`. When you change a certificate in {{ certificate-manager-name }}, it updates automatically in all the buckets that use it.
 
 {% note warning %}
 
-* `HTTPS` access to a bucket is granted within thirty minutes of selecting the certificate.
-* Certificate changes may also take up to half an hour to apply.
+* `HTTPS` access to the bucket becomes available within thirty minutes of selecting a certificate.
+* Certificate updates may take another thirty minutes to apply.
 
 {% endnote %}
-
 
 ## {{ alb-full-name }} {#alb}
 
@@ -41,14 +38,25 @@ A certificate linked to the domain is used to provide a TLS connection.
 
 ## {{ cdn-full-name }} {#cdn}
 
-{{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN).
+{{ cdn-full-name }} allows you to set up content delivery to your end users via a content delivery network (CDN). 
 
 To access [CDN resources](../../cdn/concepts/resource.md) over HTTPS, you can [use](../../storage/operations/hosting/certificate.md#cert-manager) certificates from {{ certificate-manager-name }}.
 
+## {{ sws-full-name }} {#sws}
+
+{{ sws-full-name }} protects your infrastructure against cybersecurity threats at [OSI](https://en.wikipedia.org/wiki/OSI_model) application level (L7). These may include DDoS attacks, bots, and SQL injections.
+
+To connect the [domain](../../smartwebsecurity/concepts/domain-protect.md#domain) to a [proxy server](../../smartwebsecurity/concepts/domain-protect.md#proxy) over HTTPS, you can use a certificate from {{ certificate-manager-name }}.
 
 ## {{ lockbox-full-name }} {#lockbox}
 
-You can store a {{ certificate-manager-name }} user certificate's public part in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+You can store a {{ certificate-manager-name }} user certificate's private key in {{ lockbox-name }} [using {{ TF }}](../operations/import/cert-create.md#create-lockbox).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/tls-termination/index.md)
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/gatsby-static-website.md)
 
 #### See also {#see-also}
 

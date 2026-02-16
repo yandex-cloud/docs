@@ -6,6 +6,6 @@ To connect to nodes in a node group, specify metadata for the selected connectio
 
    {% include [configure-connect-oslogin](./configure-connect-oslogin.md) %}
 
-* To connect to nodes using SSH keys, add metadata with the `ssh-keys` key and its value listing the connection details.
+* To connect to nodes using SSH keys, add metadata with the `ssh-keys` key and its value listing the connection credentials.
 
    {% include [configure-connect-ssh](./configure-connect-ssh.md) %}

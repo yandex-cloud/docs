@@ -7,7 +7,7 @@ description: Follow this guide to delete a subnet.
 
 {% note alert %}
 
-Before deleting a [subnet](../concepts/network.md#subnet), disable all resources connected to it.
+Before deleting a [subnet](../concepts/network.md#subnet), disassociate all the resources from it.
 You cannot restore a subnet after it is deleted.
 
 {% endnote %}
@@ -16,25 +16,25 @@ You cannot restore a subnet after it is deleted.
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a subnet.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a subnet.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [include](../../_includes/cli-install.md) %}
+  {% include [include](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI command for deleting a subnet:
+  1. View the description of the CLI command for deleting a subnet:
 
       ```
       yc vpc subnet delete --help
       ```
 
-   1. Get a list of all subnets in the default folder:
+  1. Get a list of all subnets in the default folder:
 
       ```
       yc vpc subnet list
@@ -52,8 +52,8 @@ You cannot restore a subnet after it is deleted.
       +----------------------+-----------------------+-----+------------------+
       ```
 
-   1. Select the `ID` or `NAME` of the subnet.
-   1. Delete the subnet from the default folder:
+  1. Select the `ID` or `NAME` of the subnet you need.
+  1. Delete the subnet from the default folder:
 
       ```
       yc vpc subnet delete test-subnet-1
@@ -61,69 +61,69 @@ You cannot restore a subnet after it is deleted.
 
 - {{ TF }} {#tf}
 
-   {% include [terraform-install](../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-   To delete a subnet created using {{ TF }}:
+  To delete a subnet created using {{ TF }}:
 
-   1. Open the {{ TF }} configuration file and delete the fragment with the subnet description.
+  1. Open the {{ TF }} configuration file and delete the fragment with the subnet description.
 
-      {% cut "Example subnet description in a {{ TF }} configuration" %}
+     {% cut "Example of a subnet description in the {{ TF }} configuration" %}
 
-      ```hcl
-      ...
-      resource "yandex_vpc_subnet" "lab-subnet-a" {
-        name           = "subnet-1"
-        description    = "My first subnet"
-        v4_cidr_blocks = ["10.2.0.0/16"]
-        zone           = "{{ region-id }}-a"
-        network_id     = "${yandex_vpc_network.lab-net.id}"
-      }
-      ...
-      ```
+     ```hcl
+     ...
+     resource "yandex_vpc_subnet" "lab-subnet-a" {
+       name           = "subnet-1"
+	   description    = "My first subnet"
+       v4_cidr_blocks = ["10.2.0.0/16"]
+       zone           = "{{ region-id }}-a"
+       network_id     = "${yandex_vpc_network.lab-net.id}"
+     }
+     ...
+     ```
 
-      {% endcut %}
+     {% endcut %}
 
-   1. In the command line, go to the directory with the {{ TF }} configuration file.
+  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
 
-   1. Check the configuration using this command:
+  1. Check the configuration using this command:
 
-      ```
-      terraform validate
-      ```
+     ```
+     terraform validate
+     ```
+     
+     If the configuration is correct, you will get this message:
+     
+     ```
+     Success! The configuration is valid.
+     ```
 
-      If the configuration is correct, you will get this message:
+  1. Run this command:
 
-      ```
-      Success! The configuration is valid.
-      ```
+     ```
+     terraform plan
+     ```
+  
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
 
-   1. Run this command:
+  1. Apply the changes:
 
-      ```
-      terraform plan
-      ```
+     ```
+     terraform apply
+     ```
 
-      The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  1. Type `yes` and press **Enter** to confirm changes.
 
-   1. Apply the configuration changes:
+     You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../cli/quickstart.md) commands:
 
-      ```
-      terraform apply
-      ```
-
-   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-      You can verify the changes using the [management console]({{ link-console-main }}) or the [CLI](../../cli/quickstart.md) command below:
-
-      ```
-      yc vpc subnet list
-      ```
+     ```
+     yc vpc subnet list
+     ```
 
 - API {#api}
 
-   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/Subnet/delete.md) gRPC API call and provide the ID of the subnet to be deleted in the `subnetId` request parameter.
+   To delete a [subnet](../concepts/network.md#subnet), use the [delete](../api-ref/Subnet/delete.md) REST API method for the [Subnet](../api-ref/Subnet/index.md) resource or the [SubnetService/Delete](../api-ref/grpc/Subnet/delete.md) gRPC API call and provide the ID of the subnet to delete in the `subnetId` request parameter.
 
    {% include [get-subnet-id](../../_includes/vpc/get-subnet-id.md) %}
 
@@ -139,28 +139,28 @@ You cannot restore a subnet after it is deleted.
 
 - CLI {#cli}
 
-   Delete a subnet from another folder:
+  Delete a subnet from a different folder:
 
-   ```
-   yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5********
-   ```
+  ```
+  yc vpc subnet delete test-subnet-2 --folder-id b1gnbfd11bq5********
+  ```
 
-   Where `--folder-id` is the ID of the folder.
+  Where `folder_id` is the folder ID.
 
-   ```
-   yc vpc subnet delete test-subnet-2 --folder-name test-folder
-   ```
+  ```
+  yc vpc subnet delete test-subnet-2 --folder-name test-folder
+  ```
 
-   Where `--folder-name` is the name of the folder.
+  Where `--folder-name` is the folder name.
 
-   You can provide the ID and name not only as positional arguments but also using the `--id` and `--name` flags:
+  You can provide the ID and name not only as positional arguments, but also using the `--id` and `--name` parameters:
 
-   ```
-   yc vpc subnet delete --id enpavfmgapum********
-   ```
-
-   ```
-   yc vpc subnet delete --name test-network-1
-   ```
+  ```
+  yc vpc subnet delete --id enpavfmgapum********
+  ```
+  
+  ```
+  yc vpc subnet delete --name test-network-1
+  ```
 
 {% endlist %}

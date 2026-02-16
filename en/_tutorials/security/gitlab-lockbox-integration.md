@@ -6,14 +6,22 @@ Below is how the integration with {{ lockbox-name }} works. First you prepare a 
 
 To enable a {{ mgl-name }} instance to access {{ lockbox-name }} secrets:
 
-1. [Prepare your infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Configure the CI script](#ci).
 1. [Check the result](#check-result).
 1. [Fix potential vulnerabilities](#eliminate-vulnerabilities).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#infra}
+## Required paid resources {#paid-resources}
+
+The infrastructure support cost includes:
+
+* Fee for [disks](../../compute/concepts/disk.md) and continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Secret storage and request fees (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for using a [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
+## Set up your infrastructure {#infra}
 
 1. [Create and activate](../../managed-gitlab/operations/instance/instance-create.md) a {{ mgl-name }} instance.
 1. [Create a {{ GL }} project]({{ gl.docs }}/ee/user/project/).
@@ -22,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    This role has no permissions to acquire the secrets list; therefore, lacking the secret ID, the attacker will not be able to retrieve the password from the secret.
 
-1. [Create a {{ GL }} environment variable]({{ gl.docs }}/ee/ci/variables/#for-a-project) for the project. Configure it as follows:
+1. [Create]({{ gl.docs }}/ee/ci/variables/#for-a-project) a {{ GL }} environment variable for your project. Configure it as follows:
 
    * **Key**: `MY_SECRET`.
    * **Value**: ID of the {{ lockbox-name }} secret you created.
@@ -63,12 +71,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
      stage: build
      script:
        - >
-         export IAM_TOKEN_JSON=`curl -s -H "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
+         export IAM_TOKEN_JSON=`curl --silent --header "Metadata-Flavor: Google" http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token`
        - export TOKEN=`echo $IAM_TOKEN_JSON | jq -rMc '.access_token'`
        - >
-         curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
+         curl --silent -header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload
        - >
-         export SECRET_JSON=`curl -s -H "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
+         export SECRET_JSON=`curl --silent --header "Authorization: Bearer $TOKEN" https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/$SECRET_ID/payload`
        - export VALUE_OF_MY_SECRET=`echo $SECRET_JSON | jq -rMc '.entries[] | select(.key | contains("MY_SECRET")) | .textValue'`
        - echo $VALUE_OF_MY_SECRET
    ```
@@ -90,11 +98,11 @@ This will run a build that will write the {{ lockbox-name }} secret value to the
 
 1. [Enable and configure](../../managed-gitlab/operations/approval-rules.md) code review rules in the branch for the CI script.
 
-   Thus attackers will not be able to learn the variable using such commands as `env`, `printenv`, or `echo`. The information security will be able to track changes in the branch.
+   This will prevent attackers from getting at the variable using such commands as `env`, `printenv`, or `echo`. The information security will be able to track changes in the branch.
 
 1. [Configure a security group](../../vpc/operations/security-group-add-rule.md) for a VM with {{ GLR }}. In this security group, ban the incoming traffic allowing connections to the VM from outside.
 
-
+   
    If the attacker connects to a VM with {{ GLR }} and knows the {{ lockbox-name }} secret ID, they will be able to access the secret.
 
 ## Delete the resources you created {#clear-out}

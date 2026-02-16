@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Введите имя функции — `php-function`.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -45,11 +45,6 @@
     Создать функцию можно с помощью метода API [create](../../functions/api-ref/Function/create.md).
 
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Создать функцию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
-
 {% endlist %}
 
 ## Создайте первую версию функции {#create-first-version}
@@ -69,6 +64,8 @@
             'body' => json_encode($resp),
         ];
     }
+
+    ?>
     ```
 
 1. Добавьте файл `hello.php` в ZIP-архив `hello-php.zip`.
@@ -80,14 +77,15 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию `php-function`.
     1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Выберите среду выполнения `php8` и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+    1. Выберите среду выполнения `{{ php-full-ver }}`.
+    1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Задайте параметры версии:
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** — прикрепите файл `hello-php.zip`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `hello.Handler`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `hello.handler`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `3`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
@@ -104,7 +102,7 @@
     ```bash
     yc serverless function version create \
       --function-name=php-function \
-      --runtime php74 \
+      --runtime {{ php-cli-ver }} \
       --entrypoint hello.handler \
       --memory 128m \
       --execution-timeout 3s \
@@ -127,7 +125,7 @@
     id: d4evvn8obisa********
     function_id: d4elpv8pft63********
     created_at: "2020-08-01T19:09:19.531Z"
-    runtime: php74
+    runtime: {{ php-cli-ver }}
     entrypoint: hello.handler
     resources:
         memory: "134217728"
@@ -142,11 +140,6 @@
 - API {#api}
 
     Создать версию функции можно с помощью метода API [createVersion](../../functions/api-ref/Function/createVersion.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Создать версию функции можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 
 {% endlist %}

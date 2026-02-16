@@ -48,7 +48,7 @@ description: Чтобы начать работать с {{ iot-name }}, соз�
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать брокер.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-broker }}**.
    1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите имя брокера `my-broker`.

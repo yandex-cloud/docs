@@ -1,1 +1,1 @@
-With [Cloud Video Player SDK for IFrame](../../video/iframe-sdk.md), you can specify additional video player management settings and video playback parameters for the HTML page, such as video size and looping, volume, etc.
+With [{{ video-player-name }} SDK for IFrame](../../video/sdk/iframe/index.md), you can specify additional player control and video playback settings for an HTML page, e.g., video size and looping, volume, etc.

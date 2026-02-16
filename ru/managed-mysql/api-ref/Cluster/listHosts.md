@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to list hosts for.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listHosts.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.ListHosts {#ListHosts}
+# Managed Service for MySQL API, REST: Cluster.ListHosts
 
 Retrieves a list of hosts for a cluster.
 
@@ -21,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts
 
 Required field. ID of the cluster to list hosts for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListClusterHostsRequest}
@@ -32,12 +71,16 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests. ||
+If the number of available results is larger than `pageSize`, the API returns a [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListHosts](#ListHosts) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request. ||
+To get the next page of results, set `pageToken` to the [ListClusterHostsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) returned by the previous [ClusterService.ListHosts](#ListHosts) request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse}
@@ -138,10 +181,14 @@ Flag that shows if public IP address is assigned to the host so that the host ca
 Name of the host to be used as the replication source for cascading replication. ||
 || backupPriority | **string** (int64)
 
-Host backup priority. ||
+Host backup priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 || priority | **string** (int64)
 
-Host master promotion priority. ||
+Host master promotion priority.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -179,7 +226,6 @@ See [the documentation](/docs/managed-mysql/concepts/storage) for details. ||
 
 Type of the service provided by the host. If the field has default value, it is not returned in the response.
 
-- `TYPE_UNSPECIFIED`: Service type of the host is unspecified. Default value.
 - `MYSQL`: The host is a MySQL server. ||
 || health | **enum** (Health)
 

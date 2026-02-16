@@ -5,7 +5,7 @@ description: Follow this guide to create and set up a CAPTCHA.
 
 # Getting started with {{ captcha-full-name }}
 
-To get started with the service:
+To get started:
 
 1. [Create a CAPTCHA](#creat-captcha).
 1. [Get keys](#get-keys).
@@ -15,27 +15,29 @@ To get started with the service:
 
 ## Getting started {#before-begin}
 
-1. Go to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
-1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and it has the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../billing/quickstart/index.md).
+1. Navigate to the [management console]({{ link-console-main }}). Log in to {{ yandex-cloud }} or register if you do not have an account yet.
+1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../billing/quickstart/index.md).
 
 
 ## Create a CAPTCHA {#creat-captcha}
+
+{% include [user-data-to-ml](../_includes/smartcaptcha/user-data-to-ml.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
        ![screen01](../_assets/smartcaptcha/quickstart/screen01.png)
 
-    1. Enter a CAPTCHA name. The naming requirements are as follows:
+    1. Enter a CAPTCHA name. Follow these naming requirements:
 
         {% include [name-format](../_includes/smartcaptcha/name-format.md) %}
 
-    1. (Optional) Disable [domain name validation](./concepts/domain-validation.md).
+    1. Optionally, disable [domain name validation](./concepts/domain-validation.md).
     1. Specify a list of sites where the CAPTCHA will be placed.
     1. Leave the **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** as is.
 
@@ -47,6 +49,7 @@ To get started with the service:
        1. Select the `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}` [level](./concepts/tasks.md#task-difficulty).
 
     1. You can add [challenge options](concepts/captcha-variants.md) and configure incoming traffic rules to display different CAPTCHAs to different users. In this example, you will configure a single default CAPTCHA for all users.
+    1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
        ![screen03](../_assets/smartcaptcha/quickstart/screen03.png)
@@ -60,8 +63,8 @@ To get started with the service:
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click the name of the CAPTCHA or [create](#creat-captcha) a new one.
     1. In the **{{ ui-key.yacloud.common.overview }}** tab, copy the **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** and **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** field values.
 
@@ -76,10 +79,10 @@ With the client key, you can [add a {{ captcha-name }} widget](#add-widget) to y
 
 Add the widget automatically:
 
-1. Add the JS script to the user page. To do this, place the following code anywhere on the page (for example, inside the `<head>` tag):
+1. Add the JS script to the user page. To do this, place the following code anywhere on the page, e.g., inside the `<head>` tag:
 
     ```html
-    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
     ```
 
     The `captcha.js` script will automatically find all `div` elements with the `smart-captcha` class and install the widget in them.
@@ -101,7 +104,7 @@ The **I’m not a robot** button will appear on the page. The service will check
 
 ## Check the user response {#check-answer}
 
-After the check, the user is given a unique token. The token is loaded to the `<input type="hidden" name="smart-token" value="<token>"` element inside the widget container. For example:
+After the check, the user is given a unique token. The token is inserted into the `<input type="hidden" name="smart-token" value="<token>"` element inside the widget container. For example:
 
 ```html
 <div id="captcha-container" class="smart-captcha" ...>
@@ -110,17 +113,10 @@ After the check, the user is given a unique token. The token is loaded to the `<
 </div>
 ```
 
-To validate the token, send a POST request to `https://smartcaptcha.yandexcloud.net/validate`:
+To validate the token, send a POST request to `https://{{ captcha-domain }}/validate` specifying the parameters in `x-www-form-urlencoded` format:
 
-```HTML
-response = requests.post(
-"https://smartcaptcha.yandexcloud.net/validate",
-    {
-    "secret": SMARTCAPTCHA_SERVER_KEY,
-    "token": token,
-    "ip": "<user_IP_address>"
-    }
-)
+```
+secret=<server_key>&token=<token>&ip=<user_IP_address>
 ```
 
 Where:
@@ -151,7 +147,7 @@ Example of the token validation function:
         });
     
         const options = {
-            hostname: 'smartcaptcha.yandexcloud.net',
+            hostname: '{{ captcha-domain }}',
             port: 443,
             path: '/validate',
             method: 'POST',
@@ -212,7 +208,7 @@ Example of the token validation function:
     define('SMARTCAPTCHA_SERVER_KEY', '<server_key>');
 
     function check_captcha($token) {
-        $ch = curl_init("https://smartcaptcha.yandexcloud.net/validate");
+        $ch = curl_init("https://{{ captcha-domain }}/validate");
         $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
@@ -227,7 +223,7 @@ Example of the token validation function:
         $server_output = curl_exec($ch); 
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-
+    
         if ($httpcode !== 200) {
             echo "Allow access due to an error: code=$httpcode; message=$server_output\n";
             return true;
@@ -256,7 +252,7 @@ Example of the token validation function:
 
     def check_captcha(token):
         resp = requests.post(
-           "https://smartcaptcha.yandexcloud.net/validate",
+           "https://{{ captcha-domain }}/validate",
            data={
               "secret": SMARTCAPTCHA_SERVER_KEY,
               "token": token,
@@ -271,7 +267,7 @@ Example of the token validation function:
            return True
         return json.loads(server_output)["status"] == "ok"
 
-    token = "<token>"  # For example, it can be `request.form["smart-token"]`
+    token = "<token>"  # For example, request.form["smart-token"]
     if check_captcha(token):
         print("Passed")
     else:

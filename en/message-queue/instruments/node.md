@@ -1,13 +1,11 @@
 # Example of using {{ message-queue-full-name }} on Node.js
 
-[Node.js](https://nodejs.org/en/) is an environment for running JavaScript applications. Using the AWS SDK for JavaScript, you can manage {{ message-queue-name }} message queues and send and receive messages in Node.js.
+[Node.js](https://nodejs.org/en/) is a runtime environment for JavaScript applications. With the AWS SDK for JavaScript, you can manage {{ message-queue-name }} message queues and send and receive messages in Node.js.
 
-## Installation {#install}
+## Installing {#install}
 
-Install the AWS SDK for JavaScript in Node.js by following the [instructions](https://aws.amazon.com/sdk-for-node-js/) on the official site.
+Install the AWS SDK for JavaScript in Node.js [by following the instructions](https://aws.amazon.com/sdk-for-node-js/) on the official site.
 
-Starting from SQS version `3.446.0`, AWS uses JSON instead of XML for communication between customers and services.
-To avoid performance issues, use the package versions `3.445.0` or earlier.
 ```shell
 npm install @aws-sdk/client-sqs@3.445.0
 ```
@@ -28,8 +26,8 @@ export AWS_SECRET_ACCESS_KEY="<secret_key>"
 In this example:
 
 1. A connection with {{ message-queue-name }} is established.
-1. A message queue is created with the name `mq_example_nodejs_sdk`.
-1. A message with the text `test-message` is sent to the queue.
+1. A message queue named `mq_example_nodejs_sdk` is created.
+1. A message with the text `test message` is sent to the queue.
 1. The message is read from the queue and displayed in the terminal.
 1. The message queue is deleted.
 

@@ -3,17 +3,19 @@ title: Как загрузить собственный образ в {{ baremet
 description: Следуя данной инструкции, вы сможете добавить собственный образ и развернуть из него сервер.
 ---
 
-# Загрузить образ
+# Загрузить собственный образ операционной системы
 
-Вы можете добавить собственный образ и развернуть сервер на его основе. Для этого нужно сначала загрузить файл образа в бакет сервиса {{ objstorage-full-name }}.
+Вы можете добавить [собственный образ](../concepts/images.md#user-images) операционной системы или программного продукта, чтобы иметь возможность самостоятельно установить его на сервер. Для этого нужно сначала загрузить файл образа в [бакет](../../storage/concepts/bucket.md) сервиса {{ objstorage-full-name }}.
 
 ## Загрузите файл образа в {{ objstorage-name }} {#upload-file}
 
-Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
+{% note alert %}
 
-1. Если у вас еще нет [бакета](../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../storage/operations/buckets/create.md) его с ограниченным доступом.
-1. Загрузите образ в ваш бакет, например, [через консоль управления](../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../storage/tools/aws-cli.md) или [WinSCP](../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
-1. [Получите ссылку](../../storage/operations/objects/link-for-download.md) на загруженный образ. Используйте эту ссылку при создании образа в {{ baremetal-name }}.
+Размер загружаемого в {{ objstorage-name }} файла образа не может превышать 50 ГБ.
+
+{% endnote %}
+
+{% include [upload-iso-to-bucket](../../_includes/baremetal/upload-iso-to-bucket.md) %}
 
 ## Создайте образ в {{ baremetal-name }} {#create-image}
 
@@ -23,19 +25,54 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сеть.
-  1. В списке сервисов выберите **{{ baremetal-name }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **Загрузочные образы**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать образ.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
   1. Нажмите кнопку **Загрузить образ**.
   1. Введите имя образа. Требования к имени:
 
-     * длина — от 2 до 63 символов;
-     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-     * первый символ — буква, последний — не дефис.
+       {% include [name-format](../../_includes/name-format.md) %}
 
   1. (Опционально) Добавьте описание образа.
   1. Вставьте ссылку на образ, полученную в {{ objstorage-name }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.popup-upload_button_upload }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-image }}**.
+
+- CLI {#cli}
+
+   {% include [cli-install](../../_includes/cli-install.md) %}
+
+   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+   1. Посмотрите описание команды для загрузки образа:
+
+      ```bash
+      yc baremetal boot-image create --help
+      ```
+
+   1. Загрузите образ:
+
+      ```bash
+      yc baremetal boot-image create \
+        --name demo-boot-image \
+        --description "Boot image for BareMetal" \
+        --uri "<ссылка_на_образ>" \
+        --labels <ключ_метки>=<значение_метки>
+      ```
+
+      Где:
+      * `--name` — имя образа. Требования к имени:
+        
+        {% include [name-format](../../_includes/name-format.md) %}
+
+      * `--description` — описание образа. Необязательный параметр.
+      * `--uri` — ссылка на образ, полученная в {{ objstorage-name }}.
+      * `--labels` — метки образа. Необязательный параметр.
+
+- API {#api}
+
+  Чтобы создать образ в {{ baremetal-name }}, воспользуйтесь методом REST API [create](../api-ref/Image/create.md) для ресурса [Image](../api-ref/Image/index.md) или вызовом gRPC API [ImageService/Create](../api-ref/grpc/Image/create.md).
+  
+  {% include [create-baremetal-image-api](../../_includes/baremetal/create-baremetal-image-api.md) %}
 
 {% endlist %}
 

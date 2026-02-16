@@ -1,6 +1,6 @@
 ---
-title: Guides on using {{ objstorage-full-name }} (S3)
-description: In this article, you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and your own domain and configure HTTPS).
+title: How to work with {{ objstorage-full-name }} (S3)
+description: In these guides, you will learn how to work with {{ objstorage-full-name }} (S3) in {{ yandex-cloud }}. Find out how to use buckets (create, delete, and edit them) and objects (upload and download objects, get download links, and delete objects), as well as how to host static websites (set up hosting and custom domains, and configure HTTPS).
 ---
 
 # Step-by-step guides for {{ objstorage-name }}
@@ -27,6 +27,8 @@ description: In this article, you will learn how to work with {{ objstorage-full
 ## Objects {#objects}
 
 * [{#T}](objects/upload.md)
+* [{#T}](objects/multipart-upload.md)
+* [{#T}](objects/list.md)
 * [{#T}](objects/info.md)
 * [{#T}](objects/download.md)
 * [{#T}](objects/restore-object-version.md)
@@ -41,9 +43,9 @@ description: In this article, you will learn how to work with {{ objstorage-full
 * [{#T}](objects/tagging.md)
 * [{#T}](objects/object-meta.md)
 
-## Hosting static sites {#hosting}
+## Hosting static websites {#hosting}
 
 * [{#T}](hosting/setup.md)
 * [{#T}](hosting/own-domain.md)
-* [{#T}](hosting/multiple-domains.md)
+* [{#T}](hosting/multiple-domains/index.md)
 * [{#T}](hosting/certificate.md)

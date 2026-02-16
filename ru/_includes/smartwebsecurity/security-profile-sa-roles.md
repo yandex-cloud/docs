@@ -1,0 +1,1 @@
+Для работы с профилем безопасности, который подключается к балансировщику, потребуется сервисный аккаунт с ролями `{{ roles-monitoring-editor }}`, `smart-web-security.admin`, `certificate-manager.admin` и `{{ roles-logging-writer }}`. Подробнее см. [{#T}](../../iam/operations/sa/assign-role-for-sa.md).

@@ -6,6 +6,14 @@
 
   Подробнее про плагины аутентификации см. [в документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/pluggable-authentication.html).
 
+  
+  {% note info %}
+
+  Настройка **Authentication plugin** не действует, если для пользователя выбран способ авторизации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+
+  {% endnote %}
+
+
 - **Administrative privileges**{#setting-administrative-privileges} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 
   Административные привилегии — [права пользователя](../../managed-mysql/concepts/user-rights.md), которые действуют на уровне всего кластера баз данных.
@@ -25,6 +33,27 @@
     - [SHOW BINLOG EVENTS](https://dev.mysql.com/doc/refman/8.0/en/show-binlog-events.html) — выводит события в бинарном логе.
 
   - [PROCESS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_process) — позволяет использовать оператор `SHOW PROCESSLIST` и просматривать статус систем хранения данных (например, `SHOW ENGINE INNODB STATUS`). Кроме того, в {{ mmy-name }} эта привилегия предоставляет право на чтение таблиц системных баз данных [mysql](https://dev.mysql.com/doc/refman/8.0/en/system-schema.html), [performance_schema](https://dev.mysql.com/doc/refman/8.0/en/performance-schema.html) и [sys](https://dev.mysql.com/doc/refman/8.0/en/sys-schema.html).
+
+  - [FLUSH OPTIMIZER COSTS](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_flush-optimizer-costs) — позволяет использовать оператор `FLUSH OPTIMIZER_COSTS`.
+
+  - `SHOW ROUTINE` — позволяет просматривать все определения хранимых процедур и функций в таблице `information_schema.ROUTINES` (в том числе тех, где пользователь с этой привилегией не указан в поле `DEFINER`). Разрешает использовать операторы:
+
+    - [SHOW CREATE FUNCTION](https://dev.mysql.com/doc/refman/8.0/en/show-create-function.html) – предоставляет развернутую информацию о хранимой функции.
+    - [SHOW FUNCTION STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-function-status.html) – выводит краткие сведения о хранимой функции.
+    - [SHOW CREATE PROCEDURE](https://dev.mysql.com/doc/refman/8.0/en/show-create-procedure.html) — предоставляет развернутую информацию о хранимой процедуре.
+    - [SHOW PROCEDURE STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-procedure-status.html) — выводит краткие сведения о хранимой процедуре.
+
+  - `MDB ADMIN` — включает в себя привилегии `PROCESS`, `REPLICATION_CLIENT`, `REPLICATION_SLAVE`, `FLUSH_OPTIMIZER_COSTS`. Дополнительно позволяет выполнять следующие действия:
+
+    - Использовать команду [KILL](https://dev.mysql.com/doc/refman/8.0/en/kill.html) для пользовательских запросов.
+    - Создавать и удалять пользовательские базы и пользователей.
+    - Выдавать права на объекты, созданные пользователем.
+
+    {% note warning %}
+
+    Объекты, созданные пользователем с привилегией `MDB ADMIN`, не отображаются в пользовательском интерфейсе. Используйте эту привилегию для создания временных вспомогательных баз данных и пользователей.
+
+    {% endnote %}
 
   Значение по умолчанию — не задано (у пользователя нет административных привилегий). Возможно предоставить несколько привилегий одновременно.
 

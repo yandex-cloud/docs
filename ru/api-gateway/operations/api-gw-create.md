@@ -50,10 +50,11 @@ paths:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать [API-шлюз](../concepts/index.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите название API-шлюза.
-  1. (Опционально) В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_description }}** введите описание API-шлюза.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите название API-шлюза.
+  1. (Опционально) В поле **{{ ui-key.yacloud.common.description }}** введите описание API-шлюза.
+  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.label_execution-timeout }}** задайте таймаут обработки запроса. Значение не должно превышать установленный [лимит](../concepts/limits.md#api-gw-limits).
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте текст [спецификаций OpenAPI](https://ru.wikipedia.org/wiki/OpenAPI_(спецификация)).
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -74,13 +75,21 @@ paths:
      {{ yc-serverless }} api-gateway create --help
      ```
 
-  1. Укажите параметры шлюза в команде создания (в примере приведены не все доступные параметры):
+  1. Укажите параметры API-шлюза в команде создания (в примере приведены не все доступные параметры):
 
      ```bash
      {{ yc-serverless }} api-gateway create \
-       --name <имя_шлюза> \
+       --name <имя_API-шлюза> \
+       --execution-timeout <таймаут_обработки_запроса> \
        --spec=<путь_к_файлу_спецификации>
      ```
+
+     Где:
+     * `--name` — имя API-шлюза:
+
+         {% include [name-format](../../_includes/name-format.md) %}
+     * `--execution-timeout` — таймаут обработки запроса. Значение задается в секундах и не должно превышать установленный [лимит](../concepts/limits.md#api-gw-limits). Необязательный параметр. Значение по умолчанию – `300` сек.
+     * `--spec` — путь к созданному ранее файлу со спецификацией.
 
 - {{ TF }} {#tf}
 
@@ -94,8 +103,5 @@ paths:
 
   Чтобы создать [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [create](../apigateway/api-ref/ApiGateway/create.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Create](../apigateway/api-ref/grpc/ApiGateway/create.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Создать [API-шлюз](../concepts/index.md) можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

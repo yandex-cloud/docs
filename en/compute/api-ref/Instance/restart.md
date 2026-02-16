@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:restart
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance to restart.
+            To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/restart.md
 ---
 
-# Compute Cloud API, REST: Instance.Restart {#Restart}
+# Compute Cloud API, REST: Instance.Restart
 
 Restarts the running instance.
 
@@ -20,7 +39,9 @@ POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:restart
 || instanceId | **string**
 
 Required field. ID of the instance to restart.
-To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request. ||
+To get the instance ID, use a [InstanceService.List](/docs/compute/api-ref/Instance/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

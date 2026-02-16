@@ -13,7 +13,7 @@
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
-	  
+  
   1. (Опционально) В поле **{{ ui-key.yacloud.vpc.networks.create.field_description }}** добавьте описание сети.
   1. По умолчанию выбрана опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Если вы хотите [создать](subnet-create.md) подсети позднее, выключите опцию.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -39,7 +39,7 @@
         --description "My test network"
       ```
 
-      Флаги `--name` и `--description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.
+      Параметры `--name` и `--description` необязательные — можно создать сеть без имени и описания и обращаться к ней по идентификатору.
 
       Требования к названию сети:
 
@@ -87,7 +87,7 @@
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Опишите в конфигурационном файле параметры облачной сети:
+  1. Опишите в конфигурационном файле параметры [облачной сети](../concepts/network.md):
 
      * `name` — имя облачной сети. Требования к имени:
 

@@ -1,0 +1,1 @@
+_Дообучение моделей по методу {{ lora }} находится на стадии [Preview](../../overview/concepts/launch-stages.md)._

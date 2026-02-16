@@ -25,8 +25,14 @@ items:
             href: operations/replication-slots.md
           - name: Управление резервными копиями
             href: operations/cluster-backups.md
+          - name: Управление политиками резервного копирования
+            href: operations/backup-retention-policies.md
           - name: Управление дисковым пространством
             href: operations/storage-space.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Обновление версии PostgreSQL
             href: operations/cluster-version-update.md
           - name: Удаление кластера
@@ -59,6 +65,8 @@ items:
             href: operations/extensions/pgaudit.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: postgresql_anonymizer
+            href: operations/extensions/pg_anon.md
           - name: Словари от Hunspell для полнотекстового поиска
             href: operations/extensions/hunspell.md
       - name: Логи и мониторинг
@@ -111,7 +119,7 @@ items:
         href: tutorials/object-storage-to-postgresql.md
       - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
-      - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+      - name: Создание сайта на CMS Joomla с базой данных {{ PG }}
         items:
           - name: Обзор
             href: tutorials/joomla-postgresql/index.md
@@ -123,6 +131,16 @@ items:
         href: tutorials/datalens.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+      - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+        href: tutorials/mlflow-datasphere.md
+      - name: Работа с данными с помощью {{ yq-name }}
+        href: tutorials/yq-postgre.md
+      - name: Федеративные запросы к данным с помощью {{ yq-name }}
+        href: tutorials/yq-federative-queries.md
+      - name: Решение проблем с сортировкой строк после обновления glibc
+        href: tutorials/glibc-collation-issues.md
+      - name: Запись данных с устройства в базу данных
+        href: tutorials/data-recording.md
       - name: Репликация и миграция
         items:
           - name: Логическая репликация {{ PG }}
@@ -131,10 +149,12 @@ items:
             href: tutorials/data-migration.md
           - name: Миграция базы данных из {{ mpg-name }}
             href: tutorials/outbound-replication.md
+          - name: Миграция кластера {{ mpg-name }} на другую версию
+            href: tutorials/postgresql-versions.md
           - name: >-
               Создание логической реплики Amazon RDS для {{ PG }} в {{ mpg-name
               }}
-            href: operations/logical-replica-from-rds.md
+            href: tutorials/logical-replica-from-rds.md
           - name: >-
               Миграция базы данных из {{ mpg-full-name }} в {{
               objstorage-full-name }}
@@ -175,6 +195,10 @@ items:
                 href: concepts/instance-types-archive/instance-types-20062023.md
           - name: Использование устаревших классов хостов
             href: concepts/using-deprecated-instances.md
+      - name: Планирование топологии кластера
+        href: concepts/planning-cluster-topology.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Сеть в {{ mpg-name }}
         href: concepts/network.md
       - name: Квоты и лимиты
@@ -195,24 +219,142 @@ items:
         href: concepts/supported-clients.md
       - name: Настройки PostgreSQL
         href: concepts/settings-list.md
+      - name: Индексы
+        href: concepts/indexes.md
       - name: Ограничения для команд SQL
         href: concepts/sql-limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник CLI (англ.)
     items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
+      - name: Overview
+        href: cli-ref/index.md
+      - name: backup
         items:
-          - name: До 1 января 2019 года
-            href: pricing-archive/pricing-01012019.md
-          - name: С 1 января до 1 марта 2019 года
-            href: pricing-archive/pricing-01032019.md
-          - name: С 1 марта 2019 года до 1 февраля 2020 года
-            href: pricing-archive/pricing-01022020.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-postgresql/index.md
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: delete
+            href: cli-ref/backup/delete.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+      - name: backup-retention-policy
+        items:
+          - name: Overview
+            href: cli-ref/backup-retention-policy/index.md
+          - name: create
+            href: cli-ref/backup-retention-policy/create.md
+          - name: delete
+            href: cli-ref/backup-retention-policy/delete.md
+          - name: list
+            href: cli-ref/backup-retention-policy/list.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: backup
+            href: cli-ref/cluster/backup.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-backups
+            href: cli-ref/cluster/list-backups.md
+          - name: list-logs
+            href: cli-ref/cluster/list-logs.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: move
+            href: cli-ref/cluster/move.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
+          - name: restore
+            href: cli-ref/cluster/restore.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: start-failover
+            href: cli-ref/cluster/start-failover.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+          - name: update-config
+            href: cli-ref/cluster/update-config.md
+      - name: connect
+        href: cli-ref/connect.md
+      - name: database
+        items:
+          - name: Overview
+            href: cli-ref/database/index.md
+          - name: create
+            href: cli-ref/database/create.md
+          - name: delete
+            href: cli-ref/database/delete.md
+          - name: get
+            href: cli-ref/database/get.md
+          - name: list
+            href: cli-ref/database/list.md
+          - name: update
+            href: cli-ref/database/update.md
+      - name: hosts
+        items:
+          - name: Overview
+            href: cli-ref/hosts/index.md
+          - name: add
+            href: cli-ref/hosts/add.md
+          - name: delete
+            href: cli-ref/hosts/delete.md
+          - name: list
+            href: cli-ref/hosts/list.md
+          - name: update
+            href: cli-ref/hosts/update.md
+          - name: update-config
+            href: cli-ref/hosts/update-config.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: create
+            href: cli-ref/user/create.md
+          - name: delete
+            href: cli-ref/user/delete.md
+          - name: get
+            href: cli-ref/user/get.md
+          - name: grant-permission
+            href: cli-ref/user/grant-permission.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: revoke-permission
+            href: cli-ref/user/revoke-permission.md
+          - name: update
+            href: cli-ref/user/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -223,6 +365,16 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/grpc/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/grpc/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/grpc/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -277,6 +429,12 @@ items:
                 href: api-ref/grpc/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/grpc/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -337,6 +495,16 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/BackupRetentionPolicy/list.md
+              - name: Create
+                href: api-ref/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -391,6 +559,12 @@ items:
                 href: api-ref/Cluster/deleteHosts.md
               - name: UpdateHosts
                 href: api-ref/Cluster/updateHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Database
             items:
               - name: Overview
@@ -459,11 +633,15 @@ items:
         href: qa/configuration.md
       - name: Перемещение и восстановление кластера
         href: qa/backup.md
+      - name: Пользователи и роли
+        href: qa/users.md
+      - name: Высокая доступность и балансировка
+        href: qa/ha.md
       - name: Мониторинг и логи
         href: qa/monitoring.md
+      - name: Сообщения об ошибках
+        href: qa/errors.md
       - name: Все вопросы на одной странице
         href: qa/all.md
   - name: Обучающие курсы
     href: training.md
-base: ru/managed-postgresql
-deepBase: 2

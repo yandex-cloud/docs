@@ -1,15 +1,10 @@
 default:
-  content: noshow
   versions:
     tf:
-      latest: '24.5'
-      str: 23.8, 24.3, 24.4 or 24.5
+      str: 24.8, 25.3, 25.8, 25.9, or 25.10
     cli:
-      latest: '24.5'
-      str: 23.8, 24.3, 24.4 or 24.5
+      str: 24.8, 25.3, 25.8, 25.9, or 25.10
     console:
-      latest: '24.5'
-      str: 23.8 LTS, 24.3 LTS, 24.4 or 24.5
+      str: 24.8 LTS, 25.3 LTS, 25.8 LTS, 25.9, or 25.10
     api:
-      latest: '24.5'
-      str: 23.8, 24.3, 24.4 or 24.5
+      str: 24.8, 25.3, 25.8, 25.9, or 25.10

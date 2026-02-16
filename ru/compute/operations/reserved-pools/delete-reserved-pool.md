@@ -1,0 +1,66 @@
+---
+title: Удалить пул резервов ВМ
+description: Из статьи вы узнаете, как удалить пул резервов ВМ {{ compute-full-name }}.
+---
+
+# Удаление пула резервов виртуальных машин
+
+{% include [reserved-pools-pricing-warning](../../../_includes/compute/reserved-pools-pricing-warning.md) %}
+
+{% include [reserved-pools-preview-notice](../../../_includes/compute/reserved-pools-preview-notice.md) %}
+
+Чтобы удалить [пул резервов ВМ](../../concepts/reserved-pools.md):
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится пул резервов ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
+  1. В строке с нужным пулом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Подтвердите удаление.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды [{{ yandex-cloud }} CLI](../../../cli/index.yaml) для удаления пула резервов ВМ:
+
+      ```bash
+      yc compute reserved-instance-pool delete --help
+      ```
+  1. {% include [list-reserved-pools-cli](../../../_includes/compute/list-reserved-pools-cli.md) %}
+  1. Удалите пул резервов ВМ в каталоге по умолчанию, указав имя или идентификатор нужного пула:
+
+      ```bash
+      yc compute reserved-instance-pool delete <имя_или_идентификатор_пула>
+      ```
+
+      Результат:
+
+      ```text
+      done (15s)
+      {}
+      ```
+
+      Подробнее о команде `yc compute reserved-instance-pool delete` читайте в [справочнике {{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/reserved-instance-pool/delete.md).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [delete](../../api-ref/ReservedInstancePool/delete.md) для ресурса [ReservedInstancePool](../../api-ref/ReservedInstancePool/index.md) или вызовом gRPC API [ReservedInstancePoolService/Delete](../../api-ref/grpc/ReservedInstancePool/delete.md).
+
+{% endlist %}
+
+{% note info %}
+
+При удалении пула резервов ВМ все привязанные к пулу виртуальные машины будут от него отвязаны, а запущенные ВМ продолжат работать.
+
+{% endnote %}
+
+#### См. также {#see-also}
+
+* [{#T}](./manage-pool-vms.md)
+* [{#T}](../../concepts/reserved-pools.md)

@@ -1,3 +1,7 @@
-For example, if the cost per 1,000 validation requests is $0.800000 per month, and 250,001 requests were made in a certain month, your cost for this month will be:
+For example, if the month's total is 50,000 correct requests, your cost for the month will be:
 
-> (250,001 - 250,000)/1,000 * $0.800000 = $0.000800
+> (50,000 - 10,000) / 1,000 × {{ sku|USD|smart_captcha.check.requests.v1|pricingRate.10|string }} = {% calc [currency=USD] (50000 - 10000) / 1000 × {{ sku|USD|smart_captcha.check.requests.v1|pricingRate.10|number }} %}
+
+If the month's total is 100,001 correct requests, your cost for the month will be:
+
+> (100,001 - 10,000) / 1,000 × {{ sku|USD|smart_captcha.check.requests.v1|pricingRate.100|string }} = {% calc [currency=USD] (100001 - 10000) / 1000 × {{ sku|USD|smart_captcha.check.requests.v1|pricingRate.100|number }} %}

@@ -1,4 +1,3 @@
-В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [публичного ключа](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
 
-Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../../compute/operations/vm-connect/ssh.md).
-
+{% include [ssh-key-variants](./ssh-key-variants.md) %}

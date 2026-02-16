@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}:cancel
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the operation to cancel.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Operation/cancel.md
 ---
 
-# IoT Core Broker Service, REST: Operation.Cancel {#Cancel}
+# IoT Core Broker Service, REST: Operation.Cancel
 
 Cancels the specified operation.
 

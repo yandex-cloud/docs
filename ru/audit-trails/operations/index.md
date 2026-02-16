@@ -1,21 +1,22 @@
+---
+title: Пошаговые инструкции для {{ at-full-name }}
+description: На странице представлен список пошаговых инструкций для {{ at-full-name }}.
+---
+
 # Пошаговые инструкции для {{ at-full-name }}
 
+* [{#T}](./create-trail.md)
+* [{#T}](./manage-trail.md)
+* [{#T}](./error.md)
 
-## Загрузка аудитных логов в {{ cloud-logging-name }} {#logging}
+## Управление правами доступа к трейлу {#rule-access-rights}
 
-* [{#T}](export-organization-logging.md)
-* [{#T}](export-cloud-logging.md)
-* [{#T}](export-folder-logging.md)
+* [{#T}](role-list.md)
+* [{#T}](role-add.md)
+* [{#T}](role-revoke.md)
 
-## Загрузка аудитных логов в {{ yds-name }} {#data-streams}
+## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](export-organization-data-streams.md)
-* [{#T}](export-cloud-data-streams.md)
-* [{#T}](export-folder-data-streams.md)
-
-
-## Загрузка аудитных логов в {{ objstorage-name }} {#bucket}
-
-* [{#T}](export-organization-bucket.md)
-* [{#T}](export-cloud-bucket.md)
-* [{#T}](export-folder-bucket.md)
+* [{#T}](get-list.md)
+* [{#T}](get-info.md)
+* [{#T}](operation-logs.md)

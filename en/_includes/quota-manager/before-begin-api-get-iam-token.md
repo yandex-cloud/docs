@@ -1,0 +1,1 @@
+[Get an IAM token](../../iam/operations/iam-token/create-for-sa.md) for the created service account.

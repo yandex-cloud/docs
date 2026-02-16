@@ -10,17 +10,25 @@ keywords:
 # Creating an {{ OS }} cluster
 
 
-A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
+A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
-Available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
+The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
 
-For more information, see [Resource relationships in the service](../concepts/index.md).
+For more information, see [Resource relationships](../concepts/index.md).
+
+
+## Roles for creating a cluster {#roles}
+
+To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }}](../security/index.md#managed-opensearch-editor) role or higher.
+
+To attach your service account to a cluster, e.g., to [use {{ objstorage-full-name }}](s3-access.md), make sure your {{ yandex-cloud }} account has the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher.
+
+For more information about assigning roles, see [this {{ iam-full-name }} guide](../../iam/operations/roles/grant.md).
+
 
 ## Creating a cluster {#create-cluster}
 
 When creating a cluster, you need to specify individual parameters for each [host group](../concepts/host-roles.md).
-
-To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see the [{{ iam-name }} documentation](../../iam/operations/roles/grant.md).
 
 {% list tabs group=instructions %}
 
@@ -29,46 +37,60 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   To create a {{ mos-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
       1. Enter a name for the cluster. It must be unique within the folder.
-      1. (Optional) Enter a cluster description.
-      1. Select the environment where you want to create the cluster (you cannot change the environment once the cluster is created):
+      1. Optionally, enter a description for the cluster.
+      1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
 
-          * `PRODUCTION`: For stable versions of your apps.
-          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `PRODUCTION`: For stable versions of your applications.
+          * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
       1. Select the {{ OS }} version.
       1. Select the [plugins](plugins.md#supported-plugins) you want to install in the cluster.
 
+  
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host your cluster and security groups for cluster network traffic. You may need to additionally [set up security groups](connect.md#security-groups) to be able connect to the cluster.
 
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the cloud network to host the cluster and security groups for cluster network traffic. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
 
+  1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure your `{{ OS }}` [host group](../concepts/host-roles.md):
 
-   1. Under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 1**, configure the [`{{ OS }}` host group](../concepts/host-roles.md):
+      1. Select the host group type: `{{ OS }}`.
 
-      1. Select the host group type: `{{ OS }}`
-
-      1. Enter a name for the host group, which must be unique within the cluster.
+      1. Enter a name for the host group. It must be unique within the cluster.
 
       1. Select the `DATA` and `MANAGER` [host roles](../concepts/host-roles.md).
 
       1. Select the platform, host type, and host class.
 
-          The host class defines the technical characteristics of virtual machines that {{ OS }} nodes are deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
+          The host class defines the specifications of virtual machines {{ OS }} nodes will be deployed on. All available options are listed under [Host classes](../concepts/instance-types.md).
 
       1. Select the [disk type](../concepts/storage.md) and data storage size.
 
           {% include [storages-step-settings](../../_includes/mdb/settings-storages-no-broadwell.md) %}
 
+      
+      1. Optionally, select **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** to encrypt the disk with a [custom KMS key](../../kms/concepts/key.md).
+
+          * To [create](../../kms/operations/key.md#create) a new key, click **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+          * To use the key you created earlier, select it in the **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** field.
+
+          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+      1. Optionally, set up automatic storage expansion:
+
+          {% include [console-autoscaling](../../_includes/mdb/mos/console_autoscaling.md) %}
+
       1. Specify how hosts should be distributed across [availability zones](../../overview/concepts/geo-scope.md) and subnets.
 
       1. Select the number of hosts to create.
 
-
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
+      
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect.md) to hosts over the internet.
 
           {% note tip %}
 
@@ -77,21 +99,15 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           {% endnote %}
 
 
-      {% note warning %}
-
-      After creating your cluster, you can only change the host configuration using the API. However, you can also create a new host group with a different configuration if needed.
-
-      {% endnote %}
-
   1. Configure the `Dashboards` [host group](../concepts/host-roles.md#dashboards) under **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**, if required:
 
       1. Select the platform, host type, and host class.
-      1. Set up storage in the same way as for `{{ OS }}` hosts.
+      1. Configure the storage the same way as for `{{ OS }}` hosts.
       1. Specify how hosts should be distributed across availability zones and subnets.
       1. Select the number of hosts to create.
-
-
-      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connecting](connect.md) to hosts over the internet.
+        
+      
+      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want to allow [connections](connect.md) to hosts over the internet.
 
           {% include [mos-tip-public-dashboards](../../_includes/mdb/mos/public-dashboards.md) %}
 
@@ -100,7 +116,9 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**:
 
-      1. Enter the password for the `admin` user.
+      1. Enter the password for `admin`.
+
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
@@ -118,41 +136,42 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mos-name }} cluster:
 
-  1. View a description of the create cluster CLI command:
+  1. View the description of the CLI command for creating a cluster:
 
       ```bash
       {{ yc-mdb-os }} cluster create --help
       ```
 
-  1. Specify cluster parameters in the create command (the list of supported parameters in the example is not exhaustive):
+  1. Specify the cluster properties in this command (the example does not show all that are available):
 
       ```bash
       {{ yc-mdb-os }} cluster create \
          --name <cluster_name> \
          --description <cluster_description> \
          --labels <labels> \
-         --environment <environment:_production_or_prestable> \
+         --environment <environment> \
          --network-name <network_name> \
          --security-group-ids <security_group_IDs> \
          --service-account-name <service_account_name> \
-         --delete-protection <deletion_protection:_true_or_false> \
+         --delete-protection \
          --maintenance schedule=<maintenance_type>,`
                       `weekday=<day_of_week>,`
                       `hour=<hour> \
+         --disk-encryption-key-id <KMS_key_ID> \
          --version <{{ OS }}_version> \
          --read-admin-password \
-         --data-transfer-access=<true_or_false> \
-         --serverless-access=<true_or_false> \
+         --data-transfer-access=<allow_access_from_Data_Transfer> \
+         --serverless-access=<allow_access_from_Serverless_Containers> \
          --plugins <{{ OS }}_plugins> \
          --advanced-params <additional_parameters> \
          --opensearch-node-group name=<{{ OS }}_host_group_name>,`
                                 `resource-preset-id=<host_class>,`
                                 `disk-size=<disk_size_in_bytes>,`
-                                `disk-type-id=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd>,`
+                                `disk-type-id=<network-hdd|network-ssd|network-ssd-io-m3|network-ssd-nonreplicated|local-ssd>,`
                                 `hosts-count=<number_of_hosts_in_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
-                                `assign-public-ip=<assign_public_address:_true_or_false>,`
+                                `assign-public-ip=<allow_public_access_to_hosts>,`
                                 `roles=<host_roles> \
          --dashboards-node-group name=<Dashboards_host_group_name>,`
                                 `resource-preset-id=<host_class>,`
@@ -161,38 +180,50 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
                                 `hosts-count=<number_of_hosts_in_group>,`
                                 `zone-ids=<availability_zones>,`
                                 `subnet-names=<subnet_names>,`
-                                `assign-public-ip=<assign_public_address:_true_or_false>
+                                `assign-public-ip=<allow_public_access_to_hosts>
       ```
 
       Where:
 
-      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) expressed as `<key>=<value>`. You can use them to logically separate resources.
-      * `--environment`: Environment.
+      * `--labels`: [{{ yandex-cloud }} labels](../../resource-manager/concepts/labels.md) in `<key>=<value>` format. You can use them to logically separate resources.
+      * `--environment`: Environment:
 
-          * `production`: For stable versions of your apps.
-          * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+          * `production`: For stable versions of your applications.
+          * `prestable`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
-      * `--service-account-name`: Name of the service account for [access to {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. For more information on service accounts, see the [{{ iam-full-name }} documentation](../../iam/concepts/users/service-accounts.md).
+      * `--service-account-name`: Name of the service account for [accessing {{ objstorage-full-name }}](s3-access.md) as a repository of {{ OS }} snapshots. Learn more about service accounts in [this {{ iam-full-name }} guide](../../iam/concepts/users/service-accounts.md).
 
-      * `--delete-protection`: Cluster protection from accidental deletion by a user, `true` or `false`. With deletion protection enabled, you still can connect to a cluster manually to delete data.
+      * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+      
+        Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
       * `--maintenance`: Maintenance window settings:
 
-          * To allow maintenance at any time, do not specify the `--maintenance` parameter in the command (default configuration) or specify `--maintenance schedule=anytime`.
-          * To specify the preferred start time for maintenance, specify the `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>` parameter in the command. In this case, maintenance will take place every week on a specified day at a specified time.
+          * To allow maintenance at any time, do not specify the `--maintenance` parameter in the command (the default configuration) or specify `--maintenance schedule=anytime`.
+          * To specify the preferred start time for maintenance, specify this parameter in the command: `--maintenance schedule=weekly,weekday=<day_of_week>,hour=<hour_in_UTC>`. In this case, maintenance will take place every week on a specified day at a specified time.
 
-          Both enabled and disabled clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
+          Both active and stopped clusters undergo maintenance. Maintenance may involve such operations as applying patches or updating DBMS's.
 
-      * `--read-admin-password`: `admin` user password. If you specify this parameter in the command, it will prompt you to enter a password.
+      
+      * `--disk-encryption-key-id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+      * `--read-admin-password`: `admin` password. If you specify this parameter in the command, it will prompt you to enter a password.
+
+          {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+          {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
 
       * `--serverless-access`: Access from [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml), `true` or `false`.
       * `--plugins`: [{{ OS }} plugins](../concepts/plugins.md) to install in the cluster.
       * `--advanced-params`: Additional cluster parameters. The possible values are:
 
-          * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see the [{{ OS }}]({{ os.docs }}/query-dsl/compound/bool/) documentation.
-          * `fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see the [{{ OS }} documentation]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more information, see the [{{ OS }} documentation]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+          * `max-clause-count`: Maximum allowed number of boolean clauses per query. For more information, see [this {{ OS }} guide]({{ os.docs }}/query-dsl/compound/bool/).
+          * `fielddata-cache-size`: JVM heap size allocated for the `fielddata` data structure. You can specify either an absolute value or percentage, e.g., `512mb` or `50%`. For more information, see [this {{ OS }} guide]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
+          * `reindex-remote-whitelist`: List of remote hosts whose indexes contain documents to copy for reindexing. Specify the parameter value as `<host_address>:<port>`. If you need to specify more than one host, list values separated by commas. For more information, see [this {{ OS }} guide]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
 
@@ -204,9 +235,9 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   To create a {{ mos-name }} cluster:
 
-  1. In the configuration file, describe the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-      * DB cluster: Description of the {{ mos-name }} cluster and its hosts
+      * Database cluster: Description of the {{ mos-name }} cluster and its hosts.
 
       * {% include [Terraform network description](../../_includes/mdb/terraform/network.md) %}
 
@@ -216,21 +247,22 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       ```hcl
       resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
-        name                = "<cluster_name>"
-        environment         = "<environment>"
-        network_id          = "<network_ID>"
-        security_group_ids  = ["<list_of_security_group_IDs>"]
-        deletion_protection = "<deletion_protection>"
+        name                   = "<cluster_name>"
+        environment            = "<environment>"
+        network_id             = "<network_ID>"
+        security_group_ids     = ["<list_of_security_group_IDs>"]
+        disk_encryption_key_id = <KMS_key_ID>
+        deletion_protection    = "<protect_cluster_against_deletion>"
 
         config {
 
           version        = "<{{ OS }}_version>"
-          admin_password = "<admin_user_password>"
+          admin_password = "<admin_password>"
 
           opensearch {
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               zone_ids         = ["<list_of_availability_zones>"]
               subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -249,7 +281,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           dashboards {
             node_groups {
               name             = "<virtual_host_group_name>"
-              assign_public_ip = <public_access>
+              assign_public_ip = <allow_public_access_to_hosts>
               hosts_count      = <number_of_hosts>
               zone_ids         = ["<list_of_availability_zones>"]
               subnet_ids       = ["<list_of_subnet_IDs>"]
@@ -268,7 +300,7 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         }
       }
 
-      resource "yandex_vpc_network" "<network_name>" {
+      resource "yandex_vpc_network" "<network_name>" { 
         name = "<network_name>"
       }
 
@@ -283,19 +315,33 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       Where:
 
       * `environment`: Environment, `PRESTABLE` or `PRODUCTION`.
-      * `deletion_protection`: Deletion protection, `true` or `false`.
+
+      
+      * `disk_encryption_key_id`: Disk encryption with a [custom KMS key](../../kms/concepts/key.md).
+
+          To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
+
+
+      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+
+        Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
+
+      * `admin_password`: `admin` password.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+        {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
       * `assign_public_ip`: Public access to the host, `true` or `false`.
-      * `roles`: `DATA` and `MANAGER` host roles.
-      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including those for disabled clusters):
+      * `roles`: Host roles, `DATA` and `MANAGER`.
+      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) (for stopped clusters as well):
           * `type`: Maintenance type. The possible values include:
-              * `ANYTIME`: Anytime.
-              * `WEEKLY`: On a schedule.
-          * `day`: Day of the week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
-          * `hour`: Hour of the day in `HH` format for the `WEEKLY` type, e.g., `21`.
+              * `ANYTIME`: At any time.
+              * `WEEKLY`: On schedule.
+          * `day`: Day of week in `DDD` format for the `WEEKLY` type, e.g., `MON`.
+          * `hour`: Time of day (UTC) in `HH` format for the `WEEKLY` type, e.g., `21`.
 
-      {% include [cluster-create](../../_includes/mdb/deletion-protection-limits-db.md) %}
-
-      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+      For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
   1. Make sure the settings are correct.
 
@@ -307,36 +353,412 @@ To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  To create a {{ mos-name }} cluster, use the [create](../api-ref/Cluster/create.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
-  * ID of the folder where the cluster should be placed, in the `folderId` parameter.
-  * Cluster name in the `name` parameter.
-  * {{ OS }} version in the `configSpec.version` parameter.
-  * `admin` user password in the `configSpec.adminPassword` parameter.
-  * Configuration of one or more groups of hosts with the `DATA` and `MANAGER` (optional) [roles](../concepts/host-roles.md) in the `configSpec.opensearchSpec.nodeGroups` parameter.
-  * Configuration of one or more groups of hosts with the `DASHBOARDS` [role](../concepts/host-roles.md#dashboards) in the `configSpec.dashboardsSpec.nodeGroups` parameter.
-  * List of plugins in the `configSpec.opensearchSpec.plugins` parameter.
-  * Settings for access from other services in the `configSpec.access` parameter.
-  * Network ID in the `networkId` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Create a file named `body.json` and paste the following code into it:
+
+      
+      ```json
+      {
+          "folderId": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "networkId": "<network_ID>",
+          "securityGroupIds": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "serviceAccountId": "<service_account_ID>",
+          "deletionProtection": <protect_cluster_against_deletion>,
+          "configSpec": {
+              "version": "<{{ OS }}_version>",
+              "adminPassword": "<admin_password>",
+              "opensearchSpec": {
+                  "plugins": [
+                      "<{{ OS }}_plugin_1>",
+                      "<{{ OS }}_plugin_2>",
+                      ...
+                      "<{{ OS }}_plugin_N>"
+                  ],
+                  "nodeGroups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resourcePresetId": "<host_class>",
+                              "diskSize": "<storage_size_in_bytes>",
+                              "diskTypeId": "<disk_type>"
+                          },
+                          "roles": ["<role_1>","<role_2>"],
+                          "hostsCount": "<number_of_hosts>",
+                          "zoneIds": [
+                              "<availability_zone_1>",
+                              "<availability_zone_2>",
+                              "<availability_zone_3>"
+                          ],
+                          "subnetIds": [
+                              "<subnet_1_ID>",
+                              "<subnet_2_ID>",
+                              "<subnet_3_ID>"
+                          ],
+                          "assignPublicIp": <allow_public_access_to_hosts>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                              "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                              "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboardsSpec": {
+                  "nodeGroups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resourcePresetId": "<host_class>",
+                              "diskSize": "<storage_size_in_bytes>",
+                              "diskTypeId": "<disk_type>"
+                          },
+                          "hostsCount": "<number_of_hosts>",
+                          "zoneIds": ["<availability_zone>"],
+                          "subnetIds": ["<subnet_ID>"],
+                          "assignPublicIp": <allow_public_access_to_hosts>,
+                          "diskSizeAutoscaling": {
+                              "plannedUsageThreshold": "<scheduled_expansion_percentage>",
+                              "emergencyUsageThreshold": "<immediate_expansion_percentage>",
+                              "diskSizeLimit": "<maximum_storage_size_in_bytes>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "dataTransfer": <allow_access_from_Data_Transfer>,
+                  "serverless": <allow_access_from_Serverless_Containers>
+              }
+          },
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          }
+      }
+      ```
 
 
-  * Security group IDs in the `securityGroupIds` parameter. You may also need to [set up security groups](connect.md#security-groups) to connect to the cluster.
-  * ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations in the `serviceAccountId` parameter.
+      Where:
+
+      * `folderId`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `networkId`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+
+      
+      * `securityGroupIds`: [Security group](../concepts/network.md#security-groups) IDs.
+      * `serviceAccountId`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
 
 
-  * Cluster deletion protection settings in the `deletionProtection` parameter.
+      * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
 
-      {% include [Deletion protection limits](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
 
-  * [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters) in the `maintenanceWindow` parameter.
+      * `configSpec`: Cluster settings:
+
+          * `version`: {{ OS }} version.
+          * `adminPassword`: `admin` password.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
+          * `opensearchSpec`: `{{ OS }}` host group settings:
+
+              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) to additionally install in the cluster.
+              * `nodeGroups`: Host settings as an array of elements, one per host group. Each element has the following structure:
+
+                  * `name`: Host group name.
+                  * `resources`: Cluster resources:
+
+                      * `resourcePresetId`: [Host class](../concepts/instance-types.md).
+                      * `diskSize`: Disk size, in bytes.
+                      * `diskTypeId`: [Disk type](../concepts/storage.md).
+
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
+                  * `hostsCount`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                  * `zoneIds`: List of availability zones the cluster hosts are located in.
+                  * `subnetIds`: List of subnet IDs.
+
+                  
+                  * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+
+
+                  * `diskSizeAutoscaling`: Automatic storage expansion settings:
+
+                      * `plannedUsageThreshold`: Storage usage percentage to trigger a storage expansion during the next maintenance window.
+
+                          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                          If you set this condition, configure the maintenance window schedule in the `maintenanceWindow` parameter.
+
+                      * `emergencyUsageThreshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+                          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                        {% note warning %}
+
+                        If you specify both thresholds, `emergencyUsageThreshold` must not be less than `plannedUsageThreshold`.
+
+                        {% endnote %}
+
+                      * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboardsSpec`: `Dashboards` host group settings that contain the `nodeGroups` parameter of the same structure as `opensearchSpec.nodeGroups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
+
+          
+          * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+
+              * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+              * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+              The possible setting values are `true` or `false`.
+
+
+      * `maintenance_window.weeklyMaintenanceWindow`: Maintenance window schedule:
+
+          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+
+  1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters' \
+          --data "@body.json"
+      ```
+
+  1. View the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Create a file named `body.json` and paste the following code into it:
+
+      
+      ```json
+      {
+          "folder_id": "<folder_ID>",
+          "name": "<cluster_name>",
+          "environment": "<environment>",
+          "network_id": "<network_ID>",
+          "security_group_ids": [
+              "<security_group_1_ID>",
+              "<security_group_2_ID>",
+              ...
+              "<security_group_N_ID>"
+          ],
+          "service_account_id": "<service_account_ID>",
+          "deletion_protection": <protect_cluster_against_deletion>,
+          "config_spec": {
+              "version": "<{{ OS }}_version>",
+              "admin_password": "<admin_password>",
+              "opensearch_spec": {
+                  "plugins": [
+                      "<{{ OS }}_plugin_1>",
+                      "<{{ OS }}_plugin_2>",
+                      ...
+                      "<{{ OS }}_plugin_N>"
+                  ],
+                  "node_groups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resource_preset_id": "<host_class>",
+                              "disk_size": "<storage_size_in_bytes>",
+                              "disk_type_id": "<disk_type>"
+                          },
+                          "roles": ["<role_1>","<role_2>"],
+                          "hosts_count": "<number_of_hosts>",
+                          "zone_ids": [
+                              "<availability_zone_1>",
+                              "<availability_zone_2>",
+                              "<availability_zone_3>"
+                          ],
+                          "subnet_ids": [
+                              "<subnet_1_ID>",
+                              "<subnet_2_ID>",
+                              "<subnet_3_ID>"
+                          ],
+                          "assign_public_ip": <allow_public_access_to_hosts>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                              "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                              "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                          }
+                      },
+                      ...
+                  ]
+              },
+              "dashboards_spec": {
+                  "node_groups": [
+                      {
+                          "name": "<host_group_name>",
+                          "resources": {
+                              "resource_preset_id": "<host_class>",
+                              "disk_size": "<storage_size_in_bytes>",
+                              "disk_type_id": "<disk_type>"
+                          },
+                          "hosts_count": "<number_of_hosts>",
+                          "zone_ids": ["<availability_zone>"],
+                          "subnet_ids": ["<subnet_ID>"],
+                          "assign_public_ip": <allow_public_access_to_hosts>,
+                          "disk_size_autoscaling": {
+                              "planned_usage_threshold": "<scheduled_expansion_percentage>",
+                              "emergency_usage_threshold": "<immediate_expansion_percentage>",
+                              "disk_size_limit": "<maximum_storage_size_in_bytes>"
+                          }
+                      }
+                  ]
+              },
+              "access": {
+                  "data_transfer": <allow_access_from_Data_Transfer>,
+                  "serverless": <allow_access_from_Serverless_Containers>
+              }
+          },
+          "maintenance_window": {
+              "weekly_maintenance_window": {
+                  "day": "<day_of_week>",
+                  "hour": "<hour>"
+              }
+          }
+      }
+      ```
+
+
+      Where:
+
+      * `folder_id`: Folder ID. You can get it with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md).
+      * `name`: Cluster name.
+      * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
+      * `network_id`: ID of the [network](../../vpc/concepts/network.md#network) where the cluster will be deployed.
+
+      
+      * `security_group_ids`: [Security group](../concepts/network.md#security-groups) IDs.
+      * `service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) used for cluster operations.
+
+
+      * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+
+        Even with cluster deletion protection enabled, it is still possible to delete a user or connect to the cluster manually and delete the data.
+
+      * `config_spec`: Cluster settings:
+
+          * `version`: {{ OS }} version.
+          * `admin_password`: `admin` password.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+            {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
+
+          * `opensearch_spec`: `{{ OS }}` host group settings:
+
+              * `plugins`: List of [{{ OS }} plugins](../concepts/plugins.md) to additionally install in the cluster.
+              * `node_groups`: Host settings as an array of elements, one per host group. Each element has the following structure:
+
+                  * `name`: Host group name.
+                  * `resources`: Cluster resources:
+
+                      * `resource_preset_id`: [Host class](../concepts/instance-types.md).
+                      * `disk_size`: Disk size, in bytes.
+                      * `disk_type_id`: [Disk type](../concepts/storage.md).
+
+                  * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
+                  * `hosts_count`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                  * `zone_ids`: List of availability zones the cluster hosts are located in.
+                  * `subnet_ids`: List of subnet IDs.
+
+                  
+                  * `assign_public_ip`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+
+
+                  * `disk_size_autoscaling`: Automatic storage expansion settings:
+
+                      * `planned_usage_threshold`: Storage usage percentage to trigger a storage expansion during the next maintenance window.
+
+                          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                          If you set this condition, configure the maintenance window schedule in the `maintenance_window` parameter.
+
+                      * `emergency_usage_threshold`: Storage usage percentage to trigger an immediate storage expansion.
+
+                          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled.
+
+                          {% note warning %}
+
+                          If you specify both thresholds, `emergency_usage_threshold` must not be less than `planned_usage_threshold`.
+
+                          {% endnote %}
+
+                      * `disk_size_limit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
+
+                      
+                      {% include [warn-storage-resize](../../_includes/mdb/mos/warn-storage-resize.md) %}
+
+
+          * `dashboards_spec`: `Dashboards` host group settings that contain the `node_groups` parameter of the same structure as `opensearch_spec.node_groups`, except for the `roles` parameter. The `Dashboards` hosts have only one role, `DASHBOARDS`, so there is no need to specify it.
+
+          
+          * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+
+              * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
+              * `serverless`: [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+
+              The possible setting values are `true` or `false`.
+
+
+      * `maintenance_window.weekly_maintenance_window`: Maintenance window schedule:
+
+          * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
+          * `hour`: Hour, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`. Use the UTC time zone.
+
+  1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.opensearch.v1.ClusterService.Create \
+          < body.json
+      ```
+
+  1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Creating a cluster copy {#duplicate}
 
-You can create an {{ OS }} cluster with the settings of another one you previously created. To do so, you need to import the configuration of the source {{ OS }} cluster to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. Importing a configuration is a good idea when the source {{ OS }} cluster has a lot of settings and you need to create a similar one.
+You can create an {{ OS }} cluster with the settings of another one created earlier. To do this, import the original {{ OS }} cluster configuration to {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is useful when you need to replicate an {{ OS }} cluster with multiple settings.
 
 To create an {{ OS }} cluster copy:
 
@@ -355,15 +777,15 @@ To create an {{ OS }} cluster copy:
         resource "yandex_mdb_opensearch_cluster" "old" { }
         ```
 
-    1. Write the ID of the initial {{ OS }} cluster to the environment variable:
+    1. Save the ID of the original {{ OS }} cluster to an environment variable:
 
         ```bash
         export OPENSEARCH_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can request the ID with a [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
+        You can get the ID with the [list of clusters in the folder](../../managed-opensearch/operations/cluster-list.md#list-clusters).
 
-    1. Import the settings of the initial {{ OS }} cluster into the {{ TF }} configuration:
+    1. Import the original {{ OS }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_opensearch_cluster.old ${OPENSEARCH_CLUSTER_ID}
@@ -377,27 +799,27 @@ To create an {{ OS }} cluster copy:
 
     1. Copy it from the terminal and paste it into the `.tf` file.
     1. Place the file in the new `imported-cluster` directory.
-    1. Modify the copied configuration so that you can create a new cluster from it:
+    1. Edit the copied configuration so that you can create a new cluster from it:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, and `status` parameters.
         * Add the `admin_password` parameter to the `config` section.
-        * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
-        * Optionally, make further changes if you need to customize the configuration.
+        * If you have `type = "ANYTIME"` in the `maintenance_window` section, delete the `hour` parameter.
+        * Optionally, make further changes if you need a customized configuration.
 
     1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
-    1. In the same directory, [configure and initialize a provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+    1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, as you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
     1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
 
-    1. Check that the {{ TF }} configuration files are correct:
+    1. Make sure the {{ TF }} configuration files are correct:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -424,21 +846,21 @@ To create an {{ OS }} cluster copy:
     * Network name: `{{ network-name }}`.
     * Security group ID: `{{ security-group }}`.
     * Service account name: `os-account`.
-    * Cluster deletion protection: Disabled.
+    * Deletion protection: Disabled.
     * Maintenance time: Every Monday from 13:00 till 14:00.
-    * {{ OS }} version: `2.8`.
-    * `admin` user password: Specified after entering the cluster create command.
+    * {{ OS }} version: `2.12`.
+    * `admin` password: Specified after entering the cluster create command.
     * Access to {{ data-transfer-name }}: Enabled.
     * Access to {{ serverless-containers-name }}: Enabled.
     * {{ OS }} added plugin: analysis-icu.
     * {{ OS }} additional parameter: `fielddata-cache-size=50%`.
     * `{{ OS }}` node group configuration:
 
-        * Group name: `os-group`.
+        * Node group name: `os-group`.
         * Host class: `{{ host-class }}`.
         * Disk size: `10737418240` (in bytes).
         * Disk type: `network-ssd`.
-        * Number of hosts: Three.
+        * Number of hosts: `3`.
         * Availability zone: `{{ region-id }}-a`.
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
@@ -446,11 +868,11 @@ To create an {{ OS }} cluster copy:
 
     * `Dashboards` host group configuration:
 
-        * Group name: `dashboard-group`.
+        * Host group name: `dashboard-group`.
         * Host class: `{{ host-class }}`.
         * Disk size: `10737418240` (in bytes).
         * Disk type: `network-ssd`.
-        * Number of hosts: One.
+        * Number of hosts: `1`.
         * Availability zone: `{{ region-id }}-a`.
         * Subnet: `{{ network-name }}-{{ region-id }}-a`.
         * Public address: Assigned.
@@ -466,11 +888,11 @@ To create an {{ OS }} cluster copy:
        --network-name {{ network-name }} \
        --security-group-ids {{ security-group }} \
        --service-account-name os-account \
-       --delete-protection=false \
+       --delete-protection \
        --maintenance schedule=weekly,`
                     `weekday=mon,`
                     `hour=14 \
-       --version 2.8 \
+       --version 2.12 \
        --read-admin-password \
        --data-transfer-access=true \
        --serverless-access=true \
@@ -501,21 +923,35 @@ To create an {{ OS }} cluster copy:
 
     * Name: `my-os-clstr`.
     * Environment: `PRODUCTION`.
-    * {{ OS }} version: `2.8`.
-    * `admin` user password: `osadminpwd`.
-    * `{{ OS }}` node group name: `os-group`.
-    * Host class: `{{ host-class }}`.
-    * Disk size: `10737418240` (in bytes).
-    * Disk type: `{{ disk-type-example }}`.
-    * Number of hosts: `1`.
-    * Public address: Assigned.
-    * Host group roles: `DATA` and `MANAGER`.
+    * {{ OS }} version: `2.12`.
+    * `admin` password: `osAdminpwd1`.
+    * `{{ OS }}` node group configuration:
+
+      * `{{ OS }}` node group name: `os-group`.
+      * Host class: `{{ host-class }}`.
+      * Disk size: `10737418240` (in bytes).
+      * Disk type: `{{ disk-type-example }}`.
+      * Number of hosts: `3`.
+      * Availability zone: `{{ region-id }}-a`.
+      * Public address: Assigned.
+      * Host group roles: `DATA` and `MANAGER`.
+    
+    * `Dashboards` host group configuration:
+    
+      * Host group name: `dashboard-group`.
+      * Host class: `{{ host-class }}`.
+      * Disk size: `10737418240` (in bytes).
+      * Disk type: `network-ssd`.
+      * Number of hosts: `1`.
+      * Availability zone: `{{ region-id }}-a`.
+      * Public address: Assigned.
+    
     * Maintenance time: Every Monday from 13:00 till 14:00.
     * Network name: `mynet`.
     * Subnet name: `mysubnet`.
     * Availability zone: `{{ region-id }}-a`.
     * Address range: `10.1.0.0/16`.
-    * Security group name: `os-sg`. The security group enables connecting to the cluster host from any network (including the internet) on port `9200`.
+    * Security group name: `os-sg`. The security group allows connecting to the cluster host from any network (including the internet) on port `9200`.
 
     The configuration file for this cluster is as follows:
 
@@ -528,14 +964,14 @@ To create an {{ OS }} cluster copy:
 
       config {
 
-        version        = "2.8"
-        admin_password = "osadminpwd"
+        version        = "2.12"
+        admin_password = "osAdminpwd1"
 
         opensearch {
           node_groups {
             name             = "os-group"
             assign_public_ip = true
-            hosts_count      = 1
+            hosts_count      = 3
             zone_ids         = ["{{ region-id }}-a"]
             subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
             roles            = ["DATA", "MANAGER"]
@@ -546,7 +982,24 @@ To create an {{ OS }} cluster copy:
             }
           }
         }
+
+        dashboards {
+          node_groups {
+            name             = "dashboard-group"
+            assign_public_ip = true
+            hosts_count      = 1
+            zone_ids         = ["ru-central1-a"]
+            subnet_ids       = [yandex_vpc_subnet.mysubnet.id]
+            resources {
+              resource_preset_id = "s2.micro"
+              disk_size          = 10737418240
+              disk_type_id       = "network-ssd"
+            }
+          }
+        }
+
       }
+
       maintenance_window {
         type = "WEEKLY"
         day  = "MON"
@@ -587,3 +1040,6 @@ To create an {{ OS }} cluster copy:
     ```
 
 {% endlist %}
+
+
+{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}

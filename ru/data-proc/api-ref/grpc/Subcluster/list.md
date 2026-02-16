@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Subcluster/list.md
 ---
 
-# Data Proc API, gRPC: SubclusterService.List {#List}
+# Yandex Data Processing API, gRPC: SubclusterService.List
 
 Retrieves a list of subclusters in the specified cluster.
 
@@ -15,28 +15,34 @@ Retrieves a list of subclusters in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required field. ID of the Data Proc cluster to list subclusters in. ||
-|| pageSize | **int64**
+Required field. ID of the Yandex Data Processing cluster to list subclusters in.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse)
+results is larger than `page_size`, the service returns a [ListSubclustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListSubclustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
+
+The maximum value is 1000. ||
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSubclustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request. ||
+[ListSubclustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListSubclustersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters subclusters listed in the response.
@@ -45,7 +51,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Subcluster.name](#yandex.cloud.dataproc.v1.Subcluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=dataproc123_subcluster456`. ||
+Example of a filter: `name=dataproc123_subcluster456`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListSubclustersResponse {#yandex.cloud.dataproc.v1.ListSubclustersResponse}
@@ -55,31 +63,31 @@ Example of a filter: `name=dataproc123_subcluster456`. ||
   "subclusters": [
     {
       "id": "string",
-      "clusterId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "cluster_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "role": "Role",
       "resources": {
-        "resourcePresetId": "string",
-        "diskTypeId": "string",
-        "diskSize": "int64"
+        "resource_preset_id": "string",
+        "disk_type_id": "string",
+        "disk_size": "int64"
       },
-      "subnetId": "string",
-      "hostsCount": "int64",
-      "assignPublicIp": "bool",
-      "autoscalingConfig": {
-        "maxHostsCount": "int64",
+      "subnet_id": "string",
+      "hosts_count": "int64",
+      "assign_public_ip": "bool",
+      "autoscaling_config": {
+        "max_hosts_count": "int64",
         "preemptible": "bool",
-        "measurementDuration": "google.protobuf.Duration",
-        "warmupDuration": "google.protobuf.Duration",
-        "stabilizationDuration": "google.protobuf.Duration",
-        "cpuUtilizationTarget": "double",
-        "decommissionTimeout": "int64"
+        "measurement_duration": "google.protobuf.Duration",
+        "warmup_duration": "google.protobuf.Duration",
+        "stabilization_duration": "google.protobuf.Duration",
+        "cpu_utilization_target": "double",
+        "decommission_timeout": "int64"
       },
-      "instanceGroupId": "string"
+      "instance_group_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -88,38 +96,39 @@ Example of a filter: `name=dataproc123_subcluster456`. ||
 || subclusters[] | **[Subcluster](#yandex.cloud.dataproc.v1.Subcluster)**
 
 List of subclusters in the specified cluster. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListSubclustersRequest.pageSize](#yandex.cloud.dataproc.v1.ListSubclustersRequest), use `next_page_token` as the value
-for the [ListSubclustersRequest.pageToken](#yandex.cloud.dataproc.v1.ListSubclustersRequest) parameter in the next list request.
+the specified [ListSubclustersRequest.page_size](#yandex.cloud.dataproc.v1.ListSubclustersRequest), use `next_page_token` as the value
+for the [ListSubclustersRequest.page_token](#yandex.cloud.dataproc.v1.ListSubclustersRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
 
-A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of the subcluster. Generated at creation time. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-ID of the Data Proc cluster that the subcluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | enum **Role**
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -130,14 +139,14 @@ Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -145,19 +154,19 @@ Role that is fulfilled by hosts of the subcluster.
 || resources | **[Resources](#yandex.cloud.dataproc.v1.Resources)**
 
 Resources allocated for each host in the subcluster. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the VPC subnet used for hosts in the subcluster. ||
-|| hostsCount | **int64**
+|| hosts_count | **int64**
 
 Number of hosts in the subcluster. ||
-|| assignPublicIp | **bool**
+|| assign_public_ip | **bool**
 
 Assign public ip addresses for all hosts in subcluter. ||
-|| autoscalingConfig | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+|| autoscaling_config | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
-|| instanceGroupId | **string**
+|| instance_group_id | **string**
 
 ID of Compute Instance Group for autoscaling subclusters ||
 |#
@@ -166,17 +175,17 @@ ID of Compute Instance Group for autoscaling subclusters ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 ID of the resource preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types). ||
-|| diskTypeId | **string**
+|| disk_type_id | **string**
 
 Type of the storage environment for the host.
 Possible values:
 * network-hdd - network HDD drive,
 * network-ssd - network SSD drive. ||
-|| diskSize | **int64**
+|| disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
 |#
@@ -185,31 +194,37 @@ Volume of the storage available to a host, in bytes. ||
 
 #|
 ||Field | Description ||
-|| maxHostsCount | **int64**
+|| max_hosts_count | **int64**
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **bool**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
 if their resources are needed by Compute.
 For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm). ||
-|| measurementDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Time in seconds allotted for averaging metrics. ||
-|| warmupDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The warmup time of the instance in seconds. During this time,
 traffic is sent to the instance, but instance metrics are not collected. ||
-|| stabilizationDuration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Minimum amount of time in seconds allotted for monitoring before
 Instance Groups can reduce the number of instances in the group.
 During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
-|| cpuUtilizationTarget | **double**
+|| cpu_utilization_target | **double**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
-|| decommissionTimeout | **int64**
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Acceptable values are 0 to 100, inclusive. ||
+|| decommission_timeout | **int64**
+
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

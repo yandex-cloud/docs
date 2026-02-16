@@ -1,3 +1,3 @@
-# Solutions for known {{ mch-short-name }} issues
+## Solutions for known {{ mch-name }} issues {#known-issues-resolving}
 
-* [Fixing the request execution error: Exception Memory limit (total) exceeded](error-memory-limit-total-exceeded.md)
+* [Resolving the `Exception: Memory limit (total) exceeded` error when running a query](error-memory-limit-total-exceeded.md)

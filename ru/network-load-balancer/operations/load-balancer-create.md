@@ -20,11 +20,21 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать [сетевой балансировщик](../concepts/index.md):
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
   1. Задайте имя балансировщика. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
+
+  1. (Опционально) В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}**:
+      * Включите защиту от DDoS-атак.
+      * Включите защиту балансировщика от удаления.
+
+        {% note warning %}
+
+        Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
+
+        {% endnote %}
 
   1. Назначьте балансировщику публичный IP-адрес. Адрес можно назначить автоматически или выбрать из списка зарезервированных адресов.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** добавьте [обработчик](../concepts/listener.md):
@@ -63,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  
+
 - CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -80,6 +90,7 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      yc load-balancer network-load-balancer create <имя_балансировщика> \
+        --deletion-protection \
         --listener name=<имя_обработчика>,`
                   `port=<порт>,`
                   `target-port=<целевой_порт>,`
@@ -98,6 +109,14 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
+     * `--deletion-protection` — защита сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно.
+
+       {% note warning %}
+
+       Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
+
+       {% endnote %}
+
      {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
 
      {% include [target-group-cli-description](../../_includes/network-load-balancer/target-group-cli-description.md) %}
@@ -115,7 +134,7 @@ description: Следуя данной инструкции, вы сможете
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<имя_балансировщика>"
-       deletion_protection = "<защита_от_удаления>"
+       deletion_protection = <защитить_балансировщик_от_удаления>
        listener {
          name = "<имя_обработчика>"
          port = <номер_порта>
@@ -139,7 +158,14 @@ description: Следуя данной инструкции, вы сможете
      Где:
 
      * `name` — имя сетевого балансировщика.
-     * `deletion_protection` — защита сетевого балансировщика от удаления. Пока опция включена, балансировщик удалить невозможно. Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика. Значение по умолчанию `false`.
+     * `deletion_protection` — защита сетевого балансировщика от удаления. Пока опция включена, удалить балансировщик невозможно. Значение по умолчанию `false`.
+
+       {% note warning %}
+
+       Включенная защита от удаления не запрещает удалять обработчики и целевые группы балансировщика.
+
+       {% endnote %}
+
      * `listener` — параметры обработчика:
        * `name` — имя обработчика.
        * `port` — порт, на котором сетевой балансировщик будет принимать входящий трафик, из диапазона от `1` до `32767`.
@@ -170,7 +196,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Примеры {#examples}
 
-### Создание сетевого балансировщика без обработчика {without-listener}
+### Создание сетевого балансировщика без обработчика {#without-listener}
 
 Создайте сетевой балансировщик без обработчика и целевой группы с именем `test-load-balancer-1`.
 
@@ -191,7 +217,6 @@ description: Следуя данной инструкции, вы сможете
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "test-load-balancer-1"
-       deletion_protection = "true"
      }
      ```
 
@@ -219,7 +244,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Создание сетевого балансировщика с обработчиком и подключенной целевой группой {with-listener-and-target-group}
+### Создание сетевого балансировщика с обработчиком и подключенной целевой группой {#with-listener-and-target-group}
 
 Создайте сетевой балансировщик с обработчиком и подключенной целевой группой с тестовыми характеристиками:
 

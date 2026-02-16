@@ -1,3 +1,8 @@
+---
+title: Изменить триггер в {{ api-gw-full-name }}
+description: Следуя инструкции вы сможете изменить все параметры триггера в {{ api-gw-full-name }}, кроме типа триггера и запускаемого ресурса.
+---
+
 # Изменить триггер в {{ api-gw-full-name }}
 
 Вы можете изменить все параметры, кроме типа триггера и запускаемого ресурса.
@@ -13,7 +18,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится триггер.
-  1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Выберите триггер, параметры которого хотите изменить.
   1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud.common.edit }}**.

@@ -1,6 +1,6 @@
 ---
 title: Создать целевую группу {{ alb-full-name }}
-description: Для создания целевой группы {{ alb-full-name }} необходимо в консоли управления выбрать каталог, в котором будет создаваться целевая группа. В списке сервисов выберите {{ alb-name }}. В меню слева выберите Целевые группы. Нажмите кнопку Создать целевую группу. Введите имя целевой группы. Выберите ВМ. Нажмите кнопку Создать.
+description: Для создания целевой группы {{ alb-full-name }} необходимо в консоли управления выбрать каталог, в котором будет создаваться целевая группа. Перейдите в сервис {{ alb-name }}. В меню слева выберите Целевые группы. Нажмите кнопку Создать целевую группу. Введите имя целевой группы. Выберите ВМ. Нажмите кнопку Создать.
 ---
 
 # Создать целевую группу {{ alb-name }}
@@ -14,7 +14,7 @@ description: Для создания целевой группы {{ alb-full-nam
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя и описание целевой группы.
@@ -171,6 +171,8 @@ description: Для создания целевой группы {{ alb-full-nam
      yc alb target-group list
      ```
 
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-target-group.md) %}
+
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/TargetGroup/create.md) для ресурса [TargetGroup](../api-ref/TargetGroup/index.md) или вызовом gRPC API [TargetGroupService/Create](../api-ref/grpc/TargetGroup/create.md).
@@ -179,6 +181,6 @@ description: Для создания целевой группы {{ alb-full-nam
 
 #### См. также {#see-also}
 
-* [{#T}](../tutorials/application-load-balancer-website.md)
+* [{#T}](../tutorials/application-load-balancer-website/index.md)
 * [{#T}](../tutorials/logging.md)
 * [{#T}](../tutorials/alb-with-ddos-protection/console.md)

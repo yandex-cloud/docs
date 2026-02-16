@@ -16,4 +16,4 @@
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
 * просматривать информацию о квотах сервисов [Network Load Balancer](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
 
-Включает разрешения, предоставляемые ролью `load-balancer.privateAdmin`.
+Включает разрешения, предоставляемые ролью `load-balancer.editor`.

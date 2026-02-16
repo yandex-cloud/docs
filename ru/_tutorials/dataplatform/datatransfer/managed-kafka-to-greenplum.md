@@ -1,12 +1,18 @@
-
-
-Вы можете настроить перенос данных из топика {{ mkf-full-name }} в {{ mgp-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
+Вы можете настроить перенос данных из топика {{ mkf-full-name }} в {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md)).
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -16,17 +22,19 @@
 
     - Вручную {#manual}
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
         1. [Создайте кластер-источник {{ mkf-full-name }}](../../../managed-kafka/operations/cluster-create.md#create-cluster) любой подходящей конфигурации c хостами в публичном доступе.
 
         1. [Создайте в кластере-источнике топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
         1. [Создайте в кластере-источнике пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа к созданному топику `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER`.
 
-        1. [Создайте кластер-приемник {{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `user` и хостами в публичном доступе.
+        1. [Создайте кластер-приемник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `user` и хостами в публичном доступе.
 
         1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
             * [{{ mkf-name }}](../../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+            * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
     - {{ TF }} {#tf}
 
@@ -42,7 +50,7 @@
             * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
             * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
             * кластер-источник {{ mkf-name }};
-            * кластер-приемник {{ mgp-name }};
+            * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
             * трансфер.
 
         1. Укажите в файле `kafka-greenplum.tf` пароли пользователя и версии {{ KF }} и {{ GP }}.
@@ -190,7 +198,7 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-Убедитесь, что в базу данных {{ mgp-name }} переносятся данные из топика кластера-источника {{ mkf-name }}:
+Убедитесь, что в базу данных {{ GP }} переносятся данные из топика кластера-источника {{ mkf-name }}:
 
 1. Отправьте данные из файла `sample.json` в топик `sensors` {{ mkf-name }} с помощью утилит `jq` и `kafkacat`:
 
@@ -208,9 +216,9 @@
 
     Подробнее о настройке SSL-сертификата и работе с `kafkacat` см. в разделе [{#T}](../../../managed-kafka/operations/connect/clients.md).
 
-1. Убедитесь, что в базу данных {{ mgp-name }} перенеслись данные из кластера-источника {{ mkf-name }}:
+1. Убедитесь, что в базу данных {{ GP }} перенеслись данные из кластера-источника {{ mkf-name }}:
 
-    1. [Подключитесь к базе данных {{ mgp-name }}](../../../managed-greenplum/operations/connect.md).
+    1. [Подключитесь к базе данных {{ GP }}](../../../managed-greenplum/operations/connect/index.md).
     1. Проверьте, что база данных содержит таблицу `sensors` с тестовыми данными из топика:
 
         ```sql
@@ -219,37 +227,21 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../../../data-transfer/operations/transfer.md#delete) его.
-* [Удалите эндпоинт-источник и эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
-* Удалите кластеры:
+1. Убедитесь, что трансфер находится в статусе {{ dt-status-finished }} и [удалите](../../../data-transfer/operations/transfer.md#delete) его.
+1. [Удалите эндпоинт-источник и эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [{{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 
-        Если вы создали ресурсы с помощью {{ TF }}:
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `kafka-greenplum.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `kafka-greenplum.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

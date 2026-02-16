@@ -1,41 +1,41 @@
 ---
-title: How to update a rule in a {{ sws-full-name }} security profile
-description: Follow this guide to update a rule in a {{ sws-full-name }} security profile.
+title: How to edit a rule in a security profile in {{ sws-full-name }}
+description: Follow this guide to edit a rule in a security profile in {{ sws-full-name }}.
 ---
 
 # Editing a rule in a security profile
 
-You can update basic [rules](../concepts/rules.md), as well as Smart Protection and WAF rules, in a [security profile](../concepts/profiles.md). ARL rules are [updated in an ARL profile](arl-rule-update.md).
+You can edit basic [rules](../concepts/rules.md), as well as Smart Protection and WAF rules, in a [security profile](../concepts/profiles.md). ARL rules are [edited in an ARL profile](arl-rule-update.md). If editing rules causes an error, make sure the service account has the `logging.writer` role.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile you need.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-   1. Select the profile to update a rule in.
-   1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, in the rule row, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
-   1. In the window that opens, set new rule parameters:
-
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Select the profile where you want to edit a rule.
+  1. On the **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** tab, click ![options](../../_assets/console-icons/ellipsis.svg) next to the rule in question and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the window that opens, configure the new rule:
+  
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. To view a list of current security profiles in the default folder, run this command:
+  1. To view a list of current security profiles in the default folder, run this command:
 
-      {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
+     {% include [security-profile-list-command](../../_includes/smartwebsecurity/security-profile-list-command.md) %}
 
-   1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with updated description of the current security rules:
-
-      1. To get the YAML configuration for the current security rules in the profile, run this command, specifying the security profile name or ID:
+  1. Update the security profile by applying the [YAML](https://en.wikipedia.org/wiki/YAML) configuration with updated description of the current security rules:
+  
+     1. To get the YAML configuration for the current security rules in the profile, run this command specifying the security profile name or ID:
 
          {% include [security-profile-get-command](../../_includes/smartwebsecurity/security-profile-get-command.md) %}
 
-      1. Copy current rule configuration from the `security_rules` section, paste it into any text editor, and save it to a file after editing as appropriate. The example below shows a change in the rule name, along with replacing the `DENY` action with the `ALLOW` one.
+     1. Copy the current rule configuration (the `security_rules` section contents) to any text editor and save it to a file after editing it as needed. In the example below, we edited the rule name and replaced the `DENY` action with `ALLOW`:
 
          {% cut "security-rules.yaml" %}
 
@@ -95,14 +95,14 @@ You can update basic [rules](../concepts/rules.md), as well as Smart Protection 
 
          {% include [change-profile-rules-alert](../../_includes/smartwebsecurity/change-profile-rules-alert.md) %}
 
-      1. To update a security profile, run this command, specifying the profile name or ID:
-
+     1. To update a security profile, run this command specifying the profile name or ID:
+    
          ```bash
          yc smartwebsecurity security-profile update <security_profile_name_or_ID> \
             --security-rules-file <path_to_file_with_security_rules>
          ```
 
-         Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rules.
+         Where `--security-rules-file` is the path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with the description of security rules.
 
 
          {% cut "Result:" %}
@@ -173,11 +173,77 @@ You can update basic [rules](../concepts/rules.md), as well as Smart Protection 
 
          {% endcut %}
 
-   For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+  For more information about the `yc smartwebsecurity security-profile update` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and edit the `security_rule` section in the `yandex_sws_security_profile` description:
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<security_profile_name>"
+        default_action                   = "DENY"
+        captcha_id                       = "<CAPTCHA_ID>"
+        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
+
+        # Smart Protection rule
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        # Basic rule
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # WAF profile rule
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<WAF_profile_ID>"
+          }
+        }
+      }
+      ```
+
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Create the resources:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc smartwebsecurity security-profile get <security_profile_ID>
+  ```
 
 - API {#api}
 
-   {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
+  {% include [api-profile-update](../../_includes/smartwebsecurity/api-profile-update.md) %}
 
 {% endlist %}
 

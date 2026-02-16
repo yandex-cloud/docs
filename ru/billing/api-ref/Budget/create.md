@@ -1,9 +1,308 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/budgets
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        billingAccountId:
+          description: |-
+            **string**
+            Required field. ID of the billing account to list budgets corresponding to.
+            To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the budget.
+          type: string
+        costBudgetSpec:
+          description: |-
+            **[CostBudgetSpec](#yandex.cloud.billing.v1.CostBudgetSpec)**
+            Cost budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          $ref: '#/definitions/CostBudgetSpec'
+        expenseBudgetSpec:
+          description: |-
+            **[ExpenseBudgetSpec](#yandex.cloud.billing.v1.ExpenseBudgetSpec)**
+            Expense budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          $ref: '#/definitions/ExpenseBudgetSpec'
+        balanceBudgetSpec:
+          description: |-
+            **[BalanceBudgetSpec](#yandex.cloud.billing.v1.BalanceBudgetSpec)**
+            Balance budget specification.
+            Includes only one of the fields `costBudgetSpec`, `expenseBudgetSpec`, `balanceBudgetSpec`.
+            Specification of the budget.
+          $ref: '#/definitions/BalanceBudgetSpec'
+      required:
+        - billingAccountId
+        - name
+      additionalProperties: false
+      oneOf:
+        - required:
+            - costBudgetSpec
+        - required:
+            - expenseBudgetSpec
+        - required:
+            - balanceBudgetSpec
+    definitions:
+      ThresholdRule:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (ThresholdType)
+              Required field. Type of the rule.
+              - `THRESHOLD_TYPE_UNSPECIFIED`
+              - `PERCENT`: Percent.
+              - `AMOUNT`: The same as budget amount.
+            type: string
+            enum:
+              - THRESHOLD_TYPE_UNSPECIFIED
+              - PERCENT
+              - AMOUNT
+          amount:
+            description: |-
+              **string**
+              Required field. Amount of the rule.
+              * Must be less than 100 if type is PERCENT.
+              * Must be less than budget's amount if type is AMOUNT.
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the threshold exceeds.
+            type: array
+            items:
+              type: string
+        required:
+          - type
+          - amount
+      CloudFoldersConsumptionFilter:
+        type: object
+        properties:
+          cloudId:
+            description: |-
+              **string**
+              ID of the [yandex.cloud.resourcemanager.v1.Cloud](/docs/resource-manager/api-ref/Cloud/get#yandex.cloud.resourcemanager.v1.Cloud).
+              Only consumption within specified cloud is used for the budget calculation.
+            type: string
+          folderIds:
+            description: |-
+              **string**
+              IDs of the [yandex.cloud.resourcemanager.v1.Folder](/docs/resource-manager/api-ref/Folder/get#yandex.cloud.resourcemanager.v1.Folder).
+              Only consumption within specified folders of the given cloud is used for the budget calculation.
+              Empty sequence means no folders filters and the whole cloud consumption will be used.
+            type: array
+            items:
+              type: string
+      ConsumptionFilter:
+        type: object
+        properties:
+          serviceIds:
+            description: |-
+              **string**
+              IDs of the [yandex.cloud.billing.v1.Service](/docs/billing/api-ref/Service/get#yandex.cloud.billing.v1.Service).
+              Only consumption of resources corresponding to the given services is used for the budget calculation.
+              Empty sequence means no services filters.
+            type: array
+            items:
+              type: string
+          cloudFoldersFilters:
+            description: |-
+              **[CloudFoldersConsumptionFilter](#yandex.cloud.billing.v1.CloudFoldersConsumptionFilter)**
+              Cloud and folders consumption filter.
+              Only consumption within specified clouds and folders is used for the budget calculation.
+              Empty sequence means no cloud and folders filters.
+            type: array
+            items:
+              $ref: '#/definitions/CloudFoldersConsumptionFilter'
+      CostBudgetSpec:
+        type: object
+        properties:
+          amount:
+            description: |-
+              **string**
+              Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount).
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the budget exceeds.
+            type: array
+            items:
+              type: string
+          thresholdRules:
+            description: |-
+              **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+              List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
+              Rules define intermediate cost thresholds of the budget.
+            type: array
+            items:
+              $ref: '#/definitions/ThresholdRule'
+          filter:
+            description: |-
+              **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
+              Filter that can be used for specific resources selection. Only consumption cost of selected resources are used for the budget calculation.
+            $ref: '#/definitions/ConsumptionFilter'
+          resetPeriod:
+            description: |-
+              **enum** (ResetPeriodType)
+              Periodic start type that resets budget after specified period is finished.
+              First time budget is calculated in the current period, i.e. current month, quarter or year.
+              Includes only one of the fields `resetPeriod`, `startDate`.
+              Start type of the budget.
+              - `RESET_PERIOD_TYPE_UNSPECIFIED`
+              - `MONTHLY`: Reset budget every month.
+              - `QUARTER`: Reset budget every quarter.
+              - `ANNUALLY`: Reset budget every year.
+            type: string
+            enum:
+              - RESET_PERIOD_TYPE_UNSPECIFIED
+              - MONTHLY
+              - QUARTER
+              - ANNUALLY
+          startDate:
+            description: |-
+              **string**
+              Custom start date of the budget.
+              Must be the first day of a month and must be formatted like YYYY-MM-DD.
+              Includes only one of the fields `resetPeriod`, `startDate`.
+              Start type of the budget.
+            type: string
+          endDate:
+            description: |-
+              **string**
+              Required field. End date of the budget.
+              Must be the last day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+        required:
+          - amount
+          - endDate
+        oneOf:
+          - required:
+              - resetPeriod
+          - required:
+              - startDate
+      ExpenseBudgetSpec:
+        type: object
+        properties:
+          amount:
+            description: |-
+              **string**
+              Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount).
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the budget exceeds.
+            type: array
+            items:
+              type: string
+          thresholdRules:
+            description: |-
+              **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+              List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
+              Rules define intermediate expense thresholds of the budget.
+            type: array
+            items:
+              $ref: '#/definitions/ThresholdRule'
+          filter:
+            description: |-
+              **[ConsumptionFilter](#yandex.cloud.billing.v1.ConsumptionFilter)**
+              Filter that can be used for specific resources selection. Only consumption expense of selected resources are used for the budget calculation.
+            $ref: '#/definitions/ConsumptionFilter'
+          resetPeriod:
+            description: |-
+              **enum** (ResetPeriodType)
+              Periodic start type that resets budget after specified period is finished.
+              First time budget is calculated in the current period, i.e. current month, quarter or year.
+              Includes only one of the fields `resetPeriod`, `startDate`.
+              Start type of the budget.
+              - `RESET_PERIOD_TYPE_UNSPECIFIED`
+              - `MONTHLY`: Reset budget every month.
+              - `QUARTER`: Reset budget every quarter.
+              - `ANNUALLY`: Reset budget every year.
+            type: string
+            enum:
+              - RESET_PERIOD_TYPE_UNSPECIFIED
+              - MONTHLY
+              - QUARTER
+              - ANNUALLY
+          startDate:
+            description: |-
+              **string**
+              Custom start date of the budget.
+              Must be the first day of a month and must be formatted like YYYY-MM-DD.
+              Includes only one of the fields `resetPeriod`, `startDate`.
+              Start type of the budget.
+            type: string
+          endDate:
+            description: |-
+              **string**
+              Required field. End date of the budget.
+              Must be the last day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+        required:
+          - amount
+          - endDate
+        oneOf:
+          - required:
+              - resetPeriod
+          - required:
+              - startDate
+      BalanceBudgetSpec:
+        type: object
+        properties:
+          amount:
+            description: |-
+              **string**
+              Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount).
+            type: string
+          notificationUserAccountIds:
+            description: |-
+              **string**
+              User account IDs.
+              Specified users will be be notified if the budget exceeds.
+            type: array
+            items:
+              type: string
+          thresholdRules:
+            description: |-
+              **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
+              List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
+              Rules define intermediate balance thresholds of the budget.
+            type: array
+            items:
+              $ref: '#/definitions/ThresholdRule'
+          startDate:
+            description: |-
+              **string**
+              Start_date of the budget.
+              Must be the first day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+          endDate:
+            description: |-
+              **string**
+              Required field. End date of the budget.
+              Must be the last day of a month and must be formatted like YYYY-MM-DD.
+            type: string
+        required:
+          - amount
+          - endDate
 sourcePath: en/_api-ref/billing/v1/api-ref/Budget/create.md
 ---
 
-# Billing API, REST: Budget.Create {#Create}
+# Billing API, REST: Budget.Create
 
 Creates a budget for the specified billing account.
 
@@ -150,7 +449,7 @@ Cost budget specification describes budget that can be used to control cost of c
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -206,7 +505,7 @@ Required field. Amount of the rule.
 * Must be less than budget's amount if type is AMOUNT. ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the threshold exceeds. ||
 |#
 
@@ -256,7 +555,7 @@ Expense budget specification describes budget that can be used to control expens
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -303,7 +602,7 @@ Balance budget specification describes budget that can be used to control [yande
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
@@ -600,7 +899,7 @@ Cost budget specification describes budget that can be used to control cost of c
 Required field. Max cost threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
@@ -656,7 +955,7 @@ Required field. Amount of the rule.
 * Must be less than budget's amount if type is AMOUNT. ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the threshold exceeds. ||
 |#
 
@@ -706,7 +1005,7 @@ Expense budget specification describes budget that can be used to control expens
 Required field. Max expense threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
@@ -753,7 +1052,7 @@ Balance budget specification describes budget that can be used to control [yande
 Required field. Max balance threshold of the budget. Amount currency is the same as corresponding [yandex.cloud.billing.v1.BillingAccount.currency](/docs/billing/api-ref/BillingAccount/get#yandex.cloud.billing.v1.BillingAccount). ||
 || notificationUserAccountIds[] | **string**
 
-IDs of the [yandex.cloud.iam.v1.UserAccount](/docs/iam/api-ref/Federation/listUserAccounts#yandex.cloud.iam.v1.UserAccount).
+User account IDs.
 Specified users will be be notified if the budget exceeds. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 

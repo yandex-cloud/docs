@@ -1,9 +1,16 @@
+---
+title: Создать виртуальную машину в группе размещения
+description: Следуя данной инструкции, вы сможете создать виртуальную машину в группе размещения.
+---
+
 # Создать виртуальную машину в группе размещения
 
 
 Создайте [ВМ](../../concepts/vm.md) в [группе размещения](../../concepts/placement-groups.md).
 
 {% include [placement-groups-info.md](../../../_includes/compute/placement-groups-info.md) %}
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 {% list tabs group=instructions %}
 
@@ -144,6 +151,6 @@
 
 {% endlist %}
 
-## Смотрите также {see-also}
+## Смотрите также {#see-also}
 
 * [Как добавить ВМ в группу размещения](add-vm.md).

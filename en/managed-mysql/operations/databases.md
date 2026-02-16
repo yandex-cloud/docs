@@ -1,6 +1,6 @@
 # Managing databases in {{ mmy-name }}
 
-You can add and remove databases, view information about them, and manage some database settings using {{ mmy-name }} interfaces.
+You can add and remove databases, view database details, and manage some database settings using {{ mmy-name }} interfaces.
 
 {% include [db-sql](../../_includes/mdb/mmy-db-sql-limits.md) %}
 
@@ -10,66 +10,106 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of databases in a cluster, run the command:
+  To get a list of cluster databases, run this command:
 
-   ```bash
-     {{ yc-mdb-my }} database list \
-        --cluster-name=<cluster_name>
-   ```
+  ```bash
+  {{ yc-mdb-my }} database list \
+     --cluster-name=<cluster_name>
+  ```
 
-   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
-- API {#api}
+- REST API {#api}
 
-   To get a list of databases in a cluster, use the [list](../api-ref/Database/list.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/List](../api-ref/grpc/Database/list.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
-   {% include [note-api-get-cluster-id](../../_includes/mdb/mmy/note-api-get-cluster-id.md) %}
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Database.list](../api-ref/Database/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases'
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService/List](../api-ref/grpc/Database/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<cluster_ID>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.mysql.v1.DatabaseService.List
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) to make sure your request was successful.
 
 {% endlist %}
 
 ## Creating a database {#add-db}
 
-{% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
+{% include [note-db-limit](../../_includes/mdb/mmy/note-db-limit.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name.
-   1. If the new database does not have an owner among its current users, [add such a user](cluster-users.md#adduser).
-   1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-   1. Enter the database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster.
+  1. If you want a new user to become the database owner, [create it](cluster-users.md#adduser).
+  1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. Click **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
+  1. Enter a database name and click **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-   1. [Grant privileges](grant.md#grant-privilege) for access to the database created to the appropriate cluster users.
+  1. [Grant access privileges](grant.md#grant-privilege) for the created database to the relevant cluster users.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To create a database in a cluster:
+  To create a database in a cluster:
 
-   1. View a description of the CLI create database command:
+  1. See the description of the CLI command for creating a database:
 
-      ```bash
-       {{ yc-mdb-my }} database create --help
-      ```
+     ```bash
+      {{ yc-mdb-my }} database create --help
+     ```
 
-   1. Run the create database command:
+  1. Run this command:
 
       ```bash
       {{ yc-mdb-my }} database create <DB_name> --cluster-name=<cluster_name>
@@ -77,17 +117,17 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-      You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+      You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
-      {{ mmy-short-name }} runs the create database operation.
+      {{ mmy-short-name }} will start creating the database.
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-   1. Add the `yandex_mdb_mysql_database` resource:
+  1. Add the `yandex_mdb_mysql_database` resource:
 
       ```hcl
       resource "yandex_mdb_mysql_database" "<DB_name>" {
@@ -98,25 +138,74 @@ You can add and remove databases, view information about them, and manage some d
 
       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-   1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
-- API {#api}
+- REST API {#api}
 
-   To create a database, use the [create](../api-ref/Database/create.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Create](../api-ref/grpc/Database/create.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
-   * ID of the cluster in which you want to create a database, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   * Database name, in the `databaseSpec.name` parameter.
+  1. Call the [Database.create](../api-ref/Database/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases' \
+          --data '{
+                    "databaseSpec": {
+                      "name": "<DB_name>"
+                    }
+                  }'
+      ```
 
       {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService/Create](../api-ref/grpc/Database/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "database_spec": {
+                  "name": "<DB_name>"
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.DatabaseService.Create
+      ```
+
+      {% include [database-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -126,148 +215,270 @@ You can add and remove databases, view information about them, and manage some d
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
-   1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon in the same row as the DB and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** tab.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the database in question and select **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To delete a database, run the command:
+  To delete a database, run this command:
 
-   ```bash
-    {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
-   ```
+  ```bash
+   {{ yc-mdb-my }} database delete <DB_name> --cluster-name=<cluster_name>
+  ```
 
-   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name with the [list of clusters in the folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-   1. Delete the `yandex_mdb_mysql_database` resource with the name of the database to delete.
+  1. Delete the `yandex_mdb_mysql_database` resource with the name of the database you want to remove.
 
-   1. Make sure the settings are correct.
+  1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_database).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
-- API {#api}
+- REST API {#api}
 
-   To delete a database, use the [delete](../api-ref/Database/delete.md) REST API method for the [Database](../api-ref/Database/index.md) resource or the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) gRPC API call and provide the following in the request:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
-   * ID of the cluster where the database is located, in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-   * Database name in the `databaseName` parameter. To find out the database name, [retrieve a list of databases in the cluster](#list-db).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Database.delete](../api-ref/Database/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/databases/<DB_name>'
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/Database/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "database_name": "<DB_name>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
+      ```
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the database name from the [list of databases in your cluster](#list-db).
+
+  1. Check the [server response](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete, otherwise the database being deleted will be restored. Operation status can be obtained with a [list of cluster operations](cluster-list.md#list-operations).
+Before creating a new database with the same name, wait for the delete operation to complete. Otherwise, the original database will be restored. You can get the operation status with the [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 
 ## Setting SQL mode {#sql-mode}
 
-You can set or change the value of the [sql_mode](../concepts/settings-list.md#setting-sql-mode) setting that defines the SQL mode for the database. This operation restarts the cluster hosts.
+You can set or update the [sql_mode](../concepts/settings-list.md#setting-sql-mode) parameter that defines the SQL mode for the database. This will restarts the cluster hosts.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-   1. Select the cluster and click **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** in the top panel.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. In the list of the settings, locate the **sql_mode** parameter.
-   1. Configure a set of SQL modes in the drop-down list. To restore default settings, click **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
-   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** in the DBMS settings dialog box.
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+  1. In the list of the settings, locate **sql_mode**.
+  1. Select the required SQL modes from the drop-down list. To restore the default settings, click **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
+  1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** in the DBMS settings dialog box.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   Set the SQL modes in the `--set` parameter, e.g.:
+  Specify the required SQL modes in the `--set` parameter:
 
-   ```bash
-   {{ yc-mdb-my }} cluster update-config \
-     --name <cluster_name> \
-     --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
-   ```
+  ```bash
+  {{ yc-mdb-my }} cluster update-config \
+    --name <cluster_name> \
+    --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
+  ```
 
-   Pay close attention to quotation marks: the entire string must constitute the parameter value, including `sql_mode=`.
+  Pay attention to quotation marks: the parameter value must include the entire string, including `sql_mode=`.
 
-   You can request the cluster name with a [list of clusters in the folder](cluster-list.md).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](./cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
 
-   1. Set the SQL modes in the `sql_mode` parameter under `mysql_config`, e.g.:
+    1. Specify the required SQL modes in the `sql_mode` parameter under `mysql_config`:
 
-      ```hcl
-      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
-        ...
-        mysql_config = {
-          sql_mode = "<list_of_SQL_modes>"
+        ```hcl
+        resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
           ...
+          mysql_config = {
+            sql_mode = "<SQL_mode_list>"
+            ...
+          }
         }
-      }
+        ```
+
+    1. Validate your configuration.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm resource changes.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Call the [Cluster.update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>' \
+          --data '{
+                    "updateMask": "configSpec.mysqlConfig_<{{ MY }}_version>",
+                    "configSpec": {
+                      "mysqlConfig_<{{ MY }}_version>": {
+                        "sqlMode": [
+                          "<SQL_mode_1>", "<SQL_mode_2>", ..., "<SQL_mode_N>"
+                        ]
+                      }
+                    }
+                  }'
       ```
 
-   1. Make sure the settings are correct.
+      Where:
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+      * `updateMask`: Comma-separated string of settings you want to update.
 
-   1. Confirm updating the resources.
+          Here, we provide only one setting.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      * `configSpec.mysqlConfig_<{{ MY }}_version>.sqlMode`: List of SQL modes. For all available modes, see the following {{ MY }} docs:
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
+          * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
 
-   {% include [Terraform timeouts](../../_includes/mdb/mmy/terraform/timeouts.md) %}
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-- API {#api}
+  1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-   To set the SQL modes you need, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+- gRPC API {#grpc-api}
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md).
-   * An array with new {{ MY }} settings in the following parameter:
-      * `configSpec.mysqlConfig_5_7.sqlMode` for {{ MY }} 5.7.
-      * `configSpec.mysqlConfig_8_0.sqlMode` for {{ MY }} 8.0.
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
-   * List of settings to update, in the `updateMask` parameter.
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<cluster_ID>",
+                "update_mask": {
+                  "paths": [
+                    "config_spec.mysql_config_<{{ MY }}_version>"
+                  ]
+                },
+                "config_spec": {
+                  "mysql_config_<{{ MY }}_version>": {
+                    "sql_mode": [
+                      "<SQL_mode_1>", "<SQL_mode_2>", ..., "<SQL_mode_N>"
+                    ]
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.mysql.v1.ClusterService.Update
+      ```
+
+      Where:
+
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
+
+          Here, we provide only one setting.
+
+      * `config_spec.mysql_config_<{{ MY }}_version>.sql_mode`: List of SQL modes. For all available modes, see the following {{ MY }} docs:
+
+          * [Version 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting)
+          * [Version 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting)
+
+      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
+  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
 ## Changing a character set and collation rules {#charset-collate}
 
-To set the `CHARACTER SET` and `COLLATE` settings for the database:
+To configure the `CHARACTER SET` and `COLLATE` database settings:
 
-1. [Connect](connect.md) to the database under the account of the database owner or as a user with the `ALTER` privilege for this database.
+1. [Connect](./connect/index.md) to the database as the database owner or as a user with the `ALTER` privilege for this database.
 1. Run the [ALTER DATABASE](https://dev.mysql.com/doc/refman/5.7/en/charset-database.html) query:
 
    ```sql
    ALTER DATABASE <DB_name> CHARACTER SET = 'utf8mb4' COLLATE = 'utf8mb4_unicode_ci';
    ```
 
-1. To apply settings to the database tables along with the database, convert the tables with the same settings:
+1. To apply the updated settings not only to the database but also to its tables, convert the tables using the same settings:
 
    ```sql
    ALTER TABLE <DB_name>.<table_name> CONVERT TO CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_unicode_ci';

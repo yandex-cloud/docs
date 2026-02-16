@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to return.
+            To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/get.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Get {#Get}
+# Key Management Service API, REST: SymmetricKey.Get
 
 Returns the specified symmetric KMS key.
 
@@ -22,7 +41,9 @@ GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}
 || keyId | **string**
 
 Required field. ID of the symmetric KMS key to return.
-To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request. ||
+To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.SymmetricKey}
@@ -36,7 +57,7 @@ To get the ID of a symmetric KMS key use a [SymmetricKeyService.List](/docs/kms/
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "primaryVersion": {
     "id": "string",
@@ -81,14 +102,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption.
 Can be set to INACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/SymmetricKey/update#Update) method.
@@ -102,11 +122,11 @@ when no version ID is specified. ||
 
 Default encryption algorithm to be used with new versions of the key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || rotatedAt | **string** (date-time)
 
 Time of the last key rotation (time when the last version was created).
@@ -142,7 +162,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroyAt` field.
@@ -151,11 +170,11 @@ is specified in the `SymmetricKeyVersion.destroyAt` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || createdAt | **string** (date-time)
 
 Time when the key version was created.

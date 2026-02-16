@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Disk/update.md
 ---
 
-# Compute Cloud API, gRPC: DiskService.Update {#Update}
+# Compute Cloud API, gRPC: DiskService.Update
 
 Updates the specified disk.
 
@@ -15,43 +15,53 @@ Updates the specified disk.
 
 ```json
 {
-  "diskId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "disk_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "size": "int64",
-  "diskPlacementPolicy": {
-    "placementGroupId": "string",
-    "placementGroupPartition": "int64"
+  "disk_placement_policy": {
+    "placement_group_id": "string",
+    "placement_group_partition": "int64"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| diskId | **string**
+|| disk_id | **string**
 
 Required field. ID of the Disk resource to update.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/grpc/Disk/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/grpc/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Disk resource are going to be updated. ||
 || name | **string**
 
-Name of the disk. ||
+Name of the disk.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the disk. ||
-|| labels | **string**
+Description of the disk.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **int64**
 
-Size of the disk, specified in bytes. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+Size of the disk, specified in bytes.
+
+Acceptable values are 4194304 to 4398046511104, inclusive. ||
+|| disk_placement_policy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
 
 Placement policy configuration. ||
 |#
@@ -60,10 +70,10 @@ Placement policy configuration. ||
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| placementGroupPartition | **int64** ||
+|| placement_group_partition | **int64** ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -72,48 +82,52 @@ Placement group ID. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "diskId": "string"
+    "disk_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
-    "typeId": "string",
-    "zoneId": "string",
+    "labels": "map<string, string>",
+    "type_id": "string",
+    "zone_id": "string",
     "size": "int64",
-    "blockSize": "int64",
-    "productIds": [
+    "block_size": "int64",
+    "product_ids": [
       "string"
     ],
     "status": "Status",
-    // Includes only one of the fields `sourceImageId`, `sourceSnapshotId`
-    "sourceImageId": "string",
-    "sourceSnapshotId": "string",
+    // Includes only one of the fields `source_image_id`, `source_snapshot_id`
+    "source_image_id": "string",
+    "source_snapshot_id": "string",
     // end of the list of possible fields
-    "instanceIds": [
+    "instance_ids": [
       "string"
     ],
-    "diskPlacementPolicy": {
-      "placementGroupId": "string",
-      "placementGroupPartition": "int64"
+    "disk_placement_policy": {
+      "placement_group_id": "string",
+      "placement_group_partition": "int64"
     },
-    "hardwareGeneration": {
-      // Includes only one of the fields `legacyFeatures`, `generation2Features`
-      "legacyFeatures": {
-        "pciTopology": "PCITopology"
+    "hardware_generation": {
+      // Includes only one of the fields `legacy_features`, `generation2_features`
+      "legacy_features": {
+        "pci_topology": "PCITopology"
       },
-      "generation2Features": "Generation2HardwareFeatures"
+      "generation2_features": "Generation2HardwareFeatures"
       // end of the list of possible fields
+    },
+    "kms_key": {
+      "key_id": "string",
+      "version_id": "string"
     }
   }
   // end of the list of possible fields
@@ -130,13 +144,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -179,7 +193,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| diskId | **string**
+|| disk_id | **string**
 
 ID of the Disk resource that is being updated. ||
 |#
@@ -193,32 +207,32 @@ A Disk resource. For more information, see [Disks](/docs/compute/concepts/disk).
 || id | **string**
 
 ID of the disk. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the disk belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || name | **string**
 
 Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| typeId | **string**
+|| type_id | **string**
 
 ID of the disk type. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the disk resides. ||
 || size | **int64**
 
 Size of the disk, specified in bytes. ||
-|| blockSize | **int64**
+|| block_size | **int64**
 
 Block size of the disk, specified in bytes. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -232,41 +246,43 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
 - `DELETING`: Disk is being deleted. ||
-|| sourceImageId | **string**
+|| source_image_id | **string**
 
 ID of the image that was used for disk creation.
 
-Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
-|| sourceSnapshotId | **string**
+Includes only one of the fields `source_image_id`, `source_snapshot_id`. ||
+|| source_snapshot_id | **string**
 
 ID of the snapshot that was used for disk creation.
 
-Includes only one of the fields `sourceImageId`, `sourceSnapshotId`. ||
-|| instanceIds[] | **string**
+Includes only one of the fields `source_image_id`, `source_snapshot_id`. ||
+|| instance_ids[] | **string**
 
 Array of instances to which the disk is attached. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy2)**
+|| disk_placement_policy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy2)**
 
 Placement policy configuration. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy2}
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 Placement group ID. ||
-|| placementGroupPartition | **int64** ||
+|| placement_group_partition | **int64** ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -278,12 +294,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -293,9 +309,8 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -308,4 +323,16 @@ and UEFI boot (with UEFI related features).
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| key_id | **string**
+
+ID of KMS symmetric key ||
+|| version_id | **string**
+
+Version of KMS symmetric key ||
 |#

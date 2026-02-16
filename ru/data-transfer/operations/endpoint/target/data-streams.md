@@ -11,7 +11,7 @@ description: Из статьи вы узнаете, как задать наст
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
-1. [Выполняйте необходимые действия по работе с базой](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) и [контролируйте трансфер](../../monitoring.md).
+1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
 ## Сценарии передачи данных в {{ yds-full-name }} {#scenarios}
@@ -40,7 +40,6 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md).
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -69,6 +68,8 @@ description: Из статьи вы узнаете, как задать наст
 - Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSTargetAdvancedSettings.save_tx_order.title }}** — не разбивать поток событий на независимые очереди по таблицам.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}** — укажите требуемый формат сжатия данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`.
 
 {% endlist %}
 

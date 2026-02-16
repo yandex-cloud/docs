@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/certificatemanager/v1/api-ref/grpc/Certificate/list.md
 ---
 
-# Certificate Manager API, gRPC: CertificateService.List {#List}
+# Certificate Manager API, gRPC: CertificateService.List
 
 Returns the list of certificates in the specified folder.
 
@@ -15,28 +15,34 @@ Returns the list of certificates in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "view": "CertificateView"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder to list certificate in. ||
-|| pageSize | **int64**
+Required field. ID of the folder to list certificate in.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse)
+results is larger than `page_size`, the service returns a [ListCertificatesResponse.next_page_token](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
+
+The maximum value is 1000. ||
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.next_page_token](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || view | enum **CertificateView**
 
 The output type of the certificate.
@@ -52,11 +58,11 @@ The output type of the certificate.
   "certificates": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "type": "CertificateType",
       "domains": [
         "string"
@@ -65,37 +71,37 @@ The output type of the certificate.
       "issuer": "string",
       "subject": "string",
       "serial": "string",
-      "updatedAt": "google.protobuf.Timestamp",
-      "issuedAt": "google.protobuf.Timestamp",
-      "notAfter": "google.protobuf.Timestamp",
-      "notBefore": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
+      "issued_at": "google.protobuf.Timestamp",
+      "not_after": "google.protobuf.Timestamp",
+      "not_before": "google.protobuf.Timestamp",
       "challenges": [
         {
           "domain": "string",
           "type": "ChallengeType",
-          "createdAt": "google.protobuf.Timestamp",
-          "updatedAt": "google.protobuf.Timestamp",
+          "created_at": "google.protobuf.Timestamp",
+          "updated_at": "google.protobuf.Timestamp",
           "status": "Status",
           "message": "string",
           "error": "string",
-          // Includes only one of the fields `dnsChallenge`, `httpChallenge`
-          "dnsChallenge": {
+          // Includes only one of the fields `dns_challenge`, `http_challenge`
+          "dns_challenge": {
             "name": "string",
             "type": "string",
             "value": "string"
           },
-          "httpChallenge": {
+          "http_challenge": {
             "url": "string",
             "content": "string"
           }
           // end of the list of possible fields
         }
       ],
-      "deletionProtection": "bool",
-      "incompleteChain": "bool"
+      "deletion_protection": "bool",
+      "incomplete_chain": "bool"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -104,13 +110,13 @@ The output type of the certificate.
 || certificates[] | **[Certificate](#yandex.cloud.certificatemanager.v1.Certificate)**
 
 List of certificates in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number
-of results is greater than the specified [ListCertificatesRequest.pageSize](#yandex.cloud.certificatemanager.v1.ListCertificatesRequest), use
-the `next_page_token` as the value for the [ListCertificatesRequest.pageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesRequest) query parameter
+of results is greater than the specified [ListCertificatesRequest.page_size](#yandex.cloud.certificatemanager.v1.ListCertificatesRequest), use
+the `next_page_token` as the value for the [ListCertificatesRequest.page_token](#yandex.cloud.certificatemanager.v1.ListCertificatesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Certificate {#yandex.cloud.certificatemanager.v1.Certificate}
@@ -122,10 +128,10 @@ A certificate. For details about the concept, see [documentation](/docs/certific
 || id | **string**
 
 ID of the certificate. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the certificate belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -135,14 +141,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | enum **CertificateType**
 
 Type of the certificate.
 
-- `CERTIFICATE_TYPE_UNSPECIFIED`
 - `IMPORTED`: The certificate is imported by user.
 - `MANAGED`: The certificate is created by service. ||
 || domains[] | **string**
@@ -152,7 +157,6 @@ Fully qualified domain names of the certificate. ||
 
 Status of the certificate.
 
-- `STATUS_UNSPECIFIED`
 - `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
 - `INVALID`: The certificate issuance is failed. Used only for managed certificates.
 - `ISSUED`: The certificate is issued.
@@ -168,25 +172,25 @@ Status of the certificate.
 || serial | **string**
 
 Serial number of the certificate. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the certificate is updated. ||
-|| issuedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| issued_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the certificate is issued. ||
-|| notAfter | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_after | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time after which the certificate is not valid. ||
-|| notBefore | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| not_before | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time before which the certificate is not valid. ||
 || challenges[] | **[Challenge](#yandex.cloud.certificatemanager.v1.Challenge)**
 
 Domains validation challenges of the certificate. Used only for managed certificates. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that protects deletion of the certificate ||
-|| incompleteChain | **bool**
+|| incomplete_chain | **bool**
 
 Mark imported certificates without uploaded chain or with chain which not lead to root certificate ||
 |#
@@ -204,20 +208,18 @@ Domain of the challenge. ||
 
 Type of the challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the challenge is created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the challenge is updated. ||
 || status | enum **Status**
 
 Status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The challenge is waiting to be completed.
 - `PROCESSING`: The challenge is awaiting approval from Let's Encrypt.
 - `VALID`: The challenge is complete.
@@ -228,18 +230,18 @@ Description of the challenge. ||
 || error | **string**
 
 Error of the challenge. ||
-|| dnsChallenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
+|| dns_challenge | **[DnsRecord](#yandex.cloud.certificatemanager.v1.Challenge.DnsRecord)**
 
 DNS-record.
 
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
+Includes only one of the fields `dns_challenge`, `http_challenge`.
 
 Data of the challenge. ||
-|| httpChallenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
+|| http_challenge | **[HttpFile](#yandex.cloud.certificatemanager.v1.Challenge.HttpFile)**
 
 HTTP-file.
 
-Includes only one of the fields `dnsChallenge`, `httpChallenge`.
+Includes only one of the fields `dns_challenge`, `http_challenge`.
 
 Data of the challenge. ||
 |#

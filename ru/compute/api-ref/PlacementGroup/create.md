@@ -1,9 +1,72 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/placementGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to create a placement group in.
+            To get a folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the placement group.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the placement group.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+        spreadPlacementStrategy:
+          description: |-
+            **object**
+            Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/SpreadPlacementStrategy'
+        partitionPlacementStrategy:
+          description: |-
+            **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
+            Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+            Placement strategy.
+          $ref: '#/definitions/PartitionPlacementStrategy'
+      additionalProperties: false
+      oneOf:
+        - required:
+            - spreadPlacementStrategy
+        - required:
+            - partitionPlacementStrategy
+    definitions:
+      SpreadPlacementStrategy:
+        type: object
+        properties: {}
+      PartitionPlacementStrategy:
+        type: object
+        properties:
+          partitions:
+            description: |-
+              **string** (int64)
+              Acceptable values are 2 to 5, inclusive.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/create.md
 ---
 
-# Compute Cloud API, REST: PlacementGroup.Create {#Create}
+# Compute Cloud API, REST: PlacementGroup.Create
 
 Creates a placement group in the specified folder.
 
@@ -20,7 +83,7 @@ POST https://compute.{{ api-host }}/compute/v1/placementGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
   "spreadPlacementStrategy": "object",
   "partitionPlacementStrategy": {
@@ -43,7 +106,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**
@@ -64,7 +127,9 @@ Placement strategy. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -96,7 +161,7 @@ Placement strategy. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
     "spreadPlacementStrategy": "object",
     "partitionPlacementStrategy": {
@@ -230,7 +295,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**
@@ -254,5 +319,7 @@ field containing approriate structure. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

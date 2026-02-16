@@ -79,8 +79,8 @@
         1. Выполните команду:
 
 
-
-
+            
+            
             ```bash
             iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
@@ -92,15 +92,15 @@
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
-        1. Введите `Y`. После этого CLI {{ yandex-cloud }} можно пользоваться, командную оболочку перезапускать не нужно.
+        1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
     - Для установки с помощью командной строки:
 
         1. Выполните команду:
 
 
-
-
+            
+            
             ```bash
             @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```

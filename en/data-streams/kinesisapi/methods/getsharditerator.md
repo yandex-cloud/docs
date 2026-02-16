@@ -1,30 +1,30 @@
 # GetShardIterator
 
-Returns an iterator of a stream [shard](../../concepts/glossary.md#shard).
+Returns a [shard](../../concepts/glossary.md#shard) iterator for the stream.
 
-The iterator's lifetime expires 5 minutes after it is received.
+An iterator expires 5 minutes after being retrieved.
 
-The iterator sets the position in the shard to start reading the sequence of [messages](../../concepts/glossary.md#message) from using the [GetRecords](getrecords.md) method. The position is set using the [sequence number](../../concepts/glossary.md#sequence-number) of the message in the shard.
+An iterator specifies the starting position in the shard from which the [GetRecords](getrecords.md) method begins sequential [record](../../concepts/glossary.md#message) retrieval. The position is specified using the [sequence number](../../concepts/glossary.md#sequence-number) of a message in the shard.
 
-The request must specify the type of iterator.
+The request must specify the iterator type.
 
-For example, to get an iterator to read a sequence starting from a message with a certain sequence number, specify the `AT_SEQUENCE_NUMBER` iterator type and the message number in the `StartingSequenceNumber` parameter. The `AFTER_SEQUENCE_NUMBER` iterator type returns a value for reading the sequence starting from the message following the one specified in the `StartingSequenceNumber` parameter. The sequence numbers used are those returned when calling the [PutRecord](putrecord.md), [PutRecords](putrecords.md), [GetRecords](getrecords.md), and [DescribeStream](deletestream.md) methods.
+For example, to retrieve an iterator that begins reading from a specific sequence number, specify the `AT_SEQUENCE_NUMBER` iterator type and provide the sequence number in the `StartingSequenceNumber` parameter. Alternatively, use the `AFTER_SEQUENCE_NUMBER` iterator type to get an iterator that starts reading from the record immediately after the one specified in the `StartingSequenceNumber` parameter. Use sequence numbers returned by the [PutRecord](putrecord.md), [PutRecords](putrecords.md), [GetRecords](getrecords.md), and [DescribeStream](deletestream.md) methods.
 
-To get an iterator for reading a sequence starting at a certain point in time, specify the `AT_TIMESTAMP` iterator type and the time in the `Timestamp` parameter.
+To retrieve an iterator that begins reading from a specific timestamp, use the `AT_TIMESTAMP` iterator type and specify the starting time in the `Timestamp` parameter.
 
-The `TRIM_HORIZON` iterator type allows reading a sequence starting from the oldest record and the `LATEST` type from the most recent record in the shard.
+Use `TRIM_HORIZON` iterators to read from the oldest record in the shard, or `LATEST` iterators to start with the newest available record.
 
-When reading stream messages in a loop with `GetRecords`, use `GetShardIterator` to get the shard iterator to be used in the first `GetRecords` request. For subsequent reads, you can use the `NextShardIterator` value returned by `GetRecords`.
+When reading records from a stream in a loop, first call `GetShardIterator` to get the shard iterator for your initial `GetRecords` request. For subsequent reads, you can use the `NextShardIterator` value returned in the `GetRecords` response.
 
-If you call the `GetShardIterator` method too often, a `ProvisionedThroughputExceededException` may be thrown.
+Frequent calls to `GetShardIterator` may result in a `ProvisionedThroughputExceededException`.
 
-If a shard no longer exists (for example, as a result of updating the [number of shards](updateshardcount.md)), the method returns an iterator for the last message in the shard.
+If a shard has been closed (for example, due to [resharding](updateshardcount.md)), the method returns an iterator for this shard’s last record.
 
-There is a limit of five transactions per second per open shard when using `GetShardIterator`.
+Each open shard has a limit of 5 `GetShardIterator` requests per second.
 
 ## Request {#request}
 
-The request contains data in JSON format.
+The request contains JSON-formatted data.
 
 ```json
 {
@@ -36,19 +36,19 @@ The request contains data in JSON format.
 }
 ```
 
-### Request parameters {#request-options}
+### Request options {#request-options}
 
-| Parameter | Description |
+Option | Description
 ----- | -----
-| `ShardId` | The ID of the shard that the iterator is requested for.<br/><br/>**Type**: String.<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: `[a-zA-Z0-9_.-]+`.<br/>**Required**: Yes. |
-| `ShardIteratorType` | The type of shard iterator.<br/><br/>**Type**: ShardIteratorType.<br/>**Possible values**:<ul><li>`AT_SEQUENCE_NUMBER`: Indicates the message with the number specified in `StartingSequenceNumber`.</li><li>`AFTER_SEQUENCE_NUMBER`: Indicates the message following the one specified in `StartingSequenceNumber`.</li><li>`AT_TIMESTAMP`: Indicates the message that the time is set for.</li><li>`TRIM_HORIZON`: Indicates the oldest message in the shard.</li><li>`LATEST`: Indicates the most recent message in the shard.</li></ul>**Required**: Yes. |
-| `StartingSequenceNumber` | The sequence number of a message.<br/>Used with the `AT_SEQUENCE_NUMBER` or `AFTER_SEQUENCE_NUMBER` iterator type.<br/><br/>**Type**: String.<br/>**Size**: `1`-`256` characters.<br/>**Required**: No. |
-| `StreamName` | The name of a stream.<br/><br/>**Type**: String.<br/>**Size**: `1`-`128` characters.<br/>**Possible values**: Lowercase Latin letters, numbers, and hyphens (the first character must be a letter and the last character can't be a hyphen).<br/>**Required**: No. |
-| `Timestamp` | The timestamp of writing the message to start sequential reads from.<br/>Used with the `AT_TIMESTAMP` iterator type.<br/><br/>**Type**: Integer. |
+`ShardId` | ID of the target shard for the new iterator.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**The possible values are**: `[a-zA-Z0-9_.-]+`.<br/>**Required**: Yes.
+`ShardIteratorType` | Shard iterator type.<br/><br/>**Type**: ShardIteratorType.<br/>**Allowed values**:<ul><li>`AT_SEQUENCE_NUMBER`: points to the record matching the sequence number specified in `StartingSequenceNumber`.</li><li>`AFTER_SEQUENCE_NUMBER`: points to the record following the one matching `StartingSequenceNumber`.</li><li>`AT_TIMESTAMP`: points to the record at the specified timestamp.</li><li>`TRIM_HORIZON`: points to the oldest record in the shard.</li><li>`LATEST`: points to the latest record in the shard.</li></ul>**Required**: Yes.
+`StartingSequenceNumber` | Record sequence number.<br/>Used in conjunction with `AT_SEQUENCE_NUMBER` and `AFTER_SEQUENCE_NUMBER` iterator types.<br/><br/>**Type**: String<br/>**Size**: `1`-`256` characters.<br/>**Required**: No.
+`StreamName` | Data stream name.<br/><br/>**Type**: String<br/>**Size**: `1`-`128` characters.<br/>**Allowed values**: lowercase letters, numbers, and hyphens (the first character must be a letter and the last character cannot be a hyphen).<br/>**Required**: No.
+`Timestamp` | The timestamp specifying where sequential record retrieval begins.<br/>Used in conjunction with the `AT_TIMESTAMP` iterator type.<br/><br/>**Type**: Integer
 
 ## Response {#response}
 
-If successful, HTTP code 200 and data in JSON format are returned.
+Successful requests return HTTP 200 with a JSON-formatted response body.
 
 ```json
 {
@@ -58,16 +58,16 @@ If successful, HTTP code 200 and data in JSON format are returned.
 
 ### Response parameters {#response-options}
 
-| Parameter | Description |
+Parameter | Description
 ----- | -----
-| `Iterator` | The position in a shard to start sequential message reads from. The iterator value is defined by the message sequence number in a shard.<br/><br/>**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes |
+`Iterator` | The starting position within the shard for sequential message retrieval. The iterator’s position corresponds to the sequence number of a record in the shard.<br/><br/>**Type**: String<br/>**Size**: `1`-`512` characters.<br/>**Required**: Yes
 
 ## Errors {#errors}
 
-| Parameter | Description | HTTP code |
+Error | Description | HTTP code
 ----- | ----- | -----
-| `InvalidArgumentException` | The argument is invalid. For more information, see the error message. | 400 |
-| `ProvisionedThroughputExceededException` | Insufficient throughput to execute the request. | 400 |
-| `ResourceNotFoundException` | The requested resource was not found. | 400 |
+`InvalidArgumentException` | The argument is invalid. See the error message for details. | 400
+`ProvisionedThroughputExceededException` | Insufficient throughput to process the request. | 400
+`ResourceNotFoundException` | The requested resource was not found. | 400
 
-[Errors](../common-errors.md) that are common to all methods may occur.
+[Errors](../common-errors.md) common to all methods may occur.

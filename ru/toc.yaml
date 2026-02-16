@@ -1,12 +1,16 @@
 title: Документация {{ yandex-cloud }}
-href: index.yaml
 items:
+  - name: Все разделы
+    href: index.yaml
   - name: API {{ yandex-cloud }}
     href: api-design-guide/index.yaml
   - name: API Gateway
     href: api-gateway/index.yaml
   - name: Application Load Balancer
     href: application-load-balancer/index.yaml
+  - name: Архитектурные решения
+    href: architecture/index.yaml
+    hidden: true
   - name: Audit Trails
     href: audit-trails/index.yaml
   - name: BareMetal
@@ -27,14 +31,16 @@ items:
     href: cloud-desktop/index.yaml
   - name: Cloud Interconnect
     href: interconnect/index.yaml
+  - name: Cloud Router
+    href: cloud-router/index.yaml
   - name: Cloud Logging
     href: logging/index.yaml
   - name: Cloud Notification Service
     href: notifications/index.yaml
+  - name: Cloud Quota Manager
+    href: quota-manager/index.yaml
   - name: Cloud Video
     href: video/index.yaml
-  - name: Code Assistant
-    href: code-assistant/index.yaml
   - name: Compute Cloud
     href: compute/index.yaml
   - name: Container Registry
@@ -43,7 +49,7 @@ items:
     href: cloud-registry/index.yaml
   - name: Container Solution
     href: cos/index.yaml
-  - name: Yandex Data Proc
+  - name: Yandex Data Processing
     href: data-proc/index.yaml
   - name: Data Transfer
     href: data-transfer/index.yaml
@@ -53,6 +59,8 @@ items:
     href: datalens/index.yaml
   - name: DataSphere
     href: datasphere/index.yaml
+  - name: Yandex Cloud Detection and Response
+    href: ycdr/index.yaml
   - name: Cloud DNS
     href: dns/index.yaml
   - name: Начало работы
@@ -61,10 +69,10 @@ items:
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
-  - name: Forms
-    href: forms/index.yaml
   - name: '{{ foundation-models-name }}'
-    href: foundation-models/index.yaml
+    href: ai-studio/index.yaml
+  - name: '{{ gost-gateway-name }}'
+    href: gost-gateway/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core
@@ -79,29 +87,32 @@ items:
     href: managed-airflow/index.yaml
   - name: Managed Service for Apache Kafka®
     href: managed-kafka/index.yaml
+  - name: Managed Service for Apache Spark™
+    href: managed-spark/index.yaml
   - name: Managed Service for ClickHouse®
     href: managed-clickhouse/index.yaml
-  - name: Managed Service for Elasticsearch
-    href: managed-elasticsearch/index.yaml
   - name: Managed Service for GitLab
     href: managed-gitlab/index.yaml
-  - name: Managed Service for Greenplum®
+  - name: Yandex MPP Analytics for PostgreSQL
     href: managed-greenplum/index.yaml
   - name: Managed Service for Kubernetes®
     href: managed-kubernetes/index.yaml
-  - name: Managed Service for MongoDB
-    href: managed-mongodb/index.yaml
+  - name: Yandex StoreDoc
+    href: storedoc/index.yaml
   - name: Managed Service for MySQL®
     href: managed-mysql/index.yaml
   - name: Managed Service for OpenSearch
     href: managed-opensearch/index.yaml
   - name: Managed Service for PostgreSQL
     href: managed-postgresql/index.yaml
-  - name: Managed Service for Redis
-    href: managed-redis/index.yaml
+  - name: Managed Service for Sharded PostgreSQL
+    href: managed-spqr/index.yaml
+  - name: '{{ mrd-full-name }}'
+    href: managed-valkey/index.yaml
   - name: Managed Service for Trino
     href: managed-trino/index.yaml
-    hidden: true
+  - name: Managed Service for YTsaurus
+    href: managed-ytsaurus/index.yaml
   - name: Yandex Cloud Marketplace
     href: marketplace/index.yaml
   - name: Message Queue
@@ -114,8 +125,12 @@ items:
     href: monitoring/index.yaml
   - name: Network Load Balancer
     href: network-load-balancer/index.yaml
-  - name: Cloud Organization
+  - name: Neurosupport
+    href: neurosupport/index.yaml
+  - name: Identity Hub
     href: organization/index.yaml
+  - name: Cloud Postbox
+    href: postbox/index.yaml
   - name: Обзор платформы {{ yandex-cloud }}
     href: overview/index.yaml
   - name: Партнерская программа {{ yandex-cloud }}
@@ -124,7 +139,7 @@ items:
     href: resource-manager/index.yaml
   - name: Практические руководства платформы {{ yandex-cloud }}
     href: tutorials/index.yaml
-  - name: Search API
+  - name: '{{ search-api-name }}'
     href: search-api/index.yaml
   - name: Безопасность в {{ yandex-cloud }}
     href: security/index.yaml
@@ -146,8 +161,6 @@ items:
     href: serverless-integrations/index.yaml
   - name: Serverless Containers
     href: serverless-containers/index.yaml
-  - name: Tracker
-    href: tracker/index.yaml
   - name: Translate
     href: translate/index.yaml
   - name: Vision
@@ -156,8 +169,6 @@ items:
     href: vpc/index.yaml
   - name: WebSQL
     href: websql/index.yaml
-  - name: Wiki
-    href: wiki/index.yaml
   - name: '{{ ydb-name }}'
     href: ydb/index.yaml
   - name: Query
@@ -171,6 +182,3 @@ items:
     href: glossary/index.md
   - name: Готовые решения для известных сценариев
     href: troubleshooting/index.yaml
-    hidden: true
-base: ru
-deepBase: 1

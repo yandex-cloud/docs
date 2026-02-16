@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Настройка хостинга
 
 
-Вы можете разместить свой статический сайт в {{ objstorage-name }}. Статический сайт строится на клиентских технологиях, таких как HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера.
+{% include [static-site-information](../../../_includes/storage/static-site-information.md) %}
 
 В бакетах {{ objstorage-name }} поддерживаются:
 
@@ -14,24 +14,26 @@ description: Следуя данной инструкции, вы сможете
 * [Переадресация всех запросов](#redirects).
 * [Условная переадресация запросов](#redirects-on-conditions).
 
+{% note warning %}
+
+Хостинг статического сайта не поддерживается в бакетах со следующими параметрами:
+
+* Включено [шифрование](../../concepts/encryption.md) бакета. [Отключите](../buckets/encrypt.md#del) шифрование, [удалите](../objects/delete-all.md) объекты из бакета и [загрузите](../objects/upload.md) их заново.
+* Отсутствует [публичный доступ](../../security/overview.md#anonymous) к объектам и их списку. [Откройте](../buckets/bucket-availability.md#open-public-access) публичный доступ.
+* Настроены [политики доступа](../../concepts/policy.md), ограничивающие доступ к объектам и их списку анонимным пользователям. [Измените](../buckets/policy.md#apply-policy) политику доступа.
+* Включен доступ только из [сервисных подключений VPC](../../security/overview.md#pe-vpc). [Восстановите](../buckets/access-via-vpc.md#disable) доступ к бакету из публичной сети.
+
+Подробнее см. на странице [{#T}](../../security/overview.md).
+
+{% endnote %}
+
 ## Хостинг статического сайта {#hosting}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить хостинг.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. [Откройте](../buckets/bucket-availability.md) публичный доступ к операциям с бакетом.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * в поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `pages/index.html`;
-      * (опционально) в поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-
-  Проверить хостинг можно перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
+  {% include [hosting-setup-console](../../../_includes/storage/hosting-setup-console.md) %}
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -39,63 +41,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для настройки хостинга статического сайта в бакете:
-
-     ```bash
-     yc storage bucket update --help
-     ```
-     
-  1. Создайте файл с настройками хостинга в формате JSON. Например:
-     
-     ```json
-     {
-       "index": "index.html",
-       "error": "error404.html"
-     }
-     ```
-
-     Где:
-
-     * `index` — абсолютный путь к файлу главной страницы сайта. 
-     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx.
-  
-  1. Выполните следующую команду:
-
-     ```bash
-     yc storage bucket update --name <имя_бакета> \
-       --website-settings-from-file <путь_к_файлу>
-     ```
-     
-     Где:
-     * `--name` — имя бакета.
-     * `--website-settings-from-file` — путь к файлу с настройками хостинга.
-
-     Результат:
-
-     ```text
-     name: my-bucket
-     folder_id: b1gjs8dck8bv********
-     default_storage_class: STANDARD
-     versioning: VERSIONING_SUSPENDED
-     max_size: "10737418240"
-     acl: {}
-     created_at: "2022-12-14T08:42:16.273717Z"
-     ```
-
-  Чтобы убедиться, что настройки хостинга появились в описании бакета, выполните команду:
-
-  ```bash
-  yc storage --name <имя_бакета> bucket get --full
-  ```
-
-  Результат:
-
-  ```text
-  website_settings:
-    index: index.html
-    error: error404.html
-    redirect_all_requests: {}
-  ```
+  {% include [hosting-setup-cli](../../../_includes/storage/hosting-setup-cli.md) %}
 
 - {{ TF }} {#tf}
 
@@ -103,10 +49,11 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
 
      ```hcl
      provider "yandex" {
@@ -147,16 +94,17 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-
-
      Где:
 
      * `access_key` — идентификатор статического ключа доступа.
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета.
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).
-     * `website` — параметры веб-сайта:
+     * `website` — параметры сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
+
+         {% include [static-site-index-restriction](../../../_includes/storage/static-site-index-restriction.md) %}
+
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
 
   1. Проверьте корректность конфигурационных файлов.
@@ -194,7 +142,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить переадресацию всех запросов.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите настроить переадресацию всех запросов.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
@@ -256,7 +206,7 @@ description: Следуя данной инструкции, вы сможете
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -283,10 +233,13 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета.
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).
-     * `website` — параметры веб-сайта:
+     * `website` — параметры сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
        * `redirect_all_requests_to` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету. Вы можете указать префикс протокола (`http://` или `https://`). По умолчанию используется протокол из исходного запроса.
@@ -333,19 +286,21 @@ description: Следуя данной инструкции, вы сможете
 
 ## Условная переадресация запросов {#redirects-on-conditions}
 
-Используя правила маршрутизации можно перенаправлять запросы в соответствии с префиксами имен объектов или HTTP-кодами ответов. Вы можете перенаправить на другую веб-страницу запрос к удаленному объекту или перенаправить запросы, возвращающие ошибку.
+Используя правила маршрутизации, можно перенаправлять запросы в соответствии с префиксами имен объектов или HTTP-кодами ответов. Вы можете перенаправить на другую веб-страницу запрос к удаленному объекту или перенаправить запросы, возвращающие ошибку. В сервисе действуют [лимиты](../../concepts/limits.md#storage-limits) на максимальное количество правил для условной переадресации запросов.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить условную переадресацию запросов.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите настроить условную переадресацию запросов.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
   1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите как минимум одно условие переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
-      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. 
+      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. [Подробнее о ключах и устройстве статического сайта](#static-site-information).
   1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
       * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, по которому должен быть отправлен переадресованный запрос.
       * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** хоста, на который должны перенаправляться запросы, удовлетворившие условию.
@@ -369,6 +324,8 @@ description: Следуя данной инструкции, вы сможете
      
      ```json
      {
+       "index": "index.html",
+       "error": "error404.html",
        "routingRules": [
          {
            "condition": {
@@ -388,6 +345,15 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Где:
+     * `index` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
+
+         {% note info %}
+
+         Абсолютный путь к файлу главной страницы необходимо передавать с настройками условной переадресации, даже если этот параметр для бакета уже задан.
+
+         {% endnote %}
+
+     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
      * `condition` — условие, при котором выполняется перенаправление:
      
        * `httpErrorCodeReturnedEquals` — HTTP-код ответа.
@@ -428,7 +394,7 @@ description: Следуя данной инструкции, вы сможете
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  
+    
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -472,10 +438,13 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета.
      * `acl` — параметры управления доступом [ACL](../../concepts/acl.md#predefined-acls).
-     * `website` — параметры веб-сайта:
+     * `website` — параметры сайта:
        * `index_document` — абсолютный путь к файлу главной страницы сайта. Обязательный параметр.
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
        * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
@@ -523,5 +492,5 @@ description: Следуя данной инструкции, вы сможете
 #### См. также {#see-also}
 
 * [{#T}](own-domain.md)
-* [{#T}](multiple-domains.md)
+* [{#T}](multiple-domains/index.md)
 * [{#T}](certificate.md)

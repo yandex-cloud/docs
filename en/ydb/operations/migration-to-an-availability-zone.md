@@ -2,9 +2,9 @@
 
 Migration to another availability only makes sense for a {{ ydb-short-name }} [dedicated database](../concepts/serverless-and-dedicated.md). Serverless databases are not migrated between availability zones.
 
-A dedicated database is hosted in multiple [availability zones](../../overview/concepts/geo-scope.md) of the central Russia `{{ region-id }}` region. You can replace one zone with another. To do this:
+A dedicated database is placed in multiple [availability zones](../../overview/concepts/geo-scope.md) of the central Russia `{{ region-id }}` region. You can replace one zone with another. To do this:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating your database.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in the target availability zone for your database.
 1. Move the {{ ydb-short-name }} database to a new set of subnets:
 
    {% list tabs group=instructions %}
@@ -28,7 +28,7 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
 
       {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-      1. Open the {{ TF }} configuration file containing the infrastructure plan and edit the fragment with the DB description:
+      1. Open the {{ TF }} configuration file describing your infrastructure and edit the fragment with your database:
 
          ```hcl
          resource "yandex_ydb_database_dedicated" "<DB_name>" {
@@ -38,7 +38,7 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
          }
          ```
 
-         In the `subnet_ids` parameter, list the subnet IDs in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones, separated by commas.
+         Under `subnet_ids`, list the subnet IDs in the `{{ region-id }}-a`, `{{ region-id }}-b`, and `{{ region-id }}-d` availability zones, separated by commas.
 
       1. Apply the changes:
 
@@ -46,9 +46,9 @@ A dedicated database is hosted in multiple [availability zones](../../overview/c
 
    {% endlist %}
 
-## Migrating to {{ data-transfer-full-name }} {#data-transfer}
+## Migrating in {{ data-transfer-full-name }} {#data-transfer}
 
-If are using a [transfer](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) of the {{ dt-type-repl }} or {{ dt-type-copy-repl }} type and your database serves as an [endpoint](../../data-transfer/concepts/index.md#endpoint), restart the transfer using one of two methods after changing subnets in the database:
+If you are using a [transfer](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) of the {{ dt-type-repl }} or {{ dt-type-copy-repl }} type with your database as an [endpoint](../../data-transfer/concepts/index.md#endpoint), restart the transfer using one of the two methods after changing subnets in the database:
 
 {% include [reactivate-a-transfer](../../_includes/data-transfer/reactivate-a-transfer.md) %}
 

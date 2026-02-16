@@ -1,6 +1,16 @@
 # Миграция данных с использованием сервиса {{ data-transfer-full-name }} {#data-transfer}
 
 
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
+
+
+### Перенесите данные {#transfer-data}
+
 1. [Подготовьте кластер-источник](../../../data-transfer/operations/prepare.md#source-pg).
 1. Подготовьте инфраструктуру:
 
@@ -91,32 +101,18 @@
     Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 1. Переключите нагрузку на кластер-приемник.
-1. Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+1. Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
     {% list tabs group=instructions %}
 
     - Ресурсы созданы вручную {#manual}
 
-        * [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-        * [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
-        * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+        1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
+        1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
 
     - Ресурсы созданы с помощью {{ TF }} {#tf}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `data-transfer-pgsql-mpg.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-pgsql-mpg.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

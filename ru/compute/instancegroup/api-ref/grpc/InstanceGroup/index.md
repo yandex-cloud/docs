@@ -32,4 +32,6 @@ A set of methods for managing InstanceGroup resources.
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified instance group. ||
 || [ResumeProcesses](resumeProcesses.md) | Resumes all processes regarding management of the specified instance group, ||
 || [PauseProcesses](pauseProcesses.md) | Pauses all processes regarding management of the specified instance group, ||
+|| [DisableZones](disableZones.md) | Disable zones for the specified instance group. ||
+|| [EnableZones](enableZones.md) | Enable zones for the specified instance group. ||
 |#

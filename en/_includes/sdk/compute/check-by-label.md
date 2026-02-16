@@ -1,0 +1,1 @@
+You can check the new VM in the [management console]({{ link-console-main }}). It should have the `yc-sdk:yes` [label](../../../resource-manager/concepts/labels).

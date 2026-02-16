@@ -1,9 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}:lastScanResult
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            ID of the Image to get last finished ScanResult.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/getLast.md
 ---
 
-# Container Registry API, REST: Scanner.GetLast {#GetLast}
+# Container Registry API, REST: Scanner.GetLast
 
 Returns the last finished ScanResult for the specified Image.
 
@@ -19,7 +35,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
 ||Field | Description ||
 || imageId | **string**
 
-Required field. ID of the Image to get last finished ScanResult. ||
+Required field. ID of the Image to get last finished ScanResult.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -67,7 +85,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

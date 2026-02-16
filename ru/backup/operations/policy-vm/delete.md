@@ -1,6 +1,6 @@
 ---
 title: Удалить политику резервного копирования
-description: Из статьи вы узнаете, как удалить политику резервного копирования в **{{ backup-name }}**.
+description: Из статьи вы узнаете, как удалить политику резервного копирования в {{ backup-name }}.
 ---
 
 # Удалить политику резервного копирования
@@ -10,7 +10,7 @@ description: Из статьи вы узнаете, как удалить пол
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно удалить [политику резервного копирования](../../../backup/concepts/policy.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Напротив политики резервного копирования, которую нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**. 
   1. Подтвердите удаление политики резервного копирования.
@@ -37,7 +37,7 @@ description: Из статьи вы узнаете, как удалить пол
      yc backup policy delete <идентификатор_политики_резервного_копирования>
      ```
 
-     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/delete.md).
+     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -52,7 +52,7 @@ description: Из статьи вы узнаете, как удалить пол
 
      ```hcl
      resource "yandex_backup_policy" "my_policy" {
-         archive_name                      = "[<имя_ВМ>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
+         archive_name                      = "[<имя_ВМ_или_сервера_{{ baremetal-name }}>]-[<идентификатор_плана>]-[<уникальный_идентификатор>]a"
          cbt                               = "USE_IF_ENABLED"
          compression                       = "NORMAL"
          fast_backup_enabled               = true
@@ -60,8 +60,6 @@ description: Из статьи вы узнаете, как удалить пол
          multi_volume_snapshotting_enabled = true
          name                              = "<имя_политики_резервного_копирования>"
          performance_window_enabled        = true
-         preserve_file_security_settings   = true
-         quiesce_snapshotting_enabled      = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -88,14 +86,16 @@ description: Из статьи вы узнаете, как удалить пол
              scheme               = "ALWAYS_INCREMENTAL"
              weekly_backup_day    = "MONDAY"
 
-             execute_by_time {
-                 include_last_day_of_month = true
-                 monthdays                 = []
-                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
-                 repeat_at                 = ["04:10"]
-                 repeat_every              = "30m"
-                 type                      = "MONTHLY"
-                 weekdays                  = []
+             backup_sets {
+                 execute_by_time {
+                     type                      = "MONTHLY"
+                     include_last_day_of_month = true
+                     monthdays                 = []
+                     months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                     repeat_at                 = ["04:10"]
+                     repeat_every              = "30m"
+                     weekdays                  = []
+                 }
              }
          }
 

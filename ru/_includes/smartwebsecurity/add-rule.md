@@ -21,6 +21,7 @@
       * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` — после проверки подозрительные запросы отправляются в {{ captcha-name }}.
       * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}` — после проверки подозрительные запросы блокируются.
 
+1. (Опционально) Выберите или [создайте](../../smartwebsecurity/operations/template-create.md) шаблон ответа, который будет возвращаться клиенту при срабатывании правила. По умолчанию используется стандартный шаблон {{ yandex-cloud }}.
 1. {% include [arl-rule-traffic-conditions](../../_includes/smartwebsecurity/arl-rule-traffic-conditions.md) %}
 
 1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.

@@ -1,14 +1,19 @@
+---
+title: Maintenance policy management
+description: Follow this guide to manage your maintenance policy.
+---
+
 # Maintenance policy management
 
 
-To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md), complete the following steps:
+To enable and configure a [VM maintenance policy](../../concepts/maintenance-policies.md), follow these steps:
 
 1. [Create a VM with a configured maintenance policy](#create).
-1. [Check the maintenance event processing](#check).
-1. [Connect to the VM via SSH](#ssh).
+1. [Check maintenance event handling](#check).
+1. [Connect to the VM over SSH](#ssh).
 1. [Create a script to track VM maintenance events](#script).
-1. [Simulate the occurrence of a VM maintenance event](#simulate).
-1. [Optional. Change the VM maintenance policy type](#change-policy).
+1. [Simulate a VM maintenance event](#simulate).
+1. [Optionally, change the VM maintenance policy type](#change-policy).
 
 ## Create a VM with a configured maintenance policy {#create}
 
@@ -16,25 +21,25 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 - CLI {#cli}
 
-   Create a VM with the maintenance policies:
+  Create a VM with maintenance policies:
 
-   ```
-   FOLDER_ID=$(yc config get folder-id)
+  ```
+  FOLDER_ID=$(yc config get folder-id)
 
-   yc compute instance create --name mnt-vm1 --hostname mnt-vm1\
-     --folder-id $FOLDER_ID \
-     --zone {{ region-id }}-a \
-     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
-     --cores=2 --memory=4G --core-fraction=100 \
-     --network-interface subnet-name=default-{{ region-id }}-a,ipv4-address=auto,nat-ip-version=ipv4 \
-     --ssh-key ~/.ssh/id_ed25519.pub \
-     --maintenance-policy restart \
-     --maintenance-grace-period 1m
-   ```
+  yc compute instance create --name mnt-vm1 --hostname mnt-vm1\
+    --folder-id $FOLDER_ID \
+    --zone {{ region-id }}-a \
+    --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
+    --cores=2 --memory=4G --core-fraction=100 \
+    --network-interface subnet-name=default-{{ region-id }}-a,ipv4-address=auto,nat-ip-version=ipv4 \
+    --ssh-key ~/.ssh/id_ed25519.pub \
+    --maintenance-policy restart \
+    --maintenance-grace-period 1m
+  ```
 
 - {{ TF }} {#tf}
 
-   1. Create the `mnt-vm.tf` {{ TF }} manifest:
+  1. Create a {{ TF }} manifest named `mnt-vm.tf`:
 
       ```
       terraform {
@@ -89,7 +94,7 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
       }
       ```
 
-   1. Apply the {{ TF }} manifest:
+  1. Apply the {{ TF }} manifest:
 
       ```bash
       export YC_TOKEN=$(yc iam create-token)
@@ -101,9 +106,9 @@ To enable and configure a [VM maintenance policy](../../concepts/vm-policies.md)
 
 {% endlist %}
 
-## Check the maintenance event processing {#check}
+## Check maintenance event handling {#check}
 
-You can use the CLI to check the configuration of the VM maintenance policies after it has been created. Run this command:
+You can use the CLI to check the maintenance policy configuration for your VM after it is created. Run this command:
 
 ```
 yc compute instance get --name=mnt-vm1 --format=json | grep maintenance
@@ -116,9 +121,9 @@ Expected result:
   "maintenance_grace_period": "60s"
 ```
 
-## Connect to the VM via SSH {#ssh}
+## Connect to the VM over SSH {#ssh}
 
-Get the VM IP address and save it to a variable, then connect to the VM via SSH with your username:
+Get the VM IP address and save it to a variable, then connect to the VM over SSH with your username:
 
 ```
 VM_IP=$(yc compute instance get --name=mnt-vm1 --format=json | jq -r '.network_interfaces[0].primary_v4_address.one_to_one_nat.address')
@@ -128,7 +133,7 @@ ssh <username>@$VM_IP
 
 ## Create a script to track VM maintenance events {#script}
 
-Create a file named `mnt-pol.sh` and paste the following code to it:
+Create a file named `mnt-pol.sh` and paste the following code into it:
 
 ```
 #!/bin/bash
@@ -136,7 +141,9 @@ Create a file named `mnt-pol.sh` and paste the following code to it:
 while true
 do
   echo -n `date`" : "
-  curl -s -H Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
+  curl \
+    --silent \
+    --header Metadata-Flavor:Google http://metadata.google.internal/computeMetadata/v1/instance/maintenance-event
   echo
   sleep 1
 done
@@ -149,15 +156,15 @@ chmod u+x mnt-pol.sh
 ./mnt-pol.sh
 ```
 
-## Simulate the occurrence of a VM maintenance event {#simulate}
+## Simulate a VM maintenance event {#simulate}
 
-Simulate the occurrence of a maintenance event using the CLI. Run this command:
+Simulate a maintenance event using the CLI. Run this command:
 
 ```
 yc compute instance simulate-maintenance-event --name=mnt-vm1
 ```
 
-Make sure the event is displayed in the terminal:
+Make sure the terminal output includes the event:
 
 ```
 yc-user@mnt-vm1:~$ ./mnt-pol.sh
@@ -175,13 +182,13 @@ Tue Jan 16 14:24:49 UTC 2024 : NONE
 
 ## Change the VM maintenance policy type {#change-policy}
 
-You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter with the following command:
+You can change the VM maintenance policy type by specifying a new value for the `--maintenance-policy` parameter through the following command:
 
 ```
 yc compute instance update --name=mnt-vm1 --maintenance-policy=migrate
 ```
 
-Simulate the occurrence of a maintenance event using the CLI:
+Simulate a maintenance event using the CLI:
 
 ```
 yc compute instance simulate-maintenance-event --name=mnt-vm1

@@ -22,7 +22,7 @@ This hardware implements a set of solutions to protect a cryptographic asset thr
 * Protection against human error (minimized chance of hardware misconfiguration).
 * Trusted operating system bootup.
 
-### HSM operating procedure
+### HSM operating procedure 
 
 In {{ kms-name }}, you can create a symmetric encryption key whose every cryptographic operation will be handled only inside the HSM. The HSM will also generate the key itself. In this situation, the user's key resides in the {{ kms-name }} service database only in encrypted form. The HSM uses its master key, which never leaves the HSM, to encrypt the user key.
 
@@ -39,4 +39,10 @@ A cryptographic operation using the HSM includes the following steps:
 
 ### Enabling the HSM for a key
 
-To use the HSM, select `AES-256 HSM` as the algorithm type when creating a symmetric key. The HSM will handle all operations with this key internally, and no additional actions are required.
+To use the HSM, select the `AES-256 HSM` algorithm type when creating a symmetric key. The HSM will handle all operations with this key internally, and no additional actions are required.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/terraform-key.md)
+* [{#T}](../tutorials/vault-secret.md)
+* [{#T}](../tutorials/secure-password-script.md)

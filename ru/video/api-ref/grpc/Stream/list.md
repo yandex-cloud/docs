@@ -3,9 +3,10 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Stream/list.md
 ---
 
-# Video API, gRPC: StreamService.List {#List}
+# Video API, gRPC: StreamService.List
 
-List streams for channel.
+Lists all streams in a specific channel with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## gRPC request
 
@@ -15,40 +16,58 @@ List streams for channel.
 
 ```json
 {
-  "channelId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
-  "orderBy": "string",
+  "channel_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
+  "order_by": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| pageSize | **int64**
+Required field. ID of the channel containing the streams to list.
 
-The maximum number of the results per page to return. Default value: 100. ||
-|| pageToken | **string**
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
-Page token for getting the next page of the result. ||
-|| orderBy | **string**
+The maximum number of streams to return per page.
 
-By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"]
-Both snake_case and camelCase are supported for fields. ||
+The maximum value is 100. ||
+|| page_token | **string**
+
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListStreamsResponse.
+
+The maximum string length in characters is 15000. ||
+|| order_by | **string**
+
+Specifies the ordering of results.
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "startTime desc").
+Default: "id asc".
+Supported fields: ["id", "title", "startTime", "finishTime", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 50. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title", "lineId", "status"]
-Both snake_case and camelCase are supported for fields. ||
+Filter expression to narrow down the list of returned streams.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
+Supported logical operators: ["AND", "OR"].
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'live' AND (status='READY' OR status='ONAIR')`
+
+Filterable fields: ["id", "title", "lineId", "status"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListStreamsResponse {#yandex.cloud.video.v1.ListStreamsResponse}
@@ -58,28 +77,29 @@ Both snake_case and camelCase are supported for fields. ||
   "streams": [
     {
       "id": "string",
-      "channelId": "string",
-      "lineId": "string",
+      "channel_id": "string",
+      "line_id": "string",
       "title": "string",
       "description": "string",
-      "thumbnailId": "string",
+      "thumbnail_id": "string",
       "status": "StreamStatus",
-      "startTime": "google.protobuf.Timestamp",
-      "publishTime": "google.protobuf.Timestamp",
-      "finishTime": "google.protobuf.Timestamp",
-      // Includes only one of the fields `onDemand`, `schedule`
-      "onDemand": "OnDemand",
+      "start_time": "google.protobuf.Timestamp",
+      "publish_time": "google.protobuf.Timestamp",
+      "finish_time": "google.protobuf.Timestamp",
+      "auto_publish": "google.protobuf.BoolValue",
+      // Includes only one of the fields `on_demand`, `schedule`
+      "on_demand": "OnDemand",
       "schedule": {
-        "startTime": "google.protobuf.Timestamp",
-        "finishTime": "google.protobuf.Timestamp"
+        "start_time": "google.protobuf.Timestamp",
+        "finish_time": "google.protobuf.Timestamp"
       },
       // end of the list of possible fields
-      "createdAt": "google.protobuf.Timestamp",
-      "updatedAt": "google.protobuf.Timestamp",
-      "labels": "string"
+      "created_at": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
+      "labels": "map<string, string>"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -87,81 +107,94 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || streams[] | **[Stream](#yandex.cloud.video.v1.Stream)**
 
-List of streams for channel. ||
-|| nextPageToken | **string**
+List of streams matching the request criteria.
+May be empty if no streams match the criteria or if the channel has no streams. ||
+|| next_page_token | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Stream {#yandex.cloud.video.v1.Stream}
+
+Entity representing a live video stream.
+A stream is a real-time video broadcast linked to a specific stream line.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the stream. ||
-|| channelId | **string**
+Unique identifier of the stream. ||
+|| channel_id | **string**
 
-ID of the channel where the stream was created. ||
-|| lineId | **string**
+Identifier of the channel where the stream is created and managed. ||
+|| line_id | **string**
 
-ID of the line to which stream is linked. ||
+Identifier of the stream line to which this stream is linked. ||
 || title | **string**
 
-Stream title. ||
+Title of the stream displayed in interfaces and players. ||
 || description | **string**
 
-Stream description. ||
-|| thumbnailId | **string**
+Detailed description of the stream content and context. ||
+|| thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the stream visually. ||
 || status | enum **StreamStatus**
 
-Stream status.
+Current status of the stream.
 
-- `STREAM_STATUS_UNSPECIFIED`: Stream status unspecified.
-- `OFFLINE`: Stream offline.
-- `PREPARING`: Preparing the infrastructure for receiving video signal.
-- `READY`: Everything is ready to launch stream.
-- `ONAIR`: Stream onair.
-- `FINISHED`: Stream finished. ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+- `OFFLINE`: The stream is offline and not broadcasting.
+- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
+- `READY`: The infrastructure is ready to launch the stream.
+- `ONAIR`: The stream is currently broadcasting live.
+- `FINISHED`: The stream has completed and is no longer broadcasting. ||
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream start time. ||
-|| publishTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Timestamp when the stream was initiated. ||
+|| publish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream publish time. Time when stream switched to ONAIR status. ||
-|| finishTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Timestamp when the stream was published (switched to ONAIR status). ||
+|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Stream finish time. ||
-|| onDemand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
+Timestamp when the stream was completed. ||
+|| auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-On demand stream. It starts immediately when a signal appears.
+Controls automatic publishing of the stream when it's ready.
+When set to true, automatically switches status from READY to ONAIR. ||
+|| on_demand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
 
-Includes only one of the fields `onDemand`, `schedule`.
+On-demand stream starts immediately when a video signal appears.
 
-Stream type. ||
+Includes only one of the fields `on_demand`, `schedule`.
+
+Specifies the stream scheduling type. ||
 || schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
 
-Schedule stream. Determines when to start receiving the signal or finish time.
+Scheduled stream starts and finishes at specified time.
 
-Includes only one of the fields `onDemand`, `schedule`.
+Includes only one of the fields `on_demand`, `schedule`.
 
-Stream type. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Specifies the stream scheduling type. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time when stream was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Timestamp when the stream was initially created in the system. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last stream update. ||
-|| labels | **string**
+Timestamp of the last modification to the stream or its metadata. ||
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream.
+Used for organization, filtering, and metadata purposes.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## OnDemand {#yandex.cloud.video.v1.OnDemand}
 
-If "OnDemand" is used, client should start and finish explicitly.
+Represents an on-demand stream type.
+This type of stream must be started and finished explicitly by the user.
+It begins broadcasting immediately when a video signal is detected.
 
 #|
 ||Field | Description ||
@@ -170,10 +203,15 @@ If "OnDemand" is used, client should start and finish explicitly.
 
 ## Schedule {#yandex.cloud.video.v1.Schedule}
 
-If "Schedule" is used, stream automatically start and finish at this time.
+Represents a scheduled stream type.
+This type of stream starts and finishes automatically at specified time.
 
 #|
 ||Field | Description ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| finishTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Scheduled time when the stream should automatically start. ||
+|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Scheduled time when the stream should automatically finish. ||
 |#

@@ -1,6 +1,6 @@
 ---
 title: '{{ iam-full-name }} overview'
-description: The {{ iam-name }} (IAM) service controls access to resources and enables you to configure access rights. You determine who should have rights to a certain resource and what these rights are, while {{ iam-short-name }} grants access according to the assigned rights.
+description: '{{ iam-name }} (IAM) controls access to resources and offers functions for access permission setup. You decide who gets what permissions for a resource, and {{ iam-short-name }} provides access according to the permissions you assign.'
 ---
 
 # {{ iam-full-name }} overview
@@ -18,7 +18,7 @@ With {{ iam-short-name }}, you can:
 
 To grant a user access to a resource, you assign them [roles](access-control/roles.md) for the resource. Each role consists of a set of permissions that describe operations that can be performed with the resource.
 
-Before performing an operation with a resource, such as creating a VM, {{ yandex-cloud }} sends a request to the IAM service to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions to the list of permissions granted to the user who is performing this operation. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
+Before performing an operation with a resource (e.g., creating a VM), {{ yandex-cloud }} requests IAM to check whether this operation is allowed. {{ iam-short-name }} compares the list of required permissions against the list of permissions held by the user performing the operation. If the user lacks any of the permissions, the operation is not allowed and {{ yandex-cloud }} returns an error. For more information, see [{#T}](access-control/index.md).
 
 ## Accounts in {{ yandex-cloud }} {#accounts}
 
@@ -28,12 +28,12 @@ To identify users performing operations with resources, {{ yandex-cloud }} allow
 
 There are three types of keys used for authentication in {{ yandex-cloud }}:
 
-* [API keys](authorization/api-key.md): Used instead of IAM tokens for simplified authorization.
+* [API keys](authorization/api-key.md): Used for simplified authentication instead of IAM tokens.
 * [Authorized keys](authorization/key.md): Used to obtain IAM tokens for service accounts.
-* [Static access keys](authorization/access-key.md): Used in services with AWS-compatible APIs.
+* [Static access keys](authorization/access-key.md): Used for authentication in services with an AWS-compatible API.
 
 These keys are currently only used for service accounts.
 
-## Authorization {#auth}
+## Authentication {#auth}
 
-The user must pass authentication so that {{ iam-short-name }} can authorize them (i.e., check whether the user has rights). Authentication is performed in different ways, depending on the type of account and the interface used. For more information, see [{#T}](authorization/index.md).
+For {{ iam-short-name }} to be able to authorize the user (i.e., check if the user has the required permissions), the user must get authenticated. Authentication is performed in different ways, depending on the type of account and the interface used. For more information, see [{#T}](authorization/index.md).

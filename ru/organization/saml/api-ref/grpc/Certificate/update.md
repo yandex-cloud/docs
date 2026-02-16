@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Certificate/update.md
 ---
 
-# Cloud Organization SAML API, gRPC: CertificateService.Update {#Update}
+# SAML Federation API, gRPC: CertificateService.Update
 
 Updates the specified certificate.
 
@@ -15,8 +15,8 @@ Updates the specified certificate.
 
 ```json
 {
-  "certificateId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "certificate_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "data": "string"
@@ -25,23 +25,31 @@ Updates the specified certificate.
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate to update.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/grpc/Certificate/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the certificate are going to be updated. ||
 || name | **string**
 
 Name of the certificate.
-The name must be unique within the federation. ||
+The name must be unique within the federation.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || data | **string**
 
-Certificate data in PEM format. ||
+Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -50,21 +58,21 @@ Certificate data in PEM format. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "certificateId": "string"
+    "certificate_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "federationId": "string",
+    "federation_id": "string",
     "name": "string",
     "description": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "data": "string"
   }
   // end of the list of possible fields
@@ -81,13 +89,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -130,7 +138,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| certificateId | **string**
+|| certificate_id | **string**
 
 ID of the certificate that is being updated. ||
 |#
@@ -143,20 +151,30 @@ A certificate.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the certificate. ||
-|| federationId | **string**
+Required field. ID of the certificate.
 
-Required field. ID of the federation that the certificate belongs to. ||
+The maximum string length in characters is 50. ||
+|| federation_id | **string**
+
+Required field. ID of the federation that the certificate belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the certificate. ||
+Name of the certificate.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || data | **string**
 
-Required field. Certificate data in PEM format. ||
+Required field. Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#

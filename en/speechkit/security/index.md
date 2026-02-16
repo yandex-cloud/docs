@@ -1,21 +1,23 @@
 ---
 title: Access management in {{ speechkit-full-name }}
-description: 'Access management in {{ speechkit-full-name }}: a speech technology, speech recognition, and synthesis service. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. To use the service, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
+description: 'Access management in {{ speechkit-full-name }}, the speech technology, speech recognition and synthesis service. Permissions are granted when assigning a role. A role can be assigned for a folder or a cloud: all cloud permissions are inherited. As a user, you need one of the following roles: editor, admin, or resource-manager.clouds.owner.'
 ---
 
 # Access management in {{ speechkit-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+In this section, you will learn about:
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
+
+{% include [speechkit](../../_mermaid/roles/speechkit.md) %}
 
 ### Service roles {#service-roles}
 
@@ -43,8 +45,7 @@ In this section, you will learn:
 
 {% include [ai-admin](../../_roles/ai/admin.md) %}
 
-For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} service documentation.
-
+For more information about service roles, see [{#T}](../../iam/concepts/access-control/roles.md) in the {{ iam-full-name }} documentation.
 
 ### Roles of other services {#integration-roles}
 
@@ -61,7 +62,6 @@ When working with {{ speechkit-name }}, you may need roles of other services, fo
 #### kms.keys.encrypterDecrypter {#kms-keys-encrypterDecrypter}
 
 {% include [kms.keys.encrypterDecrypter](../../_roles/kms/keys/encrypterDecrypter.md) %}
-
 
 ### Primitive roles {#primitive-roles}
 

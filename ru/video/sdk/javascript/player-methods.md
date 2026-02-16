@@ -1,11 +1,11 @@
 ---
-title: Методы плеера Cloud Video Player в SDK для JavaScript
-description: На странице описаны методы, которые можно использовать для управления видеоплеером Cloud Video Player в SDK для JavaScript.
+title: Методы плеера {{ video-player-name }} в SDK для JavaScript
+description: На странице описаны методы, которые можно использовать для управления видеоплеером {{ video-player-name }} в SDK для JavaScript.
 ---
 
 # Методы плеера
 
-Вы можете управлять [видеоплеером](../../concepts/player.md) Cloud Video Player с использованием методов SDK для JavaScript:
+Вы можете управлять [видеоплеером](../../concepts/player.md) {{ video-player-name }} с использованием методов SDK для JavaScript:
 
 #### setSource {#setsource}
 
@@ -51,6 +51,63 @@ player.setSource({
 
 * переводится в состояние `fulfilled`, если переключение прошло успешно;
 * переводится в состояние `rejected`, если переключение завершилось ошибкой. Например, в случае если контент с заданным `id` не найден.
+
+#### preloadSource {#preloadsource}
+
+Предзагружает контент для дальнейшего воспроизведения.
+
+Пример базовой предзагрузки контента:
+
+```javascript
+player.preloadSource('https://runtime.video.cloud.yandex.net/player/...');
+```
+
+Пример предзагрузки с дополнительными параметрами:
+
+```javascript
+const controller = new AbortController();
+
+player.preloadSource(
+    {
+        source: 'https://runtime.video.cloud.yandex.net/player/...',
+        startPosition: 0,
+    },
+    {
+        signal: controller.signal,
+        bufferGoal: 30
+    }
+);
+
+// Для отмены предзагрузки:
+// controller.abort();
+```
+
+В примере в качестве первого параметра передается объект формата:
+
+```javascript
+{
+    /** @type {string} ссылка на воспроизводимый контент */
+    source,
+    /** @type {number} (необязательный параметр, по умолчанию 0) стартовая позиция в секундах */
+    startPosition,
+}
+```
+
+В качестве второго необязательного параметра можно передать объект с настройками предзагрузки:
+
+```javascript
+{
+    /** @type {AbortSignal} (необязательный параметр) сигнал для отмены предзагрузки */
+    signal,
+    /** @type {number} (необязательный параметр) целевой размер буфера в секундах */
+    bufferGoal,
+}
+```
+
+Метод возвращает промис (promise), который:
+
+* переводится в состояние `fulfilled`, если предзагрузка завершена успешно;
+* переводится в состояние `rejected`, если предзагрузка завершилась ошибкой или была отменена.
 
 #### getState {#getstate}
 
@@ -105,6 +162,33 @@ player.setMuted(false);
 
 ```javascript
 player.setVolume(0.7);
+```
+
+#### setPlaybackSpeed {#setplaybackspeed}
+
+Устанавливает скорость воспроизведения видео.
+
+В качестве параметра передается число, определяющее скорость воспроизведения, например:
+* `1` — нормальная скорость (по умолчанию);
+* `0.5` — половинная скорость;
+* `2` — двойная скорость.
+
+{% note warning %}
+
+Отрицательные значения скорости могут работать некорректно.
+
+{% endnote %}
+
+Пример установки двойной скорости воспроизведения:
+
+```javascript
+player.setPlaybackSpeed(2);
+```
+
+Пример установки половинной скорости:
+
+```javascript
+player.setPlaybackSpeed(0.5);
 ```
 
 #### on/once {#subscribe-methods}

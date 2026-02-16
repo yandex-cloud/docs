@@ -8,8 +8,8 @@ description: Следуя данной инструкции, вы сможете
 
 Вы можете настроить для диска [расписания](../../concepts/snapshot-schedule.md), по которым будут создаваться [снимки](../../concepts/snapshot.md):
 
-* [{#T}](#add-schedule).
-* [{#T}](#remove-schedule).
+* [Добавить расписание к диску](#add-schedule).
+* [Отвязать расписание от диска](#remove-schedule).
 
 ## Добавить расписание к диску {#add-schedule}
 
@@ -20,8 +20,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и выберите диск.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
   1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_edit-disk-schedules }}**.
   1. Выберите расписание или создайте новое. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -77,14 +77,14 @@ description: Следуя данной инструкции, вы сможете
           - fhm1c7u23aiq********
         disk_placement_policy: {}
       ```
-      Подробнее о команде `yc compute disk list` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/disk/list.md).
+      Подробнее о команде `yc compute disk list` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/list.md).
 
       Чтобы получить список дисков, привязанных к отдельному расписанию, можно также воспользоваться командой:
 
       ```bash
       yc compute snapshot-schedule list-disks <имя_или_идентификатор_расписания>
       ```
-      См. [подробнее](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/list-disks.md).
+      См. [подробнее](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/list-disks.md).
 
   1. Получите имя и идентификатор расписания:
 
@@ -154,8 +154,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}** и выберите диск.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Откройте вкладку ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и выберите диск.
   1. В блоке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** в строке с расписанием нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.snapshots-schedules.action_detach-schedule }}**.
 
 - CLI {#cli}

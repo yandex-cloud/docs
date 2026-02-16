@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных из {{ ydb-name }} {#scenarios}
 
 1. {% include [cdc](../../../../_includes/data-transfer/scenario-captions/cdc.md) %}
-    
+
     * [Захват изменений из {{ PG }} и поставка в {{ DS }}](../../../tutorials/ydb-to-yds.md);
     * [Захват изменений из {{ PG }} и поставка в {{ KF }}](../../../tutorials/cdc-ydb.md).
 
@@ -29,7 +29,7 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-    * [Загрузка данных из {{ ydb-short-name }} в {{ objstorage-name }}](../../../../_tutorials/dataplatform/datatransfer/ydb-to-object-storage.md).
+    * [Загрузка данных из {{ ydb-short-name }} в {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -73,7 +73,66 @@ description: Из статьи вы узнаете, как задать наст
 
       Для трансферов типа {{ dt-type-repl }} или {{ dt-type-copy-repl }} обязательно указывать пути, в том числе и при репликации всех таблиц.
 
-  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.changefeed_custom_name.title }}** — Укажите здесь название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_name.title }}** — укажите название потока изменений, если он уже создан. В противном случае оставьте это поле пустым.
+
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbCustomFeedSettings.changefeed_custom_consumer_name.title }}** — укажите потребителя данных (consumer), которого вы создали для потока изменений. По умолчанию используется потребитель с именем `__data_transfer_consumer`.
+
+
+      
+      {% note info %}
+
+      Если указан потребитель данных, то для подключения трансфера к {{ ydb-short-name }} сервисному аккаунту, указанному в настройках эндпоинта, достаточно роли `ydb.viewer`. Если потребитель данных не указан, сервисному аккаунту требуется роль `ydb.editor`, чтобы создать потребителя по умолчанию.
+
+      {% endnote %}
+      
+
+  * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.YdbSourceAdvancedSettings.sharded_snapshot.title }}**:
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}** — включите, чтобы ускорить трансфер с помощью шардированного снапшота.
+
+      Во время стадии копирования таблицы делятся на партиции. Копирование будет выполняться быстрее, если количество воркеров, умноженное на количество потоков внутри воркера, будет пропорционально количеству партиций.
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}** — укажите имя папки, где во время стадии копирования будут храниться копии переносимых таблиц. Папка создается в корневой директории базы-источника и по умолчанию называется `data-transfer`. Копии таблиц в папке содержат только метаданные, поэтому занимают незначительный объем памяти. Когда стадия копирования завершится, папка будет удалена.
+    
+    
+    Для управления параллельным копированием у сервисного аккаунта, указанного в настройках эндпоинта, должна быть [роль `ydb.editor`](../../../../ydb/security/index.md#ydb-editor).
+
+
+    Чтобы добиться максимальной скорости при параллельном копировании:
+
+      * В параметрах эндпоинта-источника включите опцию **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**.
+
+      
+      * В параметрах трансфера, в блоке **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.SnapshotSettings.parallel_settings.title }}**, задайте число воркеров и потоков в каждом воркере так, чтобы общее число потоков было равно числу партиций. Например, чтобы быстрее скопировать таблицу, разбитую на 6 партиций, можно задать 3 воркера и 2 потока внутри каждого воркера.
+      
+
+    [Подробнее о параллельном копировании](../../../concepts/sharded.md).
+
+- {{ TF }} {#tf}
+
+  * Тип эндпоинта — `ydb_source`.
+
+  {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-source.md) %}
+
+  Пример структуры конфигурационного файла (приведены не все параметры):
+
+  
+  ```hcl
+  resource "yandex_datatransfer_endpoint" "ydb-source" { 
+    name = "<имя_эндпоинта>"
+    settings {
+      ydb_source {
+        database               = "<имя_БД_YDB>"
+        service_account_id     = "<идентификатор_сервисного_аккаунта>"
+        paths                  = ["<список_путей_к_переносимым_объектам_YDB>"]
+        changefeed_custom_name = "<имя_потока_изменений>"
+      }
+    }
+  }
+  ```
+
+
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 
@@ -86,6 +145,8 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ objstorage-full-name }}](../target/object-storage.md);
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
+* [{{ PG }}](../target/postgresql.md);
 * [{{ ydb-full-name }}](../target/yandex-database.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

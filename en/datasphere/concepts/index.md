@@ -20,7 +20,7 @@ If you are missing a package, you can [install it](../operations/projects/instal
 
 ### Organizations and resource hierarchy {#organization}
 
-{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-main }}). Resources you create depend on your projects but are not limited only to them. For more information about relationships between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
+{{ ml-platform-name }} is not just a cloud: it allows all organization members to work in a shared space managed by [{{ org-full-name }}]({{ link-org-cloud-center }}). Resources you create depend on your projects but are not limited only to them. For more information about relationships between {{ ml-platform-name }} resources, see [{#T}](resource-model.md).
 
 ### Teamwork and cost management {#communities}
 

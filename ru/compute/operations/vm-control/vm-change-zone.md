@@ -7,7 +7,9 @@ description: Следуя данной инструкции, вы сможете
 
 При создании виртуальной машины можно выбрать, в какой из [зон доступности](../../../overview/concepts/geo-scope.md) {{ yandex-cloud }} она будет размещена.
 
-Перенести существующую ВМ в другую зону доступности можно с помощью специальной команды в [консоли управления]({{ link-console-main }}) или [CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md), а также путем создания копии ВМ в нужной зоне доступности с помощью [снимков дисков](../../concepts/snapshot.md).
+Перенести существующую ВМ в другую зону доступности можно путем создания копии ВМ в нужной зоне доступности с помощью снимков дисков.
+
+Также вы можете перенести ВМ из зон `{{ region-id }}-a` и `{{ region-id }}-b` в зону `{{ region-id }}-d` с помощью специальной команды [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
@@ -18,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 В зоне `{{ region-id }}-d` не поддерживаются ВМ на [платформе](../../concepts/vm-platforms.md) Intel Broadwell. Чтобы перенести ВМ с такой платформы в зону `{{ region-id }}-d`, вы можете:
 
 * Сделать снимок диска и создать из него новую ВМ в зоне `{{ region-id }}-d` на другой платформе.
-* Остановить ВМ, изменить платформу и переместить ВМ командой `relocate`.
+* Остановить ВМ, изменить платформу и переместить ВМ командой `yc compute instance relocate`.
 
 {% endnote %}
 
@@ -52,48 +54,18 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [delete-vm](../../../_includes/compute/delete-vm.md) %}
 
-## Перенести ВМ с помощью специальной команды {#relocate-command}
+## Перенести ВМ в зону {{ region-id }}-d с помощью специальной команды {#relocate-command}
 
-При переносе в другую зону доступности с помощью консоли управления или CLI у ВМ сохранятся идентификатор и метаданные. Вместе с ВМ в новую зону доступности будут перенесены и все подключенные к ней диски.
+С помощью специальной команды CLI можно перенести виртуальную машину только в зону доступности `{{ region-id }}-d`. В таком случае у ВМ сохраняются идентификатор и метаданные. Вместе с ВМ в новую зону доступности будут перенесены и все подключенные к ней диски.
 
 {% note info %}
 
-Продолжительность операции переноса в другую зону доступности зависит от размера дисков виртуальной машины. Перенос диска размером 100 ГБ занимает приблизительно 10 минут.
-
-В некоторых случаях при переносе в зону доступности `{{ region-id }}-d` процесс может занять больше времени.
+Продолжительность операции переноса в другую зону доступности зависит от размера дисков виртуальной машины. Перенос диска размером 100 ГБ занимает больше 10 минут.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  {% note warning %}
-
-  В настоящий момент консоль управления позволяет переносить виртуальные машины только из зоны доступности `{{ region-id }}-c`. Для того чтобы перенести ВМ из других зон доступности, используйте CLI или снимки дисков.
-
-  {% endnote %}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. В открывшемся окне:
-
-      1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите зону доступности, в которую необходимо перенести ВМ, например `{{ region-id }}-d`.
-      1. В секции **{{ ui-key.yacloud.compute.instances.create.section_network }}** для каждого [сетевого интерфейса](../../concepts/network.md) ВМ выполните настройки:
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть, соответствующую выбранной зоне доступности.
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения публичного адреса:
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае вы сможете включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции в дополнительных настройках.
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
-
-          1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md).
-          1. Чтобы настроить внутренний IP-адрес виртуальной машины и защиту от DDoS-атак, разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
-              * `{{ ui-key.yacloud.common.label_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-              * `{{ ui-key.yacloud.common.label_list }}` — чтобы выбрать внутренний IP-адрес из списка зарезервированных заранее IP-адресов. При необходимости нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать внутренний IP-адрес в выбранной подсети.
-          1. При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
-
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}**, чтобы запустить процесс переноса ВМ в другую зону доступности.
 
 - CLI {#cli}
 
@@ -116,14 +88,13 @@ description: Следуя данной инструкции, вы сможете
       Результат:
 
       ```text
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |       RANGE       |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.11.0/24] |
-      | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.12.0/24] |
-      | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.13.0/24] |
-      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.1.0/24]  |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
+      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
+      | e2l5iit0t6dr******** | default-{{ region-id }}-b | enpnohfm8jb5******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9b2ljn7h9pj******** | default-{{ region-id }}-a | enpnohfm8jb5******** |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | fl8in4sila9i******** | default-{{ region-id }}-d | enpnohfm8jb5******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
   1. Получите список всех групп безопасности в каталоге по умолчанию:
@@ -138,8 +109,8 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+---------------------------------+--------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION           |      NETWORK-ID      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
-      | c646ev94tb6k******** | my-sg-group                     |                                | c64pv6m0aqq6******** |
-      | c64r84tbt32j******** | default-sg-c64pv6m0aqq6******** | Default security group for     | c64pv6m0aqq6******** |
+      | enpagmu40nj5******** | my-sg-group                     |                                | enpnohfm8jb5******** |
+      | enpe9n88cell******** | default-sg-enpnohfm8jb5******** | Default security group for     | enpnohfm8jb5******** |
       |                      |                                 | network                        |                      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
       ```
@@ -153,12 +124,12 @@ description: Следуя данной инструкции, вы сможете
       Результат:
 
       ```text
-      +----------------------+---------+---------------+---------+---------------+-------------+
-      |          ID          |  NAME   |    ZONE ID    | STATUS  |  EXTERNAL IP  | INTERNAL IP |
-      +----------------------+---------+---------------+---------+---------------+-------------+
-      | a7lh48f5jvlk******** | my-vm-1 | {{ region-id }}-a | RUNNING |               | 192.168.0.7 |
-      | epdsj30mndgj******** | my-vm-2 | {{ region-id }}-b | RUNNING |               | 192.168.1.7 |
-      +----------------------+---------+---------------+---------+---------------+-------------+
+      +----------------------+---------+---------------+---------+--------------+-------------+
+      |          ID          |  NAME   |    ZONE ID    | STATUS  | EXTERNAL IP  | INTERNAL IP |
+      +----------------------+---------+---------------+---------+--------------+-------------+
+      | epdi9vnr8i6n******** | my-vm-1 | {{ region-id }}-b | RUNNING | 84.201.166.2 | 10.129.0.31 |
+      | epdjhkhtqjfp******** | my-vm-2 | {{ region-id }}-d | RUNNING |              | 10.130.0.6  |
+      +----------------------+---------+---------------+---------+--------------+-------------+
       ```
 
   1. Получите список [сетевых интерфейсов](../../concepts/network.md) нужной ВМ, указав ее идентификатор:
@@ -173,23 +144,13 @@ description: Следуя данной инструкции, вы сможете
      ...
      network_interfaces:
        - index: "0"
-         mac_address: d0:0d:24:**:**:**
-         subnet_id: bucqps2lt75g********
+         mac_address: d0:0d:12:4f:ef:b4
+         subnet_id: e2l5iit0t6dr********
          primary_v4_address:
-           address: 192.168.11.23
+           address: 10.129.0.31
            one_to_one_nat:
-             address: 158.160.**.***
+             address: 84.201.166.2
              ip_version: IPV4
-       - index: "1"
-         mac_address: d0:1d:24:**:**:**
-         subnet_id: e2lrucutusnd********
-         primary_v4_address:
-           address: 192.168.12.32
-       - index: "2"
-         mac_address: d0:2d:24:**:**:**
-         subnet_id: e2lv9c6aek1d********
-         primary_v4_address:
-           address: 192.168.13.26
      ...
      ```
 
@@ -197,79 +158,27 @@ description: Следуя данной инструкции, вы сможете
 
       ```bash
       yc compute instance relocate <идентификатор_ВМ> \
-        --destination-zone-id <идентификатор_зоны_доступности> \
+        --destination-zone-id {{ region-id }}-d \
         --network-interface subnet-id=<идентификатор_подсети>,security-group-ids=<идентификатор_группы_безопасности>
       ```
 
       Где:
 
       * `<идентификатор_ВМ>` — идентификатор ВМ, которую требуется перенести в другую зону доступности.
-      * `--destination-zone-id` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md), в которую требуется перенести ВМ.
+      * `--destination-zone-id` — идентификатор [зоны доступности](../../../overview/concepts/geo-scope.md). Поддерживается только `{{ region-id }}-d`.
       * `--network-interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
           * `subnet-id` — идентификатор подсети, соответствующей зоне доступности, в которую требуется перенести ВМ.
           * `security-group-ids` — идентификатор [группы безопасности](../../../vpc/concepts/security-groups.md), которую требуется привязать к переносимой ВМ. К одной ВМ можно привязать одновременно несколько групп безопасности, в этом случае передайте их идентификаторы через запятую в формате `[id1,id2]`.
 
           Если у ВМ несколько сетевых интерфейсов, задайте параметр `--network-interface` необходимое количество раз (для каждого сетевого интерфейса).
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
-
-      Пример:
-
-      ```bash
-      yc compute instance relocate a7lh48f5jvlk******** \
-        --destination-zone-id {{ region-id }}-b \
-        --network-interface \
-          subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
-      ```
-
-      В этом примере ВМ `my-vm-1` переносится из зоны доступности `{{ region-id }}-a` в зону доступности `{{ region-id }}-b`.
-
-      Результат:
-
-      ```text
-      done (3m15s)
-      id: a7lh48f5jvlk********
-      folder_id: aoeg2e07onia********
-      created_at: "2023-10-13T19:47:40Z"
-      name: my-vm-1
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v3
-      resources:
-        memory: "2147483648"
-        cores: "2"
-        core_fraction: "100"
-      status: RUNNING
-      metadata_options:
-        gce_http_endpoint: ENABLED
-        aws_v1_http_endpoint: ENABLED
-        gce_http_token: ENABLED
-        aws_v1_http_token: DISABLED
-      boot_disk:
-        mode: READ_WRITE
-        device_name: a7lp7jpslu59********
-        auto_delete: true
-        disk_id: a7lp7jpslu59********
-      network_interfaces:
-        - index: "0"
-          mac_address: d0:0d:11:**:**:**
-          subnet_id: bltign9kcffv********
-          primary_v4_address:
-            address: 192.168.1.17
-          security_group_ids:
-            - c646ev94tb6k********
-      gpu_settings: {}
-      fqdn: my-vm-1.{{ region-id }}.internal
-      scheduling_policy: {}
-      network_settings:
-        type: STANDARD
-      placement_policy: {}
-      ```
+      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       Если вы переносите ВМ с [диском в группе размещения](../../concepts/disk-placement-group.md), используйте команду:
 
       ```bash
       yc compute instance relocate <идентификатор_ВМ> \
-        --destination-zone-id <идентификатор_зоны_доступности> \
+        --destination-zone-id {{ region-id }}-d \
         --network-interface subnet-id=<идентификатор_подсети>,security-group-ids=<идентификатор_группы_безопасности> \
         --boot-disk-placement-group-id <идентификатор_группы_размещения_дисков> \
         --boot-disk-placement-group-partition <номер_раздела> \
@@ -286,7 +195,7 @@ description: Следуя данной инструкции, вы сможете
         * `disk-placement-group-id` — идентификатор группы размещения дисков, в которую необходимо поместить диск.
         * `disk-placement-group-partition` — номер раздела в группе размещения дисков.
 
-      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      Подробнее о команде `yc compute instance relocate` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
   Обратите внимание, что при подключении [сетевых интерфейсов](../../concepts/network.md) ВМ к новым подсетям изменится адресация. Если для сетевых интерфейсов ВМ требуется указать внутренние IP-адреса, используйте свойство `ipv4-address=<внутренний_IP-адрес>`, если публичные IP-адреса — свойство `nat-address=<публичный_IP-адрес>` параметра `network-interface`. В остальном установка параметров сетевых интерфейсов при переносе ВМ в другую зону доступности аналогична установке таких параметров при создании ВМ.
 
@@ -302,29 +211,28 @@ description: Следуя данной инструкции, вы сможете
 
 #### Перенос ВМ в другую зону {#jump-from-a-to-d}
 
-В этом примере ВМ `my-vm-1` переносится из зоны доступности `{{ region-id }}-a` в зону доступности `{{ region-id }}-d`.
+В этом примере ВМ `my-vm-1` переносится из зоны доступности `{{ region-id }}-b` в зону доступности `{{ region-id }}-d`.
 
 ```bash
-yc compute instance relocate a7lh48f5jvlk******** \
+yc compute instance relocate epdi9vnr8i6n******** \
   --destination-zone-id {{ region-id }}-d \
-  --network-interface \
-    subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
+  --network-interface subnet-id=fl8in4sila9i********,security-group-ids=enpagmu40nj5********
 ```
 
 Результат:
 
 ```text
-done (3m15s)
-id: a7lh48f5jvlk********
-folder_id: aoeg2e07onia********
-created_at: "2023-10-13T19:47:40Z"
+done (1m28s)
+id: epdi9vnr8i6n********
+folder_id: b1g0ijbfaqsn********
+created_at: "2025-11-04T18:44:29Z"
 name: my-vm-1
 zone_id: {{ region-id }}-d
 platform_id: standard-v3
 resources:
   memory: "2147483648"
   cores: "2"
-  core_fraction: "100"
+  core_fraction: "50"
 status: RUNNING
 metadata_options:
   gce_http_endpoint: ENABLED
@@ -333,23 +241,29 @@ metadata_options:
   aws_v1_http_token: DISABLED
 boot_disk:
   mode: READ_WRITE
-  device_name: a7lp7jpslu59********
+  device_name: epdkl5gn20gv********
   auto_delete: true
-  disk_id: a7lp7jpslu59********
+  disk_id: epdkl5gn20gv********
 network_interfaces:
   - index: "0"
-mac_address: d0:0d:11:**:**:**
-subnet_id: bltign9kcffv********
-primary_v4_address:
-  address: 192.168.1.17
-security_group_ids:
-  - c646ev94tb6k********
+    mac_address: d0:0d:12:4f:ef:b4
+    subnet_id: fl8in4sila9i********
+    primary_v4_address:
+      address: 10.130.0.8
+    security_group_ids:
+      - enpagmu40nj5********
+serial_port_settings:
+  ssh_authorization: OS_LOGIN
 gpu_settings: {}
 fqdn: my-vm-1.{{ region-id }}.internal
 scheduling_policy: {}
 network_settings:
   type: STANDARD
 placement_policy: {}
+hardware_generation:
+  legacy_features:
+    pci_topology: PCI_TOPOLOGY_V1
+application: {}
 ```
 
 #### Перенос ВМ с дисками в группе размещения {#jump-with-disk-placement-group}

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Database/create.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: DatabaseService.Create {#Create}
+# Managed Service for ClickHouse API, gRPC: DatabaseService.Create
 
 Creates a new ClickHouse database in the specified cluster.
 
@@ -15,20 +15,23 @@ Creates a new ClickHouse database in the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "databaseSpec": {
-    "name": "string"
+  "cluster_id": "string",
+  "database_spec": {
+    "name": "string",
+    "engine": "DatabaseEngine"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the ClickHouse cluster to create a database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request. ||
-|| databaseSpec | **[DatabaseSpec](#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec)**
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| database_spec | **[DatabaseSpec](#yandex.cloud.mdb.clickhouse.v1.DatabaseSpec)**
 
 Required field. Configuration of the database to create. ||
 |#
@@ -39,7 +42,15 @@ Required field. Configuration of the database to create. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the ClickHouse database. 1-63 characters long. ||
+Required field. Name of the ClickHouse database. 1-63 characters long.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -48,19 +59,20 @@ Required field. Name of the ClickHouse database. 1-63 characters long. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
-    "databaseName": "string"
+    "cluster_id": "string",
+    "database_name": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "name": "string",
-    "clusterId": "string"
+    "cluster_id": "string",
+    "engine": "DatabaseEngine"
   }
   // end of the list of possible fields
 }
@@ -76,13 +88,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -125,10 +137,10 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster where a database is being created. ||
-|| databaseName | **string**
+|| database_name | **string**
 
 Name of the ClickHouse database that is being created. ||
 |#
@@ -143,7 +155,13 @@ A ClickHouse Database resource. For more information, see the
 || name | **string**
 
 Name of the database. ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | enum **DatabaseEngine**
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

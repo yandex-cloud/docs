@@ -18,7 +18,9 @@ description: Следуя данной инструкции, вы сможете
 
 1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. На странице [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) убедитесь, что у вас есть [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Создание первого бакета {#the-first-bucket}
@@ -51,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы загрузить объект в бакет:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Нажмите на имя необходимого бакета.
 1. Чтобы загрузить объекты в бакет, перетащите файлы на экран с бакетом или нажмите ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и подтвердите загрузку файлов.
 
@@ -68,4 +70,5 @@ description: Следуя данной инструкции, вы сможете
 
 ## См. также {#see-also}
 
-* [{#T}](quickstart/quickstart-aws-cli.md).
+* [{#T}](quickstart/quickstart-aws-cli.md)
+* [Как начать работать с AWS S3 API в {{ objstorage-full-name }}](./s3/s3-api-quickstart.md)

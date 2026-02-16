@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to add new certificate.
+            To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the certificate.
+            The name must be unique within the federation.
+            Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the certificate.
+            The maximum string length in characters is 256.
+          type: string
+        data:
+          description: |-
+            **string**
+            Certificate data in PEM format.
+            The maximum string length in characters is 32000.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/create.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.Create {#Create}
+# SAML Federation API, REST: Certificate.Create
 
 Creates a certificate in the specified federation.
 
@@ -29,17 +66,25 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/ce
 || federationId | **string**
 
 ID of the federation to add new certificate.
-To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the certificate.
-The name must be unique within the federation. ||
+The name must be unique within the federation.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || data | **string**
 
-Certificate data in PEM format. ||
+Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -180,16 +225,24 @@ A certificate.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the certificate. ||
+Required field. ID of the certificate.
+
+The maximum string length in characters is 50. ||
 || federationId | **string**
 
-Required field. ID of the federation that the certificate belongs to. ||
+Required field. ID of the federation that the certificate belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the certificate. ||
+Name of the certificate.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -202,5 +255,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || data | **string**
 
-Required field. Certificate data in PEM format. ||
+Required field. Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#

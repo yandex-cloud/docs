@@ -10,6 +10,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 Тарифицируются доставленные события [уровня сервисов](./concepts/events-data-plane.md).
 
 События [уровня конфигурации](./concepts/events.md) в настоящий момент не тарифицируются.
@@ -17,20 +20,18 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub](../_pricing/audit-trails/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/audit-trails/kzt.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|audit-trails }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
@@ -66,9 +67,9 @@ editable: false
 
   Расчет стоимости доставки событий получения содержимого секрета {{ lockbox-full-name }}, зашифрованного ключом шифрования {{ kms-full-name }}:
   * При каждом обращении к секрету доставляются два события: событие [доступа к содержимому секрета](./concepts/events-data-plane.md#lockbox) {{ lockbox-short-name }} и событие [расшифрования](./concepts/events-data-plane.md#kms) содержимого секрета с помощью ключа {{ kms-short-name }}.
-  * Количество обращений к секрету: 7000.
+  * Количество обращений к секрету: 7 000.
 
-
+  
   {% list tabs group=pricing %}
 
   - Расчет в рублях {#prices-rub}
@@ -91,13 +92,13 @@ editable: false
   Расчет стоимости доставки событий при работе с бакетами {{ objstorage-full-name }}.
 
   Общее количество доставленных событий: 25 000. Из них:
-  * Количество событий [уровня конфигурации](./concepts/events.md#objstorage), переданных при работе с бакетами: 1000.
+  * Количество событий [уровня конфигурации](./concepts/events.md#objstorage), переданных при работе с бакетами: 1 000.
       В это число вошли события по созданию и удалению бакетов, изменению политик доступа, настроек ACL и шифрования.
 
   * Количество событий [уровня сервисов](./concepts/events-data-plane.md#objstorage), переданных при работе с бакетами: 24 000.
       В это число вошли события по созданию объектов в бакетах и изменению тегов объектов.
 
-
+  
   {% list tabs group=pricing %}
 
   - Расчет в рублях {#prices-rub}

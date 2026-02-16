@@ -2,6 +2,10 @@
 
 [Выгрузка логов](../../concepts/logs.md) — платная функция, о ее тарификации см. раздел [{#T}](../../pricing.md).
 
+Описание полей в выгружаемых логах см. в разделе [Справочник логов запросов](../../logs-ref.md).
+
+{% include [logs-unload-delay](../../../_includes/cdn/logs-unload-delay.md) %}
+
 ## Включение выгрузки {#enabling}
 
 Чтобы включить выгрузку для [ресурса](../../concepts/resource.md):
@@ -12,7 +16,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -46,7 +50,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -72,7 +76,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 

@@ -1,13 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
+    method: get
+    path:
+      type: object
+      properties:
+        privateEndpointId:
+          description: |-
+            **string**
+            Required field. ID of the PrivateEndpoint resource to return.
+            To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
+            request.
+          type: string
+      required:
+        - privateEndpointId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/privatelink/api-ref/PrivateEndpoint/get.md
 ---
 
-# Virtual Private Cloud API, REST: PrivateEndpoint.Get {#Get}
+# Virtual Private Cloud API, REST: PrivateEndpoint.Get
 
 Returns the specified Private Endpoint resource.
 
-To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/api-ref/PrivateEndpoint/list#List)
+To get the list of all available PrivateEndpoint resources, make a [List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
 request.
 
 ## HTTP request
@@ -24,7 +43,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}
 
 Required field. ID of the PrivateEndpoint resource to return.
 
-To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/api-ref/PrivateEndpoint/list#List)
+To get PrivateEndpoint resource ID make a [PrivateEndpointService.List](/docs/vpc/privatelink/api-ref/PrivateEndpoint/list#List)
 request. ||
 |#
 
@@ -39,7 +58,7 @@ request. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "status": "string",
   "address": {
@@ -83,7 +102,7 @@ Value must match the regular expression
 || description | **string**
 
 Description of the private endpoint. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Private endpoint labels as `key:value` pairs.
 No more than 64 per resource.

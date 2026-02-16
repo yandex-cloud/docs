@@ -1,9 +1,65 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}:updateMembers
+    method: post
+    path:
+      type: object
+      properties:
+        groupId:
+          description: |-
+            **string**
+            Required field. ID of the group to update.
+            To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - groupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        memberDeltas:
+          description: |-
+            **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
+            Updates to group members.
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/definitions/MemberDelta'
+      additionalProperties: false
+    definitions:
+      MemberDelta:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (MemberAction)
+              Required field. The action that is being performed on a group member.
+              - `ADD`: Addition of a group member.
+              - `REMOVE`: Removal of a group member.
+            type: string
+            enum:
+              - MEMBER_ACTION_UNSPECIFIED
+              - ADD
+              - REMOVE
+          subjectId:
+            description: |-
+              **string**
+              Required field. ID of the subject that is being added or removed from a group.
+              Subject type can be one of following values:
+              * `userAccount`: An account on Yandex, added to Yandex Cloud.
+              * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+              The maximum string length in characters is 50.
+            type: string
+        required:
+          - action
+          - subjectId
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Group/updateMembers.md
 ---
 
-# Cloud Organization API, REST: Group.UpdateMembers {#UpdateMembers}
+# Identity Hub API, REST: Group.UpdateMembers
 
 Update group members.
 
@@ -20,7 +76,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/
 || groupId | **string**
 
 Required field. ID of the group to update.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request. ||
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.UpdateGroupMembersRequest}
@@ -40,7 +98,9 @@ To get the group ID, use a [GroupService.List](/docs/organization/api-ref/Group/
 ||Field | Description ||
 || memberDeltas[] | **[MemberDelta](#yandex.cloud.organizationmanager.v1.MemberDelta)**
 
-Updates to group members. ||
+Updates to group members.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## MemberDelta {#yandex.cloud.organizationmanager.v1.MemberDelta}
@@ -51,7 +111,6 @@ Updates to group members. ||
 
 Required field. The action that is being performed on a group member.
 
-- `MEMBER_ACTION_UNSPECIFIED`
 - `ADD`: Addition of a group member.
 - `REMOVE`: Removal of a group member. ||
 || subjectId | **string**
@@ -60,7 +119,9 @@ Required field. ID of the subject that is being added or removed from a group.
 
 Subject type can be one of following values:
 * `userAccount`: An account on Yandex, added to Yandex Cloud.
-* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory. ||
+* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -5,22 +5,20 @@ description: To start a {{ video-name }} video broadcast, create a line and conf
 
 # Getting started with video broadcasts in {{ video-full-name }}
 
-{% include [preview-stage](../_includes/video/preview-stage.md) %}
-
 To [stream a video](./concepts/index.md#streams) on the service's [channel](./concepts/index.md#channels):
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Create a line](#create-line).
 1. [Create a broadcast](#create-stream).
-1. [Set up OBS](#configure-obs).
+1. [Set up OBS Studio](#configure-obs).
 1. [Start your broadcast](#start-stream).
 1. [Check if the broadcast is available](#test).
 
 {% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Create a channel {#create-channel}
 
@@ -38,7 +36,7 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 
 1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 
-[Learn more about lines](./concepts/index.md#lines)
+To learn more about lines, see [{#T}](./concepts/streams.md#lines).
 
 ## Create a broadcast {#create-stream}
 
@@ -52,24 +50,66 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 1. In the **{{ ui-key.yacloud_video.streams.label_stream-type }}** field, select `{{ ui-key.yacloud_video.streams.label_type-on-demand }}`.
 1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
 1. In the broadcast settings window that opens, copy the following data:
-    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**
+    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
     * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**.
 
-[Learn more about broadcasts](./concepts/index.md#streams)
+To learn more about streams, see [{#T}](./concepts/streams.md#streams).
 
-## Set up OBS {#configure-obs}
+## Set up OBS Studio {#configure-obs}
 
-1. [Download](https://obsproject.com/download) Open Broadcaster Software (OBS).
-1. [Install and set up](https://obsproject.com/kb/category/1) OBS.
-1. Under **Controls**, click **Settings**.
-1. In the **Stream** tab, set up the broadcast server:
-    * In the **Service** field, select **Custom...**
-    * In the **Server** field, specify the previously obtained server address.
-    * In the **Stream Key** field, specify the broadcast key you got earlier.
-1. Click **OK**.
-1. Under **Sources**, click ![plus-sign](../_assets/console-icons/plus.svg), choose what you want to stream (e.g., **Video Capture Device**), and click **OK**.
-1. Select the video stream's source device, e.g., a webcam, and click **OK**.
-1. Under **Controls**, click **Start Streaming**.
+1. To install [Open Broadcaster Software](https://en.wikipedia.org/wiki/OBS_Studio) (OBS Studio or OBS), the video recording and live streaming software:
+
+    {% list tabs group=operating_system %}
+    
+    - Linux {#linux}
+    
+      Run this command:
+    
+      ```bash
+      sudo add-apt-repository ppa:obsproject/obs-studio \
+      sudo apt install obs-studio
+      ```
+    
+    - Windows {#windows}
+    
+      [Download](https://obsproject.com/download) and install OBS Studio from the project’s website or use the [Chocolatey](https://chocolatey.org/install) package manager. In PowerShell, run this command as an administrator:
+    
+      ```powershell
+      choco install obs-studio
+      ```
+    
+    {% endlist %}
+
+1. Set up OBS Studio:
+
+    1. In the right-hand panel, go to **Controls** → **Settings** → **Stream**.
+    1. In the **Destination** section:
+
+       * In the **Service** field, select **Custom...**.
+       * In the **Server** field, specify the server address you [got](#create-stream) earlier.
+       * In the **Stream key** field, specify the broadcast key you got earlier.
+    
+    1. In the left-hand panel, select **Output** → **Stream**.
+    
+       * Under **Video Bitrate**, set a value based on screen resolution and internet speed. You can measure your internet speed using [Yandex.Internetometer](https://yandex.ru/internet). Your stream bitrate must not exceed the **Outgoing connection** value.
+       * In the **Video Encoder** field, select the video encoding format.
+    
+    1. In the **Recording** section:
+    
+       * In the **Recording Path** field, specify the path to save your stream to.
+       * In the **Recording format** field, select the video file format.
+    
+    1. Click **OK**.
+    1. In the **Sources** panel at the bottom left, click ![plus-sign](../_assets/console-icons/plus.svg) to add a source.
+    
+       * In the window that opens, select a source, e.g., **Video Capture Device**.
+       * In the window that opens, specify the source name and click **OK**.
+       * Select the video stream's source device, e.g., a webcam, and click **OK**.
+    
+    1. In the center of the window, you can set the size and position of the video stream.
+    1. To start a broadcast, in the bottom-right **Controls** panel, click **Start Streaming**.
+
+For more information, see [{#T}](operations/streams/obs-config-help.md).
 
 ## Start your broadcast {#start-stream}
 
@@ -89,8 +129,9 @@ To [stream a video](./concepts/index.md#streams) on the service's [channel](./co
 1. Open a new browser page and paste the obtained URL to the address bar.
 1. Click the Play button.
 
-### See also {#see-also}
+#### See also {#see-also}
 
 * [{#T}](hosting.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
-* [{#T}](troubleshooting.md)
+* [Configuring ads](operations/channels/settings.md#ad-settings)
+* [{#T}](troubleshooting/index.md)

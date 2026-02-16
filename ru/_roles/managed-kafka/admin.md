@@ -3,6 +3,7 @@
 Пользователи с этой ролью могут:
 * управлять доступом к кластерам Apache Kafka®;
 * просматривать информацию о [кластерах Apache Kafka®](../../managed-kafka/concepts/index.md), а также создавать, изменять, удалять, запускать и останавливать их;
+* восстанавливать кластеры Apache Kafka® из резервных копий;
 * просматривать логи работы кластеров Apache Kafka®;
 * просматривать информацию о [квотах](../../managed-kafka/concepts/limits.md#mkf-quotas) сервиса Managed Service for Apache Kafka®;
 * просматривать информацию об операциях с ресурсами сервиса Managed Service for Apache Kafka®.

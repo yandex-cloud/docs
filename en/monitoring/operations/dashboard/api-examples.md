@@ -1,14 +1,17 @@
+---
+sourcePath: en/monitoring_includes/operations/dashboard/api-examples.md
+---
 # Examples of working with the gRPC API
 
-The examples below use the `grpcurl` utility.
+The examples below use `grpcurl`.
 
-To use the examples, [authenticate](../../api-ref/authentication.md) in the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
+To use the examples, [authenticate](../../api-ref/authentication.md) with the API and clone the [cloudapi](https://github.com/yandex-cloud/cloudapi) repository.
 
 ## Request examples {#sample-requests}
 
 ### List {#list}
 
-Getting a list of dashboards in a folder. In the `folder_id` field, specify the ID of the folder to get the list of dashboards for.
+Getting a list of dashboards in a folder. In the `folder_id` field, specify the ID of the folder you want to get a list of dashboards for.
 
 ```bash
 grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
@@ -21,10 +24,10 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.List
 
 ### Get {#get}
 
-Getting information about a dashboard. In the `dashboard_id` field, specify the ID for the dashboard to get information about.
+Getting information about a dashboard. In the `dashboard_id` field, specify the ID of the dashboard you want to get information about.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d '{"dashboard_id": "<dashboard_ID>"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -34,10 +37,10 @@ monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Get
 
 ### Create {#create}
 
-Creating a dashboard.
+Creating a dashboard:
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d @ \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -45,9 +48,9 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
 monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Create <payload.json
 ```
 
-**Sample payload.json**
+**Example of payload.json**
 
-In the `folderId` field, specify the ID of the folder to create a dashboard in.
+In the `folderId` field, specify the ID of the folder where you want to create a dashboard.
 
 ```json
 {
@@ -119,7 +122,7 @@ In the `folderId` field, specify the ID of the folder to create a dashboard in.
   }
 }
 ```
-**Sample response**
+**Response example**
 
 ```json
 {
@@ -134,10 +137,10 @@ In the `folderId` field, specify the ID of the folder to create a dashboard in.
 
 ### Update {#update}
 
-Updating a dashboard.
+Updating a dashboard:
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
    -d @ \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
@@ -145,9 +148,9 @@ grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
 monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Update <payload.json
 ```
 
-**Sample payload.json**
+**Example of payload.json**
 
-In the `dashboard_id` field, specify the ID of the dashboard to update. In the `folderId` field, specify the ID of the folder with the dashboard.
+In the `dashboard_id` field, specify the ID of the dashboard you want to update. In the `folderId` field, specify the ID of the folder with the dashboard.
 
 ```json
 {
@@ -219,7 +222,7 @@ In the `dashboard_id` field, specify the ID of the dashboard to update. In the `
   }
 }
 ```
-**Sample response**
+**Response example**
 
 ```json
 {
@@ -234,18 +237,18 @@ In the `dashboard_id` field, specify the ID of the dashboard to update. In the `
 
 ### Delete {#delete}
 
-Deleting a dashboard. In the `dashboard_id` field, specify the ID of the dashboard to delete.
+Deleting a dashboard. In the `dashboard_id` field, specify the ID of the dashboard you want to delete.
 
 ```bash
-grpcurl -rpc-header "Authorization: Bearer <IAM token>" \
-    -d '{"dashboard_id": "<dashboard_ID>", "etag": "1"}' \
+grpcurl -rpc-header "Authorization: Bearer <IAM_token>" \
+   -d '{"dashboard_id": "<dashboard_ID>", "etag": "1"}' \
    -import-path ~/cloudapi/ \
    -import-path ~/cloudapi/third_party/googleapis/ \
    -proto ~/cloudapi/yandex/cloud/monitoring/v3/dashboard_service.proto \
 monitoring.{{ api-host }}:443 yandex.cloud.monitoring.v3.DashboardService.Delete
 ```
 
-**Sample response about an error**
+**Example of an error response**
 
 ```json
 {

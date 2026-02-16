@@ -76,7 +76,40 @@
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+      Подробнее о команде `yc compute instance move` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Настройте](../../../resource-manager/operations/folder/set-access-bindings.md) права доступа к целевому каталогу. У аккаунта из исходного каталога, от имени которого вы будете выполнять операцию, должна быть минимальная [роль](../../../compute/security/index.md#compute-editor) `compute.editor` на целевой каталог.
+
+  1. [Получите идентификатор целевого каталога](../../../resource-manager/operations/folder/get-id.md).
+  1. В конфигурационном файле в ресурсе `yandex_compute_instance` добавьте параметры:
+
+      ```bash
+      resource "yandex_compute_instance" "vm-1" {
+          ...
+          allow_stopping_for_update = true
+          folder_id = <идентификатор_целевого_каталога>
+          ...
+      }
+      ```
+
+      Где:
+
+      * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+      * `folder_id` — идентификатор каталога, в котором должна размещаться ВМ (по умолчанию указывается из [переменной окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Примените новую конфигурацию:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
@@ -162,7 +195,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который была перемещена ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
@@ -234,7 +267,7 @@
 
       * `--subnet-id` — подсеть в каталоге назначения.
       * `--ipv4-address` — внутренний IP-адрес сетевого интерфейса ВМ в подсети в каталоге назначения. Задайте значение `auto`, чтобы внутренний адрес был присвоен автоматически.
-      * `--network-interface-index` — охраненный ранее номер сетевого интерфейса ВМ.
+      * `--network-interface-index` — сохраненный ранее номер сетевого интерфейса ВМ.
       * `--security-group-id` — группа безопасности, которая будет назначена сетевому интерфейсу ВМ.
 
       Результат:
@@ -295,6 +328,42 @@
       ```bash
       yc compute instance start fhm0b28lgfp4********
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Настройте](../../../resource-manager/operations/folder/set-access-bindings.md) права доступа к каталогу, в котором вы изменяете подсеть ВМ. У аккаунта, от имени которого вы будете выполнять операцию, должна быть минимальная [роль](../../../vpc/security/index.md#vpc-admin) `vpc.admin` на этот каталог.
+
+  1. Если дополнительная подсеть уже создана, [получите](../../../vpc/operations/subnet-get-info.md) ее идентификатор.
+  1. В конфигурационном файле измените ресурс `yandex_compute_instance`:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          subnet_id = "<идентификатор_подсети>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Где:
+
+      * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
+      * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Примените новую конфигурацию:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

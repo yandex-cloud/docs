@@ -27,7 +27,7 @@ items:
             href: operations/zone-list.md
           - name: Getting information about a DNS zone
             href: operations/zone-get-info.md
-          - name: DNS zone monitoring
+          - name: Monitoring DNS zones
             href: operations/monitoring.md
       - name: Records
         items:
@@ -59,18 +59,22 @@ items:
         href: tutorials/connect-migration.md
       - name: Integrating with a corporate DNS service
         href: tutorials/dns-integration.md
+      - name: Integrating {{ managed-k8s-name }} with a corporate DNS zone
+        href: tutorials/custom-dns.md
       - name: >-
-          Configuring {{ dns-name }} for access to managed database clusters
-          from other cloud networks
+          Configuring {{ dns-name }} to access managed database clusters from
+          other cloud networks
         href: tutorials/mdb-dns-peering.md
       - name: Creating an ACME resolver webhook for responses to DNS01 checks
         href: tutorials/cert-manager-webhook.md
-      - name: Assigning a domain name to a VM with a web server
-        href: tutorials/bind-domain-vm.md
-      - name: >-
-          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
-          other cloud networks
-        href: tutorials/clickhouse-dns-peering.md
+      - name: Assigning a domain name to a web server VM
+        items:
+          - name: Overview
+            href: tutorials/bind-domain-vm/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
       - name: Terminating TLS connections
@@ -81,17 +85,73 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Reconfiguring a network connection when recreating a {{ dataproc-name
+          }} cluster
+        href: tutorials/reconnect-network.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/dns/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bind-file
+        items:
+          - name: Overview
+            href: cli-ref/bind-file/index.md
+          - name: migrate-to-terraform
+            href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: zone
+        items:
+          - name: Overview
+            href: cli-ref/zone/index.md
+          - name: add-access-binding
+            href: cli-ref/zone/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/zone/add-labels.md
+          - name: add-records
+            href: cli-ref/zone/add-records.md
+          - name: create
+            href: cli-ref/zone/create.md
+          - name: delete
+            href: cli-ref/zone/delete.md
+          - name: delete-records
+            href: cli-ref/zone/delete-records.md
+          - name: get
+            href: cli-ref/zone/get.md
+          - name: list
+            href: cli-ref/zone/list.md
+          - name: list-access-bindings
+            href: cli-ref/zone/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/zone/list-operations.md
+          - name: list-records
+            href: cli-ref/zone/list-records.md
+          - name: move
+            href: cli-ref/zone/move.md
+          - name: remove-access-binding
+            href: cli-ref/zone/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/zone/remove-labels.md
+          - name: replace-records
+            href: cli-ref/zone/replace-records.md
+          - name: set-access-bindings
+            href: cli-ref/zone/set-access-bindings.md
+          - name: update
+            href: cli-ref/zone/update.md
+          - name: update-private-networks
+            href: cli-ref/zone/update-private-networks.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -109,6 +169,8 @@ items:
                 href: api-ref/grpc/DnsZone/create.md
               - name: Update
                 href: api-ref/grpc/DnsZone/update.md
+              - name: Move
+                href: api-ref/grpc/DnsZone/move.md
               - name: Delete
                 href: api-ref/grpc/DnsZone/delete.md
               - name: GetRecordSet
@@ -153,6 +215,8 @@ items:
                 href: api-ref/DnsZone/create.md
               - name: Update
                 href: api-ref/DnsZone/update.md
+              - name: Move
+                href: api-ref/DnsZone/move.md
               - name: Delete
                 href: api-ref/DnsZone/delete.md
               - name: GetRecordSet
@@ -189,5 +253,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/dns
-deepBase: 2

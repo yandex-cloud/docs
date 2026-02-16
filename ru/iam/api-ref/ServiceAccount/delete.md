@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
+    method: delete
+    path:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the service account to delete.
+            To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/delete.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.Delete {#Delete}
+# Identity and Access Management API, REST: ServiceAccount.Delete
 
 Deletes the specified service account.
 
@@ -20,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/v1/serviceAccounts/{serviceAccountId}
 || serviceAccountId | **string**
 
 Required field. ID of the service account to delete.
-To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
+To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

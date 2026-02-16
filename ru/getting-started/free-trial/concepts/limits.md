@@ -1,4 +1,6 @@
 ---
+title: Ограничения пробного периода
+description: Из статьи вы узнаете, какие квоты и лимиты действуют для сервисов {{ yandex-cloud }} во время пробного периода.
 editable: false
 ---
 
@@ -77,11 +79,9 @@ editable: false
 {% include [mpg-limits.md](../../../_includes/mdb/mpg-limits.md) %}
 
 
-
 ### {{ mrd-full-name }} {#mrd}
 
 {% include [mrd-limits.md](../../../_includes/mdb/mrd-limits.md) %}
-
 
 
 ### {{ message-queue-full-name }} {#mq}
@@ -99,11 +99,8 @@ editable: false
 {% include [translate-limits](../../../_includes/translate-limits.md) %}
 
 
-
 ### {{ vision-full-name }} {#vision}
 
 {% include [vision-limits](../../../_includes/vision-limits.md) %}
-
-
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

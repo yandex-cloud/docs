@@ -11,7 +11,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
+
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
@@ -24,7 +35,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
     * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
@@ -34,11 +45,13 @@
     sudo apt update && sudo apt install kafkacat mysql-client --yes
     ```
 
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
 ## Подготовьте кластер-источник {#prepare-source}
 
 1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mmy-name }} уведомления об изменениях в данных, в кластере-источнике необходимо настроить внешнюю репликацию. Чтобы пользователь `my-user` мог выполнять репликацию, [назначьте ему роль](../../managed-mysql/operations/grant.md) `ALL_PRIVILEGES` для базы данных `db1` и [выдайте глобальные привилегии](../../managed-mysql/operations/cluster-users.md#update-settings) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `db1` от имени пользователя `my-user`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` от имени пользователя `my-user`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 
@@ -75,7 +88,7 @@
 
 - Интерфейсы {{ yandex-cloud }} {#yc}
 
-    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, YC CLI, {{ TF }}, API):
+    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, {{ TF }}, API):
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.db1.measurements`.
 
@@ -103,7 +116,7 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}**:
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mmy-name }}.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `db1`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `my-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — укажите пароль пользователя `my-user`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTableFilter.include_tables.title }}** — `db1.measurements`.
@@ -277,7 +290,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
 

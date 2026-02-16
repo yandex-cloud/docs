@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list asymmetric KMS keys in.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListAsymmetricEncryptionKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListAsymmetricEncryptionKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricencryption/api-ref/AsymmetricEncryptionKey/list.md
 ---
 
-# Key Management Service API, REST: AsymmetricEncryptionKey.List {#List}
+# Key Management Service API, REST: AsymmetricEncryptionKey.List
 
 Returns the list of asymmetric KMS keys in the specified folder.
 
@@ -19,17 +55,23 @@ GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list asymmetric KMS keys in. ||
+Required field. ID of the folder to list asymmetric KMS keys in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListAsymmetricEncryptionKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListAsymmetricEncryptionKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse) returned by a previous list request. ||
+[ListAsymmetricEncryptionKeysResponse.nextPageToken](#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysResponse}
@@ -45,7 +87,7 @@ Page token. To get the next page of results, set `pageToken` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "encryptionAlgorithm": "string",
       "deletionProtection": "boolean"
@@ -97,14 +139,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -114,7 +155,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Asymmetric Encryption Algorithm ID.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||

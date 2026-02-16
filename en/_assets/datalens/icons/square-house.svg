@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" aria-hidden="true" class="g-icon dl-core-navigation-table-view__folder-inline">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+        <rect width="12.133" height="12.133" x="1.933" y="1.933" stroke="currentColor" stroke-opacity=".85" stroke-width="1.2" rx=".733"/>
+        <path stroke="currentColor" stroke-opacity=".85" stroke-width="1.2" d="M7.717 5.429a.328.328 0 0 1 .566 0l2.406 4.154a.323.323 0 0 1-.283.484H5.594a.323.323 0 0 1-.283-.484z"/>
+    </svg>
+</svg>

@@ -65,7 +65,7 @@
       name: maxpatrol-sa
       ```
 
-      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
 {% endlist %}
 
@@ -96,7 +96,7 @@
       done (1s)
       ```
 
-      Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/organization-manager/organization/add-access-binding.md).
+      Подробнее о команде `yc organization-manager organization add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/organization-manager/cli-ref/organization/add-access-binding.md).
 
   1. Роль `yds.editor` на каталог `example-folder`:
 
@@ -117,7 +117,7 @@
       done (1s)
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 {% endlist %}
 
@@ -169,7 +169,7 @@ MaxPatrol SIEM использует [статические ключи дост�
 
   {% endnote %}
 
-  Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+  Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
 {% endlist %}
 
@@ -216,7 +216,7 @@ MaxPatrol SIEM использует [статические ключи дост�
       ...
       ```
 
-      Подробнее о команде `yc ydb database create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/ydb/database/create.md).
+      Подробнее о команде `yc ydb database create` см. в [справочнике CLI](../../cli/cli-ref/ydb/cli-ref/database/create.md).
 
   1. Проверьте статус созданной БД:
 
@@ -251,7 +251,7 @@ MaxPatrol SIEM использует [статические ключи дост�
 
 ## Создайте трейл {#create-trail}
 
-Трейл будет собирать аудитные логи уровня конфигурации всех ресурсов вашей организации и [загружать](../../audit-trails/operations/export-organization-data-streams.md) их в поток данных `maxpatrol-stream`.
+Трейл будет собирать аудитные логи уровня конфигурации всех ресурсов вашей организации и загружать их в поток данных `maxpatrol-stream`.
 
 {% list tabs group=instructions %}
 
@@ -274,6 +274,7 @@ MaxPatrol SIEM использует [статические ключи дост�
 
 {% endlist %}
 
+Подробнее о создании трейла см. в разделе [{#T}](../../audit-trails/operations/create-trail.md).
 
 ## Настройте MaxPatrol SIEM {#configure-maxpatrol}
 

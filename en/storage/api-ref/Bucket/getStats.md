@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}:getStats
+    method: get
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to return the statistics for.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/getStats.md
 ---
 
-# Object Storage API, REST: Bucket.GetStats {#GetStats}
+# Object Storage API, REST: Bucket.GetStats
 
 Returns the statistics for the specified bucket.
 

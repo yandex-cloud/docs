@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-object-storage'
 ---
 
 # Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}

@@ -1,6 +1,6 @@
 ---
-title: Relationships between {{ data-transfer-full-name }} resources
-description: With {{ data-transfer-full-name }}, you can easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
+title: Resource relationships in {{ data-transfer-full-name }}
+description: You can use {{ data-transfer-full-name }} to easily transfer data between databases. The service enables you to save time on migration, minimize downtime when switching to a new database, and maintain a database replica that is always up to date.
 ---
 
 # Resource relationships in {{ data-transfer-name }}
@@ -13,31 +13,43 @@ The service is suitable for creating a permanent replica of the database. The tr
 
 ## Endpoint {#endpoint}
 
-_Endpoint_ is a configuration used to connect to the _datasource_ service or _target_ service. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
+An _endpoint_ is a configuration used to connect to a service: _datasource_ or _target_. In addition to connection settings, the endpoint may contain information about which data will be involved in the transfer and how it should be processed during the transfer.
 
 The following can be the data source or target:
 
-
-| Service | Source | Target |
+| Service                                                                                                                                |                                Source                                |               Target               |
 |---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------:|:------------------------------------:|
-| {{ KF }} topic: Your own or as part of the [{{ mkf-short-name }} service](../../managed-kafka/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| AWS CloudTrail message stream | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| Your own BigQuery database | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| {{ CH }} database: Your own or as part of the [{{ mch-short-name }} service](../../managed-clickhouse/) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
-| Your own {{ ES }} database                                                                                                     |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ GP }} database: Your own or as part of the [{{ mgp-short-name }} service](../../managed-greenplum/)                             |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ MG }} database: Your own or as part of the [{{ mmg-short-name }} service](../../managed-mongodb/)                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ MY }} database: Your own or as part of the [{{ mmy-short-name }} service](../../managed-mysql/)                                 |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ KF }} topic: Your own or as part of [{{ mkf-short-name }}](../../managed-kafka/)                                       |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| AWS CloudTrail message stream                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
+| Your own BigQuery database                                                                                                      |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
+| {{ CH }} database: Your own or as part of [{{ mch-short-name }}](../../managed-clickhouse/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| Your own {{ ES }} database                                                                                                      |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ GP }} database: Your own or as part of [{{ mgp-short-name }}](../../managed-greenplum/)                             |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ MG }} database: Your own or as part of [{{ mmg-short-name }}](../../storedoc/)                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ MY }} database: Your own or as part of [{{ mmy-short-name }}](../../managed-mysql/)                                 |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | Your own Oracle database                                                                                                        |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
-| {{ PG }} database: Your own or as part of the [{{ mpg-short-name }} service](../../managed-postgresql/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ OS }} database: Your own or as part of the [{{ mos-short-name }} service](../../managed-opensearch/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ PG }} database: Your own or as part of [{{ mpg-short-name }}](../../managed-postgresql/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ OS }} database: Your own or as part of [{{ mos-short-name }}](../../managed-opensearch/)                            |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | S3-compatible bucket |                  ![yes](../../_assets/common/yes.svg)                  |  ![no](../../_assets/common/no.svg)  |
-| [{{ yds-full-name }}](../../data-streams/) data stream                                                                              |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
-| {{ ydb-name }} database: As part of the [{{ ydb-name }} service](../../ydb/)                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| [{{ yds-full-name }}](../../data-streams/) data stream                                                                               |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
+| {{ ydb-name }} database: as part of [{{ ydb-name }}](../../ydb/).                                                           |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | [{{ objstorage-full-name }}](../../storage/) bucket                                                                                    |                  ![yes](../../_assets/common/yes.svg)                  | ![yes](../../_assets/common/yes.svg) |
 | 
 
+### Endpoint statuses {#statuses}
 
+As part of the {{ data-transfer-name }} [transition](../release-notes/2501.md) to [asynchronous operations](../../api-design-guide/concepts/async.md) with endpoints, we introduce endpoint statuses as follows:
+
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**: Endpoint is ready to use.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-CREATING }}**: Endpoint create operation has started. When the operation is complete, the endpoint status changes to **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-UPDATING }}**: Endpoint update operation has started. When the operation is complete, the endpoint status changes to **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}**.
+* **{{ ui-key.yacloud.data-transfer.label_endpoint-status-DELETING }}**: Endpoint delete operation has started.
+
+{% note info %}
+
+All new endpoints you create will be asynchronous. Older endpoints will remain synchronous and can only have the **{{ ui-key.yacloud.data-transfer.label_endpoint-status-READY }}** status.
+
+{% endnote %}
 
 ## Transfer {#transfer}
 
@@ -47,9 +59,13 @@ If subnets are specified for endpoints, these subnets must be hosted in the same
 
 ### Worker {#worker}
 
-_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. By default, one worker uses 2 vCPUs and 4 GB RAM. During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. You can specify which computing resources to use for this virtual machine:
 
-vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for the [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
+{% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
+
+During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+
+vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
 
 ### Transfer types {#transfer-type}
 
@@ -62,3 +78,8 @@ For more information about the differences between transfer types, see [{#T}](./
 {% include [include](../../_includes/data-transfer/connectivity-marix.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/index.md)
+* [{#T}](../operations/index.md)

@@ -1,7 +1,7 @@
 # Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
 
 
-С помощью этой инструкции вы настроите отказоустойчивую архитектуру в {{ yandex-cloud }} и проверите ее работу на различных тестовых сценариях.
+С помощью этой инструкции вы настроите [отказоустойчивую архитектуру](../../architecture/fault-tolerance.md) в {{ yandex-cloud }} и проверите ее работу на различных тестовых сценариях.
 
 Отказоустойчивость — это свойство системы сохранять свою работоспособность после отказа одной или нескольких ее составных частей.
 
@@ -17,7 +17,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки отказоустойчивой архитектуры {{ yandex-cloud }} входит:
@@ -25,7 +24,6 @@
 * Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за постоянно запущенный [кластер {{ mpg-full-name }}](../../managed-postgresql/concepts/index.md) (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Настройте тестовый стенд {#prepare}
 
@@ -206,7 +204,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
   1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
@@ -276,7 +274,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** снимите галочку с зоны доступности `{{ region-id }}-b`.
@@ -306,7 +304,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
   1. В списке сервисов выберите **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -350,7 +348,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
   1. В списке сервисов выберите **{{ mpg-name }}**.
   1. Выберите кластер `todo-postgresql`.
-  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 

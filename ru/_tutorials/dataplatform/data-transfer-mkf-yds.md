@@ -11,6 +11,22 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
+
+    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру поставки данных:
@@ -18,6 +34,7 @@
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
+
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации.
         1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
@@ -191,7 +208,10 @@
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+
 
 1. Создайте трансфер:
 
@@ -200,6 +220,11 @@
     - Вручную {#manual}
 
         1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+
+            Если в процессе трансфера вы хотите преобразовать данные, укажите в настройках трансфера нужные трансформеры:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
     - {{ TF }} {#tf}
@@ -209,6 +234,32 @@
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `target_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера.
+
+        1. Если в процессе трансфера вы хотите преобразовать данные, добавьте в ресурс `yandex_datatransfer_transfer` блок `transformation` со списком нужных трансформеров:
+
+            ```hcl
+            resource "yandex_datatransfer_transfer" "mkf-ydb-transfer" {
+              ...
+              transformation {
+                transformers{
+                  <трансформер_1>
+                }
+                transformers{
+                  <трансформер_2>
+                }
+                ...
+                transformers{
+                  <трансформер_N>
+                }
+              }
+            }
+            ```
+
+            Доступны следующие типы трансформеров:
+
+            {% include [transformers-mkf-to-yds](../../_tutorials/_tutorials_includes/transformers-mkf-to-yds.md) %}
+
+            Подробнее о настройке трансформеров см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-transfer }}).
 
         1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
@@ -297,37 +348,26 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+
+
 1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
-Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs group=instructions %}
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+   {% list tabs group=instructions %}
 
-    1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+   - Вручную {#manual}
 
-- {{ TF }} {#tf}
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mkf-ydb.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-ydb.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

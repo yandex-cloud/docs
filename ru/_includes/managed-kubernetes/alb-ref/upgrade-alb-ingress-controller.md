@@ -1,5 +1,6 @@
 # Обновить Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}
 
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
 Версии [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) 0.2.0 и позднее не совместимы с версиями 0.1.x. Из-за этого возникают ограничения, связанные с [группами бэкендов](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
 

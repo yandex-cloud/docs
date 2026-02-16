@@ -29,15 +29,19 @@ description: В разделе описаны сценарии использо�
   * [AppMetrica: экспорт, постобработка и визуализация данных](data-from-appmetrica-yc-visualization.md)
   * [Битрикс24: прямое подключение](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: экспорт и визуализация данных](data-from-tracker.md)
+  * [Анализ логов {{ objstorage-name }}](storage-logs-analysis.md)
   * [Подкасты Яндекс Музыки: статистика](data-from-podcasts.md)
   * [Визуализация данных {{ yq-full-name }}](data-from-yandex-query-visualization.md)
   * [Визуализация данных {{ monitoring-full-name }}](data-from-monitoring-visualization.md)
   * [Визуализация данных из {{ ytsaurus-name }} CHYT](data-from-ch-over-yt.md)
   * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](events-from-postbox-to-yds.md)
+  * [{#T}](forms-and-datalens-integration/index.md)
+  * [{#T}](bigquery-to-clickhouse.md)
 
 * Функциональные
 
-  * [Использование параметров](data-from-ch-with-parameters.md)
+  * [Использование параметров в вычисляемых полях](data-from-ch-with-parameters.md)
+  * [Параметризация источников](data-from-ch-dataset-parametrization.md)
   * [Примеры создания QL-чартов](data-from-ch-to-sql-chart.md)
 
 

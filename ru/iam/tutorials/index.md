@@ -5,5 +5,12 @@ description: Различные сценарии использования {{ i
 
 # Практические руководства {{ iam-name }}
 
-* [{#T}](static-key-in-lockbox.md)
+* [{#T}](user-group-access-control.md)
+* [{#T}](static-key-in-lockbox/index.md)
 * [{#T}](sa-oslogin-ansible.md)
+* [{#T}](wlif-github-integration.md)
+* [{#T}](wlif-gitlab-integration.md)
+* [{#T}](wlif-k8s-integration.md)
+* [{#T}](wlif-managed-k8s-integration.md)
+* [{#T}](ci-cd-github-functions.md)
+* [{#T}](ephemeral-key-storage.md)

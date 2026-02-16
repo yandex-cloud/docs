@@ -15,6 +15,50 @@ items:
         href: quickstart/tts-quickstart-v1.md
       - name: Как синтезировать речь в API v3
         href: quickstart/tts-quickstart-v3.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Распознавание речи с помощью Playground
+        href: operations/stt-playground.md
+      - name: Синтез речи с помощью Playground
+        href: operations/tts-playground.md
+      - name: Распознавание
+        items:
+          - name: Потоковое распознавание аудиофайла API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Потоковое распознавание речи с микрофона API v3
+            href: stt/api/microphone-streaming.md
+          - name: Автоматическое определение языка — API v3
+            href: stt/api/stt-language-labels-example.md
+          - name: Потоковое распознавание API v2
+            href: stt/api/streaming-examples.md
+          - name: Синхронное распознавание API v1
+            href: stt/api/request-examples.md
+          - name: Асинхронное распознавание аудиофайлов в формате WAV — API v3
+            href: stt/api/transcribation-api-v3.md
+          - name: Асинхронное распознавание формата LPCM — API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Асинхронное распознавание формата OggOpus — API v2
+            href: stt/api/transcribation-ogg.md
+          - name: Регулярное асинхронное распознавание аудиофайлов — API v2
+            href: stt/api/batch-transcribation.md
+      - name: Синтез
+        items:
+          - name: Синтез речи в API v3
+            href: tts/api/tts-examples-v3.md
+          - name: Синтез речи в REST API v3
+            href: tts/api/tts-v3-rest.md
+          - name: Потоковый синтез
+            href: tts/api/tts-streaming.md
+          - name: Синтез речи по шаблонам
+            href: tts/api/tts-templates.md
+          - name: Синтез речи по шаблонам Brand Voice Call Center
+            href: tts/api/tts-templates-bvcc.md
+          - name: Синтез речи в формате WAV — API v1
+            href: tts/api/tts-wav.md
+          - name: Синтез речи в формате OggOpus — API v1
+            href: tts/api/tts-ogg.md
+          - name: Синтез речи из текста SSML — API v1
+            href: tts/api/tts-ssml.md
   - name: Распознавание речи
     items:
       - name: О технологии
@@ -35,10 +79,10 @@ items:
         href: stt/analysis.md
       - name: Определение дикторов
         href: stt/speaker-labeling.md
+      - name: Обработка результатов распознавания с помощью LLM
+        href: stt/llm-results.md
       - name: Расширение модели распознавания речи
         href: stt/additional-training.md
-      - name: Загрузка данных для дообучения модели распознавания речи
-        href: stt/upload-data-for-training.md
       - name: Определение конца фразы
         href: stt/eou.md
   - name: Синтез речи
@@ -63,10 +107,12 @@ items:
         items:
           - name: Обзор
             href: tts/brand-voice/index.md
-          - name: Данные для {{ brand-voice-core }}
-            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Данные для {{ brand-voice-lite-name }}
+            href: tts/brand-voice/bv-lite.md
           - name: Данные для {{ brand-voice-cc-name }}
             href: tts/templates.md
+          - name: Рекомендации для записи амплуа
+            href: tts/brand-voice/roles-records.md
   - name: '{{ sk-hybrid-name }}'
     items:
       - name: О технологии
@@ -105,6 +151,8 @@ items:
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview
@@ -131,6 +179,8 @@ items:
                     href: stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview
@@ -153,6 +203,8 @@ items:
                     href: tts-v3/api-ref/grpc/Synthesizer/index.md
                   - name: UtteranceSynthesis
                     href: tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md
+                  - name: StreamSynthesis
+                    href: tts-v3/api-ref/grpc/Synthesizer/streamSynthesis.md
           - name: API v3 REST (англ.)
             items:
               - name: Overview
@@ -187,42 +239,10 @@ items:
           Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
           speechkit-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
-      - name: Распознавание
-        items:
-          - name: Потоковое распознавание аудиофайла API v3
-            href: stt/api/streaming-examples-v3.md
-          - name: Потоковое распознавание речи с микрофона API v3
-            href: stt/api/microphone-streaming.md
-          - name: Автоматическое определение языка — API v3
-            href: stt/api/stt-language-labels-example.md
-          - name: Потоковое распознавание API v2
-            href: stt/api/streaming-examples.md
-          - name: Синхронное распознавание API v1
-            href: stt/api/request-examples.md
-          - name: Асинхронное распознавание аудиофайлов в формате WAV — API v3
-            href: stt/api/transcribation-api-v3.md
-          - name: Асинхронное распознавание формата LPCM — API v2
-            href: stt/api/transcribation-lpcm.md
-          - name: Асинхронное распознавание формата OggOpus — API v2
-            href: stt/api/transcribation-ogg.md
-          - name: "Регулярное асинхронное распознавание аудиофайлов —\_API v2"
-            href: stt/api/batch-transcribation.md
-      - name: Синтез
-        items:
-          - name: Синтез речи в API v3
-            href: tts/api/tts-examples-v3.md
-          - name: Синтез речи в REST API v3
-            href: tts/api/tts-v3-rest.md
-          - name: Синтез речи по шаблонам
-            href: tts/api/tts-templates.md
-          - name: Синтез речи по шаблонам Brand Voice Call Center
-            href: tts/api/tts-templates-bvcc.md
-          - name: Синтез речи в формате WAV — API v1
-            href: tts/api/tts-wav.md
-          - name: Синтез речи в формате OggOpus — API v1
-            href: tts/api/tts-ogg.md
-          - name: Синтез речи из текста SSML — API v1
-            href: tts/api/tts-ssml.md
+      - name: >-
+          Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name
+          }}
+        href: tutorials/batch-recognition-stt.md
   - name: Поддерживаемые форматы аудио
     href: formats.md
   - name: Интеграция телефонии
@@ -233,6 +253,8 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     items:
       - name: Релизы распознавания
@@ -241,11 +263,12 @@ items:
         href: release-notes-tts.md
       - name: Архив релизов
         href: release-notes.md
+        hidden: true
   - name: Решение проблем
     items:
-      - name: Формат ответа
+      - name: Коды ошибок
         href: concepts/response.md
-      - name: Диагностика ошибок
+      - name: Заголовки для диагностики ошибок
         href: concepts/support-headers.md
       - name: Общие вопросы
         href: qa/general.md
@@ -255,5 +278,3 @@ items:
         href: qa/tts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
-base: ru/speechkit
-deepBase: 2

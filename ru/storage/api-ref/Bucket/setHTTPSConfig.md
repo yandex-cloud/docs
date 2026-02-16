@@ -1,9 +1,76 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}:setHttpsConfig
+    method: post
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to update the HTTPS configuration for.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        selfManaged:
+          description: |-
+            **[SelfManagedHTTPSConfigParams](#yandex.cloud.storage.v1.SelfManagedHTTPSConfigParams)**
+            Your TLS certificate, uploaded directly.
+            Object Storage only supports [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificates.
+            Includes only one of the fields `selfManaged`, `certificateManager`.
+            HTTPS configuration parameters.
+          $ref: '#/definitions/SelfManagedHTTPSConfigParams'
+        certificateManager:
+          description: |-
+            **[CertificateManagerHTTPSConfigParams](#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams)**
+            TLS certificate from Certificate Manager.
+            To create a certificate in Certificate Manager, make a
+            [yandex.cloud.certificatemanager.v1.CertificateService.Create](/docs/certificate-manager/api-ref/Certificate/create#Create) request.
+            Includes only one of the fields `selfManaged`, `certificateManager`.
+            HTTPS configuration parameters.
+          $ref: '#/definitions/CertificateManagerHTTPSConfigParams'
+      additionalProperties: false
+      oneOf:
+        - required:
+            - selfManaged
+        - required:
+            - certificateManager
+    definitions:
+      SelfManagedHTTPSConfigParams:
+        type: object
+        properties:
+          certificatePem:
+            description: |-
+              **string**
+              [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+              The maximum string length in characters is 3145728.
+            type: string
+          privateKeyPem:
+            description: |-
+              **string**
+              [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+              The maximum string length in characters is 3145728.
+            type: string
+      CertificateManagerHTTPSConfigParams:
+        type: object
+        properties:
+          certificateId:
+            description: |-
+              **string**
+              ID of the certificate.
+              To get the list of all available certificates, make a [yandex.cloud.certificatemanager.v1.CertificateService.List](/docs/certificate-manager/api-ref/Certificate/list#List)
+              request.
+            type: string
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/setHTTPSConfig.md
 ---
 
-# Object Storage API, REST: Bucket.SetHTTPSConfig {#SetHTTPSConfig}
+# Object Storage API, REST: Bucket.SetHTTPSConfig
 
 Updates the HTTPS configuration for the specified bucket.
 
@@ -69,10 +136,14 @@ HTTPS configuration parameters. ||
 ||Field | Description ||
 || certificatePem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded certificate.
+
+The maximum string length in characters is 3145728. ||
 || privateKeyPem | **string**
 
-[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate. ||
+[PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded private key for the certificate.
+
+The maximum string length in characters is 3145728. ||
 |#
 
 ## CertificateManagerHTTPSConfigParams {#yandex.cloud.storage.v1.CertificateManagerHTTPSConfigParams}
@@ -236,7 +307,6 @@ Name of the bucket. ||
 
 Type of TLS certificate source.
 
-- `SOURCE_TYPE_UNSPECIFIED`
 - `SOURCE_TYPE_SELF_MANAGED`: Your certificate, uploaded directly.
 - `SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER`: Certificate managed by Certificate Manager. ||
 || issuer | **string**

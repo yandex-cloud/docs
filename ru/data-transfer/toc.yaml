@@ -57,7 +57,7 @@ items:
             items:
               - name: Источник
                 href: operations/endpoint/source/mssql.md
-          - name: MongoDB
+          - name: '{{ MG }}/{{ SD }}'
             items:
               - name: Источник
                 href: operations/endpoint/source/mongodb.md
@@ -107,6 +107,12 @@ items:
                 href: operations/endpoint/source/ydb.md
               - name: Приемник
                 href: operations/endpoint/target/yandex-database.md
+          - name: '{{ ytsaurus-name }}'
+            items:
+              - name: Источник
+                href: operations/endpoint/source/yt.md
+              - name: Приемник
+                href: operations/endpoint/target/yt.md
       - name: Управление трансфером
         href: operations/transfer.md
       - name: Работа с базами данных во время трансфера
@@ -121,18 +127,20 @@ items:
         items:
           - name: Кластер {{ PG }}
             href: tutorials/managed-postgresql.md
+          - name: Миграция кластера {{ mpg-name }} на другую версию
+            href: tutorials/postgresql-versions.md
           - name: Данные в {{ MY }}
             href: tutorials/managed-mysql.md
           - name: Сторонний кластер {{ MY }}
             href: tutorials/managed-mysql-to-mysql.md
           - name: Кластер {{ MG }}
-            href: tutorials/managed-mongodb.md
-          - name: Миграция кластера {{ MG }} с версии 4.4 на 6.0
-            href: tutorials/mongodb-versions.md
+            href: tutorials/storedoc.md
+          - name: >-
+              Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с
+              версии 4.4 на 6.0
+            href: tutorials/storedoc-versions.md
           - name: Кластер {{ CH }}
             href: tutorials/managed-clickhouse.md
-          - name: Перешардирование данных в кластере {{ mch-name }}
-            href: tutorials/mch-mch-resharding.md
           - name: Кластер {{ GP }}
             href: tutorials/managed-greenplum.md
           - name: Миграция из AWS RDS for {{ PG }}
@@ -161,12 +169,14 @@ items:
             href: tutorials/mpg-to-mmy.md
           - name: '{{ MY }} в {{ GP }}'
             href: tutorials/mmy-to-mgp.md
-          - name: '{{ ES }} в {{ OS }}'
-            href: tutorials/mes-to-mos.md
           - name: '{{ OS }} в {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
+          - name: '{{ OS }} в {{ GP }}'
+            href: tutorials/opensearch-to-greenplum.md
           - name: '{{ PG }} в {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
+          - name: '{{ ES }} в {{ OS }}'
+            href: tutorials/mes-to-mos.md
       - name: Захват изменений данных и поставка в очередь
         items:
           - name: '{{ MY }} в {{ KF }}'
@@ -189,7 +199,7 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} в {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} в {{ MG }}'
+          - name: '{{ KF }} в {{ SD }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} в {{ MY }}'
             href: tutorials/mkf-to-mmy.md
@@ -199,12 +209,19 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: '{{ KF }} в {{ DS }}'
             href: tutorials/mkf-to-yds.md
+          - name: '{{ DS }} в {{ KF }}'
+            href: tutorials/yds-to-kafka.md
           - name: '{{ DS }} в {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
           - name: '{{ DS }} в {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
           - name: '{{ DS }} в {{ OS }}'
+            hidden: true
             href: tutorials/trails-to-os.md
+          - name: '{{ DS }} в {{ ydb-short-name }}'
+            href: tutorials/yds-to-ydb.md
+          - name: Ввод данных в системы хранения
+            href: tutorials/data-ingestion.md
       - name: Загрузка данных в витрины
         items:
           - name: '{{ GP }} в {{ CH }}'
@@ -243,6 +260,10 @@ items:
             href: tutorials/opensearch-to-object-storage.md
           - name: '{{ ydb-name }} в {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
+          - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+            href: tutorials/replicate-logs-to-storage-via-data-streams.md
+          - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+            href: tutorials/replicate-logs-to-storage.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -280,21 +301,87 @@ items:
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: До 1 августа 2024 года
-            href: pricing-archive/pricing01082024.md
-  - name: Справочник CLI
+    href: pricing.md
+  - name: Справочник CLI (англ.)
     items:
       - name: Overview
-        href: ../cli/cli-ref/managed-services/datatransfer/index.md
-      - name: Transfer
-        href: ../cli/cli-ref/managed-services/datatransfer/transfer/index.md
-      - name: Endpoint
-        href: ../cli/cli-ref/managed-services/datatransfer/endpoint/index.md
+        href: cli-ref/index.md
+      - name: endpoint
+        items:
+          - name: Overview
+            href: cli-ref/endpoint/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/create/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/create/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/create/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/create/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/create/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/create/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/create/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/create/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/create/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/create/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/create/yds-target.md
+          - name: delete
+            href: cli-ref/endpoint/delete.md
+          - name: get
+            href: cli-ref/endpoint/get.md
+          - name: list
+            href: cli-ref/endpoint/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/update/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/update/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/update/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/update/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/update/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/update/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/update/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/update/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/update/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/update/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/update/yds-target.md
+      - name: transfer
+        items:
+          - name: Overview
+            href: cli-ref/transfer/index.md
+          - name: activate
+            href: cli-ref/transfer/activate.md
+          - name: create
+            href: cli-ref/transfer/create.md
+          - name: deactivate
+            href: cli-ref/transfer/deactivate.md
+          - name: delete
+            href: cli-ref/transfer/delete.md
+          - name: get
+            href: cli-ref/transfer/get.md
+          - name: list
+            href: cli-ref/transfer/list.md
+          - name: update
+            href: cli-ref/transfer/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -399,24 +486,58 @@ items:
     items:
       - name: Все изменения
         href: release-notes/index.md
-      - name: Сентябрь 2024
-        href: release-notes/2409.md
-      - name: Август 2024
-        href: release-notes/2408.md
-      - name: Июль 2024
-        href: release-notes/2407.md
-      - name: Июнь 2024
-        href: release-notes/2406.md
-      - name: Май 2024
-        href: release-notes/2405.md
-      - name: Апрель 2024
-        href: release-notes/2404.md
-      - name: Март 2024
-        href: release-notes/2403.md
-      - name: Февраль 2024
-        href: release-notes/2402.md
-      - name: Январь 2024
-        href: release-notes/2401.md
+      - name: 2025 год
+        items:
+          - name: Декабрь 2025
+            href: release-notes/2512.md
+          - name: Ноябрь 2025
+            href: release-notes/2511.md
+          - name: Октябрь 2025
+            href: release-notes/2510.md
+          - name: Сентябрь 2025
+            href: release-notes/2509.md
+          - name: Август 2025
+            href: release-notes/2508.md
+          - name: Июль 2025
+            href: release-notes/2507.md
+          - name: Июнь 2025
+            href: release-notes/2506.md
+          - name: Май 2025
+            href: release-notes/2505.md
+          - name: Апрель 2025
+            href: release-notes/2504.md
+          - name: Март 2025
+            href: release-notes/2503.md
+          - name: Февраль 2025
+            href: release-notes/2502.md
+          - name: Январь 2025
+            href: release-notes/2501.md
+      - name: 2024 год
+        items:
+          - name: Декабрь 2024
+            href: release-notes/2412.md
+          - name: Ноябрь 2024
+            href: release-notes/2411.md
+          - name: Октябрь 2024
+            href: release-notes/2410.md
+          - name: Сентябрь 2024
+            href: release-notes/2409.md
+          - name: Август 2024
+            href: release-notes/2408.md
+          - name: Июль 2024
+            href: release-notes/2407.md
+          - name: Июнь 2024
+            href: release-notes/2406.md
+          - name: Май 2024
+            href: release-notes/2405.md
+          - name: Апрель 2024
+            href: release-notes/2404.md
+          - name: Март 2024
+            href: release-notes/2403.md
+          - name: Февраль 2024
+            href: release-notes/2402.md
+          - name: Январь 2024
+            href: release-notes/2401.md
       - name: 2023 год
         items:
           - name: Декабрь 2023
@@ -431,5 +552,3 @@ items:
             href: release-notes/2308.md
   - name: Обучающие курсы
     href: training.md
-base: ru/data-transfer
-deepBase: 2

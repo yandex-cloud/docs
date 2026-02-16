@@ -1,6 +1,3 @@
-{% note alert %}
+You cannot edit this setting after you create a cluster. 
 
-You cannot edit this setting after you create a cluster. The use of dedicated hosts significantly affects [cluster pricing](../../../managed-greenplum/pricing/).
-
-{% endnote %}
-
+If using dedicated hosts, the cluster cost is a sum of the charge for [computing resources {{ compute-full-name }}](../../../compute/pricing.md#prices-dedicated-host) and the [markup {{ mgp-name }}](../../../managed-greenplum/pricing/index.md#dedicated-hosts).

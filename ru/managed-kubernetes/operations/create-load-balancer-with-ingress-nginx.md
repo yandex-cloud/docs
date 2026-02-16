@@ -4,7 +4,7 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `editor`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller` и `load-balancer.admin` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
     {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -40,13 +40,17 @@
       Update Complete. ⎈Happy Helming!⎈
       ```
 
+   
    {% note tip %}
 
-   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](applications/ingress-nginx.md).
+   Ingress-контроллер NGINX можно также [установить с помощью {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
 
    {% endnote %}
 
+
 ## Внешний сетевой балансировщик {#external}
+
+Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
 
 Внешний сетевой балансировщик создается при установке Ingress-контроллера NGINX в стандартной конфигурации:
 
@@ -68,6 +72,8 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ```
 
 ## Внутренний сетевой балансировщик {#internal}
+
+Для создания сетевого балансировщика у сервисного аккаунта, привязанного к кластеру {{ managed-k8s-name }}, должна быть роль `load-balancer.admin`.
 
 Чтобы установить внутренний сетевой балансировщик:
 1. Настройте [конфигурацию контроллера](https://github.com/kubernetes/ingress-nginx/blob/main/charts/ingress-nginx/values.yaml). Для этого создайте конфигурационный файл `values.yaml` и укажите в нем идентификатор [подсети](../../vpc/concepts/network.md#subnet), в которой должен работать сетевой балансировщик:

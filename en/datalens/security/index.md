@@ -1,15 +1,13 @@
 ---
 title: Managing access to {{ datalens-full-name }}
-description: In this tutorial, you will learn about {{ datalens-short-name }} access management.
+description: In this tutorial, you will learn about {{ datalens-full-name }} access management.
 ---
 
-# Managing access to {{ datalens-short-name }}
+# Managing access to {{ datalens-full-name }}
 
 
-Access to {{ datalens-full-name }} is managed by assigning permissions:
 
-* To a {{ datalens-short-name }} instance at the organization level: using the [organizations](../concepts/organizations.md) service.
-* To a {{ datalens-short-name }} instance at the cloud folder level: via the {{ yandex-cloud }} [console]({{ link-console-main }}).
+Access to {{ datalens-full-name }} is managed by assigning permissions via the [organization's](../concepts/organizations.md) service.
 
 When using a firewall, allow access to external resources required to run {{ datalens-short-name }}:
 
@@ -24,13 +22,13 @@ When using a firewall, allow access to external resources required to run {{ dat
 * `avatars.mds.yandex.net/*`
 * `mc.yandex.ru/*`
 * `*.yandex.ru/*`
+* `datalens.ru/*`
 
 
 
 To learn about {{ datalens-name }} access management, see:
 
 
-* [{#T}](./add-new-user.md)
 * [{#T}](./roles.md)
 * Organizations in {{ datalens-name }}:
 
@@ -46,3 +44,5 @@ To learn about {{ datalens-name }} access management, see:
   * [{#T}](../operations/permission/request.md)
 
 * [Access to data rows](../security/row-level-security.md)
+
+

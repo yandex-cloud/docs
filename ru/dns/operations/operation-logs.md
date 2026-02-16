@@ -27,7 +27,7 @@
   yc dns zone list-operations <имя_или_идентификатор_зоны>
   ```
 
-  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
 
   ```bash
   yc dns zone list-operations dns3fh7phb04******** --format yaml
@@ -57,7 +57,7 @@
 
 - API {#api}
 
-  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gPRC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
+  Чтобы получить список операций с зоной, воспользуйтесь методом REST API [listOperations](../api-ref/DnsZone/listOperations.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md), или вызовом gRPC API [DnsZoneService/ListOperations](../api-ref/grpc/DnsZone/listOperations.md).
 
 {% endlist %}
 

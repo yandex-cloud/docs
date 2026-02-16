@@ -6,6 +6,12 @@ API {{ speechkit-name }} спроектирован на основе механ
 
 API {{ speechkit-name }} не поддерживает ресурсо-ориентированный подход, так как не оперирует ресурсами {{ yandex-cloud }}. Запросы API {{ speechkit-name }} не идемпотентны.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/recognizer-bot.md)
+* [{#T}](../tutorials/speechkit-integrarion-via-agi-gw.md)
+* [{#T}](../tutorials/batch-recognition-stt.md)
+
 #### Читайте также {#see-also}
 
 * [Документация gRPC](https://grpc.io/docs/).

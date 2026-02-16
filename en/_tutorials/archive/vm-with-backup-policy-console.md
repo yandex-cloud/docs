@@ -1,10 +1,9 @@
-# Linking a {{ backup-full-name }} policy to a VM automatically using the management console, CLI, or API
+# Associating a {{ backup-full-name }} policy with a VM automatically using the management console, CLI, or API
 
+To create a virtual machine automatically associated with a {{ backup-name }} policy:
 
-To create a virtual machine with automatic linking to a {{ backup-name }} policy:
-
-1. [Prepare your cloud](#before-begin).
-1. [Activate the service](#service-activate).
+1. [Get your cloud ready](#before-begin).
+1. [Activate {{ backup-name }}](#service-activate).
 1. [Create a service account](#create-sa).
 1. [Create a cloud network and subnets](#create-network).
 1. [Create and configure a security group](#create-sg).
@@ -13,7 +12,7 @@ To create a virtual machine with automatic linking to a {{ backup-name }} policy
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -21,7 +20,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](../_tutorials_includes/vm-with-backup-policy/paid-resources.md) %}
 
-## Activate the service {#service-activate}
+## Activate {{ backup-name }} {#service-activate}
 
 {% include [service-activate](../_tutorials_includes/vm-with-backup-policy/service-activate.md) %}
 
@@ -31,11 +30,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the service is activated in.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder where you activated {{ backup-name }}.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for [the service account](../../iam/concepts/users/service-accounts.md): `backup-sa`.
-  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+  1. Enter `backup-sa` as the [service account name](../../iam/concepts/users/service-accounts.md).
+  1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select [`backup.editor`](../../backup/security/index.md#backup-editor).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -44,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Create a service account named `backup-sa`.
+  1. Create a service account named `backup-sa`:
 
       ```bash
       yc iam service-account create --name backup-sa
@@ -59,9 +58,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
       name: backup-sa
       ```
 
-      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      For more information about the `yc iam service-account create` command, see the [CLI reference](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
-  1. Assign the service account the `backup.editor` role for the folder:
+  1. Assign the `backup.editor` role for the folder to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
@@ -82,13 +81,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
               type: serviceAccount
       ```
 
-      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      For more information about the `yc resource-manager folder add-access-binding` command, see the [CLI reference](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `backup.editor` role for the folder to the service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign the `backup.editor` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
@@ -100,7 +99,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder you want to create a cloud network in.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cloud network.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `cloud-network`.
@@ -125,9 +124,9 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Create a subnet named `cloud-network-{{ region-id }}-d` in the `{{ region-id }}-d` availability zone:
+  1. Create the `cloud-network-{{ region-id }}-d` subnet in the `{{ region-id }}-d` availability zone:
 
       ```bash
       yc vpc subnet create cloud-network-{{ region-id }}-d \
@@ -149,7 +148,7 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
       - 10.1.0.0/16
       ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -160,26 +159,26 @@ Create a [cloud network](../../vpc/concepts/network.md#network) with a [subnet](
 
 ## Create and configure a security group {#create-sg}
 
-For the {{ backup-name }} agent to exchange data with the [backup provider](../../backup/concepts/index.md#providers) servers, the security group must contain the rules that allow network access to the IP addresses of the {{ backup-name }} resources.
+For the [{{ backup-name }} agent](../../backup/concepts/agent.md) to exchange data with the [backup provider](../../backup/concepts/index.md#providers) servers, the security group must contain the rules that allow network access to the IP addresses of the {{ backup-name }} resources.
 
-A rule to enable VM access over SSH will also be added to the security group.
+The security group will also include a rule for VM access over SSH.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder you want to create a VM with a {{ backup-name }} connection in.
+  1. In the [management console]({{ link-console-main }}), go to the folder where you want to create a VM connected to {{ backup-name }}.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `backup-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `cloud-network`.
-  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, go to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-  1. Add the following outgoing traffic rules one by one:
+  1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, navigate to the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** tab and click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+  1. Add the following outbound rules one by one:
 
       {% include [outgoing-traffic](../../_includes/backup/outgoing-rules.md) %}
 
-  1. Add a rule for incoming traffic to enable VM access over SSH:
+  1. Add the following inbound rule to enable VM access over SSH:
 
       {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
       --- | --- | --- | ---
@@ -189,7 +188,7 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc vpc security-group create backup-sg \
@@ -250,7 +249,7 @@ A rule to enable VM access over SSH will also be added to the security group.
           - 0.0.0.0/0
   ```
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 - API {#api}
 
@@ -258,26 +257,27 @@ A rule to enable VM access over SSH will also be added to the security group.
 
 {% endlist %}
 
-## Create a backup policy{#create-policy}
+## Create a backup policy {#create-policy}
 
-You can create a new policy or use one of those automatically generated upon service activation.
+You can create a new policy or use one of those automatically created upon service activation.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a backup policy in.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a backup policy.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Go to the ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
+  1. Navigate to the ![policies](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}** tab.
   1. Click **{{ ui-key.yacloud.backup.button_create-policy }}**.
-  1. Specify the policy properties:
+  1. Specify the following policy properties:
 
-      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`.
-      * **{{ ui-key.yacloud.backup.field_repeat-period-type }}**: `{{ ui-key.yacloud.backup.value_period-time-weekly }}`.
-      * **{{ ui-key.yacloud.backup.field_days-of-week }}**: `{{ ui-key.yacloud.backup.value_day-fri }}`.
-      * **{{ ui-key.yacloud.backup.field_time }}**: `03:00`.
-      * **{{ ui-key.yacloud.backup.field_backup-scheme }}**: `{{ ui-key.yacloud.backup.value_type-incremental }}`.
-      * **{{ ui-key.yacloud.backup.field_auto-delete }}**: `{{ ui-key.yacloud.backup.value_retention-save-all }}`.
+      * **{{ ui-key.yacloud.common.name }}**: `weekly-backup`
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-type }}**: `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}`
+      * **{{ ui-key.yacloud.backup.policy-form.field_schedule-type }}**: `{{ ui-key.yacloud.backup.policy-form.value_schedule-type-fixed }}`
+      * **{{ ui-key.yacloud.backup.policy-form.field_backup-periodicity }}**: `{{ ui-key.yacloud.backup.policy-form.value_periodicity-weekly }}`
+      * **{{ ui-key.yacloud.backup.policy-form.field_week-days }}**: `{{ ui-key.yacloud.common.units.label_day-Fr }}`
+      * **{{ ui-key.yacloud.backup.policy-form.field_start-time }}**: `03:00`
+      * **{{ ui-key.yacloud.backup.policy-form.field_retention }}**: `{{ ui-key.yacloud.backup.policy-form.value_retention-variant-save-all }}`
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -420,7 +420,7 @@ You can create a new policy or use one of those automatically generated upon ser
 
       Save the policy `id`.
 
-      For more information about the `yc backup policy create` command, see the [CLI reference](../../cli/cli-ref/managed-services/backup/policy/create.md).
+      For more information about the `yc backup policy create` command, see the [CLI reference](../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - API {#api}
 
@@ -434,32 +434,36 @@ You can create a new policy or use one of those automatically generated upon ser
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Enter a name for the VM: `backup-instance`.
-  1. Select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
-  1. In the **{{ ui-key.yacloud.compute.instances.create.section_image }}** section, select [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `Ubuntu 22.04 LTS` and select a public [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts) image.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      1. Select the`cloud-network-{{ region-id }}-d` subnet.
-      1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Select the `backup-sg` security group.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network named `cloud-network` and the subnet named `cloud-network-{{ region-id }}-d`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, leave the `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` value to assign a random external IP address from the {{ yandex-cloud }} pool.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `backup-sg`.
 
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      1. Select the `backup-sa` service account.
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the [public key](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) file. You need to [create](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) a key pair for the SSH connection yourself.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username: `vm-user`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `backup-instance`.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      1. Enable **{{ ui-key.yacloud.compute.instances.create.section_backup }}**.
-      1. Select the backup policy [created earlier](#create-policy).
+      * Select the `backup-sa` service account.
+      * Enable **{{ backup-name }}**.
+      * Select the backup policy [you created earlier](#create-policy).
 
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
   1. Describe the custom metadata configuration in the `user-data.yaml` file:
 
@@ -480,16 +484,16 @@ You can create a new policy or use one of those automatically generated upon ser
         - perl
         - jq
       runcmd:
-        - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+        - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
-  1. Specify the `weekly-backup` policy ID in the `cloudbackup.json` file:
+  1. Save the `weekly-backup` policy ID in the `cloudbackup.json` file:
 
       ```json
-      {"initialPolicies": ["<weekly_backup_policy_ID>"]}
+      {"initialPolicies": ["<weekly-backup_policy_ID>"]}
       ```
 
-      To learn more about getting the policy ID, see [{#T}](../../backup/operations/policy-vm/get-info.md).
+      To learn more about getting a policy ID, see [this guide](../../backup/operations/policy-vm/get-info.md).
 
   1. Run this command:
 
@@ -503,16 +507,16 @@ You can create a new policy or use one of those automatically generated upon ser
         --service-account-name backup-sa
       ```
 
-      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance/create.md).
+      For more information about the `yc compute instance create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - API {#api}
 
   To create a VM, use the [create](../../compute/api-ref/Instance/create.md) REST API method for the [Instance](../../compute/api-ref/Instance/index.md) resource or the [InstanceService/Create](../../compute/api-ref/grpc/Instance/create.md) gRPC API call.
 
-  In the request body, specify:
+  In the body of your request, provide the following:
 
-  * In the `metadata` field, the `user-data` object containing the custom metadata configuration with a script to install a backup agent.
-  * In the `cloudbackup` field, the backup policy ID. To learn more about getting the policy ID, see [{#T}](../../backup/operations/policy-vm/get-info.md).
+  * In the `metadata` field, the `user-data` object containing the custom metadata configuration with the {{ backup-name }} agent installation script.
+  * In the `cloudbackup` field, the backup policy ID. To learn more about getting a policy ID, see [this guide](../../backup/operations/policy-vm/get-info.md).
 
   Use `\n` as a line separator.
 
@@ -529,7 +533,7 @@ You can create a new policy or use one of those automatically generated upon ser
       "cores": "2"
     },
     "metadata": {
-      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh-authorized-keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash",
+      "user-data": "#cloud-config\ndatasource:\nEc2:\n  strict_id: false\nssh_pwauth: no\nusers:\n- name: vm-user\n  shell: /bin/bash\n  sudo: ALL=(ALL) NOPASSWD:ALL\n  ssh_authorized_keys:\n  - <public_SSH_key>\npackages:\n  - curl\n  - perl\n  - jq\nruncmd:\n  - curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash",
       "cloudbackup": "{\"initialPolicies\": [\"<policy_ID>\"]}"
     },
     "bootDiskSpec": {
@@ -567,5 +571,5 @@ To stop paying for the resources you created:
 
 1. [Delete](../../backup/operations/delete-vm.md) the VM from {{ backup-name }}.
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM from {{ compute-name }}.
-1. [Delete](../../vpc/operations/address-delete.md) the static public IP if you reserved one.
+1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.
 1. [Delete](../../backup/operations/backup-vm/delete.md) VM backups, if any. 

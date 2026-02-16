@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/ScanPolicy/create.md
 ---
 
-# Container Registry API, gRPC: ScanPolicyService.Create {#Create}
+# Container Registry API, gRPC: ScanPolicyService.Create
 
 Creates a scan policy for the specified registry.
 
@@ -15,22 +15,22 @@ Creates a scan policy for the specified registry.
 
 ```json
 {
-  "registryId": "string",
+  "registry_id": "string",
   "name": "string",
   "description": "string",
   "rules": {
-    "pushRule": {
-      "repositoryPrefixes": [
+    "push_rule": {
+      "repository_prefixes": [
         "string"
       ],
       "disabled": "bool"
     },
-    "scheduleRules": [
+    "schedule_rules": [
       {
-        "repositoryPrefixes": [
+        "repository_prefixes": [
           "string"
         ],
-        "rescanPeriod": "google.protobuf.Duration",
+        "rescan_period": "google.protobuf.Duration",
         "disabled": "bool"
       }
     ]
@@ -40,15 +40,21 @@ Creates a scan policy for the specified registry.
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
-Required field. ID of the scan policy registry. ||
+Required field. ID of the scan policy registry.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the scan policy. ||
+Name of the scan policy.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the scan policy. ||
+Description of the scan policy.
+
+The maximum string length in characters is 256. ||
 || rules | **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules)**
 
 Rules of the scan policy. ||
@@ -58,10 +64,10 @@ Rules of the scan policy. ||
 
 #|
 ||Field | Description ||
-|| pushRule | **[PushRule](#yandex.cloud.containerregistry.v1.PushRule)**
+|| push_rule | **[PushRule](#yandex.cloud.containerregistry.v1.PushRule)**
 
 Description of on-push scan rule. ||
-|| scheduleRules[] | **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule)**
+|| schedule_rules[] | **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule)**
 
 Description of time based rescan rule. ||
 |#
@@ -70,9 +76,11 @@ Description of time based rescan rule. ||
 
 #|
 ||Field | Description ||
-|| repositoryPrefixes[] | **string**
+|| repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **bool**
 
 Turns off scan rule. ||
@@ -82,10 +90,12 @@ Turns off scan rule. ||
 
 #|
 ||Field | Description ||
-|| repositoryPrefixes[] | **string**
+|| repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
-|| rescanPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+|| rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Period of time since last scan to trigger automatic rescan. ||
 || disabled | **bool**
@@ -99,38 +109,38 @@ Turns off scan rule. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "scanPolicyId": "string"
+    "scan_policy_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "registryId": "string",
+    "registry_id": "string",
     "name": "string",
     "description": "string",
     "rules": {
-      "pushRule": {
-        "repositoryPrefixes": [
+      "push_rule": {
+        "repository_prefixes": [
           "string"
         ],
         "disabled": "bool"
       },
-      "scheduleRules": [
+      "schedule_rules": [
         {
-          "repositoryPrefixes": [
+          "repository_prefixes": [
             "string"
           ],
-          "rescanPeriod": "google.protobuf.Duration",
+          "rescan_period": "google.protobuf.Duration",
           "disabled": "bool"
         }
       ]
     },
-    "createdAt": "google.protobuf.Timestamp",
+    "created_at": "google.protobuf.Timestamp",
     "disabled": "bool"
   }
   // end of the list of possible fields
@@ -147,13 +157,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -196,7 +206,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| scanPolicyId | **string**
+|| scan_policy_id | **string**
 
 ID of created scan policy resource. ||
 |#
@@ -208,7 +218,7 @@ ID of created scan policy resource. ||
 || id | **string**
 
 Output only. ID of the scan policy. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the scan policy belongs to.
 Required. The maximum string length in characters is 50. ||
@@ -222,7 +232,7 @@ The maximum string length in characters is 256. ||
 || rules | **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules2)**
 
 The rules of scan policy. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp. ||
 || disabled | **bool**
@@ -234,10 +244,10 @@ Turns off scan policy. ||
 
 #|
 ||Field | Description ||
-|| pushRule | **[PushRule](#yandex.cloud.containerregistry.v1.PushRule2)**
+|| push_rule | **[PushRule](#yandex.cloud.containerregistry.v1.PushRule2)**
 
 Description of on-push scan rule. ||
-|| scheduleRules[] | **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule2)**
+|| schedule_rules[] | **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule2)**
 
 Description of time based rescan rule. ||
 |#
@@ -246,9 +256,11 @@ Description of time based rescan rule. ||
 
 #|
 ||Field | Description ||
-|| repositoryPrefixes[] | **string**
+|| repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **bool**
 
 Turns off scan rule. ||
@@ -258,10 +270,12 @@ Turns off scan rule. ||
 
 #|
 ||Field | Description ||
-|| repositoryPrefixes[] | **string**
+|| repository_prefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
-|| rescanPeriod | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+|| rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Period of time since last scan to trigger automatic rescan. ||
 || disabled | **bool**

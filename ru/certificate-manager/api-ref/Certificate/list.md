@@ -1,9 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list certificate in.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        view:
+          description: |-
+            **enum** (CertificateView)
+            The output type of the certificate.
+            - `BASIC`: Output basic information about the certificate.
+            - `FULL`: Output full information about the certificate including domain challenges.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/list.md
 ---
 
-# Certificate Manager API, REST: Certificate.List {#List}
+# Certificate Manager API, REST: Certificate.List
 
 Returns the list of certificates in the specified folder.
 
@@ -19,17 +65,23 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list certificate in. ||
+Required field. ID of the folder to list certificate in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.nextPageToken](#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || view | **enum** (CertificateView)
 
 The output type of the certificate.
@@ -51,7 +103,7 @@ The output type of the certificate.
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "type": "string",
       "domains": [
         "string"
@@ -137,14 +189,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | **enum** (CertificateType)
 
 Type of the certificate.
 
-- `CERTIFICATE_TYPE_UNSPECIFIED`
 - `IMPORTED`: The certificate is imported by user.
 - `MANAGED`: The certificate is created by service. ||
 || domains[] | **string**
@@ -154,7 +205,6 @@ Fully qualified domain names of the certificate. ||
 
 Status of the certificate.
 
-- `STATUS_UNSPECIFIED`
 - `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
 - `INVALID`: The certificate issuance is failed. Used only for managed certificates.
 - `ISSUED`: The certificate is issued.
@@ -234,7 +284,6 @@ Domain of the challenge. ||
 
 Type of the challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
 || createdAt | **string** (date-time)
@@ -261,7 +310,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The challenge is waiting to be completed.
 - `PROCESSING`: The challenge is awaiting approval from Let's Encrypt.
 - `VALID`: The challenge is complete.

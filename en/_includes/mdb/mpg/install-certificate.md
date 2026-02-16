@@ -18,5 +18,7 @@
    ```
 
    The certificate will be saved to the `$HOME\.postgresql\root.crt` file.
+   
+   Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-postgresql/qa/connection.md#get-ssl-error).
 
 {% endlist %}

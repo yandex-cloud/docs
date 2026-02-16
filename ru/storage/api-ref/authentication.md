@@ -12,35 +12,94 @@ description: Для выполнения операций через API в ма
 
 ## AWS S3 API {#aws-s3-api}
 
-Для аутентификации в [AWS S3 API](../s3/api-ref/) и работы с {{ TF }} и другими [поддерживаемыми инструментами](../tools/) используйте [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../../storage/s3/).
+{% include [s3-api-auth-intro](../../_includes/storage/s3-api-auth-intro.md) %}
+
+{% list tabs group=auth_keys %}
+
+- Аутентификация с помощью IAM-токена {#iam-token}
+
+  {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
+
+  Если для аутентификации в [API](../../glossary/rest-api.md) вы используете IAM-токен, то дополнительно [подписывать](../s3/signing-requests.md) HTTP-запросы не требуется.
+
+- Аутентификация с помощью статического ключа {#static-key}
+
+  Для аутентификации в [AWS S3 API](../s3/api-ref/) и работы с {{ TF }} и другими [поддерживаемыми инструментами](../tools/) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../../storage/s3/).
+
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
+
+  
+  {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+  {% include [s3-api-auth-requires-signature-notice](../../_includes/storage/s3-api-auth-requires-signature-notice.md) %}
 
+{% endlist %}
 
 Полный перечень методов S3 API см. в [Справочнике S3 API](../s3/api-ref/).
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-Если вы хотите использовать AWS S3 API напрямую, без SDK и приложений, вам придется самостоятельно [подписывать запросы](../s3/signing-requests.md). Процесс формирования запроса и подписи вы можете отработать с помощью AWS CLI в [режиме отладки](../s3/signing-requests.md#debugging).
-
 ### Пример использования AWS S3 API {#s3-api-example}
 
-Начиная с версии [8.3.0](https://curl.se/changes.html) утилита `curl` поддерживает автоматическое формирование [строки для подписи](../s3/signing-requests.md#string-to-sign-gen), [подпись запроса](../s3/signing-requests.md#signing) и подстановку необходимых заголовков при работе с AWS S3 API.
+{% note warning %}
 
-Также вы можете вручную сформировать указанные заголовки и подписать запрос. См. пример для **Версии curl 8.2.1 и ниже**.
-
-{% note info %}
-
-Убедитесь, что сервисный аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее см. [{#T}](../security/overview.md).
+Убедитесь, что аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее см. [{#T}](../security/overview.md).
 
 {% endnote %}
 
-Ниже приведены примеры запросов для загрузки объекта в бакет.
+Ниже приведены примеры запросов для загрузки объекта в бакет:
 
-{% list tabs %}
+{% list tabs group=auth_keys %}
 
-- Версия curl 8.3.0 и выше
+- Аутентификация с помощью IAM-токена {#iam-token}
+
+  ```bash
+  IAM_TOKEN="<содержимое_IAM-токена>"
+  BUCKET_NAME="<имя_бакета>"
+  LOCAL_FILE="<путь_к_локальному_файлу>"
+  OBJECT_PATH="<ключ_объекта>"
+
+  curl \
+    --request PUT \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --upload-file "${LOCAL_FILE}" \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
+
+  Где:
+
+  * `IAM_TOKEN` — тело IAM-токена.
+  * `BUCKET_NAME` — [имя бакета](../concepts/bucket.md#naming), в который загружается файл.
+  * `LOCAL_FILE` — путь к локальному файлу, который вы хотите загрузить в бакет. Например: `./sample.txt`.
+  * `OBJECT_PATH` — [ключ](../concepts/object.md#key), который будет присвоен объекту в бакете. Например: `new-prefix/sample-object.txt`.
+
+  Аналогично вы можете загрузить файл в бакет, не сохраняя его локально. Например, заархивируйте директорию и отправьте архив в бакет:
+
+  ```bash
+  IAM_TOKEN="<содержимое_IAM-токена>"
+  BUCKET_NAME="<имя_бакета>"
+  OBJECT_PATH="<ключ_объекта>"
+  DIRECTORY_PATH="<путь_к_директории>"
+
+  tar -cvzf - "${DIRECTORY_PATH}" | curl \
+    --request PUT \
+    --header "Authorization: Bearer ${IAM_TOKEN}" \
+    --upload-file - \
+    --verbose \
+    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+  ```
+
+  Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
+
+- Аутентификация с помощью статического ключа {#static-key}
+
+  Начиная с версии [8.3.0](https://curl.se/changes.html) утилита `curl` поддерживает автоматическое формирование [строки для подписи](../s3/signing-requests.md#string-to-sign-gen), [подпись запроса](../s3/signing-requests.md#signing) и подстановку необходимых заголовков при работе с AWS S3 API.
+
+  Также вы можете вручную сформировать указанные заголовки и подписать запрос. См. пример для **Версии curl 8.2.1 и ниже**.
+
+  {% cut "Версия curl 8.3.0 и выше" %}
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -85,7 +144,9 @@ description: Для выполнения операций через API в ма
 
   Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
 
-- Версия curl 8.2.1 и ниже
+  {% endcut %}
+
+  {% cut "Версия curl 8.2.1 и ниже" %}
 
   ```bash
   AWS_KEY_ID="<идентификатор_статического_ключа>"
@@ -117,6 +178,8 @@ description: Для выполнения операций через API в ма
   * `OBJECT_PATH` — [ключ](../concepts/object.md#key), который будет присвоен объекту в бакете, например `new-prefix/sample-object.txt`.
   * `CONTENT_TYPE` — [MIME-тип](https://ru.wikipedia.org/wiki/Список_MIME-типов) загружаемого объекта, например `text/plain`.
 
+  {% endcut %}
+
 {% endlist %}
 
 ## {{ yandex-cloud }} gRPC и REST API {#yandex-api}
@@ -138,9 +201,9 @@ description: Для выполнения операций через API в ма
 
 В примере создается бакет со стандартным классом хранилища и размером 50 ГБ.
 
-{% list tabs %}
+{% list tabs group=instructions %}
 
-- gRPC
+- gRPC API {#grpc-api}
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -163,12 +226,12 @@ description: Для выполнения операций через API в ма
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#iam-tokens).
+  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.
   * `max_size` — размер бакета.
-  * `anonymous_access_flags` — настройки [доступа](../..//storage/concepts/bucket.md#bucket-access) к бакету:
+  * `anonymous_access_flags` — настройки [доступа](../../storage/concepts/bucket.md#bucket-access) к бакету:
     * `read` — публичный доступ на чтение объектов.
     * `list` — публичный доступ к списку объектов.
     * `configRead` — публичный доступ на чтение настроек.
@@ -188,7 +251,7 @@ description: Для выполнения операций через API в ма
   }
   ```
 
-- REST
+- REST API {#api}
 
   ```bash
   export IAM_TOKEN="<IAM-токен>"
@@ -212,12 +275,12 @@ description: Для выполнения операций через API в ма
 
   Где:
 
-  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#iam-tokens).
+  * `IAM_TOKEN` — IAM-токен. Подробнее см. [Получение IAM-токена](../../iam/operations/index.md#authentication).
   * `name` — имя бакета.
   * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   * `default_storage_class` — [класс](../../storage/concepts/storage-class.md) хранилища.
   * `maxSize` — размер бакета.
-  * `anonymousAccessFlags` — настройки [доступа](../..//storage/concepts/bucket.md#bucket-access) к бакету:
+  * `anonymousAccessFlags` — настройки [доступа](../../storage/concepts/bucket.md#bucket-access) к бакету:
     * `read` — публичный доступ на чтение объектов.
     * `list` — публичный доступ к списку объектов.
     * `configRead` — публичный доступ на чтение настроек.
@@ -254,3 +317,7 @@ description: Для выполнения операций через API в ма
   ```
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../s3/s3-api-quickstart.md)

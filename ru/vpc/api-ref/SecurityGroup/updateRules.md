@@ -1,9 +1,165 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules
+    method: patch
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the SecurityGroup that is being updated with new rules.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        deletionRuleIds:
+          description: |-
+            **string**
+            List of rules IDs to delete.
+          type: array
+          items:
+            type: string
+        additionRuleSpecs:
+          description: |-
+            **[SecurityGroupRuleSpec](#yandex.cloud.vpc.v1.SecurityGroupRuleSpec)**
+            Security rules specifications.
+          type: array
+          items:
+            $ref: '#/definitions/SecurityGroupRuleSpec'
+      additionalProperties: false
+    definitions:
+      PortRange:
+        type: object
+        properties:
+          fromPort:
+            description: |-
+              **string** (int64)
+              The lowest port in the range.
+            type: string
+            format: int64
+          toPort:
+            description: |-
+              **string** (int64)
+              The highest port in the range.
+            type: string
+            format: int64
+      CidrBlocks:
+        type: object
+        properties:
+          v4CidrBlocks:
+            description: |-
+              **string**
+              IPv4 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
+          v6CidrBlocks:
+            description: |-
+              **string**
+              IPv6 CIDR blocks to allow traffic to.
+            type: array
+            items:
+              type: string
+      SecurityGroupRuleSpec:
+        type: object
+        properties:
+          description:
+            description: |-
+              **string**
+              Description of the security rule.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Rule labels as `` key:value `` pairs.
+            type: object
+            additionalProperties:
+              type: string
+              pattern: '[-_./\@0-9a-z]*'
+              maxLength: 63
+            propertyNames:
+              type: string
+              pattern: '[a-z][-_./\@0-9a-z]*'
+              maxLength: 63
+              minLength: 1
+            maxProperties: 64
+          direction:
+            description: |-
+              **enum** (Direction)
+              Required field. The direction of network traffic allowed by this rule.
+              - `DIRECTION_UNSPECIFIED`
+              - `INGRESS`: Allows ingress traffic.
+              - `EGRESS`: Allows egress traffic.
+            type: string
+            enum:
+              - DIRECTION_UNSPECIFIED
+              - INGRESS
+              - EGRESS
+          ports:
+            description: |-
+              **[PortRange](#yandex.cloud.vpc.v1.PortRange)**
+              The range of ports that allow traffic to pass through. Null value means any port.
+            $ref: '#/definitions/PortRange'
+          protocolName:
+            description: |-
+              **string**
+              Protocol name.
+              Includes only one of the fields `protocolName`, `protocolNumber`.
+              Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Null value means any protocol.
+            type: string
+          protocolNumber:
+            description: |-
+              **string** (int64)
+              Protocol number from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Includes only one of the fields `protocolName`, `protocolNumber`.
+              Values from [IANA protocol numbers](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+              Null value means any protocol.
+            type: string
+            format: int64
+          cidrBlocks:
+            description: |-
+              **[CidrBlocks](#yandex.cloud.vpc.v1.CidrBlocks)**
+              CIDR blocks to allow to recieve or send traffic.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            $ref: '#/definitions/CidrBlocks'
+          securityGroupId:
+            description: |-
+              **string**
+              ID of the security group to add rule to.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            type: string
+          predefinedTarget:
+            description: |-
+              **string**
+              Predefined target. See [security groups rules](/docs/vpc/concepts/security-groups#security-groups-rules) for more information.
+              Includes only one of the fields `cidrBlocks`, `securityGroupId`, `predefinedTarget`.
+            type: string
+        required:
+          - direction
+        allOf:
+          - oneOf:
+              - required:
+                  - protocolName
+              - required:
+                  - protocolNumber
+          - oneOf:
+              - required:
+                  - cidrBlocks
+              - required:
+                  - securityGroupId
+              - required:
+                  - predefinedTarget
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/updateRules.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.UpdateRules {#UpdateRules}
+# Virtual Private Cloud API, REST: SecurityGroup.UpdateRules
 
 Updates the rules of the specified security group.
 
@@ -32,7 +188,7 @@ Required field. ID of the SecurityGroup that is being updated with new rules. ||
   "additionRuleSpecs": [
     {
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "direction": "string",
       "ports": {
         "fromPort": "string",
@@ -76,7 +232,7 @@ Security rules specifications. ||
 || description | **string**
 
 Description of the security rule. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Rule labels as `` key:value `` pairs. ||
 || direction | **enum** (Direction)
@@ -178,14 +334,14 @@ IPv6 CIDR blocks to allow traffic to. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "status": "string",
     "rules": [
       {
         "id": "string",
         "description": "string",
-        "labels": "string",
+        "labels": "object",
         "direction": "string",
         "ports": {
           "fromPort": "string",
@@ -339,7 +495,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the security group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.
@@ -377,7 +533,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)

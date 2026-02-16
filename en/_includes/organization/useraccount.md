@@ -1,56 +1,74 @@
-## Users with a Yandex account {#useraccount}
+## Yandex account users {#useraccount}
 
-If your employees have Yandex accounts (for example, `{{ login-example }}`), they can use them to access the {{ yandex-cloud }} services enabled in your organization.
+If your employees have Yandex accounts, e.g., `{{ login-example }}`, they can use them to access {{ yandex-cloud }} services enabled in your organization.
 
-You can invite a user to an organization via the management console or {{ org-full-name }}. An invitation to join your organization will be sent to the user's email address.
+You can invite a user to an organization via the management console or the {{ cloud-center }} interface. An invitation to join your organization will be sent to the user's email address.
+
+Users with any of the following [roles](../../organization/security/index.md) can invite new users with Yandex accounts to an organization and delete such invitations: `organization-manager.passportUserAdmin`, `organization-manager.admin`, or `organization-manager.organizations.owner`.
 
 ### Send an invitation {#send-invitation}
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} UI {#cloud-center}
 
-   1. [Log in]({{ link-passport-login }}) as the organization administrator or owner.
-   1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-   1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg).
-   1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
-   1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
-
-      {% include [send-invitation](send-invitation.md) %}
-
-   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+  {% include [add-yandex-user](./add-yandex-user.md) %}
 
 - Management console {#console}
 
-   1. [Log in]({{ link-passport-login }}) to the cloud administrator account.
-   1. Log in to the [management console]({{ link-console-main }}).
-   1. Select the appropriate cloud from the list on the left. For example:
+    1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator account.
 
-      ![image](../../_assets/resource-manager/switch-cloud-n-n.png)
+    1. In the top panel, click ![image](../../_assets/console-icons/chevron-down.svg) and select the cloud.
 
-   1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-   1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
-   1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+    1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 
-      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+    1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
 
-   1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+        You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+
+    1. Click **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 
-The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the [services](../../organization/concepts/manage-services.md#collaboration) enabled for the organization, the users you invited simply need to log in to their Yandex account.
+The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
 You can delete or resend your invitation only via {{ org-name }}.
 
 ### Delete the invitation {#delete-invitation}
 
-1. Under [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg), go to **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** → **{{ ui-key.yacloud_org.entity.invitation.label_option-actual }}**.
-1. Click ![icon-users](../../_assets/console-icons/ellipsis.svg) in the invitation line and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+
+  1. Select the **{{ ui-key.yacloud_org.users.title_invitations }}** tab in the center of the screen.
+
+  1. In the row with the invitation, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-delete }}**.
+
+  1. In the window that opens, confirm the deletion.
+
+{% endlist %}
 
 ### Resend your invitation {#resend-invitation}
 
-1. Under [{{ ui-key.yacloud_org.pages.users }}]({{ link-org-users }}) ![icon-users](../../_assets/console-icons/person.svg), go to **{{ ui-key.yacloud_org.page.users.label_tab-invitations }}** → **{{ ui-key.yacloud_org.entity.invitation.label_option-actual }}**.
-1. Click ![icon-users](../../_assets/console-icons/ellipsis.svg) in the invitation line and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
+
+  1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+
+  1. Select the **{{ ui-key.yacloud_org.users.title_invitations }}** tab in the center of the screen.
+
+  1. In the row with the invitation, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.invitation.label_row-action-resend }}**.
+
+  1. In the window that opens, confirm resending the invitation.
+
+{% endlist %}
 
 {% note info %}
 

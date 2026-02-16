@@ -8,6 +8,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластеров (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -17,7 +29,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
-    1. {% include [basic-before-buckets](../../_includes/data-proc/tutorials/basic-before-buckets.md) %}
+    1. {% include [basic-before-buckets](../../_includes/data-processing/tutorials/basic-before-buckets.md) %}
     1. [Создайте облачную сеть](../../vpc/operations/network-create.md) с именем `dataproc-network`.
     1. В сети `dataproc-network` [создайте подсеть](../../vpc/operations/subnet-create.md) в любой зоне доступности.
     1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для созданной подсети.
@@ -57,11 +69,13 @@
 
     1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
-        * С публичным доступом к хостам кластера.
         * С базой данных `db1`.
         * С пользователем `user1`.
+        * С публичным доступом к хостам кластера.
 
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
+    
     1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
@@ -91,7 +105,7 @@
         * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
         * `input_bucket` — имя бакета для входных данных.
         * `output_bucket` — имя бакета для выходных данных.
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. Подробнее см. в разделе [{#T}](../../data-proc/operations/connect.md#data-proc-ssh).
+        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
         * `ch_password` — пароль пользователя {{ CH }}.
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -165,7 +179,7 @@
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -196,7 +210,7 @@
 
 1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Выгрузите данные в {{ mch-name }} {#import-to-mch}
 
@@ -228,7 +242,7 @@
 
         # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
@@ -265,42 +279,29 @@
 
     Если выгрузка прошла успешно, ответ на запрос будет содержать таблицу с данными.
 
-{% include [get-logs-info](../../_includes/data-proc/note-info-get-logs.md) %}
+{% include [get-logs-info](../../_includes/data-processing/note-info-get-logs.md) %}
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs group=instructions %}
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-    1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-    1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
-    1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    1. [Подсеть](../../vpc/operations/subnet-delete.md).
-    1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
-    1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
-    1. [Облачную сеть](../../vpc/operations/network-delete.md).
-    1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
+    - Вручную {#manual}
 
-- {{ TF }} {#tf}
+        1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+        1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+        1. [Подсеть](../../vpc/operations/subnet-delete.md).
+        1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
+        1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
+        1. [Облачную сеть](../../vpc/operations/network-delete.md).
+        1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-proc-data-exchange-with-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-proc-data-exchange-with-mch.tf`, будут удалены.
-
-{% endlist %}
+    {% endlist %}

@@ -1,9 +1,10 @@
-# VM instance shuts down on the "instance guest stop processing" operation
+# VM instance shuts down with the `Instance guest stop processing` operation
+
 
 
 ## Issue description {#issue-description}
 
-You see an operation ran by the `yc.compute.tf-compute-node-sa` user in the list of VM instance operations, with the description: `Instance guest stop processing`.
+You see an operation ran by the `yc.compute.tf-compute-node-sa` user in the list of VM instance operations, described as `Instance guest stop processing`.
 
 ## Solution {#issue-resolution}
 

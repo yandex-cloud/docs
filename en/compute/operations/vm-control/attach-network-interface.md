@@ -1,53 +1,58 @@
+---
+title: Adding another network interface to a virtual machine
+description: Follow this guide to add another network interface to a VM.
+---
+
 # Adding another network interface to a virtual machine
 
 
-A virtual machine can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [{#T}](../../concepts/limits.md).
+A VM can have one or more [network interfaces](../../concepts/network.md). For more information on the maximum number of VM network interfaces, see [{#T}](../../concepts/limits.md).
 
 You can add network interfaces to either [running](#add-to-running) or [stopped](#add-to-stopped) VMs. To maintain [network connectivity](../../../vpc/concepts/routing.md#rt-vm), we recommend adding network interfaces to stopped VMs.
 
 ## Adding a network interface to a stopped VM {#add-to-stopped}
 
-To add another network interface to your virtual machine:
+To add another network interface to your VM:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command for adding a network interface to a virtual machine:
+  1. See the description of the CLI command for adding a network interface to a virtual machine:
 
       ```bash
       yc compute instance attach-network-interface --help
       ```
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
       Save the ID of the VM you want to add another network interface to.
 
-   1. Stop the selected VM by specifying its ID:
+  1. Stop the selected VM by specifying its ID:
 
       ```bash
       yc compute instance stop <VM_ID>
       ```
 
-   1. Get a list of all [subnets](../../../vpc/concepts/network.md#subnet) in the default folder:
+  1. Get a list of all [subnets](../../../vpc/concepts/network.md#subnet) in the default folder:
 
       {% include [add-network-interface-cli-list-subnets](../../../_includes/compute/add-network-interface-cli-list-subnets.md) %}
 
-      Save the ID of the subnet you want to attach to the VM's network interface being added. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the VM.
+      Save the ID of the subnet you want to link to the VM network interface being added. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the VM.
 
-   1. Get a list of all [security groups](../../../vpc/concepts/security-groups.md) in the default folder:
+  1. Get a list of all [security groups](../../../vpc/concepts/security-groups.md) in the default folder:
 
       {% include [add-network-interface-cli-list-sgs](../../../_includes/compute/add-network-interface-cli-list-sgs.md) %}
 
-      Save the IDs of the security groups you want to attach to the VM's network interface being added. The security groups must be in the same [cloud network](../../../vpc/concepts/network.md#network) as the subnet being attached.
+      Save the IDs of the security groups you want to link to the VM network interface being added. The security groups must be in the same [cloud network](../../../vpc/concepts/network.md#network) as the subnet being linked.
 
-   1. Get a list of used network interface numbers for the selected VM by specifying its ID:
+  1. Get a list of network interface numbers in use for the selected VM by specifying the VM ID:
 
       ```bash
       yc compute instance get <VM_ID>
@@ -77,9 +82,9 @@ To add another network interface to your virtual machine:
       ...
       ```
 
-      In the above example, network interfaces numbered `0` and `1` (the `index` field values) are already used.
+      In the above example, the network interfaces numbered `0` and `1` (the `index` field values) are already in use.
 
-   1. Add a new network interface to the selected VM:
+  1. Add a new network interface to the selected VM:
 
       {% include [add-network-interface-the-cli-command](../../../_includes/compute/add-network-interface-the-cli-command.md) %}
 
@@ -115,15 +120,50 @@ To add another network interface to your virtual machine:
       ...
       ```
 
-   1. To assign IP addresses to the new interface, start the VM by specifying its ID:
+  1. To assign IP addresses to the new interface, start the VM by specifying its ID:
 
       ```bash
       yc compute instance start <VM_ID>
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the configuration file, add the new `network_interface` section and `allow_stopping_for_update` parameter in the `yandex_compute_instance` resource description:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          index     = <interface_number>
+          subnet_id = "<subnet_ID>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Where:
+
+      * `index`: Network interface number. Specify any number between `0` and `15` except the ones already used. By default, the first network interface gets `0`.
+      * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create and update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
+
 - API {#api}
 
-   {% include [add-network-interface-api](../../../_includes/compute/add-network-interface-api.md) %}
+  {% include [add-network-interface-api](../../../_includes/compute/add-network-interface-api.md) %}
 
 {% endlist %}
 
@@ -138,41 +178,41 @@ Now your VM features a new network interface. [Make sure](#test) it works.
 
 {% endnote %}
 
-To add another network interface to your virtual machine:
+To add another network interface to your VM:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   1. View the description of the CLI command for adding a network interface to a virtual machine:
+  1. See the description of the CLI command for adding a network interface to a virtual machine:
 
       ```bash
       yc compute instance attach-network-interface --help
       ```
 
-   1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get a list of VMs in the default [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
 
       Save the ID of the VM you want to add another network interface to.
 
-   1. Get a list of all [subnets](../../../vpc/concepts/network.md#subnet) in the default folder:
+  1. Get a list of all [subnets](../../../vpc/concepts/network.md#subnet) in the default folder:
 
       {% include [add-network-interface-cli-list-subnets](../../../_includes/compute/add-network-interface-cli-list-subnets.md) %}
 
-      Save the ID of the subnet you want to attach to the VM's network interface being added. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the VM.
+      Save the ID of the subnet you want to link to the VM network interface being added. The subnet must be in the same [availability zone](../../../overview/concepts/geo-scope.md) as the VM.
 
-   1. Get a list of all [security groups](../../../vpc/concepts/security-groups.md) in the default folder:
+  1. Get a list of all [security groups](../../../vpc/concepts/security-groups.md) in the default folder:
 
       {% include [add-network-interface-cli-list-sgs](../../../_includes/compute/add-network-interface-cli-list-sgs.md) %}
 
-      Save the IDs of the security groups you want to attach to the VM's network interface being added. The security groups must be in the same [cloud network](../../../vpc/concepts/network.md#network) as the subnet being attached.
+      Save the IDs of the security groups you want to link to the VM network interface being added. The security groups must be in the same [cloud network](../../../vpc/concepts/network.md#network) as the subnet being linked.
 
-   1. Get a list of used network interface numbers for the selected VM by specifying its ID:
+  1. Get a list of network interface numbers in use for the selected VM by specifying the VM ID:
 
       ```bash
       yc compute instance get <VM_ID>
@@ -204,9 +244,9 @@ To add another network interface to your virtual machine:
       ...
       ```
 
-      In the above example, network interfaces numbered `0` and `1` (the `index` field values) are already used.
+      In the above example, the network interfaces numbered `0` and `1` (the `index` field values) are already in use.
 
-   1. Add a new network interface to the selected VM:
+  1. Add a new network interface to the selected VM:
 
       {% include [add-network-interface-the-cli-command](../../../_includes/compute/add-network-interface-the-cli-command.md) %}
 
@@ -246,7 +286,7 @@ To add another network interface to your virtual machine:
 
 - API {#api}
 
-   {% include [add-network-interface-api](../../../_includes/compute/add-network-interface-api.md) %}
+  {% include [add-network-interface-api](../../../_includes/compute/add-network-interface-api.md) %}
 
 {% endlist %}
 
@@ -256,8 +296,8 @@ Now your VM features a new network interface. The new interface is currently ina
 
 - Linux {#linux}
 
-   1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
-   1. Run this command to get information about the state of VM's network interfaces:
+  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
+  1. Run this command to get information about the state of VM network interfaces:
 
       ```bash
       ip a
@@ -279,22 +319,22 @@ Now your VM features a new network interface. The new interface is currently ina
           altname ens10
       ```
 
-      `state DOWN` for the `eth2` interface means that it is inactive.
+      `state DOWN` for the `eth2` interface indicates that it is inactive.
 
 - Windows {#windows}
 
-   1. [Connect](../vm-connect/rdp.md) to the VM via RDP.
-   1. To start **Device Manager**, run this command in PowerShell:
+  1. [Connect](../vm-connect/rdp.md) to the VM via RDP.
+  1. To start **Device Manager**, run this command in PowerShell:
 
       ```powershell
       devmgmt.msc
       ```
 
-   1. In the **Device Manager** window that opens, expand **Network adapters**. The newly added network interface has an exclamation mark next to it and is inactive.
+  1. In the **Device Manager** window that opens, expand **Network adapters**. The newly added network interface has an exclamation mark next to it and is inactive.
 
 {% endlist %}
 
-To make it active, [restart](./vm-stop-and-start.md#restart) the VM. For Windows OS, restarting the VM is the only way to activate the interface.
+To make it active, [restart](./vm-stop-and-start.md#restart) the VM. The only way to activate a network interface in a Windows VM is to restart that VM.
 
 If your VM is running Linux and you cannot restart it, you can activate the network interface without restarting the VM. To avoid network connectivity loss, configure settings from the [serial console](../serial-console/index.md):
 
@@ -302,13 +342,13 @@ If your VM is running Linux and you cannot restart it, you can activate the netw
 
 - Linux {#linux}
 
-   1. [Enable](../serial-console/index.md#turn-on-for-current-instance) access to the serial console on your VM.
+  1. [Enable](../serial-console/index.md#turn-on-for-current-instance) access to the serial console on your VM.
 
       When creating a user for authenticating on the VM through the serial console, add this user to the `sudo` group using the `sudo usermod -a -G sudo <username>` command.
 
-   1. Connect to the VM's serial console [via the CLI](../serial-console/connect-cli.md#connect-to-serial-console) or [SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
+  1. Connect to the VM serial console [using the CLI](../serial-console/connect-cli.md#connect-to-serial-console) or [over SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
 
-   1. Activate the network interface you have added:
+  1. Activate the network interface you added:
 
       ```bash
       sudo ip link set <interface_name> up
@@ -316,35 +356,35 @@ If your VM is running Linux and you cannot restart it, you can activate the netw
 
       Where `<interface_name>` is the name of the inactive interface in Linux, e.g., `eth2`. You can view the names of network interfaces in the Linux terminal using the `ip a` command.
 
-   1. Get DHCP settings for the new interface:
+  1. Get DHCP settings for the new interface:
 
       ```bash
       sudo dhclient <interface_name>
       ```
 
-   1. Delete the default route for the new network interface from the [VM's route table](../../../vpc/concepts/routing.md#rt-vm):
+  1. Delete the default route for the new network interface from the [VM route table](../../../vpc/concepts/routing.md#rt-vm):
 
       ```bash
       sudo ip route del default dev <interface_name>
       ```
 
-   1. [Disable](../serial-console/disable.md) access to the VM's serial console if you no longer need it.
+  1. [Disable](../serial-console/disable.md) access to the VM serial console if you no longer need it.
 
 {% endlist %}
 
-Now the attached network interface is active.
+Now the network interface you added is active.
 
 
 ## Make sure the new network interface works properly {#test}
 
-To check the performance of the attached network interface:
+To test the new network interface:
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-   1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
-   1. Run this command to get information about the state of VM's network interfaces:
+  1. [Connect](../vm-connect/ssh.md#vm-connect) to the VM over SSH.
+  1. Run this command to get information about the state of VM network interfaces:
 
       ```bash
       ip a
@@ -385,9 +425,9 @@ To check the performance of the attached network interface:
              valid_lft forever preferred_lft forever
       ```
 
-      `state UP` for the `eth0`, `eth1`, and `eth2` interfaces means that they are running and active.
+      `state UP` for the `eth0`, `eth1`, and `eth2` interfaces indicates that they are running and active.
 
-   1. To view the [VM's route table](../../../vpc/concepts/routing.md#rt-vm), run this command:
+  1. To view the [VM route table](../../../vpc/concepts/routing.md#rt-vm), run this command:
 
       ```bash
       ip r
@@ -421,8 +461,8 @@ To check the performance of the attached network interface:
 
 - Windows {#windows}
 
-   1. [Connect](../vm-connect/rdp.md) to the VM via RDP.
-   1. To get information about the state of the VM's network interfaces, run this command in PowerShell:
+  1. [Connect](../vm-connect/rdp.md) to the VM over RDP.
+  1. To get information about the state of the VM network interfaces, run this command in PowerShell:
 
       ```powershell
       ipconfig /all

@@ -8,7 +8,7 @@
 
 ## Роли, необходимые для корректной работы триггера для бюджетов {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/concepts/access-control/roles.md#sa-user), [{{ roles-editor }}](../../../iam/concepts/access-control/roles.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `{{ roles-functions-invoker }}` на функцию, которую вызывает триггер.
 
 ## Формат сообщения от триггера для бюджетов {#format}
@@ -17,8 +17,11 @@
 
 {% include [budget-format](../../../_includes/functions/budget-format.md) %}
 
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../../../serverless-containers/concepts/trigger/budget-trigger.md)
 * [{#T}](../../../api-gateway/concepts/trigger/budget-trigger.md)
-* [{#T}](../../tutorials/serverless-trigger-budget-vm.md)

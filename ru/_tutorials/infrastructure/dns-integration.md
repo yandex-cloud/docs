@@ -34,7 +34,7 @@
 
 1. Облачная сеть {{ yandex-cloud }} также состоит из двух подсетей:
 
-   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+   * `172.16.3.0/24`: subnet3, [зона доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
    * `172.16.4.0/24`: subnet4, зона доступности `{{ region-id }}-b`.
 
     В этих подсетях размещены DNS-серверы {{ yandex-cloud }}: `172.16.3.2` и `172.16.4.2`.
@@ -330,7 +330,7 @@ sudo netplan apply
 Чтобы перестать платить за ресурсы:
 
 * [удалите ВМ](../../compute/operations/vm-control/vm-delete);
-* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete), если вы зарезервировали их специально для своих ВМ;
+* [удалите статические публичные IP-адреса](../../vpc/operations/address-delete.md), если вы зарезервировали их специально для своих ВМ;
 * [удалите целевые группы](../../network-load-balancer/operations/target-group-delete.md);
 * [удалите обработчики](../../network-load-balancer/operations/listener-remove.md);
 * [удалите сетевой балансировщик](../../network-load-balancer/operations/load-balancer-delete.md);

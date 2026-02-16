@@ -1,5 +1,5 @@
 {% note info %}
 
-You can see the list of services available in the [Kazakhstan region](../overview/concepts/region.md) on the [{#T}](../overview/concepts/services.md) page.
+For a list of services available in the [Kazakhstan region](../overview/concepts/region.md), see [{#T}](../overview/concepts/services.md).
 
 {% endnote %}

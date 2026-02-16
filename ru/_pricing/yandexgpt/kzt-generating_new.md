@@ -1,10 +1,13 @@
-| Параметры модели    |  Количество юнитов</br>в 1 токене  | Цена за 1000 токенов, </br>вкл. НДС |
-|-----------------------------------------------------------|:------------:|-----------------------------------------|
-| {{ gpt-lite }}, синхронный режим  | 1        | 1,00 ₸                                  |
-| {{ gpt-lite }}, асинхронный режим | 0,5      | 0,50 ₸                                  |
-| {{ gpt-pro }}, синхронный режим       | 6        | 6,00 ₸                                 |
-| {{ gpt-pro }}, асинхронный режим      | 3        | 3,00 ₸                                 |
-| Краткий пересказ, синхронный режим    | 1        | 1,00 ₸                                  |
-| Краткий пересказ, асинхронный режим | 0,5        | 0,50 ₸                                  |
-| Модель, дообученная в {{ ml-platform-name }}, синхронный режим  | 6 | 6,00 ₸                                 |
-| Модель, дообученная в {{ ml-platform-name }}, асинхронный режим | 3 | 3,00 ₸                                 |
+#|
+|| **Модель** | **Цена за 1000 входящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в синхронном режиме,</br>вкл. НДС** | **Цена за 1000 входящих токенов в асинхронном режиме,</br>вкл. НДС** | **Цена за 1000 исходящих токенов в асинхронном режиме,</br>вкл. НДС** ||
+|| Alice AI LLM | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((10 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((1,25 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ||
+|| {{ gpt-pro }} 5.1 | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 × 2 + 0,04 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 × 2 + 0,04 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 + 0,02 %} | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 + 0,02 %} ||
+|| {{ gpt-pro }} 5 или младше | {% calc [currency=KZT] round((6 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((6 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((3 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((3 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ||
+|| {{ gpt-lite }} | {{ sku|KZT|foundation_models.text_generation.v1|string }} | {{ sku|KZT|foundation_models.text_generation.v1|string }} | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ||
+|| Qwen3 235B | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ^1^ | {% calc [currency=KZT] round((2,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} ^1^ | — | — ||
+|| gpt-oss-120b | {% calc [currency=KZT] round((1,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((1,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | — | — || 
+|| gpt-oss-20b | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | {% calc [currency=KZT] round((0,5 × {{ sku|KZT|foundation_models.text_generation_alt.v1|number }}) × 100) / 100 %} | — | — || 
+|| Gemma3 27B | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^1^ | {% calc [currency=KZT] round((2 × {{ sku|KZT|foundation_models.text_generation.v1|number }}) × 100) / 100 %} ^1^ | — | — ||
+|#
+
+^1^ Цена указана с учетом действующей скидки 50%.

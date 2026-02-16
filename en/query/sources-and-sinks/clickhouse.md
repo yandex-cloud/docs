@@ -22,7 +22,7 @@ Where:
 To create a connection to {{ mch-name }}:
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Specify the connection parameters:
@@ -33,9 +33,9 @@ To create a connection to {{ mch-name }}:
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_clickhouse }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}` role](../../managed-clickhouse/security.md#managed-clickhouse-viewer), and use it to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role to connect to `{{ mch-name }}` clusters.
 
-         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
+        {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
       * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
@@ -48,7 +48,7 @@ You need a service account to detect {{ mch-name }} cluster connection points 
 
 {% note warning %}
 
-But first allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
+First, allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
 
 {% endnote %}
 
@@ -66,16 +66,35 @@ Where:
 
 ## Limitations {#limits}
 
-There are several restrictions when working with {{ CH }} clusters.
+Some limitations apply when working with {{ CH }} clusters.
 
-Limitations:
+The following restrictions apply:
 1. {% include [!](_includes/supported_requests.md) %}
-1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) often turn out to be insufficiently wide to cover the values of the relevant {{ CH }} types (`Date`, `Date32`, `Datetime`, and `Datetime64`).
-Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} as plain strings (the `Utf8` type for regular columns or the `Optional<Utf8>` type for [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) are often not wide enough to cover the values of the relevant {{ CH }} types (`Date`, `Date32`, `Datetime`, and `Datetime64`).
+Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} as plain strings (type `Utf8` for regular columns or `Optional<Utf8>` for [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Supported data types for filter pushdown:
+
+|Data type {{ yq-full-name }}|
+|----|
+|`Bool`|
+|`Int8`|
+|`Uint8`|
+|`Int16`|
+|`Uint16`|
+|`Int32`|
+|`Uint32`|
+|`Int64`|
+|`Uint64`|
+|`Float`|
+|`Double`|
+|`String`|
 
 ## Supported data types {#supported_types}
 
@@ -100,7 +119,7 @@ The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other d
 | `Float64` | `Double` | |
 | `Date` | `Utf8` | |
 | `Date32` | `Utf8` | |
-| `Datetime` | `Utf8` | |
+| `DateTime` | `Utf8` | |
 | `DateTime64` | `Utf8` | |
 | `String` | `String` | |
 | `FixedString` | `String` | Null `FixedString` bytes are transferred to `String` without changes. |

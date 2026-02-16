@@ -1,0 +1,60 @@
+title: Yandex Cloud Registry
+description:
+  - >-
+    Yandex Cloud Registry is a service for safe storage of software <a
+    href="/docs/cloud-registry/concepts/artifacts">artifacts</a> used in app
+    development and deployment. Store, manage, and protect your artifacts.
+    Artifacts are software packages and other files used in app development and
+    deployment.
+  - >-
+    <ul><li>Create a secure storage for your artifacts in just a few minutes.
+    Manage access and operations via roles and permissions provided with <a
+    href="/docs/iam/security">Identity and Access Management<a/>.</li>
+    <li>Stored encrypted, all your artifacts will be securely protected from
+    unauthorized access and threats.</li> <li>You can scale Cloud Registry to
+    your tasks at hand without connecting new hardware or suffering any
+    performance loss.</li> <li>With Cloud Registry, you can create a registry to
+    store your artifacts in and manage it either via the API or Yandex Cloud
+    management console.</li> <li>We take full care of your registry
+    infrastructure and guarantee its security according to industry best
+    practices. You only pay for the actual space used to store your
+    artifacts.</li></ul>
+  - >-
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on Personal Data and complies
+    with international (ISO, GDPR, PCI DSS) and Russian (GOST R 57580) national
+    standards.
+links:
+  - title: Getting started
+    description: Create your first artifact registry
+    href: quickstart/docker
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Tutorials
+    description: Use ready-made scenarios for working with artifacts
+    href: tutorials/docker-cloud-registry
+  - title: Concepts
+    description: Learn more about the service's concepts and resources
+    href: concepts/
+  - title: Access management
+    description: Configure access permissions to use this service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
+meta:
+  title: Yandex Cloud Registry
+  description: >-
+    Yandex Cloud Registry is a service to store and manage your development
+    artifacts.
+  keywords:
+    - '{{ cloud-registry-name }}'
+    - '{{ cloud-registry-full-name }}'
+    - '{{ cloud-registry-name }}'
+    - registries in {{ yandex-cloud }}
+    - artifacts in {{ yandex-cloud }}
+    - application registry
+    - cloud registry
+    - development artifacts

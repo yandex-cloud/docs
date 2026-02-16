@@ -10,11 +10,25 @@ items:
       - name: Creating a connection
         href: operations/create-connection.md
       - name: Connection management
-        href: operations/connect.md
-      - name: Viewing information about database objects
-        href: operations/view-db-objects-info.md
+        items:
+          - name: All guides
+            href: operations/connect.md
+          - name: Viewing information about resources
+            href: operations/view-resources-info.md
+          - name: Viewing information about database objects
+            href: operations/view-db-objects-info.md
+          - name: Changing connection settings
+            href: operations/change-connection-settings.md
+          - name: Updating a connection
+            href: operations/update-connection.md
+          - name: Adding a connection to a DB in a cluster
+            href: operations/add-connection-to-db-in-cluster.md
+          - name: Deleting a connection
+            href: operations/delete-connection.md
       - name: Working with the query editor
         href: operations/query-executor.md
+      - name: Analytics and optimization with AI assistant
+        href: operations/ai-assistant.md
       - name: Working with saved queries
         href: operations/templates.md
       - name: Working with query history
@@ -25,15 +39,13 @@ items:
         href: concepts/index.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Pricing policy
-    href: pricing.md
   - name: Access management
     href: security/index.md
+  - name: Pricing policy
+    href: pricing.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     items:
       - name: All release notes
         href: release-notes/index.md
-base: en/websql
-deepBase: 2

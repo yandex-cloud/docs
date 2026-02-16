@@ -1,13 +1,13 @@
 ---
-title: Как создать подключение к {{ CH }}
-description: Следуя данной инструкции, вы сможете создать подключение к {{ CH }}.
+title: Как создать подключение к {{ CH }} в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к {{ CH }} в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к {{ CH }}
+# Создание подключения к {{ CH }} в {{ datalens-full-name }}
 
 {% note info %}
 
-Все запросы к данным выполняются с включенным флагом [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [{#T}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
+Все запросы к данным выполняются с включенным флагом [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls). Ознакомьтесь с разделом [Особенности работы с подключением к {{ CH }}](#ch-connection-specify), если вы используете представления (VIEW) или подзапросы с секцией JOIN в {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -46,7 +46,8 @@ description: Следуя данной инструкции, вы сможете
 
      * **Пароль**. Укажите пароль для пользователя.
      * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
-     * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../dataset/settings.md#sql-request-in-datatset).
+
+     {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
        Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -55,6 +56,8 @@ description: Следуя данной инструкции, вы сможете
      {% include [datalens-db-specify-mannualy](../../../_includes/datalens/datalens-db-specify-mannualy.md) %}
 
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
+     
+     ![image](../../../_assets/datalens/operations/connection/connection-clickhouse.png)
 
      Чтобы проверить корректность введенных параметров, нажмите кнопку **Проверить подключение**.
 
@@ -70,7 +73,8 @@ description: Следуя данной инструкции, вы сможете
      * **Порт**. Заполняется автоматически в зависимости от выбранного хоста.
      * **Имя пользователя**. Заполняется автоматически из данных выбранного подключения.
      * **Время жизни кеша в секундах**. Укажите время жизни кеша или оставьте значение по умолчанию. Рекомендованное значение — 300 секунд (5 минут).
-     * **Уровень доступа SQL запросов**. Позволяет использовать произвольный SQL-запрос для [формирования датасета](../../dataset/settings.md#sql-request-in-datatset).
+     
+     {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 
    {% endlist %}
 
@@ -95,6 +99,12 @@ description: Следуя данной инструкции, вы сможете
 
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
 
+* **Readonly** — выберите разрешение для запросов на чтение данных, запись данных и изменение параметров. Значение этой настройки не должно превышать значение соответствующей настройки для пользователя в {{ CH }}:
+
+  * `0` — разрешены все запросы.
+  * `1` — разрешены только запросы на чтение данных.
+  * `2` — разрешены запросы на чтение данных и изменение настроек.
+
 ## Особенности работы с подключением к {{ CH }} {#ch-connection-specify}
 
 Вы можете создавать датасеты поверх представлений (`VIEW`) в {{ CH }}, содержащих секцию `JOIN`. Для этого представление должно быть создано с включенной опцией `join_use_nulls`. Рекомендуется выставлять настройку `join_use_nulls = 1` в секции `SETTINGS`:
@@ -115,3 +125,11 @@ CREATE VIEW ... (
 Чтобы избежать ошибок при работе с представлениями в {{ datalens-short-name }}, содержащими секцию JOIN, создайте заново все представления с настройкой `join_use_nulls = 1`. Пустые ячейки при этом заполнятся значениями `NULL`, а тип соответствующих полей преобразуется в [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/bigquery-to-clickhouse.md)
+* [{#T}](../../tutorials/data-from-ch-visualization.md)
+* [{#T}](../../tutorials/data-from-ch-geocoder.md)
+* [{#T}](../../tutorials/data-from-ch-to-sql-chart.md)

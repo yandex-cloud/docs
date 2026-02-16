@@ -1,6 +1,6 @@
 ---
 title: '{{ datalens-full-name }} use cases'
-description: This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, analyzing public data on road accidents in Russia.
+description: This section describes use cases for {{ datalens-full-name }}. Visualizing data from a CSV file, creating and publishing a chart with a map of Moscow from a CSV file, analyzing a retail chain's sales performance based on a {{ CH }} DB, analyzing public data on road accidents in Russia
 ---
 
 # {{ datalens-name }} tutorials
@@ -29,15 +29,19 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [AppMetrica: data export, post-processing, and visualization](data-from-appmetrica-yc-visualization.md)
   * [Bitrix24: direct connection](data-from-bitrix24-visualization.md)
   * [{{ tracker-full-name }}: data export and visualization](data-from-tracker.md)
+  * [Analyzing {{ objstorage-name }} logs](storage-logs-analysis.md)
   * [Yandex Music podcasts: Statistics](data-from-podcasts.md)
   * [Visualizing {{ yq-full-name }} data](data-from-yandex-query-visualization.md)
   * [Visualizing {{ monitoring-full-name }} data](data-from-monitoring-visualization.md)
   * [Visualizing {{ ytsaurus-name }} CHYT data](data-from-ch-over-yt.md)
   * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](events-from-postbox-to-yds.md)
+  * [{#T}](forms-and-datalens-integration/index.md)
+  * [{#T}](bigquery-to-clickhouse.md)
 
 * Functional
 
-  * [Using parameters](data-from-ch-with-parameters.md)
+  * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
+  * [Source parameterization](data-from-ch-dataset-parametrization.md)
   * [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
 
 

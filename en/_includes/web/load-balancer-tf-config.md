@@ -1,4 +1,3 @@
-
 ```hcl
 terraform {
   required_providers {
@@ -56,7 +55,7 @@ resource "yandex_compute_instance_group" "ig-1" {
     }
 
     metadata = {
-      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("<path_to_public_SSH_key>")}"
+      user-data = "#cloud-config\nusers:\n  - name: <username>\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("<path_to_public_SSH_key>")}"
     }
   }
 
@@ -117,5 +116,3 @@ resource "yandex_vpc_subnet" "subnet-2" {
   v4_cidr_blocks = ["192.168.2.0/24"]
 }
 ```
-
-

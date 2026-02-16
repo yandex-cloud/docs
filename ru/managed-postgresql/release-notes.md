@@ -3,7 +3,69 @@ title: История изменений в {{ mpg-full-name }}
 description: В разделе представлена история изменений сервиса {{ mpg-name }}.
 ---
 
+<!-- Changelog begin -->
+
+
+
+
+<!-- Changelog end -->
+
 # История изменений в {{ mpg-full-name }}
+
+## Декабрь 2025 {#dec-2025}
+
+* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
+* Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
+* Для {{ PG }} 18 доступны все [расширения](./operations/extensions/cluster-extensions.md), которые поддерживаются в {{ PG }} 17.
+* Реализована авторизация через {{ iam-short-name }} при [создании пользователя](./operations/cluster-users.md#adduser) {{ PG }}.
+* Добавлено [управление сбором статистики](./operations/performance-diagnostics.md) о производительности кластера. Теперь можно отключить построение плана запроса через UI или API, установив параметр `pg_stat_query_plans.track = none`.
+
+
+
+## Ноябрь 2025 {#nov-2025}
+
+* Добавлена роль `managed-postgresql.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-postgresql-restorer).
+* [Прекращена](https://www.postgresql.org/about/news/postgresql-181-177-1611-1515-1420-and-1323-released-3171/) поддержка {{ PG }} версии 13.
+
+## Октябрь 2025 {#oct-2025}
+
+* Убрана возможность отключить настройку автоматического переключения мастера. Теперь эта опция включена для всех кластеров {{ mpg-name }}.
+* Добавлены новые [классы хостов](concepts/instance-types.md) на платформах AMD Zen 4 и AMD Zen 4 HighFreq.
+
+## Июль 2025 {#jul-2025}
+
+Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии {{ PG }} 17 стандартными средствами без использования сервиса {{ data-transfer-full-name }}.
+
+
+## Май 2025 {#may-2025}
+
+Добавлена возможность [шифрования дисков хранилища](concepts/storage.md#disk-encryption) пользовательским ключом KMS при создании кластера и восстановлении его из резервной копии.
+
+
+## Апрель 2025 {#apr-2025}
+
+Добавлена [интеграция с {{ connection-manager-name }}](operations/update.md#conn-man). Подключение в {{ connection-manager-name }} теперь автоматически создается для всех новых кластеров.
+
+## Март 2025 {#mar-2025}
+
+* Добавлена возможность использовать [политики резервного копирования](operations/backup-retention-policies.md).
+* В консоли управления добавлен раздел [{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}](operations/cluster-maintenance.md).
+
+## Февраль 2025 {#feb-2025}
+
+Добавлена возможность [обновления кластера](operations/cluster-version-update.md) до версии {{ PG }} 16 стандартными средствами без использования сервиса {{ data-transfer-full-name }}.
+
+## Январь 2025 {#jan-2025}
+
+Расширение [logerrors](https://github.com/munakoiso/logerrors) стало системным и по умолчанию включено в новых кластерах.
+
+## Ноябрь 2024 {#nov-2024}
+
+[Прекращена](https://www.postgresql.org/about/news/postgresql-164-158-1413-1316-1220-and-17-beta-3-released-2910/) поддержка {{ PG }} версии 12.
+
+## Октябрь 2024 {#oct-2024}
+
+* Добавлена возможность [задавать срок хранения автоматических резервных копий](operations/cluster-backups.md#set-backup-retain).
 
 ## Сентябрь 2024 {#sep-2024}
 

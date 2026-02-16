@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
+    method: get
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the Subnet resource to return.
+            To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/Subnet/list#List) request.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/get.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Get {#Get}
+# Virtual Private Cloud API, REST: Subnet.Get
 
 Returns the specified Subnet resource.
 
@@ -36,7 +54,7 @@ To get the subnet ID use a [SubnetService.List](/docs/vpc/api-ref/Subnet/list#Li
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "zoneId": "string",
   "v4CidrBlocks": [
@@ -86,7 +104,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

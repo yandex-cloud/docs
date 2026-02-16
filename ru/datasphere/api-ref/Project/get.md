@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
+    method: get
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the Project resource to return.
+            To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/get.md
 ---
 
-# DataSphere API v2, REST: Project.Get {#Get}
+# DataSphere API v2, REST: Project.Get
 
 Returns the specified project.
 
@@ -20,7 +38,7 @@ GET https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
 || projectId | **string**
 
 Required field. ID of the Project resource to return.
-To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Project/list#List) request. ||
+To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/Project/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.datasphere.v2.Project}
@@ -33,7 +51,7 @@ To get the project ID use a [ProjectService.List](/docs/datasphere/api-ref/v2/Pr
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "createdById": "string",
   "settings": {
     "serviceAccountId": "string",
@@ -78,7 +96,7 @@ Name of the project. 1-63 characters long. ||
 || description | **string**
 
 Description of the project. 0-256 characters long. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || createdById | **string** ||
 || settings | **[Settings](#yandex.cloud.datasphere.v2.Project.Settings)**
 

@@ -2,6 +2,8 @@
 
 Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
 
+Чтобы создать сервисный аккаунт, у вас должна быть [роль](../../../iam/security/#iam-serviceAccounts-admin) `{{ roles-iam-sa-admin }}` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+
 {% note info %}
 
 Сервисный аккаунт создается внутри [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder). После создания сервисного аккаунта сменить каталог нельзя.
@@ -137,6 +139,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](assign-role-for-sa.md).
-* [{#T}](set-access-bindings.md).
-* [{#T}](../../concepts/users/service-accounts.md#sa-key).
+* [{#T}](list-get.md)
+* [{#T}](assign-role-for-sa.md)
+* [{#T}](set-access-bindings.md)
+* [{#T}](../../concepts/users/service-accounts.md#sa-key)

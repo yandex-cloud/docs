@@ -18,5 +18,5 @@
    ```
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `{{ roles-editor }}` на выбранный каталог.
-1. [Создайте API-ключ](../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. [Создайте API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
 1. Сообщите идентификатор созданного реестра команде {{ speechkit-name }}. В вашем реестре появятся все необходимые контейнеры, и вам предоставят файл `docker-compose.yaml` с настройками развертывания.

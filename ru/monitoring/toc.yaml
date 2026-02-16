@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Работа с метриками
         items:
+          - name: Обзор метрик
+            href: operations/metric/metric-explorer.md
           - name: Поставка системных метрик Linux
             href: operations/unified-agent/linux_metrics.md
           - name: Поставка метрик пользовательских приложений
@@ -27,7 +29,7 @@ items:
             href: operations/metric/prometheusExport.md
       - name: Работа с дашбордами
         items:
-          - name: Создание дашборда
+          - name: Создание и управление дашбордом
             href: operations/dashboard/create.md
           - name: Копирование дашборда
             href: operations/dashboard/copy.md
@@ -35,6 +37,8 @@ items:
             href: operations/dashboard/add-widget.md
           - name: Добавление параметра дашборда
             href: operations/dashboard/add-parameters.md
+          - name: Управление виджетами
+            href: operations/dashboard/widget-management.md
           - name: Удаление виджета с дашборда
             href: operations/dashboard/delete-widget.md
           - name: Удаление дашборда
@@ -45,16 +49,24 @@ items:
         items:
           - name: Создание алерта
             href: operations/alert/create-alert.md
-          - name: Создание канала уведомлений
+          - name: Создание канала уведомлений с получателем
             href: operations/alert/create-channel.md
+          - name: Создание канала уведомлений с вызовом функции
+            href: operations/alert/create-channel-function.md
+          - name: Создание webhook с вызовом внешнего API
+            href: operations/alert/alert-call-function.md
+          - name: Создание политики эскалаций
+            href: operations/alert/create-escalation.md
           - name: Удаление алерта
             href: operations/alert/delete-alert.md
   - name: Агент сбора метрик
     items:
       - name: Обзор
         href: concepts/data-collection/unified-agent/index.md
-      - name: Установка и запуск
+      - name: Установка и обновление
         href: concepts/data-collection/unified-agent/installation.md
+      - name: Запуск и остановка
+        href: concepts/data-collection/unified-agent/run-and-stop.md
       - name: Конфигурирование
         items:
           - name: Обзор
@@ -73,6 +85,8 @@ items:
             href: concepts/data-collection/unified-agent/services.md
       - name: Рекомендации по использованию агента
         href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Возможные ошибки
+        href: concepts/data-collection/unified-agent/errors.md
       - name: Удаление
         href: concepts/data-collection/unified-agent/delete.md
   - name: Концепции
@@ -85,6 +99,8 @@ items:
         items:
           - name: Обзор
             href: concepts/visualization/index.md
+          - name: Обзор метрик
+            href: concepts/visualization/metric-explorer.md
           - name: Строка запроса
             href: concepts/visualization/query-string.md
           - name: Виджеты
@@ -103,6 +119,8 @@ items:
             href: concepts/alerting/annotation.md
           - name: Канал уведомлений
             href: concepts/alerting/notification-channel.md
+          - name: Эскалации
+            href: concepts/alerting/escalations.md
       - name: Прореживание данных
         href: concepts/decimation.md
       - name: Удаление устаревших метрик (TTL)
@@ -111,10 +129,18 @@ items:
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Автомасштабирование группы ВМ для обработки сообщений из очереди
         href: tutorials/autoscale-monitoring.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
         href: tutorials/monitoring.md
+      - name: Настройка дашбордов и алертов для {{ at-name }}
+        href: tutorials/alerts-monitoring.md
+      - name: Поиск проблем с производительностью кластера {{ mpg-name }}
+        href: tutorials/mpg-performance-problems.md
+      - name: Сбор метрик кластера «1С:Предприятие» на базе Linux
+        href: tutorials/collect-metrics-1c-cluster.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Обзор
@@ -123,14 +149,20 @@ items:
         items:
           - name: Обзор
             href: operations/prometheus/ingestion/index.md
+          - name: Агент сбора метрик
+            href: operations/prometheus/ingestion/prometheus-agent.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
+          - name: Диагностика и устранение проблем
+            href: operations/prometheus/ingestion/troubleshooting.md
       - name: Чтение метрик
         items:
           - name: Обзор
             href: operations/prometheus/querying/index.md
           - name: Remote Read
             href: operations/prometheus/querying/remote-read.md
+          - name: Визуализация
+            href: operations/prometheus/querying/monitoring.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md
       - name: Правила записи
@@ -141,16 +173,6 @@ items:
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Управление доступом
     href: security/index.md
-  - name: Правила тарификации
-    items:
-      - name: Действующие правила
-        href: pricing.md
-      - name: Архив
-        items:
-          - name: Правила до 1 октября 2020 года
-            href: pricing-archive/pricing-01102020.md
-  - name: Справочник {{ TF }}
-    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -197,6 +219,8 @@ items:
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'
         href: metrics-ref/at-ref.md
+      - name: '{{ baremetal-name }}'
+        href: metrics-ref/baremetal-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ backup-name }}'
@@ -207,12 +231,14 @@ items:
         href: metrics-ref/functions-ref.md
       - name: '{{ cloud-logging-name }}'
         href: metrics-ref/logging-ref.md
+      - name: '{{ cns-name }}'
+        href: metrics-ref/cns-ref.md
       - name: '{{ compute-name }}'
         href: metrics-ref/compute-ref.md
       - name: '{{ container-registry-name }}'
         href: metrics-ref/container-registry-ref.md
       - name: '{{ dataproc-name }}'
-        href: metrics-ref/data-proc-ref.md
+        href: metrics-ref/data-processing-ref.md
       - name: '{{ data-transfer-name }}'
         href: metrics-ref/data-transfer-ref.md
       - name: '{{ dns-name }}'
@@ -229,10 +255,14 @@ items:
         href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
+      - name: '{{ msp-name }}'
+        href: metrics-ref/managed-spark-ref.md
       - name: '{{ mch-name }}'
         href: metrics-ref/managed-clickhouse-ref.md
       - name: '{{ mgp-name }}'
         href: metrics-ref/managed-greenplum-ref.md
+      - name: '{{ mgl-name }}'
+        href: metrics-ref/managed-gitlab-ref.md
       - name: '{{ managed-k8s-name }}'
         href: metrics-ref/managed-kubernetes-ref.md
       - name: '{{ mmg-name }}'
@@ -243,26 +273,30 @@ items:
         href: metrics-ref/managed-opensearch-ref.md
       - name: '{{ mpg-name }}'
         href: metrics-ref/managed-postgresql-ref.md
+      - name: '{{ mtr-name }}'
+        href: metrics-ref/managed-trino-ref.md
       - name: '{{ mrd-name }}'
-        href: metrics-ref/managed-redis-ref.md
+        href: metrics-ref/managed-valkey-ref.md
       - name: '{{ ydb-name }}'
         href: metrics-ref/ydb-ref.md
       - name: '{{ message-queue-name }}'
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name }}'
         href: metrics-ref/monitoring-ref.md
-      - name: '{{ network-load-balancer-name}}'
+      - name: '{{ network-load-balancer-name }}'
         href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
+      - name: '{{ si-name }}'
+        href: metrics-ref/serverless-integrations-ref.md
+      - name: '{{ serverless-containers-name }}'
+        href: metrics-ref/serverless-containers-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
       - name: '{{ unified-agent-short-name }}'
         href: metrics-ref/unifiedagent-ref.md
-  - name: История изменений
-    href: release-notes.md
   - name: Вопросы и ответы
     items:
       - name: Общие вопросы
@@ -277,7 +311,11 @@ items:
         href: qa/alerts.md
       - name: Все вопросы на одной странице
         href: qa/all.md
+  - name: Правила тарификации
+    href: pricing.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Обучающие курсы
     href: training.md
-base: ru/monitoring
-deepBase: 2

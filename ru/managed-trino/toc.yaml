@@ -1,9 +1,317 @@
 title: '{{ mtr-full-name }}'
 href: index.yaml
-stage: preview
-noIndex: true
 items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Кластеры
+        items:
+          - name: Получение информации об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Обновление версии {{ TR }}
+            href: operations/cluster-version-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Подключение к кластеру
+            href: operations/connect.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Каталоги
+        items:
+          - name: Получение информации об имеющихся каталогах
+            href: operations/catalog-list.md
+          - name: Создание каталога
+            href: operations/catalog-create.md
+          - name: Изменение каталога
+            href: operations/catalog-update.md
+          - name: Удаление каталога
+            href: operations/catalog-delete.md
+      - name: Логи и мониторинг
+        items:
+          - name: Мониторинг состояния кластера
+            href: operations/monitoring.md
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+      - name: Правила доступа к объектам
+        items:
+          - name: Управление доступом
+            href: operations/access-control.md
+          - name: Получение правил доступа
+            href: operations/access-control-get.md
+          - name: Назначение правил для объектов каталогов
+            href: operations/access-control-catalogs.md
+          - name: Назначение правил для схем
+            href: operations/access-control-schemas.md
+          - name: Назначение правил для таблиц
+            href: operations/access-control-tables.md
+          - name: Назначение правил для функций
+            href: operations/access-control-functions.md
+          - name: Назначение правил для процедур
+            href: operations/access-control-procedures.md
+          - name: Назначение правил для запросов
+            href: operations/access-control-queries.md
+          - name: Назначение правил для системных свойств сессии
+            href: operations/access-control-session-properties.md
+          - name: Назначение правил для свойств сессии каталога
+            href: operations/access-control-catalog-properties.md
+          - name: Удаление правил доступа
+            href: operations/access-control-delete.md
+  - name: Концепции
+    items:
+      - name: Взаимосвязь ресурсов сервиса
+        href: concepts/index.md
+      - name: Сеть в {{ mtr-name }}
+        href: concepts/network.md
+      - name: Имперсонация
+        href: concepts/impersonation.md
+      - name: Отказоустойчивое выполнение запросов
+        href: concepts/retry-policy.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
+      - name: Управление доступом
+        href: concepts/access-control.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: catalog
+        items:
+          - name: Overview
+            href: cli-ref/catalog/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/catalog/create/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/create/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/create/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/create/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/create/hive.md
+              - name: hudi
+                href: cli-ref/catalog/create/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/create/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/create/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/create/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/create/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/create/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/create/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/create/tpch.md
+          - name: delete
+            href: cli-ref/catalog/delete.md
+          - name: get
+            href: cli-ref/catalog/get.md
+          - name: list
+            href: cli-ref/catalog/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/catalog/update/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/update/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/update/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/update/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/update/hive.md
+              - name: hudi
+                href: cli-ref/catalog/update/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/update/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/update/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/update/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/update/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/update/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/update/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/update/tpch.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-access-control
+            href: cli-ref/cluster/get-access-control.md
+          - name: get-resource-groups
+            href: cli-ref/cluster/get-resource-groups.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-access-control
+            href: cli-ref/cluster/remove-access-control.md
+          - name: remove-resource-groups
+            href: cli-ref/cluster/remove-resource-groups.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: set-access-control
+            href: cli-ref/cluster/set-access-control.md
+          - name: set-resource-groups
+            href: cli-ref/cluster/set-resource-groups.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/grpc/Catalog/index.md
+              - name: Get
+                href: api-ref/grpc/Catalog/get.md
+              - name: List
+                href: api-ref/grpc/Catalog/list.md
+              - name: Create
+                href: api-ref/grpc/Catalog/create.md
+              - name: Update
+                href: api-ref/grpc/Catalog/update.md
+              - name: Delete
+                href: api-ref/grpc/Catalog/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/Catalog/index.md
+              - name: Get
+                href: api-ref/Catalog/get.md
+              - name: List
+                href: api-ref/Catalog/list.md
+              - name: Create
+                href: api-ref/Catalog/create.md
+              - name: Update
+                href: api-ref/Catalog/update.md
+              - name: Delete
+                href: api-ref/Catalog/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: Get
+                href: api-ref/Cluster/get.md
+              - name: List
+                href: api-ref/Cluster/list.md
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
+                href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: Квоты и лимиты
+    href: concepts/limits.md
+  - name: Управление доступом
+    href: security.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/managed-trino
-deepBase: 2
+  - name: Метрики {{ monitoring-full-name }}
+    href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
+  - name: История изменений
+    href: release-notes.md

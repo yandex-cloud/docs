@@ -5,11 +5,11 @@
 
 
 
-The use case describes how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing between the nodes using an internal network load balancer. Network interfaces will be set up to combine multiple subnets into a single common subnet. This means you do not need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). The primary IP address will be assigned to the replica written to. The same replica will have an open port, and the load balancer will route traffic to this port. Since the port specified for connecting to the load balancer becomes unavailable, an additional non-standard port will be used to receive traffic.
+This tutorial will tell you how to deploy an Always On availability group in {{ yandex-cloud }} and enable load balancing across the nodes using an internal network load balancer. You will set up network interfaces to combine multiple subnets into a single common subnet. Therefore, you do not need [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). The writable replica will get the primary IP address. The same replica will expose a port for incoming traffic from the load balancer. Since the specified load balancer port becomes unavailable, incoming traffic will fall back to an additional non-standard port.
 
-To create and configure an Always On availability group with an internal network load balancer:
+To set up an Always On availability group with an internal network load balancer:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a network infrastructure](#prepare-network).
 1. [Create an internal network load balancer](#create-load-balancer).
 1. [Prepare VMs for the availability group](#create-vms).
@@ -17,12 +17,11 @@ To create and configure an Always On availability group with an internal network
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 {% include [ms-additional-data-note](../_tutorials_includes/ms-additional-data-note.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -34,68 +33,67 @@ The cost of supporting the availability group includes:
 
 You can use [license mobility](../../compute/qa/licensing.md) and bring your own SQL Server license to {{ yandex-cloud }}.
 
-
 ## Create a network infrastructure {#prepare-network}
 
-Prepare the network infrastructure to host the availability group.
+Prepare a network infrastructure to host your availability group.
 
 1. Create a network named `ya-network`:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. Open the **{{ vpc-name }}** section of the folder where you want to create a cloud network.
-      1. Click **Create network**.
-      1. Enter the network name: `ya-network`.
-      1. Click **Create network**.
+       1. Open the **{{ vpc-name }}** section in the folder where you want to create a cloud network.
+       1. Click **Create network**.
+       1. Specify `ya-network` as the network name.
+       1. Click **Create network**.
 
-   - Bash {#bash}
-
+    - Bash {#bash}
+      
       {% include [cli-install](../../_includes/cli-install.md) %}
-
+  
       {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       ```
       yc vpc network create --name ya-network
       ```
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in PowerShell.
+      [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface to use CLI commands in PowerShell. 
 
       ```
       yc vpc network create --name ya-network
       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Create subnets that will host your VMs and network load balancer:
+1. Create these subnets to host your VMs and network load balancer: 
 
-   * Three subnets to host SQLSERVER VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1d`. The `mssql` route table will be linked to each subnet.
-   * `ya-ilb-rc1a` subnet for the network load balancer.
-   * `ya-ad-rc1a` subnet for Active Directory.
+   * Three subnets to host SQLServer VMs: `ya-sqlserver-rc1a`, `ya-sqlserver-rc1b`, and `ya-sqlserver-rc1d`. Each subnet will be linked to the `mssql` route table.
+   * The `ya-ilb-rc1a` subnet for the network load balancer.
+   * The `ya-ad-rc1a` subnet for Active Directory.
 
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - Management console {#console}
+    - Management console {#console}
 
-      1. Open the **{{ vpc-name }}** section in the folder to create a subnet in.
-      1. Select the `ya-network` network.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **Create subnet**.
-      1. Fill out the form: enter the `ya-sqlserver-rc1a` subnet name and select the `{{ region-id }}-a` availability zone from the drop-down list.
-      1. Enter the subnet CIDR: IP address and subnet mask: `192.168.1.0/28`.
+      1. Open the **{{ vpc-name }}** section in the folder where you want to create the subnets.
+      1. Select the network: `ya-network`.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **Add subnet**.
+      1. Specify `ya-sqlserver-rc1a` as the name and select the `{{ region-id }}-a` availability zone from the drop-down list.
+      1. Enter the subnet CIDR, including the IP address and subnet mask: `192.168.1.0/28`.
       1. Click **Create subnet**.
 
-      Repeat the steps for subnets with the following names and CIDR:
+      Repeat the same steps for the subnets with the following names and CIDRs:
 
-      * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone: `192.168.1.16/28`.
-      * `ya-sqlserver-rc1d` in the `{{ region-id }}-d` availability zone: `192.168.1.32/28`.
-      * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone: `192.168.1.48/28`.
-      * `ya-ad-rc1a` in the`{{ region-id }}-a` availability zone: `10.0.0.0/28`.
+      * `ya-sqlserver-rc1b` in the `{{ region-id }}-b` availability zone, `192.168.1.16/28`.
+      * `ya-sqlserver-rc1d` in the `{{ region-id }}-d` availability zone, `192.168.1.32/28`.
+      * `ya-ilb-rc1a` in the `{{ region-id }}-a` availability zone, `192.168.1.48/28`.
+      * `ya-ad-rc1a` in the `{{ region-id }}-a` availability zone, `10.0.0.0/28`.
 
-   - Bash {#bash}
+    - Bash {#bash}
 
       ```
       yc vpc subnet create \
@@ -137,7 +135,7 @@ Prepare the network infrastructure to host the availability group.
         --network-name ya-network
       ```
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
       ```
       yc vpc subnet create `
@@ -179,7 +177,7 @@ Prepare the network infrastructure to host the availability group.
          --network-name ya-network
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 ## Create an internal network load balancer {#create-load-balancer}
 
@@ -187,19 +185,19 @@ Prepare the network infrastructure to host the availability group.
 
 - Bash {#bash}
 
-   ```
-   yc load-balancer network-load-balancer create \
-      --name ya-loadbalancer \
-      --type internal
-   ```
+  ```
+  yc load-balancer network-load-balancer create \
+     --name ya-loadbalancer \
+     --type internal
+  ```
 
 - PowerShell {#powershell}
-
-   ```
-   yc load-balancer network-load-balancer create `
-      --name ya-loadbalancer `
-      --type internal
-   ```
+  
+  ```
+  yc load-balancer network-load-balancer create `
+     --name ya-loadbalancer `
+     --type internal
+  ```
 
 {% endlist %}
 
@@ -208,100 +206,99 @@ Prepare the network infrastructure to host the availability group.
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
+  
+  Get the subnet ID:
 
-   Get the subnet ID:
+  ```
+  yc vpc subnet get --name ya-ilb-rc1a
+  ```
+  
+  Create a listener, specifying the subnet ID:
 
-   ```
-   yc vpc subnet get --name ya-ilb-rc1a
-   ```
-
-   Create a listener, indicating the subnet ID:
-
-   ```
-   yc load-balancer network-load-balancer add-listener \
-      --name ya-loadbalancer \
-      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=<subnet_ID>
-   ```
+  ```
+  yc load-balancer network-load-balancer add-listener \
+     --name ya-loadbalancer \
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=<subnet_ID>
+  ```
 
 - PowerShell {#powershell}
 
-   ```
-   $inlbSubnet = yc vpc subnet get `
-      --name ya-ilb-rc1a `
-      --format json | ConvertFrom-Json
-   ```
+  ```
+  $inlbSubnet = yc vpc subnet get `
+     --name ya-ilb-rc1a `
+     --format json | ConvertFrom-Json
+  ```
 
-   ```
-   yc load-balancer network-load-balancer add-listener `
-      --name ya-loadbalancer `
-      --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=$($inlbSubnet.id)
-   ```
+  ```
+  yc load-balancer network-load-balancer add-listener `
+     --name ya-loadbalancer `
+     --listener name=ya-listener,port=1433,target-port=14333,protocol=tcp,internal-address=192.168.1.62,internal-subnet-id=$($inlbSubnet.id)
+  ```
+
 
 {% endlist %}
 
-### Create and connect the target group to the network load balancer {#create-target-group}
+### Create a target group and attach it to the network load balancer {#create-target-group}
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
-   ```
-   yc load-balancer target-group create \
-      --name ya-tg \
-      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
-      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
-      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
-   ```
+  ```
+  yc load-balancer target-group create \
+     --name ya-tg \
+     --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a \
+     --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b \
+     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
+  ```
+  
+  Copy the target group ID from the response and run this command:
 
-   Copy the target group ID from the response and run the command:
-
-   ```
-   yc load-balancer network-load-balancer attach-target-group \
-      --name ya-loadbalancer \
-      --target-group target-group-id=<target_group_ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
-   ```
+  ```
+  yc load-balancer network-load-balancer attach-target-group \
+     --name ya-loadbalancer \
+     --target-group target-group-id=<target_group_ID>,healthcheck-name=listener,healthcheck-tcp-port=59999
+  ```
 
 - PowerShell {#powershell}
 
-   ```
-   yc load-balancer target-group create `
-      --name ya-tg `
-      --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
-      --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
-      --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
-   ```
+  ```
+  yc load-balancer target-group create `
+     --name ya-tg `
+     --target address=192.168.1.3,subnet-name=ya-sqlserver-rc1a `
+     --target address=192.168.1.19,subnet-name=ya-sqlserver-rc1b `
+     --target address=192.168.1.35,subnet-name=ya-sqlserver-rc1d
+  ```
+  
+  ```
+  $TargetGroup = yc load-balancer target-group get `
+     --name ya-tg `
+     --format json | ConvertFrom-Json
+  ```
 
-   ```
-   $TargetGroup = yc load-balancer target-group get `
-      --name ya-tg `
-      --format json | ConvertFrom-Json
-   ```
-
-   ```
-   yc load-balancer network-load-balancer attach-target-group `
-      --name ya-loadbalancer `
-      --target-group target-group-id=$($TargetGroup.id),healthcheck-name=listener,healthcheck-tcp-port=59999
-   ```
+  ```
+  yc load-balancer network-load-balancer attach-target-group `
+     --name ya-loadbalancer `
+     --target-group target-group-id=$($TargetGroup.id),healthcheck-name=listener,healthcheck-tcp-port=59999
+  ```
 
 {% endlist %}
 
 ## Prepare VMs for the availability group {#create-vms}
 
 
-
 ### Prepare Windows Server images {#prepare-images}
 
-Before creating VMs, prepare a Windows Server image you are going to use in {{ yandex-cloud }} with your own license.
-
+Before creating VMs, prepare a Windows Server image to use in {{ yandex-cloud }} with your own license.
 
 
 ### Create a file with administrator credentials {#prepare-admin-credentials}
 
-Create a file named `setpass` with a script to set the administrator's local account password. This script will be executed when creating VMs via the CLI.
+Create a file named `setpass` with a script to set the local administrator password. This script will run when you create VMs via the CLI.
 
 {% note alert %}
 
-The `setpass` file must be in UTF-8 encoding.
+The `setpass` file must be UTF-8 encoded.
 
 {% endnote %}
 
@@ -309,101 +306,94 @@ The `setpass` file must be in UTF-8 encoding.
 
 - Bash {#bash}
 
-   ```
-   touch ~/setpass
-   ```
-
-   ```
-   echo '#ps1' >> ~/setpass
-   ```
-
-   ```
-   echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
-   cd
-   ```
+  ```
+  touch ~/setpass
+  ```
+  
+  ```
+  echo '#ps1' >> ~/setpass
+  ```
+  
+  ```
+  echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
+  cd
+  ```
 
 - PowerShell {#powershell}
 
-   ```
-   ni ~/setpass
-   ```
-
-   ```
-   echo '#ps1' >> ~/setpass
-   ```
-
-   ```
-   echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
-   ```
+  ```
+  ni ~/setpass
+  ```
+  
+  ```
+  echo '#ps1' >> ~/setpass
+  ```
+  
+  ```
+  echo 'Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "YaQWErty123" -AsPlainText -Force)' >> ~/setpass
+  ```
 
 {% endlist %}
 
 {% note warning %}
 
-The set password is only used for testing. Use your own complex password when deploying a cluster to work in a product environment.
+The password provided above is for testing only. Use your own complex password when deploying a cluster to work in a product environment.
 
 The password must meet the [complexity requirements]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-Learn more about security best practices for Active Directory on the [official website]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+To learn about the best practices for securing Active Directory, see [this MS article]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
 ### Create VMs {#create-group-vms}
 
-
-
-Make sure to create your VM instances on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID in the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command (to learn more about this command, see the [reference](../../cli/cli-ref/managed-services/compute/host-group/list-hosts.md)).
-
-
+Make sure to create your VMs on [dedicated hosts](../../compute/concepts/dedicated-host.md). You can get the dedicated host ID via the {{ yandex-cloud }} CLI by running the `yc compute host-group list-hosts` command. To learn more about this command, see [this reference](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md).
 
 #### Create a VM for a bastion host {#create-jump-server}
 
-Create a bastion host with Windows Server 2022 Datacenter with a public IP address to access other VMs:
+Create a bastion host with Windows Server 2022 Datacenter and a public IP address to access other VMs:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
+  ```
+  yc compute instance create \
+     --name ya-jump1 \
+     --hostname ya-jump1 \
+     --zone {{ region-id }}-a \
+     --memory 4 \
+     --cores 2 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<Windows_image_ID> \
+     --network-interface \
+       subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
+     --host-id <dedicated_host_ID> \
+     --async
+  ```
 
-
-   ```
-   yc compute instance create \
-      --name ya-jump1 \
-      --hostname ya-jump1 \
-      --zone {{ region-id }}-a \
-      --memory 4 \
-      --cores 2 \
-      --metadata-from-file user-data=setpass \
-      --create-boot-disk \
-        type=network-ssd,size=50,image-id=<Windows_image_ID> \
-      --network-interface \
-        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 \
-      --host-id <dedicated_host_ID> \
-      --async
-   ```
-
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 - PowerShell {#powershell}
 
+  ```
+  yc compute instance create `
+     --name ya-jump1 `
+     --hostname ya-jump1 `
+     --zone {{ region-id }}-a `
+     --memory 4 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<Windows_image_ID> `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
+     --host-id <dedicated_host_ID> `
+     --async
+  ```
 
-
-   ```
-   yc compute instance create `
-      --name ya-jump1 `
-      --hostname ya-jump1 `
-      --zone {{ region-id }}-a `
-      --memory 4 `
-      --cores 2 `
-      --metadata-from-file user-data=setpass `
-      --create-boot-disk `
-        type=network-ssd,size=50,image-id=<Windows_image_ID> `
-      --network-interface `
-        subnet-name=ya-ad-rc1a,nat-ip-version=ipv4 `
-      --host-id <dedicated_host_ID> `
-      --async
-
-   ```
-
+  {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 {% endlist %}
 
@@ -413,340 +403,313 @@ Create a bastion host with Windows Server 2022 Datacenter with a public IP addre
 
 - Bash {#bash}
 
-
-
-   ```
-   yc compute instance create \
-      --name ya-ad \
-      --hostname ya-ad \
-      --zone {{ region-id }}-a \
-      --memory 6 \
-      --cores 2 \
-      --metadata-from-file user-data=setpass \
-      --create-boot-disk \
-        type=network-ssd,size=50,image-id=<Windows_image_ID> \
-      --network-interface \
-        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
-      --host-id <dedicated_host_ID> \
-      --async
-   ```
-
+  ```
+  yc compute instance create \
+     --name ya-ad \
+     --hostname ya-ad \
+     --zone {{ region-id }}-a \
+     --memory 6 \
+     --cores 2 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<Windows_image_ID> \
+     --network-interface \
+       subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 \
+     --host-id <dedicated_host_ID> \
+     --async
+  ```
 
 - PowerShell {#powershell}
 
+  ```
+  yc compute instance create `
+     --name ya-ad `
+     --hostname ya-ad `
+     --zone {{ region-id }}-a `
+     --memory 6 `
+     --cores 2 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<Windows_image_ID> `
+     --network-interface `
+       subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
+     --host-id <dedicated_host_ID> `
+     --async
 
-
-   ```
-   yc compute instance create `
-      --name ya-ad `
-      --hostname ya-ad `
-      --zone {{ region-id }}-a `
-      --memory 6 `
-      --cores 2 `
-      --metadata-from-file user-data=setpass `
-      --create-boot-disk `
-        type=network-ssd,size=50,image-id=<Windows_image_ID> `
-      --network-interface `
-        subnet-name=ya-ad-rc1a,ipv4-address=10.0.0.3 `
-      --host-id <dedicated_host_ID> `
-      --async
-
-   ```
-
+  ```
 
 {% endlist %}
 
-#### Create VM instances for SQL Server {#create-ad-server}
+#### Create VMs for SQL Server {#create-ad-server}
 
-Create three VM instances with Windows Server 2022 Datacenter for SQL Server:
+Create three VMs with Windows Server 2022 Datacenter for SQL Server:
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
+  ```
+  yc compute instance create \
+     --name ya-mssql1 \
+     --hostname ya-mssql1 \
+     --zone {{ region-id }}-a \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<Windows_image_ID> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
+     --host-id <dedicated_host_ID> \
+     --async
+  ```
 
+  ```
+  yc compute instance create \
+     --name ya-mssql2 \
+     --hostname ya-mssql2 \
+     --zone {{ region-id }}-b \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<Windows_image_ID> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
+     --host-id <dedicated_host_ID> \
+     --async
+  ```
 
-   ```
-   yc compute instance create \
-      --name ya-mssql1 \
-      --hostname ya-mssql1 \
-      --zone {{ region-id }}-a \
-      --memory 16 \
-      --cores 4 \
-      --metadata-from-file user-data=setpass \
-      --create-boot-disk \
-        type=network-ssd,size=50,image-id=<Windows_image_ID> \
-      --create-disk \
-        type=network-ssd,size=200 \
-      --network-interface \
-        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 \
-      --host-id <dedicated_host_ID> \
-      --async
-   ```
-
-
-
-
-   ```
-   yc compute instance create \
-      --name ya-mssql2 \
-      --hostname ya-mssql2 \
-      --zone {{ region-id }}-b \
-      --memory 16 \
-      --cores 4 \
-      --metadata-from-file user-data=setpass \
-      --create-boot-disk \
-        type=network-ssd,size=50,image-id=<Windows_image_ID> \
-      --create-disk \
-        type=network-ssd,size=200 \
-      --network-interface \
-        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 \
-      --host-id <dedicated_host_ID> \
-      --async
-   ```
-
-
-
-
-   ```
-   yc compute instance create \
-      --name ya-mssql3 \
-      --hostname ya-mssql3 \
-      --zone {{ region-id }}-d \
-      --memory 16 \
-      --cores 4 \
-      --metadata-from-file user-data=setpass \
-      --create-boot-disk \
-        type=network-ssd,size=50,image-id=<Windows_image_ID> \
-      --create-disk \
-        type=network-ssd,size=200 \
-      --network-interface \
-        subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 \
-      --host-id <dedicated_host_ID> \
-      --async
-   ```
-
+  ```
+  yc compute instance create \
+     --name ya-mssql3 \
+     --hostname ya-mssql3 \
+     --zone {{ region-id }}-d \
+     --memory 16 \
+     --cores 4 \
+     --metadata-from-file user-data=setpass \
+     --create-boot-disk \
+       type=network-ssd,size=50,image-id=<Windows_image_ID> \
+     --create-disk \
+       type=network-ssd,size=200 \
+     --network-interface \
+       subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 \
+     --host-id <dedicated_host_ID> \
+     --async
+  ```
 
 - PowerShell {#powershell}
 
+  ```
+  yc compute instance create `
+     --name ya-mssql1 `
+     --hostname ya-mssql1 `
+     --zone {{ region-id }}-a `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<Windows_image_ID> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
+     --host-id <dedicated_host_ID> `
+     --async
+  ```
 
+  ```
+  yc compute instance create `
+     --name ya-mssql2 `
+     --hostname ya-mssql2 `
+     --zone {{ region-id }}-b `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<Windows_image_ID> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
+     --host-id <dedicated_host_ID> `
+     --async
+  ```
 
-   ```
-   yc compute instance create `
-      --name ya-mssql1 `
-      --hostname ya-mssql1 `
-      --zone {{ region-id }}-a `
-      --memory 16 `
-      --cores 4 `
-      --metadata-from-file user-data=setpass `
-      --create-boot-disk `
-        type=network-ssd,size=50,image-id=<Windows_image_ID> `
-      --create-disk `
-        type=network-ssd,size=200 `
-      --network-interface `
-        subnet-name=ya-sqlserver-rc1a,ipv4-address=192.168.1.3 `
-      --host-id <dedicated_host_ID> `
-      --async
-   ```
-
-
-
-
-   ```
-   yc compute instance create `
-      --name ya-mssql2 `
-      --hostname ya-mssql2 `
-      --zone {{ region-id }}-b `
-      --memory 16 `
-      --cores 4 `
-      --metadata-from-file user-data=setpass `
-      --create-boot-disk `
-        type=network-ssd,size=50,image-id=<Windows_image_ID> `
-      --create-disk `
-        type=network-ssd,size=200 `
-      --network-interface `
-        subnet-name=ya-sqlserver-rc1b,ipv4-address=192.168.1.19 `
-      --host-id <dedicated_host_ID> `
-      --async
-   ```
-
-
-
-
-   ```
-   yc compute instance create `
-      --name ya-mssql3 `
-      --hostname ya-mssql3 `
-      --zone {{ region-id }}-d `
-      --memory 16 `
-      --cores 4 `
-      --metadata-from-file user-data=setpass `
-      --create-boot-disk `
-        type=network-ssd,size=50,image-id=<Windows_image_ID> `
-      --create-disk `
-        type=network-ssd,size=200 `
-      --network-interface `
-        subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 `
-      --host-id <dedicated_host_ID> `
-      --async
-   ```
-
+  ```
+  yc compute instance create `
+     --name ya-mssql3 `
+     --hostname ya-mssql3 `
+     --zone {{ region-id }}-d `
+     --memory 16 `
+     --cores 4 `
+     --metadata-from-file user-data=setpass `
+     --create-boot-disk `
+       type=network-ssd,size=50,image-id=<Windows_image_ID> `
+     --create-disk `
+       type=network-ssd,size=200 `
+     --network-interface `
+       subnet-name=ya-sqlserver-rc1d,ipv4-address=192.168.1.35 `
+     --host-id <dedicated_host_ID> `
+     --async
+  ```
 
 {% endlist %}
 
+### Bring your own Windows Server licenses {#byol}
 
-
-### Bring your own licenses for Windows Server {#byol}
-
-Connect to each VM instance you created and [activate your own Windows Server license on these instances](../../microsoft/byol.md).
-
+Connect to each VM you created and [activate your own Windows Server license on it](../../microsoft/byol.md).
 
 
 ### Install and configure Active Directory {#install-ad}
 
-1. Connect to `ya-jump1` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-1. From `ya-jump1`, connect to the `ya-ad` VM using RDP under the same account.
-1. On `ya-ad`, launch PowerShell and set the required server roles:
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password. 
+1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
+1. On `ya-ad`, run PowerShell and set the required server roles:
 
    {% list tabs group=programming_language %}
 
    - PowerShell {#powershell}
 
-      ```
-      Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-      ```
+       ```
+       Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+       ```
 
    {% endlist %}
 
 1. Create an Active Directory forest:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Install-ADDSForest `
-        -DomainName 'yantoso.net' `
-        -Force:$true `
-        -SafeModeAdministratorPassword `
-          ('YaP@ssw0rd!11' | ConvertTo-SecureString -AsPlainText -Force)
-      ```
+       ```
+       Install-ADDSForest `
+         -DomainName 'yantoso.net' `
+         -Force:$true `
+         -SafeModeAdministratorPassword `
+           ('YaP@ssw0rd!11' | ConvertTo-SecureString -AsPlainText -Force)
+       ```
+       
+    {% endlist %}
 
-   {% endlist %}
-
-   After that, the VM restarts.
+   Once done, the VM will restart. 
 
 1. Reconnect to `ya-ad`.
 
-1. Rename the website and add the created subnets to it:
+1. Rename the site and include the subnets you created:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
-      New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}'
-      New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site '{{ region-id }}'
-      New-ADReplicationSubnet -Name '192.168.1.16/28' -Site '{{ region-id }}'
-      New-ADReplicationSubnet -Name '192.168.1.32/28' -Site '{{ region-id }}'
-      New-ADReplicationSubnet -Name '192.168.1.48/28' -Site '{{ region-id }}'
-      ```
+       ```
+       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
+       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.16/28' -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.32/28' -Site '{{ region-id }}'
+       New-ADReplicationSubnet -Name '192.168.1.48/28' -Site '{{ region-id }}'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Specify the Forwarder for the DNS server:
+1. Specify the forwarder for the DNS server:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Set-DnsServerForwarder '10.0.0.2'
-      ```
+       ```
+       Set-DnsServerForwarder '10.0.0.2'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Specify the DNS server addresses:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3,127.0.0.1"
-      ```
+       ```
+       Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3,127.0.0.1"
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 ### Create users and groups in Active Directory {#create-ad-users-groups}
 
-1. Connect to `ya-jump1` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
 
-1. From `ya-jump1`, connect to the `ya-ad` VM using RDP under the same account.
+1. From `ya-jump1`, connect to the `ya-ad` VM under the same account using RDP.
 
-1. On the `ya-ad` VM, launch PowerShell and create the `mssql-svc` service account:
+1. On `ya-ad`, run PowerShell and create the `mssql-svc` service account:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-ADUser `
-        -Name mssql-svc `
-        -AccountPassword ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force) `
-        -CannotChangePassword $true `
-        -PasswordNeverExpires $true `
-        -Enabled $true
-      ```
+       ```
+       New-ADUser `
+         -Name mssql-svc `
+         -AccountPassword ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force) `
+         -CannotChangePassword $true `
+         -PasswordNeverExpires $true `
+         -Enabled $true
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Create groups to access backups and DB servers:
+1. Create groups to access DB backups and servers:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-AdGroup mssql-admins-grp -GroupScope:Global
-      New-AdGroup mssql-backups-grp -GroupScope:Global
-      ```
+       ```
+       New-AdGroup mssql-admins-grp -GroupScope:Global
+       New-AdGroup mssql-backups-grp -GroupScope:Global
+       ```
 
-   {% endlist %}
+    {% endlist %} 
 
 1. Add the `Administrator` account to all groups. Add the `mssql-svc` service account to the `mssql-backups-grp` group:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Add-ADGroupMember mssql-admins-grp -Members Administrator
-      Add-ADGroupMember mssql-backups-grp -Members Administrator
-      Add-ADGroupMember mssql-backups-grp -Members mssql-svc
-      ```
+       ```
+       Add-ADGroupMember mssql-admins-grp -Members Administrator
+       Add-ADGroupMember mssql-backups-grp -Members Administrator
+       Add-ADGroupMember mssql-backups-grp -Members mssql-svc
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Set the [SPN](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) of the service account:
+1. Set [SPNs](https://docs.microsoft.com/en-us/windows/win32/ad/service-principal-names) for the service account:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
-      setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
+       ```
+       setspn -A MSSQLSvc/ya-mssql1.yantoso.net:1433 yantoso\mssql-svc
+       setspn -A MSSQLSvc/ya-mssql1.yantoso.net yantoso\mssql-svc
 
-      setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
-      setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
+       setspn -A MSSQLSvc/ya-mssql2.yantoso.net:1433 yantoso\mssql-svc
+       setspn -A MSSQLSvc/ya-mssql2.yantoso.net yantoso\mssql-svc
 
-      setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
-      setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
-      ```
+       setspn -A MSSQLSvc/ya-mssql3.yantoso.net:1433 yantoso\mssql-svc
+       setspn -A MSSQLSvc/ya-mssql3.yantoso.net yantoso\mssql-svc
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 ### Install and configure SQL Server {#install-mssql}
 
@@ -754,49 +717,49 @@ Install SQL Server on your database servers:
 
 1. Configure internet access on the VMs with DB servers:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - Bash {#bash}
+    - Bash {#bash}
 
-      ```
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
-      ```
+       ```
+       yc compute instance add-one-to-one-nat <ya-mssql1_VM_ID> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <ya-mssql2_VM_ID> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <ya-mssql3_VM_ID> --network-interface-index 0
+       ```
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
-      yc compute instance add-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
-      ```
+       ```
+       yc compute instance add-one-to-one-nat <ya-mssql1_VM_ID> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <ya-mssql2_VM_ID> --network-interface-index 0
+       yc compute instance add-one-to-one-nat <ya-mssql3_VM_ID> --network-interface-index 0
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Run the RDP client and connect to the `ya-mssql1` VM using the `Administrator` account and your password. Use the public IP address of the VM to connect.
+1. Run RDP and connect to the `ya-mssql1` VM using the `Administrator` account and your password. To connect, use the VM public IP address.
 
-1. Start PowerShell and set the role:
+1. Start PowerShell and set the role: 
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Install-WindowsFeature Failover-Clustering -IncludeManagementTools
-      ```
+       ```
+       Install-WindowsFeature Failover-Clustering -IncludeManagementTools
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. [Restart the VM](../../compute/operations/vm-control/vm-stop-and-start.md#restart).
 
-1. Reconnect to `ya-mssql1` and launch PowerShell.
+1. Reconnect to the `ya-mssql1` VM and run PowerShell.
 
 1. Initialize and format the second logical disk:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
       ```
       Get-Disk | `
@@ -811,187 +774,187 @@ Install SQL Server on your database servers:
                  -Confirm:$false
       ```
 
-   {% endlist %}
+    {% endlist %}
 
-   You'll be asked to confirm that you want to format the disk. Click **Format disk**. Click **Start**. After formatting finishes, click **OK**.
+    A message will appear asking you to confirm disk formatting. Click **Format disk**. Click **Start**. After formatting is complete, click **OK**. 
+    
+1. Create folders for the distribution files, backups, databases, logs, and temporary files:
 
-1. Create folders for the distribution, backups and storage for databases, logs, and temporary files:
+    {% list tabs group=programming_language %}
 
-   {% list tabs group=programming_language %}
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
+       ```
+       mkdir C:\dist
+       mkdir X:\BACKUP
+       mkdir X:\DB
+       mkdir X:\DBLOG
+       mkdir X:\TEMPDB
+       mkdir X:\TEMPDBLOG
+       ```
 
-      ```
-      mkdir C:\dist
-      mkdir X:\BACKUP
-      mkdir X:\DB
-      mkdir X:\DBLOG
-      mkdir X:\TEMPDB
-      mkdir X:\TEMPDBLOG
-      ```
+    {% endlist %}
 
-   {% endlist %}
+1. Download the SQL Server 2022 (English) image from the web to `C:\dist`.
 
-1. Download the English SQL Server 2022 image from the web to `C:\dist`.
+1. Install the `SqlServer` module:
 
-1. Install the SqlServer module:
+    {% list tabs group=programming_language %}
 
-   {% list tabs group=programming_language %}
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
+       ```
+       Install-Module -Name SqlServer
+       ```
+       
+    {% endlist %}
 
-      ```
-      Install-Module -Name SqlServer
-      ```
+1. When prompted to confirm the installation, enter `Y`.
 
-   {% endlist %}
+1. Import the `SqlServer` module commands for PowerShell:
 
-1. When asked for confirmation of installation, enter `Y`.
+    {% list tabs group=programming_language %}
 
-1. Import SqlServer module commands for PowerShell:
+    - PowerShell {#powershell}
 
-   {% list tabs group=programming_language %}
+       ```
+       Import-Module SQLServer
+       ```
 
-   - PowerShell {#powershell}
-
-      ```
-      Import-Module SQLServer
-      ```
-
-   {% endlist %}
+    {% endlist %} 
 
 1. Specify the DNS server address:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
-      ```
+       ```
+       Get-NetAdapter | Set-DnsClientServerAddress -ServerAddresses "10.0.0.3"
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-   Prepare data to access the domain:
+   Set up the domain credentials:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      $domain_credential = `
-        New-Object System.Management.Automation.PSCredential (
-            'yantoso\Administrator', `
-            ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force))
-      ```
-
-   {% endlist %}
+       ```
+       $domain_credential = `
+         New-Object System.Management.Automation.PSCredential (
+             'yantoso\Administrator', `
+             ('YaQWErty123' | ConvertTo-SecureString -AsPlainText -Force))
+       ```
+       
+    {% endlist %}
 
    Add the DB server to the domain:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
-      ```
+       ```
+       Add-Computer -DomainCredential $domain_credential -DomainName 'yantoso.net' -Restart -Force
+       ```
 
-   {% endlist %}
+    {% endlist %}
+   
+   The VM will restart automatically. 
 
-   The VM restarts automatically.
+1. Following that, reconnect to the VM with the `yantoso\Administrator` username and open PowerShell.
 
-1. After it restarts, reconnect to the VM with the `yantoso\Administrator` username and launch PowerShell.
+1. Configure the required permissions for the service account: 
 
-1. Configure the necessary rights to the service account:
+    {% list tabs group=programming_language %}
 
-   {% list tabs group=programming_language %}
+    - PowerShell {#powershell}
 
-   - PowerShell {#powershell}
+       ```
+       & secedit /export /cfg sec_conf_export.ini /areas user_rights
 
-      ```
-      & secedit /export /cfg sec_conf_export.ini /areas user_rights
+       $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
+       $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
 
-      $secConfig = Get-Content sec_conf_export.ini | Select-Object -SkipLast 3
-      $versionSection = Get-Content sec_conf_export.ini | Select-Object -Last 3
+       $SID = Get-WmiObject `
+         -Class Win32_UserAccount `
+         -Filter "name='mssql-svc' and domain='yantoso'" | `
+           Select-Object -ExpandProperty SID
 
-      $SID = Get-WmiObject `
-        -Class Win32_UserAccount `
-        -Filter "name='mssql-svc' and domain='yantoso'" | `
-          Select-Object -ExpandProperty SID
+       $isSeManageVolumePrivilegeDefined = $secConfig | `
+         Select-String SeManageVolumePrivilege
 
-      $isSeManageVolumePrivilegeDefined = $secConfig | `
-        Select-String SeManageVolumePrivilege
+       if ($isSeManageVolumePrivilegeDefined) {
+         $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
+       } else {
+         $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
+       }
 
-      if ($isSeManageVolumePrivilegeDefined) {
-        $secConfig = $secConfig -replace '^SeManageVolumePrivilege .+', "`$0,*$SID"
-      } else {
-        $secConfig = $secConfig + "SeManageVolumePrivilege = *$SID"
-      }
+       $isSeLockMemoryPrivilegeDefined = $secConfig | `
+         Select-String SeLockMemoryPrivilege
 
-      $isSeLockMemoryPrivilegeDefined = $secConfig | `
-        Select-String SeLockMemoryPrivilege
+       if ($isSeLockMemoryPrivilegeDefined) {
+         $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
+       } else {
+         $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
+       }
 
-      if ($isSeLockMemoryPrivilegeDefined) {
-        $secConfig = $secConfig -replace '^SeLockMemoryPrivilege .+', "`$0,*$SID"
-      } else {
-        $secConfig = $secConfig + "SeLockMemoryPrivilege = *$SID"
-      }
+       $secConfig = $secConfig + $versionSection
+       $secConfig | Set-Content sec_conf_import.ini
 
-      $secConfig = $secConfig + $versionSection
-      $secConfig | Set-Content sec_conf_import.ini
+       secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
 
-      secedit /configure /db secedit.sdb /cfg sec_conf_import.ini /areas user_rights
+       Remove-Item sec_conf_import.ini
+       Remove-Item sec_conf_export.ini
+       ```
 
-      Remove-Item sec_conf_import.ini
-      Remove-Item sec_conf_export.ini
-      ```
+    {% endlist %}
 
-   {% endlist %}
+1. Set up a firewall: 
+   
+    {% list tabs group=programming_language %}
 
-1. Set up a firewall:
+    - PowerShell {#powershell}
 
-   {% list tabs group=programming_language %}
+       ```
+       New-NetFirewallRule `
+         -Group "MSSQL" `
+         -DisplayName "SQL Server Default" `
+         -Name "MSSQLServer-In-TCP" `
+         -LocalPort 1433 `
+         -Action "Allow" `
+         -Protocol "TCP"
 
-   - PowerShell {#powershell}
+       New-NetFirewallRule `
+         -Group "MSSQL" `
+         -DisplayName "SQL Server AAG Custom" `
+         -Name "MSSQLAAG-In-TCP" `
+         -LocalPort 14333 `
+         -Action "Allow" `
+         -Protocol "TCP"
 
-      ```
-      New-NetFirewallRule `
-        -Group "MSSQL" `
-        -DisplayName "SQL Server Default" `
-        -Name "MSSQLServer-In-TCP" `
-        -LocalPort 1433 `
-        -Action "Allow" `
-        -Protocol "TCP"
+       New-NetFirewallRule `
+         -Group "MSSQL" `
+         -DisplayName "MSSQL HADR Default" `
+         -Name "MSSQLHADR-In-TCP" `
+         -LocalPort 5022 `
+         -Action "Allow" `
+         -Protocol "TCP"
 
-      New-NetFirewallRule `
-        -Group "MSSQL" `
-        -DisplayName "SQL Server AAG Custom" `
-        -Name "MSSQLAAG-In-TCP" `
-        -LocalPort 14333 `
-        -Action "Allow" `
-        -Protocol "TCP"
+       New-NetFirewallRule `
+         -Group "MSSQL" `
+         -DisplayName "MSSQL NLB Probe" `
+         -Name "MSSQLAAG-NLB-In-TCP" `
+         -LocalPort 59999 `
+         -Action "Allow" `
+         -Protocol "TCP"
+        ```
 
-      New-NetFirewallRule `
-        -Group "MSSQL" `
-        -DisplayName "MSSQL HADR Default" `
-        -Name "MSSQLHADR-In-TCP" `
-        -LocalPort 5022 `
-        -Action "Allow" `
-        -Protocol "TCP"
+    {% endlist %}
 
-      New-NetFirewallRule `
-        -Group "MSSQL" `
-        -DisplayName "MSSQL NLB Probe" `
-        -Name "MSSQLAAG-NLB-In-TCP" `
-        -LocalPort 59999 `
-        -Action "Allow" `
-        -Protocol "TCP"
-      ```
-
-   {% endlist %}
-
-1. Install SQL Server. Mount an image, perform installation, and detach the image:
+1. Install SQL Server. Mount an image, run the installation, and detach the image:
 
    {% list tabs group=programming_language %}
 
@@ -1011,37 +974,37 @@ Install SQL Server on your database servers:
       ```
 
       ```
-      Dismount-DiskImage -ImagePath C:\dist\<name_of_MSSQL_Server_image>.iso
+      Dismount-DiskImage -ImagePath C:\dist\<MSSQL_Server_image_name>.iso
       ```
 
    {% endlist %}
 
-1. Repeat steps 2-16 for VMs `ya-mssql2` and `ya-mssql3`.
+1. Repeat steps 2 through 16 for the `ya-mssql2` and `ya-mssql3` VMs. 
 
-1. Disable internet access for the VM:
+1. Disable internet access for the VMs:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - Bash {#bash}
+    - Bash {#bash}
 
-      ```
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
-      ```
-   - PowerShell {#powershell}
+       ```
+       yc compute instance remove-one-to-one-nat <ya-mssql1_VM_ID> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <ya-mssql2_VM_ID> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <ya-mssql3_VM_ID> --network-interface-index 0
+       ```
+    - PowerShell {#powershell}
 
-      ```
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql1> --network-interface-index 0
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql2> --network-interface-index 0
-      yc compute instance remove-one-to-one-nat <ID_of_ya-mssql3> --network-interface-index 0
-      ```
+       ```
+       yc compute instance remove-one-to-one-nat <ya-mssql1_VM_ID> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <ya-mssql2_VM_ID> --network-interface-index 0
+       yc compute instance remove-one-to-one-nat <ya-mssql3_VM_ID> --network-interface-index 0
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Connect to `ya-jump1` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
 
-1. From `ya-jump1`, connect to the `ya-mssql1` VM using RDP under the same account. Configure a static IP address with its own subnet mask:
+1. From `ya-jump1`, connect to the `ya-mssql1` VM under the same account using RDP. Configure a static IP address with its own subnet mask:
 
    ```
    $IPAddress = Get-NetAdapter | Get-NetIPAddress -AddressFamily IPv4 | Select-Object -ExpandProperty IPAddress
@@ -1051,292 +1014,292 @@ Install SQL Server on your database servers:
    netsh interface ip set address $InterfaceName static $IPAddress 255.255.255.192 $Gateway
    ```
 
-1. Repeat steps 19-20 for VMs `ya-mssql2` and `ya-mssql3`.
+1. Repeat steps 19 and 20 for the `ya-mssql2` and `ya-mssql3` VMs.
 
-1. The Always On availability group requires a configured Windows Server Failover Cluster. To create it, you need to test the DB servers. On any of the cluster VMs, run:
+1. The Always On availability group requires a configured Windows Server failover cluster. To create one, you need to test the DB servers. On any of the cluster VMs, run:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Test-Cluster -Node 'ya-mssql1.yantoso.net'
-      Test-Cluster -Node 'ya-mssql2.yantoso.net'
-      Test-Cluster -Node 'ya-mssql3.yantoso.net'
-      ```
+       ```
+       Test-Cluster -Node 'ya-mssql1.yantoso.net'
+       Test-Cluster -Node 'ya-mssql2.yantoso.net'
+       Test-Cluster -Node 'ya-mssql3.yantoso.net'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-### Create a Windows Server Failover Cluster {#configure-failover-cluster}
+### Create a Windows Server failover cluster {#configure-failover-cluster}
 
-1. Connect to `ya-jump1` [using RDP](../../compute/operations/vm-connect/rdp.md). Enter `Administrator` as the username and then your password.
-1. From `ya-jump1`, connect to the `ya-mssql1` VM using RDP under the `yantoso\Administrator` account.
+1. Connect to the `ya-jump1` VM through [RDP](../../compute/operations/vm-connect/rdp.md). Use `Administrator` as your username and enter your password.
+1. From `ya-jump1`, connect to the `ya-mssql1` VM as `yantoso\Administrator` using RDP.
 1. Create a cluster of three DB servers:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-Cluster `
-        -Name 'wsfc' `
-        -Node 'ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net' `
-        -NoStorage `
-        -StaticAddress 192.168.1.4
+       ```
+       New-Cluster `
+         -Name 'wsfc' `
+         -Node 'ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net' `
+         -NoStorage `
+         -StaticAddress 192.168.1.4
 
-      Test-Cluster
+       Test-Cluster
 
-      Get-ClusterResource -Name 'Cluster IP Address' | `
-        Stop-ClusterResource
+       Get-ClusterResource -Name 'Cluster IP Address' | `
+         Stop-ClusterResource
 
-      Get-ClusterResource -Name 'Cluster IP Address' | `
-        Set-ClusterParameter -Multiple `
-          @{
-            "Address"="169.254.1.1";
-            "SubnetMask"="255.255.255.255";
-            "OverrideAddressMatch"=1;
-            "EnableDhcp"=0
-          }
+       Get-ClusterResource -Name 'Cluster IP Address' | `
+         Set-ClusterParameter -Multiple `
+           @{
+             "Address"="169.254.1.1";
+             "SubnetMask"="255.255.255.255";
+             "OverrideAddressMatch"=1;
+             "EnableDhcp"=0
+           }
 
-      Get-ClusterResource -Name 'Cluster Name' | Start-ClusterResource -Wait 60
-      ```
+       Get-ClusterResource -Name 'Cluster Name' | Start-ClusterResource -Wait 60
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Enable TCP/IP on all VMs and add the port `14333` to receive traffic:
+1. Enable TCP/IP on all VMs and add port `14333` to receive traffic:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
-      [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.SqlWmiManagement")
+       ```
+       [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.Smo")
+       [reflection.assembly]::LoadWithPartialName("Microsoft.SqlServer.SqlWmiManagement")
+       
+       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
 
-      $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
+       foreach ($node in $nodes) {
+         $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
+         $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
+         $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
+         $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
 
-      foreach ($node in $nodes) {
-        $smo = [Microsoft.SqlServer.Management.Smo.Wmi.ManagedComputer]::new($node)
-        $np = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='NP']")
-        $tcp = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']")
-        $ipall = $smo.GetSmoObject("ManagedComputer[@Name=`'$node`']/ServerInstance[@Name='MSSQLSERVER']/ServerProtocol[@Name='Tcp']/IPAddress[@Name='IPAll']")
+         if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
+           $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
+           $tcp.Alter()
+           $altered = $true
+         }
 
-        if (-not $ipall.IPAddressProperties['TcpPort'].Value -ne '1433,14333') {
-          $ipall.IPAddressProperties['TcpPort'].Value = '1433,14333'
-          $tcp.Alter()
-          $altered = $true
-        }
+         if (-not $tcp.IsEnabled) {
+           $tcp.IsEnabled = $true
+           $tcp.Alter()
+           $altered = $true
+         }
+         if (-not $np.IsEnabled) {
+           $np.IsEnabled = $true
+           $np.Alter()
+           $altered = $true
+         }
 
-        if (-not $tcp.IsEnabled) {
-          $tcp.IsEnabled = $true
-          $tcp.Alter()
-          $altered = $true
-        }
-        if (-not $np.IsEnabled) {
-          $np.IsEnabled = $true
-          $np.Alter()
-          $altered = $true
-        }
+         if ($altered) {
+           Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service -Force
+           Start-Sleep -Seconds 60
+         }
+       }
+       ```
+    
+    {% endlist %}
 
-        if ($altered) {
-          Get-Service -Name 'MSSQLSERVER' -ComputerName $node | Restart-Service -Force
-          Start-Sleep -Seconds 60
-        }
-      }
-      ```
+1. Grant server management permissions to the `mssql-svc` user:
 
-   {% endlist %}
+    {% list tabs group=programming_language %}
 
-1. Give server management permissions to the `mssql-svc` service user:
+    - PowerShell {#powershell}
 
-   {% list tabs group=programming_language %}
+       ```
+       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
+         -LoginName "yantoso\mssql-svc" `
+         -LoginType "WindowsUser" `
+         -Enable `
+         -GrantConnectSql
 
-   - PowerShell {#powershell}
+       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2\Default" `
+         -LoginName "yantoso\mssql-svc" `
+         -LoginType "WindowsUser" `
+         -Enable `
+         -GrantConnectSql
 
-      ```
-      Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql1\Default" `
-        -LoginName "yantoso\mssql-svc" `
-        -LoginType "WindowsUser" `
-        -Enable `
-        -GrantConnectSql
+       Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3\Default" `
+         -LoginName "yantoso\mssql-svc" `
+         -LoginType "WindowsUser" `
+         -Enable `
+         -GrantConnectSql
 
-      Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql2\Default" `
-        -LoginName "yantoso\mssql-svc" `
-        -LoginType "WindowsUser" `
-        -Enable `
-        -GrantConnectSql
+       $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
+       $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
+       $mssql1.Roles['sysadmin'].Alter()
 
-      Add-SqlLogin -Path "SQLSERVER:\SQL\ya-mssql3\Default" `
-        -LoginName "yantoso\mssql-svc" `
-        -LoginType "WindowsUser" `
-        -Enable `
-        -GrantConnectSql
+       $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
+       $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
+       $mssql2.Roles['sysadmin'].Alter()
 
-      $mssql1 = Get-Item "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-      $mssql1.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
-      $mssql1.Roles['sysadmin'].Alter()
+       $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
+       $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
+       $mssql3.Roles['sysadmin'].Alter()
+       ```
 
-      $mssql2 = Get-Item "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
-      $mssql2.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
-      $mssql2.Roles['sysadmin'].Alter()
-
-      $mssql3 = Get-Item "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
-      $mssql3.Roles['sysadmin'].AddMember('yantoso\mssql-svc')
-      $mssql3.Roles['sysadmin'].Alter()
-      ```
-
-   {% endlist %}
+    {% endlist %}
 
 ### Configure Always On {#configure-always-on}
 
-1. Connect to each server in turn and enable SqlAlwaysOn:
+1. Connect to each server one by one and enable `SqlAlwaysOn`:
 
-   1. Connect to the Windows Server Failover Cluster (WSFC) node that hosts the SQL Server instance.
+   1. Connect to the Windows Server failover cluster (WSFC) node that hosts the SQL Server instance.
    1. Open the **Start** menu and select **All programs** → **Microsoft SQL Server** → **Configuration Tools** → **SQL Server Configuration Manager**.
-   1. In SQL Server Configuration Manager, right-click the SQL Server instance to enable Always On Availability Groups for, and select **Properties**.
+   1. In SQL Server Configuration Manager, right-click the SQL Server instance for which you need to enable Always On Availability Groups, and select **Properties**.
    1. Go to the **Always On High Availability** tab.
    1. Select **Enable Always On Availability Groups** and restart the SQL Server instance service.
 
 1. Create and start [HADR endpoints](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlhadrendpoint?view=sqlserver-ps#description):
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-SqlHADREndpoint -Port 5022 -Owner sa `
-       -Encryption Supported -EncryptionAlgorithm Aes `
-       -Name AlwaysonEndpoint `
-       -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-
-      Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-
-      New-SqlHADREndpoint -Port 5022 -Owner sa `
+       ```
+       New-SqlHADREndpoint -Port 5022 -Owner sa `
         -Encryption Supported -EncryptionAlgorithm Aes `
         -Name AlwaysonEndpoint `
-        -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
+        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
 
-      Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
+       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
 
-      New-SqlHADREndpoint -Port 5022 -Owner sa `
-        -Encryption Supported -EncryptionAlgorithm Aes `
-        -Name AlwaysonEndpoint `
-        -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
+       New-SqlHADREndpoint -Port 5022 -Owner sa `
+         -Encryption Supported -EncryptionAlgorithm Aes `
+         -Name AlwaysonEndpoint `
+         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default"
 
-      Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
-      ```
+       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
 
-   {% endlist %}
+       New-SqlHADREndpoint -Port 5022 -Owner sa `
+         -Encryption Supported -EncryptionAlgorithm Aes `
+         -Name AlwaysonEndpoint `
+         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default"
 
-1. Create variables with replica parameters. The main replica is `ya-mssql1`, the second and third ones are `ya-mssql2` and `ya-mssql3`, respectively.
+       Set-SqlHADREndpoint -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\Endpoints\AlwaysonEndpoint" -State Started
+       ```
 
-   {% list tabs group=programming_language %}
+    {% endlist %}
 
-   - PowerShell {#powershell}
+1. Create variables with replica parameters. The main replica is `ya-mssql1`; the second and third replicas are `ya-mssql2` and `ya-mssql3`, respectively. 
 
-      ```
-      $PrimaryReplica = New-SqlAvailabilityReplica `
-       -Name ya-mssql1 `
-       -EndpointUrl "TCP://ya-mssql1.yantoso.net:5022" `
-       -FailoverMode "Automatic" `
-       -AvailabilityMode "SynchronousCommit" `
-       -AsTemplate -Version 13
+    {% list tabs group=programming_language %}
 
-      $SecondaryReplica = New-SqlAvailabilityReplica `
-        -Name ya-mssql2 `
-        -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
+    - PowerShell {#powershell}
+
+       ```
+       $PrimaryReplica = New-SqlAvailabilityReplica `
+        -Name ya-mssql1 `
+        -EndpointUrl "TCP://ya-mssql1.yantoso.net:5022" `
         -FailoverMode "Automatic" `
         -AvailabilityMode "SynchronousCommit" `
         -AsTemplate -Version 13
 
-      $ThirdReplica = New-SqlAvailabilityReplica `
-        -Name ya-mssql3 `
-        -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
-        -FailoverMode "Automatic" `
-        -AvailabilityMode "SynchronousCommit" `
-        -AsTemplate -Version 13
-      ```
+       $SecondaryReplica = New-SqlAvailabilityReplica `
+         -Name ya-mssql2 `
+         -EndpointUrl "TCP://ya-mssql2.yantoso.net:5022" `
+         -FailoverMode "Automatic" `
+         -AvailabilityMode "SynchronousCommit" `
+         -AsTemplate -Version 13
 
-   {% endlist %}
+       $ThirdReplica = New-SqlAvailabilityReplica `
+         -Name ya-mssql3 `
+         -EndpointUrl "TCP://ya-mssql3.yantoso.net:5022" `
+         -FailoverMode "Automatic" `
+         -AvailabilityMode "SynchronousCommit" `
+         -AsTemplate -Version 13
+       ```
+
+    {% endlist %}
 
 1. Create a `MyAG` availability group of replicas and add the first server to it:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-SqlAvailabilityGroup `
-          -Name 'MyAG' `
-          -AvailabilityReplica @($PrimaryReplica, $SecondaryReplica, $ThirdReplica) `
-          -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
-      ```
+       ```
+       New-SqlAvailabilityGroup `
+           -Name 'MyAG' `
+           -AvailabilityReplica @($PrimaryReplica, $SecondaryReplica, $ThirdReplica) `
+           -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default"
+        ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Add the remaining servers to the availability group:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" -Name 'MyAG'
-      Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" -Name 'MyAG'
-      ```
+       ```
+       Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" -Name 'MyAG'
+       Join-SqlAvailabilityGroup -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" -Name 'MyAG'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Create a [listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) with the `192.168.1.62` IP address, which belongs to the internal network load balancer:
+1. Create a [listener](https://docs.microsoft.com/en-us/powershell/module/sqlps/new-sqlavailabilitygrouplistener?view=sqlserver-ps#description) for the internal network load balancer, assigning it the `192.168.1.62` IP address:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      $NLBIPAddress = '192.168.1.62'
+       ```
+       $NLBIPAddress = '192.168.1.62'
 
-      Get-Cluster | `
-        Add-ClusterResource -Name 'MyAG Network Name' -Group 'MyAG' -ResourceType 'Network Name'
-      Get-ClusterResource -Name 'MyAG Network Name' | `
-        Set-ClusterParameter -Multiple `
-          @{
-            Name = 'MyAGlistener'
-            DnsName = 'MyAGlistener'
-          }
+       Get-Cluster | `
+         Add-ClusterResource -Name 'MyAG Network Name' -Group 'MyAG' -ResourceType 'Network Name'
+       Get-ClusterResource -Name 'MyAG Network Name' | `
+         Set-ClusterParameter -Multiple `
+           @{
+             Name = 'MyAGlistener'
+             DnsName = 'MyAGlistener'
+           }
 
-      Get-Cluster | `
-        Add-ClusterResource -Name 'My AG listener IP Address' -Group 'MyAG' -ResourceType 'IP Address'
-      Get-ClusterResource -Name 'My AG listener IP Address' | `
-        Set-ClusterParameter -Multiple `
-          @{
-            Address=$NLBIPAddress
-            ProbePort=59999
-            SubnetMask="255.255.255.255"
-            Network="Cluster Network 1"
-            EnableDhcp=0
-          }
+       Get-Cluster | `
+         Add-ClusterResource -Name 'My AG listener IP Address' -Group 'MyAG' -ResourceType 'IP Address'
+       Get-ClusterResource -Name 'My AG listener IP Address' | `
+         Set-ClusterParameter -Multiple `
+           @{
+             Address=$NLBIPAddress
+             ProbePort=59999
+             SubnetMask="255.255.255.255"
+             Network="Cluster Network 1"
+             EnableDhcp=0
+           }
 
-      Add-ClusterResourceDependency `
-        -Resource 'MyAG Network Name' `
-        -Provider 'My AG listener IP Address'
+       Add-ClusterResourceDependency `
+         -Resource 'MyAG Network Name' `
+         -Provider 'My AG listener IP Address'
 
-      Stop-ClusterResource 'MyAG'
+       Stop-ClusterResource 'MyAG'
 
-      Add-ClusterResourceDependency `
-        -Resource 'MyAG' `
-        -Provider 'MyAG Network Name'
+       Add-ClusterResourceDependency `
+         -Resource 'MyAG' `
+         -Provider 'MyAG Network Name'
 
-      Start-ClusterResource 'MyAG'
-      ```
+       Start-ClusterResource 'MyAG'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Assign port `14333` to the listener:
+1. Assign the listener port `14333`:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
       ```
       Set-SqlAvailabilityGroupListener `
@@ -1344,13 +1307,13 @@ Install SQL Server on your database servers:
         -Path "SQLSERVER:\Sql\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG\AvailabilityGroupListeners\MyAGlistener"
       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Open port `14333` on each VM in the cluster:
+1. Open port `14333` on all VMs in the cluster:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
       ```
       $nodes = @('ya-mssql1.yantoso.net','ya-mssql2.yantoso.net','ya-mssql3.yantoso.net')
@@ -1386,275 +1349,275 @@ Install SQL Server on your database servers:
       }
       ```
 
-   {% endlist %}
+    {% endlist %}
 
 
 1. Create a database on the `ya-mssql1` server:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -Query "CREATE DATABASE MyDatabase" -ServerInstance 'ya-mssql1.yantoso.net'
-      ```
+       ```
+       Invoke-Sqlcmd -Query "CREATE DATABASE MyDatabase" -ServerInstance 'ya-mssql1.yantoso.net'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Configure access settings for the backup folder on the server:
+1. Configure access for the backup directory on the server:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
+       ```
+       New-SMBShare -Name SQLBackup -Path "X:\BACKUP" -FullAccess "yantoso\mssql-backups-grp"
 
-      $Acl = Get-Acl "X:\BACKUP"
-      $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
-      $Acl.AddAccessRule($AccessRule)
+       $Acl = Get-Acl "X:\BACKUP"
+       $AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule("yantoso\mssql-backups-grp","Read", "ContainerInherit, ObjectInherit", "None", "Allow")
+       $Acl.AddAccessRule($AccessRule)
 
-      $Acl | Set-Acl "X:\BACKUP"
-      ```
+       $Acl | Set-Acl "X:\BACKUP"
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Create a backup of `MyDatabase` on the `ya-mssql1` VM:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Backup-SqlDatabase `
-        -Database "MyDatabase" -Initialize `
-        -BackupFile "MyDatabase.bak" `
-        -ServerInstance "ya-mssql1.yantoso.net"
+       ```
+       Backup-SqlDatabase `
+         -Database "MyDatabase" -Initialize `
+         -BackupFile "MyDatabase.bak" `
+         -ServerInstance "ya-mssql1.yantoso.net"
 
-      Backup-SqlDatabase `
-        -Database "MyDatabase" -Initialize `
-        -BackupFile "MyDatabase.log" `
-        -ServerInstance "ya-mssql1.yantoso.net" `
-        -BackupAction Log
-      ```
+       Backup-SqlDatabase `
+         -Database "MyDatabase" -Initialize `
+         -BackupFile "MyDatabase.log" `
+         -ServerInstance "ya-mssql1.yantoso.net" `
+         -BackupAction Log
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Restore the database on the `ya-mssql2` server from the backup:
+1. Restore the database on the `ya-mssql2` server from the backup: 
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Restore-SqlDatabase `
-        -Database "MyDatabase" `
-        -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
-        -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
-        -NORECOVERY
+       ```
+       Restore-SqlDatabase `
+         -Database "MyDatabase" `
+         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
+         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
+         -NORECOVERY
 
-      Restore-SqlDatabase `
-        -Database "MyDatabase" `
-        -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
-        -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
-        -RestoreAction Log `
-        -NORECOVERY
-      ```
+       Restore-SqlDatabase `
+         -Database "MyDatabase" `
+         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
+         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default" `
+         -RestoreAction Log `
+         -NORECOVERY
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Restore the database on the `ya-mssql3` server from the backup:
+1. Restore the database on the `ya-mssql3` server from the backup: 
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Restore-SqlDatabase `
-        -Database "MyDatabase" `
-        -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
-        -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
-        -NORECOVERY
+       ```
+       Restore-SqlDatabase `
+         -Database "MyDatabase" `
+         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.bak" `
+         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
+         -NORECOVERY
 
-      Restore-SqlDatabase `
-        -Database "MyDatabase" `
-        -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
-        -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
-        -RestoreAction Log `
-        -NORECOVERY
-      ```
+       Restore-SqlDatabase `
+         -Database "MyDatabase" `
+         -BackupFile "\\ya-mssql1.yantoso.net\SQLBackup\MyDatabase.log" `
+         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default" `
+         -RestoreAction Log `
+         -NORECOVERY
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Add all the databases to the availability group:
+1. Add all databases to the availability group:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Add-SqlAvailabilityDatabase `
-       -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
-       -Database "MyDatabase"
-
-      Add-SqlAvailabilityDatabase `
-        -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
+       ```
+       Add-SqlAvailabilityDatabase `
+        -Path "SQLSERVER:\SQL\ya-mssql1.yantoso.net\Default\AvailabilityGroups\MyAG" `
         -Database "MyDatabase"
 
-      Add-SqlAvailabilityDatabase `
-        -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
-        -Database "MyDatabase"
-      ```
+       Add-SqlAvailabilityDatabase `
+         -Path "SQLSERVER:\SQL\ya-mssql2.yantoso.net\Default\AvailabilityGroups\MyAG" `
+         -Database "MyDatabase"
 
-   {% endlist %}
+       Add-SqlAvailabilityDatabase `
+         -Path "SQLSERVER:\SQL\ya-mssql3.yantoso.net\Default\AvailabilityGroups\MyAG" `
+         -Database "MyDatabase"
+       ```
+
+    {% endlist %}
 
 ## Test the availability group {#test}
 
-You can test your DB performance on any domain VM. Log in under the `yantoso\Administrator` account.
+You can test DB performance on any domain VM. Log in as `yantoso\Administrator`.
 
 1. Create a table in the replicated `MyDatabase` DB:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      CREATE TABLE MyDatabase.dbo.test (
-        test_id INT IDENTITY(1,1) PRIMARY KEY,
-        test_name VARCHAR(30) NOT NULL
-      );
-      "@
-      ```
+       ```
+       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
+       CREATE TABLE MyDatabase.dbo.test (
+         test_id INT IDENTITY(1,1) PRIMARY KEY,
+         test_name VARCHAR(30) NOT NULL
+       );
+       "@
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Add a new row to the DB table:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
-      VALUES ('one')
-      "@
-      ```
+       ```
+       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
+       INSERT INTO MyDatabase.dbo.test (test_name) 
+       VALUES ('one')
+       "@
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Make sure the row appears in the table:
+1. Make sure the table now has this row:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      SELECT *
-      FROM MyDatabase.dbo.test;
-      "@
-      ```
+       ```
+       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
+       SELECT *
+       FROM MyDatabase.dbo.test;
+       "@
+       ```
 
-      Result:
-      ```
-      test_id test_name
-      ------- ---------
-            1 one
-      ```
+       Result:
+       ```
+       test_id test_name
+       ------- ---------
+             1 one
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Check the name of the main DB replica:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
-      ```
+       ```
+       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
+       ```
 
-      Result:
-      ```
-      Column1
-      -------
-      YA-MSSQL1
-      ```
+       Result:
+       ```
+       Column1
+       -------
+       YA-MSSQL1
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 
 1. Run a failover to the second replica:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -Query "ALTER AVAILABILITY GROUP MyAg FAILOVER" -ServerInstance 'ya-mssql2.yantoso.net'
-      ```
+       ```
+       Invoke-Sqlcmd -Query "ALTER AVAILABILITY GROUP MyAg FAILOVER" -ServerInstance 'ya-mssql2.yantoso.net'
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Verify the name of the main replica again:
+1. Check the main replica name once again:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
-      ```
+       ```
+       Invoke-Sqlcmd -Query "SELECT @@SERVERNAME" -ServerInstance 'MyAGlistener.yantoso.net'
+       ```
 
-      Result:
-      ```
-      Column1
-      -------
-      YA-MSSQL2
-      ```
+       Result:
+       ```
+       Column1
+       -------
+       YA-MSSQL2
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 1. Add another row to the table to check the second replica for writes:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
-      INSERT INTO MyDatabase.dbo.test (test_name)
-      VALUES ('two')
-      "@
-      ```
+       ```
+       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query @"
+       INSERT INTO MyDatabase.dbo.test (test_name) 
+       VALUES ('two')
+       "@
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
-1. Make sure the row was added:
+1. Make sure the row is there:
 
-   {% list tabs group=programming_language %}
+    {% list tabs group=programming_language %}
 
-   - PowerShell {#powershell}
+    - PowerShell {#powershell}
 
-      ```
-      Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
-      ```
+       ```
+       Invoke-Sqlcmd -ServerInstance 'MyAGlistener.yantoso.net' -Query "SELECT * FROM MyDatabase.dbo.test"
+       ```
 
-      Result:
-      ```
-      test_id test_name
-      ------- ---------
-            1 one
-            2 two
-      ```
+       Result:
+       ```
+       test_id test_name
+       ------- ---------
+             1 one
+             2 two
+       ```
 
-   {% endlist %}
+    {% endlist %}
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the created resources, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and the load balancer you created:
+To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VMs and the load balancer: 
 
 * `ya-jump1`
 * `ya-ad`

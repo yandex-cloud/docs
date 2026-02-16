@@ -1,4 +1,4 @@
-# All solutions for {{ vpc-name }}
+# Solutions for {{ vpc-short-name }}
 
 {% include [how-to-index](how-to/index.md) %}
 

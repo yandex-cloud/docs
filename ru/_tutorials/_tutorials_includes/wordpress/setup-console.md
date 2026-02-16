@@ -2,7 +2,8 @@
 1. [Создайте группу безопасности](#create-security-group).
 1. [Создайте ВМ для WordPress](#create-vm).
 1. [Настройте DNS (если есть доменное имя)](#configure-dns).
-1. [Настройте WordPress](#wordpress-config).
+1. [Получите данные для аутентификации в веб-интерфейсе](#get-auth-data).
+1. [Подключитесь к веб-интерфейсу WordPress](#connect-wordpress-interface).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -24,26 +25,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
-  1. Откройте вкладку **Группы безопасности**.
-  1. Нажмите кнопку **Создать группу**.
-  1. Укажите **Имя** группы: `wordpress`.
-  1. Выберите **Сеть**.
-  1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `wordpress`.
+  1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}**.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
      Направление<br>трафика | Описание | Диапазон<br>портов | Протокол | Тип источника /<br>назначения | Источник /<br>назначение
      --- | --- | --- | --- | --- | ---
      Исходящий | any | Весь | Любой | CIDR | 0.0.0.0/0
      Входящий | ext-http | 80 | TCP | CIDR | 0.0.0.0/0
      Входящий | ext-https | 443 | TCP | CIDR | 0.0.0.0/0
+     Входящий | ext-ssh | 22 | TCP | CIDR | 0.0.0.0/0
 
-     1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите порт, куда будет поступать трафик. Для исходящего трафика не указывайте ничего.
-     1. В поле **Протокол** укажите нужный протокол. Для исходящего трафика оставьте **Любой**, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **Назначение** или **Источник** выберите **CIDR** — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите `0.0.0.0/0`.
-     1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-  1. Нажмите кнопку **Сохранить**.
+     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите порт, куда будет поступать трафик. Для исходящего трафика не указывайте ничего.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол. Для исходящего трафика оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** введите `0.0.0.0`, в списке после **/** выберите `0`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -55,40 +57,29 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
+  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `WordPress` и выберите публичный образ [WordPress](/marketplace/products/yc/wordpress).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     ![create-vm](../../../_assets/tutorials/wordpress/vm-create-1.png)
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В поле **Имя** введите имя ВМ `wordpress`. Требования к имени:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-     {% include [name-format](../../../_includes/name-format.md) %}
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть, в которой вы создали группу безопасности `wordpress`, и [подсеть](../../../vpc/concepts/network.md#subnet), к которой нужно подключить ВМ. Если подсети еще нет, [создайте](../../../vpc/operations/subnet-create.md) ее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `wordpress`.
 
-  1. Выберите зону доступности, в которой будет находиться ВМ.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите публичный образ [WordPress](../../../marketplace/products/yc/wordpress).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-     ![choose-image](../../../_assets/tutorials/wordpress/vm-create-3.png)
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. В блоке **Вычислительные ресурсы**:
-     * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
-     * Укажите необходимое количество vCPU и объем RAM.
-
-     Для тестирования хватит минимальной конфигурации:
-     * **Платформа** — Intel Ice Lake.
-     * **vCPU** — 2.
-     * **Гарантированная доля vCPU** — 20%.
-     * **RAM** — 1 ГБ.
-  1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-  1. В пункте **Публичный адрес** выберите **Автоматически**.
-
-     ![choose-network](../../../_assets/tutorials/wordpress/vm-create-4.png)
-
-  1. В пункте **Группа безопасности** выберите группу `wordpress`.
-  1. Укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
-
-       Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо создать самостоятельно. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md).
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `wordpress`.
+  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
   Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете начать настраивать сайт.
 
@@ -102,15 +93,19 @@
 
 {% include [configure-a-record-and-cname](../../_tutorials_includes/configure-a-record-and-cname.md) %}
 
-## Настройте WordPress {#wordpress-config}
+## Получите данные для аутентификации в веб-интерфейсе {#get-auth-data}
 
-Чтобы настроить WordPress:
+{% include [get-auth-data](get-auth-data.md) %}
+
+## Подключитесь к веб-интерфейсу WordPress {#connect-wordpress-interface}
+
+Чтобы подключиться к веб-интерфейсу WordPress:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  {% include [wordpress-config](wordpress-config.md) %}
+  {% include [connect-wordpress-interface](connect-wordpress-interface.md) %}
 
 {% endlist %}
 

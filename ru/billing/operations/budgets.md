@@ -7,7 +7,6 @@
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}_ — уведомление отправляется, когда стоимость ресурсов с учетом скидок и активных промокодов превышает установленный порог потребления.
 * _{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}_ — уведомление отправляется, когда баланс лицевого счета становится меньше установленного порога.
 
-
 {% note info %}
 
 Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при превышении пороговых значений. Подробнее о [триггере для бюджетов](../../functions/operations/trigger/budget-trigger-create.md).
@@ -33,7 +32,7 @@
 
      1. Введите имя бюджета.
      1. Выберите **{{ ui-key.yacloud_billing.billing.account.budgets.label_type }}**.
-     1. Задайте **Сумму бюджета**: 
+     1. Задайте **Сумму бюджета**:
 
         * для типов **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-cost }}** или **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}** — сумму расходов на потребление;
         * для типа **{{ ui-key.yacloud_billing.billing.account.budgets.label_type-balance }}** — остаток на лицевом счете.

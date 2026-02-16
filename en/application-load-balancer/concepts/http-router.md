@@ -10,15 +10,15 @@ Using HTTP router settings, you can modify request and response headers and gene
 
 Routes inside an HTTP router are combined in [virtual hosts](#virtual-host). Routing is a two-step process.
 
-1. The most suitable virtual host is selected based on the `Host` header (`:authority` in the case of HTTP/2).
+1. The most suitable virtual host is selected based on the `Host` header (`:authority` if using HTTP/2).
 
-1. The first route whose predicate matches the request is selected. The order of virtual hosts inside the router doesn't matter. However, the order of routes inside the virtual host matters: the most specific routes must be at the top of the list.
+1. The first route whose predicate matches the request is selected. The order of virtual hosts inside the router does not matter. However, the order of routes inside the virtual host matters: the most specific routes must be at the top of the list.
 
 ## Virtual hosts {#virtual-host}
 
-Virtual hosts combine [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. When an incoming request is received, the balancer checks route predicates one-by-one and selects the first predicate matching the request.
+Virtual hosts consolidate [routes](#routes) belonging to the same set of domains, i.e., the `Host` (`:authority`) header values of an HTTP request. Both exact matches and wildcards are supported. On an incoming request, the load balancer checks route predicates one by one and selects the first one matching the request.
 
-The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host.
+The load balancer routes traffic to the [backend](./backend-group.md) that refers to various resources. These resources may be vulnerable to external threats. You can protect your resources using [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md) by connecting a [security profile](../../smartwebsecurity/operations/host-connect.md) to the virtual host. You can also limit the number of requests to the virtual host using the [Global RateLimit](rate-limiter.md) module.
 
 When an {{ alb-name }} [Ingress controller](../tools/k8s-ingress-controller/index.md) manages the load balancer, connect the security profile using an [Ingress resource annotation](../k8s-ref/ingress.md#annot-security-profile-id).
 
@@ -34,19 +34,50 @@ HTTP routers support two types of routes, **{{ ui-key.yacloud.alb.label_proto-ht
 
 1. HTTP routes process HTTP requests over HTTP/1.1 and HTTP/2.
 
-   You can set the beginning or full name of a request, or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), and the request method (such as GET or POST) as route conditions.
+   You can specify a full request path or its beginning, an [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression), or a request method (GET, POST, etc.) as a route condition.
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can set up timeouts for request processing, add WebSocket support, or modification of the URI before sending the request to the backends.
-   * Redirecting a request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and schema.
-   * Immediate return of the static response.
+   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-http }}** [backend group](backend-group.md) for processing. In this case, you can change the `Host` header to the specified value or configure its automatic replacement with the target VM address.
 
-1. gRPC routes are designed for processing gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
+     In addition to the `Host` header, you can set up request processing [timeouts](#timeouts), add WebSocket support, specify protocols the backend group can switch to within a TCP connection on client's request, and change the URI before forwarding the request to the backends.
 
-   You can specify the beginning of a method, or the full method name (FQMN, fully qualified method name), or a [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression) as a condition for a gRPC route. The value must start with a slash `/`.
+   * Redirect the request to another address with the selected response code and request URI modifications. In this case, you can modify the path (completely or partially), delete query parameters, and change the host, port, and scheme.
+
+     If the full request path is specified as a route condition, you will not be able to replace only the beginning of the path. The entire path will be replaced, even if the settings indicate to modify only the beginning.
+   
+     If the original URI uses the `http` (`https`) scheme and port `80` (`443`), changing the scheme will delete the port.
+   * Immediately return a load balancer's static response to the request received via this route.
+
+1. gRPC routes process gRPC requests ([remote procedure calls](https://en.wikipedia.org/wiki/Remote_procedure_call)) over HTTP/2.
+
+   As a condition for a gRPC route, you can specify the beginning of the method, its name (fully qualified method name, FQMN), or an [RE2](https://github.com/google/re2/wiki/Syntax) [regular expression](https://en.wikipedia.org/wiki/Regular_expression). The value must start with a slash (`/`).
 
    You can perform one of the actions with the request that satisfies the conditions:
 
-   * Sending a request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can replace the Host header and configure timeouts to process the request.
-   * Immediate return of the static response.
+   * Send the request to a **{{ ui-key.yacloud.alb.label_proto-grpc }}** [backend group](backend-group.md) for processing. In this case, you can configure the request processing [timeouts](#timeouts) and replace the `Host` header with the specified value or configure its automatic replacement with the target VM address.
+
+   * Immediately return a static response.
+
+### Timeouts {#timeouts}
+
+A request satisfying the route conditions can be forwarded to a backend group for processing. In this case, you can configure timeouts:
+
+* **{{ ui-key.yacloud.alb.label_timeout }}**: Maximum lifetime of an HTTP connection between a load balancer node and the backend. This option is only available for HTTP backend groups. The default value is `60`.
+
+* **{{ ui-key.yacloud_billing.alb.label_max-timeout }}**: Maximum period for which a connection between a load balancer node and a backend can be established. This option is only available for gRPC backend groups. You can specify a shorter timeout in the `grpc-timeout` request HTTP header. The default value is `60`.
+
+* **{{ ui-key.yacloud.alb.label_idle-timeout }}**: Maximum connection lifetime with no data being transferred. There is no default value. If the timeout is not specified, it is ignored. You can use the idle timeout in streaming scenarios (e.g., for long polls or server-sent events). In some cases, when no primary timeout is specified, the idle timeout can be set automatically.
+
+If a connection for HTTP backend groups times out, the load balancer will return code `504 Gateway Timeout`.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/virtual-hosting.md)
+* [{#T}](../tutorials/tls-termination/console.md)
+* [{#T}](../tutorials/alb-with-ddos-protection/console.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/balancer-with-sws-profile/index.md)

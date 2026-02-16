@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Origin/create.md
 ---
 
-# Cloud CDN API, gRPC: OriginService.Create {#Create}
+# Cloud CDN API, gRPC: OriginService.Create
 
 Creates origin inside origin group.
 
@@ -15,8 +15,8 @@ Creates origin inside origin group.
 
 ```json
 {
-  "folderId": "string",
-  "originGroupId": "int64",
+  "folder_id": "string",
+  "origin_group_id": "int64",
   "source": "string",
   "enabled": "google.protobuf.BoolValue",
   "backup": "google.protobuf.BoolValue",
@@ -35,22 +35,29 @@ Creates origin inside origin group.
       "id": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "provider_type": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
-|| originGroupId | **int64**
+Required field. ID of the folder that the origin belongs to.
 
-`originGroupId` group ID to request origins from. ||
+The maximum string length in characters is 50. ||
+|| origin_group_id | **int64**
+
+`origin_group_id` group ID to request origins from.
+
+Value must be greater than 0. ||
 || source | **string**
 
 Required field. IP address or Domain name of your origin and the port (if custom).
-Used if `meta` variant is `common`. ||
+Used if `meta` variant is `common`.
+
+The maximum string length in characters is 50. ||
 || enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 The setting allows to enable or disable an Origin source in the Origins group.
@@ -69,6 +76,16 @@ Default value: False. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Set up origin provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -136,19 +153,19 @@ ID of the origin. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "originId": "int64",
-    "originGroupId": "int64"
+    "origin_id": "int64",
+    "origin_group_id": "int64"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "int64",
-    "originGroupId": "int64",
+    "origin_group_id": "int64",
     "source": "string",
     "enabled": "bool",
     "backup": "bool",
@@ -167,7 +184,8 @@ ID of the origin. ||
         "id": "string"
       }
       // end of the list of possible fields
-    }
+    },
+    "provider_type": "string"
   }
   // end of the list of possible fields
 }
@@ -183,13 +201,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -232,12 +250,16 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| originId | **int64**
+|| origin_id | **int64**
 
-ID of the origin. ||
-|| originGroupId | **int64**
+ID of the origin.
 
-ID pf the parent origins group. ||
+Value must be greater than 0. ||
+|| origin_group_id | **int64**
+
+ID pf the parent origins group.
+
+Value must be greater than 0. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -249,7 +271,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -272,6 +294,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}

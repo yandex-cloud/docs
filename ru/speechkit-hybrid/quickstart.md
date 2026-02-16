@@ -16,13 +16,13 @@ description: По этой инструкции вы можете создать
 
 Чтобы развернуть демонстрационный стенд {{ sk-hybrid-name }}:
 
-1. [{#T}](#get-started).
-1. [{#T}](#prepare).
-1. [{#T}](#ssh).
-1. [{#T}](#variables).
-1. [{#T}](#create-infrastructure).
-1. [{#T}](#communication-channel).
-1. [{#T}](#stt-and-tts).
+1. [Начните работу с {{ yandex-cloud }}](#get-started).
+1. [Установите дополнительные зависимости](#prepare).
+1. [Подготовьте SSH-ключи](#ssh).
+1. [Добавьте переменные для конфигурации {{ TF }}](#variables).
+1. [Создайте инфраструктуру с помощью {{ TF }}](#create-infrastructure).
+1. [Организуйте постоянный канал связи с сервером {{ yandex-cloud }}](#communication-channel).
+1. [Проведите нагрузочное тестирование распознавания и синтеза речи](#stt-and-tts).
 
 В случае ошибок воспользуйтесь [инструкцией по отладке](quickstart-debugging.md).
 
@@ -46,9 +46,9 @@ description: По этой инструкции вы можете создать
 
    * `compute.editor` — чтобы создать ВМ {{ yandex-cloud }};
    * `container-registry.images.puller` — чтобы работать с Docker-образами в реестре [{{ container-registry-full-name }}](../container-registry/index.yaml);
-   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для авторизации в {{ billing-name }}.
+   * `iam.serviceAccounts.keyAdmin` — чтобы создать [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации в {{ billing-name }}.
 
-1. [Создайте API-ключ](../iam/operations/api-key/create.md).
+1. [Создайте API-ключ](../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
    Сохраните идентификатор и секретную часть ключа. Их нельзя запросить позднее.
 
@@ -59,8 +59,8 @@ description: По этой инструкции вы можете создать
 
 На локальной машине:
 
-1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (YC CLI).
-1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через YC CLI.
+1. [Установите интерфейс командной строки](../cli/operations/install-cli.md) {{ yandex-cloud }} (CLI).
+1. [Аутентифицируйте свой сервисный аккаунт](../cli/operations/authentication/service-account.md) через CLI.
 1. [Установите {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Подготовьте репозиторий с конфигурацией {{ TF }} {#repository}
@@ -100,7 +100,7 @@ SSH-ключи понадобятся для аутентификации при
 
 ## Добавьте переменные для конфигурации {{ TF }} {#variables}
 
-В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются YC CLI и {{ TF }} во время выполнения команд.
+В директории репозитория `yc-speechkit-hybrid-deployment` располагается файл `terraform.tfvars.template`. Он представляет собой {{ TF }}-шаблон, по которому задаются переменные окружения. Эти переменные передаются CLI и {{ TF }} во время выполнения команд.
 
 Чтобы задать переменные для конфигурации {{ TF }}, выполните следующие действия на локальной машине:
 

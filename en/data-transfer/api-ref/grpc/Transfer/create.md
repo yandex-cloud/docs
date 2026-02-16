@@ -3,7 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 ---
 
-# Data Transfer API, gRPC: TransferService.Create {#Create}
+# Data Transfer API, gRPC: TransferService.Create
+
+Creates a transfer in the specified folder.
 
 ## gRPC request
 
@@ -13,34 +15,34 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 
 ```json
 {
-  "sourceId": "string",
-  "targetId": "string",
+  "source_id": "string",
+  "target_id": "string",
   "description": "string",
-  "folderId": "string",
+  "folder_id": "string",
   "runtime": {
-    // Includes only one of the fields `ycRuntime`
-    "ycRuntime": {
-      "jobCount": "int64",
-      "uploadShardParams": {
-        "jobCount": "int64",
-        "processCount": "int64"
+    // Includes only one of the fields `yc_runtime`
+    "yc_runtime": {
+      "job_count": "int64",
+      "upload_shard_params": {
+        "job_count": "int64",
+        "process_count": "int64"
       }
     }
     // end of the list of possible fields
   },
   "type": "TransferType",
   "name": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "transformation": {
     "transformers": [
       {
-        // Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`
-        "maskField": {
+        // Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`
+        "mask_field": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
@@ -48,51 +50,51 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
             "string"
           ],
           "function": {
-            // Includes only one of the fields `maskFunctionHash`
-            "maskFunctionHash": {
-              "userDefinedSalt": "string"
+            // Includes only one of the fields `mask_function_hash`
+            "mask_function_hash": {
+              "user_defined_salt": "string"
             }
             // end of the list of possible fields
           }
         },
-        "filterColumns": {
+        "filter_columns": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
           "columns": {
-            "includeColumns": [
+            "include_columns": [
               "string"
             ],
-            "excludeColumns": [
+            "exclude_columns": [
               "string"
             ]
           }
         },
-        "renameTables": {
-          "renameTables": [
+        "rename_tables": {
+          "rename_tables": [
             {
-              "originalName": {
-                "nameSpace": "string",
+              "original_name": {
+                "name_space": "string",
                 "name": "string"
               },
-              "newName": {
-                "nameSpace": "string",
+              "new_name": {
+                "name_space": "string",
                 "name": "string"
               }
             }
           ]
         },
-        "replacePrimaryKey": {
+        "replace_primary_key": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
@@ -100,49 +102,52 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
             "string"
           ]
         },
-        "convertToString": {
+        "convert_to_string": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
           "columns": {
-            "includeColumns": [
+            "include_columns": [
               "string"
             ],
-            "excludeColumns": [
+            "exclude_columns": [
               "string"
             ]
           }
         },
-        "sharderTransformer": {
+        "sharder_transformer": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
+          // Includes only one of the fields `columns`, `random`
           "columns": {
-            "includeColumns": [
+            "include_columns": [
               "string"
             ],
-            "excludeColumns": [
+            "exclude_columns": [
               "string"
             ]
           },
-          "shardsCount": "int64"
+          "random": "SharderTransformerTypeRandom",
+          // end of the list of possible fields
+          "shards_count": "int64"
         },
-        "tableSplitterTransformer": {
+        "table_splitter_transformer": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
@@ -151,12 +156,12 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
           ],
           "splitter": "string"
         },
-        "filterRows": {
+        "filter_rows": {
           "tables": {
-            "includeTables": [
+            "include_tables": [
               "string"
             ],
-            "excludeTables": [
+            "exclude_tables": [
               "string"
             ]
           },
@@ -168,16 +173,43 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
         // end of the list of possible fields
       }
     ]
+  },
+  "data_objects": {
+    "include_objects": [
+      "string"
+    ]
+  },
+  "replication_runtime": {
+    // Includes only one of the fields `yc_runtime`
+    "yc_runtime": {
+      "job_count": "int64",
+      "upload_shard_params": {
+        "job_count": "int64",
+        "process_count": "int64"
+      }
+    }
+    // end of the list of possible fields
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| sourceId | **string** ||
-|| targetId | **string** ||
-|| description | **string** ||
-|| folderId | **string** ||
+|| source_id | **string**
+
+Identifier of the source endpoint. ||
+|| target_id | **string**
+
+Identifier of the target endpoint. ||
+|| description | **string**
+
+Description of the transfer. ||
+|| folder_id | **string**
+
+ID of the folder to create the transfer in.
+
+To get the folder ID, make a
+[yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 || type | enum **TransferType**
 
@@ -185,34 +217,43 @@ sourcePath: en/_api-ref-grpc/datatransfer/v1/api-ref/grpc/Transfer/create.md
 - `SNAPSHOT_AND_INCREMENT`: Snapshot and increment
 - `SNAPSHOT_ONLY`: Snapshot
 - `INCREMENT_ONLY`: Increment ||
-|| name | **string** ||
-|| labels | **string** ||
+|| name | **string**
+
+The transfer name. Must be unique within the folder. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
+|| replication_runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
 |#
 
 ## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
 
 #|
 ||Field | Description ||
-|| ycRuntime | **[YcRuntime](#yandex.cloud.datatransfer.v1.YcRuntime)**
+|| yc_runtime | **[YcRuntime](#yandex.cloud.datatransfer.v1.YcRuntime)**
 
-Includes only one of the fields `ycRuntime`. ||
+Includes only one of the fields `yc_runtime`. ||
 |#
 
 ## YcRuntime {#yandex.cloud.datatransfer.v1.YcRuntime}
 
 #|
 ||Field | Description ||
-|| jobCount | **int64** ||
-|| uploadShardParams | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)** ||
+|| job_count | **int64** ||
+|| upload_shard_params | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)** ||
 |#
 
 ## ShardingUploadParams {#yandex.cloud.datatransfer.v1.ShardingUploadParams}
 
 #|
 ||Field | Description ||
-|| jobCount | **int64** ||
-|| processCount | **int64** ||
+|| job_count | **int64** ||
+|| process_count | **int64** ||
 |#
 
 ## Transformation {#yandex.cloud.datatransfer.v1.Transformation}
@@ -240,30 +281,30 @@ pairs.
 
 #|
 ||Field | Description ||
-|| maskField | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
+|| mask_field | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| filterColumns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| filter_columns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| renameTables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| rename_tables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| replacePrimaryKey | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| replace_primary_key | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| convertToString | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| convert_to_string | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| sharderTransformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| sharder_transformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| tableSplitterTransformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| table_splitter_transformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
-|| filterRows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| filter_rows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
 
-Includes only one of the fields `maskField`, `filterColumns`, `renameTables`, `replacePrimaryKey`, `convertToString`, `sharderTransformer`, `tableSplitterTransformer`, `filterRows`. ||
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
 |#
 
 ## MaskFieldTransformer {#yandex.cloud.datatransfer.v1.MaskFieldTransformer}
@@ -289,10 +330,10 @@ Filter tables using lists of included and excluded tables.
 
 #|
 ||Field | Description ||
-|| includeTables[] | **string**
+|| include_tables[] | **string**
 
 List of tables that will be included to transfer ||
-|| excludeTables[] | **string**
+|| exclude_tables[] | **string**
 
 List of tables that will be excluded to transfer ||
 |#
@@ -303,11 +344,11 @@ Mask function
 
 #|
 ||Field | Description ||
-|| maskFunctionHash | **[MaskFunctionHash](#yandex.cloud.datatransfer.v1.MaskFunctionHash)**
+|| mask_function_hash | **[MaskFunctionHash](#yandex.cloud.datatransfer.v1.MaskFunctionHash)**
 
 Hash mask function
 
-Includes only one of the fields `maskFunctionHash`. ||
+Includes only one of the fields `mask_function_hash`. ||
 |#
 
 ## MaskFunctionHash {#yandex.cloud.datatransfer.v1.MaskFunctionHash}
@@ -316,7 +357,7 @@ Hash data using HMAC
 
 #|
 ||Field | Description ||
-|| userDefinedSalt | **string**
+|| user_defined_salt | **string**
 
 This string will be used in the HMAC(sha256, salt) function applied to the
 column data. ||
@@ -343,10 +384,10 @@ Filter columns using lists of included and excluded columns.
 
 #|
 ||Field | Description ||
-|| includeColumns[] | **string**
+|| include_columns[] | **string**
 
 List of columns that will be included to transfer ||
-|| excludeColumns[] | **string**
+|| exclude_columns[] | **string**
 
 List of columns that will be excluded to transfer ||
 |#
@@ -358,7 +399,7 @@ the source and new names for these tables in the target.
 
 #|
 ||Field | Description ||
-|| renameTables[] | **[RenameTable](#yandex.cloud.datatransfer.v1.RenameTable)**
+|| rename_tables[] | **[RenameTable](#yandex.cloud.datatransfer.v1.RenameTable)**
 
 List of renaming rules ||
 |#
@@ -369,10 +410,10 @@ Specify rule for renaming table
 
 #|
 ||Field | Description ||
-|| originalName | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+|| original_name | **[Table](#yandex.cloud.datatransfer.v1.Table)**
 
 Specify the current names of the table in the source ||
-|| newName | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+|| new_name | **[Table](#yandex.cloud.datatransfer.v1.Table)**
 
 Specify the new names for this table in the target ||
 |#
@@ -381,7 +422,7 @@ Specify the new names for this table in the target ||
 
 #|
 ||Field | Description ||
-|| nameSpace | **string** ||
+|| name_space | **string** ||
 || name | **string** ||
 |#
 
@@ -428,10 +469,22 @@ values will be used for calculating a hash to determine a shard.
 List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
-List of included and excluded columns ||
-|| shardsCount | **int64**
+List of included and excluded columns
+
+Includes only one of the fields `columns`, `random`. ||
+|| random | **[SharderTransformerTypeRandom](#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom)**
+
+Includes only one of the fields `columns`, `random`. ||
+|| shards_count | **int64**
 
 Number of shards ||
+|#
+
+## SharderTransformerTypeRandom {#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom}
+
+#|
+||Field | Description ||
+|| Empty | > ||
 |#
 
 ## TableSplitterTransformer {#yandex.cloud.datatransfer.v1.TableSplitterTransformer}
@@ -492,15 +545,22 @@ Details in docs:
 https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
 |#
 
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| include_objects[] | **string** ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
@@ -520,13 +580,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

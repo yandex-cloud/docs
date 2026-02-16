@@ -1,9 +1,56 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/service/{serviceId}:disable
+    method: post
+    path:
+      type: object
+      properties:
+        serviceId:
+          description: |-
+            **string**
+            Required field. ID of the Service.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - serviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        resource:
+          description: |-
+            **[Resource](#yandex.cloud.iam.v1.Resource)**
+            Required field. Resource container to disable a service in.
+            It is supported only resource-manager.cloud resource container now.
+          $ref: '#/definitions/Resource'
+      required:
+        - resource
+      additionalProperties: false
+    definitions:
+      Resource:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the resource.
+              The maximum string length in characters is 50.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+              The maximum string length in characters is 64.
+            type: string
+        required:
+          - id
+          - type
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceControl/disable.md
 ---
 
-# Identity and Access Management API, REST: ServiceControl.Disable {#Disable}
+# Identity and Access Management API, REST: ServiceControl.Disable
 
 Disable a service in the specified resource container.
 
@@ -19,7 +66,9 @@ POST https://iam.{{ api-host }}/iam/v1/service/{serviceId}:disable
 ||Field | Description ||
 || serviceId | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.DisableServiceRequest}
@@ -50,10 +99,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -185,10 +238,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -234,7 +291,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.

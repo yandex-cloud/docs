@@ -1,9 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/users/{subjectId}
+    method: delete
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to delete membership.
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            ID of the subject that is being deleted from organization.
+            By default equals to authenticated subject.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/User/deleteMembership.md
 ---
 
-# Cloud Organization API, REST: User.DeleteMembership {#DeleteMembership}
+# Identity Hub API, REST: User.DeleteMembership
 
 Delete user membership.
 
@@ -19,11 +44,15 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/organ
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
 Required field. ID of the subject that is being deleted from organization.
-By default equals to authenticated subject. ||
+By default equals to authenticated subject.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -133,10 +162,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-Required field. ID of the subject that is being deleted from organization. ||
+Required field. ID of the subject that is being deleted from organization.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -162,8 +195,12 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the organization to delete membership. ||
+Required field. ID of the organization to delete membership.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-Required field. ID of the subject that is being deleted from organization. ||
+Required field. ID of the subject that is being deleted from organization.
+
+The maximum string length in characters is 50. ||
 |#

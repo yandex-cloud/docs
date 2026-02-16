@@ -1,16 +1,23 @@
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} UI {#cloud-center}
 
-    1. [Log in]({{ link-passport-login }}) as the organization administrator.
-    1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-    1. In the left-hand panel, select **{{ ui-key.yacloud_org.pages.groups }}** ![icon-services](../../_assets/console-icons/persons.svg) and click the line with the group name.
-    1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
-    1. Select a user from the list and click ![image](../../_assets/console-icons/ellipsis.svg) next to the username.
-    1. Click **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
-    1. Click ![image](../../_assets/console-icons/xmark.svg) next to the role to revoke.
-    1. Click **{{ ui-key.yacloud.common.save }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) as the organization administrator or owner.
+
+  1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the line with the [group](../../organization/concepts/groups.md) name.
+  
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
+
+  1. To revoke roles:
+
+      1. In the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.group.action_update-acl }}**.
+
+      1. Click ![image](../../_assets/console-icons/xmark.svg) next to the roles you want to revoke.
+
+      1. Click **{{ ui-key.yacloud.common.save }}**.
+
+  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.entity.group.action_remove-acl }}**. Confirm the action.
 
 - CLI {#cli}
 
@@ -31,7 +38,7 @@
          --organization-id <organization_ID>
        ```
 
-   1. Get the [ID of the user](../../iam/operations/users/get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are revoking a role from.
+   1. Get the [ID of the user](../../organization/operations/users-get.md), [service account](../../iam/operations/sa/get-id.md), or user group you are revoking a role from.
    1. Use the `yc organization-manager group remove-access-binding` command to revoke a role from an object:
 
          ```bash

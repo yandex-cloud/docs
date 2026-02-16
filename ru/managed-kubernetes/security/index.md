@@ -14,17 +14,21 @@ description: Управление доступом в сервисе для ра
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-{% include [roles-assign](../../_includes/iam/roles-assign.md) %}
+Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `k8s.admin` или одна из следующих ролей:
+
+{% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 ## На какие ресурсы можно назначить роль {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
+Также вы можете назначить [роли для доступа к {{ k8s }} API](#k8s-api) на отдельный кластер через {{ yandex-cloud }} [CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding) или [API](../api-ref/authentication.md). Подробнее см. на странице [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/managed-kubernetes/security/service-roles-hierarchy.svg)
+{% include [managed-kubernetes](../../_mermaid/roles/managed-kubernetes.md) %}
 
 ### Роли для доступа к {{ k8s }} API {#k8s-api}
 
@@ -133,8 +137,10 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
       name: <название_роли>
     subjects:
     - kind: User
-      name: <название_аккаунта>
+      name: <идентификатор_аккаунта>
     ```
+
+Подробности о получении идентификатора аккаунта см. на странице [Получение информации о пользователе](../../organization/operations/users-get.md).
 
 Проверьте создание ресурсов в кластере. В других пространствах имен пользователь не будет иметь право на создание или редактирование ресурсов.
 
@@ -154,7 +160,12 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 При создании кластера {{ managed-k8s-name }} необходимо указать два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
 * **Сервисный аккаунт кластера** — от имени этого сервисного аккаунта сервис {{ managed-k8s-name }} управляет узлами кластера, [подсетями](../../vpc/concepts/network.md#subnet) для [подов](../concepts/index.md#pod) и [сервисов](../concepts/index.md#service), [дисками](../../compute/concepts/disk.md), [балансировками нагрузки](../../network-load-balancer/concepts/index.md), а также шифрует и дешифрует [секреты](../../lockbox/concepts/secret.md). Минимально рекомендуемая роль для такого аккаунта — `k8s.clusters.agent`.
-* **Сервисный аккаунт группы узлов** — от имени этого сервисного аккаунта узлы кластера {{ managed-k8s-name }} аутентифицируются в [{{ container-registry-full-name }}](../../container-registry/concepts/index.md). Для развертывания в кластере {{ managed-k8s-name }} приложений с использованием [Docker-образов](../../container-registry/concepts/docker-image.md) из {{ container-registry-name }} этому аккаунту нужно назначить какую-либо [сервисную роль](../../container-registry/security/index.md#service-roles). Если используется другой container registry, то роли этому сервисному аккаунту можно не назначать.
+* **Сервисный аккаунт группы узлов** — от имени этого сервисного аккаунта узлы кластера {{ managed-k8s-name }} аутентифицируются в [{{ container-registry-full-name }}](../../container-registry/concepts/index.md) или в [{{ cloud-registry-full-name }}](../../cloud-registry/concepts/index.md). Для других container registry роли сервисному аккаунту назначать не требуется.
+  
+  Чтобы узлы могли скачивать Docker-образы из реестра:
+
+  * {{ container-registry-full-name }} — назначьте сервисному аккаунту роль [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller).
+  * {{ cloud-registry-full-name }} — назначьте сервисному аккаунту роль [cloud-registry.artifacts.puller](../../cloud-registry/security/index.md#cloud-registry-artifacts-puller).
 
 Для управления кластером {{ managed-k8s-name }} и группами узлов с публичным доступом дополнительно необходима роль `{{ roles-vpc-public-admin }}`.
 
@@ -165,13 +176,13 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 ## Доступ к консоли управления {{ managed-k8s-name }} {#ui-annotation}
 
-Для доступа к {{ managed-k8s-name }} через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} минимально необходимая роль `k8s.viewer`.
+`k8s.viewer` — минимально необходимая роль для доступа к {{ managed-k8s-name }} через [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}. Роль `k8s.viewer` дает доступ только к основной информации о [группах узлов](../operations/node-group/node-group-list.md#get). 
 
-Чтобы получить подробную информацию о кластере {{ managed-k8s-name }} и группе узлов необходима дополнительная роль `k8s.cluster-api.viewer`. Эта роль соответствует роли `view` в {{ k8s }} RBAC и предоставляет права доступа к ограниченному набору ресурсов в {{ k8s }} API, поэтому возможности консоли будут ограничены.
+Комбинация ролей `k8s.viewer` и `k8s.clusters.agent` позволяет просматривать всю информацию о группах узлов, но не об отдельных узлах кластера.
 
-Пользователи с ролью `k8s.cluster-api.cluster-admin` имеют полный доступ к {{ k8s }} API кластера {{ managed-k8s-name }} и могут использовать все возможности консоли управления.
+Комбинация ролей `k8s.cluster-api.cluster-admin`, `k8s.clusters.agent` и `monitoring.viewer` дает доступ к просмотру подробной информации о группах узлов и отдельных [узлах кластера](../operations/node-group/node-group-list.md#get-node). В консоли управления для каждого узла становятся доступны все вкладки, включая вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
 
-Чтобы предоставить более гранулярный доступ к необходимым ресурсам вы можете:
+Чтобы предоставить более гранулярный доступ к необходимым ресурсам, вы можете:
 * Настроить дополнительные права в {{ k8s }} RBAC для соответствующих пользователей.
 * Расширить роли `view` и `edit` в {{ k8s }} RBAC с помощью [агрегации ролей](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles). Например, вы можете разрешить всем пользователям с ролью `view` в {{ k8s }} API (в том числе пользователям с облачной ролью `k8s.cluster-api.viewer`) просмотр информации об узлах, добавив следующую роль в кластер {{ managed-k8s-name }}:
 
@@ -187,3 +198,11 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
     resources: ["nodes"]
     verbs: ["get", "list", "watch"]
   ```
+
+## Федерации сервисных аккаунтов {{ iam-full-name }}
+
+{% include [wlif-mk8s-description](../../_includes/managed-kubernetes/wlif-mk8s-description.md) %}
+
+![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
+
+Например, вы можете настроить [{#T}](../tutorials/wlif-managed-k8s-integration.md).

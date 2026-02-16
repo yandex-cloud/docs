@@ -1,13 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+    method: get
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the OIDC workload identity federation to return.
+            To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/get.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation.Get {#Get}
+# Federation, REST: Federation.Get
 
 Returns the specified OIDC workload identity federation.
 
-To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload-identity/api-ref/Federation/list#List) request.
+To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
 
 ## HTTP request
 
@@ -22,7 +41,9 @@ GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
 || federationId | **string**
 
 Required field. ID of the OIDC workload identity federation to return.
-To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload-identity/api-ref/Federation/list#List) request. ||
+To get the OIDC workload identity federation ID, make a [FederationService.List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.workload.oidc.Federation}
@@ -41,7 +62,7 @@ To get the OIDC workload identity federation ID, make a [FederationService.List]
   ],
   "issuer": "string",
   "jwksUrl": "string",
-  "labels": "string",
+  "labels": "object",
   "createdAt": "string"
 }
 ```
@@ -76,7 +97,7 @@ URL of the external IdP server to be used for authentication. ||
 || jwksUrl | **string**
 
 URL reference to trusted keys in format of JSON Web Key Set. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs ||
 || createdAt | **string** (date-time)

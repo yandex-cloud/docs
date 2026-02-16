@@ -1,8 +1,13 @@
+---
+title: Encryption in {{ managed-k8s-full-name }}
+description: In this article, you will learn about encryption in {{ managed-k8s-name }}.
+---
+
 # Encryption in {{ managed-k8s-name }}
 
 {{ yandex-cloud }} adopts many [information security measures](../../security/standarts.md). They include multi-level encryption of {{ managed-k8s-name }} data:
 
-* Data is encrypted using system keys when it is placed in a {{ yandex-cloud }} storage. This protects your data from compromise in the event of physical disk theft from {{ yandex-cloud }} data centers.
+* Data is encrypted using system keys when it is placed in a {{ yandex-cloud }} storage. This protects your data from being compromised in the event of a physical theft of disks from {{ yandex-cloud }} data centers.
 * Data is encrypted when transmitted over the network using the TLS protocol. The keys used for TLS are stored on hosts running the protocol. This ensures that the data is protected against interception.
 
 The following cryptographic algorithms are used:
@@ -13,13 +18,17 @@ The minimum used key length is 128 bits for symmetric encryption algorithms, and
 
 {{ yandex-cloud }} provides management for these keys.
 
-You can also [encrypt {{ k8s }} secrets](#k8s-secrets-encryption) using a [symmetric encryption key](../../kms/concepts/key.md) stored in [{{ kms-full-name }}](../../kms/concepts/index.md).
+## Encryption with custom symmetric keys {#kms-keys-encryption}
 
-Such key is managed on the user side, which provides additional opportunities:
+{{ managed-k8s-name }} supports encryption with [custom {{ kms-full-name }} symmetric keys](../../kms/concepts/key.md) for the following resources:
+* [{{ k8s }} secrets](#k8s-secrets-encryption)
+* [Disks for persistent volumes](./volume.md#encrypted-disks)
+
+Such keys are managed on the user side, which provides extra opportunities:
 
 * Auditing [events](../../kms/at-ref.md) related to the key usage with [{{ at-full-name }}](../../audit-trails/).
 * Tracking operations with keys using [{{ monitoring-full-name }}](../../monitoring/).
-* [Operations with keys](../../kms/operations/index.md#symmetric-encryption), namely: rotation, update, deactivation, and deletion.
+* [Operations with keys](../../kms/operations/index.md#symmetric-encryption), such as rotation, modification, deactivation, and deletion.
 * Granular management of [access permissions to the key](../../kms/security/index.md) at the level of individual [{{ yandex-cloud }} accounts](../../iam/concepts/users/accounts.md).
 * Using the [hardware security module (HSM)](../../kms/concepts/hsm.md) when needed.
 
@@ -29,7 +38,7 @@ Such key is managed on the user side, which provides additional opportunities:
 
     {% endnote %}
 
-## Encryption of {{ k8s }} secrets {#k8s-secrets-encryption}
+### Encrypting {{ k8s }} secrets {#k8s-secrets-encryption}
 
 A [_{{ k8s }} secret_](https://kubernetes.io/docs/concepts/configuration/secret/) is private information the {{ k8s }} clusters use when managing pods, e.g., OAuth keys, passwords, SSH keys, etc.
 
@@ -59,10 +68,19 @@ The encryption process of an individual secret runs as follows:
 
 Secrets are decrypted in a similar way.
 
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../operations/volumes/encrypted-disks.md)
+
+
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+
 ## See also {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
-* [{#T}](../../kms/tutorials/k8s.md)
+* [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)

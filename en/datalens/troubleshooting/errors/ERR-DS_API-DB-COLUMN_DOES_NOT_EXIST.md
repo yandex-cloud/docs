@@ -1,4 +1,9 @@
-# Requested database column does not exist
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST'
+description: This page describes the Requested database column does not exist {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Requested database column does not exist
 
 `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`
 
@@ -10,7 +15,7 @@ Possible causes:
 
 * When building a dataset from a {{ CH }} connection, an SQL subquery is used. If this is the case, set an alias for the selected fields.
 
-   Example:
+   Here is an example:
 
    ```sql
    SELECT DISTINCT

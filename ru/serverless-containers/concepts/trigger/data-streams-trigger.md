@@ -1,3 +1,8 @@
+---
+title: Триггер для {{ yds-full-name }}, который вызывает контейнер {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете, что такое триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}, ознакомитесь с ролями, необходимыми для корректной работы триггера и форматом сообщений от триггера.
+---
+
 # Триггер для {{ yds-name }}, который вызывает контейнер {{ serverless-containers-name }}
 
  [Триггер](../trigger/) для {{ yds-name }} запускает [контейнер](../container.md) {{ serverless-containers-name }} при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts). 
@@ -5,6 +10,8 @@
 Триггеру для {{ yds-name }} необходимы [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для управления потоком и вызова контейнера. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. 
 
 О том, как создать триггер для {{ yds-name }}, читайте в инструкции [{#T}](../../operations/data-streams-trigger-create.md).
+
+{% include [batching-messages](../../../_includes/serverless-containers/batching-messages.md) %}
 
 ## Роли, необходимые для корректной работы триггера для {{ yds-name }} {#roles}
 
@@ -15,7 +22,9 @@
 
 ## Формат сообщения от триггера для {{ yds-name }} {#format}
 
-После того как триггер сработает, он отправит в контейнер сообщение. Формат сообщения зависит от источника и представляет собой массив `messages`:
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+После того как триггер сработает, он отправит в контейнер сообщение с массивом `messages`:
 
 {% include [yds-format](../../../_includes/functions/yds-format.md) %}
 

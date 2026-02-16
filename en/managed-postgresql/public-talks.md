@@ -5,163 +5,164 @@ description: Videos of conferences and webinars on {{ mpg-full-name }}.
 
 # Public materials about {{ mpg-full-name }}
 
+
 ## Conferences and webinars {#conf-and-webinars}
 
 ### 2022: HighLoad++ {#highload-2022}
 
 * SPQR: {{ PG }} horizontal scaling.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2022/abstracts/9662).
+  * Click [here](https://highload.ru/moscow/2022/abstracts/9662) to watch the video.
 
 * Reliable and fast {{ PG }} backups.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=DcIq7H622dQ).
+  * Click [here](https://www.youtube.com/watch?v=DcIq7H622dQ) to watch the video.
 
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 
-* About people. SRE in the cloud.
+* It all starts with people: Life of an SRE in the cloud.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=8YwepbGf1WM).
+  * Click [here](https://www.youtube.com/watch?v=8YwepbGf1WM) to watch the video.
 
 ### 2021: Yandex Scale {#yandex-scale-2021}
 
-* Data platform news and plans.
+* Data platform updates and future plans.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=34azYnDBiYY).
+  * Click [here](https://www.youtube.com/watch?v=34azYnDBiYY) to watch the video.
 
 ### 2021: HighLoad++ {#highload-2021}
 
 * Pitfalls of high-availability OLTP DBMS installations.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=vxT0tDEk7jU).
+  * Click [here](https://www.youtube.com/watch?v=vxT0tDEk7jU) to watch the video.
 
 ### 2021: PgConf.Online {#pgconf-2021}
 
 * Using high-availability DBMS's in a cloud environment.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=B9tMOJdCPko).
+  * Click [here](https://www.youtube.com/watch?v=B9tMOJdCPko) to watch the video.
 
 * {{ PG }} protocol compression.
 
-  * [Click here to view the recording](https://pgconf.ru/202110/309227).
+  * Click [here](https://pgconf.ru/202110/309227) to watch the video.
 
 ### 2021: Yandex for Developers {#yfd-2021}
 
-* What a database is used for in the service.
+* Why your service needs a database.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=cddm8I0UgjU).
+  * Click [here](https://www.youtube.com/watch?v=cddm8I0UgjU) to watch the video.
 
 ### 2021: Yandex.Subbotnik {#ya-saturday-2021}
 
 * Data algorithms and structures: {{ PG }} Edition.
 
-  * [Click here to view the recording](https://www.youtube.com/live/35Q2338ywEw?feature=share&t=2283).
+  * Click [here](https://www.youtube.com/live/35Q2338ywEw?feature=share&t=2283) to watch the video.
 
 ### 2021: Articles {#article-2021}
 
 * Most epic CVEs in {{ PG }}.
 
-  * [Article text](https://xakep.ru/2021/12/03/postgresql-cve-history/).
+  * Click [here](https://xakep.ru/2021/12/03/postgresql-cve-history/) to read the article.
 
 ### 2020: Yandex Scale {#yandex-scale-2020}
 
 * What we do in open-source databases and why.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=PCG5bO9Ug60).
+  * Click [here](https://www.youtube.com/watch?v=PCG5bO9Ug60) to watch the video.
 
 * Data Platform: New services and plans.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=2366fedcSK8).
+  * Click [here](https://www.youtube.com/watch?v=2366fedcSK8) to watch the video.
 
 ### 2019: Yandex Scale {#yandex-scale-2019}
 
-* Data platform news and plans.
+* Data platform updates and future plans.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=wp3JugBvJFc).
+  * Click [here](https://www.youtube.com/watch?v=wp3JugBvJFc) to watch the video.
 
 ### 2019: HighLoad++ {#highload-2019}
 
 * Odyssey roadmap: What else we expect from a connection pooler.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2019/abstracts/5982).
+  * Click [here](https://highload.ru/moscow/2019/abstracts/5982) to watch the video.
 
 * Backing up heavily loaded DBMS's.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2019/abstracts/5981).
+  * Click [here](https://highload.ru/moscow/2019/abstracts/5981) to watch the video.
 
 ### 2019: {{ yandex-cloud }} {#yc-2019}
 
 * What's new in the {{ yandex-cloud }} database platform.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
+  * Click [here](https://www.youtube.com/watch?v=5OcUo3J4Wdc) to watch the video.
 
-* Structure of the database platform in {{ yandex-cloud }}.
+* {{ yandex-cloud }} database platform architecture.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=Cwdg425a_cw).
+  * Click [here](https://www.youtube.com/watch?v=Cwdg425a_cw) to watch the video.
 
 ### 2019: Articles {#article-2019}
 
 * How managed database services work in {{ yandex-cloud }}.
 
-  * [Article text](https://habr.com/ru/companies/yandex/articles/477860/).
+  * Click [here](https://habr.com/ru/companies/yandex/articles/477860/) to read the article.
 
 ### 2018: HighLoad++ {#highload-2018}
 
 * Scaling {{ PG }} replicas under load in terms of backup technology.
 
-  * [Click here to view the recording](https://highload.ru/moscow/2018/abstracts/3964).
+  * Click [here](https://highload.ru/moscow/2018/abstracts/3964) to watch the video.
 
 * Odyssey: A scalable connection pooler for {{ PG }}.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=Wq7wQ9oyvSw).
+  * Click [here](https://www.youtube.com/watch?v=Wq7wQ9oyvSw) to watch the video.
 
 * Cloud databases.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=xyMN1EA9p5Y).
+  * Click [here](https://www.youtube.com/watch?v=xyMN1EA9p5Y) to watch the video.
 
 ### 2018: PgConf.Online {#pgconf-2018}
 
 * How to save statistics under major updates and what you can get for it.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=uAbJ2C2Fxj8).
+  * Click [here](https://www.youtube.com/watch?v=uAbJ2C2Fxj8) to watch the video.
 
 ### 2018: Yandex.Subbotnik {#ya-saturday-2018}
 
 * Boosting backups.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=bXuN4Na0cEo).
+  * Click [here](https://www.youtube.com/watch?v=bXuN4Na0cEo) to watch the video.
 
 * S3 metadata in {{ PG }}.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=HqPYXZDt3VA).
+  * Click [here](https://www.youtube.com/watch?v=HqPYXZDt3VA) to watch the video.
 
 ### 2018: about:cloud meetup {#about-cloud-2018}
 
 * Cloud databases.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=3n7O4QfYWus).
+  * Click [here](https://www.youtube.com/watch?v=3n7O4QfYWus) to watch the video.
 
 ### 2016: HighLoad++ {#highload-2016}
 
-* Yandex.Mail with {{ PG }} success story.
+* Success story: Yandex.Mail with {{ PG }}.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=pe_dwL38_o8).
-  * [Report text](https://habr.com/ru/articles/321756/).
+  * Click [here](https://www.youtube.com/watch?v=pe_dwL38_o8) to watch the video.
+  * Click [here](https://habr.com/ru/articles/321756/) to read the report.
 
 ### 2016: Yandex for Developers {#yfd-2016}
 
 * PGmigrate: Pain-free migration.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=LqB1DA6fJB8).
+  * Click [here](https://www.youtube.com/watch?v=LqB1DA6fJB8) to watch the video.
 
 ### 2015: Yandex for Developers {#yfd-2015}
 
 * How to stop worrying and sleep well.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=cqyloVzIZqM).
+  * Click [here](https://www.youtube.com/watch?v=cqyloVzIZqM) to watch the video.
 
 ### 2014: IT courses {#it-courses-2014}
 
 * Databases: {{ PG }}.
 
-  * [Click here to view the recording](https://www.youtube.com/watch?v=ejLzS6rVpkk).
+  * Click [here](https://www.youtube.com/watch?v=ejLzS6rVpkk) to watch the video.

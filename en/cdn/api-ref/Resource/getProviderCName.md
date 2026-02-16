@@ -1,12 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID to get provider's CNAME.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Resource/getProviderCName.md
 ---
 
-# Cloud CDN API, REST: Resource.GetProviderCName {#GetProviderCName}
+# Cloud CDN API, REST: Resource.GetProviderCName
 
-Get Provider's CNAME (edge endpoint) bind to specified folder id.
-Returns UNIMPLEMENTED error, if provider doesn't support CNAME request.
+Deprecated: Provider-specific CNAME is now available in the `provider_cname` field of each Resource message.
 
 ## HTTP request
 
@@ -20,7 +37,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/cname/{folderId}
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Folder ID to get provider's CNAME. ||
+Required field. Folder ID to get provider's CNAME.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.GetProviderCNameResponse}

@@ -11,26 +11,28 @@ description: Access management in {{ objstorage-full-name }} (S3), a service for
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `storage.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `storage.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
-You can use the {{ yandex-cloud }} console or the YC CLI to assign a role for an [organization](../../organization/concepts/membership.md), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), or individual bucket. These assigned roles will also apply to nested resources.
+{% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
+
+You can assign a role for a separate bucket in the [management console]({{ link-console-main }}) or using the [{{ yandex-cloud }} API](../api-ref/Bucket/setAccessBindings.md) or [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket_iam_binding).
 
 To learn how to manage access to buckets and objects in them, see [{#T}](../concepts/acl.md).
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![service-roles-hierarchy](../../_assets/storage/service-roles-hierarchy.svg)
+{% include [storage](../../_mermaid/roles/storage.md) %}
 
 ### Service roles {#service-roles}
 

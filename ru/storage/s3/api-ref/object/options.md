@@ -36,7 +36,7 @@ OPTIONS /{bucket}/{key} HTTP/2
 Заголовок | Описание
 --------- | --------
 `Access-Control-Allow-Origin` | Домен, который был передан в заголовке `Origin` запроса.<br/><br/>Если в [конфигурации CORS](../cors/upload.md#request-scheme) в элементе `AllowedOrigin` задано `*`, то значение заголовка `Access-Control-Allow-Origin` также будет `*`.<br/><br/>Если доступ с домена запрещен, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
-`Access-Control-Max-Age` | Допустимый период (в секундах) кэширования ответа.
+`Access-Control-Max-Age` | Допустимый период (в секундах) кеширования ответа.
 `Access-Control-Allow-Methods` | Допустимые для использования в запросе методы. Если допустимых методов нет, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
 `Access-Control-Allow-Headers` | Список HTTP-заголовков, которые можно использовать в последующем запросе к объекту. Если все заголовки запрещены, то этот заголовок не входит в ответ.
 `Access-Control-Expose-Headers` | Список HTTP-заголовков, которые получит JavaScript-клиент.

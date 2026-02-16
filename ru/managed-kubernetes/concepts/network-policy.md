@@ -44,6 +44,8 @@ Cilium в кластере {{ managed-k8s-name }} работает в [тунн�
 
 Для использования туннельного режима сервисному аккаунту кластера [требуется роль `k8s.tunnelClusters.agent`](../security/index.md#yc-api).
 
+В разделе [Создание кластера {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) описано, как включить туннельный режим.
+
 ## Сетевые политики allow-all и deny-all {#allow-deny-policies}
 
 {% note warning %}

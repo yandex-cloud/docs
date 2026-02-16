@@ -8,7 +8,10 @@
 
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-1. Убедитесь, что в нужном облаке у вас есть роль `owner` или `editor`.
+1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `owner` или `editor` на нужное облако.
+
+    {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
+
 1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 ## Создайте ключ симметричного шифрования {#create-key}
@@ -19,7 +22,7 @@
     
     Создайте ключ симметричного шифрования: 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте параметры ключа:
        * В поле **{{ ui-key.yacloud.common.name }}** укажите `my-first-key`.
@@ -43,7 +46,7 @@
     1. Запишите секретный текст в файл `plaintext.txt`.
     1. Из консоли управления скопируйте идентификатор ключа, созданного ранее.
         1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан ключ.
-        1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
         1. В открывшемся окне скопируйте ключ из поля **{{ ui-key.yacloud.common.id }}**.
     1. Зашифруйте текст:
     

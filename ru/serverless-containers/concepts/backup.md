@@ -1,5 +1,6 @@
 ---
 title: Резервное копирование в {{ serverless-containers-full-name }}
+description: Из статьи вы узнаете про резервное копирование в {{ serverless-containers-full-name }} и какую информацию вы можете получить.
 ---
 
 # Резервное копирование в {{ serverless-containers-name }}

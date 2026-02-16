@@ -1,9 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list dashboards in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListRegressionDashboardsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters dashboards listed in the response.
+            The filter expression may contain multiple field expressions joined by `AND`.
+            The field expression must specify:
+            1. The field name.
+            2. An operator:
+            - `=`, `!=`, `CONTAINS`, for single values.
+            - `IN` or `NOT IN` for lists of values.
+            3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
+            Currently supported fields:
+            - `id` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.id](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
+            - operators: `=`, `!=`, `IN`, `NOT IN`
+            - `name` [yandex.cloud.loadtesting.api.v1.regression.Dashboard.name](#yandex.cloud.loadtesting.api.v1.regression.Dashboard)
+            - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
+            Examples:
+            - `id IN ("1", "2", "3")`
+            - `name CONTAINS "my-dashboard" AND id NOT IN ("4", "5")`
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/list.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.List {#List}
+# Load Testing API, REST: RegressionDashboard.List
 
 Retrieves the list of regression dashboards in the specified folder.
 
@@ -446,7 +499,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.

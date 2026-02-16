@@ -3,41 +3,122 @@ description:
   - >-
     These tutorials will help you meet various challenges with {{ yandex-cloud
     }} services.
+blocks:
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    title: Yandex Cloud tutorials
+    description: >-
+      These tutorials will help you meet various challenges with Yandex Cloud
+      services.
+    children:
+      - type: basic-card
+        title: Security
+        text: Create a secure infrastructure in Yandex Cloud.
+        urlTitle: Security guides
+        url: https://yandex.cloud/ru/docs/tutorials/security/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Storing and recovering data
+        text: Set up data backup and recovery.
+        urlTitle: Storing and recovering data
+        url: https://yandex.cloud/ru/docs/tutorials/archive/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Development and testing
+        text: Use Yandex Cloud services for development and testing.
+        urlTitle: Development and testing guides
+        url: https://yandex.cloud/ru/docs/tutorials/dev/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Basic infrastructure
+        text: >-
+          Deploy your basic infrastructure using convenient tools and manage
+          cloud resources.
+        urlTitle: Tutorials for working with basic infrastructure management systems
+        url: https://yandex.cloud/ru/docs/tutorials/infrastructure/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Container infrastructure
+        text: Deploy a container infrastructure in Yandex Cloud.
+        urlTitle: Tutorials for working with a container infrastructure
+        url: https://yandex.cloud/ru/docs/tutorials/container-infrastructure/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Application solutions
+        text: Achieve real-life objectives using Yandex Cloud services.
+        urlTitle: Application solutions
+        url: https://yandex.cloud/ru/docs/tutorials/applied/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Building a data platform
+        text: Build a data platform with Yandex Cloud.
+        urlTitle: Building a data platform based on Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/dataplatform/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Microsoft products in Yandex Cloud
+        text: Deploy Microsoft products in Yandex Cloud.
+        urlTitle: Tutorials on working with Windows in Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/windows/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Architecture and networking
+        text: Configure static routes and VPN to access cloud resources.
+        urlTitle: Tutorials on the use of the network infrastructure in Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/routing/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Data visualization and analytics
+        text: Collect, visualize, and analyze data from various sources.
+        urlTitle: Data analysis and visualization tutorials
+        url: https://yandex.cloud/ru/docs/tutorials/datalens/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Serverless technologies
+        text: Create your own apps and integrations using serverless technologies.
+        urlTitle: Tutorials on the use of serverless technologies in Yandex Cloud
+        url: https://yandex.cloud/ru/docs/tutorials/serverless/
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Machine learning and artificial intelligence
+        text: >-
+          Use the capabilities offered by Yandex Cloud to create machine
+          learning and artificial intelligence solutions.
+        urlTitle: Tutorials for machine learning and artificial intelligence
+        url: https://yandex.cloud/ru/docs/tutorials/ml-ai/
+        border: shadow
+        controlPosition: content
+        animated: false
 meta:
   title: Tutorials
   description: >-
     These tutorials will help you meet various challenges with {{ yandex-cloud
     }} services.
-links:
-  - title: Security
-    description: Set up infrastructure security using {{ yandex-cloud }}
-    href: security/
-  - title: Storing and recovering data
-    description: Set up data backup and recovery
-    href: archive/
-  - title: Development and testing
-    description: Use {{ yandex-cloud }} services in development and testing
-    href: dev/
-  - title: Basic infrastructure
-    description: >-
-      Deploy a basic infrastructure using convenient tools for managing cloud
-      resources
-    href: infrastructure/
-  - title: Application solutions
-    description: Achieve real-life objectives using {{ yandex-cloud }} tools
-    href: applied/
-  - title: Building a data platform
-    description: Create a data platform with {{ yandex-cloud }}
-    href: dataplatform/
-  - title: Microsoft products in {{ yandex-cloud }}
-    description: Deploy Microsoft products in {{ yandex-cloud }}
-    href: windows/
-  - title: Architecture and networking
-    description: Configure static routes and VPN to access cloud resources
-    href: routing/
-  - title: Data visualization and analytics
-    description: Collect, visualize, and analyze data from various sources
-    href: datalens/
-  - title: Serverless technologies
-    description: Create your own apps and set up integrations with serverless technologies
-    href: serverless/
+links: []

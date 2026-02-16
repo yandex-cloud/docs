@@ -6,7 +6,7 @@ description: Различные сценарии использования {{ c
 # Практические руководства {{ container-registry-name }}
 
 * [{#T}](run-docker-on-vm/index.md)
-* [{#T}](sign-with-cosign.md)
+* [{#T}](sign-cr-with-cosign.md)
 * [{#T}](cr-scanner-with-k8s-and-gitlab.md)
 * [{#T}](gitlab-containers.md)
 * [{#T}](ci-cd-serverless.md)
@@ -14,3 +14,9 @@ description: Различные сценарии использования {{ c
 * [{#T}](vpc-cr-access.md)
 * [{#T}](fault-tolerance.md)
 * [{#T}](loadtesting-external-agent.md)
+* [{#T}](deploy-app-container.md)
+* [{#T}](grpc-node.md)
+* [{#T}](node-from-docker.md)
+* [{#T}](node-from-docker-fast-api.md)
+* [{#T}](container-pg-connect.md)
+* [{#T}](container-registry.md)

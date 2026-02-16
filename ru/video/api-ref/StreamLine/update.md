@@ -1,11 +1,121 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
+    method: patch
+    path:
+      type: object
+      properties:
+        streamLineId:
+          description: |-
+            **string**
+            Required field. ID of the line.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - streamLineId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        fieldMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        title:
+          description: |-
+            **string**
+            Line title.
+            The maximum string length in characters is 300.
+          type: string
+        rtmpPush:
+          description: |-
+            **object**
+            RTMP push input type.
+            Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+            Video signal settings.
+          $ref: '#/definitions/RTMPPushParams'
+        rtmpPull:
+          description: |-
+            **[RTMPPullParams](#yandex.cloud.video.v1.RTMPPullParams)**
+            RTMP pull input type.
+            Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+            Video signal settings.
+          $ref: '#/definitions/RTMPPullParams'
+        srtPull:
+          description: |-
+            **[SRTPullParams](#yandex.cloud.video.v1.SRTPullParams)**
+            SRT pull input type.
+            Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
+            Video signal settings.
+          $ref: '#/definitions/SRTPullParams'
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New custom labels for the stream line as `key:value` pairs.
+            Maximum 64 labels per stream line.
+            If provided, replaces all existing labels.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_.@:/0-9a-zA-Z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+      required:
+        - fieldMask
+      additionalProperties: false
+      oneOf:
+        - required:
+            - rtmpPush
+        - required:
+            - rtmpPull
+        - required:
+            - srtPull
+    definitions:
+      RTMPPushParams:
+        type: object
+        properties: {}
+      RTMPPullParams:
+        type: object
+        properties:
+          url:
+            description: |-
+              **string**
+              Required field. The RTMP URL from which to pull the video stream.
+              Must be a valid RTMP URL starting with "rtmp://".
+              Value must match the regular expression ` rtmp://.* `.
+            pattern: rtmp://.*
+            type: string
+        required:
+          - url
+      SRTPullParams:
+        type: object
+        properties:
+          url:
+            description: |-
+              **string**
+              URL of a SRT streaming server.
+            type: string
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/update.md
 ---
 
-# Video API, REST: StreamLine.Update {#Update}
+# Video API, REST: StreamLine.Update
 
-Update stream line.
+Updates an existing stream line's metadata and configuration.
+Only fields specified in the field_mask will be updated.
 
 ## HTTP request
 
@@ -19,7 +129,9 @@ PATCH https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the line.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.video.v1.UpdateStreamLineRequest}
@@ -28,24 +140,16 @@ Required field. ID of the line. ||
 {
   "fieldMask": "string",
   "title": "string",
-  "thumbnailId": "string",
-  "labels": "string",
-  // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
+  // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
   "rtmpPush": "object",
-  "srtPush": "object",
   "rtmpPull": {
     "url": "string"
   },
   "srtPull": {
     "url": "string"
   },
-  "tcpPull": {
-    "url": "string"
-  },
-  "rtspPull": {
-    "url": "string"
-  }
   // end of the list of possible fields
+  "labels": "object"
 }
 ```
 
@@ -53,7 +157,7 @@ Required field. ID of the line. ||
 ||Field | Description ||
 || fieldMask | **string** (field-mask)
 
-A comma-separated names off ALL fields to be updated.
+Required field. A comma-separated names off ALL fields to be updated.
 Only the specified fields will be changed. The others will be left untouched.
 If the field is specified in `` updateMask `` and no value for that field was sent in the request,
 the field's value will be reset to the default. The default value for most fields is null or 0.
@@ -63,64 +167,51 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || title | **string**
 
-Line title. ||
-|| thumbnailId | **string**
+Line title.
 
-ID of the thumbnail. ||
-|| labels | **string**
-
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+The maximum string length in characters is 300. ||
 || rtmpPush | **object**
 
 RTMP push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
-|| srtPush | **object**
-
-SRT push input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
 Video signal settings. ||
 || rtmpPull | **[RTMPPullParams](#yandex.cloud.video.v1.RTMPPullParams)**
 
 RTMP pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
 Video signal settings. ||
 || srtPull | **[SRTPullParams](#yandex.cloud.video.v1.SRTPullParams)**
 
 SRT pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
 Video signal settings. ||
-|| tcpPull | **[TCPPullParams](#yandex.cloud.video.v1.TCPPullParams)**
+|| labels | **object** (map<**string**, **string**>)
 
-TCP pull input type.
+New custom labels for the stream line as `key:value` pairs.
+Maximum 64 labels per stream line.
+If provided, replaces all existing labels.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
-|| rtspPull | **[RTSPPullParams](#yandex.cloud.video.v1.RTSPPullParams)**
-
-RTSP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## RTMPPullParams {#yandex.cloud.video.v1.RTMPPullParams}
+
+Parameters for creating an RTMP pull input type stream line.
 
 #|
 ||Field | Description ||
 || url | **string**
 
-URL of a RTMP streaming server. ||
+Required field. The RTMP URL from which to pull the video stream.
+Must be a valid RTMP URL starting with "rtmp://".
+
+Value must match the regular expression ` rtmp://.* `. ||
 |#
 
 ## SRTPullParams {#yandex.cloud.video.v1.SRTPullParams}
@@ -130,24 +221,6 @@ URL of a RTMP streaming server. ||
 || url | **string**
 
 URL of a SRT streaming server. ||
-|#
-
-## TCPPullParams {#yandex.cloud.video.v1.TCPPullParams}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-URL of a TCP streaming server. ||
-|#
-
-## RTSPPullParams {#yandex.cloud.video.v1.RTSPPullParams}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-URL of a RTSP streaming server. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -177,24 +250,14 @@ URL of a RTSP streaming server. ||
     "id": "string",
     "channelId": "string",
     "title": "string",
-    "thumbnailId": "string",
-    // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
+    // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
     "rtmpPush": {
-      "url": "string"
-    },
-    "srtPush": {
       "url": "string"
     },
     "rtmpPull": {
       "url": "string"
     },
     "srtPull": {
-      "url": "string"
-    },
-    "tcpPull": {
-      "url": "string"
-    },
-    "rtspPull": {
       "url": "string"
     },
     // end of the list of possible fields
@@ -206,7 +269,7 @@ URL of a RTSP streaming server. ||
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -287,7 +350,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || streamLineId | **string**
 
-ID of the line. ||
+ID of the stream line. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -309,7 +372,7 @@ A list of messages that carry the error details. ||
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -318,72 +381,48 @@ Entity that is responsible for the incoming video signal settings.
 ID of the line. ||
 || channelId | **string**
 
-ID of the channel where the line was created. ||
+ID of the channel to which this stream line belongs. ||
 || title | **string**
 
-Line title. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail. ||
+Title of the stream line. ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-RTMP push input type.
+Real-Time Messaging Protocol (RTMP) push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
-
-SRT push input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
-RTMP pull input type.
+Real-Time Messaging Protocol (RTMP) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
 
-SRT pull input type.
+Secure Reliable Transport (SRT) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| tcpPull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
-
-TCP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
-|| rtspPull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
-
-RTSP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || createdAt | **string** (date-time)
 
-Time when line was created.
+Timestamp when the stream line was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -393,7 +432,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last line update.
+Timestamp of the last modification to the stream line or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -401,12 +440,18 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}
+
+Settings for an RTMP (Real-Time Messaging Protocol) push input.
+Used when the video stream is pushed to an RTMP server.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -415,16 +460,11 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 RTMP server url. ||
 |#
 
-## SRTPushInput {#yandex.cloud.video.v1.SRTPushInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-SRT server url. ||
-|#
-
 ## RTMPPullInput {#yandex.cloud.video.v1.RTMPPullInput}
+
+Settings for an RTMP pull input.
+Used when the service pulls the video stream from an RTMP source.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -435,6 +475,10 @@ RTMP url for receiving video signal. ||
 
 ## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
 
+Settings for an SRT pull input.
+Used when the service pulls the video stream from an SRT source.
+@see https://en.wikipedia.org/wiki/Secure_Reliable_Transport
+
 #|
 ||Field | Description ||
 || url | **string**
@@ -442,35 +486,16 @@ RTMP url for receiving video signal. ||
 SRT url for receiving video signal. ||
 |#
 
-## TCPPullInput {#yandex.cloud.video.v1.TCPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-TCP url for receiving video signal. ||
-|#
-
-## RTSPPullInput {#yandex.cloud.video.v1.RTSPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-RTSP url for receiving video signal. ||
-|#
-
 ## AutoLine {#yandex.cloud.video.v1.AutoLine}
 
-Auto line type.
+Represents an automatic line type where the stream control is handled automatically.
 
 #|
 ||Field | Description ||
 || status | **enum** (AutoLineStatus)
 
-Status of auto line.
+The status of the automatic line.
 
-- `AUTO_LINE_STATUS_UNSPECIFIED`: Auto line status unspecified.
-- `DEACTIVATED`: Auto line deactivated.
-- `ACTIVE`: Auto line active. ||
+- `DEACTIVATED`: The automatic line is deactivated and not currently active.
+- `ACTIVE`: The automatic line is active and operational. ||
 |#

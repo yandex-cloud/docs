@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="130">
+    <defs>
+        <marker id="arrow" markerHeight="10" markerUnits="strokeWidth" markerWidth="10" orient="auto" refX="0" refY="3">
+            <path fill="#4e496b" d="M0 0v6l9-3Z"/>
+        </marker>
+    </defs>
+    <g transform="matrix(.62082 0 0 .68738 49.653 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">SELECT</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 179.4 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">FROM</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 309.4 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">WHERE</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 438.894 49.653)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">GROUP BY</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 567.939 49.579)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">HAVING</text>
+    </g>
+    <g transform="matrix(.62082 0 0 .68738 697.23 49.4)">
+        <rect width="120" height="40" fill="#fff" stroke="#5282ff" stroke-width="2" rx="5" ry="5"/>
+        <text x="60" y="20" dominant-baseline="middle" font-family="Arial" font-size="14" text-anchor="middle">ORDER BY</text>
+    </g>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M124.658 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M254.659 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M384.406 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M513.899 63.401h37.249"/>
+    <path stroke="#4e496b" stroke-width="1.834" marker-end="url(#arrow)" d="M642.803 63.401h37.249"/>
+</svg>

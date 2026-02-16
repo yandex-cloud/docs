@@ -5,7 +5,7 @@ description: Follow this guide to set up widget display order on a mobile device
 
 # Widget display order on a mobile device
 
-To set up the order of displaying charts and selectors in the mobile version or mailing lists:
+To set up the order of charts and selectors in the mobile version:
 
 1. In the top-right corner, click **Edit** and select **Tabs**.
 1. In the window that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the tab.

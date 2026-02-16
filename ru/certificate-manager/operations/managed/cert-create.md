@@ -2,14 +2,14 @@
 
 [Сертификат](../../concepts/managed-certificate.md) из {{ certificate-manager-name }} можно использовать только в [указанных сервисах](../../concepts/services.md) {{ yandex-cloud }}.
 
-Чтобы добавить новый сертификат от Let's Encrypt®:
+## Добавить новый сертификат {#add-certificate}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя сертификата.
@@ -97,13 +97,25 @@
 
 {% endlist %}
 
-В списке сертификатов появится новый сертификат со статусом `Validating`. Этот статус означает, что запрос на выпуск сертификата от Let's Encrypt® создан, и для его успешной обработки вам необходимо пройти [процедуру проверки прав на домены](cert-validate.md).
+В списке сертификатов появится новый сертификат со статусом `Validating`. Этот статус означает, что создан запрос на выпуск сертификата от Let's Encrypt®. Для обработки запроса [подтвердите права на домены](cert-validate.md).
 
 {% note info %}
 
 {% include [checking-domain-rights-cname](../../../_includes/certificate-manager/checking-domain-rights-cname.md) %}
 
 {% endnote %}
+
+## Посмотреть статус выпуска сертификата {#view-statuses}
+
+Проверить статус создания сертификата и возможные ошибки при его выпуске можно в [консоли управления]({{ link-console-main }}):
+
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. Выберите сертификат в списке.
+   
+   Напротив поля **Validation** будет указан текущий этап выпуска сертификата.
+1. Чтобы посмотреть описание этапа и его результаты, нажмите **Показать логи**.
+
+   Подробнее об этапах выпуска сертификата см. в разделе [Сертификат от Let's Encrypt](../../concepts/managed-certificate.md#issue-statuses).
 
 #### См. также {#see-also}
 

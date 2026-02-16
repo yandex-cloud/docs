@@ -1,9 +1,115 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
+    method: patch
+    path:
+      type: object
+      properties:
+        sinkId:
+          description: |-
+            **string**
+            Required field. ID of the sink to update.
+            To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List) request.
+          type: string
+      required:
+        - sinkId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the sink.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            New Description of the sink.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New sink labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        serviceAccountId:
+          description: |-
+            **string**
+            new service account to use for logs writing to the sink.
+          type: string
+        yds:
+          description: |-
+            **[Yds](#yandex.cloud.logging.v1.Sink.Yds)**
+            Yandex data stream
+            Includes only one of the fields `yds`, `s3`.
+            New logs destination
+          $ref: '#/definitions/Yds'
+        s3:
+          description: |-
+            **[S3](#yandex.cloud.logging.v1.Sink.S3)**
+            Object storage
+            Includes only one of the fields `yds`, `s3`.
+            New logs destination
+          $ref: '#/definitions/S3'
+      additionalProperties: false
+      oneOf:
+        - required:
+            - yds
+        - required:
+            - s3
+    definitions:
+      Yds:
+        type: object
+        properties:
+          streamName:
+            description: |-
+              **string**
+              Fully qualified name of data stream
+            type: string
+      S3:
+        type: object
+        properties:
+          bucket:
+            description: |-
+              **string**
+              Object storage bucket
+            pattern: '[a-zA-Z0-9][-a-zA-Z0-9.]{2,62}'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              Prefix to use for saved log object names
+            type: string
 sourcePath: en/_api-ref/logging/v1/api-ref/Sink/update.md
 ---
 
-# Cloud Logging Service, REST: Sink.Update {#Update}
+# Cloud Logging Service, REST: Sink.Update
 
 Updates the specified sink.
 
@@ -31,7 +137,7 @@ To get a sink ID make a [SinkService.List](/docs/logging/api-ref/Sink/list#List)
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "serviceAccountId": "string",
   // Includes only one of the fields `yds`, `s3`
   "yds": {
@@ -64,7 +170,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New Description of the sink. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New sink labels as `key:value` pairs. ||
 || serviceAccountId | **string**
@@ -137,7 +243,7 @@ Prefix to use for saved log object names ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "serviceAccountId": "string",
     // Includes only one of the fields `yds`, `s3`
     "yds": {
@@ -277,7 +383,7 @@ Sink name. ||
 || description | **string**
 
 Sink description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Sink labels. ||
 || serviceAccountId | **string**

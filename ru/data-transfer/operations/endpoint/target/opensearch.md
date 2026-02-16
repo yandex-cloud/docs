@@ -2,6 +2,7 @@
 title: Инструкция по настройке эндпоинта-приемника {{ OS }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ OS }} в {{ data-transfer-full-name }}.
 ---
+
 # Передача данных в эндпоинт-приемник {{ OS }}
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ OS }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
@@ -17,12 +18,11 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных в {{ OS }} {#scenarios}
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    * [Поставка данных из {{ DS }} в {{ OS }}](../../../tutorials/trails-to-os.md);
+
    * [Поставка данных из {{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md).
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
     * [Миграция кластера {{ OS }}](../../../tutorials/os-to-mos.md);
-    * [Миграция со сменой хранилища: из {{ ES }} в {{ OS }}](../../../tutorials/mes-to-mos.md);
     * [Миграция со сменой хранилища: из {{ PG }} в {{ OS }}](../../../tutorials/postgresql-to-opensearch.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
@@ -34,7 +34,6 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ PG }}](../source/postgresql.md);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ KF }}](../source/kafka.md);
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -66,8 +65,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endnote %}
 
-
-Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -116,6 +114,10 @@ description: Из статьи вы узнаете, как задать наст
 
 * [Прерывание трансфера с ошибкой](#ambiguous-resolution-es)
 * [Дублирование документов на приемнике](#duplication)
+* [Превышение лимита максимального количества полей](#exceeding-fields-limit)
+* [Прерывание трансфера с ошибкой mapper_parsing_exception](#data-types)
+* [Ошибка SSL is required](#ssl-required)
+* [Не удалось найти ни одной таблицы](#no-tables)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -123,4 +125,10 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [duplication](../../../../_includes/data-transfer/troubles/elastic-opensearch/duplication.md) %}
 
+{% include [exceeding-fields-limit](../../../../_includes/data-transfer/troubles/elastic-opensearch/exceeding-fields-limit.md) %}
 
+{% include [mapper-parsing-exception](../../../../_includes/data-transfer/troubles/elastic-opensearch/mapper-parsing-exception.md) %}
+
+{% include [ssl-is-required](../../../../_includes/data-transfer/troubles/elastic-opensearch/ssl-is-required.md) %}
+
+{% include [no-tables](../../../../_includes/data-transfer/troubles/elastic-opensearch/no-tables.md) %}

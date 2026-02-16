@@ -7,10 +7,8 @@ description: Различные сценарии использования {{ c
 
 * [{#T}](ntp.md)
 * [{#T}](vm-autoscale/index.md)
-
-* [{#T}](vm-scale-scheduled.md)
+* [{#T}](vm-scale-scheduled/index.md)
 * [{#T}](autoscale-monitoring.md)
-
 * [{#T}](updating-under-load.md)
 * [{#T}](vm-fluent-bit-logging.md)
 * [{#T}](packer-quickstart.md)
@@ -19,7 +17,10 @@ description: Различные сценарии использования {{ c
 * [{#T}](hystax-disaster-recovery.md)
 * [{#T}](hystax-backup.md)
 * [{#T}](nodejs-cron-restart-vm.md)
-* [{#T}](bind-domain-vm.md)
+* [{#T}](bind-domain-vm/index.md)
+* [{#T}](high-accessible-dmz.md)
+* [{#T}](network-segmentation-checkpoint.md)
+* [{#T}](gre-over-ipsec.md)
 * [{#T}](fault-tolerance.md)
 * [{#T}](nat-instance/index.md)
 * [{#T}](serverless-trigger-budget-vm.md)
@@ -37,3 +38,40 @@ description: Различные сценарии использования {{ c
 * [{#T}](ha-regional-glusterfs-high-performance.md)
 * [{#T}](backup-with-bacula.md)
 * [{#T}](alb-with-ddos-protection/index.md)
+* [{#T}](ci-cd-serverless.md)
+* [{#T}](bastion.md)
+* [{#T}](route-switcher.md)
+* [{#T}](site-to-site-openvpn.md)
+* [{#T}](mlflow-datasphere.md)
+* [{#T}](install-gitlab-runner.md)
+* [{#T}](mgp-config-server-for-s3.md)
+* [{#T}](bm-vrf-and-vpc-interconnect.md)
+* [{#T}](pvc-snapshot-restore.md)
+* [{#T}](usb-over-ip.md)
+* [{#T}](integrate-nextcloud/index.md)
+* [{#T}](docker-cloud-registry.md)
+* [{#T}](self-hosted-worker-sourcecraft.md)
+
+## {{ coi }} {#coi}
+
+* [{#T}](vm-create.md)
+* [{#T}](vm-create-with-second-disk.md)
+* [{#T}](docker-compose.md)
+* [{#T}](vm-update.md)
+* [Создание группы ВМ с {{ coi }}](ig-create.md)
+* [{#T}](ig-with-containers.md) 
+* [{#T}](coi-with-terraform.md)
+
+## Продукты Microsoft в {{ yandex-cloud }} {#microsoft}
+
+* [{#T}](secure-password-script.md)
+* [{#T}](active-directory.md)
+* [{#T}](exchange.md)
+* [{#T}](rds.md)
+* [{#T}](mssql-alwayson-lb.md)
+* [{#T}](rds-gw.md)
+
+## GPU {#gpu}
+
+* [{#T}](gpu-cluster-deepseek.md)
+* [{#T}](vllm-gemma-gpu.md)

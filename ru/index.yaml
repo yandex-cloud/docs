@@ -1,7 +1,4 @@
 title: Документация Yandex Cloud
-meta:
-  title: Yandex Cloud
-  noIndex: true
 description: []
 links:
   - title: API Yandex Cloud
@@ -16,6 +13,9 @@ links:
   - title: Audit Trails
     description: Сервис сбора и выгрузки аудитных логов
     href: audit-trails/
+  - title: Yandex BareMetal
+    description: Полная аренда физических серверов
+    href: baremetal/
   - title: Yandex Cloud Billing
     description: Управление платежным аккаунтом
     href: billing/
@@ -37,6 +37,9 @@ links:
   - title: Cloud Interconnect
     description: Подключение к ресурсам Yandex Cloud по выделенному каналу
     href: interconnect/
+  - title: Cloud Router
+    description: Управления сетевыми топологиями
+    href: cloud-router/
   - title: Cloud Logging
     description: Логи сервисов и пользовательских приложений
     href: logging/
@@ -46,9 +49,6 @@ links:
   - title: Cloud Video
     description: Видеохостинг и проведение онлайн-трансляций
     href: video/
-  - title: Code Assistant
-    description: AI-ассистент разработчика c функцией автодополнения кода
-    href: code-assistant/
   - title: Compute Cloud
     description: Виртуальные машины и диски
     href: compute/
@@ -57,7 +57,7 @@ links:
     href: container-registry/
   - title: Cloud Registry
     description: Управление артефактами
-    href: registry/
+    href: cloud-registry/
   - title: Container Solution
     description: Сценарии использования виртуальных машин
     href: cos/
@@ -67,27 +67,38 @@ links:
   - title: DataLens
     description: Визуализация и анализ данных
     href: datalens/
+  - title: Data Streams
+    description: Управление потоками данных в режиме реального времени
+    href: data-streams/
   - title: Data Transfer
     description: Инструмент для миграции баз данных
     href: data-transfer/
   - title: DataSphere
     description: Запуск моделей машинного обучения
     href: datasphere/
+  - title: Yandex Cloud Detection and Response
+    description: Мониторинг и реагирование на инциденты в Yandex Cloud
+    href: ycdr/
   - title: Cloud CDN
     description: Сеть распространения контента
     href: cdn/
   - title: Cloud DNS
     description: Управление доменными именами
     href: dns/
+  - title: Начало работы
+    description: >-
+      Пошаговые инструкции для комфортного старта и исследования возможностей
+      Yandex Cloud
+    href: getting-started/
   - title: Пробный период
     description: Описание пробного периода использования Yandex Cloud
     href: getting-started/free-trial/concepts/quickstart
   - title: Cloud Functions
     description: Запуск вашего кода в виде функции
     href: functions/
-  - title: Foundation Models
+  - title: '{{ foundation-models-name }}'
     description: Генеративные модели машинного обучения
-    href: foundation-models/
+    href: ai-studio/
   - title: Identity and Access Management
     description: Идентификация и контроль доступа к облачным ресурсам
     href: iam/
@@ -103,30 +114,36 @@ links:
   - title: Yandex Lockbox
     description: Создание и хранение секретов
     href: lockbox/
+  - title: Yandex Neurosupport
+    description: Помощник оператора поддержки на базе YandexGPT
+    href: neurosupport/
   - title: Managed Service for Apache Airflow™
     description: Управление кластерами Apache Airflow™
     href: managed-airflow/
   - title: Managed Service for Apache Kafka®
     description: Управление кластерами Apache Kafka®
     href: managed-kafka/
+  - title: Managed Service for Apache Spark™
+    description: Управление кластерами Apache Spark™
+    href: managed-spark/
+  - title: Managed Service for Sharded PostgreSQL
+    description: Управление кластерами Sharded PostgreSQL
+    href: managed-spqr/
   - title: Managed Service for ClickHouse
     description: Управление базой данных ClickHouse
     href: managed-clickhouse/
-  - title: Managed Service for Elasticsearch
-    description: Управление кластерами Elasticsearch
-    href: managed-elasticsearch/
   - title: Managed Service for GitLab
     description: Управление инстансами GitLab
     href: managed-gitlab/
-  - title: Managed Service for Greenplum®
+  - title: Yandex MPP Analytics for PostgreSQL
     description: Управление кластерами Greenplum®
     href: managed-greenplum/
   - title: Managed Service for Kubernetes®
     description: Управление кластерами Kubernetes
     href: managed-kubernetes/
-  - title: Managed Service for MongoDB
-    description: Управление базой данных MongoDB
-    href: managed-mongodb/
+  - title: Yandex StoreDoc
+    description: Управление базой данных Yandex StoreDoc
+    href: storedoc/
   - title: Managed Service for MySQL®
     description: Управление базой данных MySQL
     href: managed-mysql/
@@ -136,15 +153,15 @@ links:
   - title: Managed Service for PostgreSQL
     description: Управление базой данных PostgreSQL
     href: managed-postgresql/
-  - title: Managed Service for Redis™
-    description: Управление базой данных Redis
-    href: managed-redis/
+  - title: Managed Service for Trino
+    description: Управление распределенным аналитическим SQL-движком Trino
+    href: managed-trino/
+  - title: '{{ mrd-full-name }}'
+    description: Управление базой данных Valkey™
+    href: managed-valkey/
   - title: Yandex Cloud Marketplace
     description: Инструменты и решения от ведущих вендоров
     href: marketplace/
-  - title: MDB
-    description: Группа сервисов для управления базами данных
-    href: mdb/
   - title: Message Queue
     description: Очереди для обмена сообщениями между приложениями
     href: message-queue/
@@ -160,7 +177,7 @@ links:
   - title: Network Load Balancer
     description: Сетевые балансировщики нагрузки
     href: network-load-balancer/
-  - title: Cloud Organization
+  - title: Identity Hub
     description: Облачные сервисы для корпоративных клиентов
     href: organization/
   - title: Cloud Postbox
@@ -181,10 +198,13 @@ links:
   - title: Serverless Integrations
     description: Интеграция сервисов Yandex Cloud друг с другом
     href: serverless-integrations/
+  - title: Stackland
+    description: Управление Kubernetes on-premises
+    href: stackland/
   - title: Практические руководства платформы Yandex Cloud
     description: Инструкции по решению различных задач с помощью облачных сервисов
     href: tutorials/
-  - title: Search API
+  - title: '{{ search-api-name }}'
     description: >-
       Cервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать
       ответы по api.
@@ -192,9 +212,18 @@ links:
   - title: SmartCaptcha
     description: Инструмент для верификации запросов
     href: smartcaptcha/
+  - title: Безопасность в Yandex Cloud
+    description: Рекомендации по построению безопасной инфраструктуры в Yandex Cloud
+    href: security/
+  - title: Security Deck
+    description: Инструменты для обеспечения безопасности данных
+    href: security-deck/
   - title: Smart Web Security
     description: Сервис для продвинутой защиты от DDoS-атак
     href: smartwebsecurity/
+  - title: '{{ src-full-name }}'
+    description: Платформа для разработки исходного кода
+    href: sourcecraft/
   - title: '{{ speechkit-name }}'
     description: Комплекс технологий распознавания и синтеза речи
     href: speechkit/
@@ -207,9 +236,6 @@ links:
   - title: Описание технической поддержки Yandex Cloud
     description: Правила предоставления технической поддержки
     href: support/
-  - title: Tracker
-    description: Инструмент для организации работы команды
-    href: tracker/
   - title: Translate
     description: Машинный перевод с поддержкой более 90 языков
     href: translate/
@@ -219,7 +245,7 @@ links:
   - title: Virtual Private Cloud
     description: Управление сетями в облаке
     href: vpc/
-  - name: '{{ ydb-name }}'
+  - title: '{{ ydb-name }}'
     description: Распределенная отказоустойчивая Distributed SQL СУБД
     href: ydb/
   - title: WebSQL
@@ -228,6 +254,17 @@ links:
   - title: Query
     description: Аналитические и потоковые запросы в реальном времени
     href: query/
+  - title: Консоль управления
+    description: Интерфейс для работы в Yandex Cloud
+    href: console/
   - title: Облачная терминология
     description: Словарь разработчика
     href: glossary/
+  - title: Готовые решения для известных сценариев
+    description: >-
+      Известные решения и советы для оптимального использования сервисов Yandex
+      Cloud
+    href: troubleshooting/
+meta:
+  title: Yandex Cloud
+  noIndex: true

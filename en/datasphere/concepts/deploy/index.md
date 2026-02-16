@@ -14,6 +14,8 @@ A _node_ is an isolated group of specially created VMs (_instances_) the computi
 
 {% endnote %}
 
+To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the node will store its logs in.
+
 You can access the nodes via the API. API requests can change the state of the node interpreter. To return to the initial state, you will have to recreate the entire node.
 
 {% note info %}
@@ -22,7 +24,7 @@ The maximum size of a request to and a response from the node API is 16 MB.
 
 {% endnote %}
 
-To create a node, specify your organization's cloud [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the node will deploy its instances and store its logs. In the folder, [set up a subnet](../../../vpc/operations/subnet-create.md) with internet access via a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) and create a [service account](../../../iam/operations/sa/create.md) with the `vpc.user` [role](../../../vpc/security/index.md#vpc-user). Specify this service account in the [{{ ml-platform-name }} project settings](../../operations/projects/update.md).
+Requests to the node can be submitted by users and [service accounts](../../../iam/concepts/users/service-accounts.md) with the minimum project role of `{{ roles-datasphere-project-developer }}`. The service account must be created in the folder specified when creating the node.
 
 ### Node from a model {#models-node}
 
@@ -30,8 +32,8 @@ With nodes from [models](../models/index.md), you can [deploy](../../operations/
 
 * [LightGBM](https://lightgbm.readthedocs.io)
 * [ONNX](https://onnx.ai/)
-* [TensorFlow.Keras](https://keras.io)
-* [TensorFlow](https://www.tensorflow.org)
+* [Tensorflow.Keras](https://keras.io)
+* [Tensorflow](https://www.tensorflow.org)
 * [PyTorch](https://pytorch.org)
 * [XGBoost](https://lightgbm.readthedocs.io)
 
@@ -89,8 +91,12 @@ An _alias_ is a special resource used for publishing and updating a service. It 
 
 [Create an alias](../../../datasphere/operations/deploy/alias-create.md) and use it as your service endpoint. You can update related nodes, balance the load across them, and remove deprecated Docker image versions without affecting the user experience.
 
+An alias can be public or private. A public alias is available to all users logged into {{ yandex-cloud }}. A private alias is only available to accounts with the following roles:
 
-#### See also {#see-also}
+* Users with the minimum project role of `{{ roles-datasphere-project-developer }}`.
+* Service accounts with the minimum project role of `{{ roles-datasphere-project-developer }}` or created in the folder specified when creating the alias.
+
+## Use cases {#examples}
 
 * [{#T}](../../operations/deploy/node-create.md)
 * [{#T}](../../operations/deploy/alias-create.md)

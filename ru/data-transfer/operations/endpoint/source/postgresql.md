@@ -63,7 +63,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -85,7 +85,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -139,7 +139,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -177,14 +177,15 @@ description: Из статьи вы узнаете, как задать наст
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**: 
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.table_filter.title }}**: 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут.
 
-      Списки включают имя [схемы]({{pg-docs}}/ddl-schemas.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
+      Списки включают имя [схемы]({{ pg-docs }}/ddl-schemas.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
 
         * `<имя_схемы>.<имя_таблицы>` — полное имя таблицы;
         * `<имя_схемы>.*` — все таблицы в указанной схеме.
@@ -201,9 +202,9 @@ description: Из статьи вы узнаете, как задать наст
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}** — при необходимости выберите элементы схемы БД, которые будут перенесены в процессе активации или деактивации трансфера.
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.advanced_settings.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** — максимальный размер Write-Ahead Log, удерживаемого слотом репликации. При превышении этого ограничения репликация останавливается и слот репликации удаляется. Значение по умолчанию — 50 ГБ. Данная настройка не обеспечивает защиту от переполнения диска на базе данных источника. Ее возможно использовать только для версии {{ PG }} ниже 13, а рекомендованный способ — это [мониторинг значения слота WAL-лога](../../prepare.md#source-pg) на базе данных источника.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** — максимальный размер Write-Ahead Log, удерживаемого слотом репликации. При превышении этого ограничения репликация останавливается и слот репликации удаляется. Значение по умолчанию — 50 ГБ. Данная настройка не является полной гарантией от переполнения диска на базе данных источника. Рекомендованный способ — это [мониторинг значения слота WAL-лога](../../prepare.md#source-pg) на базе данных источника с использованием [настройки](../../prepare.md#wal-setup-recommendation) `Max slot wal keep size`.
           
             {% note warning %}
 
@@ -362,7 +363,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ objstorage-full-name }}](../target/object-storage.md);
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
-* [{{ ES }}](../target/elasticsearch.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ OS }}](../target/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -388,13 +389,16 @@ description: Из статьи вы узнаете, как задать наст
 * [Не хватает слотов репликации в базе данных источника](#replication-slots)
 * [Перестали переноситься данные после изменения эндпоинта-источника](#no-data-transfer)
 * [Ошибка трансфера при смене хоста-мастера](#master-change)
+* [Не хватает истории в WAL для продолжения репликации при смене хоста-мастера](#no-wal-story)
 * [Ошибка при трансфере вложенных транзакций](#inner-tables)
 * [Ошибка трансфера таблиц с отложенными ограничениями](#deferrable-constr)
 * [Не удается создать слот репликации на стадии активации](#lock-replication)
 * [Чрезмерное увеличение журнала WAL](#excessive-wal)
 * [Ошибка при репликации из внешнего источника](#external-replication)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
+* [Повторяющееся значение ключа нарушает уникальное ограничение](#duplicate-key)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
+* [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -420,6 +424,8 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
 
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
+
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
@@ -432,4 +438,8 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

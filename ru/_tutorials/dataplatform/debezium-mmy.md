@@ -4,7 +4,18 @@
 
 Из этой статьи вы узнаете, как создать в {{ yandex-cloud }} виртуальную машину и настроить на ней [Debezium](https://debezium.io/documentation/reference/index.html) — программное обеспечение, используемое для CDC.
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
+
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 1. [Создайте _кластер-источник_](../../managed-mysql/operations/cluster-create.md) со следующими настройками:
 
@@ -20,7 +31,7 @@
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
 
     * [Настройка групп безопасности кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-    * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [Настройка групп безопасности кластера {{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
@@ -31,6 +42,8 @@
         sudo apt update && \
             sudo apt install kafkacat openjdk-17-jre mysql-client --yes
         ```
+
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     1. Создайте директорию для {{ KF }}:
 
@@ -50,7 +63,7 @@
     1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/clients.md) (используйте утилиту `kafkacat`).
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#get-ssl-cert) (используйте утилиту `mysql`).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `mysql`).
 
     1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
 
@@ -73,7 +86,7 @@
 
 1. [Назначьте пользователю](../../managed-mysql/operations/cluster-users.md#update-settings) `user1` глобальные привилегии `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `db1` от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `db1` от имени пользователя `user1`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 
@@ -157,7 +170,7 @@
     Где:
 
     * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
-    * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+    * `database.hostname` — [особый FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-mysql/operations/cluster-list.md#list-clusters).
 
@@ -309,7 +322,7 @@
 
     {% endcut %}
 
-1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect.md) и добавьте еще одну строку в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику](../../managed-mysql/operations/connect/index.md) и добавьте еще одну строку в таблицу `measurements`:
 
     ```sql
     INSERT INTO measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);

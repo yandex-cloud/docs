@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}:start
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Airflow cluster to start.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/airflow/v1/api-ref/Cluster/start.md
 ---
 
-# Managed Service for Apache Airflow™ API, REST: Cluster.Start {#Start}
+# Managed Service for Apache Airflow™ API, REST: Cluster.Start
 
 Starts the specified Apache Airflow cluster.
 
@@ -51,7 +68,7 @@ Required field. ID of the Apache Airflow cluster to start. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "monitoring": [
       {
         "name": "string",
@@ -62,7 +79,7 @@ Required field. ID of the Apache Airflow cluster to start. ||
     "config": {
       "versionId": "string",
       "airflow": {
-        "config": "string"
+        "config": "object"
       },
       "webserver": {
         "count": "string",
@@ -99,6 +116,14 @@ Required field. ID of the Apache Airflow cluster to start. ||
       },
       "lockbox": {
         "enabled": "boolean"
+      },
+      "airflowVersion": "string",
+      "pythonVersion": "string",
+      "dagProcessor": {
+        "count": "string",
+        "resources": {
+          "resourcePresetId": "string"
+        }
       }
     },
     "health": "string",
@@ -112,9 +137,15 @@ Required field. ID of the Apache Airflow cluster to start. ||
       ]
     },
     "codeSync": {
-      // Includes only one of the fields `s3`
+      // Includes only one of the fields `s3`, `gitSync`
       "s3": {
         "bucket": "string"
+      },
+      "gitSync": {
+        "repo": "string",
+        "branch": "string",
+        "subPath": "string",
+        "sshKey": "string"
       }
       // end of the list of possible fields
     },
@@ -128,6 +159,21 @@ Required field. ID of the Apache Airflow cluster to start. ||
       "logGroupId": "string",
       // end of the list of possible fields
       "minLevel": "string"
+    },
+    "maintenanceWindow": {
+      // Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`
+      "anytime": "object",
+      "weeklyMaintenanceWindow": {
+        "day": "string",
+        "hour": "string"
+      }
+      // end of the list of possible fields
+    },
+    "plannedOperation": {
+      "info": "string",
+      "delayedUntil": "string",
+      "latestMaintenanceTime": "string",
+      "nextMaintenanceWindowTime": "string"
     }
   }
   // end of the list of possible fields
@@ -259,7 +305,7 @@ The name is unique within the folder. 1-64 characters long. ||
 || description | **string**
 
 Description of the Apache Airflow cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.airflow.v1.Monitoring)**
@@ -307,6 +353,12 @@ For more information, see [documentation](/docs/managed-airflow/concepts/imperso
 || logging | **[LoggingConfig](#yandex.cloud.airflow.v1.LoggingConfig)**
 
 Cloud Logging configuration. ||
+|| maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.airflow.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| plannedOperation | **[MaintenanceOperation](#yandex.cloud.airflow.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
 |#
 
 ## Monitoring {#yandex.cloud.airflow.v1.Monitoring}
@@ -332,7 +384,8 @@ Link to the monitoring system. ||
 ||Field | Description ||
 || versionId | **string**
 
-Version of Apache that runs on the cluster. ||
+Version of Apache Airflow that runs on the cluster.
+Use `airflow_version` instead. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)**
 
 Configuration of the Apache Airflow application itself. ||
@@ -354,13 +407,22 @@ The list of additional packages installed in the cluster. ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)**
 
 Configuration of Lockbox Secret Backend. ||
+|| airflowVersion | **string**
+
+Apache Airflow version. Format: "Major.Minor" ||
+|| pythonVersion | **string**
+
+Python version. Format: "Major.Minor" ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)**
+
+Configuration of dag-processor instances. ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
 
 #|
 ||Field | Description ||
-|| config | **string**
+|| config | **object** (map<**string**, **string**>)
 
 Properties to be passed to Apache Airflow configuration file. ||
 |#
@@ -446,6 +508,18 @@ System packages that are installed in the cluster. ||
 The setting allows to enable Lockbox Secret Backend. ||
 |#
 
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+The number of dag-processor instances in the cluster. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)**
+
+Resources allocated to dag-processor instances. ||
+|#
+
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}
 
 #|
@@ -464,7 +538,10 @@ User security groups. ||
 ||Field | Description ||
 || s3 | **[S3Config](#yandex.cloud.airflow.v1.S3Config)**
 
-Includes only one of the fields `s3`. ||
+Includes only one of the fields `s3`, `gitSync`. ||
+|| gitSync | **[GitSyncConfig](#yandex.cloud.airflow.v1.GitSyncConfig)**
+
+Includes only one of the fields `s3`, `gitSync`. ||
 |#
 
 ## S3Config {#yandex.cloud.airflow.v1.S3Config}
@@ -474,6 +551,24 @@ Includes only one of the fields `s3`. ||
 || bucket | **string**
 
 The name of the Object Storage bucket that stores DAG files used in the cluster. ||
+|#
+
+## GitSyncConfig {#yandex.cloud.airflow.v1.GitSyncConfig}
+
+#|
+||Field | Description ||
+|| repo | **string**
+
+Required field. Git repository URL. ||
+|| branch | **string**
+
+Required field. Git branch name to sync from. ||
+|| subPath | **string**
+
+Subdirectory path within the repository containing DAG files. ||
+|| sshKey | **string**
+
+SSH private key for repository authentication. ||
 |#
 
 ## LoggingConfig {#yandex.cloud.airflow.v1.LoggingConfig}
@@ -524,4 +619,66 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 - `FATAL`: Fatal log level.
 
   May be used to alert about unrecoverable failures and events. ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.airflow.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **object**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|| weeklyMaintenanceWindow | **[WeeklyMaintenanceWindow](#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.airflow.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+- `WEEK_DAY_UNSPECIFIED`
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+Hour of the day in UTC. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.airflow.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string** ||
+|| delayedUntil | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| latestMaintenanceTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| nextMaintenanceWindowTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Subnet/listOperations.md
 ---
 
-# Virtual Private Cloud API, gRPC: SubnetService.ListOperations {#ListOperations}
+# Virtual Private Cloud API, gRPC: SubnetService.ListOperations
 
 List operations for the specified subnet.
 
@@ -15,26 +15,26 @@ List operations for the specified subnet.
 
 ```json
 {
-  "subnetId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "subnet_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Required field. ID of the Subnet resource to list operations for. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `pageSize`, the service returns a [ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse)
+results is larger than `page_size`, the service returns a [ListSubnetOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse)
 that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
-|| pageToken | **string**
+|| page_token | **string**
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListSubnetOperationsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListSubnetOperationsResponse.next_page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsResponse) returned by a previous list request. ||
 |#
 
 ## ListSubnetOperationsResponse {#yandex.cloud.vpc.v1.ListSubnetOperationsResponse}
@@ -45,9 +45,9 @@ Page token. To get the next page of results, set `pageToken` to the
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -56,7 +56,7 @@ Page token. To get the next page of results, set `pageToken` to the
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -65,12 +65,12 @@ Page token. To get the next page of results, set `pageToken` to the
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified Subnet resource. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListSubnetOperationsRequest.pageSize](#yandex.cloud.vpc.v1.ListSubnetOperationsRequest), use the `nextPageToken` as the value
-for the [ListSubnetOperationsRequest.pageToken](#yandex.cloud.vpc.v1.ListSubnetOperationsRequest) query parameter in the next list request.
-Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
+is larger than [ListSubnetOperationsRequest.page_size](#yandex.cloud.vpc.v1.ListSubnetOperationsRequest), use the `next_page_token` as the value
+for the [ListSubnetOperationsRequest.page_token](#yandex.cloud.vpc.v1.ListSubnetOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -85,13 +85,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

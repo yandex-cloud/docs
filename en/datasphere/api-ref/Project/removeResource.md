@@ -1,9 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{resourceId}:removeResource
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        resourceType:
+          description: |-
+            **enum** (ResourceType)
+            - `RESOURCE_TYPE_UNSPECIFIED`
+            - `RESOURCE_TYPE_SECRET`
+            - `RESOURCE_TYPE_DOCKER_IMAGE`
+            - `RESOURCE_TYPE_DATASET`
+            - `RESOURCE_TYPE_S3`
+            - `RESOURCE_TYPE_NODE`
+            - `RESOURCE_TYPE_ALIAS`
+          type: string
+          enum:
+            - RESOURCE_TYPE_UNSPECIFIED
+            - RESOURCE_TYPE_SECRET
+            - RESOURCE_TYPE_DOCKER_IMAGE
+            - RESOURCE_TYPE_DATASET
+            - RESOURCE_TYPE_S3
+            - RESOURCE_TYPE_NODE
+            - RESOURCE_TYPE_ALIAS
+      required:
+        - projectId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/removeResource.md
 ---
 
-# DataSphere API v2, REST: Project.RemoveResource {#RemoveResource}
+# DataSphere API v2, REST: Project.RemoveResource
 
 Removes shared resource from project
 

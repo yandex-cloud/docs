@@ -12,33 +12,57 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ search-api-name }} {#rules}
 
 Стоимость использования {{ search-api-name }} рассчитывается, исходя из количества инициированных поисковых запросов за календарный месяц ([Отчетный период](../billing/concepts/reporting-period.md)).
 
-На стадии [Preview](../overview/concepts/launch-stages.md) [отложенные запросы](concepts/web-search.md) не тарифицируются.
+Функциональность {{ wordstat-name }} на [стадии Preview](../overview/concepts/launch-stages.md) не тарифицируется.
 
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Уровень нетарифицированного потребления (free tier) для каждого пользователя составляет 1000 запросов в месяц в ночные часы^1^ с 00:00:00 по 07:59:59. Запросы, превышающие эти значения, оплачиваются по следующим тарифам.
+В ночные часы с 00:00:00 по 07:59:59 [UTC+3](https://ru.wikipedia.org/wiki/UTC%2B3:00) для некоторых типов запросов действуют льготные тарифы.
 
 
 {% list tabs group=pricing %}
 
 - Цены в рублях {#prices-rub}
 
-  {% include notitle [rub.md](../_pricing/search-api/rub.md) %}
+  {% include notitle [rub](../_pricing/search-api/rub.md) %}
 
 - Цены в тенге {#prices-kzt}
 
-  {% include notitle[kzt](../_pricing/search-api/kzt.md) %}
+  {% include notitle [kzt](../_pricing/search-api/kzt.md) %}
 
 {% endlist %}
 
 
 
-Для всех новых пользователей сервиса действует квота в 30 000 запросов в месяц (1000 запросов в день). Подробнее об ограничениях см. в разделе [Квоты и лимиты](concepts/limits.md). Для изменения значений квот обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Для пользователей сервиса действуют квоты. Подробнее об ограничениях см. в разделе [Квоты и лимиты](concepts/limits.md). Для изменения значений квот обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
-^1^ Время указано в часовом поясе [UTC+3](https://ru.wikipedia.org/wiki/UTC%2B3:00).
+## Примеры расчета стоимости {#price-example}
+
+Стоимость использования {{ search-api-name }} для инициированных поисковых запросов через [API v2](./concepts/index.md#api-v2) со следующими параметрами:
+
+* **Количество синхронных запросов в дневное время, отправленных за месяц**: 250 000.
+* **Количество отложенных запросов в дневное время, отправленных за месяц**: 50 000.
+* **Количество синхронных запросов с генеративным ответом, отправленных за месяц**: 10 000.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-api-v2](../_pricing_examples/search-api/rub-api-v2.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-api-v2](../_pricing_examples/search-api/kzt-api-v2.md) %}
+
+{% endlist %}
+
+

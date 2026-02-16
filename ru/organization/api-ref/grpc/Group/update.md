@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/update.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.Update {#Update}
+# Identity Hub API, gRPC: GroupService.Update
 
 Updates the specified group.
 
@@ -15,8 +15,8 @@ Updates the specified group.
 
 ```json
 {
-  "groupId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string"
 }
@@ -24,20 +24,26 @@ Updates the specified group.
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 Required field. ID of the Group resource to update.
-To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the group ID, use a [GroupService.List](/docs/organization/api-ref/grpc/Group/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Group resource are going to be updated. ||
 || name | **string**
 
 Name of the group.
-The name must be unique within the organization. ||
+The name must be unique within the organization.
+
+Value must match the regular expression ``` |[a-zA-Z]([-a-zA-Z0-9._-]{0,61}[a-zA-Z0-9])? ```. ||
 || description | **string**
 
-Description of the group. ||
+Description of the group.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -46,21 +52,23 @@ Description of the group. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "groupId": "string"
+    "group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "organization_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
-    "description": "string"
+    "description": "string",
+    "subject_container_id": "string",
+    "external_id": "string"
   }
   // end of the list of possible fields
 }
@@ -76,13 +84,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -125,7 +133,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| groupId | **string**
+|| group_id | **string**
 
 ID of the Group resource that is being updated. ||
 |#
@@ -140,10 +148,10 @@ For more information, see [Groups](/docs/organization/operations/manage-groups).
 || id | **string**
 
 ID of the group. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -152,4 +160,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subject_container_id | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| external_id | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

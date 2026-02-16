@@ -1,5 +1,5 @@
-1. Go to [{{ org-full-name }}]({{ link-org-main }}).
+1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{ link-org-federations }}) ![icon-federation](../../_assets/console-icons/vector-square.svg).
+1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-1. From the list, pick the federation you are configuring access to, and copy its ACS URL.
+1. Select the required federation and copy the **{{ ui-key.yacloud_org.entity.federation.field.acsUrl }}** field value on the federation info page.

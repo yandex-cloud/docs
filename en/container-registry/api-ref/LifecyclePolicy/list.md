@@ -1,9 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            ID of the lifecycle policy.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `registryId`, `repositoryId`.
+          type: string
+        repositoryId:
+          description: |-
+            **string**
+            Repository of the lifecycle policy.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `registryId`, `repositoryId`.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns
+            a [ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters lifecycle policy resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Sorting the list by [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy), [LifecyclePolicy.createdAt](#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.status](#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
+            The default sorting order is ascending.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - registryId
+        - required:
+            - repositoryId
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/LifecyclePolicy/list.md
 ---
 
-# Container Registry API, REST: LifecyclePolicy.List {#List}
+# Container Registry API, REST: LifecyclePolicy.List
 
 Retrieves the list of lifecycle policies in the specified repository.
 
@@ -21,10 +85,14 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePol
 
 ID of the lifecycle policy.
 
+The maximum string length in characters is 50.
+
 Includes only one of the fields `registryId`, `repositoryId`. ||
 || repositoryId | **string**
 
 Repository of the lifecycle policy.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `registryId`, `repositoryId`. ||
 || pageSize | **string** (int64)
@@ -32,11 +100,15 @@ Includes only one of the fields `registryId`, `repositoryId`. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns
 a [ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) returned by a previous list request. ||
+[ListLifecyclePoliciesResponse.nextPageToken](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters lifecycle policy resources listed in the response.
@@ -44,11 +116,15 @@ A filter expression that filters lifecycle policy resources listed in the respon
 The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
 Sorting the list by [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy), [LifecyclePolicy.createdAt](#yandex.cloud.containerregistry.v1.LifecyclePolicy) and [LifecyclePolicy.status](#yandex.cloud.containerregistry.v1.LifecyclePolicy) fields.
-The default sorting order is ascending. ||
+The default sorting order is ascending.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesResponse}
@@ -116,7 +192,6 @@ The maximum string length in characters is 256. ||
 
 Status of lifecycle policy.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
 - `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
 Policies in this status can be used for preparing and testing rules. ||
@@ -141,18 +216,24 @@ The rules of lifecycle policy. ||
 ||Field | Description ||
 || description | **string**
 
-Description of the lifecycle policy rule. ||
+Description of the lifecycle policy rule.
+
+The maximum string length in characters is 256. ||
 || expirePeriod | **string** (duration)
 
 Period of time for automatic deletion.
 Period must be a multiple of 24 hours. ||
 || tagRegexp | **string**
 
-Tag for specifying a filter in the form of a regular expression. ||
+Tag for specifying a filter in the form of a regular expression.
+
+The maximum string length in characters is 256. ||
 || untagged | **boolean**
 
 Tag for applying the rule to Docker images without tags. ||
 || retainedTop | **string** (int64)
 
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired. ||
+Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
+
+The minimum value is 0. ||
 |#

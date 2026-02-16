@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mkf-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ mkf-name }}.
+description: This page presents information about the {{ TF }} provider resources and data sources supported by {{ mkf-name }}.
 ---
 
 # {{ TF }} reference for {{ mkf-full-name }}
@@ -9,12 +9,12 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ mkf-name }}:
+{{ mkf-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_mdb_kafka_cluster]({{ tf-provider-resources-link }}/mdb_kafka_cluster) | [{{ KF }} cluster](./concepts/index.md) |
-| [yandex_mdb_kafka_connect]({{ tf-provider-resources-link }}/mdb_kafka_connect) | [Connector](./concepts/connectors.md) |
+| [yandex_mdb_kafka_connect]({{ tf-provider-resources-link }}/mdb_kafka_connector) | [Connector](./concepts/connectors.md) |
 | [yandex_mdb_kafka_topic]({{ tf-provider-resources-link }}/mdb_kafka_topic) | [Topic](./concepts/topics.md) |
 | [yandex_mdb_kafka_user]({{ tf-provider-resources-link }}/mdb_kafka_user) | [User](./concepts/managed-schema-registry.md#msr-auth) |
 
@@ -24,7 +24,7 @@ The following {{ TF }} provider resources are supported for {{ mkf-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_cluster) | [{{ KF }} cluster](./concepts/index.md) information |
-| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_connector) | [Connector](./concepts/connectors.md) information |
-| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_topic) | [Topic](./concepts/topics.md) information |
-| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/datasource_mdb_kafka_user) | [User](./concepts/managed-schema-registry.md#msr-auth) information |
+| [yandex_mdb_kafka_cluster]({{ tf-provider-datasources-link }}/mdb_kafka_cluster) | [{{ KF }} cluster](./concepts/index.md) information |
+| [yandex_mdb_kafka_connector]({{ tf-provider-datasources-link }}/mdb_kafka_connector) | [Connector](./concepts/connectors.md) information |
+| [yandex_mdb_kafka_topic]({{ tf-provider-datasources-link }}/mdb_kafka_topic) | [Topic](./concepts/topics.md) information |
+| [yandex_mdb_kafka_user]({{ tf-provider-datasources-link }}/mdb_kafka_user) | [User](./concepts/managed-schema-registry.md#msr-auth) information |

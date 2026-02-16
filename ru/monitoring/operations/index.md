@@ -1,6 +1,7 @@
 ---
 title: Пошаговые инструкции для {{ monitoring-full-name }}
 description: На странице представлен список пошаговых инструкций для {{ monitoring-name }}.
+sourcePath: ru/monitoring_includes/operations/index.md
 ---
 
 # Пошаговые инструкции для {{ monitoring-full-name }}
@@ -21,6 +22,7 @@ description: На странице представлен список поша�
 * [{#T}](dashboard/create.md)
 * [{#T}](dashboard/copy.md)
 * [{#T}](dashboard/add-widget.md)
+* [{#T}](dashboard/widget-management.md)
 * [{#T}](dashboard/add-parameters.md)
 * [{#T}](dashboard/delete-widget.md)
 * [{#T}](dashboard/delete-dashboard.md)

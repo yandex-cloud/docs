@@ -6,3 +6,11 @@
 Параметры `ipv4-address` и `ipv6-address` отвечают за способ назначения IP-адреса:
 * `auto` — узлу будет присвоен только внутренний IP-адрес.
 * `nat` — узлу будут присвоены публичный и внутренний IP-адреса.
+
+{% note info %}
+
+{% include [nodes-internet-access](nodes-internet-access.md) %}
+
+{% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
+
+{% endnote %}

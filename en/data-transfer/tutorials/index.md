@@ -1,3 +1,8 @@
+---
+title: '{{ data-transfer-full-name }} tutorials'
+description: Various {{ data-transfer-name }} use cases in {{ yandex-cloud }}.
+---
+
 # {{ data-transfer-name }} tutorials
 
 
@@ -12,16 +17,19 @@ Migration is a task that involves transferring data from one data storage to ano
 * [Migrating {{ PG }} clusters](managed-postgresql.md)
 * [Migrating {{ MY }} clusters](managed-mysql-to-mysql.md)
 * [Migrating {{ CH }} clusters](managed-clickhouse.md)
-* [Data resharding in a {{ mch-name }} cluster](mch-mch-resharding.md)
 * [Migrating {{ GP }} clusters](managed-greenplum.md)
-* [Migrating {{ MG }} clusters](managed-mongodb.md)
-* [Migrating {{ MG }} cluster from 4.4 to 6.0](mongodb-versions.md)
+* [Migrating {{ MG }} clusters](storedoc.md)
+* [Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster from 4.4 to 6.0](storedoc-versions.md)
 * [Migrating data from AWS RDS for {{ PG }}](rds-to-mpg.md)
 * [Migrating {{ OS }} clusters](os-to-mos.md)
 
 Mirroring data across queues is a separate migration task.
 
 * [{{ KF }} mirroring](mkf-to-mkf.md)
+
+Syncing data from a third-party cluster.
+
+* [Syncing data from {{ MY }}](sync-mysql.md)
 
 Migration with data storage type changed.
 
@@ -30,9 +38,10 @@ Migration with data storage type changed.
 * [{{ MY }} to {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} to {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} to {{ GP }}](mmy-to-mgp.md)
-* [{{ ES }} to {{ OS }}](mes-to-mos.md)
 * [{{ OS }} to {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ OS }} to {{ GP }}](opensearch-to-greenplum.md)
 * [{{ PG }} to {{ OS }}](postgresql-to-opensearch.md)
+* [{{ ES }} to {{ OS }}](mes-to-mos.md)
 
 ## Change data capture {#cdc}
 
@@ -42,14 +51,14 @@ CDC is used for creating apps that are sensitive to real-time data changes, exch
 ![cdc](../../_assets/data-transfer/tutorials/cdc.svg)
 
 * {{ MY }} change data capture and delivery to:
-   * [{{ KF }}](cdc-mmy.md)
-   * [{{ DS }}](mmy-to-yds.md)
+  * [{{ KF }}](cdc-mmy.md)
+  * [{{ DS }}](mmy-to-yds.md)
 * {{ PG }} change data capture and delivery to:
-   * [{{ KF }}](cdc-mpg.md)
-   * [{{ DS }}](mpg-to-yds.md)
+  * [{{ KF }}](cdc-mpg.md)
+  * [{{ DS }}](mpg-to-yds.md)
 * {{ ydb-short-name }} change data capture and delivery to:
-   * [{{ KF }}](cdc-ydb.md)
-   * [{{ DS }}](ydb-to-yds.md)
+  * [{{ KF }}](cdc-ydb.md)
+  * [{{ DS }}](ydb-to-yds.md)
 
 ## Delivering data from queues {#delivery-to-queue}
 
@@ -60,14 +69,18 @@ Data delivery is a process of delivering arbitrary data to target storage. It in
 * [{{ KF }} to {{ CH }}](mkf-to-mch.md)
 * [{{ KF }} to {{ PG }}](mkf-to-mpg.md)
 * [{{ KF }} to {{ GP }}](managed-kafka-to-greenplum.md)
-* [{{ KF }} to {{ MG }}](mkf-to-mmg.md)
+* [{{ KF }} to {{ SD }}](mkf-to-mmg.md)
 * [{{ KF }} to {{ MY }}](mkf-to-mmy.md)
 * [{{ KF }} to {{ OS }}](mkf-to-mos.md)
 * [{{ KF }} to {{ ydb-short-name }}](mkf-to-ydb.md)
+
 * [{{ KF }} to {{ DS }}](mkf-to-yds.md)
+
 * [{{ DS }} to {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} to {{ objstorage-name }}](yds-to-objstorage.md)
-* [{{ DS }} to {{ OS }}](trails-to-os.md)
+* [{{ DS }} to {{ ydb-name }}](yds-to-ydb.md)
+* [{{ DS }} to {{ KF }}](yds-to-kafka.md)
+* [{#T}](data-ingestion.md)
 
 ## Uploading data to data marts {#upload-to-data-mart}
 
@@ -99,10 +112,10 @@ Uploading data to scalable {{ objstorage-name }} storage allows you to save on d
 * [{{ PG }} to {{ objstorage-name }}](mpg-to-objstorage.md)
 * [{{ OS }} to {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} to {{ objstorage-name }}](ydb-to-object-storage.md)
-
+* [Replicating logs to {{ objstorage-name }} using {{ yds-name }}](replicate-logs-to-storage-via-data-streams.md)
+* [Replicating logs to {{ objstorage-name }} using Fluent Bit](replicate-logs-to-storage.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 
 

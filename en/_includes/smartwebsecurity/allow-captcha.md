@@ -1,0 +1,15 @@
+Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and in the window that opens:
+
+1. Enter a name for the rule, e.g., `allow-captcha`.
+1. Set **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** higher than that of the rules sending requests to captcha checks.
+1. Enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+1. Specify the rule settings:
+
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}**: `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}**: `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+   * **Traffic**: `On condition`.
+   * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}**: `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`.
+   * **Request path**: `Matches the regular expression`.
+   * Enter the `{{ allowed-captcha-request }}` expression.
+
+1. Click **{{ ui-key.yacloud.common.add }}**.

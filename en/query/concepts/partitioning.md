@@ -1,6 +1,6 @@
 # Data partitioning
 
-{{ objstorage-full-name }} allows you to store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you do not even need to read data that is not required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results.
+{{ objstorage-full-name }} allows you to store very large amounts of data. Queries may only affect some of this data. If you describe the markup rules for the structure of your data storage in {{ yq-full-name }}, then you do not even need to read data that is not required for a query from {{ objstorage-full-name }}. This makes query execution much faster without affecting the results. 
 
 For example, data is stored in the following structure of folders:
 
@@ -13,24 +13,24 @@ year=2022
     month=01
 ```
 
-In the query below, only the data for February 2021 should be processed, while the other data is not required.
+In the query below, only the data for February 2021 should be processed, the rest of the data not being required. 
 
 ```sql
-SELECT
-    *
-FROM
-    objectstorage.'/'
+SELECT 
+    * 
+FROM 
+    objectstorage.'/' 
     WITH
     (
         Schema =
         (
-            data String,
-            year Int,
+            data String, 
+            year Int, 
             month Int
         )
-    )
-WHERE
-    year=2021
+    ) 
+WHERE 
+    year=2021 
     AND month=02
 ```
 
@@ -38,26 +38,26 @@ If no data partitioning scheme is specified, _all_ stored data is read from {{ o
 
 If you explicitly specify the storage structure indicating that data in {{ objstorage-full-name }} is stored in folders by year and month
 ```sql
-SELECT
-    *
-FROM
-    objectstorage.'/'
+SELECT 
+    * 
+FROM 
+    objectstorage.'/' 
     WITH
     (
         Schema =
         (
-            data String,
-            year Int,
+            data String, 
+            year Int, 
             month Int
         ),
-        partitioned_by =
+        partitioned_by = 
         (
             year,
             month
         )
-    )
-WHERE
-    year=2021
+    ) 
+WHERE 
+    year=2021 
     AND month=02
 ```
 
@@ -74,19 +74,19 @@ In the example above, operations with data are performed at the level of [connec
 When working at the connection level, partitioning is set using the `partitioned_by` parameter.
 
 ```sql
-SELECT
-    *
-FROM
-    <connection>.<path>
-WITH
+SELECT 
+    * 
+FROM 
+    <connection>.<path> 
+WITH 
 (
-    schema=(<field_1>, <field_2>, <field_3>),
+    schema=(<field_1>, <field_2>, <field_3>), 
     partitioned_by=(<field_2>, <field_3>)
 )
 ```
 
 
-The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the `partitioned_by` parameter determines the nesting of {{ objstorage-full-name }} folders.
+The `partitioned_by` parameter lists data schema columns used to partition data stored in {{ objstorage-full-name }}. The order of specifying fields in the `partitioned_by` parameter determines the nesting of {{ objstorage-full-name }} folders. 
 
 For example, `partitioned_by=(year, month)` defines the folder structure
 
@@ -123,7 +123,7 @@ If other data types are used for partitioning, an error is returned.
 
 ## Supported storage path formats {#formats}
 
-The storage path format where each folder name explicitly specifies a column name is called [Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive) or just Hive format.
+The storage path format where each folder's name explicitly specifies a column name is called the [Hive-Metastore format](https://en.wikipedia.org/wiki/Apache_Hive) or simply the Hive format.
 
 This format looks as follows:
 ```
@@ -138,8 +138,12 @@ month=03
 
 {% note warning %}
 
-The basic partitioning mode in {{ yq-full-name }} only supports Hive format.
+The basic partitioning mode in {{ yq-full-name }} only supports the Hive format. 
 
 {% endnote %}
 
 To specify arbitrary storage paths, use [Partition projection](partition-projection.md).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/yq-storage.md)

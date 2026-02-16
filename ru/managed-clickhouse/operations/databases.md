@@ -27,7 +27,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
 
 - CLI {#cli}
@@ -45,9 +46,51 @@ description: Следуя данной инструкции, вы сможете
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список баз данных кластера, воспользуйтесь методом REST API [list](../api-ref/Database/list.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/List](../api-ref/grpc/Database/list.md).
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+        --request GET \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/database_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера>"
+            }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.clickhouse.v1.DatabaseService.List
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/list.md#yandex.cloud.mdb.clickhouse.v1.ListDatabasesResponse).
 
 - SQL {#sql}
 
@@ -64,17 +107,31 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [1000 DBs limit](../../_includes/mdb/1000dbnote.md) %}
 
+Подробнее о лимитах см. в разделе [Квоты и лимиты](../concepts/limits.md).
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера.
   1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
-  1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
+  1. Укажите имя базы данных.
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+  1. Выберите движок базы данных: 
+      
+      * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+      * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+        {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
+
+      {% include [set-engine](../../_includes/mdb/mch/set-engine.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.databases.popup-add_button_add }}**.
 
 - CLI {#cli}
 
@@ -86,8 +143,19 @@ description: Следуя данной инструкции, вы сможете
 
   ```bash
   {{ yc-mdb-ch }} database create <имя_БД> \
-     --cluster-name=<имя_кластера>
+     --cluster-name=<имя_кластера> \
+     --engine=<движок_БД>
   ```
+
+  Где:
+  * `--cluster-name` — имя кластера базы данных.
+  * `--engine` — движок базы данных. Необязательный параметр. Возможные значения:
+    * `database-engine-atomic` (по умолчанию) — движок Atomic. Поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+    * `database-engine-replicated` — движок Replicated. Поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+      {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
+                          
+    {% include [set-engine](../../_includes/mdb/mch/set-engine.md) %}
 
   {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
@@ -101,18 +169,43 @@ description: Следуя данной инструкции, вы сможете
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок описания базы данных `database`:
+    1. Добавьте ресурс `yandex_mdb_clickhouse_database`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
-          ...
-          database {
-            name = "<имя_БД>"
-          }
+        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
+          cluster_id = "<идентификатор_кластера>"
+          name       = "<имя_БД>"
+          engine     = "<движок_БД>"
         }
         ```
 
+        Где:
+        * `cluster_id` — идентификатор кластера базы данных.
+        * `name` — имя базы данных.
+        * `engine` — движок базы данных. Необязательный параметр. Возможные значения:
+          * `atomic` (по умолчанию) — движок Atomic. Поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
+          * `replicated` — движок Replicated. Поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
+
+            {% include [replicated-claster-engine](../../_includes/mdb/mch/replicated-claster-engine.md) %}
+                          
+          Движок задается при создании базы данных и не может быть изменен для этой базы.
+
         {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+
+        Если кластер создается с помощью {{ TF }} одновременно с созданием БД, то в ресурсе `yandex_mdb_clickhouse_database` вместо идентификатора кластера укажите ссылку на имя создаваемого кластера:
+
+        ```hcl
+
+        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          name = "<имя_кластера>"
+          ...
+        }
+
+        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
+          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          name       = "<имя_БД>"
+        }
+        ```
 
     1. Проверьте корректность настроек.
 
@@ -122,13 +215,84 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы создать новую базу данных в кластере, воспользуйтесь методом REST API [create](../api-ref/Database/create.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Create](../api-ref/grpc/Database/create.md).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases' \
+          --data '{
+                    "databaseSpec": {
+                      "name": "<имя_базы_данных>",
+                      "engine": "<движок_базы_данных>"
+                    }
+                  }'
+      ```
+
+      Где: 
+
+      * `databaseSpec.name` — имя базы данных.
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `databaseSpec.engine` — движок базы данных. Возможные значения:
+        
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_spec": {
+                  "name": "<имя_базы_данных>",
+                  "engine": "<движок_базы_данных>"
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.clickhouse.v1.DatabaseService.Create
+      ```
+
+      Где: 
+
+      * `database_spec.name` — имя базы данных.
+
+        {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
+        
+      * `database_spec.engine` — движок базы данных. Возможные значения:
+
+        {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 
@@ -151,7 +315,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -176,7 +341,7 @@ description: Следуя данной инструкции, вы сможете
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Удалите из описания кластера {{ mch-name }} блок `database` с описанием базы данных.
+    1. Удалите ресурс `yandex_mdb_clickhouse_database` с именем удаляемой базы данных.
 
     1. Проверьте корректность настроек.
 
@@ -186,13 +351,54 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
 
-    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы удалить базу данных, воспользуйтесь методом REST API [delete](../api-ref/Database/delete.md) для ресурса [Database](../api-ref/Database/index.md) или вызовом gRPC API [DatabaseService/Delete](../api-ref/grpc/Database/delete.md).
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request DELETE \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/database_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "database_name": "<имя_БД>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.clickhouse.v1.DatabaseService.Delete
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation).
 
 - SQL {#sql}
 

@@ -1,5 +1,9 @@
-# Как начать работать с {{ ydb-name }}
+---
+title: Как начать работать с {{ ydb-full-name }}
+description: Следуя данной инструкции, вы сможете создать и настроить БД {{ ydb-name }}.
+---
 
+# Как начать работать с {{ ydb-name }}
 
 В этой инструкции вы создадите базу данных [{{ ydb-short-name }}](https://ydb.tech/{{ lang }}) в {{ yandex-cloud }} и выполните простой запрос к ней с помощью [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} или инструментов командной строки.
 
@@ -33,7 +37,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
@@ -103,7 +107,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
@@ -118,12 +122,12 @@
         {% include [traffic_metering](_includes/traffic_metering.md) %}
 
      1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
-        1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         1. В открывшемся окне укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** новой сети.
         1. (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
         1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
      1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой [зоны доступности](../overview/concepts/geo-scope.md) выберите подсеть или создайте новую:
-        1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         1. В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
         1. (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
         1. Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
@@ -235,7 +239,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите созданную ранее БД.
   1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}** и введите текст запроса:
@@ -257,7 +261,7 @@
 
   1. {% include [cli-install](../_includes/cli-install.md) %}
 
-  1. Чтобы управлять вашими БД из командной строки, [установите](https://{{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
+  1. Чтобы управлять вашими БД из командной строки, [установите]({{ ydb.docs }}/reference/ydb-cli/install) {{ ydb-short-name }} CLI.
   1. Для аутентификации {{ ydb-short-name }} CLI в {{ yandex-cloud }} получите [IAM-токен](../iam/concepts/authorization/iam-token.md) и экспортируйте его в переменную окружения:
 
      ```bash

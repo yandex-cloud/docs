@@ -1,30 +1,38 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. To do this:
+You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
 
 1. [Set up the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+* {{ mpg-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-Prepare the infrastructure:
+Set up the infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. Create a source {{ mpg-name }} cluster in any applicable [configuration](../../../managed-postgresql/concepts/instance-types.md) with publicly available hosts and the following settings:
+    1. Create a source {{ mpg-name }} cluster using any suitable [configuration](../../../managed-postgresql/concepts/instance-types.md) with publicly accessible hosts. Specify the following settings:
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<source_password>`.
 
-    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster in any suitable configuration with publicly available hosts.
+    1. [Create a {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) target cluster using any suitable configuration with publicly accessible hosts.
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} target cluster.
 
-    1. Configure security groups for connection to the [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) source cluster and the [{{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups) target cluster.
+    1. Configure security groups for connection to the [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) source cluster and the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#configuring-security-groups) target cluster.
 
 - {{ TF }} {#tf}
 
@@ -51,17 +59,17 @@ Prepare the infrastructure:
         * `pg_password`: {{ PG }} user password.
         * `mos_version`: {{ OS }} version.
         * `mos_password`: {{ OS }} user password.
-        * `profile_name`: Your YC CLI profile name.
+        * `profile_name`: Name of your CLI profile.
 
            {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -71,9 +79,9 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Set up the transfer {#prepare-transfer}
+## Set up your transfer {#prepare-transfer}
 
-1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md), create a table named `x_tab` in the `db1` database and populate it with data:
+1. [Connect to the {{ mpg-name }} cluster](../../../managed-postgresql/operations/connect.md). In the `db1` database, create a table named `x_tab` and populate it with data:
 
      ```sql
      CREATE TABLE x_tab
@@ -110,7 +118,7 @@ Prepare the infrastructure:
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}**: `pg-user`.
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}**: `<user_password>`.
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_** type that will use the created endpoints.
+      1. [Create](../../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}_**-type transfer configured to use the new endpoints.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -121,23 +129,23 @@ Prepare the infrastructure:
           * `target_endpoint_id`: Target endpoint ID.
           * `transfer_enabled`: `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          If there are any errors in the configuration files, {{ TF }} will point them out.
+          {{ TF }} will display any configuration errors detected in your files.
 
       1. Create the required infrastructure:
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          Once created, your transfer will be activated automatically.
+          The transfer will activate automatically upon creation.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Connect to the target cluster using [{{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards).
@@ -150,44 +158,28 @@ Prepare the infrastructure:
     1. In the **Index pattern name** field, specify `public.x_tab` and click **Next step**.
     1. Click **Create index pattern**.
 
-1. Open the control panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
+1. Open the management panel by clicking ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
 1. Under **OpenSearch Dashboards**, select **Discover**.
 1. The dashboard that opens should contain data from the {{ mpg-name }} database.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources you do not need, delete them:
 
-[Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Delete other resources using the same method used for their creation:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
+       1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
+       1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 
-    1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
-    1. [Delete the {{ mpg-name }} cluster](../../../managed-postgresql/operations/cluster-delete.md).
-    1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-    1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `postgresql-to-opensearch.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
-
-        ```bash
-        terraform validate
-        ```
-
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `postgresql-to-opensearch.tf` configuration file will be deleted.
-
-{% endlist %}
-
+   {% endlist %}

@@ -71,7 +71,7 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 
 ## [MARKUP](MARKUP.md)
 
-**Синтаксис:**`MARKUP( arg_1, arg_2, arg_3 [ , ... ] )`
+**Синтаксис:**`MARKUP(  [ arg_1 [ , arg_2 [ , arg_3 [ , ... ] ] ] ] )`
 
 Объединяет размеченный текст. Также может быть использован для конвертации обычных строк в размеченный текст.
 
@@ -82,6 +82,14 @@ sourcePath: ru/_api-ref/datalens/function-ref/markup-functions.md
 **Синтаксис:**`SIZE( text, size )`
 
 Позволяет указать размер в пикселях для переданного текста.
+
+
+
+## [TOOLTIP](TOOLTIP.md)
+
+**Синтаксис:**`TOOLTIP( text, tooltip [ , placement ] )`
+
+Добавляет небольшую всплывающую подсказку к тексту или результату выполнения других функций разметки. Аргумент `placement` отвечает за расположение подсказки (`top`, `right`, `bottom`, `left` или `auto`). Значение по умолчанию — `auto`.
 
 
 

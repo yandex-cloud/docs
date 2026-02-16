@@ -4,7 +4,7 @@
 Subclusters of each {{ dataproc-name }} cluster reside in the same [cloud network](../../../vpc/concepts/network.md#network) and [availability zone](../../../overview/concepts/geo-scope.md). You can migrate a cluster to a different availability zone. The migration process depends on the cluster type:
 
 * The following describes how to migrate HDFS clusters.
-* For information on migrating [lightweight clusters](../../../data-proc/concepts/index.md#light-weight-clusters), follow the [tutorial](../../../data-proc/operations/migration-to-an-availability-zone.md).
+* For information on migrating [lightweight clusters](../../../data-proc/concepts/index.md#light-weight-clusters), check [this guide](../../../data-proc/operations/migration-to-an-availability-zone.md).
 
 {% include [zone-d-host-restrictions](../../../_includes/mdb/ru-central1-d-broadwell.md) %}
 
@@ -12,13 +12,19 @@ To migrate an HDFS cluster:
 
 1. [Create a cluster via import in {{ TF }}](#create).
 1. [Copy the data to the new cluster](#copy).
-1. [Delete the initial cluster](#delete).
+1. [Delete the source cluster](#delete).
 
-Before you begin, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
+To get started, [create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone to which you are migrating the cluster.
+
+
+## Required paid resources {#paid-resources}
+
+The support cost includes the fee for the {{ dataproc-name }} clusters (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+
 
 ## Create a cluster via import in {{ TF }} {#create}
 
-To create a {{ dataproc-name }} cluster in a different availability zone with the same configuration as the initial cluster, import the initial cluster's configuration into {{ TF }}:
+To create a {{ dataproc-name }} cluster in a different availability zone with the same configuration as the source cluster, import the source cluster's configuration into {{ TF }}:
 
 {% list tabs group=instructions %}
 
@@ -28,21 +34,21 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
    1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
-   1. In the same working directory, place a `.tf` file with the following contents:
+   1. In your current working directory, create a `.tf` file with the following contents:
 
       ```hcl
       resource "yandex_dataproc_cluster" "old" { }
       ```
 
-   1. Write the initial cluster ID to the environment variable:
+   1. Save the ID of the source cluster to an environment variable:
 
       ```bash
       export DATAPROC_CLUSTER_ID=<cluster_ID>
       ```
 
-      You can request the ID with a [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
+      You can get the cluster ID with the [list of clusters in the folder](../../../data-proc/operations/cluster-list.md#list).
 
-   1. Import the initial cluster settings into the {{ TF }} configuration:
+   1. Import the source cluster configuration into {{ TF }}:
 
       ```bash
       terraform import yandex_dataproc_cluster.old ${DATAPROC_CLUSTER_ID}
@@ -56,13 +62,13 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    1. Copy it from the terminal and paste it into the `.tf` file.
    1. Place the file in the new `imported-cluster` directory.
-   1. Modify the copied configuration so that you can create a new cluster from it:
+   1. Edit the copied configuration so that you can create a new cluster from it:
 
       * Specify the new cluster name in the `resource` string and the `name` parameter.
-      * Delete the `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id` parameters.
+      * Delete `created_at`, `host_group_ids`, `id`, and `subcluster_spec.id`.
       * Change the availability zone in the `zone_id` parameter.
-      * In the `subnet_id` parameters of the `subcluster_spec` sections, specify the ID of the new subnet created in the required availability zone.
-      * Change the SSH key format in the `ssh_public_keys` parameter. Source format:
+      * In `subnet_id` of the `subcluster_spec` sections, specify the ID of the new subnet created in the required availability zone.
+      * Change the SSH key format in the `ssh_public_keys` parameter. Initial format:
 
          ```hcl
          ssh_public_keys = [
@@ -81,15 +87,15 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
          ```
 
    1. [Get the authentication credentials](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
-   1. In the same directory, [configure and initialize a provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). There is no need to create a provider configuration file manually, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
-   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you did not add the authentication credentials to environment variables, specify them in the configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. In the same directory, [configure and initialize the provider](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). [Download](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf) the provider configuration file rather than creating it manually.
+   1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
       ```
 
-      If there are any errors in the configuration files, {{ TF }} will point them out.
+      {{ TF }} will display any configuration errors detected in your files.
 
    1. Create the required infrastructure:
 
@@ -103,25 +109,25 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
 1. Make sure no operations or jobs are being performed on the HDFS files and directories you want to copy.
 
-   To see a list of running operations and jobs:
+   To view a list of running operations and jobs:
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the initial cluster name and select the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab, then select **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
+   1. Click the source cluster name and select the **{{ ui-key.yacloud.dataproc.switch_operations }}** tab, then select **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
 
    {% note info %}
 
-   Until you have completed the migration, do not run any operations or jobs modifying the HDFS files and directories you are copying.
+   Do not run any operations or jobs modifying the HDFS files and directories you are copying until the migration is complete.
 
    {% endnote %}
 
-1. [Connect via SSH](../../../data-proc/operations/connect.md#data-proc-ssh) to the master host of the initial cluster.
-1. Get a list of directories and files to be copied to the new cluster:
+1. [Connect over SSH](../../../data-proc/operations/connect-ssh.md) to the master host of the source cluster.
+1. Get a list of directories and files to copy to the new cluster:
 
    ```bash
    hdfs dfs -ls /
    ```
 
-   Instead of the `/` symbol, you can specify the directory you need.
+   You can specify the directory you need instead of `/`.
 
 1. To test copying data to the new {{ dataproc-name }} cluster, create test directories:
 
@@ -130,31 +136,31 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
    hdfs dfs -mkdir /user/test
    ```
 
-   In the example below, only the `/user/foo` and `/user/test` test directories are copied for demonstration purposes.
+   For demonstration, the example below copies only the `/user/foo` and `/user/test` test directories.
 
-1. Connect via SSH to the master host of the new cluster.
+1. Connect over SSH to the master host of the new cluster.
 1. Create a file named `srclist`:
 
    ```bash
    nano srclist
    ```
 
-1. Add to it a list of directories intended for migration:
+1. Add to it a list of directories to migrate:
 
    ```text
-   hdfs://<initial_cluster_FQDN>:8020/user/foo
-   hdfs://<initial_cluster_FQDN>:8020/user/test
+   hdfs://<source_cluster_FQDN>:8020/user/foo
+   hdfs://<source_cluster_FQDN>:8020/user/test
    ```
 
-   In the command, specify the FQDN of the master host of the initial cluster. For information on how to obtain an FQDN, read the [tutorial](../../../data-proc/operations/connect.md#fqdn).
+   In the command, specify the FQDN of the source cluster master host. Learn how to get an FQDN in [this guide](../../../data-proc/operations/fqdn.md).
 
-1. Put the `srclist` file into the `/user` HDFS directory:
+1. Place the `srclist` file to the `/user` HDFS directory:
 
    ```bash
    hdfs dfs -put srclist /user
    ```
 
-1. Create a directory to copy the data to. In the example, it is the `copy` directory, nested in `/user`.
+1. Create a directory to copy the data to. In this example, it is the `copy` directory nested in `/user`.
 
    ```bash
    hdfs dfs -mkdir /user/copy
@@ -169,17 +175,17 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
    In the command, specify the FQDN of the master host of the new cluster.
 
-   As a result, all directories and files specified in the `srclist` will be copied to the `/user/copy` directory.
+   As a result, all directories and files specified in `srclist` will be copied to the `/user/copy` directory.
 
-   If copying a large volume of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see the [DistCp documentation](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
+   If you need to copy a large amount of data, use the `-m <maximum_simultaneous_copies>` flag in the command to limit network bandwidth consumption. For more information, see [this DistCp article](https://hadoop.apache.org/docs/r3.2.2/hadoop-distcp/DistCp.html#Command_Line_Options).
 
-   You can view the data volume you copy in the HDFS web interface. To open it:
+   You can check the data amount you copy in the HDFS web UI. To open it:
 
    1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-   1. Click the initial cluster name.
-   1. On its page, in the **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** section, click the **HDFS Namenode UI** link.
+   1. Click the source cluster name.
+   1. On the cluster page, click the **HDFS Namenode UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 
-   The **DFS Used** field states the initial cluster's data volume in HDFS.
+   The **DFS Used** field shows the source cluster's data amount in HDFS.
 
 1. Make sure the data is copied:
 
@@ -189,6 +195,6 @@ To create a {{ dataproc-name }} cluster in a different availability zone with th
 
 This way you can copy all the data you need. To do this, specify the required directories and files in `srclist`.
 
-## Delete the initial cluster {#delete}
+## Delete the source cluster {#delete}
 
-To do it, follow [this guide](../../../data-proc/operations/cluster-delete.md).
+Learn how to do this in [this guide](../../../data-proc/operations/cluster-delete.md).

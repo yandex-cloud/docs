@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a registry in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the registry.
+            There may be only one registry per folder.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        secure:
+          description: |-
+            **boolean**
+            If true, registry will be created with pre-setup scanning policy (on push and on schedule every 7 days)
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/create.md
 ---
 
-# Container Registry API, REST: Registry.Create {#Create}
+# Container Registry API, REST: Registry.Create
 
 Creates a registry in the specified folder.
 
@@ -19,7 +67,7 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries
 {
   "folderId": "string",
   "name": "string",
-  "labels": "string",
+  "labels": "object",
   "secure": "boolean"
 }
 ```
@@ -30,15 +78,21 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/registries
 
 Required field. ID of the folder to create a registry in.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the registry.
 
-There may be only one registry per folder. ||
-|| labels | **string**
+There may be only one registry per folder.
 
-Resource labels as `key:value` pairs. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || secure | **boolean**
 
 If true, registry will be created with pre-setup scanning policy (on push and on schedule every 7 days) ||
@@ -73,7 +127,7 @@ If true, registry will be created with pre-setup scanning policy (on push and on
     "name": "string",
     "status": "string",
     "createdAt": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -193,7 +247,6 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
@@ -207,7 +260,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

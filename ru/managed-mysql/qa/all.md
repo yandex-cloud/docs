@@ -1,5 +1,5 @@
 ---
-title: Вопросы и ответы про {{ mmy-full-name }}®
+title: Вопросы и ответы про {{ mmy-full-name }}
 description: На странице представлены вопросы и ответы про {{ mmy-short-name }}®.
 ---
 

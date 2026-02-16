@@ -1,4 +1,9 @@
-# Неверный формат ссылки на Яндекс Документы
+---
+title: Ошибка {{ datalens-full-name }} ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX
+description: На странице приведено описание ошибки {{ datalens-full-name }} Неверный формат ссылки на Яндекс Документы.
+---
+
+# [{{ datalens-full-name }}] Неверный формат ссылки на Яндекс Документы
 
 `ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX`
 

@@ -1,95 +1,123 @@
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте ВМ](#create-vm).
+1. [Создайте реестр {{ container-registry-name }}](#create-registry).
+1. [Создайте сервисный аккаунт](#create-sa).
+1. [Создайте ВМ {{ compute-name }}](#create-vm).
 1. [Соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
 1. [Загрузите Docker-образ на ВМ](#run).
 1. [Проверьте результат](#check-out).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
 ## Подготовьте облако к работе {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% include [paid-resources](../_tutorials_includes/run-docker-on-vm/paid-resources.md) %}
 
-### Настройте окружение {#prepare}
 
-{% include [prepare](../_tutorials_includes/run-docker-on-vm/prepare.md) %}
+### Создайте пару ключей SSH {#create-ssh}
 
-### Создайте сервисный аккаунт {#create-sa}
+{% include [create-ssh](../_tutorials_includes/run-docker-on-vm/create-ssh.md) %}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `container-registry.images.puller` на реестр, созданный ранее:
 
-    {% list tabs group=instructions %}
+### Установите и настройте Docker {#configure-docker}
 
-    - Консоль управления {#console}
+{% include [configure-docker](../../_includes/container-registry/configure-docker.md) %}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Введите имя сервисного аккаунта и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-      1. Вернитесь в [консоль управления]({{ link-console-main }}) в каталог, в котором вы создали сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-      1. Выберите реестр и нажмите на строку с его именем.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
-      1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `container-registry.images.puller`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-    - CLI {#cli}
+## Создайте реестр {{ container-registry-name }} {#create-registry}
 
-      {% include [cli-install](../../_includes/cli-install.md) %}
+[Создайте](../../container-registry/operations/registry/registry-create.md) реестр в {{ container-registry-name }}.
 
-      1. Посмотрите описание команды CLI для создания сервисного аккаунта:
+{% list tabs group=instructions %}
 
-          ```bash
-          yc iam service-account create --help
-          ```
+- Консоль управления {#console}
 
-      1. Создайте сервисный аккаунт:
+  {% include [create-registry-console](../../_includes/container-registry/create-registry-console.md) %}
 
-          {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+- CLI {#cli}
 
-          ```bash
-          yc iam service-account create --name <имя_сервисного_аккаунта>
-          ```
+  {% include [create-registry-cli](../../_includes/container-registry/create-registry-cli.md) %}
 
-          Результат:
+- API {#api}
 
-          ```text
-          id: ajelabcde12f********
-          folder_id: b0g12ga82bcv********
-          created_at: "2020-11-30T14:32:18.900092Z"
-          name: myservice-acc
-          ```
+  {% include [create-registry-api](../../_includes/container-registry/create-registry-api.md) %}
 
-      1. Назначьте роль сервисному аккаунту:
+{% endlist %}
 
-          ```bash
-          yc <имя_сервиса> <ресурс> add-access-binding <имя_или_идентификатор_ресурса> \
-            --role <идентификатор_роли> \
-            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
-          ```
 
-          Где:
-          * `<имя_сервиса>` — имя сервиса `container`.
-          * `<ресурс>` — категория ресурса `registry`.
-          * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса, на который назначается роль.
-          * `--role` — идентификатор роли `container-registry.images.puller`.
-          * `--subject` — идентификатор сервисного аккаунта (например: `ajelabcde12f********`), которому назначается роль.
+## Создайте сервисный аккаунт {#create-sa}
 
-    - API {#api}
+Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../iam/concepts/access-control/roles.md) `{{ roles-cr-puller }}` на реестр, созданный ранее:
 
-      1. Чтобы создать сервисный аккаунт, воспользуйтесь методом [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+{% list tabs group=instructions %}
 
-      1. Чтобы назначить роль сервисному аккаунту на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../container-registry/api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../container-registry/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../container-registry/api-ref/grpc/Registry/updateAccessBindings.md).
+- Консоль управления {#console}
 
-    {% endlist %}
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Введите имя сервисного аккаунта `images-puller` и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_dashboard }}**.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Выберите реестр и нажмите на строку с его именем.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
+  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-cr-puller }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-## Создайте виртуальную машину {#create-vm}
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  1. Посмотрите описание команды CLI для создания сервисного аккаунта:
+
+      ```bash
+      yc iam service-account create --help
+      ```
+
+  1. Создайте сервисный аккаунт:
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+      ```bash
+      yc iam service-account create --name images-puller
+      ```
+
+      Результат:
+
+      ```text
+      id: ajelabcde12f********
+      folder_id: b0g12ga82bcv********
+      created_at: "2020-11-30T14:32:18.900092Z"
+      name: myservice-acc
+      ```
+
+  1. Назначьте роль `{{ roles-cr-puller }}` сервисному аккаунту:
+
+      ```bash
+      yc container registry add-access-binding <имя_или_идентификатор_реестра> \
+        --role {{ roles-cr-puller }} \
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+      ```
+
+      Где `--subject` — идентификатор сервисного аккаунта (например: `ajelabcde12f********`), которому назначается роль.
+
+- API {#api}
+
+  1. Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+
+  1. Чтобы назначить роль сервисному аккаунту на реестр, воспользуйтесь методом REST API [updateAccessBindings](../../container-registry/api-ref/Registry/updateAccessBindings.md) для ресурса [Registry](../../container-registry/api-ref/Registry/index.md) или вызовом gRPC API [RegistryService/UpdateAccessBindings](../../container-registry/api-ref/grpc/Registry/updateAccessBindings.md).
+
+{% endlist %}
+
+
+## Создайте виртуальную машину {{ compute-name }} {#create-vm}
 
 Создайте ВМ с публичным IP-адресом и привяжите к ней созданный сервисный аккаунт:
 
@@ -97,46 +125,33 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.landing.action_create-resource }}** и выберите **{{ ui-key.yacloud.compute.instance.label_vm }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Введите имя и описание ВМ. Требования к имени:
-
-        {% include [name-format](../../_includes/name-format.md) %}
-
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-      * Выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
-      * Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный диск:
-      * Укажите нужный размер [диска](../../compute/concepts/disk.md).
-      * Выберите [тип диска](../../compute/concepts/disk.md#disks_types).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте нужный [тип](../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../compute/concepts/disk.md).
 
-        Если вы хотите создать ВМ из существующего диска, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** [добавьте диск](../../compute/operations/vm-create/create-from-disks.md).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md).
-      * Укажите [гарантированную долю](../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
-      * При необходимости сделайте ВМ [прерываемой](../../compute/concepts/preemptible-vm.md).
+      Если вы хотите добавить на ВМ новый дополнительный диск или подключить существующий, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+      Также вы можете [создать ВМ из существующего диска](../../compute/operations/vm-create/create-from-disks.md).
+
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * Укажите идентификатор подсети или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка. Если сети нет, нажмите кнопку **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
-        * В открывшемся окне укажите имя новой сети и выберите, к какой подсети необходимо подключить ВМ. У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet) (если подсети нет, создайте ее). Затем нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
-        * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
-        * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
-        * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
-        * (Опционально) Выберите опцию [защиты от DDoS-атак](../../vpc/ddos-protection/).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа на ВМ:
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
 
-        {% note alert %}
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее. Чтобы не назначать публичный IP-адрес, выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * При необходимости разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и включите защиту от DDoS-атак.
 
-        Не используйте логин `root` или другие имена, зарезервированные операционной системой. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-        {% endnote %}
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ. Требования к имени:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите созданный на предыдущем шаге [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
@@ -183,6 +198,7 @@
       ```
 
       Где:
+
       * `--name` — имя ВМ.
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
@@ -198,14 +214,17 @@
 
 - API {#api}
 
-  Создайте ВМ с помощью метода [Create](../../compute/api-ref/Instance/create.md) для ресурса `Instance`:
+  Создайте ВМ с помощью метода REST API [Create](../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../compute/api-ref/Instance/index.md):
+
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
   1. Получите [{{ iam-full-name }}-токен](../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+
       * [Инструкция](../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
 
   1. [Получите идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
   1. Получите информацию об образе, из которого надо создать ВМ (идентификатор образа и минимальный размер диска):
+
       * Если вы знаете [семейство образа](../../compute/concepts/image.md#family), получите информации о последнем образе в этом семействе:
 
           ```bash
@@ -278,6 +297,7 @@
       ```
 
       Где:
+
       * `folderId` — идентификатор каталога.
       * `name` — имя, которое будет присвоено ВМ при создании.
       * `zoneId` — зона доступности, которая соответствует выбранной подсети.
@@ -286,6 +306,7 @@
       * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../compute/concepts/vm-metadata.md).
       * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска. Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
       * `networkInterfaceSpecs` — настройки сети:
+
         * `subnetId` — идентификатор выбранной подсети.
         * `primaryV4AddressSpec` — IP-адрес, который будет присвоен ВМ. Чтобы добавить [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ, укажите:
 
@@ -314,25 +335,31 @@
 
 {% endlist %}
 
-После создания ВМ, [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image). 
+После создания ВМ [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image). 
+
 
 ## Соберите и загрузите Docker-образ в {{ container-registry-name }} {#create-image}
 
+{% include [bash-windows-note-single](../../_includes/translate/bash-windows-note-single.md) %}
+
 {% include [create-image](../_tutorials_includes/run-docker-on-vm/create-image.md) %}
+
 
 ## Загрузите Docker-образ на ВМ {#run}
 
 {% include [run](../_tutorials_includes/run-docker-on-vm/run.md) %}
 
+
 ## Проверьте результат {#check-out}
 
 {% include [test](../_tutorials_includes/run-docker-on-vm/test.md) %}
+
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
-* [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
-* [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
-* [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
-* [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр.
+1. [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
+1. [Удалите](../../vpc/operations/address-delete.md) статический публичный IP-адрес, если вы его зарезервировали.
+1. [Удалите](../../container-registry/operations/docker-image/docker-image-delete.md) Docker-образ.
+1. [Удалите](../../container-registry/operations/registry/registry-delete.md) реестр.

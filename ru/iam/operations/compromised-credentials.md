@@ -32,7 +32,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 Чтобы злоумышленник не смог использовать токен:
 
-1. [Отзовите OAuth-токен](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html).
+1. [Отзовите](https://id.yandex.ru/personal/data-access) OAuth-токен. Для этого нужно отозвать доступ приложения {{ yandex-cloud }}. Подробнее см. [Отзыв токенов](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html).
 1. [Отзовите](./iam-token/revoke-iam-token.md) все IAM-токены, для получения которых использовался скомпрометированный OAuth-токен.
 1. [Получите новый OAuth-токен]({{ link-cloud-oauth }}).
 
@@ -42,10 +42,10 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 Если для вас важнее непрерывность процесса, в котором участвует сервисный аккаунт, перевыпустите авторизованные ключи:
 
-1. [Создайте новый авторизованный ключ](authorized-key/create.md) для сервисного аккаунта.
+1. [Создайте новый авторизованный ключ](authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта.
 1. Предоставьте новый авторизованный ключ сервисам и пользователям, которые его используют.
 1. [Получите IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для нового авторизованного ключа.
-1. [Удалите старый авторизованный ключ](./authorized-key/delete.md).
+1. [Удалите старый авторизованный ключ](./authentication/manage-authorized-keys.md#delete-authorized-key).
 
 Когда вы удалите авторизованный ключ, соответствующий ему IAM-токен перестанет действовать. Этого достаточно, чтобы исключить угрозы со стороны скомпрометированного ключа.
 
@@ -55,15 +55,15 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 
 ### Статический ключ {#access-key-reissue}
 
-1. [Создайте новый статический ключ](sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте новый статический ключ](authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 1. Предоставьте новый статический ключ сервисам и пользователям, которые его используют.
-1. [Удалите старый статический ключ](sa/delete-access-key.md).
+1. [Удалите старый статический ключ](authentication/manage-access-keys.md#delete-access-key).
 
 ### API-ключ {#api-key-reissue}
 
-1. [Создайте новый API-ключ](api-key/create.md) для сервисного аккаунта.
+1. [Создайте новый API-ключ](authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
 1. Предоставьте новый API-ключ сервисам и пользователям, которые его используют.
-1. [Удалите старый API-ключ](./api-key/delete.md).
+1. [Удалите старый API-ключ](./authentication/manage-api-keys.md#delete-api-key).
 
 ### Серверный ключ {{ captcha-name }} {#captcha-server-key}
 
@@ -81,7 +81,7 @@ OAuth-токен можно отозвать. При этом IAM-токены, 
 Проанализируйте доступ к вашим ресурсам {{ yandex-cloud }}:
 
 1. [Изучите записи](../../logging/operations/read-logs.md) {{ cloud-logging-name }}.
-1. Выполните [поиск событий в бакете](../../audit-trails/tutorials/search-bucket.md) и [поиск событий в лог-группе](../../audit-trails/tutorials/search-cloud-logging.md) {{ at-name }}.
+1. Выполните [поиск событий](../../audit-trails/tutorials/search-events-audit-logs/index.md) в бакете или лог-группе {{ at-name }}.
 1. Убедитесь, что все события, в том числе связанные с утечкой секретов, соответствуют ожиданиям.
 
 {% note tip %}

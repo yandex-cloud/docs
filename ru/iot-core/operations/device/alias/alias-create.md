@@ -11,7 +11,7 @@
    Чтобы создать алиас:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать алиас.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Нажмите значок ![image](../../../../_assets/console-icons/ellipsis.svg) справа от имени нужного устройства, в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.

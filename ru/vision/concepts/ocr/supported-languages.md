@@ -2,19 +2,6 @@
 
 Все языковые модели текста поддерживают русский и английский языки.
 
-## Англо-русская модель {#engrus}
-
-Эта модель работает лучше всего, но поддерживает только два языка:
-
-* `en` — английский.
-* `ru` — русский.
-
-{% note warning %}
-
-Сейчас эта модель не может быть выбрана при [автоматическом определении языка](../../operations/ocr/text-detection-image.md#ocr-api-recognition). Чтобы использовать эту модель, надо явно указать один или оба языка в свойстве `languageCodes` для [OCR API](../../ocr/api-ref/index.md) или в свойстве `language_codes` для [Vision API](../../vision/api-ref/index.md).
-
-{% endnote %}
-
 ## Латино-кириллическая модель {#latcyr}
 
 Эта модель поддерживает языки с латинской и кириллической письменностью:
@@ -71,6 +58,15 @@
 * `th`, `en`, `ru` — тайский.
 * `vi`, `en`, `ru` — вьетнамский.
 * `zh`, `en`, `ru` — китайский.
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/archive-from-vision-to-object-storage.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../operations/ocr/text-detection-image.md)
+* [{#T}](../../operations/ocr/text-detection-pdf.md)
+* [{#T}](../../operations/ocr/text-detection-handwritten.md)
+* [{#T}](../../operations/ocr/text-detection-table.md)
 
 #### Что дальше {#what-is-next}
 

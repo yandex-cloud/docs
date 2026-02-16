@@ -1,0 +1,12 @@
+title: Architecture solutions
+href: index.yaml
+noIndex: true
+items:
+  - name: Recommendations on fault tolerance in {{ yandex-cloud }}
+    href: fault-tolerance.md
+  - name: >-
+      Deploying a web app in a fault-tolerant configuration in {{ yandex-cloud
+      }}
+    href: app-in-k8s.md
+  - name: Testing fault tolerance in {{ yandex-cloud }}
+    href: testing-zone-failure.md

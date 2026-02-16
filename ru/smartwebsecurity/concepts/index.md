@@ -1,10 +1,10 @@
 # Обзор сервиса {{ sws-full-name }}
 
-{{ sws-full-name }} — сервис для защиты от [DDoS-атак](../../glossary/ddos.md) и ботов на прикладном уровне L7 [модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI).
+{% include [about-sws](../../_includes/smartwebsecurity/about-sws.md) %}
 
-Сервис можно подключить к [виртуальным хостам](../../application-load-balancer/concepts/http-router.md#virtual-host) [{{ alb-full-name }}](../../application-load-balancer/).
+## Принцип работы {#how-it-works}
 
-Функциональность сервиса сводится к проверке HTTP-запросов к защищаемому ресурсу через виртуальный хост L7-балансировщика на соответствие [правилам](rules.md), заданным в [профиле безопасности](profiles.md). В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
+{{ sws-name }} проверяет HTTP-запросы к защищаемому ресурсу через виртуальный хост L7-балансировщика на соответствие [правилам](rules.md), заданным в [профиле безопасности](profiles.md). В зависимости от результатов проверки запросы направляются к виртуальному хосту, блокируются или отправляются в сервис [{{ captcha-full-name }}](../../smartcaptcha/) для дополнительной верификации.
 
 ![schema](../../_assets/smartwebsecurity/schema.svg)
 
@@ -12,22 +12,23 @@
 
 {% include [realized-arl-concept](../../_includes/smartwebsecurity/realized-arl-concept.md) %}
 
+## Мониторинг и аудит {#monitoring-audit}
+
 Логи {{ sws-name }} передаются в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 Метрики {{ sws-name }} передаются в сервис [{{ monitoring-full-name }}](../../monitoring/).
 
 Аудитные логи {{ sws-name }} передаются в сервис [{{ at-full-name }}](../../audit-trails/).
 
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
 ## Рекомендации по настройке {{ alb-name }} {#alb-settings-recommendation}
 
-Для улучшения защиты ваших приложений от DDoS-атак следуйте дополнительным рекомендациям:
+{% include [alb-settings-recommendation](../../_includes/smartwebsecurity/alb-settings-recommendation.md) %}
 
-* Настройте [автомасштабирование](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling) — это позволяет динамически адаптироваться к увеличенной нагрузке и перераспределять трафик оптимальным образом.
+#### См. также {#see-also}
 
-* Разместите ресурсные единицы в нескольких [зонах доступности](../../overview/concepts/geo-scope.md).
-
-* Используйте защищенный протокол HTTPS — [настройте обработчик](../../application-load-balancer/concepts/application-load-balancer.md#listener) для автоматического перенаправления запросов с HTTP на HTTPS.
-
-* Обеспечьте защиту на более низком уровне модели OSI — [включите](../tutorials/alb-with-ddos-protection/console.md) базовую защиту от DDoS-атак на уровнях L3-L4, что поможет предотвратить часть атак на более ранней стадии.
-
-Эти меры в дополнение к настройке {{ sws-name }} помогут повысить устойчивость ваших сервисов к потенциальным угрозам и обеспечат безопасную работу приложений.
+* [Защита облаков в России: основные тенденции и тренды киберугроз в 2025 году](https://yandex.cloud/ru/blog/posts/2025/04/cloud-protection)
+* [Как настроить защиту веб‑приложения в облаке с помощью {{ sws-full-name }}](https://yandex.cloud/ru/blog/smart-web-security-how-to)
+* [Yandex SWS и CDN: защита и ускорение сайтов для компаний любого масштаба](https://yandex.cloud/ru/blog/sws-cdn-cloudflare-alternative)
+* [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)

@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the ClickHouse cluster that the database belongs to.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the ClickHouse Database resource to return.
+            To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Database/get.md
 ---
 
-# Managed Service for ClickHouse API, REST: Database.Get {#Get}
+# Managed Service for ClickHouse API, REST: Database.Get
 
 Returns the specified ClickHouse Database resource.
 
@@ -22,11 +50,15 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databa
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster that the database belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the ClickHouse Database resource to return.
-To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/Database/list#List) request. ||
+To get the name of the database, use a [DatabaseService.List](/docs/managed-clickhouse/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.Database}
@@ -36,7 +68,8 @@ To get the name of the database, use a [DatabaseService.List](/docs/managed-clic
 ```json
 {
   "name": "string",
-  "clusterId": "string"
+  "clusterId": "string",
+  "engine": "string"
 }
 ```
 
@@ -51,4 +84,10 @@ Name of the database. ||
 || clusterId | **string**
 
 ID of the ClickHouse cluster that the database belongs to. ||
+|| engine | **enum** (DatabaseEngine)
+
+Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).
+
+- `DATABASE_ENGINE_ATOMIC`
+- `DATABASE_ENGINE_REPLICATED` ||
 |#

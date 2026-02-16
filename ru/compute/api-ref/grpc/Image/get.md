@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/Image/get.md
 ---
 
-# Compute Cloud API, gRPC: ImageService.Get {#Get}
+# Compute Cloud API, gRPC: ImageService.Get
 
 Returns the specified Image resource.
 
@@ -17,16 +17,18 @@ To get the list of available Image resources, make a [List](/docs/compute/api-re
 
 ```json
 {
-  "imageId": "string"
+  "image_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| imageId | **string**
+|| image_id | **string**
 
 Required field. ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Image {#yandex.cloud.compute.v1.Image}
@@ -34,29 +36,36 @@ To get the image ID, use a [ImageService.List](/docs/compute/api-ref/grpc/Image/
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "family": "string",
-  "storageSize": "int64",
-  "minDiskSize": "int64",
-  "productIds": [
+  "storage_size": "int64",
+  "min_disk_size": "int64",
+  "product_ids": [
     "string"
   ],
   "status": "Status",
   "os": {
-    "type": "Type"
+    "type": "Type",
+    "nvidia": {
+      "driver": "string"
+    }
   },
   "pooled": "bool",
-  "hardwareGeneration": {
-    // Includes only one of the fields `legacyFeatures`, `generation2Features`
-    "legacyFeatures": {
-      "pciTopology": "PCITopology"
+  "hardware_generation": {
+    // Includes only one of the fields `legacy_features`, `generation2_features`
+    "legacy_features": {
+      "pci_topology": "PCITopology"
     },
-    "generation2Features": "Generation2HardwareFeatures"
+    "generation2_features": "Generation2HardwareFeatures"
     // end of the list of possible fields
+  },
+  "kms_key": {
+    "key_id": "string",
+    "version_id": "string"
   }
 }
 ```
@@ -68,17 +77,19 @@ An Image resource.
 || id | **string**
 
 ID of the image. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the image belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
 || name | **string**
 
 Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**
@@ -88,13 +99,13 @@ The name of the image family to which this image belongs.
 You can get the most recent image from a family by using
 the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/api-ref/grpc/Image/getLatestByFamily#GetLatestByFamily) request
 and create the disk from this image. ||
-|| storageSize | **int64**
+|| storage_size | **int64**
 
 The size of the image, specified in bytes. ||
-|| minDiskSize | **int64**
+|| min_disk_size | **int64**
 
 Minimum size of the disk which will be created from this image. ||
-|| productIds[] | **string**
+|| product_ids[] | **string**
 
 License IDs that indicate which licenses are attached to this resource.
 License IDs are used to calculate additional charges for the use of the virtual machine.
@@ -108,7 +119,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -119,10 +129,13 @@ Operating system that is contained in the image. ||
 || pooled | **bool**
 
 When true, indicates there is an image pool for fast creation disks from the image. ||
-|| hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+|| hardware_generation | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
+|| kms_key | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}
@@ -135,9 +148,21 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -149,12 +174,12 @@ These features significantly determine how the instance is created, thus cannot 
 
 #|
 ||Field | Description ||
-|| legacyFeatures | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+|| legacy_features | **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
-|| generation2Features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
+|| generation2_features | **[Generation2HardwareFeatures](#yandex.cloud.compute.v1.Generation2HardwareFeatures)**
 
-Includes only one of the fields `legacyFeatures`, `generation2Features`. ||
+Includes only one of the fields `legacy_features`, `generation2_features`. ||
 |#
 
 ## LegacyHardwareFeatures {#yandex.cloud.compute.v1.LegacyHardwareFeatures}
@@ -164,9 +189,8 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 
 #|
 ||Field | Description ||
-|| pciTopology | enum **PCITopology**
+|| pci_topology | enum **PCITopology**
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -179,4 +203,16 @@ and UEFI boot (with UEFI related features).
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| key_id | **string**
+
+ID of KMS symmetric key ||
+|| version_id | **string**
+
+Version of KMS symmetric key ||
 |#

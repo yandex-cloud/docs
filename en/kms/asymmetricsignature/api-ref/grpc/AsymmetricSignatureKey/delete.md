@@ -3,12 +3,12 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/delete.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureKeyService.Delete {#Delete}
+# Key Management Service API, gRPC: AsymmetricSignatureKeyService.Delete
 
 Deletes the specified asymmetric KMS key. This action also automatically schedules
 the destruction of all of the key's versions in 72 hours.
 
-The key and its versions appear absent in [AsymmetricSignatureKeyService.Get](/docs/kms/api-ref/grpc/AsymmetricSignatureKey/get#Get) and [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/grpc/AsymmetricSignatureKey/list#List)
+The key and its versions appear absent in [AsymmetricSignatureKeyService.Get](/docs/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/get#Get) and [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/list#List)
 requests, but can be restored within 72 hours with a request to tech support.
 
 ## gRPC request
@@ -19,15 +19,17 @@ requests, but can be restored within 72 hours with a request to tech support.
 
 ```json
 {
-  "keyId": "string"
+  "key_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
-Required field. ID of the key to be deleted. ||
+Required field. ID of the key to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -36,25 +38,25 @@ Required field. ID of the key to be deleted. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "keyId": "string"
+    "key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
-    "signatureAlgorithm": "AsymmetricSignatureAlgorithm",
-    "deletionProtection": "bool"
+    "signature_algorithm": "AsymmetricSignatureAlgorithm",
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -70,13 +72,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -119,7 +121,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the key being deleted. ||
 |#
@@ -133,10 +135,10 @@ An asymmetric KMS key that may contain several versions of the cryptographic mat
 || id | **string**
 
 ID of the key. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key was created. ||
 || name | **string**
@@ -145,24 +147,22 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| signatureAlgorithm | enum **AsymmetricSignatureAlgorithm**
+|| signature_algorithm | enum **AsymmetricSignatureAlgorithm**
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512
@@ -176,7 +176,7 @@ Signature Algorithm ID.
 - `ECDSA_NIST_P384_SHA_384`: ECDSA signature with NIST P-384 curve and SHA-384
 - `ECDSA_NIST_P521_SHA_512`: ECDSA signature with NIST P-521 curve and SHA-512
 - `ECDSA_SECP256_K1_SHA_256`: ECDSA signature with SECP256_K1 curve and SHA-256 ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the key ||
 |#

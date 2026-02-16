@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: '**string**'
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a `next_page_token` that can be used
+            to get the next page of results in subsequent ListDatabases requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `page_token` to the `next_page_token` returned by a previous ListDatabases
+            request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for YDB API, REST: Database.List {#List}
+# Managed Service for YDB API, REST: Database.List
 
 Retrieves a list of databases.
 
@@ -56,9 +85,20 @@ request to get the next page of results. ||
         "storageSizeLimit": "string"
       },
       "scalePolicy": {
-        // Includes only one of the fields `fixedScale`
+        // Includes only one of the fields `fixedScale`, `autoScale`
         "fixedScale": {
           "size": "string"
+        },
+        "autoScale": {
+          "minSize": "string",
+          "maxSize": "string",
+          // Includes only one of the fields `targetTracking`
+          "targetTracking": {
+            // Includes only one of the fields `cpuUtilizationPercent`
+            "cpuUtilizationPercent": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -85,9 +125,20 @@ request to get the next page of results. ||
           "storageSizeLimit": "string"
         },
         "scalePolicy": {
-          // Includes only one of the fields `fixedScale`
+          // Includes only one of the fields `fixedScale`, `autoScale`
           "fixedScale": {
             "size": "string"
+          },
+          "autoScale": {
+            "minSize": "string",
+            "maxSize": "string",
+            // Includes only one of the fields `targetTracking`
+            "targetTracking": {
+              // Includes only one of the fields `cpuUtilizationPercent`
+              "cpuUtilizationPercent": "string"
+              // end of the list of possible fields
+            }
+            // end of the list of possible fields
           }
           // end of the list of possible fields
         },
@@ -95,7 +146,10 @@ request to get the next page of results. ||
         "subnetIds": [
           "string"
         ],
-        "assignPublicIps": "boolean"
+        "assignPublicIps": "boolean",
+        "securityGroupIds": [
+          "string"
+        ]
       },
       "serverlessDatabase": {
         "throttlingRcuLimit": "string",
@@ -107,7 +161,7 @@ request to get the next page of results. ||
       // end of the list of possible fields
       "assignPublicIps": "boolean",
       "locationId": "string",
-      "labels": "string",
+      "labels": "object",
       "backupConfig": {
         "backupSettings": [
           {
@@ -239,7 +293,10 @@ request to get the next page of results. ||
           }
         ]
       },
-      "deletionProtection": "boolean"
+      "deletionProtection": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     }
   ],
   "nextPageToken": "string"
@@ -310,13 +367,14 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
 || assignPublicIps | **boolean** ||
 || locationId | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || documentApiEndpoint | **string** ||
 || kinesisApiEndpoint | **string** ||
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -343,7 +401,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -351,6 +412,39 @@ Includes only one of the fields `fixedScale`. ||
 #|
 ||Field | Description ||
 || size | **string** (int64) ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+
+Includes only one of the fields `targetTracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpuUtilizationPercent | **string** (int64)
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}
@@ -381,6 +475,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}

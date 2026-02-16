@@ -1,0 +1,1 @@
+Karapace is deployed on each broker host on a separate port, with its own endpoint available for connection. When you delete a broker, the associated endpoint becomes unavailable.

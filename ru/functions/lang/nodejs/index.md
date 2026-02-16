@@ -7,7 +7,6 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 
 С помощью сервиса {{ sf-name }} вы можете запускать приложения, написанные на [Node.js](https://nodejs.org/en/docs/).
 
-
 {% include [runtime-introduction](../../../_includes/functions/runtime-introduction.md) %}
 
 | Название | Версия Node.js | Версия SDK <br>{{ yandex-cloud }} | Операционная <br>система | Предзагружаемая  | Поддерживается сервисом |
@@ -16,14 +15,12 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | nodejs12 | 12.22.10 | 1.3.3 | Ubuntu 18.04 | Нет | Нет |
 | nodejs14 | 14.19.0 | 1.3.3 | Ubuntu 18.04 | Нет | Нет |
 | nodejs16 | 16.14.1 | отсутствует | Ubuntu 18.04 | Да | Нет |
-| nodejs18 | 18.16.1 | отсутствует | Ubuntu 22.04 LTS | Да | Да |
-
+| nodejs18 | 18.16.1 | отсутствует | Ubuntu 22.04 LTS | Да | Нет |
+| nodejs22 | 22.15.0 | отсутствует | Ubuntu 22.04 LTS | Да | Да  |
 
 {% include [note-preload-runtime](../../../_includes/functions/note-preload-runtime.md) %}
 
-
 В некоторые среды выполнения по умолчанию установлена SDK-библиотека для работы с API {{ yandex-cloud }}. Подробнее о способах использования SDK читайте в разделе [Использование SDK](sdk.md).
-
 
 В процессе создания новой [версии функции](../../concepts/function.md#version) {{ sf-name }} автоматически установит все объявленные зависимости, необходимые для работы функции. Ознакомьтесь подробнее с требованиями и ограничениями в разделе [{#T}](dependencies.md).
 

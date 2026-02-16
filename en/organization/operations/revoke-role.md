@@ -6,21 +6,9 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} interface {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-  
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Select a user from the list or use the search bar at the top of the page.
-  
-  1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-  
-  1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
@@ -84,7 +72,9 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM_token>
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Result:
@@ -125,10 +115,12 @@ The role can be revoked by a user with the [`organization-manager.admin`](add-or
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=<IAM_token>
-      curl -X POST \
-        -H "Content-Type: application/json" \
-        -H "Authorization: Bearer ${IAM_TOKEN}" \
-        -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}

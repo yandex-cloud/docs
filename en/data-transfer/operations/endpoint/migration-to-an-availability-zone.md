@@ -1,3 +1,8 @@
+---
+title: Migrating a {{ data-transfer-full-name }} transfer and endpoints to a different availability zone
+description: Follow this tutorial to migrate your endpoints and transfers to a different availability zone.
+---
+
 # Migrating a {{ data-transfer-name }} transfer and endpoints to a different availability zone
 
 
@@ -9,7 +14,7 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 1. [Create a subnet](../../../vpc/operations/subnet-create.md) in the availability zone you want to move your endpoint to.
 1. If your custom installation is hosted on a {{ yandex-cloud }} VM, follow these steps:
 
-
+   
    1. [Stop the VM](../../../compute/operations/vm-control/vm-stop-and-start.md#stop).
    1. [Move the VM to a different availability zone](../../../compute/operations/vm-control/vm-change-zone.md).
    1. [Run the VM](../../../compute/operations/vm-control/vm-stop-and-start.md#start).
@@ -28,13 +33,11 @@ You can migrate [transfers](../../concepts/index.md#transfer) from one [availabi
 
 1. Move your cluster hosts to a different availability zone. For more information, see the documentation for the following services:
 
-   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md).   
-   * [{{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-backups.md#restore).
-   * [{{ mmg-full-name }}](../../../managed-mongodb/operations/host-migration.md).
-   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md).
-   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md).
-   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)
-   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
+   * [{{ mch-full-name }}](../../../managed-clickhouse/operations/host-migration.md)
+   * [{{ mmg-full-name }}](../../../storedoc/operations/host-migration.md)
+   * [{{ mmy-full-name }}](../../../managed-mysql/operations/host-migration.md)
+   * [{{ mos-full-name }}](../../../managed-opensearch/operations/host-migration.md)
+   * [{{ mpg-full-name }}](../../../managed-postgresql/operations/host-migration.md)   * [{{ ydb-full-name }}](../../../ydb/operations/migration-to-an-availability-zone.md)
 
 1. If the [transfer type](../../concepts/transfer-lifecycle.md#transfer-types) is {{ dt-type-repl }} or {{ dt-type-copy-repl }}, restart the transfer for it to get the information about the new cluster topology. You do not need to restart {{ dt-type-copy }} transfers, as information about the new topology is provided automatically while activating them.
 

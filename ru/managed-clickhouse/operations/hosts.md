@@ -1,18 +1,23 @@
-# Управление хостами кластера {{ CH }}
+---
+title: Управление хостами {{ CH }}
+description: 'Следуя данной инструкции, вы сможете управлять хостами кластера {{ CH }}: получать список хостов в кластере, создавать хост, изменять настройки {{ CH }} для хоста, перезагружать хост, удалять хост.'
+---
+
+# Управление хостами {{ CH }}
 
 Вы можете выполнить следующие действия над хостами {{ CH }}:
 
 * [получить список хостов в кластере](#list-hosts);
 * [создать хост](#add-host);
 * [изменить настройки {{ CH }} для хоста](#update);
-* [перезапустить хост](#restart);
+* [перезагрузить хост](#restart);
 * [удалить хост](#remove-host).
 
 О том, как перенести хосты {{ CH }} в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md#clickhouse-hosts).
 
 {% note warning %}
 
-Если вы создали кластер без поддержки [{{ CK }}](../concepts/replication.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [включите отказоустойчивость](zk-hosts.md#add-zk) с использованием хостов {{ ZK }}.
+Если вы создали кластер без поддержки [{{ CK }}](../concepts/replication.md#ck), то прежде чем добавлять новые хосты в любой из [шардов](../concepts/sharding.md), [добавьте не менее трех хостов {{ ZK }}](zk-hosts.md#add-zk).
 
 {% endnote %}
 
@@ -24,24 +29,33 @@
 
 Количество хостов в кластерах {{ mch-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
-С помощью CLI, {{ TF }} и API можно создать сразу несколько хостов в кластере.
+Вы можете создать сразу несколько хостов в кластере.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
-
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
   1. Укажите параметры хоста:
-     * Зону доступности.
-     * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
-     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
-     * Имя шарда.
-     * Выберите опцию **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}**, чтобы скопировать схему со случайной реплики на новый хост.
 
+      
+      * Зону доступности.
+      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
+      * Имя шарда.
+      * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
+  1. (Опционально) Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}**, чтобы добавить дополнительные хосты, и укажите их параметры.
+     
+  1. В блоке **{{ ui-key.yacloud.clickhouse.hosts.dialog.title_additional-settings }}**:
+  
+     * **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}** — если схема данных одинакова на всех хостах-репликах кластера, включите эту опцию, чтобы скопировать схему со случайной реплики на новые хосты.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}**, чтобы создать один или несколько хостов.
 
 - CLI {#cli}
 
@@ -51,7 +65,7 @@
 
   Чтобы создать один или несколько хостов:
 
-
+  
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
      ```bash
@@ -86,7 +100,7 @@
 
      Команда для создания одного хоста имеет вид:
 
-
+     
      ```bash
      {{ yc-mdb-ch }} hosts add \
        --cluster-name=<имя_кластера> \
@@ -104,7 +118,7 @@
 
      {{ mch-name }} запустит операцию создания хостов.
 
-
+     
      Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mch-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
@@ -149,7 +163,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.addHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -181,13 +195,14 @@
             * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
             * `zoneId` — зона доступности.
             * `subnetId` — идентификатор подсети.
+            * `shardName` — имя шарда.
             * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
         * `copySchema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -197,7 +212,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -222,7 +237,7 @@
                     ],
                     "copy_schema": <копировать_ли_схему_данных>
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
         ```
 
@@ -233,13 +248,14 @@
             * `type` — тип хоста, всегда `CLICKHOUSE` для хостов {{ CH }}.
             * `zone_id` — зона доступности.
             * `subnet_id` — идентификатор подсети.
+            * `shard_name` — имя шарда.
             * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
         * `copy_schema` — параметр, который определяет, копировать ли схему данных со случайной реплики на создаваемые хосты: `true` или `false`.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -253,19 +269,23 @@
 
 {% endnote %}
 
+
 ## Изменить хост {#update}
 
 Для каждого хоста в кластере {{ mch-name }} можно изменить настройки публичного доступа.
+
+{% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
-  1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. В открывшемся окне включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -323,7 +343,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -355,7 +375,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -365,7 +385,7 @@
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -389,7 +409,7 @@
                         "assign_public_ip": <публичный_доступ_к_хосту>
                     }]
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateHosts
         ```
 
@@ -404,7 +424,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -416,13 +436,12 @@
 {% endnote %}
 
 
-## Перезапустить хост {#restart}
+
+## Перезагрузить хост {#restart}
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
 ## Удалить хост {#remove-host}
-
-С помощью CLI, {{ TF }} и API можно удалить сразу несколько хостов из кластера.
 
 {% note warning %}
 
@@ -430,15 +449,29 @@
 
 Нельзя удалить хосты, на которых размещается [{{ CK }}](../concepts/replication.md#ck), если при создании кластера была включена поддержка этого механизма репликации.
 
+Нельзя удалить хосты разных типов ({{ CH }} и {{ ZK }}) за один раз.
+
 {% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+  Чтобы удалить один хост:
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. В открывшемся окне включите опцию **Я удаляю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+
+  Чтобы удалить несколько хостов сразу:
+
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+    1. Выберите хосты, которые хотите удалить, и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
 
 - CLI {#cli}
 
@@ -453,7 +486,6 @@
   ```bash
   {{ yc-mdb-ch }} hosts delete --cluster-name=<имя_кластера> \
     <имя_хоста>
-     
   ```
 
   Имена хостов можно запросить со [списком хостов в кластере](#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -478,63 +510,11 @@
 
 - REST API {#api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. Воспользуйтесь методом [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
-
-        ```bash
-        curl \
-            --request POST \
-            --header "Authorization: Bearer $IAM_TOKEN" \
-            --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
-            --data '{
-                      "hostNames": [
-                        <перечень_имен_хостов>
-                      ]
-                    }'
-        ```
-
-        Где `hostNames` — массив строк. Каждая строка — имя хоста, который нужно удалить. Имена хостов можно запросить со [списком хостов в кластере](#list-hosts).
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+    {% include [zk-hosts-rest](../../_includes/mdb/mch/api/delete-zk-hosts-rest.md) %}
 
 - gRPC API {#grpc-api}
 
-    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
-
-        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
-
-    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-
-    1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
-
-        ```bash
-        grpcurl \
-            -format json \
-            -import-path ~/cloudapi/ \
-            -import-path ~/cloudapi/third_party/googleapis/ \
-            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
-            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-            -d '{
-                    "cluster_id": "<идентификатор_кластера>",
-                    "host_names": [
-                      <перечень_имен_хостов>
-                    ]
-                }' \
-            {{ api-host-mdb }}:443 \
-            yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
-        ```
-
-        Где `host_names` — массив строк. Каждая строка — имя хоста, который нужно удалить. Имена хостов можно запросить со [списком хостов в кластере](#list-hosts).
-
-        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
-
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/delete-zk-hosts-grpc.md) %}
 
 {% endlist %}
 

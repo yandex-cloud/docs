@@ -1,0 +1,1 @@
+Perform this action on the server you are going to install the KUMA collector on. As a server, you can use a {{ compute-name }} VM or your own hardware. In this tutorial, we use the previously created {{ compute-short-name }} VM.

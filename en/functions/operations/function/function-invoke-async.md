@@ -14,9 +14,9 @@ description: Follow this guide to configure and invoke a function asynchronously
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
-    1. Go to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}** toggle to on.
     1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** field, specify the number of invocation retries before the call is considered failed.
     1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify a service account with rights to invoke the function.
@@ -43,7 +43,7 @@ description: Follow this guide to configure and invoke a function asynchronously
       --memory <RAM_size> \
       --execution-timeout <execution_timeout> \
       --source-version-id <version_ID> \
-      --async-max-retries <number_of_retries> \
+      --async-max-retries <number_of_retry_attempts> \
       --async-service-account-id <service_account_ID> \
       --async-success-ymq-arn <message_queue> \
       --async-success-sa-id <service_account_ID> \
@@ -55,9 +55,9 @@ description: Follow this guide to configure and invoke a function asynchronously
 
     * `--function-name`: Function name.
     * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<function_file_name>.<handler_name>`.
+    * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before the timeout is reached.
+    * `--execution-timeout`: Maximum function running time before timeout.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--async-max-retries`: Number of retries before the invocation fails.
     * `--async-service-account-id`: ID of the service account with permissions to invoke the function.
@@ -87,7 +87,7 @@ description: Follow this guide to configure and invoke a function asynchronously
        service_account_id = "<service_account_ID>"
 
        async_invocation {
-         retries_count       = "<number_of_retries>"
+         retries_count       = "<number_of_retry_attempts>"
          service_account_id  = "<service_account_ID>"
          ymq_failure_target {
            service_account_id = "<service_account_ID>"
@@ -119,7 +119,7 @@ description: Follow this guide to configure and invoke a function asynchronously
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function update and its new configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  You can check the function update and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   yc serverless function version get <function_version_ID>

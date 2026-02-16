@@ -1,11 +1,21 @@
-# Permissions
+---
+title: Users and permissions
+description: This page presents FAQ about users and access permissions management.
+---
+
+# Users and access management
+
+
+### Does {{ datalens-short-name }} support login via SSO? {#sso-in-datalens}
+
+In {{ datalens-full-name }}, you can [configure authentication](../security/add-new-user.md#federated-user) using SSO or [identity federation](../../organization/concepts/add-federation.md), if you have one. {{ datalens-short-name }} users can get authenticated using their corporate accounts.
 
 
 ### How do I add a user and send them a link to the dashboard? {#how-add-user-send-ref}
 
 To allow another user to open your dashboard, configure access to {{ datalens-full-name }}:
 
-1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or [add a federated user](../../organization/operations/add-account.md#add-user-sso).
+1. [Invite a user](../../organization/operations/add-account.md#send-invitation) with a Yandex account or add a [federated](../../organization/operations/add-account.md#add-user-sso) or [local](../../organization/operations/add-account.md#local) user.
 1. Make sure the user has access permissions to the dashboard:
 
    1. Open the dashboard.
@@ -29,5 +39,6 @@ You can also make your dashboard public using [{#T}](../concepts/datalens-public
 {% include [copy-into-folder](../../_qa/datalens/copy-into-folder.md) %}
 
 {% include [revoke-token.md](../../_qa/datalens/revoke-token.md) %}
+
 
 

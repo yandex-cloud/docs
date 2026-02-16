@@ -2,6 +2,7 @@
 title: Как настроить эндпоинт-приемник {{ MY }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ MY }} в {{ data-transfer-full-name }}.
 ---
+
 # Передача данных в эндпоинт-приемник {{ MY }}
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ MY }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
@@ -11,7 +12,7 @@ description: Из статьи вы узнаете, как задать наст
 1. [Подготовьте базу данных {{ MY }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
-1. [Выполняйте необходимые действия по работе с базой](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) и [контролируйте трансфер](../../monitoring.md).
+1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
 ## Сценарии передачи данных в {{ MY }} {#scenarios}
@@ -61,13 +62,13 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql-target.md) %}
+    {% include [Managed MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/managed-mysql.md) %}
 
 - CLI {#cli}
 
@@ -83,7 +84,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -121,7 +122,7 @@ description: Из статьи вы узнаете, как задать наст
 
 - Консоль управления {#console}
 
-    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql-target.md) %}
+    {% include [On premise MySQL UI](../../../../_includes/data-transfer/necessary-settings/ui/on-premise-mysql.md) %}
 
 - CLI {#cli}
 
@@ -137,7 +138,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -206,6 +207,8 @@ description: Из статьи вы узнаете, как задать наст
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTargetAdvancedSettings.service_database.title }}** — укажите имя схемы, в которой будут созданы служебные таблицы, необходимые для обеспечения работы трансфера.
 
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
 - CLI {#cli}
 
     * `--sql-mode` — укажите настройки, переопределяющие [стандартное поведение {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html)
@@ -227,6 +230,8 @@ description: Из статьи вы узнаете, как задать наст
     * `timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 
@@ -255,6 +260,7 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при трансфере из AWS RDS for {{ MY }}](#aws-binlog-time)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
 * [Ошибка обращения к бинарному логу](#binlog-bytes)
+* [Не удается получить позицию в бинарном логе](#binlog-position)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
 * [Сдвиг времени в типе данных DATETIME при трансфере в {{ CH }}](#timeshift)
 
@@ -269,6 +275,8 @@ description: Из статьи вы узнаете, как задать наст
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
 {% include [binlog-bytes](../../../../_includes/data-transfer/troubles/mysql/binlog-bytes.md) %}
+
+{% include [binlog-position](../../../../_includes/data-transfer/troubles/mysql/binlog-position.md) %}
 
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
 

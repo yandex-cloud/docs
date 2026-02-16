@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            The maximum string length in characters is 50.
+          type: string
+        login:
+          description: |-
+            **string**
+            Required field. must not contain . or end in ~
+            The maximum string length in characters is 32. Value must match the regular expression ` ^[^.]*?[^~.]$ `.
+          pattern: ^[^.]*?[^~.]$
+          type: string
+        uid:
+          description: |-
+            **string** (int64)
+            1000 - 2^63 - 1
+            Acceptable values are 1000 to 9223372036854775807, inclusive.
+          type: string
+          format: int64
+        homeDirectory:
+          description: |-
+            **string**
+            The maximum string length in characters is 255.
+          type: string
+        shell:
+          description: |-
+            **string**
+            The maximum string length in characters is 255.
+          type: string
+      required:
+        - organizationId
+        - login
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/createProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.CreateProfile {#CreateProfile}
+# Identity Hub API, REST: OsLogin.CreateProfile
 
 ## HTTP request
 
@@ -28,16 +76,28 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/osLogin
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
-|| subjectId | **string** ||
+Required field.
+
+The maximum string length in characters is 50. ||
+|| subjectId | **string**
+
+The maximum string length in characters is 50. ||
 || login | **string**
 
-Required field. must not contain . or end in ~ ||
+Required field. must not contain . or end in ~
+
+The maximum string length in characters is 32. Value must match the regular expression ` ^[^.]*?[^~.]$ `. ||
 || uid | **string** (int64)
 
-1000 - 2^63 - 1 ||
-|| homeDirectory | **string** ||
-|| shell | **string** ||
+1000 - 2^63 - 1
+
+Acceptable values are 1000 to 9223372036854775807, inclusive. ||
+|| homeDirectory | **string**
+
+The maximum string length in characters is 255. ||
+|| shell | **string**
+
+The maximum string length in characters is 255. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

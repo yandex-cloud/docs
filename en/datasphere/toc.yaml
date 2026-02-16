@@ -13,15 +13,17 @@ items:
             href: operations/community/create.md
           - name: Adding a user to a community
             href: operations/community/add-user.md
-          - name: Community label management
+          - name: Managing community labels
             href: operations/community/manage-community-labels.md
-          - name: Managing community limits
+          - name: Managing community restrictions
             href: operations/community/manage-community-config.md
+          - name: Creating a service agent
+            href: operations/community/create-ssa.md
           - name: Adding a link for a community
             href: operations/community/link-channel.md
           - name: Linking a billing account
             href: operations/community/link-ba.md
-          - name: Viewing service usage details
+          - name: Viewing a cost breakdown report
             href: operations/community/billing-details.md
           - name: Deleting a community
             href: operations/community/delete.md
@@ -33,7 +35,7 @@ items:
             href: operations/projects/create.md
           - name: Adding a user to a project
             href: operations/projects/add-user.md
-          - name: Project label management
+          - name: Managing project labels
             href: operations/projects/manage-project-labels.md
           - name: Selecting a Python version
             href: operations/projects/python-version.md
@@ -43,11 +45,11 @@ items:
             href: operations/projects/update.md
           - name: Setting project limits
             href: operations/projects/restrictions.md
-          - name: Deleting a notebook or project
+          - name: Deleting a notebook or a project
             href: operations/projects/delete.md
           - name: Removing a user from a project
             href: operations/projects/delete-user.md
-          - name: Using shared resources
+          - name: Using a shared resource
             href: operations/projects/use-shared-resource.md
           - name: Troubleshooting
             href: operations/projects/debugging-tools.md
@@ -76,7 +78,7 @@ items:
           - name: Using secrets
             href: operations/data/secrets.md
           - name: Working with {{ dataproc-name }} templates
-            href: operations/data-proc-template.md
+            href: operations/data-processing-template.md
           - name: Working with Docker images
             href: operations/user-images.md
           - name: Working with datasets
@@ -87,6 +89,8 @@ items:
             href: operations/data/spark-connectors.md
           - name: Working with models
             href: operations/data/models.md
+          - name: File storage operations
+            href: operations/data/filestores.md
       - name: Connecting to data sources
         items:
           - name: Connecting to S3 using the boto3 library
@@ -107,11 +111,11 @@ items:
             href: operations/deploy/node-update.md
           - name: Deleting a node
             href: operations/deploy/node-delete.md
-          - name: Configuring the node environment
+          - name: Configuring a node environment
             href: operations/deploy/node-customization.md
-          - name: Sending requests to nodes
+          - name: Sending a request to a node
             href: operations/deploy/node-api.md
-          - name: Stopping or resuming a node
+          - name: Suspending or resuming a node
             href: operations/deploy/node-suspend-resume.md
           - name: Creating an alias
             href: operations/deploy/alias-create.md
@@ -127,8 +131,12 @@ items:
             href: operations/projects/authentication.md
           - name: Running a job in {{ ml-platform-name }} Jobs
             href: operations/projects/work-with-jobs.md
-          - name: Working with Visual Studio Code jobs
+          - name: Working with jobs from Visual Studio Code
             href: operations/projects/jobs-toolkit.md
+          - name: Using results of completed jobs
+            href: operations/projects/use-job-results.md
+          - name: Working with a service agent from a job
+            href: operations/projects/jobs-with-ssa.md
       - name: Shared access
         items:
           - name: Publishing a notebook
@@ -137,7 +145,7 @@ items:
             href: operations/projects/export.md
           - name: Opening a notebook in {{ ml-platform-name }}
             href: operations/projects/open-in-datasphere.md
-      - name: Migrating to new version
+      - name: Migrating a workflow to a new version
         href: operations/migration.md
   - name: Concepts
     items:
@@ -162,13 +170,13 @@ items:
           - name: Computing on Apache Spark™ clusters
             items:
               - name: Ways to use Apache Spark™ clusters
-                href: concepts/data-proc.md
+                href: concepts/data-processing.md
               - name: Computing on Apache Spark™ clusters
-                href: concepts/data-proc-operations.md
+                href: concepts/data-processing-operations.md
               - name: >-
                   Specifics of working with temporary {{ dataproc-name }}
                   clusters
-                href: concepts/temporary-data-proc-clusters.md
+                href: concepts/temporary-data-processing-clusters.md
       - name: '{{ ds-inf }}'
         items:
           - name: Nodes and aliases
@@ -191,6 +199,8 @@ items:
             href: concepts/jobs/fork.md
           - name: Integration with {{ maf-name }}
             href: concepts/jobs/airflow.md
+          - name: Working with Spark connectors
+            href: concepts/jobs/work-with-spark.md
       - name: Resources
         items:
           - name: Overview
@@ -202,15 +212,15 @@ items:
           - name: Datasets
             href: concepts/dataset.md
           - name: '{{ dataproc-name }} templates'
-            href: concepts/data-proc-template.md
+            href: concepts/data-processing-template.md
           - name: S3 connectors
             href: concepts/s3-connector.md
           - name: Spark connectors
             href: concepts/spark-connector.md
           - name: Models
             href: concepts/models/index.md
-          - name: Fine-tuned foundation models
-            href: concepts/models/tuned-models.md
+          - name: File storages
+            href: concepts/filestores.md
       - name: Foundation models
         href: concepts/models/foundation-models.md
       - name: Quotas and limits
@@ -226,7 +236,7 @@ items:
       - name: Automating project setup
         href: tutorials/automation-community-settings.md
       - name: Integrating {{ dataproc-full-name }}
-        href: tutorials/data-proc-integration.md
+        href: tutorials/data-processing-integration.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -239,6 +249,10 @@ items:
             href: tutorials/regular-launch.md
           - name: Running computations using the API
             href: tutorials/batch-code-execution.md
+          - name: >-
+              Geocoding with the Yandex Maps API for data visualization in {{
+              datalens-short-name }}
+            href: tutorials/data-from-ch-geocoder.md
           - name: Training a model on data from {{ objstorage-full-name }}
             href: tutorials/s3-to-datasphere.md
           - name: Creating an MLFlow server for logging experiments and artifacts
@@ -253,25 +267,25 @@ items:
             href: tutorials/node-from-model.md
           - name: Deploying a gRPC service based on a Docker image
             href: tutorials/grpc-node.md
-          - name: '{{ yagpt-name }} model tuning'
-            href: tutorials/yagpt-tuning.md
-          - name: Tuning classifiers based on {{ yagpt-name }}
-            href: tutorials/yagpt-tuning-classifier.md
           - name: Image generation using the Stable Diffusion model
             href: tutorials/stable-diffusion.md
+          - name: Creating an AI assistant for Telegram
+            href: tutorials/tg-bot-assistant.md
       - name: Data analytics
         items:
           - name: >-
               Web analytics with funnels and cohorts calculated based on Yandex
               Metrica data
             href: tutorials/data-from-metrica-yc-visualization.md
-          - name: Analyzing data with {{ yq-full-name }}
+          - name: 'AppMetrica: data export, post-processing, and visualization'
+            href: tutorials/data-from-appmetrica-yc-visualization.md
+          - name: Analyzing data with {{ yq-name }}
             href: tutorials/yq.md
-          - name: Working with data in {{ objstorage-full-name }}
+          - name: Working with data in {{ objstorage-name }}
             href: tutorials/yq-storage.md
-          - name: Working with data in {{ mch-full-name }}
+          - name: Working with data in {{ mch-name }}
             href: tutorials/yq-clickhouse.md
-          - name: Working with data in {{ mpg-full-name }}
+          - name: Working with data in {{ mpg-name }}
             href: tutorials/yq-postgre.md
           - name: Federated data queries
             href: tutorials/yq-federative-queries.md
@@ -281,7 +295,7 @@ items:
     items:
       - name: Overview
         href: api-ref/overview.md
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -555,11 +569,9 @@ items:
     href: release-notes.md
   - name: Troubleshooting
     items:
-      - name: Problems with library installation
+      - name: Library installation issues
         href: qa/environment-problems.md
       - name: Errors when using a Spark connector
         href: troubleshooting/troubles-with-spark.md
       - name: FAQ
         href: qa/index.md
-base: en/datasphere
-deepBase: 2

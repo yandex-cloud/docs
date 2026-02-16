@@ -14,10 +14,21 @@ description: Следуя данной инструкции, вы сможете
 1. [Подключите сервисный аккаунт к кластеру](#connect-service-account).
 1. [Настройте права доступа для сервисного аккаунта](#configure-acl).
 
+{% note info %}
+
+От имени сервисного аккаунта будут отправляться SQL-запросы к {{ objstorage-name }}. При этом указание ключа и секрета в запросе роли не играет.
+
+Если сервисный аккаунт не указан, то SQL-запросы отправляются:
+
+* Анонимно, если ключ и секрет не указаны в запросе.
+* По ключу, если ключ и секрет указаны в запросе.
+
+{% endnote %}
+
 См. также [Примеры работы с объектами](#examples).
 
 
-Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
 
 
 * если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
@@ -25,9 +36,9 @@ description: Следуя данной инструкции, вы сможете
 
 ## Подключите сервисный аккаунт к кластеру {#connect-service-account}
 
-1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий сервисный аккаунт, либо создайте новый.
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий сервисный аккаунт либо создайте новый.
 
-1. Убедитесь, что этому аккаунту назначены корректные роли из группы ролей `storage.*`. При необходимости назначьте нужные роли, например, `storage.viewer` и `storage.uploader`.
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) этому аккаунту корректные роли из группы ролей `storage.*`, например `storage.viewer` и `storage.uploader`.
 
 {% note tip %}
 
@@ -43,12 +54,13 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его и [наполните](../../storage/operations/objects/upload.md) необходимыми данными.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md) или [ACL объекта](../../storage/operations/objects/edit-acl.md):
 
       1. В списке бакетов или объектов выберите нужный элемент и нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_permissions }}** или **{{ ui-key.yacloud.storage.file.button_permissions }}**.
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_permissions }}** или **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
       1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
       1. Задайте нужные разрешения для сервисного аккаунта из выпадающего списка.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}** и **{{ ui-key.yacloud.common.save }}**.
@@ -56,8 +68,12 @@ description: Следуя данной инструкции, вы сможете
       {% note info %}
 
       При необходимости отзовите доступ у одного или нескольких пользователей, нажав кнопку **{{ ui-key.yacloud.component.acl-dialog.button_remove-new }}** в нужной строке.
-   
+
       {% endnote %}
+
+  
+  1. Если в бакете включено [шифрование](../../storage/concepts/encryption.md), [назначьте](../../kms/operations/key-access.md#add-access-binding) сервисному аккаунту роль [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) на ключ шифрования, привязанный к бакету.
+
 
 {% endlist %}
 

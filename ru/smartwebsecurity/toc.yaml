@@ -2,26 +2,19 @@ title: Yandex Smart Web Security
 href: index.yaml
 items:
   - name: Начало работы
-    expanded: true
-    items:
-      - name: Обзор
-        href: quickstart/index.md
-      - name: Начало работы cо {{ sws-name }}
-        href: quickstart.md
-      - name: Начало работы с WAF
-        href: quickstart/quickstart-waf.md
-      - name: Начало работы с ARL
-        href: quickstart/quickstart-arl.md
+    href: quickstart.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Управление профилями безопасности
+      - name: Профили безопасности
         items:
           - name: Создать профиль
             href: operations/profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/profile-get.md
           - name: Удалить профиль
             href: operations/profile-delete.md
           - name: Добавить правило
@@ -30,32 +23,38 @@ items:
             href: operations/rule-update.md
           - name: Удалить правило
             href: operations/rule-delete.md
-          - name: Подключить профиль к хосту
+          - name: Подключить профиль к ресурсу
             href: operations/host-connect.md
-          - name: Отключить профиль от хоста
+          - name: Отключить профиль от ресурса
             href: operations/host-delete.md
-      - name: Управление профилями WAF
+      - name: Профили WAF
         items:
           - name: Создать профиль
             href: operations/waf-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/waf-profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/waf-profile-get.md
           - name: Удалить профиль
             href: operations/waf-profile-delete.md
-          - name: Настроить набор базовых правил
+          - name: Настроить наборы правил
             href: operations/configure-set-rules.md
+          - name: Получить информацию о наборе правил
+            href: operations/get-set-rules.md
           - name: Добавить правило-исключение
             href: operations/exclusion-rule-add.md
           - name: Изменить правило-исключение
             href: operations/exclusion-rule-update.md
           - name: Удалить правило-исключение
             href: operations/exclusion-rule-delete.md
-      - name: Управление профилями ARL
+      - name: Профили ARL
         items:
           - name: Создать профиль
             href: operations/arl-profile-create.md
           - name: Изменить основные параметры профиля
             href: operations/arl-profile-update.md
+          - name: Получить информацию о профиле
+            href: operations/arl-profile-get.md
           - name: Удалить профиль
             href: operations/arl-profile-delete.md
           - name: Добавить правило
@@ -64,12 +63,62 @@ items:
             href: operations/arl-rule-update.md
           - name: Удалить правило
             href: operations/arl-rule-delete.md
-      - name: Посмотреть операции с профилями
+      - name: Домены
+        items:
+          - name: Создать прокси-сервер
+            href: operations/proxy-create.md
+          - name: Создать домен
+            href: operations/domain-create.md
+          - name: Настроить инфраструктуру
+            href: operations/setup-infrastructure.md
+          - name: Проверить доступность ресурсов
+            href: operations/validate-availability.md
+      - name: Списки адресов
+        href: operations/list-create.md
+      - name: Шаблоны ответов
+        items:
+          - name: Создать шаблон
+            href: operations/template-create.md
+          - name: Добавить шаблон к профилю или правилу
+            href: operations/template-attach.md
+          - name: Управлять шаблоном
+            href: operations/template-manage.md
+      - name: Обязательные и рекомендуемые правила
+        items:
+          - name: Правило для капчи
+            href: operations/captcha-rule.md
+          - name: Правило для блокировки черных адресов
+            href: operations/black-list-rule.md
+      - name: Посмотреть операции
         href: operations/operation-logs.md
+      - name: Настроить мониторинг
+        href: operations/monitoring.md
+      - name: Настроить алерты
+        href: operations/alerting.md
+      - name: Настроить логи через {{ sws-name }}
+        href: operations/configure-logging.md
+      - name: Настроить логи через {{ alb-name }}
+        href: operations/configure-logging-alb.md
+      - name: Миграция на WAF с поддержкой правил Яндекс
+        href: operations/waf-migration.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
+      - name: Базовая настройка SWS
+        href: tutorials/sws-basic-protection.md
       - name: Создание L7-балансировщика с профилем безопасности
-        href: tutorials/balancer-with-sws-profile.md
+        items:
+          - name: Обзор
+            href: tutorials/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: tutorials/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: tutorials/balancer-with-sws-profile/terraform.md
+      - name: >-
+          Создание L7-балансировщика с профилем безопасности через
+          Ingress-контроллер {{ alb-name }}
+        href: tutorials/alb-ingress-with-sws-profile.md
       - name: >-
           Создание L7-балансировщика с защитой от DDoS на уровне L3-L4 модели
           OSI
@@ -80,6 +129,70 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: tutorials/api-gw-sws-integration.md
+      - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
+        href: tutorials/sws-protection-ongoing-ddos.md
+      - name: Централизованная публикация в интернете и защита приложений от DDoS
+        href: tutorials/different-folders-services.md
+      - name: Создание распределенной инфраструктуры с защищенным доступом
+        href: tutorials/distributed-secured-infrastructure.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          подключения защиты {{ sws-name }}
+        items:
+          - name: Обзор
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Консоль управления
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
+      - name: >-
+          Развертывание веб-приложения на серверах {{ baremetal-name }} с
+          L7-балансировщиком и защитой {{ sws-name }}
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Концепции
     expanded: true
     items:
@@ -95,14 +208,42 @@ items:
         href: concepts/rules.md
       - name: Условия
         href: concepts/conditions.md
+      - name: Списки
+        href: concepts/lists.md
+      - name: Управление бот-трафиком
+        href: concepts/botes.md
+      - name: Защита доменов
+        href: concepts/domain-protect.md
+      - name: Шаблоны ответов
+        href: concepts/response-templates.md
+      - name: Логирование
+        href: concepts/logging.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/smartwebsecurity/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: security-profile
+        items:
+          - name: Overview
+            href: cli-ref/security-profile/index.md
+          - name: create
+            href: cli-ref/security-profile/create.md
+          - name: delete
+            href: cli-ref/security-profile/delete.md
+          - name: get
+            href: cli-ref/security-profile/get.md
+          - name: list
+            href: cli-ref/security-profile/list.md
+          - name: update
+            href: cli-ref/security-profile/update.md
+  - name: Справочник {{ TF }}
+    href: tf-ref.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -293,5 +434,3 @@ items:
     href: at-ref.md
   - name: История изменений
     href: release-notes.md
-base: ru/smartwebsecurity
-deepBase: 2

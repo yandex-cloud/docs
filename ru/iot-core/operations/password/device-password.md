@@ -23,7 +23,7 @@
    Чтобы добавить пароль уже созданному устройству:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите добавить пароль уже созданному устройству.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
@@ -78,7 +78,7 @@
        * `registry_id` — [идентификатор реестра](../registry/registry-list.md#registry-list), в котором создано устройство.
        * `name` — [имя устройства](../device/device-list.md#device-list).
        * `description` — описание устройства.
-       * `passwords` — список паролей для авторизации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
+       * `passwords` — список паролей для аутентификации с помощью [логина и пароля](../../concepts/authorization.md#log-pass).
 
       Пример структуры ресурса в конфигурационном файле:
 
@@ -198,7 +198,7 @@
    Чтобы просмотреть список паролей устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите получить список паролей устройства.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
@@ -259,7 +259,7 @@
    Чтобы удалить пароль устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите удалить пароль устройства.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке реестр с нужным устройством.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.

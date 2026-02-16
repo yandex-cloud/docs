@@ -5,7 +5,7 @@
 Чтобы создать веб-приложение:
 
 1. [Подготовьте облако к работе](#before-begin).
-1. [Подготовьте окружение](#preare).
+1. [Подготовьте окружение](#prepare).
 1. [Создайте бакет {{ objstorage-full-name }}](#create-bucket).
 1. [Создайте базу данных {{ ydb-short-name }}](#create-db).
 1. [Создайте функции {{ sf-full-name }}](#create-functions).
@@ -18,7 +18,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов поддержки веб-приложения входят:
@@ -26,7 +25,6 @@
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 * Плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
-
 
 ## Подготовьте окружение {#prepare}
 
@@ -231,11 +229,6 @@
   Воспользуйтесь API методами [create](../../functions/functions/api-ref/Function/create), [createVersion](../../functions/functions/api-ref/Function/createVersion) и [setAccessBindings](../../functions/functions/api-ref/Function/setAccessBindings) для ресурса [Function](../../functions/functions/api-ref/Function).
 
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Создать функцию и ее версию можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
-
-
 {% endlist %}
 
 ## Создайте API-шлюз {#create-api-gw}
@@ -363,14 +356,9 @@
      name: todo-list
      description: simple todo list
      status: ACTIVE
-     domain: d5delqeel34q********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckg2hdmevnvc********
      ```
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Создать API-шлюз можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 
 {% endlist %}

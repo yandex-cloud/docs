@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        login:
+          description: |-
+            **string**
+            Required field. Login of the YandexPassportUserAccount resource to return.
+          type: string
+      required:
+        - login
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/YandexPassportUserAccount/getByLogin.md
 ---
 
-# Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin {#GetByLogin}
+# Identity and Access Management API, REST: YandexPassportUserAccount.GetByLogin
 
 Returns the specified YandexPassportUserAccount resource.
 
@@ -37,17 +54,14 @@ Required field. Login of the YandexPassportUserAccount resource to return. ||
   "samlUserAccount": {
     "federationId": "string",
     "nameId": "string",
-    "attributes": {
-      "value": [
-        "string"
-      ]
-    }
-  }
+    "attributes": "object"
+  },
   // end of the list of possible fields
+  "lastAuthenticatedAt": "string"
 }
 ```
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -64,12 +78,20 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 A SAML federated user.
 
 Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
+|| lastAuthenticatedAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## YandexPassportUserAccount {#yandex.cloud.iam.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -90,12 +112,16 @@ For more information, see [federations](/docs/iam/concepts/federations).
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation that the federation belongs to. ||
+Required field. ID of the federation that the federation belongs to.
+
+The maximum string length in characters is 50. ||
 || nameId | **string**
 
 Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.iam.v1.SamlUserAccount.Attribute)**
+The name is unique within the federation. 1-256 characters long.
+
+The string length in characters must be 1-256. ||
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.iam.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

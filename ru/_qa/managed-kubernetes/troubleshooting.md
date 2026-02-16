@@ -1,5 +1,3 @@
-# Решение проблем в {{ managed-k8s-name }}
-
 В этом разделе описаны типичные проблемы, которые могут возникать при работе {{ managed-k8s-name }}, и методы их решения.
 
 #### Ошибка при создании кластера в облачной сети другого каталога {#neighbour-catalog-permission-denied}
@@ -90,8 +88,10 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 
    ```bash
    kubectl describe pvc <имя_PVC> \
-     --namespace=<пространство_имен,_в_котором_находится_PVC>
+     --namespace=<пространство_имен>
    ```
+
+   Где `--namespace` — пространство имен, в котором находится PVC.
 
    Сообщение `waiting for first consumer to be created before binding` означает, что PVC ожидает создания пода.
 1. [Создайте под](../../managed-kubernetes/operations/volumes/dynamic-create-pv.md#create-pod) для этого PVC.
@@ -136,6 +136,10 @@ kubectl describe svc <имя_сервиса_типа_LoadBalancer> \
 {% endlist %}
 
 Чтобы кластер {{ managed-k8s-name }} запустился, [увеличьте квоты](../../managed-kubernetes/concepts/limits.md).
+
+#### После изменения маски подсети узлов в настройках кластера количество подов, размещаемых на узлах, не соответствует ожидаемому {#count-pods}
+
+**Решение**: пересоздайте группу узлов.
 
 #### Ошибка при обновлении сертификата Ingress-контроллера {#ingress-certificate}
 
@@ -301,3 +305,156 @@ Failed to pull image "{{ registry }}/***": rpc error: code = Unknown desc = Erro
 #### Почему я не могу выбрать Docker в качестве среды запуска контейнеров? {#docker-runtime}
 
 Среда запуска контейнеров Docker не поддерживается в кластерах с версией {{ k8s }} 1.24 и выше. Доступна только среда [containerd](https://containerd.io/).
+
+#### Ошибка при подключении репозитория {{ GL }} к Argo CD {#argo-cd}
+
+Текст ошибки:
+
+```text
+FATA[0000] rpc error: code = Unknown desc = error testing repository connectivity: authorization failed
+```
+
+Ошибка возникает, если доступ в {{ GL }} по протоколу HTTP(S) отключен.
+
+**Решение**: включите доступ. Для этого:
+
+  1. В {{ GL }} на панели слева выберите **Admin → Settings → General**.
+  1. В блоке **Visibility and access controls** найдите настройку **Enabled Git access protocols**.
+  1. Выберите в списке пункт, разрешающий доступ по протоколу HTTP(S).
+
+  [Подробнее в документации {{ GL }}](https://docs.gitlab.com/administration/settings/visibility_and_access_controls/#configure-enabled-git-access-protocols).
+
+#### При развертывании обновлений приложения в кластере с {{ alb-full-name }} наблюдается потеря трафика {#alb-traffic-lost}
+
+Если трафик вашего приложения управляется балансировщиком {{ alb-name }} и для Ingress-контроллера балансировщика включена [политика управления трафиком](../../managed-kubernetes/nlb-ref/service.md#servicespec) `externalTrafficPolicy: Local`, то запросы обслуживаются приложением на том узле, куда запрос передал балансировщик. Передача трафика между узлами исключается.
+
+[Проверка состояния по умолчанию](../../network-load-balancer/concepts/health-check.md) отслеживает состояние узла, а не приложения. Поэтому трафик с {{ alb-name }} может направляться на узел, где отсутствует работающее приложение. При развертывании новой версии приложения в кластере [Ingress-контроллер {{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md) передает запрос балансировщику на изменение конфигурации группы бэкендов. Обработка запроса занимает не менее 30 секунд, и в течение этого времени приложение может не получать пользовательский трафик.
+
+Чтобы исключить такую ситуацию, рекомендуется настраивать проверки состояния бэкендов на балансировщике {{ alb-name }}. Благодаря проверкам состояния балансировщик своевременно отслеживает недоступные бэкенды и направляет трафик на другие бэкенды. После обновления приложения трафик будет снова распределен на все бэкенды.
+
+Подробнее см. в разделах [{#T}](../../application-load-balancer/concepts/best-practices.md) и [{#T}](../../application-load-balancer/k8s-ref/service-for-ingress.md#annotations).
+
+#### Некорректно отображается системное время на узлах, а также в журналах контейнеров и подов кластера {{ managed-k8s-name }} {#time}
+
+Время кластера {{ managed-k8s-name }} может расходиться со временем других ресурсов, например виртуальной машины, если они используют для синхронизации часов разные источники. Например, кластер {{ managed-k8s-name }} синхронизируется со служебным сервером времени (по умолчанию), а ВМ синхронизируется с собственным или публичным NTP-сервером.
+
+**Решение**: настройте синхронизацию времени кластера {{ managed-k8s-name }} с собственным NTP-сервером. Для этого:
+
+1. Укажите адреса NTP-серверов в [настройках DHCP](../../vpc/concepts/dhcp-options.md) подсетей мастера.
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Нажмите на имя нужного кластера {{ k8s }}.
+     1. В блоке **{{ ui-key.yacloud.k8s.cluster.overview.section_master }}** нажмите на имя подсети.
+     1. Нажмите кнопку ![subnets](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+     1. В открывшемся окне раскройте блок **{{ ui-key.yacloud.vpc.subnetworks.create.section_dhcp-options }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-ntp-server }}** и укажите IP-адрес NTP-сервера.
+     1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
+
+   - CLI {#cli}
+
+     {% include [include](../../_includes/cli-install.md) %}
+
+     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+     1. Посмотрите описание команды CLI для обновления параметров подсети:
+
+         ```bash
+         yc vpc subnet update --help
+         ```
+
+     1. Выполните команду `subnet` с параметром `--ntp-server`, указав IP-адрес NTP-сервера: 
+
+         ```bash
+         yc vpc subnet update <идентификатор_подсети> --ntp-server <адрес_сервера>
+         ```
+
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   - {{ TF }} {#tf}
+
+     1. В файле конфигурации {{ TF }} измените описание подсети кластера. Добавьте блок `dhcp_options` (если он отсутствует) с параметром `ntp_servers` и укажите IP-адрес NTP-сервера:
+
+        ```hcl
+        ...
+        resource "yandex_vpc_subnet" "lab-subnet-a" {
+          ...
+          v4_cidr_blocks = ["<IPv4-адрес>"]
+          network_id     = "<идентификатор_сети>"
+          ...
+          dhcp_options {
+            ntp_servers = ["<IPv4-адрес>"]
+            ...
+          }
+        }
+        ...
+        ```
+
+        Подробную информацию о параметрах ресурса `yandex_vpc_subnet` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_subnet).
+
+     1. Примените изменения:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+        
+        {{ TF }} изменит все требуемые ресурсы. Проверить изменение подсети можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+
+        ```bash
+        yc vpc subnet get <имя_подсети>
+        ```
+     
+   - API {#api}
+   
+     Воспользуйтесь методом [update](../../vpc/api-ref/Subnet/update.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) и передайте в запросе:
+
+     * IP-адрес NTP-сервера в параметре `dhcpOptions.ntpServers`.
+     * Обновляемый параметр `dhcpOptions.ntpServers` в параметре `updateMask`.
+     
+     {% include [note-get-cluster-subnet-id](../../_includes/managed-kubernetes/note-get-cluster-subnet-id.md) %}
+
+   {% endlist %}
+
+   {% note warning %}
+
+   Для высокодоступного мастера, который размещается в трех зонах доступности, изменения необходимо внести в каждую из трех подсетей.
+
+   {% endnote %}
+
+1. Разрешите подключение из кластера к NTP-серверам.
+   
+   [Создайте правило](../../vpc/operations/security-group-add-rule.md) для исходящего трафика в [группе безопасности кластера и групп узлов](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-cluster):
+
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `123`. Если вместо порта `123` вы используете на NTP-сервере другой порт, укажите его.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_udp }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `<IP-адрес_NTP-сервера>/32`. Для мастера, который размещается в трех зонах доступности, укажите три блока: `<IP-адрес_NTP-сервера_в_подсети1>/32`, `<IP-адрес_NTP-сервера_в_подсети2>/32`, `<IP-адрес_NTP-сервера_в_подсети3>/32`.
+
+1. Обновите сетевые параметры в группе узлов кластера одним из следующих способов:
+
+   * Подключитесь к каждому узлу группы [по SSH](../../managed-kubernetes/operations/node-connect-ssh.md) или [через {{ oslogin }}](../../managed-kubernetes/operations/node-connect-oslogin.md) и выполните команду `sudo dhclient -v -r && sudo dhclient`.
+   * Перезагрузите узлы группы в удобное для вас время.
+
+   {% note warning %}
+
+   Обновление сетевых параметров может привести к недоступности сервисов внутри кластера на несколько минут.
+
+   {% endnote %}
+
+#### Что делать, если я удалил сетевой балансировщик нагрузки или целевые группы {{ network-load-balancer-full-name }}, автоматически созданные для сервиса типа LoadBalancer? {#deleted-loadbalancer-service}
+
+Восстановить сетевой балансировщик или целевые группы {{ network-load-balancer-name }} вручную нельзя. [Пересоздайте](../../managed-kubernetes/operations/create-load-balancer.md#lb-create) сервис типа `LoadBalancer` — балансировщик и целевые группы будут созданы автоматически.
+
+#### Ошибка при подключении виртуальной машины {{ compute-full-name }} в качестве внешнего узла {{ managed-k8s-name }} {#vm-as-external-node}
+
+Текст ошибки:
+
+```text
+Unable to create remote dir /home/kubernetes/bin/: ssh run `mkdir -p -m 0644 /home/kubernetes/bin/': Process exited with status 142
+Please login as the user "NONE" rather than the user "root".
+```
+
+Чтобы устранить проблему, [пересоздайте](../../compute/operations/index.md#vm-create) виртуальную машину, указав в метаданных для ключа `user-data` параметр `disable_root: false`.
+
+{% include [external-node-metadata-example](../../_includes/managed-kubernetes/external-node-metadata-example.md) %}

@@ -18,7 +18,7 @@
 Чтобы создать целевую группу:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать целевую группу.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. На панели слева выберите ![image](../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
 1. Введите имя целевой группы `test-target-group`.
@@ -33,7 +33,7 @@
 Чтобы создать сетевой балансировщик:
   
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
 1. Задайте имя балансировщика, например `test-load-balancer`.
 1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** выберите способ назначения адреса:
@@ -83,7 +83,7 @@
 Чтобы проверить [состояние сетевого балансировщика](concepts/index.md#lb-statuses) и ресурсов в подключенной целевой группе:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать балансировщик.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 1. Найдите в списке созданный балансировщик.
 1. Убедитесь, что он находится в состоянии `Active` — это означает, что балансировщик готов передавать трафик целевым ресурсам.
 1. Нажмите на имя балансировщика.

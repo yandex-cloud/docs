@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Getting started
     items:
-      - name: Summary
+      - name: Overview
         href: quickstart/index.md
       - name: Creating a Linux VM
         href: quickstart/quick-create-linux.md
@@ -17,7 +17,7 @@ items:
         items:
           - name: Creating a Linux VM
             href: operations/vm-create/create-linux-vm.md
-          - name: Creating a VM from a set of disks
+          - name: Creating a VM from disks
             href: operations/vm-create/create-from-disks.md
           - name: Creating a VM with disks from snapshots
             href: operations/vm-create/create-from-snapshots.md
@@ -25,13 +25,21 @@ items:
             href: operations/vm-create/create-from-user-image.md
           - name: Creating a VM with a custom configuration script
             href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Creating a VM with metadata from environment variables
+            href: operations/vm-create/create-with-env-variables.md
+          - name: >-
+              Creating a VM instance with access to a {{ lockbox-full-name }}
+              secret
+            href: operations/vm-create/create-with-lockbox-secret.md
           - name: Creating a VM with a GPU
             href: operations/vm-create/create-vm-with-gpu.md
+          - name: Creating a VM with Gen 2 hardware
+            href: operations/vm-create/create-gen2-vm.md
           - name: Making a VM preemptible
             href: operations/vm-create/create-preemptible-vm.md
       - name: DSVM
         items:
-          - name: Summary
+          - name: Overview
             href: operations/dsvm/index.md
           - name: Creating a VM from a public DSVM image
             href: operations/dsvm/quickstart.md
@@ -49,7 +57,7 @@ items:
             href: operations/placement-groups/add-vm.md
           - name: Removing a VM from a placement group
             href: operations/placement-groups/delete-vm.md
-          - name: Getting information about a placement group
+          - name: Getting placement group info
             href: operations/placement-groups/placement-groups-get-info.md
           - name: Removing an instance group from a placement group
             href: operations/placement-groups/delete-ig-from-pg.md
@@ -65,13 +73,13 @@ items:
             href: operations/images-with-pre-installed-software/operate.md
           - name: Getting a list of public images
             href: operations/images-with-pre-installed-software/get-list.md
-          - name: Getting information about a public image
+          - name: Getting public image info
             href: operations/images-with-pre-installed-software/get-info.md
-      - name: Getting information about a VM
+      - name: Getting VM info
         items:
-          - name: Getting information about a VM
+          - name: Getting VM info
             href: operations/vm-info/get-info.md
-          - name: Getting serial port's output
+          - name: Getting the serial port output
             href: operations/vm-info/get-serial-port-output.md
       - name: Managing a VM
         items:
@@ -85,9 +93,9 @@ items:
             href: operations/vm-control/vm-detach-disk.md
           - name: Moving a VM to a different availability zone
             href: operations/vm-control/vm-change-zone.md
-          - name: Moving a VM to another folder
+          - name: Moving a VM to a different folder
             href: operations/vm-control/vm-change-folder.md
-          - name: Moving a VM to another cloud
+          - name: Moving a VM to a different cloud
             href: operations/vm-control/vm-change-cloud.md
           - name: Adding another network interface to a VM
             href: operations/vm-control/attach-network-interface.md
@@ -95,11 +103,13 @@ items:
             href: operations/vm-control/detach-network-interface.md
           - name: Assigning a public IP address to a VM
             href: operations/vm-control/vm-attach-public-ip.md
-          - name: Removing a public IP address from a VM
+          - name: Unassigning a public IP address from a VM
             href: operations/vm-control/vm-detach-public-ip.md
-          - name: Making a VM's public IP address static
+          - name: Making a VM public IP address static
             href: operations/vm-control/vm-set-static-ip.md
-          - name: Changing a VM's internal IP address
+          - name: Reassigning a public IP address from one VM to another
+            href: operations/vm-control/vm-transferring-public-ip.md
+          - name: Updating the VM internal IP address
             href: operations/vm-control/internal-ip-update.md
           - name: Updating a VM
             href: operations/vm-control/vm-update.md
@@ -111,41 +121,65 @@ items:
             href: operations/vm-control/vm-update-policies.md
           - name: Configuring VM access permissions
             href: operations/vm-control/vm-access.md
+          - name: Linking a service account to a VM
+            href: operations/vm-control/vm-connect-sa.md
+          - name: Managing maintenance of GPU VMs
+            href: operations/vm-control/gpus-maintenance.md
           - name: Deleting a VM
             href: operations/vm-control/vm-delete.md
-      - name: Working on a VM
+      - name: Working with VM instance metadata
         items:
-          - name: Connecting to a VM via SSH
+          - name: Configuring metadata service parameters
+            href: operations/vm-metadata/setup-metadata-service.md
+          - name: Getting VM instance metadata
+            href: operations/vm-metadata/get-vm-metadata.md
+          - name: Getting a VM instance identity document
+            href: operations/vm-metadata/get-identity-document.md
+          - name: Changing VM instance metadata
+            href: operations/vm-metadata/update-vm-metadata.md
+          - name: Creating a VM with a custom configuration script
+            href: operations/vm-create/create-with-cloud-init-scripts.md
+          - name: Creating a VM with metadata from environment variables
+            href: operations/vm-create/create-with-env-variables.md
+          - name: >-
+              Creating a VM instance with access to a {{ lockbox-full-name }}
+              secret
+            href: operations/vm-create/create-with-lockbox-secret.md
+      - name: Using a VM
+        items:
+          - name: Connecting to a VM over SSH
             href: operations/vm-connect/ssh.md
+          - name: Connecting to a VM over SSH using {{ cloud-shell-name }}
+            href: operations/vm-connect/cloud-shell.md
           - name: Exchanging files with VMs
             href: operations/vm-connect/scp-sftp.md
           - name: Connecting to a VM via RDP
             href: operations/vm-connect/rdp.md
           - name: Connecting to a VM via PowerShell
             href: operations/vm-connect/powershell.md
-          - name: OS Login
+          - name: '{{ oslogin }}'
             items:
-              - name: Creating a VM with OS Login
+              - name: Creating a VM with {{ oslogin }} support
                 href: operations/vm-connect/os-login-create-vm.md
-              - name: Setting up OS Login on an existing VM
+              - name: Configuring {{ oslogin }} on an existing VM
                 href: operations/vm-connect/enable-os-login.md
-              - name: Exporting an OS Login certificate
+              - name: Exporting an SSH certificate
                 href: operations/vm-connect/os-login-export-certificate.md
-              - name: Connecting to a VM via OS Login
+              - name: Connecting to a VM via {{ oslogin }}
                 href: operations/vm-connect/os-login.md
-          - name: Working with {{ yandex-cloud }} from inside a VM
+          - name: Using {{ yandex-cloud }} from within a VM
             href: operations/vm-connect/auth-inside-vm.md
           - name: Installing NVIDIA drivers
             href: operations/vm-operate/install-nvidia-drivers.md
-          - name: Restoring access to a VM
+          - name: Recovering access to a VM
             href: operations/vm-connect/recovery-access.md
       - name: Managing the password reset agent
         items:
-          - name: Verifying agent operation
+          - name: Testing the agent
             href: operations/vm-guest-agent/check.md
           - name: Installing the agent
             href: operations/vm-guest-agent/install.md
-          - name: Resetting the administrator password
+          - name: Resetting the admin password
             href: operations/vm-guest-agent/reset-password.md
           - name: Deleting the agent
             href: operations/vm-guest-agent/uninstall.md
@@ -163,19 +197,19 @@ items:
             href: operations/disk-create/from-snapshot.md
           - name: Recovering a disk from an image
             href: operations/disk-create/from-image.md
-      - name: Disk management
+      - name: Managing a disk
         items:
           - name: Updating a disk
             href: operations/disk-control/update.md
           - name: Configuring disk snapshot schedules
             href: operations/disk-control/configure-schedule.md
-          - name: Moving a disk to another folder
+          - name: Moving a disk to a different folder
             href: operations/disk-control/disk-change-folder.md
           - name: Moving a disk to a different availability zone
             href: operations/disk-control/disk-change-zone.md
           - name: Encrypting a disk
             href: operations/disk-control/disk-encrypt.md
-          - name: Getting information about a disk
+          - name: Getting disk info
             href: operations/disk-control/get-info.md
           - name: Configuring disk access permissions
             href: operations/disk-control/disk-access.md
@@ -183,15 +217,15 @@ items:
             href: operations/disk-control/delete.md
       - name: Disk snapshots
         items:
-          - name: Creating snapshots
+          - name: Creating a snapshot
             href: operations/disk-control/create-snapshot.md
-          - name: Getting information about a disk snapshot
+          - name: Getting disk snapshot info
             href: operations/snapshot-control/get-snapshot.md
-          - name: Deleting snapshots
+          - name: Deleting a snapshot
             href: operations/snapshot-control/delete.md
           - name: Creating a snapshot schedule
             href: operations/snapshot-control/create-schedule.md
-          - name: Getting information about a disk snapshot schedule
+          - name: Getting disk snapshot schedule info
             href: operations/snapshot-control/get-snapshot-schedule.md
           - name: Changing a snapshot schedule
             href: operations/snapshot-control/update-schedule.md
@@ -211,7 +245,7 @@ items:
             href: operations/disk-placement-groups/create.md
           - name: Adding a disk to a placement group
             href: operations/disk-placement-groups/add-disk.md
-          - name: Getting information about a disk placement group
+          - name: Getting disk placement group info
             href: operations/disk-placement-groups/get-info.md
           - name: Configuring disk placement group access permissions
             href: operations/disk-placement-groups/access.md
@@ -219,9 +253,9 @@ items:
             href: operations/disk-placement-groups/remove-disk.md
       - name: Creating an image
         items:
-          - name: Preparing a disk image
+          - name: Setting up a disk image
             href: operations/image-create/custom-image.md
-          - name: Uploading your image
+          - name: Uploading a custom image
             href: operations/image-create/upload.md
           - name: Creating an image from a disk
             href: operations/image-create/create-from-disk.md
@@ -233,13 +267,15 @@ items:
         items:
           - name: Getting a list of images
             href: operations/image-control/get-list.md
-          - name: Getting information about an image
+          - name: Getting image info
             href: operations/image-control/image-control-get-info.md
           - name: Importing an image from another cloud or folder
             href: operations/image-control/import.md
+          - name: Encrypting an image
+            href: operations/image-control/encrypt.md
           - name: Configuring image access permissions
             href: operations/image-control/access.md
-          - name: Deleting a disk image
+          - name: Deleting an image
             href: operations/image-control/delete.md
       - name: File storages
         items:
@@ -251,7 +287,7 @@ items:
             href: operations/filesystem/detach-from-vm.md
           - name: Updating a file storage
             href: operations/filesystem/update.md
-          - name: Getting information about a file storage
+          - name: Getting file storage info
             href: operations/filesystem/get-info.md
           - name: Configuring file storage access permissions
             href: operations/filesystem/filesystem-access.md
@@ -261,13 +297,13 @@ items:
         items:
           - name: Getting started
             href: operations/serial-console/index.md
-          - name: Connecting to a serial console via SSH
+          - name: Connecting to a serial console over SSH
             href: operations/serial-console/connect-ssh.md
-          - name: Connecting to a serial console via the CLI
+          - name: Connecting to a serial console using the CLI
             href: operations/serial-console/connect-cli.md
-          - name: Starting your terminal in the Windows serial console (SAC)
+          - name: Starting the command shell in the Windows SAC
             href: operations/serial-console/windows-sac.md
-          - name: Disabling access to the serial console
+          - name: Disabling access to a serial console
             href: operations/serial-console/disable.md
       - name: Creating an instance group
         items:
@@ -277,11 +313,11 @@ items:
             href: operations/instance-groups/create-with-balancer.md
           - name: Creating a fixed-size instance group with an L7 load balancer
             href: operations/instance-groups/create-with-load-balancer.md
-          - name: Creating an autoscaling instance group
+          - name: Creating an instance group with autoscaling
             href: operations/instance-groups/create-autoscaled-group.md
-          - name: Creating an instance group from a Container Optimized Image
+          - name: Creating an instance group with Container Optimized Image
             href: operations/instance-groups/create-with-coi.md
-          - name: Creating an instance group based on the YAML specification
+          - name: Creating an instance group based on a YAML specification
             href: operations/instance-groups/create-from-yaml.md
           - name: Creating an instance group in a placement group
             href: operations/placement-groups/create-ig-in-pg.md
@@ -289,22 +325,26 @@ items:
             href: operations/instance-groups/create-with-fixed-ip.md
           - name: Creating an instance group connected to a file storage
             href: operations/instance-groups/create-with-filesystem.md
-          - name: Creating a VM group connected to {{ objstorage-name }}
+          - name: Creating an instance group connected to {{ objstorage-name }}
             href: operations/instance-groups/create-with-bucket.md
-      - name: Getting information about instance groups
+      - name: Getting instance group info
         items:
           - name: Getting a list of instance groups
             href: operations/instance-groups/get-list.md
-          - name: Getting information about an instance group
+          - name: Getting instance group info
             href: operations/instance-groups/get-info.md
           - name: Getting a list of instances in a group
             href: operations/instance-groups/get-list-instances.md
-      - name: Managing a VM group
+      - name: Managing an instance group
         items:
-          - name: Editing an instance group
+          - name: Updating an instance group
             href: operations/instance-groups/update.md
-          - name: Editing an instance group based on the YAML specification
+          - name: Updating an instance group based on a YAML specification
             href: operations/instance-groups/update-from-yaml.md
+          - name: Enable deletion protection
+            href: operations/instance-groups/enable-deletion-protection.md
+          - name: Disabling and enabling availability zones for an instance group
+            href: operations/instance-groups/disable-enable-zone.md
           - name: Moving an instance group to a different availability zone
             href: operations/instance-groups/move-group.md
           - name: >-
@@ -315,21 +355,21 @@ items:
               Moving an instance group with an L7 load balancer to a different
               availability zone
             href: operations/instance-groups/move-group-with-alb.md
-          - name: Configuring application health check on the VM
+          - name: Configuring application health checks on a VM instance
             href: operations/instance-groups/enable-autohealing.md
           - name: Updating a group
             items:
-              - name: Incremental update
+              - name: Rolling updates
                 href: operations/instance-groups/deploy/rolling-update.md
-              - name: Uninterrupted updates
+              - name: Zero-downtime updates
                 href: operations/instance-groups/deploy/zero-downtime.md
           - name: Pausing an instance group
             href: operations/instance-groups/pause-processes.md
           - name: Resuming an instance group
             href: operations/instance-groups/resume-processes.md
-          - name: Restarting group instances one by one
+          - name: Sequentially restarting instances in a group
             href: operations/instance-groups/rolling-restart.md
-          - name: Recreating group instances one by one
+          - name: Sequentially recreating instances in a group
             href: operations/instance-groups/rolling-recreate.md
           - name: Stopping an instance group
             href: operations/instance-groups/stop.md
@@ -349,8 +389,18 @@ items:
             href: operations/dedicated-host/running-host-group-vms.md
           - name: Creating a VM on a dedicated host
             href: operations/dedicated-host/running-host-vms.md
-          - name: Configuring dedicated host group access permissions
+          - name: Configuring access permissions for a dedicated host group
             href: operations/dedicated-host/access.md
+      - name: Reserved instance pools
+        items:
+          - name: Creating a reserved instance pool
+            href: operations/reserved-pools/create-reserved-pool.md
+          - name: Updating a reserved instance pool
+            href: operations/reserved-pools/update-reserved-pool.md
+          - name: Deleting a reserved instance pool
+            href: operations/reserved-pools/delete-reserved-pool.md
+          - name: Managing instances in a pool
+            href: operations/reserved-pools/manage-pool-vms.md
       - name: GPU clusters
         items:
           - name: Creating a GPU cluster
@@ -359,23 +409,33 @@ items:
             href: operations/gpu-cluster/gpu-add-to-cluster.md
           - name: Updating a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-update.md
-          - name: Getting information about a GPU cluster
+          - name: Getting GPU cluster info
             href: operations/gpu-cluster/gpu-cluster-get-info.md
           - name: Configuring GPU cluster access permissions
             href: operations/gpu-cluster/access.md
           - name: Deleting a GPU cluster
             href: operations/gpu-cluster/gpu-cluster-delete.md
-      - name: Viewing operations with the service's resources
+          - name: Testing a GPU cluster physical state
+            href: operations/gpu-cluster/gpu-cluster-test-physical-state.md
+          - name: Running parallel tasks in a GPU cluster
+            href: operations/gpu-cluster/gpu-cluster-mpirun-parallel.md
+          - name: Testing InfiniBand throughput
+            href: operations/gpu-cluster/test-infiniband-bandwidth.md
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
+      - name: Viewing metrics in {{ monitoring-name }}
+        href: operations/metrics-pull.md
+      - name: NVIDIA driver update guide
+        href: operations/gpu-driver-update.md
   - name: '{{ cos-full-name }}'
     href: ../cos/
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Configuring clock synchronization using NTP
+      - name: Configuring time synchronization using NTP
         href: tutorials/ntp.md
-      - name: Running an instance group with autoscaling
+      - name: Working with an instance group with autoscaling
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md
@@ -383,30 +443,42 @@ items:
             href: tutorials/vm-autoscale/console.md
           - name: '{{ TF }}'
             href: tutorials/vm-autoscale/terraform.md
-      - name: Scheduled scaling of instance groups
-        href: tutorials/vm-scale-scheduled.md
-      - name: >-
-          Automatically scaling an instance group to process messages from a
-          queue
+      - name: Scheduled instance group scaling
+        items:
+          - name: Overview
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: Updating an instance group under load
         href: tutorials/updating-under-load.md
+      - name: Deploying Remote Desktop Gateway
+        href: tutorials/rds-gw.md
       - name: Getting started with Packer
         href: tutorials/packer-quickstart.md
-      - name: Transferring logs from a VM instance to {{ cloud-logging-full-name }}
+      - name: Transferring logs from a VM to {{ cloud-logging-full-name }}
         href: tutorials/vm-fluent-bit-logging.md
       - name: Building a VM image with infrastructure tools using Packer
         href: tutorials/packer-custom-image.md
-      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+      - name: Migrating data to {{ yandex-cloud }} using Hystax Acura
         href: tutorials/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: tutorials/hystax-disaster-recovery.md
-      - name: Creating a VM backup with Hystax Acura Backup
+      - name: Backing up a VM with Hystax Acura
         href: tutorials/hystax-backup.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Assigning a domain name to a VM with a web server
-        href: tutorials/bind-domain-vm.md
+      - name: Assigning a domain name to a web server VM
+        items:
+          - name: Overview
+            href: tutorials/bind-domain-vm/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: Routing through a NAT instance
@@ -417,17 +489,15 @@ items:
             href: tutorials/nat-instance/console.md
           - name: '{{ TF }}'
             href: tutorials/nat-instance/terraform.md
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
+      - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: OpenCart online store
         items:
-          - name: Summary
+          - name: Overview
             href: tutorials/opencart/index.md
           - name: Management console
             href: tutorials/opencart/console.md
@@ -446,14 +516,20 @@ items:
       - name: High-performance computing on preemptible VMs
         href: tutorials/hpc-on-preemptible.md
       - name: Single-node file server
-        href: tutorials/single-node-file-server.md
+        items:
+          - name: Overview
+            href: tutorials/single-node-file-server/index.md
+          - name: Management console
+            href: tutorials/single-node-file-server/console.md
+          - name: '{{ TF }}'
+            href: tutorials/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: tutorials/backup-and-archive-to-sftp.md
-      - name: Deploying the GlusterFS parallel file system in high availability mode
+      - name: Deploying GlusterFS in high availability mode
         href: tutorials/ha-regional-glusterfs.md
-      - name: Deploying the GlusterFS parallel file system in high performance mode
+      - name: Deploying GlusterFS in high performance mode
         href: tutorials/ha-regional-glusterfs-high-performance.md
-      - name: Backup to {{ objstorage-name }} via Bacula
+      - name: Backing up to {{ objstorage-name }} with Bacula
         href: tutorials/backup-with-bacula.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
@@ -463,23 +539,122 @@ items:
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+        href: tutorials/ci-cd-serverless.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Cloud infrastructure segmentation with the Check Point next-generation
+          firewall
+        href: tutorials/network-segmentation-checkpoint.md
+      - name: Configuring a secure GRE tunnel over IPsec
+        href: tutorials/gre-over-ipsec.md
+      - name: Creating a bastion host
+        href: tutorials/bastion.md
+      - name: Implementing fault-tolerant scenarios for NAT VMs
+        href: tutorials/route-switcher.md
+      - name: Creating a tunnel between two subnets using OpenVPN Access Server
+        href: tutorials/site-to-site-openvpn.md
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: tutorials/vipnet-to-yc.md
+        hidden: true
+      - name: >-
+          Creating an external table from an {{ objstorage-name }} bucket table
+          using a configuration file
+        href: tutorials/mgp-config-server-for-s3.md
+      - name: >-
+          Setting up network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: Working with snapshots in {{ managed-k8s-name }}
+        href: tutorials/pvc-snapshot-restore.md
+      - name: '{{ coi }}'
+        items:
+          - name: Creating a VM from a {{ coi }}
+            href: tutorials/vm-create.md
+          - name: >-
+              Creating a VM from a {{ coi }} with an additional volume for a
+              Docker container
+            href: tutorials/vm-create-with-second-disk.md
+          - name: Creating a VM from a {{ coi }} with multiple Docker containers
+            href: tutorials/docker-compose.md
+          - name: Creating an instance group from a {{ coi }}
+            href: tutorials/ig-create.md
+          - name: >-
+              Creating an instance group from a {{ coi }} with multiple Docker
+              containers
+            href: tutorials/ig-with-containers.md
+          - name: Updating a {{ coi }} VM
+            href: tutorials/vm-update.md
+          - name: >-
+              Creating a VM and an instance group with a {{ coi }} using {{ TF
+              }}
+            href: tutorials/coi-with-terraform.md
+      - name: Microsoft products in {{ yandex-cloud }}
+        items:
+          - name: Secure password transmission to an initialization script
+            href: tutorials/secure-password-script.md
+          - name: Deploying Active Directory
+            href: tutorials/active-directory.md
+          - name: Deploying Microsoft Exchange
+            href: tutorials/exchange.md
+          - name: Deploying Remote Desktop Services
+            href: tutorials/rds.md
+          - name: >-
+              Deploying an Always On availability group with an internal network
+              load balancer
+            href: tutorials/mssql-alwayson-lb.md
+          - name: Deploying Remote Desktop Gateway
+            href: tutorials/rds-gw.md
+          - name: Creating an MLFlow server for logging experiments and artifacts
+            href: tutorials/mlflow-datasphere.md
+          - name: Deploying {{ GLR }} on a virtual machine
+            href: tutorials/install-gitlab-runner.md
+      - name: Running the DeepSeek-R1 language model in a GPU cluster
+        href: tutorials/gpu-cluster-deepseek.md
+      - name: >-
+          Running a vLLM library with the Gemma 3 language model on a VM with
+          GPU
+        href: tutorials/vllm-gemma-gpu.md
+      - name: >-
+          Delivering USB devices to a virtual machine or {{ baremetal-name }}
+          server
+        href: tutorials/usb-over-ip.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
+      - name: Running a Docker image on a VM using {{ cloud-registry-name }}
+        href: tutorials/docker-cloud-registry.md
+      - name: Deploying a {{ src-full-name }} worker on a VM
+        href: tutorials/self-hosted-worker-sourcecraft.md
   - name: Concepts
     items:
-      - name: Relationship between resources
+      - name: Resource relationships
         href: concepts/index.md
       - name: Virtual machines
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/vm.md
           - name: Platforms
             href: concepts/vm-platforms.md
           - name: vCPU performance levels
             href: concepts/performance-levels.md
+          - name: Hardware generations
+            href: concepts/hardware-generations.md
           - name: Preemptible VMs
             href: concepts/preemptible-vm.md
           - name: VM network interfaces
             href: concepts/network.md
-          - name: Software-accelerated network
+          - name: Software accelerated network
             href: concepts/software-accelerated-network.md
           - name: Live migration
             href: concepts/live-migration.md
@@ -487,17 +662,31 @@ items:
             href: concepts/placement-groups.md
           - name: Statuses
             href: concepts/vm-statuses.md
-          - name: Metadata
-            href: concepts/vm-metadata.md
           - name: VM maintenance policies
-            href: concepts/vm-policies.md
-          - name: Resetting a Windows VM password
+            href: concepts/maintenance-policies.md
+          - name: Resetting Windows VM passwords
             href: concepts/guest-agent.md
-      - name: Graphics accelerators (GPUs)
+      - name: VM instance metadata
+        items:
+          - name: Overview
+            href: concepts/vm-metadata.md
+          - name: Metadata folders
+            href: concepts/metadata/directories.md
+          - name: Keys processed in public images
+            href: concepts/metadata/public-image-keys.md
+          - name: Transferring data to a VM instance
+            href: concepts/metadata/sending-metadata.md
+          - name: Accessing metadata
+            href: concepts/metadata/accessing-metadata.md
+          - name: Identity document
+            href: concepts/metadata/identity-document.md
+      - name: Graphics processing units (GPUs)
         href: concepts/gpus.md
+      - name: GPU VM maintenance
+        href: concepts/gpus-maintenance.md
       - name: Disks and file storages
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/storage-overview.md
           - name: Disks
             href: concepts/disk.md
@@ -515,8 +704,16 @@ items:
         href: concepts/image.md
       - name: Instance groups
         items:
-          - name: Summary
+          - name: Overview
             href: concepts/instance-groups/index.md
+          - name: Instance groups during a zonal incident
+            items:
+              - name: Overview
+                href: concepts/instance-groups/zonal-inc/overview.md
+              - name: Multi-zonal group with instances in the incident zone
+                href: concepts/instance-groups/zonal-inc/multi-zonal.md
+          - name: Temporarily disabling availability zones
+            href: concepts/instance-groups/disable-enable-zone.md
           - name: Access
             href: concepts/instance-groups/access.md
           - name: YAML specification
@@ -527,7 +724,7 @@ items:
             href: concepts/instance-groups/variables-in-the-template.md
           - name: Policies
             items:
-              - name: Summary
+              - name: Overview
                 href: concepts/instance-groups/policies/index.md
               - name: Allocation policy
                 href: concepts/instance-groups/policies/allocation-policy.md
@@ -539,59 +736,527 @@ items:
                 href: concepts/instance-groups/policies/healing-policy.md
           - name: Scaling types
             href: concepts/instance-groups/scale.md
-          - name: Instance health checks and autohealing
+          - name: Instance health checks and automatic recovery
             href: concepts/instance-groups/autohealing.md
           - name: Updating
             items:
-              - name: Summary
+              - name: Overview
                 href: concepts/instance-groups/deploy/index.md
               - name: Allocating instances across zones
                 href: concepts/instance-groups/deploy/zones.md
               - name: Deployment algorithm
                 href: concepts/instance-groups/deploy/deploy.md
-              - name: Rules for updating virtual machines
+              - name: Rules for updating instances
                 href: concepts/instance-groups/deploy/instance.md
               - name: Updating secondary disks in an instance template
                 href: concepts/instance-groups/deploy/secondary-disk.md
-          - name: Integration with network and L7 load balancers
+          - name: Integrating with network and L7 load balancers
             href: concepts/instance-groups/balancers.md
           - name: Handling a stateful workload
             href: concepts/instance-groups/stateful-workload.md
           - name: Stopping and pausing an instance group
             href: concepts/instance-groups/stopping-pausing.md
-          - name: Restarting and recreating instances in a group one by one
+          - name: Sequentially restarting and recreating instances in a group
             href: concepts/instance-groups/rolling-actions.md
           - name: Statuses
             href: concepts/instance-groups/statuses.md
-      - name: Dedicated hosts
+      - name: Dedicated host
         href: concepts/dedicated-host.md
+      - name: Reserved instance pools
+        href: concepts/reserved-pools.md
       - name: Encryption
         href: concepts/encryption.md
-      - name: Backup
+      - name: Backups
         href: concepts/backups.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before January 1, 2019
-            href: pricing-archive/pricing-01012019.md
-          - name: From January 1 to March 1, 2019
-            href: pricing-archive/pricing-01032019.md
-          - name: From March 1 to May 1, 2019
-            href: pricing-archive/pricing-30042019.md
+    href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/compute/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: connect-to-serial-port
+        href: cli-ref/connect-to-serial-port.md
+      - name: disk
+        items:
+          - name: Overview
+            href: cli-ref/disk/index.md
+          - name: add-access-binding
+            href: cli-ref/disk/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/disk/add-labels.md
+          - name: create
+            href: cli-ref/disk/create.md
+          - name: delete
+            href: cli-ref/disk/delete.md
+          - name: get
+            href: cli-ref/disk/get.md
+          - name: list
+            href: cli-ref/disk/list.md
+          - name: list-access-bindings
+            href: cli-ref/disk/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/disk/list-operations.md
+          - name: move
+            href: cli-ref/disk/move.md
+          - name: relocate
+            href: cli-ref/disk/relocate.md
+          - name: remove-access-binding
+            href: cli-ref/disk/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/disk/remove-labels.md
+          - name: resize
+            href: cli-ref/disk/resize.md
+          - name: set-access-bindings
+            href: cli-ref/disk/set-access-bindings.md
+          - name: update
+            href: cli-ref/disk/update.md
+      - name: disk-placement-group
+        items:
+          - name: Overview
+            href: cli-ref/disk-placement-group/index.md
+          - name: add-access-binding
+            href: cli-ref/disk-placement-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/disk-placement-group/add-labels.md
+          - name: create
+            href: cli-ref/disk-placement-group/create.md
+          - name: delete
+            href: cli-ref/disk-placement-group/delete.md
+          - name: get
+            href: cli-ref/disk-placement-group/get.md
+          - name: list
+            href: cli-ref/disk-placement-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/disk-placement-group/list-access-bindings.md
+          - name: list-disks
+            href: cli-ref/disk-placement-group/list-disks.md
+          - name: list-operations
+            href: cli-ref/disk-placement-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/disk-placement-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/disk-placement-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/disk-placement-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/disk-placement-group/update.md
+      - name: disk-type
+        items:
+          - name: Overview
+            href: cli-ref/disk-type/index.md
+          - name: get
+            href: cli-ref/disk-type/get.md
+          - name: list
+            href: cli-ref/disk-type/list.md
+      - name: filesystem
+        items:
+          - name: Overview
+            href: cli-ref/filesystem/index.md
+          - name: add-access-binding
+            href: cli-ref/filesystem/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/filesystem/add-labels.md
+          - name: create
+            href: cli-ref/filesystem/create.md
+          - name: delete
+            href: cli-ref/filesystem/delete.md
+          - name: get
+            href: cli-ref/filesystem/get.md
+          - name: list
+            href: cli-ref/filesystem/list.md
+          - name: list-access-bindings
+            href: cli-ref/filesystem/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/filesystem/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/filesystem/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/filesystem/remove-labels.md
+          - name: resize
+            href: cli-ref/filesystem/resize.md
+          - name: set-access-bindings
+            href: cli-ref/filesystem/set-access-bindings.md
+          - name: update
+            href: cli-ref/filesystem/update.md
+      - name: gpu-cluster
+        items:
+          - name: Overview
+            href: cli-ref/gpu-cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/gpu-cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/gpu-cluster/add-labels.md
+          - name: create
+            href: cli-ref/gpu-cluster/create.md
+          - name: delete
+            href: cli-ref/gpu-cluster/delete.md
+          - name: get
+            href: cli-ref/gpu-cluster/get.md
+          - name: list
+            href: cli-ref/gpu-cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/gpu-cluster/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/gpu-cluster/list-instances.md
+          - name: list-operations
+            href: cli-ref/gpu-cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/gpu-cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/gpu-cluster/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/gpu-cluster/set-access-bindings.md
+          - name: update
+            href: cli-ref/gpu-cluster/update.md
+      - name: host-group
+        items:
+          - name: Overview
+            href: cli-ref/host-group/index.md
+          - name: add-access-binding
+            href: cli-ref/host-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/host-group/add-labels.md
+          - name: create
+            href: cli-ref/host-group/create.md
+          - name: delete
+            href: cli-ref/host-group/delete.md
+          - name: get
+            href: cli-ref/host-group/get.md
+          - name: list
+            href: cli-ref/host-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/host-group/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/host-group/list-hosts.md
+          - name: list-instances
+            href: cli-ref/host-group/list-instances.md
+          - name: list-operations
+            href: cli-ref/host-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/host-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/host-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/host-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/host-group/update.md
+          - name: update-host
+            href: cli-ref/host-group/update-host.md
+      - name: host-type
+        items:
+          - name: Overview
+            href: cli-ref/host-type/index.md
+          - name: get
+            href: cli-ref/host-type/get.md
+          - name: list
+            href: cli-ref/host-type/list.md
+      - name: image
+        items:
+          - name: Overview
+            href: cli-ref/image/index.md
+          - name: add-access-binding
+            href: cli-ref/image/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/image/add-labels.md
+          - name: create
+            href: cli-ref/image/create.md
+          - name: delete
+            href: cli-ref/image/delete.md
+          - name: get
+            href: cli-ref/image/get.md
+          - name: get-latest-from-family
+            href: cli-ref/image/get-latest-from-family.md
+          - name: list
+            href: cli-ref/image/list.md
+          - name: list-access-bindings
+            href: cli-ref/image/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/image/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/image/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/image/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/image/set-access-bindings.md
+          - name: update
+            href: cli-ref/image/update.md
+      - name: instance
+        items:
+          - name: Overview
+            href: cli-ref/instance/index.md
+          - name: add-access-binding
+            href: cli-ref/instance/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/instance/add-labels.md
+          - name: add-metadata
+            href: cli-ref/instance/add-metadata.md
+          - name: add-one-to-one-nat
+            href: cli-ref/instance/add-one-to-one-nat.md
+          - name: attach-disk
+            href: cli-ref/instance/attach-disk.md
+          - name: attach-filesystem
+            href: cli-ref/instance/attach-filesystem.md
+          - name: attach-network-interface
+            href: cli-ref/instance/attach-network-interface.md
+          - name: create
+            href: cli-ref/instance/create.md
+          - name: create-with-container
+            href: cli-ref/instance/create-with-container.md
+          - name: delete
+            href: cli-ref/instance/delete.md
+          - name: detach-disk
+            href: cli-ref/instance/detach-disk.md
+          - name: detach-filesystem
+            href: cli-ref/instance/detach-filesystem.md
+          - name: detach-network-interface
+            href: cli-ref/instance/detach-network-interface.md
+          - name: get
+            href: cli-ref/instance/get.md
+          - name: get-serial-port-output
+            href: cli-ref/instance/get-serial-port-output.md
+          - name: list
+            href: cli-ref/instance/list.md
+          - name: list-access-bindings
+            href: cli-ref/instance/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/instance/list-operations.md
+          - name: move
+            href: cli-ref/instance/move.md
+          - name: relocate
+            href: cli-ref/instance/relocate.md
+          - name: remove-access-binding
+            href: cli-ref/instance/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/instance/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/instance/remove-metadata.md
+          - name: remove-one-to-one-nat
+            href: cli-ref/instance/remove-one-to-one-nat.md
+          - name: restart
+            href: cli-ref/instance/restart.md
+          - name: set-access-bindings
+            href: cli-ref/instance/set-access-bindings.md
+          - name: simulate-maintenance-event
+            href: cli-ref/instance/simulate-maintenance-event.md
+          - name: start
+            href: cli-ref/instance/start.md
+          - name: stop
+            href: cli-ref/instance/stop.md
+          - name: update
+            href: cli-ref/instance/update.md
+          - name: update-container
+            href: cli-ref/instance/update-container.md
+          - name: update-network-interface
+            href: cli-ref/instance/update-network-interface.md
+      - name: instance-group
+        items:
+          - name: Overview
+            href: cli-ref/instance-group/index.md
+          - name: add-access-binding
+            href: cli-ref/instance-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/instance-group/add-labels.md
+          - name: add-metadata
+            href: cli-ref/instance-group/add-metadata.md
+          - name: create
+            href: cli-ref/instance-group/create.md
+          - name: delete
+            href: cli-ref/instance-group/delete.md
+          - name: delete-instances
+            href: cli-ref/instance-group/delete-instances.md
+          - name: disable-zones
+            href: cli-ref/instance-group/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/instance-group/enable-zones.md
+          - name: get
+            href: cli-ref/instance-group/get.md
+          - name: list
+            href: cli-ref/instance-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/instance-group/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/instance-group/list-instances.md
+          - name: list-logs
+            href: cli-ref/instance-group/list-logs.md
+          - name: list-operations
+            href: cli-ref/instance-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/instance-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/instance-group/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/instance-group/remove-metadata.md
+          - name: rolling-recreate
+            href: cli-ref/instance-group/rolling-recreate.md
+          - name: rolling-restart
+            href: cli-ref/instance-group/rolling-restart.md
+          - name: set-access-bindings
+            href: cli-ref/instance-group/set-access-bindings.md
+          - name: start
+            href: cli-ref/instance-group/start.md
+          - name: stop
+            href: cli-ref/instance-group/stop.md
+          - name: stop-instances
+            href: cli-ref/instance-group/stop-instances.md
+          - name: update
+            href: cli-ref/instance-group/update.md
+      - name: maintenance
+        items:
+          - name: Overview
+            href: cli-ref/maintenance/index.md
+          - name: get
+            href: cli-ref/maintenance/get.md
+          - name: list
+            href: cli-ref/maintenance/list.md
+          - name: reschedule
+            href: cli-ref/maintenance/reschedule.md
+      - name: placement-group
+        items:
+          - name: Overview
+            href: cli-ref/placement-group/index.md
+          - name: add-access-binding
+            href: cli-ref/placement-group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/placement-group/add-labels.md
+          - name: create
+            href: cli-ref/placement-group/create.md
+          - name: delete
+            href: cli-ref/placement-group/delete.md
+          - name: get
+            href: cli-ref/placement-group/get.md
+          - name: list
+            href: cli-ref/placement-group/list.md
+          - name: list-access-bindings
+            href: cli-ref/placement-group/list-access-bindings.md
+          - name: list-instances
+            href: cli-ref/placement-group/list-instances.md
+          - name: list-operations
+            href: cli-ref/placement-group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/placement-group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/placement-group/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/placement-group/set-access-bindings.md
+          - name: update
+            href: cli-ref/placement-group/update.md
+      - name: reserved-instance-pool
+        items:
+          - name: Overview
+            href: cli-ref/reserved-instance-pool/index.md
+          - name: create
+            href: cli-ref/reserved-instance-pool/create.md
+          - name: delete
+            href: cli-ref/reserved-instance-pool/delete.md
+          - name: get
+            href: cli-ref/reserved-instance-pool/get.md
+          - name: list
+            href: cli-ref/reserved-instance-pool/list.md
+          - name: list-instances
+            href: cli-ref/reserved-instance-pool/list-instances.md
+          - name: list-operations
+            href: cli-ref/reserved-instance-pool/list-operations.md
+          - name: update
+            href: cli-ref/reserved-instance-pool/update.md
+      - name: snapshot
+        items:
+          - name: Overview
+            href: cli-ref/snapshot/index.md
+          - name: add-access-binding
+            href: cli-ref/snapshot/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/snapshot/add-labels.md
+          - name: create
+            href: cli-ref/snapshot/create.md
+          - name: delete
+            href: cli-ref/snapshot/delete.md
+          - name: get
+            href: cli-ref/snapshot/get.md
+          - name: list
+            href: cli-ref/snapshot/list.md
+          - name: list-access-bindings
+            href: cli-ref/snapshot/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/snapshot/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/snapshot/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/snapshot/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/snapshot/set-access-bindings.md
+          - name: update
+            href: cli-ref/snapshot/update.md
+      - name: snapshot-schedule
+        items:
+          - name: Overview
+            href: cli-ref/snapshot-schedule/index.md
+          - name: add-access-binding
+            href: cli-ref/snapshot-schedule/add-access-binding.md
+          - name: add-disks
+            href: cli-ref/snapshot-schedule/add-disks.md
+          - name: add-labels
+            href: cli-ref/snapshot-schedule/add-labels.md
+          - name: add-snapshot-labels
+            href: cli-ref/snapshot-schedule/add-snapshot-labels.md
+          - name: create
+            href: cli-ref/snapshot-schedule/create.md
+          - name: delete
+            href: cli-ref/snapshot-schedule/delete.md
+          - name: disable
+            href: cli-ref/snapshot-schedule/disable.md
+          - name: enable
+            href: cli-ref/snapshot-schedule/enable.md
+          - name: get
+            href: cli-ref/snapshot-schedule/get.md
+          - name: list
+            href: cli-ref/snapshot-schedule/list.md
+          - name: list-access-bindings
+            href: cli-ref/snapshot-schedule/list-access-bindings.md
+          - name: list-disks
+            href: cli-ref/snapshot-schedule/list-disks.md
+          - name: list-operations
+            href: cli-ref/snapshot-schedule/list-operations.md
+          - name: list-snapshots
+            href: cli-ref/snapshot-schedule/list-snapshots.md
+          - name: remove-access-binding
+            href: cli-ref/snapshot-schedule/remove-access-binding.md
+          - name: remove-disks
+            href: cli-ref/snapshot-schedule/remove-disks.md
+          - name: remove-labels
+            href: cli-ref/snapshot-schedule/remove-labels.md
+          - name: remove-snapshot-labels
+            href: cli-ref/snapshot-schedule/remove-snapshot-labels.md
+          - name: set-access-bindings
+            href: cli-ref/snapshot-schedule/set-access-bindings.md
+          - name: update
+            href: cli-ref/snapshot-schedule/update.md
+      - name: ssh
+        items:
+          - name: Overview
+            href: cli-ref/ssh/index.md
+          - name: certificate
+            items:
+              - name: Overview
+                href: cli-ref/ssh/certificate/index.md
+              - name: export
+                href: cli-ref/ssh/certificate/export.md
+      - name: zone
+        items:
+          - name: Overview
+            href: cli-ref/zone/index.md
+          - name: get
+            href: cli-ref/zone/get.md
+          - name: list
+            href: cli-ref/zone/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -819,6 +1484,16 @@ items:
                 href: api-ref/grpc/Instance/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Instance/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Maintenance/index.md
+              - name: List
+                href: api-ref/grpc/Maintenance/list.md
+              - name: Get
+                href: api-ref/grpc/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/grpc/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -851,6 +1526,24 @@ items:
                 href: api-ref/grpc/PlacementGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/PlacementGroup/updateAccessBindings.md
+          - name: ReservedInstancePool
+            items:
+              - name: Overview
+                href: api-ref/grpc/ReservedInstancePool/index.md
+              - name: Get
+                href: api-ref/grpc/ReservedInstancePool/get.md
+              - name: List
+                href: api-ref/grpc/ReservedInstancePool/list.md
+              - name: Create
+                href: api-ref/grpc/ReservedInstancePool/create.md
+              - name: Update
+                href: api-ref/grpc/ReservedInstancePool/update.md
+              - name: Delete
+                href: api-ref/grpc/ReservedInstancePool/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/ReservedInstancePool/listOperations.md
+              - name: ListInstances
+                href: api-ref/grpc/ReservedInstancePool/listInstances.md
           - name: SnapshotSchedule
             items:
               - name: Overview
@@ -969,6 +1662,10 @@ items:
                       instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
                   - name: PauseProcesses
                     href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
+                  - name: DisableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/disableZones.md
+                  - name: EnableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
               - name: Operation
                 items:
                   - name: Overview
@@ -1201,6 +1898,16 @@ items:
                 href: api-ref/Instance/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Instance/updateAccessBindings.md
+          - name: Maintenance
+            items:
+              - name: Overview
+                href: api-ref/Maintenance/index.md
+              - name: List
+                href: api-ref/Maintenance/list.md
+              - name: Get
+                href: api-ref/Maintenance/get.md
+              - name: Reschedule
+                href: api-ref/Maintenance/reschedule.md
           - name: Operation
             items:
               - name: Overview
@@ -1233,6 +1940,24 @@ items:
                 href: api-ref/PlacementGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/PlacementGroup/updateAccessBindings.md
+          - name: ReservedInstancePool
+            items:
+              - name: Overview
+                href: api-ref/ReservedInstancePool/index.md
+              - name: Get
+                href: api-ref/ReservedInstancePool/get.md
+              - name: List
+                href: api-ref/ReservedInstancePool/list.md
+              - name: Create
+                href: api-ref/ReservedInstancePool/create.md
+              - name: Update
+                href: api-ref/ReservedInstancePool/update.md
+              - name: Delete
+                href: api-ref/ReservedInstancePool/delete.md
+              - name: ListOperations
+                href: api-ref/ReservedInstancePool/listOperations.md
+              - name: ListInstances
+                href: api-ref/ReservedInstancePool/listInstances.md
           - name: SnapshotSchedule
             items:
               - name: Overview
@@ -1327,6 +2052,10 @@ items:
                     href: instancegroup/api-ref/InstanceGroup/delete.md
                   - name: ListInstances
                     href: instancegroup/api-ref/InstanceGroup/listInstances.md
+                  - name: DeleteInstances
+                    href: instancegroup/api-ref/InstanceGroup/deleteInstances.md
+                  - name: StopInstances
+                    href: instancegroup/api-ref/InstanceGroup/stopInstances.md
                   - name: ListOperations
                     href: instancegroup/api-ref/InstanceGroup/listOperations.md
                   - name: ListLogRecords
@@ -1354,6 +2083,166 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Audit log reference
+    items:
+      - name: AddInstanceOneToOneNat
+        href: events-ref/AddInstanceOneToOneNat.md
+      - name: AttachInstanceDisk
+        href: events-ref/AttachInstanceDisk.md
+      - name: AttachInstanceFilesystem
+        href: events-ref/AttachInstanceFilesystem.md
+      - name: AttachInstanceNetworkInterface
+        href: events-ref/AttachInstanceNetworkInterface.md
+      - name: ChangeDiskStatus
+        href: events-ref/ChangeDiskStatus.md
+      - name: ConnectSerialPort
+        href: events-ref/ConnectSerialPort.md
+      - name: CrashInstance
+        href: events-ref/CrashInstance.md
+      - name: CreateDisk
+        href: events-ref/CreateDisk.md
+      - name: CreateDiskPlacementGroup
+        href: events-ref/CreateDiskPlacementGroup.md
+      - name: CreateFilesystem
+        href: events-ref/CreateFilesystem.md
+      - name: CreateGpuCluster
+        href: events-ref/CreateGpuCluster.md
+      - name: CreateHostGroup
+        href: events-ref/CreateHostGroup.md
+      - name: CreateImage
+        href: events-ref/CreateImage.md
+      - name: CreateInstance
+        href: events-ref/CreateInstance.md
+      - name: CreateInstanceGroup
+        href: events-ref/CreateInstanceGroup.md
+      - name: CreatePlacementGroup
+        href: events-ref/CreatePlacementGroup.md
+      - name: CreateReservedInstancePool
+        href: events-ref/CreateReservedInstancePool.md
+      - name: CreateSnapshot
+        href: events-ref/CreateSnapshot.md
+      - name: CreateSnapshotSchedule
+        href: events-ref/CreateSnapshotSchedule.md
+      - name: DecommissionHost
+        href: events-ref/DecommissionHost.md
+      - name: DeleteDisk
+        href: events-ref/DeleteDisk.md
+      - name: DeleteDiskPlacementGroup
+        href: events-ref/DeleteDiskPlacementGroup.md
+      - name: DeleteFilesystem
+        href: events-ref/DeleteFilesystem.md
+      - name: DeleteGpuCluster
+        href: events-ref/DeleteGpuCluster.md
+      - name: DeleteHostGroup
+        href: events-ref/DeleteHostGroup.md
+      - name: DeleteImage
+        href: events-ref/DeleteImage.md
+      - name: DeleteInstance
+        href: events-ref/DeleteInstance.md
+      - name: DeleteInstanceGroup
+        href: events-ref/DeleteInstanceGroup.md
+      - name: DeleteInstanceGroupInstances
+        href: events-ref/DeleteInstanceGroupInstances.md
+      - name: DeleteNode
+        href: events-ref/DeleteNode.md
+      - name: DeletePlacementGroup
+        href: events-ref/DeletePlacementGroup.md
+      - name: DeleteReservedInstancePool
+        href: events-ref/DeleteReservedInstancePool.md
+      - name: DeleteSnapshot
+        href: events-ref/DeleteSnapshot.md
+      - name: DeleteSnapshotSchedule
+        href: events-ref/DeleteSnapshotSchedule.md
+      - name: DetachInstanceDisk
+        href: events-ref/DetachInstanceDisk.md
+      - name: DetachInstanceFilesystem
+        href: events-ref/DetachInstanceFilesystem.md
+      - name: DetachInstanceNetworkInterface
+        href: events-ref/DetachInstanceNetworkInterface.md
+      - name: DisableNode
+        href: events-ref/DisableNode.md
+      - name: DisableSnapshotSchedule
+        href: events-ref/DisableSnapshotSchedule.md
+      - name: DisableZones
+        href: events-ref/DisableZones.md
+      - name: EnableNode
+        href: events-ref/EnableNode.md
+      - name: EnableSnapshotSchedule
+        href: events-ref/EnableSnapshotSchedule.md
+      - name: EnableZones
+        href: events-ref/EnableZones.md
+      - name: EvacuateNode
+        href: events-ref/EvacuateNode.md
+      - name: GuestStopInstance
+        href: events-ref/GuestStopInstance.md
+      - name: MigrateInstance
+        href: events-ref/MigrateInstance.md
+      - name: MigrateNode
+        href: events-ref/MigrateNode.md
+      - name: PauseInstanceGroup
+        href: events-ref/PauseInstanceGroup.md
+      - name: PreemptInstance
+        href: events-ref/PreemptInstance.md
+      - name: RemoveInstanceOneToOneNat
+        href: events-ref/RemoveInstanceOneToOneNat.md
+      - name: RestartInstance
+        href: events-ref/RestartInstance.md
+      - name: ResumeInstanceGroup
+        href: events-ref/ResumeInstanceGroup.md
+      - name: RollingRecreateInstanceGroupInstances
+        href: events-ref/RollingRecreateInstanceGroupInstances.md
+      - name: RollingRestartInstanceGroupInstances
+        href: events-ref/RollingRestartInstanceGroupInstances.md
+      - name: SetInstanceGroupAccessBindings
+        href: events-ref/SetInstanceGroupAccessBindings.md
+      - name: StartInstance
+        href: events-ref/StartInstance.md
+      - name: StartInstanceGroup
+        href: events-ref/StartInstanceGroup.md
+      - name: StopInstance
+        href: events-ref/StopInstance.md
+      - name: StopInstanceGroup
+        href: events-ref/StopInstanceGroup.md
+      - name: StopInstanceGroupInstances
+        href: events-ref/StopInstanceGroupInstances.md
+      - name: UpdateDisk
+        href: events-ref/UpdateDisk.md
+      - name: UpdateDiskPlacementGroup
+        href: events-ref/UpdateDiskPlacementGroup.md
+      - name: UpdateFilesystem
+        href: events-ref/UpdateFilesystem.md
+      - name: UpdateGpuCluster
+        href: events-ref/UpdateGpuCluster.md
+      - name: UpdateHost
+        href: events-ref/UpdateHost.md
+      - name: UpdateHostGroup
+        href: events-ref/UpdateHostGroup.md
+      - name: UpdateImage
+        href: events-ref/UpdateImage.md
+      - name: UpdateInstance
+        href: events-ref/UpdateInstance.md
+      - name: UpdateInstanceGroup
+        href: events-ref/UpdateInstanceGroup.md
+      - name: UpdateInstanceGroupAccessBindings
+        href: events-ref/UpdateInstanceGroupAccessBindings.md
+      - name: UpdateInstanceMetadata
+        href: events-ref/UpdateInstanceMetadata.md
+      - name: UpdateInstanceNetworkInterface
+        href: events-ref/UpdateInstanceNetworkInterface.md
+      - name: UpdateInstanceUnderlayInterface
+        href: events-ref/UpdateInstanceUnderlayInterface.md
+      - name: UpdateNode
+        href: events-ref/UpdateNode.md
+      - name: UpdatePlacementGroup
+        href: events-ref/UpdatePlacementGroup.md
+      - name: UpdateReservedInstancePool
+        href: events-ref/UpdateReservedInstancePool.md
+      - name: UpdateSnapshot
+        href: events-ref/UpdateSnapshot.md
+      - name: UpdateSnapshotSchedule
+        href: events-ref/UpdateSnapshotSchedule.md
+      - name: UpdateSnapshotScheduleDisks
+        href: events-ref/UpdateSnapshotScheduleDisks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ
@@ -1362,7 +2251,7 @@ items:
         href: qa/general.md
       - name: Virtual machines
         href: qa/vm.md
-      - name: 'Error: Not enough resources'
+      - name: _Not enough resources_ error
         href: qa/not-enough-resources.md
       - name: Connection
         href: qa/connection.md
@@ -1372,11 +2261,9 @@ items:
         href: qa/instance-groups.md
       - name: Monitoring
         href: qa/monitoring.md
-      - name: Licensing agencies
+      - name: Licensing
         href: qa/licensing.md
       - name: Troubleshooting
         href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
-base: en/compute
-deepBase: 2

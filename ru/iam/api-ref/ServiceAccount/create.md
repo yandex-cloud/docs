@@ -1,9 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/serviceAccounts
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a service account in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the service account.
+            The name must be unique within the cloud.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the service account.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - folderId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ServiceAccount/create.md
 ---
 
-# Identity and Access Management API, REST: ServiceAccount.Create {#Create}
+# Identity and Access Management API, REST: ServiceAccount.Create
 
 Creates a service account in the specified folder.
 
@@ -20,7 +70,7 @@ POST https://iam.{{ api-host }}/iam/v1/serviceAccounts
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -29,17 +79,25 @@ POST https://iam.{{ api-host }}/iam/v1/serviceAccounts
 || folderId | **string**
 
 Required field. ID of the folder to create a service account in.
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the service account.
-The name must be unique within the cloud. ||
+The name must be unique within the cloud.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the service account. ||
-|| labels | **string**
+Description of the service account.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -71,7 +129,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "lastAuthenticatedAt": "string"
   }
   // end of the list of possible fields
@@ -202,7 +260,7 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || lastAuthenticatedAt | **string** (date-time)

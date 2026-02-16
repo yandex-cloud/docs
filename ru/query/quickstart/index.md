@@ -12,4 +12,9 @@
 
 Обработка данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/HMcXKy0Xz4Q?si=N3XslIrMTtLWSUgi)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjempmq5jgv2oycex?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=HMcXKy0Xz4Q).
+
+

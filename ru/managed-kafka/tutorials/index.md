@@ -12,6 +12,7 @@
 
 * [{#T}](./schema-registry-overview.md)
 * [{#T}](./managed-schema-registry.md)
+* [{#T}](./managed-schema-registry-rest.md)
 * [{#T}](./confluent-schema-registry.md)
 
 ## Поставка данных c помощью {{ data-transfer-name }} {#data-transfer}
@@ -22,6 +23,7 @@
 * [Из {{ KF }} в {{ ydb-short-name }}](mkf-ydb-stream.md)
 * [Из {{ KF }} в {{ CH }}](mkf-to-mch-migration.md)
 * [Из {{ KF }} в {{ yds-name }}](mkf-yds-stream.md)
+* [Из {{ yds-name }} в {{ KF }}](yds-to-kafka.md)
 * [Из {{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
 * [Из {{ KF }} в {{ MG }}](mkf-to-mmg-migration.md)
 * [Из {{ MY }} в {{ KF }}](cdc/cdc-mmy.md)
@@ -34,13 +36,13 @@
 * [Из {{ MY }} в {{ KF }} с помощью Debezium](cdc/debezium-mmy.md)
 * [Из {{ KF }} в {{ CH }}](send-data-to-mch.md)
 * [Из {{ KF }} в ksqlDB](use-ksqldb-with-mkf.md)
+* [Из {{ KF }} в {{ objstorage-name }} без использования интернета](kafka-topic-s3-sync-private.md)
 
 ## Другое {#other}
 
 * [{#T}](deploy-kafka-ui.md)
-
-
-* [{#T}](data-proc.md)
-
+* [{#T}](zk-kraft-kafka-migration.md)
+* [{#T}](data-processing.md)
+* [{#T}](retention-policy.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -5,14 +5,14 @@
 Подробную информацию о Delta Lake см. в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 
-{% include [deltalake-disclaimer](../../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 ## Подготовьте инфраструктуру {#prereq}
 
 1. [Создайте Serverless-базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#create-db-serverless).
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `ydb.editor` для доступа к {{ ydb-short-name }}.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 1. [Создайте секрет в {{ lockbox-full-name }}](../../../lockbox/operations/secret-create.md) и поместите в него данные статического ключа в формате двух пар `ключ-значение`:
 
     * ключ: `key-id`, значение: `<идентификатор_статического_ключа>`;
@@ -26,7 +26,7 @@
         1. Создайте в бакете каталог c именем `warehouse`.
         1. [Установите свойство](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` в значение `s3a://<имя_бакета>/warehouse/`.
 
-    1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/dataproc-connect.md) его к кластеру {{ dataproc-name }}.
+    1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/data-processing-connect.md) его к кластеру {{ dataproc-name }}.
 
 1. Выдайте роль `lockbox.payloadViewer` сервисному аккаунту, который использовался при создании кластеров {{ dataproc-name }}. Это можно сделать:
 
@@ -60,7 +60,7 @@
     * `spark.sql.extensions` в значение `io.delta.sql.DeltaSparkSessionExtension`;
     * `spark.sql.catalog.spark_catalog` в значение `org.apache.spark.sql.delta.catalog.DeltaCatalog`;
     * `spark.delta.logStore.s3a.impl` в значение `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`;
-    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` в значение Document API эндпоинта, доступное на вкладке **{{ ui-key.yacloud.ydb.database.switch_overview}}** вашей базы данных в [консоли управления]({{ link-console-cloud }});
+    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` в значение Document API эндпоинта, доступное на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных в [консоли управления]({{ link-console-cloud }});
     * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` в значение идентификатора секрета {{ lockbox-short-name }}, который доступен на вкладке **{{ ui-key.yacloud.lockbox.label_section-overview}}** вашего {{ lockbox-short-name }} в [консоли управления]({{ link-console-cloud }}).
 
 Теперь вы можете использовать Delta Lake в мультикластерном режиме.
@@ -69,7 +69,7 @@
 
 Пример проверялся в кластере {{ dataproc-name }} версии 2.1.7.
 
-1. [Подключитесь по SSH](../connect.md#data-proc-ssh) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](../connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
 
 1. Запустите в кластере сессию {{ SPRK }}, передав необходимые параметры:
 
@@ -186,7 +186,7 @@
     * `sa_name` — имя сервисного аккаунта, который будет создан для работы функций.
     * `cf_ddb_name` — имя Serverless-функции для очистки базы данных, должно быть уникальным в каталоге.
     * `cf_s3_name` — имя Serverless-функции для очистки бакетов, должно быть уникальным в каталоге.
-    * `docapi_endpoint` — Document API эндпоинт. Доступен на вкладке **{{ ui-key.yacloud.ydb.database.switch_overview}}** вашей базы данных {{ ydb-short-name }} в [консоли управления]({{ link-console-cloud }}).
+    * `docapi_endpoint` — Document API эндпоинт. Доступен на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных {{ ydb-short-name }} в [консоли управления]({{ link-console-cloud }}).
     * `docapi_table` — имя таблицы Delta Lake для которой будет выполняться очистка.
     * `s3_prefix_file` — путь к файлу `delta-prefixes.txt` в бакете {{ objstorage-name }}, например `s3://<имя_бакета>/delta-prefixes.txt`.
 

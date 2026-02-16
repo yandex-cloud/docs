@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/stop.md
 ---
 
-# Data Proc API, gRPC: ClusterService.Stop {#Stop}
+# Yandex Data Processing API, gRPC: ClusterService.Stop
 
 Stops the specified cluster.
 
@@ -15,21 +15,25 @@ Stops the specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "decommissionTimeout": "int64"
+  "cluster_id": "string",
+  "decommission_timeout": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to stop.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request. ||
-|| decommissionTimeout | **int64**
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/grpc/Cluster/list#List) request.
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+The maximum string length in characters is 50. ||
+|| decommission_timeout | **int64**
+
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -38,22 +42,22 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "monitoring": [
       {
         "name": "string",
@@ -62,16 +66,16 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
       }
     ],
     "config": {
-      "versionId": "string",
+      "version_id": "string",
       "hadoop": {
         "services": [
           "Service"
         ],
-        "properties": "string",
-        "sshPublicKeys": [
+        "properties": "map<string, string>",
+        "ssh_public_keys": [
           "string"
         ],
-        "initializationActions": [
+        "initialization_actions": [
           {
             "uri": "string",
             "args": [
@@ -79,23 +83,26 @@ Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
             ],
             "timeout": "int64"
           }
-        ]
+        ],
+        "oslogin_enabled": "bool"
       }
     },
     "health": "Health",
     "status": "Status",
-    "zoneId": "string",
-    "serviceAccountId": "string",
+    "zone_id": "string",
+    "service_account_id": "string",
     "bucket": "string",
-    "uiProxy": "bool",
-    "securityGroupIds": [
+    "ui_proxy": "bool",
+    "security_group_ids": [
       "string"
     ],
-    "hostGroupIds": [
+    "host_group_ids": [
       "string"
     ],
-    "deletionProtection": "bool",
-    "logGroupId": "string"
+    "deletion_protection": "bool",
+    "log_group_id": "string",
+    "environment": "Environment",
+    "autoscaling_service_account_id": "string"
   }
   // end of the list of possible fields
 }
@@ -111,13 +118,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -160,35 +167,41 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-ID of the Data Proc cluster that is being stopped. ||
+ID of the Yandex Data Processing cluster that is being stopped. ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
-|| labels | **string**
+Description of the cluster.
 
-Cluster labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -214,36 +227,45 @@ Cluster status.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the cluster resides. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
-|| uiProxy | **bool**
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
+|| ui_proxy | **bool**
 
 Whether UI Proxy feature is enabled. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | enum **Environment**
+
+Environment of the cluster
+
+- `PRODUCTION`
+- `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -262,13 +284,13 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig}
@@ -282,7 +304,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -296,19 +317,22 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| oslogin_enabled | **bool**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}

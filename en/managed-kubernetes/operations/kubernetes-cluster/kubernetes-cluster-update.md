@@ -7,32 +7,40 @@ description: Follow this guide to update a {{ managed-k8s-name }} cluster.
 
 {% include [yc-cluster-list](../../../_includes/managed-kubernetes/cluster-list.md) %}
 
-## Changing {{ managed-k8s-name }} clusters {#update-cluster}
+## Updating a {{ managed-k8s-name }} cluster {#update-cluster}
 
-You can change the following parameters of a [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster:
+{% note warning %}
+
+You can only assign a [public IP address](../../../vpc/concepts/address.md#public-addresses) when [creating](kubernetes-cluster-create.md) a {{ managed-k8s-name }} cluster. You cannot assign a public IP address to an existing cluster.
+
+{% endnote %}
+
+You can change the following parameters of a [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster):
 * Name.
 * Description.
 * [Service accounts](../../../iam/operations/sa/create.md).
-* [{{ k8s }}](../../concepts/release-channels-and-updates.md) version.
+* [Resource configuration](../../concepts/index.md#master-resources) for the master.
+* [{{ k8s }} version](../../concepts/release-channels-and-updates.md).
 * [Updates](../../concepts/release-channels-and-updates.md#updates) policy.
 * List of [security groups](../connect/security-groups.md).
 * Settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/).
 
   {% note alert %}
 
-  Do not delete the security groups bound to a running {{ managed-k8s-name }} cluster as this might result in disruptions in its operation and data loss.
+  Do not delete security groups associated with a running {{ managed-k8s-name }} cluster as this may disrupt its operation and result in data loss.
 
   {% endnote %}
 
-* Mask of the [{{ managed-k8s-name }} node](../../concepts/index.md#node-group) [subnet](../../../vpc/concepts/network.md#subnet).
+* [Subnet mask](../../../vpc/concepts/network.md#subnet) of the [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group).
 
   {% note warning %}
 
-  If you change the subnet mask of an active {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+  * If you change the subnet mask for a running {{ managed-k8s-name }} cluster, it may run out of CIDR blocks. In this case, you will not be able to deploy [pods](../../concepts/index.md#pod) on new node groups.
+  * After changing the subnet mask, you must recreate the cluster node groups.
 
   {% endnote %}
 
-To learn how to change a cluster's [availability zone](../../../overview/concepts/geo-scope.md), see [{#T}](../../tutorials/migration-to-an-availability-zone.md).
+Learn how to change a cluster [availability zone](../../../overview/concepts/geo-scope.md) in [{#T}](../../tutorials/migration-to-an-availability-zone.md).
 
 {% list tabs group=instructions %}
 
@@ -42,7 +50,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-  1. Change the required parameters in the window that opens.
+  1. Change the parameters in the window that opens.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -52,13 +60,13 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
   To update a {{ managed-k8s-name }} cluster:
-  1. View a description of the update {{ managed-k8s-name }} cluster CLI command:
+  1. View the description of the CLI command for updating a {{ managed-k8s-name }} cluster:
 
      ```bash
      {{ yc-k8s }} cluster update --help
      ```
 
-  1. Run the following command and provide a list of settings you want to change (not all settings are listed in the example below):
+  1. Run the following command providing a list of settings you want to change (not all settings are listed in the example below):
 
      ```bash
      {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
@@ -68,13 +76,13 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
        --service-account-name <name_of_service_account_for_resources> \
        --node-service-account-id <ID_of_service_account_for_{{ k8s }}_nodes> \
        --security-group-ids <list_of_security_group_IDs> \
-       --master-logging enabled=<sending_logs>,`
+       --master-logging enabled=<send_logs>,`
            `log-group-id=<log_group_ID>,`
            `folder-id=<folder_ID>,`
-           `kube-apiserver-enabled=<sending_kube-apiserver_logs>,`
-           `cluster-autoscaler-enabled=<sending_cluster-autoscaler_logs>,`
-           `events-enabled=<sending_{{ k8s }}_events>`
-           `audit-enabled=<sending_audit_events>
+           `kube-apiserver-enabled=<send_kube-apiserver_logs>,`
+           `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs>,`
+           `events-enabled=<send_{{ k8s }}_events>`
+           `audit-enabled=<send_audit_events>
      ```
 
      Where:
@@ -106,7 +114,7 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
      For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-     To edit the settings for sending logs to {{ cloud-logging-name }}, configure the `master_logging` section parameters. If there is no such section, create one.
+     To edit the settings for sending logs to {{ cloud-logging-name }}, update the `master_logging` section parameters. If there is no such section, create one.
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
@@ -122,19 +130,21 @@ To learn how to change a cluster's [availability zone](../../../overview/concept
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-     For more information, see the [{{ TF }}]({{ tf-provider-k8s-cluster }}) provider documentation.
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
-  To edit {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
+  To update {{ managed-k8s-name }} cluster parameters, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource.
 
-  To edit the settings for sending logs to {{ cloud-logging-name }}, configure their `masterSpec.masterLogging` parameter values.
+  To edit the settings for sending logs to {{ cloud-logging-name }}, update their values in the `masterSpec.masterLogging` parameter.
 
 {% endlist %}
 
 ## Managing {{ managed-k8s-name }} cluster cloud labels {#manage-label}
 
-You can perform the following actions with [{{ managed-k8s-name }} cluster cloud labels](../../concepts/index.md#node-labels):
+You can perform the following actions with [{{ managed-k8s-name }} cluster cloud labels](../../concepts/index.md#cluster-labels):
 
 * [Add](#add-label)
 * [Edit](#update-label)
@@ -143,6 +153,15 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 ### Adding a cloud label {#add-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Enter the key and value, and press **Enter**.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -171,6 +190,17 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  To update a cloud label, you will need to remove and recreate it:
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
+    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a key and/or value for the new label.
+    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   Run this command:
@@ -179,11 +209,7 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  {% note warning %}
-
-  The existing set of `labels` is completely overwritten by the one transmitted in the request.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   Result:
 
@@ -200,9 +226,17 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 {% endlist %}
 
-### Deleting a cloud label {#remove-label}
+### Removing a cloud label {#remove-label}
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster.
+    1. Click the name of the {{ managed-k8s-name }} cluster.
+    1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -222,5 +256,98 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
   name: k8s-demo
   ...
   ```
+
+{% endlist %}
+
+## Updating the master resource configuration {#manage-resources}
+
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**, expand the **Compute resources** section and select a [resource configuration](../../concepts/index.md#master-resources) for the master.
+
+      {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+      {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Specify the required master resource configuration in the cluster modification command:
+
+  ```bash
+  {{ yc-k8s }} cluster update <Managed_Service_for_Kubernetes_cluster_name> \
+    --master-scale-policy policy=auto,min-resource-preset-id=<master_host_class>
+  ```
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  Result:
+
+  ```text
+  done (1s)
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
+  ...
+  description: My test {{ k8s }} cluster
+  master:
+    scale_policy:
+      auto_scale:
+        min_resource_preset_id: <master_host_class>
+  ...
+  ```
+
+- {{ TF }} {#tf}
+
+  1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
+
+     For more information about creating this file, see [{#T}](kubernetes-cluster-create.md).
+
+  1. Add or update [the master computing resource](../../concepts/index.md#master-resources) configuration in the {{ managed-k8s-name }} cluster description in the `scale_policy` section:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<cluster_name>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<master_host_class>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
+
+- API {#api}
+
+  To update the master resource configuration, use the [Update](../../managed-kubernetes/api-ref/Cluster/update.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource and provide the `masterSpec.scalePolicy.autoScale.minResourcePresetId` parameter in the request.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 
 {% endlist %}

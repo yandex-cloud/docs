@@ -1,3 +1,8 @@
+---
+title: Практические руководства {{ sf-full-name }}
+description: В этом разделе собраны практические руководства для {{ sf-name }}.
+---
+
 # Практические руководства {{ sf-name }}
 
 * [{#T}](alice-skill.md)
@@ -22,9 +27,20 @@
 * [{#T}](nodejs-cron-restart-vm.md)
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](data-transfer-direct-to-mch.md)
-* [{#T}](vm-scale-scheduled.md)
+* [{#T}](vm-scale-scheduled/index.md)
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
 * [{#T}](iot-emulation.md)
-* [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](./events-from-postbox-to-yds.md)
+* [{#T}](./serverless-url-shortener.md)
+* [{#T}](data-from-tracker.md)
+* [{#T}](batch-code-execution.md)
+* [{#T}](recognizer-bot.md)
+* [{#T}](logging-functions.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](forms-and-datalens-integration/index.md)
+* [{#T}](ci-cd-sourcecraft-functions.md)
+* [{#T}](ci-cd-github-functions.md)
+* [{#T}](create-ai-agent-function.md)
+* [{#T}](streaming-openai-agent.md)
+* [{#T}](postbox-webhook.md)

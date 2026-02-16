@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the security group to move.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to move security group to.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/move.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Move {#Move}
+# Virtual Private Cloud API, REST: SecurityGroup.Move
 
 Moves security groups to another folder.
 
@@ -66,14 +93,14 @@ Required field. ID of the folder to move security group to. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "status": "string",
     "rules": [
       {
         "id": "string",
         "description": "string",
-        "labels": "string",
+        "labels": "object",
         "direction": "string",
         "ports": {
           "fromPort": "string",
@@ -224,7 +251,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the security group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.
@@ -262,7 +289,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)

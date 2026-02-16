@@ -1,8 +1,8 @@
 * первые 2 000 писем — бесплатно;
-* с 2 001 по 10 000 письмо (всего 8 000 писем) — по 79,00 ₽ за каждую 1 000 писем;
-* с 10 001 по 50 000 письмо (всего 40 000 писем) — по 69,00 ₽ за каждую 1 000 писем;
-* с 50 001 по 65 500 письмо (всего 15 500 писем) — по 59,00 ₽ за каждую 1 000 писем.
+* с 2 001 по 10 000 письмо (всего 8 000 писем) — по {{ sku|RUB|postbox.email.count.v1|pricingRate.2|string }} за каждую 1 000 писем;
+* с 10 001 по 50 000 письмо (всего 40 000 писем) — по {{ sku|RUB|postbox.email.count.v1|pricingRate.10|string }} за каждую 1 000 писем;
+* с 50 001 по 65 500 письмо (всего 15 500 писем) — по {{ sku|RUB|postbox.email.count.v1|pricingRate.50|string }} за каждую 1 000 писем.
 
 Сумма оплаты за 65 500 писем в месяц составит:
 
-> (8 × 79,00 ₽) + (40 × 69,00 ₽) + (15,5 × 59,00 ₽) = 4 306,50 ₽
+> (8 × {{ sku|RUB|postbox.email.count.v1|pricingRate.2|string }}) + (40 × {{ sku|RUB|postbox.email.count.v1|pricingRate.10|string }}) + (15,5 × {{ sku|RUB|postbox.email.count.v1|pricingRate.50|string }}) = {% calc [currency=RUB] (8 × {{ sku|RUB|postbox.email.count.v1|pricingRate.2|number }}) + (40 × {{ sku|RUB|postbox.email.count.v1|pricingRate.10|number }}) + (15,5 × {{ sku|RUB|postbox.email.count.v1|pricingRate.50|number }}) %}

@@ -52,7 +52,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
@@ -61,7 +60,6 @@
 * плата за использование {{ network-load-balancer-name }} (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-
 
 ## Настройте профиль CLI {#setup-profile}
 
@@ -416,13 +414,13 @@
 
    - CLI {#cli}
 
-      1. Посмотрите описание команды CLI для остановки ВМ:
+      1. Посмотрите описание команды CLI для запуска ВМ:
 
          ```bash
          yc compute instance start --help
          ```
 
-      1. Остановите ВМ:
+      1. Запустите ВМ:
 
          ```bash
          yc compute instance start nat-a

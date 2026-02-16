@@ -5,11 +5,10 @@ description: На странице представлен список поша�
 
 # Пошаговые инструкции для {{ cdn-name }}
 
-* [{#T}](./enable-provider.md)
-
 ## Ресурсы {#resources}
 
 * [{#T}](resources/create-resource.md)
+* [{#T}](resources/copy-resource.md)
 * [{#T}](resources/configure-basics.md)
 * [{#T}](resources/get-resources-info.md)
 * [{#T}](resources/configure-caching.md)
@@ -23,9 +22,12 @@ description: На странице представлен список поша�
 * [{#T}](resources/enable-segmentation.md)
 * [{#T}](resources/enable-shielding.md)
 * [{#T}](resources/setup-http-rewrite.md)
+* [{#T}](resources/setup-follow-redirects.md)
+* [{#T}](resources/hiding-headers.md)
 * [{#T}](resources/enable-secure-token.md)
-* [{#T}](resources/configure-additions.md)
+* [{#T}](resources/location-rules.md)
 * [{#T}](resources/disable-resource.md)
+* [{#T}](resources/labeling.md)
 * [{#T}](resources/delete-resource.md)
 * [{#T}](resources/get-stats.md)
 

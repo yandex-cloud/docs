@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}:remove-cidr-blocks
+    method: post
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the Subnet resource that is being updated.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        v4CidrBlocks:
+          description: |-
+            **string**
+            CIDR block.
+            The range of internal addresses that are removed from this subnet.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/removeCidrBlocks.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks {#RemoveCidrBlocks}
+# Virtual Private Cloud API, REST: Subnet.RemoveCidrBlocks
 
 Removes CIDR blocks from the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -70,7 +98,7 @@ The range of internal addresses that are removed from this subnet. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "zoneId": "string",
     "v4CidrBlocks": [
@@ -219,7 +247,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

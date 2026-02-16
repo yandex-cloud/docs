@@ -9,13 +9,10 @@ You can [customize redirection](../operations/resources/setup-http-rewrite.md) o
 
 For example, you can use this option to reconfigure content request paths if the file and folder structure of the [origin](./origins.md) has changed. You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
 
-You can enable request redirection for a CDN resource using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/managed-services/cdn/resource/update.md), or [API](../api-ref/Resource/update.md).
+You can enable request redirection for a CDN resource using the [management console]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), or [API](../api-ref/Resource/update.md).
 
 To configure request redirection, you need to set a [rewrite rule](#rewrite-rule) and specify a [flag](#flag).
 
-For more information about redirecting requests, see the documentation of the EdgeCenter CDN provider:
-* [Rewrite. Configuring request redirection](https://edgecenter.ru/knowledge-base/cdn/cdn-rewrite?c=17)
-* [API documentation](https://apidocs.edgecenter.ru/cdn#tag/Resources/operation/change_cdn_resource)
 
 ## Rewrite rule {#rewrite-rule}
 
@@ -43,6 +40,13 @@ A rewrite rule must contain two space-separated directives:
 Flags allow you to stop further processing of `Rewrite` directives or return `redirect` to the user. The following flags are available for `Rewrite` rules:
 
 {% include [rewrite-flag-list](../../_includes/cdn/rewrite-flag-list.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+
 
 #### See also {#see-also}
 

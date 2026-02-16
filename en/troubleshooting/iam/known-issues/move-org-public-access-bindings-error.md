@@ -1,15 +1,16 @@
-# Resolving Issues when transferring a cloud between organizations
+# Fixing the `publicAccessBindings` error when moving a cloud to a different organization
+
+
 
 ## Issue description {#issue-description}
 
-When transferring a cloud between different organizations, you see this error message: `publicAccessBindings`.
+When moving a cloud to a different organization, you get the `publicAccessBindings` error message.
 
 ## Solution {#issue-resolution}
 
-This error arises due to a mismatch in the user list between the source and new organizations.
-During the transfer, the system tries to maintain existing rights for the cloud, but fails to do this because users from the old organization do not have membership or proper rights for the new one.
+This error occurs due to a mismatch in the user list between the source organization and the new one. During the transfer, the system tries to maintain the existing permissions for the cloud but fails to do this because users from the old organization do not have membership or the appropriate permissions for the new one.
 
-You can choose one of the options:
+To resolve the issue, you have two options:
 
-1. Remove these users' rights to the ump-group cloud and transfer the cloud to the new organization
-2. Add the users to the new organization and then move the cloud.
+1. Remove these users' permissions for the cloud and move the cloud to the new organization.
+1. Add the users to the new organization, and then move the cloud.

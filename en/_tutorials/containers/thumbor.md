@@ -3,7 +3,7 @@
 
 [Thumbor](https://thumbor.readthedocs.io/en/latest/) is an [open-source](https://github.com/thumbor/thumbor) project for on-demand image processing. Thumbor provides basic settings for editing images. For example, you can use it to resize the original image, increase its contrast ratio, or remove the red-eye effect.
 
-Thumbor is a convenient tool you can use to prepare images for websites, e.g., to create thumbnails for video previews. Thumbor supports image caching. This allows you to reduce labor costs for your website support.
+Thumbor is a convenient tool you can use to make images for websites, e.g., to create thumbnails for video previews. Thumbor supports image caching. This allows you to reduce labor costs for your website support.
 
 In the example below, images are posted to a website and edited using Thumbor. The edit includes resizing and adding a watermark. To upload images faster, a CDN is configured for the website using [{{ cdn-full-name }}](../../cdn/concepts/index.md).
 
@@ -16,29 +16,41 @@ To edit images using Thumbor and enable the CDN:
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
+
+## Required paid resources {#paid-resources}
+
+The support cost for this solution includes:
+
+* Fee for using the master and outgoing traffic in a {{ managed-k8s-name }} cluster (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Fee for using computing resources, OS, and storage in cluster nodes (VMs) (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* Fee for a public IP address assigned to cluster nodes (see [{{ vpc-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for {{ cdn-name }}: Outbound traffic (see [{{ objstorage-name }} pricing](../../cdn/pricing.md)).
+
+
 ## Getting started {#before-you-begin}
 
-### Prepare the infrastructure {#infra}
+### Set up your infrastructure {#infra}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-   1. [Create service accounts](../../iam/operations/sa/create.md):
+   1. [Create these service accounts](../../iam/operations/sa/create.md):
 
-      * Service account for resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
+      * Service account for the resources with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../managed-kubernetes/security/index.md#yc-api) for the folder where the {{ managed-k8s-name }} cluster is being created. This service account will be used to create resources for the {{ managed-k8s-name }} cluster.
 
-      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry on behalf of this account.
+      * Service account for nodes with the [{{ roles-cr-puller }}](../../container-registry/security/index.md#required-roles) role for the folder with the Docker image [registry](../../container-registry/concepts/registry.md). The nodes will pull Docker images from the registry under this account.
 
          You can use the same service account for both operations.
 
-      * `thumbor-sa` service account for Thumbor.
+      * The `thumbor-sa` service account for Thumbor.
 
    1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-      {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. When creating them, specify the security groups prepared in advance.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. When creating it, specify the preconfigured security groups.
    1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}.
    1. [Grant the `thumbor-sa` service account](../../storage/operations/objects/edit-acl.md) the `READ` permission for the bucket.
 
@@ -55,23 +67,23 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
       * Network.
       * Subnet.
-      * Service accounts for different services:
+      * Service accounts for various services:
 
-         * For {{ managed-k8s-name }} cluster and node group.
+         * For the {{ managed-k8s-name }} cluster and node group.
          * For Thumbor.
-         * To create {{ objstorage-name }} buckets.
+         * For creating {{ objstorage-name }} buckets.
 
       * {{ managed-k8s-name }} cluster.
       * Node group.
-
+      
       * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
       * Static access key for bucket creation.
       * Bucket.
 
-   1. In `k8s-for-thumbor.tf`, specify:
+   1. In `k8s-for-thumbor.tf`, specify the following:
 
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
       * [{{ k8s }} version](../../managed-kubernetes/concepts/release-channels-and-updates.md) for the {{ managed-k8s-name }} cluster and node groups.
@@ -105,7 +117,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [certificate-usage](../../_includes/cdn/certificate-usage.md) %}
 
-For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
 
 
 ## Install Thumbor {#install}
@@ -117,7 +129,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       --format json > sa-key.json
    ```
 
-1. [Install Thumbor](../../managed-kubernetes/operations/applications/thumbor.md) with the following parameters:
+1. [Install Thumbor](../../managed-kubernetes/operations/applications/thumbor.md) with the following settings:
 
    * **Namespace**: `thumbor`.
    * **Application name**: `thumbor`.
@@ -147,20 +159,20 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
       1. Refresh the page.
 
-      In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+      In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 
    - {{ TF }} {#tf}
 
       You can only upload objects to a bucket after you create it. Therefore, a separate configuration file is used for uploading images.
 
-      1. Download the `images-for-thumbor.tf` configuration file to the working directory containing the [k8s-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) file. This file describes {{ objstorage-name }} objects, i.e., downloaded images to be uploaded to the bucket.
-      1. Specify relative or absolute paths to the images in the `images-for-thumbor.tf` file. For example, if your images are stored in the same directory as the configuration files, specify:
+      1. Download the [images-for-thumbor.tf](https://github.com/yandex-cloud-examples/yc-mk8s-thumbor/blob/main/images-for-thumbor.tf) configuration file to the working directory containing the `k8s-for-thumbor.tf` file. This file describes {{ objstorage-name }} objects, i.e., the images you downloaded to upload to the bucket.
+      1. In the `images-for-thumbor.tf` file, specify relative or absolute paths to the images. For example, if your images are stored in the same directory as the configuration files, specify:
 
          * `poster_rodents_bunnysize.jpg`
          * `poster_bunny_bunnysize.jpg`
          * `cc.xlarge.png`
 
-      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use the provider resources and data sources.
+      1. Run the `terraform init` command in the directory with the configuration files. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
       1. Make sure the {{ TF }} configuration file is correct using this command:
 
          ```bash
@@ -179,36 +191,6 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
 ## Configure the CDN {#cdn}
 
-1. Activate a CDN provider for your folder:
-
-   ```bash
-   yc cdn provider activate --type=gcore --folder-id=<folder_ID>
-   ```
-
-1. Get the CDN provider's domain name:
-
-   ```bash
-   yc cdn resource get-provider-cname
-   ```
-
-   Result example:
-
-   ```text
-   cname: {{ cname-example }}
-   folder_id: {{ folder-id-example }}
-   ```
-
-   The domain name is specified in the `cname` parameter.
-
-1. Configure a CNAME record for your domain:
-
-   1. Go to your domain's DNS settings on the site of your DNS hosting provider.
-   1. Prepare a CNAME record so that it points to the previously copied address on the `.edgecdn.ru` domain. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
-
-      ```http
-      cdn CNAME {{ cname-example }}.
-      ```
-
 1. Get Thumbor's external IP address:
 
    ```bash
@@ -224,7 +206,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
       --origin source=<Thumbor_IP_address>,enabled=true
    ```
 
-   Result example:
+   Example of the result:
 
    ```text
    id: "123***"
@@ -254,7 +236,7 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
 
    Resource domain name example: `{{ domain-name-example }}`
 
-   Result example:
+   Example of the result:
 
    ```text
    id: bc855oumelrq********
@@ -288,7 +270,18 @@ For a Let's Encrypt® certificate, have your [rights checked](../../certificate-
      status: CREATING
    ```
 
-   It takes 15 to 30 minutes to connect a CDN resource.
+   It takes 15 to 30 minutes to connect a CDN resource.
+
+1. On the CDN resource page in the [management console]({{ link-console-main }}), get the CDN provider's domain name, e.g., `{{ cname-example-yc }}`.
+
+1. Configure a CNAME record for your domain:
+
+   1. Navigate to your domain’s DNS settings on your DNS hosting provider’s website.
+   1. Prepare a CNAME record so that it points to the address on the `.yccdn.cloud.yandex.net` domain you copied earlier. For example, if the website domain name is `{{ domain-name-example }}`, create a CNAME record or replace an existing one for `cdn`:
+
+      ```http
+      cdn CNAME {{ cname-example-yc }}.
+      ```
 
 ## Check the result {#check-result}
 
@@ -305,51 +298,25 @@ You will see the prepared images of different sizes. Each image carries a [Creat
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
-{% list tabs group=instructions %}
+1. [Delete all objects](../../storage/operations/objects/delete.md) from the buckets.
+1. Delete the other resources depending on how you created them:
 
-- Manually {#manual}
+    {% list tabs group=instructions %}
 
-   Delete:
+    - Manually {#manual}
 
-   1. [CDN resource](../../cdn/operations/resources/delete-resource.md).
-   1. [CDN origin group](../../cdn/operations/origin-groups/delete-group.md).
-   1. [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. [Public static IP](../../vpc/operations/address-delete.md) if you reserved one for the cluster.
-   1. [Service accounts](../../iam/operations/sa/delete.md).
-   1. [Buckets](../../storage/operations/buckets/delete.md) and [objects in them](../../storage/operations/objects/delete.md).
+        1. [CDN resource](../../cdn/operations/resources/delete-resource.md).
+        1. [CDN origin group](../../cdn/operations/origin-groups/delete-group.md).
+        1. [Node group](../../managed-kubernetes/operations/node-group/node-group-delete.md).
+        1. [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        1. [Public static IP](../../vpc/operations/address-delete.md) if you reserved one for the cluster.
+        1. [Service accounts](../../iam/operations/sa/delete.md).
+        1. [Buckets](../../storage/operations/buckets/delete.md).
 
-- {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `images-for-thumbor.tf` configuration file. To delete a bucket, first delete the objects in it.
-   1. Check if the changes are correct using this command:
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   1. Delete the `k8s-for-thumbor.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `k8s-for-thumbor.tf` configuration file will be deleted.
-
-{% endlist %}
+    {% endlist %}

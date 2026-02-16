@@ -1,14 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}
+    method: get
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway to return.
+            To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/get.md
 ---
 
-# API Gateway Service, REST: ApiGateway.Get {#Get}
+# API Gateway Service, REST: ApiGateway.Get
 
 Returns the specified API gateway. Note that only API gateway basic attributes are returned.
-To get associated openapi specification, make a [GetOpenapiSpec](#GetOpenapiSpec) request.
+To get associated openapi specification, make a [GetOpenapiSpec](/docs/api-gateway/apigateway/api-ref/ApiGateway/getOpenapiSpec#GetOpenapiSpec) request.
 
-To get the list of all available API gateways, make a [List](/docs/functions/api-gateway/api-ref/ApiGateway/list#List) request.
+To get the list of all available API gateways, make a [List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request.
 
 ## HTTP request
 
@@ -24,7 +42,7 @@ GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{api
 
 Required field. ID of the API gateway to return.
 
-To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gateway/api-ref/ApiGateway/list#List) request. ||
+To get a API gateway ID make a [ApiGatewayService.List](/docs/api-gateway/apigateway/api-ref/ApiGateway/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.serverless.apigateway.v1.ApiGateway}
@@ -38,7 +56,7 @@ To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gate
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "domain": "string",
   "logGroupId": "string",
@@ -64,24 +82,10 @@ To get a API gateway ID make a [ApiGatewayService.List](/docs/functions/api-gate
     // end of the list of possible fields
     "minLevel": "string"
   },
-  "variables": {
-    // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-    "stringValue": "string",
-    "intValue": "string",
-    "doubleValue": "string",
-    "boolValue": "boolean"
-    // end of the list of possible fields
-  },
+  "variables": "object",
   "canary": {
     "weight": "string",
-    "variables": {
-      // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-      "stringValue": "string",
-      "intValue": "string",
-      "doubleValue": "string",
-      "boolValue": "boolean"
-      // end of the list of possible fields
-    }
+    "variables": "object"
   },
   "executionTimeout": "string"
 }
@@ -111,19 +115,19 @@ Name of the API gateway. The name is unique within the folder. ||
 || description | **string**
 
 Description of the API gateway. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 API gateway labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the API gateway.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: API gateway is being created.
 - `ACTIVE`: API gateway is ready for use.
 - `DELETING`: API gateway is being deleted.
 - `ERROR`: API gateway failed. The only allowed action is delete.
-- `UPDATING`: API gateway is being updated. ||
+- `UPDATING`: API gateway is being updated.
+- `STOPPED`: API gateway stopped. ||
 || domain | **string**
 
 Default domain for the API gateway. Generated at creation time. ||
@@ -139,7 +143,7 @@ Network access. If specified the gateway will be attached to specified network/s
 || logOptions | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
 
 Options for logging from the API gateway. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
 Values of variables defined in the specification. ||
 || canary | **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
@@ -211,9 +215,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -266,8 +267,12 @@ Variable value that can has only primitive type ||
 ||Field | Description ||
 || weight | **string** (int64)
 
-It describes percentage of requests, which will be processed by canary. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+It describes percentage of requests, which will be processed by canary.
 
-Values specification variables, associated with canary. ||
+Acceptable values are 0 to 99, inclusive. ||
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+
+Values specification variables, associated with canary.
+
+More than 0 per resource. ||
 |#

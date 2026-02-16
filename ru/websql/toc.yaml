@@ -10,11 +10,25 @@ items:
       - name: Создание подключения
         href: operations/create-connection.md
       - name: Управление подключениями
-        href: operations/connect.md
-      - name: Просмотр информации об объектах в базе данных
-        href: operations/view-db-objects-info.md
+        items:
+          - name: Все инструкции
+            href: operations/connect.md
+          - name: Просмотр информации о ресурсах
+            href: operations/view-resources-info.md
+          - name: Просмотр информации об объектах в базе данных
+            href: operations/view-db-objects-info.md
+          - name: Изменение настроек подключения
+            href: operations/change-connection-settings.md
+          - name: Обновление подключения
+            href: operations/update-connection.md
+          - name: Добавление подключения к БД в кластере
+            href: operations/add-connection-to-db-in-cluster.md
+          - name: Удаление подключения
+            href: operations/delete-connection.md
       - name: Работа с редактором запросов
         href: operations/query-executor.md
+      - name: Аналитика и оптимизация с помощью AI-ассистента
+        href: operations/ai-assistant.md
       - name: Работа с сохраненными запросами
         href: operations/templates.md
       - name: Работа с историей запросов
@@ -25,15 +39,13 @@ items:
         href: concepts/index.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Правила тарификации
-    href: pricing.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
     items:
       - name: Все изменения
         href: release-notes/index.md
-base: ru/websql
-deepBase: 2

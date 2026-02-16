@@ -7,11 +7,13 @@ description: Различные сценарии использования {{ m
 
 * [{#T}](./data-migration.md)
 * [{#T}](./config-server-for-s3.md)
+* [{#T}](pxf-named-queries.md)
 * [{#T}](./greenplum-to-postgresql.md)
 * [{#T}](./greenplum-to-clickhouse.md)
 * [{#T}](mmy-to-mgp.md)
 * [Выгрузка данных кластера в холодное хранилище {{ objstorage-full-name }}](yezzey.md)
 * [{#T}](object-storage-to-greenplum.md)
+* [{#T}](opensearch-to-greenplum.md)
 * [{#T}](./managed-kafka-to-greenplum.md)
 
 ## Поставка данных c помощью {{ data-transfer-name }} {#data-transfer}

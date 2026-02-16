@@ -1,4 +1,4 @@
-# Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+# Репликация логов в {{ objstorage-full-name }} с помощью Fluent Bit
 
 
 Агрегаторы данных позволяют транслировать данные, такие как логи, с [виртуальных машин](../../compute/concepts/vm.md) в сервисы просмотра логов и хранения данных.
@@ -8,7 +8,7 @@
 Решение, которое описано ниже, работает по следующей схеме:
 1. На рабочей ВМ запущен Fluent Bit как [systemd](https://ru.wikipedia.org/wiki/Systemd)-модуль.
 1. Fluent Bit собирает логи в соответствии с настройками конфигурации и отправляет их в [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} по протоколу [Amazon Kinesis Data Streams](https://aws.amazon.com/ru/kinesis/data-streams/).
-1. В рабочем каталоге настроен [трансфер](../../data-transfer/concepts/#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
+1. В рабочем каталоге настроен [трансфер](../../data-transfer/concepts/index.md#transfer) {{ data-transfer-name }}, который забирает данные из потока и сохраняет в [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}.
 
 Чтобы настроить репликацию логов:
 
@@ -27,18 +27,22 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки хранения данных входит:
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
-* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+    * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
+
+* База данных {{ ydb-name }}, работающая в бессерверном режиме: операции с данными, объем хранимых данных и резервных копий (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
 
 ## Настройте окружение {#setup}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), например `logs-sa`, с ролью `editor` на каталог.
-1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта. Сохраните идентификатор и секретный ключ. Они понадобятся, чтобы авторизоваться в AWS.
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор и секретный ключ. Они понадобятся, чтобы авторизоваться в AWS.
 1. [Создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts). В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, который создали на предыдущем шаге.
 1. [Подключитесь к ВМ](../../compute/operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 1. Установите на ВМ утилиту [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
@@ -174,9 +178,9 @@
 
 {% include [check-ingestion](../_tutorials_includes/check-ingestion.md) %}
 
-## Как удалить созданные ресурсы {#clear-out}
+## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).

@@ -30,17 +30,25 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
-  1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания инстанса у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](security/index.md#roles-list).
+  1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать инстанс.
+
+      {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 
 ## Создайте инстанс {#instance-create}
+
+{% include [warn-subnet](../_includes/managed-gitlab/warn-subnet.md) %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   {% include [instance-create-console](../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 
@@ -71,7 +79,21 @@ description: Следуя данной инструкции, вы сможете
 
 1. Создайте пару из открытого и закрытого SSH-ключей для аккаунта в {{ GL }}:
 
-   {% include [vm-ssh-prepare-key](../_includes/vm-ssh-prepare-key.md) %}
+    {% list tabs group=operating_system %}
+
+    - Linux/macOS {#linux-macos}
+
+      {% include [vm-ssh-prepare-key-linux-macos](../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+    - Windows 10/11 {#windows}
+
+      {% include [vm-ssh-prepare-key-win-10-11](../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+    - Windows 7/8 {#windows7-8}
+
+      {% include [vm-ssh-prepare-key-win-7-8](../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+    {% endlist %}
 
 1. {% include [turn-on-ssh-agent](../_includes/turn-on-ssh-agent.md) %}
 1. Добавьте ключ в SSH-агент:

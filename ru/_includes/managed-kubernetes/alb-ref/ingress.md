@@ -1,7 +1,8 @@
 # Поля и аннотации ресурса Ingress
 
-
 В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами {{ k8s }}. По этим правилам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../../../application-load-balancer/concepts/http-router.md). [Сервисы](../../../application-load-balancer/k8s-ref/service-for-ingress.md), выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
 `Ingress` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
@@ -94,8 +95,19 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: <string>
   ingress.alb.yc.io/modify-header-response-rename: <string>
   ingress.alb.yc.io/modify-header-response-remove: <string>
+  ingress.alb.yc.io/modify-header-request-append: <string>
+  ingress.alb.yc.io/modify-header-request-replace: <string>
+  ingress.alb.yc.io/modify-header-request-rename: <string>
+  ingress.alb.yc.io/modify-header-request-remove: <string>
   ingress.alb.yc.io/security-profile-id: <string>
   ingress.alb.yc.io/use-regex: <string>
+  ingress.alb.yc.io/balancing-panic-threshold: <string>
+  ingress.alb.yc.io/balancing-locality-aware-routing: <string>
+  ingress.alb.yc.io/autoscale-max-size: <string>
+  ingress.alb.yc.io/autoscale-min-zone-size: <string>
+  ingress.alb.yc.io/session-affinity-header: <string>
+  ingress.alb.yc.io/session-affinity-cookie: <string>
+  ingress.alb.yc.io/session-affinity-connection: <string>
 ```
 
 #|
@@ -109,7 +121,21 @@ annotations:
 
 ### Аннотации (metadata.annotations) {#annotations}
 
-Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`. Подробнее об аннотациях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Аннотации — это коллекция пар `ключ:значение`, которые используются для присвоения метаданных объекту. Значения аннотаций всегда имеют тип данных `string`.
+
+Значением аннотации могут быть несколько пар `<ключ>=<значение>`, перечисленные через запятую:
+
+  ```yaml
+  аннотация: <ключ>=<значение>,<ключ>=<значение>,<ключ>=<значение>
+  ```
+
+При этом одному ключу может соответствовать несколько значений. Например, чтобы добавить заголовок ответа `X-Robots` со значением `noarchive,nofollow,noindex`, запишите аннотацию так:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
+  ```
+
+Подробнее об аннотациях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
@@ -314,6 +340,55 @@ annotations:
 
   Где `<ключ>` — имя удаляемого заголовка.
 
+* **ingress.alb.yc.io/modify-header-request-append** {#annot-modify-header-request-append}
+
+  Добавляет строку к значению заголовка запроса. Заголовок и строка указываются в формате:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-append: <ключ>=<значение>
+  ```
+
+  Где:
+
+    * `<ключ>` — имя изменяемого заголовка.
+    * `<значение>` — строка, которая будет добавлена к значению заголовка.
+
+* **ingress.alb.yc.io/modify-header-request-replace** {#annot-modify-header-request-replace}
+
+  Заменяет значение заголовка запроса. Заголовок и его новое значение указываются в формате:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-replace: <ключ>=<значение>
+  ```
+
+  Где:
+
+    * `<ключ>` — имя изменяемого заголовка.
+    * `<значение>` — новое значение заголовка.
+
+* **ingress.alb.yc.io/modify-header-request-rename** {#annot-modify-header-request-rename}
+
+  Переименовывает заголовок запроса. Заголовок и его новое имя указываются в формате:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-rename: <ключ>=<значение>
+  ```
+
+  Где:
+
+    * `<ключ>` — имя изменяемого заголовка.
+    * `<значение>` — новое имя заголовка.
+
+* **ingress.alb.yc.io/modify-header-request-remove** {#annot-modify-header-request-remove}
+
+  Удаляет заголовок запроса. Заголовок для удаления указывается в формате:
+
+  ```yaml
+  ingress.alb.yc.io/modify-header-request-remove: <ключ>=true
+  ```
+
+  Где `<ключ>` — имя удаляемого заголовка.
+
 * **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
 
   Включает поддержку сервиса [{{ sws-full-name }}](../../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
@@ -326,6 +401,67 @@ annotations:
 
   Включает поддержку регулярных выражений стандарта [RE2](https://github.com/google/re2/wiki/Syntax) при сопоставлении пути запроса, если передана строка `true`. Применимо только если для параметра `pathType` указано значение `Exact`.
 
+* **ingress.alb.yc.io/balancing-panic-threshold** {#annot-panic-threshold}
+
+  Задает пороговое значения для активации [режима паники](../../../application-load-balancer/concepts/backend-group.md#panic-mode). Режим включится, если процент работоспособных эндпоинтов опустится ниже указанного значения.
+
+  Значение по умолчанию — `0`, при котором режим паники не активируется никогда.
+
+* **ingress.alb.yc.io/balancing-locality-aware-routing** {#annot-locality}
+
+   Задает процент входящего трафика, который балансировщик передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами.
+
+   Значение по умолчанию — `0`.
+
+   [Подробнее о локализации трафика](../../../application-load-balancer/concepts/backend-group.md#locality).
+
+* **ingress.alb.yc.io/autoscale-max-size** {#annot-autoscale-max-size}
+
+  Задает максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне. 
+  
+  [Подробнее о настройках автомасштабирования](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+* **ingress.alb.yc.io/autoscale-min-zone-size** {#annot-autoscale-min-zone-size}
+
+  Задает минимальное количество ресурсных единиц в каждой зоне доступности. Минимальное значение и значение по умолчанию — `2`.
+  
+  [Подробнее о настройках автомасштабирования](../../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
+
+* **ingress.alb.yc.io/session-affinity-header** {#annot-session-affinity-header}
+
+  HTTP-заголовок для [привязки сессий](../../../application-load-balancer/concepts/backend-group.md#session-affinity).
+
+  * `name` — имя HTTP-заголовка.
+
+* **ingress.alb.yc.io/session-affinity-cookie** {#annot-session-affinity-cookie}
+
+  Параметры cookie для привязки сессий.
+
+  * `name` — имя cookie.
+
+  * `ttl` — время жизни cookie. Значение следует указывать с единицами измерения, например: `300ms`, `1.5h`. Допустимые единицы измерения:
+    * `ns` — наносекунды.
+    * `us` — микросекунды.
+    * `ms` — миллисекунды.
+    * `s` — секунды.
+    * `m` — минуты.
+    * `h` — часы.
+
+  Параметры перечисляются через запятую. Пример:
+
+  ```
+  ...
+  annotations:
+    ingress.alb.yc.io/session-affinity-cookie: name=X-Example,ttl=30m
+    ...
+  ```
+
+* **ingress.alb.yc.io/session-affinity-connection** {#annot-session-affinity-connection}
+
+  Признак использования IP-адреса клиента для привязки сессий.
+
+  * `source-ip` — значение `true` или `false`.
+
 ## IngressSpec {#spec}
 
 ```yaml
@@ -335,6 +471,9 @@ tls:
   - ...
 rules:
   - <IngressRule>
+  - ...
+defaultBackend:
+  - <IngressBackend>
   - ...
 ```
 
@@ -351,20 +490,21 @@ rules:
 Если поле не указано, для балансировщика будут созданы только обработчики для приема HTTP-трафика на порте 80.
 ||
 
-|| `rules` | `[]IngressRule`  | **Обязательное**.
-[Список правил](#rule) распределения входящего трафика по бэкендам в зависимости от доменного имени (поле `host`) и запрашиваемого ресурса (поле `http.paths`).
+|| `rules` | `[]IngressRule`  | [Список правил](#rule) распределения входящего трафика по бэкендам в зависимости от доменного имени (поле `host`) и запрашиваемого ресурса (поле `http.paths`).
 
 В {{ alb-name }} правила соответствуют [виртуальным хостам](../../../application-load-balancer/concepts/http-router.md#virtual-host) HTTP-роутеров.
+
+Если правила не определены, необходимо указать [бэкенд по умолчанию](#default-backend) — трафик будет перенаправляться на него.
 ||
 |#
 
 ### IngressTLS {#tls}
 
 ```yaml
-hosts:
-  - <string>
-  - ...
-secretName: <string>
+- hosts:
+    - <string>
+    - ...
+  secretName: <string>
 ```
 
 #|
@@ -390,12 +530,12 @@ secretName: <string>
 ### IngressRule {#rule}
 
 ```yaml
-host: <string>
-http:
-  paths:
-    - path: <string>
-      pathType: <string>
-      backend: <IngressBackend>
+- host: <string>
+  http:
+    paths:
+      - path: <string>
+        pathType: <string>
+        backend: <IngressBackend>
 ```
 
 В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
@@ -497,6 +637,59 @@ resource:
 
 ||
 |#
+
+### DefaultBackend {#default-backend}
+
+Бэкенд по умолчанию, на который перенаправляется трафик, когда [правила](#rule) распределения входящего трафика по бэкендам не заданы. Если в описании `Ingress` нет поля `spec.rules`, то должно быть поле `spec.defaultBackend`.
+
+Если доменное имя и запрашиваемый ресурс не соответствуют тем, что указаны в правилах, трафик также перенаправляется на бэкенд по умолчанию.
+
+Поле `spec.defaultBackend` указывает либо на сервис-бэкенд (`service`), либо на группу бэкендов (`resource`) и заполняется так же, как [IngressBackend](#backend).
+
+{% cut "Пример `spec.defaultBackend.service`" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: testapp-ingress-with-default-backend
+  namespace: testapp-ns
+  annotations:
+    ...
+spec:
+  defaultBackend:
+    service:
+      name: testapp-service
+      port:
+        name: http
+```
+
+{% endcut %}
+
+{% cut "Пример `spec.defaultBackend.resource`" %}
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-1
+  annotations:
+    ...
+spec:
+  defaultBackend:
+    resource:
+      apiGroup: alb.yc.io
+      kind: HttpBackendGroup
+      name: bg-with-bucket
+```
+
+{% endcut %}
+
+{% note warning %}
+
+Для одной группы ресурсов `Ingress` (с одинаковым значением аннотации [ingress.alb.yc.io/group-name](#annot-group-name)) можно задать только один бэкенд по умолчанию.
+
+{% endnote %}
 
 ## IngressGroupSettings {#groupsettings}
 

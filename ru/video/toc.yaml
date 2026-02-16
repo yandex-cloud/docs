@@ -1,6 +1,5 @@
 title: Yandex Cloud Video
 href: index.yaml
-stage: preview
 items:
   - name: Начало работы
     items:
@@ -22,14 +21,24 @@ items:
             href: operations/channels/update.md
           - name: Удалить канал
             href: operations/channels/delete.md
+          - name: Настроить канал и рекламу
+            href: operations/channels/settings.md
       - name: Видео
         items:
           - name: Загрузить видео
             href: operations/video/upload.md
           - name: Изменить видео
             href: operations/video/update.md
+          - name: Добавить таймкоды
+            href: operations/video/add-timecodes.md
+          - name: Добавить обложку
+            href: operations/video/add-thumbnail.md
           - name: Управлять субтитрами
             href: operations/video/subtitles.md
+          - name: Управлять нейропереводом
+            href: operations/video/translation.md
+          - name: Управлять суммаризацией
+            href: operations/video/summarization.md
           - name: Скачать видео
             href: operations/video/download.md
           - name: Опубликовать видео
@@ -58,8 +67,12 @@ items:
             href: operations/streams/create.md
           - name: Изменить трансляцию
             href: operations/streams/update.md
+          - name: Добавить обложку
+            href: operations/streams/add-thumbnail.md
           - name: Получить адрес сервера и ключ трансляции
             href: operations/streams/get-key.md
+          - name: Рекомендации по настройке OBS Studio
+            href: operations/streams/obs-config-help.md
           - name: Начать трансляцию
             href: operations/streams/start.md
           - name: Получить код вставки или ссылку
@@ -80,6 +93,10 @@ items:
             href: operations/playlists/delete.md
       - name: Добавить участника
         href: operations/add-member.md
+  - name: Практические руководства
+    items:
+      - name: Готовые решения по оформлению видео в IFrame
+        href: tutorials/video-iframe.md
   - name: Концепции
     items:
       - name: Обзор
@@ -90,6 +107,8 @@ items:
         href: concepts/streams.md
       - name: Плейлисты
         href: concepts/playlists.md
+      - name: Шаблоны плеера
+        href: concepts/presets.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Видеоплеер
@@ -99,14 +118,36 @@ items:
         href: concepts/player.md
       - name: Управление
         href: operations/player-control.md
-      - name: Решение проблем
-        href: troubleshooting.md
+      - name: Шаблоны плеера
+        items:
+          - name: Создать шаблон
+            href: operations/style-presets/create.md
+          - name: Изменить или дублировать шаблон
+            href: operations/style-presets/update.md
+          - name: Получить информацию о шаблоне
+            href: operations/style-presets/get.md
+          - name: Назначить шаблон по умолчанию
+            href: operations/style-presets/set-default.md
+          - name: Выбрать шаблон
+            href: operations/style-presets/assign-to-video.md
+          - name: Удалить шаблон
+            href: operations/style-presets/delete.md
       - name: SDK
         items:
           - name: Обзор
             href: sdk/index.md
           - name: IFrame
-            href: iframe-sdk.md
+            items:
+              - name: Начало работы
+                href: sdk/iframe/index.md
+              - name: Параметры инициализации плеера
+                href: sdk/iframe/initialization.md
+              - name: Методы плеера
+                href: sdk/iframe/player-methods.md
+              - name: События плеера
+                href: sdk/iframe/player-events.md
+          - name: iOS
+            href: sdk/ios-sdk.md
           - name: JavaScript
             items:
               - name: Начало работы
@@ -142,6 +183,11 @@ items:
                         href: api-ref/javascript/interfaces/PlayerSdkSourceParams.md
                       - name: PlayerSdkState
                         href: api-ref/javascript/interfaces/PlayerSdkState.md
+      - name: Защищенный контент
+        hidden: true
+        href: troubleshooting-drm.md
+      - name: Политика автозапуска браузеров
+        href: autoplay-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -170,6 +216,14 @@ items:
                 href: api-ref/grpc/Channel/update.md
               - name: Delete
                 href: api-ref/grpc/Channel/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Channel/batchDelete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Channel/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Channel/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Channel/updateAccessBindings.md
           - name: Episode
             items:
               - name: Overview
@@ -178,12 +232,16 @@ items:
                 href: api-ref/grpc/Episode/get.md
               - name: List
                 href: api-ref/grpc/Episode/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Episode/batchGet.md
               - name: Create
                 href: api-ref/grpc/Episode/create.md
               - name: Update
                 href: api-ref/grpc/Episode/update.md
               - name: Delete
                 href: api-ref/grpc/Episode/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Episode/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Episode/performAction.md
               - name: GetPlayerURL
@@ -198,6 +256,24 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: Playlist
+            items:
+              - name: Overview
+                href: api-ref/grpc/Playlist/index.md
+              - name: Get
+                href: api-ref/grpc/Playlist/get.md
+              - name: List
+                href: api-ref/grpc/Playlist/list.md
+              - name: Create
+                href: api-ref/grpc/Playlist/create.md
+              - name: Update
+                href: api-ref/grpc/Playlist/update.md
+              - name: Delete
+                href: api-ref/grpc/Playlist/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Playlist/batchDelete.md
+              - name: GetPlayerURL
+                href: api-ref/grpc/Playlist/getPlayerURL.md
           - name: StreamLine
             items:
               - name: Overview
@@ -206,12 +282,16 @@ items:
                 href: api-ref/grpc/StreamLine/get.md
               - name: List
                 href: api-ref/grpc/StreamLine/list.md
+              - name: BatchGet
+                href: api-ref/grpc/StreamLine/batchGet.md
               - name: Create
                 href: api-ref/grpc/StreamLine/create.md
               - name: Update
                 href: api-ref/grpc/StreamLine/update.md
               - name: Delete
                 href: api-ref/grpc/StreamLine/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/StreamLine/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/StreamLine/performAction.md
               - name: GetStreamKey
@@ -226,18 +306,52 @@ items:
                 href: api-ref/grpc/Stream/get.md
               - name: List
                 href: api-ref/grpc/Stream/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Stream/batchGet.md
               - name: Create
                 href: api-ref/grpc/Stream/create.md
               - name: Update
                 href: api-ref/grpc/Stream/update.md
               - name: Delete
                 href: api-ref/grpc/Stream/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Stream/performAction.md
+          - name: StylePreset
+            items:
+              - name: Overview
+                href: api-ref/grpc/StylePreset/index.md
+              - name: Get
+                href: api-ref/grpc/StylePreset/get.md
+              - name: List
+                href: api-ref/grpc/StylePreset/list.md
+              - name: Create
+                href: api-ref/grpc/StylePreset/create.md
+              - name: Update
+                href: api-ref/grpc/StylePreset/update.md
+              - name: Delete
+                href: api-ref/grpc/StylePreset/delete.md
+          - name: Subtitle
+            items:
+              - name: Overview
+                href: api-ref/grpc/Subtitle/index.md
+              - name: Get
+                href: api-ref/grpc/Subtitle/get.md
+              - name: List
+                href: api-ref/grpc/Subtitle/list.md
+              - name: Create
+                href: api-ref/grpc/Subtitle/create.md
+              - name: GenerateUploadURL
+                href: api-ref/grpc/Subtitle/generateUploadURL.md
+              - name: Delete
+                href: api-ref/grpc/Subtitle/delete.md
           - name: Thumbnail
             items:
               - name: Overview
                 href: api-ref/grpc/Thumbnail/index.md
+              - name: Get
+                href: api-ref/grpc/Thumbnail/get.md
               - name: List
                 href: api-ref/grpc/Thumbnail/list.md
               - name: Create
@@ -246,6 +360,8 @@ items:
                 href: api-ref/grpc/Thumbnail/batchGenerateDownloadURLs.md
               - name: GenerateUploadURL
                 href: api-ref/grpc/Thumbnail/generateUploadURL.md
+              - name: Delete
+                href: api-ref/grpc/Thumbnail/delete.md
           - name: Video
             items:
               - name: Overview
@@ -254,18 +370,28 @@ items:
                 href: api-ref/grpc/Video/get.md
               - name: List
                 href: api-ref/grpc/Video/list.md
+              - name: BatchGet
+                href: api-ref/grpc/Video/batchGet.md
               - name: Create
                 href: api-ref/grpc/Video/create.md
               - name: Update
                 href: api-ref/grpc/Video/update.md
+              - name: Transcode
+                href: api-ref/grpc/Video/transcode.md
               - name: Delete
                 href: api-ref/grpc/Video/delete.md
+              - name: BatchDelete
+                href: api-ref/grpc/Video/batchDelete.md
               - name: PerformAction
                 href: api-ref/grpc/Video/performAction.md
               - name: GetPlayerURL
                 href: api-ref/grpc/Video/getPlayerURL.md
+              - name: BatchGetPlayerURLs
+                href: api-ref/grpc/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/grpc/Video/getManifests.md
+              - name: GenerateDownloadURL
+                href: api-ref/grpc/Video/generateDownloadURL.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -284,6 +410,14 @@ items:
                 href: api-ref/Channel/update.md
               - name: Delete
                 href: api-ref/Channel/delete.md
+              - name: BatchDelete
+                href: api-ref/Channel/batchDelete.md
+              - name: ListAccessBindings
+                href: api-ref/Channel/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Channel/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Channel/updateAccessBindings.md
           - name: Episode
             items:
               - name: Overview
@@ -292,6 +426,8 @@ items:
                 href: api-ref/Episode/get.md
               - name: List
                 href: api-ref/Episode/list.md
+              - name: BatchGet
+                href: api-ref/Episode/batchGet.md
               - name: Create
                 href: api-ref/Episode/create.md
               - name: Update
@@ -312,6 +448,24 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+          - name: Playlist
+            items:
+              - name: Overview
+                href: api-ref/Playlist/index.md
+              - name: Get
+                href: api-ref/Playlist/get.md
+              - name: List
+                href: api-ref/Playlist/list.md
+              - name: Create
+                href: api-ref/Playlist/create.md
+              - name: Update
+                href: api-ref/Playlist/update.md
+              - name: Delete
+                href: api-ref/Playlist/delete.md
+              - name: BatchDelete
+                href: api-ref/Playlist/batchDelete.md
+              - name: GetPlayerURL
+                href: api-ref/Playlist/getPlayerURL.md
           - name: StreamLine
             items:
               - name: Overview
@@ -320,12 +474,16 @@ items:
                 href: api-ref/StreamLine/get.md
               - name: List
                 href: api-ref/StreamLine/list.md
+              - name: BatchGet
+                href: api-ref/StreamLine/batchGet.md
               - name: Create
                 href: api-ref/StreamLine/create.md
               - name: Update
                 href: api-ref/StreamLine/update.md
               - name: Delete
                 href: api-ref/StreamLine/delete.md
+              - name: BatchDelete
+                href: api-ref/StreamLine/batchDelete.md
               - name: PerformAction
                 href: api-ref/StreamLine/performAction.md
               - name: GetStreamKey
@@ -340,18 +498,52 @@ items:
                 href: api-ref/Stream/get.md
               - name: List
                 href: api-ref/Stream/list.md
+              - name: BatchGet
+                href: api-ref/Stream/batchGet.md
               - name: Create
                 href: api-ref/Stream/create.md
               - name: Update
                 href: api-ref/Stream/update.md
               - name: Delete
                 href: api-ref/Stream/delete.md
+              - name: BatchDelete
+                href: api-ref/Stream/batchDelete.md
               - name: PerformAction
                 href: api-ref/Stream/performAction.md
+          - name: StylePreset
+            items:
+              - name: Overview
+                href: api-ref/StylePreset/index.md
+              - name: Get
+                href: api-ref/StylePreset/get.md
+              - name: List
+                href: api-ref/StylePreset/list.md
+              - name: Create
+                href: api-ref/StylePreset/create.md
+              - name: Update
+                href: api-ref/StylePreset/update.md
+              - name: Delete
+                href: api-ref/StylePreset/delete.md
+          - name: Subtitle
+            items:
+              - name: Overview
+                href: api-ref/Subtitle/index.md
+              - name: Get
+                href: api-ref/Subtitle/get.md
+              - name: List
+                href: api-ref/Subtitle/list.md
+              - name: Create
+                href: api-ref/Subtitle/create.md
+              - name: GenerateUploadURL
+                href: api-ref/Subtitle/generateUploadURL.md
+              - name: Delete
+                href: api-ref/Subtitle/delete.md
           - name: Thumbnail
             items:
               - name: Overview
                 href: api-ref/Thumbnail/index.md
+              - name: Get
+                href: api-ref/Thumbnail/get.md
               - name: List
                 href: api-ref/Thumbnail/list.md
               - name: Create
@@ -360,6 +552,8 @@ items:
                 href: api-ref/Thumbnail/batchGenerateDownloadURLs.md
               - name: GenerateUploadURL
                 href: api-ref/Thumbnail/generateUploadURL.md
+              - name: Delete
+                href: api-ref/Thumbnail/delete.md
           - name: Video
             items:
               - name: Overview
@@ -368,19 +562,37 @@ items:
                 href: api-ref/Video/get.md
               - name: List
                 href: api-ref/Video/list.md
+              - name: BatchGet
+                href: api-ref/Video/batchGet.md
               - name: Create
                 href: api-ref/Video/create.md
               - name: Update
                 href: api-ref/Video/update.md
+              - name: Transcode
+                href: api-ref/Video/transcode.md
               - name: Delete
                 href: api-ref/Video/delete.md
+              - name: BatchDelete
+                href: api-ref/Video/batchDelete.md
               - name: PerformAction
                 href: api-ref/Video/performAction.md
               - name: GetPlayerURL
                 href: api-ref/Video/getPlayerURL.md
+              - name: BatchGetPlayerURLs
+                href: api-ref/Video/batchGetPlayerURLs.md
               - name: GetManifests
                 href: api-ref/Video/getManifests.md
+              - name: GenerateDownloadURL
+                href: api-ref/Video/generateDownloadURL.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md
-base: ru/video
-deepBase: 2
+  - name: Решение проблем
+    items:
+      - name: Обзор
+        href: troubleshooting/index.md
+      - name: Видеоплеер
+        href: troubleshooting/player.md
+      - name: Загрузка и обработка видео
+        href: troubleshooting/video-processing.md

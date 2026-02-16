@@ -1,0 +1,12 @@
+title: Beta-версия интерфейса командной строки
+description:
+  - >-
+    Beta-версия Yandex Cloud CLI интегрирована в <a href="/docs/cli/">основную
+    версию утилиты</a>.
+  - >-
+    Чтобы опробовать команды beta-версии, используйте префикс <code>yc
+    beta</code> перед командой, например:
+  - <pre><code> yc beta compute instance list </code></pre>
+meta:
+  noIndex: true
+links: []

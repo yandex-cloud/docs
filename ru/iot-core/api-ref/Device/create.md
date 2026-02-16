@@ -1,9 +1,82 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to create a device in.
+            To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the device. The name must be unique within the registry.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the device.
+          type: string
+        certificates:
+          description: |-
+            **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
+            Device certificate.
+          type: array
+          items:
+            $ref: '#/definitions/Certificate'
+        topicAliases:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Alias of a device topic.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
+          type: object
+          additionalProperties:
+            type: string
+        password:
+          description: |-
+            **string**
+            Device password.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - registryId
+      additionalProperties: false
+    definitions:
+      Certificate:
+        type: object
+        properties:
+          certificateData:
+            description: |-
+              **string**
+              Public part of the device certificate.
+            type: string
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/create.md
 ---
 
-# IoT Core Service, REST: Device.Create {#Create}
+# IoT Core Service, REST: Device.Create
 
 Creates a device in the specified registry.
 
@@ -25,8 +98,9 @@ POST https://iot-devices.{{ api-host }}/iot-devices/v1/devices
       "certificateData": "string"
     }
   ],
-  "topicAliases": "string",
-  "password": "string"
+  "topicAliases": "object",
+  "password": "string",
+  "labels": "object"
 }
 ```
 
@@ -39,14 +113,14 @@ Required field. ID of the registry to create a device in.
 To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request. ||
 || name | **string**
 
-Required field. Name of the device. The name must be unique within the registry. ||
+Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
 
 Device certificate. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -56,6 +130,9 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
 Device password.
 
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## Certificate {#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate}
@@ -98,15 +175,17 @@ Public part of the device certificate. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topicAliases": "object",
     "status": "string",
     "monitoringData": {
       "lastAuthIp": "string",
       "lastAuthTime": "string",
       "lastPubActivityTime": "string",
       "lastSubActivityTime": "string",
-      "lastOnlineTime": "string"
-    }
+      "lastOnlineTime": "string",
+      "lastDisconnectTime": "string"
+    },
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -235,7 +314,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -251,6 +330,9 @@ Status of the device.
 || monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -283,6 +365,14 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || lastOnlineTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastDisconnectTime | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

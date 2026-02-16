@@ -9,6 +9,8 @@ items:
         href: operations/index.md
       - name: Working with metrics
         items:
+          - name: Metrics overview
+            href: operations/metric/metric-explorer.md
           - name: Delivering Linux system metrics
             href: operations/unified-agent/linux_metrics.md
           - name: Delivering custom application metrics
@@ -27,15 +29,17 @@ items:
             href: operations/metric/prometheusExport.md
       - name: Working with dashboards
         items:
-          - name: Creating dashboards
+          - name: Creating and managing dashboards
             href: operations/dashboard/create.md
           - name: Copying dashboards
             href: operations/dashboard/copy.md
-          - name: Adding widgets to a dashboard
+          - name: Adding a widget to a dashboard
             href: operations/dashboard/add-widget.md
           - name: Adding a dashboard parameter
             href: operations/dashboard/add-parameters.md
-          - name: Deleting widgets from a dashboard
+          - name: Managing widgets
+            href: operations/dashboard/widget-management.md
+          - name: Deleting a widget from a dashboard
             href: operations/dashboard/delete-widget.md
           - name: Deleting a dashboard
             href: operations/dashboard/delete-dashboard.md
@@ -45,16 +49,24 @@ items:
         items:
           - name: Creating alerts
             href: operations/alert/create-alert.md
-          - name: Creating a notification channel
+          - name: Creating a notification channel with a recipient
             href: operations/alert/create-channel.md
-          - name: Deleting alerts
+          - name: Creating a notification channel that invokes a function
+            href: operations/alert/create-channel-function.md
+          - name: Creating a webhook that calls an external API
+            href: operations/alert/alert-call-function.md
+          - name: Creating an escalation policy
+            href: operations/alert/create-escalation.md
+          - name: Deleting an alert
             href: operations/alert/delete-alert.md
   - name: Metric collection agent
     items:
       - name: Overview
         href: concepts/data-collection/unified-agent/index.md
-      - name: Installation and startup
+      - name: Installing and updating
         href: concepts/data-collection/unified-agent/installation.md
+      - name: Starting and stopping
+        href: concepts/data-collection/unified-agent/run-and-stop.md
       - name: Configuration
         items:
           - name: Overview
@@ -73,11 +85,13 @@ items:
             href: concepts/data-collection/unified-agent/services.md
       - name: Agent best practices
         href: concepts/data-collection/unified-agent/best-practices.md
+      - name: Possible errors
+        href: concepts/data-collection/unified-agent/errors.md
       - name: Deletion
         href: concepts/data-collection/unified-agent/delete.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
       - name: Data model
         href: concepts/data-model.md
@@ -85,6 +99,8 @@ items:
         items:
           - name: Overview
             href: concepts/visualization/index.md
+          - name: Metrics overview
+            href: concepts/visualization/metric-explorer.md
           - name: Query string
             href: concepts/visualization/query-string.md
           - name: Widgets
@@ -103,7 +119,9 @@ items:
             href: concepts/alerting/annotation.md
           - name: Notification channel
             href: concepts/alerting/notification-channel.md
-      - name: Data decimation
+          - name: Escalations
+            href: concepts/alerting/escalations.md
+      - name: Data downsampling
         href: concepts/decimation.md
       - name: Deleting expired metrics (TTL)
         href: concepts/ttl.md
@@ -111,12 +129,18 @@ items:
         href: concepts/limits.md
   - name: Tutorials
     items:
-      - name: >-
-          Automatically scaling an instance group to process messages from a
-          queue
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
-      - name: Monitoring sensor readings and event notifications
+      - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
+      - name: Configuring dashboards and alerts for {{ at-name }}
+        href: tutorials/alerts-monitoring.md
+      - name: Searching for the {{ mpg-name }} cluster performance issues
+        href: tutorials/mpg-performance-problems.md
+      - name: Collecting 1C:Enterprise Linux cluster metrics
+        href: tutorials/collect-metrics-1c-cluster.md
   - name: '{{ managed-prometheus-name }}'
     items:
       - name: Overview
@@ -125,35 +149,33 @@ items:
         items:
           - name: Overview
             href: operations/prometheus/ingestion/index.md
+          - name: Metric collection agent
+            href: operations/prometheus/ingestion/prometheus-agent.md
           - name: Remote Write
             href: operations/prometheus/ingestion/remote-write.md
+          - name: Diagnostics and troubleshooting
+            href: operations/prometheus/ingestion/troubleshooting.md
       - name: Reading metrics
         items:
           - name: Overview
             href: operations/prometheus/querying/index.md
           - name: Remote Read
             href: operations/prometheus/querying/remote-read.md
+          - name: Visualization
+            href: operations/prometheus/querying/monitoring.md
           - name: Grafana
             href: operations/prometheus/querying/grafana.md
       - name: Recording rules
         href: operations/prometheus/recording-rules.md
+      - name: Alerting rules
+        href: operations/prometheus/alerting-rules.md
       - name: Reading and writing {{ k8s }} cluster metrics
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Access management
     href: security/index.md
-  - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Policy before October 1, 2020
-            href: pricing-archive/pricing-01102020.md
-  - name: '{{ TF }} reference'
-    href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: REST
         items:
@@ -197,6 +219,8 @@ items:
         href: metrics-ref/alb-ref.md
       - name: '{{ at-name }}'
         href: metrics-ref/at-ref.md
+      - name: '{{ baremetal-name }}'
+        href: metrics-ref/baremetal-ref.md
       - name: '{{ certificate-manager-name }}'
         href: metrics-ref/certificate-manager-ref.md
       - name: '{{ backup-name }}'
@@ -212,7 +236,7 @@ items:
       - name: '{{ container-registry-name }}'
         href: metrics-ref/container-registry-ref.md
       - name: '{{ dataproc-name }}'
-        href: metrics-ref/data-proc-ref.md
+        href: metrics-ref/data-processing-ref.md
       - name: '{{ data-transfer-name }}'
         href: metrics-ref/data-transfer-ref.md
       - name: '{{ dns-name }}'
@@ -229,10 +253,14 @@ items:
         href: metrics-ref/managed-airflow-ref.md
       - name: '{{ mkf-name }}'
         href: metrics-ref/managed-kafka-ref.md
+      - name: '{{ msp-name }}'
+        href: metrics-ref/managed-spark-ref.md
       - name: '{{ mch-name }}'
         href: metrics-ref/managed-clickhouse-ref.md
       - name: '{{ mgp-name }}'
         href: metrics-ref/managed-greenplum-ref.md
+      - name: '{{ mgl-name }}'
+        href: metrics-ref/managed-gitlab-ref.md
       - name: '{{ managed-k8s-name }}'
         href: metrics-ref/managed-kubernetes-ref.md
       - name: '{{ mmg-name }}'
@@ -243,8 +271,10 @@ items:
         href: metrics-ref/managed-opensearch-ref.md
       - name: '{{ mpg-name }}'
         href: metrics-ref/managed-postgresql-ref.md
+      - name: '{{ mtr-name }}'
+        href: metrics-ref/managed-trino-ref.md
       - name: '{{ mrd-name }}'
-        href: metrics-ref/managed-redis-ref.md
+        href: metrics-ref/managed-valkey-ref.md
       - name: '{{ ydb-name }}'
         href: metrics-ref/ydb-ref.md
       - name: '{{ message-queue-name }}'
@@ -255,14 +285,16 @@ items:
         href: metrics-ref/network-load-balancer-ref.md
       - name: '{{ objstorage-name }}'
         href: metrics-ref/storage-ref.md
+      - name: '{{ si-name }}'
+        href: metrics-ref/serverless-integrations-ref.md
+      - name: '{{ serverless-containers-name }}'
+        href: metrics-ref/serverless-containers-ref.md
       - name: '{{ captcha-name }}'
         href: metrics-ref/captcha-ref.md
       - name: '{{ sws-name }}'
         href: metrics-ref/smartwebsecurity-ref.md
       - name: '{{ unified-agent-short-name }}'
         href: metrics-ref/unifiedagent-ref.md
-  - name: Release notes
-    href: release-notes.md
   - name: FAQ
     items:
       - name: General questions
@@ -277,5 +309,9 @@ items:
         href: qa/alerts.md
       - name: All questions on one page
         href: qa/all.md
-base: en/monitoring
-deepBase: 2
+  - name: Pricing policy
+    href: pricing.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: Release notes
+    href: release-notes.md

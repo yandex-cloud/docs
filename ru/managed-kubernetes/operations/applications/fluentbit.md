@@ -1,4 +1,9 @@
-# Установка Fluent Bit с плагином для {{ cloud-logging-name }}
+---
+title: Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}
+description: Следуя данной инструкции, вы сможете установить Fluent Bit с плагином для {{ cloud-logging-name }}.
+---
+
+# Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}
 
 
 [Fluent Bit](https://www.fluentbit.io/) — многоплатформенный инструмент с открытым исходным кодом для сбора и обработки логов. Fluent Bit собирает, парсит и фильтрует сообщения из различных источников ввода и сохраняет их в хранилище. Затем сообщения поступают в маршрутизатор, который определяет, в какой выход их отправить. Для работы с различными источниками ввода и выходами используются плагины.
@@ -13,7 +18,7 @@
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), необходимый для работы Fluent Bit.
 1. [Назначьте сервисному аккаунту роли](../../../iam/operations/sa/assign-role-for-sa.md) `logging.writer` и `monitoring.editor`.
-1. [Создайте авторизованный ключ](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
+1. [Создайте авторизованный ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта и сохраните его в файл `sa-key.json`.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
@@ -25,7 +30,7 @@
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Fluent Bit с плагином для {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `fluent-bit-space`). Если вы оставите пространство имен по умолчанию, Fluent Bit может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **ID целевой лог-группы** — укажите [идентификатор лог-группы](../../../logging/operations/list.md), в которую будут сохраняться логи Fluent Bit.
    * **Идентификатор кластера** — укажите [идентификатор кластера {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-list.md).
@@ -54,6 +59,8 @@
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы Fluent Bit.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Fluent Bit может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `fluent-bit-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

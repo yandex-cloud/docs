@@ -11,6 +11,13 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Обеспечьте доступ к кластеру-источнику {{ OS }} из {{ yandex-cloud }}](../../../data-transfer/concepts/network.md#source-external).
@@ -22,6 +29,8 @@
     - Вручную {#manual}
 
         [Создайте кластер-приемник](../../../managed-opensearch/operations/cluster-create.md) {{ mos-name }} любой подходящей конфигурации с хостами в публичном доступе.
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     - {{ TF }} {#tf}
 
@@ -39,9 +48,10 @@
 
         1. Укажите в файле `data-transfer-os-mos.tf` переменные:
 
-            * `os_admin_password` — пароль пользователя-администратора {{ mos-name }}.
+            * `mos_version` — версия {{ OS }}.
+            * `mos_admin_password` — пароль пользователя-администратора {{ mos-name }}.
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
-            * `profile_name` — имя вашего профиля в YC CLI.
+            * `profile_name` — имя вашего профиля в CLI.
 
               {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -84,7 +94,7 @@
 
 1. (Опционально) В кластере-источнике [создайте роль]({{ os.docs }}/security-plugin/access-control/users-roles/#create-roles) с привилегиями `create_index` и `write` для всех индексов (`*`).
 
-1. (Опционально) В кластере источнике [создайте пользователя]({{ os.docs }}/security-plugin/access-control/users-roles), от имени которого будут выполняться трансфер, и назначьте ему созданную роль.
+1. (Опционально) В кластере-источнике [создайте пользователя]({{ os.docs }}/security-plugin/access-control/users-roles), от имени которого будут выполняться трансфер, и назначьте ему созданную роль.
 
 ## Подготовьте тестовые данные {#prepare-data}
 
@@ -140,7 +150,7 @@
 
 ## Настройте кластер-приемник {#configure-target}
 
-1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
 1. (Опционально) Создайте пользователя, от имени которого будет выполняться трансфер.
 
@@ -209,7 +219,7 @@
 
     - {{ OS }} Dashboards {#opensearch}
 
-      1. [Подключитесь](../../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+      1. [Подключитесь](../../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
       1. Выберите общий тенант `Global`.
       1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../../_assets/console-icons/bars.svg).
       1. В разделе **OpenSearch Dashboards** выберите **Discover**.
@@ -219,7 +229,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
@@ -235,20 +245,6 @@
 
     - {{ TF }} {#tf}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `data-transfer-os-mos.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-os-mos.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

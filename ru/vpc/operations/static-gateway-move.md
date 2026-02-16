@@ -90,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
      name: router-1
      shared_egress_gateway: {}
      ```
-     Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/gateway/move.md).
+     Подробнее о команде `yc vpc address move` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/gateway/move.md).
 
 - API {#api}
 

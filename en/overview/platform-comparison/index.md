@@ -9,3 +9,4 @@ If you already have experience using other cloud platforms, read the following s
 * [{#T}](aws.md)
 * [{#T}](gcp.md)
 * [{#T}](azure.md)
+* [{#T}](vmware/index.md)

@@ -5,20 +5,18 @@ description: В данном разделе описаны федерации с
 
 # Федерации сервисных аккаунтов
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
-Федерация сервисных аккаунтов (Workload Identity Federation) — это инструмент {{ iam-full-name }}, позволяющий настроить процесс обмена токенов любой системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/), на [IAM-токены](./authorization/iam-token.md), которые можно использовать для для обращения к [API {{ yandex-cloud }}](../../api-design-guide/index.yaml).
+Федерация сервисных аккаунтов (Workload Identity Federation) — это инструмент {{ iam-full-name }}, позволяющий настроить процесс обмена токенов любой системы, совместимой с протоколом [OpenID Connect](https://openid.net/developers/how-connect-works/), на [IAM-токены](./authorization/iam-token.md), которые можно использовать для обращения к [API {{ yandex-cloud }}](../../api-design-guide/index.yaml).
 
 Популярные варианты использования этого инструмента:
 
 * Запрос пода {{ k8s }} к API {{ yandex-cloud }} для получения содержимого [секрета](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}.
-* Запрос к API {{ yandex-cloud }} из [CI/CD](/blog/posts/2022/10/ci-cd) системы, такой как {{ GL }}, для развертывания облачных сервисов с помощью [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
+* Запрос к API {{ yandex-cloud }} из [CI/CD](/blog/posts/2022/10/ci-cd) системы, такой как {{ GL }} или [{{ src-name }}]({{ link-src-docs }}/), для развертывания облачных сервисов с помощью [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 
 Такое взаимодействие не предусматривает создания долгоживущих ключей, что повышает удобство и безопасность пользователей.
 
 Подробнее о протоколе OpenID Connect см. в [спецификации OIDC](https://openid.net/specs/openid-connect-core-1_0.html).
 
-Настроить федерацию сервисных аккаунтов можно с помощью [YC CLI](../../cli/quickstart.md).
+[Настроить](../operations/wlif/setup-wlif.md) федерацию сервисных аккаунтов можно в [консоли управления]({{ link-console-main }}) или с помощью [{{ yandex-cloud }} CLI](../../cli/quickstart.md).
 
 Чтобы создать федерацию сервисных аккаунтов, необходима [роль](../security/index.md#iam-workloadIdentityFederations-editor) `iam.workloadIdentityFederations.editor` или выше.
 
@@ -36,7 +34,7 @@ description: В данном разделе описаны федерации с
 
 Федерация сервисных аккаунтов состоит из набора [_привязок_](#federated-credentials), каждая из которых содержит информацию о связи определенного [сервисного аккаунта](./users/service-accounts.md) с определенным _внешним субъектом_.
 
-Внешний субъект — это авторизованный у стороннего OIDС-провайдера субъект внешнего по отношению к {{ yandex-cloud }} сервиса, которому требуется получить IAM-токен {{ yandex-cloud }}. Например, это может быть [сервисный аккаунт {{ k8s }}](../../managed-kubernetes/concepts/index.md#service-accounts) или задание [{{ GL }}](../../managed-gitlab/index.yaml).
+Внешний субъект — это авторизованный у стороннего OIDС-провайдера субъект внешнего по отношению к {{ yandex-cloud }} сервиса, которому требуется получить IAM-токен {{ yandex-cloud }}. Например, это может быть [сервисный аккаунт {{ k8s }}](../../managed-kubernetes/concepts/index.md#service-accounts), задание [{{ GL }}](../../managed-gitlab/index.yaml) или [кубик]({{ link-src-docs }}/sourcecraft/concepts/ci-cd#cubes) в {{ src-name }}.
 
 Этапы получения IAM-токена с помощью сервисного аккаунта, привязанного к федерации:
 
@@ -46,6 +44,8 @@ description: В данном разделе описаны федерации с
 1. Если полномочия подтверждены, а JWT-токен действителен, {{ iam-name }} обменивает этот JWT-токен на IAM-токен сервисного аккаунта {{ yandex-cloud }}, связанного с этим внешним субъектом в соответствующей привязке.
 1. Внешний субъект выполняет необходимые запросы к API {{ yandex-cloud }} с помощью полученного IAM-токена от имени заданного в привязке сервисного аккаунта.
 
+[Обменять](../operations/wlif/setup-wlif.md#exchange-jwt-for-iam) JWT-токен внешнего субъекта на IAM-токен сервисного аккаунта можно с помощью POST-запроса к эндпоинту `https://{{ auth-main-host }}/oauth/token`.
+
 ## Привязки в федерации {#federated-credentials}
 
 _Привязка_ — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом {{ yandex-cloud }} и одним внешним субъектом.
@@ -54,14 +54,19 @@ _Привязка_ — это связь, настроенная между фе
 
 * `Идентификатор или имя сервисного аккаунта` — данные сервисного аккаунта, для которого будет выдаваться IAM-токен при запросе от внешнего субъекта.
 
-    Сервисный аккаунт может быть расположен в каталоге, отличном от каталога федерации сервисных аккаунтов.
+    Сервисный аккаунт может быть расположен в каталоге, отличном от каталога федерации сервисных аккаунтов (только при [создании](../operations/wlif/setup-wlif.md#create-federated-credential) привязки через CLI, {{ TF }} или API).
 
     Сервисному аккаунту должны быть назначены [роли](./access-control/roles.md), предоставляющие разрешения на выполнение необходимых действий с ресурсами или данными в {{ yandex-cloud }}.
 * `Идентификатор федерации сервисных аккаунтов` — данные федерации сервисных аккаунтов, для которой добавляется привязка.
 * `subject` — идентификатор, присвоенный OIDС-провайдером внешнему субъекту, выполняющему запрос к API {{ yandex-cloud }}.
 
-Создать привязку можно с помощью [YC CLI](../../cli/quickstart.md).
+Создать привязку можно с помощью [CLI](../../cli/quickstart.md).
 
 Чтобы создать привязку, пользователю необходимы:
 * [роль](../security/index.md#iam-serviceAccounts-federatedCredentialEditor) `iam.serviceAccounts.federatedCredentialEditor` или выше, выданная на сервисный аккаунт, который будет использоваться в привязке.
 * [роль](../security/index.md#iam-workloadIdentityFederations-user) `iam.workloadIdentityFederations.user` или выше на каталог, в котором находится нужная федерация сервисных аккаунтов.
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-k8s-integration.md)

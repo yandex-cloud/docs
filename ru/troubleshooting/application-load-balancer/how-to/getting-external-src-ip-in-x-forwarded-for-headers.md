@@ -45,7 +45,7 @@
 Например, если на Ingress приходит запрос с IP 123.34.56.67:
 
 ```text
-kubectl logs nginx-ingress-nginx-ingress-xxxxx
+kubectl logs nginx-ingress-nginx-ingress-*****
 123.34.56.67 - - [28/Jun/2022:09:11:32 +0000] "GET / HTTP/1.1" 200 615 "-" "curl/7.68.0" "-"
 ```
 

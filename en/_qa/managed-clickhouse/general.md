@@ -1,93 +1,109 @@
 #### What is {{ mch-short-name }}? {#what-is}
 
-{{ mch-short-name }} is a service that helps you create, operate, and scale {{ CH }} databases in a cloud infrastructure.
+{{ mch-short-name }} is a solution that helps you create, operate, and scale {{ CH }} databases in the cloud.
 
 With {{ mch-short-name }}, you can:
-- Create a database with the required performance characteristics.
-- Scale processing power and storage dedicated for your databases as needed.
+- Create a database with performance tailored to your needs.
+- Scale computing power and dedicated storage capacity for your databases as needed.
 - Get database logs.
 
-{{ mch-short-name }} takes on time-consuming {{ CH }} infrastructure administration tasks:
-- Monitors resource usage.
+{{ mch-short-name }} takes over time-consuming administrative tasks in {{ CH }}:
+- Monitors your resource consumption.
 - Automatically creates DB backups.
-- Provides fault tolerance through automatic failover to backup replicas.
-- Keeps database software updated.
+- Ensures [high availability](../../managed-clickhouse/concepts/high-availability.md) through automatic failover to standby replicas.
+- Keeps your DBMS software up to date.
 
-You interact with database clusters in {{ mch-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
+You work with a {{ mch-short-name }} database cluster just like with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
 
-#### What is {{ CH }} used for? Which database should I select? {#why-ch}
+#### What is {{ CH }} used for? Which DBMS should I select? {#why-ch}
 
-{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, you might want to use other managed DB services.
+{{ CH }} is designed primarily for analytics (OLAP) and only supports adding and reading data. You can update data but with [certain limitations](https://stackoverflow.com/questions/37901642/updating-data-in-clickhouse). For other purposes, you might want to use another DBMS.
 
-#### What part of database management and maintenance is {{ mch-short-name }} responsible for? {#services}
+#### What is the role of {{ mch-short-name }} in database management and maintenance? {#services}
 
-When creating clusters, {{ mch-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mch-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For the created and running databases, {{ mch-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
+For all created and running databases, {{ mch-short-name }} automatically creates backups as well as applies DBMS patches and updates.
 
-{{ mch-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
+Furthermore, {{ mch-short-name }} ensures data replication across database hosts, both within and across [availability zones](../../overview/concepts/geo-scope.md), with automatic failover to a standby replica if a failure occurs.
 
-#### Which tasks are best addressed using {{ mch-short-name }}, and which using VMs with databases? {#mdb-advantage}
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Not sure whether to use {{ mch-short-name }} or VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
-- {{ mch-short-name }} allows you to operate template databases with no need to worry about administration.
-- {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
+- With {{ mch-short-name }}, you can use template databases, with no administrative effort required.
+- With {{ compute-full-name }} virtual machines, you can create and customize your own databases. This approach allows you to use any database management system, connect to databases over SSH, and many more.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
-A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
+A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ consists of one or more database hosts with configurable replication across them.
 
 #### How do I get started with {{ mch-short-name }}? {#quickstart}
 
-{{ mch-short-name }} is available to any registered {{ yandex-cloud }} user.
+{{ mch-short-name }} is available to all registered {{ yandex-cloud }} users.
 
-To create a database cluster in {{ mch-short-name }}, you must define its characteristics:
+Before creating a database cluster in {{ mch-short-name }}, you need to decide on its configuration:
 
-- [Host class](../../managed-clickhouse/concepts/instance-types.md) (performance characteristics, such as CPUs, RAM, etc.).
-- Storage size (reserved to the full extent when you create a cluster).
-- Network your cluster will be connected to.
-- Number of hosts for the cluster and the availability zone for each host.
+- [Host class](../../managed-clickhouse/concepts/instance-types.md) that will determine your computing power, i.e., vCPUs, RAM, and more.
+- Storage size (fully reserved when creating the cluster).
+- Network for your cluster.
+- Number of hosts in your cluster and availability zone for each host.
 
 For more information, see [Getting started](../../managed-clickhouse/quickstart.md).
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
+#### How many database hosts can there be in a cluster? {#how-many-hosts}
 
-The minimum number of hosts depends on the selected type of [storage](../../managed-clickhouse/concepts/storage.md):
 
-- If you use non-replicated SSD storage, the minimum number of hosts is 3.
-- If you use local SSD storage, the minimum number of hosts is 2.
-- If using network HDD or network SSD storage, you can create single-host clusters.
+The minimum number of hosts in a cluster depends on the following:
+    
+  * [Storage type](../../managed-clickhouse/concepts/storage.md):
 
-The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+    * At least three hosts for non-replicated SSDs (`network-ssd-nonreplicated`).
+
+    * At least two hosts for local SSDs (`local-ssd`).
+
+    * At least one host for the following disk types:
+
+      * Network HDDs (`network-hdd`)
+      * Network SSDs (`network-ssd`)
+      * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+
+  * Cluster sharding. When sharding is enabled, you need to multiply the minimum number of hosts for the selected disk type by the number of shards.
+
+    For more information on the features and limitations of sharding in {{ CH }}, see [this article](../../managed-clickhouse/concepts/sharding.md).
+
+
+The maximum number of hosts per cluster cannot exceed the set limits.
 
 For more information, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
 
-#### How can I access a running DB host? {#db-access}
+#### How can I access a running database host? {#db-access}
 
-You can connect to {{ mch-short-name }} databases using standard DBMS methods.
+You can connect to {{ mch-short-name }} databases using conventional DBMS methods.
 
-[Learn more about connecting to clusters](../../managed-clickhouse/operations/connect/index.md).
+Learn more about connecting to clusters in [this guide](../../managed-clickhouse/operations/connect/index.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-For more information on MDB technical and organizational limitations, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
+To learn more about MDB technical and organizational limitations, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
 
-#### How are DB clusters maintained? {#service-window}
+#### How are database clusters maintained? {#service-window}
 
-Maintenance in {{ mch-short-name }} implies:
+Maintenance in {{ mch-short-name }} includes:
 
-- Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
-- Changes to the host class and storage size.
+- Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
+- Changes in the host class and storage size.
 - Other {{ mch-short-name }} maintenance activities.
 
 For more information, see [Maintenance](../../managed-clickhouse/concepts/maintenance.md).
 
 #### How do I edit external dictionaries? {#external-dict}
 
-To rename a dictionary, run the query:
+To rename a dictionary, run this query:
 
 ```sql
 RENAME DICTIONARY <dictionary_name> TO <new_name>
@@ -97,7 +113,7 @@ For other changes, use the [update](../../managed-clickhouse/api-ref/Cluster/upd
 
 #### Which {{ CH }} version does {{ mch-short-name }} use? {#dbms-version}
 
-{{ mch-short-name }} uses some of the latest stable versions of {{ CH }}. For more information, see [{#T}](../../managed-clickhouse/concepts/update-policy.md).
+{{ mch-short-name }} uses multiple latest stable versions of {{ CH }}. For more information, see [{#T}](../../managed-clickhouse/concepts/update-policy.md).
 
 #### Which {{ CH }} version should I choose? {#choose-version}
 
@@ -105,39 +121,41 @@ We recommend the latest available LTS version of {{ CH }}. For more information,
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-When new minor versions are released, the cluster software is automatically updated after a short testing period.
+When new minor versions are released, the cluster software is automatically updated after a short testing period. 
 
-Owners of the affected DB clusters are notified in advance about the maintenance work schedule and DB availability.
+Owners of affected database clusters get advance notice of upcoming maintenance and database availability. 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
 When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends email notifications to the owners of database clusters created with this version.
 
-New hosts can no longer be created using deprecated DBMS versions. Clusters on a deprecated version of {{ CH }} are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Clusters running a deprecated {{ CH }} version are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
 
-Owners of the affected DB clusters are notified in advance about the maintenance work schedule and DB availability.
+Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
-In {{ mch-short-name }}, the usage cost is calculated based on the following parameters:
+In {{ mch-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
-- Size of the storage reserved for the database host.
-- Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-clickhouse/pricing.md).
-- Number of hours of database host operation. Partial hours are rounded to an integer value. You can find the cost per hour of operation for each host class in [Pricing policy](../../managed-clickhouse/pricing.md).
+- Reserved storage capacity for the database host.
+- Size of database cluster backups. You are not charged for storing backups up to your storage size. Additional backup storage is charged according to our [pricing policy](../../managed-clickhouse/pricing.md).
+- Database host uptime in hours. Partial hours are rounded to the nearest whole hour. For the cost per hour of operation for each host class, see our [pricing policy](../../managed-clickhouse/pricing.md).
 
 #### How much does it cost to use my cluster? {#cluster-cost}
 
-In the [management console]({{ link-console-main }}), go to the folder page, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** and click the appropriate cluster. The cost of your cluster usage per month will be shown on the right side of the screen. For more information, see [Pricing policy](../../managed-clickhouse/pricing.md).
+In the [management console]({{ link-console-main }}), navigate to the folder dashboard, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**, and click the cluster you need. On the right side of the screen, you will see the cluster usage cost per month. For more information, see our [pricing policy](../../managed-clickhouse/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can scale your computing resources and storage size directly in the management console by selecting a different host class for your cluster.
 
-The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+The cluster settings will update within 30 minutes. This window may also be used for other maintenance activities, such as installing updates.
 
+#### How can I fix the no permission error when attaching a service account to a cluster? {#attach-service-account}
+
+{% include notitle [attach-sa](../../_qa/attach-sa.md) %}
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
-
 
 {% include [logs](../logs.md) %}

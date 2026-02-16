@@ -17,13 +17,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов поддержки веб-приложения входят:
 * Плата за количество запросов к API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-
 
 ## Создайте сервисный аккаунт {#create-account}
 
@@ -77,7 +75,7 @@
 
 - {{ TF }} {#tf}
 
-
+  
   Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 
@@ -253,7 +251,7 @@
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `canary`.
+    1. В поле **{{ ui-key.yacloud.common.name }}** введите `canary`.
     1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
     
         ```yaml
@@ -333,7 +331,7 @@
         created_at: "2023-09-25T16:01:48.926Z"
         name: canary
         status: ACTIVE
-        domain: d5d1ud9bli1e********.apigw.yandexcloud.net
+        domain: {{ api-host-apigw }}
         log_group_id: ckgefpleo5eg********
         connectivity: {}
         log_options:

@@ -1,16 +1,19 @@
 ---
+title: Правила тарификации для {{ dataproc-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ dataproc-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ dataproc-name }}
 
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ dataproc-name }} {#rules}
 
@@ -57,11 +60,11 @@ editable: false
 
 - Расчет в рублях {#prices-rub}
 
-  {% include [rub-data-proc](../_pricing_examples/data-proc/rub.md) %}
+  {% include [rub-data-proc](../_pricing_examples/data-processing/rub.md) %}
 
 - Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-data-proc](../_pricing_examples/data-proc/kzt.md) %}
+  {% include [kzt-data-proc](../_pricing_examples/data-processing/kzt.md) %}
 
 {% endlist %}
 
@@ -71,57 +74,19 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-Все цены указаны с включением НДС.
-
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Вычислительные ресурсы хостов {#prices-hosts}
 
-#### Стандартные хосты {#standard-hosts}
-
-
-{% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-standard-hosts](../_pricing/data-proc/rub-standard-hosts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-standard-hosts](../_pricing/data-proc/kzt-standard-hosts.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.dataproc }}']}
+    excludeSkuIds={['{{ pc|mdb.dataproc.gpu.ram }}', '{{ pc|mdb.dataproc.gpu.cpu.c100 }}', '{{ pc|mdb.dataproc.gpu.gpu }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
-
-#### Выделенные хосты {#dedicated-hosts}
-
-Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices-dedicated-host) и наценки {{ dataproc-name }} на эти ресурсы.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-dedicated-hosts](../_pricing/data-proc/rub-dedicated-hosts.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-dedicated-hosts](../_pricing/data-proc/kzt-dedicated-hosts.md) %}
-
-{% endlist %}
-
-
-
-{% note info %}
-
-Возможность использовать [GPU](../glossary/gpu.md) на хостах {{ dataproc-name }} предоставляется по запросу в [службу технической поддержки]({{ link-console-support }}).
-
-{% endnote %}
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

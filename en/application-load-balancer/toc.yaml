@@ -35,10 +35,14 @@ items:
             href: operations/http-router-create.md
           - name: Creating an HTTP router for gRPC traffic
             href: operations/http-router-create-grpc.md
-          - name: Getting information about an HTTP router
+          - name: Getting HTTP router information
             href: operations/http-router-get.md
           - name: Editing an HTTP router
             href: operations/http-router-update.md
+          - name: Managing virtual hosts
+            href: operations/manage-virtual-hosts.md
+          - name: Managing routes
+            href: operations/manage-routes.md
           - name: Deleting an HTTP router
             href: operations/http-router-delete.md
       - name: L7 load balancers
@@ -51,19 +55,27 @@ items:
             href: operations/application-load-balancer-get.md
           - name: Viewing L7 load balancer statistics
             href: operations/application-load-balancer-get-stats.md
+          - name: Setting up alerts
+            href: operations/application-load-balancer-manage-alerts.md
           - name: Viewing L7 load balancer logs
             href: operations/application-load-balancer-get-logs.md
           - name: Setting up L7 load balancer logging
             href: operations/application-load-balancer-manage-logs.md
-          - name: Getting log group ID of an L7 load balancer
+          - name: Getting a log group ID of an L7 load balancer
             href: operations/application-load-balancer-get-log-group-id.md
-          - name: Stopping and restarting an L7 load balancer
+          - name: Stopping and starting an L7 load balancer
             href: operations/application-load-balancer-stop-and-start.md
-          - name: Moving a VM to a target group in a new availability zone
+          - name: Moving a VM to a target group in a different availability zone
             href: operations/application-load-balancer-relocate.md
+          - name: Availability zone management
+            items:
+              - name: Allowing and denying availability zone shutdown
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Enabling and disabling an availability zone
+                href: operations/manage-zone/start-and-cancel-shift.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -73,16 +85,70 @@ items:
         href: tutorials/virtual-hosting.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
-          - name: Summary
+          - name: Overview
             href: tutorials/alb-with-ddos-protection/index.md
           - name: Management console, CLI
             href: tutorials/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: tutorials/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Creating an L7 load balancer with a {{ sws-name }} profile through an
+          {{ alb-name }} ingress controller
+        href: tutorials/alb-ingress-with-sws-profile.md
+      - name: >-
+          Migrating services from NLB to L7 ALB for enabling {{ sws-name }}
+          protection
+        items:
+          - name: Overview
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: NLB with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB with an instance group as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB as a target for ALB
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
-        href: tutorials/l7-bluegreen-deploy.md
+        href: tutorials/blue-green-canary-deployment.md
       - name: Terminating TLS connections
         items:
           - name: Overview
@@ -93,20 +159,56 @@ items:
             href: tutorials/tls-termination/terraform.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
-      - name: Deploying and load testing a gRPC service with scaling
-        href: tutorials/load-testing-grpc-autoscaling.md
-      - name: Setting up Gateway API
-        href: tutorials/gateway-api.md
-      - name: Setting up the {{ alb-name }} Ingress controller
-        href: tutorials/alb-ingress-controller.md
-      - name: Logging settings for {{ alb-name }} Ingress controllers
-        href: tutorials/alb-ingress-controller-log-options.md
-      - name: Fault-tolerant website with load balancing using {{ alb-name }}
-        href: tutorials/application-load-balancer-website.md
       - name: >-
-          Health checking your applications in a {{ k8s }} cluster with the {{
-          alb-name }} Ingress controller
+          Deploying and load testing a scalable gRPC service in {{
+          managed-k8s-full-name }}
+        href: tutorials/load-testing-grpc-autoscaling.md
+      - name: Setting up the Gateway API in {{ managed-k8s-full-name }}
+        href: tutorials/gateway-api.md
+      - name: Configuring an L7 {{ alb-name }} using an ingress controller
+        href: tutorials/alb-ingress-controller.md
+      - name: Configuring L7 {{ alb-name }} logging via an ingress controller
+        href: tutorials/alb-ingress-controller-log-options.md
+      - name: Fault-tolerant website with load balancing via an {{ alb-name }}
+        items:
+          - name: Overview
+            href: tutorials/application-load-balancer-website/index.md
+          - name: Management console
+            href: tutorials/application-load-balancer-website/console.md
+          - name: '{{ TF }}'
+            href: tutorials/application-load-balancer-website/terraform.md
+      - name: >-
+          Health checking applications in a {{ managed-k8s-name }} cluster via
+          an L7 {{ alb-name }}
         href: tutorials/custom-health-checks.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ using the next-generation firewall
+        href: tutorials/high-accessible-dmz.md
+      - name: >-
+          Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }}
+          profile
+        items:
+          - name: Overview
+            href: tutorials/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: tutorials/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: tutorials/balancer-with-sws-profile/terraform.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: tutorials/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: tutorials/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: tutorials/integrate-nextcloud/terraform.md
+      - name: >-
+          Deploying a web application on {{ baremetal-name }} servers with an L7
+          load balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
   - name: Concepts
     items:
       - name: Overview
@@ -115,10 +217,16 @@ items:
         href: concepts/application-load-balancer.md
       - name: HTTP routers
         href: concepts/http-router.md
+      - name: Limit on the number of requests
+        href: concepts/rate-limiter.md
       - name: Backend groups
         href: concepts/backend-group.md
       - name: Target groups
         href: concepts/target-group.md
+      - name: Monitoring and logging
+        href: concepts/monitoring.md
+      - name: Monitoring charts
+        href: concepts/function-monitoring.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: Tips for configuring health checks
@@ -127,15 +235,53 @@ items:
     items:
       - name: Overview
         href: tools/index.md
+      - name: Gwin
+        items:
+          - name: Overview
+            href: tools/gwin/index.md
+          - name: Installing Gwin
+            href: tools/gwin/quickstart.md
+          - name: Gwin policies
+            href: tools/gwin/policies.md
+          - name: Migrating apps from an ALB Ingress controller to Gwin
+            href: tools/gwin/ingress-gwin-migration.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
+              - name: GRPCRoute
+                href: gwin-ref/grpcroute.md
+              - name: HTTPRoute
+                href: gwin-ref/httproute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
+              - name: IngressPolicy
+                href: gwin-ref/ingresspolicy.md
+              - name: RoutePolicy
+                href: gwin-ref/routepolicy.md
+              - name: Service
+                href: gwin-ref/service.md
+              - name: ServicePolicy
+                href: gwin-ref/servicepolicy.md
+              - name: TLSRoute
+                href: gwin-ref/tlsroute.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
           - name: Overview
             href: tools/k8s-ingress-controller/index.md
           - name: How it works
             href: tools/k8s-ingress-controller/principles.md
-          - name: Installing an Ingress controller
+          - name: Installing an ingress controller
             href: operations/k8s-ingress-controller-install.md
-          - name: Updating an Ingress controller
+          - name: Upgrading an ingress controller
             href: operations/k8s-ingress-controller-upgrade.md
           - name: Resource configuration
             items:
@@ -143,43 +289,217 @@ items:
                 href: k8s-ref/ingress.md
               - name: HttpBackendGroup
                 href: k8s-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: k8s-ref/grpc-backend-group.md
               - name: IngressClass
                 href: k8s-ref/ingress-class.md
-              - name: Service for Ingress
+              - name: Ingress service
                 href: k8s-ref/service-for-ingress.md
       - name: Gateway API
         items:
           - name: Overview
             href: tools/k8s-gateway-api/index.md
-          - name: Installing Gateway API
+          - name: Installing the Gateway API
             href: operations/k8s-gateway-api-install.md
           - name: Resource configuration
             items:
               - name: Gateway
                 href: k8s-ref/gateway.md
+              - name: GatewayPolicy
+                href: k8s-ref/gateway-policy.md
               - name: HTTPRoute
                 href: k8s-ref/http-route.md
+              - name: GRPCRoute
+                href: k8s-ref/grpc-route.md
+              - name: RoutePolicy
+                href: k8s-ref/route-policy.md
               - name: TLSRoute
                 href: k8s-ref/tls-route.md
-              - name: Service for Gateway API
+              - name: Gateway API service
                 href: k8s-ref/service-for-gateway.md
+              - name: YCCertificate
+                href: k8s-ref/yc-certificate.md
+              - name: YCStorageBucket
+                href: k8s-ref/yc-storage-bucket.md
       - name: Configuring security groups
         href: tools/k8s-ingress-controller/security-groups.md
       - name: Working with service accounts
         href: tools/k8s-ingress-controller/service-account.md
-      - name: Creating or updating resources based on a configuration
+      - name: Creating and updating resources via ingress controller configurations
         href: operations/k8s-ingress-controller-apply.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/application-load-balancer/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: backend-group
+        items:
+          - name: Overview
+            href: cli-ref/backend-group/index.md
+          - name: add-grpc-backend
+            href: cli-ref/backend-group/add-grpc-backend.md
+          - name: add-http-backend
+            href: cli-ref/backend-group/add-http-backend.md
+          - name: add-stream-backend
+            href: cli-ref/backend-group/add-stream-backend.md
+          - name: create
+            href: cli-ref/backend-group/create.md
+          - name: delete
+            href: cli-ref/backend-group/delete.md
+          - name: delete-grpc-backend
+            href: cli-ref/backend-group/delete-grpc-backend.md
+          - name: delete-http-backend
+            href: cli-ref/backend-group/delete-http-backend.md
+          - name: delete-stream-backend
+            href: cli-ref/backend-group/delete-stream-backend.md
+          - name: get
+            href: cli-ref/backend-group/get.md
+          - name: list
+            href: cli-ref/backend-group/list.md
+          - name: update
+            href: cli-ref/backend-group/update.md
+          - name: update-grpc-backend
+            href: cli-ref/backend-group/update-grpc-backend.md
+          - name: update-http-backend
+            href: cli-ref/backend-group/update-http-backend.md
+          - name: update-stream-backend
+            href: cli-ref/backend-group/update-stream-backend.md
+      - name: http-router
+        items:
+          - name: Overview
+            href: cli-ref/http-router/index.md
+          - name: create
+            href: cli-ref/http-router/create.md
+          - name: delete
+            href: cli-ref/http-router/delete.md
+          - name: get
+            href: cli-ref/http-router/get.md
+          - name: list
+            href: cli-ref/http-router/list.md
+          - name: update
+            href: cli-ref/http-router/update.md
+      - name: load-balancer
+        items:
+          - name: Overview
+            href: cli-ref/load-balancer/index.md
+          - name: add-listener
+            href: cli-ref/load-balancer/add-listener.md
+          - name: add-location
+            href: cli-ref/load-balancer/add-location.md
+          - name: add-sni
+            href: cli-ref/load-balancer/add-sni.md
+          - name: add-stream-listener
+            href: cli-ref/load-balancer/add-stream-listener.md
+          - name: add-stream-sni
+            href: cli-ref/load-balancer/add-stream-sni.md
+          - name: autoscale
+            href: cli-ref/load-balancer/autoscale.md
+          - name: cancel-zonal-shift
+            href: cli-ref/load-balancer/cancel-zonal-shift.md
+          - name: create
+            href: cli-ref/load-balancer/create.md
+          - name: delete
+            href: cli-ref/load-balancer/delete.md
+          - name: disable-traffic
+            href: cli-ref/load-balancer/disable-traffic.md
+          - name: disable-zones
+            href: cli-ref/load-balancer/disable-zones.md
+          - name: enable-traffic
+            href: cli-ref/load-balancer/enable-traffic.md
+          - name: enable-zones
+            href: cli-ref/load-balancer/enable-zones.md
+          - name: get
+            href: cli-ref/load-balancer/get.md
+          - name: list
+            href: cli-ref/load-balancer/list.md
+          - name: list-operations
+            href: cli-ref/load-balancer/list-operations.md
+          - name: logging
+            href: cli-ref/load-balancer/logging.md
+          - name: remove-listener
+            href: cli-ref/load-balancer/remove-listener.md
+          - name: remove-location
+            href: cli-ref/load-balancer/remove-location.md
+          - name: remove-sni
+            href: cli-ref/load-balancer/remove-sni.md
+          - name: start
+            href: cli-ref/load-balancer/start.md
+          - name: start-zonal-shift
+            href: cli-ref/load-balancer/start-zonal-shift.md
+          - name: stop
+            href: cli-ref/load-balancer/stop.md
+          - name: target-states
+            href: cli-ref/load-balancer/target-states.md
+          - name: update
+            href: cli-ref/load-balancer/update.md
+          - name: update-listener
+            href: cli-ref/load-balancer/update-listener.md
+          - name: update-sni
+            href: cli-ref/load-balancer/update-sni.md
+          - name: update-stream-listener
+            href: cli-ref/load-balancer/update-stream-listener.md
+          - name: update-stream-sni
+            href: cli-ref/load-balancer/update-stream-sni.md
+      - name: target-group
+        items:
+          - name: Overview
+            href: cli-ref/target-group/index.md
+          - name: add-targets
+            href: cli-ref/target-group/add-targets.md
+          - name: create
+            href: cli-ref/target-group/create.md
+          - name: delete
+            href: cli-ref/target-group/delete.md
+          - name: get
+            href: cli-ref/target-group/get.md
+          - name: list
+            href: cli-ref/target-group/list.md
+          - name: remove-targets
+            href: cli-ref/target-group/remove-targets.md
+          - name: update
+            href: cli-ref/target-group/update.md
+      - name: virtual-host
+        items:
+          - name: Overview
+            href: cli-ref/virtual-host/index.md
+          - name: append-grpc-route
+            href: cli-ref/virtual-host/append-grpc-route.md
+          - name: append-http-route
+            href: cli-ref/virtual-host/append-http-route.md
+          - name: create
+            href: cli-ref/virtual-host/create.md
+          - name: delete
+            href: cli-ref/virtual-host/delete.md
+          - name: get
+            href: cli-ref/virtual-host/get.md
+          - name: insert-grpc-route
+            href: cli-ref/virtual-host/insert-grpc-route.md
+          - name: insert-http-route
+            href: cli-ref/virtual-host/insert-http-route.md
+          - name: list
+            href: cli-ref/virtual-host/list.md
+          - name: prepend-grpc-route
+            href: cli-ref/virtual-host/prepend-grpc-route.md
+          - name: prepend-http-route
+            href: cli-ref/virtual-host/prepend-http-route.md
+          - name: remove-grpc-route
+            href: cli-ref/virtual-host/remove-grpc-route.md
+          - name: remove-http-route
+            href: cli-ref/virtual-host/remove-http-route.md
+          - name: update
+            href: cli-ref/virtual-host/update.md
+          - name: update-grpc-route
+            href: cli-ref/virtual-host/update-grpc-route.md
+          - name: update-http-route
+            href: cli-ref/virtual-host/update-http-route.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -257,6 +577,14 @@ items:
                 href: api-ref/grpc/LoadBalancer/getTargetStates.md
               - name: ListOperations
                 href: api-ref/grpc/LoadBalancer/listOperations.md
+              - name: StartZonalShift
+                href: api-ref/grpc/LoadBalancer/startZonalShift.md
+              - name: CancelZonalShift
+                href: api-ref/grpc/LoadBalancer/cancelZonalShift.md
+              - name: DisableZones
+                href: api-ref/grpc/LoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/grpc/LoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -379,6 +707,14 @@ items:
                 href: api-ref/LoadBalancer/getTargetStates.md
               - name: ListOperations
                 href: api-ref/LoadBalancer/listOperations.md
+              - name: StartZonalShift
+                href: api-ref/LoadBalancer/startZonalShift.md
+              - name: CancelZonalShift
+                href: api-ref/LoadBalancer/cancelZonalShift.md
+              - name: DisableZones
+                href: api-ref/LoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/LoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -429,9 +765,77 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Audit log reference
+    items:
+      - name: AddBackendGroupBackend
+        href: events-ref/AddBackendGroupBackend.md
+      - name: AddLoadBalancerListener
+        href: events-ref/AddLoadBalancerListener.md
+      - name: AddLoadBalancerSniMatch
+        href: events-ref/AddLoadBalancerSniMatch.md
+      - name: AddTargetGroupTargets
+        href: events-ref/AddTargetGroupTargets.md
+      - name: CancelZonalShift
+        href: events-ref/CancelZonalShift.md
+      - name: CreateBackendGroup
+        href: events-ref/CreateBackendGroup.md
+      - name: CreateHttpRouter
+        href: events-ref/CreateHttpRouter.md
+      - name: CreateLoadBalancer
+        href: events-ref/CreateLoadBalancer.md
+      - name: CreateTargetGroup
+        href: events-ref/CreateTargetGroup.md
+      - name: CreateVirtualHost
+        href: events-ref/CreateVirtualHost.md
+      - name: DeleteBackendGroup
+        href: events-ref/DeleteBackendGroup.md
+      - name: DeleteHttpRouter
+        href: events-ref/DeleteHttpRouter.md
+      - name: DeleteLoadBalancer
+        href: events-ref/DeleteLoadBalancer.md
+      - name: DeleteTargetGroup
+        href: events-ref/DeleteTargetGroup.md
+      - name: DeleteVirtualHost
+        href: events-ref/DeleteVirtualHost.md
+      - name: LoadBalancerHTTPAccessLog
+        href: events-ref/LoadBalancerHTTPAccessLog.md
+      - name: LoadBalancerTCPAccessLog
+        href: events-ref/LoadBalancerTCPAccessLog.md
+      - name: RemoveBackendGroupBackend
+        href: events-ref/RemoveBackendGroupBackend.md
+      - name: RemoveLoadBalancerListener
+        href: events-ref/RemoveLoadBalancerListener.md
+      - name: RemoveLoadBalancerSniMatch
+        href: events-ref/RemoveLoadBalancerSniMatch.md
+      - name: RemoveTargetGroupTargets
+        href: events-ref/RemoveTargetGroupTargets.md
+      - name: RemoveVirtualHostRoute
+        href: events-ref/RemoveVirtualHostRoute.md
+      - name: StartLoadBalancer
+        href: events-ref/StartLoadBalancer.md
+      - name: StartZonalShift
+        href: events-ref/StartZonalShift.md
+      - name: StopLoadBalancer
+        href: events-ref/StopLoadBalancer.md
+      - name: UpdateBackendGroup
+        href: events-ref/UpdateBackendGroup.md
+      - name: UpdateBackendGroupBackend
+        href: events-ref/UpdateBackendGroupBackend.md
+      - name: UpdateHttpRouter
+        href: events-ref/UpdateHttpRouter.md
+      - name: UpdateLoadBalancer
+        href: events-ref/UpdateLoadBalancer.md
+      - name: UpdateLoadBalancerListener
+        href: events-ref/UpdateLoadBalancerListener.md
+      - name: UpdateLoadBalancerSniMatch
+        href: events-ref/UpdateLoadBalancerSniMatch.md
+      - name: UpdateTargetGroup
+        href: events-ref/UpdateTargetGroup.md
+      - name: UpdateVirtualHost
+        href: events-ref/UpdateVirtualHost.md
+      - name: UpdateVirtualHostRoute
+        href: events-ref/UpdateVirtualHostRoute.md
   - name: L7 load balancer logs
     href: logs-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/application-load-balancer
-deepBase: 2

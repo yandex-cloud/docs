@@ -1,4 +1,4 @@
-title: Yandex Data Proc
+title: Yandex Data Processing
 href: index.yaml
 items:
   - name: Getting started
@@ -13,8 +13,22 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Connecting to a cluster
-            href: operations/connect.md
+          - name: Creating an autoscaling cluster in another folder's network
+            href: operations/cluster-create-autoscale.md
+          - name: Connection
+            items:
+              - name: Connecting to a cluster
+                href: operations/connect.md
+              - name: Configuring security groups
+                href: operations/security-groups.md
+              - name: Getting an FQDN of a host
+                href: operations/fqdn.md
+              - name: Connecting to a host over SSH
+                href: operations/connect-ssh.md
+              - name: Connecting to a host via {{ oslogin }}
+                href: operations/connect-oslogin.md
+              - name: Connecting to a host from graphical IDEs
+                href: operations/connect-ide.md
           - name: Updating a cluster
             href: operations/cluster-update.md
           - name: Migrating a lightweight cluster to a different availability zone
@@ -33,15 +47,15 @@ items:
             href: operations/connect-interfaces.md
           - name: Using Sqoop
             href: operations/sqoop-usage.md
-          - name: Setting up {{ IBRG }}
+          - name: '{{ IBRG }} configuration'
             href: operations/apache-iceberg.md
           - name: Delta Lake
             items:
-              - name: Setting up Delta Lake in single-cluster mode
+              - name: Configuring Delta Lake in single-cluster mode
                 href: operations/deltalake/one-cluster-mode.md
-              - name: Setting up Delta Lake in multi-cluster mode
+              - name: Configuring Delta Lake in multi-cluster mode
                 href: operations/deltalake/multi-cluster-mode.md
-              - name: Tips for setting up and using Delta Lake
+              - name: Tips for configuring and using Delta Lake
                 href: operations/deltalake/tips.md
       - name: Jobs
         items:
@@ -57,35 +71,33 @@ items:
             href: operations/jobs-hive.md
           - name: MapReduce jobs
             href: operations/jobs-mapreduce.md
-      - name: '{{ metastore-name }} clusters'
-        href: operations/metastore/cluster-create.md
       - name: Logs and monitoring
         items:
           - name: Working with logs
             href: operations/logging.md
           - name: Monitoring the state of clusters and hosts
             href: operations/monitoring.md
-          - name: Monitoring the state of Spark applications
+          - name: Spark application status monitoring
             href: operations/spark-monitoring.md
           - name: >-
-              Diagnostics and troubleshooting of Spark application performance
+              Diagnosing and troubleshooting Spark application performance
               issues
             href: operations/spark-diagnostics.md
-      - name: Setting up and using Python virtual environments
+      - name: Creating and using Python virtual environments
         href: operations/python-env.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Network settings and cluster maintenance
+      - name: Cluster network settings and maintenance
         items:
           - name: Configuring a network for {{ dataproc-name }}
             href: tutorials/configure-network.md
           - name: Migrating an HDFS cluster to a different availability zone
             href: tutorials/hdfs-cluster-migration.md
           - name: >-
-              Reconfiguring a network connection when recreating a {{
-              dataproc-name }} cluster
+              Network connection switching during {{ dataproc-name }} cluster
+              recreation
             href: tutorials/reconnect-network.md
       - name: Working with jobs
         items:
@@ -112,19 +124,17 @@ items:
               - name: Using {{ objstorage-name }} in {{ dataproc-name }}
                 href: tutorials/copy-files-from-object-storage.md
               - name: >-
-                  Importing data from {{ objstorage-name }}, processing and
+                  Importing data from {{ objstorage-name }}, processing, and
                   exporting to {{ mch-name }}
-                href: tutorials/s3-dataproc-ch.md
-              - name: >-
-                  Mounting buckets to the file system of {{ dataproc-name }}
-                  hosts
+                href: tutorials/s3-data-processing-ch.md
+              - name: Mounting buckets to {{ dataproc-name }} host filesystems
                 href: tutorials/geesefs-init-actions.md
           - name: '{{ metastore-full-name }}'
             items:
-              - name: Shared use of tables through {{ metastore-name }}
-                href: tutorials/dataproc-to-dataproc.md
+              - name: Collaborative table management using {{ metastore-name }}
+                href: tutorials/data-processing-to-data-processing.md
               - name: >-
-                  Transferring metadata between {{ dataproc-name }} clusters
+                  Transferring metadata across {{ dataproc-name }} clusters
                   using {{ metastore-name }}
                 href: tutorials/metastore-import.md
           - name: Exchanging data with {{ mch-name }}
@@ -135,7 +145,7 @@ items:
             href: tutorials/sqoop-mpg.md
           - name: Integration with {{ ml-platform-name }}
             href: tutorials/datasphere-integration.md
-          - name: Working with {{ KF }} topics using PySpark jobs
+          - name: Processing {{ KF }} topics with PySpark jobs
             href: tutorials/kafka.md
           - name: Automating operations using {{ maf-name }}
             href: tutorials/airflow-automation.md
@@ -155,15 +165,13 @@ items:
         href: concepts/environment.md
       - name: '{{ dataproc-name }} component interfaces and ports'
         href: concepts/interfaces.md
-      - name: '{{ metastore-full-name }} clusters'
-        href: concepts/metastore.md
-      - name: Jobs in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} jobs'
         href: concepts/jobs.md
       - name: Spark jobs
         href: concepts/spark-sql.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: concepts/autoscaling.md
-      - name: Decommissioning subclusters and hosts
+      - name: Decommissioning of subclusters and hosts
         href: concepts/decommission.md
       - name: Networking in {{ dataproc-name }}
         href: concepts/network.md
@@ -179,7 +187,7 @@ items:
         href: concepts/apache-iceberg.md
       - name: Delta Lake in {{ dataproc-name }}
         href: concepts/deltalake.md
-      - name: Logs in {{ dataproc-name }}
+      - name: '{{ dataproc-name }} logs'
         href: concepts/logs.md
       - name: Initialization scripts
         href: concepts/init-action.md
@@ -188,12 +196,92 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/dataproc/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/cluster/list-hosts.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: list-ui-links
+            href: cli-ref/cluster/list-ui-links.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: job
+        items:
+          - name: Overview
+            href: cli-ref/job/index.md
+          - name: cancel
+            href: cli-ref/job/cancel.md
+          - name: create-hive
+            href: cli-ref/job/create-hive.md
+          - name: create-mapreduce
+            href: cli-ref/job/create-mapreduce.md
+          - name: create-pyspark
+            href: cli-ref/job/create-pyspark.md
+          - name: create-spark
+            href: cli-ref/job/create-spark.md
+          - name: get
+            href: cli-ref/job/get.md
+          - name: list
+            href: cli-ref/job/list.md
+          - name: log
+            href: cli-ref/job/log.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: subcluster
+        items:
+          - name: Overview
+            href: cli-ref/subcluster/index.md
+          - name: create
+            href: cli-ref/subcluster/create.md
+          - name: delete
+            href: cli-ref/subcluster/delete.md
+          - name: get
+            href: cli-ref/subcluster/get.md
+          - name: list
+            href: cli-ref/subcluster/list.md
+          - name: update
+            href: cli-ref/subcluster/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -223,6 +311,12 @@ items:
                 href: api-ref/grpc/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/grpc/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview
@@ -295,6 +389,12 @@ items:
                 href: api-ref/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview
@@ -353,5 +453,3 @@ items:
         href: release-notes/images.md
   - name: FAQ
     href: qa/index.md
-base: en/data-proc
-deepBase: 2

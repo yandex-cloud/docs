@@ -25,6 +25,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 * [{{ api-gw-full-name }}](../api-gateway/qa/index.md)
 * [{{ backup-full-name }}](../backup/qa/troubleshooting.md)
+* [{{ cdn-full-name }}](../cdn/troubleshooting.md)
 * [{{ dns-full-name }}](../dns/qa/index.md)
 * [{{ cloud-logging-full-name }}](../logging/qa/index.md)
 * [{{ compute-full-name }}](../compute/qa/all.md)
@@ -42,16 +43,18 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ yq-full-name }}](../query/qa/index.md)
+* [{{ maf-full-name }}](../managed-airflow/qa/index.md)
 * [{{ mkf-full-name }}](../managed-kafka/qa/index.md)
 * [{{ mch-full-name }}](../managed-clickhouse/qa/all.md)
 * [{{ mgp-full-name }}](../managed-greenplum/qa/all.md)
-* [{{ mmg-full-name }}](../managed-mongodb/qa/all.md)
+* [{{ mmg-full-name }}](../storedoc/qa/all.md)
 * [{{ mmy-full-name }}](../managed-mysql/qa/all.md)
 * [{{ mos-full-name }}](../managed-opensearch/qa/index.md)
 * [{{ mpg-full-name }}](../managed-postgresql/qa/all.md)
-* [{{ mrd-full-name }}](../managed-redis/qa/general.md)
+* [{{ mrd-full-name }}](../managed-valkey/qa/general.md)
 * [{{ ydb-full-name }}](../ydb/faq.md)
 * [{{ message-queue-full-name }}](../message-queue/qa/index.md)
+* [{{ metadata-hub-full-name }}](../metadata-hub/qa/index.md)
 * [{{ monitoring-full-name }}](../monitoring/qa/all.md)
 * [{{ objstorage-full-name }}](../storage/qa.md)
 
@@ -61,8 +64,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ container-registry-full-name }}](../container-registry/qa/index.md)
 * [{{ managed-k8s-full-name }}<sup>®</sup>](../managed-kubernetes/qa/all.md)
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
-
-
+  
 
 ### Serverless computing {#serverless}
 
@@ -76,7 +78,6 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ serverless-containers-full-name }}](../serverless-containers/qa/index.md)
 
 
-
 ### Security {#security}
 
 * [{{ iam-full-name }}](../iam/qa/index.md)
@@ -86,6 +87,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 
 ### Developer tools {#developer-tools}
 
+* [{{ ca-full-name }}]({{ link-src-docs }}/code-assistant/qa)
 * [{{ cos-full-name }}](../cos/qa/index.md)
 * [{{ mgl-full-name }}](../managed-gitlab/qa/index.md)
 
@@ -97,26 +99,20 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ resmgr-full-name }}](../resource-manager/qa/index.md)
 
 
-
 ### Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
-* [{{ foundation-models-full-name }}](../foundation-models/qa/index.md)
+* [{{ foundation-models-full-name }}](../ai-studio/qa/index.md)
 * [{{ speechkit-full-name }}](../{{ speechkit-slug }}/qa/all.md)
 * [{{ speechsense-full-name }}](../speechsense/qa/index.md)
 * [{{ translate-full-name }}](../translate/qa/index.md)
 * [{{ vision-full-name }}](../vision/qa/index.md)
 
 
-
-
 ### Business tools {#business-tools}
 
 * [{{ datalens-full-name }}](../datalens/qa/index.md)
-* [{{ tracker-full-name }}](../tracker/faq.md)
-* [{{ video-full-name }}](../video/troubleshooting.md)
-
-
+* [{{ video-full-name }}](../video/troubleshooting/index.md)
 
 {% include [Greenplum trademark](../_includes/mdb/mgp/trademark.md) %}
 

@@ -1,6 +1,17 @@
+---
+title: Создать триггер для {{ yds-full-name }}, который отправляет сообщения в WebSocket-соединения
+description: Следуя данной инструкции, вы сможете создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения, а также проверить результат его работы.
+---
+
 # Создать триггер для {{ yds-name }}, который отправляет сообщения в WebSocket-соединения
 
  Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md) при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
+
+{% note info %}
+
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
@@ -18,7 +29,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Откройте сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

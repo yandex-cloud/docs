@@ -1,9 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks/{diskId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to move.
+            To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to move the disk to.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/move.md
 ---
 
-# Compute Cloud API, REST: Disk.Move {#Move}
+# Compute Cloud API, REST: Disk.Move
 
 Moves the specified disk to another folder of the same cloud.
 
@@ -21,7 +52,9 @@ POST https://compute.{{ api-host }}/compute/v1/disks/{diskId}:move
 
 Required field. ID of the disk to move.
 
-To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.MoveDiskRequest}
@@ -38,7 +71,9 @@ To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#Li
 
 Required field. ID of the folder to move the disk to.
 
-To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -72,7 +107,7 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "typeId": "string",
     "zoneId": "string",
     "size": "string",
@@ -99,6 +134,10 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -232,7 +271,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**
@@ -261,7 +300,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -286,6 +324,9 @@ Placement policy configuration. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -324,7 +365,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

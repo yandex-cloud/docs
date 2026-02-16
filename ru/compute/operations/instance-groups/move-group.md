@@ -6,14 +6,6 @@ description: Из статьи вы узнаете, как можно перен
 # Перенести группу виртуальных машин в другую зону доступности
 
 
-
-{% note info %}
-
-{% include [zone-c-deprecation](../../../_includes/vpc/zone-c-deprecation.md) %}
-
-{% endnote %}
-
-
 Если группа ВМ подключена к балансировщику нагрузки, воспользуйтесь следующими инструкциями:
 * [{#T}](move-group-with-nlb.md)
 * [{#T}](move-group-with-alb.md)

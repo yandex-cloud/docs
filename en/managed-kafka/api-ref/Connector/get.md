@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/{connectorName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster the connector belongs to.
+            To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        connectorName:
+          description: |-
+            **string**
+            Required field. Name of the Apache Kafka® connector to return information about.
+            To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+            The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `.
+          pattern: '[-_.a-zA-Z0-9]*'
+          type: string
+      required:
+        - clusterId
+        - connectorName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Connector.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: Connector.Get
 
 Returns information about an Apache Kafka® connector.
 
@@ -21,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/
 
 Required field. ID of the Apache Kafka® cluster the connector belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || connectorName | **string**
 
 Required field. Name of the Apache Kafka® connector to return information about.
 
-To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request. ||
+To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Connector/list#List) request.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.Connector}
@@ -37,7 +69,7 @@ To get this name, make a [ConnectorService.List](/docs/managed-kafka/api-ref/Con
 {
   "name": "string",
   "tasksMax": "string",
-  "properties": "string",
+  "properties": "object",
   "health": "string",
   "status": "string",
   "clusterId": "string",
@@ -97,7 +129,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

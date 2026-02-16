@@ -1,6 +1,5 @@
-В кластерах {{ mkf-name }} с протоколом {{ kraft-short-name }} применяется только _комбинированный режим_, когда на одном хосте {{ KF }} одновременно размещается [брокер](../../../managed-kafka/concepts/brokers.md) и контроллер метаданных {{ kraft-short-name }}. При этом в кластере создаются только три хоста {{ KF }} в одной из конфигураций:
+{{ kraft-short-name }} автоматически настраивается и размещается в кластере в зависимости от выбранного режима работы и количества хостов-брокеров:
 
-* либо все три находятся в одной [зоне доступности](../../../overview/concepts/geo-scope.md);
-* либо каждый хост расположен в отдельной зоне доступности.
+{% include [kraft-modes](kraft-modes.md) %}
 
-Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} см. в [инструкции](../../../managed-kafka/operations/cluster-create.md#higher-version).
+Подробнее о создании кластера {{ mkf-name }} с протоколом {{ kraft-short-name }} см. в [инструкции](../../../managed-kafka/operations/cluster-create.md#create-cluster-kraft).

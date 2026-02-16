@@ -1,4 +1,10 @@
+---
+title: Вопросы и ответы про дашборды
+description: На странице представлены вопросы и ответы про дашборды.
+---
+
 # Дашборды
+
 
 
 {% include [configure-link-between-selectors](../../_qa/datalens/configure-link-between-selectors.md) %}
@@ -18,6 +24,7 @@
 Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 
 {% include [datalens-metrica-appmetrica-share](../../_includes/datalens/datalens-metrica-appmetrica-share.md) %}
+
 
 
 

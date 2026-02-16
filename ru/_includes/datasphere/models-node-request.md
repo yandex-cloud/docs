@@ -1,0 +1,1 @@
+Указанные примеры отправки запроса работают только с [нодами из Docker-образа](../../datasphere/concepts/deploy/index.md#docker-node). Чтобы отправить запрос в [ноду из модели](../../datasphere/concepts/deploy/index.md#models-node), установите [Triton Client](https://github.com/triton-inference-server/client).

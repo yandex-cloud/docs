@@ -1,7 +1,7 @@
 # Использование гибридного хранилища в {{ mch-name }}
 
 
-Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
+Гибридное хранилище позволяет хранить часто используемые данные на сетевых дисках кластера {{ mch-name }}, а редко используемые данные — в {{ objstorage-full-name }}. Гибридное хранилище самостоятельно создаст бакет и подключит его к {{ CH }}. Автоматическое перемещение данных между этими уровнями хранения поддерживается только для таблиц семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Подробнее см. в разделе [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 Чтобы воспользоваться гибридным хранилищем:
 
@@ -11,6 +11,15 @@
 1. [Выполните тестовый запрос](#submit-test-query).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -22,7 +31,7 @@
 
     1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
 
-
+        
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — стандартные (`network-hdd`), быстрые (`network-ssd`) или нереплицируемые (`network-ssd-nonreplicated`) сетевые диски.
 
 
@@ -33,45 +42,33 @@
 
     1. [Настройте права доступа](../../managed-clickhouse/operations/cluster-users.md#update-settings) так, чтобы вы могли выполнять в этой базе запросы на чтение и запись.
 
-- {{ TF }} {#tf}
+- С помощью {{ TF }} {#tf}
 
+    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. {% include [terraform-install](../../_includes/terraform-install.md) %}
-
-
-    1. Клонируйте репозиторий с примерами:
-
-        ```bash
-        git clone https://github.com/yandex-cloud/examples/
-        ```
-
-    1. Скопируйте из директории `examples/tutorials/terraform/` файл `clickhouse-hybrid-storage.tf` в директорию, в которой размещен файл с настройками провайдера.
+    1. Скачайте в ту же рабочую директорию файл конфигурации [clickhouse-hybrid-storage.tf](https://github.com/yandex-cloud-examples/yc-clickhouse-hybrid-storage/blob/main/clickhouse-hybrid-storage.tf).
 
         В этом файле описаны:
 
-        * сеть;
-
-        * подсеть;
-
-
-        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-
-
+        * [сеть](../../vpc/concepts/network.md#network);
+        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию и правила, необходимые для подключения к кластеру из интернета;
         * кластер {{ mch-name }} с включенным гибридным хранилищем.
 
     1. Укажите в файле `clickhouse-hybrid-storage.tf` имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-    1. Для проверки правильности файлов конфигурации выполните команду:
+        ```bash
+        terraform validate
+        ```
 
-       ```bash
-       terraform validate
-       ```
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
-       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте инфраструктуру, необходимую для выполнения инструкций из этого руководства:
+    1. Создайте необходимую инфраструктуру:
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -136,7 +133,7 @@ SETTINGS index_granularity = 8192
 
 {% endnote %}
 
-Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище при истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
+Данные между хранилищем на сетевых дисках и объектным хранилищем перемещаются не построчно, а [кусками]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes). Старайтесь выбирать выражение TTL и [ключ партиционирования]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) так, чтобы для всех строк куска данных TTL совпадал. Если этого не сделать, то могут возникнуть проблемы с перемещением данных в объектное хранилище по истечении TTL, если один кусок будет содержать данные, предназначенные для разных уровней хранения. В самом простом случае выражение для TTL должно использовать те же столбцы, что и в ключе партиционирования, как в примере выше, где используется столбец `EventDate`.
 
 Подробнее о настройке TTL см. [в документации {{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
 
@@ -145,7 +142,7 @@ SETTINGS index_granularity = 8192
 1. Отключитесь от базы данных.
 1. Загрузите тестовый датасет:
 
-
+   
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
@@ -286,22 +283,6 @@ LIMIT 10
 
 - {{ TF }} {#tf}
 
-    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите файл `clickhouse-hybrid-storage.tf`.
-    1. Выполните команду:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в файле `clickhouse-hybrid-storage.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

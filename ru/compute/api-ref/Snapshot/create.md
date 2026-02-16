@@ -1,9 +1,105 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a snapshot in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to create the snapshot from.
+            To get the disk ID use a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the snapshot.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the snapshot.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        hardwareGeneration:
+          description: |-
+            **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
+            Specify the overrides to hardware_generation of a source disk, image or snapshot,
+            or to the default values if the source does not define it.
+          $ref: '#/definitions/HardwareGeneration'
+      required:
+        - folderId
+        - diskId
+      additionalProperties: false
+    definitions:
+      LegacyHardwareFeatures:
+        type: object
+        properties:
+          pciTopology:
+            description: |-
+              **enum** (PCITopology)
+              - `PCI_TOPOLOGY_V1`
+              - `PCI_TOPOLOGY_V2`
+            type: string
+            enum:
+              - PCI_TOPOLOGY_UNSPECIFIED
+              - PCI_TOPOLOGY_V1
+              - PCI_TOPOLOGY_V2
+      Generation2HardwareFeatures:
+        type: object
+        properties: {}
+      HardwareGeneration:
+        type: object
+        properties:
+          legacyFeatures:
+            description: |-
+              **[LegacyHardwareFeatures](#yandex.cloud.compute.v1.LegacyHardwareFeatures)**
+              Includes only one of the fields `legacyFeatures`, `generation2Features`.
+            $ref: '#/definitions/LegacyHardwareFeatures'
+          generation2Features:
+            description: |-
+              **object**
+              Includes only one of the fields `legacyFeatures`, `generation2Features`.
+            $ref: '#/definitions/Generation2HardwareFeatures'
+        oneOf:
+          - required:
+              - legacyFeatures
+          - required:
+              - generation2Features
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/create.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Create {#Create}
+# Compute Cloud API, REST: Snapshot.Create
 
 Creates a snapshot of the specified disk.
 
@@ -21,7 +117,7 @@ POST https://compute.{{ api-host }}/compute/v1/snapshots
   "diskId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "hardwareGeneration": {
     // Includes only one of the fields `legacyFeatures`, `generation2Features`
     "legacyFeatures": {
@@ -38,20 +134,30 @@ POST https://compute.{{ api-host }}/compute/v1/snapshots
 || folderId | **string**
 
 Required field. ID of the folder to create a snapshot in.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || diskId | **string**
 
 Required field. ID of the disk to create the snapshot from.
-To get the disk ID use a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID use a [yandex.cloud.compute.v1.DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the snapshot. ||
+Name of the snapshot.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the snapshot. ||
-|| labels | **string**
+Description of the snapshot.
 
-Resource labels as `key:value` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 Specify the overrides to hardware_generation of a source disk, image or snapshot,
@@ -84,7 +190,6 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
 |#
@@ -119,7 +224,7 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "storageSize": "string",
     "diskSize": "string",
     "productIds": [
@@ -134,6 +239,10 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -264,7 +373,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)
@@ -287,7 +396,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the snapshot.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Snapshot is being created.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
@@ -299,6 +407,9 @@ ID of the source disk used to create this snapshot. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration2}
@@ -327,7 +438,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

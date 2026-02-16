@@ -1,2 +1,1 @@
-Cluster deletion protection will not prevent a manual connection to a cluster to delete data.
-
+Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.

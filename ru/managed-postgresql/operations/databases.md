@@ -10,7 +10,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
 
 - CLI {#cli}
@@ -33,7 +33,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.list](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.List](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -44,7 +44,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/list.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/list.md#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse).
 
 - gRPC API {#grpc-api}
 
@@ -53,7 +53,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -83,7 +83,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
   1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
@@ -200,7 +200,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -216,11 +216,10 @@
                    "lcCtype": "<локаль_набора_символов>",
                    "extensions": [
                      {
-                       "name": "<имя_расширения>",
-                       "version": "<версия_расширения>"
+                       "name": "<имя_расширения>"
                      }
                    ],
-                   "deletionProtection": <защита_от_удаления:_true_или_false>
+                   "deletionProtection": <защита_от_удаления>
                  }
                }'
      ```
@@ -237,15 +236,14 @@
      * `extensions` — массив расширений БД. Один элемент массива содержит настройки для одного расширения и имеет следующую структуру:
 
        * `extensions.name` — имя расширения;
-       * `extensions.version` — версия расширения.
 
-       Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
+       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -254,7 +252,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -272,11 +270,10 @@
                "lc_ctype": "<локаль_набора_символов>",
                "extensions": [
                  {
-                   "name": "<имя_расширения>",
-                   "version": "<версия_расширения>"
+                   "name": "<имя_расширения>"
                  }
                ],
-               "deletion_protection": <защита_от_удаления:_true_или_false>
+               "deletion_protection": <защита_от_удаления>
              }
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
@@ -295,11 +292,10 @@
      * `extensions` — массив расширений БД. Один элемент массива содержит настройки для одного расширения и имеет следующую структуру:
 
        * `extensions.name` — имя расширения;
-       * `extensions.version` — версия расширения.
 
-       Указывайте имя и версию в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
+       Указывайте имя в соответствии со [списком поддерживаемых расширений и утилит {{ PG }}](extensions/cluster-extensions.md#postgresql).
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -346,7 +342,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -374,7 +370,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -383,7 +379,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -420,7 +416,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -430,7 +426,7 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Выберите нужное значение в поле **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**.
@@ -466,7 +462,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Update](../api-ref/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -478,7 +474,7 @@
        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>' \
        --data '{
                  "updateMask": "deletionProtection",
-                 "deletionProtection": <защита_от_удаления:_true_или_false>
+                 "deletionProtection": <защита_от_удаления>
                }'
      ```
 
@@ -488,11 +484,11 @@
 
        В данном случае передается только один параметр.
 
-     * `deletionProtection` — защита от удаления БД.
+     * `deletionProtection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -501,7 +497,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Update](../api-ref/grpc/Database/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -520,7 +516,7 @@
                  "deletion_protection"
                ]
              },
-             "deletion_protection": <защита_от_удаления:_true_или_false>
+             "deletion_protection": <защита_от_удаления>
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.DatabaseService.Update
@@ -532,11 +528,11 @@
 
        В данном случае передается только один параметр.
 
-     * `deletion_protection` — защита от удаления БД.
+     * `deletion_protection` — защита БД от удаления: `true`, `false` или `unspecified` (наследует значение от кластера). Значение по умолчанию — `unspecified`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation1).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -555,7 +551,7 @@
 - Консоль управления {#console}
 
   Чтобы удалить базу данных:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД, выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}** и подтвердите удаление.
 
@@ -599,7 +595,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Database.delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Database.Delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -610,7 +606,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Database/delete.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -619,7 +615,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [DatabaseService.Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -638,7 +634,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/create.md#yandex.cloud.operation.Operation2).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Database/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

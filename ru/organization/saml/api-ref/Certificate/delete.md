@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates/{certificateId}
+    method: delete
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            ID of the certificate to delete.
+            To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/delete.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.Delete {#Delete}
+# SAML Federation API, REST: Certificate.Delete
 
 Deletes the specified certificate.
 
@@ -20,7 +37,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || certificateId | **string**
 
 Required field. ID of the certificate to delete.
-To get the certificate ID, make a [CertificateService.List](/docs/organization/api-ref/Certificate/list#List) request. ||
+To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

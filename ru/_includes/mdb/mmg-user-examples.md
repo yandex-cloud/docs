@@ -8,7 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя `user2` и пароль (от 8 до 128 символов).
@@ -31,7 +32,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](../../managed-mongodb/operations/cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mongodb_user`.
 
@@ -67,7 +68,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
   1. Нажмите на имя кластера `cluster1` и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_users }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке пользователя `user1` и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите базу данных `db2`.
@@ -89,7 +91,7 @@
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера](../../managed-mongodb/operations/cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера](../../storedoc/operations/cluster-create.md).
 
   1. Найдите ресурс `yandex_mdb_mongodb_user`.
   1. Добавьте блок `permission`:

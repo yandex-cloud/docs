@@ -1,6 +1,5 @@
 ## Решения для известных проблем {{ iam-name }} {#known-issues-resolving}
 
-* [Устранение ошибки `Permission Denied` при добавлении нового пользователя в облачную организацию](permission-denied-error-when-adding-new-user-to-organisation.md)
 * [Устранение ошибок при назначении роли `{{ roles-cloud-owner }}` пользователю облака](resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
 * [Устранение ошибок при работе с приглашениями в облачную организацию](error-when-users-accepts-invite-to-organisation.md)
 * [Устранение ошибки `The signature of response or assertion was invalid` при аутентификации через федеративный аккаунт](error-the-signature-of-response-or-assertion-was-invalid-when-using-federatadion-login.md)

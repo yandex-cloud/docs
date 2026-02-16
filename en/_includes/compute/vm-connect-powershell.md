@@ -1,14 +1,14 @@
-PowerShell Remoting Protocol (PSRP) with access via HTTPS is enabled for images of all versions and editions of the Windows operating system prepared for {{ yandex-cloud }}. You can connect to a virtual machine with the `RUNNING` status over PSRP. Some time may be required to initialize all the services after the VM [starts](../../compute/operations/vm-control/vm-stop-and-start.md#start). If there is a connection error, retry after a few minutes.
+Images of all Windows versions and editions for {{ yandex-cloud }} deployments come with enabled PowerShell Remoting Protocol (PSRP) with HTTPS access. You will be able to connect to a VM with the `RUNNING` status via PSRP. It may take some time for all services to initialize after the VM [starts](../../compute/operations/vm-control/vm-stop-and-start.md#start). If you get a connection error, try again in a few minutes.
 
-Virtual machine [security groups](../../vpc/concepts/security-groups.md) must allow incoming TCP traffic to port 5986.
+VM [security groups](../../vpc/concepts/security-groups.md) must allow incoming TCP traffic on port 5986.
 
-To do this, specify its public IP address or fully qualified domain name (Fully Qualified Domain Name, [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)). Access using FQDN is possible from another {{ yandex-cloud }} VM if it is connected to the same network. You can find out the IP address and FQDN in the management console. Go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the virtual machine's page.
+To connect via PSRP, specify the public IP address or fully qualified domain name ([FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)). You can use FQDN to access a VM from another {{ yandex-cloud }} VM if both are connected to the same network. To get the IP address and FQDN, use the management console: go to the **{{ ui-key.yacloud.compute.instance.overview.section_network }}** section on the VM page.
 
-To connect to the VM:
+To connect to a VM:
 
-1. Open the PowerShell console.
+1. Start PowerShell.
 
-1. Create an object named `Credentials` replacing the `<password>` with the one of the `Administrator` user you specified when creating the VM:
+1. Create an object named `Credentials`, replacing `<password>` with `Administrator` password you specified when creating the VM:
 
     ```powershell
     $myUserName = "Administrator"
@@ -17,7 +17,7 @@ To connect to the VM:
     $credential = New-Object System.Management.Automation.PSCredential($MyUserName, $myPassword)
     ```
 
-1. Make sure that the username and password entered in the object are correct:
+1. Make sure the username and password entered in the object are correct:
 
     ```powershell
     $networkCredential = $credential.GetNetworkCredential()
@@ -32,7 +32,7 @@ To connect to the VM:
     Administrator <password>
     ```
 
-1. Create a variable for the VM's IP address:
+1. Create a variable for the VM IP address:
 
     ```powershell
     $ipAddress = "<IP_address>"
@@ -71,13 +71,13 @@ To connect to the VM:
     Exit-PSSession
     ```
 
-1. Create a session for non-interactive command execution:
+1. Create a non-interactive session:
 
     ```powershell
     $session = New-PSSession @psSession
     ```
 
-    Get a list of open sessions:
+    Get a list of active sessions:
 
     ```powershell
     Get-PSSession
@@ -91,7 +91,7 @@ To connect to the VM:
      2 WinRM2          <IP_address>    RemoteMachine   Opened        Microsoft.PowerShell     Available
     ```
 
-    Run the command on a remote VM:
+    Run this command on a remote VM:
 
     ```powershell
     $scriptBlock = { Get-Process }

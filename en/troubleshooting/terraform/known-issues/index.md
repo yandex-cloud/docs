@@ -1,5 +1,5 @@
-# Solutions for known Terraform issues
+## Solutions for known {{ yandex-cloud }} {{ TF }} provider issues {#known-issues-resolving}
 
-* [Resolving the 'failed to query available provider packages' error when using Terraform](failed-to-quety-available-provider-packages.md)
-* [Troubleshooting the 'invalid provider registry host' error](invalid-provider-registry-host.md)
-* [Zone is set as public and private at the same time](zone-private-and-public.md)
+* [Resolving the `Failed to query available provider packages` error when using {{ TF }}](failed-to-quety-available-provider-packages.md)
+* [Zone appears as both public and private](zone-private-and-public.md)
+* [Resolving the `Invalid provider registry host` error](invalid-provider-registry-host.md)

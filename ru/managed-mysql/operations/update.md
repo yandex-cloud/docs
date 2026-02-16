@@ -8,9 +8,7 @@ description: Из статьи вы узнаете, как изменить на
 После создания кластера вы можете:
 
 * [Изменить класс хостов](#change-resource-preset).
-
-* [{#T}](#change-disk-size).
-
+* [Изменить тип диска и увеличить размер хранилища](#change-disk-size).
 * [Изменить настройки {{ MY }}](#change-mysql-config).
 
     {% note warning %}
@@ -20,17 +18,13 @@ description: Из статьи вы узнаете, как изменить на
     {% endnote %}
 
 * [Изменить дополнительные настройки кластера](#change-additional-settings).
-
+* [Вручную переключить хост-мастер](#start-manual-failover).
 * [Переместить кластер](#move-cluster) в другой каталог.
-
-
-* [{#T}](#change-sg-set).
-
+* [Изменить группы безопасности](#change-sg-set).
 
 Подробнее о других изменениях кластера:
 
 * [{#T}](cluster-version-update.md).
-
 * [Миграция хостов кластера в другую зону доступности](host-migration.md).
 
 ## Изменить класс хостов {#change-resource-preset}
@@ -43,7 +37,7 @@ description: Из статьи вы узнаете, как изменить на
 
 * Кластер из одного хоста будет недоступен несколько минут, соединения с БД будут прерваны.
 * В кластере из нескольких хостов сменится мастер. Каждый хост по очереди будет остановлен и обновлен, остановленный хост будет недоступен несколько минут.
-* Подключение по [особому FQDN](./connect.md#special-fqdns) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
+* Подключение по [особому FQDN](./connect/fqdn.md#fqdn-master) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
 
 Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
 
@@ -51,8 +45,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Чтобы изменить класс хостов {{ MY }}, в блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -72,7 +66,7 @@ description: Из статьи вы узнаете, как изменить на
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
-
+     
      ```bash
      {{ yc-mdb-my }} resource-preset list
      ```
@@ -135,7 +129,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -165,7 +159,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -174,7 +168,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -212,11 +206,11 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
-## Увеличить размер хранилища {#change-disk-size}
+## Изменить тип диска и увеличить размер хранилища {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
@@ -224,11 +218,15 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** укажите необходимое значение.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+
+      * Выберите [тип диска](../concepts/storage.md).
+      * Укажите нужный размер диска.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -237,7 +235,7 @@ description: Из статьи вы узнаете, как изменить на
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
@@ -245,28 +243,30 @@ description: Из статьи вы узнаете, как изменить на
       {{ yc-mdb-my }} cluster update --help
       ```
 
-  1. Укажите нужный размер хранилища в команде изменения кластера (должен быть не меньше, чем значение `disk_size` в свойствах кластера):
+  1. Укажите [тип диска](../concepts/storage.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
       ```bash
       {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
+        --disk-type <тип_диска> \
         --disk-size <размер_хранилища_ГБ>
       ```
 
 - {{ TF }} {#tf}
 
-  Чтобы увеличить размер хранилища для кластера:
+  Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](./cluster-create.md).
 
-  1. Измените значение параметра `disk_size` в блоке `resources`:
+  1. Измените значения параметров `disk_type_id` и `disk_size` в блоке `resources`:
 
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
         ...
         resources {
-          disk_size = <размер_хранилища_ГБ>
+          disk_type_id = "<тип_диска>"
+          disk_size    = <размер_хранилища_ГБ>
           ...
         }
       }
@@ -290,7 +290,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -301,9 +301,10 @@ description: Из статьи вы узнаете, как изменить на
           --header "Content-Type: application/json" \
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>' \
           --data '{
-                    "updateMask": "configSpec.resources.diskSize",
+                    "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                     "configSpec": {
                       "resources": {
+                        "diskTypeId": "<тип_диска>",
                         "diskSize": "<размер_хранилища_в_байтах>"
                       }
                     }
@@ -314,13 +315,14 @@ description: Из статьи вы узнаете, как изменить на
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-          В данном случае передается только один параметр.
+      * `configSpec.resources` — параметры хранилища:
 
-      * `configSpec.resources.diskSize` — новый размер диска в байтах.
+          * `diskTypeId` — [тип диска](../concepts/storage.md).
+          * `diskSize` — новый размер хранилища в байтах.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -329,7 +331,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -344,11 +346,13 @@ description: Из статьи вы узнаете, как изменить на
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                   "paths": [
+                    "config_spec.resources.disk_type_id",
                     "config_spec.resources.disk_size"
                   ]
                 },
                 "config_spec": {
                   "resources": {
+                    "disk_type_id": "<тип_диска>",
                     "disk_size": "<размер_хранилища_в_байтах>"
                   }
                 }
@@ -361,13 +365,14 @@ description: Из статьи вы узнаете, как изменить на
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
-          В данном случае передается только один параметр.
+      * `config_spec.resources` — параметры хранилища:
 
-      * `config_spec.resources.disk_size` — новый размер диска в байтах.
+          * `disk_type_id` — [тип диска](../concepts/storage.md).
+          * `disk_size` — новый размер хранилища в байтах.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -379,8 +384,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Измените [настройки {{ MY }}](../concepts/settings-list.md#dbms-cluster-settings), нажав на кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -446,7 +451,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -477,11 +482,11 @@ description: Из статьи вы узнаете, как изменить на
 
       * `configSpec.mysqlConfig_<версия_{{ MY }}>` — набор настроек {{ MY }}. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -490,7 +495,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -529,11 +534,11 @@ description: Из статьи вы узнаете, как изменить на
 
       * `configSpec.mysqlConfig_<версия_{{ MY }}>` — набор настроек {{ MY }}. Укажите каждую настройку на отдельной строке через запятую.
 
-          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
+          Список версий {{ MY }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.mysql.v1.UpdateClusterReques). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md#dbms-cluster-settings).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -545,9 +550,13 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Измените дополнительные настройки кластера:
+
+     - **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**
+       
+       {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
 
      {% include [mmy-extra-settings](../../_includes/mdb/mmy-extra-settings-web-console.md) %}
 
@@ -567,12 +576,17 @@ description: Из статьи вы узнаете, как изменить на
 
     1. Выполните команду, передав список настроек, которые хотите изменить:
 
+        
         ```bash
         {{ yc-mdb-my }} cluster update <имя_или_идентификатор_кластера> \
           --backup-window-start <время_начала_резервного_копирования> \
           --backup-retain-period-days=<срок_хранения_копий> \
           --datalens-access=<true_или_false> \
           --websql-access=<true_или_false> \
+          --yandexquery-access=<true_или_false> \
+          --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                                 `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                                 `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
                               `hour=<час_дня> \
@@ -582,15 +596,21 @@ description: Из статьи вы узнаете, как изменить на
                                    `statements-sampling-interval=<интервал_сбора_запросов>
         ```
 
+
     Вы можете изменить следующие настройки:
 
     {% include [backup-window-start](../../_includes/mdb/cli/backup-window-start.md) %}
 
     * `--backup-retain-period-days` — срок хранения автоматических резервных копий (в днях). Допустимые значения: от `7` до `60`. Значение по умолчанию — `7`.
 
-    * `--datalens-access` — разрешает доступ из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+    * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
 
     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+
+    * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
+
+
+    {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
 
     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
 
@@ -642,6 +662,8 @@ description: Из статьи вы узнаете, как изменить на
 
   1. {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
+  1. {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
+
   1. {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
 
   1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
@@ -649,11 +671,11 @@ description: Из статьи вы узнаете, как изменить на
       ```hcl
       resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
         ...
-        deletion_protection = <защита_от_удаления>
+        deletion_protection = <защитить_кластер_от_удаления>
       }
       ```
 
-      Где `deletion_protection` — защита от удаления кластера: `true` или `false`.
+      Где `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
       {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
@@ -695,7 +717,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "updateMask": "configSpec.backupWindowStart,configSpec.backupRetainPeriodDays,configSpec.access,configSpec.performanceDiagnostics,maintenanceWindow,deletionProtection",
@@ -708,23 +730,28 @@ description: Из статьи вы узнаете, как изменить на
               },
               "backupRetainPeriodDays": "<количество_дней>",
               "access": {
-                  "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
               },
               "performanceDiagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
+              },
+              "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "maintenanceWindow": {
               "weeklyMaintenanceWindow": {
                   "day": "<день_недели>",
-                  "hour": "<час>"
+                  "hour": "<час_дня>"
               }
           },
-          "deletionProtection": <защита_от_удаления:_true_или_false>
+          "deletionProtection": <защитить_кластер_от_удаления>
       }
       ```
 
@@ -745,37 +772,30 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backupRetainPeriodDays` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `dataLens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+            * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+            Возможные значения настроек: `true` или `false`.
 
           * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-              * `enabled` — активация сбора статистики;
+              * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
+          
+          {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
-      * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenanceWindow` передайте один из двух параметров:
+      {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weeklyMaintenanceWindow` — техническое обслуживание происходит раз в неделю, в указанное время:
-
-              * `day` — день недели в формате `DDD`;
-              * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
-
-      * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
-
-          По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
-
-          Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
           {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -788,7 +808,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -801,7 +821,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
-
+      
       ```json
       {
           "cluster_id": "<идентификатор_кластера>",
@@ -824,23 +844,28 @@ description: Из статьи вы узнаете, как изменить на
               },
               "backup_retain_period_days": "<количество_дней>",
               "access": {
-                  "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "data_transfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
               },
               "performance_diagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
+              },
+              "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "maintenance_window": {
               "weekly_maintenance_window": {
                   "day": "<день_недели>",
-                  "hour": "<час>"
+                  "hour": "<час_дня>"
               }
           },
-          "deletion_protection": <защита_от_удаления:_true_или_false>
+          "deletion_protection": <защитить_кластер_от_удаления>
       }
       ```
 
@@ -861,39 +886,32 @@ description: Из статьи вы узнаете, как изменить на
 
           * `backup_retain_period_days` — сколько дней хранить резервную копию кластера: от `7` до `60` дней.
 
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+              * `data_lens` — доступ из {{ datalens-name }}. Подробнее о настройке подключения см. в разделе [Подключение из {{ datalens-name }}](datalens-connect.md).
+              * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+              * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+              Возможные значения настроек: `true` или `false`.
 
           * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-              * `enabled` — активация сбора статистики;
+              * `enabled` — активация сбора статистики: `true` или `false`;
               * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
               * `statements_sampling_interval` — интервал сбора запросов: от `1` до `86400` секунд.
 
-      * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). В `maintenance_window` передайте один из двух параметров:
+          {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
-          * `anytime` — техническое обслуживание происходит в любое время.
-          * `weekly_maintenance_window` — техническое обслуживание происходит раз в неделю, в указанное время:
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}
 
-              * `day` — день недели в формате `DDD`;
-              * `hour` — час в формате `HH`. Возможные значения: от `1` до `24` часов.
-
-      * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
-
-          По умолчанию при создании пользователей и БД значение параметра наследуется от кластера. Значение также можно задать вручную, подробнее см. в разделах [Управление пользователями](cluster-users.md) и [Управление БД](databases.md).
-
-          Если параметр изменен на работающем кластере, новое значение унаследуют только пользователи и БД с защитой **Как у кластера**.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
           {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -908,7 +926,125 @@ description: Из статьи вы узнаете, как изменить на
           < body.json
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+
+### {{ connection-manager-name }} {#conn-man}
+
+Если в кластере не включена интеграция с сервисом {{ connection-manager-name }}, включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-connman }}**. Она доступна только в [консоли управления]({{ link-console-main }}).
+
+Для каждого пользователя БД будут созданы:
+
+* [Подключение](../../metadata-hub/concepts/connection-manager.md) {{ connection-manager-name }} с информацией о соединении с БД.
+
+* [Секрет {{ lockbox-name }}](../../metadata-hub/concepts/secret.md), в котором хранится пароль пользователя. Хранение паролей в сервисе {{ lockbox-name }} обеспечивает их безопасность.
+
+  Подключение и секрет создаются для каждого нового пользователя БД. Чтобы увидеть все подключения, на странице кластера выберите вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
+
+  Для просмотра информации о подключении требуется роль `connection-manager.viewer`. Вы можете [настраивать доступ к подключениям в {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md).
+
+  {% note info %}
+
+  Использование сервиса {{ connection-manager-name }} и секретов, созданных с его помощью, не тарифицируется.
+
+  {% endnote %}
+
+
+## Вручную переключить хост-мастер {#start-manual-failover}
+
+В [высокодоступном кластере {{ mmy-name }}](../concepts/high-availability.md) из нескольких хостов вы можете переключить роль мастера с текущего хоста-мастера на одну из реплик. После этой операции текущий хост-мастер станет хостом-репликой для нового мастера.
+
+Особенности переключения мастера в {{ mmy-name }}:
+
+* Нельзя сделать мастером каскадную реплику.
+* Если явно не указать имя хоста-реплики, мастер переключится на реплику с наибольшим приоритетом или наименьшим отставанием.
+
+Подробнее см. в разделе [Репликация](../concepts/replication.md).
+
+Чтобы переключить мастер:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+  1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
+      * Чтобы переключить мастер на одну из реплик, оставьте включенной опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}**.
+      * Чтобы переключить мастер на конкретную реплику, выключите опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** и затем выберите нужную реплику из выпадающего списка.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_button }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Выполните команду:
+
+  ```bash
+  {{ yc-mdb-my }} cluster start-failover <имя_или_идентификатор_кластера> \
+      --host <имя_хоста-реплики>
+  ```
+
+  Имя хоста-реплики можно запросить со [списком хостов в кластере](hosts.md#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.StartFailover](../api-ref/Cluster/startFailover.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>:startFailover' \
+       --data '{
+                 "hostName": "<FQDN_хоста>"
+               }'
+     ```
+
+     Где `hostName` — [FQDN реплики](./connect/fqdn.md), которая становится мастером.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService.StartFailover](../api-ref/grpc/Cluster/startFailover.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "host_name": "<FQDN_хоста>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.mysql.v1.ClusterService.StartFailover
+     ```
+
+     Где `host_name` — [FQDN реплики](connect/fqdn.md), которая становится мастером.
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/startFailover.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -918,7 +1054,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.mdb.dialogs.popup_button_move-cluster }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -980,7 +1116,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.move](../api-ref/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.move](../api-ref/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -997,7 +1133,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/move.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -1006,7 +1142,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Move](../api-ref/grpc/Cluster/move.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1027,7 +1163,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/move.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -1038,8 +1174,8 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
 
 - CLI {#cli}
@@ -1096,7 +1232,7 @@ description: Из статьи вы узнаете, как изменить на
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -1127,7 +1263,7 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -1136,7 +1272,7 @@ description: Из статьи вы узнаете, как изменить на
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1175,13 +1311,13 @@ description: Из статьи вы узнаете, как изменить на
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
 {% note warning %}
 
-Может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups) для подключения к кластеру.
+Может потребоваться дополнительная [настройка групп безопасности](./connect/index.md#configure-security-groups) для подключения к кластеру.
 
 {% endnote %}
 

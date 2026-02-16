@@ -10,7 +10,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
@@ -133,7 +133,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/create.md).
+     Подробнее о команде `yc cdn resource create` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/create.md).
 
 - {{ TF }} {#tf}
 
@@ -142,7 +142,6 @@
   1. Опишите в конфигурационном файле параметры ресурса `yandex_cdn_resource`:
 
      Пример структуры конфигурационного файла:
-
 
      ```
      provider "yandex" {
@@ -160,8 +159,6 @@
      }
      ```
 
-
-     
      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/cdn_origin_group).
 
   1. Проверьте корректность настроек.
@@ -186,7 +183,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -357,7 +354,7 @@
        status: READY
      ```
 
-     Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+     Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

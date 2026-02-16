@@ -1,11 +1,18 @@
-# Загрузка аудиоданных
+---
+title: Загрузка аудиоданных через API
+description: Следуя данной инструкции, вы сможете загрузить аудиоданные в {{ speechsense-name }} с помощью gRPC API.
+---
 
-Эта инструкция поможет вам загрузить в {{ speechsense-name }} данные для распознавания и анализа речи с помощью API. В примере заданы параметры:
+# Загрузка аудиоданных через gRPC API
+
+Эта инструкция поможет вам загрузить в {{ speechsense-name }} данные для распознавания и анализа речи через API. В примере заданы параметры:
 
 * [формат аудио](../../concepts/formats.md) — WAV;
-* метаданные диалога хранятся в файле `metadata_example.json`.
+* метаданные диалога хранятся в файле `metadata.json`.
 
 {% include [authentication](../../../_includes/speechsense/data/authentication.md) %}
+
+Для ознакомления с функциональностью {{ speechsense-name }} вы можете использовать быструю загрузку аудиоданных через [консоль управления](upload-audio-console.md).
 
 Если вы хотите загрузить переписку из чата вместо аудиозаписи разговора, обратитесь к [инструкции](upload-chat-text.md).
 
@@ -15,10 +22,13 @@
 
 Чтобы подготовиться к загрузке аудиоданных:
 
-1. [Создайте подключение](../connection/create.md#create-audio-connection) типа **Двухканальное аудио**.
+1. [Создайте подключение](../connection/create.md) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** или **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** (без дополнительных настроек разбиения диалога).
+
+   Если вы хотите загрузить [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в общие метаданные подключения строковый ключ `ticket_id`. По этому ключу диалоги будут связаны.
+
 1. [Создайте проект](../project/create.md) с новым подключением.
 
-   В созданные проект и подключение будут загружены аудиозаписи разговоров.
+   В созданный проект и подключение будут загружены аудиозаписи разговоров.
 
 1. {% include [create-sa](../../../_includes/speechsense/data/create-sa.md) %}
 1. {% include [role-sa](../../../_includes/speechsense/data/role-sa.md) %}
@@ -27,6 +37,16 @@
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
 
 ## Загрузить данные {#upload-data}
+
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% include notitle [max-duration](../../../_includes/speechsense/data/max-duration.md) %}
+
+{% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
+{% endnote %}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 1. В папке `upload_data` создайте Python-скрипт `upload_grpc.py`, который загрузит данные в подключение {{ speechsense-name }} одним сообщением:
@@ -91,8 +111,8 @@
                'client_name': 'Client',
                'client_id': '2222',
                'date': str(now),
-               'date_from': '2023-09-13T17:30:00.000',
-               'date_to': '2023-09-13T17:31:00.000',
+               'date_from': '2023-09-13T17:30:00.000Z',
+               'date_to': '2023-09-13T17:31:00.000Z',
                'direction_outgoing': 'true',
             }
          else:
@@ -103,6 +123,32 @@
             audio_bytes = fp.read()
          upload_talk(args.connection_id, metadata, args.key, audio_bytes)
       ```
+
+1. В папке `upload_data` создайте файл `metadata.json` с метаданными разговора:
+
+   ```json
+   {
+      "operator_name": "<имя_оператора>",
+      "operator_id": "<идентификатор_оператора>",
+      "client_name": "<имя_клиента>",
+      "client_id": "<идентификатор_клиента>",
+      "date": "<дата_начала>",
+      "direction_outgoing": "<сделать_направление_исходящим>",
+      "language": "<язык>",
+      <дополнительные_параметры_подключения>
+   }
+   ```
+
+   Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете аудиозаписи. В шаблоне выше указаны обязательные поля для подключений типа **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}**. Поле `direction_outgoing` определяет направление диалога: `true` — исходящее, `false` — входящее.
+
+   Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в файл параметр:
+
+   ```json
+   {
+      ...
+      "ticket_id": "<номер_задачи>"
+   }
+   ```
 
 1. {% include [api-key](../../../_includes/speechsense/data/api-key.md) %}
 
@@ -118,7 +164,7 @@
 
    Где:
 
-   * `--audio-path` — путь к файлу с аудио диалога.
+   * `--audio-path` — путь к файлу с аудиозаписью диалога.
    * `--meta-path` — путь к файлу с метаданными диалога.
    * `--connection-id` — идентификатор подключения, в которое вы загружаете данные.
    * `--key` — API-ключ для аутентификации. Если вы используете IAM-токен, укажите переменную окружения `IAM_TOKEN` вместо `API_KEY`.

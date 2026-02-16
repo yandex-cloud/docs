@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Organization/index.md
 ---
 
-# Cloud Organization API, gRPC: OrganizationService
+# Identity Hub API, gRPC: OrganizationService
 
 A set of methods for managing Organization resources.
 
@@ -18,4 +18,7 @@ A set of methods for managing Organization resources.
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified organization. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified organization. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified organization. ||
+|| [ListAccessPolicyBindings](listAccessPolicyBindings.md) | Returns list of access policy bindings for the organization. ||
+|| [BindAccessPolicy](bindAccessPolicy.md) | Binds the access policy template to the organization. ||
+|| [UnbindAccessPolicy](unbindAccessPolicy.md) | Unbinds the access policy template from the organization. ||
 |#

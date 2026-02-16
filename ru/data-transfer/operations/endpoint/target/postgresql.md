@@ -2,6 +2,7 @@
 title: Как настроить эндпоинт-приемник {{ PG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-приемника {{ PG }} в {{ data-transfer-full-name }}.
 ---
+
 # Передача данных в эндпоинт-приемник {{ PG }}
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в базу {{ PG }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
@@ -11,7 +12,7 @@ description: Из статьи вы узнаете, как задать наст
 1. [Подготовьте базу данных {{ PG }}](#prepare) к трансферу.
 1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Создайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
-1. [Выполняйте необходимые действия по работе с базой](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) и [контролируйте трансфер](../../monitoring.md).
+1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
 ## Сценарии передачи данных в {{ PG }} {#scenarios}
@@ -44,6 +45,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ ydb-name }}](../source/ydb.md);
 * [Oracle](../source/oracle.md).
 
@@ -70,7 +72,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -92,7 +94,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -145,7 +147,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -186,10 +188,14 @@ description: Из статьи вы узнаете, как задать наст
     * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/ui/cleanup_policy.md) %}
 
     * {% include [save_tx_boundaries](../../../../_includes/data-transfer/fields/postgresql/ui/save_tx_boundaries.md) %}
+  
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
 
 - {{ TF }} {#tf}
 
-    {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
+    * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 
@@ -218,13 +224,16 @@ description: Из статьи вы узнаете, как задать наст
 * [Не хватает слотов репликации в базе данных источника](#replication-slots)
 * [Перестали переноситься данные после изменения эндпоинта-источника](#no-data-transfer)
 * [Ошибка трансфера при смене хоста-мастера](#master-change)
+* [Не хватает истории в WAL для продолжения репликации при смене хоста-мастера](#no-wal-story)
 * [Ошибка при трансфере вложенных транзакций](#inner-tables)
 * [Ошибка трансфера таблиц с отложенными ограничениями](#deferrable-constr)
 * [Не удается создать слот репликации на стадии активации](#lock-replication)
 * [Чрезмерное увеличение журнала WAL](#excessive-wal)
 * [Ошибка при репликации из внешнего источника](#external-replication)
 * [Ошибка трансфера при переносе таблиц без первичных ключей](#primary-keys)
+* [Повторяющееся значение ключа нарушает уникальное ограничение](#duplicate-key)
 * [Ошибка удаления таблицы при политике очистки Drop](#drop-table-error)
+* [Ошибка при переносе таблиц с генерируемыми столбцами](#generated-columns)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -250,6 +259,8 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
 
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
+
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
@@ -262,4 +273,8 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

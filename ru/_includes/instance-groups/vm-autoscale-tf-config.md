@@ -1,4 +1,3 @@
-
 ```hcl
 # Объявление переменных для конфиденциальных параметров
 
@@ -184,6 +183,3 @@ resource "yandex_lb_network_load_balancer" "balancer" {
   }
 }
 ```
-
-
-

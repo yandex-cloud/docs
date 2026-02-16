@@ -1,9 +1,14 @@
+---
+title: Создание подключения в {{ websql-full-name }}
+description: Следуя данной инструкции, вы сможете создать подключение к кластерам управляемых БД и публично доступной БД через интернет.
+---
+
 # Создание подключения
 
-В сервисе {{ websql-full-name }} вы можете создать подключение:
+В сервисе {{ websql-full-name }} вы можете создать [подключение](../concepts/index.md#connection):
 
 * [к кластерам управляемых БД](#connect-cluster) в {{ yandex-cloud }};
-* [к публично доступной БД через Интернет](#connect-db).
+* [к пользовательской инсталляции БД](#connect-db).
 
 ## Подключение к кластеру управляемых БД в {{ yandex-cloud }} {#connect-cluster}
 
@@ -12,7 +17,9 @@
 * [{{ mpg-full-name }}](../../managed-postgresql/operations/cluster-list.md);
 * [{{ mch-full-name }}](../../managed-clickhouse/operations/cluster-list.md);
 * [{{ mmy-full-name }}](../../managed-mysql/operations/cluster-list.md);
-* [{{ mrd-full-name }}](../../managed-redis/operations/cluster-list.md).
+* [{{ mrd-full-name }}](../../managed-valkey/operations/cluster-list.md);
+* [{{ mmg-full-name }}](../../storedoc/operations/cluster-list.md);
+* [{{ mgp-full-name }}](../../managed-greenplum/operations/cluster-list.md).
 
 {% include notitle [connect-to-cluster](../../_includes/websql/connect-to-cluster.md) %}
 
@@ -20,10 +27,12 @@
 
 Если подключение прошло успешно, то в дереве подключений отобразится структура кластера. Подключения к БД одного кластера управляемых БД группируются в разворачивающийся список под именем этого кластера.
 
-## Подключиться к публично доступной БД {#connect-db}
+## Подключиться к пользовательской инсталляции БД {#connect-db}
 
-Чтобы подключиться к публично доступной БД через Интернет:
+Чтобы подключиться к пользовательской инсталляции БД через Интернет:
 
 {% include notitle [connect-to-db](../../_includes/websql/connect-to-db.md) %}
 
 Если подключение прошло успешно, то в дереве подключений отобразится структура БД.
+
+{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

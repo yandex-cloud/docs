@@ -12,6 +12,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру поставки данных:
@@ -19,6 +27,8 @@
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -32,25 +42,20 @@
             * С публичным доступом к хостам с ролью `DATA`.
 
 
-
+        
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mos-name }}](../../managed-opensearch/operations/connect.md#security-groups).
+            * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
 
 
     - {{ TF }} {#tf}
 
         1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
         1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-
-
         1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
         1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
-
         1. Скачайте в ту же рабочую директорию файл конфигурации [data-transfer-mkf-mos.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-kafka-to-opensearch/blob/main/data-transfer-mkf-mos.tf).
-
-
 
             В этом файле описаны:
 
@@ -316,7 +321,7 @@
 
     - {{ OS }} Dashboards {#opensearch}
 
-        1. [Подключитесь](../../managed-opensearch/operations/connect.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
+        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к кластеру-приемнику с помощью {{ OS }} Dashboards.
         1. Выберите общий тенант `Global`.
         1. Откройте панель управления, нажав на значок ![os-dashboards-sandwich](../../_assets/console-icons/bars.svg).
         1. В разделе **OpenSearch Dashboards** выберите **Discover**.
@@ -332,36 +337,21 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-    1. [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
-    1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+   - С помощью {{ TF }} {#tf}
 
-- С помощью {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mkf-mos.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-mos.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

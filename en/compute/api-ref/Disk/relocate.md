@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks/{diskId}:relocate
+    method: post
+    path:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to move.
+            To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationZoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone to move the disk to.
+            To get the zone ID, make a [ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        diskPlacementPolicy:
+          description: |-
+            **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
+            Placement policy configuration in target zone. Must be specified if disk has placement policy.
+          $ref: '#/definitions/DiskPlacementPolicy'
+      required:
+        - destinationZoneId
+      additionalProperties: false
+    definitions:
+      DiskPlacementPolicy:
+        type: object
+        properties:
+          placementGroupId:
+            description: |-
+              **string**
+              Placement group ID.
+            type: string
+          placementGroupPartition:
+            description: '**string** (int64)'
+            type: string
+            format: int64
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/relocate.md
 ---
 
-# Compute Cloud API, REST: Disk.Relocate {#Relocate}
+# Compute Cloud API, REST: Disk.Relocate
 
 Moves the specified disk to another availability zone
 
@@ -24,7 +72,9 @@ POST https://compute.{{ api-host }}/compute/v1/disks/{diskId}:relocate
 
 Required field. ID of the disk to move.
 
-To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.RelocateDiskRequest}
@@ -45,7 +95,9 @@ To get the disk ID, make a [DiskService.List](/docs/compute/api-ref/Disk/list#Li
 
 Required field. ID of the availability zone to move the disk to.
 
-To get the zone ID, make a [ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get the zone ID, make a [ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)**
 
 Placement policy configuration in target zone. Must be specified if disk has placement policy. ||
@@ -92,7 +144,7 @@ Placement group ID. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "typeId": "string",
     "zoneId": "string",
     "size": "string",
@@ -119,6 +171,10 @@ Placement group ID. ||
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -252,7 +308,7 @@ Name of the disk. 1-63 characters long. ||
 || description | **string**
 
 Description of the disk. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || typeId | **string**
@@ -281,7 +337,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the disk.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Disk is being created.
 - `READY`: Disk is ready to use.
 - `ERROR`: Disk encountered a problem and cannot operate.
@@ -306,6 +361,9 @@ Placement policy configuration. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this disk as a boot one. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy2}
@@ -344,7 +402,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

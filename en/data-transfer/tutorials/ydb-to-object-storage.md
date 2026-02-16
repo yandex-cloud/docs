@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-object-storage'
 ---
 
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }}

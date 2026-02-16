@@ -1,15 +1,15 @@
-# How to get an original of the contract
+# How to get an original of the agreement
 
 
-## Scenario description {#case-description}
 
-You need to obtain the original copy of your contract with Yandex Cloud, stamped and signed.
+## Case description {#case-description}
+
+You need to obtain the original copy of your agreement with {{ yandex-cloud }}, stamped and signed.
 
 ## Solution {#case-resolution}
 
-The contract is presented as an offer agreement at this [link](https://yandex.ru/legal/cloud_oferta).
+An agreement is provided as an [offer]({{ billing-oferta-url }}).
 
-Stating the contract number when using the link or the printed version of the offer agreement fully matches the legal status of the signed service contract under Article 435 of the Russian Civil Code.
+Stating the agreement number when using the link or the printed version of the offer fully matches the legal status of the signed service agreement under Article 435 of the Russian Civil Code.
 
-But if you still need the original contract copy, submit a request via the [form](https://cloud.yandex.ru/#contact-form).
-A Yandex Cloud manager will contact you to discuss the signing terms. This process will take about two weeks.
+If you still need the original copy, you can request it via [this form](https://yandex.cloud/en#contact-form). A {{ yandex-cloud }} manager will contact you to discuss the terms. This process will take about 14 days.

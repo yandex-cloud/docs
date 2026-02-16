@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/DeviceData/publish.md
 ---
 
-# IoT Core Service, gRPC: DeviceDataService.Publish {#Publish}
+# IoT Core Service, gRPC: DeviceDataService.Publish
 
 Publishes message on behalf of specified device
 
@@ -15,7 +15,7 @@ Publishes message on behalf of specified device
 
 ```json
 {
-  "deviceId": "string",
+  "device_id": "string",
   "topic": "string",
   "data": "bytes"
 }
@@ -23,7 +23,7 @@ Publishes message on behalf of specified device
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 Required field. ID of device publishing message ||
 || topic | **string**

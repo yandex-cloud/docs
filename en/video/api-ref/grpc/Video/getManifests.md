@@ -3,9 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Video/getManifests.md
 ---
 
-# Video API, gRPC: VideoService.GetManifests {#GetManifests}
+# Video API, gRPC: VideoService.GetManifests
 
-Returns manifest urls.
+Retrieves the manifest URLs for a specific video.
+Manifests are used by video players to access the video content with adaptive bitrate streaming.
+Supports different manifest types (HLS, DASH) and configuration parameters.
 
 ## gRPC request
 
@@ -15,15 +17,17 @@ Returns manifest urls.
 
 ```json
 {
-  "videoId": "string"
+  "video_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| videoId | **string**
+|| video_id | **string**
 
-ID of the video. ||
+Required field. ID of the video for which to retrieve manifest URLs.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetVideoManifestsResponse {#yandex.cloud.video.v1.GetVideoManifestsResponse}
@@ -41,17 +45,29 @@ ID of the video. ||
 
 #|
 ||Field | Description ||
-|| manifests[] | **[Manifest](#yandex.cloud.video.v1.Manifest)** ||
+|| manifests[] | **[Manifest](#yandex.cloud.video.v1.Manifest)**
+
+List of manifests available for the video.
+Different manifests may represent different streaming formats (e.g., HLS, DASH) ||
 |#
 
 ## Manifest {#yandex.cloud.video.v1.Manifest}
 
+Represents a streaming manifest file that defines how video content is delivered.
+Manifests contain information about available video qualities, audio tracks,
+and other metadata needed by video players to stream content efficiently.
+
 #|
 ||Field | Description ||
-|| url | **string** ||
+|| url | **string**
+
+URL where the manifest file can be accessed. ||
 || type | enum **ManifestType**
 
-- `MANIFEST_TYPE_UNSPECIFIED`
-- `DASH`
-- `HLS` ||
+Format of the manifest file.
+
+- `DASH`: Dynamic Adaptive Streaming over HTTP (DASH) format.
+@see https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP
+- `HLS`: HTTP Live Streaming (HLS) format.
+@see https://en.wikipedia.org/wiki/HTTP_Live_Streaming ||
 |#

@@ -12,15 +12,26 @@
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
 1. [Настройте {{ GL }}](#configure-gitlab).
 1. [Создайте тестовое приложение](#app-create).
-1. [Создайте {{ GLR }}](#runner).
+1. [Создайте {{ GLR }}](#runners).
 1. [Настройте сценарий CI](#ci).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение созданных Docker-образов и сканер уязвимостей (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
+* Плата за использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за использование [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
+
 ## Перед началом работы {#before-begin}
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
+
+Дополнительно [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) сервисному аккаунту для узлов роль `container-registry.images.scanner`. Она позволяет сканировать Docker-образы на наличие уязвимостей.
 
 {% include [prepare](../../_includes/managed-gitlab/prepare.md) %}
 
@@ -123,7 +134,7 @@
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
@@ -190,7 +201,7 @@
               - gl-container-scanning-report-yc.json
           script:
             - export CI_COMMIT_SHA=${CI_COMMIT_SHA}
-            # Install YC CLI.
+            # Install CLI.
             - curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
             # Start scanning.
             - echo "Scanning image $IMAGE_NAME ${CI_REGISTRY}/${CI_COMMIT_REF_SLUG}:${CI_COMMIT_SHA}..."
@@ -207,7 +218,7 @@
             - (( SUM = $CRIT_VULN + $HIGH_VULN )) && (( RES = (SUM >= 1) )) && echo $RES && echo "image has $CRIT_VULN critical vulns and $HIGH_VULN high vulns" && exit 1 || echo "image has no high or crit vulns" exit 0
 
         deploy:
-          image: bitnami/kubectl:latest
+          image: bitnamilegacy/kubectl:latest
           stage: deploy
           script:
             - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>

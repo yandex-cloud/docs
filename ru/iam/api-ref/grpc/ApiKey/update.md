@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ApiKey/update.md
 ---
 
-# Identity and Access Management API, gRPC: ApiKeyService.Update {#Update}
+# Identity and Access Management API, gRPC: ApiKeyService.Update
 
 Updates the specified API key.
 
@@ -15,24 +15,40 @@ Updates the specified API key.
 
 ```json
 {
-  "apiKeyId": "string",
-  "updateMask": "google.protobuf.FieldMask",
-  "description": "string"
+  "api_key_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
+  "description": "string",
+  "scopes": [
+    "string"
+  ],
+  "expires_at": "google.protobuf.Timestamp"
 }
 ```
 
 #|
 ||Field | Description ||
-|| apiKeyId | **string**
+|| api_key_id | **string**
 
 Required field. ID of the ApiKey resource to update.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/grpc/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the ApiKey resource are going to be updated. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
+|| scopes[] | **string**
+
+Scopes of the API key.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+API key expiration timestamp, if not specified, then the API key doesn't expire ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -41,23 +57,26 @@ Description of the API key. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "apiKeyId": "string"
+    "api_key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "serviceAccountId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "service_account_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "description": "string",
-    "lastUsedAt": "google.protobuf.Timestamp",
+    "last_used_at": "google.protobuf.Timestamp",
     "scope": "string",
-    "expiresAt": "google.protobuf.Timestamp"
+    "scopes": [
+      "string"
+    ],
+    "expires_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -73,13 +92,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -122,7 +141,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| apiKeyId | **string**
+|| api_key_id | **string**
 
 ID of the ApiKey resource that is being updated. ||
 |#
@@ -136,22 +155,22 @@ An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/autho
 || id | **string**
 
 ID of the API Key. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the service account that the API key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || description | **string**
 
 Description of the API key. 0-256 characters long. ||
-|| lastUsedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication using this API key. ||
-|| scope | **string**
+|| scopes[] | **string**
 
-Scope of the API key. 0-256 characters long. ||
-|| expiresAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Scopes of the API key. 0-256 characters long. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp. ||
 |#

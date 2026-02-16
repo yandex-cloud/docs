@@ -1,6 +1,7 @@
 ---
 title: Правила тарификации для {{ ydb-full-name }}
 description: В статье содержатся правила тарификации сервиса {{ ydb-full-name }}.
+editable: false
 ---
 
 # Правила тарификации для {{ ydb-full-name }}

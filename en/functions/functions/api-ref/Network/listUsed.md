@@ -1,9 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/networks/used
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        cloudId:
+          description: |-
+            **string**
+            ID of the cloud to list used networks in.
+            Includes only one of the fields `cloudId`, `folderId`.
+          type: string
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list used networks in.
+            Includes only one of the fields `cloudId`, `folderId`.
+          type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - cloudId
+        - required:
+            - folderId
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Network/listUsed.md
 ---
 
-# Cloud Functions Service, REST: Network.ListUsed {#ListUsed}
+# Cloud Functions Service, REST: Network.ListUsed
 
 Retrieves the list of networks in the specified scope that are used in serverless resources.
 
@@ -23,11 +68,15 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request. ||
+[ListUsedNetworksResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListUsedNetworksResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || cloudId | **string**
 
 ID of the cloud to list used networks in.
@@ -93,7 +142,6 @@ ID of the folder that the network belongs to. ||
 
 Status of the network.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Network is connecting to its first serverless resource.
 - `ACTIVE`: Network is already being used by some serverless resources.
 - `OBSOLETE`: Network is no longer used by any serverless resources.

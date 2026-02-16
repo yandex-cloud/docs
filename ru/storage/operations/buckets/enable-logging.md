@@ -34,12 +34,14 @@ description: Следуя данной инструкции, вы сможете
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить логирование.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Выберите бакет, для которого хотите настроить логирование.
       1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-      1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
-      1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
-      1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс, с которым будут сохраняться логи.
+      1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
+      1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
+      1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс, с которым будут сохраняться логи.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
    - AWS CLI {#cli}
@@ -82,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+     
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -112,6 +114,9 @@ description: Следуя данной инструкции, вы сможете
 
         Где:
         * `access_key` — идентификатор статического ключа доступа.
+
+           {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
         * `secret_key` — значение секретного ключа доступа.
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
@@ -154,11 +159,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в исходный бакет.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Выберите исходный бакет.
    1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
    1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**
-   1. В списке **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}** содержится имя целевого бакета.
-   1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** содержится префикс, с которым сохраняются логи.
+   1. В списке **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** содержится имя целевого бакета.
+   1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** содержится префикс, с которым сохраняются логи.
 
 - AWS CLI {#cli}
 
@@ -245,10 +252,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите целевой бакет с логами.
   1. Перейдите в папку `logs/`.
-  1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.button_download }}**.
   
   {% note info %}
 
@@ -274,10 +282,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите выключить логирование.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите выключить логирование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-  1. Выключите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
+  1. Выключите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}

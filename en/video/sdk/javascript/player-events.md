@@ -1,6 +1,6 @@
 ---
-title: Cloud Video Player events in JavaScript SDK
-description: This page describes possible Cloud Video Player events which you can subscribe to in JavaScript SDK.
+title: '{{ video-player-name }} events in the JavaScript SDK'
+description: This page describes possible {{ video-player-name }} events to which you can subscribe in the JavaScript SDK.
 ---
 
 # Player events
@@ -13,7 +13,7 @@ Switching content.
 
 The handler in the `{ source }` object receives a new [content link](./player-state.md#state-source).
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('SourceChange', ({ source }) => {
@@ -27,7 +27,7 @@ Changing the [playback status](./player-state.md#state-status).
 
 The handler in the `{ status }` object receives a new playback status value.
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('StatusChange', ({ status }) => {
@@ -43,7 +43,7 @@ The handler in the `{ error }` object receives an [error](./player-state.md#stat
 
 An error is reset when switching content (if switching content is possible). In this case, the handler receives the `error` object with the `undefined` value.
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('ErrorChange', ({ error }) => {
@@ -57,7 +57,7 @@ Changing the position on the timeline.
 
 The handler in the `{ currentTime }` object receives a new [current time](./player-state.md#state-currentTime) value.
 
-Example:
+Here is an example:
 ```javascript
 player.on('CurrentTimeChange', ({ currentTime }) => {
     console.log(currentTime);
@@ -75,7 +75,7 @@ This event may occur:
 * Periodically for the `EVENT` [type](./player-state.md#video-type-desc) videos as their duration continuously increases.
 * When the `LIVE` video type changes to `VOD`.
 
-Example:
+Here is an example:
 ```javascript
 player.on('DurationChange', ({ duration }) => {
     console.log(duration);
@@ -92,7 +92,7 @@ This event may occur:
 * When you change content.
 * When the `LIVE` or `EVENT` video type changes to `VOD`.
 
-Example:
+Here is an example:
 ```javascript
 player.on('VideoTypeChange', ({ videoType }) => {
     console.log(videoType);
@@ -105,7 +105,7 @@ Changing the video `muted` status.
 
 The handler in the `{ muted }` object receives a new [muted](./player-state.md#state-muted) status value.
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('MutedChange', ({ muted }) => {
@@ -119,10 +119,23 @@ Changing the video sound volume.
 
 The handler in the `{ volume }` object receives a new [volume level](./player-state.md#state-volume) value.
 
-Example:
+Here is an example:
 ```javascript
 player.on('VolumeChange', ({ volume }) => {
     console.log(volume);
+});
+```
+
+#### PlaybackSpeedChange {#playbackspeedchange}
+
+Changing playback speed.
+
+The handler in the `{ playbackSpeed }` object receives a new [playback speed](./player-state.md#state-playbackSpeed) value.
+
+Here is an example:
+```javascript
+player.on('PlaybackSpeedChange', ({ playbackSpeed }) => {
+    console.log(playbackSpeed);
 });
 ```
 
@@ -136,7 +149,7 @@ This event may occur:
 * When you change content.
 * When the `LIVE` video type changes to `VOD`.
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('UtcStartTimeChange', ({ utcStartTime }) => {
@@ -154,7 +167,7 @@ This event may occur:
 * When you change content.
 * Periodically for the `LIVE` and `EVENT` type videos as their seekable range continuously increases.
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('SeekableRangeChange', ({ seekableRange }) => {
@@ -168,7 +181,7 @@ Changing the buffered ranges.
 
 The handler in the `{ bufferedRanges }` object receives an array with a new description of [buffered ranges](./player-state.md#state-bufferedRanges).
 
-Example:
+Here is an example:
 
 ```javascript
 player.on('BufferedRangesChange', ({ bufferedRanges }) => {
@@ -176,6 +189,18 @@ player.on('BufferedRangesChange', ({ bufferedRanges }) => {
 });
 ```
 
+#### FullscreenStateChange {#fullscreenstatechange}
+
+Changing the fullscreen mode state. 
+
+The handler in the `{ isFullscreen }` object receives a new [fullscreen mode state](./player-state.md#state-isFullscreen) value.
+
+Here is an example:
+```javascript
+player.on('FullscreenStateChange', ({ isFullscreen }) => {
+    console.log(isFullscreen);
+});
+```
 
 #### See also {#see-also}
 

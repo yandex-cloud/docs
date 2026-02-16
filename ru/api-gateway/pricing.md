@@ -12,6 +12,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ api-gw-name }} {#rules}
 
 В рамках сервиса {{ api-gw-name }} тарифицируется количество запросов к созданным API-шлюзам и исходящий трафик. 
@@ -51,28 +54,15 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Запросы к API-шлюзам {#request}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|api-gateway }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/api-gateway/rub.md) %}
-  
-  Оплачивается фактическое количество вызовов.
-
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=RUB] {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|RUB|api-gateway.requests.v1|pricingRate.0.1|string }}.
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/api-gateway/kzt.md) %}
-  
-  Оплачивается фактическое количество вызовов.
-
-  > Например, 10 000 вызовов сверх нетарифицируемого объема стоят {% calc [currency=KZT] {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|number }} / 100 %}, если 1 миллион запросов стоит {{ sku|KZT|api-gateway.requests.v1|pricingRate.0.1|string }}.
-
-{% endlist %}
 
 
 

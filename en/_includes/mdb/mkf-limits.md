@@ -1,22 +1,29 @@
 #### Quotas {#mkf-quotas}
 
-| Type of limit | Value |
-|:-----------------------------------------------------------------------------|:---------|
-| Number of clusters per cloud | 16 |
-| Total number of processor cores for all broker hosts per cloud | 96 |
-| Total virtual memory for all broker hosts per cloud | 640 GB |
-| Total storage capacity for all clusters per cloud | 4096 GB |
+#|
+|| Type of limit | Value ||
+|| Number of clusters per cloud 
+`mdb.clusters.count` | 16 ||
+|| Total number of CPU cores for all database hosts per cloud 
+`mdb.cpu.count` | 64 ||
+|| Total virtual memory for all database hosts per cloud 
+`mdb.memory.size` | 512 GB ||
+|| Total storage capacity for all clusters per cloud 
+`mdb.ssd.size` | 4,096 GB ||
+|| Number of GPUs 
+`mdb.gpu.count` | 0 ||
+|#
 
 
 #### Limits {#mkf-limits}
 
-| Type of limit | Minimum value | Maximum value |
+| Type of limit                                                                                                      | Minimum value                                                                                  | Maximum value                            |
 |:---------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------------------------|:-------------------------------------------------|
-| Host class | b2.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Cascade Lake, 4 GB RAM) | m3-c80-m640 (80 vCPU Intel Ice Lake, 640 GB RAM) |
-| Number of brokers in a cluster when using HDD or SSD network storage | 1 | 36 |
-| Number of brokers in a cluster when using non-replicated or local SSDs | 3 | 36 |
-| Amount of data on the broker when using SSD network storage | 10 GB | 4096 GB |
-| Amount of data on the broker when using HDD network storage | 10 GB | 2048 GB |
-| Amount of data on the broker when using non-replicated SSD storage | 93 GB | 8184 GB |
-| Amount of data on the broker when using local SSD storage (for Intel Cascade Lake) | 100 GB | 1500 GB |
-| Amount of data on the broker when using local SSD storage (for Intel Ice Lake) | {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} |
+| Host class                                                                                                          | b2.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPUs, Intel Cascade Lake, 4 GB RAM) | m4a-c224-m1792 (224 vCPUs, AMD Zen 4, 1,792 GB RAM) |
+| Number of brokers per cluster when using an HDD or SSD network storage or an ultra high-speed network SSD storage with three replicas | 1                                                                                                     | 32                                               |
+| Number of brokers per cluster when using either a non-replicated or a local SSD storage | 1                                                                                                     | 32                                               |
+| Amount of data per broker when using an SSD network storage                                            | 10 GB                                                                                                 | 32,768 GB                                          |
+| Amount of data per broker when using an HDD network storage                                            | 10 GB                                                                                                 | 2,048 GB                                          |
+| Amount of data per broker when using a non-replicated SSD storage or an ultra high-speed network SSD storage with three replicas | 93 GB                                                                                                 | 8,184 GB                                          |
+| Amount of data per broker when using a local SSD storage (for Intel Cascade Lake)       | 100 GB                                                                                                | 1,500 GB                                          |
+| Amount of data per broker when using a local SSD storage (for Intel Ice Lake).           | {{ local-ssd-v3-step }}                                                                               | {{ local-ssd-v3-max }}                           |

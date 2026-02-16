@@ -1,6 +1,6 @@
 # Creating an external HDFS data source
 
-In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the HDFS connection type, you can use HDFS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party HDFS services.
+In {{ mgp-name }}, you can use HDFS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party HDFS services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the HDFS connection type.
 
 ## Create an external data source {#create-external-source}
 
@@ -8,60 +8,94 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 - Management console {#console}
 
-   1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-   1. Open the page of the {{ mgp-name }} cluster you need.
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
-   1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
-   1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hdfs }}` connection type.
-   1. Enter a source name.
-   1. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
-   1. Click **{{ ui-key.yacloud.common.create }}**.
+    1. Open the [folder dashboard]({{ link-console-main }}).
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. Open the page of the {{ GP }} cluster in question.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
+    1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
+    1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hdfs }}` connection type.
+    1. Enter a source name.
+    1. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
+    1. Click **{{ ui-key.yacloud.common.create }}**.
 
-- API {#api}
+- REST API {#api}
 
-   To add an HDFS data source to a {{ mgp-name }} cluster, use the [create](../../api-ref/PXFDatasource/create.md) REST API method for the [PXFDatasource](../../api-ref/PXFDatasource/index.md) resource or the [PXFDatasourceService/Create](../../api-ref/grpc/PXFDatasource/create.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
 
-   * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](../cluster-list.md#list-clusters).
-   * Source name in the `name` parameter.
-   * External source settings in the `hdfs` parameter.
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources' \
+            --data '{
+                      "datasource": {
+                        "name": "<external_data_source_name>",
+                        "hdfs": {
+                          "core": {
+                            "defaultFs": "<storage_type>"
+                          },
+                          ...
+                        }
+                      }
+                    }'
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `hdfs`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
+
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/pxf_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                  "datasource": {
+                    "name": "<external_data_source_name>",
+                    "hdfs": {
+                      "core": {
+                        "default_fs": "<storage_type>"
+                      },
+                      ...
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.greenplum.v1.PXFDatasourceService.Create
+        ```
+
+        Where:
+
+        * `name`: External data source name.
+        * `hdfs`: External data source settings. Configure at least one [optional setting](../../concepts/settings-list.md#hdfs-settings).
+
+        You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
-
-## Sample REST API request {#example}
-
-The example below shows how to create an external HDFS data source using the {{ mgp-name }} REST API. To create a source:
-
-1. [Get an IAM token](../../../iam/operations/index.md#iam-tokens). It is used for authentication in the API.
-1. Add the IAM token to the following environment variable:
-
-   ```bash
-   export IAM_TOKEN=<token>
-   ```
-
-1. Send a request using [cURL](https://curl.haxx.se):
-
-   ```bash
-   curl --location "https://mdb.{{ api-host }}/managed-greenplum/v1/clusters/<cluster_ID>/pxf_datasources" \
-       --header "Content-Type: text/plain" \
-       --header "Authorization: Bearer ${IAM_TOKEN}" \
-       --data "{
-           \"datasource\": {
-               \"name\": \"hdfs:csv\",
-               \"hdfs\": {
-                   \"core\": {
-                       \"defaultFs\": \"<storage_type:_DISK_or_ARCHIVE>\"
-                   }
-               }
-           }
-       }"
-   ```
-
-   In the request body, specify the following parameters:
-
-   * `name`: Source name, e.g., `hdfs:csv`.
-   * `defaultFs`: Default data storage type (optional). The possible values include:
-
-      * `DISK`: Data storage on a physical disk.
-      * `ARCHIVE`: Archival data storage. In this case, you can store more data in HDFS, but their processing speed will be lower.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

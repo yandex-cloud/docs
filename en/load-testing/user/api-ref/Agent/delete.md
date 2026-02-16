@@ -1,9 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+    method: delete
+    path:
+      type: object
+      properties:
+        agentId:
+          description: |-
+            **string**
+            ID of the agent to delete.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/delete.md
 ---
 
-# Load Testing API, REST: Agent.Delete {#Delete}
+# Load Testing API, REST: Agent.Delete
 
 Deletes the specified agent.
 

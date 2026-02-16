@@ -1,9 +1,110 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster the user belongs to.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to be updated.
+            To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+            The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        password:
+          description: |-
+            **string**
+            New password for the user.
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: |-
+            **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
+            New set of permissions for the user.
+          type: array
+          items:
+            $ref: '#/definitions/Permission'
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          topicName:
+            description: |-
+              **string**
+              Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+              With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
+              To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request.
+            type: string
+          role:
+            description: |-
+              **enum** (AccessRole)
+              Access role type to grant to the user.
+              - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
+              - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
+              - `ACCESS_ROLE_ADMIN`: Admin role for the user.
+              - `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+              - `ACCESS_ROLE_TOPIC_PRODUCER`
+              - `ACCESS_ROLE_TOPIC_CONSUMER`
+              - `ACCESS_ROLE_SCHEMA_READER`
+              - `ACCESS_ROLE_SCHEMA_WRITER`
+            type: string
+            enum:
+              - ACCESS_ROLE_UNSPECIFIED
+              - ACCESS_ROLE_PRODUCER
+              - ACCESS_ROLE_CONSUMER
+              - ACCESS_ROLE_ADMIN
+              - ACCESS_ROLE_TOPIC_ADMIN
+              - ACCESS_ROLE_TOPIC_PRODUCER
+              - ACCESS_ROLE_TOPIC_CONSUMER
+              - ACCESS_ROLE_SCHEMA_READER
+              - ACCESS_ROLE_SCHEMA_WRITER
+          allowHosts:
+            description: |-
+              **string**
+              Lists hosts allowed for this permission.
+              Only ip-addresses allowed as value of single host.
+              When not defined, access from any host is allowed.
+              Bare in mind that the same host might appear in multiple permissions at the same time,
+              hence removing individual permission doesn't automatically restricts access from the [allowHosts](#yandex.cloud.mdb.kafka.v1.Permission) of the permission.
+              If the same host(s) is listed for another permission of the same principal/topic, the host(s) remains allowed.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/update.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Update {#Update}
+# Managed Service for Apache Kafka® API, REST: User.Update
 
 Updates the specified Kafka user.
 
@@ -21,12 +122,16 @@ PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{us
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to be updated.
 
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.UpdateUserRequest}
@@ -61,7 +166,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.kafka.v1.Permission)**
 
 New set of permissions for the user. ||
@@ -74,16 +181,21 @@ New set of permissions for the user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.
@@ -261,16 +373,21 @@ Set of permissions granted to this user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.

@@ -3,9 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/listUILinks.md
 ---
 
-# Data Proc API, gRPC: ClusterService.ListUILinks {#ListUILinks}
+# Yandex Data Processing API, gRPC: ClusterService.ListUILinks
 
-Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy.
 
 ## gRPC request
 
@@ -15,15 +15,17 @@ Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
 
 ```json
 {
-  "clusterId": "string"
+  "cluster_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required. ID of the Hadoop cluster. ||
+Required. ID of the Hadoop cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ListUILinksResponse {#yandex.cloud.dataproc.v1.ListUILinksResponse}

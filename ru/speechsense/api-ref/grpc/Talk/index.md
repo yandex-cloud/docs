@@ -12,6 +12,7 @@ sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/index.md
 || [UploadAsStream](uploadAsStream.md) | rpc for streaming talk documents. First message should contain Talk related metadata, ||
 || [Upload](upload.md) | rpc for uploading talk document as single message ||
 || [UploadText](uploadText.md) | rpc for uploading text talk document ||
+|| [UploadBadge](uploadBadge.md) | rpc for streaming document that contains combined talks. First message should contain Talk related metadata, ||
 || [Search](search.md) | rpc for searching talks. will return ids only ||
 || [Get](get.md) | rpc for bulk get ||
 |#

@@ -6,6 +6,6 @@ Users with this role can:
 * Create, modify, and delete [resources](../../../datasphere/concepts/resources.md) within projects, as well as share the relevant project resources with the communities where the user has the `Developer` role (`datasphere.communities.developer`) or higher.
 * Run IDEs and code cells in projects.
 
-This role also includes the `datasphere.community-projects.editor` permissions.
+This role includes the `datasphere.community-projects.editor` permissions.
 
 In the DataSphere interface, users with the `datasphere.community-projects.admin` role have the `Admin` role in the **Members** tab on the community page.

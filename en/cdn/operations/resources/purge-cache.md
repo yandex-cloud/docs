@@ -13,18 +13,20 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
   1. Select the type of cache purging:
 
       * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-full }}`: To purge the cache for all files.
-      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. Enter the names of the required files in the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field.
+      * `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`: To purge the cache for selected files. In the **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-paths }}** field, specify comma-separated paths to the files.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
 
   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
@@ -34,13 +36,13 @@ To [purge the cache](../../concepts/caching.md) of the resource:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
       ```
 
-  1. Get a list of all resources in the default folder:
+  1. Get a list of all [CDN resources](../../concepts/resource.md) in the default folder:
 
       ```bash
       yc cdn resource list --format yaml
@@ -87,20 +89,30 @@ To [purge the cache](../../concepts/caching.md) of the resource:
         status: READY
       ```
 
-  1. Purge the file cache using the `cache purge` argument:
+  1. Purge the file cache:
 
       ```bash
-      yc cdn cache purge --resource-id <resource_ID> \
-        --path <file_paths>
+      yc cdn cache purge \
+        --resource-id <resource_ID> \
+        --path <file_path_1>,<file_path_2>,...,<file_path_n>
       ```
-      If you omit the `--path` flag with paths to files, the cache of all files will be purged.
 
-      For more information about the `yc cdn cache purge` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/cache/purge.md).
+      Where:
+      * `--resource-id`: ID of the CDN resource to purge cache in.
+      * `--path`: List of paths to CDN resource files whose cache needs purging.
+
+          {% include [wildcard-paths-purging-specifics](../../../_includes/cdn/wildcard-paths-purging-specifics.md) %}
+
+          {% include [the-vary-headers-purge-warning](../../../_includes/cdn/the-vary-headers-purge-warning.md) %}
+
+          If you omit the `--path` setting with paths to files, the cache of all resource files will be purged. For more information, see [{#T}](../../concepts/caching.md#purge).
+
+      For more information about the `yc cdn cache purge` command, see this [CLI reference](../../../cli/cli-ref/cdn/cli-ref/cache/purge.md).
 
 - API {#api}
 
   Use the [purge](../../api-ref/Cache/purge.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Purge](../../api-ref/grpc/Cache/purge.md) gRPC API call.
 
 {% endlist %}
-
+  
 It may take up to 15 minutes to purge the cache.

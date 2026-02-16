@@ -1,14 +1,15 @@
-# Automating {{ yq-full-name }} tasks using {{ maf-full-name }}
+# Automating {{ yq-full-name }} tasks with {{ maf-full-name }}
+
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
 
 {{ maf-short-name }} is a popular tool for automating data operations. {{ yq-full-name }} supports integration with {{ maf-short-name }} using the [`apache-airflow-providers-yandex`](https://pypi.org/project/apache-airflow-providers-yandex/) pip package.
 
-To create an infrastructure for automation of {{ yq-full-name }} tasks using {{ maf-short-name }}, follow these steps:
+To create an infrastructure for automation of {{ yq-full-name }} tasks with {{ maf-short-name }}, follow these steps:
 
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-service-account).
-1. [Create a static access key](#create-static-key).
 1. [Create a cloud network and subnets](#create-network).
-1. [Create a bucket in {{ objstorage-name }}](#create-bucket).
+1. [Prepare a bucket in {{ objstorage-name }}](#bucket).
 1. [Configure an egress NAT](#nat-routing).
 1. [Create a {{ maf-name }} cluster](#create-airflow-cluster).
 1. [Prepare the DAG file and run the graph](#dag).
@@ -16,7 +17,7 @@ To create an infrastructure for automation of {{ yq-full-name }} tasks using {{ 
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
@@ -33,9 +34,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. Go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `airflow-sa`.
+  1. Enter a name for the service account: `airflow-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -60,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
       name: airflow-sa
       ```
 
-      Save the `id` of the `airflow-sa` service account and the folder where it was created (`folder_id`).
+      Save the ID of the `airflow-sa` service account (`id`) and the ID of the folder where you created it (`folder_id`).
 
   1. Assign the `editor` role for the folder to the service account by specifying the folder and service account IDs you previously saved:
 
@@ -74,60 +75,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
   To create a service account, use the [create](../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the service account the `editor` role for the folder, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
-
-{% endlist %}
-
-## Create a static access key {#create-static-key}
-
-Create a static access key for the `airflow-sa` service account:
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the folder containing the `airflow-sa` service account.
-  1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-  1. Select the `airflow-sa` service account.
-  1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Specify the key description and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the key ID and secret key. You will need them when creating a [cluster](../../managed-airflow/concepts/index.md#cluster).
-
-      {% note alert %}
-
-      After you close the dialog, the private key value will become unavailable.
-
-      {% endnote %}
-
-- {{ yandex-cloud }} CLI {#cli}
-
-  1. Run this command:
-
-      ```bash
-      yc iam access-key create --service-account-name airflow-sa
-      ```
-
-      Result:
-
-      ```text
-      access_key:
-        id: aje6t3vsbj8l********
-        service_account_id: nfersamh4sjq********
-        created_at: "2018-11-22T14:37:51Z"
-        key_id: 0n8X6WY6S24N********
-      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
-      ```
-  1. Save the key ID and secret key. You will need them when creating a [cluster](../../managed-airflow/concepts/index.md#cluster).
-
-- API {#api}
-
-  To create an access key, use the [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) REST API method for the [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md) resource or the [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) gRPC API call.
+  To assign the `editor` role for a folder to a service account, use the [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 
 ## Create a cloud network and subnets {#create-network}
 
-All resources you create in the tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
+All resources you create in this tutorial will belong to the same [cloud network](../../vpc/concepts/network.md).
 
 {% list tabs group=instructions %}
 
@@ -158,7 +112,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
       default_security_group_id: enpbsnnop4ak********
       ```
 
-      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+      For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create subnets:
 
@@ -202,7 +156,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
           --range 10.3.0.0/16
         ```
 
-      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+      For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 - API {#api}
 
@@ -212,7 +166,9 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 {% endlist %}
 
-## Create a bucket in {{ objstorage-name }} {#create-bucket}
+## Prepare a bucket in {{ objstorage-name }} {#bucket}
+
+### Create a bucket {#create-bucket}
 
 {% list tabs group=instructions %}
 
@@ -229,8 +185,8 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
   {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  1. Create a bucket by specifying a [unique name](../../storage/concepts/bucket.md#naming) for it:
-  
+  1. Create a bucket with a [unique name](../../storage/concepts/bucket.md#naming):
+
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
         s3 mb s3://<bucket_name>
@@ -242,7 +198,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
       make_bucket: s3://airflow-bucket
       ```
 
-  1. Enable [public access](../../storage/concepts/acl.md#predefined-acls) to reading objects and their list in the bucket you created:
+  1. Enable [public access](../../storage/concepts/acl.md#predefined-acls) to read objects and their list in the bucket you created:
 
       ```bash
       aws --endpoint-url https://{{ s3-storage-host }} \
@@ -257,6 +213,10 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 {% endlist %}
 
+### Set up the bucket ACL {#configure-acl-bucket}
+
+{% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
+
 ## Configure an egress NAT {#nat-routing}
 
 ### Create a NAT gateway {#create-nat}
@@ -268,8 +228,8 @@ All resources you create in the tutorial will belong to the same [cloud network]
   1. In the [management console]({{ link-console-main }}), select the folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
-  1. In the window that opens, click **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**:
-      1. In the **{{ ui-key.yacloud.vpc.gateways.field_name }}** field, enter the name: `yq-nat`.
+  1. Click **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**, and in the window that opens:
+      1. In the **{{ ui-key.yacloud.vpc.gateways.field_name }}** field, enter `yq-nat`.
       1. In the **{{ ui-key.yacloud.vpc.gateways.field_type }}** field, select `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -292,7 +252,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
   shared_egress_gateway: {}
   ```
 
-  For more information about the `yc vpc gateway create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/gateway/create.md).
+  For more information about the `yc vpc gateway create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/gateway/create.md).
 
   Save the NAT gateway `id`. You will need it when creating a route table.
 
@@ -314,7 +274,7 @@ All resources you create in the tutorial will belong to the same [cloud network]
       1. Select the network: `yq-network`.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
           * In the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field, select `{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}`.
-          * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the `yq-nat` NAT gateway. The destination prefix will be propagated automatically.
+          * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the `yq-nat` NAT gateway. The destination prefix will apply automatically.
       1. Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
   1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
@@ -342,7 +302,8 @@ All resources you create in the tutorial will belong to the same [cloud network]
       gateway_id: enpkq1sb7hed********
   ```
 
-  For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/route-table/create.md).
+  For more information about the `yc vpc route-table create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/route-table/create.md).
+
 
 - API {#api}
 
@@ -350,9 +311,9 @@ All resources you create in the tutorial will belong to the same [cloud network]
 
 {% endlist %}
 
-### Link the route table to a subnet {#bind-route}
+### Associate the route table with a subnet {#bind-route}
 
-Link the route table to a subnet to route subnet traffic via the NAT gateway:
+Associate the route table with a subnet to route the subnet traffic via the NAT gateway:
 
 {% list tabs group=instructions %}
 
@@ -387,11 +348,11 @@ Link the route table to a subnet to route subnet traffic via the NAT gateway:
   dhcp_options: {}
   ```
 
-  For more information about the `yc vpc subnet update` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/update.md).
+  For more information about the `yc vpc subnet update` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/update.md).
 
 - API {#api}
 
-  To link a route table to a subnet, use the [update](../../vpc/api-ref/Subnet/update.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Update](../../vpc/api-ref/grpc/Subnet/update.md) gRPC API call.
+  To associate a route table with a subnet, use the [update](../../vpc/api-ref/Subnet/update.md) REST API method for the [Subnet](../../vpc/api-ref/Subnet/index.md) resource or the [SubnetService/Update](../../vpc/api-ref/grpc/Subnet/update.md) gRPC API call.
 
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
@@ -409,13 +370,12 @@ Link the route table to a subnet to route subnet traffic via the NAT gateway:
 
 {% include [airflow-auto-tasks-test](../_tutorials_includes/airflow-auto-tasks/airflow-auto-tasks-test.md) %}
 
-## How to delete the resources you created {#clear-out}
+## Delete the resources you created {#clear-out}
 
 To delete the infrastructure and stop paying for the resources you created:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
-1. [Unlink](../../vpc/operations/subnet-update.md) the route table from the subnet.
-1. Delete the [route table](../../vpc/concepts/routing.md#rt-vm).
-1. Delete the [NAT gateway](../../vpc/concepts/gateways.md).
+1. [Disassociate and delete](../../vpc/operations/delete-route-table.md) the route table.
+1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md#delete-nat-gateway).
 1. [Delete](../../managed-airflow/operations/cluster-delete.md) the {{ AF }} cluster.
 1. Delete the [subnets](../../vpc/operations/subnet-delete.md), [network](../../vpc/operations/network-delete.md), and the [service account](../../iam/operations/sa/delete.md), if required.

@@ -7,43 +7,40 @@ description: Follow this guide to create a profile in the CLI.
 
 There are two ways to create a profile:
 - [Creating an empty profile and adding parameters manually](#create).
-
-   This creates and activates an empty profile: you have to [add all the parameters separately](manage-properties.md).
+    
+    This creates and activates an empty profile: you have to [add all the parameters separately](manage-properties.md).
 - [Wizard-based profile creation with basic parameters](#interactive-create).
-
-   The CLI suggests setting the basic profile parameters step-by-step. You can use this method to redefine the parameters of an existing profile. This method doesn't work for service accounts.
+    
+    The CLI suggests setting the basic profile parameters step-by-step. You can use this method to redefine the parameters of an existing profile. This method doesn't work for service accounts.
 
 ## Creating an empty profile and adding parameters manually {#create}
 
-Create a profile with the `test` name:
-1. Run this command:
-
+Create a profile named `test`:
+1. Run this command: 
+   
    ```bash
    yc config profile create test
    ```
-
+   
    Result:
-
+   
    ```text
    Profile 'test' created and activated
    ```
 
-
-1. Add the necessary profile parameters, such as a folder:
-
-   ```bash
-   yc config set folder-id <folder ID>
-   ```
-
-   View the full [list of profile parameters](../../concepts/core-properties.md) and learn how to [manage](manage-properties.md) them.
+1. Add the necessary profile parameters, such as a folder: 
+    
+    ```bash
+    yc config set folder-id <Folder ID>
+    ```
+    
+    View the full [list of profile parameters](../../concepts/core-properties.md) and learn how to [manage](manage-properties.md) them.
 
 You can view an example of this type of profile when [getting started](../../quickstart.md).
 
 ## Wizard-based profile creation with basic parameters {#interactive-create}
 
-
-
-If you use the wizard to create a profile, the CLI prompts you to enter the basic profile parameters step-by-step:
+If you use the wizard to create a profile, the CLI prompts you to enter the basic profile parameters step-by-step: 
 * Profile name.
 * OAuth token (for a Yandex account).
 * The cloud you have access rights to.
@@ -58,11 +55,11 @@ If you are not connected to the management console yet, log in to the [console](
 {% list tabs group=authentication %}
 
 - Yandex account {#yandex-account}
-
-   {% include [include](../../../_includes/cli/create-profile.md) %}
+   
+    {% include [include](../../../_includes/cli/create-profile.md) %}   
 
 - Federated account {#federated-account}
 
-   {% include [include](../../../_includes/cli/auth-federated-user.md) %}
+    {% include [include](../../../_includes/cli/auth-federated-user.md) %}
 
 {% endlist %}

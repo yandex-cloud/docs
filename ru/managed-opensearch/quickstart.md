@@ -6,10 +6,10 @@ description: В этой инструкции вы научитесь созда
 # Как начать работать с {{ mos-name }}
 
 Чтобы начать работу с сервисом:
-1. [{#T}](#create-cluster).
-1. [{#T}](#configure-security-groups).
-1. [{#T}](#connect).
-1. [{#T}](#dashboards-connect).
+1. [Создайте кластер](#create-cluster).
+1. [Настройте группы безопасности](#configure-security-groups).
+1. [Подключитесь к кластеру](#connect).
+1. [Подключитесь к {{ OS }} Dashboards](#dashboards-connect).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -20,7 +20,12 @@ description: В этой инструкции вы научитесь созда
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Убедитесь](../iam/operations/roles/get-assigned-roles.md), что для создания кластера у вашего аккаунта есть роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }} или выше](security/index.md#roles-list).
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mos.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+
+    Для привязки сервисного аккаунта к кластеру (например, для [работы с {{ objstorage-full-name }}](operations/s3-access.md)) вашему аккаунту дополнительно нужна роль [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. Подключаться к [кластеру](../glossary/cluster.md) {{ OS }} можно как изнутри {{ yandex-cloud }}, так и из интернета:
 
     * Чтобы подключиться изнутри {{ yandex-cloud }}, [создайте виртуальную машину](../compute/quickstart/quick-create-linux.md) на основе Linux в той же сети, что и кластер.
@@ -37,11 +42,11 @@ description: В этой инструкции вы научитесь созда
 ## Создайте кластер {#create-cluster}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Задайте параметры кластера.
 
-
+    
     Чтобы получить доступ к веб-интерфейсу {{ OS }} Dashboards, запросите публичный доступ — для этого в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }}** с типом группы **Dashboards** выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
     {% include [mos-tip-public-dashboards](../_includes/mdb/mos/public-dashboards.md) %}
@@ -91,12 +96,12 @@ description: В этой инструкции вы научитесь созда
 
 1. Подключитесь с помощью браузера к веб-интерфейсу [{{ OS }} Dashboards]({{ os.docs }}/dashboards/index/):
 
-
+   
    1. Убедитесь, что к хостам с ролью `DASHBOARDS` есть публичный доступ.
 
 
    1. Установите [SSL-сертификат]({{ crt-web-path }}) в хранилище доверенных корневых сертификатов браузера ([инструкция](https://wiki.mozilla.org/PSM:Changing_Trust_Settings#Trusting_an_Additional_Root_Certificate) для Mozilla Firefox).
-   1. На странице кластера в консоли управления нажмите кнопку **{{ ui-key.yacloud.opensearch.title_opensearch-dashboards-section }}** или перейдите в браузере по адресу `https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}>`.
+   1. На странице кластера в консоли управления нажмите кнопку **OpenSearch Dashboards** или перейдите в браузере по адресу `https://c-<идентификатор_кластера_{{ OS }}>.rw.{{ dns-zone }}>`.
    1. Введите имя пользователя `admin` и пароль, который был задан при [создании кластера](#create-cluster).
 
 1. Исследуйте набор тестовых данных:
@@ -109,4 +114,4 @@ description: В этой инструкции вы научитесь созда
 ## Что дальше {#whats-next}
 
 * Изучите [концепции сервиса](concepts/index.md).
-* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к кластеру](operations/connect.md).
+* Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к кластеру](operations/connect/index.md).

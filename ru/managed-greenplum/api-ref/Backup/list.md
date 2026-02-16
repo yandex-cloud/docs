@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/backups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list backups in.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
+            Default value is 100.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Backup/list.md
 ---
 
-# Managed Service for Greenplum® API, REST: Backup.List {#List}
+# Managed Service for Greenplum® API, REST: Backup.List
 
 Returns the list of available backups for the specified Greenplum® cluster.
 
@@ -19,17 +52,23 @@ GET https://{{ api-host-mdb }}/managed-greenplum/v1/backups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list backups in. ||
+Required field. ID of the folder to list backups in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
 
 If the number of available results is larger than `pageSize`, the service returns a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) that can be used to get the next page of results in subsequent list requests.
 
-Default value is 100. ||
+Default value is 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
-The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request. ||
+The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.greenplum.v1.ListBackupsResponse}
@@ -109,14 +148,12 @@ Size of the backup in bytes. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | **enum** (BackupMethod)
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journalSize | **string** (int64)

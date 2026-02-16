@@ -22,7 +22,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
 
 - CLI {#cli}
@@ -50,11 +50,51 @@
 
     Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список коннекторов, воспользуйтесь методом REST API [list](../api-ref/Connector/list.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/List](../api-ref/grpc/Connector/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Connector.list](../api-ref/Connector/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ConnectorService/List](../api-ref/grpc/Connector/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.ConnectorService.List
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/list.md#yandex.cloud.mdb.kafka.v1.ListConnectorsResponse).
 
 {% endlist %}
 
@@ -65,7 +105,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. Нажмите на имя нужного коннектора.
 
@@ -93,12 +133,51 @@
 
     Имя коннектора можно запросить со [списком коннекторов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить детальную информацию о коннекторе, воспользуйтесь методом REST API [get](../api-ref/Connector/get.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Get](../api-ref/grpc/Connector/get.md) и передайте в запросе:
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, получите [список коннекторов в кластере](#list).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Connector.get](../api-ref/Connector/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ConnectorService/Get](../api-ref/grpc/Connector/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.ConnectorService.Get
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/get.md#yandex.cloud.mdb.kafka.v1.Connector).
 
 {% endlist %}
 
@@ -109,7 +188,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_create-connector }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите:
@@ -281,14 +360,123 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать коннектор, воспользуйтесь методом API [create](../api-ref/Connector/create.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера, в котором нужно создать коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки коннектора в параметре `connectorSpec`.
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       ```bash
+       curl \
+         --request POST \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
+         --data '{
+                   "connectorSpec": {
+                     "name": "<имя_коннектора>",
+                     "tasksMax": "<лимит_задач>"
+                     "properties": "<дополнительные_свойства_коннектора>"
+                     "connectorConfigMirrormaker": {
+                       <настройки_коннектора_Mirrormaker>
+                     }
+                   }
+                 }'
+       ```
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь методом [Connector.create](../api-ref/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       ```bash
+       curl \
+         --request POST \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors' \
+         --data '{
+                   "connectorSpec": {
+                     "name": "<имя_коннектора>",
+                     "tasksMax": "<лимит_задач>"
+                     "properties": "<дополнительные_свойства_коннектора>"
+                     "connectorConfigS3Sink": {
+                       <настройки_коннектора_S3-Sink>
+                     }
+                   }
+                 }'
+       ```
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/list.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Чтобы создать коннектор [MirrorMaker](#settings-mm2), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_spec": {
+                  "name": "<имя_коннектора>",
+                  "tasks_max": {
+                    "value": "<лимит_задач>"
+                  },
+                  "properties": "<дополнительные_свойства_коннектора>"
+                  "connector_config_mirrormaker": {
+                    <настройки_коннектора_Mirrormaker>
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Create
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Чтобы создать коннектор [S3 Sink](#settings-s3), воспользуйтесь вызовом [ConnectorService/Create](../api-ref/grpc/Connector/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_spec": {
+                  "name": "<имя_коннектора>",
+                  "tasks_max": {
+                    "value": "<лимит_задач>"
+                  },
+                  "properties": "<дополнительные_свойства_коннектора>"
+                  "connector_config_s3_sink": {
+                    <настройки_коннектора_S3-Sink>
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Create
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -416,6 +604,72 @@
                 * `SSL`, `SASL_SSL` – для подключений с SSL.
             * **ssl_truststore_certificates** — содержимое PEM-сертификата.
 
+- REST API {#api}
+
+    Настройки коннектора MirrorMaker задаются в параметре `connectorSpec.connectorConfigMirrormaker`:
+
+    * `sourceCluster` и `targetCluster` — параметры для подключения к кластеру-источнику и кластеру-приемнику:
+
+        * `alias` — префикс для обозначения кластера в настройках коннектора.
+
+            {% note info %}
+
+            Топики в кластере-приемнике будут созданы с указанным префиксом.
+
+            {% endnote %}
+
+        * `thisCluster` — опция для использования текущего кластера в качестве источника или приемника.
+
+        * `externalCluster` — параметры для подключения к внешнему кластеру:
+
+            * `bootstrapServers` — список FQDN хостов-брокеров кластера с номерами портов для подключения, разделенный запятыми.
+
+                {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+            * `saslUsername` — имя пользователя для подключения коннектора к кластеру.
+            * `saslPassword` — пароль пользователя для подключения коннектора к кластеру.
+            * `saslMechanism` — механизм шифрования имени и пароля.
+            * `securityProtocol` — протокол подключения коннектора:
+                * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
+                * `SSL`, `SASL_SSL` – для подключений с SSL.
+            * `sslTruststoreCertificates` — содержимое PEM-сертификата.
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `replicationFactor` — количество копий топика, хранящихся в кластере.
+
+- gRPC API {#grpc-api}
+
+    Настройки коннектора MirrorMaker задаются в параметре `connector_spec.connector_config_mirrormaker`:
+
+    * `source_cluster` и `target_cluster` — параметры для подключения к кластеру-источнику и кластеру-приемнику:
+
+        * `alias` — префикс для обозначения кластера в настройках коннектора.
+
+            {% note info %}
+
+            Топики в кластере-приемнике будут созданы с указанным префиксом.
+
+            {% endnote %}
+
+        * `this_cluster` — опция для использования текущего кластера в качестве источника или приемника.
+
+        * `external_cluster` — параметры для подключения к внешнему кластеру:
+
+            * `bootstrap_servers` — список FQDN хостов-брокеров кластера с номерами портов для подключения, разделенный запятыми.
+
+                {% include [fqdn](../../_includes/mdb/mkf/fqdn-host.md) %}
+
+            * `sasl_username` — имя пользователя для подключения коннектора к кластеру.
+            * `sasl_password` — пароль пользователя для подключения коннектора к кластеру.
+            * `sasl_mechanism` — механизм шифрования имени и пароля.
+            * `security_protocol` — протокол подключения коннектора:
+                * `PLAINTEXT`, `SASL_PLAINTEXT` – для подключений без SSL;
+                * `SSL`, `SASL_SSL` – для подключений с SSL.
+            * `ssl_truststore_certificates` — содержимое PEM-сертификата.
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `replication_factor` — количество копий топика, хранящихся в кластере. Передается в виде объекта с полем `value`.
+
 {% endlist %}
 
 ### S3 Sink {#settings-s3}
@@ -440,9 +694,11 @@
   * В блоке **{{ ui-key.yacloud.kafka.field_connector-s3-connection }}** укажите параметры подключения к хранилищу:
       * **{{ ui-key.yacloud.kafka.field_connector-bucket-name }}** — имя бакета хранилища.
       * **{{ ui-key.yacloud.kafka.field_connector-endpoint }}** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища).
-      * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-region }}** — название региона. Значение по умолчанию — `us-east-1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+      * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-region }}** — название региона. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
+          {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
+      
       * (Опционально) **{{ ui-key.yacloud.kafka.field_connector-access-key-id }}**, **{{ ui-key.yacloud.kafka.field_connector-secret-access-key }}** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
@@ -479,9 +735,11 @@
     * `--file-max-records` — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище.
     * `--bucket-name` — имя бакета в S3-совместимом хранилище, в который будет производиться запись.
     * `--storage-endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-    * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `us-east-1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+    * `--region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
+        {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
+    
     * `--access-key-id`, `--secret-access-key` — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
@@ -511,10 +769,62 @@
         * **external_s3** — параметры для подключения к внешнему S3-совместимому хранилищу:
 
             * **endpoint** — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
-            * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `us-east-1`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+            * **region** — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
 
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
 
+            
             * **access_key_id**, **secret_access_key** — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
+
+
+- REST API {#api}
+
+    Настройки коннектора S3 Sink задаются в параметре `connectorSpec.connectorConfigS3Sink`:
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `fileCompressionType` — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
+
+        * `none` (по умолчанию) — сжатие отсутствует;
+        * `gzip` — кодек [gzip](https://www.gzip.org/);
+        * `snappy` — кодек [snappy](https://github.com/google/snappy);
+        * `zstd` — кодек [zstd](https://facebook.github.io/zstd/).
+
+    * `fileMaxRecords` — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище.
+    * `s3Connection` — параметры для подключения к S3-совместимому хранилищу:
+        * `bucketName` — имя бакета, в который будет производиться запись.
+        * `externalS3` — параметры внешнего хранилища:
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+            
+            * `accessKeyId`, `secretAccessKey` — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
+
+
+- gRPC API {#grpc-api}
+
+    Настройки коннектора S3 Sink задаются в параметре `connector_spec.connector_config_s3_sink`:
+
+    * `topics` — шаблон для отбора реплицируемых топиков, имена топиков перечисляются через запятую или символ `|`. Можно использовать выражение `.*`, например `analysis.*`. Для переноса всех топиков укажите `.*`.
+    * `file_compression_type` — кодек для сжатия сообщений. После создания кластера данный параметр нельзя изменить. Допустимые значения:
+
+        * `none` (по умолчанию) — сжатие отсутствует;
+        * `gzip` — кодек [gzip](https://www.gzip.org/);
+        * `snappy` — кодек [snappy](https://github.com/google/snappy);
+        * `zstd` — кодек [zstd](https://facebook.github.io/zstd/).
+
+    * `file_max_records` — максимальное количество записей, которое может быть записано в один файл, размещенный в S3-совместимом хранилище. Передается в виде объекта с полем `value`.
+    * `s3_connection` — параметры для подключения к S3-совместимому хранилищу:
+        * `bucket_name` — имя бакета, в который будет производиться запись.
+        * `external_s3` — параметры внешнего хранилища:
+            * `endpoint` — эндпоинт для доступа к хранилищу (его необходимо узнать у провайдера хранилища). Пример: `{{ s3-storage-host }}`.
+            * `region` — регион, в котором находится бакет S3-совместимого хранилища. Значение по умолчанию — `{{ region-id }}`. [Список доступных регионов](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/regions/Regions.html).
+
+                {% include [basic-aws-region](../../_includes/basic-aws-region.md) %}
+
+            
+            * `access_key_id`, `secret_access_key` — [идентификатор и содержимое AWS-совместимого ключа](../../iam/concepts/authorization/access-key.md).
 
 
 {% endlist %}
@@ -526,7 +836,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. В строке с нужным коннектором нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.kafka.button_edit-connector }}**.
     1. Внесите необходимые изменения в свойства коннектора.
@@ -652,14 +962,119 @@
 
        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить коннектор, воспользуйтесь методом REST API [update](../api-ref/Connector/update.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера, в котором нужно изменить коннектор, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки коннектора в параметре `connectorSpec`.
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Connector.update](../api-ref/Connector/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+       ```bash
+       curl \
+         --request PATCH \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>' \
+         --data '{
+                   "updateMask": "connectorSpec.tasksMax,connectorSpec.properties,connectorSpec.connectorConfigMirrormaker.<настройка_коннектора_Mirrormaker_1>,...,connectorSpec.connectorConfigMirrormaker.<настройка_коннектора_Mirrormaker_N>,connectorSpec.connectorConfigS3Sink.<настройка_коннектора_S3-Sink_1>,...,connectorSpec.connectorConfigS3Sink.<настройка_коннектора_S3-Sink_N>",
+                   "connectorSpec": {
+                     "tasksMax": "<лимит_задач>"
+                     "properties": "<дополнительные_свойства_коннектора>"
+                     "connectorConfigMirrormaker": {
+                       <настройки_коннектора_Mirrormaker>
+                     },
+                     "connectorConfigS3Sink": {
+                       <настройки_коннектора_S3-Sink>
+                     }
+                   }
+                 }'
+       ```
+
+       Где:
+
+       * `updateMask` — перечень изменяемых параметров коннектора в одну строку через запятую.
+
+            Укажите нужные параметры:
+            * `connectorSpec.tasksMax` – если нужно изменить лимит задач коннектора.
+            * `connectorSpec.properties` – если нужно изменить дополнительные свойства коннектора.
+            * `connectorSpec.connectorConfigMirrormaker.<настройка_конфигурации_коннектора_Mirrormaker>` – если нужно изменить настройки коннектора [Mirrormaker](#settings-mm2).
+            * `connectorSpec.connectorConfigS3Sink.<настройка_конфигурации_коннектора_S3-Sink>` – если нужно изменить настройки коннектора [S3 Sink](#settings-s3).
+
+       * `connectorSpec` – укажите настройки коннектора MirrorMaker или S3 Sink.
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ConnectorService/Update](../api-ref/grpc/Connector/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_name": "<имя_коннектора>",
+                "update_mask": {
+                  "paths": [
+                    "connector_spec.tasks_max",
+                    "connector_spec.properties",
+                    "connector_spec.connector_config_mirrormaker.<настройка_коннектора_Mirrormaker_1>",
+                    ...,
+                    "connector_spec.connector_config_mirrormaker.<настройка_коннектора_Mirrormaker_N>",
+                    "connector_spec.connector_config_s3_sink.<настройка_коннектора_S3-Sink_1>",
+                    ...,
+                    "connector_spec.connector_config_s3_sink.<настройка_коннектора_S3-Sink_N>"
+                  ]
+                },
+                "connector_spec": {
+                  "tasks_max": {
+                    "value": "<лимит_задач>"
+                  },
+                  "properties": "<дополнительные_свойства_коннектора>"
+                  "connector_config_mirrormaker": {
+                    <настройки_коннектора_Mirrormaker>
+                  },
+                  "connector_config_s3_sink": {
+                    <настройки_коннектора_S3-Sink>
+                  }
+                }
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров коннектора в виде массива строк `paths[]`.
+
+            Укажите нужные параметры:
+            * `connector_spec.tasks_max` – если нужно изменить лимит задач коннектора.
+            * `connector_spec.properties` – если нужно изменить дополнительные свойства коннектора.
+            * `connector_spec.connector_config_mirrormaker.<настройка_конфигурации_коннектора_Mirrormaker>` – если нужно изменить настройки коннектора [Mirrormaker](#settings-mm2).
+            * `connector_spec.connector_config_s3_sink.<настройка_конфигурации_коннектора_S3-Sink>` – если нужно изменить настройки коннектора [S3 Sink](#settings-s3).
+        * `connector_spec` – укажите настройки коннектора MirrorMaker или S3 Sink.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -677,7 +1092,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_pause }}**.
 
@@ -694,12 +1109,53 @@
        --cluster-name=<имя_кластера>
     ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы приостановить работу коннектора, воспользуйтесь методом REST API [pause](../api-ref/Connector/pause.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/pause.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       ```bash
+       curl \
+         --request POST \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/pause/<имя_коннектора>'
+       ```
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/pause.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ConnectorService/Pause](../api-ref/grpc/Connector/pause.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_name": "<имя_коннектора>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Pause
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/pause.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -710,7 +1166,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.compute.groups.popup-confirm_button_resume }}**.
 
@@ -727,12 +1183,53 @@
        --cluster-name=<имя_кластера>
     ```
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы возобновить работу коннектора, воспользуйтесь методом REST API [resume](../api-ref/Connector/resume.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/resume.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       ```bash
+       curl \
+         --request POST \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/resume/<имя_коннектора>'
+       ```
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/resume.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ConnectorService/Resume](../api-ref/grpc/Connector/resume.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_name": "<имя_коннектора>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Resume
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/resume.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -756,7 +1253,7 @@
         terraform import yandex_mdb_kafka_connector.<имя_коннектора> <идентификатор_кластера>:<имя_коннектора>
         ```
 
-        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect#import).
+        Подробнее об импорте коннекторов см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector#import).
 
 {% endlist %}
 
@@ -767,7 +1264,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Выберите нужный кластер и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_connectors }}**.
     1. Нажмите на значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) рядом с именем нужного коннектора и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -800,13 +1297,54 @@
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connect).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_connector).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы удалить коннектор, воспользуйтесь методом REST API [delete](../api-ref/Connector/delete.md) для ресурса [Connector](../api-ref/Connector/index.md) или вызовом gRPC API [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Имя коннектора в параметре `connectorName`. Чтобы узнать имя, [получите список коннекторов в кластере](#list-connectors).
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Connector.pause](../api-ref/Connector/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+       ```bash
+       curl \
+         --request DELETE \
+         --header "Authorization: Bearer $IAM_TOKEN" \
+         --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/connectors/<имя_коннектора>'
+       ```
+
+       Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Connector/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ConnectorService/Delete](../api-ref/grpc/Connector/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/connector_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "connector_name": "<имя_коннектора>"
+              }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.kafka.v1.ConnectorService.Delete
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters), а имя коннектора — со [списком коннекторов в кластере](#list).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Connector/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

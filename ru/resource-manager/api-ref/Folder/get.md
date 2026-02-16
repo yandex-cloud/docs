@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}
+    method: get
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the Folder resource to return.
+            To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/get.md
 ---
 
-# Resource Manager API, REST: Folder.Get {#Get}
+# Resource Manager API, REST: Folder.Get
 
 Returns the specified Folder resource.
 
@@ -22,7 +41,9 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderI
 || folderId | **string**
 
 Required field. ID of the Folder resource to return.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.resourcemanager.v1.Folder}
@@ -36,7 +57,7 @@ To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string"
 }
 ```
@@ -68,14 +89,13 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the folder. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

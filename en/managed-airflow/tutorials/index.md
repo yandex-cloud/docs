@@ -1,11 +1,18 @@
 ---
 title: '{{ maf-full-name }} use cases'
-description: Various use cases for {{ maf-full-name }} in {{ yandex-cloud }}.
+description: Different use cases for {{ maf-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ maf-name }} tutorials
 
-* [{#T}](data-proc-automation.md)
+## Working with clusters {#clusters}
+
+* [{#T}](data-processing-automation.md)
 * [{#T}](airflow-auto-tasks.md)
+* [{#T}](spark-automation.md)
+* [{#T}](airflow-spark-min.md)
+
+## Other tutorials {#other}
+
+* [{#T}](test-smtp-notification.md)
 * [{#T}](using-python-sdk.md)
-* [{#T}](lockbox-secrets-in-maf-cluster.md)

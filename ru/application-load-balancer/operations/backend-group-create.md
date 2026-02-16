@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться группа бэкендов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Введите имя группы бэкендов.
@@ -218,9 +218,15 @@ description: Следуя данной инструкции, вы сможете
            interval             = "2s"
            healthy_threshold    = 10
            unhealthy_threshold  = 15
+           keep_connections_on_host_health_failure = <true_или_false>
            stream_healthcheck {
              send               = "<данные_к_эндпоинту>"
              receive            = "<данные_от_эндпоинта>"
+           }
+           http_healthcheck {
+             path              = "<путь>"
+             host              = "<хост>"
+             expected_statuses = [<HTTP-коды>]
            }
          }
        }
@@ -249,6 +255,8 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      yc alb backend-group list
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-backend-group.md) %}
 
 - API {#api}
 

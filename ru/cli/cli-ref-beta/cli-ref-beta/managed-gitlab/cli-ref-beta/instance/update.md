@@ -1,0 +1,100 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-gitlab/cli-ref-beta/instance/update.md
+---
+
+# yc beta managed-gitlab instance update
+
+Updates GitLab instance.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta managed-gitlab instance update <INSTANCE-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--approval-rules-id` | `string`
+
+ID of approval rules for the instance. ||
+|| `--approval-rules-token` | `string`
+
+Token of approval rules for the instance. ||
+|| `--backup-retain-period-days` | `int`
+
+Number of days to retain backups. ||
+|| `--deletion-protection` | Whether deletion protection is enabled. ||
+|| `--description` | `string`
+
+Description of the instance. ||
+|| `--disk-size` | `int`
+
+Disk size in bytes. ||
+|| `--instance-id` | `string`
+
+ID of the GitLab instance to update. ||
+|| `--labels` | `stringToString`
+
+Custom labels for the instance as '' key:value '' pairs. For example, "env": "prod" ||
+|| `--maintenance-delete-untagged` | Whether to delete untagged resources during maintenance. ||
+|| `--name` | `string`
+
+Name of the instance (must be unique within the folder). ||
+|| `--resource-preset-id` | `string`
+
+ID of the resource preset for computational resources. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

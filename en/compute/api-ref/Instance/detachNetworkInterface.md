@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachNetworkInterface
+    method: post
+    path:
+      type: object
+      properties:
+        instanceId:
+          description: |-
+            **string**
+            Required field. ID of the instance that in which network interface is being attached to.
+          type: string
+      required:
+        - instanceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        networkInterfaceIndex:
+          description: |-
+            **string**
+            Required field. The index of the network interface.
+          type: string
+      required:
+        - networkInterfaceIndex
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Instance/detachNetworkInterface.md
 ---
 
-# Compute Cloud API, REST: Instance.DetachNetworkInterface {#DetachNetworkInterface}
+# Compute Cloud API, REST: Instance.DetachNetworkInterface
 
 Detaches the network-interface to the instance.
 
@@ -71,7 +98,7 @@ Required field. The index of the network interface. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "platformId": "string",
     "resources": {
@@ -81,7 +108,7 @@ Required field. The index of the network interface. ||
       "gpus": "string"
     },
     "status": "string",
-    "metadata": "string",
+    "metadata": "object",
     "metadataOptions": {
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
@@ -105,7 +132,15 @@ Required field. The index of the network interface. ||
     "localDisks": [
       {
         "size": "string",
-        "deviceName": "string"
+        "deviceName": "string",
+        // Includes only one of the fields `physicalLocalDisk`
+        "physicalLocalDisk": {
+          "kmsKey": {
+            "keyId": "string",
+            "versionId": "string"
+          }
+        }
+        // end of the list of possible fields
       }
     ],
     "filesystems": [
@@ -209,6 +244,25 @@ Required field. The index of the network interface. ||
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "reservedInstancePoolId": "string",
+    "application": {
+      // Includes only one of the fields `containerSolution`
+      "containerSolution": {
+        "productId": "string",
+        "secrets": "object",
+        "environment": "object"
+      },
+      // end of the list of possible fields
+      "cloudbackup": {
+        "enabled": "boolean",
+        "initialPolicyIds": [
+          "string"
+        ],
+        "recoveryFromBackup": "boolean",
+        "backupId": "string",
+        "instanceRegistrationId": "string"
+      }
     }
   }
   // end of the list of possible fields
@@ -339,7 +393,7 @@ Name of the instance. 1-63 characters long. ||
 || description | **string**
 
 Description of the instance. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || zoneId | **string**
@@ -355,7 +409,6 @@ Computing resources of the instance such as the amount of memory and number of c
 
 Status of the instance.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Instance is waiting for resources to be allocated.
 - `RUNNING`: Instance is running normally.
 - `STOPPING`: Instance is being stopped.
@@ -366,7 +419,7 @@ Status of the instance.
 - `ERROR`: Instance encountered a problem and cannot operate.
 - `CRASHED`: Instance crashed and will be restarted automatically.
 - `DELETING`: Instance is being deleted. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
 
@@ -424,7 +477,6 @@ ID of the dedicated host that the instance belongs to. ||
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || maintenanceGracePeriod | **string** (duration)
@@ -433,6 +485,12 @@ Time between notification via metadata service and maintenance ||
 || hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
+|| reservedInstancePoolId | **string**
+
+ID of the reserved instance pool that the instance belongs to. ||
+|| application | **[Application](#yandex.cloud.compute.v1.Application)**
+
+Instance application settings. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}
@@ -462,28 +520,24 @@ The number of GPUs available to the instance. ||
 
 Enabled access to GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpEndpoint | **enum** (MetadataOption)
 
 Enabled access to AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || gceHttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with GCE flavored metadata
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
-- `METADATA_OPTION_UNSPECIFIED`
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||
 |#
@@ -496,7 +550,6 @@ Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
 
 Access mode to the Disk resource.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || deviceName | **string**
@@ -526,6 +579,32 @@ Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
 
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
+|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
+
+#|
+||Field | Description ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#
 
 ## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}
@@ -536,7 +615,6 @@ This value can be used to reference the device for mounting, resizing, and so on
 
 Access mode to the filesystem.
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
 || deviceName | **string**
@@ -600,7 +678,6 @@ An external IP address associated with this instance. ||
 
 IP version for the external IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.0.2.235.
 - `IPV6`: IPv6 address. Not available yet. ||
 || dnsRecords[] | **[DnsRecord](#yandex.cloud.compute.v1.DnsRecord)**
@@ -635,7 +712,6 @@ When true, indicates there is a corresponding auto-created PTR DNS record. ||
 
 Authentication and authorization in serial console when using SSH protocol
 
-- `SSH_AUTHORIZATION_UNSPECIFIED`
 - `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
 - `OS_LOGIN`: Authentication and authorization using Oslogin service ||
 |#
@@ -666,7 +742,6 @@ True for short-lived compute instances. For more information, see [Preemptible V
 
 Network Type
 
-- `TYPE_UNSPECIFIED`
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
 - `HARDWARE_ACCELERATED`: Hardware accelerated network (not available yet, reserved for future use). ||
@@ -700,7 +775,6 @@ Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 
 Include or exclude action
 
-- `OPERATOR_UNSPECIFIED`
 - `IN`
 - `NOT_IN` ||
 || values[] | **string**
@@ -734,7 +808,89 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## Application {#yandex.cloud.compute.v1.Application}
+
+#|
+||Field | Description ||
+|| containerSolution | **[ContainerSolutionSpec](#yandex.cloud.compute.v1.ContainerSolutionSpec)**
+
+Container specification.
+
+Includes only one of the fields `containerSolution`. ||
+|| cloudbackup | **[BackupSpec](#yandex.cloud.compute.v1.BackupSpec)**
+
+Backup settings. ||
+|#
+
+## ContainerSolutionSpec {#yandex.cloud.compute.v1.ContainerSolutionSpec}
+
+#|
+||Field | Description ||
+|| productId | **string**
+
+Required field. ID of the product.
+
+The maximum string length in characters is 50. ||
+|| secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
+
+A list of the secrets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. ||
+|| environment | **object** (map<**string**, **string**>)
+
+A list of the environmets.
+
+No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
+|#
+
+## Secret {#yandex.cloud.compute.v1.Secret}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the secret.
+
+The maximum string length in characters is 50. ||
+|| key | **string**
+
+Required field. Name of the key.
+
+The maximum string length in characters is 256. ||
+|| versionId | **string**
+
+Version of the secret.
+
+The maximum string length in characters is 50. ||
+|#
+
+## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+If true, backup is enabled. ||
+|| initialPolicyIds[] | **string**
+
+A list of policy IDs to apply after resource registration.
+
+The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
+|| recoveryFromBackup | **boolean**
+
+If true, recovery from backup starts on instance. ||
+|| backupId | **string**
+
+ID of the backup to recover from.
+
+The maximum string length in characters is 100. ||
+|| instanceRegistrationId | **string**
+
+ID of the instance registration for cloud backup agent installation.
+
+The maximum string length in characters is 100. ||
 |#

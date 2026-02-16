@@ -6,4 +6,4 @@ Users with this role can:
 * View info on the published queries from the history and access permissions assigned to them.
 * Save the run queries to private history and delete them from history.
 
-This role also includes the `websql.viewer` permissions.
+This role includes the `websql.viewer` permissions.

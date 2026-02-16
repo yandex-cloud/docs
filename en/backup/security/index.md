@@ -1,32 +1,42 @@
 ---
-title: Access management in {{ backup-full-name }} (S3)
-description: Access management in {{ backup-full-name }}, a service for backing up data in {{ yandex-cloud }}. This section describes the resources for which you can assign a role and the roles existing in the service.
+title: Access management in {{ backup-full-name }}
+description: Access management in {{ backup-full-name }} – {{ yandex-cloud }}'s data backup solution. This section describes the resources for which you can assign a role and the roles existing in the service.
 ---
 
 # Access management in {{ backup-name }}
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles exist in this service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `backup.admin` or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `backup.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
-Using the {{ yandex-cloud }} console or the YC CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
+Using the {{ yandex-cloud }} console or the CLI, you can assign a role for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). These assigned roles will also apply to nested resources.
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
+
+{% include [roles-backup](../../_mermaid/roles/backup.md) %}
 
 ### Service roles {#service-roles}
+
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../../_roles/backup/auditor.md) %}
 
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
+
+#### backup.user {#backup-user}
+
+{% include [backup.user](../../_roles/backup/user.md) %}
 
 #### backup.editor {#backup-editor}
 

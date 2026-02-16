@@ -1,4 +1,6 @@
 ---
+title: '{{ maf-full-name }} pricing policy'
+description: This article covers the {{ maf-name }} pricing policy.
 editable: false
 ---
 
@@ -6,9 +8,23 @@ editable: false
 
 
 
-This section presents {{ maf-name }} pricing [rules](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using the service are charged based on their pricing plans.
+In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ maf-name }} are charged based on their pricing plans.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+
+
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=c931c7dd8121#calculator) on our website or check out the pricing below.
+
+
+{% endnote %}
+
+{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## What goes into the cost of using {{ maf-name }} {#rules}
 
@@ -19,25 +35,38 @@ When using {{ maf-name }}, you pay for:
 
 Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
-Using {{ objstorage-full-name }} for storing [DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
+Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.md) is charged according to the [{{ objstorage-name }} pricing policy](../storage/pricing.md).
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
+
+### Example of cluster cost calculation {#example}
+
+Let's calculate the cost of using a cluster with the following properties for 30 days:
+
+* **Web server**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.
+* **Scheduler**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.
+* **Workers**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.
+
+
+
+{% include [usd-airflow](../_pricing_examples/managed-airflow/usd.md) %}
+
 
 ## Prices for the Russia region {#prices}
 
 
-
-
-All prices below do not include VAT.
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
-### Cluster computing resources {#prices-computing-resources}
 
 
-
-{% include [usd-prices](../_pricing/managed-airflow/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.apache_airflow }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

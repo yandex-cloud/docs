@@ -1,9 +1,328 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to create a job for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the job.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        mapreduceJob:
+          description: |-
+            **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
+            Specification for a MapReduce job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/MapreduceJob'
+        sparkJob:
+          description: |-
+            **[SparkJob](#yandex.cloud.dataproc.v1.SparkJob)**
+            Specification for a Spark job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/SparkJob'
+        pysparkJob:
+          description: |-
+            **[PysparkJob](#yandex.cloud.dataproc.v1.PysparkJob)**
+            Specification for a PySpark job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/PysparkJob'
+        hiveJob:
+          description: |-
+            **[HiveJob](#yandex.cloud.dataproc.v1.HiveJob)**
+            Specification for a Hive job.
+            Includes only one of the fields `mapreduceJob`, `sparkJob`, `pysparkJob`, `hiveJob`.
+            Specification for the job.
+          $ref: '#/definitions/HiveJob'
+      additionalProperties: false
+      oneOf:
+        - required:
+            - mapreduceJob
+        - required:
+            - sparkJob
+        - required:
+            - pysparkJob
+        - required:
+            - hiveJob
+    definitions:
+      MapreduceJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and MapReduce.
+            type: object
+            additionalProperties:
+              type: string
+          mainJarFileUri:
+            description: |-
+              **string**
+              HCFS URI of the .jar file containing the driver class.
+              Includes only one of the fields `mainJarFileUri`, `mainClass`.
+            type: string
+          mainClass:
+            description: |-
+              **string**
+              The name of the driver class.
+              Includes only one of the fields `mainJarFileUri`, `mainClass`.
+            type: string
+        oneOf:
+          - required:
+              - mainJarFileUri
+          - required:
+              - mainClass
+      SparkJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and Spark.
+            type: object
+            additionalProperties:
+              type: string
+          mainJarFileUri:
+            description: |-
+              **string**
+              The HCFS URI of the JAR file containing the `main` class for the job.
+            type: string
+          mainClass:
+            description: |-
+              **string**
+              The name of the driver class.
+            type: string
+          packages:
+            description: |-
+              **string**
+              List of maven coordinates of jars to include on the driver and executor classpaths.
+            type: array
+            items:
+              type: string
+          repositories:
+            description: |-
+              **string**
+              List of additional remote repositories to search for the maven coordinates given with --packages.
+            type: array
+            items:
+              type: string
+          excludePackages:
+            description: |-
+              **string**
+              List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+            type: array
+            items:
+              type: string
+      PysparkJob:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Optional arguments to pass to the driver.
+            type: array
+            items:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task.
+            type: array
+            items:
+              type: string
+          fileUris:
+            description: |-
+              **string**
+              URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
+              and distributed Hadoop tasks.
+            type: array
+            items:
+              type: string
+          archiveUris:
+            description: |-
+              **string**
+              URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks.
+            type: array
+            items:
+              type: string
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and PySpark.
+            type: object
+            additionalProperties:
+              type: string
+          mainPythonFileUri:
+            description: |-
+              **string**
+              URI of the file with the driver code. Must be a .py file.
+            type: string
+          pythonFileUris:
+            description: |-
+              **string**
+              URIs of Python files to pass to the PySpark framework.
+            type: array
+            items:
+              type: string
+          packages:
+            description: |-
+              **string**
+              List of maven coordinates of jars to include on the driver and executor classpaths.
+            type: array
+            items:
+              type: string
+          repositories:
+            description: |-
+              **string**
+              List of additional remote repositories to search for the maven coordinates given with --packages.
+            type: array
+            items:
+              type: string
+          excludePackages:
+            description: |-
+              **string**
+              List of groupId:artifactId, to exclude while resolving the dependencies provided in --packages to avoid dependency conflicts.
+            type: array
+            items:
+              type: string
+      QueryList:
+        type: object
+        properties:
+          queries:
+            description: |-
+              **string**
+              List of Hive queries.
+            type: array
+            items:
+              type: string
+      HiveJob:
+        type: object
+        properties:
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Property names and values, used to configure Yandex Data Processing and Hive.
+            type: object
+            additionalProperties:
+              type: string
+          continueOnFailure:
+            description: |-
+              **boolean**
+              Flag indicating whether a job should continue to run if a query fails.
+            type: boolean
+          scriptVariables:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Query variables and their values.
+            type: object
+            additionalProperties:
+              type: string
+          jarFileUris:
+            description: |-
+              **string**
+              JAR file URIs to add to CLASSPATH of the Hive driver and each task.
+            type: array
+            items:
+              type: string
+          queryFileUri:
+            description: |-
+              **string**
+              URI of the script with all the necessary Hive queries.
+              Includes only one of the fields `queryFileUri`, `queryList`.
+            type: string
+          queryList:
+            description: |-
+              **[QueryList](#yandex.cloud.dataproc.v1.QueryList)**
+              List of Hive queries to be used in the job.
+              Includes only one of the fields `queryFileUri`, `queryList`.
+            $ref: '#/definitions/QueryList'
+        oneOf:
+          - required:
+              - queryFileUri
+          - required:
+              - queryList
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/create.md
 ---
 
-# Data Proc API, REST: Job.Create {#Create}
+# Yandex Data Processing API, REST: Job.Create
 
 Creates a job for a cluster.
 
@@ -19,7 +338,9 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster to create a job for. ||
+Required field. ID of the cluster to create a job for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.dataproc.v1.CreateJobRequest}
@@ -41,7 +362,7 @@ Required field. ID of the cluster to create a job for. ||
     "archiveUris": [
       "string"
     ],
-    "properties": "string",
+    "properties": "object",
     // Includes only one of the fields `mainJarFileUri`, `mainClass`
     "mainJarFileUri": "string",
     "mainClass": "string"
@@ -60,7 +381,7 @@ Required field. ID of the cluster to create a job for. ||
     "archiveUris": [
       "string"
     ],
-    "properties": "string",
+    "properties": "object",
     "mainJarFileUri": "string",
     "mainClass": "string",
     "packages": [
@@ -86,7 +407,7 @@ Required field. ID of the cluster to create a job for. ||
     "archiveUris": [
       "string"
     ],
-    "properties": "string",
+    "properties": "object",
     "mainPythonFileUri": "string",
     "pythonFileUris": [
       "string"
@@ -102,9 +423,9 @@ Required field. ID of the cluster to create a job for. ||
     ]
   },
   "hiveJob": {
-    "properties": "string",
+    "properties": "object",
     "continueOnFailure": "boolean",
-    "scriptVariables": "string",
+    "scriptVariables": "object",
     "jarFileUris": [
       "string"
     ],
@@ -125,7 +446,9 @@ Required field. ID of the cluster to create a job for. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the job. ||
+Name of the job.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || mapreduceJob | **[MapreduceJob](#yandex.cloud.dataproc.v1.MapreduceJob)**
 
 Specification for a MapReduce job.
@@ -165,17 +488,17 @@ Specification for the job. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
 || mainJarFileUri | **string**
 
 HCFS URI of the .jar file containing the driver class.
@@ -197,17 +520,17 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark. ||
 || mainJarFileUri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
@@ -234,17 +557,17 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
 || mainPythonFileUri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
@@ -266,13 +589,13 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| scriptVariables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
 || jarFileUris[] | **string**
@@ -346,7 +669,7 @@ List of Hive queries. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       // Includes only one of the fields `mainJarFileUri`, `mainClass`
       "mainJarFileUri": "string",
       "mainClass": "string"
@@ -365,7 +688,7 @@ List of Hive queries. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "mainJarFileUri": "string",
       "mainClass": "string",
       "packages": [
@@ -391,7 +714,7 @@ List of Hive queries. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "mainPythonFileUri": "string",
       "pythonFileUris": [
         "string"
@@ -407,9 +730,9 @@ List of Hive queries. ||
       ]
     },
     "hiveJob": {
-      "properties": "string",
+      "properties": "object",
       "continueOnFailure": "boolean",
-      "scriptVariables": "string",
+      "scriptVariables": "object",
       "jarFileUris": [
         "string"
       ],
@@ -512,10 +835,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-ID of the job being created. ||
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -537,7 +864,7 @@ A list of messages that carry the error details. ||
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
 
-A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
+A Yandex Data Processing job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
 
 #|
 ||Field | Description ||
@@ -546,7 +873,7 @@ A Data Proc job. For details about the concept, see [documentation](/docs/data-p
 ID of the job. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the job belongs to. ||
+ID of the Yandex Data Processing cluster that the job belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -587,7 +914,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.
@@ -637,17 +963,17 @@ Attributes of YARN application. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
 || mainJarFileUri | **string**
 
 HCFS URI of the .jar file containing the driver class.
@@ -669,17 +995,17 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark. ||
 || mainJarFileUri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
@@ -706,17 +1032,17 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
 || mainPythonFileUri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
@@ -738,13 +1064,13 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| scriptVariables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
 || jarFileUris[] | **string**

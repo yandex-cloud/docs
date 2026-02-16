@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:accessBindings
+    method: get
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource to list access bindings for.
+            To get the resource ID, use a corresponding List request.
+            For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListAccessBindingsResponse.nextPageToken](#yandex.cloud.access.ListAccessBindingsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/listAccessBindings.md
 ---
 
-# DataSphere API v2, REST: Community.ListAccessBindings {#ListAccessBindings}
+# DataSphere API v2, REST: Community.ListAccessBindings
 
 Lists access bindings for specified community.
 
@@ -105,9 +145,9 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
 It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
 || type | **string**

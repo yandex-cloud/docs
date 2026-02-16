@@ -270,5 +270,5 @@
 
 1. [Удалите ноду](../../datasphere/operations/deploy/node-delete.md).
 1. [Удалите секреты](../../datasphere/operations/data/secrets.md#delete).
-1. [Удалите авторизованный ключ](../../iam/operations/authorized-key/delete.md) сервисного аккаунта.
+1. [Удалите авторизованный ключ](../../iam/operations/authentication/manage-authorized-keys.md#delete-authorized-key) сервисного аккаунта.
 1. Удалите [Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md) и [реестр](../../container-registry/operations/registry/registry-delete.md) {{ container-registry-name }}.

@@ -1,7 +1,7 @@
 title: '{{ serverless-containers-full-name }}'
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     items:
@@ -21,16 +21,18 @@ items:
         href: operations/index.md
       - name: Getting an IAM token for a service account using a container
         href: operations/sa.md
-      - name: Getting information about a container
+      - name: Getting container info
         items:
           - name: Getting a list of containers
             href: operations/list.md
           - name: Getting a list of container revisions
             href: operations/revision-list.md
-          - name: Getting information about a container
+          - name: Getting container info
             href: operations/container-info.md
-          - name: Getting information about a container revision
+          - name: Getting container revision info
             href: operations/revision-info.md
+          - name: Configuring metadata service parameters
+            href: operations/metadata-options.md
       - name: Managing rights to access a container
         items:
           - name: Making a container public
@@ -53,8 +55,12 @@ items:
         items:
           - name: Invoking a container
             href: operations/invoke.md
+          - name: Invoking a container asynchronously
+            href: operations/invoke-async.md
           - name: Getting an invocation link
             href: operations/invocation-link.md
+          - name: Authenticating when invoking a private container via HTTPS
+            href: operations/auth.md
       - name: Managing a container
         items:
           - name: Updating a container
@@ -65,6 +71,8 @@ items:
                 href: operations/description-update.md
           - name: Making a revision active
             href: operations/activate-revision.md
+          - name: Changing the container operation mode
+            href: operations/update-runtime.md
           - name: Scaling a container
             items:
               - name: Viewing scaling settings
@@ -79,8 +87,12 @@ items:
             href: operations/network-add.md
           - name: Transferring {{ lockbox-full-name }} secrets
             href: operations/lockbox-secret-transmit.md
-          - name: Mounting a bucket
-            href: operations/mount-bucket.md
+          - name: Mounting external resources to a container file system
+            items:
+              - name: Mounting a bucket
+                href: operations/mount-bucket.md
+              - name: Mounting an ephemeral disk
+                href: operations/mount-ephemeral-disk.md
           - name: Managing labels
             items:
               - name: Adding a label
@@ -101,11 +113,11 @@ items:
             href: operations/migration.md
           - name: Deleting a container
             href: operations/delete.md
-      - name: Getting information about a trigger
+      - name: Getting trigger info
         items:
           - name: Getting a list of triggers
             href: operations/trigger-list.md
-          - name: Getting information about a trigger
+          - name: Getting trigger info
             href: operations/trigger-info.md
       - name: Creating a trigger
         items:
@@ -139,7 +151,7 @@ items:
             href: operations/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -149,16 +161,18 @@ items:
         href: concepts/container.md
       - name: Invoking a container
         href: concepts/invoke.md
+      - name: Asynchronous container invocation
+        href: concepts/invoke-async.md
+      - name: Runtime environment
+        href: concepts/runtime.md
+      - name: Networking
+        href: concepts/networking.md
+      - name: Mounting external resources to a container file system
+        href: concepts/mounting.md
       - name: Long-lived containers
         href: concepts/long-lived-containers.md
       - name: Container termination notifications
         href: concepts/termination-notifications.md
-      - name: Networking
-        href: concepts/networking.md
-      - name: Runtime environment
-        href: concepts/runtime.md
-      - name: Mounting a bucket
-        href: concepts/mounting.md
       - name: Trigger
         items:
           - name: Overview
@@ -181,7 +195,7 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead-letter queue
+      - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Container logs
         href: concepts/logs.md
@@ -195,27 +209,49 @@ items:
         href: tutorials/index.md
       - name: Developing CRUD APIs for movie services
         href: tutorials/movies-database.md
-      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: >-
-          Setting up a {{ mpg-full-name }} connection from a {{
-          serverless-containers-name }} container
+          Setting up CI/CD in {{ src-name }} to deploy {{
+          serverless-containers-name }} using GitHub Actions
+        href: tutorials/ci-cd-sourcecraft-github-actions.md
+      - name: Starting {{ GLR }} in {{ serverless-containers-name }}
+        href: tutorials/serverless-gitlab-runner.md
+      - name: >-
+          Setting up a {{ mpg-full-name }} connection from a container in {{
+          serverless-containers-name }}
         href: tutorials/pg-connect.md
       - name: Running a containerized app in {{ serverless-containers-full-name }}
         href: tutorials/deploy-app-container.md
+      - name: Developing a custom integration in {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: >-
+          Developing functions in Functions Framework and deploying them to {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Regular recognition of images and PDF documents from an {{
+          objstorage-short-name }} bucket
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Access management
     href: security/index.md
+  - name: Tools
+    href: tools.md
   - name: Pricing policy
     href: pricing.md
-  - name: CLI Containers reference
-    href: ../cli/cli-ref/managed-services/serverless/container/index.md
-  - name: CLI Triggers reference
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: CLI reference
+    items:
+      - name: Containers
+        href: ../cli/cli-ref/serverless/cli-ref/container/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: Containers API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/containers/authentication.md
       - name: gRPC
         items:
@@ -303,7 +339,7 @@ items:
                 href: containers/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
@@ -369,11 +405,13 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: ListOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/serverless-containers
-deepBase: 2

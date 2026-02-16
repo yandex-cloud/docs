@@ -1,250 +1,747 @@
-# Generative responses
+---
+title: '{{ search-api-full-name }}''s generative response to a text query'
+description: This article describes the format {{ search-api-name }}'s generative response to a text query.
+---
 
-You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../foundation-models/concepts/yandexgpt/index.md) generative AI to get a comprehensive and concise _generative response_ to a user query. To generate such a response, the model analyzes the relevant text search results retrieved by {{ search-api-name }} from your company's websites.
+# Generative response
 
-{% include [note-preview-by-request](../../_includes/note-preview.md) %}
+You can use {{ search-api-name }} text search together with [{{ yagpt-name }}](../../ai-studio/concepts/generation/index.md)'s  generative AI capabilities to get a single concise and coherent _generative response_ to your query, to generate which the neural network analyzes relevant {{ search-api-name }} text search results across specified websites. The response can be generated in Russian, Kazakh and Uzbek. The generation language depends on the search type and query language.
 
-To get access to the generative response feature, fill out [this form](#contact-form) or contact your account manager.
+By default, you can send no more than one synchronous query per second to get a generative response. For more information about {{ search-api-name }} limits, see [{#T}](./limits.md).
 
-## Search query {#request}
+You need the `search-api.webSearch.user` [role](../security/index.md#search-api-webSearch-user) to run queries.
 
-Queries to {{ search-api-name }} seeking a generative response are submitted using the POST method to the `{{ link-yandex }}/search/xml/generative` endpoint.
+For more information on the pricing of generative responses to queries, see [{#T}](../pricing.md).
 
-To run a query, you need a [service account](../../iam/concepts/users/service-accounts.md) with the `search-api.executor` [role](../security/index.md#search-api-executor) and a relevant [API key](../../iam/concepts/authorization/api-key.md) you created. To [authenticate](../operations/auth.md) successfully, provide the [folder ID](../../resource-manager/operations/folder/get-id.md) and API key of the service account in each query.
+## API request body format {#body}
 
-### Query format {#body}
+The names of the request body fields are different in [REST API](../api-ref/index.md) and [gRPC API](../api-ref/grpc/index.md): the former uses [camelCase](https://en.wikipedia.org/wiki/Camel_case), while the latter, [snake_case](https://en.wikipedia.org/wiki/Snake_case).
 
-Each query seeking a generative response must contain a [JSON](https://en.wikipedia.org/wiki/JSON) format request body with the following syntax:
+Each query seeking a generative response must contain the following request body in [JSON](https://en.wikipedia.org/wiki/JSON) format:
 
-```json
-{
-  "messages": [
-    {
-      "content": "<text_of_message_1>",
-      "role": "user"
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+  ```json 
+  {
+    "messages": [
+      {
+        "content": "<message_1_text>",
+        "role": "ROLE_USER"
+      },
+      {
+        "content": "<model_2_response>",
+        "role": "ROLE_ASSISTANT"
+      },
+      {
+        "content": "<message_3_text>",
+        "role": "ROLE_USER"
+      },
+      {
+        "content": "<model_4_response>",
+        "role": "ROLE_ASSISTANT"
+      },
+      ...
+      {
+        "content": "<message_n_text>",
+        "role": "ROLE_USER"
+      }
+    ],
+    "site": {
+      "site": [
+        "<website_1_address_for_search>",
+        "<website_2_address_for_search>",
+        ...
+        "<website_5_address_for_search>"
+      ]
     },
-    {
-      "content": "<model_response_1>",
-      "role": "assistant"
+    "host": {
+      "host": [
+        "<host_1_for_search>",
+        "<host_2_for_search>",
+        ...
+        "<host_5_for_search>"
+      ]
     },
-    {
-      "content": "<text_of_message_2>",
-      "role": "user"
+    "url": {
+      "url": [
+        "<page_1_for_search>",
+        "<page_2_for_search>",
+        ...
+        "<page_10_for_search>"
+      ]
     },
-    {
-      "content": "<model_response_3>",
-      "role": "assistant"
-    },
-    ...
-    {
-      "content": "<text_of_message_n>",
-      "role": "user"
+    "folderId": "<folder_ID>",
+    "fixMisspell": true|false,
+    "enableNrfmDocs": true|false,
+    "searchFilters": [
+      {
+        "date": "<document_update_date>",
+        "lang": "<document_language>",
+        "format": "<document_format>"
+      }
+    ]
+    "searchType": "string",
+    "getPartialResults": true|false,
+    "metadata": {
+      "fields": "object"
     }
-  ],
-  "site": "<website_URL_to_search>",
-  "host": "<host_to_search>",
-  "url": "<page_to_search>"
-}
-```
+  }
+  ```
 
-### Query parameters
+  Where:
 
-* `messages`: A single search query or a search query with context in the form of chat messages exchanged with the model. It is specified as an array of objects, each one containing two elements:
-   * `content`: Text of user query or the model's response (depending on the `role` value).
-   * `role`: Message sender's role. The possible values are:
-      * `user`: Means that the message is sent by the user, and the `content` field contains the user's query.
-      * `assistant`: Means that the message is sent by the model, and the `content` field contains the model's response.
+  {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
-   For more information about the {{ yagpt-name }} chat mode, see [{#T}](../../foundation-models/operations/yandexgpt/create-chat.md).
+  * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+  * `fixMisspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixedMisspellQuery` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
+  * `enableNrfmDocs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enableNrfmDocs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
+  * `searchFilters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `searchType`: Search type, affects the search area and response language. The possible values are:
+  
+    * `SEARCH_TYPE_RU`: For the `Russian` search type. The response will be generated in Russian.
+    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
+    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type.
+  
+  * `getPartialResults`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
+  * `metadata`: Additional search parameters. This is an optional setting.
 
-* `site`: Restricts the search to a specific website, e.g., `yandex.cloud`.
+  {% cut "Request body example:" %}
 
-   The search will target all `*.yandex.cloud/*` documents, i.e, the results will include pages with the following URLs:
-   * `yandex.cloud/`
-   * `subdomain.yandex.cloud/`
-   * `yandex.cloud/path/`
-   * `subdomain.yandex.cloud/path/`
+  ```json
+  {
+    "messages": [
+      {
+        "content": "What is containerization and how is it implemented in {{ yandex-cloud }}?",
+        "role": "ROLE_USER"
+      }
+    ],
+    "site": {
+      "site": [
+          "https://ru.wikipedia.org/wiki/Контейнеризация",
+          "https://yandex.cloud/ru/docs/serverless-containers/",
+          "https://yandex.cloud/ru/docs/container-registry/"
+      ]
+    },
+    "folderId": "aoevhr118rhc********",
+    "fixMisspell": "true",
+    "enableNrfmDocs": "true",
+    "searchFilters": [
+      {
+        "date": ">20250101"
+      }
+    ]
+  }
+  ```
 
-   You can use the `site` field to specify the exact path to the search area, e.g., `{{ link-docs }}`.
+  {% endcut %}
 
-* `host`: Restricts the search to a specific host, e.g., `yandex.cloud/`.
+- gRPC API {#grpc-api}
 
-   The search will target all `yandex.cloud/*` documents, i.e, the results will include pages with the following URLs:
-   * `yandex.cloud/`
-   * `yandex.cloud/path/`
+  ```json 
+  {
+    "messages": [
+      {
+        "content": "<message_1_text>",
+        "role": "ROLE_USER"
+      },
+      {
+        "content": "<model_1_response>",
+        "role": "ROLE_ASSISTANT"
+      },
+      {
+        "content": "<message_2_text>",
+        "role": "ROLE_USER"
+      },
+      {
+        "content": "<model_3_response>",
+        "role": "ROLE_ASSISTANT"
+      },
+      ...
+      {
+        "content": "<message_n_text>",
+        "role": "ROLE_USER"
+      }
+    ],
+    "site": {
+      "site": [
+        "<website_1_address_for_search>",
+        "<website_2_address_for_search>",
+        ...
+        "<website_5_address_for_search>"
+      ]
+    },
+    "host": {
+      "host": [
+        "<host_1_for_search>",
+        "<host_2_for_search>",
+        ...
+        "<host_5_for_search>"
+      ]
+    },
+    "url": {
+      "url": [
+        "<page_1_for_search>",
+        "<page_2_for_search>",
+        ...
+        "<page_10_for_search>"
+      ]
+    },
+    "folder_id": "<folder_ID>",
+    "fix_misspell": true|false,
+    "enable_nrfm_docs": true|false,
+    "search_filters": [
+      {
+        "date": "<document_update_date>",
+        "lang": "<document_language>",
+        "format": "<document_format>"
+      }
+    ]
+  }
+  ```
 
-   Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` field.
+  Where:
 
-* `url`: Restricts the search to a specific page, e.g., `{{ link-docs }}/search-api/pricing`.
+  {% include [gen-response-legend-part1](../../_includes/search-api/gen-response-legend-part1.md) %}
 
-   {% note info %}
+  * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+  * `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
+  * `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
+  * `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter. The `date`, `lang`, and `format` fields are mutually exclusive: you can only provide one of them in the request body.
+  * `search_type`: Search type, affects the search area and response language. The possible values are:
+  
+    * `SEARCH_TYPE_RU`: For the `Russian` search type. The response will be generated in Russian.
+    * `SEARCH_TYPE_KK`: For the `Kazakh` search type.
+    * `SEARCH_TYPE_UZ`: For the `Uzbek` search type.
+  
+  * `get_partial_results`: Decides whether to send intermediate response generation results or to wait for the final generation results and send the whole response. This is an optional parameter. The possible values are `true` or `false`. The default value is `false`.
+  * `metadata`: Additional search parameters. This is an optional setting.
+  
+  {% cut "Request body example:" %}
 
-   To restrict the search, you simply need to specify one of these fields in your query: `site`, `host`, or `url`.
+  ```json
+  {
+    "messages": [
+      {
+        "content": "What is containerization and how is it implemented in {{ yandex-cloud }}?",
+        "role": "ROLE_USER"
+      }
+    ],
+    "site": {
+      "site": [
+          "https://ru.wikipedia.org/wiki/Контейнеризация",
+          "https://yandex.cloud/en/docs/serverless-containers/",
+          "https://yandex.cloud/en/docs/container-registry/"
+      ]
+    },
+    "folder_id": "aoevhr118rhc********",
+    "fix_misspell": "true",
+    "enable_nrfm_docs": "true",
+    "search_filters": [
+      {
+        "date": ">20250101"
+      }
+    ]
+  }
+  ```
 
-   The `host` field has priority over the `site` field, and `url` has priority over `host`. If you provide all the three parameters in your query, the search will be limited to the `url` value and ignore the `host` and `site` values.
-
-   {% endnote %}
-
-Request body example:
-
-```json
-{
-  "messages": [
-    {
-      "content": "How much does {{ search-api-name }} cost?",
-      "role": "user"
-    }
-  ],
-  "site": "{{ link-docs }}"
-}
-```
-
-### Submitting a query {#send-request}
-
-To submit a query, use the [cURL](https://curl.haxx.se) utility or [Python](https://python.org/). Before submitting your query, save the [folder ID](../../resource-manager/operations/folder/get-id.md) and [API key](../../iam/concepts/authorization/api-key.md) of your service account to environment variables:
-
-```bash
-export FOLDER_ID=<folder_ID>
-export API_KEY=<API_key>
-```
-
-{% list tabs group=programming_language %}
-
-- cURL {#curl}
-
-   ```bash
-   curl -X POST \
-     -H "Authorization: Api-Key ${API_KEY}" \
-     -d "@<path_to_request_body_file>" \
-   "{{ link-yandex }}/search/xml/generative?folderid=${FOLDER_ID}"
-   ```
-
-- Python 3 {#python}
-
-   ```python
-   import requests
-   import os
-
-   SEARCH_API_GENERATIVE = f"https://ya.ru/search/xml/generative?folderid={os.getenv('FOLDER_ID')}"
-
-
-   def main():
-       headers = {"Authorization": f"Api-Key {os.getenv('API_KEY')}"}
-       data = {
-           "messages": [
-              {
-                   "content": "How much does it cost to use {{ search-api-name }}?",
-                   "role": "user"
-               }
-           ],
-           "url": "{{ link-docs }}/search-api/pricing"
-       }
-
-       response = requests.post(SEARCH_API_GENERATIVE, headers=headers, json=data)
-
-       if "application/json" in response.headers["Content-Type"]:
-           print(response.json()["message"]["content"])
-           for i, link in enumerate(response.json()["links"], start=1):
-               print(f"[{i}]: {link}")
-       elif "text/xml" in response.headers["Content-Type"]:
-           print("Error:", response.text)
-       else:
-           print("Unexpected content type:", response.text)
-
-
-   if __name__ == "__main__":
-       main()
-   ```
+  {% endcut %}
 
 {% endlist %}
+
+## Sending a request via the API {#send-request}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
+
+  To send a request via the API, use the [search](../api-ref/GenSearch/search.md) method for [GenSearch](../api-ref/GenSearch/index.md). Install [cURL](https://curl.haxx.se) and [jq](https://stedolan.github.io/jq) if needed:
+
+  ```bash
+  curl \
+    --request POST \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data "@<file_path>" \
+    "https://searchapi.{{ api-host }}/v2/gen/search" \
+    | jq
+  ```
+
+  {% include [gen-response-request-legend](../../_includes/search-api/gen-response-request-legend.md) %}
+
+- gRPC API {#grpc-api}
+
+  To send a query, use the [GenSearchService/Search](../api-ref/grpc/GenSearch/search.md) call. Install [gRPCurl](https://github.com/fullstorydev/grpcurl) and [jq](https://stedolan.github.io/jq) if needed:
+
+  ```bash
+  grpcurl \
+    -rpc-header "Authorization: Bearer <IAM_token>" \
+    -d @ < <file_path> \
+    searchapi.{{ api-host }}:443 yandex.cloud.searchapi.v2.GenSearchService/Search \
+    | jq
+  ```
+
+  {% include [gen-response-request-legend](../../_includes/search-api/gen-response-request-legend.md) %}
+
+{% endlist %}
+
+## Sending a request via {{ ml-sdk-full-name }} {#request-via-sdk}
+
+To send a request for a generative response via [{{ ml-sdk-full-name }}](./index.md#sdk), run the following [Python](https://www.python.org/) code. This example illustrates the key aspects of using {{ ml-sdk-name }} to get a generative response:
+
+```python
+#!/usr/bin/env python3
+
+from __future__ import annotations
+
+import pprint
+
+from yandex_ai_studio_sdk import AIStudio
+
+
+def main() -> None:
+
+    sdk = AIStudio(
+        folder_id="<folder_ID>",
+        auth="<API_key>",
+    )
+    sdk.setup_default_logging()
+
+    search = sdk.search_api.generative(
+        # You can use only one of the three params: site, host, or url
+        site=["yandex.cloud", "yandex.ru"],
+        # host=['yandex.cloud/', 'yandex.ru/'],
+        # url=['https://yandex.cloud/ru/docs/serverless-containers/concepts/container', 'https://yandex.cloud/ru/docs/container-registry/concepts/docker-image'],
+        fix_misspell=True,
+        enable_nrfm_docs=True,
+        search_filters=[
+            {"date": ">20250101"},
+            {"lang": "ru"},
+            {"format": "pdf"},
+        ],
+    )
+
+    # You can pass a string as a query
+    search_result = search.run("Yandex Cloud generative Search API params")
+
+    # You can examine the search_result structure via pprint
+    # to get to know how to work with it:
+    pprint.pprint(search_result)
+    print()
+
+    queries = [
+        # You can also pass a {'text', 'role'} dict like in the completions models
+        {"text": "Gen search api params", "role": "user"},
+        "With examples",
+    ]
+
+    # And you can pass an array of any allowed types
+    search_result = search.run(queries)  # type: ignore[arg-type]
+    print(search_result.text)
+    print()
+
+    # Also search result itself could be used as one of the queries for a better context
+    queries.append(search_result)  # type: ignore[arg-type]
+    queries.append("Get me more examples of how to use Generative Search API with gprc")
+
+    search_result = search.run(queries)  # type: ignore[arg-type]
+    print(search_result.text)
+    print()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+Where:
+
+{% include [sdk-code-legend](../../_includes/ai-studio/examples/sdk-code-legend.md) %}
+
+Provide the search query text in the `.run` method and use the relevant `search_api.generative` object properties to set the parameters of your search:
+
+* The `site`, `host`, and `url` properties define the search scope. Note that the `site`, `host`, and `url` properties are mutually exclusive; you can only set one of them. If neither of these fields is set, the search will be performed across the entire Yandex search index.
+
+    * `site`: Restricts the search to a specific array of websites. Not more than 5 websites per search.
+
+        For example, for the `yandex.cloud` website, the search will target all `*.yandex.cloud/*` documents, i.e., the results will include pages with the following URLs:
+        * `yandex.cloud/`
+        * `subdomain.yandex.cloud/`
+        * `yandex.cloud/path/`
+        * `subdomain.yandex.cloud/path/`
+
+        In the `site` property, you can specify the exact path to the search area, e.g., `{{ link-docs }}`.
+    * `host`: Restricts the search to a specific array of hosts. Not more than 5 hosts per search.
+
+        For example, for the `yandex.cloud/` host, the search will target all `yandex.cloud/*` documents, i.e., the results will include pages with the following URLs:
+        * `yandex.cloud/`
+        * `yandex.cloud/path/`
+
+        Unlike `site`-based restrictions, `host`-based restrictions do not apply to subdomains. You also cannot provide a specific path to the search area in the `host` property.
+    * `url`: Restricts the search to a specific array of pages, e.g., `{{ link-docs }}/serverless-containers/concepts/container` and `{{ link-docs }}/container-registry/concepts/docker-image`. Not more than 10 pages per search.
+* `fix_misspell`: This parameter enables checking the query text for typos. If the parameter is set, the query text is checked for typos before it is sent. If there are typos, the `fixed_misspell_query` field is added to the response, containing the fixed query text that was sent to the model. This is an optional parameter. The possible values are `true` or `false`.
+* `enable_nrfm_docs`: This parameter determines whether search results will include documents which are not directly accessible from the home page. It only applies if the search scope is set by the `site` parameter. For example, if you want the results to include a page that is not accessible through any of the links on the home page, set `enable_nrfm_docs` to `true`. This is an optional parameter. The possible values are `true` or `false`.
+* `search_filters`: Additional text to add to each query. It is used to provide the `date:`, `mime:`, and `lang:` [search operators]({{ link-yandex }}/support/search/ru/query-language/search-operators). For example, if you provide `"date": ">20250101"`, the query response will only return documents updated after January 1, 2025. This is an optional parameter.
+
+For the {{ ml-sdk-name }} library source code and use cases, visit [this GitHub repository](https://github.com/yandex-cloud/yandex-ai-studio-sdk). For more information about {{ ml-sdk-full-name }}, see [this {{ ai-studio-name }} guide](../../ai-studio/sdk/index.md).
 
 ## Generative response {#response}
 
 {{ search-api-name }} returns a JSON format response with the following syntax:
 
-```json
-{
-  "message": {
-    "content": "<response_text>",
-    "role": "assistant"
-  },
-  "links": [
-    "<link_to_found_document_1>",
-    "<link_to_found_document_2>",
-    ...
-    "<link_to_found_document_n>"
-  ],
-  "titles": [
-    "<title_of_found_document_1>",
-    "<title_of_found_document_2>",
-    ...
-    "<title_of_found_document_n>"
-  ],
-  "final_search_query": "<refined_query_text>",
-  "is_answer_rejected": false (true),
-  "is_bullet_answer": false (true),
-  "search_reqid" : "...",
-  "reqid" : "..."
-}
-```
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
 
-Where:
-* `content`: Text of the generative response.
-* `links`: Sorted list of links to documents found when processing the query which could be used by {{ yagpt-name }} to generate the response.
-* `titles`: Sorted list of document titles.
-* `final_search_query`: Final text of the search query, refined by the {{ yagpt-name }} model and used for the generative response. May be different from the original user query.
-* `is_answer_rejected`: Indicates the model's refusal to provide a response for ethical reasons:
+{% list tabs group=instructions %}
 
-   * `false`: Model has returned a response.
-   * `true`: Model has refused to return a response.
+- REST API {#api}
 
-* `is_bullet_answer`: Indicates a bullet answer where the model cannot give a proper response and returns a collection of bullets with various data.
-* `search_reqid`: Unique query ID in Yandex Search.
-* `reqid`: Unique {{ search-api-name }} query ID.
+  ```json
+  {
+    "message": {
+      "content": "<response_text>",
+      "role": "ROLE_ASSISTANT"
+    },
+    "sources": [
+      {
+        "used": false|true,
+        "url": "<link_to_found_document_1>",
+        "title": "<title_of_found_document_1>"
+      },
+      {
+        "used": false|true,
+        "url": "<link_to_found_document_2>",
+        "title": "<title_of_found_document_2>"
+      },
+      ...
+      {
+        "used": false|true,
+        "url": "<link_to_found_document_n>",
+        "title": "<title_of_found_document_n>"
+      }
+    ],
+    "searchQueries": [
+      {
+        "text": "<query_1_text>",
+        "reqId": "<query_1_ID>"
+      },
+      {
+        "text": "<query_2_text>",
+        "reqId": "<query_2_ID>"
+      },
+      ...
+      {
+        "text": "<query_n_text>",
+        "reqId": "<query_n_ID>"
+      },
+    ],
+    "isAnswerRejected": false|true,
+    "isBulletAnswer": false|true,
+    "fixedMisspellQuery": "<fixed_query_text >"
+  }
+  ```
 
-Here is an example of a generative response with website limitation:
+  Where:
+  * `message.content`: Text of the generative response. The footnotes within the text refer to sources, the list and order of which are given in the `sources` field.
+  * `sources`: Array of source documents that were found during the query, could be used by {{ yagpt-name }} as data sources when forming the response, and can be footnoted in the `message.content` field. Each source document contains the following fields:
 
-```json
-{
-  "message": {
-      "content": "The cost of using {{ search-api-name }} **is based on the number of search queries per month**. [1]\n\n**Price per 1,000 queries**, including VAT: [1]\n- Night-time queries, first 1,000 queries per month: Free of charge. [1]\n- Night-time queries in excess of 1,000 queries per month: ₽360. [1]\n- Daytime queries: ₽480. [1]\n\nThe service has a quota of 30,000 queries per month (1,000 queries per day) for all new users. [1]\n\nPrices may differ by region, and the currency of payment depends on the legal entity with which the user has an agreement. [1]",
-      "role": "assistant"
-  },
-  "links": [
-      "{{ link-docs }}/search-api/pricing",
-      "{{ link-docs }}/search-api/concepts/generative-response",
-      "{{ link-docs }}/api-gateway/pricing",
-      "{{ link-docs }}/functions/pricing",
-      "{{ link-docs }}/ydb/pricing/ru-docapi"
-  ],
-  "titles": [
-      "{{ search-api-full-name }} pricing policy | {{ yandex-cloud }} documentation",
-      "Generative responses | {{ yandex-cloud }} documentation",
-      "{{ api-gw-full-name }} pricing policy | {{ yandex-cloud }} documentation",
-      "{{ sf-name }} pricing policy | {{ yandex-cloud }} documentation",
-      "Rules for estimating the cost of requests to ydb-short-name via the Document API | {{ yandex-cloud }} documentation"
-  ],
-  "final_search_query": "{{ search-api-name }} cost",
-  "is_answer_rejected": false,
-  "is_bullet_answer": false,
-  "search_reqid": "1716922280912146-404265690610183965-**************-BAL",
-  "reqid": "1716922280829905-8678730291785779856-********-l7leveler-***-**-***-***-BAL"
-}
-```
+      * `used`: Indicates whether the document was used to generate the response. The possible values are `true` or `false`.
+      * `url`: Document URL.
+      * `title`: Document title. It may be missing from the results if the website owner did not define the page header.
+  * `searchQueries`: List of additional search queries sent by the generative model to the search engine. Each query contains the following fields:
 
-### Response features {#special-circumstances}
+      * `text`: Search query text.
+      * `reqId`: {{ search-api-name }} unique query ID.
+  * `isAnswerRejected`: Indicates the model's refusal to provide a response for ethical reasons:
+
+      * `false`: Model has returned a response.
+      * `true`: Model has refused to return a response.
+  * `isBulletAnswer`: Indicates a bullet response where the model cannot give a proper response and suggests a set of bullets with various information:
+
+      * `false`: Model gave a good answer.
+      * `true`: Model suggested a set of bullets.
+  * `fixedMisspellQuery`: Fixed query text. This parameter is optional. It appears in the response only if you provide `fixMisspell` in the request body and typos were found in the query text.
+
+  {% cut "Here is an example of a generative response with website limitation:" %}
+
+  ```json
+  [
+    {
+      "message": {
+        "content": "**Containerization** (OS-level virtualization) is a **virtualization method** 
+        in which the OS kernel manages several isolated user-space instances 
+        instead of a single one. [1] These instances (containers or zones) are identical
+        to a separate OS instance in terms of the processes running inside them. [1] vCPU 
+        provides complete container isolation, so applications from different containers 
+        have no impact on one another. [1]\n\n**In {{ yandex-cloud }}, containerization is implemented with the help of 
+        {{ serverless-containers-full-name }}**. [5][6] A container allows you to run an application 
+        contained in a Docker image, in {{ yandex-cloud }}. [6] \n\n**Some aspects of containerization in 
+        {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [6] You can only create a container revision 
+        from a Docker image uploaded to a registry in {{ container-registry-full-name }}. [6] Other registries are not 
+        supported. [6] The revision contains all the information you need to run the container. [6]\n* 
+        **Invoking a container**. [6] Once you have created a revision, you can invoke the container via HTTPS 
+        using a trigger or the {{ api-gw-full-name }} extension. [6]\n* **Scaling a container**. [6] If 
+        the container is invoked faster than the instance can process the request, the service scales the container 
+        by running additional instances of it. [6] This enables concurrent request 
+        processing. [6]\n* **Provisioned instances**. [6] A provisioned instance 
+        is a container instance that is guaranteed not to have a cold start when you run it. [6]",
+        "role": "ROLE_ASSISTANT"
+      },
+      "sources": [
+        {
+          "used": false,
+          "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F",
+          "title": "Containerization (Wikipedia)"
+        },
+        {
+          "used": true,
+          "url": "https://yandex.cloud/ru/docs/serverless-containers/tutorials/functions-framework-to-container",
+          "title": "Developing functions in Functions Framework and deploying them to {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/container-registry/",
+          "title": "{{ container-registry-full-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/container-registry/concepts/docker-image",
+          "title": "Docker image. What is it and how does it work? | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/serverless-containers/operations/",
+          "title": "How to work with {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": true,
+          "url": "https://yandex.cloud/ru/docs/serverless-containers/concepts/container",
+          "title": "Container in {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": true,
+          "url": "https://yandex.cloud/ru/docs/container-registry/operations/docker-image/docker-image-push",
+          "title": "Pushing a Docker image to a registry in {{ container-registry-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/serverless-containers/tutorials/deploy-app-container",
+          "title": "Running a containerized app in {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/container-registry/tutorials/fault-tolerance",
+          "title": "Configuring a fault-tolerant architecture in {{ yandex-cloud }} | {{ yandex-cloud }} documentation"
+        },
+        {
+          "used": false,
+          "url": "https://yandex.cloud/ru/docs/serverless-containers/tf-ref",
+          "title": "{{ TF }} reference for {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation"
+        }
+      ],
+      "searchQueries": [
+        {
+          "text": "what is containerization and how is it implemented in yandex cloud date 2025 01 01 date 2025 01 01 date 2025 01 01",
+          "reqId": "1742492744075717-6834712924673670818-e23cqdex********-BAL"
+        },
+        {
+          "text": "how containerization is implemented in yandex cloud date 2025 01 01 date 2025 01 01 date 2025 01 01",
+          "reqId": "1742492744352285-5531077099747983300-hhsihxn5********-BAL"
+        },
+        {
+          "text": "what is containerization date 2025 01 01 date 2025 01 01 date 2025 01 01",
+          "reqId": "1742492744351443-10540017330195862709-gai4ndrg********-BAL"
+        }
+      ],
+      "isAnswerRejected": false,
+      "isBulletAnswer": false,
+      "fixedMisspellQuery": "What is containerization and how is it implemented in Yandex Cloud?"
+    }
+  ]
+  ```
+
+  {% endcut %}
+
+- gRPC API {#grpc-api}
+
+  ```json
+  {
+    "message": {
+      "content": "<response_text>",
+      "role": "ROLE_ASSISTANT"
+    },
+    "sources": [
+      {
+        "url": "<link_to_found_document_1>",
+        "title": "<title_of_found_document_1>",
+        "used": false|true
+      },
+      {
+        "url": "<link_to_found_document_2>",
+        "title": "<title_of_found_document_2>",
+        "used": false|true
+      },
+      ...
+      {
+        "url": "<link_to_found_document_n>",
+        "title": "<title_of_found_document_n>",
+        "used": false|true
+      }
+    ],
+    "search_queries": [
+      {
+        "text": "<query_1_text>",
+        "req_id": "<query_1_ID>"
+      },
+      {
+        "text": "<query_2_text>",
+        "req_id": "<query_2_ID>"
+      },
+      ...
+      {
+        "text": "<query_n_text>",
+        "req_id": "<query_n_ID>"
+      },
+    ],
+    "is_answer_rejected": false|true,
+    "is_bullet_answer": false|true,
+    "fixed_misspell_query": "<fixed_query_text >"
+  }
+  ```
+
+  Where:
+  * `message.content`: Text of the generative response. The footnotes within the text refer to sources, the list and order of which are given in the `sources` field.
+  * `sources`: Array of source documents that were found during the query, could be used by {{ yagpt-name }} as data sources when forming the response, and can be footnoted in the `message.content` field. Each source document contains the following fields:
+
+      * `url`: Document URL.
+      * `title`: Document title.
+      * `used`: Indicates whether the document was used to generate the response. The possible values are `true` or `false`.
+  * `search_queries`: List of additional search queries sent by the generative model to the search engine. Each query contains the following fields:
+
+      * `text`: Search query text.
+      * `req_id`: {{ search-api-name }} unique query ID.
+  * `is_answer_rejected`: Indicates the model's refusal to provide a response for ethical reasons:
+
+      * `false`: Model has returned a response.
+      * `true`: Model has refused to return a response.
+  * `is_bullet_answer`: Indicates a bullet response where the model cannot give a proper response and suggests a set of bullets with various information:
+
+      * `false`: Model gave a good answer.
+      * `true`: Model suggested a set of bullets.
+  * `fixed_misspell_query`: Fixed query text. This parameter is optional. It appears in the response only if you provide `fix_misspell` in the request body and typos were found in the query text.
+
+  {% cut "Here is an example of a generative response with website limitation:" %}
+
+  ```json
+  {
+    "message": {
+      "content": "**Containerization** (OS-level virtualization) is a **virtualization method** 
+      in which the OS kernel manages several isolated user-space instances 
+      instead of a single one. [1] These instances (containers or zones) are identical 
+      to a separate OS instance in terms of the processes running inside them. [1] vCPU provides 
+      complete container isolation, so applications from different containers have no impact 
+      on one another. [1]\n\n**In {{ yandex-cloud }}, containerization is implemented with the help of 
+      {{ serverless-containers-full-name }}**. [7] It allows you to run an application 
+      contained in a Docker image, in {{ yandex-cloud }}. [7] \n\n**Some aspects of containerization in 
+      {{ yandex-cloud }}:**\n\n* **Creating a container revision**. [7] You can only create a revision 
+      from a Docker image uploaded to a registry in {{ container-registry-full-name }}. [7] Other registries are not supported. 
+      supported. [7] The revision contains all the information you need to run the container. [7]\n* **Invoking 
+      a container**. [7] Once you have created a revision, you can invoke the container via HTTPS using a trigger 
+      or the {{ api-gw-full-name }} extension. [7]\n* **Scaling a container**. [7] If the container is invoked 
+      faster than the instance can process the request, the service scales the container by running 
+      its additional instances. [7] This ensures parallel processing of queries. [7]\n* 
+      **Provisioned instances**. [7] This is a container instance that is guaranteed not to have 
+      a cold start when you run it. [7] In a provisioned instance, before the container is invoked, 
+      the {{ serverless-containers-name }} runtime components are initialized, and the user application is loaded and initialized. [7]",
+      "role": "ROLE_ASSISTANT"
+    },
+    "sources": [
+      {
+        "url": "https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F",
+        "title": "Containerization (Wikipedia)",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/serverless-containers/tutorials/functions-framework-to-container",
+        "title": "Developing functions in Functions Framework and deploying them to {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "used": true
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/container-registry/",
+        "title": "Yandex Container Registry | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/container-registry/concepts/docker-image",
+        "title": "Docker image. What is it and how does it work? | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/container-registry/operations/docker-image/docker-image-push",
+        "title": "Pushing a Docker image to a registry in {{ container-registry-name }} | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/serverless-containers/tutorials/deploy-app-container",
+        "title": "Running a containerized app in {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/serverless-containers/concepts/container",
+        "title": "Container in {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/serverless-containers/tf-ref",
+        "title": "{{ TF }} reference for {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "used": true
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/serverless-containers/operations/",
+        "title": "How to work with {{ serverless-containers-full-name }} | {{ yandex-cloud }} documentation",
+        "used": false
+      },
+      {
+        "url": "https://yandex.cloud/ru/docs/container-registry/tutorials/fault-tolerance",
+        "title": "Configuring a fault-tolerant architecture in {{ yandex-cloud }} | {{ yandex-cloud }} documentation",
+        "used": false
+      }
+    ],
+    "search_queries": [
+      {
+        "text": "what is containerization and how is it implemented in yandex cloud date 2025 01 01 date 2025 01 01 date 2025 01 01",
+        "req_id": "1742493532407414-13584885235180537459-jjleoq7t********-BAL"
+      },
+      {
+        "text": "how containerization is implemented in yandex cloud date 2025 01 01 date 2025 01 01 date 2025 01 01",
+        "req_id": "1742493532717030-17218638161437229208-rs6g5w5h********-BAL"
+      },
+      {
+        "text": "what is containerization date 2025 01 01 date 2025 01 01 date 2025 01 01",
+        "req_id": "1742493532716328-3123354248981714225-rs6g5w5h********-BAL"
+      }
+    ],
+    "is_answer_rejected": false,
+    "is_bullet_answer": false,
+    "fixed_misspell_query": "What is containerization and how is it implemented in {{ yandex-cloud }}?"
+  }
+  ```
+
+  {% endcut %}
+
+{% endlist %}
+
+## Response features {#special-circumstances}
 
 Based on the query and search results, {{ search-api-name }} may include the following warnings in a generative response:
 
 * If no relevant documents were found:
 
-   > **No results found.**
-   > Please rephrase your query or ask something else.
+    > **No results found.**
+    > Rephrase your query or ask something else.
 
 * If {{ search-api-name }} has found the relevant source documents but was unable to extract information:
 
-   > Failed to extract the requested information from the documents. You can try opening them yourself or view the search results.
+    > Failed to extract the requested information from the documents. You can try opening them yourself or view the search results.
 
 * If {{ search-api-name }} has found the source documents and succeeded extracting the information but is doubtful about response quality, it will preface its response with:
 
-   > There is various information on this topic online. You can find its overview below.
+    > There is various information on this topic online. You can find its overview below.

@@ -26,13 +26,11 @@
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки БД {{ CH }} для Graphite входит:
 * плата за вычислительные ресурсы кластера, объем хранилища и резервных копий (см. [тарифы {{ mch-full-name }}](../../managed-clickhouse/pricing.md));
 * плата за запущенную ВМ для управления БД (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-
 
 
 ## Создайте кластер {#cluster-create}
@@ -76,7 +74,7 @@
       * `<идентификатор_кластера>` — идентификатор кластера.
       * `--rollup-file-name` — путь к `graphite-rollup.yaml`.
 
-      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/add-graphite-rollup.md).
+      Подробнее о команде `managed-clickhouse cluster add-graphite-rollup` см. в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-graphite-rollup.md).
 
 - API {#api}
   
@@ -219,7 +217,7 @@
 1. Удалите все таблицы, которые используют эту конфигурацию.
 1. Используйте команду `yc managed-clickhouse cluster remove-graphite-rollup`.
 
-Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-services/managed-clickhouse/cluster/remove-graphite-rollup.md).
+Подробнее о команде см. в [справочнике CLI](../../cli/cli-ref/managed-clickhouse/cli-ref/cluster/remove-graphite-rollup.md).
 
 {% note alert %}
 

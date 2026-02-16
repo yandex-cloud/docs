@@ -1,41 +1,81 @@
-# Troubleshooting in {{ backup-name }}
-
-This section describes typical problems you may encounter while using {{ backup-name }} and gives troubleshooting recommendations.
-
-#### Why cannot I add a VM to {{ backup-name }}? {#cannot-add-vm}
+#### Why cannot I add a VM or {{ baremetal-full-name }} server to {{ backup-name }}? {#cannot-add-vm}
 
 Make sure that:
 
-* [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
-* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor) assigned.
-* [Security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for your VM.
+{% list tabs group=backup_resource_type %}
 
-For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
+- VM {#vm}
 
-#### How to reconnect to the service a VM deleted from {{ backup-name }}? {#reconnect-deleted-vm}
+  * The VM is created from a [supported image](../../backup/concepts/vm-connection.md#os) or (if the {{ backup-name }} agent is installed manually) [{{ backup-name }}](../../backup/concepts/vm-connection.md#self-install) supports the VM's operating system.
+  * The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+  * The [security group](../../vpc/concepts/security-groups.md) is [correctly](../../backup/concepts/vm-connection.md#vm-network-access) configured for the VM.
 
-If you have [deleted](../../backup/operations/delete-vm.md) a VM from {{ backup-name }} and want to reconnect it to the service, use this guide:
+  For more information, see [Connecting Compute Cloud VM instances to {{ backup-name }}](../../backup/concepts/vm-connection.md).
 
-* [Connecting a Linux VM](../../backup/operations/connect-vm-linux.md)
-* [Connecting a Windows VM](../../backup/operations/connect-vm-windows.md)
+- {{ baremetal-name }} server {#baremetal-server}
 
-#### How can I reconnect a VM to {{ backup-name }} after restoring its backup to another VM? {#how-to-renew-connection}
+  * The server runs a [supported operating system](../../backup/concepts/vm-connection.md#self-install).
+  * The service account whose IAM token is used to [install](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install) the {{ backup-name }} agent has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+  * The server has a [public IP address assigned](../../backup/concepts/vm-connection.md#provide-access).
 
-A virtual machine becomes outdated after [restoring its backup to another VM](../../backup/operations/backup-vm/non-native-recovery.md). To avoid conflicts between the source and target VMs when making backups, [refresh](../../backup/operations/refresh-connection.md) the connection of the outdated VM to {{ backup-name }}.
+  For more information, see [Connecting a {{ baremetal-name }} server to {{ backup-name }}](../../backup/operations/backup-baremetal/backup-baremetal.md).
 
-#### An error occurs when trying to restore a VM from a backup {#recovery-error}
+{% endlist %}
+
+
+#### How do I reconnect a VM or {{ baremetal-name }} server deleted from {{ backup-name }}? {#reconnect-deleted-vm}
+
+If you have [deleted a VM](../../backup/operations/delete-vm.md) or {{ baremetal-name }} server from {{ backup-name }} and want to reconnect it to the service, follow these guides:
+
+{% list tabs group=backup_resource_type %}
+
+- VM {#vm}
+
+  * [Connecting a Linux VM](../../backup/operations/connect-vm-linux.md)
+  * [Connecting a Windows VM](../../backup/operations/connect-vm-windows.md)
+
+- {{ baremetal-name }} server {#baremetal-server}
+
+  * Reinstall the {{ backup-name }} agent according to [this guide](../../backup/operations/backup-baremetal/backup-baremetal.md#agent-install).
+
+{% endlist %}
+
+
+#### How do I reconnect a VM or {{ baremetal-name }} server to {{ backup-name }} after restoring its backup to another VM or server? {#how-to-renew-connection}
+
+{% list tabs group=backup_resource_type %}
+
+- VM {#vm}
+
+  A virtual machine becomes outdated after [its backup is restored to another VM](../../backup/operations/backup-vm/non-native-recovery.md). To avoid conflicts between the source and target VMs when performing a backup, [refresh](../../backup/operations/refresh-connection.md) the outdated VM's connection to {{ backup-name }}.
+
+- {{ baremetal-name }} server {#baremetal-server}
+
+  A {{ baremetal-name }} server becomes outdated after its backup is restored to another server. To avoid conflicts between the source and target {{ baremetal-name }} servers when performing a backup, [refresh](../../backup/operations/backup-baremetal/refresh-connection.md) the outdated server's connection to {{ backup-name }}.
+
+{% endlist %}
+
+
+#### I get an error when trying to restore a VM or {{ baremetal-name }} server from a backup {#recovery-error}
 
 Error message:
 
 ```text
-Not all of the items are mapped. Please, check your target instance and its volumes.
+Not all of the items are mapped. Please, check your goal instance and its volumes.
 ```
 
-The error occurs because {{ backup-name }} cannot find a disk on the target VM that matches the size criterion.
+The error occurs because {{ backup-name }} cannot find a suitably sized disk on the target VM.
 
-The boot disk size of the target VM must be at least equal to that of the source VM.
+The boot disk of the target VM or {{ baremetal-name }} server must be at least the size of that of the source VM.
 
-Check the disks on the target VM and [increase](../../compute/operations/disk-control/update.md#change-disk-size) their size as needed. You can also [use another VM](../../backup/operations/backup-vm/non-native-recovery.md) with appropriate parameters.
+Check the target VM disks and [increase](../../compute/operations/disk-control/update.md#change-disk-size) their size if needed. You can also [use another VM](../../backup/operations/backup-vm/non-native-recovery.md) or {{ baremetal-name }} server with suitable parameters.
+
+{% note info %}
+
+{% include [avoid-errors-when-restoring-from-backup.md](../../_includes/backup/avoid-errors-when-restoring-from-backup.md) %}
+
+{% endnote %}
+
 
 #### Error when connecting to a Windows VM {#windows-connection-issue}
 
@@ -49,6 +89,41 @@ Iteration 0: The term 'acropsh' is not recognized as the name of a cmdlet, funct
 Make sure that:
 
 * [{{ backup-name }} supports](../../backup/concepts/vm-connection.md#os) the VM operating system.
-* Service account linked to your VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor) assigned.
+* The service account linked to the VM has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
 * [Network access for your VM](../../backup/concepts/vm-connection.md#vm-network-access) is enabled.
-* The PowerShell execution policies allow scripts. If they do not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+* The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
+
+
+#### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
+
+Check [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).
+
+#### Why are backups disabled after the OS update? {#kernel-update-consequences}
+
+{% include [update-kernel-headers-description](../../_includes/backup/operations/update-kernel-headers-description.md) %}
+
+To update Linux kernel header versions, follow these tutorials: [Restoring the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md#restore-agent) and [Restoring the {{ backup-name }} agent on a {{ baremetal-name }} server](../../backup/operations/backup-baremetal/restore-agent.md).
+
+#### Creating incremental backups of a VM or {{ baremetal-name }} server is taking longer than usual {#av-interaction}
+
+Antivirus activity may affect the time required to create [incremental backups](../../backup/concepts/backup.md#types) under a policy with the fast backup [option](../../backup/concepts/policy.md#specification) enabled (`fastBackupEnabled`). For more information, see [{#T}](../../backup/concepts/av-interaction.md).
+
+#### Out-Of-Memory Killer (OOM Killer) kills the {{ backup-name }} agent process in Linux {#oom-solution}
+
+{% include [agent-ram-usage-paragraph](../../_includes/backup/operations/agent-ram-usage-paragraph.md) %}
+
+{% include [agent-ram-usage-second-paragraph](../../_includes/backup/operations/agent-ram-usage-second-paragraph.md) %}
+
+{% include [agent-ram-usage-notice](../../_includes/backup/operations/agent-ram-usage-notice.md) %}
+
+#### How do I restore a VM or {{ baremetal-name }} server with LVM from a backup? {#restore-lvm}
+
+{% include [lvm-restoration-notice](../../_includes/backup/lvm-restoration-notice.md) %}
+
+#### Issues installing the {{ backup-name }} agent on a VM with low computing resources {#low-resources-installation}
+
+{% include [cloud-backup-resources-note](../../_includes/backup/cloud-backup-resources-note.md) %}
+
+#### If I delete a VM, will its backups remain? {#backup-after-delete-vm}
+
+Yes. Deleting a VM does not delete its backups. The latter are linked to the [backup policy](../../backup/concepts/policy.md), not the VM.

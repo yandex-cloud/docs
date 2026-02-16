@@ -13,10 +13,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите нужный бакет из списка.
   1. На панели слева выберите нужный раздел с информацией о бакете:
      * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** — список объектов, хранящихся в бакете.
-     * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** — основные параметры бакета, информация о хостинге веб-сайта в бакете, версионировании, логировании, жизненном цикле объектов в бакете.
+     * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** — основные параметры бакета, информация о хостинге сайта в бакете, версионировании, логировании, жизненном цикле объектов в бакете.
      * ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** — описание прав и политики доступа в бакете, сведения о конфигурации HTTPS и CORS, блокировке и шифровании объектов в бакете.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -31,22 +33,7 @@ description: Следуя данной инструкции, вы сможете
      yc storage bucket get --help
      ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-     ```bash
-     yc storage bucket list
-     ```
-
-     Результат:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Сохраните имя бакета (столбец `NAME`), информацию о котором вы хотите получить.
 
   1. Получите информацию о бакете:
@@ -89,7 +76,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
+  1. Выберите нужный бакет из списка.
   1. На панели слева выберите ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
   1. На открывшейся странице вы можете посмотреть статистику бакета за определенный период времени:
      
@@ -108,22 +97,7 @@ description: Следуя данной инструкции, вы сможете
      yc storage bucket stats --help
      ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-     ```bash
-     yc storage bucket list
-     ```
-
-     Результат:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Сохраните имя бакета (столбец `NAME`), статистику которого вы хотите получить.
 
   1. Получите статистику бакета:

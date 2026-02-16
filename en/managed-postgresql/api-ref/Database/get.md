@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster that the database belongs to.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the PostgreSQL Database resource to return.
+            To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/get.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.Get {#Get}
+# Managed Service for PostgreSQL API, REST: Database.Get
 
 Returns the specified PostgreSQL Database resource.
 
@@ -22,11 +50,15 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databa
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster that the database belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the PostgreSQL Database resource to return.
-To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.Database}
@@ -96,5 +128,5 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#

@@ -7,7 +7,7 @@
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, для версии которой хотите добавить переменную окружения.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите переменную окружения и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. Можно добавить несколько переменных окружения.
@@ -115,11 +115,6 @@
 - API {#api}
 
     Чтобы добавить переменные окружения, воспользуйтесь методом REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Добавить переменные окружения можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 
 {% endlist %}

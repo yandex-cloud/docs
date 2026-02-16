@@ -11,9 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить [API-шлюз](../concepts/index.md):
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо удалить API-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_action-delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.popup-confirm_button_delete }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. В строке с API-шлюзом нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
@@ -124,8 +124,5 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить [API-шлюз](../concepts/index.md), воспользуйтесь методом REST API [delete](../apigateway/api-ref/ApiGateway/delete.md) для ресурса [ApiGateway](../apigateway/api-ref/ApiGateway/index.md) или вызовом gRPC API [ApiGatewayService/Delete](../apigateway/api-ref/grpc/ApiGateway/delete.md).
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-  Удалить [API-шлюз](../concepts/index.md) можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 {% endlist %}

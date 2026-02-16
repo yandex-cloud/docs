@@ -1,3 +1,5 @@
+
+
 Чтобы использовать [{{ mkf-msr }}](../../../managed-kafka/concepts/managed-schema-registry.md#msr) совместно с {{ mkf-name }}:
 
 1. [Создайте скрипты производителя и потребителя на локальной машине](#create-scripts).
@@ -6,9 +8,21 @@
 
 В этом руководстве описана регистрация одной схемы данных. Подробнее о том, как зарегистрировать несколько схем данных, см. в документации [Confluent Schema Registry](https://docs.confluent.io/platform/current/control-center/topics/schema.html).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры входит:
+
+* плата за вычислительные ресурсы кластера {{ mkf-name }} и объем хранилища (см. [тарифы {{ mkf-name }}](../../../managed-kafka/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [публичного IP-адреса](../../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте кластер {{ mkf-name }}](../../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера включите опции **{{ ui-key.yacloud.kafka.field_schema-registry }}** и **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте топик](../../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `messages` для обмена сообщениями между производителем и потребителем.
     1. [Создайте пользователя](../../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `user` и [выдайте ему права](../../../managed-kafka/operations/cluster-accounts.md#grant-permission) на топик `messages`:

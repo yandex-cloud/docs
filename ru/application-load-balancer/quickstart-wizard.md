@@ -1,3 +1,8 @@
+---
+title: Создание инфраструктуры {{ alb-full-name }} с помощью визарда
+description: Следуя данной инструкции, вы сможете создать инфраструктуру {{ alb-name }} с помощью визарда.
+---
+
 # Создание инфраструктуры {{ alb-name }} с помощью визарда
 
 
@@ -25,7 +30,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
@@ -59,9 +64,13 @@
   1. Чтобы открыть настройки бэкенда и группы проверки состояния, включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
 
   1. Введите имя бэкенда: `backend-1`.
+
+  1. Укажите порт: `8080`.
+
   1. Задайте настройки проверки состояния:
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
   
   1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
@@ -104,7 +113,7 @@
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** введите имя обработчика: `test-listener`.
    
-  1. Остальные настройки оставьте без изменений и нажмите кнопку ***{{ ui-key.yacloud.common.create }}**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

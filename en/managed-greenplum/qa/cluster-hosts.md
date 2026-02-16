@@ -1,4 +1,4 @@
-# {{ mgp-short-name }} clusters and hosts
+# {{ GP }} clusters and hosts
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 

@@ -1,9 +1,59 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the cloud to create a folder in.
+            To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the folder.
+            The name must be unique within the cloud.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the folder.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - cloudId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/create.md
 ---
 
-# Resource Manager API, REST: Folder.Create {#Create}
+# Resource Manager API, REST: Folder.Create
 
 Creates a folder in the specified cloud.
 
@@ -20,7 +70,7 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/folders
   "cloudId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -29,17 +79,25 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/folders
 || cloudId | **string**
 
 Required field. ID of the cloud to create a folder in.
-To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request. ||
+To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the folder.
-The name must be unique within the cloud. ||
+The name must be unique within the cloud.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the folder. ||
-|| labels | **string**
+Description of the folder.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -71,7 +129,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string"
   }
   // end of the list of possible fields
@@ -202,14 +260,13 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the folder. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

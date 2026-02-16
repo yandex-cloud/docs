@@ -1,6 +1,7 @@
 ---
-title: Use cases for {{ cloud-logging-full-name }}
-description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud }}.
+title: '{{ cloud-logging-full-name }} use cases'
+description: Different use cases for {{ cloud-logging-full-name }} in {{ yandex-cloud }}.
+sourcePath: en/logging_includes/tutorials/index.md
 ---
 
 # {{ cloud-logging-name }} tutorials
@@ -11,4 +12,10 @@ description: Various {{ cloud-logging-full-name }} use cases in {{ yandex-cloud 
 * [{#T}](replicate-logs-to-storage.md)
 * [{#T}](replicate-logs-to-storage-via-data-streams.md)
 * [{#T}](grafana-logs-plugin.md)
+* [Interactive debugging of {{ sf-name }} functions](serverless-live-debug.md)
 * [{#T}](logging.md)
+* [{#T}](alb-ingress-controller-log-options.md)
+* [{#T}](cloud-logging.md)
+* [{#T}](logging-functions.md)
+* [{#T}](search-events-audit-logs/index.md)
+* [Transferring {{ mgp-full-name }} cluster logs to {{ cloud-logging-name }}](mgp-to-cloud-logging.md)

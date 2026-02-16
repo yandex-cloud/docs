@@ -1,10 +1,16 @@
-# Обновить подключение виртуальной машины к {{ backup-name }}
+---
+title: Как обновить подключение виртуальной машины к {{ backup-full-name }}
+description: Следуя данной инструкции, вы сможете обновить подключение виртуальной машины к {{ backup-name }}.
+---
+
+# Переподключить виртуальную машину к {{ backup-name }}
 
 {% note info %}
 
 Если вы [удалили](delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
 
 * [Подключить виртуальную машину на Linux](connect-vm-linux.md)
+* [Подключить виртуальную машину на Linux с {{ oslogin }}](connect-vm-oslogin-linux.md)
 * [Подключить виртуальную машину на Windows](connect-vm-windows.md)
 
 {% endnote %}
@@ -44,7 +50,7 @@
       1. Выполните команду:
 
           ```bash
-          curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
+          curl 'https://{{ s3-storage-host }}/backup-distributions/agent_reinit.sh' | sudo bash
           ```
 
           Результат:
@@ -66,7 +72,7 @@
       1. Выполните команду:
 
           ```powershell
-          . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+          . { iwr -useb https://{{ s3-storage-host }}/backup-distributions/agent_reinit.ps1 } | iex
           ```
 
           Результат:
@@ -86,11 +92,11 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
       1. На вкладке ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
 
           Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
     {% endlist %}
 
-1. [Привяжите](./policy-vm/update.md#update-vm-list) ВМ к политике резервного копирования.
+1. [Привяжите](./policy-vm/attach-and-detach-vm.md) ВМ к политике резервного копирования.

@@ -9,4 +9,5 @@ canonical: '{{ link-docs }}/tutorials/dataplatform/schema-registry-overview'
 Такие схемы хранятся в реестре схем формата данных. Для {{ mkf-name }} вы можете:
 
 * Использовать [интегрированный реестр](./managed-schema-registry.md).
+* Использовать [интегрированный реестр](./managed-schema-registry-rest.md) с помощью REST API.
 * Настроить и использовать [реестр от Confluent](./confluent-schema-registry.md).

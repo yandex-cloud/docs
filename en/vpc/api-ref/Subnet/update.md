@@ -1,9 +1,105 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}
+    method: patch
+    path:
+      type: object
+      properties:
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the Subnet resource to update.
+          type: string
+      required:
+        - subnetId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the subnet.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the subnet.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        routeTableId:
+          description: |-
+            **string**
+            ID of route table the subnet is linked to.
+          type: string
+        dhcpOptions:
+          description: '**[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**'
+          $ref: '#/definitions/DhcpOptions'
+        v4CidrBlocks:
+          description: |-
+            **string**
+            New CIDR blocks which will overwrite the existing ones.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions:
+      DhcpOptions:
+        type: object
+        properties:
+          domainNameServers:
+            description: |-
+              **string**
+              A list of DHCP servers for this subnet.
+            type: array
+            items:
+              type: string
+          domainName:
+            description: |-
+              **string**
+              A domain name to us as a suffix when resolving host names in this subnet.
+            type: string
+          ntpServers:
+            description: |-
+              **string**
+              List of NTP servers for this subnet.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/update.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Update {#Update}
+# Virtual Private Cloud API, REST: Subnet.Update
 
 Updates the specified subnet.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -30,7 +126,7 @@ Required field. ID of the Subnet resource to update. ||
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "routeTableId": "string",
   "dhcpOptions": {
     "domainNameServers": [
@@ -66,7 +162,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the subnet. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 || routeTableId | **string**
@@ -122,7 +218,7 @@ List of NTP servers for this subnet. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "zoneId": "string",
     "v4CidrBlocks": [
@@ -271,7 +367,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

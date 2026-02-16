@@ -1,6 +1,6 @@
 # Настроить запись логов L7-балансировщика
 
-[Логи](../concepts/application-load-balancer.md#logging) [L7-балансировщика](../concepts/application-load-balancer.md) можно отправлять в сервис [{{ cloud-logging-full-name }}](../../logging/).
+[Логи](../concepts/monitoring.md#logging) [L7-балансировщика](../concepts/application-load-balancer.md) можно отправлять в сервис [{{ cloud-logging-full-name }}](../../logging/).
 
 ## Включить запись логов {#enable-logs}
 
@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Включите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
@@ -103,11 +103,13 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанном балансировщике будет включено логирование. Проверить статус логирования и другие настройки балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      После этого в указанном балансировщике будет включено логирование. Проверить статус логирования и другие настройки балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
 
-  ```bash
-  yc alb load-balancer get <имя_балансировщика>
-  ```
+      ```bash
+      yc alb load-balancer get <имя_балансировщика>
+      ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 
@@ -122,7 +124,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}**:
      1. Измените лог-группу {{ cloud-logging-name }}, в которую будут записываться логи балансировщика.
@@ -213,11 +215,13 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого в указанном балансировщике будут изменены параметры логирования. Проверить настройки балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+      После этого в указанном балансировщике будут изменены параметры логирования. Проверить настройки балансировщика можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
-  ```bash
-  yc alb load-balancer get <имя_балансировщика>
-  ```
+      ```bash
+      yc alb load-balancer get <имя_балансировщика>
+      ```
+
+      {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 
@@ -232,7 +236,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится балансировщик.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В списке выберите нужный балансировщик, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** выключите опцию **{{ ui-key.yacloud.alb.label_log-requests }}**.
   1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -289,6 +293,8 @@
      ```bash
      yc alb load-balancer get <имя_балансировщика>
      ```
+
+     {% include [Terraform timeouts](../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
 - API {#api}
 

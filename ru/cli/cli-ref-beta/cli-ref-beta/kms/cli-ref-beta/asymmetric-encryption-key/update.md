@@ -1,0 +1,87 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/kms/cli-ref-beta/asymmetric-encryption-key/update.md
+---
+
+# yc beta kms asymmetric-encryption-key update
+
+Updates the specified asymmetric KMS key.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta kms asymmetric-encryption-key update <KEY-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--deletion-protection` | Flag that inhibits deletion of the asymmetric KMS key ||
+|| `--description` | `string`
+
+New description for the asymmetric KMS key. ||
+|| `--key-id` | `string`
+
+ID of the asymmetric KMS key to update. To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List] request. ||
+|| `--labels` | `stringToString`
+
+Custom labels for the asymmetric KMS key as 'key:value' pairs. Maximum 64 per key. ||
+|| `--name` | `string`
+
+New name for the asymmetric KMS key. ||
+|| `--status` | `enum`
+
+New status for the asymmetric KMS key. Using the [AsymmetricEncryptionKeyService.Update] method you can only set ACTIVE or INACTIVE status. Possible Values: 'creating', 'active', 'inactive' ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

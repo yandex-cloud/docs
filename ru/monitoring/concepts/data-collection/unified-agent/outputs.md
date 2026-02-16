@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/outputs.md
+---
 # Выходы
 
 Выход можно описать в секции `routes` внутри элемента `channel`:`output`. Либо в секции именованных каналов `channels`.
@@ -125,7 +128,7 @@ output:
       plugin: yc_logs
       config:
         # Необязательный. URL, на который будут отправляться логи
-        url: "ingester.logging.yandexcloud.net:443"
+        url: "{{ logging-endpoint-ingester }}:443"
 
         # Необязательный. Использовать SSL-соединение.
         use_ssl: null # директива выключает SSL, по умолчанию SSL включен

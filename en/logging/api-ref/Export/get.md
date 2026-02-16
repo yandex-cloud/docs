@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/exports/{exportId}
+    method: get
+    path:
+      type: object
+      properties:
+        exportId:
+          description: |-
+            **string**
+            Required field. ID of the export to return.
+            To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list#List) request.
+          type: string
+      required:
+        - exportId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/get.md
 ---
 
-# Cloud Logging Service, REST: Export.Get {#Get}
+# Cloud Logging Service, REST: Export.Get
 
 Returns the specified export.
 
@@ -38,7 +56,7 @@ To get a export ID make a [ExportService.List](/docs/logging/api-ref/Export/list
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "groupId": "string",
   "sinkId": "string",
   "params": {
@@ -86,7 +104,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

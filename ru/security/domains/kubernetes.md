@@ -82,12 +82,14 @@
 Чтобы организовать входящий сетевой доступ к рабочим нагрузкам по протоколу HTTP/HTTPS используйте ресурс [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Существует как минимум 2 варианта Ingress-контроллера, которые можно использовать в {{ yandex-cloud }}:
--	[NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
--	[{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+- [NGINX Ingress Controller](../../managed-kubernetes/tutorials/ingress-cert-manager.md).
+- [{{ alb-name }} Ingress-контроллера](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
 
 Преимущества {{ alb-name }} Ingress-контроллера:
 * интеграция с облачным сервисом [{{ certificate-manager-full-name }}](../../certificate-manager/);
 * отсутствие необходимости установки контроллера в кластер, так как все разворачивается на стороне [{{ alb-name }}](../../application-load-balancer/).
+
+{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 #### Ограничение доступа к метаданным ВМ группы узлов {#metadata-access-restriction}
 
@@ -177,10 +179,12 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 Интеграция {{ lockbox-name }} с {{ k8s }} выполнена с помощью открытого проекта [External Secrets](https://external-secrets.io/latest/). Решение доступно в {{ marketplace-name }} в базовом упрощенном сценарии — [External Secrets Operator с поддержкой Yandex Lockbox](/marketplace/products/yc/external-secrets).
 
+
 Полезные инструкции по работе с External Secrets:
 
 * [инструкция](https://external-secrets.io/latest/provider/yandex-lockbox/) по работе с External Secrets и {{ lockbox-name }} из описания проекта;
 * [инструкция](../../lockbox/tutorials/kubernetes-lockbox-secrets.md) по работе с External Secrets и {{ lockbox-name }} из документации {{ yandex-cloud }}.
+
 
 [Описано](https://external-secrets.io/latest/guides/multi-tenancy/#eso-as-a-service) множество способов разделения доступа к секретам в рамках данного инструмента.
 
@@ -208,7 +212,6 @@ Starboard Operator — это бесплатный инструмент, кот�
 * Защита уровня ОС узлов {{ k8s }}.
 
 Сканер безопасности в [{{ container-registry-name }}](../../container-registry/concepts/vulnerability-scanner.md).
-
 
 Чтобы защитить уровень хостов [контейнеризации](../../glossary/containerization.md#containers-apps), можно использовать различные платные и бесплатные решения классов «Runtime security» и «Antivirus engine». Примеры бесплатных решений:
 
@@ -250,9 +253,9 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 ## Политики безопасности {{ k8s }} {#kubernetes-security-policies}
 
-Требования [Pod Security Standarts](https://kubernetes.io/docs/concepts/security/pod-security-standards/ ) от {{ k8s }} позволяют предотвращать угрозы, которые связаны с объектами {{ k8s }}.
+Требования [Pod Security Standarts](https://kubernetes.io/docs/concepts/security/pod-security-standards/) от {{ k8s }} позволяют предотвращать угрозы, которые связаны с объектами {{ k8s }}.
 
-Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller ](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
+Для реализации требований можно использовать либо встроенный инструмент {{ k8s }} [Pod Security Admission Controller](https://kubernetes.io/docs/setup/best-practices/enforcing-pod-security-standards/) либо открытое программное обеспечение, например другие Admission Controllers: OPA Gatekeeper, [Kyverno](/marketplace/products/yc/kyverno).
 
 Примеры, в которых используется Kyverno:
 
@@ -303,7 +306,7 @@ Starboard Operator — это бесплатный инструмент, кот�
 
 ### Уровень узлов {{ k8s }} {#kubernetes-nodes-level}
 
-Сбор и экспорт событий уровня узлов {{ k8s }} выполняется аналогично [сбору аудитных логов ОС](audit-logs#os-level).
+Сбор и экспорт событий уровня узлов {{ k8s }} выполняется аналогично [сбору аудитных логов ОС](../standard/audit-logs.md#os-level).
 
 ### Уровень подов {{ k8s }} {#kubernetes-pods-level}
 

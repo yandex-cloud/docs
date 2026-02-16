@@ -1,9 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/archives
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            List of archives of the specified Compute Cloud instance.
+            Includes only one of the fields `folderId`, `computeInstanceId`.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            List of archives in specified folder.
+            Includes only one of the fields `folderId`, `computeInstanceId`.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/listArchives.md
 ---
 
-# Cloud Backup API, REST: Backup.ListArchives {#ListArchives}
+# Cloud Backup API, REST: Backup.ListArchives
 
 List archives that holds backups for specified folder or
 specified [Compute Cloud instance](/docs/backup/concepts/vm-connection#os).
@@ -119,7 +144,6 @@ Original data size. ||
 Logical size. ||
 || format | **enum** (Format)
 
-- `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
 - `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
@@ -163,14 +187,12 @@ If this field is true, it means that any of encryption algorithm
 has been chosen. ||
 || encryptionAlgorithm | **enum** (EncryptionAlgorithm)
 
-- `ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `NONE`
 - `AES128`
 - `AES192`
 - `AES256` ||
 || actions[] | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `REFRESH`
 - `DELETE_BY_AGENT` ||
 || backupPlanId | **string**

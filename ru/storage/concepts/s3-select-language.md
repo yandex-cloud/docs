@@ -7,7 +7,7 @@ description: В данной статье описан синтаксис язы
 
 {% note info %}
 
-Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку](../../support/overview.md).
+Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку]({{ link-console-support }}).
 
 {% endnote %}
 
@@ -320,3 +320,11 @@ SELECT s.CAST FROM S3Object s
   ```
 
 {% endlist %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/server-logs.md)
+* [{#T}](../tutorials/user-agent-statistics.md)
+* [{#T}](../tutorials/billing-resource-detailing.md)
+

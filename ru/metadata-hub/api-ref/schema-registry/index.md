@@ -5,6 +5,7 @@ description: Сервис {{ schema-registry-name }} реализует API Conf
 
 # API {{ schema-registry-name }}
 
+
 После [авторизации с помощью IAM-токена](../authentication.md) вы можете использовать следующие HTTP-запросы:
 
 ## NamespaceService {#namespace-service}

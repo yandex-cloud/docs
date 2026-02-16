@@ -20,7 +20,7 @@ description: Для выполнения операций через API {{ post
 
 ### Аутентификация с помощью статического ключа {#access-key-ses-example}
 
-1. [Создайте статический ключ](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте статический ключ](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 1. Выполните запрос:
 
     ```bash

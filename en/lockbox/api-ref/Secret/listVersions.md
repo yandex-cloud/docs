@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/versions
+    method: get
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to list versions for.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListVersionsRequest.next_page_token] returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listVersions.md
 ---
 
-# Lockbox API, REST: Secret.ListVersions {#ListVersions}
+# Lockbox API, REST: Secret.ListVersions
 
 Retrieves the list of versions of the specified secret.
 
@@ -29,13 +65,13 @@ Required field. ID of the secret to list versions for. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListVersionsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse)
+results is larger than `page_size`, the service returns a [ListVersionsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListVersionsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse) returned by a previous list request. ||
+[ListVersionsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListVersionsResponse}
@@ -160,7 +196,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

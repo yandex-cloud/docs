@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/resourcePresets/{resourcePresetId}
+    method: get
+    path:
+      type: object
+      properties:
+        resourcePresetId:
+          description: |-
+            **string**
+            Required field. ID of the resource preset to return.
+            To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-opensearch/api-ref/ResourcePreset/list#List) request.
+          type: string
+      required:
+        - resourcePresetId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/ResourcePreset/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: ResourcePreset.Get {#Get}
+# Managed Service for OpenSearch API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
 

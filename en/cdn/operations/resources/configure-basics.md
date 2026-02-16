@@ -1,11 +1,11 @@
 ---
-title: How to edit the basic settings of a resource in {{ cdn-full-name }}
+title: How to update the basic settings of a resource in {{ cdn-full-name }}
 description: Follow this guide to update the basic resource settings.
 ---
 
-# Editing the basic settings of a resource
+# Updating the basic settings of a resource
 
-To edit the basic settings of a [resource](../../concepts/resource.md):
+To update the basic settings of a [resource](../../concepts/resource.md):
 
 {% list tabs group=instructions %}
 
@@ -13,7 +13,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
@@ -27,6 +27,12 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% endnote %}
 
+      * To add [labels](../../concepts/labels.md):
+
+          * Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          * Enter a label in `key: value` format.
+          * Press **Enter**.
+
       * To configure a [TLS certificate](../../concepts/clients-to-servers-tls.md) for a CDN resource, in the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select one of the options:
 
           * `{{ ui-key.yacloud.cdn.value_certificate-no }}`: Resource will only be available over HTTP.
@@ -34,13 +40,11 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
           * `{{ ui-key.yacloud.cdn.value_certificate-custom }}`: Select a certificate. The resource will be available over HTTP and HTTPS.
 
-              {% include [lets-encrypt-over](../../../_includes/cdn/lets-encrypt-over.md) %}
-
               {% include [certificate-usage](../../../_includes/cdn/certificate-usage.md) %}
 
-          For more information, see [{#T}](../../concepts/clients-to-servers-tls.md).
+          To learn more, see [{#T}](../../concepts/clients-to-servers-tls.md).
 
-      * To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource:
+      * To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource:
 
           1. Enable **{{ ui-key.yacloud.cdn.field_rewrite-rule-redirect }}**.
           1. In the **{{ ui-key.yacloud.cdn.field_rewrite-rule-body }}** field, set a rule, e.g., `/(.*) /new-folder/$1`.
@@ -67,7 +71,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -129,7 +133,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [certificate-settings-cli](../../../_includes/cdn/certificate-settings-cli.md) %}
 
-      To enable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
+      To enable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use these parameters:
 
       * `--rewrite-body`: Rewrite rule, e.g., `--rewrite-body '/(.*) /new-folder/$1'`.
 
@@ -138,13 +142,15 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
           {% include [rewrite-flag-list](../../../_includes/cdn/rewrite-flag-list.md) %}
 
-      To disable [request redirection](../../concepts/http-rewrite.md) on a CDN resource, use the `--clear-rewrite` parameter.
+      To disable [request redirects](../../concepts/http-rewrite.md) on a CDN resource, use the `--clear-rewrite` parameter.
 
       {% include [access-restrictions-cli](../../../_includes/cdn/access-restrictions-cli.md) %}
 
       To disable the IP-based access policy, use the `--clear-ip-address-acl` parameter.
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      To add or remove [labels](../../concepts/labels.md), use the `--add-labels`, `--remove-labels`, and `--remove-all-labels` parameters.
+
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
@@ -156,7 +162,7 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
 
       {% include [create-resource-tf](../../../_includes/cdn/create-resource-tf.md) %}
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```bash
@@ -174,16 +180,16 @@ To edit the basic settings of a [resource](../../concepts/resource.md):
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and click **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the changes to the CDN resource in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+     You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```bash
      yc cdn resource list

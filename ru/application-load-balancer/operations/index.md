@@ -29,6 +29,8 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](http-router-create-grpc.md)
 * [{#T}](http-router-get.md)
 * [{#T}](http-router-update.md)
+* [{#T}](manage-virtual-hosts.md)
+* [{#T}](manage-routes.md)
 * [{#T}](http-router-delete.md)
 
 ## L7-балансировщики {#application-load-balancer-operations}
@@ -44,9 +46,18 @@ description: Пошаговые инструкции по работе с {{ alb
 * [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
+### Управление зоной доступности {#manage-zone}
+
+* [{#T}](manage-zone/allow-and-deny-shift.md)
+* [{#T}](manage-zone/start-and-cancel-shift.md)
+
 ## Инструменты для {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
 * [{#T}](k8s-ingress-controller-upgrade.md)
 * [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

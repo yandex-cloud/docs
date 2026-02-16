@@ -11,10 +11,14 @@ items:
         href: olap.md
       - name: OLTP
         href: oltp.md
+      - name: SQL
+        href: sql.md
       - name: Кластер
         href: cluster.md
       - name: Реляционные базы данных
         href: relational-databases.md
+      - name: Колоночные базы данных
+        href: columnar-databases.md
   - name: Аналитика
     items:
       - name: Аналитика данных
@@ -29,6 +33,10 @@ items:
         href: ml-models.md
       - name: Чат-бот
         href: chat-bot.md
+      - name: Большая языковая модель
+        href: llm.md
+      - name: MCP-сервер
+        href: mcp.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP
@@ -93,6 +101,8 @@ items:
         href: dns.md
       - name: gRPC
         href: grpc.md
+      - name: Наблюдаемость
+        href: observability.md
       - name: REST API
         href: rest-api.md
       - name: Виртуальная частная сеть (VPN)
@@ -101,6 +111,16 @@ items:
         href: fqdn.md
       - name: Протокол SSH
         href: ssh-keygen.md
+      - name: URL
+        href: url.md
+      - name: DHCP
+        href: dhcp.md
+      - name: SOAP
+        href: soap.md
+      - name: TCP/IP
+        href: tcp-ip.md
+      - name: Вебхук
+        href: webhook.md
   - name: Безопасность
     items:
       - name: Control Plane и Data Plane
@@ -117,5 +137,7 @@ items:
         href: tls.md
       - name: WAF
         href: waf.md
-base: ru/glossary
-deepBase: 2
+      - name: JSON Web Token (JWT)
+        href: jwt.md
+      - name: Технология единого входа (SSO)
+        href: sso.md

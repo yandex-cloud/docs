@@ -1,0 +1,1 @@
+Open the main settings menu. To do this, click the user icon in the top-right corner of the screen and select ![admin-icon](../../../_assets/tutorials/integrate-nextcloud/admin-icon.svg) **Administration settings** from the context menu.

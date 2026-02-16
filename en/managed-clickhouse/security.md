@@ -1,34 +1,36 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: Access management in the {{ CH }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ mch-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin`, `managed-clickhouse.admin`, or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-clickhouse.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
 {% include [assign-roles-mdb](../_includes/iam/assign-roles-mdb.md) %}
 
-## Which roles exist in the service {#roles-list}
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+## Roles this service has {#roles-list}
 
-![image](../_assets/mdb/roles-managed-clickhouse.svg)
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+
+{% include [roles-managed-clickhouse](../_mermaid/roles/managed-clickhouse.md) %}
 
 ### Service roles {#service-roles}
 
@@ -39,6 +41,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### managed-clickhouse.viewer {#managed-clickhouse-viewer}
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
+
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
@@ -60,6 +66,10 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../_roles/vpc/publicAdmin.md) %}
@@ -70,20 +80,20 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [primitive-roles-footnote](../_includes/primitive-roles-footnote.md) %}
 
-## Roles required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, you need the [{{ roles.mch.editor }} role](../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mch.viewer }}` role enables you only to view the list of clusters.
+To use {{ mch-name }}, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mch.admin }}` role instead of `{{ roles.mch.editor }}`.
 
 ## What's next {#whats-next}
 
 * [How to assign a role](../iam/operations/roles/grant.md).
 * [How to revoke a role](../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

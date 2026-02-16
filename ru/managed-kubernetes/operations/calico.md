@@ -12,9 +12,9 @@ description: Следуя данной инструкции, вы сможете
 * Регулировать прохождение трафика с помощью настроек DNAT и политик проброса трафика.
 
 Чтобы настроить контроллер сетевых политик Calico:
-1. [{#T}](#create-pod).
-1. [{#T}](#enable-isolation).
-1. [{#T}](#create-policy).
+1. [Создайте сервис nginx](#create-pod).
+1. [Изолируйте поды с помощью сетевых политик](#enable-isolation).
+1. [Создайте сетевые политики, разрешающие доступ к сервису](#create-policy).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -70,6 +70,8 @@ description: Следуя данной инструкции, вы сможете
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
 
    {% endlist %}
 
@@ -364,19 +366,6 @@ networkpolicy.networking.k8s.io/deny created
 
 - {{ TF }} {#tf}
 
-  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-calico.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-     ```bash
-     terraform validate
-     ```
-
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-calico.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

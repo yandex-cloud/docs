@@ -8,11 +8,17 @@
 
 <iframe
     frameborder="0"
+    width="320"
+    height="180"
     scrolling="no"
     allowfullscreen
     allow="autoplay; fullscreen; encrypted-media; accelerometer; gyroscope; picture-in-picture; clipboard-write; web-share"
     src="https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y?autoplay=1&mute=true"
 ></iframe>
+
+## Шаблоны плеера {#player-presets}
+
+{% include [player-presets](../../_includes/video/player-presets.md) %}
 
 ## См. также {#see-also}
 * [{#T}](../operations/video/get-link.md)

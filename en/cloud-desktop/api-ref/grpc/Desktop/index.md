@@ -16,7 +16,11 @@ A set of methods for managing desktop resources.
 || [List](list.md) | Retrieves the list of desktop resources. ||
 || [ListOperations](listOperations.md) | Returns list of the operations for the specified desktop. ||
 || [Create](create.md) | Creates desktop in the specified folder. ||
+|| [UpdateProperties](updateProperties.md) | Updates desktop properties. ||
 || [Delete](delete.md) | Deletes the specified desktop. ||
 || [ResetPassword](resetPassword.md) | Reset password ||
 || [Restart](restart.md) | Restart the specified desktop. ||
+|| [Update](update.md) | Sync desktop with group configuration ||
+|| [Start](start.md) | Start the specified desktop. ||
+|| [Stop](stop.md) | Stop the specified desktop. ||
 |#

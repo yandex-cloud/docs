@@ -1,193 +1,193 @@
 #### What is {{ mpg-short-name }}? {#what-is}
 
-{{ mpg-short-name }} is a service that helps you create, operate, and scale {{ PG }} databases in a cloud infrastructure.
+{{ mpg-short-name }} is a solution that helps you create, operate, and scale {{ PG }} databases in the cloud.
 
 With {{ mpg-short-name }}, you can:
-* Create a database with the required performance characteristics.
-* Scale processing power and storage dedicated for your databases as needed.
+* Create a database with performance tailored to your needs.
+* Scale computing power and dedicated storage capacity for your databases as needed.
 * Get database logs.
 
-{{ mpg-short-name }} takes on time-consuming {{ PG }} infrastructure administration tasks:
+{{ mpg-short-name }} takes over time-consuming administrative tasks in {{ PG }}:
 * Monitors resource usage.
 * Automatically creates DB backups.
 * Provides fault tolerance through automatic failover to backup replicas.
-* Keeps database software updated.
+* Keeps your DBMS software up to date.
 
-You interact with database clusters in {{ mpg-short-name }} the same way you interact with regular databases in your local infrastructure. This allows you to manage internal database settings to meet your app requirements.
+You work with a {{ mpg-short-name }} database cluster just like with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
 
-#### What part of database management and maintenance is {{ mpg-short-name }} responsible for? {#services}
+#### What is the role of {{ mpg-short-name }} in database management and maintenance? {#services}
 
-When creating clusters, {{ mpg-short-name }} allocates resources, installs the DBMS, and creates databases.
+When you create clusters, {{ mpg-short-name }} allocates resources, installs the DBMS, and creates databases.
 
-For the created and running databases, {{ mpg-short-name }} automatically creates backups and applies fixes and updates to the DBMS.
+For all created and running databases, {{ mpg-short-name }} automatically creates backups as well as applies DBMS patches and updates.
 
-{{ mpg-short-name }} also allows you to replicate data between database hosts (both within and across [availability zones](../../overview/concepts/geo-scope.md)) and automatically routes the load to a backup replica in the event of a failure.
+Furthermore, {{ mpg-short-name }} ensures data replication across database hosts, both within and across [availability zones](../../overview/concepts/geo-scope.md), with automatic failover to a standby replica if a failure occurs.
 
-#### Which tasks are best addressed using {{ mpg-short-name }}, and which using VMs with databases? {#mdb-advantage}
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Not sure whether to use {{ mpg-short-name }} or VMs with databases? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
-* {{ mpg-short-name }} allows you to operate template databases with no need to worry about administration.
-* {{ compute-full-name }} virtual machines allow you to create and configure your own databases. This approach allows you to use any database management systems, access databases via SSH, etc.
+* With {{ mpg-short-name }}, you can use template databases, with no administrative effort required.
+* Alternatively, with {{ compute-full-name }} virtual machines, you can create and customize your own databases. This approach allows you to use any database management system, connect to databases over SSH, and many more.
 
 #### What is a database host and database cluster? {#what-is-cluster}
 
-A _database host_ is an isolated database environment in the cloud infrastructure with dedicated computing resources and reserved data storage.
+A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ is one or more database hosts between which replication can be configured.
+A _database cluster_ consists of one or more database hosts with configurable replication between them.
 
 #### How do I get started with {{ mpg-short-name }}? {#quickstart}
 
-{{ mpg-short-name }} is available to any registered {{ yandex-cloud }} user.
+{{ mpg-short-name }} is available to all registered {{ yandex-cloud }} users.
 
-To create a database cluster in {{ mpg-short-name }}, you must define its characteristics:
-* [Host class](../../managed-postgresql/concepts/instance-types.md) (performance characteristics, such as CPUs, memory, etc.).
-* Storage size (reserved in full when you create the cluster).
-* Network your cluster will be connected to.
-* Number of hosts for the cluster and the availability zone for each host.
+Before creating a database cluster in {{ mpg-short-name }}, you need to decide on its configuration:
+* [Host class](../../managed-postgresql/concepts/instance-types.md) that will determine your computing power, i.e., vCPUs, RAM, and more.
+* Storage size (fully reserved when creating the cluster).
+* Network for your cluster.
+* Number of hosts in your cluster and availability zone for each host.
 
-For a detailed guide, see [{#T}](../../managed-postgresql/quickstart.md).
+Learn more in [{#T}](../../managed-postgresql/quickstart.md).
 
-#### How many DB hosts can a cluster contain? {#how-many-hosts}
-
-The minimum number of hosts depends on the selected type of [storage](../../managed-postgresql/concepts/storage.md):
-* If you use non-replicated SSD (`network-ssd-nonreplicated`) or local SSD storage (`local-ssd`), the minimum number of hosts is 3.
-* If using network SSD (`network-ssd`) or network HDD (`network-hdd`) storage, you can create single-host clusters.
+#### How many database hosts can there be in a cluster? {#how-many-hosts}
 
 
+The minimum number of hosts depends on the selected [storage](../../managed-postgresql/concepts/storage.md) type:
 
-The maximum number of hosts in a cluster is only limited by the requested computing resources and the size of the storage for the cluster.
+* A minimum of three hosts is required for the following disk types:
+
+   * Local SSDs (`local-ssd`)
+   * Non-replicated SSDs (`network-ssd-nonreplicated`)
+
+* At least one host for the following disk types:
+
+   * Network HDDs (`network-hdd`)
+   * Network SSDs (`network-ssd`)
+   * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
+
+
+The maximum number of hosts per cluster cannot exceed the set limits.
 
 For more information, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
-#### How can I access a running DB host? {#db-access}
+#### How can I access a running database host? {#db-access}
 
-You can connect to {{ mpg-short-name }} databases using standard DBMS methods.
+You can connect to {{ mpg-short-name }} databases using conventional DBMS methods.
 
-[Learn more about connecting to clusters](../../managed-postgresql/operations/connect.md).
+Learn more about connecting to clusters in [this guide](../../managed-postgresql/operations/connect.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-You can find MDB technical and organizational limitations in [{#T}](../../managed-postgresql/concepts/limits.md).
+To learn about MDB quotas and limits, see  [{#T}](../../managed-postgresql/concepts/limits.md).
 
-#### How are DB clusters maintained? {#service-window}
+#### How are database clusters maintained? {#service-window}
 
-Maintenance in {{ mpg-short-name }} implies:
+Maintenance in {{ mpg-short-name }} includes:
 
-* Automatic installation of DBMS updates and revisions for DB hosts (including disabled clusters).
-* Changes to the host class and storage size.
+* Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
+* Changes in the host class and storage size.
 * Other {{ mpg-short-name }} maintenance activities.
 
-For more information, see [{#T}](../../managed-postgresql/concepts/maintenance.md).
+Learn more in [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
 #### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} 11, 12, 13, 14, 15, and 16, as well as {{ PG }} 11, 12, 13, 14, and 15 for 1C.
+{{ mpg-short-name }} supports {{ PG }} versions 14-17, and {{ PG }} versions 14-16 for use with 1C.
 
-#### Which {{ PG }} version and settings are best when creating a database for 1C? {#1c-version}
-
-We recommend using {{ PG }} version 12-1c (current as of March 2022). This version was tested with 1C version 8.3.18: compatibility with earlier 1C versions is not guaranteed.
-
-Please contact 1C tech support for settings optimized for cluster operation.
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated when new minor versions are released. Owners of the affected DB clusters are notified of expected work times and DB availability in advance.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after the database version becomes deprecated, {{ mpg-short-name }} automatically sends email notifications to the owners of DB clusters created with this version.
+One month after a DBMS version becomes deprecated, {{ mpg-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
 
-New hosts can no longer be created using deprecated DBMS versions. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions are going to be upgraded even if you have disabled automatic updates.
+For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you disabled automatic updates.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
-In {{ mpg-short-name }}, the usage cost is calculated based on the following parameters:
+In {{ mpg-short-name }}, the usage cost is calculated based on the following:
 
 * Selected host class.
-* Size of the storage reserved for the database host.
-* Size of the database cluster backups. Backup space in the amount of the reserved storage is free of charge. Backup storage that exceeds this size is charged at [special rates](../../managed-postgresql/pricing.md).
-* Number of hours of database host operation. Partial hours are rounded to an integer value. The cost per hour of operation for each host class is given in [{#T}](../../managed-postgresql/pricing.md).
+* Reserved storage capacity for the database host.
+* Size of database cluster backups. You do not pay for backups as long as their size does not exceed the storage capacity. Additional backup storage is charged according to our [pricing policy](../../managed-postgresql/pricing.md).
+* Database host uptime in hours. Partial hours are rounded to the nearest whole hour. The hourly rates for each host class are listed in [{#T}](../../managed-postgresql/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
 
-You can change computing resources and storage size in the management console. All you need to do is choose a different host class for the required cluster.
+You can scale your computing resources and storage size directly in the management console by selecting a different host class for your cluster.
 
-The cluster characteristics change within 30 minutes. During this period, other maintenance activities may also be enabled for the cluster, such as installing updates.
+The cluster settings will update within 30 minutes. This window may also be used for other maintenance activities, such as installing updates.
 
-#### Can I configure auto increase of cluster storage size? {#storage-autoscale}
+#### Can I configure automatic storage expansion for a cluster? {#storage-autoscale}
 
-Yes, you can set up automatic increase of the storage size when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/storage-space.md#disk-size-autoscale) a cluster.
+Yes, you can enable automatic storage expansion when [creating](../../managed-postgresql/operations/cluster-create.md) or [updating](../../managed-postgresql/operations/storage-space.md#disk-size-autoscale) your cluster.
 
-#### Is DB host backup enabled by default? {#default-backup}
+#### Are database host backups enabled by default? {#default-backup}
 
-Yes, backup is enabled by default. For {{ PG }}, a full backup takes place once a day and saves all DB cluster transaction logs. This allows you to restore the cluster state to any point in time during the backup storage period, except for the last 30 seconds.
+Yes, backups are enabled by default. The {{ PG }} backup policies provide full daily backups and continuous transaction log archiving. This enables point-in-time recovery, allowing you to restore your cluster to any moment within the backup retention period, with the exception of the last 30 seconds.
 
-By default, backups are stored for seven days.
+By default, backups are retained for seven days.
 
-#### When are backups performed? Is a DB cluster available during backup? {#backup-window}
+#### When does a backup run? Is a database cluster available during backups? {#backup-window}
 
-The backup window is an interval during which a full daily backup of the DB cluster is performed. The backup window is from 01:00 to 05:00 (UTC+3).
+The backup window, the scheduled time for the database cluster’s full daily backup, is from 01:00 to 05:00 (UTC+3).
 
-Clusters remain fully accessible during the backup window.
+Clusters remain fully available during the backup window.
 
-#### Are {{ PG }} database cluster connections encrypted? {#encryption}
+#### Is encryption enabled for {{ PG }} database cluster connections? {#encryption}
 
-Connections between a database cluster and an application are always encrypted using SSL. You cannot disable cluster connection encryption.
+Connections between your database cluster and application are always encrypted with SSL. You cannot disable encryption for cluster connections.
 
 #### What is a read-only replica in {{ PG }}? {#read-only-instance}
 
-A read-only replica is a host in a {{ PG }} DB cluster that can only be read. Its data is synced with the master host (applies only if the cluster has more than 1 host). You can use a read-only replica to reduce the load on the DB master host with a large number of read requests.
+A read-only replica is a {{ PG }} database cluster host available only for reads that synchronizes its data with the master host. This applies only to clusters with more than one host. You can use a read-only replica to reduce the load on the master host experiencing high read traffic to its database.
 
-#### What metrics and processes can be tracked using monitoring? {#monitoring}
+#### What metrics and processes can be monitored? {#monitoring}
 
-For all DBMS types, you can track:
-* CPU, memory, network, or disk usage, in absolute terms.
-* Amount of data in the DB cluster and the remaining free space in the data storage.
+For all DBMS types, you can monitor:
+* Absolute CPU, memory, network, and disk utilization.
+* Amount of data in a database cluster and the remaining free space in your data storage.
 
-For DB hosts, you can track metrics specific to the corresponding type of DBMS. For example, for {{ PG }}, you can track:
+For all database hosts, you can monitor metrics specific to their DBMS type. For example, for {{ PG }}, you can monitor:
 * Average query execution time.
-* Number of requests per second.
-* Number of errors in logs, etc.
+* Number of queries per second.
+* Number of errors in logs, and more.
 
-Monitoring can be performed with a minimum granularity of 5 seconds.
+You can monitor metrics with a minimum granularity of five seconds.
 
 {% include [logs](../logs.md) %}
 
-#### What limitations are imposed on {{ PG }} database clusters? {#instance-limitations}
+#### What restrictions are placed on {{ PG }} database clusters? {#instance-limitations}
 
-For more information about {{ mpg-short-name }} limits, see [{#T}](../../managed-postgresql/concepts/limits.md). Characteristics of clusters that can be created using {{ mpg-short-name }} are given in [{#T}](../../managed-postgresql/concepts/instance-types.md).
+To learn about {{ mpg-short-name }} quotas and limits, see [{#T}](../../managed-postgresql/concepts/limits.md). Also refer to [{#T}](../../managed-postgresql/concepts/instance-types.md) for the specifications of clusters you can create with {{ mpg-short-name }}.
 
 #### What {{ PG }} extensions are supported in {{ mpg-short-name }}? {#pg-extension}
 
-The list of supported {{ PG }} extensions is provided in [{#T}](../../managed-postgresql/operations/extensions/cluster-extensions.md).
-
-#### Which data center stores {{ PG }} cluster backups? {#data-center}
-
-Cluster backups are stored and available in all three data centers.
-
-
-{% include [fz-152.md](../../_qa/fz-152.md) %}
+See the list of supported {{ PG }} extensions in [{#T}](../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
-No, you cannot. Superuser privileges are not available to {{ mpg-name }} users. The highest privileges for working with clusters are granted to users with the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin).
+No, superuser privileges are not available to {{ mpg-name }} users. Cluster actions of all types are available to users with the [mdb_admin](../../managed-postgresql/concepts/roles.md#mdb-admin) role.
 
 #### Can I copy data from a {{ mpg-name }} table to a local file? Can I populate a table with data from a local file? {#copy-write-data}
 
-Yes, you can both copy data from a table to a local file and populate a table with data from a local file. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
+Yes, you can both copy data from a table to a local file and import data from a file into a table. For more information, see [{#T}](../../managed-postgresql/operations/copy-write-data.md).
 
-#### Are there any special aspects or restrictions on the use of a garbage collector in {{ mpg-name }} clusters? {#vacuum}
+#### Are there any specific features or restrictions for the garbage collector in a {{ mpg-name }} cluster? {#vacuum}
 
-{{ mpg-name }} clusters support all parameters of the [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html). However, you should consider the following specifics when using them:
+{{ mpg-name }} clusters support all [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html) options. However, please note the following when using them:
 
-* To run `VACUUM FULL`, the user must have the [`mdb_admin` role](../../managed-postgresql/concepts/roles#mdb-admin). The VACUUM FULL command does not affect system views.
-* In {{ PG }} version 14, the functionality of the `INDEX_CLEANUP` parameter is enhanced: it now has the `AUTO` value by default. This means that the `VACUUM` command skips index cleanup if it is considered unfeasible. To ensure backward compatibility with the previous {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
+* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles#mdb-admin) role. The VACUUM FULL operation does not affect system tables.
+* In {{ PG }} version 14, the `INDEX_CLEANUP` parameter functionality has been enhanced: it now has the `AUTO` value by default. This means the `VACUUM` command skips index cleaning if it considers it unnecessary. For backward compatibility with older {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
 
-#### Why is the cluster slow even though the computing resources are not used fully? {#throttling}
+#### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when you [update your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
 
-If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-postgresql/operations/cluster-backups.md#restore) from a backup.
+If you are using the `network-hdd` storage, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-postgresql/operations/cluster-backups.md#restore) from a backup.
+

@@ -1,3 +1,3 @@
-> (17&nbsp;000 / 100&nbsp;000) × 180,00&nbsp;₸ = 0,17 × 180,00&nbsp;₸ = 30,60&nbsp;₸
+> (17&nbsp;000 / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 > 
-> Итого: 30,60&nbsp;₸
+> Итого: {% calc [currency=KZT] 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}

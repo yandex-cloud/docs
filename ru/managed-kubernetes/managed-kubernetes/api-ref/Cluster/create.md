@@ -1,9 +1,585 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a Kubernetes cluster in.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the Kubernetes cluster.
+            The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the Kubernetes cluster.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network.
+          type: string
+        masterSpec:
+          description: |-
+            **[MasterSpec](#yandex.cloud.k8s.v1.MasterSpec)**
+            Required field. Master specification of the Kubernetes cluster.
+          $ref: '#/definitions/MasterSpec'
+        ipAllocationPolicy:
+          description: |-
+            **[IPAllocationPolicy](#yandex.cloud.k8s.v1.IPAllocationPolicy)**
+            IP allocation policy of the Kubernetes cluster.
+          $ref: '#/definitions/IPAllocationPolicy'
+        gatewayIpv4Address:
+          description: |-
+            **string**
+            Gateway IPv4 address.
+            Includes only one of the fields `gatewayIpv4Address`.
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. Service account to be used for provisioning Compute Cloud and VPC resources for Kubernetes cluster.
+            Selected service account should have `edit` role on the folder where the Kubernetes cluster will be
+            located and on the folder where selected network resides.
+          type: string
+        nodeServiceAccountId:
+          description: |-
+            **string**
+            Required field. Service account to be used by the worker nodes of the Kubernetes cluster to access Container Registry or to push node logs and metrics.
+          type: string
+        releaseChannel:
+          description: |-
+            **enum** (ReleaseChannel)
+            Release channel for the master.
+            - `RAPID`: Minor updates with new functions and improvements are often added.
+            You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
+            - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
+            - `STABLE`: Only updates related to bug fixes or security improvements are added.
+          type: string
+          enum:
+            - RELEASE_CHANNEL_UNSPECIFIED
+            - RAPID
+            - REGULAR
+            - STABLE
+        networkPolicy:
+          description: '**[NetworkPolicy](#yandex.cloud.k8s.v1.NetworkPolicy)**'
+          $ref: '#/definitions/NetworkPolicy'
+        kmsProvider:
+          description: |-
+            **[KMSProvider](#yandex.cloud.k8s.v1.KMSProvider)**
+            KMS provider configuration.
+          $ref: '#/definitions/KMSProvider'
+        cilium:
+          description: |-
+            **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
+            Includes only one of the fields `cilium`.
+          $ref: '#/definitions/Cilium'
+        workloadIdentityFederation:
+          description: '**[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)**'
+          $ref: '#/definitions/WorkloadIdentityFederationSpec'
+      required:
+        - folderId
+        - networkId
+        - masterSpec
+        - serviceAccountId
+        - nodeServiceAccountId
+      additionalProperties: false
+    definitions:
+      InternalAddressSpec:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet. If no ID is specified, and there only one subnet in specified zone, an address in this subnet will be allocated.
+            type: string
+      ExternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              IP address.
+            type: string
+      ZonalMasterSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone.
+            type: string
+          internalV4AddressSpec:
+            description: |-
+              **[InternalAddressSpec](#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              Specification of parameters for internal IPv4 networking.
+            $ref: '#/definitions/InternalAddressSpec'
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv4 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+        required:
+          - zoneId
+      MasterLocation:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone.
+            type: string
+          internalV4AddressSpec:
+            description: |-
+              **[InternalAddressSpec](#yandex.cloud.k8s.v1.InternalAddressSpec)**
+              If not specified and there is a single subnet in specified zone, address
+              in this subnet will be allocated.
+            $ref: '#/definitions/InternalAddressSpec'
+        required:
+          - zoneId
+      RegionalMasterSpec:
+        type: object
+        properties:
+          regionId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the master resides.
+            type: string
+          locations:
+            description: |-
+              **[MasterLocation](#yandex.cloud.k8s.v1.MasterLocation)**
+              List of locations where the master will be allocated.
+            type: array
+            items:
+              $ref: '#/definitions/MasterLocation'
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specify to allocate a static public IP for the master.
+            $ref: '#/definitions/ExternalAddressSpec'
+          externalV6AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv6 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+        required:
+          - regionId
+      LocationSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. ID of the availability zone where the master resides.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the VPC network's subnet where the master resides.
+              If not specified and there is a single subnet in specified zone, address in this subnet will be allocated.
+            type: string
+        required:
+          - zoneId
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      DailyMaintenanceWindow:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      DaysOfWeekMaintenanceWindow:
+        type: object
+        properties:
+          days:
+            description: |-
+              **enum** (DayOfWeek)
+              Days of the week when automatic updates are allowed.
+              The number of elements must be in the range 1-7.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: array
+            items:
+              type: string
+              enum:
+                - DAY_OF_WEEK_UNSPECIFIED
+                - MONDAY
+                - TUESDAY
+                - WEDNESDAY
+                - THURSDAY
+                - FRIDAY
+                - SATURDAY
+                - SUNDAY
+          startTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. Window start time, in the UTC timezone.
+            $ref: '#/definitions/TimeOfDay'
+          duration:
+            description: |-
+              **string** (duration)
+              Window duration.
+            type: string
+            format: duration
+        required:
+          - startTime
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          daysOfWeek:
+            description: |-
+              **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
+              Days of the week and the maintenance window for these days when automatic updates are allowed.
+              The number of elements must be in the range 1-7.
+            type: array
+            items:
+              $ref: '#/definitions/DaysOfWeekMaintenanceWindow'
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Updating the master at any time.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          dailyMaintenanceWindow:
+            description: |-
+              **[DailyMaintenanceWindow](#yandex.cloud.k8s.v1.DailyMaintenanceWindow)**
+              Updating the master on any day during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/DailyMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.k8s.v1.WeeklyMaintenanceWindow)**
+              Updating the master on selected days during the specified time window.
+              Includes only one of the fields `anytime`, `dailyMaintenanceWindow`, `weeklyMaintenanceWindow`.
+              Maintenance policy.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - dailyMaintenanceWindow
+          - required:
+              - weeklyMaintenanceWindow
+      MasterMaintenancePolicy:
+        type: object
+        properties:
+          autoUpgrade:
+            description: |-
+              **boolean**
+              If set to true, automatic updates are installed in the specified period of time with no interaction from the user.
+              If set to false, automatic upgrades are disabled.
+            type: boolean
+          maintenanceWindow:
+            description: |-
+              **[MaintenanceWindow](#yandex.cloud.k8s.v1.MaintenanceWindow)**
+              Maintenance window settings. Update will start at the specified time and last no more than the specified duration.
+              The time is set in UTC.
+            $ref: '#/definitions/MaintenanceWindow'
+      MasterLogging:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for master components.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              ID of the log group where logs of master components should be stored.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              ID of the folder where logs should be stored (in default group).
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              The destination of master components' logs.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          auditEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for audit logs.
+            type: boolean
+          clusterAutoscalerEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for cluster-autoscaler.
+            type: boolean
+          kubeApiserverEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for kube-apiserver.
+            type: boolean
+          eventsEnabled:
+            description: |-
+              **boolean**
+              Identifies whether Cloud Logging is enabled for events.
+            type: boolean
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
+      AutoScale:
+        type: object
+        properties:
+          minResourcePresetId:
+            description: |-
+              **string**
+              Required field. Preset of computing resources to be used as lower boundary for scaling.
+            type: string
+        required:
+          - minResourcePresetId
+      MasterScalePolicySpec:
+        type: object
+        properties:
+          autoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+              Includes only one of the fields `autoScale`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - autoScale
+      MasterSpec:
+        type: object
+        properties:
+          zonalMasterSpec:
+            description: |-
+              **[ZonalMasterSpec](#yandex.cloud.k8s.v1.ZonalMasterSpec)**
+              Specification of the zonal master.
+              Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+            $ref: '#/definitions/ZonalMasterSpec'
+          regionalMasterSpec:
+            description: |-
+              **[RegionalMasterSpec](#yandex.cloud.k8s.v1.RegionalMasterSpec)**
+              Specification of the regional master.
+              Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`.
+            $ref: '#/definitions/RegionalMasterSpec'
+          locations:
+            description: |-
+              **[LocationSpec](#yandex.cloud.k8s.v1.LocationSpec)**
+              Locations specification for Kubernetes control-plane (master) instances.
+              Works in conjunction with [etcdClusterSize](#yandex.cloud.k8s.v1.MasterSpec). See it's documentation for details.
+              Possible combinations:
+              - 1 location and etcd_cluster_size = 1 - a single node cluster whose availability is limited by the availability of a single Compute Instance; downtime is expected during cluster updates.
+              - 1 location and etcd_cluster_size = 3 - a highly available cluster within a single availability zone; can survive the failure of a Compute Instance, a server, or an individual server rack.
+              - 3 location and etcd_cluster_size = 3 - a highly available cluster with each etcd instance located within separate availability zone; can survive the failure of a single availability zone.
+            type: array
+            items:
+              $ref: '#/definitions/LocationSpec'
+          etcdClusterSize:
+            description: |-
+              **string** (int64)
+              Number of etcd nodes in cluster.
+              Works in conjunction with [locations](/docs/managed-kubernetes/managed-kubernetes/api-ref/Cluster/update#yandex.cloud.k8s.v1.MasterUpdateSpec). See it's documentation for details.
+              Optional. If not set, will be assumed equal to the number of locations.
+            type: string
+            format: int64
+          externalV4AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv4 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+          externalV6AddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.k8s.v1.ExternalAddressSpec)**
+              Specification of parameters for external IPv6 networking.
+            $ref: '#/definitions/ExternalAddressSpec'
+          version:
+            description: |-
+              **string**
+              Version of Kubernetes components that runs on the master.
+            type: string
+          maintenancePolicy:
+            description: |-
+              **[MasterMaintenancePolicy](#yandex.cloud.k8s.v1.MasterMaintenancePolicy)**
+              Maintenance policy of the master.
+            $ref: '#/definitions/MasterMaintenancePolicy'
+          securityGroupIds:
+            description: |-
+              **string**
+              Master security groups.
+            type: array
+            items:
+              type: string
+          masterLogging:
+            description: |-
+              **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
+              Cloud Logging for master components.
+            $ref: '#/definitions/MasterLogging'
+          scalePolicy:
+            description: |-
+              **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+              Scale policy of the master.
+            $ref: '#/definitions/MasterScalePolicySpec'
+        oneOf:
+          - required:
+              - zonalMasterSpec
+          - required:
+              - regionalMasterSpec
+      IPAllocationPolicy:
+        type: object
+        properties:
+          clusterIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range for allocating pod addresses.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in. Static routes will be
+              set up for this CIDR blocks in node subnets.
+            type: string
+          nodeIpv4CidrMaskSize:
+            description: |-
+              **string** (int64)
+              Size of the masks that are assigned for each node in the cluster.
+              If not specified, 24 is used.
+            type: string
+            format: int64
+          serviceIpv4CidrBlock:
+            description: |-
+              **string**
+              CIDR block. IP range Kubernetes service Kubernetes cluster IP addresses will be allocated from.
+              It should not overlap with any subnet in the network the Kubernetes cluster located in.
+            type: string
+          clusterIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating pod IP addresses.
+            type: string
+          serviceIpv6CidrBlock:
+            description: |-
+              **string**
+              IPv6 range for allocating Kubernetes service IP addresses
+            type: string
+      NetworkPolicy:
+        type: object
+        properties:
+          provider:
+            description: |-
+              **enum** (Provider)
+              - `CALICO`
+            type: string
+            enum:
+              - PROVIDER_UNSPECIFIED
+              - CALICO
+      KMSProvider:
+        type: object
+        properties:
+          keyId:
+            description: |-
+              **string**
+              KMS key ID for secrets encryption.
+              To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/docs/kms/api-ref/SymmetricKey/list#List) request.
+            type: string
+      Cilium:
+        type: object
+        properties:
+          routingMode:
+            description: |-
+              **enum** (RoutingMode)
+              - `TUNNEL`
+            type: string
+            enum:
+              - ROUTING_MODE_UNSPECIFIED
+              - TUNNEL
+      WorkloadIdentityFederationSpec:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Identifies whether Workload Identity Federation is enabled.
+            type: boolean
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/create.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Create {#Create}
+# Managed Services for Kubernetes API, REST: Cluster.Create
 
 Creates a Kubernetes cluster in the specified folder.
 
@@ -20,7 +596,7 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "masterSpec": {
     // Includes only one of the fields `zonalMasterSpec`, `regionalMasterSpec`
@@ -111,6 +687,13 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
       "clusterAutoscalerEnabled": "boolean",
       "kubeApiserverEnabled": "boolean",
       "eventsEnabled": "boolean"
+    },
+    "scalePolicy": {
+      // Includes only one of the fields `autoScale`
+      "autoScale": {
+        "minResourcePresetId": "string"
+      }
+      // end of the list of possible fields
     }
   },
   "ipAllocationPolicy": {
@@ -135,8 +718,11 @@ POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters
   // Includes only one of the fields `cilium`
   "cilium": {
     "routingMode": "string"
-  }
+  },
   // end of the list of possible fields
+  "workloadIdentityFederation": {
+    "enabled": "boolean"
+  }
 }
 ```
 
@@ -149,13 +735,19 @@ To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](
 || name | **string**
 
 Name of the Kubernetes cluster.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the Kubernetes cluster. ||
-|| labels | **string**
+Description of the Kubernetes cluster.
 
-Resource labels as `key:value` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || networkId | **string**
 
 Required field. ID of the network. ||
@@ -182,7 +774,6 @@ Required field. Service account to be used by the worker nodes of the Kubernetes
 
 Release channel for the master.
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -194,6 +785,7 @@ KMS provider configuration. ||
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
 
 Includes only one of the fields `cilium`. ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederationSpec](#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec)** ||
 |#
 
 ## MasterSpec {#yandex.cloud.k8s.v1.MasterSpec}
@@ -241,6 +833,9 @@ Master security groups. ||
 || masterLogging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
 
 Cloud Logging for master components. ||
+|| scalePolicy | **[MasterScalePolicySpec](#yandex.cloud.k8s.v1.MasterScalePolicySpec)**
+
+Scale policy of the master. ||
 |#
 
 ## ZonalMasterSpec {#yandex.cloud.k8s.v1.ZonalMasterSpec}
@@ -403,7 +998,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -414,7 +1011,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -441,12 +1039,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 The destination of master components' logs. ||
 || folderId | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -463,6 +1065,26 @@ Identifies whether Cloud Logging is enabled for kube-apiserver. ||
 || eventsEnabled | **boolean**
 
 Identifies whether Cloud Logging is enabled for events. ||
+|#
+
+## MasterScalePolicySpec {#yandex.cloud.k8s.v1.MasterScalePolicySpec}
+
+#|
+||Field | Description ||
+|| autoScale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale)**
+
+Includes only one of the fields `autoScale`. ||
+|#
+
+## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicySpec.AutoScale}
+
+Scalable master instance resources.
+
+#|
+||Field | Description ||
+|| minResourcePresetId | **string**
+
+Required field. Preset of computing resources to be used as lower boundary for scaling. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy}
@@ -499,7 +1121,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | **enum** (Provider)
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -519,8 +1140,16 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routingMode | **enum** (RoutingMode)
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
+|#
+
+## WorkloadIdentityFederationSpec {#yandex.cloud.k8s.v1.WorkloadIdentityFederationSpec}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -552,7 +1181,7 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "health": "string",
     "networkId": "string",
@@ -638,6 +1267,21 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
         "clusterAutoscalerEnabled": "boolean",
         "kubeApiserverEnabled": "boolean",
         "eventsEnabled": "boolean"
+      },
+      "resources": {
+        "cores": "string",
+        "coreFraction": "string",
+        "memory": "string"
+      },
+      "scalePolicy": {
+        // Includes only one of the fields `fixedScale`, `autoScale`
+        "fixedScale": {
+          "resourcePresetId": "string"
+        },
+        "autoScale": {
+          "minResourcePresetId": "string"
+        }
+        // end of the list of possible fields
       }
     },
     "ipAllocationPolicy": {
@@ -663,8 +1307,19 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
     // Includes only one of the fields `cilium`
     "cilium": {
       "routingMode": "string"
-    }
+    },
     // end of the list of possible fields
+    "scheduledMaintenance": {
+      "delayedUntil": "string",
+      "availableFrom": "string",
+      "noLaterThan": "string",
+      "description": "string"
+    },
+    "workloadIdentityFederation": {
+      "enabled": "boolean",
+      "issuer": "string",
+      "jwksUri": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -793,14 +1448,13 @@ Name of the Kubernetes cluster. ||
 || description | **string**
 
 Description of the Kubernetes cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the Kubernetes cluster.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.
 - `RUNNING`: Kubernetes cluster is running.
 - `RECONCILING`: Kubernetes cluster is being reconciled.
@@ -812,7 +1466,6 @@ Status of the Kubernetes cluster.
 
 Health of the Kubernetes cluster.
 
-- `HEALTH_UNSPECIFIED`
 - `HEALTHY`: Kubernetes cluster is alive and well.
 - `UNHEALTHY`: Kubernetes cluster is inoperable. ||
 || networkId | **string**
@@ -828,6 +1481,8 @@ Allocation policy for IP addresses of services and pods inside the Kubernetes cl
 
 Gateway IPv4 address.
 
+The maximum string length in characters is 15.
+
 Includes only one of the fields `gatewayIpv4Address`. ||
 || serviceAccountId | **string**
 
@@ -842,7 +1497,6 @@ Channels differ in the set of available versions, the management of auto-updates
 You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel.
 For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -857,6 +1511,8 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium2)**
 
 Includes only one of the fields `cilium`. ||
+|| scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -901,6 +1557,12 @@ Master security groups. ||
 || masterLogging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging2)**
 
 Cloud Logging for master components. ||
+|| resources | **[MasterResources](#yandex.cloud.k8s.v1.MasterResources)**
+
+Computing resources of each master instance such as the amount of memory and number of cores. ||
+|| scalePolicy | **[MasterScalePolicy](#yandex.cloud.k8s.v1.MasterScalePolicy)**
+
+Scale policy of the master. ||
 |#
 
 ## ZonalMaster {#yandex.cloud.k8s.v1.ZonalMaster}
@@ -1077,7 +1739,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow2}
@@ -1088,7 +1752,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -1115,12 +1780,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 The destination of master components' logs. ||
 || folderId | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -1137,6 +1806,56 @@ Identifies whether Cloud Logging is enabled for kube-apiserver. ||
 || eventsEnabled | **boolean**
 
 Identifies whether Cloud Logging is enabled for events. ||
+|#
+
+## MasterResources {#yandex.cloud.k8s.v1.MasterResources}
+
+#|
+||Field | Description ||
+|| cores | **string** (int64)
+
+The number of cores available to each master instance. ||
+|| coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core. ||
+|| memory | **string** (int64)
+
+The amount of memory available to each master instance, specified in bytes. ||
+|#
+
+## MasterScalePolicy {#yandex.cloud.k8s.v1.MasterScalePolicy}
+
+#|
+||Field | Description ||
+|| fixedScale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|#
+
+## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale}
+
+Fixed master instance resources.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of computing resources preset to be used by master. ||
+|#
+
+## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale}
+
+Autoscaled master instance resources.
+
+#|
+||Field | Description ||
+|| minResourcePresetId | **string**
+
+ID of computing resources preset to be used as lower boundary for scaling. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy2}
@@ -1173,7 +1892,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | **enum** (Provider)
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -1193,6 +1911,61 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routingMode | **enum** (RoutingMode)
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
+|#
+
+## ScheduledMaintenance {#yandex.cloud.k8s.v1.ScheduledMaintenance}
+
+#|
+||Field | Description ||
+|| delayedUntil | **string** (date-time)
+
+Time until which the update should be postponed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| availableFrom | **string** (date-time)
+
+Time when the update became available.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| noLaterThan | **string** (date-time)
+
+The latest possible date by which a mandatory update must be applied.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| description | **string**
+
+Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

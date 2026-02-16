@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/backups
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to list backups for.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/listBackups.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.ListBackups {#ListBackups}
+# Managed Service for MySQL API, REST: Cluster.ListBackups
 
 Retrieves a list of backups for a cluster.
 
@@ -23,7 +60,9 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/backups
 
 Required field. ID of the cluster to list backups for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest}
@@ -34,12 +73,16 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests. ||
+If the number of available results is larger than `pageSize`, the API returns a [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request. ||
+To get the next page of results, set `pageToken` to the [ListClusterBackupsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse}
@@ -57,7 +100,8 @@ To get the next page of results, set `pageToken` to the [ListClusterBackupsRespo
       "startedAt": "string",
       "size": "string",
       "type": "string",
-      "status": "string"
+      "status": "string",
+      "journalSize": "string"
     }
   ],
   "nextPageToken": "string"
@@ -122,14 +166,15 @@ Size of backup, in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || status | **enum** (BackupStatus)
 
 Status of backup
 
-- `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journalSize | **string** (int64)
+
+Size of the journal associated with backup, in bytes. ||
 |#

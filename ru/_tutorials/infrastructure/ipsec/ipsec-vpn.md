@@ -9,14 +9,12 @@
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость развертывания инфраструктуры для данного решения на базе IPsec-шлюзов входят:
 
 * Плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
 * Плата за использование статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
-
 
 ### Создайте пару ключей SSH {#create-ssh-keys}
 
@@ -26,7 +24,21 @@
 
 Чтобы создать пару ключей:
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 ## Настройте облачную площадку {#cloud-setup}
 
@@ -51,9 +63,9 @@
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.0.0/24`.
 
-    1. Для подключения виртуальной машины `vm-a`:
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
+    1. Для подключения виртуальной машины `vm-d`:
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-d`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-d`.
         * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `172.16.1.0/24`.
 
     1. Для подключения виртуальной машины `vm-b`:
@@ -73,7 +85,7 @@
     | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
     | Входящий | `ipsec-udp-500`  | `500`  | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<x2.x2.x2.x2>/32` |
     | Входящий | `ipsec-udp-4500` | `4500` | `UDP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `<x2.x2.x2.x2>/32` |
-    | Входящий | `subnet-a`       | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.1.0/24` |
+    | Входящий | `subnet-d`       | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.1.0/24` |
     | Входящий | `subnet-b`       | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `172.16.2.0/24` |
 
 #### Настройте статическую маршрутизацию для основного IPsec-шлюза {#cloud-static}
@@ -90,10 +102,10 @@
     1. Нажмите **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
 
 1. Нажмите **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
-1. Привяжите таблицу маршрутизации `cloud-net-rt` к подсетям `subnet-a` и `subnet-b`:
+1. Привяжите таблицу маршрутизации `cloud-net-rt` к подсетям `subnet-d` и `subnet-b`:
 
     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.switch_overview }}**.
-    1. В строке подсети `subnet-a` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
+    1. В строке подсети `subnet-d` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
     1. В открывшемся окне выберите таблицу маршрутизации `cloud-net-rt` и нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
     1. Повторите два предыдущих шага для подсети `subnet-b`, чтобы привязать к ней таблицу маршрутизации `cloud-net-rt`.
 
@@ -101,28 +113,34 @@
 
 #### Создайте ВМ с основным IPsec-шлюзом на облачной площадке {#create-cloud-gw}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать основной IPsec-шлюз.
-1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cloud-gw`.
-1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b`, где находится подсеть, к которой будет подключен основной IPsec-шлюз.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
+1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `IPSec-инстанс` и выберите публичный образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b`, где находится подсеть, к которой будет подключен основной IPsec-шлюз.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите `ipsec-subnet`. 
+    1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `ipsec-subnet`.
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
     1. В открывшемся поле **{{ ui-key.yacloud.component.compute.network-select.field_address }}** выберите публичный IP-адрес `<x1.x1.x1.x1>`, который вы ранее [зарезервировали](#reserve-public-ip).
-
-        Чтобы адрес не изменился после перезагрузки, [сделайте](../../../vpc/operations/set-static-ip.md) его статическим.
-
-    1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` и в открывшемся поле укажите `172.16.0.10`.
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [ранее созданную](#cloud-sg) группу безопасности `cloud-net-sg`.
+    1. Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}**:
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+        * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+        * В появившемся поле для ввода укажите `172.16.0.10`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите `ipsec`.
-    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** введите содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}**:
 
-1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+        * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        * Задайте имя SSH-ключа.
+        * Загрузите или вставьте содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `cloud-gw`.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Дождитесь, когда ВМ перейдет в статус `Running`.
 
@@ -257,27 +275,27 @@
 
 #### Разверните тестовые ВМ на облачной площадке {#cloud-test-vm}
 
-1. [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-a` со следующими параметрами:
+1. [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-d` со следующими параметрами:
 
-    * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-a`.
-    * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-a`.
     * **Операционная система** — [Ubuntu 22.04 LTS](/marketplace/products/yc/ipsec-instance-ubuntu).
-    * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `subnet-a`.
+    * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-d`.
+    * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `subnet-d`.
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `172.16.1.5`.
     * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — `ipsec`.
     * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — публичный SSH-ключ для доступа к ВМ.
+    * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-d`.
 
 1. [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) `vm-b` со следующими параметрами:
 
-    * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-b`.
-    * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
     * **Операционная система** — `Ubuntu 22.04 LTS`.
+    * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `subnet-b`.
     * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
     * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `172.16.2.5`.
     * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — `ipsec`.
     * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — публичный SSH-ключ для доступа к ВМ.
+    * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-b`.
 
 ## Настройте удаленную площадку {#remote-setup}
 
@@ -337,30 +355,41 @@
 
 #### Создайте ВМ с удаленным IPsec-шлюзом {#create-remote-gw}
 
-Создайте ВМ, которая будет выступать в роли удаленного IPsec-шлюза. 
+Создайте ВМ, которая будет выступать в роли удаленного IPsec-шлюза.
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать удаленный IPsec-шлюз.
-1. Справа сверху нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт ![image](../../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** укажите `remote-gw`.
-1. В поле **{{ ui-key.yacloud.compute.instances.create.field_zone }}** выберите `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен удаленный IPsec-шлюз.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ `IPSec-инстанс`.
+1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `IPSec-инстанс` и выберите публичный образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-b` — зону доступности, где находится подсеть, к которой будет подключен удаленный IPsec-шлюз.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите `subnet-1`.
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`.
     1. В открывшемся поле **{{ ui-key.yacloud.component.compute.network-select.field_address }}** выберите публичный IP-адрес `<x2.x2.x2.x2>`, который был [зарезервирован ранее](#reserve-public-ip).
-
-        Чтобы адрес не изменился после перезагрузки, [сделайте](../../../vpc/operations/set-static-ip.md) его статическим.
-
-    1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` и в открывшемся поле укажите `10.10.20.20`.
     1. В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите [ранее созданную](#cloud-sg) группу безопасности `remote-net-sg`.
+    1. Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}**:
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+        * В поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+        * В появившемся поле для ввода укажите `10.10.20.20`.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите `ipsec`.
-    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** введите [созданный ранее](#create-ssh-keys) публичный SSH-ключ для доступа к ВМ.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md) после [создания](#create-cloud-gw) ВМ с основным IPsec-шлюзом.
 
-1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+        Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
+
+        * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        * Задайте имя SSH-ключа.
+        * Загрузите или вставьте содержимое [созданного ранее](#create-ssh-keys) публичного SSH-ключа для доступа к ВМ.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+        {% include [ssh-add-to-org-profile](../../../_includes/compute/create/ssh-add-to-org-profile.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `remote-gw`. Требования к имени:
+
+    {% include [name-format](../../../_includes/name-format.md) %}
+
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Дождитесь, когда ВМ перейдет в статус `Running`.
 
@@ -497,14 +526,14 @@
 
 [Создайте тестовую ВМ](../../../compute/operations/vm-create/create-linux-vm.md) со следующими параметрами:
 
-  * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-1`.
-  * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
   * **Операционная система** — `Ubuntu 22.04 LTS`.
+  * **{{ ui-key.yacloud.compute.instances.create.field_zone }}** — `{{ region-id }}-b`.
   * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `subnet-1`.
   * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
   * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}** — `10.10.10.10`.
   * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — `ipsec`.
   * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — публичный SSH-ключ для доступа к ВМ.
+  * **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** — `vm-1`.
 
 ## Проверьте работу IPsec-соединения и связность между удаленными и облачными ресурсами {#ipsec-test}
 
@@ -520,7 +549,7 @@ IPsec-шлюзы на основной и удаленной площадках 
 
 Для активации IPsec-соединения между шлюзами:
 
-1. Отправьте несколько пакетов ICMP со стороны удаленной площадки, например, от ВМ `vm-1` к ВМ `vm-a` с помощью команды `ping`:
+1. Отправьте несколько пакетов ICMP со стороны удаленной площадки, например, от ВМ `vm-1` к ВМ `vm-d` с помощью команды `ping`:
 
     ```bash
     ssh -J ipsec@<x2.x2.x2.x2> ipsec@10.10.10.10 ping -c4 172.16.1.5
@@ -692,7 +721,7 @@ IPsec-шлюзы на основной и удаленной площадках 
         exit
         ```
 
-1. Подключитесь к ВМ `vm-a`:
+1. Подключитесь к ВМ `vm-d`:
 
     ```bash
     ssh -J ipsec@<x1.x1.x1.x1> ipsec@172.16.1.5
@@ -706,7 +735,7 @@ IPsec-шлюзы на основной и удаленной площадках 
         timedatectl
         ```
 
-    1. Проверьте IP-связность между `vm-a` и `vm-1`:
+    1. Проверьте IP-связность между `vm-d` и `vm-1`:
 
         ```bash
         ping -c4 10.10.10.10
@@ -726,7 +755,7 @@ IPsec-шлюзы на основной и удаленной площадках 
         rtt min/avg/max/mdev = 4.306/4.483/4.916/0.251 ms
         ```
 
-    1. Закройте соединение с `vm-a`:
+    1. Закройте соединение с `vm-d`:
 
         ```bash
         exit
@@ -786,7 +815,7 @@ IPsec-шлюзы на основной и удаленной площадках 
         timedatectl
         ```
 
-    1. Проверьте IP-связность между `vm-1` и `vm-a`:
+    1. Проверьте IP-связность между `vm-1` и `vm-d`:
 
         ```bash
         ping -c4 172.16.1.5

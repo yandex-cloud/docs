@@ -6,9 +6,21 @@ editable: false
 
 # Правила тарификации для {{ kms-name }}
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость [симметричного](https://yandex.cloud/ru/prices?state=143214c6d306#calculator), [ассиметричного](https://yandex.cloud/ru/prices?state=f4147c7925d1#calculator) шифрования и [ассиметричной подписи](https://yandex.cloud/ru/prices?state=80d5cab43182#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
 
 Стоимость использования {{ kms-name }} складывается из:
 
@@ -29,21 +41,35 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
 Тарификация почасовая. Цена за месяц использования указывается для справки из расчета 720 часов в месяц. Значение округлено.
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|kms }}']}
+    excludeSkuIds={['{{ pc|kms.api.v1.generatedatakey }}', '{{ pc|kms.api.v1.hsm.encryptdecrypt }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
+
+
+
+
+## Примеры расчета стоимости
 
 ### Симметричное шифрование {#symmetric}
 
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
+- Расчет в рублях {#prices-rub}
 
-  {% include [rub-symmetric](../_pricing/kms/rub-symmetric.md) %}
+  {% include [rub-symmetric](../_pricing_examples/kms/rub-symmetric.md) %}
 
-- Цены в тенге {#prices-kzt}
+- Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-symmetric](../_pricing/kms/kzt-symmetric.md) %}
+  {% include [kzt-symmetric](../_pricing_examples/kms/kzt-symmetric.md) %}
 
 {% endlist %}
 
@@ -55,15 +81,16 @@ editable: false
 
 {% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
+- Расчет в рублях {#prices-rub}
 
-  {% include [rub-asymmetric](../_pricing/kms/rub-asymmetric.md) %}
+  {% include [rub-asymmetric](../_pricing_examples/kms/rub-asymmetric.md) %}
 
-- Цены в тенге {#prices-kzt}
+- Расчет в тенге {#prices-kzt}
 
-  {% include [kzt-asymmetric](../_pricing/kms/kzt-asymmetric.md) %}
+  {% include [kzt-asymmetric](../_pricing_examples/kms/kzt-asymmetric.md) %}
 
 {% endlist %}
+
 
 
 

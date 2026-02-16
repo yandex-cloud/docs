@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/passwords
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to list passwords in.
+            To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/listPasswords.md
 ---
 
-# IoT Core Service, REST: Registry.ListPasswords {#ListPasswords}
+# IoT Core Service, REST: Registry.ListPasswords
 
 Retrieves the list of passwords for the specified registry.
 

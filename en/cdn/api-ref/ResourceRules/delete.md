@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+    method: delete
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string** (int64)
+            ID of deleted resource rule.
+            Value must be greater than 0.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of resource.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/delete.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Delete {#Delete}
+# Cloud CDN API, REST: ResourceRules.Delete
 
 Delete specified by id resource rule.
 
@@ -19,7 +47,9 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
 ||Field | Description ||
 || ruleId | **string** (int64)
 
-Required field. ID of deleted resource rule. ||
+Required field. ID of deleted resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.DeleteResourceRuleRequest}
@@ -28,7 +58,9 @@ Required field. ID of deleted resource rule. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -119,10 +151,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 || ruleId | **string** (int64)
 
-ID of deleted resource rule. ||
+ID of deleted resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}

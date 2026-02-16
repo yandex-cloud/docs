@@ -19,7 +19,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки резервного копирования с помощью Veritas Backup Exec входят:
@@ -29,7 +28,6 @@
 * плата за исходящий трафик из {{ yandex-cloud }} в интернет.
 
 [Подробнее о тарифах {{ objstorage-full-name }}](../../storage/pricing.md#prices).
-
 
 ## Создайте бакет {#create-bucket}
 
@@ -48,7 +46,7 @@
 Чтобы настроить сервисный аккаунт:
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../storage/security/index.md#storage-admin) `storage.admin`.
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа. Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа. Сразу сохраните идентификатор и секретный ключ. После того, как вы закроете окно, параметры закрытого ключа будут недоступны.
 
 ## Создайте облачный инстанс на {{ objstorage-full-name }} {#new-becloudinstance}
 

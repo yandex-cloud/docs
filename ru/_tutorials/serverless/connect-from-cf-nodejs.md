@@ -1,3 +1,5 @@
+
+
 {% note info %}
 
 Руководство предназначено для пользователей Linux. На Windows пройти руководство можно в среде [WSL](https://docs.microsoft.com/ru-ru/windows/wsl/about).
@@ -25,27 +27,25 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
 * Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 * Плата за выполнение запросов к БД (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md)).
 
-
 ## Подготовьте окружение {#prepare-environment}
 
-1. Клонируйте [репозиторий examples](https://github.com/yandex-cloud/examples/tree/master/serverless/functions/YDB-connect-from-serverless-function) с помощью Git:
+1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function) с помощью Git:
 
    ```bash
-   git clone https://github.com/yandex-cloud/examples.git
+   git clone https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function.git
    ```
 
 1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md).
 1. Перейдите в корневую директорию проекта:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
    Все последующие команды выполняйте в этой директории.
@@ -130,7 +130,7 @@
            type: serviceAccount
      ```
 
-  Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/index.md).
+  Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
 
 - {{ TF }} {#tf}
 
@@ -183,7 +183,7 @@
   1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание [авторизованного ключа](../../iam/concepts/authorization/key.md), чтобы потом было проще найти его в консоли управления.
-  1. Сохраните открытую и закрытую части авторизованного ключа в файл `examples/serverless/functions/YDB-connect-from-serverless-function/service_account_key_file.json`:
+  1. Сохраните открытую и закрытую части авторизованного ключа в файл `yc-ydb-connect-from-serverless-function/service_account_key_file.json`:
 
      ```json
      {
@@ -202,7 +202,7 @@
   yc iam key create --service-account-name sa-function -o service_account_key_file.json
   ```
 
-  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/key/create.md).
+  Подробнее о команде `yc iam key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/key/create.md).
 
   В случае успеха в файл `service_account_key_file.json` будет записан закрытая часть авторизованного ключа (`privateKey`) и идентификатор открытой части (`id`).
 
@@ -275,7 +275,7 @@
 1. Перейдите в корневую директорию проекта:
 
    ```bash
-   cd ~/examples/serverless/functions/YDB-connect-from-serverless-function
+   cd ~/yc-ydb-connect-from-serverless-function
    ```
 
 1. Отредактируйте файл `.env`:

@@ -1,282 +1,449 @@
+---
+title: Managing {{ ZK }} hosts
+description: Follow this guide to manage {{ ZK }} hosts.
+---
+
 # Managing {{ ZK }} hosts
 
 
-Single-host [shards](../concepts/sharding.md) are not fault-tolerant and do not offer [data replication](../concepts/replication.md). To make such shards fault-tolerant, add more hosts to them. If a cluster already contains a multi-host shard, you can immediately [add {{ CH }} hosts](hosts.md#add-host) to the appropriate shard. Otherwise, you must first enable fault tolerance and only then will you be able to add {{ CH }} hosts.
+{{ ZK }} is a coordination system you can use to distribute queries among {{ CH }} hosts for [data replication](../concepts/replication.md). For successful replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number). This cluster will be fault-tolerant.
 
-{% note warning %}
+If you are creating a cluster with two or more {{ CH }} hosts per shard, the system will automatically add three {{ ZK }} hosts to the cluster. At this stage, you can only set up their configuration. If you created a single-host cluster or a cluster with multiple single-host shards, you can add {{ ZK }} hosts later.
 
-If fault tolerance is already enabled for the cluster and {{ ZK }} hosts are created, you cannot delete all these hosts because there are always at least three {{ ZK }} hosts in the cluster.
+For more information about {{ ZK }} hosts, see [{#T}](../concepts/replication.md#zk).
 
-{% endnote %}
-
-You can perform the following actions on {{ ZK }} hosts in fault-tolerant clusters:
+You can do the following with {{ ZK }} hosts:
 
 * [Get a list of cluster hosts](#list-hosts).
-* Use {{ ZK }} hosts to [enable fault tolerance](#add-zk).
-* [Add a host](#add-zk-host).
+* [Add {{ ZK }} hosts](#add-zk).
+* [Update {{ ZK }} host settings](#update-zk-settings).
 * [Restart a host](#restart).
-* [Remove a host](#delete-zk-host).
-
-A fault-tolerant cluster can contain a total of three to five {{ ZK }} hosts.
-
-For information about moving {{ ZK }} hosts to a different availability zone, see [this guide](host-migration.md#zookeeper-hosts).
+* [Move {{ ZK }} hosts to a different availability zone](host-migration.md#zookeeper-hosts).
+* [Delete a host](#delete-zk-host).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
 
-## Enabling fault tolerance for the cluster {#add-zk}
+## Adding {{ ZK }} hosts {#add-zk}
+
+{% note info %}
+
+Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
-   1. Specify the [host class](../concepts/instance-types.md).
-   1. Set up the storage settings.
-   1. Change the {{ ZK }} host settings, if required. To do this, hover over the required host row and click ![image](../../_assets/console-icons/pencil.svg).
-   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. At the top right, click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
+  1. Specify the [host class](../concepts/instance-types.md).
+  1. Configure the storage.
+  1. Change the {{ ZK }} host settings, if required. To do this, hover over the relevant host row and click ![image](../../_assets/console-icons/pencil.svg).
+  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+
+     {% note warning %}
+
+     Once this option is enabled, you cannot disable it.
+
+     {% endnote %}
+
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To enable fault tolerance for a cluster:
-   1. View a description of the CLI command for adding {{ ZK }} hosts:
+  To add {{ ZK }} hosts to a cluster:
+  1. View the description of the CLI command for adding {{ ZK }} hosts:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster add-zookeeper --help
-      ```
+     ```bash
+     {{ yc-mdb-ch }} cluster add-zookeeper --help
+     ```
 
-   1. Run the operation with the default host characteristics:
+  1. Run this command to add hosts with the default configurations:
 
-      ```bash
-      {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
-         --host zone-id={{ region-id }}-d,subnet-name=default-d \
-         --host zone-id={{ region-id }}-a,subnet-name=default-a \
-         --host zone-id={{ region-id }}-b,subnet-name=default-b
-      ```
+     ```bash
+     {{ yc-mdb-ch }} cluster add-zookeeper <cluster_name> \
+        --host zone-id={{ region-id }}-d,subnet-name=default-d \
+        --host zone-id={{ region-id }}-a,subnet-name=default-a \
+        --host zone-id={{ region-id }}-b,subnet-name=default-b
+     ```
 
-      If the network hosting the cluster contains exactly 3 subnets, each per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} automatically distributes hosts over the subnets.
+     If the cluster network contains exactly three subnets, one per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} will automatically distribute hosts across these subnets.
 
-      You can request the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+
+     {% note warning %}
+
+     Once this option is enabled, you cannot disable it.
+
+     {% endnote %}
+
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Make sure the configuration file describes three subnets, one for each availability zone. Add the missing ones, if required:
+  To add {{ ZK }} hosts to a cluster:
 
-      ```hcl
-      resource "yandex_vpc_network" "<network_name>" {
-        name = "<network_name>"
-      }
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-a_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-a_zone>"
-        zone           = "{{ region-id }}-a"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-a_zone>" ]
-      }
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-b_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-b_zone>"
-        zone           = "{{ region-id }}-b"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-b_zone>" ]
-      }
+  1. Make sure the configuration file describes three subnets, one per availability zone. Add the missing ones, if required:
 
-      resource "yandex_vpc_subnet" "<subnet_name_in_the_{{ region-id }}-d_zone>" {
-        name           = "<subnet_name_in_the_{{ region-id }}-d_zone>"
-        zone           = "{{ region-id }}-d"
-        network_id     = yandex_vpc_network.<network_name>.id
-        v4_cidr_blocks = [ "<subnet_IP_address_range_in_the_{{ region-id }}-d_zone>" ]
-      }
-      ```
+     ```hcl
+     resource "yandex_vpc_network" "<network_name>" {
+       name = "<network_name>"
+     }
 
-   1. Add the required number of `CLICKHOUSE` type `host` blocks to the {{ CH }} cluster description.
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-a_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-a_zone>"
+       zone           = "{{ region-id }}-a"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-a_zone_subnet_IP_address_range>" ]
+     }
 
-      {{ CH }} host requirements:
-      * Minimum host class: `b1.medium`.
-      * If there are several hosts, they must be located in different availability zones.
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-b_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-b_zone>"
+       zone           = "{{ region-id }}-b"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-b_zone_subnet_IP_address_range>" ]
+     }
 
-      If necessary, change the class of existing {{ CH }} hosts and availability zone and add the required number of new hosts.
+     resource "yandex_vpc_subnet" "<subnet_name_in_{{ region-id }}-d_zone>" {
+       name           = "<subnet_name_in_{{ region-id }}-d_zone>"
+       zone           = "{{ region-id }}-d"
+       network_id     = yandex_vpc_network.<network_name>.id
+       v4_cidr_blocks = [ "<{{ region-id }}-d_zone_subnet_IP_address_range>" ]
+     }
+     ```
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        name = "<cluster_name>"
-        ...
-        clickhouse {
-          resources {
-            resource_preset_id = "<host_class>"
-            disk_type_id       = "<disk_type>"
-            disk_size          = <storage_size_GB>
-          }
-        }
-        ...
-        host {
-          type      = "CLICKHOUSE"
-          zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_availability_zone_{{ region-id }}-a>.id
-        }
-        ...
-      }
-      ```
+  1. Add a {{ ZK }} configuration section and at least three `ZOOKEEPER`-type `host` sections to the {{ CH }} cluster description.
 
-      Where `resource_preset_id` is host class: `b1.medium` or higher.
+     The {{ ZK }} host requirements are as follows:
+     * Each availability zone must have at least one host.
+     * Minimum host class: `b1.medium`.
+     * Disk type: `{{ disk-type-example }}`.
+     * Minimum storage size: 10 GB.
 
-   1. Add at least 3 `ZOOKEEPER` type `host` blocks to the {{ CH }} cluster description.
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       ...
+       zookeeper {
+         resources {
+           resource_preset_id = "<host_class>"
+           disk_type_id       = "{{ disk-type-example }}"
+           disk_size          = <storage_size_in_GB>
+         }
+       }
+       ...
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-a"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-a_zone>.id
+       }
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-b"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-b_zone>.id
+       }
+       host {
+         type      = "ZOOKEEPER"
+         zone      = "{{ region-id }}-d"
+         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-d_zone>.id
+       }
+     }
+     ```
 
-      {{ ZK }} host requirements:
-      * Each availability zone must have at least one host.
-      * Minimum host class: `b1.medium`.
-      * Disk type: `{{ disk-type-example }}`.
-      * The minimum storage size is 10 GB.
+     Where `resource_preset_id` is the host class, `b1.medium` or higher.
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        zookeeper {
-          resources {
-            resource_preset_id = "<host_class>"
-            disk_type_id       = "{{ disk-type-example }}"
-            disk_size          = <storage_size_GB>
-          }
-        }
-        ...
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-a"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-a_zone>.id
-        }
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-b"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-b_zone>.id
-        }
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "{{ region-id }}-d"
-          subnet_id = yandex_vpc_subnet.<subnet_name_in_the_{{ region-id }}-d_zone>.id
-        }
-      }
-      ```
+  1. Make sure the settings are correct.
 
-      Where `resource_preset_id` is host class: `b1.medium` or higher.
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Make sure the settings are correct.
+  1. Confirm updating the resources.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   1. Confirm updating the resources.
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-mch }}).
+- REST API {#api}
 
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
 
-- API {#api}
+- gRPC API {#grpc-api}
 
-   To enable fault tolerance for a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call. For the added hosts, specify the settings for three {{ ZK }} hosts by listing them in the `hostSpecs` parameter.
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
 
 {% note info %}
 
-{{ ZK }} hosts get the following specs by default:
+{{ ZK }} hosts have the following configuration by default:
 * Host class: `b2.medium`.
 * Network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`): 10 GB.
 
 {% endnote %}
 
-## Adding a {{ ZK }} host {#add-zk-host}
+## Updating {{ ZK }} host settings {#update-zk-settings}
+
+After creating {{ ZK }} hosts, you can change their [class](../concepts/instance-types.md), storage size, and [disk type](../concepts/storage.md).
+
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
+
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
+{% note info %}
+
+To change the disk type to `local-ssd`, contact [support]({{ link-console-support }}).
+
+{% endnote %}
+
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
-   1. If required, change the host settings.
-   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**, select the platform, VM type, and required {{ ZK }} host class.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**, set the storage size and disk type for {{ ZK }} hosts.
+  1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To add a host to a cluster:
-   1. Collect the necessary information:
-      * Request the subnet ID by running the command:
+  To update a {{ ZK }} host configuration:
 
-         ```bash
-         yc vpc subnet list
-         ```
+  1. View the description of the CLI command for updating a cluster:
 
+     ```bash
+     {{ yc-mdb-ch }} cluster update --help
+     ```
 
-         If the required subnet is not in the list, [create it](../../vpc/operations/subnet-create.md).
+  1. Request a list of available host classes. The `ZONE IDS` column lists the availability zones where the relevant class can be selected:
 
+     ```bash
+     {{ yc-mdb-ch }} resource-preset list
 
-      * You can get the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters).
-   1. View a description of the CLI command for adding a host:
+     +-----------+--------------------------------+-------+----------+
+     |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+     +-----------+--------------------------------+-------+----------+
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-d                  |       |          |
+     | ...                                                           |
+     +-----------+--------------------------------+-------+----------+
+     ```
 
-      ```bash
-      {{ yc-mdb-ch }} host add --help
-      ```
+  1. In the update cluster command, provide the new class, disk type, and storage size for your {{ ZK }} host:
 
-   1. Run the add {{ ZK }} host command:
+     ```bash
+     {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
+        --zookepeer-resource-preset=<host_class> \
+        --zookeeper-disk-size=<storage_size_in_GB> \
+        --zookeeper-disk-type=<disk_type>
+     ```
 
-      ```bash
-      {{ yc-mdb-ch }} hosts add \
-        --cluster-name <cluster_name> \
-        --host zone-id=<availability_zone>,subnet-id=<subnet_ID>,type=zookeeper
-      ```
+     You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. Add a `host` block of the `ZOOKEEPER` type to the {{ mch-name }} cluster description:
+  To update the {{ ZK }} host settings:
 
-      ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
-        ...
-        host {
-          type      = "ZOOKEEPER"
-          zone      = "<availability_zone>"
-          subnet_id = yandex_vpc_subnet.<name_of_subnet_in_selected_availability_zone>.id
-        }
-        ...
-      }
-      ```
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-   1. Make sure the settings are correct.
+     To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+  1. In the {{ ZK }} configuration section, specify the new host class, disk type, and storage size.
 
-   1. Confirm updating the resources.
+     The {{ ZK }} host requirements are as follows:
+     * Minimum host class: `b1.medium`.
+     * Minimum storage size: 10 GB.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+     ```hcl
+     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       ...
+       zookeeper {
+         resources {
+           resource_preset_id = "<host_class>"
+           disk_type_id       = "<disk_type>"
+           disk_size          = <storage_size_in_GB>
+         }
+       }
+       ...
+     }
+     ```
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  1. Make sure the settings are correct.
 
-   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+     {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-- API {#api}
+  1. Confirm updating the resources.
 
-   To add a {{ ZK }} host, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
-   * In the `clusterId` parameter, the ID of the cluster where you want to locate the host. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Settings for the host, in the `hostSpecs` parameter (in addition, specify the `ZOOKEEPER` type in the `hostSpecs.type` parameter). Do not specify settings for multiple hosts in this parameter because {{ ZK }} hosts are added to the cluster one by one unlike [{{ CH }} hosts](hosts.md#add-host), which can be added several at a time.
+     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
+
+  {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
+- REST API {#api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Get the list of available host classes:
+
+      1. Call the [ResourcePreset.List](../api-ref/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
+          ```
+
+      1. Check the [server response](../api-ref/ResourcePreset/list.md#responses) to make sure your request was successful.
+
+  1. Update the host class, disk type, and storage size:
+
+      1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+          {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+          ```bash
+          curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>' \
+              --data '{
+                        "updateMask": "configSpec.zookeeper.resources.resourcePresetId,configSpec.zookeeper.resources.diskTypeId,configSpec.zookeeper.resources.diskSize",
+                        "configSpec": {
+                          "zookeeper": {
+                            "resources": {
+                              "resourcePresetId": "<host_class>",
+                              "diskTypeId": "<disk_type>",
+                              "diskSize": "<storage_size_in_GB>"
+                            }
+                          }
+                        }
+                      }'
+          ```
+
+          Where:
+
+          * `updateMask`: Comma-separated string of settings you want to update.
+
+              Specify the relevant parameters:
+              * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
+              * `configSpec.zookeeper.resources.diskTypeId`: To change the disk type for {{ ZK }} hosts.
+              * `configSpec.zookeeper.resources.diskSize`: To change the {{ ZK }} storage size.
+
+          * `configSpec.zookeeper.resources.resourcePresetId`: [Host class](../concepts/instance-types.md) ID.
+          * `configSpec.zookeeper.resources.diskTypeId`: [Disk type](../concepts/storage.md).
+          * `configSpec.zookeeper.resources.diskSize`: Storage size, in GB.
+
+          You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Get the list of available host classes:
+
+      1. Call the [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/resource_preset_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
+          ```
+
+      1. Check the [server response](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse) to make sure your request was successful.
+
+  1. Update the host class, disk type, and storage size:
+
+      1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+          {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                      "paths": [
+                        "config_spec.zookeeper.resources.resource_preset_id",
+                        "config_spec.zookeeper.resources.disk_type_id",
+                        "config_spec.zookeeper.resources.disk_size"
+                      ]
+                    },
+                    "config_spec": {
+                      "zookeeper": {
+                        "resources": {
+                          "resource_preset_id": "<host_class>",
+                          "disk_type_id": "<disk_type>",
+                          "disk_size": "<storage_size_in_GB>"
+                        }
+                      }
+                    }
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+          ```
+
+          Where:
+
+          * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+
+              Specify the relevant parameters:
+              * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
+              * `config_spec.zookeeper.resources.disk_type_id`: To change the disk type for {{ ZK }} hosts.
+              * `config_spec.zookeeper.resources.disk_size`: To change the {{ ZK }} storage size.
+
+          * `config_spec.zookeeper.resources.resource_preset_id`: [Host class](../concepts/instance-types.md) ID.
+          * `config_spec.zookeeper.resources.disk_type_id`: [Disk type](../concepts/storage.md).
+          * `config_spec.zookeeper.resources.disk_size`: Storage size, in GB.
+
+          You can get the cluster ID from the [list of clusters in your folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+
+  1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -284,38 +451,55 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
+## Converting non-replicated tables to replicated ones {#replicated-tables}
+
+To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, add {{ ZK }} hosts with table conversion enabled.
+
+For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} guide]({{ ch.docs }}/development/architecture#replication).
+
 ## Deleting a {{ ZK }} host {#delete-zk-host}
+
+{% note warning %}
+
+If {{ ZK }} hosts have already been created in the cluster, you cannot delete them completely: a cluster will always have at least three {{ ZK }} hosts.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-   1. Hover over the required host row and click ![image](../../_assets/console-icons/xmark.svg).
-   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Hover over the relevant host row and click ![image](../../_assets/console-icons/xmark.svg).
+  1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+  {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To remove a host from the cluster, run:
+  To delete a host from a cluster, run this command:
 
-   ```bash
-   {{ yc-mdb-ch }} hosts delete <host_name> \
-     --cluster-name=<cluster_name>
-   ```
+  ```bash
+  {{ yc-mdb-ch }} hosts delete <host_name> \
+    --cluster-name=<cluster_name>
+  ```
 
-   You can request the host name with a [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the host name with the [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
-   1. In the {{ mch-name }} cluster description, delete the `ZOOKEEPER` type `host` block.
+   To delete a {{ ZK }} host:
+
+   1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+   1. Delete the `ZOOKEEPER`-type `host` section from the {{ mch-name }} cluster description.
    1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -324,15 +508,17 @@ For information about moving {{ ZK }} hosts to a different availability zone, se
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   For more information, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-   To delete a {{ ZK }} host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
-   * ID of the cluster in which the host is located, in the `clusterId` parameter. To find out the cluster ID, get a [list of clusters in the folder](cluster-list.md#list-clusters).
-   * Host name, in the `hostNames` parameter. To find out the name, get a [list of hosts in the cluster](hosts.md#list-hosts).
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/delete-zk-hosts-rest.md) %}
+
+- gRPC API {#grpc-api}
+
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/delete-zk-hosts-grpc.md) %}
 
 {% endlist %}
 

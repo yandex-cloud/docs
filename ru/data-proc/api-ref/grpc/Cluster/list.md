@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/dataproc/v1/api-ref/grpc/Cluster/list.md
 ---
 
-# Data Proc API, gRPC: ClusterService.List {#List}
+# Yandex Data Processing API, gRPC: ClusterService.List
 
 Retrieves the list of clusters in the specified folder.
 
@@ -15,30 +15,36 @@ Retrieves the list of clusters in the specified folder.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. ID of the folder to list clusters in.
 
-To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
-|| pageSize | **int64**
+To get the folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse)
+results is larger than `page_size`, the service returns a [ListClustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListClustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
+
+The maximum value is 1000. ||
+|| page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListClustersResponse.nextPageToken](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request. ||
+[ListClustersResponse.next_page_token](#yandex.cloud.dataproc.v1.ListClustersResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters clusters listed in the response.
@@ -47,7 +53,9 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on [Cluster.name](#yandex.cloud.dataproc.v1.Cluster) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-cluster`. ||
+Example of a filter: `name=my-cluster`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListClustersResponse {#yandex.cloud.dataproc.v1.ListClustersResponse}
@@ -57,11 +65,11 @@ Example of a filter: `name=my-cluster`. ||
   "clusters": [
     {
       "id": "string",
-      "folderId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "map<string, string>",
       "monitoring": [
         {
           "name": "string",
@@ -70,16 +78,16 @@ Example of a filter: `name=my-cluster`. ||
         }
       ],
       "config": {
-        "versionId": "string",
+        "version_id": "string",
         "hadoop": {
           "services": [
             "Service"
           ],
-          "properties": "string",
-          "sshPublicKeys": [
+          "properties": "map<string, string>",
+          "ssh_public_keys": [
             "string"
           ],
-          "initializationActions": [
+          "initialization_actions": [
             {
               "uri": "string",
               "args": [
@@ -87,26 +95,29 @@ Example of a filter: `name=my-cluster`. ||
               ],
               "timeout": "int64"
             }
-          ]
+          ],
+          "oslogin_enabled": "bool"
         }
       },
       "health": "Health",
       "status": "Status",
-      "zoneId": "string",
-      "serviceAccountId": "string",
+      "zone_id": "string",
+      "service_account_id": "string",
       "bucket": "string",
-      "uiProxy": "bool",
-      "securityGroupIds": [
+      "ui_proxy": "bool",
+      "security_group_ids": [
         "string"
       ],
-      "hostGroupIds": [
+      "host_group_ids": [
         "string"
       ],
-      "deletionProtection": "bool",
-      "logGroupId": "string"
+      "deletion_protection": "bool",
+      "log_group_id": "string",
+      "environment": "Environment",
+      "autoscaling_service_account_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -115,39 +126,45 @@ Example of a filter: `name=my-cluster`. ||
 || clusters[] | **[Cluster](#yandex.cloud.dataproc.v1.Cluster)**
 
 List of clusters in the specified folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 Token for getting the next page of the list. If the number of results is greater than
-the specified [ListClustersRequest.pageSize](#yandex.cloud.dataproc.v1.ListClustersRequest), use `next_page_token` as the value
-for the [ListClustersRequest.pageToken](#yandex.cloud.dataproc.v1.ListClustersRequest) parameter in the next list request.
+the specified [ListClustersRequest.page_size](#yandex.cloud.dataproc.v1.ListClustersRequest), use `next_page_token` as the value
+for the [ListClustersRequest.page_token](#yandex.cloud.dataproc.v1.ListClustersRequest) parameter in the next list request.
 
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of the cluster. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
-|| labels | **string**
+Description of the cluster.
 
-Cluster labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -173,36 +190,45 @@ Cluster status.
 - `STOPPING`: Cluster is stopping.
 - `STOPPED`: Cluster stopped.
 - `STARTING`: Cluster is starting. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the cluster resides. ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
-|| uiProxy | **bool**
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
+|| ui_proxy | **bool**
 
 Whether UI Proxy feature is enabled. ||
-|| securityGroupIds[] | **string**
+|| security_group_ids[] | **string**
 
 User security groups. ||
-|| hostGroupIds[] | **string**
+|| host_group_ids[] | **string**
 
 Host groups hosting VMs of the cluster. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Deletion Protection inhibits deletion of the cluster ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | enum **Environment**
+
+Environment of the cluster
+
+- `PRODUCTION`
+- `PRESTABLE` ||
+|| autoscaling_service_account_id | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -221,13 +247,13 @@ Link to the monitoring system. ||
 
 #|
 ||Field | Description ||
-|| versionId | **string**
+|| version_id | **string**
 
 Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig}
@@ -241,7 +267,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -255,19 +280,22 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
 
 For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
 in the file `/etc/hadoop/conf/hdfs-site.xml`. ||
-|| sshPublicKeys[] | **string**
+|| ssh_public_keys[] | **string**
 
 List of public SSH keys to access to cluster hosts. ||
-|| initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+|| initialization_actions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| oslogin_enabled | **bool**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}

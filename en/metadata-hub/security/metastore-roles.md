@@ -2,6 +2,8 @@
 
 With {{ metastore-name }} service roles, you can view {{ metastore-name }} cluster metadata and manage clusters.
 
+{% include [roles-metastore](../../_mermaid/roles/metastore.md) %}
+
 ## {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../../_roles/managed-metastore/auditor.md) %}
@@ -21,3 +23,5 @@ With {{ metastore-name }} service roles, you can view {{ metastore-name }} clust
 ## {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
 
 {% include [managed-metastore.integrationProvider](../../_roles/managed-metastore/integrationProvider.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

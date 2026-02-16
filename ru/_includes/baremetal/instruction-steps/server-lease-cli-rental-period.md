@@ -1,0 +1,1 @@
+`--rental-period-id` — период аренды сервера. Возможные значения: `1 day`, `1 month`, `3 months`, `6 months` или `1 year`.

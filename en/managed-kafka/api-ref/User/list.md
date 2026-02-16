@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: "**string**\nRequired field. ID of the Apache Kafka® cluster to list Kafka users in.\nTo get the Apache Kafka®\_cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.\nThe maximum string length in characters is 50."
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token.
+            To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/list.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.List {#List}
+# Managed Service for Apache Kafka® API, REST: User.List
 
 Retrieves the list of Kafka users in the specified cluster.
 
@@ -21,7 +54,9 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users
 
 Required field. ID of the Apache Kafka® cluster to list Kafka users in.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.kafka.v1.ListUsersRequest}
@@ -32,12 +67,16 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/manage
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests. ||
+If the number of available results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token.
 
-To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request. ||
+To get the next page of results, set `pageToken` to the [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.kafka.v1.ListUsersResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.ListUsersResponse}
@@ -105,16 +144,21 @@ Set of permissions granted to this user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.

@@ -1,9 +1,69 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
+    method: post
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the new key to be used for encryption.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            ID of the version of the new key to be used for encryption.
+            Defaults to the primary version if not specified.
+            The maximum string length in characters is 50.
+          type: string
+        aadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data to be required for decryption.
+            Should be encoded with base64.
+            The maximum string length in characters is 8192.
+          type: string
+          format: bytes
+        sourceKeyId:
+          description: |-
+            **string**
+            Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.
+            The maximum string length in characters is 50.
+          type: string
+        sourceAadContext:
+          description: |-
+            **string** (bytes)
+            Additional authenticated data provided with the initial encryption request.
+            Should be encoded with base64.
+            The maximum string length in characters is 8192.
+          type: string
+          format: bytes
+        ciphertext:
+          description: |-
+            **string** (bytes)
+            Required field. Ciphertext to re-encrypt.
+            Should be encoded with base64.
+          type: string
+          format: bytes
+      required:
+        - sourceKeyId
+        - ciphertext
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricCrypto/reEncrypt.md
 ---
 
-# Key Management Service API, REST: SymmetricCrypto.ReEncrypt {#ReEncrypt}
+# Key Management Service API, REST: SymmetricCrypto.ReEncrypt
 
 Re-encrypts a ciphertext with the specified KMS key.
 
@@ -19,7 +79,9 @@ POST https://{{ api-host-kms-symcrypto }}/kms/v1/keys/{keyId}:reEncrypt
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the new key to be used for encryption. ||
+Required field. ID of the new key to be used for encryption.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.SymmetricReEncryptRequest}
@@ -39,18 +101,26 @@ Required field. ID of the new key to be used for encryption. ||
 || versionId | **string**
 
 ID of the version of the new key to be used for encryption.
-Defaults to the primary version if not specified. ||
+Defaults to the primary version if not specified.
+
+The maximum string length in characters is 50. ||
 || aadContext | **string** (bytes)
 
 Additional authenticated data to be required for decryption.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || sourceKeyId | **string**
 
-Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key. ||
+Required field. ID of the key that the ciphertext is currently encrypted with. May be the same as for the new key.
+
+The maximum string length in characters is 50. ||
 || sourceAadContext | **string** (bytes)
 
 Additional authenticated data provided with the initial encryption request.
-Should be encoded with base64. ||
+Should be encoded with base64.
+
+The maximum string length in characters is 8192. ||
 || ciphertext | **string** (bytes)
 
 Required field. Ciphertext to re-encrypt.

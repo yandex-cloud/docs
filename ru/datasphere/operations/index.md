@@ -11,6 +11,7 @@ description: Страница содержит все инструкции дл�
 * [{#T}](community/add-user.md)
 * [{#T}](community/manage-community-labels.md)
 * [{#T}](community/manage-community-config.md)
+* [{#T}](community/create-ssa.md)
 * [{#T}](community/link-channel.md)
 * [{#T}](community/link-ba.md)
 * [{#T}](community/billing-details.md)
@@ -46,12 +47,13 @@ description: Страница содержит все инструкции дл�
 ## Работа с ресурсами {#resources}
 
 * [{#T}](data/secrets.md)
-* [{#T}](data-proc-template.md)
+* [{#T}](data-processing-template.md)
 * [{#T}](user-images.md)
 * [{#T}](data/dataset.md)
 * [{#T}](data/s3-connectors.md)
 * [{#T}](data/spark-connectors.md)
 * [{#T}](data/models.md)
+* [{#T}](data/filestores.md)
 
 ## Подключение к источникам данных {#connections-to-data-sources}
 
@@ -80,14 +82,16 @@ description: Страница содержит все инструкции дл�
 * [{#T}](projects/work-with-jobs.md)
 * [{#T}](projects/jobs-toolkit.md)
 * [{#T}](projects/use-job-results.md)
+* [{#T}](projects/jobs-with-ssa.md)
 
 ## Совместный доступ к ресурсам, проектам и результатам вычислений {#share}
 
 * [{#T}](data/dataset.md#share)
+* [{#T}](data/filestores.md#share)
 * [{#T}](data/s3-connectors.md#share)
 * [{#T}](data/secrets.md#share)
 * [{#T}](user-images.md#share)
-* [{#T}](data-proc-template.md#share)
+* [{#T}](data-processing-template.md#share)
 * [{#T}](projects/publication.md)
 * [{#T}](projects/export.md)
 * [{#T}](projects/open-in-datasphere.md)
@@ -96,4 +100,3 @@ description: Страница содержит все инструкции дл�
 ## Дополнительные возможности {{ ml-platform-name }} {#additional-feature}
 
 * [{#T}](migration.md)
-

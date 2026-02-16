@@ -3,7 +3,11 @@ stage: preview
 href: index.yaml
 items:
   - name: Начало работы
-    href: quickstart.md
+    items:
+      - name: Для администраторов
+        href: quickstart.md
+      - name: Для пользователей
+        href: quickstart-users.md
   - name: Пошаговые инструкции
     items:
       - name: Все инструкции
@@ -30,20 +34,32 @@ items:
             href: operations/desktops/start-stop.md
           - name: Обновить рабочий стол
             href: operations/desktops/update.md
+          - name: Изменить рабочий стол
+            href: operations/desktops/update-properties.md
           - name: Удалить рабочий стол
             href: operations/desktops/delete.md
       - name: Образы
         items:
           - name: Создать образ на основе рабочего стола
             href: operations/images/create-from-desktop.md
-          - name: Создать образ на основе ВМ Compute Cloud
-            href: operations/images/create-from-compute.md
+          - name: Создать образ Linux на основе ВМ Compute Cloud
+            href: operations/images/create-from-compute-linux.md
+          - name: Создать образ Windows
+            href: operations/images/create-from-windows.md
+          - name: Изменить образ
+            href: operations/images/update.md
           - name: Удалить пользовательский образ
             href: operations/images/delete.md
       - name: Посмотреть логи
         href: operations/logging.md
       - name: Посмотреть операции с ресурсами сервиса
         href: operations/operation-logs.md
+  - name: Практические руководства
+    items:
+      - name: >-
+          Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
+          Linux
+        href: tutorials/desktop-linux-printer.md
   - name: Концепции
     items:
       - name: Рабочие столы и их группы
@@ -62,8 +78,78 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/desktops/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: desktop
+        items:
+          - name: Overview
+            href: cli-ref/desktop/index.md
+          - name: create
+            href: cli-ref/desktop/create.md
+          - name: delete
+            href: cli-ref/desktop/delete.md
+          - name: get
+            href: cli-ref/desktop/get.md
+          - name: get-rdp-file
+            href: cli-ref/desktop/get-rdp-file.md
+          - name: list
+            href: cli-ref/desktop/list.md
+          - name: list-operations
+            href: cli-ref/desktop/list-operations.md
+          - name: reset-password
+            href: cli-ref/desktop/reset-password.md
+          - name: restart
+            href: cli-ref/desktop/restart.md
+          - name: start
+            href: cli-ref/desktop/start.md
+          - name: stop
+            href: cli-ref/desktop/stop.md
+          - name: update
+            href: cli-ref/desktop/update.md
+          - name: update-properties
+            href: cli-ref/desktop/update-properties.md
+      - name: group
+        items:
+          - name: Overview
+            href: cli-ref/group/index.md
+          - name: add-access-bindings
+            href: cli-ref/group/add-access-bindings.md
+          - name: create
+            href: cli-ref/group/create.md
+          - name: delete
+            href: cli-ref/group/delete.md
+          - name: get
+            href: cli-ref/group/get.md
+          - name: list
+            href: cli-ref/group/list.md
+          - name: list-access-bindings
+            href: cli-ref/group/list-access-bindings.md
+          - name: list-desktops
+            href: cli-ref/group/list-desktops.md
+          - name: list-operations
+            href: cli-ref/group/list-operations.md
+          - name: remove-access-bindings
+            href: cli-ref/group/remove-access-bindings.md
+          - name: set-access-bindings
+            href: cli-ref/group/set-access-bindings.md
+          - name: update
+            href: cli-ref/group/update.md
+      - name: image
+        items:
+          - name: Overview
+            href: cli-ref/image/index.md
+          - name: copy
+            href: cli-ref/image/copy.md
+          - name: delete
+            href: cli-ref/image/delete.md
+          - name: get
+            href: cli-ref/image/get.md
+          - name: list
+            href: cli-ref/image/list.md
+          - name: update
+            href: cli-ref/image/update.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -86,6 +172,8 @@ items:
                 href: api-ref/grpc/DesktopGroup/listOperations.md
               - name: Create
                 href: api-ref/grpc/DesktopGroup/create.md
+              - name: Update
+                href: api-ref/grpc/DesktopGroup/update.md
               - name: Delete
                 href: api-ref/grpc/DesktopGroup/delete.md
               - name: ListAccessBindings
@@ -94,6 +182,22 @@ items:
                 href: api-ref/grpc/DesktopGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/DesktopGroup/updateAccessBindings.md
+          - name: DesktopImage
+            items:
+              - name: Overview
+                href: api-ref/grpc/DesktopImage/index.md
+              - name: List
+                href: api-ref/grpc/DesktopImage/list.md
+              - name: Get
+                href: api-ref/grpc/DesktopImage/get.md
+              - name: Copy
+                href: api-ref/grpc/DesktopImage/copy.md
+              - name: Update
+                href: api-ref/grpc/DesktopImage/update.md
+              - name: CopyFromDesktop
+                href: api-ref/grpc/DesktopImage/copyFromDesktop.md
+              - name: Delete
+                href: api-ref/grpc/DesktopImage/delete.md
           - name: Desktop
             items:
               - name: Overview
@@ -108,12 +212,20 @@ items:
                 href: api-ref/grpc/Desktop/listOperations.md
               - name: Create
                 href: api-ref/grpc/Desktop/create.md
+              - name: UpdateProperties
+                href: api-ref/grpc/Desktop/updateProperties.md
               - name: Delete
                 href: api-ref/grpc/Desktop/delete.md
               - name: ResetPassword
                 href: api-ref/grpc/Desktop/resetPassword.md
               - name: Restart
                 href: api-ref/grpc/Desktop/restart.md
+              - name: Update
+                href: api-ref/grpc/Desktop/update.md
+              - name: Start
+                href: api-ref/grpc/Desktop/start.md
+              - name: Stop
+                href: api-ref/grpc/Desktop/stop.md
           - name: Operation
             items:
               - name: Overview
@@ -140,6 +252,8 @@ items:
                 href: api-ref/DesktopGroup/listOperations.md
               - name: Create
                 href: api-ref/DesktopGroup/create.md
+              - name: Update
+                href: api-ref/DesktopGroup/update.md
               - name: Delete
                 href: api-ref/DesktopGroup/delete.md
               - name: ListAccessBindings
@@ -148,6 +262,22 @@ items:
                 href: api-ref/DesktopGroup/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/DesktopGroup/updateAccessBindings.md
+          - name: DesktopImage
+            items:
+              - name: Overview
+                href: api-ref/DesktopImage/index.md
+              - name: List
+                href: api-ref/DesktopImage/list.md
+              - name: Get
+                href: api-ref/DesktopImage/get.md
+              - name: Copy
+                href: api-ref/DesktopImage/copy.md
+              - name: Update
+                href: api-ref/DesktopImage/update.md
+              - name: CopyFromDesktop
+                href: api-ref/DesktopImage/copyFromDesktop.md
+              - name: Delete
+                href: api-ref/DesktopImage/delete.md
           - name: Desktop
             items:
               - name: Overview
@@ -162,10 +292,20 @@ items:
                 href: api-ref/Desktop/listOperations.md
               - name: Create
                 href: api-ref/Desktop/create.md
+              - name: UpdateProperties
+                href: api-ref/Desktop/updateProperties.md
               - name: Delete
                 href: api-ref/Desktop/delete.md
               - name: ResetPassword
                 href: api-ref/Desktop/resetPassword.md
+              - name: Restart
+                href: api-ref/Desktop/restart.md
+              - name: Update
+                href: api-ref/Desktop/update.md
+              - name: Start
+                href: api-ref/Desktop/start.md
+              - name: Stop
+                href: api-ref/Desktop/stop.md
           - name: Operation
             items:
               - name: Overview
@@ -174,5 +314,7 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
-base: ru/cloud-desktop
-deepBase: 2
+  - name: Аудитные логи {{ cloud-desktop-name }}
+    href: at-ref.md
+  - name: История изменений
+    href: release-notes.md

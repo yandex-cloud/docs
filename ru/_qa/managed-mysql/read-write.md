@@ -4,7 +4,7 @@
    1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}**.
    1. Проверьте график **Disk usage**.
-1. Убедитесь, что запись производится в хост, который является мастером, а не [репликой](mysql.md#read-only-instance).
+1. Убедитесь, что запись производится в хост, который является мастером, а не [репликой](../../managed-mysql/qa/mysql.md#read-only-instance).
 
 {% include [qa-replica-lagging](../../_includes/mdb/mmy/qa-replica-lagging.md) %}
 

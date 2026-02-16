@@ -17,15 +17,7 @@
 
 Подкластеры каждого кластера должны находиться в одной [облачной сети](../../vpc/concepts/network.md#network) и в одной [зоне доступности](../../overview/concepts/geo-scope.md).
 
-{% note warning %}
-
-Зона `{{ region-id }}-c` [выводится из эксплуатации](/blog/posts/2023/08/new-availability-zone). Если ваш кластер находится в этой зоне, создайте новый кластер и перенесите в него рабочую нагрузку. Узнайте, как выполнить миграцию [легковесных кластеров](../operations/migration-to-an-availability-zone.md) и [кластеров с файловой системой HDFS](../tutorials/hdfs-cluster-migration.md).
-
-{% endnote %}
-
 Хосты в каждом подкластере создаются с вычислительной мощностью, соответствующей указанному _классу хостов_. Список доступных классов хостов и их характеристики см. в разделе [Классы хостов](instance-types.md).
-
-
 
 Виртуальные машины, соответствующие хостам кластера, могут размещаться:
 
@@ -41,10 +33,9 @@
 
     Подробнее о выделенных хостах см. в [документации {{ compute-full-name }}](../../compute/concepts/dedicated-host.md).
 
-
 О сетевой конфигурации и сетевом доступе к кластеру см. раздел [{#T}](network.md).
 
-{% include [dedicated-hosts-edit-restrictions](../../_includes/data-proc/note-vm-edit-restrictions.md) %}
+{% include [dedicated-hosts-edit-restrictions](../../_includes/data-processing/note-vm-edit-restrictions.md) %}
 
 ## Легковесные кластеры {#light-weight-clusters}
 

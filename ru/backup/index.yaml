@@ -4,11 +4,6 @@ description:
     Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
     копирование виртуальных машин сервиса <a href="/docs/compute">Yandex Compute
     Cloud</a>, а также серверов <a href="/docs/baremetal">Yandex BareMetal</a>.
-meta:
-  title: Yandex Cloud Backup
-  description: >-
-    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
-    копирование виртуальных машин сервиса Yandex Compute Cloud.
 links:
   - title: Начало работы
     description: Создайте ВМ и привяжите ее к политике резервного копирования
@@ -17,7 +12,7 @@ links:
     description: Инструкции по выполнению рутинных операций
     href: operations/
   - title: Концепции
-    description: Узнайте про резервные копии, политики копирования и агента для ВМ
+    description: Узнайте про резервные копии, политики копирования и агента Cloud Backup
     href: concepts/
   - title: Квоты
     description: Технические и организационные ограничения сервиса
@@ -31,3 +26,18 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: backup/api-ref/
+meta:
+  title: Yandex Cloud Backup
+  description: >-
+    Сервис Yandex Cloud Backup позволяет настроить автоматическое резервное
+    копирование виртуальных машин сервиса Yandex Compute Cloud.
+  keywords:
+    - backup
+    - yandex backup
+    - '{{ backup-name }}'
+    - '{{ backup-full-name }}'
+    - сервис {{ backup-name }}
+    - резервные копии в {{ yandex-cloud }}
+    - резервное копирование в {{ yandex-cloud }}
+    - резервные копии
+    - резервное копирование

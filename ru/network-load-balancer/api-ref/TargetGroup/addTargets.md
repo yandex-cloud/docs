@@ -1,9 +1,51 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}:addTargets
+    method: post
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the TargetGroup resource to add targets to.
+            To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        targets:
+          description: |-
+            **[Target](#yandex.cloud.loadbalancer.v1.Target)**
+            List of targets to add to the target group.
+          type: array
+          items:
+            $ref: '#/definitions/Target'
+      additionalProperties: false
+    definitions:
+      Target:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that targets are connected to.
+              All targets in the target group must be connected to the same subnet within a single availability zone.
+            type: string
+          address:
+            description: |-
+              **string**
+              IP address of the target.
+            type: string
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/addTargets.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.AddTargets {#AddTargets}
+# Network Load Balancer API, REST: TargetGroup.AddTargets
 
 Adds targets to the target group.
 
@@ -87,7 +129,7 @@ IP address of the target. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "regionId": "string",
     "targets": [
       {
@@ -224,7 +266,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the target group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

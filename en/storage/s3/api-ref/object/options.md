@@ -15,15 +15,15 @@ OPTIONS /{bucket}/{key} HTTP/2
 Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
-`key` | Object key. ID for saving the object in {{ objstorage-name }}.
+`key` | Object key. which is the ID the object is saved with in {{ objstorage-name }}.
 
 ### Headers {#request-headers}
 
 Header | Description
 --------- | --------
-`Origin` | Request source domain.<br/><br/>E.g., `http://www.example.com`.<br/><br/>Required.
-`Access-Control-Request-Method` | HTTP method that will be used to send the request to the resource.<br/><br/>Required.
-`Access-Control-Request-Headers` | List of headers to be sent in a subsequent request to the object. Headers are separated by commas.<br/><br/>Optional.
+`Origin` | Request source domain.<br/><br/>For example, `http://www.example.com`.<br/><br/>Required.
+`Access-Control-Request-Method` | HTTP method to use when sending a request to a resource.<br/><br/>Required.
+`Access-Control-Request-Headers` | List of headers to send in a subsequent request to the object. Headers are separated by commas.<br/><br/>Optional.
 
 Make sure to also use the required [common headers](../common-request-headers.md).
 
@@ -31,22 +31,22 @@ Make sure to also use the required [common headers](../common-request-headers.md
 
 ### Headers {#response-headers}
 
-In addition to [common response headers](../common-response-headers.md), responses may contain:
+In addition to [common headers](../common-response-headers.md), responses may contain:
 
-Header | Header
+Header | Description
 --------- | --------
-`Access-Control-Allow-Origin` | Domain provided in the `Origin` header of the request.<br/><br/>If the [CORS configuration](../cors/upload.md#request-scheme) has its `AllowedOrigin` element set to `*`, then the `Access-Control-Allow-Origin` header value will also be `*`.<br/><br/>If access from the domain is denied, {{ objstorage-name }} will return error 403 and there will be no `Access-Control-*` headers present.
-`Access-Control-Max-Age` | Allowed response caching time (in seconds).
+`Access-Control-Allow-Origin` | Domain provided in the `Origin` request header.<br/><br/>If the [CORS configuration](../cors/upload.md#request-scheme) has the `AllowedOrigin` element set to `*`, the `Access-Control-Allow-Origin` header value will also be `*`.<br/><br/>If access from the domain is denied, {{ objstorage-name }} will return error 403 and there will be no `Access-Control-*` headers.
+`Access-Control-Max-Age` | Allowed response caching time, in seconds.
 `Access-Control-Allow-Methods` | Allowed request methods. If there are no allowed methods, {{ objstorage-name }} will return error 403 and there will be no `Access-Control-*` headers present.
 `Access-Control-Allow-Headers` | List of HTTP headers that can be used in a subsequent request to the object. If there are no headers allowed, this header is not included in a response.
-`Access-Control-Expose-Headers` | List of HTTP headers that the JavaScript client receives.
+`Access-Control-Expose-Headers` | List of HTTP headers the JavaScript client will receive.
 
 ### Response codes {#response-codes}
 
 The method returns the following:
 
-- 200: if requests to the object are allowed.
-- 403: if requests to the object are not allowed.
+- 200: If requests to the object are allowed.
+- 403: If requests to the object are not allowed.
 
 For a detailed description of response codes, see [{#T}](../response-codes.md).
 

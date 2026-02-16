@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+        subjectId:
+          description: |-
+            **string**
+            if empty, list all organization keys
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            The maximum string length in characters is 2000.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/list.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.List {#List}
+# Identity Hub API, REST: UserSshKey.List
 
 ## HTTP request
 
@@ -17,12 +52,20 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/userSshK
 ||Field | Description ||
 || organizationId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 || subjectId | **string**
 
-if empty, list all organization keys ||
-|| pageSize | **string** (int64) ||
-|| pageToken | **string** ||
+if empty, list all organization keys
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListUserSshKeysResponse}

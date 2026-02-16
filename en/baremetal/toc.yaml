@@ -1,0 +1,705 @@
+title: Yandex BareMetal
+href: index.yaml
+items:
+  - name: Getting started
+    items:
+      - name: Leasing a stock configuration server
+        href: quickstart.md
+      - name: Leasing a custom configuration server
+        href: operations/servers/custom-server-lease.md
+  - name: Step-by-step guides
+    expanded: true
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Servers
+        items:
+          - name: Leasing a stock configuration server
+            href: operations/servers/server-lease.md
+          - name: Leasing a custom configuration server
+            href: operations/servers/custom-server-lease.md
+          - name: Getting information about a server
+            href: operations/servers/get-info.md
+          - name: Updating a server
+            href: operations/servers/server-update.md
+          - name: Connecting to the KVM console
+            href: operations/servers/server-kvm.md
+          - name: Stopping and starting a server
+            href: operations/servers/server-stop-and-start.md
+          - name: Cancel a server lease
+            href: operations/servers/server-lease-cancel.md
+          - name: Uploading a custom OS image
+            href: operations/image-upload.md
+          - name: >-
+              Connecting an existing {{ baremetal-name }} server to {{
+              backup-name }}
+            href: operations/backup-baremetal.md
+          - name: Using the Rescue CD
+            href: operations/servers/rescue-boot.md
+          - name: Reinstalling the server OS
+            items:
+              - name: Reinstalling the OS from a {{ marketplace-short-name }} image
+                href: operations/servers/reinstall-os-from-marketplace.md
+              - name: Reinstalling the OS from your ISO image
+                href: operations/servers/reinstall-os-from-own-image.md
+          - name: Configuring the MC-LAG aggregation group
+            href: operations/servers/set-up-mc-lag.md
+          - name: Resetting a password on the server
+            href: operations/servers/reset-password.md
+          - name: Replacing a disk in a RAID array
+            href: operations/servers/switch-raid-member.md
+          - name: Adding a new SSH key for a user
+            href: operations/servers/add-new-ssh-key.md
+          - name: Restoring the OS bootloader
+            href: operations/servers/restore-grub.md
+          - name: Disk status analysis
+            href: concepts/smart-disk-analysis.md
+          - name: Analyzing server status using HWCheck
+            href: operations/servers/use-hwatcher.md
+      - name: Network
+        items:
+          - name: Creating a VRF
+            href: operations/network-create.md
+          - name: Creating a private subnet
+            href: operations/subnet-create.md
+          - name: Ordering a dedicated public subnet
+            href: operations/reserve-public-subnet.md
+          - name: Creating a private connection to cloud networks
+            href: operations/create-vpc-connection.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Overview
+        href: concepts/index.md
+      - name: Servers
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/servers.md
+          - name: Stock server configurations
+            href: concepts/server-configurations.md
+          - name: Custom server configuration
+            href: concepts/server-custom-configurations.md
+          - name: Personalized server configuration
+            href: concepts/server-individual-configurations.md
+      - name: Network
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/network.md
+          - name: DHCP
+            href: concepts/dhcp.md
+          - name: MC-LAG
+            href: concepts/mc-lag.md
+          - name: Blocked network ports
+            hidden: true
+            href: concepts/traffic-restrictions.md
+          - name: Restrictions in {{ baremetal-name }} networks
+            href: concepts/network-restrictions.md
+      - name: Setup and management
+        expanded: true
+        items:
+          - name: Overview
+            href: concepts/control.md
+          - name: Images
+            href: concepts/images.md
+          - name: '{{ at-name }} events'
+            href: at-ref.md
+          - name: Audit log reference
+            items:
+              - name: ApplyUpdatePrivateCloudConnection
+                href: events-ref/ApplyUpdatePrivateCloudConnection.md
+              - name: BatchCreateServer
+                href: events-ref/BatchCreateServer.md
+              - name: CreateImage
+                href: events-ref/CreateImage.md
+              - name: CreatePrivateCloudConnection
+                href: events-ref/CreatePrivateCloudConnection.md
+              - name: CreatePrivateSubnet
+                href: events-ref/CreatePrivateSubnet.md
+              - name: CreatePublicSubnet
+                href: events-ref/CreatePublicSubnet.md
+              - name: CreateServer
+                href: events-ref/CreateServer.md
+              - name: CreateVRF
+                href: events-ref/CreateVRF.md
+              - name: DeleteImage
+                href: events-ref/DeleteImage.md
+              - name: DeletePrivateCloudConnection
+                href: events-ref/DeletePrivateCloudConnection.md
+              - name: DeletePrivateSubnet
+                href: events-ref/DeletePrivateSubnet.md
+              - name: DeletePublicSubnet
+                href: events-ref/DeletePublicSubnet.md
+              - name: DeleteServer
+                href: events-ref/DeleteServer.md
+              - name: DeleteVRF
+                href: events-ref/DeleteVRF.md
+              - name: PowerOffServer
+                href: events-ref/PowerOffServer.md
+              - name: PowerOnServer
+                href: events-ref/PowerOnServer.md
+              - name: RebootServer
+                href: events-ref/RebootServer.md
+              - name: RegisterServerBackupAgent
+                href: events-ref/RegisterServerBackupAgent.md
+              - name: ReinstallServer
+                href: events-ref/ReinstallServer.md
+              - name: StartServerProlongation
+                href: events-ref/StartServerProlongation.md
+              - name: StopServerProlongation
+                href: events-ref/StopServerProlongation.md
+              - name: UpdateImage
+                href: events-ref/UpdateImage.md
+              - name: UpdatePrivateCloudConnection
+                href: events-ref/UpdatePrivateCloudConnection.md
+              - name: UpdatePrivateSubnet
+                href: events-ref/UpdatePrivateSubnet.md
+              - name: UpdatePublicSubnet
+                href: events-ref/UpdatePublicSubnet.md
+              - name: UpdateServer
+                href: events-ref/UpdateServer.md
+              - name: UpdateVRF
+                href: events-ref/UpdateVRF.md
+          - name: Access management
+            href: security/index.md
+          - name: Additional server settings
+            href: concepts/server-advanced-settings.md
+          - name: CLI reference
+            items:
+              - name: Overview
+                href: cli-ref/index.md
+              - name: boot-image
+                items:
+                  - name: Overview
+                    href: cli-ref/boot-image/index.md
+                  - name: add-labels
+                    href: cli-ref/boot-image/add-labels.md
+                  - name: create
+                    href: cli-ref/boot-image/create.md
+                  - name: delete
+                    href: cli-ref/boot-image/delete.md
+                  - name: get
+                    href: cli-ref/boot-image/get.md
+                  - name: list
+                    href: cli-ref/boot-image/list.md
+                  - name: list-operations
+                    href: cli-ref/boot-image/list-operations.md
+                  - name: remove-labels
+                    href: cli-ref/boot-image/remove-labels.md
+                  - name: update
+                    href: cli-ref/boot-image/update.md
+              - name: configuration
+                items:
+                  - name: Overview
+                    href: cli-ref/configuration/index.md
+                  - name: get
+                    href: cli-ref/configuration/get.md
+                  - name: list
+                    href: cli-ref/configuration/list.md
+              - name: hardware-pool
+                items:
+                  - name: Overview
+                    href: cli-ref/hardware-pool/index.md
+                  - name: get
+                    href: cli-ref/hardware-pool/get.md
+                  - name: list
+                    href: cli-ref/hardware-pool/list.md
+              - name: image
+                items:
+                  - name: Overview
+                    href: cli-ref/image/index.md
+                  - name: get
+                    href: cli-ref/image/get.md
+                  - name: list
+                    href: cli-ref/image/list.md
+              - name: private-cloud-connection
+                items:
+                  - name: Overview
+                    href: cli-ref/private-cloud-connection/index.md
+                  - name: create
+                    href: cli-ref/private-cloud-connection/create.md
+                  - name: delete
+                    href: cli-ref/private-cloud-connection/delete.md
+                  - name: get
+                    href: cli-ref/private-cloud-connection/get.md
+                  - name: list
+                    href: cli-ref/private-cloud-connection/list.md
+                  - name: update
+                    href: cli-ref/private-cloud-connection/update.md
+              - name: private-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/private-subnet/index.md
+                  - name: add-labels
+                    href: cli-ref/private-subnet/add-labels.md
+                  - name: create
+                    href: cli-ref/private-subnet/create.md
+                  - name: delete
+                    href: cli-ref/private-subnet/delete.md
+                  - name: get
+                    href: cli-ref/private-subnet/get.md
+                  - name: list
+                    href: cli-ref/private-subnet/list.md
+                  - name: list-operations
+                    href: cli-ref/private-subnet/list-operations.md
+                  - name: remove-labels
+                    href: cli-ref/private-subnet/remove-labels.md
+                  - name: update
+                    href: cli-ref/private-subnet/update.md
+              - name: public-subnet
+                items:
+                  - name: Overview
+                    href: cli-ref/public-subnet/index.md
+                  - name: add-labels
+                    href: cli-ref/public-subnet/add-labels.md
+                  - name: create
+                    href: cli-ref/public-subnet/create.md
+                  - name: delete
+                    href: cli-ref/public-subnet/delete.md
+                  - name: get
+                    href: cli-ref/public-subnet/get.md
+                  - name: list
+                    href: cli-ref/public-subnet/list.md
+                  - name: list-operations
+                    href: cli-ref/public-subnet/list-operations.md
+                  - name: remove-labels
+                    href: cli-ref/public-subnet/remove-labels.md
+                  - name: update
+                    href: cli-ref/public-subnet/update.md
+              - name: rental-period
+                items:
+                  - name: Overview
+                    href: cli-ref/rental-period/index.md
+                  - name: list
+                    href: cli-ref/rental-period/list.md
+              - name: server
+                items:
+                  - name: Overview
+                    href: cli-ref/server/index.md
+                  - name: add-labels
+                    href: cli-ref/server/add-labels.md
+                  - name: create
+                    href: cli-ref/server/create.md
+                  - name: get
+                    href: cli-ref/server/get.md
+                  - name: list
+                    href: cli-ref/server/list.md
+                  - name: list-operations
+                    href: cli-ref/server/list-operations.md
+                  - name: power-off
+                    href: cli-ref/server/power-off.md
+                  - name: power-on
+                    href: cli-ref/server/power-on.md
+                  - name: reboot
+                    href: cli-ref/server/reboot.md
+                  - name: reinstall
+                    href: cli-ref/server/reinstall.md
+                  - name: remove-labels
+                    href: cli-ref/server/remove-labels.md
+                  - name: update
+                    href: cli-ref/server/update.md
+              - name: vrf
+                items:
+                  - name: Overview
+                    href: cli-ref/vrf/index.md
+                  - name: add-labels
+                    href: cli-ref/vrf/add-labels.md
+                  - name: create
+                    href: cli-ref/vrf/create.md
+                  - name: delete
+                    href: cli-ref/vrf/delete.md
+                  - name: get
+                    href: cli-ref/vrf/get.md
+                  - name: list
+                    href: cli-ref/vrf/list.md
+                  - name: list-operations
+                    href: cli-ref/vrf/list-operations.md
+                  - name: remove-labels
+                    href: cli-ref/vrf/remove-labels.md
+                  - name: update
+                    href: cli-ref/vrf/update.md
+              - name: zone
+                items:
+                  - name: Overview
+                    href: cli-ref/zone/index.md
+                  - name: get
+                    href: cli-ref/zone/get.md
+                  - name: list
+                    href: cli-ref/zone/list.md
+          - name: API reference
+            items:
+              - name: API authentication
+                href: api-ref/authentication.md
+              - name: gRPC
+                items:
+                  - name: Overview
+                    href: api-ref/grpc/index.md
+                  - name: Configuration
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Configuration/index.md
+                      - name: Get
+                        href: api-ref/grpc/Configuration/get.md
+                      - name: List
+                        href: api-ref/grpc/Configuration/list.md
+                  - name: HardwarePool
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/HardwarePool/index.md
+                      - name: Get
+                        href: api-ref/grpc/HardwarePool/get.md
+                      - name: List
+                        href: api-ref/grpc/HardwarePool/list.md
+                  - name: Image
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Image/index.md
+                      - name: Get
+                        href: api-ref/grpc/Image/get.md
+                      - name: List
+                        href: api-ref/grpc/Image/list.md
+                      - name: Create
+                        href: api-ref/grpc/Image/create.md
+                      - name: Update
+                        href: api-ref/grpc/Image/update.md
+                      - name: Delete
+                        href: api-ref/grpc/Image/delete.md
+                      - name: ListOperations
+                        href: api-ref/grpc/Image/listOperations.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: api-ref/grpc/Operation/cancel.md
+                  - name: PrivateCloudConnection
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/PrivateCloudConnection/index.md
+                      - name: Get
+                        href: api-ref/grpc/PrivateCloudConnection/get.md
+                      - name: List
+                        href: api-ref/grpc/PrivateCloudConnection/list.md
+                      - name: Create
+                        href: api-ref/grpc/PrivateCloudConnection/create.md
+                      - name: Update
+                        href: api-ref/grpc/PrivateCloudConnection/update.md
+                      - name: Delete
+                        href: api-ref/grpc/PrivateCloudConnection/delete.md
+                  - name: PrivateSubnet
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/PrivateSubnet/index.md
+                      - name: Get
+                        href: api-ref/grpc/PrivateSubnet/get.md
+                      - name: List
+                        href: api-ref/grpc/PrivateSubnet/list.md
+                      - name: Create
+                        href: api-ref/grpc/PrivateSubnet/create.md
+                      - name: Update
+                        href: api-ref/grpc/PrivateSubnet/update.md
+                      - name: Delete
+                        href: api-ref/grpc/PrivateSubnet/delete.md
+                      - name: ListOperations
+                        href: api-ref/grpc/PrivateSubnet/listOperations.md
+                  - name: PublicSubnet
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/PublicSubnet/index.md
+                      - name: Get
+                        href: api-ref/grpc/PublicSubnet/get.md
+                      - name: List
+                        href: api-ref/grpc/PublicSubnet/list.md
+                      - name: Create
+                        href: api-ref/grpc/PublicSubnet/create.md
+                      - name: Update
+                        href: api-ref/grpc/PublicSubnet/update.md
+                      - name: Delete
+                        href: api-ref/grpc/PublicSubnet/delete.md
+                      - name: ListOperations
+                        href: api-ref/grpc/PublicSubnet/listOperations.md
+                  - name: RentalPeriod
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/RentalPeriod/index.md
+                      - name: List
+                        href: api-ref/grpc/RentalPeriod/list.md
+                  - name: Server
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Server/index.md
+                      - name: Get
+                        href: api-ref/grpc/Server/get.md
+                      - name: List
+                        href: api-ref/grpc/Server/list.md
+                      - name: Create
+                        href: api-ref/grpc/Server/create.md
+                      - name: BatchCreate
+                        href: api-ref/grpc/Server/batchCreate.md
+                      - name: Update
+                        href: api-ref/grpc/Server/update.md
+                      - name: PowerOff
+                        href: api-ref/grpc/Server/powerOff.md
+                      - name: PowerOn
+                        href: api-ref/grpc/Server/powerOn.md
+                      - name: Reboot
+                        href: api-ref/grpc/Server/reboot.md
+                      - name: Reinstall
+                        href: api-ref/grpc/Server/reinstall.md
+                      - name: StartProlongation
+                        href: api-ref/grpc/Server/startProlongation.md
+                      - name: StopProlongation
+                        href: api-ref/grpc/Server/stopProlongation.md
+                      - name: ListOperations
+                        href: api-ref/grpc/Server/listOperations.md
+                  - name: StandardImage
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/StandardImage/index.md
+                      - name: Get
+                        href: api-ref/grpc/StandardImage/get.md
+                      - name: List
+                        href: api-ref/grpc/StandardImage/list.md
+                  - name: Storage
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Storage/index.md
+                      - name: GetDefault
+                        href: api-ref/grpc/Storage/getDefault.md
+                      - name: BatchGetDefault
+                        href: api-ref/grpc/Storage/batchGetDefault.md
+                  - name: Vrf
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Vrf/index.md
+                      - name: Get
+                        href: api-ref/grpc/Vrf/get.md
+                      - name: List
+                        href: api-ref/grpc/Vrf/list.md
+                      - name: Create
+                        href: api-ref/grpc/Vrf/create.md
+                      - name: Update
+                        href: api-ref/grpc/Vrf/update.md
+                      - name: Delete
+                        href: api-ref/grpc/Vrf/delete.md
+                      - name: ListOperations
+                        href: api-ref/grpc/Vrf/listOperations.md
+                  - name: Zone
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/Zone/index.md
+                      - name: Get
+                        href: api-ref/grpc/Zone/get.md
+                      - name: List
+                        href: api-ref/grpc/Zone/list.md
+              - name: REST
+                items:
+                  - name: Overview
+                    href: api-ref/index.md
+                  - name: Configuration
+                    items:
+                      - name: Overview
+                        href: api-ref/Configuration/index.md
+                      - name: Get
+                        href: api-ref/Configuration/get.md
+                      - name: List
+                        href: api-ref/Configuration/list.md
+                  - name: HardwarePool
+                    items:
+                      - name: Overview
+                        href: api-ref/HardwarePool/index.md
+                      - name: Get
+                        href: api-ref/HardwarePool/get.md
+                      - name: List
+                        href: api-ref/HardwarePool/list.md
+                  - name: Image
+                    items:
+                      - name: Overview
+                        href: api-ref/Image/index.md
+                      - name: Get
+                        href: api-ref/Image/get.md
+                      - name: List
+                        href: api-ref/Image/list.md
+                      - name: Create
+                        href: api-ref/Image/create.md
+                      - name: Update
+                        href: api-ref/Image/update.md
+                      - name: Delete
+                        href: api-ref/Image/delete.md
+                      - name: ListOperations
+                        href: api-ref/Image/listOperations.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: api-ref/Operation/index.md
+                      - name: Get
+                        href: api-ref/Operation/get.md
+                      - name: Cancel
+                        href: api-ref/Operation/cancel.md
+                  - name: PrivateCloudConnection
+                    items:
+                      - name: Overview
+                        href: api-ref/PrivateCloudConnection/index.md
+                      - name: Get
+                        href: api-ref/PrivateCloudConnection/get.md
+                      - name: List
+                        href: api-ref/PrivateCloudConnection/list.md
+                      - name: Create
+                        href: api-ref/PrivateCloudConnection/create.md
+                      - name: Update
+                        href: api-ref/PrivateCloudConnection/update.md
+                      - name: Delete
+                        href: api-ref/PrivateCloudConnection/delete.md
+                  - name: PrivateSubnet
+                    items:
+                      - name: Overview
+                        href: api-ref/PrivateSubnet/index.md
+                      - name: Get
+                        href: api-ref/PrivateSubnet/get.md
+                      - name: List
+                        href: api-ref/PrivateSubnet/list.md
+                      - name: Create
+                        href: api-ref/PrivateSubnet/create.md
+                      - name: Update
+                        href: api-ref/PrivateSubnet/update.md
+                      - name: Delete
+                        href: api-ref/PrivateSubnet/delete.md
+                      - name: ListOperations
+                        href: api-ref/PrivateSubnet/listOperations.md
+                  - name: PublicSubnet
+                    items:
+                      - name: Overview
+                        href: api-ref/PublicSubnet/index.md
+                      - name: Get
+                        href: api-ref/PublicSubnet/get.md
+                      - name: List
+                        href: api-ref/PublicSubnet/list.md
+                      - name: Create
+                        href: api-ref/PublicSubnet/create.md
+                      - name: Update
+                        href: api-ref/PublicSubnet/update.md
+                      - name: Delete
+                        href: api-ref/PublicSubnet/delete.md
+                      - name: ListOperations
+                        href: api-ref/PublicSubnet/listOperations.md
+                  - name: RentalPeriod
+                    items:
+                      - name: Overview
+                        href: api-ref/RentalPeriod/index.md
+                      - name: List
+                        href: api-ref/RentalPeriod/list.md
+                  - name: Server
+                    items:
+                      - name: Overview
+                        href: api-ref/Server/index.md
+                      - name: Get
+                        href: api-ref/Server/get.md
+                      - name: List
+                        href: api-ref/Server/list.md
+                      - name: Create
+                        href: api-ref/Server/create.md
+                      - name: BatchCreate
+                        href: api-ref/Server/batchCreate.md
+                      - name: Update
+                        href: api-ref/Server/update.md
+                      - name: PowerOff
+                        href: api-ref/Server/powerOff.md
+                      - name: PowerOn
+                        href: api-ref/Server/powerOn.md
+                      - name: Reboot
+                        href: api-ref/Server/reboot.md
+                      - name: Reinstall
+                        href: api-ref/Server/reinstall.md
+                      - name: StartProlongation
+                        href: api-ref/Server/startProlongation.md
+                      - name: StopProlongation
+                        href: api-ref/Server/stopProlongation.md
+                      - name: ListOperations
+                        href: api-ref/Server/listOperations.md
+                  - name: StandardImage
+                    items:
+                      - name: Overview
+                        href: api-ref/StandardImage/index.md
+                      - name: Get
+                        href: api-ref/StandardImage/get.md
+                      - name: List
+                        href: api-ref/StandardImage/list.md
+                  - name: Storage
+                    items:
+                      - name: Overview
+                        href: api-ref/Storage/index.md
+                      - name: GetDefault
+                        href: api-ref/Storage/getDefault.md
+                      - name: BatchGetDefault
+                        href: api-ref/Storage/batchGetDefault.md
+                  - name: Vrf
+                    items:
+                      - name: Overview
+                        href: api-ref/Vrf/index.md
+                      - name: Get
+                        href: api-ref/Vrf/get.md
+                      - name: List
+                        href: api-ref/Vrf/list.md
+                      - name: Create
+                        href: api-ref/Vrf/create.md
+                      - name: Update
+                        href: api-ref/Vrf/update.md
+                      - name: Delete
+                        href: api-ref/Vrf/delete.md
+                      - name: ListOperations
+                        href: api-ref/Vrf/listOperations.md
+                  - name: Zone
+                    items:
+                      - name: Overview
+                        href: api-ref/Zone/index.md
+                      - name: Get
+                        href: api-ref/Zone/get.md
+                      - name: List
+                        href: api-ref/Zone/list.md
+          - name: '{{ monitoring-name }} metrics'
+            href: metrics.md
+      - name: Quotas and limits
+        href: concepts/limits.md
+  - name: Tutorials
+    items:
+      - name: All tutorials
+        href: tutorials/index.md
+      - name: >-
+          Connecting an existing {{ baremetal-name }} server to {{ backup-name
+          }}
+        href: tutorials/backup-baremetal.md
+      - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
+        href: tutorials/bms-vrf-routing.md
+      - name: >-
+          Establishing network connectivity in a {{ baremetal-name }} private
+          subnet
+        href: tutorials/bms-simple-subnet.md
+      - name: >-
+          Establishing network connectivity between {{ baremetal-name }} and {{
+          vpc-name }} private subnets
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Establishing network connectivity between a {{ baremetal-name }}
+          private subnet and on-premise resources
+        href: tutorials/bms-cic-onprem.md
+      - name: >-
+          Delivering USB devices to a {{ baremetal-name }} server or virtual
+          machine
+        href: tutorials/usb-over-ip.md
+      - name: Configuring an OPNsense firewall in high availability cluster mode
+        href: tutorials/opnsense-failover-cluster.md
+      - name: >-
+          Deploying a web app on {{ baremetal-name }} servers with an L7 load
+          balancer and {{ sws-name }} protection
+        href: tutorials/webapp-on-bms-behind-sws.md
+      - name: >-
+          Connecting a {{ baremetal-name }} server as an external node to a {{
+          managed-k8s-name }} cluster
+        href: tutorials/k8s-connect-bms-as-node.md
+  - name: Pricing policy
+    href: pricing.md
+  - name: FAQ
+    href: qa/all.md

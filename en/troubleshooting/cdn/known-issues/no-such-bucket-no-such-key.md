@@ -1,4 +1,5 @@
-# Fixing the "no such bucket" and "no such key" errors when uploading objects from CDN
+# Fixing the `no such bucket` and `no such key` errors when uploading objects from {{ cdn-name }}
+
 
 
 ## Issue description {#issue-description}
@@ -8,15 +9,14 @@
 
 ## Solution {#issue-resolution}
 
-Possibly, the value of the `origin` field in CDN parameters is set to `<bucket_name>.website.yandexcloud.net` and `header host` is set to  `<bucket_name>.storage.yandexcloud.net`. You need both parameters to have the same values.
+In the CDN settings, you can specify `<bucket_name>.website.yandexcloud.net` as the `origin` field value, and `<bucket_name>.storage.yandexcloud.net` as the `header host` field value. You need both properties to have the same values.
 
-Change the values if they differ and wait for some time (up to 15 minutes). Then check if you can download objects by CDN links.
+Change the values if they are different and wait up to 15 minutes. After that, check if you can download objects via CDN links.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. CDN ID
-2. One or more problematic CDN object links
-3. Problem description.
+1. CDN ID.
+1. One or multiple links to CDN objects you have issues with.
+1. Issue description.

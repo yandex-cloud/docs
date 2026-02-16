@@ -10,6 +10,22 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
+
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
+
+    * [По выделенным ресурсам](../../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
+    * [По фактическому использованию](../../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -22,10 +38,12 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy-user`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. [Выдайте пользователю административные привилегии](../../../managed-mysql/concepts/settings-list#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
 
-
-    1. Настройте [группы безопасности](../../../managed-mysql/operations/connect.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
+    
+    1. Настройте [группы безопасности](../../../managed-mysql/operations/connect/index.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 
     1. [Создайте базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
@@ -74,7 +92,7 @@
 
 1. [Создайте поток данных {{ yds-name }}](../../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
 
-1. [Подключитесь к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
 
     ```sql
     CREATE TABLE measurements (
@@ -110,7 +128,7 @@
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника>` из выпадающего списка.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy-user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — пароль пользователя `mmy-user`.
 
@@ -159,38 +177,23 @@
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
 1. [Удалите поток данных {{ yds-name }}](../../../data-streams/operations/manage-streams.md#delete-data-stream).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
+       1. [Удалите кластер {{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
 
-    * [Эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [{{ mmy-name }}](../../../managed-mysql/operations/cluster-delete.md).
-    * [Базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `mysql-yds.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `mysql-yds.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

@@ -3,7 +3,7 @@
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
     1. Select the function to get a list of versions for.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you can find the list of function versions and their details.
@@ -36,11 +36,6 @@
 - API {#api}
 
     To get a list of function versions, use the [listVersions](../../functions/functions/api-ref/Function/listVersions.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/ListVersions](../../functions/functions/api-ref/grpc/Function/listVersions.md) gRPC API call.
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can create a list of function versions using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}

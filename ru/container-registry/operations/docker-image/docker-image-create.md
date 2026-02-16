@@ -1,3 +1,8 @@
+---
+title: Создать Docker-образ
+description: В инструкции описано, как создать Docker-образ на основе Dockerfile в {{ container-registry-name }} и собрать его.
+---
+
 # Создать Docker-образ
 
 В инструкции описано, как создать [Docker-образ](../../concepts/docker-image.md) на основе Dockerfile и собрать его.
@@ -25,6 +30,8 @@
      ```
 
      Флаг `-t` присваивает Docker-образу URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку по умолчанию: `latest`.
+
+     Имя и тег Docker-образа являются частью имени [репозитория](../../concepts/repository.md), представляющего собой [URI](https://ru.wikipedia.org/wiki/URI), и должны соответствовать определенному формату. Подробнее см. в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
 
 {% endlist %}
 

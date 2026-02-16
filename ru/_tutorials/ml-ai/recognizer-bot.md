@@ -3,11 +3,12 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](../../speechkit/tts/index.md) из текста сообщения с помощью [API v1](../../speechkit/tts/request.md) сервиса {{ speechkit-full-name }};
-* [распознавать речь](../../speechkit/stt/index.md) в голосовых сообщениях и преобразовывать ее в текст с помощью с помощью [API синхронного распознавания](../../speechkit/stt/api/request-api.md) сервиса {{ speechkit-full-name }};
+* [синтезировать речь](../../speechkit/tts/index.md) из текста сообщения и [распознавать речь](../../speechkit/stt/index.md) в голосовых сообщениях с помощью [Python SDK](../../speechkit/sdk/python/index.md) сервиса {{ speechkit-full-name }};
 * [распознавать текст](../../vision/concepts/ocr/index.md) на изображениях с помощью сервиса {{ vision-full-name }}.
 
-Запросы от бота будет принимать API-шлюз {{ api-gw-full-name }} и перенаправлять их функции {{ sf-full-name }} для обработки.
+Аутентификация в сервисах {{ yandex-cloud }} выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
+
+Запросы от бота будет принимать [API-шлюз](../../api-gateway/concepts/index.md) {{ api-gw-full-name }} и перенаправлять их [функции](../../functions/concepts/function.md) {{ sf-full-name }} для обработки.
 
 Чтобы создать бота:
 
@@ -25,7 +26,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки Telegram-бота входят:
@@ -35,10 +35,17 @@
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для {{ sf-name }}](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
-
 ## Подготовьте ресурсы {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `recognizer-bot-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `ai.editor`, `{{ roles-functions-editor }}` на ваш каталог.
+1. [Скачайте](https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-09-30-15-36/ffmpeg-N-117275-g04182b5549-linux64-gpl.tar.xz) архив с пакетом FFmpeg для корректной работы Python SDK {{ speechkit-name }} в [среде выполнения функции](../../functions/concepts/runtime/index.md).
+1. Извлеките из архива бинарные файлы `ffmpeg`, `ffprobe` и сделайте их исполняемыми, выполнив команды:
+
+    ```bash
+    chmod +x ffmpeg
+    chmod +x ffprobe
+    ```
+
 1. Подготовьте ZIP-архив с кодом функции:
 
    1. Создайте файл `index.py` и добавьте в него указанный ниже код.
@@ -52,15 +59,22 @@
       import json
       import os
       import base64
+      from speechkit import model_repository, configure_credentials, creds
+      from speechkit.stt import AudioProcessingType
+
+
+      folder_id = ""
+      iam_token = ''
       
-      # Эндпоинты сервисов и данные для аутентификации
+      # Эндпоинт сервиса распознавания изображений и данные для аутентификации
 
       API_TOKEN = os.environ['TELEGRAM_TOKEN']
       vision_url = 'https://ocr.{{ api-host }}/ocr/v1/recognizeText'
-      speechkit_url = 'https://stt.{{ api-host }}/speech/v1/stt:recognize'
-      speechkit_synthesis_url = 'https://tts.{{ api-host }}/speech/v1/tts:synthesize'
-      folder_id = ""
-      iam_token = ''
+
+      # Добавление папки с ffmpeg в системный PATH
+
+      path = os.environ.get("PATH")
+      os.environ["PATH"] = path + ':/function/code'
 
       logger = telebot.logger
       telebot.logger.setLevel(logging.INFO)
@@ -69,7 +83,6 @@
       # Получение идентификатора каталога
 
       def get_folder_id(iam_token, version_id):
-
           headers = {'Authorization': f'Bearer {iam_token}'}
           function_id_req = requests.get(f'https://serverless-functions.{{ api-host }}/functions/v1/versions/{version_id}',
                                          headers=headers)
@@ -82,7 +95,6 @@
           return folder_id
 
       def process_event(event):
-
           request_body_dict = json.loads(event['body'])
           update = telebot.types.Update.de_json(request_body_dict)
 
@@ -93,6 +105,14 @@
           iam_token = context.token["access_token"]
           version_id = context.function_version
           folder_id = get_folder_id(iam_token, version_id)
+
+          # Аутентификация в SpeechKit через IAM-токен
+          configure_credentials(
+              yandex_credentials=creds.YandexCredentials(
+                  iam_token=iam_token
+              )
+          )
+
           process_event(event)
           return {
               'statusCode': 200
@@ -103,23 +123,21 @@
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "Бот умеет:\n*распознавать текст с картинок;\n* генерировать голосовые сообщения из текста;\n* переводить голосовые сообщения в текст.")
+                       "Бот умеет:\n* распознавать текст с картинок;\n* генерировать голосовые сообщения из текста;\n* переводить голосовые сообщения в текст.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
-          global iam_token, folder_id
-          with open('/tmp/audio.ogg', "wb") as f:
-              for audio_content in synthesize(folder_id, iam_token, message.text):
-                  f.write(audio_content)
-          voice = open('/tmp/audio.ogg', 'rb')
-          bot.send_voice(message.chat.id, voice)
+          export_path = '/tmp/audio.ogg'
+          synthesize(message.text, export_path)
+          with open(export_path, 'rb') as voice:
+              bot.send_voice(message.chat.id, voice)
 
       @bot.message_handler(func=lambda message: True, content_types=['voice'])
       def echo_audio(message):
           file_id = message.voice.file_id
           file_info = bot.get_file(file_id)
           downloaded_file = bot.download_file(file_info.file_path)
-          response_text = audio_analyze(speechkit_url, iam_token, folder_id, downloaded_file)
+          response_text = audio_analyze(downloaded_file)
           bot.reply_to(message, response_text)
 
       @bot.message_handler(func=lambda message: True, content_types=['photo'])
@@ -151,51 +169,42 @@
       
       # Распознавание речи
 
-      def audio_analyze(speechkit_url, iam_token, folder_id, audio_data):
-          headers = {'Authorization': f'Bearer {iam_token}'}
-          params = {
-              "topic": "general",
-              "folderId": f"{folder_id}",
-              "lang": "ru-RU"}
+      def audio_analyze(audio_data):
+          model = model_repository.recognition_model()
 
-          audio_request = requests.post(speechkit_url, params=params, headers=headers, data=audio_data)
-          responseData = audio_request.json()
-          response = 'error'
-          if responseData.get("error_code") is None:
-              response = (responseData.get("result"))
-          return response
+          # Настройки распознавания
+          model.model = 'general'
+          model.language = 'ru-RU'
+          model.audio_processing_type = AudioProcessingType.Full
+
+          result = model.transcribe(audio_data)
+          speech_text = [res.normalized_text for res in result]
+          return ' '.join(speech_text)
       
       # Синтез речи
 
-      def synthesize(folder_id, iam_token, text):
-         headers = {
-             'Authorization': 'Bearer ' + iam_token,
-         }
+      def synthesize(text, export_path):
+          model = model_repository.synthesis_model()
 
-         data = {
-             'text': text,
-             'lang': 'ru-RU',
-             'voice': 'filipp',
-             'folderId': folder_id
-         }
+          # Настройки синтеза
+          model.voice = 'kirill'
 
-         with requests.post(speechkit_synthesis_url, headers=headers, data=data, stream=True) as resp:
-             if resp.status_code != 200:
-                 raise RuntimeError("Invalid response received: code: %d, message: %s" % (resp.status_code, resp.text))
-
-             for chunk in resp.iter_content(chunk_size=None):
-                 yield chunk
+          result = model.synthesize(text, raw_format=False)
+          result.export(export_path, 'ogg')
       ```
 
       {% endcut %}
 
-   1. Создайте файл `requirements.txt` и укажите в нем библиотеку для работы с ботом.
+   1. Создайте файл `requirements.txt` и укажите в нем библиотеку для работы с ботом и библиотеку Python SDK.
 
       ```text
-      telebot
+      pyTelegramBotAPI==4.27
+      yandex-speechkit==1.5.0
       ```
 
-   1. Добавьте оба файла в ZIP-архив `index.zip`.
+   1. Добавьте в ZIP-архив `index.zip` файлы `index.py`, `requirements.txt`, `ffmpeg` и `ffprobe`.
+
+1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }} и [загрузите в него](../../storage/operations/objects/upload.md) созданный ZIP-архив.
 
 ## Зарегистрируйте Telegram-бота {#bot-register}
 
@@ -221,30 +230,34 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. Введите имя функции — `for-recognizer-bot`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   1. Создайте версию функции:
 
-     1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и выберите архив `index.zip`, который [подготовили](#prepare) раньше.
+     1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** укажите имя файла `index.zip`.
      1. Укажите точку входа `index.handler`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `30`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `256 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `recognizer-bot-sa`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
           * `TELEGRAM_TOKEN` — токен вашего бота в Telegram.
 
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+     1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   1. Создайте функцию `for-recognizer-bot`:
 
@@ -269,13 +282,14 @@
      ```bash
      yc serverless function version create \
        --function-name for-recognizer-bot \
-       --memory=128m \
+       --memory=256m \
        --execution-timeout=30s \
        --runtime=python312 \
        --entrypoint=index.handler \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment TELEGRAM_TOKEN=<токен_бота> \
-       --source-path=./index.zip
+       --package-bucket-name=<имя_бакета> \
+       --package-object-name=index.zip
      ```
 
      Где:
@@ -287,7 +301,8 @@
      * `--entrypoint` — точка входа.
      * `--service-account-id` — идентификатор сервисного аккаунта `recognizer-bot-sa`.
      * `--environment` — переменные окружения.
-     * `--source-path` — путь до ZIP-архива `index.zip`.
+     * `--package-bucket-name` — имя бакета.
+     * `--package-object-name` — ключ файла в бакете `index.zip`.
 
      Результат:
 
@@ -295,11 +310,11 @@
      done (1s)
      id: d4e6qqlh53nu********
      function_id: d4emc80mnp5n********
-     created_at: "2023-03-22T16:49:41.800Z"
+     created_at: "2025-03-22T16:49:41.800Z"
      runtime: python312
      entrypoint: index.handler
      resources:
-       memory: "134217728"
+       memory: "268435456"
      execution_timeout: 30s
      service_account_id: aje20nhregkc********
      image_size: "4096"
@@ -315,6 +330,12 @@
 
 - {{ TF }} {#tf}
 
+  
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+
   1. Опишите в конфигурационном файле параметры функции:
 
      ```hcl
@@ -323,14 +344,15 @@
        user_hash          = "first function"
        runtime            = "python312"
        entrypoint         = "index.handler"
-       memory             = "128"
+       memory             = "256"
        execution_timeout  = "30"
        service_account_id = "aje20nhregkcvu******"
        environment = {
          TELEGRAM_TOKEN = <токен_бота>
        }
-       content {
-         zip_filename = "./index.zip"
+       package {
+         bucket_name = <имя_бакета>
+         object_name = "index.zip"
        }
      }
      ```
@@ -345,7 +367,7 @@
      * `execution_timeout` — таймаут выполнения функции.
      * `service_account_id` — идентификатор сервисного аккаунта `recognizer-bot-sa`.
      * `environment` — переменные окружения.
-     * `content` — путь до ZIP-архива `index.zip` с исходным кодом функции.
+     * `package` — имя бакета, в который загружен ZIP-архив `index.zip` с исходным кодом функции.
 
      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
@@ -388,8 +410,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `recognizer-bot-api-gw`.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `recognizer-bot-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
 
      ```yaml
@@ -412,8 +434,8 @@
      * `function_id` — идентификатор функции `for-recognizer-bot`;
      * `service_account_id` — идентификатор сервисного аккаунта `recognizer-bot-sa`.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}** — оно потребуется в дальнейшем.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** — оно потребуется в дальнейшем.
 
 - CLI {#cli}
 
@@ -459,7 +481,7 @@
      created_at: "2023-09-25T16:01:48.926Z"
      name: recognizer-bot-api-gw
      status: ACTIVE
-     domain: d5d1ud9bli1e********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      log_group_id: ckgefpleo5eg********
      connectivity: {}
      log_options:
@@ -533,8 +555,8 @@
 
 ```bash
 curl --request POST \
-  --url https://api.telegram.org/bot<токен_бота>/setWebhook \
-  --header 'content-type: application/json' \ 
+  --url 'https://api.telegram.org/bot<токен_бота>/setWebhook' \
+  --header 'content-type: application/json' \
   --data '{"url": "<домен_API-шлюза>/for-recognizer-bot-function"}'
 ```
 
@@ -578,7 +600,7 @@ curl --request POST \
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-Чтобы перестать платить за созданные ресурсы:
+Чтобы не [платить](#paid-resources) за ресурсы, которые вам больше не нужны, удалите их:
 
 * [удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз {{ api-gw-name }};
 * [удалите](../../functions/operations/function/function-delete.md) функцию {{ sf-name }}.

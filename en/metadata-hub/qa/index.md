@@ -1,22 +1,29 @@
 ---
-title: '{{ metadata-hub-full-name }}. FAQ'
+title: '{{ metadata-hub-full-name }}. Troubleshooting'
 description: How do I fix the error I get when creating a DB in {{ metastore-name }}? Find the answer to this and other questions in this article.
 ---
 
-# General questions about {{ metadata-hub-name }}
+# Troubleshooting in {{ metadata-hub-name }}
 
-#### How do I fix the error I get when creating a database in {{ metastore-full-name }}? {#create-db-in-hive}
+This section describes issues you may encounter in the service and how to troubleshoot them.
 
-The error occurs if you use the following syntax to create a database:
+* [{{ metastore-full-name }}](#metastore)
+* [{{ schema-registry-full-name }}](#schema-registry-full-name)
 
-```sql
-CREATE DATABASE IF NOT EXISTS <DB_name>;
-```
+## Troubleshooting in {{ metastore-full-name }} {#metastore}
 
-{{ metastore-name }} does not allow creating a database or table in Hive: they are stored in a [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) linked to a {{ dataproc-name }} cluster. To create a database, use the following syntax:
+### Error when creating a database in {{ metastore-full-name }} {#create-db-in-hive}
 
-```sql
-CREATE DATABASE IF NOT EXISTS <DB_name> LOCATION <DB_location>;
-```
+{% include notitle [create-db-in-hive](../../_qa/metadata-hub/create-db-in-hive.md) %}
 
-In the `LOCATION` parameter, specify the path to the bucket and the database in it in the following format: `s3a://<bucket_name>/<folder_name>/<DB_name>`. Specifying a folder is optional; however, objects will load into a folder faster than into the bucket root.
+### No permission error when attaching a service account to the cluster {#attach-service-account}
+
+{% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
+
+## Troubleshooting in {{ schema-registry-full-name }} {#schema-registry-full-name}
+
+### Error when adding or deleting optional parameters {#avoid-errors-while-evolving-schema}
+
+{% include notitle [optional-parameter-error](../../_qa/metadata-hub/optional-parameter-error.md) %}
+
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}

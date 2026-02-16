@@ -3,9 +3,10 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Channel/update.md
 ---
 
-# Video API, gRPC: ChannelService.Update {#Update}
+# Video API, gRPC: ChannelService.Update
 
-Update channel.
+Updates an existing channel's metadata and settings.
+Only fields specified in the field_mask will be updated.
 
 ## gRPC request
 
@@ -15,31 +16,154 @@ Update channel.
 
 ```json
 {
-  "channelId": "string",
-  "fieldMask": "google.protobuf.FieldMask",
+  "channel_id": "string",
+  "field_mask": "google.protobuf.FieldMask",
   "title": "string",
   "description": "string",
-  "labels": "string"
+  "default_style_preset_id": "string",
+  "labels": "map<string, string>",
+  "settings": {
+    "advertisement": {
+      // Includes only one of the fields `yandex_direct`
+      "yandex_direct": {
+        "enable": "bool",
+        "page_id": "int64",
+        "category": "int64"
+      }
+      // end of the list of possible fields
+    },
+    "referer_verification": {
+      "enable": "bool",
+      "allowed_domains": [
+        "string"
+      ]
+    }
+  }
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| fieldMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+Required field. ID of the channel to update.
 
-Field mask that specifies which fields of the channel are going to be updated. ||
+The maximum string length in characters is 50. ||
+|| field_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Required field. Field mask specifying which fields of the channel should be updated.
+Only fields specified in this mask will be modified;
+all other fields will retain their current values.
+This allows for partial updates. ||
 || title | **string**
 
-Channel title. ||
+New title for the channel.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Channel description. ||
-|| labels | **string**
+New description for the channel.
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+The maximum string length in characters is 4000. ||
+|| default_style_preset_id | **string**
+
+New default style preset ID for the channel.
+This preset will be applied to new videos created in this channel unless explicitly overridden. ||
+|| labels | **object** (map<**string**, **string**>)
+
+New custom labels for the channel as `key:value` pairs.
+Maximum 64 labels per channel.
+If provided, replaces all existing labels.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings)**
+
+New configuration settings for the channel's behavior and features. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings}
+
+Configuration settings for the channel's behavior and features.
+These settings apply to all content in the channel and control
+various aspects of how the channel and its content behave.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings)**
+
+Settings for advertisement display and behavior.
+Controls whether and how advertisements are shown with content in this channel.
+If not specified, default advertisement settings are applied. ||
+|| referer_verification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings)**
+
+Settings for HTTP Referer verification to control content embedding.
+Restricts which domains can embed content from this channel.
+If not specified or disabled, content can be embedded on any domain. ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings}
+
+Settings for advertisement display and behavior in the channel.
+These settings control whether and how advertisements are shown
+with content in this channel, including both videos and streams.
+
+#|
+||Field | Description ||
+|| yandex_direct | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect)**
+
+Yandex.Direct advertisement provider settings.
+When specified, advertisements will be served through Yandex.Direct.
+
+Includes only one of the fields `yandex_direct`.
+
+Specifies the advertisement provider to use.
+Only one provider can be active at a time. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect}
+
+Configuration for the Yandex.Direct advertisement provider.
+These settings are specific to the Yandex.Direct advertising platform.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enables or disables Partner Ad for both Live and VOD content.
+When set to true, advertisements will be shown with content.
+When set to false, no advertisements will be shown. ||
+|| page_id | **int64**
+
+Yandex.Direct page identifier.
+This ID is used to associate the channel with a specific page
+in the Yandex.Direct system for targeting and reporting. ||
+|| category | **int64**
+
+Yandex.Direct category identifier.
+This ID is used to categorize the channel's content for
+appropriate advertisement targeting and compliance. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings}
+
+Settings for HTTP Referer verification to control where content can be embedded.
+When enabled, the system checks the HTTP Referer request header to ensure
+that content is only embedded on allowed domains.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enables or disables Referer verification for this channel.
+When set to true, only requests from allowed domains will be permitted.
+When set to false, content can be embedded on any domain. ||
+|| allowed_domains[] | **string**
+
+List of domains allowed to embed content from this channel.
+Only relevant when enable is set to true.
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -48,23 +172,41 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "channelId": "string"
+    "channel_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "organizationId": "string",
+    "organization_id": "string",
     "title": "string",
     "description": "string",
-    "createdAt": "google.protobuf.Timestamp",
-    "updatedAt": "google.protobuf.Timestamp",
-    "labels": "string"
+    "default_style_preset_id": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "updated_at": "google.protobuf.Timestamp",
+    "labels": "map<string, string>",
+    "settings": {
+      "advertisement": {
+        // Includes only one of the fields `yandex_direct`
+        "yandex_direct": {
+          "enable": "bool",
+          "page_id": "int64",
+          "category": "int64"
+        }
+        // end of the list of possible fields
+      },
+      "referer_verification": {
+        "enable": "bool",
+        "allowed_domains": [
+          "string"
+        ]
+      }
+    }
   }
   // end of the list of possible fields
 }
@@ -80,13 +222,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -129,36 +271,143 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
+ID of the channel being updated. ||
 |#
 
 ## Channel {#yandex.cloud.video.v1.Channel}
 
-Root entity for content separation.
+Root entity for content organization and separation within the video platform.
+A channel serves as a container for videos and streams, providing a way to
+group related content and apply common settings and access controls.
+Each channel belongs to a specific organization and can have its own
+configuration for advertisements, content cleanup, and embedding restrictions.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the channel. ||
-|| organizationId | **string**
+Unique identifier of the channel.
+This ID is used to reference the channel in API calls and URLs. ||
+|| organization_id | **string**
 
-ID of the organization where channel should be created. ||
+Identifier of the organization to which this channel belongs.
+Each channel must be associated with exactly one organization. ||
 || title | **string**
 
-Channel title. ||
+Title of the channel displayed in interfaces.
+This is the primary display name shown to users. ||
 || description | **string**
 
-Channel description. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Detailed description of the channel's purpose and content.
+This optional field provides additional context about the channel. ||
+|| default_style_preset_id | **string**
 
-Time when channel was created. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Identifier of the default style preset applied to videos in this channel.
+Videos, episodes, and playlists created in this channel
+inherit this preset unless explicitly overridden. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Time of last channel update. ||
-|| labels | **string**
+Timestamp when the channel was initially created.
+This value is set automatically by the system and cannot be modified. ||
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Timestamp of the last modification to the channel or its settings.
+This value is updated automatically whenever the channel is modified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per channel.
+Labels can be used for organization, filtering, and metadata purposes. ||
+|| settings | **[ChannelSettings](#yandex.cloud.video.v1.ChannelSettings2)**
+
+Configuration settings for the channel's behavior and features.
+These settings control advertisements, content cleanup policies,
+and embedding restrictions for all content in the channel. ||
+|#
+
+## ChannelSettings {#yandex.cloud.video.v1.ChannelSettings2}
+
+Configuration settings for the channel's behavior and features.
+These settings apply to all content in the channel and control
+various aspects of how the channel and its content behave.
+
+#|
+||Field | Description ||
+|| advertisement | **[AdvertisementSettings](#yandex.cloud.video.v1.AdvertisementSettings2)**
+
+Settings for advertisement display and behavior.
+Controls whether and how advertisements are shown with content in this channel.
+If not specified, default advertisement settings are applied. ||
+|| referer_verification | **[RefererVerificationSettings](#yandex.cloud.video.v1.RefererVerificationSettings2)**
+
+Settings for HTTP Referer verification to control content embedding.
+Restricts which domains can embed content from this channel.
+If not specified or disabled, content can be embedded on any domain. ||
+|#
+
+## AdvertisementSettings {#yandex.cloud.video.v1.AdvertisementSettings2}
+
+Settings for advertisement display and behavior in the channel.
+These settings control whether and how advertisements are shown
+with content in this channel, including both videos and streams.
+
+#|
+||Field | Description ||
+|| yandex_direct | **[YandexDirect](#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2)**
+
+Yandex.Direct advertisement provider settings.
+When specified, advertisements will be served through Yandex.Direct.
+
+Includes only one of the fields `yandex_direct`.
+
+Specifies the advertisement provider to use.
+Only one provider can be active at a time. ||
+|#
+
+## YandexDirect {#yandex.cloud.video.v1.AdvertisementSettings.YandexDirect2}
+
+Configuration for the Yandex.Direct advertisement provider.
+These settings are specific to the Yandex.Direct advertising platform.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enables or disables Partner Ad for both Live and VOD content.
+When set to true, advertisements will be shown with content.
+When set to false, no advertisements will be shown. ||
+|| page_id | **int64**
+
+Yandex.Direct page identifier.
+This ID is used to associate the channel with a specific page
+in the Yandex.Direct system for targeting and reporting. ||
+|| category | **int64**
+
+Yandex.Direct category identifier.
+This ID is used to categorize the channel's content for
+appropriate advertisement targeting and compliance. ||
+|#
+
+## RefererVerificationSettings {#yandex.cloud.video.v1.RefererVerificationSettings2}
+
+Settings for HTTP Referer verification to control where content can be embedded.
+When enabled, the system checks the HTTP Referer request header to ensure
+that content is only embedded on allowed domains.
+
+#|
+||Field | Description ||
+|| enable | **bool**
+
+Enables or disables Referer verification for this channel.
+When set to true, only requests from allowed domains will be permitted.
+When set to false, content can be embedded on any domain. ||
+|| allowed_domains[] | **string**
+
+List of domains allowed to embed content from this channel.
+Only relevant when enable is set to true.
+Supports wildcard notation (e.g., "*.example.com") to allow all subdomains.
+
+Each value must match the regular expression ``` ^(?:\*\.)?(?:[a-zA-Z0-9-]*\.)+[a-zA-Z]{2,}$|^\*\.[a-zA-Z]{2,}$ ```. The string length in characters for each value must be 4-255. The maximum number of elements is 100. ||
 |#

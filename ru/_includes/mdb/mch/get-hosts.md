@@ -4,7 +4,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
 - CLI {#cli}
@@ -37,7 +38,7 @@
 
         {% include [api-auth-token](../../mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.listHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListHosts](../../../managed-clickhouse/api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -48,7 +49,7 @@
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../../managed-clickhouse/api-ref/Cluster/listHosts.md#yandex.cloud.mdb.clickhouse.v1.ListClusterHostsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -58,7 +59,7 @@
 
     1. {% include [grpc-api-setup-repo](../../mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService/ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../../../managed-clickhouse/api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -70,7 +71,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 

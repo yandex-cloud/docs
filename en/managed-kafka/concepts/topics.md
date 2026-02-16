@@ -46,8 +46,6 @@ A {{ mkf-name }} cluster provides two ways for you to manage topics and partitio
 
 * Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). The method will suit you if you already have your own solution for managing topics and partitions. When using the Admin API, the following restrictions apply:
 
-    * Topics can be managed by an admin user with the `ACCESS_ROLE_ADMIN` role effective for all the cluster topics. If there is no such user in the cluster, [create](../operations/cluster-accounts.md) one.
-
-    * You need to configure user permissions for [producers and consumers](./producers-consumers.md) using native {{ yandex-cloud }} interfaces rather than the {{ KF }} Admin API.
+    {% include [admin-api-limits](../../_includes/mdb/mkf/admin-api-limits.md) %}
 
 You can use these methods separately or combined.

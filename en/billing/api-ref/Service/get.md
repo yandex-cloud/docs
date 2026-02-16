@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://billing.{{ api-host }}/billing/v1/services/{id}
+    method: get
+    path:
+      type: object
+      properties:
+        id:
+          description: |-
+            **string**
+            Required field. ID of the service to return.
+            To get the service ID, use [ServiceService.List](/docs/billing/api-ref/Service/list#List) request.
+          type: string
+      required:
+        - id
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/billing/v1/api-ref/Service/get.md
 ---
 
-# Billing API, REST: Service.Get {#Get}
+# Billing API, REST: Service.Get
 
 Returns the specified service.
 

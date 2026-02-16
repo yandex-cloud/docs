@@ -1,10 +1,35 @@
-For example, the total cost of sending 315.04 million requests per month to {{ sws-name }} for analysis will be:
-> 0.01 × $0.000000 + 0.99 × $200.000000 + 9 × $28.000000 + 90 × $1.600000 + 215.04 × $1.120000 = $834.844800 excluding VAT.
+> Let’s calculate the cost of 315,040,000 legitimate requests per month processed by security profile rules:
+> 
+> 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|string }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|string }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|string }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|string }} = {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %}, without VAT.
 
 Where:
 
-* 0.01 × $0.000000: Non-billable threshold of 0.01 million requests.
-* 0.99 × $200.000000: Cost of the subsequent 0.99 million requests.
-* 9 × $28.000000: Cost of the subsequent 9 million requests.
-* 90 × $1.600000: Cost of the subsequent 90 million requests.
-* 215.04 × $1.120000: Cost of the remaining 215.04 million requests.
+* 0.01 × {{ sku|USD|sws.requests.v1|number }}: Non-billable threshold of the first 0.01 million requests.
+* 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|string }}: Cost of the subsequent 0.99 million requests.
+* 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|string }}: Cost of the subsequent 9 million requests.
+* 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|string }}: Cost of the subsequent 90 million requests.
+* 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|string }}: Cost of the remaining 215.04 million requests.
+
+You can only connect a WAF profile if using a security profile. Both profiles, security and WAF, will contribute to the cost of request processing. Since the security and WAF profiles are priced equally, the total cost will be double that of a security profile alone.
+
+> Let’s calculate the cost of 315,040,000 legitimate requests per month processed by security and WAF profile rules:
+> 
+> {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %} × 2 = {% calc [currency=USD] (0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }}) × 2 %}, without VAT.
+
+Where:
+
+* {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %}: Cost of 315,040,000 legitimate requests per month processed by security profile rules.
+* × 2: The cost is multiplied by `2` since the security and WAF profiles are priced equally.
+
+> Let’s calculate the cost of 315,040,000 legitimate requests per month when using a proxy server and security profile rules:
+> 
+> {% calc [currency=USD] 0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × {{ sku|USD|sws.proxy-server.v1|string }} + 7 × {{ sku|USD|sws.antiddos.traffic|string }} = {% calc [currency=USD] (0.01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × {{ sku|USD|sws.proxy-server.v1|number }} + 7 × {{ sku|USD|sws.antiddos.traffic|number }} %}, including VAT.
+
+Where: 
+
+* {% calc [currency=USD] 0,01 × {{ sku|USD|sws.requests.v1|number }} + 0.99 × {{ sku|USD|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|USD|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|USD|sws.requests.v1|pricingRate.10|number }} + 215.04 × {{ sku|USD|sws.requests.v1|pricingRate.100|number }} %}: Cost of 315,040,000 legitimate requests per month processed by security profile rules.
+* 6: Minimum number of proxy server resource units. 
+* 720: Number of hours in 30 days.
+* {{ sku|USD|sws.proxy-server.v1|string }}: Price per proxy server resource unit per hour.
+* 7: Amount of incoming traffic (GB).
+* {{ sku|USD|sws.antiddos.traffic|string }}: Price of incoming traffic DDoS protection per GB.

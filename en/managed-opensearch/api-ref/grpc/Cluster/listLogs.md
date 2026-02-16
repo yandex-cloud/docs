@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/listLogs.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.ListLogs {#ListLogs}
+# Managed Service for OpenSearch API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for the specified OpenSearch cluster.
 For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) section in the developer's guide.
@@ -16,50 +16,56 @@ For detailed description, see the [Logs](/yandex-mdb-guide/concepts/logs.html) s
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "pageSize": "int64",
-  "pageToken": "string",
-  "alwaysNextPageToken": "bool",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "page_size": "int64",
+  "page_token": "string",
+  "always_next_page_token": "bool",
   "filter": "string",
-  "serviceType": "ServiceType"
+  "service_type": "ServiceType"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to request logs for.
 
-To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
-|| columnFilter[] | **string**
+To get the OpenSearch cluster ID use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| column_filter[] | **string**
 
 Columns from log table to request.
 If no columns are specified, entire log records are returned. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the service returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
+that can be used to get the next page of results in subsequent list requests.
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request. ||
-|| alwaysNextPageToken | **bool**
+The maximum value is 1000. ||
+|| page_token | **string**
 
-The service always returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse), even if the current page is empty. ||
+Page token. To get the next page of results, set `page_token` to the
+[ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse) returned by the previous list request.
+
+The maximum string length in characters is 100. ||
+|| always_next_page_token | **bool**
+
+The service always returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse), even if the current page is empty. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -74,12 +80,13 @@ The expression must specify:
 
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
-* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`. ||
-|| serviceType | enum **ServiceType**
+* `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
+
+The maximum string length in characters is 1000. ||
+|| service_type | enum **ServiceType**
 
 Type of the service to request logs about.
 
-- `SERVICE_TYPE_UNSPECIFIED`: Type is not specified.
 - `OPENSEARCH`: OpenSearch logs.
 - `DASHBOARDS`: Dashboards logs. ||
 |#
@@ -91,10 +98,10 @@ Type of the service to request logs about.
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -103,16 +110,16 @@ Type of the service to request logs about.
 || logs[] | **[LogRecord](#yandex.cloud.mdb.opensearch.v1.LogRecord)**
 
 Requested log records. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
 
-If the number of results is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest), use the `nextPageToken` as the value
-for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest) query parameter in the next list request.
+If the number of results is larger than [ListClusterLogsRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest), use the `next_page_token` as the value
+for the [ListClusterLogsRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest) query parameter in the next list request.
 
-Each subsequent list request has its own `nextPageToken` to continue paging through the results.
+Each subsequent list request has its own `next_page_token` to continue paging through the results.
 
-This value is interchangeable with the [StreamLogRecord.nextRecordToken](/docs/managed-opensearch/api-ref/grpc/Cluster/streamLogs#yandex.cloud.mdb.opensearch.v1.StreamLogRecord) from [StreamLogs](/docs/managed-opensearch/api-ref/grpc/Cluster/streamLogs#StreamLogs) method. ||
+This value is interchangeable with the [StreamLogRecord.next_record_token](/docs/managed-opensearch/api-ref/grpc/Cluster/streamLogs#yandex.cloud.mdb.opensearch.v1.StreamLogRecord) from [StreamLogs](/docs/managed-opensearch/api-ref/grpc/Cluster/streamLogs#StreamLogs) method. ||
 |#
 
 ## LogRecord {#yandex.cloud.mdb.opensearch.v1.LogRecord}
@@ -122,7 +129,7 @@ This value is interchangeable with the [StreamLogRecord.nextRecordToken](/docs/m
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the log was recorded. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

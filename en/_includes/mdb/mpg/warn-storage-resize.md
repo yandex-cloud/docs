@@ -1,6 +1,6 @@
 {% note warning %}
 
-* You cannot decrease the storage size.
-* While resizing the storage, cluster hosts will be unavailable.
+* You cannot reduce the storage size.
+* When using local disks (`local-ssd`), cluster hosts will be unavailable while the storage is being resized.
 
 {% endnote %}

@@ -2,10 +2,24 @@ title: Yandex Cloud Console
 href: index.yaml
 items:
   - name: Начало работы
-    href: quickstart.md
-  - name: Изменение настроек консоли управления
-    href: operations/update.md
+    items:
+      - name: Консоль управления
+        href: quickstart/console.md
+      - name: '{{ cloud-shell-name }}'
+        href: quickstart/cloud-shell.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Переход в сервис и создание ресурсов {{ yandex-cloud }}
+        href: operations/select-service.md
+      - name: Изменение настроек консоли управления
+        href: operations/update.md
+      - name: Управление {{ cloud-shell-name }}
+        href: operations/cloud-shell-options.md
+      - name: Поиск в консоли управления
+        href: operations/search.md
+      - name: Управление ресурсами {{ yandex-cloud }} с помощью AI-ассистента
+        href: operations/ai-assistant.md
+  - name: Лимиты в {{ cloud-shell-name }}
+    href: concepts/cloud-shell/limits.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/console
-deepBase: 2

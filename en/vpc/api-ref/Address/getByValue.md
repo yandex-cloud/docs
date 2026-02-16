@@ -1,9 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses:byValue
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        externalIpv4Address:
+          description: |-
+            **string**
+            Includes only one of the fields `externalIpv4Address`.
+            External ipv4 address specification.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/getByValue.md
 ---
 
-# Virtual Private Cloud API, REST: Address.GetByValue {#GetByValue}
+# Virtual Private Cloud API, REST: Address.GetByValue
 
 Returns the specified Address resource by a given value.
 
@@ -37,7 +53,7 @@ External ipv4 address specification. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `externalIpv4Address`
   "externalIpv4Address": {
     "address": "string",
@@ -92,7 +108,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

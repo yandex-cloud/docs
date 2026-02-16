@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}
 description: Из статьи вы узнаете, как выгрузить логи из {{ cloud-logging-name }} в поток {{ yds-name }}.
+sourcePath: ru/logging_includes/operations/export-logs-yds.md
 ---
 
 # Выгрузить логи в {{ yds-name }}
@@ -10,7 +11,7 @@ description: Из статьи вы узнаете, как выгрузить л
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
     1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
     1. В поле **{{ ui-key.yacloud.logging.label_stream }}** выберите имеющийся [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или [создайте](../../data-streams/operations/manage-streams.md#create-data-stream) новый.

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
+    method: get
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to return.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/get.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Get {#Get}
+# IoT Core Broker Service, REST: Broker.Get
 
 Returns the specified broker.
 
@@ -37,7 +55,7 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Bro
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "logOptions": {
     "disabled": "boolean",
@@ -76,7 +94,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

@@ -2,6 +2,7 @@
 
 {% list tabs group=instructions %}
 
+
 - {{ marketplace-full-name }} {#marketplace}
 
     Установите приложение Velero согласно [инструкции](../../managed-kubernetes/operations/applications/velero-yc-csi.md). В поле **Имя бакета Object Storage** укажите [созданный ранее](#before-you-begin) бакет.
@@ -12,6 +13,13 @@
 
     {% endnote %}
 
+    {% note info %}
+
+    Плагин restic для создания снимков томов [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальных](https://kubernetes.io/docs/concepts/storage/volumes/#local) и любых других типов томов без встроенной поддержки моментальных снимков, не включен в приложение Velero.
+
+    {% endnote %}
+
+
 - Вручную {#manual}
 
     1. {% include [cli-install](../../_includes/cli-install.md) %}
@@ -20,7 +28,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Velero.
     1. [Назначьте ему роль](../../iam/concepts/access-control/roles.md) `storage.editor` для доступа к [{{ objstorage-full-name }}](../../storage/).
-    1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
+    1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта в формате JSON и сохраните его в файл `sa-key.json`:
 
         ```bash
         yc iam access-key create \
@@ -32,8 +40,8 @@
 
         ```ini
         [default]
-          aws_access_key_id=<идентификатор_ключа>
-          aws_secret_access_key=<секретная_часть_ключа>
+        aws_access_key_id=<идентификатор_ключа>
+        aws_secret_access_key=<секретная_часть_ключа>
         ```
 
     1. Установите серверную часть Velero в кластер {{ managed-k8s-name }}:
@@ -44,13 +52,13 @@
         velero install \
           --backup-location-config s3Url=https://{{ s3-storage-host }},region={{ region-id }} \
           --bucket <имя_бакета> \
-          --plugins velero/velero-plugin-for-aws:v1.3.0,velero/velero-plugin-for-csi:v0.2.0 \
+          --plugins velero/velero-plugin-for-aws:v1.5.2 \
           --provider aws \
-          --secret-file ./credentials \
+          --secret-file <путь_к_файлу_credentials> \
           --features=EnableCSI \
           --use-volume-snapshots=true \
           --snapshot-location-config region={{ region-id }} \
-          --use-restic
+          --uploader-type=restic
         ```
 
         Где:
@@ -61,7 +69,7 @@
         * `--secret-file` — полный путь к файлу с данными статического ключа доступа.
         * `--features` — список активных функциональных возможностей.
         * `--snapshot-location-config` — зона доступности, в которой будут размещены снимки дисков.
-        * (опционально) `--use-restic` — включение плагина restic.
+        * (опционально) `--uploader-type=restic` — включение плагина restic для создания снимков томов [nfs](https://kubernetes.io/docs/concepts/storage/volumes/#nfs), [emptyDir](https://kubernetes.io/docs/concepts/storage/volumes/#emptydir), [локальных](https://kubernetes.io/docs/concepts/storage/volumes/#local) и любых других типов томов без встроенной поддержки моментальных снимков.
 
         Результат:
 

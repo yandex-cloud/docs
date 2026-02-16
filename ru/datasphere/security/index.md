@@ -7,7 +7,7 @@ description: Управление доступом в сервисе, предо
 
 Доступ к сервису {{ ml-platform-full-name }} регулируется путем назначения прав в организации. Управление организациями осуществляется с помощью сервиса [{{ org-full-name }}](../../organization/).
 
-Список операций, доступных пользователю {{ ml-platform-short-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
+Список операций, доступных пользователю {{ ml-platform-short-name }}, определяется его ролью. Роли можно назначить аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее об управлении доступом в {{ yandex-cloud }} см. раздел [{#T}](../../iam/concepts/access-control/index.md).
 
 ## На какие ресурсы можно назначить роль {#resources}
 
@@ -20,9 +20,11 @@ description: Управление доступом в сервисе, предо
 * [{#T}](../operations/projects/add-user.md).
 * [Поделиться ресурсами с участниками сообщества](../operations/index.md#share).
 
-Также вы можете [назначить права доступа](../../organization/security/index.md) через интерфейс {{ org-name }}.
+Также вы можете назначить права доступа через [интерфейс {{ org-name }} в {{ cloud-center }}]({{ link-org-cloud-center }}), с помощью [{{ TF }}]({{ tf-provider-link }}) и [API {{ yandex-cloud }}](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
+
+{% include [roles-datasphere](../../_mermaid/roles/datasphere.md) %}
 
 ### Сервисные роли {#service-roles}
 

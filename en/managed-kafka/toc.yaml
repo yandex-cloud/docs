@@ -23,8 +23,12 @@ items:
             href: operations/cluster-stop.md
           - name: Getting a list of cluster hosts
             href: operations/cluster-hosts.md
+          - name: Getting the {{ KF }} patch version
+            href: operations/cluster-patch-version.md
           - name: Migrating hosts to a different availability zone
             href: operations/host-migration.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Connection
@@ -33,7 +37,7 @@ items:
             href: operations/connect/index.md
           - name: Connecting from applications
             href: operations/connect/clients.md
-          - name: Code snippets
+          - name: Code examples
             href: operations/connect/code-examples.md
       - name: Managing topics
         href: operations/cluster-topics.md
@@ -41,23 +45,29 @@ items:
         href: operations/cluster-accounts.md
       - name: Managing connectors
         href: operations/cluster-connector.md
+      - name: '{{ kafka-ui }} for {{ KF }}'
+        href: operations/kafka-ui-enable.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying the {{ KF }} web interface
+      - name: Unassisted deployment of the {{ KF }} web interface
         href: tutorials/deploy-kafka-ui.md
+      - name: >-
+          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
+          kraft-short-name }}
+        href: tutorials/zk-kraft-kafka-migration.md
       - name: Moving data from {{ KF }}
         items:
           - name: Configuring {{ KFC }} to work with {{ mkf-name }}
             href: tutorials/kafka-connect.md
-          - name: Migrating databases from a third-party {{ KF }} cluster
+          - name: Migrating a database from a third-party {{ KF }} cluster
             href: tutorials/kafka-connectors.md
           - name: >-
               Moving data between {{ mkf-name }} clusters using {{
@@ -69,6 +79,8 @@ items:
             href: tutorials/schema-registry-overview.md
           - name: Working with the managed schema registry
             href: tutorials/managed-schema-registry.md
+          - name: Working with the managed schema registry via the REST API
+            href: tutorials/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-short-name }}
             href: tutorials/confluent-schema-registry.md
       - name: Delivering data using {{ data-transfer-name }}
@@ -85,9 +97,11 @@ items:
             href: tutorials/mkf-to-mch-migration.md
           - name: Delivering data from {{ KF }} to {{ yds-name }}
             href: tutorials/mkf-yds-stream.md
+          - name: Delivering data from {{ yds-name }} to {{ KF }}
+            href: tutorials/yds-to-kafka.md
           - name: Delivering data from {{ KF }} to {{ GP }}
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: Delivering data from {{ KF }} to {{ MG }}
+          - name: Delivering data from {{ KF }} to {{ SD }}
             href: tutorials/mkf-to-mmg-migration.md
           - name: Delivering data from {{ MY }} to {{ KF }}
             href: tutorials/cdc/cdc-mmy.md
@@ -105,10 +119,14 @@ items:
             href: tutorials/send-data-to-mch.md
           - name: Delivering data to ksqlDB
             href: tutorials/use-ksqldb-with-mkf.md
-      - name: Deploying the {{ KF }} web interface
-        href: tutorials/deploy-kafka-ui.md
+          - name: >-
+              Synchronizing {{ KF }} topics in {{ objstorage-name }} without
+              using the internet
+            href: tutorials/kafka-topic-s3-sync-private.md
       - name: Working with {{ KF }} topics using {{ dataproc-name }}
-        href: tutorials/data-proc.md
+        href: tutorials/data-processing.md
+      - name: Monitoring message loss in a {{ KF }} topic
+        href: tutorials/retention-policy.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -121,10 +139,18 @@ items:
         href: concepts/kraft.md
       - name: Producers and consumers
         href: concepts/producers-consumers.md
+      - name: User roles
+        href: concepts/account-roles.md
       - name: Managing data schemas
         href: concepts/managed-schema-registry.md
+      - name: Web interface for {{ KF }}
+        href: concepts/kafka-ui.md
+      - name: APIs in {{ mkf-name }}
+        href: concepts/available-apis.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: High availability clusters
+        href: concepts/ha-cluster.md
       - name: Networking in {{ mkf-name }}
         href: concepts/network.md
       - name: Quotas and limits
@@ -137,17 +163,119 @@ items:
         href: concepts/maintenance.md
       - name: '{{ KF }} settings'
         href: concepts/settings-list.md
+      - name: '{{ KF }} versioning policy'
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-kafka/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/cluster/list-hosts.md
+          - name: list-logs
+            href: cli-ref/cluster/list-logs.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: move
+            href: cli-ref/cluster/move.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: connector
+        items:
+          - name: Overview
+            href: cli-ref/connector/index.md
+          - name: delete
+            href: cli-ref/connector/delete.md
+          - name: get
+            href: cli-ref/connector/get.md
+          - name: list
+            href: cli-ref/connector/list.md
+          - name: pause
+            href: cli-ref/connector/pause.md
+          - name: resume
+            href: cli-ref/connector/resume.md
+      - name: connector-mirrormaker
+        items:
+          - name: Overview
+            href: cli-ref/connector-mirrormaker/index.md
+          - name: create
+            href: cli-ref/connector-mirrormaker/create.md
+          - name: update
+            href: cli-ref/connector-mirrormaker/update.md
+      - name: connector-s3-sink
+        items:
+          - name: Overview
+            href: cli-ref/connector-s3-sink/index.md
+          - name: create
+            href: cli-ref/connector-s3-sink/create.md
+          - name: update
+            href: cli-ref/connector-s3-sink/update.md
+      - name: topic
+        items:
+          - name: Overview
+            href: cli-ref/topic/index.md
+          - name: create
+            href: cli-ref/topic/create.md
+          - name: delete
+            href: cli-ref/topic/delete.md
+          - name: get
+            href: cli-ref/topic/get.md
+          - name: list
+            href: cli-ref/topic/list.md
+          - name: update
+            href: cli-ref/topic/update.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: create
+            href: cli-ref/user/create.md
+          - name: delete
+            href: cli-ref/user/delete.md
+          - name: get
+            href: cli-ref/user/get.md
+          - name: grant-permission
+            href: cli-ref/user/grant-permission.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: revoke-permission
+            href: cli-ref/user/revoke-permission.md
+          - name: update
+            href: cli-ref/user/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -183,6 +311,12 @@ items:
                 href: api-ref/grpc/Cluster/listOperations.md
               - name: ListHosts
                 href: api-ref/grpc/Cluster/listHosts.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Connector
             items:
               - name: Overview
@@ -283,6 +417,12 @@ items:
                 href: api-ref/Cluster/listOperations.md
               - name: ListHosts
                 href: api-ref/Cluster/listHosts.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Connector
             items:
               - name: Overview
@@ -359,5 +499,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/managed-kafka
-deepBase: 2

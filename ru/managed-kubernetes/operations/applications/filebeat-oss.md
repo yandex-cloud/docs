@@ -1,3 +1,8 @@
+---
+title: Установка Filebeat OSS
+description: Следуя данной инструкции, вы сможете установить Filebeat OSS.
+---
+
 # Установка Filebeat OSS
 
 
@@ -36,7 +41,7 @@
    Где:
    * `<имя_пользователя>` — имя пользователя {{ OS }}.
    * `<пароль>` — пароль пользователя {{ OS }}.
-   * `<имя_хоста>` — имя хоста {{ mos-name }} с [ролью DATA](../../../managed-opensearch/concepts/host-roles.md#data), например, `rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net`.
+   * `<имя_хоста>` — имя хоста {{ mos-name }} с [ролью DATA](../../../managed-opensearch/concepts/host-roles.md#data), например, `rc1a-7hkolet********.{{ dns-zone }}`.
 
    Успешный ответ приходит в виде:
 
@@ -60,11 +65,11 @@
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Filebeat OSS](/marketplace/products/yc/filebeat-oss) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `filebeat-oss-space`). Если вы оставите пространство имен по умолчанию, Filebeat OSS может работать некорректно.
    * **Название приложения** — укажите название приложения, например `filebeat-oss`.
    * **Имя пользователя {{ OS }}** — введите имя учетной записи, под которой Filebeat OSS будет подключаться к кластеру {{ mos-name }}.
    * **Пароль для подключения к {{ OS }}** — введите пароль для учетной записи в кластере {{ mos-name }}.
-   * **FQDN сервиса {{ OS }}** — укажите URL и порт для хоста кластера {{ mos-name }} с ролью DATA, например `https://rc1a-6khpaeo31lacqo21.mdb.yandexcloud.net:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-opensearch/operations/connect.md).
+   * **FQDN сервиса {{ OS }}** — укажите URL и порт для хоста кластера {{ mos-name }} с ролью DATA, например `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. Подробнее о подключении к кластеру см. в [документации сервиса](../../../managed-opensearch/operations/connect/index.md).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
@@ -88,6 +93,8 @@
    ```
 
    Эта команда также создаст новое пространство имен, необходимое для работы Filebeat OSS.
+
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Filebeat OSS может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `filebeat-oss-space`).
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 

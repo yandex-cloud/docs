@@ -5,18 +5,24 @@ description:
     yandex-cloud }}, работающие внутри вашей инфраструктуры. В основе {{
     cloudml-name }} лежат контейнеры Docker, которые  отлично подходят для
     обеспечения требований к безопасности и управлению данными.
+links:
+  - title: Функциональные характеристики
+    description: Архитектура и назначение {{ cloudml-name }}
+    href: architecture
+  - title: Установка программного обеспечения
+    description: Как развернуть демонстрационный стенд {{ cloudml-name }}
+    href: quickstart
+  - title: Системные требования
+    description: Требования к инфраструктуре для работы {{ cloudml-full-name }}
+    href: system-requirements
+  - title: Эксплуатация программного обеспечения
+    description: Справочники и примеры работы с API
+    href: usage
+  - title: Стоимость программного обеспечения
+    description: Модели лицензирования {{ cloudml-name }}
+    href: pricing
 meta:
   title: '{{ cloudml-full-name }}'
   description: >-
     {{ cloudml-name }} — это сервисы искусственного интеллекта {{ yandex-cloud
     }}, работающие внутри вашей инфраструктуры.
-links:
-  - title: Функциональные характеристрики
-    description: Архитектура и назначение {{ cloudml-name }}
-    href: architecture
-  - title: Начало работы
-    description: Как развернуть демонстрационный стенд {{ cloudml-name }}
-    href: quickstart
-  - title: Стоимость
-    description: Моделях лицензирования {{ cloudml-name }}
-    href: pricing

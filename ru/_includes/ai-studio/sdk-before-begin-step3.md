@@ -1,0 +1,1 @@
+Установите Python версии [3.10](https://www.python.org/downloads/release/python-3100/) или выше.

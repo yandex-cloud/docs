@@ -1,16 +1,16 @@
 # Оплата банковской картой для юридических лиц
 
-{% include [card-business-nonresidents](../../_includes/billing/card-business-nonresidents.md) %}
+Организации и ИП могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью корпоративной банковской карты, привязанной к платежному аккаунту, в том числе через СБП (Систему быстрых платежей).
 
-Организации и ИП могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью корпоративной банковской карты, привязанной к платежному аккаунту.
-
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+{% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
 
 ## Привязка банковской карты {#pin-card}
 
-При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту.
+При [создании](../quickstart/index.md) платежного аккаунта необходимо привязать банковскую карту. С этой банковской карты будут списываться средства за оплату ресурсов {{ yandex-cloud }}.
+
+{% include [no-card](../../_includes/billing/create-ba-without-card.md) %}
 
 {% include [payment-card-validation](../_includes/payment-card-validation.md) %}
 
@@ -20,7 +20,6 @@
 
 {% endnote %}
 
-
 Отвязать карту от активного платежного аккаунта нельзя. Однако вы можете [изменить привязанную карту](../operations/pin-card.md#change_card) или [удалить карту из личного кабинета](../operations/pin-card.md#remove-card) после [инактивации аккаунта](../operations/delete-account.md).
 
 ## Пополнение счета {#refill}
@@ -29,16 +28,11 @@
 
 Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-individual.md).
 
-
 ## Списание средств {#write-off}
 
 {% include [pay-by-card-business](../_includes/pay-by-card-business.md) %}
 
-
-
-
 Дополнительную информацию см. в разделе [Цикл оплаты](billing-cycle-business.md).
-
 
 ## Сумма списания {#payment-amount}
 

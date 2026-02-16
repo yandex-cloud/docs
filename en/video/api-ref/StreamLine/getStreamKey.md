@@ -1,11 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:getStreamKey
+    method: get
+    path:
+      type: object
+      properties:
+        streamLineId:
+          description: |-
+            **string**
+            Required field. ID of the stream line for which to retrieve the stream key.
+            The stream line must be a push-type input (RTMP push or SRT push).
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - streamLineId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/getStreamKey.md
 ---
 
-# Video API, REST: StreamLine.GetStreamKey {#GetStreamKey}
+# Video API, REST: StreamLine.GetStreamKey
 
-Returns unique stream key.
+Retrieves the unique stream key for a push-type stream line.
+This key is used to authenticate when pushing video streams to the platform.
 
 ## HTTP request
 
@@ -19,7 +39,10 @@ GET https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:getStreamKe
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line for which to retrieve the stream key.
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.PushStreamKey}
@@ -32,11 +55,11 @@ Required field. ID of the line. ||
 }
 ```
 
-Push stream key.
+Represents the stream key used for pushing video streams.
 
 #|
 ||Field | Description ||
 || key | **string**
 
-Unique stream key. ||
+The unique stream key. ||
 |#

@@ -1,21 +1,28 @@
-# Determine the physical (geographical) address of the Yandex Cloud Data Center
+# How to find out the physical address of a {{ yandex-cloud }} data center
 
 
-## Scenario description {#case-description}
 
-You need to know the exact addresses of the servers located in the Yandex Cloud data processing centers, to include them in the notification documents prepared in connection with the requirements of regulatory authorities.
+## Case description {#case-description}
+
+You need to know the exact addresses of the servers located in the {{ yandex-cloud }} data centers, to include them in the notification documents prepared as required by the regulatory authorities.
 
 ## Solution {#case-resolution}
 
-The Yandex Cloud platform is hosted in three Yandex data centers located in Vladimir, Ryazan, and Moscow regions.
+The {{ yandex-cloud }} platform is hosted in four Yandex data centers located in Russia (Vladimir, Ryazan, Moscow, and Kaluga regions).
 
-Resources in Yandex Cloud are divided into zonal (linked to an availability zone) and global (not linked to a zone).
-For instance, a VM instance and disk are zonal resources.
+All {{ yandex-cloud }} resources are either zonal (linked to an availability zone) or global (not linked to any zone).
+For instance, VMs and disks are zonal resources.
 
 Here are the addresses of our data centers:
 
-* In Mytishchi city: Ul. Silikatnaya 19
-* In Vladimir region: Vladimir, Ul. Energetikov 37 bld. 2
-* In Ryazan region: Sasovo, Ul. Pushkina 21
+* Vladimir region: Ul. Poiskovaya 1, Mrk. Energetik, Vladimir 2
+* Ryazan region: Ul. Pushkina, 21, Sasovo
+* Kaluga region: 1-y Automobilniy proezd, 8, Kaluga
+* Moscow region: Ul. Silikatnaya, 19, Mytishchi
 
-We recommend specifying all the three addresses. The practice of other clients shows that this approach does not cause objections from the regulator.
+We recommend specifying all four addresses. This approach has been proven by other clients to be acceptable by the regulatory authorities.
+
+## If nothing helped {#if-nothing-worked}
+
+To get more details on the legal aspects, please check our [security standards](https://yandex.cloud/en/security/standards/152-fz) and the [data processing agreement](https://yandex.com/legal/cloud_dpa/en/).
+

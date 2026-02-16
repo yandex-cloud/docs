@@ -1,0 +1,61 @@
+---
+subcategory: Resource Manager
+sourcePath: en/terraform/tf-ref/yandex-cloud/resources/resourcemanager_folder_iam_member.md
+---
+
+# yandex_resourcemanager_folder_iam_member (Resource)
+
+Allows creation and management of a single binding within IAM policy for an existing `folder`.
+
+## Example usage
+
+```terraform
+//
+// Create a new IAM Member for existing Folder.
+//
+data "yandex_resourcemanager_folder" "department1" {
+  folder_id = "some_folder_id"
+}
+
+resource "yandex_resourcemanager_folder_iam_member" "admin" {
+  folder_id = data.yandex_resourcemanager.department1.name
+
+  role   = "editor"
+  member = "userAccount:user_id"
+}
+```
+
+## Arguments & Attributes Reference
+
+- `folder_id` (**Required**)(String). The ID of the compute `folder` to attach the policy to.
+- `id` (String). The ID of this resource.
+- `member` (**Required**)(String). An array of identities that will be granted the privilege in the `role`. Each entry can have one of the following values:
+ * **userAccount:{user_id}**: A unique user ID that represents a specific Yandex account.
+ * **serviceAccount:{service_account_id}**: A unique service account ID.
+ * **federatedUser:{federated_user_id}**: A unique federated user ID.
+ * **federatedUser:{federated_user_id}:**: A unique SAML federation user account ID.
+ * **group:{group_id}**: A unique group ID.
+ * **system:group:federation:{federation_id}:users**: All users in federation.
+ * **system:group:organization:{organization_id}:users**: All users in organization.
+ * **system:allAuthenticatedUsers**: All authenticated users.
+ * **system:allUsers**: All users, including unauthenticated ones.
+
+{% note warning %}
+
+for more information about system groups, see [Cloud Documentation](https://yandex.cloud/docs/iam/concepts/access-control/system-group).
+
+{% endnote %}
+
+
+
+- `role` (**Required**)(String). The role that should be assigned. Only one yandex_resourcemanager_folder_iam_member can be used per role.
+- `sleep_after` (Number). For test purposes, to compensate IAM operations delay
+
+## Import
+
+The resource can be imported by using their `resource ID`. For getting it you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or Yandex Cloud [CLI](https://yandex.cloud/docs/cli/quickstart).
+
+```shell
+# terraform import yandex_resourcemanager_folder_iam_member.<resource Name> "<resource Id>,<resource Role>,<subject>"
+terraform import yandex_resourcemanager_folder_iam_member.admin "b1g5r**********dqmsp,admin,foo@example.com"
+```

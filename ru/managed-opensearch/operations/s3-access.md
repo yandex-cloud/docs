@@ -15,35 +15,41 @@ description: Из статьи вы узнаете, как настроить д
 1. [Настройте права доступа](#configure-acl).
 1. [Подключите репозиторий снапшотов](#register-snapshot-repository).
 
-## Подключить сервисный аккаунт к кластеру {#connect-service-account}
+
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна в следующих случаях:
 
 
-1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), либо [создайте новый](../../iam/operations/sa/create.md).
+* если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
+* если вы восстанавливаете из резервной копии кластер с привязкой к сервисному аккаунту.
 
-1. Убедитесь, что этому аккаунту [назначена роль](../../iam/operations/sa/assign-role-for-sa.md) `storage.editor`.
+## Подключите сервисный аккаунт к кластеру {#connect-service-account}
 
 
-## Настроить права доступа {#configure-acl}
+1. При [создании](cluster-create.md) или [изменении](update.md) кластера выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) либо [создайте новый](../../iam/operations/sa/create.md).
+
+1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) этому аккаунту роль `storage.editor`.
+
+
+## Настройте права доступа {#configure-acl}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-
+    
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хранится нужный бакет. Если бакета не существует — [создайте](../../storage/operations/buckets/create.md) его.
 
 
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Выберите вкладку **{{ ui-key.yacloud.storage.buckets.label_title }}**.
     1. Настройте [ACL бакета](../../storage/operations/buckets/edit-acl.md):
         1. В выпадающем списке **{{ ui-key.yacloud.component.acl-dialog.label_select-placeholder }}** укажите сервисный аккаунт, [подключенный к кластеру](#connect-service-account).
         1. Задайте разрешения `READ и WRITE` для выбранного сервисного аккаунта.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+        1. Нажмите кнопки **{{ ui-key.yacloud.common.add }}** и **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-## Подключить репозиторий снапшотов {#register-snapshot-repository}
+## Подключите репозиторий снапшотов {#register-snapshot-repository}
 
 {% note alert %}
 
@@ -51,8 +57,7 @@ description: Из статьи вы узнаете, как настроить д
 
 {% endnote %}
 
-1. [Установите плагин](plugins.md#update) `repository-s3`.
-1. [Подключитесь](connect.md) к кластеру.
+1. [Подключитесь](connect/index.md) к кластеру.
 1. Зарегистрируйте бакет как репозиторий снапшотов, используя публичный [API {{ OS }}]({{ os.docs }}/opensearch/snapshot-restore/#register-repository):
 
     ```http

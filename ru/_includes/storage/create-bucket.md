@@ -7,38 +7,46 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Выберите сервис **{{ objstorage-name }}**.
-  1. На панели сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
+
       1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-
+          
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
 
+
+      1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
+
+          1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Введите метку в формате `ключ: значение`.
+          1. Нажмите **Enter**.
 
       1. При необходимости ограничьте максимальный размер бакета.
 
           {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
 
       1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета:
+
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` — доступ только для авторизованных пользователей {{ yandex-cloud }}.
           * `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` — доступ для любых пользователей.
 
           {% include [public-access-warning](./security/public-access-warning.md) %}
 
       1. Выберите [класс хранилища](../../storage/concepts/storage-class.md) по умолчанию:
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`.
-          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`.
+
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_standard }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}`
+          * `{{ ui-key.yacloud.storage.bucket.settings.class_value_ice }}`
 
           Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
 
-      1. При необходимости добавьте [метки](../../storage/concepts/tags.md):
-          1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Введите метку в формате `ключ: значение`.
-          1. Нажмите **Enter**.
+      
+      1. При необходимости включите шифрование: в поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите [симметричный ключ](../../kms/concepts/key.md) или [создайте](../../kms/operations/key.md#create) новый.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+
+      1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -46,81 +54,13 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  1. Посмотрите описание команды CLI для создания бакета:
-
-      ```bash
-      yc storage bucket create --help
-      ```
-
-  1. Создайте бакет в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket create --name <имя_бакета>
-      ```
-
-      Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
-
-
-      По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
-
-
-      Результат:
-
-      ```text
-      name: example
-      folder_id: b1gmit33ngp6********
-      anonymous_access_flags:
-        read: false
-        list: false
-      default_storage_class: STANDARD
-      versioning: VERSIONING_DISABLED
-      max_size: "53687091200"
-      acl: {}
-      created_at: "2022-12-16T14:05:12.196007Z"
-      ```
-
-      {% cut "Опциональные параметры" %}
-
-      * `--default-storage-class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
-        * `standard` — стандартное хранилище. Устанавливается по умолчанию.
-        * `cold` — холодное хранилище.
-        * `ice` — ледяное хранилище.
-
-        Более <q>холодные</q> классы предназначены для длительного хранения [объектов](../../storage/concepts/object.md), работать с которыми планируется реже. Чем <q>холоднее</q> хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
-
-      * `--max-size` — максимальный размер бакета в байтах. Значение по умолчанию — `0` (без ограничений).
-      * Параметры для включения [публичного доступа](../../storage/security/public-access.md) к бакету:
-        * `--public-read` — включить публичный доступ на чтение объектов в бакете.
-        * `--public-list` — включить публичный доступ на просмотр списка объектов в бакете.
-        * `--public-config-read` — включить публичный доступ на чтение настроек в бакете.
-
-        По умолчанию публичный доступ к бакету выключен.
-
-        {% include [public-access-warning](./security/public-access-warning.md) %}
-
-      * Параметры для настройки [ACL](../../storage/concepts/acl.md) бакета:
-        * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-        * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../../storage/concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
-          * `grant-type` — тип получателя разрешения. Возможные значения:
-            * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
-            * `grant-type-all-authenticated-users` — [публичная группа](../../storage/concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
-            * `grant-type-all-users` — публичная группа всех пользователей интернета.
-          * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
-          * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../../storage/concepts/acl.md#permissions-types).
-
-          Чтобы настроить несколько разрешений, укажите параметр `--grants` несколько раз.
-
-        По умолчанию для каждого нового бакета создается пустой ACL.
-
-      {% endcut %}
-
-      Подробнее о команде `yc storage bucket create` см. в [Справочнике YC CLI](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+  {% include [create-bucket-via-cli](./create-bucket-via-cli.md) %}
 
 - AWS CLI {#aws-cli}
 
-  Если у вас еще нет интерфейса командной строки AWS CLI, [установите и сконфигурируйте его](../../storage/tools/aws-cli.md).
+  {% include [aws-cli-install](../../_includes/aws-cli-install.md) %}
 
-  Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/#storage-editor) `storage.editor`.
+  Чтобы создать бакет, [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту, через который работает AWS CLI, [роль](../../storage/security/index.md#storage-editor) `storage.editor`.
 
   В терминале выполните команду:
 
@@ -135,7 +75,7 @@
   * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
   * `--bucket` — имя бакета.
 
-
+  
   {% note info %}
 
   По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../../storage/operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../storage/concepts/bucket.md#naming).
@@ -175,7 +115,7 @@
     --acl <предопределенный_ACL>
   ```
 
-  Где `--acl` — предопределенный ACL. Список значений см. в разделе [{#T}](../../storage/concepts/acl.md#predefined-acls).
+  Где `--acl` — предопределенный ACL. Список значений см. в разделе [Предопределенные ACL](../../storage/concepts/acl.md#predefined-acls).
 
   **Отдельные разрешения**
 
@@ -210,11 +150,58 @@
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
+  {% include [iam-auth-note](iam-auth-note.md) %}
+
+  **Создание бакета с использованием IAM-токена**
+
+  
+  1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и добавьте их в переменные окружения.
+
+
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      ```hcl
+      # Создание бакета с использованием IAM-токена
+
+      resource "yandex_storage_bucket" "iam-bucket" {
+        bucket    = "<имя_бакета>"
+        folder_id = "<идентификатор_каталога>"
+      }
+      ```
+
+      Где:
+      * `bucket` — имя бакета. Обязательный параметр.
+
+        
+        По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
+
+      
+      * `folder_id` — идентификатор каталога
+
+         Если вы используете IAM-токен учетной записи пользователя, то в ресурсе `yandex_storage_bucket` необходимо указывать идентификатор каталога `folder_id`.
+
+         В случае использования IAM-токена сервисного аккаунта или статических ключей доступа, `folder_id` указывать необязательно — он потребуется только если вы хотите создать ресурс в каталоге, отличном от каталога сервисного аккаунта.
+
+         {% endnote %}
+
+      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Создайте ресурсы:
+
+        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+
+
+  **Создание бакета с использованием статического ключа**
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+
+      {% cut "Создание бакета с использованием ключа" %}
 
       ```hcl
       terraform {
@@ -226,7 +213,8 @@
         required_version = ">= 0.13"
       }
 
-      // Настройка провайдера
+      # Настройка провайдера
+      
       provider "yandex" {
         token     = "<IAM-_или_OAuth-токен>"
         cloud_id  = "<идентификатор_облака>"
@@ -234,25 +222,29 @@
         zone      = "{{ region-id }}-a"
       }
 
-      // Создание сервисного аккаунта
+      # Создание сервисного аккаунта
+      
       resource "yandex_iam_service_account" "sa" {
         name = "<имя_сервисного_аккаунта>"
       }
 
-      // Назначение роли сервисному аккаунту
+      # Назначение роли сервисному аккаунту
+      
       resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
         folder_id = "<идентификатор_каталога>"
         role      = "storage.admin"
         member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
       }
 
-      // Создание статического ключа доступа
+      # Создание статического ключа доступа
+      
       resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
         service_account_id = yandex_iam_service_account.sa.id
         description        = "static access key for object storage"
       }
 
-      // Создание бакета с использованием ключа
+      # Создание бакета с использованием статического ключа
+      
       resource "yandex_storage_bucket" "test" {
         access_key            = yandex_iam_service_account_static_access_key.sa-static-key.access_key
         secret_key            = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
@@ -273,20 +265,22 @@
       }
       ```
 
+      {% endcut %}
+
       Где:
       * `yandex_iam_service_account` — описание [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), который создаст [бакет](../../storage/concepts/bucket.md) и будет работать с ним:
 
-        * `name` — имя сервисного аккаунта.
+        * `name` — имя сервисного аккаунта. Обязательный параметр.
         * `bucket` — имя бакета.
 
-
+          
           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
 
 
-        * `max_size` — максимальный размер бакета в байтах.
+        * `max_size` — максимальный размер бакета в байтах. Значение по умолчанию — `0`, без ограничений. 
         * `default_storage_class` — [класс хранилища](../../storage/concepts/storage-class.md). Доступные значения:
 
-          * `standard` — стандартное хранилище.
+          * `standard` — стандартное хранилище. Значение по умолчанию.
           * `cold` — холодное хранилище.
           * `ice` — ледяное хранилище.
 
@@ -296,11 +290,9 @@
 
           * `read` — публичный доступ на чтение объектов в бакете.
           * `list` — публичный доступ на просмотр списка объектов в бакете.
-          * `config_read` — публичный доступ на чтение настроек в бакете.
+          * `config_read` — публичный доступ на чтение настроек в бакете. По умолчанию выключен.
 
         * `tags` — [метки](../../storage/concepts/tags.md) бакета в формате `ключ = "значение"`.
-
-      `name` — обязательный параметр. Остальные параметры необязательны. По умолчанию значение параметра `max-size` — `0`, публичный доступ к бакету выключен, класс хранилища — `standard`.
 
       Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Cluster/listLogs.md
 ---
 
-# Managed Service for MySQL API, gRPC: ClusterService.ListLogs {#ListLogs}
+# Managed Service for MySQL API, gRPC: ClusterService.ListLogs
 
 Retrieves logs for a cluster.
 
@@ -17,61 +17,66 @@ Alternatively, logs can be streamed using [StreamLogs](/docs/managed-mysql/api-r
 
 ```json
 {
-  "clusterId": "string",
-  "columnFilter": [
+  "cluster_id": "string",
+  "column_filter": [
     "string"
   ],
-  "serviceType": "ServiceType",
-  "fromTime": "google.protobuf.Timestamp",
-  "toTime": "google.protobuf.Timestamp",
-  "pageSize": "int64",
-  "pageToken": "string",
-  "alwaysNextPageToken": "bool"
+  "service_type": "ServiceType",
+  "from_time": "google.protobuf.Timestamp",
+  "to_time": "google.protobuf.Timestamp",
+  "page_size": "int64",
+  "page_token": "string",
+  "always_next_page_token": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the cluster to request logs for.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request. ||
-|| columnFilter[] | **string**
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| column_filter[] | **string**
 
 Columns from the logs table to request.
 If no columns are specified, complete log records are returned. ||
-|| serviceType | enum **ServiceType**
+|| service_type | enum **ServiceType**
 
 The log type.
 
-- `SERVICE_TYPE_UNSPECIFIED`
 - `MYSQL_ERROR`: MySQL error log.
 - `MYSQL_GENERAL`: MySQL general query log.
 - `MYSQL_SLOW_QUERY`: MySQL slow query log.
 - `MYSQL_AUDIT`: MySQL audit log. ||
-|| fromTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp for the logs request.
-The logs in the response will be within `fromTime` to `toTime` range. ||
-|| toTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+The logs in the response will be within `from_time` to `to_time` range. ||
+|| to_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 End timestamp for the logs request.
-The logs in the response will be within `fromTime` to `toTime` range. ||
-|| pageSize | **int64**
+The logs in the response will be within `from_time` to `to_time` range. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests. ||
-|| pageToken | **string**
+If the number of available results is larger than `page_size`, the API returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request. ||
-|| alwaysNextPageToken | **bool**
+To get the next page of results, set `page_token` to the [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
+
+The maximum string length in characters is 100. ||
+|| always_next_page_token | **bool**
 
 Option that controls the behavior of result pagination.
-If it is set to `true`, then [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) will always be returned, even if the current page is empty. ||
+If it is set to `true`, then [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) will always be returned, even if the current page is empty. ||
 |#
 
 ## ListClusterLogsResponse {#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse}
@@ -81,10 +86,10 @@ If it is set to `true`, then [ListClusterLogsResponse.nextPageToken](#yandex.clo
   "logs": [
     {
       "timestamp": "google.protobuf.Timestamp",
-      "message": "string"
+      "message": "map<string, string>"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -93,15 +98,15 @@ If it is set to `true`, then [ListClusterLogsResponse.nextPageToken](#yandex.clo
 || logs[] | **[LogRecord](#yandex.cloud.mdb.mysql.v1.LogRecord)**
 
 Requested log records. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 The token that can be used to get the next page of results.
 
-If the number of results is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest), use the `nextPageToken` as the value for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs) request to iterate through multiple pages of results.
+If the number of results is larger than [ListClusterLogsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest), use the `next_page_token` as the value for the [ListClusterLogsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs) request to iterate through multiple pages of results.
 
-Each of the subsequent [ClusterService.ListLogs](#ListLogs) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results.
+Each of the subsequent [ClusterService.ListLogs](#ListLogs) requests should use the `next_page_token` value returned by the previous request to continue paging through the results.
 
-This value is interchangeable with [StreamLogRecord.nextRecordToken](/docs/managed-mysql/api-ref/grpc/Cluster/streamLogs#yandex.cloud.mdb.mysql.v1.StreamLogRecord) from [ClusterService.StreamLogs](/docs/managed-mysql/api-ref/grpc/Cluster/streamLogs#StreamLogs) method. ||
+This value is interchangeable with [StreamLogRecord.next_record_token](/docs/managed-mysql/api-ref/grpc/Cluster/streamLogs#yandex.cloud.mdb.mysql.v1.StreamLogRecord) from [ClusterService.StreamLogs](/docs/managed-mysql/api-ref/grpc/Cluster/streamLogs#StreamLogs) method. ||
 |#
 
 ## LogRecord {#yandex.cloud.mdb.mysql.v1.LogRecord}
@@ -113,7 +118,7 @@ A single log record.
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp of the log record. ||
-|| message | **string**
+|| message | **object** (map<**string**, **string**>)
 
 Contents of the log record. ||
 |#

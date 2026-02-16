@@ -2,18 +2,30 @@
 
 This section shows what changed in {{ ml-platform-full-name }}.
 
-
 {% note tip %}
 
 To keep up to date with the latest changes and updates, subscribe to our [{{ ml-platform-full-name }} Community](https://t.me/yandex_datasphere) news channel on Telegram.
 
 {% endnote %}
 
+## Release as of 24/01/2025 {#240125}
+
+Added a new [configuration](concepts/configurations.md), gt4i.1 (1 GPU NVIDIA T4).
+
+## Release as of 9/12/24 {#091224}
+
+Discontinued supporting foundation model tuning in {{ ml-platform-name }}. Previously tuned models will no longer be supported along with their base models in accordance with their [life cycle](../ai-studio/concepts/generation/models.md#model-lifecycle).
+
+Use the {{ foundation-models-full-name }} [tools](../ai-studio/concepts/tuning/index.md) to tune models.
+
+## Release as of 11/11/24 {#111124}
+
+You can now use a service agent to work with {{ yandex-cloud }} services from {{ ml-platform-name }} notebooks, including issuing authentication tokens. To enable this feature in a community, follow [this guide](operations/community/create-ssa.md). For more information on how service agents work, see the [{{ iam-name }} documentation](../iam/concepts/service-control.md#service-agent).
 
 ## Release as of 02/09/24 {#020924}
 
-* Added examples of operations with [{{ yandexart-name }}](../foundation-models/concepts/yandexart/index.md) and open-source foundational models to initial notebooks.
-* When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-proc-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
+* Added examples of operations with {{ yandexart-name }} and open-source foundational models to initial notebooks.
+* When working with [{{ dataproc-full-name }}](../data-proc/) using a [Spark connector](concepts/data-processing-operations.md#synchronization), you can now [synchronize the environment](concepts/spark-connector.md)
 * Fixed some bugs and added minor performance improvements.
 
 ## Release as of 30/07/24 {#300724}
@@ -38,7 +50,7 @@ To keep up to date with the latest changes and updates, subscribe to our [{{ ml-
 
 ## Release as of 03/04/24 {#030424}
 
-1. Updated [configurations](concepts/data-proc-template.md#configurations) of {{ dataproc-name }} temporary clusters.
+1. Updated [configurations](concepts/data-processing-template.md#configurations) of {{ dataproc-name }} temporary clusters.
 1. Now you can use XGBoost and LightGBM models to deploy [nodes from models](concepts/deploy/index.md#models-node).
 1. Added delivering input variables in [fulfillment APIs](api-ref/overview.md#notebook).
 1. Improved [creating nodes](operations/deploy/node-create.md#from-docker) from Docker images.
@@ -149,13 +161,12 @@ The Serverless mode is no longer supported.
 ## Release as of 20/10/22 {#201022}
 
 Greatly improved the Apache Spark™ cluster functionality:
-1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-proc-template.md).
-1. You can now [configure a livy session](concepts/data-proc.md#session) when using {{ dataproc-name }} clusters.
-1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-proc.md#sql).
+1. {{ ml-platform-name }} now has a new type of resources: [{{ dataproc-name }} templates](concepts/data-processing-template.md).
+1. You can now [configure a livy session](concepts/data-processing.md#session) when using {{ dataproc-name }} clusters.
+1. {{ ml-platform-name }} now supports the [Spark SQL library](concepts/data-processing.md#sql).
 
 ## Release as of 23/09/22 {#230922}
 
 Meet our large {{ ml-platform-name }} update: new interface, communities, resources, and many other features for ML development.
 
 {% include [old-releases](../_includes/datasphere/migration/release-notes-old.md) %}
-

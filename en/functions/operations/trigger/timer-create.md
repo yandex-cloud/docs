@@ -14,9 +14,9 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder you want to create a trigger in.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -37,7 +37,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
     	{% include [function-settings](../../../_includes/functions/function-settings.md) %}
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
     	{% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
@@ -60,9 +60,9 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
       --payload <message> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retry_invocation_attempts> \
+      --retry-attempts <number_of_retry_attempts> \
       --retry-interval <interval_between_retry_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -106,7 +106,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
   To create a timer:
 
-  1. In the {{ TF }} configuration file, describe the parameters of the resources you want to create:
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -115,15 +115,15 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
        function {
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
-         retry_attempts     = "<number_of_retry_invocation_attempts>"
-         retry_interval     = "<interval_between_retry_attempts>"
+         retry_attempts     = "<number_of_retry_attempts>"
+         retry_interval     = "<time_between_retry_attempts>"
        }
        timer {
          cron_expression = "<cron_expression>"
          payload         = "<message>"
        }
        dlq {
-         queue_id           = "<dead_letter_queue_ID>"
+         queue_id           = "<dead-letter_queue_ID>"
          service_account_id = "<service_account_ID>"
        }
      }
@@ -142,7 +142,7 @@ Create a [timer](../../concepts/trigger/timer.md), i.e., a trigger that calls a 
 
      For more information about the `yandex_function_trigger` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

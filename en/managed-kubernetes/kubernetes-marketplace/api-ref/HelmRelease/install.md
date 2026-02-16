@@ -1,9 +1,65 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases:install
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. The ID of the Kubernetes cluster where the Helm release is to be installed.
+          type: string
+        productVersionId:
+          description: |-
+            **string**
+            The product version ID to install.
+          type: string
+        userValues:
+          description: |-
+            **[ValueWithKey](#yandex.cloud.k8s.marketplace.v1.ValueWithKey)**
+            User-defined values for the Helm chart during installation.
+          type: array
+          items:
+            $ref: '#/definitions/ValueWithKey'
+      required:
+        - clusterId
+      additionalProperties: false
+    definitions:
+      Value:
+        type: object
+        properties:
+          typedValue:
+            description: |-
+              **string**
+              The typed string value.
+              Includes only one of the fields `typedValue`.
+            type: string
+        oneOf:
+          - required:
+              - typedValue
+      ValueWithKey:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. The key associated with the value.
+            type: string
+          value:
+            description: |-
+              **[Value](#yandex.cloud.k8s.marketplace.v1.Value)**
+              The value associated with the key.
+            $ref: '#/definitions/Value'
+        required:
+          - key
 sourcePath: en/_api-ref/k8s/marketplace/v1/kubernetes-marketplace/api-ref/HelmRelease/install.md
 ---
 
-# Kubernetes Marketplace, REST: HelmRelease.Install {#Install}
+# Kubernetes Marketplace, REST: HelmRelease.Install
 
 Installs helm release into specified Kubernetes Cluster.
 
@@ -240,7 +296,6 @@ Kubernetes marketplace product version. ||
 
 Status of a helm release.
 
-- `STATUS_UNSPECIFIED`
 - `UNKNOWN`: Helm release status is unknown
 - `DEPLOYED`: Helm release deployed.
 - `UNINSTALLED`: Helm release uninstalled.

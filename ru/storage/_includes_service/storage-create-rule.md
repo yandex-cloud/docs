@@ -14,11 +14,15 @@
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_date }}` — срабатывает в дату, указанную в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}**.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_expired-object-delete-marker }}` — удаляет маркер удаления, для которого больше не существует неактуальных версий объекта.
 
+     Для бакетов со включенным [версионированием](../operations/buckets/versioning.md) действие будет применяться для текущих версий объектов. Для взаимодействия с неактивными версиями объектов воспользуйтесь параметром `NoncurrentVersionExpiration`.
+
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_transition-type }}` — перемещение любых объектов из стандартного (`STANDARD`) в холодное (`COLD`) или (`ICE`) ледяное хранилище:
 
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_days }}` — срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после загрузки объекта.
      * `{{ ui-key.yacloud.storage.bucket.lifecycle.value_date }}` — срабатывает в дату, указанную в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_date }}**.
      * **{{ ui-key.yacloud.storage.bucket.lifecycle.column_storage_class }}** — тип хранилища, в которое будут перемещены объекты.
+
+     Для бакетов со включенным версионированием действие будет применяться для текущих версий объектов. Для взаимодействия с неактивными версиями объектов воспользуйтесь параметром `NoncurrentVersionTransition`.
 
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-expiration-type }}` — удаление нетекущих версий объектов из бакета. Срабатывает через указанное в поле **{{ ui-key.yacloud.storage.bucket.lifecycle.field_days }}** количество дней после того, как версия объекта стала нетекущей.
    * `{{ ui-key.yacloud.storage.bucket.lifecycle.label_version-transition-type }}` — перемещение нетекущих версий объектов из стандартного (`STANDARD`) в холодное (`COLD`)  или (`ICE`) ледяное хранилище:

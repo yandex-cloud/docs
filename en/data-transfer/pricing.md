@@ -1,4 +1,6 @@
 ---
+title: '{{ data-transfer-full-name }} pricing policy'
+description: This article covers the {{ data-transfer-name }} pricing policy.
 editable: false
 ---
 
@@ -9,6 +11,10 @@ editable: false
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat.md](../_includes/vat.md) %}
 
 {{ data-transfer-name }} cost depends on the amount of computing resources you use and the number of data rows delivered by transfers that are at the [GA](../overview/concepts/launch-stages.md) stage: 
 
@@ -27,51 +33,44 @@ editable: false
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ ydb-name }}](operations/endpoint/target/yandex-database.md)
 * [{{ KF }}](operations/endpoint/source/kafka.md) ![arrow_right](../_assets/console-icons/arrow-right.svg) [{{ KF }}](operations/endpoint/target/kafka.md)
 
+{% note info %}
+
+Resource consumption fees are charged for transfers with the {{ dt-status-repl }} (`RUNNING`), {{ dt-status-copy }} (`SNAPSHOTTING`), or {{ dt-status-stopping }} (`STOPPING`) statuses. You can [view](operations/transfer.md#list) the transfer status in the list of transfers.
+
+{% endnote %}
 
 Data delivery for transfers that are at the Preview stage is free of charge. For a list of available transfers and their release stages, see [Available transfers](transfer-matrix.md).
 
-## Pricing {#prices}
+## Prices for the Russia region {#prices}
 
-### Number of transferred rows {#data}
-
-
-
-{% include [usd.md](../_pricing/data-transfer/usd.md) %}
-
-
-### Computing resources {#cpu-ram}
+{% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
 
-{% include [usd.md](../_pricing/data-transfer/usd-cpu.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|datatransfer }}']}
+    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
-{% include [usd.md](../_pricing/data-transfer/usd-ram.md) %}
 
 
-## Examples of cost calculation {#price-example}
+## Cost calculation examples {#price-example}
 
-When doing your cost calculation, remember that one [worker](concepts/index.md#worker) uses 2 vCPUs and 4 GB of RAM by default.
-### Single data copying from {{ PG }} to {{ CH }} {#copy}
+When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
+
+{% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}
+
+### One-time data copying from {{ PG }} to {{ CH }} {#copy}
 
 The number of data rows transferred from {{ PG }} to {{ CH }} during the reporting month is 500,000,000. The copying was performed by one worker (2 vCPUs and 4 GB RAM) and took 24 hours.
 
 
 
-CPU cost:
-
-> 24 * 2 * $0.01048 = $0.50304
-
-RAM cost:
-
-> 24 * 4 * $0.0028 = $0.2688
-
-Data transfer cost:
-
-> (500 - 100) * $0.0216 = $8.64
-
-**Total cost**:
-
-> $0.50304 + $0.2688 + $8.64 = $9.41184
+{% include [usd-copy](../_pricing_examples/data-transfer/usd-copy.md) %}
 
 
 ### Replicating data from {{ PG }} to {{ PG }} {#replication}
@@ -80,25 +79,11 @@ The number of data rows transferred from {{ PG }} to {{ PG }} during the reporti
 
 
 
-CPU cost:
-
-> 30 * 24 * 12 * $0.01048 = $90.5472
-
-RAM cost:
-
-> 30 * 24 * 24 * $0.0028 = $48.384
-
-Data transfer cost:
-
-Free of charge, as 50,000,000 rows is less than the free usage quota.
-
-**Total cost**:
-
-> $90.5472 + $48.384 = $138.9312
+{% include [usd-replication](../_pricing_examples/data-transfer/usd-replication.md) %}
 
 
 ## See also {#see-also}
 
-* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU).
+* [How to optimize data delivery in {{ data-transfer-name }}](https://www.youtube.com/watch?v=1BJ9YEASOeU)
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

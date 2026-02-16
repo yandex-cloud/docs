@@ -51,3 +51,66 @@
 #### Можно ли подключиться к хостам кластера по SSH или получить на хостах права суперпользователя? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
+
+#### Что делать, если при получении SSL-сертификата через PowerShell возникает ошибка проверки отзыва? {#get-ssl-error}
+
+Полный текст ошибки:
+
+```text
+curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+The revocation function was unable to check revocation for the certificate
+```
+Это означает, что при подключении к веб-сайту не удалось проверить, есть ли его сертификат в списке отозванных.
+
+Чтобы исправить ошибку:
+
+* убедитесь, что проверку не блокируют настройки корпоративной сети;
+* выполните команду с параметром `--ssl-no-revoke`.
+
+   ```powershell
+   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt {{ crt-web-path }}
+   ```
+
+#### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+{% include notitle [attach-sa](../../_qa/attach-sa.md) %}
+
+#### Почему при активации трансфера возникает ошибка `Unable to confirm permission`? {#data-transfer-error}
+
+Полный текст ошибки:
+
+```text
+Unable to confirm permission 'data-transfer.transfers.createExternal'
+```
+
+Эта ошибка возникает, если трансфер выполняется в БД пользовательской инсталляции {{ OS }} или из нее, но в настройках эндпоинта {{ OS }} не указан идентификатор подсети.
+
+Чтобы исправить ошибку, укажите в настройках эндпоинта {{ OS }} идентификатор подсети, даже если источник и приемник доступны друг для друга без интернета.
+
+
+#### Как обеспечить доступ AI-моделей {{ ai-studio-full-name }} к кластеру {{ mos-name }} для дообучения? {#ai-access}
+
+Воспользуйтесь одним из способов:
+
+* Настройте доступ из интернета к хостам с ролями `DATA` и `MANAGER`:
+
+    1. [Включите](../../managed-opensearch/operations/host-groups.md#update-host-group) опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** в настройках группы хостов с ролями `DATA` и `MANAGER`.
+    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик на порт `{{ port-mos }}`. Для этого создайте следующее правило для входящего трафика:
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mos }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+
+* Создайте и настройте NAT-шлюз:
+
+    1. [Создайте NAT шлюз](../../vpc/operations/create-nat-gateway.md).
+    1. [Создайте таблицу маршрутизации](../../vpc/operations/static-route-create.md) с префиксом `0.0.0.0/0` и привяжите ее к подсети, в которой находится группа хостов с ролями `DATA` и `MANAGER`.
+
+
+#### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mos-short-name }}? {#services}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### Какой размер блока используется на дисках кластера? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

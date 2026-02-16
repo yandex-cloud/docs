@@ -1,9 +1,63 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        gpuClusterId:
+          description: |-
+            **string**
+            ID of the GPU cluster to update.
+            To get the GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/GpuCluster/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the GPU cluster.
+            The name must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the GPU cluster.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New GPU cluster labels as `key:value` pairs.
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [GpuClusterService.Get](/docs/compute/api-ref/GpuCluster/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+          type: object
+          additionalProperties:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/update.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Update {#Update}
+# Compute Cloud API, REST: GpuCluster.Update
 
 Updates the specified GPU cluster.
 
@@ -33,7 +87,7 @@ To get the GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -57,7 +111,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 New description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 New GPU cluster labels as `key:value` pairs.
 
@@ -97,7 +151,7 @@ to add or remove a label:
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "zoneId": "string",
     "interconnectType": "string"
@@ -203,7 +257,7 @@ A list of messages that carry the error details. ||
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||
@@ -231,14 +285,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
@@ -250,6 +303,5 @@ ID of the availability zone where the GPU cluster resides. ||
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

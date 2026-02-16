@@ -1,3 +1,8 @@
+---
+title: Supported audio formats
+description: 'In this article, you will learn about the supported audio formats: LPCM, WAV, MP3, and OggOpus.'
+---
+
 # Supported audio formats
 
 {{ speechsense-name }} allows you to [upload audio files](../operations/data/upload-data.md) in these formats:
@@ -5,7 +10,13 @@
 * [LPCM](#lpcm)
 * [WAV](#WAV)
 * [MP3](#MP3); preferred format
-* [OggOpus](#OggOpus)
+* [OggOpus](#OggOpus).
+
+{% note info %}
+
+{% include notitle [max-duration](../../_includes/speechsense/data/max-duration.md) %}
+
+{% endnote %}
 
 ## LPCM {#lpcm}
 

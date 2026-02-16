@@ -1,6 +1,5 @@
-
 ```hcl
-# Declaring variables for user-defined parameters
+# Declaring variables for custom parameters
 
 variable "folder_id" {
   type = string
@@ -30,7 +29,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Provider configuration
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -102,7 +101,7 @@ resource "yandex_vpc_security_group" "nat-instance-sg" {
   }
 }
 
-# Adding a ready-to-use VM image
+# Adding a prebuilt VM image
 
 resource "yandex_compute_image" "ubuntu-1804-lts" {
   source_family = "ubuntu-1804-lts"
@@ -130,7 +129,7 @@ resource "yandex_compute_disk" "boot-disk-nat" {
   image_id = yandex_compute_image.nat-instance-ubuntu.id
 }
 
-# Creating a VM
+# Creating a VM instance
 
 resource "yandex_compute_instance" "test-vm" {
   name        = local.vm_test_name
@@ -153,11 +152,11 @@ resource "yandex_compute_instance" "test-vm" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 
-# Creating a NAT instance
+# Creating an NAT instance
 
 resource "yandex_compute_instance" "nat-instance" {
   name        = local.vm_nat_name
@@ -181,11 +180,11 @@ resource "yandex_compute_instance" "nat-instance" {
   }
 
   metadata = {
-    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user_nat}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh-authorized-keys:\n      - ${file("${var.ssh_key_path}")}"
+    user-data = "#cloud-config\nusers:\n  - name: ${var.vm_user_nat}\n    groups: sudo\n    shell: /bin/bash\n    sudo: 'ALL=(ALL) NOPASSWD:ALL'\n    ssh_authorized_keys:\n      - ${file("${var.ssh_key_path}")}"
   }
 }
 
-# Creating a routing table and a static route
+# Creating a route table and static route
 
 resource "yandex_vpc_route_table" "nat-instance-route" {
   name       = "nat-instance-route"
@@ -196,6 +195,3 @@ resource "yandex_vpc_route_table" "nat-instance-route" {
   }
 }
 ```
-
-
-

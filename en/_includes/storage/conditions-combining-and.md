@@ -1,1 +1,1 @@
-You can set multiple conditions for a rule and specify multiple keys for each one. These conditions and their keys will be checked using the `AND` logic. This means the request must meet all the specified criteria at once.
+You can set multiple conditions for a rule and specify multiple keys for each condition. These conditions and their keys will be checked using the logical `AND`, i.e., the request must meet all the specified criteria at once.

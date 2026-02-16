@@ -3,34 +3,38 @@ title: How to add a user to {{ datalens-full-name }}
 description: Follow this guide to add a user to {{ datalens-full-name }}.
 ---
 
-# Adding users to {{ datalens-short-name }}
+# Users
 
-There are a few ways to add a user to {{ datalens-short-name }}:
+There are several ways to add a user to {{ datalens-short-name }}:
 
-1. [Via {{ datalens-short-name }}](#dl-user): If the user is not going to access other {{ yandex-cloud }} services. This method allows you to add users with a Yandex account. If the user later requires other {{ yandex-cloud }} services, you can [assign them an additional role](../../organization/security/index.md#add-role) in the organization with the current {{ datalens-short-name }} instance.
+1. [Via {{ datalens-short-name }}](#dl-user): If the user is not planning to use other {{ yandex-cloud }} services. This method allows you to add users with a Yandex account. If the user asks for other {{ yandex-cloud }} services later on, you can [assign them an additional role](../../organization/security/index.md#add-role) in the organization with the current {{ datalens-short-name }} instance.
 
-1. [Via {{ org-full-name }}](#org-user): If the user is going to use other {{ yandex-cloud }} services. This method allows you to invite [users with a Yandex](#passport-user) account to the organization or add [federated users](#federated-user) if you set up an identity federation.
+1. [Via {{ org-full-name }}](#org-user): If the user is planning to use other {{ yandex-cloud }} services. In which case you can invite to the organization [Yandex account users](#passport-user) or add [federated](#federated-user) and [local](../../organization/operations/add-account.md#local) users.
 
 {% note info %}
 
-To add or invite users, you must be the organization's administrator (`organization-manager.admin` role) or owner (`organization-manager.organizations.owner` role).
+Users can be added or invited by the organization administrator (the `organization-manager.admin` role) or owner (the `organization-manager.organizations.owner` role).
 
 {% endnote %}
 
 ### Adding a user via {{ datalens-short-name }} {#dl-user}
 
-You can add users in the service settings. To do this:
+To add a user in {{ datalens-short-name }}:
 
 1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
-1. Open the service [settings]({{ link-datalens-settings }}) and click ![image](../../_assets/console-icons/sliders.svg) in the left-hand panel.
-1. Under **Manage users**, click **Invite users**.
-1. Enter the email addresses of the users you want to invite, e.g., `{{login-example}}`.
+1. In the left-hand panel, select ![sliders](../../_assets/console-icons/sliders.svg) **Service settings**.
+1. Select the **Users** tab.
+1. Under **Invite users**, do the following:
 
-   You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+   1. Enter the email addresses of the users you want to invite, e.g., `{{ login-example }}`.
 
-1. Click **Send invitation**.
+      You can send invitations to any email address. Invited users will be able to select the appropriate Yandex account once they accept the invitation.
+      
+   1. Click **Send invitations**.
 
-The user will receive a {{ datalens-short-name }} invitation email. Once the user accepts the invitation and selects the account for log-in, they can log in to your organization and start using {{ datalens-short-name }}. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance.
+The user will receive a {{ datalens-short-name }} invitation email. Once the user accepts the invitation and selects the account for login, they can log in to your organization. The user will get the `{{ roles-datalens-creator }}` role in the organization with the current {{ datalens-short-name }} instance. To log in to {{ datalens-short-name }}, the user will need a [seat](../settings/seats.md).
+
+![image](../../_assets/datalens/settings/users-settings.png)
 
 ### Adding a user via {{ org-full-name }} {#org-user}
 
@@ -45,12 +49,6 @@ Users can only use {{ datalens-short-name }} if they have a role that enables ac
 {% endnote %}
 
 #### Adding a federated user {#federated-user}
-
-{% note info %}
-
-Only available with the _Business_ [service plan](../settings/service-plan.md). However, if you configured an identity federation and used a corporate account to log in to {{ datalens-name }} before April 22, 2024, enterprise authentication and SSO will be available for free as part of the _Community_ plan until December 31, 2024.
-
-{% endnote %}
 
 If you set up an [identity federation](../../organization/concepts/add-federation.md), follow [this guide](../../organization/operations/add-account.md#add-user-sso) to add a new federated user. After that, make sure to [assign](../../organization/security/index.md#add-role) them the `{{ roles-datalens-visitor }}` role.
 

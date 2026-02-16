@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Kubernetes cluster to return.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/Cluster/get.md
 ---
 
-# Managed Services for Kubernetes API, REST: Cluster.Get {#Get}
+# Managed Services for Kubernetes API, REST: Cluster.Get
 
 Returns the specified Kubernetes cluster.
 
@@ -35,7 +52,7 @@ Required field. ID of the Kubernetes cluster to return. ||
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "health": "string",
   "networkId": "string",
@@ -121,6 +138,21 @@ Required field. ID of the Kubernetes cluster to return. ||
       "clusterAutoscalerEnabled": "boolean",
       "kubeApiserverEnabled": "boolean",
       "eventsEnabled": "boolean"
+    },
+    "resources": {
+      "cores": "string",
+      "coreFraction": "string",
+      "memory": "string"
+    },
+    "scalePolicy": {
+      // Includes only one of the fields `fixedScale`, `autoScale`
+      "fixedScale": {
+        "resourcePresetId": "string"
+      },
+      "autoScale": {
+        "minResourcePresetId": "string"
+      }
+      // end of the list of possible fields
     }
   },
   "ipAllocationPolicy": {
@@ -146,8 +178,19 @@ Required field. ID of the Kubernetes cluster to return. ||
   // Includes only one of the fields `cilium`
   "cilium": {
     "routingMode": "string"
-  }
+  },
   // end of the list of possible fields
+  "scheduledMaintenance": {
+    "delayedUntil": "string",
+    "availableFrom": "string",
+    "noLaterThan": "string",
+    "description": "string"
+  },
+  "workloadIdentityFederation": {
+    "enabled": "boolean",
+    "issuer": "string",
+    "jwksUri": "string"
+  }
 }
 ```
 
@@ -177,14 +220,13 @@ Name of the Kubernetes cluster. ||
 || description | **string**
 
 Description of the Kubernetes cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the Kubernetes cluster.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Kubernetes cluster is waiting for resources to be allocated.
 - `RUNNING`: Kubernetes cluster is running.
 - `RECONCILING`: Kubernetes cluster is being reconciled.
@@ -196,7 +238,6 @@ Status of the Kubernetes cluster.
 
 Health of the Kubernetes cluster.
 
-- `HEALTH_UNSPECIFIED`
 - `HEALTHY`: Kubernetes cluster is alive and well.
 - `UNHEALTHY`: Kubernetes cluster is inoperable. ||
 || networkId | **string**
@@ -212,6 +253,8 @@ Allocation policy for IP addresses of services and pods inside the Kubernetes cl
 
 Gateway IPv4 address.
 
+The maximum string length in characters is 15.
+
 Includes only one of the fields `gatewayIpv4Address`. ||
 || serviceAccountId | **string**
 
@@ -226,7 +269,6 @@ Channels differ in the set of available versions, the management of auto-updates
 You can't change the channel once the Kubernetes cluster is created, you can only recreate the Kubernetes cluster and specify a new release channel.
 For more details see [documentation](/docs/managed-kubernetes/concepts/release-channels-and-updates).
 
-- `RELEASE_CHANNEL_UNSPECIFIED`
 - `RAPID`: Minor updates with new functions and improvements are often added.
 You can't disable automatic updates in this channel, but you can specify a time period for automatic updates.
 - `REGULAR`: New functions and improvements are added in chunks shortly after they appear on `RAPID`.
@@ -241,6 +283,8 @@ Log group where cluster stores cluster system logs, like audit, events, or contr
 || cilium | **[Cilium](#yandex.cloud.k8s.v1.Cilium)**
 
 Includes only one of the fields `cilium`. ||
+|| scheduledMaintenance | **[ScheduledMaintenance](#yandex.cloud.k8s.v1.ScheduledMaintenance)** ||
+|| workloadIdentityFederation | **[WorkloadIdentityFederation](#yandex.cloud.k8s.v1.WorkloadIdentityFederation)** ||
 |#
 
 ## Master {#yandex.cloud.k8s.v1.Master}
@@ -285,6 +329,12 @@ Master security groups. ||
 || masterLogging | **[MasterLogging](#yandex.cloud.k8s.v1.MasterLogging)**
 
 Cloud Logging for master components. ||
+|| resources | **[MasterResources](#yandex.cloud.k8s.v1.MasterResources)**
+
+Computing resources of each master instance such as the amount of memory and number of cores. ||
+|| scalePolicy | **[MasterScalePolicy](#yandex.cloud.k8s.v1.MasterScalePolicy)**
+
+Scale policy of the master. ||
 |#
 
 ## ZonalMaster {#yandex.cloud.k8s.v1.ZonalMaster}
@@ -461,7 +511,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -472,7 +524,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -499,12 +552,16 @@ Identifies whether Cloud Logging is enabled for master components. ||
 
 ID of the log group where logs of master components should be stored.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 The destination of master components' logs. ||
 || folderId | **string**
 
 ID of the folder where logs should be stored (in default group).
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -521,6 +578,56 @@ Identifies whether Cloud Logging is enabled for kube-apiserver. ||
 || eventsEnabled | **boolean**
 
 Identifies whether Cloud Logging is enabled for events. ||
+|#
+
+## MasterResources {#yandex.cloud.k8s.v1.MasterResources}
+
+#|
+||Field | Description ||
+|| cores | **string** (int64)
+
+The number of cores available to each master instance. ||
+|| coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core. ||
+|| memory | **string** (int64)
+
+The amount of memory available to each master instance, specified in bytes. ||
+|#
+
+## MasterScalePolicy {#yandex.cloud.k8s.v1.MasterScalePolicy}
+
+#|
+||Field | Description ||
+|| fixedScale | **[FixedScale](#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|#
+
+## FixedScale {#yandex.cloud.k8s.v1.MasterScalePolicy.FixedScale}
+
+Fixed master instance resources.
+
+#|
+||Field | Description ||
+|| resourcePresetId | **string**
+
+ID of computing resources preset to be used by master. ||
+|#
+
+## AutoScale {#yandex.cloud.k8s.v1.MasterScalePolicy.AutoScale}
+
+Autoscaled master instance resources.
+
+#|
+||Field | Description ||
+|| minResourcePresetId | **string**
+
+ID of computing resources preset to be used as lower boundary for scaling. ||
 |#
 
 ## IPAllocationPolicy {#yandex.cloud.k8s.v1.IPAllocationPolicy}
@@ -557,7 +664,6 @@ IPv6 range for allocating Kubernetes service IP addresses ||
 ||Field | Description ||
 || provider | **enum** (Provider)
 
-- `PROVIDER_UNSPECIFIED`
 - `CALICO` ||
 |#
 
@@ -577,6 +683,61 @@ To obtain a KMS key ID use a [yandex.cloud.kms.v1.SymmetricKeyService.List](/doc
 ||Field | Description ||
 || routingMode | **enum** (RoutingMode)
 
-- `ROUTING_MODE_UNSPECIFIED`
 - `TUNNEL` ||
+|#
+
+## ScheduledMaintenance {#yandex.cloud.k8s.v1.ScheduledMaintenance}
+
+#|
+||Field | Description ||
+|| delayedUntil | **string** (date-time)
+
+Time until which the update should be postponed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| availableFrom | **string** (date-time)
+
+Time when the update became available.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| noLaterThan | **string** (date-time)
+
+The latest possible date by which a mandatory update must be applied.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| description | **string**
+
+Description of the planned operation, for example, "Infrastructure planned update". ||
+|#
+
+## WorkloadIdentityFederation {#yandex.cloud.k8s.v1.WorkloadIdentityFederation}
+
+WorkloadIdentityFederation contains configuration for workload identity federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
+|| issuer | **string**
+
+Issuer URI for Kubernetes service account tokens. ||
+|| jwksUri | **string**
+
+JSON Web Key Set URI used to verify token signatures. ||
 |#

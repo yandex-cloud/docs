@@ -27,12 +27,16 @@ description: Из статьи вы узнаете, как задать наст
 
     * [{{ KF }} в {{ CH }}](../../../tutorials/mkf-to-mch.md);
     * [{{ KF }} в {{ PG }}](../../../tutorials/mkf-to-mpg.md);
-    * [{{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md);    
+    * [{{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md);
     * [{{ KF }} в {{ MG }}](../../../tutorials/mkf-to-mmg.md);
     * [{{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md);
     * [{{ KF }} в {{ OS }}](../../../tutorials/mkf-to-mos.md);
     * [{{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md);
+
+    
     * [{{ KF }} в {{ DS }}](../../../tutorials/mkf-to-yds.md).
+
+
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -57,7 +61,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -73,7 +77,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -120,7 +124,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -154,20 +158,18 @@ description: Из статьи вы узнаете, как задать наст
 
 ### Расширенные настройки {#additional-settings}
 
-
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
-
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
-
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.
 
 
@@ -191,19 +193,23 @@ description: Из статьи вы узнаете, как задать наст
         Значения в полях **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.buffer_flush_interval.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.invocation_timeout.title }}** указываются с постфиксом `s`, например, `10s`.
 
         {% endnote %}
-
     
+
     * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}
 
 - {{ TF }} {#tf}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/terraform/parsers.md) %}
 
 - API {#api}
 
+    
     * {% include [transformers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/transformers.md) %}
+
 
     * {% include [parsers](../../../../_includes/data-transfer/fields/transformers-and-parsers/api/parsers.md) %}
 
@@ -222,7 +228,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ objstorage-full-name }}](../target/object-storage.md);
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
-* [{{ ES }}](../target/elasticsearch.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ OS }}](../target/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

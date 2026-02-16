@@ -2,7 +2,7 @@
 
 The [Symfony](https://symfony.com/) PHP framework contains the [Messenger](https://symfony.com/doc/current/messenger.html) component allowing you to work with queues. As a message broker, you can use {{ message-queue-name }}.
 
-## Installation {#install}
+## Installing {#install}
 
 You will need the following tools:
 * [Git](https://git-scm.com)
@@ -38,8 +38,6 @@ To use {{ message-queue-name }} with Symfony Messenger, follow these steps:
    composer require symfony/amazon-sqs-messenger async-aws/sqs ^1.9
    ```
 
-   Make sure to use the `async-aws/sqs` library version `^1.9` or lower, since it uses XML. Version 2.0 uses JSON, which is currently incompatible with {{ message-queue-name }}.
-
 1. Create a message and a handler:
 
     ```bash
@@ -59,13 +57,16 @@ To use {{ message-queue-name }} with Symfony Messenger, follow these steps:
 
     ```php
     <?php
+    
     namespace App\Command;
+    
     use App\Message\Sum;
     use Symfony\Component\Console\Attribute\AsCommand;
     use Symfony\Component\Console\Command\Command;
     use Symfony\Component\Console\Input\InputInterface;
     use Symfony\Component\Console\Output\OutputInterface;
     use Symfony\Component\Messenger\MessageBusInterface;
+    
     #[AsCommand(
         name: 'app:create',
         description: 'Add a short description for your command',
@@ -76,9 +77,11 @@ To use {{ message-queue-name }} with Symfony Messenger, follow these steps:
         {
             parent::__construct();
         }
+    
         protected function execute(InputInterface $input, OutputInterface $output): int
         {
             $this->messageBus->dispatch(new Sum(4,2));
+            
             return Command::SUCCESS;
         }
     }
@@ -88,16 +91,20 @@ To use {{ message-queue-name }} with Symfony Messenger, follow these steps:
 
     ```php
     <?php
+    
     namespace App\Message;
+    
     final class Sum
     {
         public function __construct(private readonly int $a, private readonly int $b)
         {
         }
+    
         public function getA(): int
         {
             return $this->a;
         }
+    
         public function getB(): int
         {
             return $this->b;
@@ -136,7 +143,7 @@ To use {{ message-queue-name }} with Symfony Messenger, follow these steps:
     MESSENGER_TRANSPORT_DSN=sqs://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000000********/symfony-test?access_key=KEY&secret_key=SECRET&region={{ region-id }}
     ```
 
-   Replace `b1gvlrnlei4l********/dj6000000000********/symfony-test` with the path copied in the {{ yandex-cloud }} console.
+    Replace `b1gvlrnlei4l********/dj6000000000********/symfony-test` with the path copied in the {{ yandex-cloud }} console.
 
     In the `access_key=KEY` and `secret_key=SECRET` parameters, replace the `KEY` and `SECRET` values with the value of the {{ message-queue-name }} static access key.
 

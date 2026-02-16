@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list functions in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListFunctionsResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListFunctionsResponse.nextPageToken](#yandex.cloud.serverless.functions.v1.ListFunctionsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters functions listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [Function.name](#yandex.cloud.serverless.functions.v1.Function) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name="my-function"`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/list.md
 ---
 
-# Cloud Functions Service, REST: Function.List {#List}
+# Cloud Functions Service, REST: Function.List
 
 Retrieves the list of functions in the specified folder.
 
@@ -57,7 +101,7 @@ Example of a filter: `name="my-function"`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "httpInvokeUrl": "string",
       "status": "string"
     }
@@ -104,13 +148,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the function. The name is unique within the folder. ||
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the function. ||
-|| labels | **string**
+Description of the function.
 
-Function labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || httpInvokeUrl | **string**
 
 URL that needs to be requested to invoke the function. ||
@@ -118,7 +168,6 @@ URL that needs to be requested to invoke the function. ||
 
 Status of the function.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Function is being created.
 - `ACTIVE`: Function is ready to be invoked.
 - `DELETING`: Function is being deleted.

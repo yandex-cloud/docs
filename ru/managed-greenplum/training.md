@@ -1,6 +1,6 @@
 ---
 title: Обучающие курсы по {{ mgp-full-name }}
-description: Получить больше знаний о сервисах {{ yandex-cloud }} и научиться использовать их для решения конкретных практических задач можно с помощью обучающих онлайн-курсов. Эти курсы разработаны архитекторами {{ yandex-cloud }}, бесплатны и позволяют глубже изучить нужные вам темы в удобном для вас темпе.
+description: В этом разделе собраны обучающие курсы по {{ mgp-full-name }}.
 ---
 
 # Обучающие курсы по {{ mgp-full-name }}
@@ -11,3 +11,5 @@ description: Получить больше знаний о сервисах {{ y
 * {% include [training-managed-greenplum](../_includes/training/training-mgp.md) %}
 
 {% include [training-courses](../_includes/training/training-courses.md) %}
+
+{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

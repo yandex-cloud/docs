@@ -1,4 +1,9 @@
-# Обращение к несуществующему объекту
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND
+description: На странице приведено описание ошибки {{ datalens-full-name }} Обращение к несуществующему объекту.
+---
+
+# [{{ datalens-full-name }}] Обращение к несуществующему объекту
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`
 

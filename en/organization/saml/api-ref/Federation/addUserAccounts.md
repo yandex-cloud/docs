@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:addUserAccounts
+    method: post
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to add users.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        nameIds:
+          description: |-
+            **string**
+            Name IDs returned by the Identity Provider (IdP) on successful authentication.
+            These may be UPNs or user email addresses.
+            The maximum string length in characters for each value is 1000.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/addUserAccounts.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.AddUserAccounts {#AddUserAccounts}
+# SAML Federation API, REST: Federation.AddUserAccounts
 
 Adds users to the specified federation.
 
@@ -19,7 +47,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/fe
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation to add users. ||
+Required field. ID of the federation to add users.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.saml.AddFederatedUserAccountsRequest}
@@ -37,7 +67,9 @@ Required field. ID of the federation to add users. ||
 || nameIds[] | **string**
 
 Name IDs returned by the Identity Provider (IdP) on successful authentication.
-These may be UPNs or user email addresses. ||
+These may be UPNs or user email addresses.
+
+The maximum string length in characters for each value is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -75,11 +107,7 @@ These may be UPNs or user email addresses. ||
         "samlUserAccount": {
           "federationId": "string",
           "nameId": "string",
-          "attributes": {
-            "value": [
-              "string"
-            ]
-          }
+          "attributes": "object"
         }
         // end of the list of possible fields
       }
@@ -195,7 +223,7 @@ List of users created by [FederationService.AddUserAccounts](#AddUserAccounts) r
 
 ## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -217,7 +245,7 @@ Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. 
 ## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
@@ -232,18 +260,22 @@ Default email of the Yandex user account. ||
 ## SamlUserAccount {#yandex.cloud.organizationmanager.v1.SamlUserAccount}
 
 A SAML federated user.
-For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+For more information, see [federations](/docs/iam/concepts/users/accounts#saml-federation).
 
 #|
 ||Field | Description ||
 || federationId | **string**
 
-Required field. ID of the federation that the federation belongs to. ||
+Required field. ID of the federation that the federation belongs to.
+
+The maximum string length in characters is 50. ||
 || nameId | **string**
 
 Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**
+The name is unique within the federation. 1-256 characters long.
+
+The string length in characters must be 1-256. ||
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

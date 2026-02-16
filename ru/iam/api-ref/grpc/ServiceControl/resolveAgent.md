@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/resolveAgent.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent {#ResolveAgent}
+# Identity and Access Management API, gRPC: ServiceControlService.ResolveAgent
 
 Resolve agent service account for the service in the specified resource container.
 
@@ -15,8 +15,8 @@ Resolve agent service account for the service in the specified resource containe
 
 ```json
 {
-  "serviceId": "string",
-  "microserviceId": "string",
+  "service_id": "string",
+  "microservice_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
@@ -26,12 +26,16 @@ Resolve agent service account for the service in the specified resource containe
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
-Required field. ID of the Service. ||
-|| microserviceId | **string**
+Required field. ID of the Service.
 
-ID of the Microservice. ||
+The maximum string length in characters is 50. ||
+|| microservice_id | **string**
+
+ID of the Microservice.
+
+The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container. ||
@@ -45,31 +49,35 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## ServiceAgent {#yandex.cloud.iam.v1.ServiceAgent}
 
 ```json
 {
-  "serviceAccountId": "string",
-  "serviceId": "string",
-  "microserviceId": "string"
+  "service_account_id": "string",
+  "service_id": "string",
+  "microservice_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the agent service account. ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
-|| microserviceId | **string**
+|| microservice_id | **string**
 
 ID of the microservice. ||
 |#

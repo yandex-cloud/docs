@@ -1,4 +1,4 @@
-# Посмотреть операции с ресурсами сервиса
+# Посмотреть операции с ресурсами сервиса {{ captcha-name }}
 
 Все действия с ресурсами сервиса {{ captcha-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
@@ -8,7 +8,9 @@
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть операции со всеми ресурсами сервиса, на панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**. В открывшемся списке также отображаются операции для ресурсов, которые были удалены.
 
 {% endlist %}
 

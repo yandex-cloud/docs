@@ -12,7 +12,10 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-gen2-vm.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
@@ -57,17 +60,31 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](vm-control/attach-network-interface.md)
 * [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-transferring-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
+* [{#T}](vm-control/gpus-maintenance.md)
+
+## Работа с метаданными виртуальной машины {#use-metadata}
+
+* [{#T}](vm-metadata/setup-metadata-service.md)
+* [{#T}](vm-metadata/get-vm-metadata.md)
+* [{#T}](vm-metadata/get-identity-document.md)
+* [{#T}](vm-metadata/update-vm-metadata.md)
+* [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 
 ## Работа на виртуальной машине {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/cloud-shell.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/os-login-create-vm.md)
@@ -90,6 +107,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/ssd-io.md)
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
@@ -98,6 +116,7 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/disk-access.md)
@@ -117,7 +136,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
-
 ## Группы размещения дисков {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
@@ -125,7 +143,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](disk-placement-groups/get-info.md)
 * [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
-
 
 ## Создание образа {#image-create}
 
@@ -139,10 +156,10 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/image-control-get-info.md)
-* [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/encrypt.md)
 * [{#T}](image-control/access.md)
-
+* [{#T}](image-control/delete.md)
 
 ## Файловые хранилища {#filesystem}
 
@@ -153,7 +170,6 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](filesystem/get-info.md)
 * [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
-
 
 ## Управление серийной консолью {#serial-console}
 
@@ -186,6 +202,7 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/disable-enable-zone.md)
 * [{#T}](instance-groups/move-group.md)
 * [{#T}](instance-groups/move-group-with-nlb.md)
 * [{#T}](instance-groups/move-group-with-alb.md)
@@ -196,12 +213,12 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/rolling-restart.md)
 * [{#T}](instance-groups/rolling-recreate.md)
+* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/access.md)
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
-
 
 ## Выделенные хосты {#dedicated-host}
 
@@ -209,6 +226,14 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
+
+## Пулы резервов ВМ {#reserved-pools}
+
+* [{#T}](reserved-pools/create-reserved-pool.md)
+* [{#T}](reserved-pools/update-reserved-pool.md)
+* [{#T}](reserved-pools/delete-reserved-pool.md)
+* [{#T}](reserved-pools/manage-pool-vms.md)
+
 
 ## Кластеры GPU {#gpu-cluster}
 
@@ -218,4 +243,13 @@ description: Пошаговые инструкции по работе и упр
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
+* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
 
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)
+* [{#T}](metrics-pull.md)
+* [{#T}](gpu-driver-update.md)

@@ -1,0 +1,4 @@
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` — уникальный идентификатор приложения.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` — адрес в {{ yandex-cloud }}, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` — адрес, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
+* `{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}` — адрес, по которому внешнее приложение может получить атрибуты пользователя.

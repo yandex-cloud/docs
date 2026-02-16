@@ -1,9 +1,75 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folderId}
+    method: patch
+    path:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the Folder resource to update.
+            To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Required field. Name of the folder.
+            The name must be unique within the cloud.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the folder.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/update.md
 ---
 
-# Resource Manager API, REST: Folder.Update {#Update}
+# Resource Manager API, REST: Folder.Update
 
 Updates the specified folder.
 
@@ -20,7 +86,9 @@ PATCH https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{folde
 || folderId | **string**
 
 Required field. ID of the Folder resource to update.
-To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.resourcemanager.v1.UpdateFolderRequest}
@@ -30,7 +98,7 @@ To get the folder ID, use a [FolderService.List](/docs/resource-manager/api-ref/
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -49,13 +117,19 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Required field. Name of the folder.
-The name must be unique within the cloud. ||
+The name must be unique within the cloud.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the folder. ||
-|| labels | **string**
+Description of the folder.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -87,7 +161,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string"
   }
   // end of the list of possible fields
@@ -218,14 +292,13 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the folder. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

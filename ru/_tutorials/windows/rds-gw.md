@@ -84,7 +84,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         1. Выберите сервис **{{ vpc-short-name }}** в каталоге, где требуется создать подсеть.
         1. Нажмите на имя облачной сети.
         1. Нажмите кнопку **Добавить подсеть**.
-        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-a`).
+        1. Заполните форму: введите имя подсети `rdgw-subnet`, выберите нужную зону доступности из выпадающего списка (например, `{{ region-id }}-d`).
         1. Введите CIDR подсети: IP-адрес и маску подсети: `10.1.0.0/16`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../../vpc/concepts/network.md).
         1. Нажмите кнопку **Создать подсеть**.
    
@@ -93,7 +93,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       ```
       yc vpc subnet create `
         --name rdgw-subnet `
-        --zone {{ region-id }}-a `
+        --zone {{ region-id }}-d `
         --network-name rdgw-network `
         --range 10.1.0.0/16
       ```
@@ -103,17 +103,17 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       Результат:
       
       ``` 
-      id: e9b95m6al33r62n5vkab
-      folder_id: big67u7m5flplkc6vvpc
+      id: e9b95m6al33r********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T10:49:21Z"
       name: rdgw-subnet
-      network_id: qqppl6fduhct76qkjh6s
-      zone_id: {{ region-id }}-a
+      network_id: qqppl6fduhct********
+      zone_id: {{ region-id }}-d
       v4_cidr_blocks:
       - 10.1.0.0/16
       ```
 
-     - API {#api}
+    - API {#api}
 
        Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
@@ -168,14 +168,14 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    Результат:
 
    ``` 
-   id: enp136p8s2ael7ob6klg
-   folder_id: big67u7m5flplkc6vvpc
+   id: enp136p8s2ae********
+   folder_id: big67u7m5flp********
    created_at: "2021-06-09T10:50:29Z"
    name: my-rdgw-sg
-   network_id: qqppl6fduhct76qkjh6s
+   network_id: qqppl6fduhct********
    status: ACTIVE
    rules:
-   - id: env98jerk9b3tcp68k61
+   - id: env98jerk9b3********
      description: icmp
      direction: INGRESS
      protocol_name: ICMP
@@ -199,23 +199,33 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 
 - Консоль управления {#console}
 
-     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-     1. В поле **Имя** введите имя виртуальной машины: `my-rds-gw`.
-     1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-     1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter).
-     1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
-     1. В блоке **Вычислительные ресурсы**:
-         * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-         * Укажите необходимое количество vCPU и объем RAM:
-             * **vCPU** — 2
-             * **Гарантированная доля vCPU** — 100%
-             * **RAM** — 4 ГБ
-     1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `rdgw-network`. Выберите подсеть `rdgw-subnet`. В блоке **Публичный адрес** выберите вариант **Автоматически**. Выберите группу безопасности `my-rdgw-sg`.
-     1. Нажмите кнопку **Создать ВМ**.
+     1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+         * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+         * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
+         * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+         * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+         * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+         * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+         * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+         * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `rdgw-network` и подсеть `rdgw-subnet`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+         * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — `my-rdgw-sg`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-rds-gw`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
      {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
- - CLI {#cli}
+- CLI {#cli}
      
     1. В терминале PowerShell создайте скрипт `setpass` для настройки пароля учетной записи `Administrator` через поле `user-data` в [метаданных ВМ](../../compute/concepts/vm-metadata.md). Утилита `cloudbase-init` выполнит его при первом запуске.
 
@@ -239,51 +249,53 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
          --memory 4 `
          --cores 2 `
          --platform standard-v3 `
-         --zone {{ region-id }}-a `
+         --zone {{ region-id }}-d `
          --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.3,nat-ip-version=ipv4,security-group-ids=<id_my-rdgw-group> `
          --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
          --metadata-from-file user-data=setpass
        ```
-   
-      Результат:
-   
-      ``` 
-      done (25s)
-      id: frmogfp7mm1kg87c25f3
-      folder_id: big67u7m5flplkc6vvpc
-      created_at: "2021-06-09T10:51:58Z"
-      name: my-rds-gw
-      zone_id: {{ region-id }}-a
-      platform_id: standard-v3
-      resources:
-      memory: "4294967296"
-      cores: "2"
-      core_fraction: "100"
-      status: RUNNING
-      boot_disk:
-      mode: READ_WRITE
-      device_name: fhmplfvr7g6pfv63fsr7
-      auto_delete: true
-      disk_id: fhmplfvr7g6pfv63fsr7
-      network_interfaces:
-      - index: "0"
-        mac_address: d0:0d:18:83:c8:7b
-        subnet_id: e9b95m6al33r62n5vkab
-        primary_v4_address:
-        address: 10.1.0.3
-        one_to_one_nat:
-        address: 178.154.231.126
-        ip_version: IPV4
-        security_group_ids:
-         - enp136p8s2ael7ob6klg
-           fqdn: my-rds-gw.{{ region-id }}.internal
-           scheduling_policy: {}
-           network_settings:
-           type: STANDARD
-           placement_policy: {}
-      ```
 
- {% endlist %} 
+       Результат:
+
+       ``` 
+       done (25s)
+       id: frmogfp7mm1k********
+       folder_id: big67u7m5flp********
+       created_at: "2021-06-09T10:51:58Z"
+       name: my-rds-gw
+       zone_id: {{ region-id }}-d
+       platform_id: standard-v3
+       resources:
+       memory: "4294967296"
+       cores: "2"
+       core_fraction: "100"
+       status: RUNNING
+       boot_disk:
+       mode: READ_WRITE
+       device_name: fhmplfvr7g6p********
+       auto_delete: true
+       disk_id: fhmplfvr7g6p********
+       network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:18:83:c8:7b
+         subnet_id: e9b95m6al33r********
+         primary_v4_address:
+         address: 10.1.0.3
+         one_to_one_nat:
+         address: 178.154.231.126
+         ip_version: IPV4
+         security_group_ids:
+          - enp136p8s2a********
+            fqdn: my-rds-gw.{{ region-id }}.internal
+            scheduling_policy: {}
+            network_settings:
+            type: STANDARD
+            placement_policy: {}
+       ```
+
+       {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
+{% endlist %}
 
 ## Настройте роль RDGW {#role}
 
@@ -387,22 +399,31 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
 1. Создайте ВМ без доступа в интернет, к которой вы будете подключаться во время проверки. 
 
     {% list tabs group=instructions %}
-    
+
     - Консоль управления {#console}
-    
-        1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите **Виртуальная машина**.
-        1. В поле **Имя** введите имя виртуальной машины: `test-vm`.
-        1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
-        1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и нажмите кнопку **Посмотреть больше**. В открывшемся окне выберите образ [Windows Server 2022 Datacenter](/marketplace/products/yc/windows-server-2022-datacenter).
-        1. В блоке **Диски** укажите размер загрузочного диска 60 ГБ.
-        1. В блоке **Вычислительные ресурсы**:
-            * Выберите [платформу](../../compute/concepts/vm-platforms.md): Intel Ice Lake.
-            * Укажите необходимое количество vCPU и объем RAM:
-                * **vCPU** — 2
-                * **Гарантированная доля vCPU** — 100%
-                * **RAM** — 4 ГБ
-        1. В блоке **Сетевые настройки** нажмите кнопку **Добавить сеть** и выберите сеть `rdgw-network`. Выберите подсеть `rdgw-subnet`. В блоке **Публичный адрес** выберите вариант **Без адреса**.
-        1. Нажмите кнопку **Создать ВМ**.
+
+        1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+
+            * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
+            * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
+            * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+            * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+            * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+        1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного диска `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+
+            * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+            * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+
+            * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — сеть `rdgw-network` и подсеть `rdgw-subnet`.
+            * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+        1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `test-vm`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
         {% include [vm-reset-password-windows-operations](../../_includes/compute/reset-vm-password-windows-operations.md) %}
 
@@ -417,7 +438,7 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
         --memory 4 `
         --cores 2 `
         --platform standard-v3 `
-        --zone {{ region-id }}-a `
+        --zone {{ region-id }}-d `
         --network-interface subnet-name=rdgw-subnet,ipv4-address=10.1.0.4 `
         --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk `
         --metadata-from-file user-data=setpass
@@ -427,11 +448,11 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
    
       ``` 
       done (19s)
-      id: fhm5pflreh2jellq97r0
-      folder_id: big67u7m5flplkc6vvpc
+      id: fhm5pflreh2j********
+      folder_id: big67u7m5flp********
       created_at: "2021-06-09T11:53:03Z"
       name: test-vm
-      zone_id: {{ region-id }}-a
+      zone_id: {{ region-id }}-d
       platform_id: standard-v3
       resources:
       memory: "4294967296"
@@ -440,13 +461,13 @@ Remote Desktop Gateway (RDGW) — сервис Windows Server для досту�
       status: RUNNING
       boot_disk:
       mode: READ_WRITE
-      device_name: fhmmf65nlbt131b3e36l
+      device_name: fhmmf65nlbt1********
       auto_delete: true
-      disk_id: fhmmf65nlbt131b3e36l
+      disk_id: fhmmf65nlbt1********
       network_interfaces:
       - index: "0"
         mac_address: d0:0d:5d:ef:bb:74
-        subnet_id: e9b95m6al33r62n5vkab
+        subnet_id: e9b95m6al33r********
         primary_v4_address:
         address: 10.1.0.4
         fqdn: test-vm.{{ region-id }}.internal

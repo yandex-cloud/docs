@@ -20,7 +20,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 Подробнее о начале работы с бакетами см. в статье [{#T}](../quickstart.md).
 
-[Создать бакет](../operations/buckets/create.md) можно с помощью [Консоли управления]({{ link-console-main }}), [YC CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), а также популярных [инструментов](../tools/index.md) для работы с HTTP API Amazon S3.
+[Создать бакет](../operations/buckets/create.md) можно с помощью [Консоли управления]({{ link-console-main }}), [CLI](../../cli/quickstart.md), [{{ TF }}]({{ tf-provider-resources-link }}/storage_bucket), [API](../../api-design-guide/concepts/general.md), а также популярных [инструментов](../tools/index.md) для работы с HTTP API Amazon S3.
 
 ## Именование бакетов {#naming}
 
@@ -56,6 +56,10 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 О поддержке HTTPS при хостинге сайтов в {{ objstorage-name }} читайте в разделе [{#T}](./hosting.md).
 
 
+{% include [tls-support-alert](../../_includes/storage/tls-support-alert.md) %}
+
+
+
 ## Настройки бакетов {#bucket-settings}
 
 Вы можете:
@@ -68,7 +72,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
      Объекты, загружаемые в бакет, по умолчанию сохраняются с классом хранилища, установленным для этого бакета.
 
-- Настроить бакет для [хостинга статических веб-сайтов](hosting.md).
+- Настроить бакет для [хостинга статических сайтов](hosting.md).
 - Загрузить [конфигурацию CORS](cors.md) для бакета.
 - Включить [шифрование бакета](../operations/buckets/encrypt.md).
 
@@ -90,6 +94,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
 {% include [public-access](../../_includes/storage/security/public-access.md) %}
 
+
 ## Статистика {#stats}
 
 {{ objstorage-name }} автоматически отправляет метрики работы бакетов в сервис [{{ monitoring-full-name }}](../../monitoring/).
@@ -99,6 +104,7 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 Список метрик, передаваемых в {{ monitoring-name }}, представлен в [справочнике](../metrics.md).
 
 Также общую статистику бакета можно [посмотреть с помощь {{ yandex-cloud }} CLI](../operations/buckets/get-info.md#get-statistics).
+
 
 ## Особенности использования {#details-of-usage}
 
@@ -117,6 +123,14 @@ _Бакет_ — это выделенная часть хранилища {{ ob
 
   {% endnote %}
 
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/data-processing-init-actions-geesefs.md)
+* [{#T}](../tutorials/s3-disk-connect.md)
+* [{#T}](../tutorials/bucket-to-bucket.md)
+* [{#T}](../tutorials/batch-recognition-stt.md)
+* [{#T}](../tutorials/mgp-config-server-for-s3.md)
 
 ### См. также {#see-also}
 

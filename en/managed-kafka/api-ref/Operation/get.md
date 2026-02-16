@@ -1,16 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb-operation }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Operation/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Operation.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: Operation.Get
 
 Returns the specified Operation resource.
 
 ## HTTP request
 
 ```
-GET https://operation.{{ api-host }}/operations/{operationId}
+GET https://{{ api-host-mdb-operation }}/operations/{operationId}
 ```
 
 ## Path parameters

@@ -7,10 +7,22 @@ editable: false
 # Правила тарификации для {{ speechkit-name }}
 
 
+{% note tip %}
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+
+Чтобы рассчитать стоимость [синтеза](https://yandex.cloud/ru/prices?state=0be0198977b6#calculator) и [распознавания речи](https://yandex.cloud/ru/prices?state=cd7979800204#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
+
+
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ speechkit-short-name }} {#rules}
 
@@ -18,15 +30,18 @@ editable: false
 
 Стоимость использования {{ speechkit-name }} для синтеза речи зависит от версии используемого API.
 
+
+
 #### API v1 {#api-v1}
 
 Для [API v1](tts/request.md) стоимость рассчитывается исходя из суммарного количества символов, которые были отправлены для генерации речи из текста за календарный месяц ([Отчетный период](../billing/concepts/glossary.md)).
+
 
 #### API v3 {#api-v3}
 
 Стоимость использования [API v3](tts-v3/api-ref/grpc/index.md) зависит от количества отправленных запросов на синтез. Стоимость рассчитывается за календарный месяц ([Отчетный период](../billing/concepts/glossary.md)).
 
-По умолчанию запросы на синтез речи имеют ограничения — {{ tts-v3-count }} и {{ tts-v3-time }}. Для синтеза более длинных фраз можно использовать режим `unsafe_mode`. Тогда тарифицироваться будут каждые 250 символов, например:
+По умолчанию запросы на синтез речи имеют ограничения — {{ tts-v3-count }} и {{ tts-v3-time }}. Для синтеза более длинных фраз можно использовать `unsafe_mode` или [потоковый режим](tts/index.md#streaming). Тогда тарифицироваться будут каждые 250 символов, например:
 
 * Запрос меньше 250 символов — одна единица тарификации.
 * Запрос от 250 до 500 символов — две единицы тарификации.
@@ -34,10 +49,13 @@ editable: false
 
 #### Пустой запрос {#tts-empty-request}
 
+
 Количество символов в запросе определяется с учетом пробелов и служебных символов. Стоимость пустого запроса зависит от версии API:
 
 * Пустой запрос к API v1 тарифицируется как один символ.
 * Пустой запрос к API v3 тарифицируется как одна единица тарификации.
+
+
 
 #### Внутренние ошибки сервера {#tts-error-request}
 
@@ -51,6 +69,7 @@ editable: false
 
 Стоимость использования {{ speechkit-name }} в режиме потокового распознавания рассчитывается по [правилам тарификации синхронного распознавания](#rules-stt-short).
 
+
 #### Синхронное распознавание {#rules-stt-short}
 
 Эти правила действуют при использовании [синхронного распознавания](stt/request.md) и распознавания [в потоковом режиме](stt/streaming.md) при использовании API v2 и API v3.
@@ -63,7 +82,7 @@ editable: false
 
 {% endnote %}
 
-> **Примеры**^
+> **Примеры**:
 >
 > * 1 аудиофрагмент 37 секунд тарифицируется как 45 секунд.
 >
@@ -72,6 +91,7 @@ editable: false
 > * 2 аудиофрагмента по 5 и 8 секунд тарифицируются как 30 секунд.
 >
 >    **Объяснение**: длительность каждого аудио будет округлена до 15 секунд. Итого, 2 отрезка по 15 секунд.
+
 
 #### Асинхронное распознавание {#rules-stt-long}
 
@@ -98,6 +118,7 @@ editable: false
 #### Внутренние ошибки сервера {#stt-error-request}
 
 {% include [error-request](../_includes/speechkit/error-request.md) %}
+
 
 ## Цены для региона Россия {#prices}
 
@@ -154,7 +175,11 @@ editable: false
 
 
 
+
+
+
 ## Примеры расчета стоимости {#price-example}
+
 
 ### Синтез речи с использованием API v1 {#price-example-tts-v1}
 
@@ -174,6 +199,7 @@ editable: false
   {% include [kzt-speechkit-tts-v1](../_pricing_examples/speechkit/kzt-speechkit-tts-v1.md) %}
 
 {% endlist %}
+
 
 
 
@@ -199,6 +225,7 @@ editable: false
 
 
 
+
 ### Распознавание речи в потоковом режиме {#price-example-stt-streaming}
 
 Стоимость использования {{ speechkit-short-name }} для распознавания речи в потоковом режиме со следующими параметрами:
@@ -221,6 +248,8 @@ editable: false
 
 
 
+
+
 ### Распознавание речи в синхронном режиме {#price-example-stt-short}
 
 Стоимость использования {{ speechkit-short-name }} для распознавания речи в синхронном режиме со следующими параметрами:
@@ -240,6 +269,7 @@ editable: false
   {% include [kzt-speechkit-stt-short](../_pricing_examples/speechkit/kzt-speechkit-stt-short.md) %}
 
 {% endlist %}
+
 
 
 
@@ -266,6 +296,8 @@ editable: false
 
 
 
+
+
 ### Распознавание речи в асинхронном отложенном режиме {#price-example-stt-long-deferred}
 
 Стоимость использования {{ speechkit-short-name }} для распознавания речи в асинхронном отложенном режиме со следующими параметрами:
@@ -286,5 +318,6 @@ editable: false
   {% include [kzt-speechkit-stt-long-deferred](../_pricing_examples/speechkit/kzt-speechkit-stt-long-deferred.md) %}
 
 {% endlist %}
+
 
 

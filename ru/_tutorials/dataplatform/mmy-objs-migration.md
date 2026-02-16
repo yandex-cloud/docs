@@ -11,6 +11,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -21,6 +29,7 @@
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте бакет в {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
+
 
 - {{ TF }} {#tf}
 
@@ -74,7 +83,7 @@
 
 1. Если вы создавали инфраструктуру вручную, [подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными. В качестве примера используется таблица с информацией, поступающей от датчиков автомобиля.
 
@@ -113,7 +122,10 @@
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.title }}**:
 
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — укажите имя бакета {{ objstorage-name }}.
+
+          
           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `storage.uploader`.
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `measurements`.
 
@@ -181,38 +193,26 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+       1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+       1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
-    1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-    1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-    1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+       
+       1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mmy-objs.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mmy-objs.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

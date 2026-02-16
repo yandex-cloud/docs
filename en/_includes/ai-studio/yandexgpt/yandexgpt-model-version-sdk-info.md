@@ -1,0 +1,1 @@
+For more information about accessing a specific model version, see [{#T}](../../../ai-studio/sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).

@@ -1,11 +1,12 @@
 ---
 title: Как создать подключение к AppMetrica в {{ datalens-full-name }}
-description: Следуя данной инструкции, вы сможете создать подключение к AppMetrica.
+description: Следуя данной инструкции, вы сможете создать подключение к AppMetrica в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к AppMetrica
+# Создание подключения к AppMetrica в {{ datalens-full-name }}
 
 Чтобы создать подключение к AppMetrica:
+
 
 1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **AppMetrica**.
@@ -48,3 +49,11 @@ description: Следуя данной инструкции, вы сможете
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+
+
+
+## Примеры использования {#examples}
+* [{#T}](../../tutorials/data-from-appmetrica-visualization.md)
+* [{#T}](../../tutorials/data-from-appmetrica-yc-visualization.md)
+

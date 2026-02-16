@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
+    method: post
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret whose version should be scheduled for destruction.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        versionId:
+          description: |-
+            **string**
+            Required field. ID of the version to be destroyed.
+          type: string
+        pendingPeriod:
+          description: |-
+            **string** (duration)
+            Time interval between the version destruction request and actual destruction.
+            Default value: 7 days.
+          default: 7 days
+          type: string
+          format: duration
+      required:
+        - versionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/scheduleVersionDestruction.md
 ---
 
-# Lockbox API, REST: Secret.ScheduleVersionDestruction {#ScheduleVersionDestruction}
+# Lockbox API, REST: Secret.ScheduleVersionDestruction
 
 Schedules the specified version for destruction.
 
@@ -277,7 +312,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

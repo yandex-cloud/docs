@@ -13,7 +13,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит [секрет](../concepts/secret.md).
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
 
@@ -120,7 +120,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите на нужную версию секрета.
@@ -151,6 +151,8 @@ title: Как получить информацию о секрете в {{ lock
         - key: example-key
           text_value: example-value
       ```
+
+      {% include [secret-content-base64-cli](../../_includes/lockbox/secret-content-base64-cli.md) %}
 
 - {{ TF }} {#tf}
 
@@ -211,6 +213,8 @@ title: Как получить информацию о секрете в {{ lock
 
   Чтобы получить содержимое секрета, воспользуйтесь методом REST API [get](../api-ref/Payload/get.md) для ресурса [Payload](../api-ref/Payload/index.md) или вызовом gRPC API [PayloadService/Get](../api-ref/grpc/Payload/get.md).
 
+  {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
+
 {% endlist %}
 
 ## Просмотреть права доступа к секрету {#secret-access}
@@ -220,7 +224,7 @@ title: Как получить информацию о секрете в {{ lock
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.

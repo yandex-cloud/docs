@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/GpuCluster/create.md
 ---
 
-# Compute Cloud API, gRPC: GpuClusterService.Create {#Create}
+# Compute Cloud API, gRPC: GpuClusterService.Create
 
 Creates a GPU cluster in the specified folder.
 
@@ -15,18 +15,18 @@ Creates a GPU cluster in the specified folder.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
-  "zoneId": "string",
-  "interconnectType": "GpuInterconnectType"
+  "labels": "map<string, string>",
+  "zone_id": "string",
+  "interconnect_type": "GpuInterconnectType"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder to create a GPU cluster in.
 
@@ -39,18 +39,17 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the GPU cluster resides.
 To get a list of available zones use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
-|| interconnectType | enum **GpuInterconnectType**
+|| interconnect_type | enum **GpuInterconnectType**
 
 Type of interconnect to use for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#
 
@@ -60,25 +59,25 @@ Type of interconnect to use for this GPU cluster.
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "gpuClusterId": "string"
+    "gpu_cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
-    "zoneId": "string",
-    "interconnectType": "GpuInterconnectType"
+    "zone_id": "string",
+    "interconnect_type": "GpuInterconnectType"
   }
   // end of the list of possible fields
 }
@@ -94,13 +93,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -143,24 +142,24 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| gpuClusterId | **string**
+|| gpu_cluster_id | **string**
 
 ID of the GPU cluster that is being created. ||
 |#
 
 ## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of GPU cluster. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the GPU cluster belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -171,25 +170,23 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | enum **Status**
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
 - `DELETING`: GPU cluster is being deleted. ||
-|| zoneId | **string**
+|| zone_id | **string**
 
 ID of the availability zone where the GPU cluster resides. ||
-|| interconnectType | enum **GpuInterconnectType**
+|| interconnect_type | enum **GpuInterconnectType**
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

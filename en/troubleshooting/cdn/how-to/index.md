@@ -1,3 +1,3 @@
-# Sample configurations and use cases for {{ cdn-name }}
+## Examples of {{ cdn-short-name }} configurations and use cases {#configuration-examples}
 
-* [Restricting access to an Object Storage bucket using an IP range from Cloud CDN](permit-bucket-access-only-to-cdn-networks.md)
+* [How to restrict access to an {{ objstorage-name }} bucket to a range of IP addresses from {{ cdn-name }}](permit-bucket-access-only-to-cdn-networks.md)

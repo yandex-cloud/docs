@@ -3,6 +3,17 @@
 
 {% include [What is the Sqoop](./header.md) %}
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 {% include [Same Network](../../_tutorials_includes/note-same-network.md) %}
@@ -35,14 +46,14 @@
 
 1. [Создайте кластер {{ dataproc-name }}](../../../data-proc/operations/cluster-create.md) любой подходящей вам [конфигурации](../../../data-proc/concepts/instance-types.md).
 
-    {% include [Settings for DataProc cluster](./data-proc-cluster-settings.md) %}
+    {% include [Settings for DataProc cluster](./data-processing-cluster-settings.md) %}
 
 1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) для подключения к кластерам {{ mmy-name }} и {{ dataproc-name }}.
 
 1. Если вы используете группы безопасности для кластеров и виртуальной машины, настройте их так, чтобы разрешить подключение:
 
-    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/connect.md);
-    * [к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect.md#configure-security-groups).
+    * [к виртуальной машине и кластеру {{ dataproc-name }}](../../../data-proc/operations/security-groups.md);
+    * [к кластеру {{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 ### С помощью {{ TF }} {#create-terraform}
 
@@ -74,7 +85,7 @@
     * `vm_image_id` — идентификатор публичного [образа](../../../compute/operations/images-with-pre-installed-software/get-list) с Ubuntu без [GPU](../../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
     * `vm_username` и `vm_public_key` — логин и абсолютный путь к [публичному SSH-ключу](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в образе [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts) указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
     * `bucket_name` — имя бакета в {{ objstorage-name }}. Оно должны быть уникальным для всего {{ objstorage-name }}.
-    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect.md#data-proc-ssh) для кластера {{ dataproc-name }}.
+    * `dp_public_key` — абсолютный путь к [публичному SSH-ключу](../../../data-proc/operations/connect-ssh.md) для кластера {{ dataproc-name }}.
 
         Для [SSH-подключения](../../../glossary/ssh-keygen.md) к хостам кластера {{ dataproc-name }} версии 1.х используйте имя пользователя `root`.
 
@@ -96,7 +107,7 @@
 
 ## Подготовка кластера-источника {#prepare}
 
-1. [Подключитесь к базе данных](../../../managed-mysql/operations/connect.md) `db1` кластера {{ mmy-full-name }} от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../../managed-mysql/operations/connect/index.md) `db1` кластера {{ mmy-full-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей:
 
     1. Создайте таблицу:
@@ -233,21 +244,7 @@
 
     Чтобы удалить инфраструктуру, созданную с помощью {{ TF }}:
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `clusters-mysql-data-proc-and-vm.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `clusters-mysql-data-proc-and-vm.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     Удалите созданные вручную:
 

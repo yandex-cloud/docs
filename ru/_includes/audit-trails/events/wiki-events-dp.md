@@ -30,6 +30,12 @@
 `GridUpdateCells` | Обновление ячеек в динамической таблице
 `GridUpdateColumn` | Обновление столбца в динамической таблице
 `GridUpdateRow` | Обновление строки в динамической таблице
+`InviteActivate` | Активация приглашения
+`InviteDelete` | Удаление приглашения
+`InviteReactivate` | Повторная отправка приглашения
+`InviteRemoveAccess` | Отмена доступа по приглашению
+`InviteRemoveAllAccesses` | Отмена доступа по всем приглашениям
+`InviteUse` | Использование приглашения
 `PageChangeOrder` | Изменение порядка страницы
 `PageChangeToYFM` | Конвертирование страницы в новый редактор
 `PageClone` | Создание копии страницы

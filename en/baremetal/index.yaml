@@ -1,0 +1,79 @@
+title: Yandex BareMetal
+description:
+  - >-
+    With {{ baremetal-full-name }}, you can lease physical servers for a period
+    of one day or longer, with all computing resources fully at your disposal.
+  - >-
+    For a unified infrastructure, you can network all your leased physical
+    servers with each other, your cloud or on-premises infrastructure, and with
+    other Yandex Cloud services via Cloud Interconnect.
+  - >-
+    You can order different server performance and configuration options: <br>
+    <br>         <b>Stock configurations</b>         <br> Choose a server of
+    suitable specifications from a range of preassembled fixed configurations:
+    your server will be up and running within minutes after you order it. You
+    can view the stock configurations and select a server based on
+    specifications on the Yandex Baremetal home page or in the management
+    console. <br> <br> <b>Custom configuration</b> <br> Build a configuration of
+    your own from available hardware components to get a production-ready server
+    within a few days. To order such a server, use the configuration builder in
+    the management console. <br> <br> <b>On-request configuration</b> <br> If
+    none of the available server configurations are up to your requirements, <a
+    href="https://yandex.cloud/en/services/baremetal#contact-form">contact
+    us</a> for an on-request configuration.</li>
+  - >-
+    The price covers the following for all servers: <ul> <li>Unlimited internet
+    traffic at 1 Gbps</li> <li>Automatic OS installation, custom ISO images</li>
+    <li>iKVM access to the server</li> <li>Public IPv4 address</li> <li>No limit
+    on server connections to private networks</li> <li>24/7 support</li>
+    <li>24/7 server component replacement</li> </ul>  
+  - >-
+    All {{ baremetal-full-name }} capabilities are detailed in <a
+    href="https://yandex.cloud/en/docs/baremetal/concepts/">Concepts</a>.
+  - >-
+    The Yandex Cloud infrastructure is <a
+    href="https://yandex.cloud/en/security/standards/152-fz">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on personal data.
+  - >-
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. 
+  - >-
+    The service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_baremetal/ru/">{{
+    baremetal-full-name }}</a> Service Level.
+links:
+  - title: Getting started
+    description: Lease your first server
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Service concepts and architecture overview
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Tutorials
+    description: Use ready-made scenarios for working with {{ baremetal-name }} servers
+    href: tutorials/
+  - title: Access management
+    description: Configure access permissions to use this service
+    href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
+meta:
+  title: Yandex BareMetal
+  keywords:
+    - dedicated server
+    - dedicated {{ baremetal-name }} server
+    - server lease
+    - '{{ baremetal-name }}'
+    - '{{ baremetal-name }} lease'
+    - KVM console {{ yandex-cloud }}
+    - baremetal
+    - '{{ baremetal-name }} server'
+    - '{{ baremetal-name }}'
+    - server in {{ yandex-cloud }}
+    - '{{ baremetal-name }} in {{ yandex-cloud }}'

@@ -39,3 +39,15 @@
 4. Несколько обработчиков и несколько целевых групп:
     * Для каждого обработчика свой набор целевых групп (одна или несколько).
     * Для всех обработчиков общие группы узлов (одна или несколько).
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/mssql-alwayson-lb.md)
+* [{#T}](../tutorials/storage-vpc-access.md)
+* [{#T}](../tutorials/vpc-cr-access.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

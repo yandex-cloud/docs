@@ -1,9 +1,386 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a cluster in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the cluster. The name must be unique within the folder.
+            The name can't be changed after the Yandex Data Processing cluster is created.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the cluster.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Cluster labels as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        configSpec:
+          description: |-
+            **[CreateClusterConfigSpec](#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
+            Required field. Configuration and resources for hosts that should be created with the cluster.
+          $ref: '#/definitions/CreateClusterConfigSpec'
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the cluster should be placed.
+            To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the service account to be used by the Yandex Data Processing manager agent.
+          type: string
+        bucket:
+          description: |-
+            **string**
+            Name of the Object Storage bucket to use for Yandex Data Processing jobs.
+          type: string
+        uiProxy:
+          description: |-
+            **boolean**
+            Enable UI Proxy feature.
+          type: boolean
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups.
+          type: array
+          items:
+            type: string
+        hostGroupIds:
+          description: |-
+            **string**
+            Host groups to place VMs of cluster on.
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        logGroupId:
+          description: |-
+            **string**
+            ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service
+          type: string
+        environment:
+          description: |-
+            **enum** (Environment)
+            Environment of the cluster
+            - `PRODUCTION`
+            - `PRESTABLE`
+          type: string
+          enum:
+            - ENVIRONMENT_UNSPECIFIED
+            - PRODUCTION
+            - PRESTABLE
+        autoscalingServiceAccountId:
+          description: |-
+            **string**
+            ID of the service account to be used by the Instance Groups service.
+          type: string
+      required:
+        - folderId
+        - configSpec
+        - zoneId
+        - serviceAccountId
+      additionalProperties: false
+    definitions:
+      InitializationAction:
+        type: object
+        properties:
+          uri:
+            description: |-
+              **string**
+              URI of the executable file
+            type: string
+          args:
+            description: |-
+              **string**
+              Arguments to the initialization action
+            type: array
+            items:
+              type: string
+          timeout:
+            description: |-
+              **string** (int64)
+              Execution timeout
+            type: string
+            format: int64
+      HadoopConfig:
+        type: object
+        properties:
+          services:
+            description: |-
+              **enum** (Service)
+              Set of services used in the cluster (if empty, the default set is used).
+              - `HDFS`
+              - `YARN`
+              - `MAPREDUCE`
+              - `HIVE`
+              - `TEZ`
+              - `ZOOKEEPER`
+              - `HBASE`
+              - `SQOOP`
+              - `FLUME`
+              - `SPARK`
+              - `ZEPPELIN`
+              - `OOZIE`
+              - `LIVY`
+            type: array
+            items:
+              type: string
+              enum:
+                - SERVICE_UNSPECIFIED
+                - HDFS
+                - YARN
+                - MAPREDUCE
+                - HIVE
+                - TEZ
+                - ZOOKEEPER
+                - HBASE
+                - SQOOP
+                - FLUME
+                - SPARK
+                - ZEPPELIN
+                - OOZIE
+                - LIVY
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Properties set for all hosts in `*-site.xml` configurations. The key should indicate
+              the service and the property.
+              For example, use the key 'hdfs:dfs.replication' to set the `dfs.replication` property
+              in the file `/etc/hadoop/conf/hdfs-site.xml`.
+            type: object
+            additionalProperties:
+              type: string
+          sshPublicKeys:
+            description: |-
+              **string**
+              List of public SSH keys to access to cluster hosts.
+            type: array
+            items:
+              type: string
+          initializationActions:
+            description: |-
+              **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
+              Set of init-actions
+            type: array
+            items:
+              $ref: '#/definitions/InitializationAction'
+          osloginEnabled:
+            description: |-
+              **boolean**
+              Oslogin enable on cluster nodes
+            type: boolean
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the resource preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types).
+            type: string
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive.
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+      AutoscalingConfig:
+        type: object
+        properties:
+          maxHostsCount:
+            description: |-
+              **string** (int64)
+              Upper limit for total instance subcluster count.
+              Acceptable values are 1 to 100, inclusive.
+            type: string
+            format: int64
+          preemptible:
+            description: |-
+              **boolean**
+              Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+              if their resources are needed by Compute.
+              For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+            type: boolean
+          measurementDuration:
+            description: |-
+              **string** (duration)
+              Required field. Time in seconds allotted for averaging metrics.
+            type: string
+            format: duration
+          warmupDuration:
+            description: |-
+              **string** (duration)
+              The warmup time of the instance in seconds. During this time,
+              traffic is sent to the instance, but instance metrics are not collected.
+            type: string
+            format: duration
+          stabilizationDuration:
+            description: |-
+              **string** (duration)
+              Minimum amount of time in seconds allotted for monitoring before
+              Instance Groups can reduce the number of instances in the group.
+              During this time, the group size doesn't decrease, even if the new metric values
+              indicate that it should.
+            type: string
+            format: duration
+          cpuUtilizationTarget:
+            description: |-
+              **string**
+              Defines an autoscaling rule based on the average CPU utilization of the instance group.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+          decommissionTimeout:
+            description: |-
+              **string** (int64)
+              Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+              Acceptable values are 0 to 86400, inclusive.
+            default: '120'
+            type: string
+            format: int64
+        required:
+          - measurementDuration
+      CreateSubclusterConfigSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the subcluster.
+              Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          role:
+            description: |-
+              **enum** (Role)
+              Required field. Role of the subcluster in the Yandex Data Processing cluster.
+              - `MASTERNODE`: The subcluster fulfills the master role.
+                Master can run the following services, depending on the requested components:
+              * HDFS: Namenode, Secondary Namenode
+              * YARN: ResourceManager, Timeline Server
+              * HBase Master
+              * Hive: Server, Metastore, HCatalog
+              * Spark History Server
+              * Zeppelin
+              * ZooKeeper
+              - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
+                DATANODE can run the following services, depending on the requested components:
+              * HDFS DataNode
+              * YARN NodeManager
+              * HBase RegionServer
+              * Spark libraries
+              - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
+                COMPUTENODE can run the following services, depending on the requested components:
+              * YARN NodeManager
+              * Spark libraries
+            type: string
+            enum:
+              - ROLE_UNSPECIFIED
+              - MASTERNODE
+              - DATANODE
+              - COMPUTENODE
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.dataproc.v1.Resources)**
+              Required field. Resource configuration for hosts in the subcluster.
+            $ref: '#/definitions/Resources'
+          subnetId:
+            description: |-
+              **string**
+              Required field. ID of the VPC subnet used for hosts in the subcluster.
+              The maximum string length in characters is 50.
+            type: string
+          hostsCount:
+            description: |-
+              **string** (int64)
+              Number of hosts in the subcluster.
+              The minimum value is 1.
+            type: string
+            format: int64
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Assign public ip addresses for all hosts in subcluter.
+            type: boolean
+          autoscalingConfig:
+            description: |-
+              **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+              Configuration for instance group based subclusters
+            $ref: '#/definitions/AutoscalingConfig'
+        required:
+          - role
+          - resources
+          - subnetId
+      CreateClusterConfigSpec:
+        type: object
+        properties:
+          versionId:
+            description: |-
+              **string**
+              Version of the image for cluster provisioning.
+              All available versions are listed in the [documentation](/docs/data-proc/concepts/environment).
+            type: string
+          hadoop:
+            description: |-
+              **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
+              Yandex Data Processing specific options.
+            $ref: '#/definitions/HadoopConfig'
+          subclustersSpec:
+            description: |-
+              **[CreateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec)**
+              Specification for creating subclusters.
+            type: array
+            items:
+              $ref: '#/definitions/CreateSubclusterConfigSpec'
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/create.md
 ---
 
-# Data Proc API, REST: Cluster.Create {#Create}
+# Yandex Data Processing API, REST: Cluster.Create
 
 Creates a cluster in the specified folder.
 
@@ -20,14 +397,14 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "versionId": "string",
     "hadoop": {
       "services": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "sshPublicKeys": [
         "string"
       ],
@@ -39,7 +416,8 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
           ],
           "timeout": "string"
         }
-      ]
+      ],
+      "osloginEnabled": "boolean"
     },
     "subclustersSpec": [
       {
@@ -76,7 +454,9 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
     "string"
   ],
   "deletionProtection": "boolean",
-  "logGroupId": "string"
+  "logGroupId": "string",
+  "environment": "string",
+  "autoscalingServiceAccountId": "string"
 }
 ```
 
@@ -86,17 +466,25 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
 
 Required field. ID of the folder to create a cluster in.
 
-To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the cluster. The name must be unique within the folder.
-The name can't be changed after the Data Proc cluster is created. ||
+The name can't be changed after the Yandex Data Processing cluster is created.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the cluster. ||
-|| labels | **string**
+Description of the cluster.
 
-Cluster labels as `key:value` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || configSpec | **[CreateClusterConfigSpec](#yandex.cloud.dataproc.v1.CreateClusterConfigSpec)**
 
 Required field. Configuration and resources for hosts that should be created with the cluster. ||
@@ -104,13 +492,15 @@ Required field. Configuration and resources for hosts that should be created wit
 
 Required field. ID of the availability zone where the cluster should be placed.
 
-To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get the list of available zones make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || serviceAccountId | **string**
 
-Required field. ID of the service account to be used by the Data Proc manager agent. ||
+Required field. ID of the service account to be used by the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Name of the Object Storage bucket to use for Data Proc jobs. ||
+Name of the Object Storage bucket to use for Yandex Data Processing jobs. ||
 || uiProxy | **boolean**
 
 Enable UI Proxy feature. ||
@@ -126,6 +516,15 @@ Deletion Protection inhibits deletion of the cluster ||
 || logGroupId | **string**
 
 ID of the cloud logging log group to write logs. If not set, logs will not be sent to logging service ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `PRODUCTION`
+- `PRESTABLE` ||
+|| autoscalingServiceAccountId | **string**
+
+ID of the service account to be used by the Instance Groups service. ||
 |#
 
 ## CreateClusterConfigSpec {#yandex.cloud.dataproc.v1.CreateClusterConfigSpec}
@@ -139,7 +538,7 @@ Version of the image for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig)**
 
-Data Proc specific options. ||
+Yandex Data Processing specific options. ||
 || subclustersSpec[] | **[CreateSubclusterConfigSpec](#yandex.cloud.dataproc.v1.CreateSubclusterConfigSpec)**
 
 Specification for creating subclusters. ||
@@ -156,7 +555,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -170,7 +568,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
@@ -183,6 +581,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction}
@@ -206,12 +607,13 @@ Execution timeout ||
 ||Field | Description ||
 || name | **string**
 
-Name of the subcluster. ||
+Name of the subcluster.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || role | **enum** (Role)
 
-Required field. Role of the subcluster in the Data Proc cluster.
+Required field. Role of the subcluster in the Yandex Data Processing cluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -222,14 +624,14 @@ Required field. Role of the subcluster in the Data Proc cluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -239,10 +641,14 @@ Required field. Role of the subcluster in the Data Proc cluster.
 Required field. Resource configuration for hosts in the subcluster. ||
 || subnetId | **string**
 
-Required field. ID of the VPC subnet used for hosts in the subcluster. ||
+Required field. ID of the VPC subnet used for hosts in the subcluster.
+
+The maximum string length in characters is 50. ||
 || hostsCount | **string** (int64)
 
-Number of hosts in the subcluster. ||
+Number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || assignPublicIp | **boolean**
 
 Assign public ip addresses for all hosts in subcluter. ||
@@ -276,7 +682,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -297,10 +705,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -332,7 +744,7 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "monitoring": [
       {
         "name": "string",
@@ -346,7 +758,7 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
         "services": [
           "string"
         ],
-        "properties": "string",
+        "properties": "object",
         "sshPublicKeys": [
           "string"
         ],
@@ -358,7 +770,8 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
             ],
             "timeout": "string"
           }
-        ]
+        ],
+        "osloginEnabled": "boolean"
       }
     },
     "health": "string",
@@ -374,7 +787,9 @@ Timeout to gracefully decommission nodes during downscaling. In seconds. Default
       "string"
     ],
     "deletionProtection": "boolean",
-    "logGroupId": "string"
+    "logGroupId": "string",
+    "environment": "string",
+    "autoscalingServiceAccountId": "string"
   }
   // end of the list of possible fields
 }
@@ -477,7 +892,7 @@ A list of messages that carry the error details. ||
 
 ## Cluster {#yandex.cloud.dataproc.v1.Cluster}
 
-A Data Proc cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing cluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -499,13 +914,19 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the cluster. The name is unique within the folder. ||
+Name of the cluster. The name is unique within the folder.
+
+The string length in characters must be 1-63. ||
 || description | **string**
 
-Description of the cluster. ||
-|| labels | **string**
+Description of the cluster.
 
-Cluster labels as `key:value` pairs. ||
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Cluster labels as `key:value` pairs.
+
+No more than 64 per resource. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.dataproc.v1.Monitoring)**
 
 Monitoring systems relevant to the cluster. ||
@@ -536,10 +957,10 @@ Cluster status.
 ID of the availability zone where the cluster resides. ||
 || serviceAccountId | **string**
 
-ID of service account for the Data Proc manager agent. ||
+ID of service account for the Yandex Data Processing manager agent. ||
 || bucket | **string**
 
-Object Storage bucket to be used for Data Proc jobs that are run in the cluster. ||
+Object Storage bucket to be used for Yandex Data Processing jobs that are run in the cluster. ||
 || uiProxy | **boolean**
 
 Whether UI Proxy feature is enabled. ||
@@ -556,11 +977,20 @@ Deletion Protection inhibits deletion of the cluster ||
 
 ID of the cloud logging log group to write logs. If not set, default log group for the folder will be used.
 To prevent logs from being sent to the cloud set cluster property dataproc:disable_cloud_logging = true ||
+|| environment | **enum** (Environment)
+
+Environment of the cluster
+
+- `PRODUCTION`
+- `PRESTABLE` ||
+|| autoscalingServiceAccountId | **string**
+
+ID of service account for working with the Instance Groups service. ||
 |#
 
 ## Monitoring {#yandex.cloud.dataproc.v1.Monitoring}
 
-Metadata of a monitoring system for a Data Proc cluster.
+Metadata of a monitoring system for a Yandex Data Processing cluster.
 
 #|
 ||Field | Description ||
@@ -585,7 +1015,7 @@ Image version for cluster provisioning.
 All available versions are listed in the [documentation](/docs/data-proc/concepts/environment). ||
 || hadoop | **[HadoopConfig](#yandex.cloud.dataproc.v1.HadoopConfig2)**
 
-Data Proc specific configuration options. ||
+Yandex Data Processing specific configuration options. ||
 |#
 
 ## HadoopConfig {#yandex.cloud.dataproc.v1.HadoopConfig2}
@@ -599,7 +1029,6 @@ their properties and settings.
 
 Set of services used in the cluster (if empty, the default set is used).
 
-- `SERVICE_UNSPECIFIED`
 - `HDFS`
 - `YARN`
 - `MAPREDUCE`
@@ -613,7 +1042,7 @@ Set of services used in the cluster (if empty, the default set is used).
 - `ZEPPELIN`
 - `OOZIE`
 - `LIVY` ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 Properties set for all hosts in `*-site.xml` configurations. The key should indicate
 the service and the property.
@@ -626,6 +1055,9 @@ List of public SSH keys to access to cluster hosts. ||
 || initializationActions[] | **[InitializationAction](#yandex.cloud.dataproc.v1.InitializationAction2)**
 
 Set of init-actions ||
+|| osloginEnabled | **boolean**
+
+Oslogin enable on cluster nodes ||
 |#
 
 ## InitializationAction {#yandex.cloud.dataproc.v1.InitializationAction2}

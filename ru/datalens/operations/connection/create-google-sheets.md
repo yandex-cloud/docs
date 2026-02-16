@@ -43,7 +43,8 @@ description: Следуя данной инструкции, вы сможете
 
    {% note info %}
 
-   Для корректного определения типов данных в меню Google Sheets выберите **Формат** → **Числа** и укажите формат ячеек столбца.
+   * Для корректного определения типов данных в меню Google Sheets выберите **Формат** → **Числа** и укажите формат ячеек столбца.
+   * Если в таблице Google Sheets включен фильтр, в подключении и датасетах на его основе будут отображаться только те данные, которые попадают под условия фильтрации.
 
    {% endnote %}
 
@@ -80,6 +81,10 @@ description: Следуя данной инструкции, вы сможете
 {% include [err-file-unsupported_document](../../../_includes/datalens/err-file-unsupported_document.md) %}
 
 {% endcut %}
+
+## Дополнительные настройки {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
 
 ## Ограничения {#restrictions}
 

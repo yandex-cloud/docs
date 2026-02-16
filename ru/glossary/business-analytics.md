@@ -134,4 +134,6 @@ description: Бизнес-аналитика — это исследование
 
 [Зарегистрируйтесь]({{ link-console-main }}/) в {{ yandex-cloud }} и начните пользоваться {{ datalens-name }} уже сегодня.
 
+Подробнее см. в [документации](../datalens/).
+
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -1,9 +1,54 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder for this request to create a network in.
+            To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the network.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the network.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/create.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Create {#Create}
+# Virtual Private Cloud API, REST: Network.Create
 
 Creates a network in the specified folder using the data specified in the request.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -21,7 +66,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/networks
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -38,7 +83,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the network. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -72,7 +117,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "defaultSecurityGroupId": "string"
   }
   // end of the list of possible fields
@@ -204,7 +249,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the network. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.

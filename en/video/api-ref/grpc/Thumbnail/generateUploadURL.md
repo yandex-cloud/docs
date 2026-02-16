@@ -3,9 +3,11 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/generateUploadURL.md
 ---
 
-# Video API, gRPC: ThumbnailService.GenerateUploadURL {#GenerateUploadURL}
+# Video API, gRPC: ThumbnailService.GenerateUploadURL
 
-Generate url for upload image.
+Generates a URL for uploading an image to an existing thumbnail record.
+This URL can be used to upload the actual image file using an HTTP PUT request.
+The URL is pre-signed and has a limited validity period.
 
 ## gRPC request
 
@@ -15,28 +17,33 @@ Generate url for upload image.
 
 ```json
 {
-  "thumbnailId": "string"
+  "thumbnail_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| thumbnailId | **string**
+|| thumbnail_id | **string**
 
-ID of the thumbnail. ||
+Required field. ID of the thumbnail for which to generate an upload URL.
+The thumbnail record must already exist, typically created using the Create method.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GenerateThumbnailUploadURLResponse {#yandex.cloud.video.v1.GenerateThumbnailUploadURLResponse}
 
 ```json
 {
-  "uploadUrl": "string"
+  "upload_url": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| uploadUrl | **string**
+|| upload_url | **string**
 
-Upload url. ||
+Pre-signed URL for uploading the thumbnail image.
+This URL can be used with an HTTP PUT request to upload the image file.
+The URL has a limited validity period and will expire after a certain time. ||
 |#

@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
+    method: get
+    path:
+      type: object
+      properties:
+        originId:
+          description: |-
+            **string** (int64)
+            `originId` group ID to request origin from.
+            Value must be greater than 0.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/get.md
 ---
 
-# Cloud CDN API, REST: Origin.Get {#Get}
+# Cloud CDN API, REST: Origin.Get
 
 Get origin in origin group.
 
@@ -19,7 +47,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
 ||Field | Description ||
 || originId | **string** (int64)
 
-Required field. `originId` group ID to request origin from. ||
+Required field. `originId` group ID to request origin from.
+
+Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.GetOriginRequest}
@@ -28,7 +58,9 @@ Required field. `originId` group ID to request origin from. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.Origin}
@@ -57,7 +89,8 @@ Required field. ID of the folder that the origin belongs to. ||
       "id": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "providerType": "string"
 }
 ```
 
@@ -91,6 +124,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

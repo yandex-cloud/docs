@@ -1,9 +1,131 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
+    method: patch
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to update.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the broker. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the broker.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            Existing set of `labels` is completely replaced by the provided set.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        logOptions:
+          description: |-
+            **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
+            Options for logging broker events
+          $ref: '#/definitions/LogOptions'
+      additionalProperties: false
+    definitions:
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from broker disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/update.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Update {#Update}
+# IoT Core Broker Service, REST: Broker.Update
 
 Updates the specified broker.
 
@@ -31,7 +153,7 @@ To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Bro
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "logOptions": {
     "disabled": "boolean",
     // Includes only one of the fields `logGroupId`, `folderId`
@@ -61,7 +183,7 @@ Name of the broker. The name must be unique within the folder. ||
 || description | **string**
 
 Description of the broker. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -150,7 +272,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -288,7 +410,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

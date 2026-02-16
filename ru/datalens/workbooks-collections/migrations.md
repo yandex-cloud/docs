@@ -1,12 +1,19 @@
+---
+title: Миграция объектов в воркбуки
+description: Следуя данной инструкции, вы выполните миграцию объектов в воркбуки.
+---
+
 # Миграция объектов в воркбуки
 
 {% note info %}
 
-Выполнить миграцию может пользователь с ролью `{{ roles-datalens-admin }}`.
+* Если вы не видите на панели слева ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**, [включите воркбуки и коллекции](../../datalens/workbooks-collections/index.md#enable-workbooks) в вашей организации.
+* Выполнить миграцию может пользователь с ролью `{{ roles-datalens-admin }}`.
+* Чтобы перенести воркбук между инсталляциями или [организациями](../concepts/organizations.md), воспользуйтесь инструментом [экспорта и импорта](./export-and-import.md).
 
 {% endnote %}
 
-Для миграции можно выбрать любой объект ([подключение](../concepts/connection.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
+Для миграции можно выбрать любой объект ([подключение](../concepts/connection/index.md), [датасет](../dataset/index.md), [чарт](../concepts/chart/index.md), [дашборд](../concepts/dashboard.md)) и выполнить ее способом [переноса](#migration-transfer) или [копирования](#migration-copy).
 
 ## Миграция переносом {#migration-transfer}
 
@@ -21,7 +28,7 @@
 {% note warning %}
 
 * Вернуть объекты из воркбука в папку невозможно.
-* Сразу после миграции теряются все права доступа к перенесенным объектам, а вы становитесь единственным [администратором](../security/roles.md#workbooks-admin) воркбука и можете назначить [права доступа](./security.md) для других пользователей и групп пользователей.
+* Сразу после миграции теряются все права доступа к перенесенным объектам, а вы становитесь единственным [администратором](../security/roles.md#datalens-workbooks-admin) воркбука и можете назначить [права доступа](./security.md) для других пользователей и групп пользователей.
 
 {% endnote %}
 
@@ -44,7 +51,7 @@
 
 {% note warning %}
 
-Копирование подключений [Файлы](../operations/connection/create-file.md) и [Google Sheets](../operations/connection/create-google-sheets.md) недоступно.
+Копирование подключений [Файлы](../operations/connection/create-file.md), [Google Sheets](../operations/connection/create-google-sheets.md) и [Яндекс Документы](../operations/connection/create-yadocs.md) недоступно.
 
 {% endnote %}
 
@@ -53,7 +60,7 @@
 Чтобы копировать или перенести объект в воркбук:
 
 1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите объект, который хотите перенести или скопировать в воркбук.
-1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у объекта и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Мигрировать в воркбук**.
+1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у объекта и выберите ![image](../../_assets/console-icons/arrow-chevron-right.svg) **Мигрировать в воркбук**.
 1. Выберите способ миграции и нажмите кнопку **Выбрать**.
 1. В открывшемся окне со списком связанных объектов нажмите кнопку **Далее**.
 1. В открывшемся окне выберите воркбук, в который хотите перенести или скопировать объекты, и нажмите кнопку **Переместить**. Чтобы перенести или скопировать объекты в новый воркбук, нажмите кнопку **Создать воркбук**.
@@ -66,27 +73,28 @@
 Рассмотрим создание воркбука с датасетом. В качестве исходных объектов будет использоваться [готовый набор данных]({{ link-datalens-main }}/marketplace/f2e0000r63qkp2ywqpco) вымышленной компании из {{ datalens-short-name }} {{ marketplace-short-name }}.
 
 1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите датасет **Sample Superstore Dataset**.
-1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) у датасета и выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенос в воркбук**.
+1. У датасета нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-chevron-right.svg) **Мигрировать в воркбук**.
+1. Выберите способ миграции `Перенос` и нажмите кнопку **Выбрать**.
 1. В открывшемся окне вы увидите список связанных объектов, которые будут перенесены.
 
-   ![image](../../_assets/datalens/migration/store-migrate.png =750x422)
+   ![image](../../_assets/datalens/migration/store-migrate.png)
 
-1. Нажмите кнопку **Перенести**.
+1. Нажмите кнопку **Далее**.
 1. В открывшемся окне нажмите кнопку **Создать воркбук**. Введите название, например, **Sample Superstore All** и нажмите кнопку **Создать**. Выберите созданный воркбук в списке **Коллекции и воркбуки** и нажмите кнопку **Переместить**.
 1. В окне **Управление доступом** настройте [права доступа к воркбуку](./security.md) и нажмите кнопку **Закрыть**.
 
    После миграции откроется воркбук **Sample Superstore All** с перенесенным датасетом и связанными объектами.
 
-   ![image](../../_assets/datalens/migration/store-workbook.png =750x422)
+   ![image](../../_assets/datalens/migration/store-workbook.png)
 
 1. Создайте копию воркбука:
 
-   1. На странице воркбука вверху справа нажмите кнопку **Копировать**.
+   1. На странице воркбука вверху нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/copy.svg) **Копировать**.
    1. В открывшемся окне выберите коллекцию, в которую хотите скопировать воркбук, и нажмите кнопку **Копировать**. Чтобы скопировать воркбук в новую коллекцию, нажмите кнопку **Создать коллекцию**.
    1. Введите название нового воркбука, например **Sample Superstore Copy**, и нажмите кнопку **Копировать**.
 
-1. В воркбуке **Sample Superstore Copy** перейдите на вкладку **Все объекты** и удалите все, кроме подключения **Sample Superstore. Connection** и датасета **Sample Superstore Dataset**. Для этого у каждого объекта нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+1. В воркбуке **Sample Superstore Copy** перейдите на вкладку **Все объекты** и удалите все, кроме подключения **Sample Superstore. Connection** и датасета **Sample Superstore Dataset**. Для этого у каждого объекта нажмите ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 Теперь воркбук **Sample Superstore Copy** содержит только подключение **Sample Superstore. Connection** и датасет **Sample Superstore Dataset**. Вы можете создать в воркбуке свои чарты и дашборд.
 
-![image](../../_assets/datalens/migration/store-workbook-copy.png =750x422)
+![image](../../_assets/datalens/migration/store-workbook-copy.png)

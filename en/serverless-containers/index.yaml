@@ -4,24 +4,18 @@ description:
     {{ serverless-containers-full-name }} allows you to run containerized
     applications in a secure, fault-tolerant, and scalable environment without
     creating or maintaining VMs.
-meta:
-  title: '{{ serverless-containers-full-name }}'
-  description: >-
-    Yandex Serverless Containers allows you to run containerized applications in
-    a secure, fault-tolerant, and scalable environment without creating or
-    maintaining VMs.
 links:
   - title: Getting started
     description: Prepare a Docker image and create a container
     href: quickstart/container
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Learn more about {{ serverless-containers-name }} concepts
     href: concepts/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Pricing policy
     description: Service pricing and cost calculations
@@ -32,3 +26,18 @@ links:
   - title: API reference
     description: HTTP API method descriptions
     href: containers/api-ref/
+meta:
+  title: '{{ serverless-containers-full-name }}'
+  description: >-
+    Yandex Serverless Containers allows you to run containerized applications in
+    a secure, fault-tolerant, and scalable environment without creating or
+    maintaining VMs.
+  keywords:
+    - cloud serverless containers
+    - '{{ serverless-containers-name }}'
+    - '{{ serverless-containers-full-name }}'
+    - '{{ serverless-containers-name }}'
+    - containers in {{ yandex-cloud }}
+    - containers in cloud
+    - cloud containers
+    - serverless containers

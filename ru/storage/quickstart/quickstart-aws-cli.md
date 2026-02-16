@@ -23,12 +23,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-  1. На странице [**{{ ui-key.yacloud.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-  1. На странице [{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}]({{ link-console-access-management }}) убедитесь, что у вас следующие _минимальные_ роли:
+  1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+  1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} _минимальные_ роли:
       * для создания [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) и получения на него ключей доступа — [iam.serviceAccounts.admin](../../iam/roles-reference.md#iam-serviceAccounts-admin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Если вы хотите использовать существующий сервисный аккаунт, достаточно роли `iam.serviceAccounts.admin` на этот сервисный аккаунт.
       * для назначения сервисному аккаунту нужной роли — [storage.admin](../../storage/security/index.md#storage-admin) на каталог.
 
       Если у вас примитивная роль [admin](../../iam/roles-reference.md#admin) на каталог, назначать дополнительно роли не требуется.
+
+      {% include [note-managing-roles](../../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 
@@ -63,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
   1. Создайте статический ключ доступа {#create-keys}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
       1. В открывшемся списке выберите нужный сервисный аккаунт.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
@@ -77,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
 
-      Подробнее см. в документе [{#T}](../../iam/operations/sa/create-access-key.md).
+      Подробнее см. в документе [{#T}](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 {% endlist %}
 
@@ -142,7 +144,7 @@ description: Следуя данной инструкции, вы сможете
 
           Значения остальных параметров оставьте без изменений.
 
-
+          
           {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
 
 
@@ -156,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
           * `~/.aws/config`:
 
-
+            
             ```text
             [default]
             region = {{ region-id }}
@@ -234,3 +236,7 @@ description: Следуя данной инструкции, вы сможете
   Подробности см. в документе [{#T}](../operations/objects/link-for-download.md).
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](../s3/s3-api-quickstart.md)

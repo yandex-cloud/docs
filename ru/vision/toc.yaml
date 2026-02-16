@@ -42,6 +42,10 @@ items:
         href: tutorials/archive-from-vision-to-object-storage.md
       - name: Telegram-бот для распознавания текста на изображениях
         href: tutorials/recognizer-bot.md
+      - name: >-
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Концепции
     items:
       - name: Обзор
@@ -166,6 +170,8 @@ items:
                     href: classifier/api-ref/grpc/ImageClassifier/index.md
                   - name: Annotate
                     href: classifier/api-ref/grpc/ImageClassifier/annotate.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем
@@ -176,5 +182,3 @@ items:
         href: api-ref/support-headers.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/vision
-deepBase: 2

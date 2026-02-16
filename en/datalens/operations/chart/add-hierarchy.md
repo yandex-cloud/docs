@@ -1,9 +1,9 @@
 ---
-title: How to add a hierarchy
-description: Follow this guide to add a hierarchy.
+title: How to add a hierarchy to charts in {{ datalens-full-name }}
+description: Follow this guide to add a hierarchy to charts in {{ datalens-full-name }}.
 ---
 
-# Adding a hierarchy
+# Adding a hierarchy to charts in {{ datalens-full-name }}
 
 {% note info %}
 

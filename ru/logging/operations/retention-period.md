@@ -1,6 +1,7 @@
 ---
 title: Изменение лог-группы
 description: Следуя данной инструкции, вы сможете изменить лог-группу.
+sourcePath: ru/logging_includes/operations/retention-period.md
 ---
 
 # Изменить лог-группу
@@ -10,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [лог-группа](../concepts/log-group.md).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
     1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
     1. Измените параметры лог-группы.
@@ -115,7 +116,6 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы изменить лог-группу, воспользуйтесь методом REST API [update](../api-ref/LogGroup/update.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Update](../api-ref/grpc/LogGroup/update.md).
 
-
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
@@ -160,6 +160,5 @@ description: Следуя данной инструкции, вы сможете
     }
   }
   ```
-
 
 {% endlist %}

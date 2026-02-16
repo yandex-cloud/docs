@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ translate-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ translate-name }}.
 editable: false
 ---
 
@@ -6,11 +8,20 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=1386a44a92b8#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ translate-short-name }} {#rules}
 

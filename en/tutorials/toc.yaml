@@ -5,6 +5,10 @@ items:
     items:
       - name: All tutorials
         href: security/index.md
+      - name: Differentiation of access permissions for user groups
+        href: security/user-group-access-control.md
+      - name: Inviting a new user and assigning roles
+        href: security/add-account-and-assign-roles.md
       - name: Creating an L7 load balancer with DDoS protection
         items:
           - name: Overview
@@ -13,6 +17,78 @@ items:
             href: security/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }}
+          profile
+        items:
+          - name: Overview
+            href: security/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
+      - name: >-
+          Creating an L7 load balancer with a {{ sws-name }} profile through an
+          {{ alb-name }} ingress controller
+        href: security/alb-ingress-with-sws-profile.md
+      - name: Creating a distributed infrastructure with secure access
+        href: security/distributed-secured-infrastructure.md
+      - name: Centralized online publication and DDoS protection of applications
+        href: security/different-folders-services.md
+      - name: Basic SWS setup
+        href: security/sws-basic-protection.md
+      - name: Emergency L7 DDoS protection in {{ alb-name }}
+        href: security/sws-protection-ongoing-ddos.md
+      - name: >-
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
+        items:
+          - name: Overview
+            href: security/migration-from-nlb-to-alb/index.md
+          - name: NLB with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB with an instance group as a target
+            items:
+              - name: Overview
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
+            items:
+              - name: Overview
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB as a target for ALB
+            items:
+              - name: Overview
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: Terminating TLS connections
         items:
           - name: Overview
@@ -25,21 +101,199 @@ items:
         href: security/vm-fluent-bit-logging.md
       - name: Writing load balancer logs to {{ PG }}
         href: security/logging.md
-      - name: >-
-          Secure storage of {{ GL }} CI passwords as {{ lockbox-full-name }}
-          secrets
+      - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: security/gitlab-lockbox-integration.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
-        href: security/static-key-in-lockbox.md
-      - name: Service account with an OS Login profile for VM management via Ansible
+        items:
+          - name: Overview
+            href: security/static-key-in-lockbox/index.md
+          - name: CLI
+            href: security/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: security/static-key-in-lockbox/terraform.md
+      - name: >-
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: security/sa-oslogin-ansible.md
       - name: Providing secure access to content in {{ cdn-name }}
-        href: security/protected-access-to-content.md
+        items:
+          - name: Overview
+            href: security/protected-access-to-content/index.md
+          - name: Management console, CLI, and API
+            href: security/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: security/protected-access-to-content/terraform.md
+      - name: Uploading audit logs to SIEM KUMA
+        items:
+          - name: Overview
+            href: security/audit-trails-events-to-kuma/index.md
+          - name: Management console, CLI, and API
+            href: security/audit-trails-events-to-kuma/console.md
+          - name: '{{ TF }}'
+            href: security/audit-trails-events-to-kuma/terraform.md
+      - name: Transferring logs from {{ coi }} to {{ cloud-logging-name }}
+        href: security/coi-fluent-bit-logging.md
+      - name: Searching for events in audit logs
+        items:
+          - name: Overview
+            href: security/search-events-audit-logs/index.md
+          - name: Tools for working with audit logs
+            href: security/search-events-audit-logs/tools.md
+          - name: Example requests for searching events
+            href: security/search-events-audit-logs/examples.md
+          - name: Configuring {{ yq-name }}
+            href: security/search-events-audit-logs/query.md
+      - name: Adding an HTML page to work with {{ captcha-name }}
+        href: security/mobile-app/website.md
+      - name: Creating an L7 load balancer with a security profile
+        items:
+          - name: Overview
+            href: security/balancer-with-sws-profile/index.md
+          - name: Management console
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
+      - name: ViPNet Coordinator in {{ yandex-cloud }}
+        href: security/vipnet-to-yc.md
+        hidden: true
+      - name: Configuring alerts and dashboards in {{ monitoring-name }}
+        href: security/alerts-monitoring.md
+      - name: Exporting audit logs to MaxPatrol SIEM
+        href: security/maxpatrol.md
+      - name: Uploading audit logs to Splunk SIEM
+        href: security/export-logs-to-splunk.md
+      - name: Uploading audit logs to ArcSight SIEM
+        href: security/export-logs-to-arcsight.md
+      - name: Managing identity federations
+        items:
+          - name: Active Directory authentication
+            href: security/integration-adfs.md
+          - name: Google Workspace authentication
+            href: security/integration-gworkspace.md
+          - name: '{{ microsoft-idp.entra-id-full }} authentication'
+            href: security/integration-azure.md
+          - name: Keycloak authentication
+            href: security/integration-keycloak.md
+          - name: User group mapping
+            items:
+              - name: User group mapping in {{ microsoft-idp.adfs-short }}
+                href: security/adfs.md
+              - name: User group mapping in {{ microsoft-idp.entra-id-full }}
+                href: security/entra-id.md
+              - name: User group mapping in Keycloak
+                href: security/keycloak.md
+      - name: '{{ captcha-name }} use cases'
+        items:
+          - name: CAPTCHA in Android apps
+            href: security/mobile-app/android/quickstart-android.md
+          - name: Invisible CAPTCHA in Android apps
+            href: security/mobile-app/android/invisible-captcha-android.md
+          - name: CAPTCHA in an Android app on Flutter
+            href: security/mobile-app/android/quickstart-android-flutter.md
+          - name: CAPTCHA in iOS apps
+            href: security/mobile-app/ios/quickstart-ios.md
+      - name: Data encryption
+        items:
+          - name: Which encryption method should I choose?
+            href: security/encrypt/index.md
+          - name: Encrypting data using the {{ yandex-cloud }} CLI and API
+            href: security/encrypt/cli-api.md
+          - name: Encrypting data using the Yandex Cloud SDK
+            href: security/encrypt/sdk.md
+          - name: Encrypting data using the AWS Encryption SDK
+            href: security/encrypt/aws-encryption-sdk.md
+          - name: Encrypting data using Google Tink
+            href: security/encrypt/google-tink.md
+      - name: Server-side encryption for an {{ objstorage-name }} bucket
+        href: security/server-side-encryption.md
+      - name: Encrypting secrets in {{ TF-full }}
+        href: security/terraform-secret.md
+      - name: Managing KMS keys with {{ TF-full }}
+        href: security/terraform-key.md
+      - name: Auto Unseal in Hashicorp Vault
+        href: security/vault-secret.md
+      - name: Integrations of workload identity federations
+        items:
+          - name: GitHub
+            href: security/wlif-github-integration.md
+          - name: '{{ GL }}'
+            href: security/wlif-gitlab-integration.md
+          - name: Custom installation {{ k8s }}
+            href: security/wlif-k8s-integration.md
+          - name: '{{ managed-k8s-name }}'
+            href: security/wlif-managed-k8s-integration.md
+      - name: Setting up single sign-on (SSO) for apps
+        items:
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: security/single-sign-on/oidc-grafana-oss.md
+          - name: 1C:Enterprise
+            href: security/single-sign-on/oidc-1c-enterprise.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
+          - name: Using OAuth2 Proxy for applications not supporting SSO
+            href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
+      - name: Uploading audit logs to {{ mos-name }}
+        hidden: true
+        href: security/trails-logs-opensearch.md
+      - name: >-
+          Transferring a {{ mgp-name }} cluster's logs to {{
+          cloud-logging-full-name }}
+        href: security/mgp-to-cloud-logging.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: security/info-for-federal-ip-whitelist.md
   - name: Storing and recovering data
     items:
       - name: All tutorials
         href: archive/index.md
-      - name: Migrating to {{ yandex-cloud }} using Hystax Acura
+      - name: Backing up to {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: archive/storage-backup-overview.md
+          - name: Backing up to {{ objstorage-name }} with AWS S3 Sync
+            href: archive/storage-backup-aws-s3-sync.md
+          - name: Backing up to {{ objstorage-name }} with rclone
+            href: archive/storage-backup-rclone.md
+          - name: Backing up to {{ objstorage-name }} with GeeseFS
+            href: archive/storage-backup-geesefs.md
+          - name: >-
+              Backing up to {{ objstorage-name }} with MSP360 Backup (CloudBerry
+              Desktop Backup)
+            href: archive/object-storage-cloudberry.md
+          - name: Backing up to {{ objstorage-name }} with Duplicati
+            href: archive/object-storage-duplicati.md
+          - name: Backing up to {{ objstorage-name }} with Bacula
+            href: archive/backup-with-bacula.md
+          - name: Backing up to {{ objstorage-name }} with Veritas Backup Exec
+            href: archive/object-storage-veritas.md
+          - name: Backing up to {{ objstorage-name }} with Veeam Backup
+            href: archive/backup-with-veeam.md
+          - name: Backing up a VM with Hystax Acura Backup
+            href: infrastructure-management/hystax-backup.md
+          - name: >-
+              Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name
+              }}
+            href: archive/kubernetes-backup.md
+      - name: Migrating to {{ yandex-cloud }} with Hystax Acura
         href: infrastructure-management/hystax-migration.md
       - name: Fault protection with Hystax Acura
         href: infrastructure-management/hystax-disaster-recovery.md
@@ -53,25 +307,11 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Configuring an SFTP server based on CentOS 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Creating a VM backup with Hystax Acura Backup
-        href: infrastructure-management/hystax-backup.md
-      - name: >-
-          Backup to {{ objstorage-name }} using MSP360 Backup (CloudBerry
-          Desktop Backup)
-        href: archive/object-storage-cloudberry.md
-      - name: Backup to {{ objstorage-name }} via Duplicati
-        href: archive/object-storage-duplicati.md
-      - name: Backup to {{ objstorage-name }} via Bacula
-        href: archive/backup-with-bacula.md
-      - name: Backup to {{ objstorage-name }} via Veritas Backup Exec
-        href: archive/object-storage-veritas.md
-      - name: '{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}'
-        href: archive/kubernetes-backup.md
-      - name: Deploying the GlusterFS parallel file system in high availability mode
+      - name: Deploying GlusterFS in high availability mode
         href: archive/ha-regional-glusterfs.md
-      - name: Deploying the GlusterFS parallel file system in high performance mode
+      - name: Deploying GlusterFS in high performance mode
         href: archive/ha-regional-glusterfs-high-performance.md
-      - name: Linking a {{ backup-name }} policy to a VM automatically
+      - name: Associating a {{ backup-name }} policy with a VM automatically
         items:
           - name: Overview
             href: archive/vm-with-backup-policy/index.md
@@ -79,17 +319,37 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
+      - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+        href: archive/replicate-logs-to-storage-via-data-streams.md
+      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+        href: archive/replicate-logs-to-storage.md
+      - name: Using {{ objstorage-name }} in {{ dataproc-name }}
+        href: archive/copy-files-from-object-storage.md
+      - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
+        href: archive/backup-baremetal.md
+      - name: Deploying Nextcloud integrated with {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: archive/integrate-nextcloud/index.md
+          - name: Deploying Nextcloud on a VM from a {{ coi }}
+            href: archive/integrate-nextcloud/coi-based.md
+          - name: Manually deploying Nextcloud on a VM or VM group
+            href: archive/integrate-nextcloud/fault-tolerant.md
+          - name: Deploying Nextcloud on a VM or VM group using {{ TF }}
+            href: archive/integrate-nextcloud/terraform.md
   - name: Development and testing
     items:
       - name: All tutorials
         href: dev/index.md
-      - name: Enabling blue-green and canary deployment of web service versions
+      - name: >-
+          Enabling a blue-green and canary deployment of the web service
+          versions
         href: web/blue-green-canary-deployment.md
       - name: Automating image builds using Jenkins and Packer
         href: infrastructure-management/jenkins.md
       - name: Continuous deployment of containerized applications using {{ GL }}
         href: infrastructure-management/gitlab-containers.md
-      - name: Testing applications with {{ GL }}
+      - name: App testing with {{ GL }}
         href: testing/gitlab.md
       - name: Creating test VMs using {{ GL }} CI
         href: testing/ci-for-snapshots.md
@@ -99,36 +359,56 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Load testing a gRPC service
         href: testing/loadtesting-grpc.md
-      - name: Deploying and load testing a gRPC service with scaling
-        href: testing/loadtesting-grpc-autoscaling.md
       - name: Fixed-load HTTPS testing with Phantom
         href: testing/loadtesting-https-phantom.md
       - name: Step-load HTTPS testing with Pandora
         href: testing/loadtesting-https-pandora.md
+      - name: Scripted HTTP load testing with Pandora
+        href: testing/loadtesting-http-scenario-pandora.md
       - name: Load testing using multiple agents
         href: testing/loadtesting-multiply.md
-      - name: Migrating load testing results from OverLoad
-        href: testing/loadtesting-overload-migration.md
       - name: Running external agents for load testing
         href: testing/loadtesting-external-agent.md
       - name: JMeter load testing
         href: testing/loadtesting-jmeter.md
       - name: >-
-          Getting statistics for the requests to {{ objstorage-name }} objects
-          using {{ yq-name }}
+          Getting statistics on queries to {{ objstorage-name }} objects using
+          {{ yq-name }}
         href: testing/server-logs-yq.md
+      - name: Getting the number of queries to {{ objstorage-name }} objects
+        href: testing/server-logs.md
+      - name: Invoking a load test from {{ GL }} CI
+        href: testing/loadtesting-gitlab-ci.md
+      - name: Deploying {{ GLR }} on a {{ compute-name }} virtual machine
+        href: dev/install-gitlab-runner.md
+      - name: >-
+          Deploying a {{ src-full-name }} worker on a {{ compute-name }} virtual
+          machine
+        href: dev/self-hosted-worker-sourcecraft.md
+      - name: Comparing load test results
+        href: testing/loadtesting-results-compare.md
+      - name: >-
+          AI-powered review of GitHub pull requests with {{ sw-full-name }} and
+          GitHub Actions
+        href: dev/ai-powered-github-pr-review.md
   - name: Basic infrastructure
     items:
       - name: All tutorials
         href: infrastructure/index.md
-      - name: Architecture and protection of a basic internet service
+      - name: Architecture and protection of a basic web service
         href: routing/web-service.md
+      - name: Cost analysis by resource using {{ objstorage-name }}
+        href: infrastructure/billing-resource-detailing.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: infrastructure/info-for-federal-ip-whitelist.md
       - name: Fault tolerance and scaling
         items:
           - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
             href: infrastructure-management/fault-tolerance.md
           - name: >-
-              Fault-tolerant website with load balancing via {{
+              Fault-tolerant website with load balancing via a {{
               network-load-balancer-name }}
             items:
               - name: Overview
@@ -137,13 +417,19 @@ items:
                 href: web/load-balancer-website/console.md
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
-          - name: Fault-tolerant website with load balancing using {{ alb-name }}
-            href: web/application-load-balancer-website.md
+          - name: Fault-tolerant website with load balancing via a {{ alb-name }}
+            items:
+              - name: Overview
+                href: web/application-load-balancer-website/index.md
+              - name: Management console
+                href: web/application-load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/application-load-balancer-website/terraform.md
           - name: >-
               Integrating an L7 load balancer with {{ cdn-name }} and {{
               objstorage-name }}
             href: web/cdn-storage-integration.md
-          - name: Running an instance group with autoscaling
+          - name: Working with an autoscaling instance group
             items:
               - name: Overview
                 href: infrastructure-management/vm-autoscale/index.md
@@ -151,23 +437,27 @@ items:
                 href: infrastructure-management/vm-autoscale/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/vm-autoscale/terraform.md
-          - name: Scheduled scaling of instance groups
-            href: infrastructure-management/vm-scale-scheduled.md
+          - name: Scheduled instance group scaling
+            items:
+              - name: Overview
+                href: infrastructure-management/vm-scale-scheduled/index.md
+              - name: Management console, CLI, and API
+                href: infrastructure-management/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-scale-scheduled/terraform.md
           - name: >-
-              Automatically scaling an instance group to process messages from a
-              queue in{{ message-queue-name }}
+              Autoscaling an instance group to process messages enqueued in {{
+              message-queue-name }}
             href: infrastructure-management/autoscale-monitoring.md
           - name: Updating an instance group under load
             href: infrastructure-management/updating-under-load.md
-          - name: >-
-              Creating a trigger for budgets that invokes a function to stop VM
-              instances
+          - name: Creating a budget trigger that invokes a function to stop a VM
             href: infrastructure-management/serverless-trigger-budget-vm.md
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
           - name: >-
-              Creating a trigger that invokes a function to stop VM instances
-              and send a Telegram notification
+              Creating triggers that invoke a function to stop a VM and send a
+              Telegram notification
             href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
         items:
@@ -185,6 +475,12 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Using {{ yandex-cloud }} modules in {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Managing {{ k8s }} resources via the {{ TF }} provider
+            href: infrastructure-management/kubernetes-terraform-provider.md
+          - name: >-
+              Creating a VM and an instance group with a {{ coi }} using {{ TF
+              }}
+            href: infrastructure/coi-with-terraform.md
           - name: Running a Docker image on a VM
             items:
               - name: Overview
@@ -193,11 +489,19 @@ items:
                 href: infrastructure-management/run-docker-on-vm/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/run-docker-on-vm/terraform.md
+          - name: >-
+              Transferring logs through {{ unified-agent-short-name }} HTTP
+              input to {{ cloud-logging-name }}
+            href: infrastructure-management/ua-http-logging.md
+          - name: >-
+              Running the DeepSeek-R1 language model in a {{ compute-name }} GPU
+              cluster
+            href: infrastructure/gpu-cluster-deepseek.md
       - name: Network
         items:
-          - name: Configuring clock synchronization using NTP
+          - name: Configuring time synchronization using NTP
             href: infrastructure-management/ntp.md
-          - name: DHCP settings for working with a corporate DNS server
+          - name: DHCP settings for interfacing with a corporate DNS server
             href: routing/dhcp-options.md
           - name: Routing through a NAT instance
             items:
@@ -207,24 +511,25 @@ items:
                 href: routing/nat-instance/console.md
               - name: '{{ TF }}'
                 href: routing/nat-instance/terraform.md
-          - name: Installing a Cisco CSR 1000v virtual router
+          - name: Installing the Cisco CSR 1000v virtual router
             href: routing/cisco.md
           - name: Installing a Mikrotik CHR virtual router
             href: routing/mikrotik.md
       - name: VPNs
         items:
-          - name: Setting up network connectivity with IPsec gateways
+          - name: Establishing network connectivity with the help of IPsec gateways
             items:
-              - name: Solution diagram
+              - name: Solution architecture
                 href: routing/ipsec/index.md
-              - name: Unaided implementation with {{ yandex-cloud }}
+              - name: Unassisted implementation with {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
+              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+                href: routing/ipsec/s2s-vpn.md
               - name: SGW solution by the {{ yandex-cloud }} architect team
                 href: routing/ipsec/sgw.md
-            href: routing/ipsec/index.md
           - name: Connecting to a cloud network using OpenVPN
             href: routing/openvpn.md
-          - name: Creating and configuring a UserGate gateway in proxy server mode
+          - name: Setting up a UserGate proxy server
             href: routing/usergate-proxy.md
       - name: '{{ dns-name }}'
         items:
@@ -233,20 +538,170 @@ items:
           - name: "Migrating DNS zones from Yandex\_360 to {{ dns-name }}"
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Configuring {{ dns-full-name }} for {{ mch-full-name }} cluster
-              access from other cloud networks
+              Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
+              other cloud networks
             href: dataplatform/clickhouse-dns-peering.md
           - name: Integrating {{ dns-name }} and a corporate DNS service
             href: infrastructure-management/dns-integration.md
-          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+          - name: >-
+              Creating an ACME resolver webhook for responses to DNS01
+              challenges
             href: infrastructure-management/cert-manager-webhook.md
+      - name: GPU
+        items:
+          - name: Running the DeepSeek-R1 language model in a GPU cluster
+            href: infrastructure-management/gpu-cluster-deepseek.md
+          - name: >-
+              Running a vLLM library with the Gemma 3 language model on a VM
+              with a GPU
+            href: infrastructure-management/vllm-gemma-gpu.md
+  - name: Container infrastructure
+    items:
+      - name: All tutorials
+        href: container-infrastructure/index.md
+      - name: >-
+          Setting up a {{ mpg-name }} connection from a container in {{
+          serverless-containers-name }}
+        href: container-infrastructure/container-pg-connect.md
+      - name: Creating a VM from a {{ coi }}
+        href: container-infrastructure/vm-create.md
+      - name: >-
+          Creating a VM from a {{ coi }} with an additional volume for a Docker
+          container
+        href: container-infrastructure/vm-create-with-second-disk.md
+      - name: >-
+          Creating an instance group from a {{ coi }} with multiple Docker
+          containers
+        href: container-infrastructure/ig-with-containers.md
+      - name: Creating an instance group from a {{ coi }}
+        href: container-infrastructure/ig-create.md
+      - name: Creating a VM from a {{ coi }} with multiple Docker containers
+        href: container-infrastructure/docker-compose.md
+      - name: Updating a {{ coi }} VM
+        href: container-infrastructure/vm-update.md
+      - name: Configuring data output from a Docker container to a serial port
+        href: container-infrastructure/serial-port.md
+      - name: Running a Docker image on a VM using {{ cloud-registry-name }}
+        href: container-infrastructure/docker-cloud-registry.md
+      - name: '{{ managed-k8s-name }}'
+        items:
+          - name: Creating a new {{ k8s }} project
+            href: container-infrastructure/new-kubernetes-project.md
+          - name: Creating a {{ k8s }} cluster with no internet access
+            href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: >-
+              Creating a {{ k8s }} cluster using the {{ yandex-cloud }} provider
+              for the {{ k8s }} Cluster API
+            href: container-infrastructure/k8s-cluster-api-provider-yandex.md
+          - name: Running workloads with GPUs
+            href: container-infrastructure/running-pod-gpu.md
+          - name: Using node groups with GPUs and no pre-installed drivers
+            href: container-infrastructure/driverless-gpu.md
+          - name: Setting up time-slicing GPUs
+            href: container-infrastructure/time-slicing-gpu.md
+          - name: Migrating resources to a different availability zone
+            href: container-infrastructure/migration-to-an-availability-zone.md
+          - name: Encrypting secrets
+            href: container-infrastructure/kms-k8s.md
+          - name: >-
+              Connecting a {{ baremetal-name }} server as an external node to a
+              {{ managed-k8s-name }} cluster
+            href: container-infrastructure/k8s-connect-bms-as-node.md
+          - name: Setting up and testing scaling
+            items:
+              - name: Horizontal scaling of an application in a cluster
+                href: container-infrastructure/autoscaling.md
+              - name: Vertical scaling of an application in a cluster
+                href: container-infrastructure/vpa-autoscaling.md
+              - name: Deploying and load testing a scalable gRPC service
+                href: container-infrastructure/loadtesting-grpc-autoscaling.md
+          - name: Installing NGINX
+            items:
+              - name: Installing an NGINX ingress controller with {{ lets-encrypt }}
+                href: container-infrastructure/ingress-cert-manager.md
+              - name: >-
+                  Installing an NGINX ingress controller with a certificate from
+                  {{ certificate-manager-name }}
+                href: container-infrastructure/nginx-ingress-certificate-manager.md
+          - name: Usage {{ container-registry-name }}
+            items:
+              - name: Integration with {{ container-registry-name }}
+                href: container-infrastructure/container-registry.md
+              - name: >-
+                  Signing and verifying {{ container-registry-name }} Docker
+                  images
+                href: container-infrastructure/sign-cr-with-cosign.md
+              - name: Storing Docker images created in {{ mgl-name }} projects
+                href: container-infrastructure/image-storage.md
+          - name: Continuous integration with {{ GL }}
+            items:
+              - name: >-
+                  Scanning {{ container-registry-name }} for vulnerabilities
+                  during continuous deployment of applications using {{ GL }}
+                href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+          - name: Working with DNS
+            items:
+              - name: Integration with a corporate DNS zone
+                href: container-infrastructure/custom-dns.md
+              - name: DNS autoscaling based on the cluster size
+                href: container-infrastructure/dns-autoscaler.md
+              - name: Setting up NodeLocal DNS Cache
+                href: container-infrastructure/node-local-dns.md
+              - name: DNS challenge for {{ lets-encrypt }} certificates
+                href: container-infrastructure/dnschallenge.md
+          - name: Backups
+            items:
+              - name: Working with {{ compute-name }} snapshots
+                href: container-infrastructure/pvc-snapshot-restore.md
+          - name: Monitoring
+            items:
+              - name: >-
+                  Cluster monitoring with {{ prometheus-name }} and {{
+                  grafana-name }}
+                href: container-infrastructure/prometheus-grafana-monitoring.md
+              - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
+                href: container-infrastructure/filebeat-oss-monitoring.md
+          - name: Using {{ marketplace-name }} products
+            items:
+              - name: Integration with Argo CD
+                href: container-infrastructure/argo-cd.md
+              - name: Integration with Crossplane
+                href: container-infrastructure/crossplane.md
+              - name: Syncing {{ lockbox-name }} and {{ managed-k8s-name }} secrets
+                href: container-infrastructure/kubernetes-lockbox-secrets.md
+              - name: >-
+                  Transferring a {{ managed-k8s-name }} cluster's logs to {{
+                  cloud-logging-name }}
+                href: container-infrastructure/k8s-fluent-bit-logging.md
+              - name: Setting up the Gateway API
+                href: container-infrastructure/gateway-api.md
+              - name: Setting up an {{ alb-name }} ingress controller
+                href: container-infrastructure/alb-ingress-controller.md
+              - name: Logging settings for {{ alb-name }} ingress controllers
+                href: container-infrastructure/alb-ingress-controller-log-options.md
+              - name: >-
+                  Health checking your applications in a {{ managed-k8s-name }}
+                  cluster with an {{ alb-name }} ingress controller
+                href: container-infrastructure/custom-health-checks.md
+              - name: Using Jaeger to trace queries in {{ ydb-name }}
+                href: container-infrastructure/jaeger-over-ydb.md
+              - name: Setting up Kyverno &amp; Kyverno Policies
+                href: container-infrastructure/kyverno.md
+              - name: Using {{ MP }} to deliver metrics
+                href: container-infrastructure/metrics-provider.md
+              - name: Editing website images with Thumbor
+                href: container-infrastructure/thumbor.md
+              - name: Using Istio
+                href: container-infrastructure/istio.md
+              - name: Using HashiCorp Vault to store secrets
+                href: container-infrastructure/hashicorp-vault.md
   - name: Application solutions
     items:
       - name: All tutorials
         href: applied/index.md
       - name: Creating a website
         items:
-          - name: Static website in {{ objstorage-full-name }}
+          - name: Static website in {{ objstorage-name }}
             items:
               - name: Overview
                 href: web/static/index.md
@@ -254,7 +709,17 @@ items:
                 href: web/static/console.md
               - name: Terraform
                 href: web/static/terraform.md
-          - name: Website on a LAMP or LEMP stack
+          - name: >-
+              Static website in {{ objstorage-name }} with access via {{
+              cdn-name }}
+            items:
+              - name: Overview
+                href: applied/cdn-hosting/index.md
+              - name: Management console, CLI, and API
+                href: applied/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: applied/cdn-hosting/terraform.md
+          - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
                 href: web/lamp-lemp/index.md
@@ -262,7 +727,7 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Creating a Joomla website with a PostgreSQL database
+          - name: Creating a website on CMS Joomla with a {{ PG }} database
             items:
               - name: Overview
                 href: web/joomla-postgresql/index.md
@@ -270,7 +735,7 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Creating a website in WordPress
+          - name: Creating a WordPress website
             items:
               - name: Overview
                 href: web/wordpress/index.md
@@ -308,13 +773,27 @@ items:
                 href: internet-store/opencart/terraform.md
           - name: Setting up virtual hosting
             href: web/virtual-hosting.md
-          - name: Assigning a domain name to a VM with a web server
-            href: web/bind-domain-vm.md
+          - name: Assigning a domain name to a web server VM
+            items:
+              - name: Overview
+                href: web/bind-domain-vm/index.md
+              - name: Management console, CLI, and API
+                href: web/bind-domain-vm/console.md
+              - name: '{{ TF }}'
+                href: web/bind-domain-vm/terraform.md
           - name: Creating a Python web application with Flask
             href: web/flask.md
           - name: Hosting a static Gatsby website
             href: web/gatsby-static-website.md
-      - name: 1С
+          - name: Installing Ghost CMS CloudApp
+            href: web/ghost-cms-cloudapp.md
+          - name: Migrating to {{ cdn-name }} from a third-party CDN provider
+            href: web/migrate-to-yc-cdn.md
+          - name: Getting website traffic statistics with S3 Select
+            href: web/user-agent-statistics.md
+          - name: Formatting {{ video-name }} content in IFrame
+            href: web/video-iframe.md
+      - name: 1C
         items:
           - name: 1C-Bitrix online store
             items:
@@ -325,36 +804,70 @@ items:
               - name: '{{ TF }}'
                 href: internet-store/bitrix-shop/terraform.md
           - name: >-
-              Creating a cluster of 1C:Enterprise Linux servers with {{ mpg-name
-              }}
+              Creating a cluster of 1C:Enterprise Linux servers with a {{
+              mpg-name }} cluster
             href: infrastructure-management/1c-postgresql-linux.md
+          - name: Monitoring 1C:Enterprise Linux cluster
+            href: infrastructure-management/collect-metrics-1c-cluster.md
       - name: Internet of Things (IoT)
         items:
-          - name: Status monitoring of geographically distributed devices
+          - name: Working with Mosquitto
+            items:
+              - name: Sending messages
+                href: iot/mosquitto/mosquitto-publish.md
+              - name: Subscribing a device or registry to receive messages
+                href: iot/mosquitto/mosquitto-subscribe.md
+          - name: Working with {{ iot-name }} from an Android device in Java
+            href: iot/android-java.md
+          - name: Working with {{ iot-name }} in C#
+            href: iot/c-sharp.md
+          - name: Working with {{ iot-name }} in Java
+            href: iot/java.md
+          - name: Monitoring the status of geographically distributed devices
             href: iot/datalens.md
-          - name: Monitoring sensor readings and event notifications
+          - name: Sensor reading monitoring and event notifications
             href: iot/monitoring.md
+          - name: Testing message delivery
+            href: iot/message-delivery-check.md
           - name: Emulating multiple IoT devices
             href: testing/iot-emulation.md
+          - name: Writing device data to a database
+            href: iot/data-recording.md
+      - name: Alice
+        items:
+          - name: Creating a skill for Alice
+            href: serverless/alice-skill.md
+          - name: Building a skill for Alice and a website with authorization
+            href: serverless/alice-shareable-todolist.md
       - name: Other
         items:
           - name: Publishing game updates using {{ cdn-name }}
             href: web/prefetch.md
           - name: Creating an SAP program in {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-          - name: Developing a Telegram bot for text and audio recognition
-            href: ml-ai/recognizer-bot.md
           - name: Deploying a Minecraft server in {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
+          - name: Deploying a multiplayer server for GTA V in {{ yandex-cloud }}
+            href: infrastructure/gta-v-server.md
+          - name: Converting a video to a GIF in Python
+            href: serverless/video-converting-queue.md
+          - name: >-
+              Configuring printing from {{ cloud-desktop-name }} to a local
+              printer in Linux
+            href: applied/desktop-linux-printer.md
   - name: Building a data platform
     items:
       - name: All tutorials
         href: dataplatform/index.md
-      - name: Deploying the UI for {{ KF }}
+      - name: Unassisted deployment of the {{ KF }} web interface
         href: dataplatform/deploy-kafka-ui.md
       - name: >-
-          Migrating databases from a third-party {{ KF }} cluster to {{ mkf-name
-          }}
+          Upgrading a {{ mkf-name }} cluster to migrate from {{ ZK }} to {{
+          kraft-short-name }}
+        href: dataplatform/zk-kraft-kafka-migration.md
+      - name: >-
+          Migrating a database from a third-party {{ KF }} cluster to {{
+          mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
           Moving data between {{ mkf-name }} clusters using {{
@@ -408,24 +921,48 @@ items:
           Delivering data from {{ mkf-name }} to {{ yds-name }} using {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
-      - name: Configuring Kafka Connect for {{ mkf-name }} clusters
+      - name: >-
+          Delivering data from {{ yds-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-ydb.md
+      - name: >-
+          Delivering data from {{ yds-name }} to {{ mkf-name }} using {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-kafka.md
+      - name: '{{ ydb-short-name }} change data capture and delivery to {{ DS }}'
+        href: dataplatform/ydb-to-yds.md
+      - name: Configuring Kafka Connect to work with a {{ mkf-name }} cluster
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Synchronizing {{ KF }} topics in {{ objstorage-name }} with no web
+          access
+        href: dataplatform/kafka-topic-s3-sync-private.md
       - name: Using data format schemas with {{ mkf-name }}
         items:
           - name: Managing data schemas in {{ mkf-name }}
             href: dataplatform/schema-registry-overview.md
           - name: Using {{ mkf-msr }} with {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
+          - name: Using {{ mkf-msr }} with {{ mkf-name }} via REST API
+            href: dataplatform/managed-schema-registry-rest.md
           - name: Using Confluent Schema Registry with {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
-        href: dataplatform/lockbox-and-airflow.md
-      - name: Automating {{ yq-full-name }} tasks using {{ maf-full-name }}
+      - name: Monitoring message loss in an {{ KF }} topic
+        href: dataplatform/retention-policy.md
+      - name: Automating {{ yq-name }} tasks with {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Sending requests to the {{ yandex-cloud }} API via the {{ yandex-cloud
           }} Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
+      - name: Configuring an SMTP server to send e-mail notifications
+        href: dataplatform/airflow-test-smtp-notification.md
+      - name: Adding data to a {{ CH }} DB
+        href: dataplatform/insert-data-ch.md
+      - name: Migrating data to {{ mch-name }} using {{ CH }}
+        href: dataplatform/clickhouse-migration.md
+      - name: Migrating data to {{ mch-name }} using {{ data-transfer-name }}
+        href: dataplatform/ch-to-mch-migration.md
       - name: >-
           Delivering data from {{ mmy-name }} to {{ mch-name }} using {{
           data-transfer-name }}
@@ -438,6 +975,8 @@ items:
         href: dataplatform/clickhouse-for-graphite.md
       - name: Fetching data from {{ mkf-name }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
+      - name: Fetching data from {{ mkf-name }} to ksqlDB
+        href: dataplatform/use-ksqldb-with-mkf.md
       - name: >-
           Delivering data from {{ mkf-name }} to {{ mch-name }} using {{
           data-transfer-name }}
@@ -445,7 +984,7 @@ items:
         hidden: true
       - name: Fetching data from {{ RMQ }} to {{ mch-name }}
         href: dataplatform/fetch-data-from-rabbitmq.md
-      - name: Saving a {{ yds-name }} data stream in {{ mch-name }}
+      - name: Saving a data stream from {{ yds-name }} to {{ mch-name }}
         href: dataplatform/yds-to-clickhouse.md
       - name: >-
           Asynchronous replication of data from {{ metrika }} to {{ CH }} using
@@ -456,27 +995,33 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Sharding {{ mch-name }} tables
         href: dataplatform/clickhouse-sharding.md
-      - name: Data resharding in a {{ mch-name }} cluster
-        href: dataplatform/mch-mch-resharding.md
       - name: >-
-          Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
-          mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
-          data-transfer-full-name }}
+          Loading data from {{ yandex-direct }} to a {{ mch-name }} data mart
+          using {{ sf-name }}, {{ objstorage-name }}, and {{ data-transfer-name
+          }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
-          Loading data from {{ objstorage-full-name }} to {{ mch-full-name }}
-          using {{ data-transfer-full-name }}
+          Loading data from {{ objstorage-name }} to {{ mch-name }} using {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
-          Migrating data with change of storage from {{ mos-name }} to {{
-          mch-name }} using {{ data-transfer-full-name }}
+          Migrating data from {{ mos-name }} to {{ mch-name }} with a storage
+          change using {{ data-transfer-name }}
         href: dataplatform/opensearch-to-clickhouse.md
       - name: >-
-          Loading data from {{ ydb-full-name }} to {{ mch-full-name }} using {{
-          data-transfer-full-name }}
+          Loading data from {{ ydb-name }} to {{ mch-name }} using {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
       - name: >-
-          Configuring {{ dns-name }} for {{ mch-name }} cluster access from
+          {{ mch-full-name }} integration with Microsoft SQL Server via {{ CH }}
+          JDBC Bridge
+        href: dataplatform/jdbc-ch-to-sql-server-integration.md
+      - name: Migrating databases from Google BigQuery to {{ mch-name }}
+        href: dataplatform/bigquery-to-clickhouse.md
+      - name: '{{ mch-full-name }} integration with Oracle via {{ CH }} JDBC Bridge'
+        href: dataplatform/jdbc-ch-to-oracle-integration.md
+      - name: >-
+          Configuring {{ dns-name }} to access a {{ mch-name }} cluster from
           other cloud networks
         href: dataplatform/clickhouse-dns-peering.md
       - name: >-
@@ -490,33 +1035,59 @@ items:
       - name: >-
           Mounting {{ objstorage-name }} buckets to the file system of {{
           dataproc-name }} hosts
-        href: dataplatform/data-proc-init-actions-geesefs.md
-      - name: Working with {{ KF }} topics using {{ dataproc-full-name }}
-        href: dataplatform/data-proc-and-kafka.md
+        href: dataplatform/data-processing-init-actions-geesefs.md
+      - name: Working with {{ KF }} topics using {{ dataproc-name }}
+        href: dataplatform/data-processing-and-kafka.md
       - name: Automating operations with {{ dataproc-name }} using {{ maf-name }}
-        href: dataplatform/data-proc-and-airflow.md
+        href: dataplatform/data-processing-and-airflow.md
       - name: Shared use of {{ dataproc-name }} tables through {{ metastore-name }}
-        href: dataplatform/dataproc-to-dataproc.md
+        href: dataplatform/data-processing-to-data-processing.md
       - name: >-
-          Transferring data between {{ dataproc-name }} clusters using {{
+          Transferring metadata across {{ dataproc-name }} clusters using {{
           metastore-name }}
         href: dataplatform/metastore-import.md
+      - name: >-
+          Importing data from {{ objstorage-name }}, processing, and exporting
+          it to {{ mch-name }}
+        href: dataplatform/s3-data-processing-ch.md
+      - name: Working with jobs {{ dataproc-name }}
+        items:
+          - name: Working with Hive jobs
+            href: dataplatform/hive-job-basics.md
+          - name: Working with MapReduce jobs
+            href: dataplatform/mapreduce-job-basics.md
+          - name: Working with PySpark jobs
+            href: dataplatform/pyspark-job-basics.md
+          - name: Working with Spark jobs
+            href: dataplatform/spark-job-basics.md
+          - name: Running Apache Hive jobs
+            href: dataplatform/how-to-use-hive.md
+          - name: Running Spark applications
+            href: dataplatform/run-spark-job.md
+          - name: Running jobs from a remote host
+            href: dataplatform/remote-run-job.md
       - name: >-
           Migrating collections from a third-party {{ MG }} cluster to {{
           mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Migrating data to {{ mmg-name }}
-        href: dataplatform/mongodb-data-migration.md
+        href: dataplatform/storedoc-data-migration.md
       - name: Migrating {{ mmg-name }} cluster from 4.4 to 6.0
-        href: dataplatform/mongodb-versions.md
-      - name: Sharding {{ MG }} collections
-        href: dataplatform/mongodb-sharding.md
-      - name: '{{ MG }} performance analysis and tuning'
-        href: dataplatform/mongodb-profiling.md
+        href: dataplatform/storedoc-versions.md
+      - name: Sharding {{ SD }} collections
+        href: dataplatform/storedoc-sharding.md
+      - name: '{{ SD }} performance analysis and tuning'
+        href: dataplatform/storedoc-profiling.md
       - name: >-
-          Migrating databases from a third-party {{ MY }} cluster to a {{
+          Migrating a database from a third-party {{ MY }} cluster to a {{
           mmy-name }} cluster
-        href: dataplatform/mysql-data-migration.md
+        items:
+          - name: Overview
+            href: dataplatform/mysql-data-migration/index.md
+          - name: Transferring data using {{ data-transfer-name }}
+            href: dataplatform/mysql-data-migration/data-transfer.md
+          - name: Migrating data using a logical dump
+            href: dataplatform/mysql-data-migration/logical-dump-migration.md
       - name: '{{ mmy-name }} performance analysis and tuning'
         href: dataplatform/profiling-mmy.md
       - name: >-
@@ -524,15 +1095,15 @@ items:
           using {{ data-transfer-name }}
         href: dataplatform/sync-mysql.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to a third-party {{ MY }}
+          Migrating a database from {{ mmy-name }} to a third-party {{ MY }}
           cluster
         href: dataplatform/mmy-to-mysql-migration.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ objstorage-name }} using
-          {{ data-transfer-name }}
+          Migrating a database from {{ mmy-name }} to {{ objstorage-name }}
+          using {{ data-transfer-name }}
         href: dataplatform/mmy-objs-migration.md
       - name: >-
-          Migrating data from {{ objstorage-name }} to {{ mmy-name }} using {{
+          Migrating data from {{ objstorage-name }} to {{ mmy-name }} via {{
           data-transfer-name }}
         href: dataplatform/objs-mmy-migration.md
       - name: Importing data from {{ mmy-name }} to {{ dataproc-name }} using Sqoop
@@ -545,7 +1116,7 @@ items:
       - name: Delivering data from {{ mmy-name }} to {{ mkf-name }} using Debezium
         href: dataplatform/./debezium-mmy.md
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
       - name: '{{ MY }} change data capture and delivery to {{ DS }}'
@@ -559,13 +1130,11 @@ items:
           data-transfer-name }}
         href: dataplatform/rds-to-mpg.md
       - name: >-
-          Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using
-          {{ data-transfer-full-name }}
+          Migrating data from {{ mmy-name }} to {{ mgp-name }} using {{
+          data-transfer-name }}
         href: dataplatform/mmy-to-mgp.md
-      - name: Configuring an index policy in {{ mos-full-name }}
+      - name: Configuring an index policy in {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
-      - name: Migrating data from {{ ES }} to {{ mos-name }}
-        href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Migrating data from a third-party {{ OS }} cluster to {{ mos-name }}
           using {{ data-transfer-name }}
@@ -575,23 +1144,37 @@ items:
           data-transfer-name }}
         href: dataplatform/opensearch-to-object-storage.md
       - name: >-
-          Migrating data from {{ mos-full-name }} to {{ ydb-full-name }} using
-          {{ data-transfer-full-name }}
+          Migrating data from {{ mos-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
         href: dataplatform/opensearch-to-ydb.md
       - name: >-
-          Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
-          {{ data-transfer-full-name }}
+          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
+      - name: >-
+          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: >-
+          Authenticating a {{ mos-name }} cluster in {{ OS }} Dashboards using
+          {{ keycloak }}
+        href: dataplatform/opensearch-saml-keycloak.md
+      - name: Using the yandex-lemmer plugin in {{ mos-name }}
+        href: dataplatform/opensearch-yandex-lemmer.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
+      - name: Searching for the {{ mpg-name }} cluster performance issues
+        href: dataplatform/mpg-performance-problems.md
       - name: '{{ mpg-name }} performance analysis and tuning'
         href: dataplatform/mpg-profiling.md
-      - name: Migrating databases from {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
+      - name: Logical replication in {{ PG }}
+        href: dataplatform/mpg-replication-overview.md
       - name: >-
-          Migrating databases from a third-party {{ PG }} cluster to {{ mpg-name
-          }}
+          Migrating a database from a third-party {{ PG }} cluster to {{
+          mpg-name }}
         href: dataplatform/postgresql-data-migration.md
+      - name: Migrating a database from {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
       - name: Asynchronously replicating data from {{ PG }} to {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true
@@ -608,11 +1191,11 @@ items:
           Delivering data from {{ mpg-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
-      - name: Migrating databases from {{ mpg-name }} to {{ objstorage-name }}
+      - name: Migrating a database from {{ mpg-name }} to {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
-          Migrating data from {{ objstorage-full-name }} to {{ mpg-full-name }}
-          using {{ data-transfer-full-name }}
+          Migrating data from {{ objstorage-name }} to {{ mpg-name }} via {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-postgresql.md
       - name: '{{ PG }} change data capture and delivery to {{ DS }}'
         href: dataplatform/mpg-to-yds.md
@@ -621,25 +1204,37 @@ items:
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
       - name: >-
-          Migrating data from {{ mpg-full-name }} to {{ mos-full-name }} using
-          {{ data-transfer-full-name }}
+          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
-      - name: Migrating databases from {{ GP }} to {{ CH }}
+      - name: Fixing string sorting issues in {{ PG }} after a glibc upgrade
+        href: dataplatform/postgresql-glibc-collation-issues.md
+      - name: Migrating a database from {{ GP }} to {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
-      - name: Migrating databases from {{ GP }} to {{ PG }}
+      - name: Migrating a database from {{ GP }} to {{ PG }}
         href: dataplatform/greenplum-to-postgresql.md
       - name: Exporting {{ GP }} data to a cold storage in {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
       - name: >-
-          Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }}
-          using {{ data-transfer-full-name }}
+          Loading data from {{ objstorage-name }} to {{ mgp-name }} using {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
       - name: >-
-          Migrating databases from a third-party {{ RD }} cluster to {{ mrd-name
-          }}
-        href: dataplatform/redis-data-migration.md
-      - name: Using {{ mrd-name }} clusters as PHP session storage
-        href: dataplatform/redis-as-php-sessions-storage.md
+          Copying data from {{ mos-name }} to {{ mgp-name }} using {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
+      - name: >-
+          Creating an external table from an {{ objstorage-name }} bucket table
+          using a configuration file
+        href: dataplatform/mgp-config-server-for-s3.md
+      - name: Getting data from external sources using named queries in {{ GP }}
+        href: dataplatform/pxf-named-queries.md
+      - name: >-
+          Migrating a database from a third-party {{ VLK }} cluster to {{
+          mrd-name }}
+        href: dataplatform/valkey-data-migration.md
+      - name: Using a {{ mrd-name }} cluster as a PHP session storage
+        href: dataplatform/valkey-as-php-sessions-storage.md
       - name: >-
           Delivering data from {{ ydb-name }} to {{ mkf-name }} using {{
           data-transfer-name }}
@@ -651,7 +1246,7 @@ items:
         href: dataplatform/mkf-ydb-stream.md
         hidden: true
       - name: >-
-          Migrating databases from {{ mmy-name }} to {{ ydb-name }} using {{
+          Migrating a database from {{ mmy-name }} to {{ ydb-name }} using {{
           data-transfer-name }}
         href: dataplatform/mmy-ydb-migration.md
         hidden: true
@@ -661,17 +1256,63 @@ items:
         href: dataplatform/mpg-ydb-replication.md
         hidden: true
       - name: >-
-          Loading data from {{ objstorage-full-name }} to {{ ydb-full-name }}
-          using {{ data-transfer-full-name }}
+          Loading data from {{ objstorage-name }} to {{ ydb-name }} using {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-ydb.md
       - name: >-
-          Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }}
-          using {{ data-transfer-full-name }}
+          Loading data from {{ ydb-name }} to {{ objstorage-name }} using {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-object-storage.md
+      - name: Processing {{ at-name }} events
+        href: dataplatform/audit-log-processing.md
+      - name: Processing {{ cloud-logging-name }} logs
+        href: dataplatform/cloud-logging-processing.md
+      - name: Processing Debezium CDC streams
+        href: dataplatform/debezium-yq.md
+      - name: Analyzing data with {{ jlab }}
+        href: dataplatform/jupyter-yq.md
+      - name: Processing files with usage details in {{ billing-name }}
+        href: dataplatform/billing-detail-files-processing.md
+      - name: Ingesting data into storage systems
+        href: dataplatform/data-ingestion.md
+      - name: Smart log processing
+        href: dataplatform/log-ingestion.md
+      - name: Data transfer in microservice architectures
+        href: dataplatform/message-broker.md
+      - name: Migrating data to {{ objstorage-name }} using {{ data-transfer-name }}
+        href: dataplatform/yds-obj-migration.md
+      - name: >-
+          Migrating data from a third-party {{ GP }} or {{ PG }} cluster to {{
+          mgp-name }} using {{ data-transfer-name }}
+        href: dataplatform/managed-greenplum.md
+      - name: Migrating {{ mmg-name }} clusters
+        href: dataplatform/storedoc.md
+      - name: Migrating {{ MY }} clusters
+        href: dataplatform/managed-mysql.md
+      - name: Migrating to a third-party {{ MY }} cluster
+        href: dataplatform/managed-mysql-to-mysql.md
+      - name: Migrating {{ PG }} clusters
+        href: dataplatform/managed-postgresql.md
+      - name: >-
+          Creating a schema registry to deliver data in Debezium CDC format from
+          {{ KF }}
+        href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: Automating operations using {{ maf-full-name }}
+        href: dataplatform/airflow-and-spark.md
+      - name: Working with an {{ objstorage-name }} table from a PySpark job
+        href: dataplatform/spark-simple-rw-job.md
+      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+        href: dataplatform/metastore-and-spark.md
+      - name: Running a PySpark job using {{ maf-full-name }}
+        href: dataplatform/airflow-spark-min.md
+      - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
+        href: dataplatform/spark-objstorage-integration.md
   - name: Microsoft products in {{ yandex-cloud }}
     items:
       - name: All tutorials
         href: windows/index.md
+      - name: Secure password transmission to an initialization script
+        href: windows/secure-password-script.md
       - name: Deploying Active Directory
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
@@ -684,99 +1325,193 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Deploying Remote Desktop Gateway
         href: windows/rds-gw.md
+      - name: Connecting a bucket as a disk in Windows
+        href: windows/s3-disk-connect.md
   - name: Architecture and networking
     items:
       - name: All tutorials
         href: routing/index.md
-      - name: Setting up networking between resources in different folders
-        href: routing/multi-folder-vpc.md
-      - name: Creating a bastion host
-        href: routing/bastion.md
-      - name: Creating a tunnel between two subnets using OpenVPN Access Server
-        href: routing/site-to-site-openvpn.md
-      - name: Secure user access to cloud resources based on WireGuard VPN
-        href: routing/remote-wireguard-vpn.md
-      - name: Creating and configuring a UserGate gateway in firewall mode
-        href: routing/usergate-firewall.md
-      - name: Implementing fault-tolerant scenarios for network VMs
-        href: routing/route-switcher.md
-      - name: >-
-          Implementing a secure high-availability network infrastructure with a
-          dedicated DMZ based on the next-generation firewall.
-        href: routing/high-accessible-dmz.md
-      - name: >-
-          Cloud infrastructure segmentation with Check Point Next-Generation
-          Firewall
-        href: routing/network-segmentation-checkpoint.md
-      - name: Configuring a secure GRE tunnel over IPsec
-        href: routing/gre-over-ipsec.md
-      - name: Configuring networks for {{ dataproc-name }}
-        href: routing/dataproc-nat-instance.md
-      - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
-        href: routing/storage-vpc-access.md
-      - name: Connecting to {{ container-registry-name }} from {{ vpc-short-name }}
-        href: routing/vpc-cr-access.md
-  - name: Data visualization and analytics
+      - name: Setting up VPN connections
+        items:
+          - name: Creating a bastion host
+            href: routing/bastion.md
+          - name: Creating a tunnel between two subnets with OpenVPN Access Server
+            href: routing/site-to-site-openvpn.md
+          - name: Secure user access to cloud resources based on WireGuard VPN
+            href: routing/remote-wireguard-vpn.md
+          - name: Configuring a secure GRE tunnel over IPsec
+            href: routing/gre-over-ipsec.md
+      - name: NGFW-based network cloud infrastructure
+        items:
+          - name: >-
+              Cloud infrastructure segmentation with the Check Point
+              next-generation firewall
+            href: routing/network-segmentation-checkpoint.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the Check Point NGFW
+            href: routing/high-accessible-dmz.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on the UserGate NGFW
+            href: routing/high-accessible-dmz-usergate.md
+          - name: >-
+              Implementing a secure high-availability network infrastructure
+              with a dedicated DMZ based on Smart-Soft NGFW
+            href: routing/high-accessible-dmz-ting.md
+          - name: Setting up a UserGate firewall
+            href: routing/usergate-firewall.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: Configuring VRRP for a cluster of {{ baremetal-name }} servers
+            href: routing/bms-vrf-routing.md
+          - name: >-
+              Configuring network connectivity in the {{ baremetal-name }}
+              subnet
+            href: routing/bms-simple-subnet.md
+          - name: >-
+              Setting up network connectivity between {{ baremetal-name }} and
+              {{ vpc-name }} subnets
+            href: routing/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Forwarding USB devices to a {{ baremetal-name }} server or virtual
+              machine
+            href: routing/usb-over-ip.md
+          - name: >-
+              Configuring an OPNsense firewall in high availability cluster mode
+              on {{ baremetal-name }} servers
+            href: routing/opnsense-failover-cluster.md
+          - name: >-
+              Deploying a web app on {{ baremetal-name }} servers with an L7
+              load balancer and {{ sws-name }} protection
+            href: routing/webapp-on-bms-behind-sws.md
+          - name: >-
+              Establishing network connectivity between {{ baremetal-name }}
+              subnets and on-prem with the help of {{ interconnect-name }}
+            href: routing/bms-cic-onprem.md
+            hidden: true
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Configuring {{ interconnect-name }} access to cloud networks
+              behind NGFWs
+            href: routing/cic-with-ngfw.md
+          - name: Creating a direct trunk and a private connection in it
+            href: routing/trunk-priv-add.md
+          - name: Creating a direct trunk and a public connection in it
+            href: routing/trunk-pub-add.md
+          - name: Adding a private connection to a direct or partner trunk
+            href: routing/priv-add.md
+          - name: Adding a public connection to a direct or partner trunk
+            href: routing/pub-add.md
+          - name: Updating trunk capacity
+            href: routing/trunk-capacity-change.md
+          - name: Deleting a private connection
+            href: routing/priv-del.md
+          - name: Deleting a public connection
+            href: routing/pub-del.md
+          - name: Deleting a trunk
+            href: routing/trunk-del.md
+      - name: Configuring network resources and their interactions
+        items:
+          - name: Setting up networking between resources from different folders
+            href: routing/multi-folder-vpc.md
+          - name: Implementing fault-tolerant scenarios for network VMs
+            href: routing/route-switcher.md
+          - name: Configuring a network for {{ dataproc-name }}
+            href: routing/data-processing-nat-instance.md
+          - name: >-
+              Network connection switching during {{ dataproc-name }} cluster
+              recreation
+            href: routing/data-processing-dns-reconnect.md
+      - name: Connecting to services
+        items:
+          - name: Connecting to {{ objstorage-name }} from {{ vpc-short-name }}
+            href: routing/storage-vpc-access.md
+          - name: >-
+              Connecting to {{ container-registry-name }} from {{ vpc-short-name
+              }}
+            href: routing/vpc-cr-access.md
+  - name: Data analysis and visualization
     items:
       - name: All tutorials
         href: datalens/index.md
-      - name: Getting started with {{ datalens-short-name }}
+      - name: Analytics
         items:
-          - name: Simple dashboard from a CSV file
-            href: datalens/data-from-csv-visualization.md
-          - name: Public chart with a map of Moscow from a CSV file
-            href: datalens/data-from-csv-to-public-visualization.md
-          - name: Retail chain's dashboard based on a {{ CH }} DB
-            href: datalens/data-from-ch-visualization.md
-      - name: Working with geodata
-        items:
-          - name: Analyzing public data on road accidents in Russia
-            href: datalens/data-from-csv-geo-visualization.md
+          - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
+            href: analysis/search-events-query.md
+          - name: Searching for {{ yandex-cloud }} events in {{ objstorage-name }}
+            href: analysis/search-events-bucket.md
           - name: >-
-              Analyzing sales and locations of pizzerias based on data from the
-              {{ CH }} database and Marketplace
-            href: datalens/data-from-ch-to-geolayers-visualization.md
-          - name: >-
-              Geocoding with the Yandex Maps API for data visualization in {{
-              datalens-short-name }}
-            href: datalens/data-from-ch-geocoder.md
-      - name: Service analytics
+              Searching for {{ yandex-cloud }} events in {{ cloud-logging-name
+              }}
+            href: analysis/search-events-logging.md
+      - name: '{{ datalens-name }}'
         items:
-          - name: 'Yandex Metrica: direct connection'
-            href: datalens/data-from-metrica-visualization.md
-          - name: 'Yandex Metrica: data export, post-processing, and visualization'
-            href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: direct connection'
-            href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: data export, post-processing, and visualization'
-            href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Bitrix24: direct connection'
-            href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: data export and visualization'
-            href: datalens/data-from-tracker.md
-          - name: Analyzing {{ objstorage-name }} logs in {{ datalens-name }}
-            href: datalens/storage-logs-analysis.md
-          - name: 'Yandex Music podcasts: statistics'
-            href: datalens/data-from-podcasts.md
-          - name: Visualizing {{ yq-full-name }} data
-            href: datalens/data-from-yandex-query-visualization.md
-          - name: Visualizing {{ monitoring-full-name }} data
-            href: datalens/data-from-monitoring-visualization.md
-          - name: Visualizing {{ ytsaurus-name }} CHYT data
-            href: datalens/data-from-ch-over-yt.md
-      - name: Functional
-        items:
-          - name: Using parameters
-            href: datalens/data-from-ch-with-parameters.md
-          - name: Examples of creating QL charts
-            href: datalens/data-from-ch-to-sql-chart.md
+          - name: Getting started with {{ datalens-short-name }}
+            items:
+              - name: Simple dashboard from a CSV file
+                href: datalens/data-from-csv-visualization.md
+              - name: Public chart with a map of Moscow from a CSV file
+                href: datalens/data-from-csv-to-public-visualization.md
+              - name: Retail chain's dashboard based on a {{ CH }} database
+                href: datalens/data-from-ch-visualization.md
+          - name: Working with geodata
+            items:
+              - name: Analyzing public data on road accidents in Russia
+                href: datalens/data-from-csv-geo-visualization.md
+              - name: >-
+                  Analyzing sales and locations of pizzerias based on data from
+                  a {{ CH }} database and Marketplace
+                href: datalens/data-from-ch-to-geolayers-visualization.md
+              - name: >-
+                  Geocoding with the Yandex Maps API for data visualization in
+                  {{ datalens-short-name }}
+                href: datalens/data-from-ch-geocoder.md
+              - name: Visualizing data using heat maps
+                hidden: true
+                href: datalens/data-on-heat-map-dashboard.md
+          - name: Service analytics
+            items:
+              - name: 'Yandex Metrica: direct connection'
+                href: datalens/data-from-metrica-visualization.md
+              - name: >-
+                  Yandex Metrica: data export, post-processing, and
+                  visualization
+                href: datalens/data-from-metrica-yc-visualization.md
+              - name: 'AppMetrica: direct connection'
+                href: datalens/data-from-appmetrica-visualization.md
+              - name: 'AppMetrica: data export, post-processing, and visualization'
+                href: datalens/data-from-appmetrica-yc-visualization.md
+              - name: 'Bitrix24: direct connection'
+                href: datalens/data-from-bitrix24-visualization.md
+              - name: '{{ tracker-name }}: data export and visualization'
+                href: datalens/data-from-tracker.md
+              - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
+                href: datalens/storage-logs-analysis.md
+              - name: 'Yandex Music podcasts: Statistics'
+                href: datalens/data-from-podcasts.md
+              - name: Visualizing {{ yq-name }} data
+                href: datalens/data-from-yandex-query-visualization.md
+              - name: Visualizing {{ monitoring-name }} data
+                href: datalens/data-from-monitoring-visualization.md
+              - name: Visualizing {{ ytsaurus-name }} CHYT data
+                href: datalens/data-from-ch-over-yt.md
+          - name: Functional
+            items:
+              - name: Using parameters in calculated fields
+                href: datalens/data-from-ch-with-parameters.md
+              - name: Source parameterization
+                href: datalens/data-from-ch-dataset-parametrization.md
+              - name: Examples of creating QL charts
+                href: datalens/data-from-ch-to-sql-chart.md
   - name: Serverless technologies
     items:
       - name: All tutorials
         href: serverless/index.md
       - name: URL shortener
         href: serverless/serverless-url-shortener.md
-      - name: Entering data into storage systems
+      - name: Ingesting data into storage systems
         href: serverless/data-ingestion.md
       - name: Storing application runtime logs
         href: serverless/log-ingestion.md
@@ -786,15 +1521,27 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Developing a Telegram bot
         href: serverless/telegram-bot-serverless.md
-      - name: Developing custom integrations in {{ api-gw-name }}
+      - name: Developing a Telegram bot with AI agent support
+        href: serverless/telegram-ai-bot-workflows.md
+      - name: Developing a custom integration in {{ api-gw-name }}
         href: serverless/api-gw-integration.md
-      - name: Developing CRUD APIs for movie services
+      - name: Developing CRUD APIs for a movie service
         href: serverless/movies-database.md
-      - name: Developing a skill for Alice and a website with authorization
-        href: serverless/alice-shareable-todolist.md
       - name: Building a CI/CD pipeline in {{ GL }}
         href: serverless/ci-cd-serverless.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: '{{ GLR }} execution in {{ serverless-containers-name }}'
+        href: serverless/serverless-gitlab-runner.md
+      - name: Configuring CI/CD between {{ sf-name }} and {{ src-name }}
+        href: serverless/ci-cd-sourcecraft-functions.md
+      - name: Configuring CI/CD between {{ sf-name }} and GitHub
+        href: serverless/ci-cd-github-functions.md
+      - name: >-
+          Setting up CI/CD in {{ src-name }} to deploy an application in {{
+          serverless-containers-name }} using GitHub Actions
+        href: serverless/ci-cd-sourcecraft-github-actions.md
+      - name: Working with an API gateway via WebSocket
+        href: serverless/api-gw-websocket.md
+      - name: Building an interactive serverless application using WebSocket
         href: serverless/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -804,19 +1551,169 @@ items:
           Visualizing logs in {{ grafana-name }} using the {{ cloud-logging-name
           }} plugin
         href: serverless/grafana-logs-plugin.md
-      - name: Canary release of a {{ sf-name }} function
+      - name: Canary release of {{ sf-name }}
         href: serverless/canary-release.md
-      - name: Interactive debugging of {{ sf-name }} functions
+      - name: Interactive debugging of functions in {{ sf-name }}
         href: serverless/serverless-live-debug.md
-      - name: Running a containerized app in {{ serverless-containers-full-name }}
+      - name: Creating a Node.js function using TypeScript
+        href: serverless/nodejs-typescript.md
+      - name: Running a containerized app in {{ serverless-containers-name }}
         href: serverless/deploy-app-container.md
       - name: >-
-          Using {{ api-gw-full-name }} to set up speech synthesis in {{
-          speechkit-full-name }}
+          Streaming {{ postbox-name }} events to {{ yds-name }} and analyzing
+          them using {{ datalens-name }}
+        href: serverless/events-from-postbox-to-yds.md
+      - name: >-
+          Using {{ api-gw-name }} to set up speech synthesis in {{
+          speechkit-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
       - name: >-
-          Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
-        href: serverless/events-from-postbox-to-yds.md
-base: en/tutorials
-deepBase: 2
+          Connecting to {{ ydb-short-name }} from a {{ sf-name }} function in
+          Python
+        href: serverless/connect-from-cf.md
+      - name: >-
+          Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
+          Node.js function
+        href: serverless/connect-from-cf-nodejs.md
+      - name: '{{ api-gw-name }} protection with {{ sws-name }}'
+        href: serverless/api-gw-sws-integration.md
+      - name: >-
+          Deploying a web app with JWT authorization in {{ api-gw-name }} and
+          authentication in Firebase
+        href: serverless/jwt-authorizer-firebase.md
+      - name: >-
+          Automatic data upload to {{ speechsense-full-name }} using {{
+          sw-full-name }}
+        href: serverless/auto-upload.md
+      - name: >-
+          Configuring responses in {{ cloud-logging-name }} and {{ sf-full-name
+          }}
+        href: serverless/logging-functions.md
+      - name: >-
+          Setting up {{ sw-name }} integration with {{ tracker-name }}, {{
+          yagpt-name }}, and {{ postbox-name }}
+        href: serverless/tracker-yandexgpt-postbox-integrations.md
+      - name: >-
+          Developing functions in Functions Framework and deploying them to {{
+          serverless-containers-full-name }}
+        href: serverless/functions-framework-to-container.md
+      - name: >-
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
+        items:
+          - name: Overview
+            href: serverless/forms-and-datalens-integration/index.md
+          - name: Management console
+            href: serverless/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: serverless/forms-and-datalens-integration/terraform.md
+      - name: >-
+          Creating a {{ postbox-full-name }} address and domain ownership
+          verification with {{ TF }}
+        href: serverless/domain-identity-creating.md
+      - name: Sending emails in {{ postbox-full-name }} using the AWS SDK
+        items:
+          - name: .NET Core
+            href: serverless/send-emails-aws-sdk-csharp.md
+          - name: Go
+            href: serverless/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: serverless/send-emails-aws-sdk-js.md
+          - name: Python
+            href: serverless/send-emails-aws-sdk-python.md
+      - name: Creating an AI agent with {{ sf-full-name }}
+        href: serverless/create-ai-agent-function.md
+      - name: Creating an AI agent with response streaming via web sockets
+        href: serverless/streaming-openai-agent.md
+      - name: Configuring Postfix to send emails via {{ postbox-full-name }}
+        href: serverless/postfix-integration.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: serverless/postbox-webhook.md
+  - name: Machine learning and artificial intelligence
+    items:
+      - name: All tutorials
+        href: ml-ai/index.md
+      - name: Development with {{ ml-platform-name }}
+        items:
+          - name: '{{ ml-platform-name }} integration with {{ dataproc-name }}'
+            href: ml-ai/data-processing-integration.md
+          - name: Classification of images in video frames
+            href: ml-ai/video-recognition.md
+          - name: Running computations on a schedule in {{ ml-platform-name }}
+            href: ml-ai/regular-launch.md
+          - name: Running computations in {{ ml-platform-name }} using the API
+            href: ml-ai/batch-code-execution.md
+          - name: >-
+              Using data from {{ objstorage-name }} to train a model in {{
+              ml-platform-name }}
+            href: ml-ai/s3-to-datasphere.md
+          - name: Creating an MLFlow server for logging experiments and artifacts
+            href: ml-ai/mlflow-datasphere.md
+          - name: Model fine-tuning in {{ ml-platform-name }}
+            href: ml-ai/models-fine-tuning.md
+      - name: Usage {{ ml-platform-name }}
+        items:
+          - name: Deploying a service in {{ ml-platform-name }} from an ONNX model
+            href: ml-ai/node-from-model.md
+          - name: Deploying a service in {{ ml-platform-name }} from a Docker image
+            href: ml-ai/node-from-docker.md
+          - name: >-
+              Deploying a service in {{ ml-platform-name }} from a Docker image
+              with FastAPI
+            href: ml-ai/node-from-docker-fast-api.md
+          - name: Deploying a gRPC service based on a Docker image
+            href: ml-ai/grpc-node.md
+          - name: Image generation using the Stable Diffusion model
+            href: ml-ai/stable-diffusion.md
+      - name: Analytics with {{ ml-platform-name }}
+        items:
+          - name: Analyzing data with {{ yq-name }}
+            href: ml-ai/yq.md
+          - name: Working with data in {{ objstorage-name }}
+            href: ml-ai/yq-storage.md
+          - name: Working with data in {{ mch-name }}
+            href: ml-ai/yq-clickhouse.md
+          - name: Working with data in {{ mpg-name }}
+            href: ml-ai/yq-postgre.md
+          - name: Federated data queries
+            href: ml-ai/yq-federative-queries.md
+      - name: Image, text, and speech recognition
+        items:
+          - name: Recognizing text in image archives using {{ vision-name }}
+            href: ml-ai/archive-from-vision-to-object-storage.md
+          - name: Developing a Telegram bot for text and audio recognition
+            href: ml-ai/recognizer-bot.md
+          - name: >-
+              Regular asynchronous recognition of audio files from {{
+              objstorage-name }}
+            href: ml-ai/batch-recognition-stt.md
+          - name: >-
+              Regular recognition of images and PDF documents from an {{
+              objstorage-name }} bucket
+            href: ml-ai/vision-ocrrecognizer-storage.md
+      - name: Speech analytics
+        items:
+          - name: >-
+              Automatic data upload to {{ speechsense-full-name }} using {{
+              sw-full-name }}
+            href: ml-ai/speechsense/auto-upload.md
+          - name: '{{ speechsense-name }} integration with {{ amocrm-name }}'
+            href: ml-ai/speechsense/amocrm.md
+          - name: '{{ speechsense-name }} integration with {{ bitrix24-name }}'
+            href: ml-ai/speechsense/bitrix24.md
+          - name: Working with an AI assistant in {{ speechsense-name }}
+            href: ml-ai/speechsense/ai-assistant.md
+      - name: Using {{ foundation-models-full-name }} generative models
+        items:
+          - name: >-
+              Implementing an AI assistant with search capabilities for PDF
+              files with complex formatting
+            hidden: true
+            href: ml-ai/pdf-searchindex-ai-assistant.md
+          - name: >-
+              Integrating generative models into Visual Studio Code as a coding
+              assistant
+            href: ml-ai/ai-model-ide-integration.md
+          - name: Creating an AI assistant for Telegram
+            hidden: true
+            href: ml-ai/tg-bot-assistant.md

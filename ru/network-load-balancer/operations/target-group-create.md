@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы создать новую [целевую группу](../concepts/target-resources.md):
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать целевую группу.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.target-group.button_create }}**.
   1. Введите имя целевой группы. Требования к имени:

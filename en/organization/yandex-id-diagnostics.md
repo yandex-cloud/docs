@@ -7,4 +7,8 @@ description: In this article, you will learn about possible Yandex account authe
 
 ## Error when logging in under your account {#authentication-missed}
 
-Access to {{ yandex-cloud }} services is limited for your [Yandex account](../iam/concepts/users/accounts.md). Contact [Yandex ID support](https://id.yandex.ru/helpdesk).
+Access to {{ yandex-cloud }} services is limited for your [Yandex account](../iam/concepts/users/accounts.md). Contact [Yandex ID support](https://id.yandex.com/helpdesk).
+
+## Access denied {#service-access-missed}
+
+Access to this service for your [Yandex account](../iam/concepts/users/accounts.md) is denied. Contact [Yandex ID support](https://id.yandex.com/helpdesk).

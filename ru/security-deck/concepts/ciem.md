@@ -1,13 +1,13 @@
 ---
 title: Диагностика доступов в {{ sd-full-name }}
-description: В данном разделе описан модуль диагностики доступов {{ sd-name }} (CIEM), который позволяет просматривать имеющиеся у пользователей организации права доступа к ресурсам организации и при необходимости отзывать такие права доступа.
+description: В данном разделе описан модуль диагностики доступов {{ sd-name }} ({{ ciem-name }}), который позволяет просматривать имеющиеся у пользователей организации права доступа к ресурсам организации и при необходимости отзывать такие права доступа.
 ---
 
-# Диагностика доступов (CIEM)
+# Модуль диагностики доступов ({{ ciem-name }})
 
 В целях обеспечения [безопасности](../../security/standard/all.md) данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у [пользователей](../../overview/roles-and-resources.md#users) и [сервисных аккаунтов](../../iam/concepts/users/accounts.md#sa).
 
-[Диагностика доступов]({{ link-sd-main }}iam-diagnostics/) {{ sd-name }} — это инструмент, позволяющий централизованно [просматривать](../operations/ciem/view-permissions.md) полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации.
+[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно [просматривать](../operations/ciem/view-permissions.md) полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](../operations/ciem/revoke-permissions.md) у субъектов лишние доступы.
 
 ## Просмотр доступов {#viewing-permissions}
 
@@ -38,7 +38,7 @@ description: В данном разделе описан модуль диагн
 
 ## Отзыв доступов {#revoking-permissions}
 
-Диагностика доступов позволяет при необходимости [отзывать](../operations/ciem/revoke-permissions.md) у индивидуальных субъектов и групп лишние доступы а также исключать индивидуальных субъектов из групп пользователей.
+Диагностика доступов позволяет при необходимости [отзывать](../operations/ciem/revoke-permissions.md) у индивидуальных субъектов и групп лишние доступы, а также исключать индивидуальных субъектов из групп пользователей.
 
 Отзывать доступы могут пользователи, обладающие одной из ролей: `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, `organization-manager.organizations.owner` или ролью администратора того [сервиса](../../overview/concepts/services.md), к ресурсу которого у субъекта отзывается доступ.
 

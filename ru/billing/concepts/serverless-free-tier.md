@@ -1,7 +1,14 @@
-#  Уровень нетарифицируемого использования (free tier)
+---
+title: Уровень нетарифицируемого использования (free tier)
+description: Из статьи вы узнаете, что такое free-tier и для каких сервисов он доступен.
+---
+
+# Уровень нетарифицируемого использования (free tier)
 
 
 На некоторые сервисы {{ yandex-cloud }} действуют специальные тарифы, в рамках которых определенный объем услуг не тарифицируется. Объем рассчитан так, чтобы у вас была возможность разработать и запустить небольшой сервис, сайт или приложение, или попробовать возможности сервиса.
+
+{% include [price-formula/free-tier](../../_includes/pricing/price-formula/free-tier.md) %}
 
 {% note info %}
 
@@ -9,9 +16,11 @@ Free tier применяется к платежному аккаунту. Ес�
 
 Например, к платежному аккаунту привязаны Облако-1 и Облако-2. За месяц Облако-1 потребило 500&nbsp;000 вызовов функций, Облако-2 — 600&nbsp;000. Free tier для вызовов функций — 1&nbsp;000&nbsp;000. Значит, объем тарифицируемых вызовов функций рассчитывается следующим образом:
 
-> (500&nbsp;000 + 600&nbsp;000) - 1&nbsp;000&nbsp;000 = 100&nbsp;000
+> (500&nbsp;000 + 600&nbsp;000) − 1&nbsp;000&nbsp;000 = 100&nbsp;000
 
 {% endnote %}
+
+Чтобы рассчитать стоимость использования сервисов, воспользуйтесь [калькулятором]({{ link-cloud-calculator }}) на сайте {{ yandex-cloud }} или ознакомьтесь с [Прайс-листом](/price-list?installationCode=ru).
 
 
 Free tier распространяется на сервисы:
@@ -26,7 +35,6 @@ Free tier распространяется на сервисы:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ foundation-models-full-name }}](#foundation-models)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -34,18 +42,16 @@ Free tier распространяется на сервисы:
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
-* [{{ search-api-full-name }}](#search-api)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ tracker-full-name }}](#tracker)
 * [{{ vpc-full-name }}](#vpc)
 
 ## {{ api-gw-full-name }} {#api-gw}
 
 [{{ api-gw-full-name }}](../../api-gateway/quickstart/) — сервис для управления API-шлюзами, поддерживающий [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с другими облачными сервисами.
 
-{% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %} 
+{% include [not-charged-gateway.md](../../_includes/pricing/price-formula/not-charged-gateway.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../api-gateway/pricing.md).
 
@@ -111,7 +117,7 @@ Free tier распространяется на сервисы:
 
 Сервис [{{ dataproc-full-name }}](../../data-proc/quickstart.md) помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в инфраструктуре {{ yandex-cloud }}. Вы сами определяете размер кластера, мощность узлов и набор сервисов Apache® (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™).
 
-{% include [not-charged-dataproc.md](../../_includes/pricing/price-formula/not-charged-dataproc.md) %}
+{% include [not-charged-data-processing.md](../../_includes/pricing/price-formula/not-charged-data-processing.md) %}
 
 ## {{ yds-full-name }} {#yds}
 
@@ -138,12 +144,6 @@ Free tier распространяется на сервисы:
 [{{ datalens-full-name }}](../../datalens/quickstart.md) — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
-
-## {{ foundation-models-full-name }} {#foundation-models}
-
-[{{ foundation-models-full-name }}](../../foundation-models/index.yaml) — это сервис больших генеративных моделей для бизнеса. {{ yandex-cloud }} предоставляет доступ к нейросетям {{ yagpt-name }} и {{ yandexart-name }} и позволяет применять их в ваших бизнес-приложениях и веб-сервисах.
-
-{% include [not-charged-foundation-models](../../_includes/pricing/price-formula/not-charged-foundation-models.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
@@ -215,15 +215,6 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ search-api-full-name }} {#search-api}
-
-[{{ search-api-full-name }}](../../search-api/quickstart.md) — сервис, позволяющий отправлять запросы к поисковой базе Яндекса и получать ответы в формате XML. Сервис предназначен для разработчиков и вебмастеров и помогает организовать поиск по сайту, группе сайтов или интернету, а также дает возможность отслеживать позиции сайтов по поисковым запросам в поисковой выдаче Яндекса.
-
-{% include [not-charged-search-api.md](../../_includes/pricing/price-formula/not-charged-search-api.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../search-api/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
@@ -247,21 +238,11 @@ Free tier распространяется на сервисы:
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart/index.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) позволяет защитить вашу инфраструктуру от DDoS-атак и ботов на уровне приложений (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
 После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../smartwebsecurity/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ tracker-full-name }} {#tracker}
-
-[{{ tracker-full-name }}](../../tracker/quick-start.md) — это сервис для управления проектами и процессами.
-
-{% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
-
-После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../tracker/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
@@ -292,4 +273,3 @@ Free tier распространяется на сервисы:
 ### Расчет стоимости использования {{ iot-full-name }} {#iot-example}
 
 {% include [prices-example](../../_includes/iot-core/prices-example.md) %}
-

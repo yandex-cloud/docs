@@ -1,4 +1,11 @@
-# Agent for delivering metrics
+---
+title: Metrics collection agent
+description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
+sourcePath: en/monitoring_includes/concepts/data-collection/unified-agent/index.md
+---
+
+# Metrics collection agent
+
 
 
 {{ unified-agent-full-name }} is the agent for delivering additional metrics of virtual machines and user applications to {{ monitoring-full-name }}.
@@ -32,22 +39,29 @@ A message is the minimum atomic unit of user information that a system or applic
 
 A message consist of a body, a timestamp, user metadata in `key:value` format, and a serial number.
 
+{% note info %}
+
+For correct data aggregation in monitoring, [Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }}.
+
+{% endnote %}
+
 ## Sessions {#sessions}
 
 A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in `key:value` format.
 
 All messages sent during a session contain both message metadata and session metadata.
 
-Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file.
+Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
 
 ## Inputs {#inputs}
+
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
-See also the [list of available inputs](inputs.md).
+See the [list of available inputs](inputs.md).
 
 ## Outputs {#outputs}
 
-Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes metrics to the {{ monitoring-full-name }} API, and several debug outputs.
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are the `yc_metrics` output, which writes a metric to the {{ monitoring-full-name }} API, and several debug outputs.
 
 See also the [list of available outputs](outputs.md).
 
@@ -63,6 +77,7 @@ Filter types:
 See also the [list of available filters](filters.md).
 
 ## Storages {#storages}
+
 Storages are intended to store messages from their receipt as an input until their transmission to the output.
 Using a storage can help you avoid data loss if the agent fails to write the data to the specified output. This may happen due to network issues or destination API unavailability.
 
@@ -71,6 +86,7 @@ See also the [storage configuration guide](storage.md).
 ## Routing {#routing}
 
 ### Pipes {#pipes}
+
 Pipes contain:
 * Sequence of filters that messages pass through.
 * Link to the storage where the messages will be stored before their transmission to the output.
@@ -87,7 +103,7 @@ Splitters let you specify a set of channels, copying incoming messages to each o
 
 Channels can be named.
 
-See also the [named channel configuration guide](routing.md#channels).
+See the [named channel configuration guide](routing.md#channels).
 
 ### Routes {#routes}
 

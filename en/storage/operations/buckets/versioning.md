@@ -1,21 +1,29 @@
 ---
 title: Managing bucket versioning in {{ objstorage-full-name }}
-description: Bucket versioning makes it possible to store object history through versions. In this article, you will learn how to manage versioning in {{ objstorage-name }}.
+description: Follow this guide to learn how to manage an {{ objstorage-name }} bucket versioning.
 ---
 
 # Managing bucket versioning
 
-Bucket [versioning](../../concepts/versioning.md) enables storing object history through versions.
+Bucket [versioning](../../concepts/versioning.md) enables keeping a history of an object through its versions.
 
-{% note info %}
+{% include [versioning-irreversible](../../../_includes/storage/versioning-irreversible.md) %}
 
-You cannot disable versioning once you enable it; however, you can pause new version creation. After you pause versioning, new objects will be saved as `null` versions.
+{% include [versioning-suspend-rule](../../../_includes/storage/versioning-suspend-rule.md) %}
 
-{% endnote %}
-
-Enable bucket versioning:
+To enable bucket versioning:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Click the name of the bucket in question.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+  1. Select the **{{ ui-key.yacloud.storage.bucket.switch_versioning }}** tab.
+  1. To enable or pause versioning, use **{{ ui-key.yacloud.storage.form.BucketVersioningFormSection.label_versioning-disabled_ngMWc }}**.
+  1. Click **{{ ui-key.yacloud.storage.bucket.settings.button_save }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -23,13 +31,13 @@ Enable bucket versioning:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to edit a bucket ACL:
+  1. See the description of the CLI command for editing a bucket ACL:
 
      ```bash
      yc storage bucket update --help
-     ```
+     ```  
 
-  1. Run the following command:
+  1. Run this command:
 
      ```bash
      yc storage bucket update --name <bucket_name> --versioning versioning-enabled
@@ -51,7 +59,7 @@ Enable bucket versioning:
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
-  Run the following command:
+  Run this command:
 
   ```bash
   aws --endpoint https://{{ s3-storage-host }} \
@@ -66,9 +74,11 @@ Enable bucket versioning:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Retrieve [static access keys](../../../iam/operations/sa/create-access-key.md): a static key and a key ID used to authenticate in {{ objstorage-short-name }}.
+  Retrieve [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
-  In the configuration file, describe the parameters of the resources you want to create:
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
+  In the configuration file, describe the properties of resources you want to create:
 
   ```hcl
   resource "yandex_iam_service_account" "sa" {
@@ -102,12 +112,12 @@ Enable bucket versioning:
 
   Where:
 
-  * `bucket`: Bucket name. This is a required parameter.
+  * `bucket`: Bucket name. This is a required setting.
   * `access_key`: Static access key ID.
   * `secret_key`: Secret access key value.
-  * `acl`: ACL policy to apply. The default value is `private`. This is an optional parameter.
-  * `versioning`: Managing bucket versioning.
-    * `enabled`: Enables bucket versioning. This is an optional parameter.
+  * `acl`: ACL policy to apply. The default value is `private`. This is an optional setting.
+  * `versioning`: Managing bucket versioning:
+    * `enabled`: Enables bucket versioning. This is an optional setting.
 
 - API {#api}
 

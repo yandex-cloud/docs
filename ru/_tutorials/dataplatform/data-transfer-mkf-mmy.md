@@ -11,6 +11,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру поставки данных:
@@ -18,6 +26,8 @@
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -32,11 +42,11 @@
             * В той же зоне доступности, что и кластер-источник.
             * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера.
 
-
+        
         1. Для подключения к кластерам с локальной машины пользователя настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
+            * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -232,7 +242,7 @@
 
                     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `db1`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
 
                 * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}** — `mmy-user`.
 
@@ -286,7 +296,7 @@
 
 1. Проверьте, что таблица `sensors` кластера {{ mmy-name }} содержит отправленные данные:
 
-    1. [Подключитесь к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+    1. [Подключитесь к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
     1. Получите содержимое таблицы `sensors` с помощью запроса:
 
@@ -302,36 +312,21 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
-    * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mkf-mmy.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-mmy.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

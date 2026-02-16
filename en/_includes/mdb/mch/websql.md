@@ -1,22 +1,26 @@
-You can send SQL queries to databases in a {{ mch-name }} cluster using [{{ websql-full-name }}](../../../websql).
+You can use [{{ websql-full-name }}](../../../websql) to send SQL queries to {{ mch-name }} cluster databases.
 
-{{ websql-name }} is a {{ yandex-cloud }} service that allows you to connect to managed database clusters, work with DBs, tables, and schemas, and run queries. It is a web-based tool that does not require additional authorization and simplifies working with SQL queries by suggesting prompts.
+{{ websql-name }} is a {{ yandex-cloud }} service that enables you to connect to managed database clusters, work with databases, tables, and schemas, and run queries. It is a web-based tool that requires no additional authorization and simplifies working with SQL commands by prompting the user.
 
-To connect from {{ websql-name }} to a {{ mch-name }} cluster, create a connection:
+To connect from {{ websql-name }}, activate the **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** option in the cluster settings. You can enable this option when [creating](../../../managed-clickhouse/operations/cluster-create.md) or [updating](../../../managed-clickhouse/operations/update.md#change-additional-settings) a cluster.
 
-1. Go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-1. Click the cluster name.
-1. [Enable](../../../managed-clickhouse/operations/update.md#change-additional-settings) the **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** option in the cluster settings if it is not enabled yet.
-1. Select the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore-websql }}** tab.
-1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_create-connection }}** and specify the connection parameters:
-   * **Connection name**.
-   * **Database type**: {{ CH }}.
-   * **Cluster**: Defaults to your current {{ CH }} cluster.
-   * **Username** you will use to connect to the database in the cluster.
-   * User **password**.
-   * **Databases** you want to connect to. You can only connect to the databases that exist in this cluster. The user you specified must have access to them configured.
-1. Click **Create**.
+In the {{ mch-name }} cluster, a [{{ connection-manager-name }}](../../../metadata-hub/concepts/connection-manager.md) connection is automatically created for each database user, which you can use to connect to the database from {{ websql-name }}. If required, you can also [create a new connection](../../../websql/operations/create-connection.md#connect-cluster).
 
-To open the SQL editor, click the created connection on the **{{ ui-key.yacloud.clickhouse.cluster.switch_explore-websql }}** tab. See a reference list of supported queries in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/select/).
+To connect to the database from {{ websql-name }}:
 
-For more information about working with {{ websql-name }}, see its [documentation](../../../websql/operations/index.md).
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the folder with the cluster you need.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}** tab.
+  1. Select the required connection.
+
+      The connection will open in {{ websql-name }}. To go to the query editor, select the required database.
+      
+      Check [this {{ CH }}]({{ ch.docs }}/sql-reference/statements/select/) reference for supported queries.
+    
+{% endlist %}
+
+For more information on how to work with {{ websql-name }}, see [these guides](../../../websql/operations/index.md).

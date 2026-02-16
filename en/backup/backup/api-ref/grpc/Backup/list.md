@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/backup/v1/backup/api-ref/grpc/Backup/list.md
 ---
 
-# Cloud Backup API, gRPC: BackupService.List {#List}
+# Cloud Backup API, gRPC: BackupService.List
 
 List backups using filters.
 
@@ -15,58 +15,70 @@ List backups using filters.
 
 ```json
 {
-  // Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`
-  "computeInstanceId": "string",
+  // Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`
+  "compute_instance_id": "string",
   "archive": {
-    "archiveId": "string",
-    "folderId": "string"
+    "archive_id": "string",
+    "folder_id": "string"
   },
-  "folderId": "string",
-  "instancePolicy": {
-    "computeInstanceId": "string",
-    "policyId": "string"
+  "folder_id": "string",
+  "instance_policy": {
+    "compute_instance_id": "string",
+    "policy_id": "string"
   },
-  "resourceId": "string",
-  "policyId": "string",
+  "resource_id": "string",
+  "policy_id": "string",
+  "backup": {
+    "backup_id": "string",
+    "folder_id": "string"
+  },
   // end of the list of possible fields
-  "orderBy": "string",
-  "filter": "string"
+  "order_by": "string",
+  "filter": "string",
+  "type": "ResourceType",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 List backups that belongs to specific Compute Cloud instance.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
 || archive | **[ArchiveParameters](#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
 
 List backups that belongs to specific archive of specific folder.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
-|| folderId | **string**
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| folder_id | **string**
 
 List backups that belongs to specific folder.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
-|| instancePolicy | **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| instance_policy | **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
 
 List backups that belongs to specific instance and policy at the same time.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
-|| resourceId | **string**
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| resource_id | **string**
 
 List backups by specific resource ID.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
-|| policyId | **string**
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| policy_id | **string**
 
 List backups by specific policy ID.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
-|| orderBy | **string**
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| backup | **[BackupParameters](#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
+
+List backups by specific backup ID.
+
+Includes only one of the fields `compute_instance_id`, `archive`, `folder_id`, `instance_policy`, `resource_id`, `policy_id`, `backup`. ||
+|| order_by | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "createdAt desc" if omitted. ||
@@ -78,16 +90,34 @@ Supported parameters are:
 
 Supported logic operators:
 * AND ||
+|| type | enum **ResourceType**
+
+Type of resource. Could be compute VM or baremetal server.
+
+- `COMPUTE`: Resource is Compute Cloud VM
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
+|| page_size | **int64**
+
+Number of results per page.
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
 
 #|
 ||Field | Description ||
-|| archiveId | **string**
+|| archive_id | **string**
 
 Required field. Archive ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 Required field. Folder ID. ||
 |#
@@ -96,12 +126,24 @@ Required field. Folder ID. ||
 
 #|
 ||Field | Description ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
-|| policyId | **string**
+|| policy_id | **string**
 
 Policy ID. ||
+|#
+
+## BackupParameters {#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters}
+
+#|
+||Field | Description ||
+|| backup_id | **string**
+
+Required field. ||
+|| folder_id | **string**
+
+Required field. ||
 |#
 
 ## ListBackupsResponse {#yandex.cloud.backup.v1.ListBackupsResponse}
@@ -111,48 +153,52 @@ Policy ID. ||
   "backups": [
     {
       "id": "string",
-      "vaultId": "string",
-      "archiveId": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "lastSeenAt": "google.protobuf.Timestamp",
+      "vault_id": "string",
+      "archive_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "last_seen_at": "google.protobuf.Timestamp",
       "size": "int64",
-      "deduplicatedSize": "int64",
-      "backedUpDataSize": "int64",
-      "originalDataSize": "int64",
+      "deduplicated_size": "int64",
+      "backed_up_data_size": "int64",
+      "original_data_size": "int64",
       "attributes": {
-        "streamName": "string",
+        "stream_name": "string",
         "uri": "string"
       },
-      "computeInstanceId": "string",
+      "compute_instance_id": "string",
       "disks": [
         {
-          "deviceModel": "string",
+          "device_model": "string",
           "name": "string",
           "size": "int64",
           "volumes": [
             {
-              "freeSpace": "int64",
-              "isBootable": "bool",
-              "isSystem": "bool",
+              "free_space": "int64",
+              "is_bootable": "bool",
+              "is_system": "bool",
               "name": "string",
               "size": "int64",
-              "mountStrid": "string"
+              "mount_strid": "string"
             }
           ]
         }
       ],
       "type": "Type",
       "deleted": "bool",
-      "policyId": "string",
-      "resourceId": "string"
+      "policy_id": "string",
+      "resource_id": "string"
     }
-  ]
+  ],
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.backup.v1.Backup)** ||
+|| next_page_token | **string**
+
+Token for the next results page. ||
 |#
 
 ## Backup {#yandex.cloud.backup.v1.Backup}
@@ -162,43 +208,42 @@ Policy ID. ||
 || id | **string**
 
 ID of the backup. ||
-|| vaultId | **string**
+|| vault_id | **string**
 
 ID of the backup vault. ||
-|| archiveId | **string**
+|| archive_id | **string**
 
 ID of the backup archive. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastSeenAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_seen_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || size | **int64**
 
 Backup size. ||
-|| deduplicatedSize | **int64**
+|| deduplicated_size | **int64**
 
 Deduplicated backup size. ||
-|| backedUpDataSize | **int64**
+|| backed_up_data_size | **int64**
 
 Backed up data size. ||
-|| originalDataSize | **int64**
+|| original_data_size | **int64**
 
 Original data size. ||
 || attributes | **[BackupAttributes](#yandex.cloud.backup.v1.Backup.BackupAttributes)** ||
-|| computeInstanceId | **string**
+|| compute_instance_id | **string**
 
 Compute Cloud instance ID. ||
 || disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
 || type | enum **Type**
 
-- `TYPE_UNSPECIFIED`
 - `FULL`
 - `INCREMENTAL` ||
 || deleted | **bool**
 
 If this field is true, it means that the backup was deleted. ||
-|| policyId | **string**
+|| policy_id | **string**
 
 [Policy](/docs/backup/concepts/policy) ID. ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 Resource ID. It identifies Compute Cloud instance in backup service. ||
 |#
@@ -209,7 +254,7 @@ Backup attributes.
 
 #|
 ||Field | Description ||
-|| streamName | **string**
+|| stream_name | **string**
 
 Backup stream name. ||
 || uri | **string**
@@ -221,7 +266,7 @@ URI of the backup archive. ||
 
 #|
 ||Field | Description ||
-|| deviceModel | **string**
+|| device_model | **string**
 
 Device model. ||
 || name | **string**
@@ -237,13 +282,13 @@ Disk size. ||
 
 #|
 ||Field | Description ||
-|| freeSpace | **int64**
+|| free_space | **int64**
 
 Free space in the volume. ||
-|| isBootable | **bool**
+|| is_bootable | **bool**
 
 If this field is true, it means that the volume is bootable. ||
-|| isSystem | **bool**
+|| is_system | **bool**
 
 If this field is true, it means that the volume is a system volume. ||
 || name | **string**
@@ -252,7 +297,7 @@ Volume name. ||
 || size | **int64**
 
 Volume size. ||
-|| mountStrid | **string**
+|| mount_strid | **string**
 
 Mount string ID. ||
 |#

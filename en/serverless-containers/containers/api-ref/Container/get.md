@@ -1,13 +1,31 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/containers/{containerId}
+    method: get
+    path:
+      type: object
+      properties:
+        containerId:
+          description: |-
+            **string**
+            Required field. ID of the container to return.
+            To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
+          type: string
+      required:
+        - containerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/get.md
 ---
 
-# Serverless Containers Service, REST: Container.Get {#Get}
+# Serverless Containers Service, REST: Container.Get
 
 Returns the specified container.
 
-To get the list of all available containers, make a [List](/docs/serverless/containers/api-ref/Container/list#List) request.
+To get the list of all available containers, make a [List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
 
 ## HTTP request
 
@@ -23,7 +41,7 @@ GET https://serverless-containers.{{ api-host }}/containers/v1/containers/{conta
 
 Required field. ID of the container to return.
 
-To get a container ID make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Response {#yandex.cloud.serverless.containers.v1.Container}
@@ -37,7 +55,7 @@ To get a container ID make a [ContainerService.List](/docs/serverless/containers
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "url": "string",
   "status": "string"
 }
@@ -67,7 +85,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**
@@ -77,7 +95,6 @@ URL that needs to be requested to call the container. ||
 
 Status of the container.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Container is being created.
 - `ACTIVE`: Container is ready for use.
 - `DELETING`: Container is being deleted.

@@ -1,6 +1,10 @@
 # Viewing operations with a {{ managed-k8s-name }} cluster
 
-All actions with {{ managed-k8s-name }} resources are logged as a list of operations. Each operation is assigned a unique ID.
+The system logs all actions with {{ managed-k8s-name }} resources as a list of operations. Each operation gets its own unique [ID](../../../api-design-guide/concepts/about-async.md).
+
+Operations enable real-time monitoring of actions with your cluster. This may be relevant in automating infrastructure creation, where the state of an operation determines the next steps. For example, before creating a node group, you need to track the status of the cluster creation operation.
+
+ The service retains operation records for a limited time. To monitor the state of the cluster and log actions with it, use [{{ monitoring-full-name }}](../../metrics.md), [{{ cloud-logging-full-name }}](../../tutorials/k8s-fluent-bit-logging.md), and [{{ at-full-name }}](../../at-ref.md).
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,16 +12,16 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
 
 - Management console {#console}
 
-  To view operations with all [{{ k8s }}](../../concepts/index.md#kubernetes-cluster) clusters, in the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}**. The list that opens also includes operations with the clusters that were deleted.
+  To view operations with all [{{ k8s }} clusters](../../concepts/index.md#kubernetes-cluster), in the left-hand panel, select ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.k8s.switch_operations }}**. The list that opens also includes operations with the clusters you deleted.
 
   You can get a list of operations for a specific cluster:
 
   1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Select the cluster you need.
-  1. Go to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected cluster.
+  1. Navigate to the ![image](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the cluster you selected.
 
-     You will see a list of operations with the selected cluster.
+     You will see a list of operations with the this cluster.
 
 - CLI {#cli}
 
@@ -42,7 +46,7 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, information about operations is provided as text. To get a detailed information, specify the `yaml` or `json` output data format using the `--format` flag:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
 
   ```bash
   yc managed-kubernetes cluster list-operations <cluster_name_or_ID> --format yaml
@@ -102,11 +106,11 @@ All actions with {{ managed-k8s-name }} resources are logged as a list of operat
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the {{ managed-k8s-name }} cluster.
-1. Copy the ID of the operation.
-1. Get detailed information about the operation:
+1. Copy the operation ID.
+1. Get the operation details:
 
    {% list tabs group=instructions %}
 

@@ -20,6 +20,14 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+    * [dataproc.editor](security/index.md#dataproc-editor) — чтобы создать кластер;
+    * [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../vpc/concepts/network.md#network) кластера;
+    * [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать [сервисный аккаунт](../iam/concepts/users/service-accounts.md) к кластеру и создавать ресурсы от имени этого сервисного аккаунта.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
 1. [Настройте NAT-шлюз](../vpc/operations/create-nat-gateway.md) в подсети, в которой будет размещен [кластер](../glossary/cluster.md).
 
 1. Если вы используете группы безопасности, [настройте их](operations/cluster-create.md#change-security-groups).
@@ -43,7 +51,8 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы создать кластер:
 
-1. В консоли управления откройте каталог, в котором нужно создать кластер, и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. В консоли управления откройте каталог, в котором нужно создать кластер.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_empty-create }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его состояние сменится на **Alive**. Это может занять некоторое время.
@@ -53,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 Чтобы подключиться к кластеру:
 
 
-1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/connect.md#configuring-security-groups) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
+1. Если вы используете группы безопасности для облачной сети, [настройте их](operations/security-groups.md) так, чтобы был разрешен весь необходимый трафик между кластером и хостом, с которого выполняется подключение.
 
 
 1. Скопируйте на ВМ SSL-ключ, который вы указали при создании кластера {{ dataproc-name }}.

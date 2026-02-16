@@ -12,7 +12,11 @@ _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для п�
 
 Права доступа для ключа задаются с помощью [политики доступа](../../storage/security/policy.md), описанной в формате JSON по [специальной схеме](../../storage/s3/api-ref/policy/scheme.md).
 
+{% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
 {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
+
+{% include [sts-sa-access-backets-list](sts-sa-access-backets-list.md) %}
 
 {% include [sts-object-acl-note](sts-object-acl-note.md) %}
 
@@ -23,18 +27,16 @@ _{{ sts-name }}_ — компонент сервиса {{ iam-name }} для п�
 * Секретный ключ.
 * Токен сессии.
 
-Чтобы получить временный ключ доступа с помощью {{ sts-name }}, воспользуйтесь [AWS Command Line Interface (AWS CLI)](../..//storage/tools/aws-cli.md) или HTTP API, совместимым с [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
+Чтобы получить временный ключ доступа с помощью {{ sts-name }}, воспользуйтесь [AWS Command Line Interface (AWS CLI)](../../storage/tools/aws-cli.md) или HTTP API, совместимым с [AWS STS API](https://docs.aws.amazon.com/STS/latest/APIReference/welcome.html).
+
+Для работы с {{ sts-name }} предусмотрен отдельный [эндпоинт API](../../api-design-guide/concepts/endpoints.md): `https://{{ sts-host }}`.
 
 Подробнее см. [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
-Отозвать временный ключ нельзя. Однако вы можете [удалить](../../iam/operations/sa/delete-access-key.md) статический ключ, на основе которого был выпущен временный.
+Отозвать временный ключ нельзя. Однако вы можете [удалить](../../iam/operations/authentication/manage-access-keys.md#delete-access-key) статический ключ, на основе которого был выпущен временный.
 
 Данное действие повлечет отзыв прав для всех временных ключей доступа, созданных на основе удаленного статического ключа.
 
 {% endnote %}
-
-### См. также {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

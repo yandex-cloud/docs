@@ -40,7 +40,7 @@
 
 ## Проверить образ {#check-image}
 
-Вы можете выполнить очистку и необходимые проверки системы помощью скрипта [yc-image-cleanup.sh](https://github.com/yandex-cloud/examples/blob/master/products-prepare/linux/yc-image-cleanup.sh). 
+Вы можете выполнить очистку и необходимые проверки системы помощью скрипта [yc-image-cleanup.sh](https://github.com/yandex-cloud/marketplace/blob/master/products-prepare/linux/yc-image-cleanup.sh).
 
 Скрипт `yc-image-cleanup.sh` нужно запускать внутри образа под пользователем `root`.
 

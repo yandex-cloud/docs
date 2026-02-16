@@ -1,1 +1,0 @@
-Hive Metastore clusters are not charged.

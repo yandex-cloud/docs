@@ -19,7 +19,7 @@ description: На странице представлены вопросы и о
 
 Если вы не можете получить доступ к вашему аккаунту на Яндексе, воспользуйтесь [инструкциями по решению проблем](https://yandex.ru/support/passport/troubleshooting/problems.html) в Справке Яндекс ID.
 
-Если вы успешно авторизовались с аккаунтом Яндекса, но не можете подключиться к консоли управления {{ yandex-cloud }}, обратитесь в службу технической поддержки по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+Если вы успешно аутентифицировались с аккаунтом Яндекса, но не можете подключиться к консоли управления {{ yandex-cloud }}, обратитесь в службу технической поддержки по электронной почте [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
 #### Какие категории вопросов и задач можно решать в рамках технической поддержки? {#support-cases-types}
 
@@ -35,6 +35,21 @@ description: На странице представлены вопросы и о
 Служба технической поддержки отвечает на запросы 24 часа в сутки, 7 дней в неделю.
 
 Срок обработки конкретного запроса зависит от тарифного плана. Подробное описание тарифов приведено в разделе [{#T}](overview.md).
+
+#### Как найти свое обращение в {{ yandex-cloud }}? {#how-to-find-request}
+
+{% include [where-is-requests](../_includes/support/where-is-requests.md) %}
+
+Ссылку на нужное вам обращение можно также найти в:
+* письмах от службы поддержки {{ yandex-cloud }}, которые отправляются на почту, указанную в вашем аккаунте Яндекса.
+* уведомлениях от {{ yandex-cloud }}. В консоли управления {{ yandex-cloud }} нажмите ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** на панели слева. Для быстрого перехода к нужному обращению нажмите на ссылку в уведомлении.
+* SMS-сообщениях и сообщениях в Telegram-боте, если эти способы получения уведомлений у вас доступны и [настроены](../console/operations/update.md#notifications).
+
+Подробнее о способах получения уведомлений см. [Способы получения уведомлений](../support/notify.md#notification-settings).
+
+
+Если у вас установлено [мобильное приложение](../overview/mobile-app/index.md) {{ yandex-cloud }}, обращение можно отслеживать в нем. Все ваши обращения отображаются на вкладке **Поддержка**.
+
 
 #### Как быстро служба технической поддержки решит выявленную проблему? {#resolution-time}
 
@@ -56,13 +71,13 @@ description: На странице представлены вопросы и о
 - [Операционные системы](https://yandex.cloud/ru/marketplace?categories=os) на виртуальных машинах {{ yandex-cloud }}, которые были созданы из предоставленных {{ yandex-cloud }} публичных образов.
 - БД и системы управления кластерами, созданные в сервисах:
     - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)    
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
     - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
     - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
-    - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
+    - [{{ mmg-full-name }}](../storedoc/index.yaml)
     - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
     - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
-    - [{{ mrd-full-name }}](../managed-redis/index.yaml)
+    - [{{ mrd-full-name }}](../managed-valkey/index.yaml)
     - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 
@@ -73,8 +88,9 @@ description: На странице представлены вопросы и о
 
 #### Как изменить тарифный план технической поддержки? {#change-pricing-plan}
 
-Изменить тарифный план технической поддержки может только владелец или администратор организации. См. детали в инструкции [Изменение тарифного плана](support-center.md#change-pricing).
+{% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
+См. детали в инструкции [Изменение тарифного плана](cloud-center.md#change-pricing).
 Ознакомьтесь с [Порядком оказания технической поддержки](overview.md). Повышение тарифного плана происходит сразу, а понижение — первого числа следующего месяца
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

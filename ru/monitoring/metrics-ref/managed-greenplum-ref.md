@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ mgp-full-name }}
+description: Из статьи вы узнаете про метрики {{ mgp-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-greenplum-ref.md
 ---
 
 # Метрики {{ mgp-full-name }}

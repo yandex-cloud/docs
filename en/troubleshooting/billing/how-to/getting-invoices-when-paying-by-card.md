@@ -1,7 +1,8 @@
-# Receiving receipts for bank card payments
+# How to receive receipts for credit/debit card transfers
 
 
-## Scenario description {#case-description}
+
+## Case description {#case-description}
 
 You need to get a payment receipt after making a payment.
 
@@ -11,19 +12,16 @@ The option to get a receipt depends on the country of residence of your billing 
 
 {% list tabs %}
 
-- Residents of Russia or Kazakhstan
+- Residents of Russia and Kazakhstan
+    
+    As per the Russian Federal Law No. 54-FZ on the Use of Cash Register Equipment, after paying for resources with a credit/debit card, you will receive your payment receipt by email. The address is specified in the billing account owner's [management console]({{ link-console-settings }}).
 
-   In accordance with Federal Law-54 "On the Use of Cash Register Equipment", after paying for resources with a bank card, you receive a payment receipt by email.
-   The address is listed on this [page]({{ link-console-settings }}) by the owner of the billing account.
+    A payment receipt is a primary accounting document confirming the transfer of funds using a credit/debit card. You may want to keep all your payment receipts, as this will help you if any issues with payments occur.
 
-   A payment receipt is a primary accounting document confirming the transfer of funds using a bank card.
-   We recommend that you keep all your payment receipts, as this will help you if any problems with payments occur.
-
-   The payment receipt amount is equal to the amount debited from the bank card linked to your account.
-   More details [here](../../../billing/concepts/individual-bill).
+    The payment receipt amount is equal to the amount debited from the credit/debit card added to your account. 
 
 - Non-residents of Russia and Kazakhstan
-
-       According to the [offer agreement](https://yandex.com/legal/cloud_customer_agreement/) clause 6.4, Yandex Cloud provides a usage invoice for such accounts. A payment receipt is not generated in this case.
+    
+    According to Clause 6.4 of our [Offer Agreement]({{ billing-oferta-url }}), {{ yandex-cloud }} provides an invoice for such accounts. A payment receipt is not generated in this case.
 
 {% endlist %}

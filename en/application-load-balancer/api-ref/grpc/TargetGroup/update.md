@@ -3,30 +3,30 @@ editable: false
 sourcePath: en/_api-ref-grpc/apploadbalancer/v1/api-ref/grpc/TargetGroup/update.md
 ---
 
-# Application Load Balancer API, gRPC: TargetGroupService.Update {#Update}
+# Application Load Balancer API, gRPC: TargetGroupService.Update
 
 Updates the specified target group.
 
 ## gRPC request
 
-**rpc Update ([UpdateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest)) returns ([operation.Operation](/docs/application-load-balancer/api-ref/grpc/HttpRouter/get#yandex.cloud.apploadbalancer.v1.HeaderModification.operation))**
+**rpc Update ([UpdateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
 
 ## UpdateTargetGroupRequest {#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest}
 
 ```json
 {
-  "targetGroupId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "target_group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "map<string, string>",
   "targets": [
     {
-      // Includes only one of the fields `ipAddress`
-      "ipAddress": "string",
+      // Includes only one of the fields `ip_address`
+      "ip_address": "string",
       // end of the list of possible fields
-      "subnetId": "string",
-      "privateIpv4Address": "bool"
+      "subnet_id": "string",
+      "private_ipv4_address": "bool"
     }
   ]
 }
@@ -34,22 +34,26 @@ Updates the specified target group.
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the target group to update.
 
 To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/grpc/TargetGroup/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the target group should be updated. ||
 || name | **string**
 
 New name for the target group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-New description of the target group. ||
-|| labels | **string**
+New description of the target group.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -58,7 +62,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [TargetGroupService.Get](/docs/application-load-balancer/api-ref/grpc/TargetGroup/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 New list of targets in the target group.
@@ -74,17 +80,17 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| ipAddress | **string**
+|| ip_address | **string**
 
 IP address of the target.
 
-Includes only one of the fields `ipAddress`.
+Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **bool**
+|| private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
@@ -98,12 +104,12 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "targetGroupId": "string"
+    "target_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -111,18 +117,18 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "id": "string",
     "name": "string",
     "description": "string",
-    "folderId": "string",
-    "labels": "string",
+    "folder_id": "string",
+    "labels": "map<string, string>",
     "targets": [
       {
-        // Includes only one of the fields `ipAddress`
-        "ipAddress": "string",
+        // Includes only one of the fields `ip_address`
+        "ip_address": "string",
         // end of the list of possible fields
-        "subnetId": "string",
-        "privateIpv4Address": "bool"
+        "subnet_id": "string",
+        "private_ipv4_address": "bool"
       }
     ],
-    "createdAt": "google.protobuf.Timestamp"
+    "created_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -138,13 +144,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -187,7 +193,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 ID of the target group that is being updated. ||
 |#
@@ -208,17 +214,17 @@ Name of the target group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the target group. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target2)**
 
 List of targets in the target group. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#
@@ -230,17 +236,17 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 #|
 ||Field | Description ||
-|| ipAddress | **string**
+|| ip_address | **string**
 
 IP address of the target.
 
-Includes only one of the fields `ipAddress`.
+Includes only one of the fields `ip_address`.
 
 Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet that the target is connected to. ||
-|| privateIpv4Address | **bool**
+|| private_ipv4_address | **bool**
 
 If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:

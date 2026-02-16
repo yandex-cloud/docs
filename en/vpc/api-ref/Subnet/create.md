@@ -1,9 +1,103 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/subnets
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a subnet in.
+            To get folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the subnet.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the subnet.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network to create subnet in.
+          type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the availability zone where the subnet resides.
+            To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+          type: string
+        v4CidrBlocks:
+          description: "**string**\nRequired field. CIDR block.\nThe range of internal addresses that are defined for this subnet.\nFor example,\_10.0.0.0/22\_or\_192.168.0.0/24.\nMinimum subnet size is /28, maximum subnet size is /16."
+          type: array
+          items:
+            type: string
+        routeTableId:
+          description: |-
+            **string**
+            ID of route table the subnet is linked to.
+          type: string
+        dhcpOptions:
+          description: '**[DhcpOptions](#yandex.cloud.vpc.v1.DhcpOptions)**'
+          $ref: '#/definitions/DhcpOptions'
+      required:
+        - folderId
+        - networkId
+        - zoneId
+        - v4CidrBlocks
+      additionalProperties: false
+    definitions:
+      DhcpOptions:
+        type: object
+        properties:
+          domainNameServers:
+            description: |-
+              **string**
+              A list of DHCP servers for this subnet.
+            type: array
+            items:
+              type: string
+          domainName:
+            description: |-
+              **string**
+              A domain name to us as a suffix when resolving host names in this subnet.
+            type: string
+          ntpServers:
+            description: |-
+              **string**
+              List of NTP servers for this subnet.
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/vpc/v1/api-ref/Subnet/create.md
 ---
 
-# Virtual Private Cloud API, REST: Subnet.Create {#Create}
+# Virtual Private Cloud API, REST: Subnet.Create
 
 Creates a subnet in the specified folder and network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -21,7 +115,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/subnets
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "zoneId": "string",
   "v4CidrBlocks": [
@@ -53,7 +147,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the subnet. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `` key:value `` pairs. ||
 || networkId | **string**
@@ -119,7 +213,7 @@ List of NTP servers for this subnet. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "zoneId": "string",
     "v4CidrBlocks": [
@@ -268,7 +362,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

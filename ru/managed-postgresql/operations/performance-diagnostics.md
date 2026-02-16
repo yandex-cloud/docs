@@ -62,7 +62,7 @@
 
   1. Чтобы включить сбор статистики при создании кластера:
 
-     1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и добавьте параметр `configSpec.performanceDiagnostics` в [команду cURL по созданию кластера](cluster-create.md#create-cluster):
+     1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и добавьте параметр `configSpec.performanceDiagnostics` в [команду cURL по созданию кластера](cluster-create.md#create-cluster):
 
         ```bash
         curl \
@@ -73,7 +73,7 @@
           --data '{
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <активация_сбора_статистики:_true_или_false>,
+                        "enabled": <активировать_сбор_статистики>,
                         "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                         "statementsSamplingInterval": "<интервала_сбора_запросов>"
                       },
@@ -85,15 +85,15 @@
 
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
   1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-     1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -107,7 +107,7 @@
                     "updateMask": "configSpec.performanceDiagnostics",
                     "configSpec": {
                       "performanceDiagnostics": {
-                        "enabled": <активация_сбора_статистики:_true_или_false>,
+                        "enabled": <активировать_сбор_статистики>,
                         "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                         "statementsSamplingInterval": "<интервала_сбора_запросов>"
                       }
@@ -117,11 +117,11 @@
 
         Где `configSpec.performanceDiagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessionsSamplingInterval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statementsSamplingInterval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 * gRPC API {#grpc-api}
 
@@ -132,7 +132,7 @@
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Чтобы включить сбор статистики при создании кластера:
 
-     1. Воспользуйтесь методом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
+     1. Воспользуйтесь методом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и добавьте параметр `config_spec.performance_diagnostics` в [команду grpcurl по созданию кластера](cluster-create.md#grpc-api):
 
         ```bash
         grpcurl \
@@ -144,7 +144,7 @@
           -d '{
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <активация_сбора_статистики:_true_или_false>,
+                    "enabled": <активировать_сбор_статистики>,
                     "sessions_sampling_interval": "<интервал_сбора_сессий>",
                     "statements_sampling_interval": "<интервала_сбора_запросов>"
                   },
@@ -158,7 +158,7 @@
 
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
@@ -166,7 +166,7 @@
 
   1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-     1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -186,7 +186,7 @@
                 },
                 "config_spec": {
                   "performance_diagnostics": {
-                    "enabled": <активация_сбора_статистики:_true_или_false>,
+                    "enabled": <активировать_сбор_статистики>,
                     "sessions_sampling_interval": "<интервал_сбора_сессий>",
                     "statements_sampling_interval": "<интервала_сбора_запросов>"
                   }
@@ -198,11 +198,11 @@
 
         Где `config_spec.performance_diagnostics` — настройки сбора статистики:
 
-        * `enabled` — активация сбора статистики.
+        * `enabled` — активация сбора статистики: `true` или `false`.
         * `sessions_sampling_interval` — интервал сбора сессий. Допустимые значения — от `1` до `86400` секунд.
         * `statements_sampling_interval` — интервал сбора запросов. Допустимые значения — от `60` до `86400` секунд.
 
-     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -212,7 +212,7 @@
 
 * Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     Для просмотра статистики по сессиям:
@@ -235,7 +235,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -272,7 +272,7 @@
 
 * Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     Для просмотра статистики запросов за интервал:
@@ -295,7 +295,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService/ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -324,7 +324,7 @@
 
 {% endlist %}
 
-Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6) и [pg_stat_kcache](https://pgstats.dev/pg_stat_kcache).
+Подробнее про отображаемые сведения см. в документации расширений [pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) и [pg_stat_kcache](https://github.com/powa-team/pg_stat_kcache/blob/master/README.rst).
 
 ## Получить информацию о плане выполнения запроса {#auto-explain-enable}
 

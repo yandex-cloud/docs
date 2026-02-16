@@ -2,6 +2,7 @@
 title: Чтение и запись метрик кластера {{ k8s }}
 description: Следуя данной инструкции, вы сможете прочитать и записать метрики кластера {{ k8s }} с помощью Prometheus Operator.
 noIndex: true
+sourcePath: ru/monitoring_includes/operations/prometheus/read-write-for-kubernetes.md
 ---
 
 # Чтение и запись метрик кластера {{ managed-k8s-full-name }} с помощью Prometheus Operator

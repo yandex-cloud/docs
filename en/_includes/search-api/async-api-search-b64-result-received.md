@@ -1,0 +1,1 @@
+Eventually the search query result will be saved to a file named `result.json` containing a [Base64-encoded](https://en.wikipedia.org/wiki/Base64) [XML](../../search-api/concepts/response.md) or [HTML](../../search-api/concepts/html-response.md) response in the `response.rawData` field.

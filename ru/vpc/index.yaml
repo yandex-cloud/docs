@@ -6,7 +6,7 @@ description:
     позволяет создавать <a href="/docs/vpc/concepts/network#network">сети</a>,
     <a href="/docs/vpc/concepts/network#subnet">подсети</a> в зонах доступности
     Yandex Cloud, назначать облачным ресурсам внутренние и публичные <a
-    href="/docs/vpc/concepts/address">IP-адреса</a>, а также предоставляет
+    href="/docs/vpc/concepts/address">IP-адреса</a>,  а также предоставляет
     возможность защиты от DDoS-атак с помощью компонента <a
     href="/docs/vpc/ddos-protection/">DDoS-Protection.</a>
   - >-
@@ -19,11 +19,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_yvpc">Уровень
     обслуживания Yandex Virtual Private Cloud</a>.
-meta:
-  title: Yandex Virtual Private Cloud
-  description: >-
-    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
-    облачных ресурсов между собой и с интернетом.
 links:
   - title: Начало работы
     description: Создайте первую облачную сеть
@@ -49,3 +44,34 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud служит для управления облачными сетями и связи
+    облачных ресурсов между собой и с интернетом.
+  keywords:
+    - сервис {{ vpc-name }}
+    - сеть {{ vpc-name }}
+    - подсеть {{ vpc-name }}
+    - сеть {{ yandex-cloud }}
+    - облачная сеть
+    - связь облачных ресурсов
+    - ресурсы {{ vpc-full-name }}
+    - '{{ vpc-name }} в {{ yandex-cloud }}'
+    - шлюз {{ vpc-name }}
+    - NAT-шлюз {{ vpc-name }}
+    - '{{ vpc-full-name }} в {{ yandex-cloud }}'
+    - '{{ vpc-full-name }}'
+    - маршрутизация {{ vpc-name }}
+    - security group {{ vpc-name }}
+    - виртуальная сеть
+    - сервис {{ vpc-name }}
+    - физическая сеть {{ vpc-name }}
+    - '{{ vpc-name }}'
+    - публичный IP-адрес
+    - внутренний IP-адрес
+    - маршрутизация в {{ vpc-name }}
+    - группа безопасности
+    - security group
+    - сервисное подкючение
+    - Private Endpoint

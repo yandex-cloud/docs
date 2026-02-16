@@ -40,7 +40,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
@@ -48,7 +47,6 @@
 * плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных статических IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
 * плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md)).
-
 
 ## Настройте удаленную площадку {#remote-setup}
 
@@ -82,17 +80,17 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ операционной системы [Ubuntu 22.04 LTS OS Login](/marketplace/products/yc/ubuntu-2204-lts-oslogin).
     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `subnet-1`. 
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **Доступ через OS Login**, чтобы [подключаться](../../compute/operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [OS Login](../../organization/concepts/os-login.md) в {{ org-full-name }}.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**, чтобы [подключаться](../../compute/operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [{{ oslogin }}](../../organization/concepts/os-login.md) в {{ org-full-name }}.
 
-        Используя OS Login, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [YC CLI](../../cli/quickstart.md). OS Login позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
+        Используя {{ oslogin }}, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [CLI](../../cli/quickstart.md). {{ oslogin }} позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
 
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `vm-1`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -169,7 +167,7 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет создана группа безопасности. 
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Введите имя группы безопасности — `vpn-sg`.
     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `network`, созданную ранее.
@@ -207,7 +205,7 @@
   
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет создана группа безопасности. 
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
     1. Введите имя группы безопасности — `web-service-sg`.
     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `network`, созданную ранее.
@@ -235,8 +233,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будут созданы ВМ.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [Drupal 10](/marketplace/products/yc/drupal-8).
     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-a`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -255,18 +253,7 @@
 
             {% endnote %}
 
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
-
-            Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
-            * Нажмите кнопку **Добавить ключ**.
-            * Задайте имя SSH-ключа.
-            * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * Выберите срок действия ключа.
-            * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-            SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-            Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
        
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `web-node-a`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -284,8 +271,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет создана ВМ.
     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.    
+    1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите образ [IPSec-инстанс](/marketplace/products/yc/ipsec-instance-ubuntu).
     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-a`.
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -293,29 +280,11 @@
         * Выберите подсеть `subnet-a`.
         * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`. В открывшемся списке выберите зарезервированный IP-адрес.
         * Выберите группу безопасности `vpn-sg`.
-    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
 
-        * Выберите вариант подключения **SSH-ключ**.
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** задайте имя пользователя.
+    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-            {% note alert %}
-
-            Не используйте логин `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-
-            {% endnote %}
-
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
-
-            Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
-            * Нажмите кнопку **Добавить ключ**.
-            * Задайте имя SSH-ключа.
-            * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * Выберите срок действия ключа.
-            * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-
-            SSH-ключ будет добавлен в ваш профиль пользователя организации.
-
-            Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+        * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ — `vpn`.
     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.

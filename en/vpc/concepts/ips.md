@@ -1,21 +1,12 @@
 ---
-title: Public IP ranges for {{ yandex-cloud }}
-description: 'Resources hosted in {{ yandex-cloud }} networks use two types of public IP addresses: {{ yandex-cloud }} resources IPs and {{ yandex-cloud }} services IPs.'
+title: Public IP address ranges in {{ vpc-name }}
+description: In this article, you will learn about public IP address ranges in {{ yandex-cloud }} used by services, VMs, databases, and audit logs.
 ---
 
-# Public IP address ranges for {{ yandex-cloud }}
+# Public IP address ranges in {{ yandex-cloud }}
 
-{% include [public-ip-list](../../_includes/vpc/public-ip-list.md) %}
-
-## IP addresses used by {{ captcha-name }} {#smartcaptcha-ips}
-
-{% include [kz-preview](../../_includes/kz-preview.md) %}
-
-{% include [public-ip-list](../../_includes/smartcaptcha-ips.md) %}
-
-These IP addresses cannot be assigned to user resources. They are only needed for API requests sent to `/validate` to work correctly.
+For the full list of public IP ranges in {{ yandex-cloud }}, see [{#T}](../../overview/concepts/public-ips.md) of **Platform overview**.
 
 #### See also {#see-also}
 
-* [{#T}](../../smartcaptcha/concepts/ips.md)
 * [IP address ranges used by Yandex]({{ link-yandex }}/ips)

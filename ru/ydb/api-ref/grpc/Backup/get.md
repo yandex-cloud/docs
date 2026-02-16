@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for YDB API, gRPC: BackupService.Get {#Get}
+# Managed Service for YDB API, gRPC: BackupService.Get
 
 Returns the specified backup.
 
@@ -15,13 +15,13 @@ Returns the specified backup.
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. Required. ID of the YDB backup. ||
 |#
@@ -32,47 +32,47 @@ Required field. Required. ID of the YDB backup. ||
 {
   "id": "string",
   "name": "string",
-  "folderId": "string",
-  "databaseId": "string",
+  "folder_id": "string",
+  "database_id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "startedAt": "google.protobuf.Timestamp",
-  "completedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "started_at": "google.protobuf.Timestamp",
+  "completed_at": "google.protobuf.Timestamp",
   "status": "Status",
-  "backupSettings": {
+  "backup_settings": {
     "name": "string",
     "description": "string",
-    "backupSchedule": {
-      // Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`
-      "dailyBackupSchedule": {
-        "executeTime": "google.type.TimeOfDay"
+    "backup_schedule": {
+      // Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`
+      "daily_backup_schedule": {
+        "execute_time": "google.type.TimeOfDay"
       },
-      "weeklyBackupSchedule": {
-        "daysOfWeek": [
+      "weekly_backup_schedule": {
+        "days_of_week": [
           {
             "days": [
               "DayOfWeek"
             ],
-            "executeTime": "google.type.TimeOfDay"
+            "execute_time": "google.type.TimeOfDay"
           }
         ]
       },
-      "recurringBackupSchedule": {
-        "startTime": "google.protobuf.Timestamp",
+      "recurring_backup_schedule": {
+        "start_time": "google.protobuf.Timestamp",
         "recurrence": "string"
       },
       // end of the list of possible fields
-      "nextExecuteTime": "google.protobuf.Timestamp"
+      "next_execute_time": "google.protobuf.Timestamp"
     },
-    "backupTimeToLive": "google.protobuf.Duration",
-    "sourcePaths": [
+    "backup_time_to_live": "google.protobuf.Duration",
+    "source_paths": [
       "string"
     ],
-    "sourcePathsToExclude": [
+    "source_paths_to_exclude": [
       "string"
     ],
     "type": "Type",
-    "storageClass": "StorageClass"
+    "storage_class": "StorageClass"
   },
   "type": "Type",
   "size": "int64"
@@ -85,16 +85,16 @@ Required field. Required. ID of the YDB backup. ||
 || name | **string**
 
 human readable backup name. ||
-|| folderId | **string** ||
-|| databaseId | **string** ||
+|| folder_id | **string** ||
+|| database_id | **string** ||
 || description | **string**
 
 description of backup. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 indicates when backup started. ||
-|| completedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| completed_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 indicates when backup completed. ||
 || status | enum **Status**
@@ -104,7 +104,7 @@ indicates when backup completed. ||
 - `READY`
 - `ERROR`
 - `CANCELLED` ||
-|| backupSettings | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**
+|| backup_settings | **[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**
 
 settings used to make backup. ||
 || type | enum **Type**
@@ -127,18 +127,18 @@ name of backup settings ||
 || description | **string**
 
 human readable description. ||
-|| backupSchedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
+|| backup_schedule | **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
 
 provide schedule. if empty, backup will be disabled. ||
-|| backupTimeToLive | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+|| backup_time_to_live | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 provide time to live of backup. ||
-|| sourcePaths[] | **string**
+|| source_paths[] | **string**
 
 provide a list of source paths. Each path can be directory, table or even database itself.
 Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
 By default, backup will be created for full database. ||
-|| sourcePathsToExclude[] | **string**
+|| source_paths_to_exclude[] | **string**
 
 provide a list of paths to exclude from backup.
 Each path is a directory, table, or database.
@@ -148,7 +148,7 @@ Each directory (or database) will be traversed recursively and all childs of dir
 - `TYPE_UNSPECIFIED`
 - `SYSTEM`
 - `USER` ||
-|| storageClass | enum **StorageClass**
+|| storage_class | enum **StorageClass**
 
 - `STORAGE_CLASS_UNSPECIFIED`
 - `STANDARD`
@@ -165,16 +165,16 @@ Each directory (or database) will be traversed recursively and all childs of dir
 
 #|
 ||Field | Description ||
-|| dailyBackupSchedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+|| daily_backup_schedule | **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| weeklyBackupSchedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| weekly_backup_schedule | **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| recurringBackupSchedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| recurring_backup_schedule | **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
 
-Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`. ||
-|| nextExecuteTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Includes only one of the fields `daily_backup_schedule`, `weekly_backup_schedule`, `recurring_backup_schedule`. ||
+|| next_execute_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 output only field: when next backup will be executed
 using provided schedule. ||
@@ -184,7 +184,7 @@ using provided schedule. ||
 
 #|
 ||Field | Description ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -193,7 +193,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| daysOfWeek[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
+|| days_of_week[] | **[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)** ||
 |#
 
 ## DaysOfWeekBackupSchedule {#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule}
@@ -210,7 +210,7 @@ Required field.  ||
 - `FRIDAY`: The day-of-week of Friday.
 - `SATURDAY`: The day-of-week of Saturday.
 - `SUNDAY`: The day-of-week of Sunday. ||
-|| executeTime | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
+|| execute_time | **[google.type.TimeOfDay](https://github.com/googleapis/googleapis/blob/master/google/type/timeofday.proto)**
 
 Required field.  ||
 |#
@@ -219,7 +219,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| startTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Required field. Timestamp of the first recurrence. ||
 || recurrence | **string**

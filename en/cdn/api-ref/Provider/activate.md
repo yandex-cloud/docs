@@ -1,11 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/providers:activate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the activate provider belongs to.
+            The maximum string length in characters is 50.
+          type: string
+        providerType:
+          description: |-
+            **string**
+            Required field. Specify provider brand/type.
+            Possible values: `gcore`.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - folderId
+        - providerType
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Provider/activate.md
 ---
 
-# Cloud CDN API, REST: Provider.Activate {#Activate}
+# Cloud CDN API, REST: Provider.Activate
 
-Activate provider for specified client.
+Deprecated: This functionality is no longer supported - provider activation happens automatically.
 
 ## HTTP request
 
@@ -26,12 +52,16 @@ POST https://cdn.{{ api-host }}/cdn/v1/providers:activate
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 || providerType | **string**
 
 Required field. Specify provider brand/type.
 
-Possible values: `gcore`. ||
+Possible values: `gcore`.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -121,7 +151,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the activate provider belongs to. ||
+Required field. ID of the folder that the activate provider belongs to.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

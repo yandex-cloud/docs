@@ -1,3 +1,8 @@
+---
+title: Добавить дополнительный сетевой интерфейс на виртуальную машину
+description: Следуя данной инструкции, вы сможете добавить дополнительный сетевой интерфейс на виртуальную машину.
+---
+
 # Добавить дополнительный сетевой интерфейс на виртуальную машину
 
 
@@ -120,6 +125,41 @@
       ```bash
       yc compute instance start <идентификатор_ВМ>
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле в описании ресурса `yandex_compute_instance` добавьте новый блок `network_interface` и параметр `allow_stopping_for_update`:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          index     = <номер_интерфейса>
+          subnet_id = "<идентификатор_подсети>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Где:
+
+      * `index` — номер сетевого интерфейса: число в диапазоне от `0` до `15`, исключая уже занятые номера. По умолчанию первому сетевому интерфейсу присваивается номер `0`.
+      * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
+      * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} создаст и обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

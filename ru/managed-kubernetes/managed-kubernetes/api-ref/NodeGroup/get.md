@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        nodeGroupId:
+          description: |-
+            **string**
+            Required field. ID of the node group to return.
+            To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/list#List) request.
+          type: string
+      required:
+        - nodeGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/k8s/v1/managed-kubernetes/api-ref/NodeGroup/get.md
 ---
 
-# Managed Services for Kubernetes API, REST: NodeGroup.Get {#Get}
+# Managed Services for Kubernetes API, REST: NodeGroup.Get
 
 Returns the specified node group.
 
@@ -36,11 +54,11 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "nodeTemplate": {
     "name": "string",
-    "labels": "string",
+    "labels": "object",
     "platformId": "string",
     "resourcesSpec": {
       "memory": "string",
@@ -52,7 +70,7 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
       "diskTypeId": "string",
       "diskSize": "string"
     },
-    "metadata": "string",
+    "metadata": "object",
     "v4AddressSpec": {
       "oneToOneNatSpec": {
         "ipVersion": "string"
@@ -198,7 +216,10 @@ To get the node group ID use a [NodeGroupService.List](/docs/managed-kubernetes/
       "effect": "string"
     }
   ],
-  "nodeLabels": "string"
+  "nodeLabels": "object",
+  "workloadIdentityFederation": {
+    "enabled": "boolean"
+  }
 }
 ```
 
@@ -227,14 +248,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the node group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the node group.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Node group is waiting for resources to be allocated.
 - `RUNNING`: Node group is running.
 - `RECONCILING`: Node group is waiting for some work to be done, such as upgrading node software.
@@ -273,9 +293,12 @@ Support for unsafe sysctl parameters. For more details see [documentation](https
 || nodeTaints[] | **[Taint](#yandex.cloud.k8s.v1.Taint)**
 
 Taints that are applied to the nodes of the node group at creation time. ||
-|| nodeLabels | **string**
+|| nodeLabels | **object** (map<**string**, **string**>)
 
 Labels that are assigned to the nodes of the node group at creation time. ||
+|| workloadIdentityFederation | **[NodeGroupWorkloadIdentityFederation](#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation)**
+
+Workload Identity Federation parameters of the node group. ||
 |#
 
 ## NodeTemplate {#yandex.cloud.k8s.v1.NodeTemplate}
@@ -291,10 +314,14 @@ In order to be unique it must contain at least on of instance unique placeholder
 combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
-It may also contain another placeholders, see metadata doc for full list. ||
-|| labels | **string**
+It may also contain another placeholders, see metadata doc for full list.
 
-these labels will be assigned to compute nodes (instances), created by the nodegroup ||
+The maximum string length in characters is 128. ||
+|| labels | **object** (map<**string**, **string**>)
+
+these labels will be assigned to compute nodes (instances), created by the nodegroup
+
+No more than 32 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || platformId | **string**
 
 ID of the hardware platform configuration for the node. ||
@@ -304,11 +331,13 @@ Computing resources of the node such as the amount of memory and number of cores
 || bootDiskSpec | **[DiskSpec](#yandex.cloud.k8s.v1.DiskSpec)**
 
 Specification for the boot disk that will be attached to the node. ||
-|| metadata | **string**
+|| metadata | **object** (map<**string**, **string**>)
 
 The metadata as `key:value` pairs assigned to this instance template. Only SSH keys are supported as metadata.
 
-For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh). ||
+For more information, see [Connecting to a node over SSH](/docs/managed-kubernetes/operations/node-connect-ssh).
+
+No more than 64 per resource. The maximum string length in characters for each value is 131072. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || v4AddressSpec | **[NodeAddressSpec](#yandex.cloud.k8s.v1.NodeAddressSpec)**
 
 Specification for the create network interfaces for the node group compute instances.
@@ -320,12 +349,19 @@ Scheduling policy configuration. ||
 
 New api, to specify network interfaces for the node group compute instances.
 Can not be used together with 'v4_address_spec' ||
-|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)** ||
+|| placementPolicy | **[PlacementPolicy](#yandex.cloud.k8s.v1.PlacementPolicy)**
+
+Placement policy configuration that controls physical placement of node group instances
+in the cloud infrastructure for optimizing performance and reliability. ||
 || networkSettings | **[NetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.NetworkSettings)**
 
 this parameter allows to specify type of network acceleration used on nodes (instances) ||
-|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)** ||
-|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)** ||
+|| containerRuntimeSettings | **[ContainerRuntimeSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings)**
+
+Container runtime settings for the node template. ||
+|| containerNetworkSettings | **[ContainerNetworkSettings](#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings)**
+
+Container network settings for the node template. ||
 || gpuSettings | **[GpuSettings](#yandex.cloud.k8s.v1.GpuSettings)**
 
 GPU settings ||
@@ -337,17 +373,25 @@ GPU settings ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the node, specified in bytes. ||
+Amount of memory available to the node, specified in bytes.
+
+The minimum value is 0. ||
 || cores | **string** (int64)
 
-Number of cores available to the node. ||
+Number of cores available to the node.
+
+The minimum value is 0. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the possibility to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+
+Acceptable values are 0 to 100, inclusive. ||
 || gpus | **string** (int64)
 
-Number of GPUs available to the node. ||
+Number of GPUs available to the node.
+
+The minimum value is 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.k8s.v1.DiskSpec}
@@ -356,10 +400,14 @@ Number of GPUs available to the node. ||
 ||Field | Description ||
 || diskTypeId | **string**
 
-ID of the disk type. ||
+ID of the disk type.
+
+Value must match the regular expression ``` |network-ssd|network-hdd|network-ssd-nonreplicated|network-ssd-io-m3 ```. ||
 || diskSize | **string** (int64)
 
-Size of the disk, specified in bytes. ||
+Size of the disk, specified in bytes.
+
+Acceptable values are 0 to 4398046511104, inclusive. ||
 |#
 
 ## NodeAddressSpec {#yandex.cloud.k8s.v1.NodeAddressSpec}
@@ -382,7 +430,6 @@ Internal DNS configuration. ||
 
 IP version for the public IP address.
 
-- `IP_VERSION_UNSPECIFIED`
 - `IPV4`: IPv4 address, for example 192.168.0.0.
 - `IPV6`: IPv6 address, not available yet. ||
 |#
@@ -399,7 +446,9 @@ Required field. FQDN (required). ||
 DNS zone id (optional, if not set, private zone is used). ||
 || ttl | **string** (int64)
 
-DNS record ttl, values in 0-86400 (optional). ||
+DNS record ttl, values in 0-86400 (optional).
+
+Acceptable values are 0 to 86400, inclusive. ||
 || ptr | **boolean**
 
 When set to true, also create PTR DNS record (optional). ||
@@ -449,11 +498,10 @@ Identifier of placement group ||
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field. 
+Required field. Network type that specifies the network configuration for the node group instances.
 
-- `TYPE_UNSPECIFIED`
-- `STANDARD`
-- `SOFTWARE_ACCELERATED` ||
+- `STANDARD`: Standard network.
+- `SOFTWARE_ACCELERATED`: Software accelerated network. ||
 |#
 
 ## ContainerRuntimeSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerRuntimeSettings}
@@ -462,18 +510,19 @@ Required field.
 ||Field | Description ||
 || type | **enum** (Type)
 
-Required field. 
+Required field. Type of container runtime.
 
-- `TYPE_UNSPECIFIED`
-- `DOCKER`
-- `CONTAINERD` ||
+- `DOCKER`: Docker container runtime.
+- `CONTAINERD`: Containerd container runtime. ||
 |#
 
 ## ContainerNetworkSettings {#yandex.cloud.k8s.v1.NodeTemplate.ContainerNetworkSettings}
 
 #|
 ||Field | Description ||
-|| podMtu | **string** (int64) ||
+|| podMtu | **string** (int64)
+
+MTU (Maximum Transmission Unit) size for pod network interfaces. ||
 |#
 
 ## GpuSettings {#yandex.cloud.k8s.v1.GpuSettings}
@@ -487,7 +536,6 @@ GPU cluster id, that mk8s node will join. ||
 
 GPU environment configured on node.
 
-- `GPU_ENVIRONMENT_UNSPECIFIED`: Use one of the values below, depending on the default for the specific Cloud installation.
 - `RUNC_DRIVERS_CUDA`: Use a node image with the pre-installed GPU toolkit, drivers and CUDA.
 - `RUNC`: Use a node image with the pre-installed GPU toolkit but without drivers.
 You should install drivers on a node yourself in that case.
@@ -516,7 +564,9 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 ||Field | Description ||
 || size | **string** (int64)
 
-Number of nodes in the node group. ||
+Number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## AutoScale {#yandex.cloud.k8s.v1.ScalePolicy.AutoScale}
@@ -525,13 +575,19 @@ Number of nodes in the node group. ||
 ||Field | Description ||
 || minSize | **string** (int64)
 
-Minimum number of nodes in the node group. ||
+Minimum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || maxSize | **string** (int64)
 
-Maximum number of nodes in the node group. ||
+Maximum number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || initialSize | **string** (int64)
 
-Initial number of nodes in the node group. ||
+Initial number of nodes in the node group.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NodeGroupAllocationPolicy {#yandex.cloud.k8s.v1.NodeGroupAllocationPolicy}
@@ -564,13 +620,17 @@ ID of the subnet. If a network chosen for the Kubernetes cluster has only one su
 The maximum number of running instances that can be taken offline (i.e.,
 stopped or deleted) at the same time during the update process.
 If `maxExpansion` is not specified or set to zero, `maxUnavailable` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 || maxExpansion | **string** (int64)
 
 The maximum number of instances that can be temporarily allocated above
 the group's target size during the update process.
 If `maxUnavailable` is not specified or set to zero, `maxExpansion` must
-be set to a non-zero value. ||
+be set to a non-zero value.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## VersionInfo {#yandex.cloud.k8s.v1.VersionInfo}
@@ -681,7 +741,9 @@ Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999. ||
 ||Field | Description ||
 || daysOfWeek[] | **[DaysOfWeekMaintenanceWindow](#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow)**
 
-Days of the week and the maintenance window for these days when automatic updates are allowed. ||
+Days of the week and the maintenance window for these days when automatic updates are allowed.
+
+The number of elements must be in the range 1-7. ||
 |#
 
 ## DaysOfWeekMaintenanceWindow {#yandex.cloud.k8s.v1.DaysOfWeekMaintenanceWindow}
@@ -692,7 +754,8 @@ Days of the week and the maintenance window for these days when automatic update
 
 Days of the week when automatic updates are allowed.
 
-- `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+The number of elements must be in the range 1-7.
+
 - `MONDAY`: The day-of-week of Monday.
 - `TUESDAY`: The day-of-week of Tuesday.
 - `WEDNESDAY`: The day-of-week of Wednesday.
@@ -722,7 +785,6 @@ The taint value corresponding to the taint key. ||
 
 The effect of the taint on pods that do not tolerate the taint.
 
-- `EFFECT_UNSPECIFIED`
 - `NO_SCHEDULE`: Do not allow new pods to schedule onto the node unless they tolerate the taint,
 but allow all pods submitted to Kubelet without going through the scheduler
 to start, and allow all already-running pods to continue running.
@@ -730,4 +792,15 @@ to start, and allow all already-running pods to continue running.
 new pods onto the node, rather than prohibiting new pods from scheduling
 onto the node entirely. Enforced by the scheduler.
 - `NO_EXECUTE`: Evict any already-running pods that do not tolerate the taint. ||
+|#
+
+## NodeGroupWorkloadIdentityFederation {#yandex.cloud.k8s.v1.NodeGroupWorkloadIdentityFederation}
+
+NodeGroupWorkloadIdentityFederation contains configuration for Workload Identity Federation.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Identifies whether Workload Identity Federation is enabled. ||
 |#

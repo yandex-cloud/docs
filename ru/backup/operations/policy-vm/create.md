@@ -1,11 +1,20 @@
 ---
 title: Создать политику резервного копирования
-description: Из статьи вы узнаете, как создать политику резервного копирования в **{{ backup-name }}**.
+description: Из статьи вы узнаете, как создать политику резервного копирования в {{ backup-name }}.
 ---
 
 # Создать политику резервного копирования
 
-Создание политики доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+
+Создание [политики](../../concepts/policy.md) доступно после [активации](../../concepts/index.md#providers) сервиса {{ backup-name }}.
+
+Создать или [изменить](update.md) политику можно с помощью консоли управления {{ yandex-cloud }}, {{ TF }}, а также задать по [спецификации](../../concepts/policy.md#specification) в формате [JSON](https://ru.wikipedia.org/wiki/JSON), с помощью [CLI](../../../cli/quickstart.md) {{ yandex-cloud }} или API.
+
+{% note info %}
+
+Политики резервного копирования с некоторыми дополнительными настройками нельзя создать в консоли управления {{ yandex-cloud }}. Для создания таких политик воспользуйтесь CLI, {{ TF }} или API.
+
+{% endnote %}
 
 {% include [default-policies](../../../_includes/backup/default-policies.md) %}
 
@@ -16,12 +25,43 @@ description: Из статьи вы узнаете, как создать пол
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [политику резервного копирования](../../../backup/concepts/policy.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
-  1. Перейдите на вкладку ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.backup.button_create-policy }}**.
   1. На странице создания политики резервного копирования:
 
-     {% include [policy-options](../../../_includes/backup/policy-options.md) %}
+      * Задайте имя политики. Требования к имени:
+
+        {% include [name-format](../../../_includes/name-format.md) %}
+
+      * Выберите [тип резервных копий](../../concepts/backup.md#types):
+
+          * `{{ ui-key.yacloud.backup.policy-form.title_incremental-backup-card }}` — сохраняются только отличия от предыдущей копии. При первом запуске будет создана полная копия ресурса.
+          * `{{ ui-key.yacloud.backup.policy-form.title_full-backup-card }}` — сохраняются все данные виртуальной машины или сервера {{ baremetal-name }}.
+
+          После создания политики изменить тип будет нельзя.
+
+      * В блоке **{{ ui-key.yacloud.backup.policy-form.title_schedule-section }}** выберите тип расписания запуска:
+
+          {% include [policy-options-schedule-type](../../../_includes/backup/policy-options-schedule-type.md) %}
+
+          После создания политики изменить тип будет нельзя.
+
+      {% include [policy-options-retention](../../../_includes/backup/policy-options-retention.md) %}
+
+      * Разверните блок **{{ ui-key.yacloud.backup.policy-form.title_additional-section }}** и в открывшейся форме:
+
+          {% include [policy-options-additional](../../../_includes/backup/policy-options-additional.md) %}
+
+          * (Опционально) Выберите **{{ ui-key.yacloud.backup.policy-overview.field_compression }}** данных в резервной копии. Чем выше уровень сжатия, тем больше времени занимает резервное копирование, при этом созданная копия занимает меньше места. Эффективность процесса зависит от типа копируемых данных: уже сжатые файлы, такие как JPG, PDF или MP3, плохо поддаются дополнительному сжатию, в отличие, например, от DOC или XLS. 
+
+              {% note info %}
+
+              Уровень сжатия можно выбрать только при создании политики. Для существующей политики изменить его нельзя.
+
+              {% endnote %}
+
+          {% include [policy-options-extra](../../../_includes/backup/policy-options-extra.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -33,97 +73,48 @@ description: Из статьи вы узнаете, как создать пол
 
   1. Посмотрите описание команды [CLI](../../../cli/) для создания [политики резервного копирования](../../../backup/concepts/policy.md):
 
-     ```bash
-     yc backup policy create --help
-     ```
+      ```bash
+      yc backup policy create --help
+      ```
 
   1. Опишите конфигурацию создаваемой политики резервного копирования в виде схемы данных в формате [JSON](https://ru.wikipedia.org/wiki/JSON).
 
-     {% cut "Пример файла конфигурации" %}
+      {% cut "Пример файла конфигурации" %}
 
-     {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
+      {% include [json-example](../../../_includes/backup/operations/json-example.md) %}
 
-     {% endcut %}
+      {% endcut %}
 
-     Сохраните готовую конфигурацию в файл с расширением `.json`.
+      {% note info %}
 
-     В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) [виртуальной машины](../../../compute/concepts/vm.md) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
+      Параметры `preserveFileSecuritySettings` и `quiesceSnapshottingEnabled` больше не поддерживаются.
+      
+      {% endnote %}
 
-     См. [полную спецификацию](../../concepts/policy.md#specification) политики резервного копирования.
+      Сохраните готовую конфигурацию в файл с расширением `.json`.
+
+      В примере приведена конфигурация политики резервного копирования, которая будет создавать [инкрементальные](../../concepts/backup.md#types) [резервные копии](../../concepts/backup.md) [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md) каждый понедельник в 00:05 (UTC+0). При этом храниться будут только десять последних копий.
+
+      См. [полную спецификацию](../../concepts/policy.md#specification) политики резервного копирования.
 
   1. Создайте политику резервного копирования:
 
-     ```bash
-     yc backup policy create \
-       --name <имя_политики> \
-       --settings-from-file <путь_к_файлу_конфигурации>
-     ```
+      ```bash
+      yc backup policy create \
+        --name <имя_политики> \
+        --settings-from-file <путь_к_файлу_конфигурации>
+      ```
 
-     Где:
+      Где:
 
-     * `--name` — имя создаваемой политики резервного копирования.
-     * `--settings-from-file` — путь к файлу с конфигурацией политики резервного копирования в формате JSON.
+      * `--name` — имя создаваемой политики резервного копирования.
+      * `--settings-from-file` — путь к файлу с конфигурацией политики резервного копирования в формате JSON.
 
-     Результат:
+      Результат:
 
-     ```text
-     id: cbq5rwepukxn********
-     name: test2
-     created_at: "2023-07-03T08:24:16.735555276Z"
-     updated_at: "2023-07-03T08:24:16.746377738Z"
-     enabled: true
-     settings:
-       compression: NORMAL
-       format: AUTO
-       multi_volume_snapshotting_enabled: true
-       preserve_file_security_settings: true
-       reattempts:
-         enabled: true
-         interval:
-           type: SECONDS
-           count: "30"
-         max_attempts: "30"
-       silent_mode_enabled: true
-       splitting:
-         size: "1099511627776"
-       vm_snapshot_reattempts:
-         enabled: true
-         interval:
-           type: MINUTES
-           count: "5"
-         max_attempts: "3"
-       vss:
-         enabled: true
-         provider: TARGET_SYSTEM_DEFINED
-       archive:
-         name: '''[Machine Name]-[Plan ID]-[Unique ID]A'''
-       performance_window: {}
-       retention:
-         rules:
-           - max_count: "10"
-         before_backup: true
-       scheduling:
-         backup_sets:
-           - time:
-               weekdays:
-                 - MONDAY
-               repeat_at:
-                 - minute: "5"
-               type: WEEKLY
-         enabled: true
-         max_parallel_backups: "2"
-         rand_max_delay:
-           type: MINUTES
-           count: "30"
-         scheme: ALWAYS_INCREMENTAL
-         weekly_backup_day: MONDAY
-       cbt: ENABLE_AND_USE
-       fast_backup_enabled: true
-       quiesce_snapshotting_enabled: true
-     folder_id: d2q792qpemb4********
-     ```
+      {% include [json-output-cli](../../../_includes/backup/operations/json-output-cli.md) %}
 
-     Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/create.md).
+      Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/create.md).
 
 - {{ TF }} {#tf}
 
@@ -144,8 +135,10 @@ description: Из статьи вы узнаете, как создать пол
          multi_volume_snapshotting_enabled = true
          name                              = "<имя_политики_резервного_копирования>"
          performance_window_enabled        = true
-         preserve_file_security_settings   = true
-         quiesce_snapshotting_enabled      = true
+         sector_by_sector                  = true
+         run_later                         = true
+         validation_enabled                = true
+         lvm_snapshotting_enabled          = true
          silent_mode_enabled               = true
          splitting_bytes                   = "9223372036854775807"
          vss_provider                      = "NATIVE"
@@ -172,14 +165,16 @@ description: Из статьи вы узнаете, как создать пол
              scheme               = "ALWAYS_INCREMENTAL"
              weekly_backup_day    = "MONDAY"
 
-             execute_by_time {
-                 include_last_day_of_month = true
-                 monthdays                 = []
-                 months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
-                 repeat_at                 = ["04:10"]
-                 repeat_every              = "30m"
-                 type                      = "MONTHLY"
-                 weekdays                  = []
+             backup_sets {
+                 execute_by_time {
+                     type                      = "MONTHLY"
+                     include_last_day_of_month = true
+                     monthdays                 = []
+                     months                    = [1,2,3,4,5,6,7,8,9,10,11,12]
+                     repeat_at                 = ["04:10"]
+                     repeat_every              = "30m"
+                     weekdays                  = []
+                 }
              }
          }
 
@@ -194,7 +189,7 @@ description: Из статьи вы узнаете, как создать пол
      Где:
 
      * `archive_name` — имя сгенерированных архивов. Необязательный параметр. Переменные параметра:
-       * `Machine Name` — имя [виртуальной машины](../../../compute/concepts/vm.md).
+       * `Machine Name` — имя [виртуальной машины](../../../compute/concepts/vm.md) или [сервера {{ baremetal-name }}](../../../baremetal/concepts/servers.md).
        * `Plan ID` — идентификатор плана.
        * `Unique ID` — уникальный идентификатор.
 
@@ -221,8 +216,10 @@ description: Из статьи вы узнаете, как создать пол
      * `multi_volume_snapshotting_enabled` — создание резервных копий нескольких томов одновременно. Необязательный параметр. Принимает значения `true` или `false`.
      * `name` — имя политики резервного копирования.
      * `performance_window_enabled` — временные окна для ограничения производительности резервного копирования. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `false`.
-     * `preserve_file_security_settings` — сохранение настроек безопасности файлов. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `true`. Рекомендуется использовать значение `true`.
-     * `quiesce_snapshotting_enabled` — режим `quiescing` при создании резервных копий. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `false`.
+     * `sector_by_sector` — посекторное резервное копирование. Создает резервную копию всех секторов диска или тома, включая пустые области и нераспределенное пространство. Если не выбран уровень сжатия, размер копии будет равен размеру диска. Для дисков с неподдерживаемыми файловыми системами режим применяется автоматически. Данные приложений из такой копии восстановить нельзя. Принимает значения `true` или `false`. Значение по умолчанию `false`.
+     * `run_later` — если во время запланированного резервного копирования ВМ была в статусе `Stopped`, все пропущенные задания резервного копирования выполнятся после запуска ВМ. Принимает значения `true` или `false`. Значение по умолчанию `false`.
+     * `validation_enabled` — проверка возможности восстановления данных из созданной резервной копии. При проверке для каждого доступного для восстановления блока вычисляется контрольная сумма. Проверка может занять длительное время, так как проверяются все восстанавливаемые данные. Принимает значения `true` или `false`. Значение по умолчанию `false`.
+     * `lvm_snapshotting_enabled` — для создания моментального снимка тома будет использоваться LVM. Если создать снимок с помощью LVM не удастся, он будет создан с помощью агента {{ backup-name }}. Принимает значения `true` или `false`. Значение по умолчанию `false`.
      * `silent_mode_enabled` — режим тишины, предполагающий минимальное взаимодействие с пользователем. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `true`.
      * `splitting_bytes` — параметр для определения размера для разделения резервных копий. Необязательный параметр. Значение по умолчанию `9223372036854775807`.
      * `vss_provider` — настройки VSS-службы. Необязательный параметр. Принимает значения `NATIVE` или `TARGET_SYSTEM_DEFINED`. Значение по умолчанию `NATIVE`.
@@ -250,18 +247,26 @@ description: Из статьи вы узнаете, как создать пол
 
          Значение по умолчанию `ALWAYS_INCREMENTAL`.
        * `weekly_backup_day` — день недели, в который будут выполняться еженедельные операции копирования. Необязательный параметр. Значение по умолчанию `MONDAY`.
-       * `execute_by_time` — настройки выполнения резервного копирования в определенное время:
-         * `include_last_day_of_month` — выполнение резервного копирования в последний день месяца. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `false`.
-         * `monthdays` — список дней, когда применяется расписание. Необязательный параметр. Используется в формате `MONTHLY`.
-         * `months` — список месяцев, когда применяется расписание. Необязательный параметр.
-         * `repeat_at` — список времени в формате `ЧЧ:ММ` (24-часовой формат), когда применяется расписание. Необязательный параметр.
-         * `repeat_every` — частоты повторения резервного копирования. Необязательный параметр.
-         * `type` — тип расписания. Принимает значения: `HOURLY` (ежечасно), `DAILY` (ежедневно), `WEEKLY` (еженедельно), `MONTHLY` (ежемесячно).
-         * `weekdays` — список дней недели, когда будет применена резервная копия. Используется в формате `WEEKLY`.
+       * `backup_sets` — список расписаний с наборами резервных копий:
+          * `execute_by_time` — настройки выполнения резервного копирования в определенное время:
+            * `include_last_day_of_month` — выполнение резервного копирования в последний день месяца. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `false`.
+            * `monthdays` — список дней, когда применяется расписание. Необязательный параметр. Используется в формате `MONTHLY`.
+            * `months` — список месяцев, когда применяется расписание. Необязательный параметр.
+            * `repeat_at` — список значений времени в формате `ЧЧ:ММ` (24-часовой формат), когда применяется расписание. Необязательный параметр.
+            * `repeat_every` — частоты повторения резервного копирования. Необязательный параметр.
+            * `type` — тип расписания. Принимает значения: `HOURLY` (ежечасно), `DAILY` (ежедневно), `WEEKLY` (еженедельно), `MONTHLY` (ежемесячно).
+            * `weekdays` — список дней недели, когда будет применена резервная копия. Используется в формате `WEEKLY`.
      * `vm_snapshot_reattempts` — параметры повторения операций создания резервных копий в случае сбоев:
        * `enabled` — повторение попыток создать резервную копию при возникновении ошибок. Необязательный параметр. Принимает значения `true` или `false`. Значение по умолчанию `true`.
        * `interval` — длительность интервала между повторениями попыток. Необязательный параметр. Значение по умолчанию `5m`.
        * `max_attempts` — максимальное количество попыток. При достижении максимального количества повторных попыток операция будет считаться неуспешной. Необязательный параметр. Значение по умолчанию `5`.
+
+     {% note info %}
+
+     Параметры `preserveFileSecuritySettings` и `quiesceSnapshottingEnabled` больше не поддерживаются.
+     
+     {% endnote %}
+
 
      Более подробную информацию о параметрах ресурса `yandex_backup_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/backup_policy).
   1. Создайте ресурсы:

@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to get operations for.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListSecretOperationsRequest.next_page_token] returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/listOperations.md
 ---
 
-# Lockbox API, REST: Secret.ListOperations {#ListOperations}
+# Lockbox API, REST: Secret.ListOperations
 
 Lists operations for the specified secret.
 
@@ -29,13 +65,13 @@ Required field. ID of the secret to get operations for. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page that should be returned. If the number of available
-results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse)
+results is larger than `page_size`, the service returns a [ListSecretOperationsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSecretOperationsRequest.nextPageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsResponse) returned by a previous list request. ||
+[ListSecretOperationsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListSecretOperationsResponse}
@@ -77,8 +113,8 @@ List of operations for the specified secret. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListSecretOperationsResponse.pageSize](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsRequest), use the `next_page_token` as the value
-for the [ListSecretOperationsResponse.pageToken](/docs/lockbox/api-ref/Secret/list#yandex.cloud.lockbox.v1.ListSecretsRequest) query parameter in the next list request.
+is larger than [ListSecretOperationsResponse.page_size], use the `next_page_token` as the value
+for the [ListSecretOperationsResponse.page_token] query parameter in the next list request.
 Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 

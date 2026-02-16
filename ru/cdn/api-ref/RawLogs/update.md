@@ -1,9 +1,62 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
+    method: patch
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of CDN resource.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        settings:
+          description: |-
+            **[RawLogsSettings](#yandex.cloud.cdn.v1.RawLogsSettings)**
+            Raw logs settings.
+          $ref: '#/definitions/RawLogsSettings'
+      additionalProperties: false
+    definitions:
+      RawLogsSettings:
+        type: object
+        properties:
+          bucketName:
+            description: |-
+              **string**
+              Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
+              The maximum string length in characters is 1024.
+            type: string
+          bucketRegion:
+            description: |-
+              **string**
+              Bucket region, unused for now, could be blank.
+              The maximum string length in characters is 50.
+            type: string
+          filePrefix:
+            description: |-
+              **string**
+              file_prefix: prefix each log object name with specified prefix.
+              The prefix makes it simpler for you to locate the log objects.
+              For example, if you specify the prefix value logs/, each log object that
+              S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
+              could be setup.
+              The maximum string length in characters is 50.
+            type: string
+        required:
+          - bucketName
 sourcePath: en/_api-ref/cdn/v1/api-ref/RawLogs/update.md
 ---
 
-# Cloud CDN API, REST: RawLogs.Update {#Update}
+# Cloud CDN API, REST: RawLogs.Update
 
 ## HTTP request
 
@@ -17,7 +70,9 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/rawLogs/{resourceId}
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of CDN resource. ||
+Required field. ID of CDN resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cdn.v1.UpdateRawLogsRequest}
@@ -47,10 +102,14 @@ User settings for Raw logs.
 ||Field | Description ||
 || bucketName | **string**
 
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
+Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
+
+The maximum string length in characters is 1024. ||
 || bucketRegion | **string**
 
-Bucket region, unused for now, could be blank. ||
+Bucket region, unused for now, could be blank.
+
+The maximum string length in characters is 50. ||
 || filePrefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
@@ -58,7 +117,9 @@ file_prefix: prefix each log object name with specified prefix.
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup. ||
+could be setup.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -199,7 +260,6 @@ A list of messages that carry the error details. ||
 
 Raw logs status.
 
-- `RAW_LOGS_STATUS_UNSPECIFIED`
 - `RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.
 - `RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.
 - `RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but CDN provider has been failed to store logs.
@@ -217,10 +277,14 @@ User settings for Raw logs.
 ||Field | Description ||
 || bucketName | **string**
 
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
+Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
+
+The maximum string length in characters is 1024. ||
 || bucketRegion | **string**
 
-Bucket region, unused for now, could be blank. ||
+Bucket region, unused for now, could be blank.
+
+The maximum string length in characters is 50. ||
 || filePrefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
@@ -228,5 +292,7 @@ file_prefix: prefix each log object name with specified prefix.
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup. ||
+could be setup.
+
+The maximum string length in characters is 50. ||
 |#

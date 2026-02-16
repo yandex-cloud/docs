@@ -15,8 +15,8 @@ description: Для группы выделенных хостов {{ compute-na
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -60,7 +60,7 @@ description: Для группы выделенных хостов {{ compute-na
 
        Где:
 
-       * `--user-account-id` — [идентификатор пользователя](../../../iam/operations/users/get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
+       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
        * `--role` — назначаемая [роль](../../security/index.md#roles-list).
 
      * Сервисному аккаунту:
@@ -89,8 +89,8 @@ description: Для группы выделенных хостов {{ compute-na
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -164,8 +164,8 @@ description: Для группы выделенных хостов {{ compute-na
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа выделенных хостов.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.switch_host-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
   1. Выберите нужную группу выделенных хостов.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. В строке нужного пользователя нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.

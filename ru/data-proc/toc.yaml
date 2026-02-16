@@ -1,4 +1,4 @@
-title: Yandex Data Proc
+title: Yandex Data Processing
 href: index.yaml
 items:
   - name: Начало работы
@@ -13,12 +13,28 @@ items:
             href: operations/cluster-list.md
           - name: Создание кластера
             href: operations/cluster-create.md
-          - name: Подключение к кластеру
-            href: operations/connect.md
+          - name: Создание кластера с автомасштабированием в сети другого каталога
+            href: operations/cluster-create-autoscale.md
+          - name: Подключение
+            items:
+              - name: Подключение к кластеру
+                href: operations/connect.md
+              - name: Настройка групп безопасности
+                href: operations/security-groups.md
+              - name: Получение FQDN хоста
+                href: operations/fqdn.md
+              - name: Подключение к хосту по SSH
+                href: operations/connect-ssh.md
+              - name: Подключение к хосту через {{ oslogin }}
+                href: operations/connect-oslogin.md
+              - name: Подключение к хосту из графических IDE
+                href: operations/connect-ide.md
           - name: Изменение кластера
             href: operations/cluster-update.md
           - name: Миграция легковесного кластера в другую зону доступности
             href: operations/migration-to-an-availability-zone.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подкластеры {{ dataproc-name }}
@@ -57,8 +73,6 @@ items:
             href: operations/jobs-hive.md
           - name: Задания MapReduce
             href: operations/jobs-mapreduce.md
-      - name: Кластеры {{ metastore-name }}
-        href: operations/metastore/cluster-create.md
       - name: Логи и мониторинг
         items:
           - name: Работа с логами
@@ -114,7 +128,7 @@ items:
               - name: >-
                   Импорт данных из {{ objstorage-name }}, обработка и экспорт в
                   {{ mch-name }}
-                href: tutorials/s3-dataproc-ch.md
+                href: tutorials/s3-data-processing-ch.md
               - name: >-
                   Монтирование бакетов к файловой системе хостов {{
                   dataproc-name }}
@@ -124,7 +138,7 @@ items:
               - name: >-
                   Совместная работа с таблицами с использованием {{
                   metastore-name }}
-                href: tutorials/dataproc-to-dataproc.md
+                href: tutorials/data-processing-to-data-processing.md
               - name: >-
                   Перенос метаданных между кластерами {{ dataproc-name }} с
                   помощью {{ metastore-name }}
@@ -157,8 +171,6 @@ items:
         href: concepts/environment.md
       - name: Интерфейсы и порты компонентов {{ dataproc-name }}
         href: concepts/interfaces.md
-      - name: Кластеры {{ metastore-full-name }}
-        href: concepts/metastore.md
       - name: Задания в {{ dataproc-name }}
         href: concepts/jobs.md
       - name: Задания Spark
@@ -189,8 +201,88 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/dataproc/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-hosts
+            href: cli-ref/cluster/list-hosts.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: list-ui-links
+            href: cli-ref/cluster/list-ui-links.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: job
+        items:
+          - name: Overview
+            href: cli-ref/job/index.md
+          - name: cancel
+            href: cli-ref/job/cancel.md
+          - name: create-hive
+            href: cli-ref/job/create-hive.md
+          - name: create-mapreduce
+            href: cli-ref/job/create-mapreduce.md
+          - name: create-pyspark
+            href: cli-ref/job/create-pyspark.md
+          - name: create-spark
+            href: cli-ref/job/create-spark.md
+          - name: get
+            href: cli-ref/job/get.md
+          - name: list
+            href: cli-ref/job/list.md
+          - name: log
+            href: cli-ref/job/log.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
+      - name: subcluster
+        items:
+          - name: Overview
+            href: cli-ref/subcluster/index.md
+          - name: create
+            href: cli-ref/subcluster/create.md
+          - name: delete
+            href: cli-ref/subcluster/delete.md
+          - name: get
+            href: cli-ref/subcluster/get.md
+          - name: list
+            href: cli-ref/subcluster/list.md
+          - name: update
+            href: cli-ref/subcluster/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -225,6 +317,12 @@ items:
                 href: api-ref/grpc/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/grpc/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview
@@ -297,6 +395,12 @@ items:
                 href: api-ref/Cluster/listHosts.md
               - name: ListUILinks
                 href: api-ref/Cluster/listUILinks.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Job
             items:
               - name: Overview
@@ -357,5 +461,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/data-proc
-deepBase: 2

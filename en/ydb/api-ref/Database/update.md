@@ -1,9 +1,704 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
+    method: patch
+    path:
+      type: object
+      properties:
+        databaseId:
+          description: '**string**'
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: '**string**'
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: '**string**'
+          type: string
+        description:
+          description: '**string**'
+          type: string
+        resourcePresetId:
+          description: '**string**'
+          type: string
+        storageConfig:
+          description: '**[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)**'
+          $ref: '#/definitions/StorageConfig'
+        scalePolicy:
+          description: '**[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)**'
+          $ref: '#/definitions/ScalePolicy'
+        networkId:
+          description: '**string**'
+          type: string
+        subnetIds:
+          description: '**string**'
+          type: array
+          items:
+            type: string
+        zonalDatabase:
+          description: |-
+            **[ZonalDatabase](#yandex.cloud.ydb.v1.ZonalDatabase)**
+            Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`.
+          $ref: '#/definitions/ZonalDatabase'
+        regionalDatabase:
+          description: |-
+            **[RegionalDatabase](#yandex.cloud.ydb.v1.RegionalDatabase)**
+            Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`.
+          $ref: '#/definitions/RegionalDatabase'
+        dedicatedDatabase:
+          description: |-
+            **[DedicatedDatabase](#yandex.cloud.ydb.v1.DedicatedDatabase)**
+            Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`.
+          $ref: '#/definitions/DedicatedDatabase'
+        serverlessDatabase:
+          description: |-
+            **[ServerlessDatabase](#yandex.cloud.ydb.v1.ServerlessDatabase)**
+            Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`.
+          $ref: '#/definitions/ServerlessDatabase'
+        assignPublicIps:
+          description: '**boolean**'
+          type: boolean
+        locationId:
+          description: '**string**'
+          type: string
+        labels:
+          description: '**object** (map<**string**, **string**>)'
+          type: object
+          additionalProperties:
+            type: string
+        backupConfig:
+          description: '**[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)**'
+          $ref: '#/definitions/BackupConfig'
+        monitoringConfig:
+          description: '**[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)**'
+          $ref: '#/definitions/MonitoringConfig'
+        deletionProtection:
+          description: '**boolean**'
+          type: boolean
+        securityGroupIds:
+          description: '**string**'
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - zonalDatabase
+        - required:
+            - regionalDatabase
+        - required:
+            - dedicatedDatabase
+        - required:
+            - serverlessDatabase
+    definitions:
+      StorageOption:
+        type: object
+        properties:
+          storageTypeId:
+            description: '**string**'
+            type: string
+          groupCount:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      StorageConfig:
+        type: object
+        properties:
+          storageOptions:
+            description: '**[StorageOption](#yandex.cloud.ydb.v1.StorageOption)**'
+            type: array
+            items:
+              $ref: '#/definitions/StorageOption'
+          storageSizeLimit:
+            description: |-
+              **string** (int64)
+              output only field: storage size limit of dedicated database.
+            type: string
+            format: int64
+      FixedScale:
+        type: object
+        properties:
+          size:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      TargetTracking:
+        type: object
+        properties:
+          cpuUtilizationPercent:
+            description: |-
+              **string** (int64)
+              A percentage of database nodes average CPU utilization.
+              Includes only one of the fields `cpuUtilizationPercent`.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - cpuUtilizationPercent
+      AutoScale:
+        type: object
+        properties:
+          minSize:
+            description: |-
+              **string** (int64)
+              Minimum number of nodes to which autoscaling can scale the database.
+            type: string
+            format: int64
+          maxSize:
+            description: |-
+              **string** (int64)
+              Maximum number of nodes to which autoscaling can scale the database.
+            type: string
+            format: int64
+          targetTracking:
+            description: |-
+              **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+              Includes only one of the fields `targetTracking`.
+              Type of autoscaling algorithm.
+            $ref: '#/definitions/TargetTracking'
+        oneOf:
+          - required:
+              - targetTracking
+      ScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/FixedScale'
+          autoScale:
+            description: |-
+              **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+              Includes only one of the fields `fixedScale`, `autoScale`.
+            $ref: '#/definitions/AutoScale'
+        oneOf:
+          - required:
+              - fixedScale
+          - required:
+              - autoScale
+      ZonalDatabase:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+        required:
+          - zoneId
+      RegionalDatabase:
+        type: object
+        properties:
+          regionId:
+            description: |-
+              **string**
+              Required field. 
+            type: string
+        required:
+          - regionId
+      DedicatedDatabase:
+        type: object
+        properties:
+          resourcePresetId:
+            description: '**string**'
+            type: string
+          storageConfig:
+            description: '**[StorageConfig](#yandex.cloud.ydb.v1.StorageConfig)**'
+            $ref: '#/definitions/StorageConfig'
+          scalePolicy:
+            description: '**[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)**'
+            $ref: '#/definitions/ScalePolicy'
+          networkId:
+            description: '**string**'
+            type: string
+          subnetIds:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          assignPublicIps:
+            description: '**boolean**'
+            type: boolean
+          securityGroupIds:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      ServerlessDatabase:
+        type: object
+        properties:
+          throttlingRcuLimit:
+            description: |-
+              **string** (int64)
+              Let's define 1 RU  - 1 request unit
+              Let's define 1 RCU - 1 request capacity unit, which is 1 RU per second.
+              If `enable_throttling_rcu_limit` flag is true, the database will be throttled using `throttling_rcu_limit` value.
+              Otherwise, the database is throttled using the cloud quotas.
+              If zero, all requests will be blocked until non zero value is set.
+            type: string
+            format: int64
+          storageSizeLimit:
+            description: |-
+              **string** (int64)
+              Specify serverless database storage size limit. If zero, default value is applied.
+            type: string
+            format: int64
+          enableThrottlingRcuLimit:
+            description: |-
+              **boolean**
+              If false, the database is throttled by cloud value.
+            type: boolean
+          provisionedRcuLimit:
+            description: |-
+              **string** (int64)
+              Specify the number of provisioned RCUs to pay less if the database has predictable load.
+              You will be charged for the provisioned capacity regularly even if this capacity is not fully consumed.
+              You will be charged for the on-demand consumption only if provisioned capacity is consumed.
+            type: string
+            format: int64
+          topicWriteQuota:
+            description: |-
+              **string** (int64)
+              write quota for topic service, defined in bytes per second.
+            type: string
+            format: int64
+      TimeOfDay:
+        type: object
+        properties:
+          hours:
+            description: |-
+              **integer** (int32)
+              Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
+              to allow the value "24:00:00" for scenarios like business closing time.
+            type: integer
+            format: int32
+          minutes:
+            description: |-
+              **integer** (int32)
+              Minutes of hour of day. Must be from 0 to 59.
+            type: integer
+            format: int32
+          seconds:
+            description: |-
+              **integer** (int32)
+              Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+              allow the value 60 if it allows leap-seconds.
+            type: integer
+            format: int32
+          nanos:
+            description: |-
+              **integer** (int32)
+              Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+            type: integer
+            format: int32
+      DailyBackupSchedule:
+        type: object
+        properties:
+          executeTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. 
+            $ref: '#/definitions/TimeOfDay'
+        required:
+          - executeTime
+      DaysOfWeekBackupSchedule:
+        type: object
+        properties:
+          days:
+            description: |-
+              **enum** (DayOfWeek)
+              - `DAY_OF_WEEK_UNSPECIFIED`: The unspecified day-of-week.
+              - `MONDAY`: The day-of-week of Monday.
+              - `TUESDAY`: The day-of-week of Tuesday.
+              - `WEDNESDAY`: The day-of-week of Wednesday.
+              - `THURSDAY`: The day-of-week of Thursday.
+              - `FRIDAY`: The day-of-week of Friday.
+              - `SATURDAY`: The day-of-week of Saturday.
+              - `SUNDAY`: The day-of-week of Sunday.
+            type: array
+            items:
+              type: string
+              enum:
+                - DAY_OF_WEEK_UNSPECIFIED
+                - MONDAY
+                - TUESDAY
+                - WEDNESDAY
+                - THURSDAY
+                - FRIDAY
+                - SATURDAY
+                - SUNDAY
+          executeTime:
+            description: |-
+              **[TimeOfDay](#google.type.TimeOfDay)**
+              Required field. 
+            $ref: '#/definitions/TimeOfDay'
+        required:
+          - executeTime
+      WeeklyBackupSchedule:
+        type: object
+        properties:
+          daysOfWeek:
+            description: '**[DaysOfWeekBackupSchedule](#yandex.cloud.ydb.v1.DaysOfWeekBackupSchedule)**'
+            type: array
+            items:
+              $ref: '#/definitions/DaysOfWeekBackupSchedule'
+      RecurringBackupSchedule:
+        type: object
+        properties:
+          startTime:
+            description: |-
+              **string** (date-time)
+              Required field. Timestamp of the first recurrence.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+          recurrence:
+            description: |-
+              **string**
+              Required field. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how
+              this backup reccurs.
+              The FREQ values of MINUTELY, and SECONDLY are not supported.
+            type: string
+        required:
+          - startTime
+          - recurrence
+      BackupSchedule:
+        type: object
+        properties:
+          dailyBackupSchedule:
+            description: |-
+              **[DailyBackupSchedule](#yandex.cloud.ydb.v1.DailyBackupSchedule)**
+              Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+            $ref: '#/definitions/DailyBackupSchedule'
+          weeklyBackupSchedule:
+            description: |-
+              **[WeeklyBackupSchedule](#yandex.cloud.ydb.v1.WeeklyBackupSchedule)**
+              Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+            $ref: '#/definitions/WeeklyBackupSchedule'
+          recurringBackupSchedule:
+            description: |-
+              **[RecurringBackupSchedule](#yandex.cloud.ydb.v1.RecurringBackupSchedule)**
+              Includes only one of the fields `dailyBackupSchedule`, `weeklyBackupSchedule`, `recurringBackupSchedule`.
+            $ref: '#/definitions/RecurringBackupSchedule'
+          nextExecuteTime:
+            description: |-
+              **string** (date-time)
+              output only field: when next backup will be executed
+              using provided schedule.
+              String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+              `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+              To work with values in this field, use the APIs described in the
+              [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+              In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+            type: string
+            format: date-time
+        oneOf:
+          - required:
+              - dailyBackupSchedule
+          - required:
+              - weeklyBackupSchedule
+          - required:
+              - recurringBackupSchedule
+      BackupSettings:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              name of backup settings
+            type: string
+          description:
+            description: |-
+              **string**
+              human readable description.
+            type: string
+          backupSchedule:
+            description: |-
+              **[BackupSchedule](#yandex.cloud.ydb.v1.BackupSchedule)**
+              provide schedule. if empty, backup will be disabled.
+            $ref: '#/definitions/BackupSchedule'
+          backupTimeToLive:
+            description: |-
+              **string** (duration)
+              provide time to live of backup.
+            type: string
+            format: duration
+          sourcePaths:
+            description: |-
+              **string**
+              provide a list of source paths. Each path can be directory, table or even database itself.
+              Each directory (or database) will be traversed recursively and all childs of directory will be included to backup.
+              By default, backup will be created for full database.
+            type: array
+            items:
+              type: string
+          sourcePathsToExclude:
+            description: |-
+              **string**
+              provide a list of paths to exclude from backup.
+              Each path is a directory, table, or database.
+              Each directory (or database) will be traversed recursively and all childs of directory will be excluded.
+            type: array
+            items:
+              type: string
+          type:
+            description: |-
+              **enum** (Type)
+              - `TYPE_UNSPECIFIED`
+              - `SYSTEM`
+              - `USER`
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - SYSTEM
+              - USER
+          storageClass:
+            description: |-
+              **enum** (StorageClass)
+              - `STORAGE_CLASS_UNSPECIFIED`
+              - `STANDARD`
+              - `REDUCED_REDUNDANCY`
+              - `STANDARD_IA`
+              - `ONEZONE_IA`
+              - `INTELLIGENT_TIERING`
+              - `GLACIER`
+              - `DEEP_ARCHIVE`
+              - `OUTPOSTS`
+            type: string
+            enum:
+              - STORAGE_CLASS_UNSPECIFIED
+              - STANDARD
+              - REDUCED_REDUNDANCY
+              - STANDARD_IA
+              - ONEZONE_IA
+              - INTELLIGENT_TIERING
+              - GLACIER
+              - DEEP_ARCHIVE
+              - OUTPOSTS
+      BackupConfig:
+        type: object
+        properties:
+          backupSettings:
+            description: '**[BackupSettings](#yandex.cloud.ydb.v1.BackupSettings)**'
+            type: array
+            items:
+              $ref: '#/definitions/BackupSettings'
+      NotificationChannel:
+        type: object
+        properties:
+          notificationChannelId:
+            description: '**string**'
+            type: string
+          notifyAboutStatuses:
+            description: |-
+              **enum** (AlertEvaluationStatus)
+              - `ALERT_EVALUATION_STATUS_UNSPECIFIED`
+              - `ALERT_EVALUATION_STATUS_OK`
+              - `ALERT_EVALUATION_STATUS_NO_DATA`
+              - `ALERT_EVALUATION_STATUS_ERROR`
+              - `ALERT_EVALUATION_STATUS_ALARM`
+              - `ALERT_EVALUATION_STATUS_WARN`
+            type: array
+            items:
+              type: string
+              enum:
+                - ALERT_EVALUATION_STATUS_UNSPECIFIED
+                - ALERT_EVALUATION_STATUS_OK
+                - ALERT_EVALUATION_STATUS_NO_DATA
+                - ALERT_EVALUATION_STATUS_ERROR
+                - ALERT_EVALUATION_STATUS_ALARM
+                - ALERT_EVALUATION_STATUS_WARN
+          repeateNotifyDelayMs:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      DoubleParameterValue:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required. Parameter name
+            type: string
+          value:
+            description: |-
+              **string**
+              Required. Parameter value
+            type: string
+      IntegerParameterValue:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required. Parameter name
+            type: string
+          value:
+            description: |-
+              **string** (int64)
+              Required. Parameter value
+            type: string
+            format: int64
+      TextParameterValue:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required. Parameter name
+            type: string
+          value:
+            description: |-
+              **string**
+              Required. Parameter value
+            type: string
+      TextListParameterValue:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required. Parameter name
+            type: string
+          values:
+            description: |-
+              **string**
+              Required. Parameter value
+            type: array
+            items:
+              type: string
+      LabelListParameterValue:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required. Parameter name
+            type: string
+          values:
+            description: |-
+              **string**
+              Required. Parameter value
+            type: array
+            items:
+              type: string
+      AlertParameter:
+        type: object
+        properties:
+          doubleParameterValue:
+            description: |-
+              **[DoubleParameterValue](#yandex.cloud.ydb.v1.AlertParameter.DoubleParameterValue)**
+              Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`.
+            $ref: '#/definitions/DoubleParameterValue'
+          integerParameterValue:
+            description: |-
+              **[IntegerParameterValue](#yandex.cloud.ydb.v1.AlertParameter.IntegerParameterValue)**
+              Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`.
+            $ref: '#/definitions/IntegerParameterValue'
+          textParameterValue:
+            description: |-
+              **[TextParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextParameterValue)**
+              Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`.
+            $ref: '#/definitions/TextParameterValue'
+          textListParameterValue:
+            description: |-
+              **[TextListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.TextListParameterValue)**
+              Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`.
+            $ref: '#/definitions/TextListParameterValue'
+          labelListParameterValue:
+            description: |-
+              **[LabelListParameterValue](#yandex.cloud.ydb.v1.AlertParameter.LabelListParameterValue)**
+              Includes only one of the fields `doubleParameterValue`, `integerParameterValue`, `textParameterValue`, `textListParameterValue`, `labelListParameterValue`.
+            $ref: '#/definitions/LabelListParameterValue'
+        oneOf:
+          - required:
+              - doubleParameterValue
+          - required:
+              - integerParameterValue
+          - required:
+              - textParameterValue
+          - required:
+              - textListParameterValue
+          - required:
+              - labelListParameterValue
+      Alert:
+        type: object
+        properties:
+          alertId:
+            description: |-
+              **string**
+              output only field.
+            type: string
+          alertTemplateId:
+            description: |-
+              **string**
+              template of the alert.
+            type: string
+          name:
+            description: |-
+              **string**
+              name of the alert.
+            type: string
+          description:
+            description: |-
+              **string**
+              human readable description of the alert.
+            type: string
+          notificationChannels:
+            description: |-
+              **[NotificationChannel](#yandex.cloud.ydb.v1.NotificationChannel)**
+              the notification channels of the alert.
+            type: array
+            items:
+              $ref: '#/definitions/NotificationChannel'
+          alertParameters:
+            description: |-
+              **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+              alert parameters to override.
+            type: array
+            items:
+              $ref: '#/definitions/AlertParameter'
+          alertThresholds:
+            description: |-
+              **[AlertParameter](#yandex.cloud.ydb.v1.AlertParameter)**
+              alert paratemers to override.
+            type: array
+            items:
+              $ref: '#/definitions/AlertParameter'
+      MonitoringConfig:
+        type: object
+        properties:
+          alerts:
+            description: '**[Alert](#yandex.cloud.ydb.v1.Alert)**'
+            type: array
+            items:
+              $ref: '#/definitions/Alert'
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/update.md
 ---
 
-# Managed Service for YDB API, REST: Database.Update {#Update}
+# Managed Service for YDB API, REST: Database.Update
 
 Modifies the specified database.
 
@@ -41,9 +736,20 @@ Required field.  ||
     "storageSizeLimit": "string"
   },
   "scalePolicy": {
-    // Includes only one of the fields `fixedScale`
+    // Includes only one of the fields `fixedScale`, `autoScale`
     "fixedScale": {
       "size": "string"
+    },
+    "autoScale": {
+      "minSize": "string",
+      "maxSize": "string",
+      // Includes only one of the fields `targetTracking`
+      "targetTracking": {
+        // Includes only one of the fields `cpuUtilizationPercent`
+        "cpuUtilizationPercent": "string"
+        // end of the list of possible fields
+      }
+      // end of the list of possible fields
     }
     // end of the list of possible fields
   },
@@ -70,9 +776,20 @@ Required field.  ||
       "storageSizeLimit": "string"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
+      // Includes only one of the fields `fixedScale`, `autoScale`
       "fixedScale": {
         "size": "string"
+      },
+      "autoScale": {
+        "minSize": "string",
+        "maxSize": "string",
+        // Includes only one of the fields `targetTracking`
+        "targetTracking": {
+          // Includes only one of the fields `cpuUtilizationPercent`
+          "cpuUtilizationPercent": "string"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -80,7 +797,10 @@ Required field.  ||
     "subnetIds": [
       "string"
     ],
-    "assignPublicIps": "boolean"
+    "assignPublicIps": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   },
   "serverlessDatabase": {
     "throttlingRcuLimit": "string",
@@ -92,7 +812,7 @@ Required field.  ||
   // end of the list of possible fields
   "assignPublicIps": "boolean",
   "locationId": "string",
-  "labels": "string",
+  "labels": "object",
   "backupConfig": {
     "backupSettings": [
       {
@@ -221,7 +941,10 @@ Required field.  ||
       }
     ]
   },
-  "deletionProtection": "boolean"
+  "deletionProtection": "boolean",
+  "securityGroupIds": [
+    "string"
+  ]
 }
 ```
 
@@ -259,10 +982,11 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
 || assignPublicIps | **boolean** ||
 || locationId | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -289,7 +1013,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -297,6 +1024,39 @@ Includes only one of the fields `fixedScale`. ||
 #|
 ||Field | Description ||
 || size | **string** (int64) ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+
+Includes only one of the fields `targetTracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpuUtilizationPercent | **string** (int64)
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}
@@ -327,6 +1087,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}
@@ -687,9 +1448,20 @@ Required. Parameter value ||
       "storageSizeLimit": "string"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
+      // Includes only one of the fields `fixedScale`, `autoScale`
       "fixedScale": {
         "size": "string"
+      },
+      "autoScale": {
+        "minSize": "string",
+        "maxSize": "string",
+        // Includes only one of the fields `targetTracking`
+        "targetTracking": {
+          // Includes only one of the fields `cpuUtilizationPercent`
+          "cpuUtilizationPercent": "string"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -716,9 +1488,20 @@ Required. Parameter value ||
         "storageSizeLimit": "string"
       },
       "scalePolicy": {
-        // Includes only one of the fields `fixedScale`
+        // Includes only one of the fields `fixedScale`, `autoScale`
         "fixedScale": {
           "size": "string"
+        },
+        "autoScale": {
+          "minSize": "string",
+          "maxSize": "string",
+          // Includes only one of the fields `targetTracking`
+          "targetTracking": {
+            // Includes only one of the fields `cpuUtilizationPercent`
+            "cpuUtilizationPercent": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -726,7 +1509,10 @@ Required. Parameter value ||
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": "boolean"
+      "assignPublicIps": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     },
     "serverlessDatabase": {
       "throttlingRcuLimit": "string",
@@ -738,7 +1524,7 @@ Required. Parameter value ||
     // end of the list of possible fields
     "assignPublicIps": "boolean",
     "locationId": "string",
-    "labels": "string",
+    "labels": "object",
     "backupConfig": {
       "backupSettings": [
         {
@@ -870,7 +1656,10 @@ Required. Parameter value ||
         }
       ]
     },
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   }
   // end of the list of possible fields
 }
@@ -1022,13 +1811,14 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
 || assignPublicIps | **boolean** ||
 || locationId | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig2)** ||
 || documentApiEndpoint | **string** ||
 || kinesisApiEndpoint | **string** ||
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig2)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig2}
@@ -1055,7 +1845,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale2)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale2)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale2}
@@ -1063,6 +1856,39 @@ Includes only one of the fields `fixedScale`. ||
 #|
 ||Field | Description ||
 || size | **string** (int64) ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale2}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking2)**
+
+Includes only one of the fields `targetTracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking2}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpuUtilizationPercent | **string** (int64)
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase2}
@@ -1093,6 +1919,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase2}

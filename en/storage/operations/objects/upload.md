@@ -1,14 +1,19 @@
+---
+title: Uploading an object to a {{ objstorage-full-name }} bucket
+description: Follow this guide to upload an object to an {{ objstorage-name }} bucket and set up conditional writes for the upload.
+---
+
 # Uploading an object
 
-You can create folders inside buckets and upload objects there. Keep in mind that in the SDK and HTTP API, an object key is the entire path to the object from the bucket root. For more information, see [{#T}](../../concepts/object.md).
+You can create folders within a bucket and upload objects to them. Keep in mind that in the SDK and HTTP API, an object key is the entire path to the object from the bucket root. For more information, see [{#T}](../../concepts/object.md).
 
 {% note info %}
 
-You can upload objects of up to 5 GB via the management console (see [{#T}](../../concepts/limits.md)). When uploading via the console, you cannot set `content-type` or other headers. To upload large objects or specify object headers, use other [tools](../../tools/index.md).
+You can upload objects of up to 5 GB via the management console (see [{#T}](../../concepts/limits.md)). When uploading via the console, you cannot specify `content-type` or other headers. To upload larger objects or specify object headers, use other [tools](../../tools/index.md).
 
 {% endnote %}
 
-You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and [signed URLs](../../concepts/pre-signed-urls.md) to upload objects into the bucket.
+You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and [signed URLs](../../concepts/pre-signed-urls.md) to upload objects into a bucket.
 
 ## Regular uploads {#simple}
 
@@ -20,49 +25,56 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
 - Management console {#console}
 
-  In the management console, you can work with {{ objstorage-name }} buckets like a hierarchical file system.
-
-  To upload an object:
-  1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
-  1. Select **{{ objstorage-name }}**.
-  1. Click the name of the bucket you need.
-  1. If you want to upload the object to a particular folder, go to that folder by clicking on its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
-  1. Once you navigate to the appropriate folder, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
-  1. In the window that opens, select the required files and click **Open**.
-  1. The management console displays all the objects selected for uploading and prompts you to select a [storage class](../../concepts/storage-class.md). The default storage class is defined in the [bucket settings](../../concepts/bucket.md#bucket-settings).
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to upload the object into.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you need to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}**.
+  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
+  1. In the window that opens, select the files and click **Open**.
+  1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
   1. Click **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Refresh the page.
 
-  In the management console, information about the number of objects in a bucket and the used space is updated with a few minutes' delay.
+  In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  {% include [upload-object-via-cli](../../../_includes/storage/upload-obect-via-cli.md) %}
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
-  1. To upload a single object, run the command:
+  1. To upload a single object, run this command:
 
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
-       s3 cp <local_file_path>/ s3://<bucket_name>/<object_key>
+       s3 cp <local_file_path> s3://<bucket_name>/<object_key>
      ```
 
      Where:
 
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
-     * `s3 cp`: Command to upload an object. To upload an object, in the first part of the command, specify the path to the local file to upload. In the second part, provide the name of your bucket and [key](../../concepts/object.md#key) you will use to store the object in the bucket.
+     * `s3 cp`: Command to upload an object. To upload an object, in the first part of the command, provide the path to the local file you want to upload, and in the second part, the name of your bucket and the object storage [key](../../concepts/object.md#key).
 
      To load all objects from the local directory, use the following command:
-
+   
      ```bash
      aws --endpoint-url=https://{{ s3-storage-host }}/ \
        s3 cp --recursive <path_to_local_directory>/ s3://<bucket_name>/<prefix>/
      ```
-
+   
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
-     * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, specify the path to the folder to copy the files from in the first part of the command and the name of the bucket to copy the files to and the [ID of the folder](../../concepts/object.md#folder) in storage in the second part.
+     * `s3 cp --recursive`: Command to upload all objects stored in a local directory, including the nested ones. To upload objects, in the first part of the command, provide the path to the folder from which you want to copy the files to the bucket, and in the second part, the name of your bucket and storage [folder ID](../../concepts/object.md#folder).
 
-  `aws s3 cp` is a high-level command with limited functionality. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command  (see sample operations with [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
+  `aws s3 cp` is a high-level command providing limited features. For more information, see the [AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html). All upload features {{ objstorage-name }} supports can be used when running the [aws s3api put-object](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/put-object.html) command (see examples of using [object locks](../../concepts/object-lock.md) [below](#w-object-lock)).
 
 - {{ TF }} {#tf}
 
@@ -72,29 +84,37 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Before you start, retrieve the [static access keys](../../../iam/operations/sa/create-access-key.md): a secret key and a key ID used for authentication in {{ objstorage-short-name }}.
+  Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   To create an object in an existing bucket:
 
-  1. In the configuration file, describe the parameters of resources that you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
+     # Creating a service account
+
      resource "yandex_iam_service_account" "sa" {
        name = "<service_account_name>"
      }
 
-     // Assigning a role to a service account
+     # Assigning roles to a service account
+
      resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
        folder_id = "<folder_ID>"
        role      = "storage.admin"
        member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
      }
 
-     // Creating a static access key
+     # Creating a static access key
+     
      resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
        service_account_id = yandex_iam_service_account.sa.id
        description        = "static access key for object storage"
      }
+
+     # Create object
 
      resource "yandex_storage_object" "test-object" {
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
@@ -108,37 +128,20 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
      Where:
      * `access_key`: Static access key ID.
      * `secret_key`: Secret access key value.
-     * `bucket`: Name of the bucket where to add the object. This is a required parameter.
-     * `key`: Name of the object in the bucket. This is a required parameter. The name format is as follows:
+     * `bucket`: Name of the bucket to add the object to. This is a required setting.
+     * `key`: Name of the object in the bucket. This is a required setting. Follow these naming requirements:
 
         {% include [name-format](../../../_includes/name-format.md) %}
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-resources-link }}/storage_object).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
-  1. Make sure the configuration files are correct.
+1. Create the resources:
 
-     1. In the command line, go to the folder where you created the configuration file.
-     1. Run a check using this command:
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```bash
-        terraform plan
-        ```
-
-     If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
-
-  1. Deploy cloud resources.
-
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
-
-        All the resources you need will then be created in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -146,14 +149,87 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
 {% endlist %}
 
-
 ## Uploading an object version with an object lock {#w-object-lock}
 
-If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md) enabled, you can specify object lock settings (disable deleting or overwriting) when uploading an object version.
+For a bucket with enabled [versioning](../buckets/versioning.md) and [object lock](../buckets/configure-object-lock.md), you can define object lock settings (disable deleting or overwriting) when uploading an object version.
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket to upload the object into.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+  1. If you want to upload an object to the bucket for the first time, click **{{ ui-key.yacloud.storage.bucket.button_empty-create }}**.
+  1. If you want to upload the object to a specific folder, navigate to that folder by clicking its name. If you want to create a new folder, click **{{ ui-key.yacloud.storage.bucket.button_create }}** on the top panel.
+  1. Within the folder you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
+  1. In the window that opens, select the files and click **Open**.
+  1. The management console will display all the objects you selected for uploading and prompt you to select a [storage class](../../concepts/storage-class.md). The [bucket configuration](../../concepts/bucket.md#bucket-settings) determines the default storage class.
+  1. To configure locks for the objects you are uploading, select the lock type from the **{{ ui-key.yacloud.storage.title_object-lock }}** drop-down list:
+     * **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**: Indefinitely prohibits deleting or overwriting the object version, while you still can upload new versions of the object. A user with the `storage.uploader` role can set and remove legal hold. There is no way to bypass this type of lock. When combined with retention, legal hold takes priority.
+     * **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**: Prohibits deleting or overwriting the object version for a specified period of time, while you still can upload new versions of the object. A user with the `storage.uploader` role can set a retention period. When combined with legal hold, retention takes no priority.
+  1. If you selected **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**, specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}**: User with the `storage.admin` role can bypass the lock, change its expiration date, or remove it.
+     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}**: User with the `storage.admin` role can only extend the retention period. You cannot override, shorten, or remove such locks until they expire.
+  1. Specify **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** in days or years. It starts from the moment you upload the object version to the bucket.
+  1. Click **{{ ui-key.yacloud.storage.button_upload }}** and refresh the page.
+
+  In the management console, the information about the number of objects and storage space used in the bucket is updated with a few minutes' delay.
+
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. See the description of the CLI command for uploading a file to a bucket:
+
+      ```bash
+      yc storage s3api put-object --help
+      ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Run this command:
+
+      ```bash
+      yc storage s3api put-object \
+       --body <local_file_path> \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --object-lock-mode <retention_type> \
+       --object-lock-retain-until-date <retention_end_date_and_time> \
+       --object-lock-legal-hold-status <legal_hold_status>
+      ```
+
+     Where:
+
+     * `--body`: Path to the file you need to upload to the bucket.
+     * `--bucket`: Name of your bucket.
+     * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+     * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of retention:
+
+       * `GOVERNANCE`: Governance-mode retention.
+       * `COMPLIANCE`: Compliance-mode retention.
+  
+     * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `2025-01-02T15:04:05Z`. You can only specify it together with the `--object-lock-mode` parameter.
+  
+     * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
+  
+       * `ON`: Enabled.
+       * `OFF`: Disabled.
+
+     For an object version, you can use either retention (the `object-lock-mode` and `object-lock-retain-until-date` parameters), legal hold (`object-lock-legal-hold-status`), or both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
+
+     Result:
+
+     ```bash
+     etag: '"d41d8cd98f00b204e9800998********"'
+     request_id: e19afe50********
+     version_id: 0006241E********
+     ```
+
+- AWS CLI {#aws-cli}
 
   1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
   1. Run this command:
@@ -165,30 +241,30 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
        --bucket <bucket_name> \
        --key <object_key> \
        --object-lock-mode <retention_type> \
-       --object-lock-retain-until-date <retention_period_end_date_and_time> \
+       --object-lock-retain-until-date <retention_end_date_and_time> \
        --object-lock-legal-hold-status <legal_hold_status>
      ```
-
+     
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3api put-object`: Command to upload an object version. To upload object versions with an object lock, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
-       * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
-       * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of object lock with retention:
-
-         * `GOVERNANCE`: Temporary managed lock.
-         * `COMPLIANCE`: Temporary strict lock.
-
+       * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+       * `--object-lock-mode`: [Type](../../concepts/object-lock.md#types) of retention:
+   
+         * `GOVERNANCE`: Governance-mode retention.
+         * `COMPLIANCE`: Compliance-mode retention.
+    
        * `--object-lock-retain-until-date`: Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. You can only specify it together with the `--object-lock-mode` parameter.
-
+    
        * `--object-lock-legal-hold-status`: [Legal hold](../../concepts/object-lock.md#types) status:
-
+    
          * `ON`: Enabled.
          * `OFF`: Disabled.
-
-     For an object version, you can use only object lock with retention (`object-lock-mode` and `object-lock-retain-until-date` parameters), only legal hold (`object-lock-legal-hold-status`), or both at the same time. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
+    
+     For an object version, you can use either retention (the `object-lock-mode` and `object-lock-retain-until-date` parameters), legal hold (`object-lock-legal-hold-status`), or both. For more information about their combined use, see [{#T}](../../concepts/object-lock.md#types).
 
 - API {#api}
 
@@ -196,13 +272,57 @@ If a bucket has [versioning](../buckets/versioning.md) and [object lock](../buck
 
 {% endlist %}
 
-If [object locks with retention](../../concepts/object-lock.md#default) are configured for a bucket by default, when uploading objects to that bucket, you should specify their [MD5 hashes](https://{{ lang }}.wikipedia.org/wiki/MD5):
+If your bucket already has [default retention periods](../../concepts/object-lock.md#default) configured, specify the relevant [MD5 hash](https://{{ lang }}.wikipedia.org/wiki/MD5) for any object you upload to the bucket:
 
 {% list tabs group=instructions %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  1. Calculate a file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Determine the file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+
+     ```bash
+     md5=($(md5sum <local_file_path>))
+     md5_base64=$(echo $md5 | base64)
+     ```
+
+  1. See the description of the CLI command for uploading a file to a bucket:
+
+     ```bash
+     yc storage s3api put-object --help
+     ```
+
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Upload an object to the bucket:
+
+     ```bash
+      yc storage s3api put-object \
+       --body <local_file_path> \
+       --bucket <bucket_name> \
+       --key <object_key> \
+       --content-md5 $md5_base64
+     ```
+
+     Where:
+
+     * `--body`: Path to the file you need to upload to the bucket.
+     * `--bucket`: Name of your bucket.
+     * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
+     * `--content-md5`: Object's encoded MD5 hash.
+
+     You can also add the following parameters to the command:
+
+     * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
+     * `--object-lock-legal-hold-status` to set a legal hold on an object version.
+
+     For more information about these parameters, see the steps above.
+
+- AWS CLI {#aws-cli}
+
+  1. Determine the file’s MD5 hash and encode it with [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
 
      ```bash
      md5=($(md5sum <local_file_path>))
@@ -220,22 +340,22 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
        --key <object_key> \
        --content-md5 $md5_base64
      ```
-
+   
      Where:
-
+   
      * `--endpoint-url`: {{ objstorage-name }} endpoint.
      * `s3api put-object`: Command to upload an object version. To upload object versions, specify the following parameters:
        * `--body`: Path to the file you need to upload to the bucket.
        * `--bucket`: Name of your bucket.
-       * `--key`: [Key](../../concepts/object.md#key) to use for storing the object in the bucket.
+       * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket.
        * `--content-md5`: Object's encoded MD5 hash.
-
+     
      You can also add the following parameters to the command:
-
-     * `--object-lock-mode` and `--object-lock-retain-until-date` to place an object version under an object lock with retention that is different from the bucket's default settings.
-     * `--object-lock-legal-hold-status` to place a legal hold on an object version.
+     
+     * `--object-lock-mode` and `--object-lock-retain-until-date` to set a retention period for an object version that overrides the bucket's default retention settings.
+     * `--object-lock-legal-hold-status` to set a legal hold on an object version.
  
-     For more information about these parameters, see the guide above.
+     For more information about these parameters, see the steps above.
 
 - API {#api}
 
@@ -244,6 +364,87 @@ If [object locks with retention](../../concepts/object-lock.md#default) are conf
 {% endlist %}
 
 
+## Object conditional writes {#conditional-writes}
+
+You can use [conditions](../../concepts/object.md#conditional-writes) when uploading an object, as well as when [completing a multipart upload](multipart-upload.md#conditional-writes).
+
+{% note tip %}
+
+{% include [use-forced-conditions](../../../_includes/storage/use-forced-conditions.md) %}
+
+{% endnote %}
+
+
+### Uploading an object with an ETag condition {#if-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To upload an object only if an object with a certain `ETag` exists, run this command:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <local_file_path> \
+          --bucket <bucket_name> \
+          --key <object_path> \
+          --if-match "<object_ETag>"
+      ```
+
+      Where:
+
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
+      * `--bucket`: Name of your bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
+
+- API {#api}
+
+  To upload an object only if an object with a certain `ETag` exists, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `--if-match` header.
+
+{% endlist %}
+
+
+### Uploading an object with an absence condition {#if-none-match}
+
+{% list tabs group=instructions %}
+
+
+- AWS CLI {#aws-cli}
+
+  1. If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
+  1. To upload an object only if there is no object with a specific key in the bucket, run this command:
+
+      ```bash
+      aws s3api put-object \
+          --endpoint-url https://{{ s3-storage-host }} \
+          --body <local_file_path> \
+          --bucket <bucket_name> \
+          --key <object_path> \
+          --if-none-match "*"
+      ```
+
+      Where:
+
+      * `--endpoint-url`: {{ objstorage-name }} endpoint.
+      * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
+      * `--bucket`: Name of your bucket.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
+
+- API {#api}
+
+  To upload an object only if the bucket does not contain an object with a specific key, use the [upload](../../s3/api-ref/object/upload.md) S3 API method with the `--if-none-match` header.
+
+{% endlist %}
+
+
+
 #### See also {#see-also}
 
 * [{#T}](../../tutorials/storage-vpc-access.md)
+

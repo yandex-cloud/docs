@@ -1,6 +1,6 @@
 ---
-title: Создание реестра
-description: Следуя данной инструкции, вы сможете создать реестр.
+title: Создание реестра в {{ iot-full-name }}
+description: Следуя данной инструкции, вы сможете создать реестр в {{ iot-name }}.
 ---
 
 # Создание реестра
@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать реестр.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. На панели слева выберите иконку **{{ ui-key.yacloud.iot.label_registries }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В блоке **{{ ui-key.yacloud.common.section-base }}** добавьте:
@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [password-save](../../../_includes/iot-core/password-save.md) %}
 
-      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.iot.button_add-label }}**.
+      * (Опционально) Для присвоения реестру метки заполните поля **{{ ui-key.yacloud.component.key-values-input.label_key }}** и **{{ ui-key.yacloud.component.key-values-input.label_value }}** и нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
 
   1. (Опционально) Добавьте [сертификат](../certificates/create-certificates.md):
 

@@ -1,0 +1,39 @@
+title: Yandex Cloud Router
+description:
+  - >-
+    <em>Сервис Yandex Cloud Router находится на <a
+    href="https://yandex.cloud/docs/overview/concepts/launch-stages">стадии
+    Preview</a></em>.
+  - >-
+    {{ cr-full-name }} — сервис для управления сетевыми топологиями гибридного
+    облака в {{ yandex-cloud }}. 
+  - >-
+    Инфраструктура Yandex Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
+    в соответствии с ФЗ-152.
+links:
+  - title: Концепции
+    description: Узнайте про возможности сервиса
+    href: concepts/
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутиных операций
+    href: operations/
+  - title: Сценарии использования
+    description: Описание сценариев использования
+    href: scenarios/
+meta:
+  title: Yandex Cloud Router
+  description: >-
+    {{ cr-full-name }} это сервис для управления сетевыми топологиями гибридного
+    облака в {{ yandex-cloud }}.
+  keywords:
+    - облачный роутер
+    - роутер в {{ yandex-cloud }}
+    - '{{ cr-name }}'
+    - '{{ cr-full-name }}'
+    - '{{ cr-name }} в {{ yandex-cloud }}'
+    - сервис {{ cr-name }}
+    - Routing Instance
+    - роутер {{ cr-full-name }}
+    - Гибридное облако {{ cr-full-name }}
+    - Гибридное облако {{ yandex-cloud }}

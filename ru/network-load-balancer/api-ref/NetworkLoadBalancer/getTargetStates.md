@@ -1,9 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
+    method: get
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            ID of the NetworkLoadBalancer resource with an attached target group.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            ID of the target group to get states of resources from.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/getTargetStates.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates {#GetTargetStates}
+# Network Load Balancer API, REST: NetworkLoadBalancer.GetTargetStates
 
 Gets states of target resources in the attached target group.
 
@@ -41,7 +64,8 @@ ID of the target group to get states of resources from. ||
     {
       "subnetId": "string",
       "address": "string",
-      "status": "string"
+      "status": "string",
+      "zoneShifted": "boolean"
     }
   ]
 }
@@ -76,4 +100,7 @@ Status of the target.
 - `UNHEALTHY`: Health check failed and the target is not receiving traffic.
 - `DRAINING`: Target is being deleted and the network load balancer is no longer sending traffic to this target.
 - `INACTIVE`: The network load balancer is stopped and not performing health checks on this target. ||
+|| zoneShifted | **boolean**
+
+Zone shifted status. ||
 |#

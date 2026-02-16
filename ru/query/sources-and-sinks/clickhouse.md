@@ -22,7 +22,7 @@ SELECT * FROM clickhouse_mdb_connection.my_table
 Чтобы создать соединение с {{ mch-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
@@ -75,7 +75,11 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+{% include [!](_includes/predicate_pushdown_examples.md) %}
+
+Поддерживаемые типы данных для пушдауна фильтров:
 
 |Тип данных {{ yq-full-name }}|
 |----|
@@ -90,6 +94,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 |`Uint64`|
 |`Float`|
 |`Double`|
+|`String`|
 
 ## Поддерживаемые типы данных {#supported_types}
 

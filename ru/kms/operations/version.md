@@ -4,6 +4,12 @@
 
 ## Сделать версию основной {#make-primary}
 
+{% note info %}
+
+Изменение основной версии ключа относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
+
 Чтобы сделать версию основной:
 
 {% list tabs group=instructions %}
@@ -11,7 +17,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
@@ -20,13 +26,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
      ```
-	 
-	 Результат:
-	 
-	 ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -39,7 +45,7 @@
 
   1. Смените версию ключа, указав идентификатор нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key set-primary-version example-key-1 \
        --version-id abj8cvn99nam********
      ```
@@ -69,7 +75,7 @@
   Чтобы удалить версию:
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
@@ -82,13 +88,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Результат:
-	 
-	 ```
+     ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+--------+-----------+
      |          ID          | PRIMARY | STATUS | ALGORITHM |
      +----------------------+---------+--------+-----------+
@@ -101,7 +107,7 @@
 
   1. Запланируйте удаление нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key schedule-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```
@@ -114,6 +120,12 @@
 
 {% endlist %}
 
+{% note info %}
+
+Планирование удаления версии ключа относится к [eventually consistent](../concepts/consistency.md) операциям. Изменения, вызванные такими операциями, вступают в силу с задержкой до трех часов.
+
+{% endnote %}
+
 ## Отменить удаление версии {#cancel-delete}
 
 Если вы запланировали удаление версии ключа, то до запланированной даты вы можете отменить удаление:
@@ -123,7 +135,7 @@
 - Консоль управления {#console}
 
   1. Войдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
   1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
@@ -134,13 +146,13 @@
 
   1. Получите список версий нужного ключа:
 
-     ```
+     ```bash
      yc kms symmetric-key list-versions example-key
-	 ```
-	 
-	 Результат:
-	 
-	 ```
+     ```
+
+     Результат:
+
+     ```text
      +----------------------+---------+---------------------------+-----------+
      |          ID          | PRIMARY |          STATUS           | ALGORITHM |
      +----------------------+---------+---------------------------+-----------+
@@ -153,7 +165,7 @@
 
   1. Отмените удаление нужной версии:
 
-     ```
+     ```bash
      yc kms symmetric-key cancel-version-destruction example-key \
        --version-id abjed9ciau8e********
      ```

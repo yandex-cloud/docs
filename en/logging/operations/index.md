@@ -1,6 +1,7 @@
 ---
 title: How to work with {{ cloud-logging-full-name }}
 description: In this article, you will learn how to work with {{ cloud-logging-full-name }} in {{ yandex-cloud }}.
+sourcePath: en/logging_includes/operations/index.md
 ---
 
 # Step-by-step guides for {{ cloud-logging-name }}
@@ -21,7 +22,7 @@ description: In this article, you will learn how to work with {{ cloud-logging-f
 * [Viewing monitoring charts](./monitoring.md)
 * [{#T}](./delete-group.md)
 
-### Exporting logs {#discharge-logs}
+### Log export {#discharge-logs}
 
 * [{#T}](./create-sink.md)
 * [{#T}](./export-logs.md)

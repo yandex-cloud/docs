@@ -1,3 +1,8 @@
+---
+title: Практические руководства {{ data-transfer-full-name }}
+description: Различные сценарии использования {{ data-transfer-name }} в {{ yandex-cloud }}.
+---
+
 # Практические руководства {{ data-transfer-name }}
 
 
@@ -10,12 +15,12 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 ![migration](../../_assets/data-transfer/tutorials/migration.svg)
 
 * [Миграция кластера {{ PG }}](managed-postgresql.md)
+* [Миграция кластера {{ mpg-name }} на другую версию](postgresql-versions.md)
 * [Миграция кластера {{ MY }}](managed-mysql-to-mysql.md)
 * [Миграция кластера {{ CH }}](managed-clickhouse.md)
-* [Перешардирование данных в кластере {{ mch-name }}](mch-mch-resharding.md)
 * [Миграция кластера {{ GP }}](managed-greenplum.md)
-* [Миграция кластера {{ MG }}](managed-mongodb.md)
-* [Миграция кластера {{ MG }} с версии 4.4 на 6.0](mongodb-versions.md)
+* [Миграция кластера {{ MG }}](storedoc.md)
+* [Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0](storedoc-versions.md)
 * [Миграция из AWS RDS for {{ PG }}](rds-to-mpg.md)
 * [Миграция кластера {{ OS }}](os-to-mos.md)
 
@@ -34,9 +39,10 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ MY }} в {{ PG }}](mmy-to-mpg.md)
 * [{{ PG }} в {{ MY }}](mpg-to-mmy.md)
 * [{{ MY }} в {{ GP }}](mmy-to-mgp.md)
-* [{{ ES }} в {{ OS }}](mes-to-mos.md)
 * [{{ OS }} в {{ ydb-short-name }}](opensearch-to-ydb.md)
+* [{{ OS }} в {{ GP }}](opensearch-to-greenplum.md)
 * [{{ PG }} в {{ OS }}](postgresql-to-opensearch.md)
+* [{{ ES }} в {{ OS }}](mes-to-mos.md)
 
 ## Захват изменений данных {#cdc}
 
@@ -64,14 +70,18 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ KF }} в {{ CH }}](mkf-to-mch.md)
 * [{{ KF }} в {{ PG }}](mkf-to-mpg.md)
 * [{{ KF }} в {{ GP }}](managed-kafka-to-greenplum.md)
-* [{{ KF }} в {{ MG }}](mkf-to-mmg.md)
+* [{{ KF }} в {{ SD }}](mkf-to-mmg.md)
 * [{{ KF }} в {{ MY }}](mkf-to-mmy.md)
 * [{{ KF }} в {{ OS }}](mkf-to-mos.md)
 * [{{ KF }} в {{ ydb-short-name }}](mkf-to-ydb.md)
+
 * [{{ KF }} в {{ DS }}](mkf-to-yds.md)
+
 * [{{ DS }} в {{ CH }}](yds-to-clickhouse.md)
 * [{{ DS }} в {{ objstorage-name }}](yds-to-objstorage.md)
-* [{{ DS }} в {{ OS }}](trails-to-os.md)
+* [{{ DS }} в {{ ydb-name }}](yds-to-ydb.md)
+* [{{ DS }} в {{ KF }}](yds-to-kafka.md)
+* [{#T}](data-ingestion.md)
 
 ## Загрузка данных в витрины {#upload-to-data-mart}
 
@@ -103,10 +113,10 @@ C помощью {{ data-transfer-name }} вы можете реализоват
 * [{{ PG }} в {{ objstorage-name }}](mpg-to-objstorage.md)
 * [{{ OS }} в {{ objstorage-name }}](opensearch-to-object-storage.md)
 * [{{ ydb-short-name }} в {{ objstorage-name }}](ydb-to-object-storage.md)
-
+* [Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}](replicate-logs-to-storage-via-data-streams.md)
+* [Репликация логов в {{ objstorage-name }} с помощью Fluent Bit](replicate-logs-to-storage.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 
 

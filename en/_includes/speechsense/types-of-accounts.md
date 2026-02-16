@@ -2,6 +2,7 @@
 
    * Yandex account
    * Federated account
+   * Local account
    * Service account
 
    To learn more about organization users, see the [{{ yandex-cloud }} overview](../../overview/roles-and-resources.md#users).

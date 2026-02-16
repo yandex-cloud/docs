@@ -1,3 +1,8 @@
+---
+title: Connections
+description: This page covers FAQ about connections.
+---
+
 # Connections
 
 {% include [postgre-type.md](../../_qa/datalens/postgre-type.md) %}

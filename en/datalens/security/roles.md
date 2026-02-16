@@ -1,67 +1,65 @@
 ---
-title: Access management in the {{ datalens-full-name }} data visualization and analysis service
-description: This section describes the roles required to perform a particular action, the resources for which you can assign a role, and the roles existing in the service.
+title: 'Managing access in {{ datalens-full-name }}: data visualization and analysis service'
+description: This section describes the roles required for specific actions, the resources for which you can assign a role, and the roles existing in {{ datalens-full-name }}.
 ---
 
-# {{ datalens-short-name }} roles
+# {{ datalens-full-name }} roles
+
 
 There are two types of roles in {{ datalens-short-name }}:
 
-* For service access: These roles are assigned for an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
+* For service access: These roles are assigned to an [organization](../concepts/organizations.md) and grant access to {{ datalens-short-name }}.
 * For [workbooks and collections](../workbooks-collections/index.md): These roles define the access level to each workbook or collection. They apply to users who [switched to workbooks and collections](../workbooks-collections/index.md#enable-workbooks) to store their objects in {{ datalens-short-name }}.
 
 ## Roles required to access the service {#service-roles}
 
-To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, a [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), a [user group](../../organization/operations/manage-groups.md), or a [system group](../../iam/concepts/access-control/system-group.md).
+To grant a user access to {{ datalens-short-name }}, [assign](../../organization/security/index.md#add-role) them a role. You can assign roles to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md).
 
+{% list tabs group=datalens_roles %}
 
-{% list tabs %}
+- After switching to workbooks and collections {#after-workbooks-collections}
 
-- Before switching to workbooks and collections
+  {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
 
-   {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
+  {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
 
-   {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
+  {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
 
-- After switching to workbooks and collections
+- Before switching to workbooks and collections {#before-workbooks-collections}
 
-   {% include [roles-datalens-visitor](../../_includes/roles-datalens-visitor.md) %}
+  {% include [datalens-instances-user](../../_includes/roles-datalens-user.md) %}
 
-   {% include [roles-datalens-creator](../../_includes/roles-datalens-creator.md) %}
-
-   {% include [roles-datalens-admin-org](../../_includes/roles-datalens-admin-org.md) %}
+  {% include [datalens-instances-admin](../../_includes/roles-datalens-admin.md) %}
 
 {% endlist %}
 
-
-
 ## Roles for workbooks and collections {#workbooks-collections-roles}
 
-These roles apply to users who switched to a new approach to storing {{ datalens-short-name }} objects: in [workbooks and collections](../workbooks-collections/index.md). The roles allow you to define the level of access to each workbook or collection for a user or a user group.
+These roles are valid for users who adopted the new {{ datalens-short-name }} object layout: in [workbooks and collections](../workbooks-collections/index.md). The roles allow you to configure access level to each workbook or collection for a user or user group.
 
 ### Roles for workbooks {#workbook-roles}
 
-You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for workbooks.
+You can [assign](../workbooks-collections/security.md#wb-coll-grant) roles for workbooks to a user.
 
-#### Limited viewer {#workbooks-limitedViewer}
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
 
-The `Limited viewer` role allows you to view all [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md) inside a workbook without editing them.
+{% include [datalens.workbooks.limitedViewer](../../_roles/datalens/workbooks/limitedViewer.md) %}
 
-#### Viewer {#workbooks-viewer}
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
 
-The `Viewer` role allows you to view workbook contents without editing them.
+{% include [datalens.workbooks.viewer](../../_roles/datalens/workbooks/viewer.md) %}
 
-#### Editor {#workbooks-editor}
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
 
-The `Editor` role allows you to edit and copy workbook contents.
+{% include [datalens.workbooks.editor](../../_roles/datalens/workbooks/editor.md) %}
 
-#### Admin {#workbooks-admin}
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
 
-The `Admin` role allows you to view and edit workbook contents, move, copy, and delete workbooks, and manage access to them.
+{% include [datalens.workbooks.admin](../../_roles/datalens/workbooks/admin.md) %}
 
 {% note info %}
 
-The author of a workbook is automatically assigned the `Admin` role for the workbook.
+The workbook author automatically gets the `datalens.workbooks.admin` (`Admin`) role for the workbook as soon as it is created.
 
 {% endnote %}
 
@@ -69,24 +67,28 @@ The author of a workbook is automatically assigned the `Admin` role for the work
 
 You can [assign](../workbooks-collections/security.md#wb-coll-grant) a user roles for collections.
 
-#### Limited viewer {#collections-limitedViewer}
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
-The `Limited viewer` role allows you to view collections and their workbooks without editing them. Within workbooks, users can only view [charts](../concepts/chart/index.md) and [dashboards](../concepts/dashboard.md).
+{% include [datalens.collections.limitedViewer](../../_roles/datalens/collections/limitedViewer.md) %}
 
-#### Viewer {#collections-viewer}
+#### datalens.collections.viewer {#datalens-collections-viewer}
 
-The `Viewer` role allows you to view collection contents without editing them.
+{% include [datalens.collections.viewer](../../_roles/datalens/collections/viewer.md) %}
 
-#### Editor {#collections-editor}
+#### datalens.collections.editor {#datalens-collections-editor}
 
-The `Editor` role allows users to edit collections: create and edit collections and their workbooks.
+{% include [datalens.collections.editor](../../_roles/datalens/collections/editor.md) %}
 
-#### Admin {#collections-admin}
+#### datalens.collections.admin {#datalens-collections-admin}
 
-The `Admin` role grants full access to collections and their contents, including permission to manage access to them and move collections and their contents.
+{% include [datalens.collections.admin](../../_roles/datalens/collections/admin.md) %}
+
+This role includes the `datalens.collections.editor` and `datalens.workbooks.admin` permissions.
 
 {% note info %}
 
-The role granted for a collection applies to all collections and their workbooks. The author of a collection is automatically assigned the `Admin` role for the collection.
+The role granted for a collection applies to all collections and their workbooks. The collection author automatically gets the `datalens.collections.admin` (`Admin`) role for the collection as soon as it is created.
 
 {% endnote %}
+
+

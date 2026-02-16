@@ -10,9 +10,11 @@ High-quality raw original video content (video file or broadcast) is not well su
 * Distributes content using the CDN technology.
 * Provides a fault-tolerant infrastructure for transcoding, storing, and broadcasting video content.
 
-{% include [preview-stage](../../_includes/video/preview-stage.md) %}
+You can also monetize your video content using the [Yandex Advertising Network](https://yandex.ru/support2/partner/ru/yan-rules/video).
 
-{% include [ask-for-turning-on](../../_includes/video/ask-for-turning-on.md) %}
+To learn more about advertising, see [{#T}](../operations/channels/settings.md).
+
+Also, in {{ video-name }}, you can use Yandex tools for summarization, neural translation, and subtitle generation.
 
 ## Channels {#channels}
 
@@ -23,3 +25,4 @@ A _channel_ is a way to arrange content in {{ video-name }}. For example, you ca
 * [{#T}](../security/index.md)
 * [{#T}](../hosting.md)
 * [{#T}](../streaming.md)
+* [AI tools and content monetization: What’s new in {{ video-full-name }}](https://yandex.cloud/ru/blog/cloud-video-update)

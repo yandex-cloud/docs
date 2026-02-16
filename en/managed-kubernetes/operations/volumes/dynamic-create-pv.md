@@ -14,25 +14,21 @@ Create a [pod](../../concepts/index.md#pod) with a dynamically provisioned [volu
 
 {% note tip %}
 
-You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../storage/concepts/bucket.md) as storage for your pod. For more information, see [{#T}](s3-csi-integration.md).
+You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../storage/concepts/bucket.md) to store your pod. For more information, see [{#T}](s3-csi-integration.md).
 
 {% endnote %}
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a PersistentVolumeClaim {#create-pvc}
 
 1. Save the following `PersistentVolumeClaim` creation specification to a YAML file named `pvc-dynamic.yaml`.
 
-
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class, `yc-network-hdd`, will be used. Learn how to change the default class in [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
-   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
-
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -48,8 +44,6 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
          storage: 4Gi
    ```
 
-
-
 1. Run this command:
 
    ```bash
@@ -62,14 +56,13 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    persistentvolumeclaim/pvc-dynamic created
    ```
 
-1. View the new `PersistentVolumeClaim` object's info:
+1. View the information about the new `PersistentVolumeClaim` object:
 
    ```bash
    kubectl describe persistentvolumeclaim pvc-dynamic
    ```
 
    Result:
-
 
    ```text
    Name:          pvc-dynamic
@@ -81,13 +74,11 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
    ```
 
-
-
 ## Create a pod with a dynamically provisioned volume {#create-pod}
 
 1. Save the following pod creation specification to a YAML file named `pod.yaml`.
 
-   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
+   Learn more about the pod creation specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/workload-resources/pod-v1/).
 
    ```yaml
    apiVersion: v1
@@ -121,7 +112,7 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
    pod/pod created
    ```
 
-1. View information about the pod created:
+1. View the information about the new pod:
 
    ```bash
    kubectl describe pod pod
@@ -139,16 +130,15 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
      Normal  Started                 10s   kubelet, cl1gqrct5oie********-ytas  Started container
    ```
 
-   After creating a pod:
-   * In the [management console]({{ link-console-main }}) in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the **{{ ui-key.yacloud.compute.switch_disks }}** section, a new [disk](../../../compute/concepts/disk.md) will appear with the `k8s-csi` prefix in the disk name.
-   * You can find disk provisioning information in the `PersistentVolumeClaim` events:
+   After creating the pod:
+   * In the [management console]({{ link-console-main }}) in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** under **{{ ui-key.yacloud.compute.disks_ddfdb }}**, a new [disk](../../../compute/concepts/disk.md) will appear with the `k8s-csi` prefix in its name.
+   * You can find the disk provisioning information in the `PersistentVolumeClaim` events:
 
      ```bash
      kubectl describe persistentvolumeclaim pvc-dynamic
      ```
 
      Result:
-
 
      ```text
      Name:          pvc-dynamic
@@ -160,14 +150,19 @@ You can use a [{{ objstorage-full-name }}](../../../storage/) [bucket](../../../
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00d********  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00d********
      ```
 
-
-
 ## How to delete a volume {#delete-volume}
 
-To delete a dynamically provisioned volume, delete the `PersistentVolumeClaim` object:
+To delete a dynamically provisioned volume, delete the `PersistentVolumeClaim`:
 
 ```bash
-kubectl delete pvc <PersistentVolumeClaim_object_ID>
+kubectl delete pvc <PersistentVolumeClaim_ID>
 ```
 
 The disk will be deleted automatically from [{{ compute-full-name }}](../../../compute/).
+
+### See also {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./static-create-pv.md)
+* [{#T}](./manage-storage-class.md)

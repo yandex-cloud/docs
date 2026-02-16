@@ -2,38 +2,81 @@
 
 When creating a cluster in {{ mos-short-name }}, you can specify a list of required plugins and they will be installed in the cluster automatically. For a full list of available plugins, see [Additional plugins](../concepts/plugins.md#opensearch).
 
-## Retrieving a list of installed plugins {#list}
+## Getting a list of installed plugins {#list}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Click the cluster name.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To get a list of installed plugins, request information about an {{ OS }} cluster:
+    To get a list of installed plugins, get information about your {{ OS }} cluster:
 
-   ```bash
-   {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
-   ```
+    ```bash
+    {{ yc-mdb-os }} cluster get <cluster_name_or_ID>
+    ```
 
-   You will see the list of plugins in the `config.opensearch.plugins` parameter.
+    You can find a list of plugins in the `config.opensearch.plugins` parameter.
 
-   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-   To get a list of installed plugins, use the [get](../api-ref/Cluster/get.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Get](../api-ref/grpc/Cluster/get.md) gRPC API call and provide the cluster ID in the `clusterId` request parameter.
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
-   Enabled plugins will be shown in the `config.opensearch.plugins` list.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-   {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+    1. Call the [Cluster.Get](../api-ref/Cluster/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>'
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+
+        You will see enabled plugins on the `config.opensearch.plugins` list.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [ClusterService.Get](../api-ref/grpc/Cluster/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<cluster_ID>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Get
+        ```
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+
+        You will see enabled plugins on the `config.opensearch.plugins` list.
 
 {% endlist %}
 
@@ -43,66 +86,150 @@ When creating a cluster in {{ mos-short-name }}, you can specify a list of requi
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-   1. Select a cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** on the top panel.
-   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins you want to install.
-   1. Click **{{ ui-key.yacloud.common.save }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. Select the cluster and click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify the plugins to install.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../_includes/cli-install.md) %}
+    {% include [cli-install](../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   To change the list of installed {{ OS }} plugins, run the command:
+    To edit a list of installed {{ OS }} plugins, run this command:
 
-   ```bash
-   {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
-      --plugins <plugins>
-   ```
+    ```bash
+    {{ yc-mdb-os }} cluster update <cluster_name_or_ID> \
+       --plugins <plugins>
+    ```
 
-   In the `--plugins` parameter, list the required plugins separated by commas. To keep the previously installed plugins, specify them in the `--plugins` parameter as well.
+    In the `--plugins` parameter, list the required plugins separated by commas. To keep the previously installed plugins, specify them in the `--plugins` parameter as well.
 
-   You can request the cluster name and ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
-   1. Open the current {{ TF }} configuration file with an infrastructure plan.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For more information about how to create this file, see [Creating clusters](cluster-create.md).
+        To learn how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of available {{ mos-name }} cluster configuration fields, see the [{{ TF }} provider documentation]({{ tf-provider-mos }}).
+        For a complete list of {{ mos-name }} cluster configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-mos }}).
 
-   1. In the cluster description, change the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
+    1. In the cluster description, edit the list of clusters for the `plugins` parameter under `config`. If there is no such parameter, add it.
 
-      ```hcl
-      resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
-        ...
-        config {
-          plugins = ["<list_of_plugin_names>"]
+        ```hcl
+        resource "yandex_mdb_opensearch_cluster" "<cluster_name>" {
           ...
+          config {
+            plugins = ["<list_of_plugin_names>"]
+            ...
+          }
         }
-      }
-      ```
+        ```
 
-   1. Make sure the settings are correct.
+    1. Make sure the settings are correct.
 
-      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-   1. Confirm updating the resources.
+    1. Confirm updating the resources.
 
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-   To update the list of installed plugins, use the [update](../api-ref/Cluster/update.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
 
-   * Cluster ID in the `clusterId` parameter.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      {% include [get-cluster-id](../../_includes/managed-opensearch/get-cluster-id.md) %}
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
-   * List of plugins in the `configSpec.opensearchSpec.plugins` parameter. The plugins that are not included in the list will be disabled.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<cluster_ID>' \
+            --data '{
+                        "updateMask": "configSpec.opensearchSpec.plugins",
+                        "configSpec": {
+                            "opensearchSpec": {
+                                "plugins": [
+                                    "<{{ OS }}_plugin_1>",
+                                    "<{{ OS }}_plugin_2>",
+                                    ...
+                                    "<{{ OS }}_plugin_N>"
+                                ]
+                            }
+                        }
+                    }'
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated string of settings you want to update.
+
+            Here, we provide only one setting.
+
+        * `configSpec.opensearchSpec.plugins`: New list of [{{ OS }} plugins](../concepts/plugins.md).
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<cluster_ID>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.opensearch_spec.plugins"
+                        ]
+                    },
+                    "config_spec": {
+                        "opensearch_spec": {
+                            "plugins": [
+                                "<{{ OS }}_plugin_1>",
+                                "<{{ OS }}_plugin_2>",
+                                ...
+                                "<{{ OS }}_plugin_N>"
+                            ]
+                        }
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Where:
+
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+
+            Here, we provide only one setting.
+
+        * `config_spec.opensearch_spec.plugins`: New list of [{{ OS }} plugins](../concepts/plugins.md).
+
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}

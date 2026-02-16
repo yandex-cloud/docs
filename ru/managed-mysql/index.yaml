@@ -4,17 +4,12 @@ description:
     Managed Service for MySQL<sup>®</sup> помогает разворачивать и поддерживать
     кластеры серверов MySQL в инфраструктуре Yandex Cloud. Сервис поддерживает
     MySQL 5.7 и MySQL 8.0.
-  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\"> защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
+  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    об уровне обслуживания</a>.  Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень
     обслуживания Yandex Managed Databases</a>.
-meta:
-  title: Yandex Managed Service for MySQL®
-  description: >-
-    Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
-    серверов MySQL в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер баз данных
@@ -40,3 +35,22 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for MySQL®
+  description: >-
+    Managed Service for MySQL® помогает разворачивать и поддерживать кластеры
+    серверов MySQL в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ mmy-name }}'
+    - '{{ mmy-full-name }}'
+    - Сервис {{ mmy-name }}
+    - '{{ MY }} в {{ yandex-cloud }}'
+    - Кластер {{ MY }}
+    - Кластеры серверов {{ MY }}
+    - '{{ MY }}'
+    - Май эскуэль
+    - '{{ MY }} в облаке'
+    - Реляционная СУБД
+    - MySQL
+    - кластеры серверов MySQL
+    - Кластер MySQL

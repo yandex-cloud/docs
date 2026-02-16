@@ -4,6 +4,7 @@
 
 ## Console clients {#cli}
 
+* [{{ yandex-cloud }} CLI](yc-cli.md)
 * [AWS CLI](aws-cli.md)
 * [S3cmd](s3cmd.md)
 
@@ -14,7 +15,7 @@
 
 ## SDK {#sdk}
 
-* [AWS SDK for Java](aws-sdk-java.md)
+* [AWS SDK for Java v.1.x](aws-sdk-java.md)
 * [AWS SDK for JavaScript](aws-sdk-js.md)
 * [SDK for Python (boto)](boto.md)
 * [AWS SDK for .NET](aws-sdk-net.md)
@@ -35,4 +36,3 @@
 ## FTP {#ftp}
 
 * [Docker container for (S)FTP(S)](sftps.md)
-

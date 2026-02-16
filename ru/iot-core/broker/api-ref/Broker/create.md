@@ -1,9 +1,136 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a broker in.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the broker. The name must be unique within the folder.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the broker.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        certificates:
+          description: |-
+            **[Certificate](#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
+            Broker certificates.
+          type: array
+          items:
+            $ref: '#/definitions/Certificate'
+        password:
+          description: |-
+            **string**
+            Broker passwords.
+            The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols.
+          type: string
+        logOptions:
+          description: |-
+            **[LogOptions](#yandex.cloud.iot.broker.v1.LogOptions)**
+            Options for logging broker events
+          $ref: '#/definitions/LogOptions'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      Certificate:
+        type: object
+        properties:
+          certificateData:
+            description: |-
+              **string**
+              Public part of the broker certificate.
+            type: string
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from broker disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `LEVEL_UNSPECIFIED`: Default log level.
+                Equivalent to not specifying log level at all.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/create.md
 ---
 
-# IoT Core Broker Service, REST: Broker.Create {#Create}
+# IoT Core Broker Service, REST: Broker.Create
 
 Creates a broker in the specified folder.
 
@@ -20,7 +147,7 @@ POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "certificates": [
     {
       "certificateData": "string"
@@ -47,11 +174,11 @@ Required field. ID of the folder to create a broker in.
 To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || name | **string**
 
-Required field. Name of the broker. The name must be unique within the folder. ||
+Name of the broker. The name must be unique within the folder. ||
 || description | **string**
 
 Description of the broker. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.broker.v1.CreateBrokerRequest.Certificate)**
@@ -157,7 +284,7 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "logOptions": {
       "disabled": "boolean",
@@ -295,7 +422,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

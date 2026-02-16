@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        securityGroupId:
+          description: |-
+            **string**
+            Required field. ID of the Security Group resource to return.
+            To get the security group ID, use a [SecurityGroup.List] request.
+          type: string
+      required:
+        - securityGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/SecurityGroup/get.md
 ---
 
-# Virtual Private Cloud API, REST: SecurityGroup.Get {#Get}
+# Virtual Private Cloud API, REST: SecurityGroup.Get
 
 Returns the specified SecurityGroup resource.
 
@@ -22,7 +40,7 @@ GET https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
 || securityGroupId | **string**
 
 Required field. ID of the Security Group resource to return.
-To get the security group ID, use a [SecurityGroup.List](/docs/vpc/api-ref/Address/list#List) request. ||
+To get the security group ID, use a [SecurityGroup.List] request. ||
 |#
 
 ## Response {#yandex.cloud.vpc.v1.SecurityGroup}
@@ -36,14 +54,14 @@ To get the security group ID, use a [SecurityGroup.List](/docs/vpc/api-ref/Addre
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "status": "string",
   "rules": [
     {
       "id": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "direction": "string",
       "ports": {
         "fromPort": "string",
@@ -95,7 +113,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the security group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.
@@ -133,7 +151,7 @@ ID of the rule. ||
 || description | **string**
 
 Description of the rule. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || direction | **enum** (Direction)

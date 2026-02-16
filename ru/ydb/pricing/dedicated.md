@@ -1,28 +1,40 @@
 ---
-title: Правила тарификации для режима {{ ydb-full-name }} с выделенными инстансами
-description: Из статьи вы узнаете о правилах тарификации для режима {{ ydb-full-name }} с выделенными инстансами.
+title: Правила тарификации для режима Dedicated в {{ ydb-full-name }}
+description: Из статьи вы узнаете о правилах тарификации для режима Dedicated в {{ ydb-full-name }}.
 editable: false
 ---
 
-# Правила тарификации для режима {{ ydb-name }} с выделенными инстансами
+# Правила тарификации для режима Dedicated в {{ ydb-name }}
 
 
 
-{% include [use-calculator](../../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=2443a6ec26b9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../../_includes/vat.md) %}
 
 {% include [pricing-status.md](../_includes/pricing/pricing-status.md) %}
 
 ## Из чего складывается стоимость использования {{ ydb-name }} {#rules}
 
-При работе {{ ydb-name }} в режиме с выделенными инстансами вы оплачиваете:
+При работе {{ ydb-name }} в режиме *Dedicated* вы оплачиваете:
+
 * Тип и размер [групп хранения](../concepts/resources.md#storage-groups), выделенных для базы данных.
 * [Вычислительные ресурсы](../concepts/resources.md#resource-presets), выделенные БД.
+* Размер дискового пространства, выделенного для [временного хранилища (спиллинг)](../concepts/resources.md#spilling).
 
 Дополнительно оплачиваются иные потребляемые ресурсы:
+
 * Место, занятое в сервисе {{ objstorage-full-name }} для хранения резервных копий по требованию.
 * Объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
@@ -37,17 +49,25 @@ editable: false
 ### Использование дискового пространства {#rules-storage}
 
 Оплачивается:
+
 * Объем хранилища, выделенный для групп хранения БД.
 * Объем, занимаемый резервными копиями БД по требованию, сохраненными в сервисе {{ objstorage-name }}.
 
-  {% note info %}
+    {% note info %}
 
-  {{ ydb-name }} для каждой БД автоматические создает и бесплатно хранит 2 полные резервные копии за два последних дня. Плата за хранение автоматических резервных копий не взимается.
+    {{ ydb-name }} для каждой БД автоматические создает и бесплатно хранит 2 полные резервные копии за два последних дня. Плата за хранение автоматических резервных копий не взимается.
 
-  {% endnote %}
+    {% endnote %}
+
+* Объем временного хранилища (спиллинг).
+
+    {% note info %}
+
+    Стоимость временного хранилища (спиллинг) указана за один узел {{ ydb-short-name }}.
+
+    {% endnote %}
 
 Цена указывается за 1 месяц использования. Минимальная единица тарификации — 1 ГБ в час (например, стоимость хранения 1 ГБ в течение 1,5 часов равна стоимости хранения в течение 2 часов).
-
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
 
@@ -61,63 +81,30 @@ editable: false
 
 {% endnote %}
 
-
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
 
 
-Все цены указаны с включением НДС. Цены за месяц указаны из расчета для месяца в 30 календарных дней. Для более коротких месяцев цена соответственно выше, для более длинных — ниже.
-
-
-### Вычислительные ресурсы хостов {#prices-compute-units}
-
-
-#### Цены в час {#price-per-hour}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-compute-units-hour.md](../../_pricing/ydb/rub-compute-units-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-compute-units-hour.md](../../_pricing/ydb/kzt-compute-units-hour.md) %}
-
-{% endlist %}
-
-#### Цены в месяц {#price-per-month}
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-compute-units-month.md](../../_pricing/ydb/rub-compute-units-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-compute-units-month.md](../../_pricing/ydb/kzt-compute-units-month.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|ydb }}']}
+    skuIds={['{{ pc|ydb.cluster.v2.cpu }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.cpu.c100.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.cpu.c100.v2 }}', 
+    '{{ pc|ydb.cluster.v2.ram }}', '{{ pc|v1.commitment.selfcheckout.m6.ydb.ram.v2 }}', '{{ pc|v1.commitment.selfcheckout.y1.ydb.ram.v2 }}', 
+    '{{ pc|ydb.cluster.v1.ssd }}', '{{ pc|ydb.db.backup.v1 }}', '{{ pc|ydb.spilling_type1.v1 }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 
-### Хранилище и резервные копии {#prices-storage}
+{% note info "Минимальный размер группы" %}
 
+Одна [группа хранения](../concepts/resources.md#storage-groups) позволяет разместить до 100 Гб пользовательских данных. Минимальная гранулярность выделения места для базы данных – одна группа хранения.
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../../_pricing/ydb/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../../_pricing/ydb/kzt-storage.md) %}
-
-{% endlist %}
-
+{% endnote %}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
+

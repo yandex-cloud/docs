@@ -5,7 +5,23 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка HTTPS
 
-Если бакет используется для [хостинга статического сайта](../../concepts/hosting.md), то для доступа к сайту по протоколу [HTTPS](../../../glossary/ssl-certificate.md) необходимо загрузить собственный сертификат безопасности и соответствующий ему секретный ключ.
+Если для [хостинга статического сайта](../../concepts/hosting.md) вы используете бакет без точки в имени, сайт будет по умолчанию доступен по протоколам HTTP и [HTTPS](../../../glossary/ssl-certificate.md) по следующим адресам:
+
+* `http(s)://example.website.yandexcloud.net`
+* `http(s)://website.yandexcloud.net/example`
+
+Для такого бакета загружать собственный сертификат безопасности не требуется, но для него недоступна поддержка собственного домена.
+
+Если для хостинга статического сайта вы используете бакет с точкой в имени, сайт будет по умолчанию доступен по протоколам HTTP и HTTPS по следующим адресам:
+
+* `http://example.com.website.yandexcloud.net`
+* `http(s)://website.yandexcloud.net/example.com`
+
+Для такого бакета доступна [поддержка собственного домена](./own-domain.md). По умолчанию по доменному имени сайт будет доступен только по протоколу HTTP, например `http://example.com`. Чтобы обеспечить доступ по доменному имени по протоколу HTTPS, загрузите собственный сертификат безопасности и соответствующий ему секретный ключ.
+
+
+{% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
 
 {{ objstorage-name }} поддерживает только [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail)-encoded сертификаты.
 
@@ -23,7 +39,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Выберите нужный бакет из списка.
     1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
@@ -73,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
  
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -152,7 +170,9 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. Выберите нужный бакет из списка.
    1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
    1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.

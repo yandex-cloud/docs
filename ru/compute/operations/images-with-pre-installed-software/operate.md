@@ -1,13 +1,13 @@
 ---
 title: Работа с виртуальной машиной
-description: В статье описана работа с виртуальной машиной на базе публичного образа в {{ yandex-cloud }}. Рассмотрим такие операции, как подключение к виртуальной машине с помощью пары SSH-ключей, создание пары ключей через SSH в Linux/MacOS, Windows 7,8,10, подключение к виртуальной машине по OS Login, использование SSL-сертификатов, фильтрация сетевого трафика, а также установка обновлений.
+description: В статье описана работа с виртуальной машиной на базе публичного образа в {{ yandex-cloud }}. Рассмотрим такие операции, как подключение к виртуальной машине с помощью пары SSH-ключей, создание пары ключей через SSH в Linux/MacOS, Windows 7,8,10, подключение к виртуальной машине по {{ oslogin }}, использование SSL-сертификатов, фильтрация сетевого трафика, а также установка обновлений.
 ---
 
 # Работа с виртуальной машиной на базе публичного образа
 
 ## Подключение к виртуальной машине {#ways-to-connect}
 
-Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по OS Login](../vm-connect/os-login.md) или с помощью [серийной консоли](../serial-console/index.md).
+Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по {{ oslogin }}](../vm-connect/os-login.md) или с помощью [серийной консоли](../serial-console/index.md).
 
 ### Подключение по SSH {#connect}
 
@@ -17,13 +17,31 @@ description: В статье описана работа с виртуально
 
 #### Создание пары SSH-ключей {#creating-ssh-keys}
 
-{% include [vm-ssh-prepare-key](../../../_includes/vm-ssh-prepare-key.md) %}
+{% list tabs group=operating_system %}
+
+- Консоль управления {#console}
+
+  {% include [vm-ssh-prepare-key-console](../../../_includes/vm-ssh-prepare-key-console.md) %}
+
+- Linux/macOS {#linux-macos}
+
+  {% include [vm-ssh-prepare-key-linux-macos](../../../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+- Windows 10/11 {#windows}
+
+  {% include [vm-ssh-prepare-key-win-10-11](../../../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+- Windows 7/8 {#windows7-8}
+
+  {% include [vm-ssh-prepare-key-win-7-8](../../../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+{% endlist %}
 
 #### Подключение с помощью SSH-ключей {#vm-connect}
 
 {% include [vm-connect-ssh-keys](../../../_includes/vm-connect-ssh-keys.md) %}
 
-### Подключение по OS Login {#os-login-connect}
+### Подключение по {{ oslogin }} {#os-login-connect}
 
 {% include [vm-connect-ssh-login](../../../_includes/vm-connect-ssh-login.md) %}
 

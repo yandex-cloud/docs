@@ -19,9 +19,11 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, из которого вы хотите скачать объект.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, из которого вы хотите скачать объект.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**, найдите в списке нужный объект.
-  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.file.button_download }}** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.file.button_download }}**.
+  1. Напротив объекта, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_download }}** или откройте объект и на панели сверху нажмите ![image](../../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud.storage.bucket.button_download }}**.
 
   {% note info %}
 
@@ -29,7 +31,15 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
-- AWS CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  {% include [download-from-bucket-via-cli](../../../_includes/storage/download-from-bucket-via-cli.md) %}
+
+- AWS CLI {#aws-cli}
 
   Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../tools/aws-cli.md).
 
@@ -154,4 +164,7 @@ description: Следуя данной инструкции, вы сможете
 
 #### См. также {#see-also}
 
+
 * [{#T}](link-for-download.md)
+* [{#T}](../../security/overview.md)
+

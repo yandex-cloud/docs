@@ -17,7 +17,7 @@ description: Перед удалением целевой группы ее не
 
   Чтобы удалить [целевую группу](../concepts/target-resources.md):
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить целевую группу.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.load-balancer.target-group.label_list }}**.
   1. В строке целевой группы, которую требуется удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню выберите **{{ ui-key.yacloud.common.delete }}**.

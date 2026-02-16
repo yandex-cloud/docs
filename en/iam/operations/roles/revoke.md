@@ -19,8 +19,8 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     * To revoke all the folder or cloud roles at once:
 
-        1. On the management console [home page]({{ link-console-main }}), select a folder or a cloud.
-        1. Go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+        1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder or cloud.
+        1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
         1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
         1. If you want to revoke all of the user's roles in the cloud, click **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** and confirm the revocation.
 
@@ -50,7 +50,6 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     1. To revoke a resource role from a subject, find the resource description in the configuration file:
 
-
         ```
         resource "yandex_resourcemanager_cloud_iam_binding" "admin" {
             cloud_id    = "<cloud_ID>"
@@ -68,16 +67,16 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
     1. Make sure the configuration files are correct.
 
-        1. In the command line, go to the folder where you created the configuration file.
+        1. In the command line, navigate to the directory where you created the configuration file.
         1. Run a check using this command:
 
           ```
           terraform plan
           ```
 
-       If the configuration is described correctly, the terminal will display a list of created resources and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
 
-    1. Deploy cloud resources.
+    1. Deploy the cloud resources.
 
         1. If the configuration does not contain any errors, run this command:
 
@@ -87,7 +86,7 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
 
         1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
 
-        All the resources you need will then be created in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+        This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
         ```
         yc resource-manager cloud list-access-bindings <cloud_name_or_ID>
@@ -116,7 +115,6 @@ If you want to prevent a [subject](../../concepts/access-control/index.md#subjec
             ]
         }
         ```
-
 
     1. Revoke a role by deleting the assigned permissions:
 

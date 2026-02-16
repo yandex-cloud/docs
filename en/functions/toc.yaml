@@ -1,7 +1,7 @@
 title: '{{ sf-full-name }}'
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     items:
@@ -23,6 +23,8 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
+          - name: Kotlin
+            href: quickstart/create-function/kotlin-function-quickstart.md
       - name: Creating a trigger
         items:
           - name: Overview
@@ -37,17 +39,19 @@ items:
         href: operations/function-sa.md
       - name: Connecting to managed databases from functions
         href: operations/database-connection.md
-      - name: Getting information about a function
+      - name: Getting function info
         items:
           - name: Getting a list of functions
             href: operations/function/function-list.md
           - name: Getting a list of function versions
             href: operations/function/version-list.md
-          - name: Getting information about a function
+          - name: Getting function info
             href: operations/function/function-info.md
-          - name: Getting the function version information
+          - name: Getting function version info
             href: operations/function/version-info.md
-      - name: Managing permissions to access a function
+          - name: Configuring metadata service parameters
+            href: operations/function/metadata-options.md
+      - name: Managing function access permissions
         items:
           - name: Making a function public
             href: operations/function/function-public.md
@@ -97,8 +101,12 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Allocating memory for the /tmp directory
             href: operations/function/allocate-memory-tmp.md
-          - name: Mounting a bucket
-            href: operations/function/mount-bucket.md
+          - name: Mounting external resources to a function file system
+            items:
+              - name: Mounting a bucket
+                href: operations/function/mount-bucket.md
+              - name: Mounting an ephemeral disk
+                href: operations/function/mount-ephemeral-disk.md
           - name: Managing tags
             items:
               - name: Adding a tag
@@ -123,13 +131,15 @@ items:
                 href: operations/function/logs-write.md
           - name: Migration to the {{ region-id }}-d availability zone
             href: operations/function/migration.md
+          - name: Deleting a function version
+            href: operations/function/version-delete.md
           - name: Deleting a function
             href: operations/function/function-delete.md
-      - name: Getting information about a trigger
+      - name: Getting trigger info
         items:
           - name: Getting a list of triggers
             href: operations/trigger/trigger-list.md
-          - name: Getting information about a trigger
+          - name: Getting trigger info
             href: operations/trigger/trigger-info.md
       - name: Creating a trigger
         items:
@@ -171,7 +181,7 @@ items:
             href: operations/trigger/trigger-monitoring.md
           - name: Deleting a trigger
             href: operations/trigger/trigger-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing operations with service resources
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -199,7 +209,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Preloaded runtime environment
             href: concepts/runtime/preload-runtime.md
-      - name: Mounting a bucket
+      - name: Mounting external resources to a function file system
         href: concepts/mounting.md
       - name: Builder
         href: concepts/builder.md
@@ -225,11 +235,11 @@ items:
             href: concepts/trigger/data-streams-trigger.md
           - name: Email trigger
             href: concepts/trigger/mail-trigger.md
-      - name: Dead-letter queue
+      - name: Dead Letter Queue
         href: concepts/dlq.md
       - name: Function logs
         href: concepts/logs.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -299,6 +309,8 @@ items:
     items:
       - name: Overview
         href: lang/bash/index.md
+      - name: Managing dependencies
+        href: lang/bash/dependencies.md
       - name: Request handler
         href: lang/bash/handler.md
       - name: Logging
@@ -375,7 +387,7 @@ items:
         href: lang/r/logging.md
       - name: Handling errors
         href: lang/r/errors.md
-  - name: Developing in C#
+  - name: Developing in .NET Core
     items:
       - name: Overview
         href: lang/csharp/index.md
@@ -403,13 +415,13 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Creating skills for Alice
+      - name: Creating a skill for Alice
         href: tutorials/alice-skill.md
       - name: Deploying a web application
         href: tutorials/java-servlet-todo-list.md
-      - name: Developing a skill for Alice and a website with authorization
+      - name: Creating a skill for Alice and a website with authorization
         href: tutorials/alice-shareable-todolist.md
-      - name: Writing data from a device to {{ mpg-short-name }}
+      - name: Writing device data to a database
         href: tutorials/data-recording.md
       - name: Writing load balancer logs to {{ PG }}
         href: tutorials/logging.md
@@ -425,13 +437,11 @@ items:
         href: tutorials/video-converting-queue.md
       - name: Creating a Node.js function using TypeScript
         href: tutorials/nodejs-typescript.md
-      - name: Developing user integration
+      - name: Developing a custom integration
         href: tutorials/api-gw-integration.md
-      - name: >-
-          Creating a trigger for budgets that invokes a function to stop VM
-          instances
+      - name: Creating a budget trigger that invokes a function to stop a VM
         href: tutorials/serverless-trigger-budget-vm.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -441,46 +451,98 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Interactive debugging of functions
         href: tutorials/serverless-live-debug.md
-      - name: Regular recognition of audio files in an {{ objstorage-name }} bucket
+      - name: >-
+          Regular asynchronous recognition of audio files from {{
+          objstorage-name }}
         href: tutorials/batch-recognition-stt.md
-      - name: Canary release of a {{ sf-name }} function
+      - name: Canary release of {{ sf-name }}
         href: tutorials/canary-release.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
       - name: >-
-          Creating a trigger that invokes a function to stop VM instances and
-          send a Telegram notification
+          Creating triggers that invoke a function to stop a VM and send a
+          Telegram notification
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: >-
           Loading data from {{ yandex-direct }} to a {{ mch-full-name }} data
           mart using {{ sf-full-name }}, {{ objstorage-full-name }}, and {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Scheduled scaling of instance groups
-        href: tutorials/vm-scale-scheduled.md
-      - name: Status monitoring of geographically distributed devices
+      - name: Scheduled instance group scaling
+        items:
+          - name: Overview
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
+      - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
-      - name: Monitoring sensor readings and event notifications
+      - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md
       - name: Emulating multiple IoT devices
         href: tutorials/iot-emulation.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them using {{ datalens-full-name }}
+          analyzing them with {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: URL shortener
+        href: tutorials/serverless-url-shortener.md
+      - name: '{{ tracker-full-name }}: data export and visualization'
+        href: tutorials/data-from-tracker.md
+      - name: Running computations in {{ ml-platform-name }} using the API
+        href: tutorials/batch-code-execution.md
+      - name: Developing a Telegram bot for text and audio recognition
+        href: tutorials/recognizer-bot.md
+      - name: >-
+          Configuring responses in {{ cloud-logging-full-name }} and {{ sf-name
+          }}
+        href: tutorials/logging-functions
+      - name: >-
+          Developing functions in Functions Framework and deploying them to {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
+        items:
+          - name: Overview
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Management console
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/forms-and-datalens-integration/terraform.md
+      - name: Configuring CI/CD with {{ src-name }}
+        href: tutorials/ci-cd-sourcecraft-functions.md
+      - name: Configuring CI/CD with GitHub
+        href: tutorials/ci-cd-github-functions.md
+      - name: Creating an AI agent with {{ sf-name }}
+        href: tutorials/create-ai-agent-function.md
+      - name: Creating an AI agent with response streaming via web sockets
+        href: tutorials/streaming-openai-agent.md
+      - name: '{{ postbox-full-name }} integration with external systems via webhooks'
+        href: tutorials/postbox-webhook.md
+  - name: Tools
+    href: tools.md
   - name: Pricing policy
     href: pricing.md
   - name: Access management
     href: security/index.md
-  - name: CLI Functions reference
-    href: ../cli/cli-ref/managed-services/serverless/function/index.md
-  - name: CLI Triggers reference
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: CLI reference
+    items:
+      - name: Functions
+        href: ../cli/cli-ref/serverless/cli-ref/function/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: MDB Proxy
+        href: ../cli/cli-ref/serverless/cli-ref/mdbproxy/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API Functions reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/functions/authentication.md
       - name: gRPC
         items:
@@ -634,7 +696,7 @@ items:
                 href: functions/api-ref/Operation/cancel.md
   - name: API Triggers reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/triggers/authentication.md
       - name: gRPC
         items:
@@ -704,9 +766,9 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Public materials
+    href: public-talks.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/functions
-deepBase: 2

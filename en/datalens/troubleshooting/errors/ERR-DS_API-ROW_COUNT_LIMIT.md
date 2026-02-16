@@ -1,4 +1,9 @@
-# Received too many result data rows
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.ROW_COUNT_LIMIT'
+description: This page describes the Received too many result data rows {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Received too many result data rows
 
 `ERR.DS_API.ROW_COUNT_LIMIT`
 

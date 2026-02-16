@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}
+    method: delete
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/delete.md
 ---
 
-# Container Registry API, REST: Registry.Delete {#Delete}
+# Container Registry API, REST: Registry.Delete
 
 Deletes the specified registry.
 
@@ -19,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/registrie
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the registry to delete. ||
+Required field. ID of the registry to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

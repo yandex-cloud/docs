@@ -1,9 +1,164 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            List backups that belongs to specific Compute Cloud instance.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          type: string
+        archive:
+          description: |-
+            **[ArchiveParameters](#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
+            List backups that belongs to specific archive of specific folder.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          $ref: '#/definitions/ArchiveParameters'
+        folderId:
+          description: |-
+            **string**
+            List backups that belongs to specific folder.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          type: string
+        instancePolicy:
+          description: |-
+            **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
+            List backups that belongs to specific instance and policy at the same time.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          $ref: '#/definitions/InstancePolicy'
+        resourceId:
+          description: |-
+            **string**
+            List backups by specific resource ID.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          type: string
+        policyId:
+          description: |-
+            **string**
+            List backups by specific policy ID.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          type: string
+        backup:
+          description: |-
+            **[BackupParameters](#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
+            List backups by specific backup ID.
+            Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`.
+          $ref: '#/definitions/BackupParameters'
+        orderBy:
+          description: |-
+            **string**
+            By which column the listing should be ordered and in which direction,
+            format is "createdAt desc". "createdAt desc" if omitted.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter list by various parameters.
+            Supported parameters are:
+            * created_at
+            Supported logic operators:
+            * AND
+          type: string
+        type:
+          description: |-
+            **enum** (ResourceType)
+            Type of resource. Could be compute VM or baremetal server.
+            - `COMPUTE`: Resource is Compute Cloud VM
+            - `BMS`: Resource is baremetal server
+            - `EXTERNAL_VM`: Resource is VM
+            - `EXTERNAL_SERVER`: Resource is server
+          type: string
+          enum:
+            - RESOURCE_TYPE_UNSPECIFIED
+            - COMPUTE
+            - BMS
+            - EXTERNAL_VM
+            - EXTERNAL_SERVER
+        pageSize:
+          description: |-
+            **string** (int64)
+            Number of results per page.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - computeInstanceId
+        - required:
+            - archive
+        - required:
+            - folderId
+        - required:
+            - instancePolicy
+        - required:
+            - resourceId
+        - required:
+            - policyId
+        - required:
+            - backup
+    body: null
+    definitions:
+      ArchiveParameters:
+        type: object
+        properties:
+          archiveId:
+            description: |-
+              **string**
+              Required field. Archive ID.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Required field. Folder ID.
+            type: string
+        required:
+          - archiveId
+          - folderId
+      InstancePolicy:
+        type: object
+        properties:
+          computeInstanceId:
+            description: |-
+              **string**
+              Compute Cloud instance ID.
+            type: string
+          policyId:
+            description: |-
+              **string**
+              Policy ID.
+            type: string
+      BackupParameters:
+        type: object
+        properties:
+          backupId:
+            description: |-
+              **string**
+              Required field.
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Required field.
+            type: string
+        required:
+          - backupId
+          - folderId
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/list.md
 ---
 
-# Cloud Backup API, REST: Backup.List {#List}
+# Cloud Backup API, REST: Backup.List
 
 List backups using filters.
 
@@ -21,32 +176,37 @@ GET https://backup.{{ api-host }}/backup/v1/backups
 
 List backups that belongs to specific Compute Cloud instance.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || archive | **[ArchiveParameters](#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters)**
 
 List backups that belongs to specific archive of specific folder.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || folderId | **string**
 
 List backups that belongs to specific folder.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || instancePolicy | **[InstancePolicy](#yandex.cloud.backup.v1.ListBackupsRequest.InstancePolicy)**
 
 List backups that belongs to specific instance and policy at the same time.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || resourceId | **string**
 
 List backups by specific resource ID.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || policyId | **string**
 
 List backups by specific policy ID.
 
-Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`. ||
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
+|| backup | **[BackupParameters](#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters)**
+
+List backups by specific backup ID.
+
+Includes only one of the fields `computeInstanceId`, `archive`, `folderId`, `instancePolicy`, `resourceId`, `policyId`, `backup`. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
@@ -59,6 +219,24 @@ Supported parameters are:
 
 Supported logic operators:
 * AND ||
+|| type | **enum** (ResourceType)
+
+Type of resource. Could be compute VM or baremetal server.
+
+- `COMPUTE`: Resource is Compute Cloud VM
+- `BMS`: Resource is baremetal server
+- `EXTERNAL_VM`: Resource is VM
+- `EXTERNAL_SERVER`: Resource is server ||
+|| pageSize | **string** (int64)
+
+Number of results per page.
+
+The maximum value is 1000. ||
+|| pageToken | **string**
+
+Token for the results page. Not allowed to use if listing is performed by specific policy ID.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ArchiveParameters {#yandex.cloud.backup.v1.ListBackupsRequest.ArchiveParameters}
@@ -83,6 +261,18 @@ Compute Cloud instance ID. ||
 || policyId | **string**
 
 Policy ID. ||
+|#
+
+## BackupParameters {#yandex.cloud.backup.v1.ListBackupsRequest.BackupParameters}
+
+#|
+||Field | Description ||
+|| backupId | **string**
+
+Required field. ||
+|| folderId | **string**
+
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.ListBackupsResponse}
@@ -129,13 +319,17 @@ Policy ID. ||
       "policyId": "string",
       "resourceId": "string"
     }
-  ]
+  ],
+  "nextPageToken": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || backups[] | **[Backup](#yandex.cloud.backup.v1.Backup)** ||
+|| nextPageToken | **string**
+
+Token for the next results page. ||
 |#
 
 ## Backup {#yandex.cloud.backup.v1.Backup}
@@ -186,7 +380,6 @@ Compute Cloud instance ID. ||
 || disks[] | **[Disk](#yandex.cloud.backup.v1.Disk)** ||
 || type | **enum** (Type)
 
-- `TYPE_UNSPECIFIED`
 - `FULL`
 - `INCREMENTAL` ||
 || deleted | **boolean**

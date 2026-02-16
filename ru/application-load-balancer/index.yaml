@@ -14,21 +14,16 @@ description:
     L7-балансировщике.</li> <li>Организовывать защиту ваших сервисов от
     злоумышленников с помощью ограничения поступающего трафика.</li></ul>
   - >-
-    "Инфраструктура Yandex Cloud <a
-    href=\"https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf\">защищена</a>
+    Инфраструктура Yandex Cloud <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
     в соответствии с Федеральным законом Российской Федерации «О персональных
-    данных» № 152-ФЗ."
+    данных» № 152-ФЗ.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a
     href="https://yandex.ru/legal/cloud_sla_apploadbalancer">Уровень
     обслуживания Yandex Application Load Balancer</a>.
-meta:
-  title: Yandex Application Load Balancer
-  description: >-
-    Yandex Application Load Balancer служит для распределения запросов по
-    бэкендам ваших сетевых приложений и терминирования TLS-шифрования.
 links:
   - title: Начало работы
     description: Создайте первый программный балансировщик
@@ -54,3 +49,25 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Application Load Balancer
+  description: >-
+    Yandex Application Load Balancer служит для распределения запросов по
+    бэкендам ваших сетевых приложений и терминирования TLS-шифрования.
+  keywords:
+    - alb
+    - балансировщик alb
+    - L7-балансировщик
+    - сервис {{ alb-name }}
+    - балансировщик {{ alb-name }}
+    - балансировщик нагрузки
+    - распределять трафик в {{ alb-name }}
+    - '{{ alb-name }}'
+    - Application Balancer
+    - load balancing
+    - '{{ yandex-cloud }} alb'
+    - '{{ yandex-cloud }} balancer'
+    - balancer
+    - SSL Termination в {{ yandex-cloud }}
+    - '{{ alb-name }} в {{ yandex-cloud }}'
+    - alb в {{ yandex-cloud }}

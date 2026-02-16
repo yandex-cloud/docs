@@ -18,12 +18,9 @@ Use the profile name from the previous section to access the profile.
 
 Get the details of the profile named `prod`:
 
-
 ```bash
 yc config profile get prod
 token: AQAAAAAV6O...
 cloud-id: b1gvl...
 folder-id: b1g88...
 ```
-
-

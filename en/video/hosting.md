@@ -5,10 +5,8 @@ description: Follow this guide to upload your video to {{ video-full-name }} and
 
 # Getting started with video hosting in {{ video-full-name }}
 
-{% include [preview-stage](../_includes/video/preview-stage.md) %}
-
 To upload a [video](./concepts/index.md#videos) to a service [channel](./concepts/index.md#channels):
-1. [Prepare your cloud](#before-you-begin).
+1. [Get your cloud ready](#before-you-begin).
 1. [Create a channel](#create-channel).
 1. [Upload a video](#upload-video).
 1. [Publish your video](#publish-video).
@@ -16,9 +14,9 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
 
 {% include [link-to-api-quickstart](../_includes/video/link-to-api-quickstart.md) %}
 
-## Prepare your cloud {#before-you-begin}
+## Get your cloud ready {#before-you-begin}
 
-{% include [before-you-begin](../_includes/video/before-you-begin.md) %}
+{% include [before-you-begin](../_includes/video/before-you-begin-variants.md) %}
 
 ## Create a channel {#create-channel}
 
@@ -34,18 +32,32 @@ To upload a [video](./concepts/index.md#videos) to a service [channel](./concept
     {{ video-name }} [limits](./concepts/limits.md) the resolution of the videos you are publishing.
 
 1. **{{ ui-key.yacloud_video.videos.label_title }}** your video. The title will be displayed on all the resources hosting the video.
-1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** field, set the access permissions for the video:
+1. (Optional) Under **{{ ui-key.yacloud_video.videos.label_description }}**, specify the timecodes for your video in the following format:
+   
+    {% include [video-timecodes](../_includes/video/video-timecodes.md) %}
 
-    * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}`: Video will be available to users authorized in your organization.
-    * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}`: Video will be publicly available.
+1. In the **{{ ui-key.yacloud_video.videos.label_accessRights }}** list, select the access type for the video:
+
+    * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Video will be available via a dedicated link.
+          
+        {% include [video-temporary-links](../_includes/video/video-temporary-links.md) %}
+
+    * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it.
 
 1. Optionally, to add a cover for a video, in the **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** field, click ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and choose a cover image.
 
     {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
 
+1. In the **{{ ui-key.yacloud_video.presets.label_style-preset }}** list, select a player [preset](concepts/presets.md) from the list of available presets in the channel or create a new one.
+
+     If no preset is selected, your video will get the default one, which was added when creating the channel.
+
+1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
+1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
+1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
-[Learn more about videos](./concepts/videos.md)
+To learn more about video, see [{#T}](./concepts/videos.md).
 
 ## Publish your video {#publish-video}
 
@@ -67,4 +79,7 @@ In the video settings window that opens, wait until the video is completely uplo
 
 * [{#T}](streaming.md)
 * [{{ video-full-name }} overview](./concepts/index.md)
-* [{#T}](troubleshooting.md)
+* [Uploading a video](operations/video/upload.md)
+* [Configuring a player preset](operations/style-presets/update.md)
+* [Configuring ads](operations/channels/settings.md#ad-settings)
+* [{#T}](troubleshooting/index.md)

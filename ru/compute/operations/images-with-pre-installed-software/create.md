@@ -6,19 +6,22 @@ description: Следуя данной инструкции, вы сможете
 # Создать виртуальную машину из публичного образа
 
 
-Чтобы создать [ВМ](../../concepts/vm.md):
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
+
+Чтобы создать ВМ:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный [образ](../../concepts/image.md) с программным обеспечением, которое хотите использовать.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../concepts/disk.md):
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
 
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Задайте нужный размер диска.
@@ -38,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% note info %}
 
-      Собственные SSH-ключи на ВМ с включенным доступом по OS Login передавайте через [метаданные](../../concepts/vm-metadata.md#how-to-send-metadata).
+      Собственные SSH-ключи на ВМ с включенным доступом по {{ oslogin }} передавайте через [метаданные](../../concepts/metadata/sending-metadata.md).
 
       {% endnote %}
 
@@ -123,10 +126,7 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [ssh-note](../../../_includes/compute/ssh-note.md) %}
 
-          Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей с помощью параметра `--metadata-from-file`.
-
-
-
+          Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей с помощью параметра `--metadata-from-file`.
 
   {% include [vm-create-check](../../../_includes/compute/vm-create-check.md) %}
 
@@ -207,7 +207,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `metadata` — в метаданных необходимо передать имя пользователя и [публичный ключ для SSH-доступа](../vm-connect/ssh.md#creating-ssh-keys) на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
 
-           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/vm-metadata.md#how-to-send-metadata) данные этих пользователей в файле и передайте в блоке `metadata`.
+           Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../../concepts/metadata/sending-metadata.md) данные этих пользователей в файле и передайте в блоке `metadata`.
      * `yandex_vpc_network` — описание облачной сети.
      * `yandex_vpc_subnet` — описание подсети, к которой будет подключена ВМ.
 

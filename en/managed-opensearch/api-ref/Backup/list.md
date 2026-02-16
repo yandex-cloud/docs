@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/backups
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list backups in.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned.
+            If the number of available results is larger than `pageSize`, the service returns
+            a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
+            in subsequent list requests.
+            Default value is 100.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
+            returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Backup/list.md
 ---
 
-# Managed Service for OpenSearch API, REST: Backup.List {#List}
+# Managed Service for OpenSearch API, REST: Backup.List
 
 Returns the list of available backups for the specified OpenSearch cluster.
 
@@ -19,7 +55,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/backups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to list backups in. ||
+Required field. ID of the folder to list backups in.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page that should be returned.
@@ -28,11 +66,15 @@ If the number of available results is larger than `pageSize`, the service return
 a [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse) that can be used to get the next page of results
 in subsequent list requests.
 
-Default value is 100. ||
+Default value is 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 The page token. To get the next page of results, set `pageToken` to the [ListBackupsResponse.nextPageToken](#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse}
@@ -53,7 +95,10 @@ returned by the previous list request. ||
       ],
       "opensearchVersion": "string",
       "sizeBytes": "string",
-      "indicesTotal": "string"
+      "indicesTotal": "string",
+      "incrementalSizeBytes": "string",
+      "totalSizeBytes": "string",
+      "freeSpaceRequiredBytes": "string"
     }
   ],
   "nextPageToken": "string"
@@ -110,7 +155,9 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || indices[] | **string**
 
-Names of indices in the backup. ||
+Names of indices in the backup.
+
+The maximum number of elements is 100. ||
 || opensearchVersion | **string**
 
 OpenSearch version used to create the backup. ||
@@ -120,4 +167,13 @@ Size of the backup in bytes. ||
 || indicesTotal | **string** (int64)
 
 The number of indices in the backup. ||
+|| incrementalSizeBytes | **string** (int64)
+
+Size of files which were copied as part of the incremental snapshot. ||
+|| totalSizeBytes | **string** (int64)
+
+Size of files that are referenced by the snapshot. ||
+|| freeSpaceRequiredBytes | **string** (int64)
+
+The space amount required to restore from this backup. ||
 |#

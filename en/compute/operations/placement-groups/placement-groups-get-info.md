@@ -2,17 +2,17 @@
 title: How to get information about a placement group in {{ compute-full-name }}
 ---
 
-# Getting information about a placement group
+# Getting placement group info
 
 {% list tabs %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder the [placement group](../../concepts/placement-groups.md) is in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
-  1. Select the group you need.
-  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will display detailed information about the VM placement group.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
+  1. Select the group.
+  1. The **{{ ui-key.yacloud.compute.placement-group.overview.label_title }}** page will show the VM placement group details.
 
 - CLI
 
@@ -20,13 +20,13 @@ title: How to get information about a placement group in {{ compute-full-name }}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command to get information about a [placement group](../../concepts/placement-groups.md):
+  1. See the description of the CLI command for getting information about a [placement group](../../concepts/placement-groups.md):
 
       ```bash
       yc compute placement-group get --help
       ```
 
-  1. Get information about your placement group by specifying its name or ID:
+  1. Get information about a placement group by specifying its name or ID:
 
       ```bash
       yc compute placement-group get <placement_group_name>
@@ -66,16 +66,16 @@ title: How to get information about a placement group in {{ compute-full-name }}
 
       * `data "yandex_compute_placement_group"`: Description of the placement group as a data source:
         * `group_id`: Placement group ID.
-      * `output "placement_group"`: Output variable containing information about the placement group creation time:
-        * `value`: Returned value.
+      * `output "placement_group"`: Output variable that contains information about the placement group creation time:
+        * `value`: Return value.
 
-      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_placement_group).
+      You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_compute_placement_group` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/compute_placement_group).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

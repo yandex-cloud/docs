@@ -1,21 +1,18 @@
-
 #### How do I create a user to access a cluster from {{ datalens-name }} with read-only permissions? {#datalens-readonly}
 
-Follow the [guide](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. If the cluster settings have the **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** [option enabled](../../managed-clickhouse/operations/update.md#change-additional-settings), the service can [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster through this user.
-
-
+Follow [this guide](../../managed-clickhouse/operations/cluster-users.md#example-create-readonly-user) to create a user with read-only permissions. With **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}** [enabled](../../managed-clickhouse/operations/update.md#change-additional-settings) in the cluster settings, the service will be able to [connect](../../managed-clickhouse/operations/datalens-connect.md#create-connector) to the cluster using this user.
 
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
-Go to the cluster settings, enable the [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) option, and grant a user the appropriate permissions [using a statement]({{ ch.docs }}/sql-reference/statements/grant/) named `GRANT`.
+Go to the cluster settings, enable [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), and grant the user the appropriate permissions [using the `GRANT` statement]({{ ch.docs }}/sql-reference/statements/grant/).
 
 #### How do I find out the internal_replication setting value? {#internal-replication}
 
-The `internal_replication` setting information is not available in the {{ yandex-cloud }} interfaces or the {{ CH }} system tables. The default setting value is `true`.
+The `internal_replication` setting information is not available in {{ yandex-cloud }} interfaces or {{ CH }} system tables. The default setting value is `true`.
 
 #### How do I increase the maximum amount of RAM to run a query? {#max-memory-usage}
 
-If the amount of RAM is not sufficient for running a query, the following error occurs:
+If you do not have enough RAM to run a query, you will see the following error:
 
 ```text
 DB::Exception: Memory limit (total) exceeded:
@@ -25,12 +22,28 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 
 To [increase](../../managed-clickhouse/operations/cluster-users.md#update-settings) the maximum amount of RAM, use the [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage) parameter.
 
-If the [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) option is enabled for the cluster, you can set the `Max memory usage` parameter:
+If [user management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) is enabled for the cluster, you can set the `Max memory usage` parameter:
 
 * For the current user session by running this query:
 
-   ```sql
-   SET max_memory_usage = <value_in_bytes>;
-   ```
+    ```sql
+    SET max_memory_usage = <value_in_bytes>;
+    ```
 
-* For all users by default by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
+* For all default users by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
+
+#### Why must a highly available {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
+
+{{ ZK }} uses the consensus algorithm: it keeps on running as long as most {{ ZK }} hosts are healthy.
+
+For example, if a cluster has two {{ ZK }} hosts, then, should one of them stop, the remaining host will not form the majority, so the service will become unavailable. Which means a cluster with two {{ ZK }} hosts is not [highly available](../../managed-clickhouse/concepts/high-availability.md).
+
+A cluster with three {{ ZK }} hosts, however, is highly available. When one of its hosts is under maintenance or down, the cluster remains operational. Therefore, three is the minimum recommended number of {{ ZK }} hosts per {{ mch-name }} cluster.
+
+A cluster with four {{ ZK }} hosts has no advantages over a three-host cluster: it will also remain operational if only one of its hosts fails. With two hosts down, the consensus is not met, so the service becomes unavailable.
+
+A cluster with five {{ ZK }} hosts is resilient enough to keep running without two of its hosts, three hosts out of five still forming the majority. This is why this cluster is easier to maintain than a three-host cluster. Even if one host out of five is [under maintenance](../../managed-clickhouse/concepts/maintenance.md) or restarting, the cluster remains highly available, i.e., it can lose one more host and still be operational.
+
+Adding more than five {{ ZK }} hosts to a cluster is not supported.
+
+Thus, we recommend creating three or five {{ ZK }} hosts per {{ mch-name }} cluster.

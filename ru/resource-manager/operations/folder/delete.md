@@ -6,10 +6,17 @@
 
 - Консоль управления {#console}
 
-  1. Выберите каталог на [стартовой странице]({{ link-console-cloud }}) консоли управления. На этой странице отображаются каталоги для выбранного облака. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
-  1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив каталога и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный каталог. Если необходимо, [переключитесь на другое облако](../cloud/switch-cloud.md).
+  1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg).
+  1. Выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.components.FolderActions.button_action-delete-folder_mu24C }}**.
+
+     ![delete-folder1](../../../_assets/resource-manager/delete-folder-ru1.png)
+
   1. Выберите срок удаления каталога, по истечении которого каталог будет удален. Выберите один из возможных периодов или `{{ ui-key.yacloud_billing.component.iam-delete-folder-or-cloud-dialog.label_delete-now }}`. По умолчанию срок удаления каталога — 7 дней.
+  1. Введите название каталога, чтобы подтвердить удаление. 
   1. Нажмите **{{ ui-key.yacloud.common.delete }}**.
+
+     ![delete-folder2](../../../_assets/resource-manager/delete-folder-ru2.png)
 
 - CLI {#cli}
 
@@ -64,7 +71,7 @@
 
       После завершения удаления каталога, ответ будет содержать поле `done` со значением `true` (`done: true`).
 
-  Подробнее о команде `yc resource-manager folder delete` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/resource-manager/folder/delete.md).
+  Подробнее о команде `yc resource-manager folder delete` см. в [справочнике CLI](../../../cli/cli-ref/resource-manager/cli-ref/folder/delete.md).
 
 - {{ TF }} {#tf}
 
@@ -132,7 +139,7 @@
 
 {% endlist %}
 
-Ресурсы будут остановлены, каталог перейдет в статус ожидания удаления `PENDING_DELETION`. Удаление каталога, находящегося в статусе `PENDING_DELETION`, можно отменить. Для этого в [консоли управления]({{ link-console-cloud }}) справа от имени каталога нажмите значок ![***](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
+Удаление начинается с остановки ресурсов. Каталог переходит в статус `PENDING_DELETION`. Запускается подготовка к удалению. Время нахождения в этом статусе зависит от выбранного срока удаления. Удаление каталога, находящегося в статусе `PENDING_DELETION`, можно отменить. Для этого в [консоли управления]({{ link-console-cloud }}) справа от имени каталога нажмите значок ![***](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.iam.cloud.folders.button_cancel-deletion }}**.
 
 {% note alert %}
 
@@ -144,6 +151,6 @@
 
 {% endnote %}
 
-После завершения периода ожидания каталог переходит в статус `DELETING`. В этом статусе происходит процесс необратимого удаления, занимающий до 72 часов. В результате вместе с каталогом будут удалены все его ресурсы.
+После завершения подготовки к удалению и срока удаления каталог переходит в статус `DELETING`. В этом статусе происходит процесс необратимого удаления, занимающий до 72 часов. В результате вместе с каталогом будут удалены все его ресурсы.
 
 Удаление каталога может быть отменено системой, если в нем есть ресурсы, которые нельзя удалить. Подробнее см. в разделе [{#T}](../../concepts/resources-hierarchy.md#inability-to-delete). После отмены удаления каталог вернется в статус `ACTIVE`, а пользователь получит сообщение с описанием причин, которые не позволили удалить каталог.

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
+    method: get
+    path:
+      type: object
+      properties:
+        snapshotId:
+          description: |-
+            **string**
+            Required field. ID of the Snapshot resource to return.
+            To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - snapshotId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/get.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Get {#Get}
+# Compute Cloud API, REST: Snapshot.Get
 
 Returns the specified Snapshot resource.
 
@@ -22,7 +41,9 @@ GET https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
 || snapshotId | **string**
 
 Required field. ID of the Snapshot resource to return.
-To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request. ||
+To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Snapshot}
@@ -36,7 +57,7 @@ To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snaps
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "storageSize": "string",
   "diskSize": "string",
   "productIds": [
@@ -51,6 +72,10 @@ To get the snapshot ID, use a [SnapshotService.List](/docs/compute/api-ref/Snaps
     },
     "generation2Features": "object"
     // end of the list of possible fields
+  },
+  "kmsKey": {
+    "keyId": "string",
+    "versionId": "string"
   }
 }
 ```
@@ -79,7 +104,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)
@@ -102,7 +127,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the snapshot.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Snapshot is being created.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
@@ -114,6 +138,9 @@ ID of the source disk used to create this snapshot. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -142,7 +169,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

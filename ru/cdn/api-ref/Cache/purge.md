@@ -1,9 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:purge
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource to perform purge operation on.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        paths:
+          description: |-
+            **string**
+            Set of paths:
+            Paths of the files to remove from the cache.
+            You may use asterisk (`*`) as a wildcard character that substitutes any number of characters.
+            If an empty array of paths is specified (`"paths": []`), the cache is purged entirely.
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Cache/purge.md
 ---
 
-# Cloud CDN API, REST: Cache.Purge {#Purge}
+# Cloud CDN API, REST: Cache.Purge
 
 Removes specified files from the cache of the specified resource. For details about purging, see [documentation](/docs/cdn/concepts/caching#purge).
 
@@ -21,7 +52,9 @@ POST https://cdn.{{ api-host }}/cdn/v1/cache/{resourceId}:purge
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource to perform purge operation on. ||
+Required field. ID of the resource to perform purge operation on.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.cdn.v1.PurgeCacheRequest}
@@ -133,7 +166,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -1,10 +1,16 @@
+---
+title: Вызов функции в {{ sf-full-name }}
+description: Из статьи вы узнаете про вызов функции {{ sf-name }} с помощью HTTPS-запроса, CLI, триггера и расширения {{ api-gw-name }}.
+---
+
 # Вызов функции в {{ sf-name }}
 
 Функцию можно вызвать: 
 * [с помощью HTTPS-запроса](#http);
 * [с помощью CLI](#cli);
 * [с помощью триггера](#trigger);
-* [с помощью расширения {{ api-gw-full-name }}](#extension).
+* [с помощью расширения {{ api-gw-full-name }}](#extension);
+* [с помощью событий в {{ monitoring-short-name }}](#monitoring).
 
 Для каждого способа есть своя структура данных запроса к функции и ответа функции. Вызвать определенную [версию](function.md#version) функции можно, используя [тег](function.md#tag). Подробнее о том, как [вызвать функцию](../operations/function/function-invoke.md).
 
@@ -333,6 +339,10 @@ module.exports.handler = async (event, context) => {
 
 Если в запросе есть заголовок [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For), в нем передаются указанные IP-адреса и IP-адрес клиента, который вызвал функцию. Иначе — только IP-адрес клиента, который вызвал функцию.
 
+### Примеры использования {#examples-https}
+
+* [{#T}](../tutorials/connect-to-ydb-nodejs.md)
+
 ## Вызов функции с помощью CLI {{ yandex-cloud }} {#cli}
 
 Вызов функции с помощью CLI — это HTTPS-запрос с методом POST и параметром `?integration=raw` (без преобразования запроса в JSON-структуру и без проверки ответа).
@@ -389,9 +399,33 @@ Flags:
 
 При вызове функции с помощью триггера JSON-описание события триггера передается в теле HTTP-запроса к функции. IP-адрес источника запроса передается так же, как и при [вызове функции через HTTPS](#ip). Подробнее о [триггерах](trigger/index.md).
 
+### Примеры использования {#examples-trigger}
 
+* [{#T}](../tutorials/data-recording.md)
+* [{#T}](../tutorials/events-from-postbox-to-yds.md)
+* [{#T}](../tutorials/logging-functions.md)
+* [{#T}](../tutorials/logging.md)
+* [{#T}](../tutorials/regular-launch-datasphere.md)
+* [{#T}](../tutorials/serverless-trigger-budget-vm.md)
+* [{#T}](../tutorials/video-converting-queue.md)
 
 ## Вызов функции с помощью расширения {{ api-gw-full-name }} {#extension}
 
 При вызове функции с помощью расширения {{ api-gw-name }} функция получает HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост функции. IP-адрес источника запроса передается так же, как и при [вызове функции через HTTPS](#ip). Подробнее о расширении в [документации {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/cloud-functions.md).
 
+### Примеры использования {#examples-api-gw}
+
+* [{#T}](../tutorials/canary-release.md)
+* [{#T}](../tutorials/java-servlet-todo-list.md)
+* [{#T}](../tutorials/serverless-url-shortener.md)
+* [{#T}](../tutorials/slack-bot-serverless.md)
+* [{#T}](../tutorials/telegram-bot-serverless.md)
+* [{#T}](../tutorials/websocket-app.md)
+
+## Вызов функции с помощью событий в {{ monitoring-short-name }} {#monitoring}
+
+Для автоматической обработки инцидентов и других событий можно интегрировать функции {{ sf-name }} в сервис {{ monitoring-full-name }}. Для этого потребуется добавить функцию в [канал уведомлений](../../monitoring/operations/alert/create-channel-function.md). Вызывать функцию {{ sf-name }} можно при срабатывании [алерта](../../monitoring/concepts/alerting/alert.md) или в [эскалации](../../monitoring/concepts/alerting/escalations.md) {{ monitoring-short-name }}.
+
+Вызов функции должен выполняться в [асинхронном режиме](../concepts/function-invoke-async.md).
+
+Пример функции для вызова внешнего API при срабатывании алерта см. в разделе [{#T}](../../monitoring/operations/alert/create-channel-function.md).

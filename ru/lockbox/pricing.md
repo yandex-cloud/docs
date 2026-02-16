@@ -10,11 +10,15 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 Расчет стоимости использования {{ lockbox-name }} складывается из:
 
 * Количества версий секретов.
 * Числа выполненных операций [get](api-ref/Payload/get) с секретом.
 
+Использование секретов, созданных с помощью сервиса {{ connection-manager-name }}, не тарифицируется.
 
 
 ## Цены для региона Россия {#prices}
@@ -24,40 +28,15 @@ editable: false
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-### Цена хранения секретов {#secrets}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|lockbox }}']}
+    excludeSkuIds={['{{ pc|lockbox.api.v1.connection_manager_get }}', '{{ pc|lockbox.storage.v1.connection_manager_active_secrets }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-Тарификация почасовая. Цена за месяц приводится только для справки из расчета 720 часов (30 дней) в месяце. Значение округлено. [Деактивированные](operations/secret-activation-manage.md), но не удаленные секреты тарифицируются как активные.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/lockbox/rub-secrets.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/lockbox/kzt-secrets.md) %}
-
-{% endlist %}
-
-
-
-
-### Цена запросов секретов {#requests}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/lockbox/rub-requests.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/lockbox/kzt-requests.md) %}
-
-{% endlist %}
 
 
 
@@ -81,6 +60,8 @@ editable: false
   {% include [kzt-lockbox](../_pricing_examples/lockbox/kzt.md) %}
 
 {% endlist %}
+
+
 
 
 

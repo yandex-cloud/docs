@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ mos-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ mos-name }}.
 editable: false
 ---
 
@@ -6,11 +8,21 @@ editable: false
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mos-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=85da325d39e8#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Статус кластера {#running-stopped}
 
@@ -49,13 +61,61 @@ editable: false
 
 * Объем, занимаемый резервными копиями данных сверх заданного хранилища для кластера.
 
-    * Хранение резервных копий не тарифицируется пока сумма размера данных в кластере и всех резервных копий остается меньше выбранного объема хранилища.
+    * Хранение резервных копий не тарифицируется, пока суммарный размер данных в кластере и всех резервных копий остается меньше выбранного объема хранилища.
 
-    * При автоматическом резервном копировании {{ mos-short-name }} не создает новую копию, а сохраняет изменения данных по сравнению с предыдущей копией. Поэтому потребление хранилища автоматическими резервными копиями растет только пропорционально объему изменений.
+    * Все автоматические и [созданные вручную](operations/cluster-backups.md) резервные копии — инкрементные. Это значит, что стартовая резервная копия содержит все сегменты индекса, а все последующие резервные копии содержат только _инкремент_ — разницу с предыдущей резервной копией. Это позволяет экономить место в хранилище и снижает стоимость использования ресурсов.
+
+    * При [получении информации о резервной копии](operations/cluster-backups.md#get-backup) отображается полный размер данных, которые можно восстановить из нее, но тарифицируется только размер инкремента.
 
     * Количество хостов кластера не влияет на объем хранилища и, соответственно, на бесплатный объем резервных копий.
 
 Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+
+### Пример расчета стоимости кластера {#example}
+
+Стоимость использования кластера со следующими параметрами в течение 30 дней:
+
+* **Хосты {{ OS }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
+
+Расчет стоимости для хостов {{ OS }}:
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-opensearch-host](../_pricing_examples/managed-opensearch/rub-host.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-opensearch-host](../_pricing_examples/managed-opensearch/kzt-host.md) %}
+
+{% endlist %}
+
+
+
+
+
+
+Расчет стоимости хранилища и итоговой стоимости:
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-opensearch-storage](../_pricing_examples/managed-opensearch/rub-storage.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-opensearch-storage](../_pricing_examples/managed-opensearch/kzt-storage.md) %}
+
+{% endlist %}
+
+
+
+
 
 
 ## Скидка за резервируемый объем ресурсов (CVoS) {#cvos}
@@ -70,77 +130,30 @@ editable: false
 
 {% endnote %}
 
+
 ## Цены для региона Россия {#prices}
 
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-
-Все цены указаны с включением НДС.
-
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
-### Вычислительные ресурсы хостов {#prices-hosts}
 
 
 {% include [Доступ к Compute Optimized по запросу](../_includes/mdb/note-compute-optimized-request.md) %}
 
-
-
-#### Цены в час {#prices-hosts-hour}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-hour.md](../_pricing/managed-opensearch/rub-hosts-hour.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-hour.md](../_pricing/managed-opensearch/kzt-hosts-hour.md) %}
-
-{% endlist %}
-
-
-
-#### Цены в месяц {#prices-hosts-month}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-hosts-month.md](../_pricing/managed-opensearch/rub-hosts-month.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-hosts-month.md](../_pricing/managed-opensearch/kzt-hosts-month.md) %}
-
-{% endlist %}
-
-
-
-### Хранилище {#prices-storage}
-
 {% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
-{% list tabs group=pricing %}
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-opensearch/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-opensearch/kzt-storage.md) %}
-
-{% endlist %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.opensearch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
 
 

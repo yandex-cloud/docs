@@ -23,13 +23,6 @@ description: Из статьи вы узнаете как работать с {{
 - [{#T}](import/cert-modify.md)
 - [{#T}](import/cert-delete.md)
 
-## Домен {#domain}
-
-- [{#T}](domain/domain-create.md)
-- [{#T}](domain/domain-link-cert.md)
-- [{#T}](domain/domain-modify.md)
-- [{#T}](domain/domain-delete.md)
-
 ## Резервное копирование {#backup}
 
 - [{#T}](cert-backup.md)
@@ -37,3 +30,11 @@ description: Из статьи вы узнаете как работать с {{
 ## Отслеживание статуса сертификата {#alerts}
 
 - [{#T}](alert.md)
+
+## Доступ {#access}
+
+- [{#T}](cert-access.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+- [{#T}](operation-logs.md)

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/logging/v1/api-ref/grpc/LogGroup/listResources.md
 ---
 
-# Cloud Logging Service, gRPC: LogGroupService.ListResources {#ListResources}
+# Cloud Logging Service, gRPC: LogGroupService.ListResources
 
 Retrieves the resources (type and IDs) in the specified log group.
 
@@ -15,14 +15,14 @@ Retrieves the resources (type and IDs) in the specified log group.
 
 ```json
 {
-  "logGroupId": "string",
+  "log_group_id": "string",
   "type": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| logGroupId | **string**
+|| log_group_id | **string**
 
 Required field. ID of the log group to list resources for.
 

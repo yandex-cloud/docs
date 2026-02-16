@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}
+    method: get
+    path:
+      type: object
+      properties:
+        httpRouterId:
+          description: |-
+            **string**
+            Required field. ID of the HTTP router that the virtual host belongs to.
+            To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-load-balancer/api-ref/HttpRouter/list#List) request.
+          type: string
+        virtualHostName:
+          description: |-
+            **string**
+            Required field. Name of the virtual host to return.
+            To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request.
+            Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+      required:
+        - httpRouterId
+        - virtualHostName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/VirtualHost/get.md
 ---
 
-# Application Load Balancer API, REST: VirtualHost.Get {#Get}
+# Application Load Balancer API, REST: VirtualHost.Get
 
 Returns the specified virtual host.
 
@@ -28,7 +55,9 @@ To get the HTTP router ID, make a [HttpRouterService.List](/docs/application-loa
 
 Required field. Name of the virtual host to return.
 
-To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request. ||
+To get the virtual host name, make a [VirtualHostService.List](/docs/application-load-balancer/api-ref/VirtualHost/list#List) request.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 |#
 
 ## Response {#yandex.cloud.apploadbalancer.v1.VirtualHost}
@@ -56,7 +85,31 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
             "prefixMatch": "string",
             "regexMatch": "string"
             // end of the list of possible fields
-          }
+          },
+          "headers": [
+            {
+              "name": "string",
+              "value": {
+                // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                "exactMatch": "string",
+                "prefixMatch": "string",
+                "regexMatch": "string"
+                // end of the list of possible fields
+              }
+            }
+          ],
+          "queryParameters": [
+            {
+              "name": "string",
+              "value": {
+                // Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`
+                "exactMatch": "string",
+                "prefixMatch": "string",
+                "regexMatch": "string"
+                // end of the list of possible fields
+              }
+            }
+          ]
         },
         // Includes only one of the fields `route`, `redirect`, `directResponse`
         "route": {
@@ -84,6 +137,10 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
               "perMinute": "string"
               // end of the list of possible fields
             }
+          },
+          "regexRewrite": {
+            "regex": "string",
+            "substitute": "string"
           }
         },
         "redirect": {
@@ -196,7 +253,8 @@ To get the virtual host name, make a [VirtualHostService.List](/docs/application
           ]
         },
         "securityProfileId": "string"
-      }
+      },
+      "disableSecurityProfile": "boolean"
     }
   ],
   "modifyRequestHeaders": [
@@ -357,6 +415,9 @@ Includes only one of the fields `http`, `grpc`.
 
 Route configuration. ||
 || routeOptions | **[RouteOptions](#yandex.cloud.apploadbalancer.v1.RouteOptions)** ||
+|| disableSecurityProfile | **boolean**
+
+Whether set to 'true' disables security profile for the route. ||
 |#
 
 ## HttpRoute {#yandex.cloud.apploadbalancer.v1.HttpRoute}
@@ -405,6 +466,20 @@ HTTP method specified in the request. ||
 Match settings for the path specified in the request.
 
 If not specified, the route matches all paths. ||
+|| headers[] | **[HttpRouteHeaderMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch)**
+
+Headers specify HTTP request header matchers. Multiple match values are
+ANDed together, meaning, a request must match all the specified headers
+to select the route. Headers must be unique.
+
+The maximum number of elements is 32. ||
+|| queryParameters[] | **[HttpRouteQueryParamMatch](#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch)**
+
+Query Parameters specify HTTP query parameter matchers. Multiple match
+values are ANDed together, meaning, a request must match all the
+specified query parameters to select the route. Query parameters must be unique.
+
+The maximum number of elements is 32. ||
 |#
 
 ## StringMatch {#yandex.cloud.apploadbalancer.v1.StringMatch}
@@ -434,6 +509,34 @@ Regular expression match string.
 Includes only one of the fields `exactMatch`, `prefixMatch`, `regexMatch`.
 
 Match string for either exact or prefix match. ||
+|#
+
+## HttpRouteHeaderMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteHeaderMatch}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP Header to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-0-9a-zA-Z]+ `. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Value of HTTP Header to be matched. ||
+|#
+
+## HttpRouteQueryParamMatch {#yandex.cloud.apploadbalancer.v1.HttpRouteQueryParamMatch}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the HTTP query parameter to be matched.
+
+The string length in characters must be 1-256. Value must match the regular expression ` [-_0-9a-zA-Z]+ `. ||
+|| value | **[StringMatch](#yandex.cloud.apploadbalancer.v1.StringMatch)**
+
+Value of HTTP query parameter to be matched. ||
 |#
 
 ## HttpRouteAction {#yandex.cloud.apploadbalancer.v1.HttpRouteAction}
@@ -492,13 +595,32 @@ For instance, if [StringMatch.prefixMatch](#yandex.cloud.apploadbalancer.v1.Stri
 a request with `/foobaz` path is forwarded with `/barbaz` path.
 For [StringMatch.exactMatch](#yandex.cloud.apploadbalancer.v1.StringMatch), the whole path is replaced.
 
-If not specified, the path is not changed. ||
+If not specified, the path is not changed.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified. ||
 || upgradeTypes[] | **string**
 
 Supported values for HTTP `Upgrade` header. E.g. `websocket`. ||
 || rateLimit | **[RateLimit](#yandex.cloud.apploadbalancer.v1.RateLimit)**
 
 RateLimit is a rate limit configuration applied for route. ||
+|| regexRewrite | **[RegexMatchAndSubstitute](#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute)**
+
+Replacement for portions of the path that match the pattern should be rewritten,
+even allowing the substitution of capture groups from the pattern into the new path as specified
+by the rewrite substitution string.
+
+Only one of regex_rewrite, or prefix_rewrite may be specified.
+
+Examples of using:
+- The path pattern ^/service/([^/]+)(/.*)$ paired with a substitution string of \2/instance/\1 would transform
+/service/foo/v1/api into /v1/api/instance/foo.
+- The pattern one paired with a substitution string of two would transform /xxx/one/yyy/one/zzz
+into /xxx/two/yyy/two/zzz.
+- The pattern ^(.*?)one(.*)$ paired with a substitution string of \1two\2 would replace only the first
+occurrence of one, transforming path /xxx/one/yyy/one/zzz into /xxx/two/yyy/one/zzz.
+- The pattern (?i)/xxx/ paired with a substitution string of /yyy/ would do a case-insensitive match and transform
+path /aaa/XxX/bbb to /aaa/yyy/bbb. ||
 |#
 
 ## RateLimit {#yandex.cloud.apploadbalancer.v1.RateLimit}
@@ -526,12 +648,29 @@ Limit is a rate limit value settings.
 
 PerSecond is a limit value specified with per second time unit.
 
+Value must be greater than 0.
+
 Includes only one of the fields `perSecond`, `perMinute`. ||
 || perMinute | **string** (int64)
 
 PerMinute is a limit value specified with per minute time unit.
 
+Value must be greater than 0.
+
 Includes only one of the fields `perSecond`, `perMinute`. ||
+|#
+
+## RegexMatchAndSubstitute {#yandex.cloud.apploadbalancer.v1.RegexMatchAndSubstitute}
+
+#|
+||Field | Description ||
+|| regex | **string**
+
+The regular expression used to find portions of a string that should be replaced. ||
+|| substitute | **string**
+
+The string that should be substituted into matching portions of the subject string during a substitution operation
+to produce a new string. ||
 |#
 
 ## RedirectAction {#yandex.cloud.apploadbalancer.v1.RedirectAction}
@@ -602,7 +741,9 @@ A direct response action resource.
 ||Field | Description ||
 || status | **string** (int64)
 
-HTTP status code to use in responses. ||
+HTTP status code to use in responses.
+
+Acceptable values are 100 to 599, inclusive. ||
 || body | **[Payload](#yandex.cloud.apploadbalancer.v1.Payload)**
 
 Response body. ||
@@ -617,6 +758,8 @@ A health check payload resource.
 || text | **string**
 
 Payload text.
+
+The string length in characters must be greater than 0.
 
 Includes only one of the fields `text`.
 
@@ -812,12 +955,13 @@ allowed.
 
 Required field. The action to take if a principal matches. Every action either allows or denies a request.
 
-- `ACTION_UNSPECIFIED`
 - `ALLOW`: Allows the request if and only if there is a principal that matches the request.
 - `DENY`: Allows the request if and only if there are no principal that match the request. ||
 || principals[] | **[Principals](#yandex.cloud.apploadbalancer.v1.Principals)**
 
-Required. A match occurs when at least one matches the request. ||
+Required. A match occurs when at least one matches the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principals {#yandex.cloud.apploadbalancer.v1.Principals}
@@ -828,7 +972,9 @@ Principals define a group of identities for a request.
 ||Field | Description ||
 || andPrincipals[] | **[Principal](#yandex.cloud.apploadbalancer.v1.Principal)**
 
-Required. A match occurs when all principals match the request. ||
+Required. A match occurs when all principals match the request.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Principal {#yandex.cloud.apploadbalancer.v1.Principal}

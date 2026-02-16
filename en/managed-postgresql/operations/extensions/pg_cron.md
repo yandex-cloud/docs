@@ -1,34 +1,34 @@
 # Using pg_cron in {{ mpg-name }}
 
-The [pg_cron](https://github.com/citusdata/pg_cron) extension is a job scheduler that enables you to add scheduled jobs to a database and execute SQL commands directly from a job.
+The [pg_cron](https://github.com/citusdata/pg_cron) extension is a job scheduler allowing you to schedule database tasks and run SQL queries directly within a job.
 
-## Install the pg_cron extension in a {{ PG }} cluster {#pg_cron-install}
+## Install the pg_cron extension in your {{ PG }} cluster {#pg_cron-install}
 
-To install the `pg_cron` extension in a {{ PG }} cluster:
+To install `pg_cron` in a {{ PG }} cluster:
 
-1. [Enable the shared library](./cluster-extensions.md#libraries-connection) with the name `pg_cron` for a cluster.
-1. [Add](./cluster-extensions.md#update-extensions) the `pg_cron` extension to one of the databases. You cannot enable the extension for two databases.
+1. [Load the shared library](./cluster-extensions.md#libraries-connection) `pg_cron` into your cluster.
+1. [Enable](./cluster-extensions.md#update-extensions) the `pg_cron` extension in one of your databases. You cannot enable this extension for two databases.
 
-   {% note warning %}
+    {% note warning %}
 
-   Installing the `pg_cron` extension will cause {{ PG }} to restart sequentially on all cluster hosts.
+    Installing `pg_cron` will trigger a rolling restart of {{ PG }} on all cluster hosts.
 
-   {% endnote %}
+    {% endnote %}
 
-1. [Add a user](../grant.md#grant-privilege) with the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) to manage the tasks.
+1. [Assign](../grant.md#grant-privilege) the [`mdb_admin` role](../../concepts/roles.md#mdb-admin) to the user who will be managing the jobs.
 
-In the selected database, the `cron` schema with tables and functions required for the extension to work will appear:
+The database will now contain the `cron` schema with tables and functions required for the extension:
 
 * Tables:
 
-   * `cron.job`: Contains scheduled jobs. The `SELECT` command is allowed.
-   * `cron.job_run_details`: Contains the history of runs. The `SELECT`, `UPDATE`, and `DELETE` commands are allowed.
+    * `cron.job`: Contains scheduled jobs. You can run `SELECT` queries on this table.
+    * `cron.job_run_details`: Contains extension run history. You can run `SELECT`, `UPDATE`, and `DELETE` queries on this table.
 
 * Functions:
 
-   * `schedule`: Creates a job in the database where the `pg_cron` extension is installed.
-   * `schedule_in_database`: Creates a job in another database.
-   * `unschedule`: Deletes a job.
-   * `alter_job`: Changes a job.
+    * `schedule`: Creates a job in the database with the installed `pg_cron` extension.
+    * `schedule_in_database`: Creates a job in a different database.
+    * `unschedule`: Deletes a job.
+    * `alter_job`: Alters a job.
 
-To learn more about the `pg_cron` extension, see the [official documentation](https://github.com/citusdata/pg_cron).
+To learn more about the `pg_cron` extension, see its [official documentation](https://github.com/citusdata/pg_cron).

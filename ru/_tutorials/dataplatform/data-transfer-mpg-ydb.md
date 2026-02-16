@@ -11,6 +11,17 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+  	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру поставки данных:
@@ -20,8 +31,12 @@
 - Вручную {#manual}
 
     1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
     1. [Создайте в кластере-источнике пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) и [назначьте ему](../../managed-postgresql/operations/grant.md) роль `mdb_replication`.
+
 
 - {{ TF }} {#tf}
 
@@ -110,7 +125,11 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+            
+
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -217,7 +236,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
@@ -225,21 +244,16 @@
 
     1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите трансфер](../../data-transfer/operations/transfer.md#delete).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для приемника и источника.
+
+    
     1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
+
+
     1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
     1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
 - {{ TF }} {#tf}
 
-    1. В терминале перейдите в рабочую директорию с конфигурационным файлом `data-transfer-mpg-ydb.tf`.
-    1. Удалите ресурсы с помощью команды:
-
-        ```bash
-        terraform destroy
-        ```
-
-    1. Введите слово `yes` и нажмите **Enter**.
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mpg-ydb.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

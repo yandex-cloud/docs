@@ -1,6 +1,6 @@
 ---
 title: Как удалить группу виртуальных машин
-description: Удаление группы виртуальных машин — неотменяемая и необратимая операция, восстановить удаленную группу невозможно. Вместе с группой удаляются целевая группа {{ network-load-balancer-name }}, виртуальные машины и диски. Чтобы удалить группу виртуальных машин, откройте страницу каталога в консоли управления. Выберите сервис {{ compute-full-name }}. На странице Виртуальные машины перейдите на вкладку Группы виртуальных машин. Выберите пункт Удалить.
+description: Удаление группы виртуальных машин — неотменяемая и необратимая операция, восстановить удаленную группу невозможно. Вместе с группой удаляются целевая группа {{ network-load-balancer-name }}, виртуальные машины и диски. Чтобы удалить группу виртуальных машин, откройте страницу каталога в консоли управления. Перейдите в сервис {{ compute-full-name }}. На странице Виртуальные машины перейдите на вкладку Группы виртуальных машин. Выберите пункт Удалить.
 ---
 
 # Удалить группу виртуальных машин
@@ -18,8 +18,8 @@ description: Удаление группы виртуальных машин —
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. В строке с нужной группой ВМ нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
 
@@ -75,3 +75,9 @@ description: Удаление группы виртуальных машин —
   Список доступных групп запрашивайте методом REST API [listInstances](../../instancegroup/api-ref/InstanceGroup/listInstances.md) или вызовом gRPC API [InstanceGroupService/ListInstances](../../instancegroup/api-ref/grpc/InstanceGroup/listInstances.md).
 
 {% endlist %}
+
+{% note tip %}
+
+Чтобы защитить группу ВМ от случайного удаления, [включите защиту от удаления](enable-deletion-protection.md). Пока защита включена, удалить группу невозможно.
+
+{% endnote %}

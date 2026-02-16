@@ -1,22 +1,22 @@
 # Running external agents for load testing
 
 
-You can use {{ load-testing-full-name }} for service load testing with external agents.
+You can use {{ load-testing-full-name }} for service load testing with external agents. 
 
-An _external agent_ is a physical or virtual server with the load testing tool and [load generators](../../load-testing/concepts/load-generator.md), which is hosted outside {{ load-testing-name }}.
+An _external agent_ is a physical or virtual server with a load testing tool and [load generators](../../load-testing/concepts/load-generator.md), which is hosted outside {{ load-testing-name }}.
 
-Running load testing and viewing its results from an external agent is similar to doing that from the {{ load-testing-name }} [agent](../../load-testing/concepts/agent.md). For more information, see [{#T}](../../load-testing/quickstart.md).
+An external agent operates just as the {{ load-testing-name }} [agent](../../load-testing/concepts/agent.md) in terms of running a load test and viewing its results. For more information, see [{#T}](../../load-testing/quickstart.md).
 
-Load testing with an external agent is used when:
-* The testing target includes multiple instances, and the total inbound and outgoing traffic from them does not exceed the [{{ load-testing-name }} agent capacity](../../load-testing/concepts/agent.md#benchmark).
-* The requests being sent to the testing target require large computing capacity.
+You can use an external agent for load testing when:
+* The test target includes multiple instances, and the total incoming and outgoing traffic from them does not exceed the [{{ load-testing-name }} agent capacity](../../load-testing/concepts/agent.md#benchmark).
+* Requests to the test target require significant computing capacity.
 * The information security rules require that the agent resides in its own infrastructure.
 * {{ compute-name }} VM computing resources are limited.
 
 To run load testing using an external agent:
-1. [Prepare your cloud](#before-you-begin).
-1. [Prepare your infrastructure](#prepare-infrastructure).
-1. [Configure the environment](#configure-environment).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Set up your environment](#configure-environment).
 1. [Install the external agent](#install-external-agent).
 1. [Run the external agent](#run-external-agent).
 1. [Create a test](#run-test).
@@ -32,13 +32,13 @@ If you no longer need the connected external agent, [delete it](#clear-out) from
 
 At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testing-name }} is free of charge.
 
-## Prepare the infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 ### Set up a service account {#prepare-service-account}
 
 1. [Create](../../iam/operations/sa/create.md) a service account, e.g., `sa-loadtest`, in the folder where you are going to connect the external agent.
-1. Assign the `loadtesting.editor` and `loadtesting.generatorClient` [roles](../../load-testing/security/index.md#roles-list) to the service account.
-1. [Create](../../iam/operations/authorized-key/create.md) authorized keys for the service account.
+1. [Assign](../../iam/operations/roles/grant.md) the `loadtesting.editor` and `loadtesting.generatorClient` [roles](../../load-testing/security/index.md#roles-list) to the service account.
+1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) authorized keys for the service account.
 
     Save public and private keys as a single file by clicking **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
@@ -62,7 +62,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 {% endlist %}
 
-## Configure the environment {#configure-environment}
+## Set up your environment {#configure-environment}
 
 1. [Install and initialize](../../cli/quickstart.md#install) the {{ yandex-cloud }} CLI.
 1. [Install](https://www.docker.com/) and run Docker.
@@ -84,7 +84,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     latest: Pulling from yc/ya-lt-agent
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
-    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
+    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d28********
     Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
     {{ registry }}/yc/ya-lt-agent:latest
     ```
@@ -98,9 +98,9 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     ```
 
     Where:
-    * `<secret_name>`: Name of the secret with the authorized keys, such as `secret-loadtest`.
-    * `<secret_key>`: Non-secret ID of the secret with the authorized keys, such as `key-loadtest`.
-    * `<file_name>`: Name of the file where the authorized keys are saved, such as `secret-key.json`.
+    * `<secret_name>`: Name of the secret with the authorized keys, e.g., `secret-loadtest`.
+    * `<secret_key>`: Non-secret ID of the secret with the authorized keys, e.g., `key-loadtest`.
+    * `<file_name>`: Name of the file the authorized keys are saved to, e.g., `secret-key.json`.
 
     {% note warning %}
 
@@ -108,7 +108,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     
     {% endnote %}
     
-1. Create a configuration file for the external agent, e.g., `config.yaml`, and copy the following parameters into it:
+1. Create a configuration file for the external agent, e.g., `config.yaml`, and paste the following parameters into it:
 
     ```text
     client_workdir: '/var/lib/tank_agent/client'
@@ -116,7 +116,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     tankapi_port: 8083
     load_testing_host: 'loadtesting.{{ api-host }}'
     load_testing_port: '443'
-    logging_host: 'ingester.logging.yandexcloud.net'
+    logging_host: '{{ logging-endpoint-ingester }}'
     logging_port: '443'
     object_storage_url: 'https://{{ s3-storage-host }}'
     storage_file: '/tmp/yandex-tank/storage.data'
@@ -130,7 +130,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
     Where:
     * `agent_name`: External agent name, e.g., `external-agent`.
-    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are going to connect the external.
+    * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are going to connect the external agent.
 
 ## Run the external agent {#run-external-agent}
 
@@ -146,8 +146,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     ```
 
     Where:
-    * `<path_to_file_with_authorized_keys>`: Absolute path to the file with the authorized keys, such as `/home/user/secret-key.json`.
-    * `<path_to_configuration_file>`: Absolute path to the configuration file, such as `/home/user/config.yaml`.
+    * `<path_to_file_with_authorized_keys>`: Absolute path to the file with the authorized keys, e.g., `/home/user/secret-key.json`.
+    * `<path_to_configuration_file>`: Absolute path to the configuration file, e.g., `/home/user/config.yaml`.
 
     You can also specify the external agent configuration using the environment variables for different Docker containers.
 
@@ -179,7 +179,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
     {% endcut %}
 
-    Each time the Docker container is run, the external agent is assigned a new ID in {{ load-testing-name }}. You can keep the same ID between container runs, for example, to link testing results to a specific agent. To do this, use a Docker volume to store a file with the external agent ID (the `agent_id_file` parameter in the agent configuration file). The volume data is stored independently of the Docker container: if you stop and delete the container, both the volume and the container data will remain intact.
+    Each time the Docker container is run, the external agent gets a new ID in {{ load-testing-name }}. You can keep the same ID between container runs, e.g., to link testing results to a specific agent. To do this, use a Docker volume to store a file with the external agent ID (the `agent_id_file` parameter in the agent configuration file). The volume data is stored independently of the Docker container: if you stop and delete the container, both the volume and the container data will remain intact.
 
     {% cut "Example of running an external agent with a constant ID" %}
 
@@ -210,17 +210,17 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. In the left-hand panel, go to ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
+      1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
       1. Make sure the **Register an agent** operation completed successfully.
-      1. In the left-hand panel, go to ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+      1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
       1. Make sure the external agent, e.g., `external-agent`, has the `Ready for test` status.
 
     {% endlist %}
 
 ## Create a test {#run-test}
 
-[Run](../../load-testing/quickstart.md#run-test) load testing. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select an external agent, e.g., `external-agent`.
+[Run](../../load-testing/quickstart.md#run-test) a load test. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** field, select an external agent, e.g., `external-agent`.
 
 
 ## View the testing results {#see-results}
@@ -230,7 +230,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. In the left-hand panel, go to ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+  1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Choose the previously created test and view its results. 
 
 {% endlist %}
@@ -244,7 +244,7 @@ To delete the external agent from {{ load-testing-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-  1. In the left-hand panel, go to ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}**.
+  1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
   1. Next to the agent to delete, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.
 

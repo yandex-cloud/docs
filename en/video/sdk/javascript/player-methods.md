@@ -1,11 +1,11 @@
 ---
-title: Cloud Video Player methods in JavaScript SDK
-description: This page describes the methods you can use to manage Cloud Video Player in JavaScript SDK.
+title: '{{ video-player-name }} methods in the JavaScript SDK'
+description: This page describes the methods you can use to manage {{ video-player-name }} in the JavaScript SDK.
 ---
 
 # Player methods
 
-You can manage [Cloud Video Player](../../concepts/player.md) using the following JavaScript SDK methods:
+You can manage [{{ video-player-name }}](../../concepts/player.md) using the following JavaScript SDK methods:
 
 #### setSource {#setsource}
 
@@ -38,7 +38,7 @@ This example uses an object of the following format as the parameter:
     /**
      * @type {boolean} (optional) autoplay when switching to content.
      * By default, preserves the playback state used at time the method is called.
-     * Autoplay may not work. See https://developer.chrome.com/blog/autoplay/
+     * Autoplay may fail. See https://developer.chrome.com/blog/autoplay/
      * autoplay
      */
     autoplay,
@@ -52,11 +52,68 @@ The method returns a promise which:
 * Gets the `fulfilled` status if switching is successful.
 * Gets the `rejected` status if switching fails. For example, if the content with a specified `id` was not found.
 
+#### preloadSource {#preloadsource}
+
+Preloads content for playback.
+
+Example of basic content preloading:
+
+```javascript
+player.preloadSource('https://runtime.video.cloud.yandex.net/player/...');
+```
+
+Example of preloading with optional parameters:
+
+```javascript
+const controller = new AbortController();
+
+player.preloadSource(
+    {
+        source: 'https://runtime.video.cloud.yandex.net/player/...',
+        startPosition: 0,
+    },
+    {
+        signal: controller.signal,
+        bufferGoal: 30
+    }
+);
+
+// To cancel preloading:
+// controller.abort();
+```
+
+This example uses an object of the following format as the first parameter:
+
+```javascript
+{
+    /** @type {string} link to playable content */
+    source,
+    /** @type {number} (optional, the default value is 0) starting position in seconds */
+    startPosition,
+}
+```
+
+You can provide an object with preloading settings as the second optional parameter:
+
+```javascript
+{
+    /** @type {AbortSignal} (optional) signal to cancel preloading */
+    signal,
+    /** @type {number} (optional) target buffer size in seconds */
+    bufferGoal,
+}
+```
+
+The method returns a promise which:
+
+* Gets the `fulfilled` status if the preloading was successful.
+* Gets the `rejected` status if the preloading failed with an error or was cancelled.
+
 #### getState {#getstate}
 
 Returns the player state as an object in the format described in [{#T}](./player-state.md).
 
-Usage example:
+Here is a possible use case:
 
 ```javascript
 var state = player.getState();
@@ -107,17 +164,44 @@ Example:
 player.setVolume(0.7);
 ```
 
+#### setPlaybackSpeed {#setplaybackspeed}
+
+Sets video playback speed.
+
+The parameter is a number for playback speed, for example:
+* `1`: Normal speed (default).
+* `0.5`: Half speed.
+* `2`: Double speed.
+
+{% note warning %}
+
+Negative speed values may work incorrectly.
+
+{% endnote %}
+
+Example for double playback speed:
+
+```javascript
+player.setPlaybackSpeed(2);
+```
+
+Example for half speed:
+
+```javascript
+player.setPlaybackSpeed(0.5);
+```
+
 #### on/once {#subscribe-methods}
 
 Allows you to subscribe to [player events](./player-events.md).
 
-If `once` is called, the subscription works only for the first triggering of the event; if `on` is called, for all triggerings.
+If `once` is called, the subscription works only the first time the event is triggered; if `on` is called, each time the event is triggered.
 
 These methods have the `on(eventName, handler)` and `once(eventName, handler)` signatures, respectively. The first parameter communicates the event name, the second communicates the handler.
 
 The handler receives an object with the appropriate field from the [player state](./player-state.md).
 
-Example of subscribing to all triggerings of the playback [StatusChange](./player-state.md#StatusChange) event:
+Example of subscribing to all triggered playback [StatusChange](./player-state.md#StatusChange) events:
 
 ```javascript
 player.on('StatusChange', ({ status }) => {
@@ -143,11 +227,11 @@ Destroys the player and frees up the resources.
 
 Returns a promise, which enters the `fulfilled` state as soon as the operation is completed.
 
-Usage example:
+Here is a possible use case:
 ```javascript
 player.destroy();
 ```
 
 #### See also {#see-also}
 
-* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

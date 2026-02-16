@@ -1,5 +1,5 @@
 ---
-title: Installing and configuring {{ TF }} and a provider for connection to {{ ydb-short-name }}
+title: Installing and configuring {{ TF }} and a provider to connect to {{ ydb-short-name }}
 description: This is a step-by-step guide for installing and configuring {{ TF }} and a {{ yandex-cloud }} provider.
 ---
 
@@ -14,17 +14,17 @@ You can download {{ TF }} from the official [HashiCorp](https://developer.hashic
 
 - Linux {#linux}
 
-   * Download the [{{ TF }}](https://developer.hashicorp.com/terraform/downloads) distribution and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+    * Download the [{{ TF }}](https://developer.hashicorp.com/terraform/downloads) distribution and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
 
 - macOS {#macos}
 
-   * Download the [{{ TF }} distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
-   * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager and the `brew install terraform` command.
+    * Download the [{{ TF }} distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+    * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager by running this command: `brew install terraform`.
 
 - Windows {#windows}
 
-   * Download {{ TF }} from the [official website](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
-   * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager and the `choco install terraform` command.
+    * Download {{ TF }} from the [official website](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
+    * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager by running this command: `choco install terraform`.
 
 {% endlist %}
 
@@ -39,41 +39,41 @@ Once you have installed {{ TF }}, configure it to access {{ ydb-short-name }}. F
 
 - Linux/macOS {#linux}
 
-   1. Open the {{ TF }} CLI configuration file (`~/.terraformrc`) in any text editor.
+    1. Open the {{ TF }} CLI configuration file, `~/.terraformrc`, in any text editor.
 
-      {% include [terraform-configure-provider-directory](../../_tutorials/_tutorials_includes/terraform-configure-provider-directory.md) %}
+        {% include [terraform-configure-provider-directory](../../_tutorials/_tutorials_includes/terraform-configure-provider-directory.md) %}
 
-   1. Add the following section to the file:
+    1. Add the following section to the file:
 
-      ```tf
-      provider_installation {
-          network_mirror {
-              url = "https://terraform-mirror.yandexcloud.net/"
-              include = ["registry.terraform.io/*/*"]
-      }
-          direct {
-              exclude = ["registry.terraform.io/*/*"]
-          }
-      }
-      ```
+        ```tf
+        provider_installation {
+            network_mirror {
+                url = "https://terraform-mirror.yandexcloud.net/"
+                include = ["registry.terraform.io/*/*"]
+            }
+            direct {
+                exclude = ["registry.terraform.io/*/*"]
+            }
+        }
+        ```
 
 - Windows {#windows}
 
-   1. Open the {{ TF }} CLI configuration file named `terraform.rc` in your user's `%APPDATA%` folder.
-   1. Add the following section to the file:
+    1. Open the {{ TF }} CLI `terraform.rc` configuration file in your user's `%APPDATA%` folder.
+    1. Add the following section to the file:
 
-      ```tf
-      provider_installation {
-          network_mirror {
-              url = "https://terraform-mirror.yandexcloud.net/"
-              include = ["registry.terraform.io/*/*"]
-      }
-          direct {
-              exclude = ["registry.terraform.io/*/*"]
-          }
-      }
-      ```
-
+        ```tf
+        provider_installation {
+            network_mirror {
+                url = "https://terraform-mirror.yandexcloud.net/"
+                include = ["registry.terraform.io/*/*"]
+        }
+            direct {
+                exclude = ["registry.terraform.io/*/*"]
+            }
+        }
+        ```
+		
 {% endlist %}
 
 This completes the installation and configuration of {{ TF }} and the provider for connection to {{ ydb-short-name }}. You can move on to creating [configuration files](./configure.md) for {{ ydb-short-name }} access.

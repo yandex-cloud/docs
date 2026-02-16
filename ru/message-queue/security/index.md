@@ -5,9 +5,9 @@ description: Управление доступом в сервисе для об
 
 # Управление доступом в {{ message-queue-name }}
 
-Пользователь {{ yandex-cloud }} может выполнять только те операции над ресурсами, которые разрешены назначенными ему ролями. Пока у пользователя нет никаких ролей все операции ему запрещены.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-Чтобы разрешить доступ к ресурсам сервиса {{ message-queue-full-name }}, назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным пользователям](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
+Чтобы разрешить доступ к ресурсам сервиса {{ message-queue-full-name }}, назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
@@ -28,6 +28,8 @@ description: Управление доступом в сервисе для об
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ service-name }}.
+
+{% include [message-queue](../../_mermaid/roles/message-queue.md) %}
 
 ### Сервисные роли {#service-roles}
 

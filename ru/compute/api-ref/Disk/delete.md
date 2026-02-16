@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/disks/{diskId}
+    method: delete
+    path:
+      type: object
+      properties:
+        diskId:
+          description: |-
+            **string**
+            Required field. ID of the disk to delete.
+            To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Disk/delete.md
 ---
 
-# Compute Cloud API, REST: Disk.Delete {#Delete}
+# Compute Cloud API, REST: Disk.Delete
 
 Deletes the specified disk.
 
@@ -25,7 +44,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/disks/{diskId}
 || diskId | **string**
 
 Required field. ID of the disk to delete.
-To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request. ||
+To get the disk ID use a [DiskService.List](/docs/compute/api-ref/Disk/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

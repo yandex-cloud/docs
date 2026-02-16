@@ -5,7 +5,7 @@ description: Из статьи вы узнаете, как управлять з
 
 # Управление заданиями MapReduce
 
-{% include [MapReduce](../../_includes/data-proc/mapreduce-intro.md) %}
+{% include [MapReduce](../../_includes/data-processing/mapreduce-intro.md) %}
 
 ## Создать задание {#create}
 
@@ -13,7 +13,8 @@ description: Из статьи вы узнаете, как управлять з
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
     1. (Опционально) Укажите имя задания.
@@ -22,11 +23,11 @@ description: Из статьи вы узнаете, как управлять з
         * имя основного класса;
         * путь к основному JAR-файлу в формате:
 
-           {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+           {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
     1. Укажите аргументы задания.
 
-       {% include [job-properties-requirements](../../_includes/data-proc/job-properties-requirements.md) %}
+       {% include [job-properties-requirements](../../_includes/data-processing/job-properties-requirements.md) %}
 
     1. (Опционально) Укажите пути к дополнительным JAR-файлам, если они используются.
     1. (Опционально) Задайте дополнительные настройки:
@@ -67,7 +68,7 @@ description: Из статьи вы узнаете, как управлять з
 
         Пути к необходимым для выполнения задания файлам передавайте в формате:
 
-        {% include [jar-file-path-requirements](../../_includes/data-proc/jar-file-path-requirements.md) %}
+        {% include [jar-file-path-requirements](../../_includes/data-processing/jar-file-path-requirements.md) %}
 
     Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
 
@@ -85,21 +86,19 @@ description: Из статьи вы узнаете, как управлять з
 
 ## Отменить задание {#cancel}
 
-{% include [jobs-cancel](../../_includes/data-proc/jobs-cancel.md) %}
+{% include [jobs-cancel](../../_includes/data-processing/jobs-cancel.md) %}
 
 ## Получить список заданий {#list}
 
-{% include [jobs-list](../../_includes/data-proc/jobs-list.md) %}
+{% include [jobs-list](../../_includes/data-processing/jobs-list.md) %}
 
 ## Получить общую информацию о задании {#get-info}
 
-{% include [jobs-get-info](../../_includes/data-proc/jobs-get-info.md) %}
-
+{% include [jobs-get-info](../../_includes/data-processing/jobs-get-info.md) %}
 
 ## Получить логи выполнения задания {#get-logs}
 
-{% include [jobs-get-logs](../../_includes/data-proc/jobs-get-logs.md) %}
-
+{% include [jobs-get-logs](../../_includes/data-processing/jobs-get-logs.md) %}
 
 {% note info %}
 

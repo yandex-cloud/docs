@@ -1,9 +1,55 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the community.
+          pattern: '[a-zA-Z0-9040104510410-044f]\S{1,61}[a-zA-Z0-9040104510410-044f]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the community.
+          type: string
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization where community should be created.
+          type: string
+        billingAccountId:
+          description: |-
+            **string**
+            ID of the billing account for the created community. Optional, billing account could be bound to community later.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels of the community.
+          type: object
+          additionalProperties:
+            type: string
+        zoneId:
+          description: |-
+            **string**
+            Required field. ID of the zone where community will be created (all projects and other resources will be in this zone)
+          type: string
+      required:
+        - organizationId
+        - zoneId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/create.md
 ---
 
-# DataSphere API v2, REST: Community.Create {#Create}
+# DataSphere API v2, REST: Community.Create
 
 Creates community in specified organization.
 
@@ -21,7 +67,7 @@ POST https://datasphere.{{ api-host }}/datasphere/v2/communities
   "description": "string",
   "organizationId": "string",
   "billingAccountId": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string"
 }
 ```
@@ -40,7 +86,7 @@ Required field. ID of the organization where community should be created. ||
 || billingAccountId | **string**
 
 ID of the billing account for the created community. Optional, billing account could be bound to community later. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || zoneId | **string**
@@ -76,7 +122,7 @@ Required field. ID of the zone where community will be created (all projects and
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "createdById": "string",
     "organizationId": "string",
     "zoneId": "string"
@@ -203,7 +249,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || createdById | **string**

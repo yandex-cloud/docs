@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана очередь.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.ymq.queue.form.section_base }}** заполните поля:
       * **{{ ui-key.yacloud.common.name }}** — укажите имя очереди.

@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to return.
+            To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/get.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.Get {#Get}
+# Managed Service for OpenSearch API, REST: Cluster.Get
 
 Returns the specified OpenSearch cluster.
 
@@ -23,7 +42,9 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
 
 Required field. ID of the OpenSearch cluster to return.
 
-To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.mdb.opensearch.v1.Cluster}
@@ -37,7 +58,7 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "environment": "string",
   "monitoring": [
     {
@@ -129,7 +150,27 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-
     "access": {
       "dataTransfer": "boolean",
       "serverless": "boolean"
-    }
+    },
+    "snapshotManagement": {
+      "snapshotSchedule": {
+        // Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`
+        "hourlySnapshotSchedule": {
+          "minute": "string"
+        },
+        "dailySnapshotSchedule": {
+          "hour": "string",
+          "minute": "string"
+        },
+        "weeklySnapshotSchedule": {
+          "day": "string",
+          "hour": "string",
+          "minute": "string"
+        }
+        // end of the list of possible fields
+      },
+      "snapshotMaxAgeDays": "string"
+    },
+    "fullVersion": "string"
   },
   "networkId": "string",
   "health": "string",
@@ -153,7 +194,8 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-
     "delayedUntil": "string",
     "latestMaintenanceTime": "string",
     "nextMaintenanceWindowTime": "string"
-  }
+  },
+  "diskEncryptionKeyId": "string"
 }
 ```
 
@@ -185,7 +227,7 @@ The name is unique within the folder. 1-63 characters long. ||
 || description | **string**
 
 Description of the OpenSearch cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the OpenSearch cluster as `key:value` pairs.
 Maximum 64 labels per resource. ||
@@ -193,7 +235,6 @@ Maximum 64 labels per resource. ||
 
 Deployment environment of the OpenSearch cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -242,6 +283,9 @@ Cluster maintenance window. Should be defined by either one of the two options. 
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation)**
 
 Maintenance operation planned at nearest `maintenanceWindow`. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.opensearch.v1.Monitoring}
@@ -279,6 +323,12 @@ Dashboards configuration. ||
 || access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access)**
 
 Access policy for external services. ||
+|| snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
+
+Snapshot management configuration ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -329,7 +379,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -360,10 +409,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -375,7 +428,7 @@ Limit on how large the storage for database instances can automatically grow, in
 ||Field | Description ||
 || effectiveConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
 
-Required field.  ||
+Required field. ||
 || userConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 || defaultConfig | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)** ||
 |#
@@ -445,6 +498,105 @@ Determines whether the access to Data Transfer is allowed. ||
 Determines whether the access to Serverless is allowed. ||
 |#
 
+## SnapshotManagement {#yandex.cloud.mdb.opensearch.v1.SnapshotManagement}
+
+Snapshot management configuration
+
+#|
+||Field | Description ||
+|| snapshotSchedule | **[SnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule)**
+
+Snapshot creation schedule ||
+|| snapshotMaxAgeDays | **string** (int64)
+
+Snapshot max age in days
+
+The minimum value is 7. ||
+|#
+
+## SnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.SnapshotSchedule}
+
+Snapshot creation schedule
+
+#|
+||Field | Description ||
+|| hourlySnapshotSchedule | **[HourlySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule)**
+
+Hourly based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|| dailySnapshotSchedule | **[DailySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule)**
+
+Daily based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|| weeklySnapshotSchedule | **[WeeklySnapshotSchedule](#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule)**
+
+Weekly based snapshot schedule
+
+Includes only one of the fields `hourlySnapshotSchedule`, `dailySnapshotSchedule`, `weeklySnapshotSchedule`. ||
+|#
+
+## HourlySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.HourlySnapshotSchedule}
+
+Hourly based snapshot schedule
+
+#|
+||Field | Description ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## DailySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.DailySnapshotSchedule}
+
+Daily based snapshot schedule
+
+#|
+||Field | Description ||
+|| hour | **string** (int64)
+
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## WeeklySnapshotSchedule {#yandex.cloud.mdb.opensearch.v1.WeeklySnapshotSchedule}
+
+Weekly based snapshot schedule
+
+#|
+||Field | Description ||
+|| day | **enum** (WeekDay)
+
+Day of the week
+
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **string** (int64)
+
+The hour of the day in UTC timezone at which the backup should be created.
+
+Acceptable values are 0 to 23, inclusive. ||
+|| minute | **string** (int64)
+
+The minute of the hour at which the backup should be created.
+
+Acceptable values are 0 to 59, inclusive. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
 
 An OpenSearch cluster maintenance window. Should be defined by either one of the two options.
@@ -473,7 +625,6 @@ A weekly maintenance window.
 
 Day of the week.
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`: Monday
 - `TUE`: Tuesday
 - `WED`: Wednesday
@@ -483,7 +634,9 @@ Day of the week.
 - `SUN`: Sunday ||
 || hour | **string** (int64)
 
-Hour of the day in the UTC timezone. ||
+Hour of the day in the UTC timezone.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.opensearch.v1.MaintenanceOperation}
@@ -492,7 +645,9 @@ Hour of the day in the UTC timezone. ||
 ||Field | Description ||
 || info | **string**
 
-The description of the operation. ||
+The description of the operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Delay time for the maintenance operation.

@@ -9,7 +9,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
 - Form
 
    If you are setting up test parameters using a form in the interface, enable the **Agent monitoring** option. This enables a standard configuration of the agent monitoring that includes the following metrics:
-
+   
    * [cpu](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/cpu)
    * [diskio](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/diskio)
    * [mem](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/mem)
@@ -25,7 +25,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    Before using the plugin, make sure the test agent is running the latest version. Update the agent, if required.
 
    {% endnote %}
-
+   
    {% note info %}
 
    {{ monitoring-full-name }} metrics for different cloud services are collected at intervals ranging from 15 to 60 seconds, so the results for short-running tests may be undescriptive. We recommend using a plugin for long-running tests (10 minutes or more).
@@ -64,7 +64,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    In the monitoring agent configuration, you can also describe the metrics that are missing in Telegraf.
 
    Here is an example of the `custom` metric description:
-
+  
    ```yaml
    telegraf:
       enabled: true
@@ -75,7 +75,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
             diff: 1
             measure: call
             label: test
-            cmd: curl -s 'http://localhost:6100/stat'  | python3 -c 'import sys, json; j = json.load(sys.stdin); print("\n".join(rerp(c["values"]["accept"]) for c in j["charts"] if c["name"] == "localqueue_wait_time"))'
+            cmd: curl --silent 'http://localhost:6100/stat'  | python3 -c 'import sys, json; j = json.load(sys.stdin); print("\n".join(rerp(c["values"]["accept"]) for c in j["charts"] if c["name"] == "localqueue_wait_time"))'
    ```
 
 - YCMonitoring
@@ -137,7 +137,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    ```
    Where:
    * `resource_id`: Test agent name.
-   * `folderId`: ID of the folder containing the test agent.
+   * `folderId`: ID of the folder containing the test agent. 
 
    This plugin also allows you to configure additional parameters:
 
@@ -145,7 +145,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    panels:
      panel_name:
        ...
-   api_host: monitoring.api.cloud.yandex.net:443
+   api_host: {{ api-host-monitoring-1 }}:443
    token: LOADTESTING_YC_TOKEN
    timeout: 5s
    request_timeout: 10s
@@ -155,7 +155,7 @@ You can enable test agent monitoring in the settings when you [create a test](..
    ```
 
    Where:
-   * `api_host`: Address of the {{ monitoring-name }} API used to collect data. The default value is `monitoring.api.cloud.yandex.net:443`.
+   * `api_host`: Address of the {{ monitoring-name }} API used to collect data. The default value is `{{ api-host-monitoring-1 }}:443`.
    * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) file path. The default value is taken from the `LOADTESTING_YC_TOKEN` environment variable.
    * `timeout`: Plugin shutdown timeout after the load test is over. The default value is five seconds.
    * `request_timeout`: {{ monitoring-name }} API request timeout. The default value is ten seconds.

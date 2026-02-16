@@ -132,3 +132,101 @@ Hello, Anonymous
 ```text
 HTTP method PUT is not supported by this URL
 ```
+
+## Пример: вывод информации о функции {#get-context}
+
+Следующая функция выводит свои метаданные, взятые из [контекста вызова](../context.md).
+
+Файл `pom.xml`:
+
+```xml
+<project>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>my.company.app</groupId>
+    <artifactId>servlet</artifactId>
+    <version>1</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+</project>
+```
+
+Файл `Handler.java`:
+
+```java
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+public class Handler extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String requestId = request.getHeader("Lambda-Runtime-Aws-Request-Id");
+        String functionId = request.getHeader("Lambda-Runtime-Function-Name");
+        String versionId = request.getHeader("Lambda-Runtime-Function-Version");
+        String memoryLimit = request.getHeader("Lambda-Runtime-Memory-Limit");
+        String tokenJson = request.getHeader("Lambda-Runtime-Token-Json");
+
+        response.getOutputStream().print(String.format(
+                "RequestID: %s\n" +
+                "FunctionID: %s\n" +
+                "VersionID: %s\n" +
+                "MemoryLimit: %s\n" +
+                "TokenJSON: %s",
+                requestId,
+                functionId,
+                versionId,
+                memoryLimit,
+                tokenJson
+        ));
+    }
+}
+```
+
+Пример запроса:
+
+```json
+{
+    "httpMethod": "GET",
+    "requestContext": {},
+    "body": "",
+    "isBase64Encoded": true
+}
+```
+
+Пример ответа:
+
+```json
+{
+    "multiValueHeaders": {
+        "Content-Type": [
+            "application/json"
+        ]
+    },
+    "isBase64Encoded": false,
+    "statusCode": 200,
+    "headers": {
+        "Content-Type": "application/json"
+    },
+    "body": "
+        RequestID: 6ccf3084-a92a-43a4-9122-5520********\n
+        FunctionID: b09hcbdla2ro********\n
+        VersionID: b09h91stkts4********\n
+        MemoryLimit: 1024\n
+        TokenJSON: 
+    "
+}
+```

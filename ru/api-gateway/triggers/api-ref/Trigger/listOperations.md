@@ -1,9 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        triggerId:
+          description: |-
+            **string**
+            Required field. ID of the trigger to list operations for.
+          type: string
+      required:
+        - triggerId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger/get#yandex.cloud.serverless.triggers.v1.Trigger) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name=my-function`.
+            The maximum string length in characters is 1000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/triggers/v1/triggers/api-ref/Trigger/listOperations.md
 ---
 
-# Cloud Functions Triggers Service, REST: Trigger.ListOperations {#ListOperations}
+# Cloud Functions Triggers Service, REST: Trigger.ListOperations
 
 Lists operations for the specified trigger.
 
@@ -32,11 +81,15 @@ The maximum number of results per page that should be returned. If the number of
 results is larger than `pageSize`, the service returns a [ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse) returned by a previous list request. ||
+[ListTriggerOperationsResponse.nextPageToken](#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
@@ -45,7 +98,9 @@ The expression must specify:
 1. The field name. Currently filtering can only be applied to the [Trigger.name](/docs/functions/triggers/api-ref/Trigger/get#yandex.cloud.serverless.triggers.v1.Trigger) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-Example of a filter: `name=my-function`. ||
+Example of a filter: `name=my-function`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.serverless.triggers.v1.ListTriggerOperationsResponse}

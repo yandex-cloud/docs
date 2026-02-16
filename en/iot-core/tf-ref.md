@@ -23,6 +23,6 @@ The following {{ TF }} provider resources are supported for {{ iot-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_iot_broker]({{ tf-provider-datasources-link }}/datasource_iot_core_broker) | [Broker](./concepts/index.md#broker) information |
-| [yandex_iot_device]({{ tf-provider-datasources-link }}/datasource_iot_core_device) | [Device](./concepts/index.md#device) information |
-| [yandex_iot_registry]({{ tf-provider-datasources-link }}/datasource_iot_core_registry) | [Registry](./concepts/index.md#registry) information |
+| [yandex_iot_broker]({{ tf-provider-datasources-link }}/iot_core_broker) | [Broker](./concepts/index.md#broker) information |
+| [yandex_iot_device]({{ tf-provider-datasources-link }}/iot_core_device) | [Device](./concepts/index.md#device) information |
+| [yandex_iot_registry]({{ tf-provider-datasources-link }}/iot_core_registry) | [Registry](./concepts/index.md#registry) information |

@@ -1,5 +1,6 @@
 # Использование {{ api-gw-full-name }} для настройки синтеза речи в {{ speechkit-full-name }}
 
+
 С помощью serverless-технологий можно создать собственную интеграцию с сервисами {{ yandex-cloud }}.
 
 Пользовательская интеграция, создаваемая в данном руководстве, представляет собой [API-шлюз](../../api-gateway/concepts/index.md), сконфигурированный по стандарту [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) c [HTTP-интеграцией](../../api-gateway/concepts/extensions/http.md). 
@@ -67,7 +68,7 @@
 
       Сохраните идентификатор сервисного аккаунта `speechkit-sa` (`id`) и каталога, в котором его создали (`folder_id`).
 
-      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
   1. Назначьте сервисному аккаунту роль `ai.speechkit-tts.user` на каталог, указав сохраненные ранее идентификаторы каталога и сервисного аккаунта:
 
@@ -77,7 +78,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/resource-manager/folder/add-access-binding.md).
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
 
 - API {#api}
 
@@ -97,7 +98,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором необходимо создать API-шлюз.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_name }}** введите `speechkit-api-gw`.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `speechkit-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте следующую спецификацию, указав [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `speechkit-sa` в параметре `service_account_id`:
 
       {% include [api-gw-yaml-spec](../_tutorials_includes/speechkit-integrarion-via-agi-gw/api-gw-yaml-spec.md) %}
@@ -133,7 +134,7 @@
      created_at: "2024-08-19T18:58:32.101Z"
      name: speechkit-api-gw
      status: ACTIVE
-     domain: d5ddbmungf72********.apigw.yandexcloud.net
+     domain: {{ api-host-apigw }}
      connectivity: {}
      log_options:
        folder_id: b1gt6g8ht345********
@@ -142,7 +143,7 @@
 
   Сохраните служебный домен созданного API-шлюза (значение поля `domain`). Он понадобится для проверки работы API-шлюза.
 
-  Подробнее о команде `yc serverless api-gateway create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/serverless/api-gateway/create.md).
+  Подробнее о команде `yc serverless api-gateway create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/api-gateway/create.md).
 
 - API {#api}
 

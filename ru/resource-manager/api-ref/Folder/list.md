@@ -1,9 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/folders
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        cloudId:
+          description: |-
+            **string**
+            Required field. ID of the cloud to list folders in.
+            To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
+            returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on the [Folder.name](#yandex.cloud.resourcemanager.v1.Folder) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
+          type: string
+      required:
+        - cloudId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Folder/list.md
 ---
 
-# Resource Manager API, REST: Folder.List {#List}
+# Resource Manager API, REST: Folder.List
 
 Retrieves the list of Folder resources in the specified cloud.
 
@@ -20,26 +69,34 @@ GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders
 || cloudId | **string**
 
 Required field. ID of the cloud to list folders in.
-To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request. ||
+To get the cloud ID, use a [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListFoldersResponse.nextPageToken](#yandex.cloud.resourcemanager.v1.ListFoldersResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Folder.name](#yandex.cloud.resourcemanager.v1.Folder) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.resourcemanager.v1.ListFoldersResponse}
@@ -55,7 +112,7 @@ The expression must specify:
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string"
     }
   ],
@@ -107,14 +164,13 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the folder. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)
 
 Status of the folder.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The folder is active.
 - `DELETING`: The folder is being deleted.
 - `PENDING_DELETION`: Stopping folder resources and waiting for the deletion start timestamp. ||

@@ -1,0 +1,13 @@
+default:
+  versions:
+    tf:
+      latest: 9.0-valkey`
+      str: '`7.2-valkey`, `8.0-valkey`, `8.1-valkey`, or `9.0-valkey`'
+    cli:
+      latest: 9.0-valkey`
+      previous: 8.1-valkey
+      str: '`7.2-valkey`, `8.0-valkey`, `8.1-valkey`, or `9.0-valkey`'
+    console:
+      latest: '9.0'
+      previous: '8.1'
+      str: 7.2, 8.0, 8.1, or 9.0

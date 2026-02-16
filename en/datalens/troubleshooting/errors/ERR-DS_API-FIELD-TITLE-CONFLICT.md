@@ -1,8 +1,13 @@
-# Field title conflicts with another field
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.FIELD.TITLE.CONFLICT'
+description: This page describes the Field title conflicts with another field {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Field title conflicts with another field
 
 `ERR.DS_API.FIELD.TITLE.CONFLICT`
 
-Conflicting field names. The name of the added field must not coincide with any existing field in the dataset. 
+Conflicting field names. The new field must not have the same name as any existing field in the dataset.
 
 Check that the field has a unique name within the dataset.
 

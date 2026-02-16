@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Origin/get.md
 ---
 
-# Cloud CDN API, gRPC: OriginService.Get {#Get}
+# Cloud CDN API, gRPC: OriginService.Get
 
 Get origin in origin group.
 
@@ -15,19 +15,23 @@ Get origin in origin group.
 
 ```json
 {
-  "folderId": "string",
-  "originId": "int64"
+  "folder_id": "string",
+  "origin_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
-|| originId | **int64**
+Required field. ID of the folder that the origin belongs to.
 
-`originId` group ID to request origin from. ||
+The maximum string length in characters is 50. ||
+|| origin_id | **int64**
+
+`origin_id` group ID to request origin from.
+
+Value must be greater than 0. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -35,7 +39,7 @@ Required field. ID of the folder that the origin belongs to. ||
 ```json
 {
   "id": "int64",
-  "originGroupId": "int64",
+  "origin_group_id": "int64",
   "source": "string",
   "enabled": "bool",
   "backup": "bool",
@@ -54,7 +58,8 @@ Required field. ID of the folder that the origin belongs to. ||
       "id": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "provider_type": "string"
 }
 ```
 
@@ -65,7 +70,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -88,6 +93,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

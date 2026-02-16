@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
+    method: get
+    path:
+      type: object
+      properties:
+        ruleId:
+          description: |-
+            **string** (int64)
+            ID of the requested resource rule.
+            Value must be greater than 0.
+          type: string
+          format: int64
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of resource.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/ResourceRules/get.md
 ---
 
-# Cloud CDN API, REST: ResourceRules.Get {#Get}
+# Cloud CDN API, REST: ResourceRules.Get
 
 Get specified by id resource rule.
 
@@ -19,7 +47,9 @@ GET https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
 ||Field | Description ||
 || ruleId | **string** (int64)
 
-Required field. ID of the requested resource rule. ||
+Required field. ID of the requested resource rule.
+
+Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.GetResourceRuleRequest}
@@ -28,7 +58,9 @@ Required field. ID of the requested resource rule. ||
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of resource. ||
+Required field. ID of resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.Rule}
@@ -50,7 +82,7 @@ Required field. ID of resource. ||
       // Includes only one of the fields `value`, `defaultValue`
       "value": {
         "simpleValue": "string",
-        "customValues": "string"
+        "customValues": "object"
       },
       "defaultValue": "string"
       // end of the list of possible fields
@@ -133,7 +165,7 @@ Required field. ID of resource. ||
     },
     "staticHeaders": {
       "enabled": "boolean",
-      "value": "string"
+      "value": "object"
     },
     "cors": {
       "enabled": "boolean",
@@ -163,7 +195,7 @@ Required field. ID of resource. ||
     },
     "staticRequestHeaders": {
       "enabled": "boolean",
-      "value": "string"
+      "value": "object"
     },
     "customServerName": {
       "enabled": "boolean",
@@ -189,8 +221,25 @@ Required field. ID of resource. ||
       "exceptedValues": [
         "string"
       ]
+    },
+    "followRedirects": {
+      "enabled": "boolean",
+      "codes": [
+        "string"
+      ],
+      "useCustomHost": "boolean"
+    },
+    "websockets": {
+      "enabled": "boolean"
+    },
+    "headerFilter": {
+      "enabled": "boolean",
+      "headers": [
+        "string"
+      ]
     }
-  }
+  },
+  "weight": "string"
 }
 ```
 
@@ -200,15 +249,25 @@ Resource rule.
 ||Field | Description ||
 || id | **string** (int64)
 
-Rule ID. ||
+Rule ID.
+
+Value must be greater than 0. ||
 || name | **string**
 
-Required field. Rule name. ||
+Required field. Rule name.
+
+The maximum string length in characters is 50. ||
 || rulePattern | **string**
 
 Required field. Rule pattern.
-Must be a valid regular expression. ||
+Must be a valid regular expression.
+
+The maximum string length in characters is 100. ||
 || options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| weight | **string** (int64)
+
+Rules are ordered by weight in ascending order (lower weights execute first)
+Weight must be between 0 and 9999 inclusive ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
@@ -302,6 +361,17 @@ Secure token to protect contect and limit access by IP addresses and time limits
 
 Manage the state of the IP access policy option.
 The option controls access to content from the specified IP addresses. ||
+|| followRedirects | **[FollowRedirectsOption](#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption)**
+
+Manage the state of the Redirection from origin option.
+If the source returns a redirect, the option lets CDN pull the requested content from the source that was returned in the redirect. ||
+|| websockets | **[WebsocketsOption](#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption)**
+
+Configuration for WebSocket protocol support. ||
+|| headerFilter | **[HeaderFilterOption](#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption)**
+
+Configuration for HTTP response header filtering.
+This feature allows controlling which headers from the origin are passed to end users. ||
 |#
 
 ## BoolOption {#yandex.cloud.cdn.v1.ResourceOptions.BoolOption}
@@ -355,7 +425,7 @@ A set of the caching response time parameters.
 Caching time for a response with codes 200, 206, 301, 302.
 Responses with codes 4xx, 5xx will not be cached. Use `0s` disable to caching.
 Use `customValues` field to specify a custom caching time for a response with specific codes. ||
-|| customValues | **string** (int64)
+|| customValues | **object** (map<**string**, **string** (int64)>)
 
 Caching time for a response with specific codes. These settings have a higher priority than the value field.
 Response code (`304`, `404` for example). Use `any` to specify caching time for all response codes.
@@ -514,7 +584,7 @@ A set of the strings map parameters.
 
 True - the option is enabled and its `value` is applied to the resource.
 False - the option is disabled and its default value is used for the resource. ||
-|| value | **string**
+|| value | **object** (map<**string**, **string**>)
 
 Value of the option. ||
 |#
@@ -539,7 +609,6 @@ The value must have the following format: `<source path> <destination path>`, wh
 Break flag is applied to the option by default.
 It is not shown in the field.
 
-- `REWRITE_FLAG_UNSPECIFIED`
 - `LAST`: Stops processing of the current set of ngx_http_rewrite_module directives and
 starts a search for a new location matching changed URI.
 - `BREAK`: Stops processing of the current set of the Rewrite option.
@@ -563,7 +632,6 @@ The key for the URL signing. ||
 
 The type of the URL signing. The URL could be available for all IP addresses or for the only one IP.
 
-- `SECURE_KEY_URL_TYPE_UNSPECIFIED`
 - `ENABLE_IP_SIGNING`: Use scpecific IP address in URL signing. URL will be availible only for this IP.
 - `DISABLE_IP_SIGNING`: Sign URL without using IP address. URL will be available for all IP addresses. ||
 |#
@@ -580,10 +648,46 @@ False - the option is disabled and its default value of the [flag](#yandex.cloud
 
 The policy type. One of allow or deny value.
 
-- `POLICY_TYPE_UNSPECIFIED`
 - `POLICY_TYPE_ALLOW`: Allow access to all IP addresses except the ones specified in the excepted_values field.
 - `POLICY_TYPE_DENY`: Block access to all IP addresses except the ones specified in the excepted_values field. ||
 || exceptedValues[] | **string**
 
 The list of IP addresses to be allowed or denied. ||
+|#
+
+## FollowRedirectsOption {#yandex.cloud.cdn.v1.ResourceOptions.FollowRedirectsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True - the option is enabled and its [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is applied to the resource.
+False - the option is disabled and its default value of the [flag](#yandex.cloud.cdn.v1.ResourceOptions.RewriteOption) is used for the resource. ||
+|| codes[] | **string** (int64)
+
+Add the redirect HTTP status codes that the source returns. ||
+|| useCustomHost | **boolean**
+
+Use the redirect target domain as a Host header, or leave it the same as the value of the Change Host header option. ||
+|#
+
+## WebsocketsOption {#yandex.cloud.cdn.v1.ResourceOptions.WebsocketsOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|#
+
+## HeaderFilterOption {#yandex.cloud.cdn.v1.ResourceOptions.HeaderFilterOption}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Enables or disables feature. ||
+|| headers[] | **string**
+
+Whitelist of headers. ||
 |#

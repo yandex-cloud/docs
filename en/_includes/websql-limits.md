@@ -1,4 +1,3 @@
-
-| Limit | Value |
-| ----- | ----- |
-| Number of queries for {{ CH }} | 1 |
+Type of limit | Value
+--- | ---
+Maximum query execution time | 15 minutes

@@ -17,13 +17,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки серверов входит:
 * Плата за несколько запущенных [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Подготовьте основную ВМ в облаке {#create-master-vm}
 
@@ -33,11 +31,11 @@
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu](/marketplace?tab=software&search=Ubuntu&categories=os).
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите тип загрузочного [диска](../../compute/concepts/disk.md) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры для решения текущих вычислительных задач:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -59,7 +57,7 @@
 
     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
 
@@ -107,12 +105,15 @@
 
 ### Создайте кластер {#create-cluster}
 
-1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.switch_disks }}**.
-1. Справа от диска ВМ `master-node` нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-1. Перейдите в раздел **{{ ui-key.yacloud.compute.switch_groups }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в раздел **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+1. Справа от диска ВМ `master-node` нажмите ![image](../../_assets/options.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**. Задайте имя `master-node-snapshot`. После того как снимок будет создан, он появится в разделе **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}** и нажмите **{{ ui-key.yacloud.compute.groups.button_create }}**.
 1. Создайте [группу ВМ](../../compute/concepts/instance-groups/index.md):
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите имя будущей группы ВМ, например `compute-group`.
-   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+   * В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** добавьте [сервисный аккаунт](../../compute/concepts/instance-groups/access.md) к данной группе ВМ. Если у вас нет сервисного аккаунта, нажмите **{{ ui-key.yacloud.common.create }}**, укажите его имя и нажмите на кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+
+     Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту роль [compute.editor](../../compute/security/index.md#compute-editor). По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+
    * В поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите зону, в которой находится ВМ `master-node`. Зоны доступности должны совпадать, чтобы минимизировать задержки при взаимодействии ВМ.
    * В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**. Откроется экран создания [шаблона](../../compute/concepts/instance-groups/instance-template.md).
      * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**. В открывшемся окне укажите:

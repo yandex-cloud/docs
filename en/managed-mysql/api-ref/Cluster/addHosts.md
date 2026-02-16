@@ -1,9 +1,85 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batchCreate
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to add hosts to.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        hostSpecs:
+          description: |-
+            **[HostSpec](#yandex.cloud.mdb.mysql.v1.HostSpec)**
+            Configuration of the newly added hosts.
+            The number of elements must be greater than 0.
+          type: array
+          items:
+            $ref: '#/definitions/HostSpec'
+      additionalProperties: false
+    definitions:
+      HostSpec:
+        type: object
+        properties:
+          zoneId:
+            description: |-
+              **string**
+              ID of the availability zone where the host resides.
+              To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+              The maximum string length in characters is 50.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet to assign to the host.
+              This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.networkId](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)).
+              The maximum string length in characters is 50.
+            type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Option that enables public IP address for the host so that the host can be accessed from the internet.
+              After a host has been created, this setting cannot be changed.
+              To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate [assignPublicIp](/docs/managed-mysql/api-ref/Cluster/updateHosts#yandex.cloud.mdb.mysql.v1.UpdateHostSpec) value set.
+              Possible values:
+              * `false` - don't assign a public IP address to the host.
+              * `true` - assign a public IP address to the host.
+            type: boolean
+          replicationSource:
+            description: |-
+              **string**
+              [Host.name](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.Host) of the host to be used as the replication source (for cascading replication).
+            type: string
+          backupPriority:
+            description: |-
+              **string** (int64)
+              Host backup priority
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          priority:
+            description: |-
+              **string** (int64)
+              Host master promotion priority
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Cluster/addHosts.md
 ---
 
-# Managed Service for MySQL API, REST: Cluster.AddHosts {#AddHosts}
+# Managed Service for MySQL API, REST: Cluster.AddHosts
 
 Adds new hosts in a cluster.
 
@@ -21,7 +97,9 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/hosts:batc
 
 Required field. ID of the cluster to add hosts to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.AddClusterHostsRequest}
@@ -45,7 +123,9 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 ||Field | Description ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.mysql.v1.HostSpec)**
 
-Configuration of the newly added hosts. ||
+Configuration of the newly added hosts.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.mysql.v1.HostSpec}
@@ -56,12 +136,16 @@ Configuration of the newly added hosts. ||
 
 ID of the availability zone where the host resides.
 
-To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
 ID of the subnet to assign to the host.
 
-This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.networkId](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)). ||
+This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.networkId](/docs/managed-mysql/api-ref/Cluster/create#yandex.cloud.mdb.mysql.v1.CreateClusterRequest)).
+
+The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**
 
 Option that enables public IP address for the host so that the host can be accessed from the internet.
@@ -77,10 +161,14 @@ Possible values:
 [Host.name](/docs/managed-mysql/api-ref/Cluster/listHosts#yandex.cloud.mdb.mysql.v1.Host) of the host to be used as the replication source (for cascading replication). ||
 || backupPriority | **string** (int64)
 
-Host backup priority ||
+Host backup priority
+
+Acceptable values are 0 to 100, inclusive. ||
 || priority | **string** (int64)
 
-Host master promotion priority ||
+Host master promotion priority
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

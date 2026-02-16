@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
     ```bash
     cosign generate-key-pair \
-        --kms yckms:///folder/<идентификатор_каталога>/keyname/<имя_ключевой_пары>
+      --kms yckms:///folder/<идентификатор_каталога>/keyname/<имя_ключевой_пары>
     ```
 
     Где:
@@ -54,15 +54,15 @@ description: Следуя данной инструкции, вы сможете
 
     Утилита вернет идентификатор созданной ключевой пары подписи и сохранит открытый ключ подписи в локальный файл. Сохраните идентификатор ключевой пары, он понадобится вам на следующих шагах.
     
-    Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../../cli/cli-ref/managed-services/kms/asymmetric-signature-key/list.md).
+    Идентификатор ключевой пары подписи всегда можно получить в [консоли управления]({{ link-console-main }}) или с помощью [команды CLI](../../cli/cli-ref/kms/cli-ref/asymmetric-signature-key/list.md).
 
 1. Подпишите локальный файл:
 
     ```bash
     cosign sign-blob \
-        --key yckms:///<идентификатор_ключевой_пары> \
-        --tlog-upload=false \
-        <путь_к_файлу>
+      --key yckms:///<идентификатор_ключевой_пары> \
+      --tlog-upload=false \
+      <путь_к_файлу>
     ```
 
     Где:
@@ -85,10 +85,10 @@ description: Следуя данной инструкции, вы сможете
 
 ```bash
 cosign verify-blob \
-    --key yckms:///<идентификатор_ключевой_пары> \
-    --insecure-ignore-tlog \
-    --signature "<значение_электронной_подписи>" \
-    <путь_к_файлу>
+  --key yckms:///<идентификатор_ключевой_пары> \
+  --insecure-ignore-tlog \
+  --signature "<значение_электронной_подписи>" \
+  <путь_к_файлу>
 ```
 
 Где:
@@ -106,4 +106,4 @@ Verified OK
 
 #### См. также {#see-also}
 
-* [Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}](../../container-registry/tutorials/sign-with-cosign.md).
+* [Подпись и проверка Docker-образов {{ container-registry-name }} в {{ managed-k8s-name }}](../../container-registry/tutorials/sign-cr-with-cosign.md).

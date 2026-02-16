@@ -31,6 +31,8 @@ items:
             href: operations/container-info.md
           - name: Получить информацию о ревизии контейнера
             href: operations/revision-info.md
+          - name: Настроить параметры сервиса метаданных
+            href: operations/metadata-options.md
       - name: Управление правами доступа к контейнеру
         items:
           - name: Сделать контейнер публичным
@@ -53,8 +55,12 @@ items:
         items:
           - name: Вызвать контейнер
             href: operations/invoke.md
+          - name: Вызвать контейнер асинхронно
+            href: operations/invoke-async.md
           - name: Получить ссылку для вызова
             href: operations/invocation-link.md
+          - name: Аутентифицироваться при вызове приватного контейнера через HTTPS
+            href: operations/auth.md
       - name: Управление контейнером
         items:
           - name: Изменить контейнер
@@ -65,6 +71,8 @@ items:
                 href: operations/description-update.md
           - name: Сделать ревизию активной
             href: operations/activate-revision.md
+          - name: Изменить режим работы контейнера
+            href: operations/update-runtime.md
           - name: Масштабировать контейнер
             items:
               - name: Посмотреть настройки масштабирования
@@ -79,7 +87,7 @@ items:
             href: operations/network-add.md
           - name: Передать секреты {{ lockbox-full-name }}
             href: operations/lockbox-secret-transmit.md
-          - name: Смонтировать файловые системы
+          - name: Смонтировать внешние ресурсы на файловую систему контейнера
             items:
               - name: Смонтировать бакеты
                 href: operations/mount-bucket.md
@@ -153,16 +161,18 @@ items:
         href: concepts/container.md
       - name: Вызов контейнера
         href: concepts/invoke.md
+      - name: Асинхронный вызов контейнера
+        href: concepts/invoke-async.md
+      - name: Среда выполнения
+        href: concepts/runtime.md
+      - name: Сетевое взаимодействие
+        href: concepts/networking.md
+      - name: Монтирование внешних ресурсов на файловую систему контейнера
+        href: concepts/mounting.md
       - name: Долгоживущие контейнеры
         href: concepts/long-lived-containers.md
       - name: Уведомления о завершении выполнения контейнера
         href: concepts/termination-notifications.md
-      - name: Сетевое взаимодействие
-        href: concepts/networking.md
-      - name: Среда выполнения
-        href: concepts/runtime.md
-      - name: Монтирование файловых систем
-        href: concepts/mounting.md
       - name: Триггер
         items:
           - name: Обзор
@@ -204,6 +214,12 @@ items:
           serverless-продуктов
         href: tutorials/ci-cd-serverless.md
       - name: >-
+          Настройка CI/CD в {{ src-name }} для развертывания {{
+          serverless-containers-name }} с помощью GitHub Actions
+        href: tutorials/ci-cd-sourcecraft-github-actions.md
+      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+        href: tutorials/serverless-gitlab-runner.md
+      - name: >-
           Настройка подключения к {{ mpg-full-name }} из контейнера {{
           serverless-containers-name }}
         href: tutorials/pg-connect.md
@@ -211,14 +227,30 @@ items:
           Запуск контейнерного приложения в {{ serverless-containers-full-name
           }}
         href: tutorials/deploy-app-container.md
+      - name: Разработка пользовательской интеграции в {{ api-gw-name }}
+        href: tutorials/api-gw-integration.md
+      - name: >-
+          Разработка функций в Functions Framework и их развертывание в {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Регулярное распознавание изображений и PDF-документов из бакета {{
+          objstorage-short-name }}
+        href: tutorials/vision-ocrrecognizer-storage.md
   - name: Управление доступом
     href: security/index.md
+  - name: Инструменты
+    href: tools.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI Containers
-    href: ../cli/cli-ref/managed-services/serverless/container/index.md
-  - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Containers
+        href: ../cli/cli-ref/serverless/cli-ref/container/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Containers
@@ -377,11 +409,13 @@ items:
                 href: triggers/api-ref/Trigger/resume.md
               - name: ListOperations
                 href: triggers/api-ref/Trigger/listOperations.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/serverless-containers
-deepBase: 2

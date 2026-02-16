@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the registry to return.
+            To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Registry/list#List) request.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/get.md
 ---
 
-# IoT Core Service, REST: Registry.Get {#Get}
+# IoT Core Service, REST: Registry.Get
 
 Returns the specified registry.
 
@@ -37,7 +55,7 @@ To get a registry ID make a [RegistryService.List](/docs/iot-core/api-ref/Regist
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "logGroupId": "string",
   "logOptions": {
@@ -77,7 +95,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

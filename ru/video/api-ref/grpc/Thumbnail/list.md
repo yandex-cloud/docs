@@ -3,9 +3,10 @@ editable: false
 sourcePath: en/_api-ref-grpc/video/v1/api-ref/grpc/Thumbnail/list.md
 ---
 
-# Video API, gRPC: ThumbnailService.List {#List}
+# Video API, gRPC: ThumbnailService.List
 
-List thumbnails for channel.
+Lists all thumbnails associated with a specific resource (channel, stream, video, etc.)
+with pagination support.
 
 ## gRPC request
 
@@ -15,23 +16,48 @@ List thumbnails for channel.
 
 ```json
 {
-  "channelId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "channel_id": "string",
+  // Includes only one of the fields `episode_id`, `video_id`
+  "episode_id": "string",
+  "video_id": "string",
+  // end of the list of possible fields
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| channelId | **string**
+|| channel_id | **string**
 
-ID of the channel. ||
-|| pageSize | **int64**
+[Deprecated] ID of the channel.
 
-The maximum number of the results per page to return. Default value: 100. ||
-|| pageToken | **string**
+The maximum string length in characters is 50. ||
+|| episode_id | **string**
 
-Page token for getting the next page of the result. ||
+ID of the episode containing the thumbnails to list.
+
+The maximum string length in characters is 50.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| video_id | **string**
+
+ID of the video containing the thumbnails to list.
+
+The maximum string length in characters is 50.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| page_size | **int64**
+
+The maximum number of thumbnails to return per page.
+
+The maximum value is 100. ||
+|| page_token | **string**
+
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListThumbnailResponse.
+
+The maximum string length in characters is 15000. ||
 |#
 
 ## ListThumbnailResponse {#yandex.cloud.video.v1.ListThumbnailResponse}
@@ -41,11 +67,15 @@ Page token for getting the next page of the result. ||
   "thumbnails": [
     {
       "id": "string",
-      "channelId": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "channel_id": "string",
+      // Includes only one of the fields `episode_id`, `video_id`
+      "episode_id": "string",
+      "video_id": "string",
+      // end of the list of possible fields
+      "created_at": "google.protobuf.Timestamp"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -53,23 +83,38 @@ Page token for getting the next page of the result. ||
 ||Field | Description ||
 || thumbnails[] | **[Thumbnail](#yandex.cloud.video.v1.Thumbnail)**
 
-List of thumbnails. ||
-|| nextPageToken | **string**
+List of thumbnails matching the request criteria.
+May be empty if no thumbnails match the criteria or if the parent resource has no thumbnails. ||
+|| next_page_token | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Thumbnail {#yandex.cloud.video.v1.Thumbnail}
+
+Entity representing an image used as a visual representation for various content entities.
+Thumbnails provide preview images for channels, streams, episodes, videos, and stream lines.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the thumbnail. ||
-|| channelId | **string**
+Unique identifier of the thumbnail. ||
+|| channel_id | **string**
 
-ID of the channel where the thumbnail was created. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+Identifier of the channel where the thumbnail is created and managed. ||
+|| episode_id | **string**
 
-Time when thumbnail was created. ||
+ID of the episode which the thumbnail is associated with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| video_id | **string**
+
+ID of the video which the thumbnail is associated with.
+
+Includes only one of the fields `episode_id`, `video_id`. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when the thumbnail was initially created in the system. ||
 |#

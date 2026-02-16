@@ -1,9 +1,73 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
+    method: patch
+    path:
+      type: object
+      properties:
+        snapshotId:
+          description: |-
+            **string**
+            Required field. ID of the Snapshot resource to update.
+            To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - snapshotId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the snapshot.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the snapshot.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            Existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/update.md
 ---
 
-# Compute Cloud API, REST: Snapshot.Update {#Update}
+# Compute Cloud API, REST: Snapshot.Update
 
 Updates the specified snapshot.
 
@@ -22,7 +86,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}
 || snapshotId | **string**
 
 Required field. ID of the Snapshot resource to update.
-To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request. ||
+To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapshot/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateSnapshotRequest}
@@ -32,7 +98,7 @@ To get the snapshot ID use a [SnapshotService.List](/docs/compute/api-ref/Snapsh
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -50,15 +116,21 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the snapshot. ||
+Name of the snapshot.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the snapshot. ||
-|| labels | **string**
+Description of the snapshot.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-Existing set of `labels` is completely replaced by the provided set. ||
+Existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -90,7 +162,7 @@ Existing set of `labels` is completely replaced by the provided set. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "storageSize": "string",
     "diskSize": "string",
     "productIds": [
@@ -105,6 +177,10 @@ Existing set of `labels` is completely replaced by the provided set. ||
       },
       "generation2Features": "object"
       // end of the list of possible fields
+    },
+    "kmsKey": {
+      "keyId": "string",
+      "versionId": "string"
     }
   }
   // end of the list of possible fields
@@ -232,7 +308,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)
@@ -255,7 +331,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the snapshot.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Snapshot is being created.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
@@ -267,6 +342,9 @@ ID of the source disk used to create this snapshot. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -295,7 +373,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

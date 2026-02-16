@@ -1,3 +1,8 @@
+---
+title: Updating a {{ MY }} cluster
+description: This page covers FAQ about updating a {{ MY }} cluster.
+---
+
 # Updating a {{ MY }} cluster
 
 

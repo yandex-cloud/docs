@@ -5,14 +5,13 @@ description: Из статьи вы узнаете, какие роли необ
 
 # Сервисный аккаунт для инструментов {{ alb-name }} для {{ managed-k8s-name }}
 
-
 Инструменты {{ alb-name }} для {{ managed-k8s-name }} — [Ingress-контроллер](index.md) и [Gateway API](../k8s-gateway-api/index.md) — разворачивают инфраструктуру от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md). Этому аккаунту требуются следующие разрешения:
-
 
 {% list tabs %}
 
 - Ingress-контроллер
 
+  {% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
   | Сервис | На что нужно разрешение | Минимальная роль |
   | ----- | ----- | ----- |
@@ -20,7 +19,6 @@ description: Из статьи вы узнаете, какие роли необ
   | {{ vpc-name }}<br/>([роли](../../../vpc/security/index.md)) | Управление внешней или внутренней связностью, в зависимости от типа балансировщика | `vpc.publicAdmin` (внешняя)<br/>`vpc.privateAdmin` (внутренняя) |
   | {{ certificate-manager-name }}<br/>([роли](../../../certificate-manager/security/index.md)) | Получение сертификатов (для HTTPS-балансировщиков) | `certificate-manager.certificates.downloader` |
   | {{ compute-name }}<br/>([роли](../../../compute/security/index.md)) | Получение информации о ВМ, созданных как узлы кластера {{ managed-k8s-name }} | `compute.viewer` |
-
 
 - Gateway API
 
@@ -33,8 +31,7 @@ description: Из статьи вы узнаете, какие роли необ
   
 {% endlist %}
 
-
-Для аутентификации сервисного аккаунта используется [авторизованный ключ](../../../iam/concepts/authorization/key.md). Ключ нужно указать при установке Helm-чарта с Ingress-контроллером или Gateway API в значении `saKeySecretKey`. Например, если вы создали ключ с помощью [команды CLI `yc iam key create`](../../../cli/cli-ref/managed-services/iam/key/create.md) и сохранили его в файл `sa-key.json`, то команда для установки чарта может выглядеть так:
+Для аутентификации сервисного аккаунта используется [авторизованный ключ](../../../iam/concepts/authorization/key.md). Ключ нужно указать при установке Helm-чарта с Ingress-контроллером или Gateway API в значении `saKeySecretKey`. Например, если вы создали ключ с помощью [команды CLI `yc iam key create`](../../../cli/cli-ref/iam/cli-ref/key/create.md) и сохранили его в файл `sa-key.json`, то команда для установки чарта может выглядеть так:
 
 ```bash
 helm install \

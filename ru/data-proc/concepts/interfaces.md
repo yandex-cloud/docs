@@ -19,10 +19,10 @@ UI Proxy по умолчанию отключен. Чтобы воспользо
 
 {% note warning %}
 
-Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](../operations/connect.md#configuring-security-groups).
+Для использования UI Proxy может потребоваться дополнительная [настройка групп безопасности](../operations/security-groups.md).
 
 {% endnote %}
 
 ## Компоненты и порты {#port-numbers}
 
-{% include [ports-table](../../_includes/data-proc/ports-table.md) %}
+{% include [ports-table](../../_includes/data-processing/ports-table.md) %}

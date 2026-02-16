@@ -45,7 +45,7 @@ https://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?
 
 {% note info %}
 
-Для публичных бакетов необязательно генерировать подписанные ссылки. Из бакета с публичным доступом файлы можно получить как по протоколу HTTP, так и по протоколу HTTPS, даже если для бакета не настроен [хостинг веб-сайта](../../../storage/concepts/hosting.md).
+Для публичных бакетов необязательно генерировать подписанные ссылки. Из бакета с публичным доступом файлы можно получить как по протоколу HTTP, так и по протоколу HTTPS, даже если для бакета не настроен [хостинг сайта](../../../storage/concepts/hosting.md).
 
 {% endnote %}
 
@@ -57,7 +57,7 @@ https://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?
 1. [Вычислите подпись с помощью ключа](#signing).
 1. [Сформируйте подписанный URL](#composing-signed-url).
 
-Для составления подписанного URL необходимо обладать [статическими ключами](../../../iam/operations/sa/create-access-key.md) доступа.
+Для составления подписанного URL необходимо обладать [статическими ключами](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) доступа.
 
 ### Канонический запрос {#canonical-request}
 
@@ -225,7 +225,9 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 В подразделе приведены примеры кода для генерации подписанных URL.
 
-Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в примерах не используются [AWS SDK](../../../storage/tools/sdk/index.md). Примеры с использованием AWS SDK и прочих инструментов см. в подразделе [Примеры получения подписанной ссылки в инструментах {{ objstorage-name }}](#example-for-getting-in-tools).
+Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в этих примерах не используются [AWS SDK](../../../storage/tools/sdk/index.md). Примеры с использованием {{ yandex-cloud }} CLI, AWS CLI и AWS SDK см. на страницах:
+* [{#T}](../../../storage/operations/objects/link-for-download.md)
+* [{#T}](../../../storage/operations/objects/link-for-upload.md)
 
 {% list tabs %}
 
@@ -296,6 +298,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   ```php
   <?php
 
+    date_default_timezone_set('UTC');
     $keyid = "<идентификатор_статического_ключа>";
     $secretkey = "<содержимое_статического_ключа>";
     $path = "<ключ_объекта>";
@@ -334,62 +337,4 @@ signature = Hex(sign(SigningKey, StringToSign))
   ?>
   ```
 
-{% endlist %}
-
-## Примеры получения подписанной ссылки в инструментах {{ objstorage-name }} {#example-for-getting-in-tools}
-
-В подразделе приведены примеры генерации подписанных URL c помощь различных [инструментов {{ objstorage-name }}](../../../storage/tools/index.md).
-
-{% list tabs %}
-
-- Консоль управления {#console}
-  
-  {% include [storage-get-link-for-download](../../../storage/_includes_service/storage-get-link-for-download.md) %}
-
-- AWS CLI {#cli}
-
-    Ссылку на скачивание объекта можно сгенерировать с помощью AWS CLI. Для этого выполните команду:
-
-    ```bash
-    aws s3 presign s3://<имя_бакета>/<ключ_объекта> \
-      --expires-in <время_жизни_ссылки> \
-      --endpoint-url "https://{{ s3-storage-host }}/"
-    ```
-
-    Чтобы ссылка сформировалась корректно, обязательно укажите параметр `--endpoint-url` с указанием на доменное имя {{ objstorage-name }}. Подробнее см. в [разделе об особенностях работы AWS CLI](../../../storage/tools/aws-cli.md#specifics).
-
-- Python (boto3) {#boto3}
-    
-    Пример генерирует подписанный URL для скачивания объекта `object-for-share` из бакета `bucket-with-objects`. URL действителен в течение 100 секунд.
-
-    ```python
-    # coding=utf-8
-
-    import boto3
-    from botocore.client import Config
-
-
-    ENDPOINT = "https://{{ s3-storage-host }}"
-
-    ACCESS_KEY = "JK38EXAMP********"
-    SECRET_KEY = "ExamP1eSecReTKeykdo********"
-
-    session = boto3.Session(
-        aws_access_key_id=ACCESS_KEY,
-        aws_secret_access_key=SECRET_KEY,
-        region_name="{{ region-id }}",
-    )
-    s3 = session.client(
-        "s3", endpoint_url=ENDPOINT, config=Config(signature_version="s3v4")
-    )
-
-    presigned_url = s3.generate_presigned_url(
-        "get_object",
-        Params={"Bucket": "bucket-with-objects", "Key": "object-for-share"},
-        ExpiresIn=100,
-    )
-
-    print(presigned_url)
-    ```
-          
 {% endlist %}

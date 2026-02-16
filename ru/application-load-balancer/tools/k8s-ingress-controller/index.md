@@ -1,5 +1,11 @@
+---
+title: Ingress-контроллер для {{ managed-k8s-full-name }}
+description: '{{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в кластерах {{ managed-k8s-full-name }} — Ingress-контроллер.'
+---
+
 # Ingress-контроллер для {{ managed-k8s-name }}
 
+{% include [Gwin](../../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
 {{ alb-name }} предоставляет инструмент для создания и управления балансировщиками нагрузки в [кластерах {{ managed-k8s-full-name }}](../../../managed-kubernetes/concepts/index.md#kubernetes-cluster) — Ingress-контроллер {{ alb-name }}.
 
@@ -8,7 +14,7 @@ Ingress-контроллер, установленный в кластер, бу
 Полную конфигурацию ресурсов для Ingress-контроллера {{ alb-name }} см. в следующих разделах:
 
 * [Ingress](../../k8s-ref/ingress.md) — правила распределения трафика между бэкендами и настройки Ingress-контроллера.
-* [HttpBackendGroup](../../k8s-ref/http-backend-group.md) — объединение бэкендов в группы.
+* [HttpBackendGroup](../../k8s-ref/http-backend-group.md) и [GrpcBackendGroup](../../k8s-ref/grpc-backend-group.md) — объединение бэкендов в группы.
 * [IngressClass](../../k8s-ref/ingress-class.md) — управление несколькими Ingress-контроллерами в кластере {{ k8s }}.
 * [Service](../../k8s-ref/service-for-ingress.md) — описание сервисов {{ k8s }}, используемых в качестве бэкендов.
 

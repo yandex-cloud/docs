@@ -1,19 +1,19 @@
-To provide the container with access to the [secret](../../lockbox/concepts/secret.md), specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles in the container parameters:
-* `lockbox.payloadViewer` to access the secret (see [Granting permissions to access a secret](../../lockbox/operations/secret-access.md)).
-* `kms.keys.encrypterDecrypter` to access the encryption key if the secret was created using a {{ kms-full-name }} key (see [Granting permissions to access an encryption key](../../kms/operations/key-access.md)).
+For a container to get access to a [secret](../../lockbox/concepts/secret.md), edit its settings to specify a [service account](../../iam/concepts/users/service-accounts.md) with the following roles assigned:
+* `lockbox.payloadViewer` for the secret ([how to assign access permissions for a secret](../../lockbox/operations/secret-access.md)).
+* `kms.keys.encrypterDecrypter` for the encryption key if the secret was created using a {{ kms-full-name }} key ([how to assign access permissions for an encryption key](../../kms/operations/key-access.md)).
 
 A {{ lockbox-short-name }} secret transmitted to a container is cached in {{ serverless-containers-name }}. As soon as the service account can no longer access the secret, the container may store it for up to 5 minutes.
 
-A new revision of a container is created when {{ lockbox-name }} secrets are transmitted. You cannot transmit secrets to an existing revision.
+Transmitting {{ lockbox-name }} secrets creates a new container revision. You cannot transmit secrets to an existing revision.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder with your container.
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select a container you want to transmit a secret to.
-    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+    1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. In the window that opens, under **{{ ui-key.yacloud.serverless-containers.section_image }}**, in the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** field, specify:
         * Name of the environment variable to store the secret.
         * Secret ID.
@@ -73,7 +73,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
         ```hcl
         resource "yandex_serverless_container" "test-container" {
           name               = "<container_name>"
-          memory             = <memory_amount>
+          memory             = <memory_size>
           service_account_id = "<service_account_ID>"
           secrets {
             id                   = "<secret_ID>"
@@ -95,10 +95,10 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
         Where:
           * `secrets`: Section with secret settings. It contains the following parameters:
-            * `id`: Secret ID. This is a required parameter.
-            * `version_id`: Secret version ID. This is a required parameter.
-            * `key`: Key of one of the secret version's key-value pairs that will be stored in the environment variable. This is a required parameter.
-            * `environment_variable`: Name of the environment variable that will store the secret. This is a required parameter.
+            * `id`: Secret ID. This is a required setting.
+            * `version_id`: Secret version ID. This is a required setting.
+            * `key`: Key of one of the secret version's key-value pairs that will be stored in the environment variable. This is a required setting.
+            * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
         
         For more information about the `yandex_serverless_container` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
  
@@ -106,7 +106,7 @@ A new revision of a container is created when {{ lockbox-name }} secrets are tra
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-    You can check the function update and configuration in the [management console]({{ link-console-main }}).
+    You can check the function's update settings in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

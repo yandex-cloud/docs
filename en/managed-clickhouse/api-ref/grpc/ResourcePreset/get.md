@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ResourcePresetService.Get {#Get}
+# Managed Service for ClickHouse API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.
 
@@ -17,16 +17,18 @@ To get the list of available ResourcePreset resources, make a [List](/docs/manag
 
 ```json
 {
-  "resourcePresetId": "string"
+  "resource_preset_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. ID of the resource preset to return.
-To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/grpc/ResourcePreset/list#List) request. ||
+To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-clickhouse/api-ref/grpc/ResourcePreset/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ResourcePreset {#yandex.cloud.mdb.clickhouse.v1.ResourcePreset}
@@ -34,7 +36,7 @@ To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-
 ```json
 {
   "id": "string",
-  "zoneIds": [
+  "zone_ids": [
     "string"
   ],
   "cores": "int64",
@@ -49,7 +51,7 @@ A ResourcePreset resource for describing hardware configuration presets.
 || id | **string**
 
 ID of the ResourcePreset resource. ||
-|| zoneIds[] | **string**
+|| zone_ids[] | **string**
 
 IDs of availability zones where the resource preset is available. ||
 || cores | **int64**

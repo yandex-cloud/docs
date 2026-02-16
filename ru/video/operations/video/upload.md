@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Загрузить видео
 
+{% include [video-characteristic](../../../_includes/video/video-characteristic-multiple.md) %}
+
+{% include [video-multi-soundtracks](../../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../../_includes/video/video-resolution-limits.md) %}
+
 ## Загрузить одно видео {#single}
 
 {% list tabs group=instructions %}
@@ -21,16 +27,29 @@ description: Следуя данной инструкции, вы сможете
       Дождитесь окончания загрузки файла.
 
   1. Введите **{{ ui-key.yacloud_video.videos.label_title }}** видео. Название будет отображаться на всех ресурсах, где будет размещено видео.
-  1. В поле **{{ ui-key.yacloud_video.videos.label_accessRights }}** укажите, для кого должно быть доступно видео:
+  1. (Опционально) В поле **{{ ui-key.yacloud_video.videos.label_description }}** укажите таймкоды к видео в формате:
+   
+     {% include [video-timecodes](../../../_includes/video/video-timecodes.md) %}
 
-      * `{{ ui-key.yacloud_video.videos.label_access_rights-auth-system-access }}` — видео будет доступно пользователям, авторизованным в вашей [организации](../../../organization/quickstart.md).
-      * `{{ ui-key.yacloud_video.videos.label_access_rights-public }}` — видео будет общедоступным.
+  1. В списке **{{ ui-key.yacloud_video.videos.label_accessRights }}** выберите тип доступа к видео:
+
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}** — видео будет доступно по специальной ссылке.
+
+        {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
+
+      * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео доступно неограниченное время и всем, у кого есть ссылка на видео.
 
   1. (Опционально) Чтобы добавить обложку для видео, в поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
+  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
+
+     Если шаблон не выбран, к видео будут применен [шаблон по умолчанию](../style-presets/set-default.md), назначенный на канал.
+
+  1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
+  1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
   Откроется страница управления созданным видео. После завершения обработки видео станет доступно для просмотра.
@@ -42,13 +61,85 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
   1. Нажмите кнопку воспроизведения.
 
-- API {#api}
+- REST API {#api}
 
-  Воспользуйтесь методом REST API [create](../../api-ref/Video/create.md) для ресурса [Video](../../api-ref/Video/index.md) или вызовом gRPC API [VideoService/Create](../../api-ref/grpc/Video/create.md).
-  
-  Запрос зарегистрирует видео на канале. После это загрузите файл с видео по протоколу [tus](https://tus.io/protocols/resumable-upload). Загрузку вы можете реализовать самостоятельно на любом языке программирования или воспользоваться для этого [готовыми библиотеками](https://tus.io/implementations).
-  
-  Подробности о загрузке видео см. в инструкции [Как начать работать с API {{ video-full-name }}](../../api-ref/quickstart.md#create-video).
+  Чтобы создать видео в {{ video-name }} с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
+
+  1. Зарегистрируйте видео на канале:
+
+      {% include [register-video-rest-api-command](../../../_includes/video/register-video-rest-api-command.md) %}
+
+      Где:
+      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+      * `<идентификатор_канала>` — идентификатор канала, в котором вы хотите создать ваше видео.
+      * `<имя_видео>` — имя, которое будет присвоено видео при загрузке в канал.
+      * `<размер_видеофайла>` — полученный размер загружаемого видеофайла в байтах.
+      * `<имя_видеофайла>` — имя видеофайла, который вы хотите загрузить.
+      * Тип доступа к видео:
+        * `public_access` — неограниченное время и всем, у кого есть ссылка на видео. 
+        * `signUrlAccess` — по временной ссылке.
+          
+           {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
+
+      {% include [register-video-rest-api-output](../../../_includes/video/register-video-rest-api-output.md) %}
+
+      Сохраните ссылку на загрузку видео (значение поля `url`) и идентификатор видео (значение поля `videoId`) — они понадобятся позднее.
+
+  1. Загрузите видеофайл:
+
+      {% include [create-video-upload-file-curl](../../../_includes/video/create-video-upload-file-curl.md) %}
+
+  1. Убедитесь, что видеофайл загрузился полностью, указав сохраненный ранее идентификатор видео:
+
+      {% include [verify-video-upload-rest](../../../_includes/video/verify-video-upload-rest.md) %}
+
+      Если поле `status` имеет значение `PROCESSING` или `READY`, значит видеофайл загрузился полностью.
+
+  1. Если поле `status` имеет значение `WAIT_UPLOADING`, значит загрузка видеофайла была прервана. В этом случае видео требуется дозагрузить. Для этого необходимо знать позицию `offset`, на которой была прервана предыдущая попытка загрузки:
+
+      {% include [resume-video-upload-curl](../../../_includes/video/resume-video-upload-curl.md) %}
+
+      Повторно убедитесь, что видеофайл загрузился полностью. Если загрузка вновь была прервана, повторите действия, описанные в текущем шаге.
+
+- gRPC API {#grpc-api}
+
+  Чтобы создать видео в {{ video-name }} с помощью API, зарегистрируйте видео на канале и затем загрузите в него видеофайл по протоколу [tus](https://tus.io/protocols/resumable-upload). В случае сбоя загрузки дозагрузите файл, продолжив загрузку с той позиции в файле, на которой произошел сбой.
+
+  1. Зарегистрируйте видео на канале:
+
+      {% include [register-video-grpc-api-command](../../../_includes/video/register-video-grpc-api-command.md) %}
+
+      Где:
+      * `<IAM-токен>` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md), необходимый для [аутентификации](../../api-ref/authentication.md) в {{ video-name }} API.
+      * `<идентификатор_канала>` — идентификатор канала, в котором вы хотите создать ваше видео.
+      * `<имя_видео>` — имя, которое будет присвоено видео при загрузке в канал.
+      * `<размер_видеофайла>` — полученный размер загружаемого видеофайла в байтах.
+      * `<имя_видеофайла>` — имя видеофайла, который вы хотите загрузить.
+      * Тип доступа к видео:
+        * `public_access` — неограниченное время и всем, у кого есть ссылка на видео. 
+        * `signUrlAccess` — по временной ссылке.
+          
+           {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
+
+      {% include [register-video-grpc-api-output](../../../_includes/video/register-video-grpc-api-output.md) %}
+
+      Сохраните ссылку на загрузку видео (значение поля `url`) и идентификатор видео (значение поля `videoId`) — они понадобятся позднее.
+
+  1. Загрузите видеофайл:
+
+      {% include [create-video-upload-file-curl](../../../_includes/video/create-video-upload-file-curl.md) %}
+
+  1. Убедитесь, что видеофайл загрузился полностью, указав сохраненный ранее идентификатор видео:
+
+      {% include [verify-video-upload-grpc](../../../_includes/video/verify-video-upload-grpc.md) %}
+
+      Если поле `status` имеет значение `PROCESSING` или `READY`, значит видеофайл загрузился полностью.
+
+  1. Если поле `status` имеет значение `WAIT_UPLOADING`, значит загрузка видеофайла была прервана. В этом случае видео требуется дозагрузить. Для этого необходимо знать позицию `offset`, на которой была прервана предыдущая попытка загрузки:
+
+      {% include [resume-video-upload-curl](../../../_includes/video/resume-video-upload-curl.md) %}
+
+      Повторно убедитесь, что видеофайл загрузился полностью. Если загрузка вновь была прервана, повторите действия, описанные в текущем шаге.
 
 {% endlist %}
 

@@ -1,4 +1,9 @@
-# Dataset settings
+---
+title: '{{ datalens-full-name }} dataset settings'
+description: In {{ datalens-full-name }}, dataset settings decide how the dataset will use the source data.
+---
+
+# {{ datalens-full-name }} dataset settings
 
 A dataset works with sources in direct access mode: {{ datalens-short-name }} runs all data queries on the source side. Dataset settings determine how the dataset uses the source data.
 
@@ -38,7 +43,13 @@ When using SQL queries in datasets, we recommend:
 * Limiting to `read-only` the permissions of the user stated in the connection.
 * Granting the `Execute` access permission for the connection and associated datasets to users who should have no ad-hoc query privileges.
 
-You can enable or disable the use of subqueries as a source when [creating](../concepts/connection.md) or editing a connection.
+You can enable or disable the use of subqueries as a source when [creating](../concepts/connection/index.md) or editing a connection.
+
+
+## Parameterization of dataset sources {#parametrization}
+
+Parameterization of dataset sources allows you to dynamically substitute parameters from a chart into an SQL query or a table or schema name. For more information, see [{#T}](./parametrization.md).
+
 
 ## Default preview {#preview-default}
 

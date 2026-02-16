@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster that the shard group belongs to.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        shardGroupName:
+          description: |-
+            **string**
+            Required field. Name of the shard group to request information about.
+            To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - shardGroupName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/Cluster/getShardGroup.md
 ---
 
-# Managed Service for ClickHouse API, REST: Cluster.GetShardGroup {#GetShardGroup}
+# Managed Service for ClickHouse API, REST: Cluster.GetShardGroup
 
 Returns the specified shard group.
 
@@ -21,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardG
 
 Required field. ID of the cluster that the shard group belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || shardGroupName | **string**
 
 Required field. Name of the shard group to request information about.
 
-To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request. ||
+To get the name of a shard group, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}

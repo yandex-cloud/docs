@@ -1,30 +1,32 @@
 ---
 title: Code examples for connecting to an {{ KF }} cluster in {{ mkf-full-name }}
-description: Use these examples to connect to a database in an {{ KF }} cluster from your app code.
+description: Use these examples to connect to a database in an {{ KF }} cluster from your application code.
 ---
 
 # Code examples for connecting to an {{ KF }} cluster
 
-You can connect to public {{ KF }} cluster hosts only if you use an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in the directory:
+You can only connect to public {{ KF }} cluster hosts using an [SSL certificate](index.md#get-ssl-cert). The examples below assume that the `{{ crt-local-file }}` certificate is located in this directory:
 
 * `{{ crt-local-dir }}` for Ubuntu.
 * `$HOME\.kafka\` for Windows.
 
-Connecting without an SSL certificate is only supported for non-public hosts. For connections to the database, traffic inside the virtual network is not encrypted in this case.
+
+Connecting without an SSL certificate is only supported for non-public hosts. If this is the case, internal virtual network traffic will not be encrypted when connecting to a database.
 
 Before connecting, [configure security groups](index.md#configuring-security-groups) for the cluster, if required.
 
+
 {% include [see-fqdn-in-console](../../../_includes/mdb/see-fqdn-in-console.md) %}
 
-Examples were tested in the following environment:
+The examples were tested in the following environment:
 
-* {{ yandex-cloud }} virtual machine running Ubuntu 20.04 LTS
-* Bash: `5.0.16`
-* Python: `3.8.2`, pip3: `20.0.2`
-* Node.JS: `10.19.0`, npm: `6.14.4`
-* OpenJDK: `11.0.8`, Maven: `3.6.3`
-* Go: `1.13.8`
-* mono-complete: `6.8.0.105`
+* {{ yandex-cloud }} VM running Ubuntu 20.04 LTS
+* Bash: `5.0.16`.
+* Python: `3.8.2`, pip3: `20.0.2`.
+* Node.JS: `10.19.0`, npm: `6.14.4`.
+* OpenJDK: `11.0.8`, Maven: `3.6.3`.
+* Go: `1.13.8`.
+* mono-complete: `6.8.0.105`.
 
 ## C# {#csharp}
 
@@ -60,7 +62,7 @@ Before connecting:
     </Project>
     ```
 
-1. Copy `App.csproj` to the directories of the producer application and consumer application:
+1. Copy `App.csproj` to the producer and consumer application directories:
 
     ```bash
     cp App.csproj producer/App.csproj && cp App.csproj consumer/App.csproj
@@ -70,7 +72,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-    1. Code example for delivering messages to a topic:
+    1. Code example for sending messages to a topic:
 
         `cs-project/producer/Program.cs`
 
@@ -191,9 +193,9 @@ Before connecting:
         dotnet run bin/Debug/netcoreapp5.0/App.dll
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-    1. Code example for delivering messages to a topic:
+    1. Code example for sending messages to a topic:
 
         `cs-project/producer/Program.cs`
 
@@ -306,7 +308,7 @@ Before connecting:
         }
         ```
 
-    1. Building and launching applications:
+    1. Building and running applications:
 
         ```bash
         cd ~/cs-project/consumer && dotnet build && \
@@ -398,7 +400,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-    1. Code example for delivering a message to a topic:
+    1. Code example for sending a message to a topic:
 
         `producer/main.go`
 
@@ -548,9 +550,9 @@ Before connecting:
         ~/go-project/producer/producer
         ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-    1. Code example for delivering a message to a topic:
+    1. Code example for sending a message to a topic:
 
         `producer/main.go`
 
@@ -593,6 +595,7 @@ Before connecting:
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
@@ -667,6 +670,7 @@ Before connecting:
               certs.AppendCertsFromPEM(pemData)
 
               conf.Net.TLS.Enable = true
+
               conf.Net.TLS.Config = &tls.Config{
                 RootCAs: certs,
               }
@@ -751,7 +755,7 @@ Before connecting:
    sudo apt update && sudo apt install --yes default-jdk maven
    ```
 
-1. Create a folder for the Maven project:
+1. Create a directory for the Maven project:
 
    ```bash
    cd ~/ && \
@@ -840,7 +844,7 @@ Before connecting:
    ```
    {% endcut %}
 
-   Refer to the relevant project pages in the Maven repository for up-to-date versions of the dependencies:
+   For current versions of the dependencies, refer to the relevant project pages in the Maven repository:
    - [kafka-clients](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
    - [jackson-databind](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind)
    - [slf4j-simple](https://mvnrepository.com/artifact/org.slf4j/slf4j-simple)
@@ -855,7 +859,7 @@ Before connecting:
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -975,9 +979,9 @@ Before connecting:
       java -jar ~/project/consumer/target/app-0.1.0-jar-with-dependencies.jar
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-  1. Go to the folder where the Java certificate store will be located:
+  1. Go to the folder where the Java certificate store will reside:
 
      ```bash
      cd /etc/security
@@ -985,7 +989,7 @@ Before connecting:
 
   1. {% include [keytool-importcert](../../../_includes/mdb/keytool-importcert.md) %}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer/src/java/com/example/App.java`
 
@@ -1121,7 +1125,7 @@ Before connecting:
 
 ## Node.js {#nodejs}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y nodejs npm && \
@@ -1132,7 +1136,7 @@ npm install node-rdkafka
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer.js`
 
@@ -1225,9 +1229,9 @@ npm install node-rdkafka
       node producer.js
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering messages to a topic:
+  1. Code example for sending messages to a topic:
 
       `producer.js`
 
@@ -1332,7 +1336,7 @@ npm install node-rdkafka
 
 ## Python (kafka-python) {#kafka-python}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 sudo apt update && sudo apt install -y python3 python3-pip libsnappy-dev && \
@@ -1343,7 +1347,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
      `producer.py`
 
@@ -1393,9 +1397,9 @@ pip3 install kafka-python lz4 python-snappy crc32c
       python3 consumer.py
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 
@@ -1455,7 +1459,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 ## Python (confluent-kafka) {#confluent-kafka-python}
 
-Before connecting, install the dependencies:
+Before connecting, install the required dependencies:
 
 ```bash
 pip install confluent_kafka
@@ -1465,7 +1469,7 @@ pip install confluent_kafka
 
 - Connecting without SSL {#without-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 
@@ -1479,6 +1483,7 @@ pip install confluent_kafka
           'bootstrap.servers': '<broker_host_FQDN>:9092',
           'security.protocol': 'SASL_PLAINTEXT',
           'sasl.mechanism': 'SCRAM-SHA-512',
+          'sasl.username': '<producer_name>',
           'sasl.password': '<producer_password>',
           'error_cb': error_callback,
       }
@@ -1529,9 +1534,9 @@ pip install confluent_kafka
       python3 consumer.py
       ```
 
-- Connecting via SSL {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
-  1. Code example for delivering a message to a topic:
+  1. Code example for sending a message to a topic:
 
       `producer.py`
 

@@ -1,4 +1,8 @@
-Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
+# Installing an NGINX ingress controller with a {{ certificate-manager-full-name }} certificate
+
+{% include [ingress-nginx-support-discontinued](../../_includes/ingress-nginx-support-discontinued.md) %}
+
+Manage the [TLS certificate](../../certificate-manager/concepts/index.md) for the NGINX Ingress Controller via [{{ certificate-manager-full-name }}](../../certificate-manager/).
 
 The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yandex-certificate-manager/) syncs the certificate with the [{{ k8s }} secret](../../managed-kubernetes/concepts/encryption.md). This allows you to manage the deployed application's certificate through {{ certificate-manager-name }} by adding a self-signed certificate and updating it on your own or by issuing an automatically renewable Let's Encrypt® certificate.
 
@@ -8,17 +12,17 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. [Install the Helm package manager](https://helm.sh/docs/intro/install/).
-1. Install the `jq` utility:
+1. [Install Helm](https://helm.sh/docs/intro/install/).
+1. Install `jq`:
 
    ```bash
    sudo apt update && sudo apt install jq
    ```
 
-1. [Create service accounts](../../iam/operations/sa/create.md):
+1. [Create these service accounts](../../iam/operations/sa/create.md):
    * `eso-service-account` for interaction between the External Secrets Operator and {{ certificate-manager-name }}.
-   * `k8s-sa` with the `editor`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). The `load-balancer.admin` role is required to create a [network load balancer](../../network-load-balancer/concepts/index.md).
-1. Create an [authorized key](../../iam/concepts/authorization/access-key.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to the `authorized-key.json` file:
+   * `k8s-sa` with the `k8s.clusters.agent`, `vpc.publicAdmin`, `container-registry.images.puller`, and `load-balancer.admin` [roles](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to create [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) resources and pull [Docker images](../../container-registry/concepts/docker-image.md). It needs the `load-balancer.admin` role to create a [network load balancer](../../network-load-balancer/concepts/index.md).
+1. Create an [authorized key](../../iam/concepts/authorization/access-key.md) for the [service account](../../iam/concepts/users/service-accounts.md) and save it to a file named `authorized-key.json`:
 
    ```bash
    yc iam key create \
@@ -28,9 +32,9 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) in any suitable configuration. In the {{ managed-k8s-name }} cluster settings, specify the `k8s-sa` service account and the security groups prepared earlier.
+1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) and [node group](../../managed-kubernetes/operations/node-group/node-group-create.md) with any suitable configuration. In the {{ managed-k8s-name }} cluster settings, specify the `k8s-sa` service account and the security groups prepared earlier.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
@@ -39,14 +43,14 @@ The [External Secrets Operator](https://external-secrets.io/v0.5.8/provider-yand
 The infrastructure support cost includes:
 * Fee for using the [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) and outgoing traffic (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 * Fee for using {{ managed-k8s-name }} cluster [nodes](../../managed-kubernetes/concepts/index.md#node-group) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using [public IPs](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using [public IPs](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
 * Fee for incoming traffic (processed by the load balancer) and using a [network load balancer](../../network-load-balancer/concepts/index.md) (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Add a certificate to {{ certificate-manager-name }}
 
 1. Issue a Let's Encrypt® certificate and [add](../../certificate-manager/operations/managed/cert-create.md) it to {{ certificate-manager-name }} or [upload](../../certificate-manager/operations/import/cert-create.md) your own certificate.
-1. For a Let's Encrypt® certificate, have your [rights checked](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
-1. Grant the `certificate-manager.certificates.downloader` [role](../../iam/concepts/access-control/roles.md) to the `eso-service-account` [service account](../../iam/concepts/users/service-accounts.md) to enable it to read the certificate contents:
+1. For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-manager/operations/managed/cert-validate.md) for the domain specified in the certificate.
+1. Assign the `certificate-manager.certificates.downloader` [role](../../iam/concepts/access-control/roles.md) to the [service account](../../iam/concepts/users/service-accounts.md) named `eso-service-account` to enable it to read the content of the certificate:
 
    ```bash
    yc cm certificate add-access-binding \
@@ -73,72 +77,111 @@ The infrastructure support cost includes:
 
 ## Install the External Secrets Operator {#install-eso}
 
-1. Add a Helm repository named `external-secrets`:
+{% list tabs group=instructions %}
 
-   ```bash
-   helm repo add external-secrets https://charts.external-secrets.io
-   ```
 
-1. Install the External Secrets Operator in the {{ managed-k8s-name }} cluster:
+- {{ marketplace-full-name }} {#marketplace}
 
-   ```bash
-   helm install external-secrets \
-     external-secrets/external-secrets \
-     --namespace external-secrets \
-     --create-namespace
-   ```
+    Follow [this guide](../../managed-kubernetes/operations/applications/external-secrets-operator.md#marketplace-install) to install [External Secrets Operator with {{ lockbox-name }} support](/marketplace/products/yc/external-secrets) from {{ marketplace-name }} with the following parameters:
 
-   This command creates a new `external-secrets` [namespace](../../managed-kubernetes/concepts/index.md#namespace) required for using the External Secrets Operator.
+    * **Namespace**: Create a [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets`.
+    * **Service account key**: Paste the contents of the `authorized-key.json` file created [earlier](#before-you-begin).
 
-   Result:
 
-   ```text
-   NAME: external-secrets
-   LAST DEPLOYED: Sun Sep 19 11:20:58 2021
-   NAMESPACE: external-secrets
-   STATUS: deployed
-   REVISION: 1
-   TEST SUITE: None
-   NOTES:
-   external-secrets has been deployed successfully!
-   ...
-   ```
+- Manually {#manual}
 
-## Configure the {{ managed-k8s-name }} cluster {#configure-cluster}
+    1. Add the `external-secrets` Helm repository:
 
-1. Create a namespace called `ns` for External Secrets Operator objects:
+        ```bash
+        helm repo add external-secrets https://charts.external-secrets.io
+        ```
+
+    1. Install the External Secrets Operator in the {{ managed-k8s-name }} cluster:
+
+        ```bash
+        helm install external-secrets \
+          external-secrets/external-secrets \
+          --namespace external-secrets \
+          --create-namespace
+        ```
+
+        This command creates a new [namespace](../../managed-kubernetes/concepts/index.md#namespace) named `external-secrets` required for the External Secrets Operator.
+
+        Result:
+
+        ```text
+        NAME: external-secrets
+        LAST DEPLOYED: Sun Sep 19 11:20:58 2021
+        NAMESPACE: external-secrets
+        STATUS: deployed
+        REVISION: 1
+        TEST SUITE: None
+        NOTES:
+        external-secrets has been deployed successfully!
+        ...
+        ```
+
+{% endlist %}
+
+## Set up a {{ managed-k8s-name }} cluster {#configure-cluster}
+
+1. Create a namespace named `ns` for External Secrets Operator objects:
 
    ```bash
    kubectl create namespace ns
    ```
 
-1. Create a `yc-auth` secret with the `eso-service-account` [key](../../iam/concepts/authorization/key.md):
+1. Create a secret named `yc-auth` containing the [key](../../iam/concepts/authorization/key.md) of the service account named `eso-service-account`:
 
    ```bash
    kubectl --namespace ns create secret generic yc-auth \
      --from-file=authorized-key=authorized-key.json
    ```
 
-1. Create a [SecretStore](https://external-secrets.io/v0.5.8/api-secretstore/) called `secret-store` containing a secret named `yc-auth`:
+1. Find out the supported `apiVersion` for [SecretStore](https://external-secrets.io/v0.5.8/api-secretstore/):
+
+   ```bash
+   kubectl get crd secretstores.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Create a `yc-cert-manager` containing the `yc-auth` secret and specify a supported `apiVersion`:
+
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
    apiVersion: external-secrets.io/v1beta1
    kind: SecretStore
    metadata:
-     name: secret-store
+     name: yc-cert-manager
    spec:
      provider:
        yandexcertificatemanager:
          auth:
            authorizedKeySecretRef:
              name: yc-auth
-             key: authorized-key'
+             key: authorized-key.json
+             namespace: ns'
    ```
+
+
+
+   {% note tip %}
+
+   In this example, the created secret storage has the `kind: SecretStore` type. It will be available only in the `ns` namespace where it was created. To make the secret storage available in all namespaces, use the `kind: ClusterSecretStore` type.
+
+   {% endnote %}
 
 ## Create an ExternalSecret {#create-externalsecret}
 
-1. Create an [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/) object named `external-secret` pointing to the certificate from {{ certificate-manager-name }}:
+1. Find out the supported `apiVersion` for [ExternalSecret](https://external-secrets.io/v0.5.8/api-externalsecret/):
+
+   ```bash
+   kubectl get crd externalsecrets.external-secrets.io \
+     -o json | jq -r '.spec.versions[].name'
+   ```
+
+1. Create an `external-secret` object referring to a certificate from {{ certificate-manager-name }}, specifying a supported `apiVersion`:
 
    ```bash
    kubectl --namespace ns apply -f - <<< '
@@ -149,7 +192,7 @@ The infrastructure support cost includes:
    spec:
      refreshInterval: 1h
      secretStoreRef:
-       name: secret-store
+       name: yc-cert-manager
        kind: SecretStore
      target:
        name: k8s-secret
@@ -166,18 +209,24 @@ The infrastructure support cost includes:
          property: privateKey'
    ```
 
+   {% note info %}
+
+   If the secret storage you created has the `kind: ClusterSecretStore` type, replace the `spec:secretStoreRef:kind` value in the manifest example with `ClusterSecretStore`.
+
+   {% endnote %}
+
    Where:
-   * `k8s-secret`: Name of the secret to be used by the External Secret Operator to contain the certificate from {{ certificate-manager-name }}.
-   * `tls.crt`: Parameter of the `k8s-secret` secret that will contain the certificate.
-   * `tls.key`: Parameter of the `k8s-secret` secret that will contain the certificate's private key.
+   * `k8s-secret`: Name of the secret the External Secret Operator will place the certificate it gets from {{ certificate-manager-name }} into.
+   * `tls.crt`: Parameter of the `k8s-secret` secret to contain the certificate.
+   * `tls.key`: Parameter of the `k8s-secret` secret to contain the certificate's private key.
 
-   The following are the legal values of the `property` parameter:
-   * `chain`: Retrieve a chain of certificates in PEM format.
-   * `privateKey`: Retrieve the private key in PEM format.
-   * `chainAndPrivateKey` or null value: Retrieve both the certificate chain and the private key.
+   The following are the possible values for `property`:
+   * `chain`: Get the certificate chain in PEM format.
+   * `privateKey`: Get the private key in PEM format.
+   * `chainAndPrivateKey` or null value: Get both the certificate chain and the private key.
 
-   The External Secrets Operator will get a certificate from {{ certificate-manager-name }} and place it in the `k8s-secret` secret.
-1. Make sure the certificate was placed in the `k8s-secret` secret:
+   The External Secrets Operator will get a certificate from {{ certificate-manager-name }} and place it into `k8s-secret`.
+1. Check that the certificate ends up in `k8s-secret`:
 
    ```bash
    kubectl -n ns get secret k8s-secret -ojson \
@@ -223,69 +272,74 @@ The infrastructure support cost includes:
    ...
    ```
 
-## Install the NGINX Ingress controller {#install-nginx-ingress}
+## Install the NGINX Ingress Controller {#install-nginx-ingress}
 
 {% list tabs group=instructions %}
 
-- {{ marketplace-full-name }} {#marketplace}
-
-   Install the [Ingress NGINX](/marketplace/products/yc/ingress-nginx) application from {{ marketplace-name }} [using this guide](../../managed-kubernetes/operations/applications/ingress-nginx.md).
-
 - Manually {#manual}
 
-   1. Add the following to the Helm repository for NGINX:
+  1. Add the following to the Helm repository for NGINX:
 
-      ```bash
-      helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-      ```
+     ```bash
+     helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      "ingress-nginx" has been added to your repositories
-      ```
+     ```text
+     "ingress-nginx" has been added to your repositories
+     ```
 
-   1. Update the dataset to create an application instance in the {{ managed-k8s-name }} cluster:
+  1. Update the dataset to create an application instance in the {{ managed-k8s-name }} cluster:
 
-      ```bash
-      helm repo update
-      ```
+     ```bash
+     helm repo update
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Hang tight while we grab the latest from your chart repositories...
-      ...Successfully got an update from the "ingress-nginx" chart repository
-      Update Complete. ⎈Happy Helming!⎈
-      ```
+     ```text
+     Hang tight while we grab the latest from your chart repositories...
+     ...Successfully got an update from the "ingress-nginx" chart repository
+     Update Complete. ⎈Happy Helming!⎈
+     ```
 
-   1. Install the controller in the standard configuration. The controller will be installed with {{ network-load-balancer-name }}:
+  1. Install the controller. It will be installed along with {{ network-load-balancer-name }}:
 
-      ```bash
-      helm install ingress-nginx ingress-nginx/ingress-nginx
-      ```
+     ```bash
+     helm install ingress-nginx ingress-nginx/ingress-nginx
+     ```
 
-      Result:
+     The SSL certificate will only be available in the `ns` namespace, where the secret with this certificate was created. To allow ingress to use this certificate in any namespace, install the controller with the `default-ssl-certificate` parameter:
 
-      ```text
-      NAME: ingress-nginx
-      LAST DEPLOYED: Sun Jul 18 22:35:37 2021
-      NAMESPACE: default
-      STATUS: deployed
-      REVISION: 1
-      TEST SUITE: None
-      NOTES:
-      The ingress-nginx controller has been installed.
-      It may take a few minutes for the LoadBalancer IP to be available.
-      You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
-      ...
-      ```
+     ```bash
+     helm install ingress-nginx ingress-nginx/ingress-nginx \
+       --set controller.extraArgs.default-ssl-certificate="ns/k8s-secret"
+     ```
 
-   To set up the controller configuration yourself, follow the guidelines provided in the [Helm documentation](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
+     Result:
+
+     ```text
+     NAME: ingress-nginx
+     LAST DEPLOYED: Sun Jul 18 22:35:37 2021
+     NAMESPACE: default
+     STATUS: deployed
+     REVISION: 1
+     TEST SUITE: None
+     NOTES:
+     The ingress-nginx controller has been installed.
+     It may take a few minutes for the LoadBalancer IP to be available.
+     You can watch the status by running 'kubectl --namespace default get services -o wide -w ingress-nginx-controller'
+     ...
+     ```
+
+     If you modify the `default-ssl-certificate` parameter, restart the NGINX Ingress Controller.
+
+  To set up the controller configuration yourself, follow the steps provided in [this Helm guide](https://helm.sh/docs/intro/using_helm/#customizing-the-chart-before-installing) and edit the [values.yaml](https://github.com/kubernetes/ingress-nginx/blob/master/charts/ingress-nginx/values.yaml) file.
 
 {% endlist %}
 
-For specific port forwarding at NGINX Ingress controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
+For configure specific port forwarding during NGINX Ingress Controller installation, follow [this guide](../../managed-kubernetes/operations/create-load-balancer-with-ingress-nginx.md#port-forwarding).
 
 ## Create a web resource in your {{ managed-k8s-name }} cluster {#create-web-app}
 
@@ -328,9 +382,9 @@ spec:
         - containerPort: 80'
 ```
 
-## Configure a DNS record for the Ingress controller {#configure-dns-record}
+## Configure a DNS record for the ingress controller {#configure-dns-record}
 
-1. Find out the IP address of the Ingress controller (the value in the `EXTERNAL-IP` column):
+1. Find out the IP address of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
    kubectl get svc
@@ -345,7 +399,7 @@ spec:
    ...
    ```
 
-1. Add an [A record](../../dns/concepts/resource-record.md#a-a) pointing to the Ingress controller's public IP to your DNS provider or to your own DNS server:
+1. Add an [A record](../../dns/concepts/resource-record.md#a-a) pointing to the ingress controller's public IP to your DNS provider or to your own DNS server:
 
    ```bash
    <domain_name> IN A 84.201.153.122
@@ -357,7 +411,7 @@ Registering the Let's Encrypt® certificate and an A record may take a few minut
 
 {% endnote %}
 
-## Create an Ingress resource {#create-ingress}
+## Create an ingress resource {#create-ingress}
 
 Create an [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resource that uses the `k8s-secret` certificate for HTTPS:
 
@@ -387,7 +441,7 @@ spec:
                 number: 80'
 ```
 
-Where `<domain_name>` is the name of the domain for which the certificate is issued.
+Where `<domain_name>` is the name of the domain the certificate is issued for.
 
 ## Check resource availability {#check-service-availability}
 
@@ -418,12 +472,12 @@ Result example:
 
 The Let's Encrypt® certificate must update automatically after the [certificate update](../../certificate-manager/operations/managed/cert-update.md) in {{ certificate-manager-name }}.
 
-You can specify a sync timeout in the `refreshInterval` parameter of the [ExternalSecret](#create-externalsecret) object.
+You can specify a sync timeout in the [ExternalSecret](#create-externalsecret) object's `refreshInterval` parameter.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.
 1. [Delete](../../network-load-balancer/operations/load-balancer-delete.md) {{ network-load-balancer-name }}.
 1. [Delete](../../certificate-manager/operations/managed/cert-delete.md) the certificate.
-1. If static public IP addresses were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static public IP addresses to access your {{ managed-k8s-name }} cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.

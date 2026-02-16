@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/listOperations.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopService.ListOperations {#ListOperations}
+# Cloud Desktop API, gRPC: DesktopService.ListOperations
 
 Returns list of the operations for the specified desktop.
 
@@ -15,36 +15,44 @@ Returns list of the operations for the specified desktop.
 
 ```json
 {
-  "desktopId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "desktop_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
-Required field. ID of the desktop. ||
-|| pageSize | **int64**
+Required field. ID of the desktop.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
+results is larger than `page_size`,
+the service returns a [ListDesktopOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
 
-Page token. To get the next page of results, set `pageToken` to the
-[ListDesktopOperationsResponse.nextPageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request. ||
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token` to the
+[ListDesktopOperationsResponse.next_page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Desktop.name](/docs/cloud-desktop/api-ref/grpc/DesktopGroup/listDesktops#yandex.cloud.clouddesktop.v1.api.Desktop) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-3. Value or a list of values to compare against the values of the field. ||
+3. Value or a list of values to compare against the values of the field.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListDesktopOperationsResponse {#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsResponse}
@@ -55,9 +63,9 @@ The expression must specify:
     {
       "id": "string",
       "description": "string",
-      "createdAt": "google.protobuf.Timestamp",
-      "createdBy": "string",
-      "modifiedAt": "google.protobuf.Timestamp",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
       "done": "bool",
       "metadata": "google.protobuf.Any",
       // Includes only one of the fields `error`, `response`
@@ -66,7 +74,7 @@ The expression must specify:
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -75,14 +83,14 @@ The expression must specify:
 || operations[] | **[Operation](#yandex.cloud.operation.Operation)**
 
 List of operations for the specified desktop. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListDesktopOperationsRequest.pageSize](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsRequest), use
-the `nextPageToken` as the value
-for the [ListDesktopOperationsRequest.pageToken](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsRequest) query parameter
+is larger than [ListDesktopOperationsRequest.page_size](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsRequest), use
+the `next_page_token` as the value
+for the [ListDesktopOperationsRequest.page_token](#yandex.cloud.clouddesktop.v1.api.ListDesktopOperationsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Operation {#yandex.cloud.operation.Operation}
@@ -97,13 +105,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**

@@ -5,7 +5,14 @@ description: Различные сценарии использования {{ m
 
 # Практические руководства {{ maf-name }}
 
-* [{#T}](data-proc-automation.md)
+## Работа с кластерами {#clusters}
+
+* [{#T}](data-processing-automation.md)
 * [{#T}](airflow-auto-tasks.md)
+* [{#T}](spark-automation.md)
+* [{#T}](airflow-spark-min.md)
+
+## Другие руководства {#other}
+
+* [{#T}](test-smtp-notification.md)
 * [{#T}](using-python-sdk.md)
-* [{#T}](lockbox-secrets-in-maf-cluster.md)

@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to list databases in.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return.
+            If the number of available results is larger than `pageSize`, the API returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests.
+            Acceptable values are 0 to 1000, inclusive.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token that can be used to iterate through multiple pages of results.
+            To get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for MySQL API, REST: Database.List {#List}
+# Managed Service for MySQL API, REST: Database.List
 
 Retrieves the list of databases in a cluster.
 
@@ -21,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 
 Required field. ID of the cluster to list databases in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest}
@@ -32,12 +71,16 @@ To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster
 
 The maximum number of results per page to return.
 
-If the number of available results is larger than `pageSize`, the API returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests. ||
+If the number of available results is larger than `pageSize`, the API returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
 
-To get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request. ||
+To get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse}

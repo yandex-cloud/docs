@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/databases:restore
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Required. ID of the YDB backup.
+          type: string
+        databaseId:
+          description: |-
+            **string**
+            Required field. Required. ID of the YDB database.
+          type: string
+        pathsToRestore:
+          description: |-
+            **string**
+            Specify paths to restore.
+            If empty, all paths will restored by default.
+          type: array
+          items:
+            type: string
+        targetPath:
+          description: |-
+            **string**
+            Specify target path.
+          type: string
+      required:
+        - backupId
+        - databaseId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/Database/restore.md
 ---
 
-# Managed Service for YDB API, REST: Database.Restore {#Restore}
+# Managed Service for YDB API, REST: Database.Restore
 
 Restores the specified backup
 
@@ -86,9 +122,20 @@ Specify target path. ||
       "storageSizeLimit": "string"
     },
     "scalePolicy": {
-      // Includes only one of the fields `fixedScale`
+      // Includes only one of the fields `fixedScale`, `autoScale`
       "fixedScale": {
         "size": "string"
+      },
+      "autoScale": {
+        "minSize": "string",
+        "maxSize": "string",
+        // Includes only one of the fields `targetTracking`
+        "targetTracking": {
+          // Includes only one of the fields `cpuUtilizationPercent`
+          "cpuUtilizationPercent": "string"
+          // end of the list of possible fields
+        }
+        // end of the list of possible fields
       }
       // end of the list of possible fields
     },
@@ -115,9 +162,20 @@ Specify target path. ||
         "storageSizeLimit": "string"
       },
       "scalePolicy": {
-        // Includes only one of the fields `fixedScale`
+        // Includes only one of the fields `fixedScale`, `autoScale`
         "fixedScale": {
           "size": "string"
+        },
+        "autoScale": {
+          "minSize": "string",
+          "maxSize": "string",
+          // Includes only one of the fields `targetTracking`
+          "targetTracking": {
+            // Includes only one of the fields `cpuUtilizationPercent`
+            "cpuUtilizationPercent": "string"
+            // end of the list of possible fields
+          }
+          // end of the list of possible fields
         }
         // end of the list of possible fields
       },
@@ -125,7 +183,10 @@ Specify target path. ||
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": "boolean"
+      "assignPublicIps": "boolean",
+      "securityGroupIds": [
+        "string"
+      ]
     },
     "serverlessDatabase": {
       "throttlingRcuLimit": "string",
@@ -137,7 +198,7 @@ Specify target path. ||
     // end of the list of possible fields
     "assignPublicIps": "boolean",
     "locationId": "string",
-    "labels": "string",
+    "labels": "object",
     "backupConfig": {
       "backupSettings": [
         {
@@ -269,7 +330,10 @@ Specify target path. ||
         }
       ]
     },
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "securityGroupIds": [
+      "string"
+    ]
   }
   // end of the list of possible fields
 }
@@ -421,13 +485,14 @@ Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedD
 Includes only one of the fields `zonalDatabase`, `regionalDatabase`, `dedicatedDatabase`, `serverlessDatabase`. ||
 || assignPublicIps | **boolean** ||
 || locationId | **string** ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>) ||
 || backupConfig | **[BackupConfig](#yandex.cloud.ydb.v1.BackupConfig)** ||
 || documentApiEndpoint | **string** ||
 || kinesisApiEndpoint | **string** ||
 || kafkaApiEndpoint | **string** ||
 || monitoringConfig | **[MonitoringConfig](#yandex.cloud.ydb.v1.MonitoringConfig)** ||
 || deletionProtection | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -454,7 +519,10 @@ output only field: storage size limit of dedicated database. ||
 ||Field | Description ||
 || fixedScale | **[FixedScale](#yandex.cloud.ydb.v1.ScalePolicy.FixedScale)**
 
-Includes only one of the fields `fixedScale`. ||
+Includes only one of the fields `fixedScale`, `autoScale`. ||
+|| autoScale | **[AutoScale](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixedScale`, `autoScale`. ||
 |#
 
 ## FixedScale {#yandex.cloud.ydb.v1.ScalePolicy.FixedScale}
@@ -462,6 +530,39 @@ Includes only one of the fields `fixedScale`. ||
 #|
 ||Field | Description ||
 || size | **string** (int64) ||
+|#
+
+## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
+
+Scale policy that dynamically changes the number of database nodes within a user-defined range.
+
+#|
+||Field | Description ||
+|| minSize | **string** (int64)
+
+Minimum number of nodes to which autoscaling can scale the database. ||
+|| maxSize | **string** (int64)
+
+Maximum number of nodes to which autoscaling can scale the database. ||
+|| targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
+
+Includes only one of the fields `targetTracking`.
+
+Type of autoscaling algorithm. ||
+|#
+
+## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
+
+Autoscaling algorithm that tracks metric and reactively scale database nodes to keep metric
+close to the specified target value.
+
+#|
+||Field | Description ||
+|| cpuUtilizationPercent | **string** (int64)
+
+A percentage of database nodes average CPU utilization.
+
+Includes only one of the fields `cpuUtilizationPercent`. ||
 |#
 
 ## ZonalDatabase {#yandex.cloud.ydb.v1.ZonalDatabase}
@@ -492,6 +593,7 @@ Required field.  ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
 || assignPublicIps | **boolean** ||
+|| securityGroupIds[] | **string** ||
 |#
 
 ## ServerlessDatabase {#yandex.cloud.ydb.v1.ServerlessDatabase}

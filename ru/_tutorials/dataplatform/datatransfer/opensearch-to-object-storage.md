@@ -10,6 +10,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 
@@ -21,13 +29,17 @@
 
     1. [Создайте кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
-    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
+    1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру {{ mos-name }}.
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с ролью `storage.editor`. Трансфер будет использовать его для доступа к бакету.
+
 
 - {{ TF }} {#tf}
 
@@ -55,7 +67,7 @@
         * `mos_version` — версия {{ OS }};
         * `mos_password` — пароль пользователя-владельца кластера {{ OS }};
         * `bucket_name`— имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
-        * `profile_name` — имя вашего профиля в YC CLI.
+        * `profile_name` — имя вашего профиля в CLI.
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -77,7 +89,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md).
 
 1. Создайте тестовый индекс `people` и задайте его схему:
 
@@ -139,9 +151,13 @@
 1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
+
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_MOS`.
 
 1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) типа `{{ OS }}` со следующими настройками:
@@ -198,38 +214,26 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Удалите](../../../storage/operations/objects/delete.md) из созданного бакета папку `from_MOS`.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
+       1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
 
-    1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Удалите кластер {{ mos-name }}](../../../managed-opensearch/operations/cluster-delete.md).
-    1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+       
+       1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
 
-    1. В [консоли управления]({{ link-console-main }}) удалите из созданного бакета папку `from_MOS`
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `opensearch-to-object-storage.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, описанные в конфигурационном файле `opensearch-to-object-storage.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

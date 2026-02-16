@@ -17,11 +17,13 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [контейнер](../concepts/container.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+На [контейнер](../concepts/container.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/container/add-access-binding.md), [API](../api-ref/containers/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/serverless_container_iam_binding).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ serverless-containers-name }}.
+
+{% include [serverless-containers](../../_mermaid/roles/serverless-containers.md) %}
 
 ### Сервисные роли {#service-roles}
 

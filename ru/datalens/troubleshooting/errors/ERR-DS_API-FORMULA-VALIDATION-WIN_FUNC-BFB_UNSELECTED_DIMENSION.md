@@ -1,4 +1,9 @@
-# Window function has unselected dimension
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION
+description: На странице приведено описание ошибки {{ datalens-full-name }} Window function has unselected dimension.
+---
+
+# [{{ datalens-full-name }}] Window function has unselected dimension
 
 `ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION`
 

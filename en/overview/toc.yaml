@@ -1,9 +1,7 @@
 title: Platform overview
 href: index.yaml
 items:
-  - name: Getting started
-    href: quickstart.md
-  - name: '{{ yandex-cloud }}'
+  - name: '{{ yandex-cloud }} platform'
     expanded: true
     items:
       - name: Platform architecture
@@ -12,29 +10,37 @@ items:
         items:
           - name: Overview
             href: concepts/geo-scope.md
-          - name: Discontinuation of the {{ region-id }}-c zone
-            href: concepts/ru-central1-c-deprecation.md
-          - name: Migration to the {{ region-id }}-d availability zone
+          - name: Migrating resources to a different availability zone
             href: concepts/zone-migration.md
           - name: Migrating resources through partners
             href: concepts/zone-migration-partners.md
-          - name: Consequences of forced migration from the {{ region-id }}-c zone
-            href: concepts/zone-migration-consequences.md
       - name: Regions
         href: concepts/region.md
       - name: Network overview
         href: concepts/network.md
+      - name: Public IP address ranges
+        href: concepts/public-ips.md
       - name: User interaction with resources
         href: roles-and-resources.md
+      - name: Zones of control in MDB
+        href: concepts/mdb-responsibilities.md
+      - name: Zones of control in {{ managed-k8s-name }}
+        href: concepts/kubernetes-responsibilities.md
       - name: Deleting user data
         href: concepts/data-deletion.md
+      - name: >-
+          Obtaining the information you need to request the Russian Ministry of
+          Digital Development to whitelist a resource
+        href: concepts/info-for-federal-ip-whitelist.md
   - name: '{{ yandex-cloud }} services'
     expanded: true
     items:
-      - name: List of services
+      - name: Service list
         href: concepts/services.md
       - name: Release stages
         href: concepts/launch-stages.md
+      - name: Observability tools for monitoring and logging
+        href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md
       - name: Quotas and limits
@@ -46,10 +52,18 @@ items:
   - name: Service interfaces
     expanded: true
     items:
+      - name: Overview
+        href: concepts/interfaces.md
       - name: Mobile app
         href: mobile-app/index.md
       - name: API
         href: api.md
+      - name: SDK
+        items:
+          - name: Overview
+            href: sdk/overview.md
+          - name: Getting started
+            href: sdk/quickstart.md
       - name: Working with the {{ yandex-cloud }} CLI and API in Microsoft Windows
         href: concepts/console-syntax-guide.md
   - name: Equivalent services on other platforms
@@ -62,5 +76,17 @@ items:
         href: platform-comparison/gcp.md
       - name: Equivalents for Microsoft Azure
         href: platform-comparison/azure.md
-base: en/overview
-deepBase: 2
+      - name: Comparison with VMware
+        items:
+          - name: Overview
+            href: platform-comparison/vmware/index.md
+          - name: Resource and role model
+            href: platform-comparison/vmware/resource-role-model.md
+          - name: Computing infrastructure
+            href: platform-comparison/vmware/computing-infrastructure.md
+          - name: Data storage subsystem
+            href: platform-comparison/vmware/storage-subsystem.md
+          - name: Network subsystem
+            href: platform-comparison/vmware/network-subsystem.md
+          - name: Management, monitoring, and billing tools
+            href: platform-comparison/vmware/management-tools.md

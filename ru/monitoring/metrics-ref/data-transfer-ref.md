@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ data-transfer-full-name }}
+description: Из статьи вы узнаете про метрики {{ data-transfer-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/data-transfer-ref.md
 ---
 
 # Метрики {{ data-transfer-full-name }}

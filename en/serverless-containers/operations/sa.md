@@ -1,8 +1,8 @@
 # Getting an IAM token for a service account using a container
 
-If the container revision was created with a service account, you can get an [IAM token](../../iam/concepts/authorization/iam-token.md) from the metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#gce-metadata) format using the API.
+If the container revision was created with a service account, you can get an [IAM token](../../iam/concepts/authorization/iam-token.md) from the metadata service in [Google Compute Engine](../../compute/operations/vm-info/get-info.md#inside-instance) using the API.
 
-To do this, within the container, run a GET request at `http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token` and specify the HTTP header `Metadata-Flavor: Google`.
+To do this, from inside the container, send a GET request to `http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token` and specify the `Metadata-Flavor: Google` HTTP header.
 
 Below is an example of a function for obtaining an IAM token.
 
@@ -28,4 +28,3 @@ Below is an example of a function for obtaining an IAM token.
     ```
 
 {% endlist %}
-

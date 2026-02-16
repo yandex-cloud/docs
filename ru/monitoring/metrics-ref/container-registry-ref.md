@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ container-registry-full-name }}
+description: Из статьи вы узнаете про метрики {{ container-registry-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/container-registry-ref.md
 ---
 
 # Метрики {{ container-registry-full-name }}

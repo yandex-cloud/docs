@@ -9,6 +9,7 @@ keywords:
 
 # Сервисные подключения в {{ vpc-full-name }}
 
+
 {% include [vpc-pe-preview](../../_includes/vpc/pe-preview.md) %}
 
 **Сервисное подключение** (Private Endpoint) предоставляет прямую IP-связность между ресурсами внутри {{ vpc-short-name }} и сервисами {{ yandex-cloud }}, которые размещаются за пределами {{ vpc-short-name }}. 
@@ -57,3 +58,9 @@ keywords:
 Чтобы разрешить доступ к {{ objstorage-short-name }} только из {{ vpc-short-name }} через служебное подключение, необходимо применить следующую политику доступа для бакета:
 
 {% include [policy-scheme-json](../../_includes/vpc/policy-scheme-json.md) %}
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/storage-vpc-access.md)
+* [{#T}](../tutorials/vpc-cr-access.md)

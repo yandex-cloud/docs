@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/clickhouse/v1/api-ref/grpc/Cluster/listExternalDictionaries.md
 ---
 
-# Managed Service for ClickHouse API, gRPC: ClusterService.ListExternalDictionaries {#ListExternalDictionaries}
+# Managed Service for ClickHouse API, gRPC: ClusterService.ListExternalDictionaries
 
 Retrieves a list of external dictionaries that belong to specified cluster.
 
@@ -15,33 +15,39 @@ Retrieves a list of external dictionaries that belong to specified cluster.
 
 ```json
 {
-  "clusterId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "cluster_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required field. ID of the cluster that the external dictionaries belong to. ||
-|| pageSize | **int64**
+Required field. ID of the cluster that the external dictionaries belong to.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token]
-that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+results is larger than `page_size`, the service returns a [ListClusterExternalDictionaryResponse.next_page_token]
+that can be used to get the next page of results in subsequent list requests.
 
-Page token. To get the next page of results, set `pageToken` to the [ListClusterExternalDictionaryResponse.next_page_token]
-returned by a previous list request. ||
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token` to the [ListClusterExternalDictionaryResponse.next_page_token]
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListClusterExternalDictionariesResponse {#yandex.cloud.mdb.clickhouse.v1.ListClusterExternalDictionariesResponse}
 
 ```json
 {
-  "externalDictionaries": [
+  "external_dictionaries": [
     {
       "name": "string",
       "structure": {
@@ -53,25 +59,25 @@ returned by a previous list request. ||
             {
               "name": "string",
               "type": "string",
-              "nullValue": "string",
+              "null_value": "string",
               "expression": "string",
               "hierarchical": "bool",
               "injective": "bool"
             }
           ]
         },
-        "rangeMin": {
+        "range_min": {
           "name": "string",
           "type": "string",
-          "nullValue": "string",
+          "null_value": "string",
           "expression": "string",
           "hierarchical": "bool",
           "injective": "bool"
         },
-        "rangeMax": {
+        "range_max": {
           "name": "string",
           "type": "string",
-          "nullValue": "string",
+          "null_value": "string",
           "expression": "string",
           "hierarchical": "bool",
           "injective": "bool"
@@ -80,7 +86,7 @@ returned by a previous list request. ||
           {
             "name": "string",
             "type": "string",
-            "nullValue": "string",
+            "null_value": "string",
             "expression": "string",
             "hierarchical": "bool",
             "injective": "bool"
@@ -89,18 +95,25 @@ returned by a previous list request. ||
       },
       "layout": {
         "type": "Type",
-        "sizeInCells": "int64",
-        "maxArraySize": "int64"
+        "size_in_cells": "int64",
+        "allow_read_expired_keys": "google.protobuf.BoolValue",
+        "max_update_queue_size": "int64",
+        "update_queue_push_timeout_milliseconds": "int64",
+        "query_wait_timeout_milliseconds": "int64",
+        "max_threads_for_updates": "int64",
+        "initial_array_size": "int64",
+        "max_array_size": "int64",
+        "access_to_key_from_attributes": "google.protobuf.BoolValue"
       },
-      // Includes only one of the fields `fixedLifetime`, `lifetimeRange`
-      "fixedLifetime": "int64",
-      "lifetimeRange": {
+      // Includes only one of the fields `fixed_lifetime`, `lifetime_range`
+      "fixed_lifetime": "int64",
+      "lifetime_range": {
         "min": "int64",
         "max": "int64"
       },
       // end of the list of possible fields
-      // Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`
-      "httpSource": {
+      // Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`
+      "http_source": {
         "url": "string",
         "format": "string",
         "headers": [
@@ -110,7 +123,7 @@ returned by a previous list request. ||
           }
         ]
       },
-      "mysqlSource": {
+      "mysql_source": {
         "db": "string",
         "table": "string",
         "port": "int64",
@@ -126,11 +139,11 @@ returned by a previous list request. ||
           }
         ],
         "where": "string",
-        "invalidateQuery": "string",
-        "closeConnection": "google.protobuf.BoolValue",
-        "shareConnection": "google.protobuf.BoolValue"
+        "invalidate_query": "string",
+        "close_connection": "google.protobuf.BoolValue",
+        "share_connection": "google.protobuf.BoolValue"
       },
-      "clickhouseSource": {
+      "clickhouse_source": {
         "db": "string",
         "table": "string",
         "host": "string",
@@ -140,7 +153,7 @@ returned by a previous list request. ||
         "where": "string",
         "secure": "google.protobuf.BoolValue"
       },
-      "mongodbSource": {
+      "mongodb_source": {
         "db": "string",
         "collection": "string",
         "host": "string",
@@ -149,7 +162,7 @@ returned by a previous list request. ||
         "password": "string",
         "options": "string"
       },
-      "postgresqlSource": {
+      "postgresql_source": {
         "db": "string",
         "table": "string",
         "hosts": [
@@ -158,30 +171,32 @@ returned by a previous list request. ||
         "port": "int64",
         "user": "string",
         "password": "string",
-        "invalidateQuery": "string",
-        "sslMode": "SslMode"
+        "invalidate_query": "string",
+        "ssl_mode": "SslMode"
       }
       // end of the list of possible fields
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| externalDictionaries[] | **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
+|| external_dictionaries[] | **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)**
 
 List of ClickHouse Cluster external dictionaries. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListClusterExternalDictionaryRequest.page_size], use the `nextPageToken` as the value
+is larger than [ListClusterExternalDictionaryRequest.page_size], use the `next_page_token` as the value
 for the [ListClusterExternalDictionaryRequest.page_token] parameter in the next list request. Each subsequent
-list request will have its own `nextPageToken` to continue paging through the results. ||
+list request will have its own `next_page_token` to continue paging through the results. ||
 |#
 
 ## ExternalDictionary {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary}
+
+External dictionary configuration.
 
 #|
 ||Field | Description ||
@@ -190,66 +205,52 @@ list request will have its own `nextPageToken` to continue paging through the re
 Required field. Name of the external dictionary. ||
 || structure | **[Structure](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure)**
 
-Required field. Set of attributes for the external dictionary.
-For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/). ||
+Required field. Structure of the external dictionary. ||
 || layout | **[Layout](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Layout)**
 
-Required field. Layout for storing the dictionary in memory.
-For in-depth description, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/). ||
-|| fixedLifetime | **int64**
+Required field. Layout determining how to store the dictionary in memory.
+
+For details, see https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory. ||
+|| fixed_lifetime | **int64**
 
 Fixed interval between dictionary updates.
 
-Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-
-Setting for the period of time between dictionary updates.
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). ||
-|| lifetimeRange | **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
+Includes only one of the fields `fixed_lifetime`, `lifetime_range`. ||
+|| lifetime_range | **[Range](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range)**
 
 Range of intervals between dictionary updates for ClickHouse to choose from.
 
-Includes only one of the fields `fixedLifetime`, `lifetimeRange`.
-
-Setting for the period of time between dictionary updates.
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). ||
-|| httpSource | **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
+Includes only one of the fields `fixed_lifetime`, `lifetime_range`. ||
+|| http_source | **[HttpSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource)**
 
 HTTP source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-
-Description of the source for the external dictionary. ||
-|| mysqlSource | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+|| mysql_source | **[MysqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource)**
 
 MySQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-
-Description of the source for the external dictionary. ||
-|| clickhouseSource | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+|| clickhouse_source | **[ClickhouseSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource)**
 
 ClickHouse source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-
-Description of the source for the external dictionary. ||
-|| mongodbSource | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+|| mongodb_source | **[MongodbSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource)**
 
 MongoDB source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-
-Description of the source for the external dictionary. ||
-|| postgresqlSource | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
+|| postgresql_source | **[PostgresqlSource](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource)**
 
 PostgreSQL source for the dictionary.
 
-Includes only one of the fields `httpSource`, `mysqlSource`, `clickhouseSource`, `mongodbSource`, `postgresqlSource`.
-
-Description of the source for the external dictionary. ||
+Includes only one of the fields `http_source`, `mysql_source`, `clickhouse_source`, `mongodb_source`, `postgresql_source`. ||
 |#
 
 ## Structure {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure}
+
+Configuration of external dictionary structure.
 
 #|
 ||Field | Description ||
@@ -259,19 +260,25 @@ Single numeric key column for the dictionary. ||
 || key | **[Key](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Key)**
 
 Composite key for the dictionary, containing of one or more key columns.
+
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#composite-key). ||
-|| rangeMin | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+|| range_min | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
-Field holding the beginning of the range for dictionaries with `RANGE_HASHED` layout.
+Field holding the beginning of the range for dictionaries with **RANGE_HASHED** layout.
+
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). ||
-|| rangeMax | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
+|| range_max | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
-Field holding the end of the range for dictionaries with `RANGE_HASHED` layout.
+Field holding the end of the range for dictionaries with **RANGE_HASHED** layout.
+
 For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_layout/#range-hashed). ||
 || attributes[] | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
 Description of the fields available for database queries.
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes). ||
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_structure/#attributes).
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Id {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Id}
@@ -293,7 +300,9 @@ Complex key.
 ||Field | Description ||
 || attributes[] | **[Attribute](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute)**
 
-Attributes of a complex key. ||
+Attributes of a complex key.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## Attribute {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Structure.Attribute}
@@ -306,7 +315,7 @@ Required field. Name of the column. ||
 || type | **string**
 
 Required field. Type of the column. ||
-|| nullValue | **string**
+|| null_value | **string**
 
 Default value for an element without data (for example, an empty string). ||
 || expression | **string**
@@ -315,45 +324,135 @@ Expression, describing the attribute, if applicable. ||
 || hierarchical | **bool**
 
 Indication of hierarchy support.
-Default value: `false`. ||
+
+Default value: **false**. ||
 || injective | **bool**
 
 Indication of injective mapping "id -> attribute".
-Default value: `false`. ||
+
+Default value: **false**. ||
 |#
 
 ## Layout {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Layout}
-
-Layout determining how to store the dictionary in memory.
 
 #|
 ||Field | Description ||
 || type | enum **Type**
 
-Required field. Layout type for an external dictionary.
+Required field. Layout type.
 
-- `TYPE_UNSPECIFIED`
-- `FLAT`: The entire dictionary is stored in memory in the form of flat arrays.
-Available for all dictionary sources.
-- `HASHED`: The entire dictionary is stored in memory in the form of a hash table.
-Available for all dictionary sources.
-- `COMPLEX_KEY_HASHED`: Similar to HASHED, to be used with composite keys.
-Available for all dictionary sources.
-- `RANGE_HASHED`: The entire dictionary is stored in memory in the form of a hash table,
-with an ordered array of ranges and their corresponding values.
-Available for all dictionary sources.
-- `CACHE`: The dictionary is stored in a cache with a set number of cells.
-Available for MySQL, ClickHouse and HTTP dictionary sources.
-- `COMPLEX_KEY_CACHE`: Similar to CACHE, to be used with composite keys.
-Available for MySQL, ClickHouse and HTTP dictionary sources. ||
-|| sizeInCells | **int64**
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
+
+- `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `COMPLEX_KEY_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+Applicable for dictionaries with composite keys of arbitrary type.
+- `RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `COMPLEX_KEY_CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
+Applicable for dictionaries with composite keys of arbitrary type.
+- `SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+It's similar to HASHED layout type but uses less memory in favor of more CPU usage.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `COMPLEX_KEY_SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
+It's similar to COMPLEX_KEY_HASHED layout type but uses less memory in favor of more CPU usage.
+Applicable for dictionaries with composite keys of arbitrary type.
+- `COMPLEX_KEY_RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
+Applicable for dictionaries with composite keys of arbitrary type.
+- `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+Applicable only for dictionaries with numeric keys of the UInt64 type.
+- `COMPLEX_KEY_DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
+Applicable for dictionaries with composite keys of arbitrary type.
+- `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN. ||
+|| size_in_cells | **int64**
 
 Number of cells in the cache. Rounded up to a power of two.
-Applicable only for CACHE and COMPLEX_KEY_CACHE layout types. ||
-|| maxArraySize | **int64**
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **1000000000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
+|| allow_read_expired_keys | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to read expired keys.
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **false**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
+|| max_update_queue_size | **int64**
+
+Max size of update queue.
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **100000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
+|| update_queue_push_timeout_milliseconds | **int64**
+
+Max timeout in milliseconds for push update task into queue.
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **10**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
+|| query_wait_timeout_milliseconds | **int64**
+
+Max wait timeout in milliseconds for update task to complete.
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **60000** (1 minute).
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
+|| max_threads_for_updates | **int64**
+
+Max threads for cache dictionary update.
+Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
+
+Default value: **4**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
+
+The minimum value is 0. ||
+|| initial_array_size | **int64**
+
+Initial dictionary key size.
+Applicable only for **FLAT** layout type.
+
+Default value: **1024**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
+|| max_array_size | **int64**
 
 Maximum dictionary key size.
-Applicable only for FLAT layout type. ||
+Applicable only for **FLAT** layout type.
+
+Default value: **500000**.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
+
+The minimum value is 0. ||
+|| access_to_key_from_attributes | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Allows to retrieve key attribute using **dictGetString** function.
+Enabling this option increases memory usage.
+Applicable only for **IP_TRIE** layout type.
+
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ip_trie). ||
 |#
 
 ## Range {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.Range}
@@ -377,7 +476,7 @@ Maximum dictionary lifetime. ||
 Required field. URL of the source dictionary available over HTTP. ||
 || format | **string**
 
-Required field. The data format. Valid values are all formats supported by ClickHouse SQL dialect. ||
+Required field. The data format. Valid values are all formats [supported by ClickHouse SQL dialect](https://clickhouse.com/docs/en/interfaces/formats/). ||
 || headers[] | **[Header](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.HttpSource.Header)**
 
 HTTP headers. ||
@@ -389,10 +488,10 @@ HTTP headers. ||
 ||Field | Description ||
 || name | **string**
 
-Required field.  ||
+Required field. Header name. ||
 || value | **string**
 
-Required field.  ||
+Required field. Header value. ||
 |#
 
 ## MysqlSource {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource}
@@ -401,33 +500,34 @@ Required field.  ||
 ||Field | Description ||
 || db | **string**
 
-Required field. Name of the MySQL database to connect to. ||
+Required field. Database name. ||
 || table | **string**
 
-Required field. Name of the database table to use as a ClickHouse dictionary. ||
+Required field. Table name. ||
 || port | **int64**
 
-Default port to use when connecting to a replica of the dictionary source. ||
+Port to use when connecting to a replica of the dictionary source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
-Name of the default user for replicas of the dictionary source. ||
+Required field. Name of the user for replicas of the dictionary source. ||
 || password | **string**
 
-Password of the default user for replicas of the dictionary source. ||
+Password of the user for replicas of the dictionary source. ||
 || replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)**
 
 List of MySQL replicas of the database used as dictionary source. ||
 || where | **string**
 
 Selection criteria for the data in the specified MySQL table. ||
-|| invalidateQuery | **string**
+|| invalidate_query | **string**
 
-Query for checking the dictionary status, to pull only updated data.
-For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). ||
-|| closeConnection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+Query for checking the dictionary status, to pull only updated data. ||
+|| close_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Should the connection be closed after each request. ||
-|| shareConnection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+Should a connection be closed after each request. ||
+|| share_connection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Should a connection be shared for some requests. ||
 |#
@@ -438,21 +538,29 @@ Should a connection be shared for some requests. ||
 ||Field | Description ||
 || host | **string**
 
-Required field. MySQL host of the replica. ||
+Required field. MySQL host of the replica.
+
+The maximum string length in characters is 253. ||
 || priority | **int64**
 
-Required field. The priority of the replica that ClickHouse takes into account when connecting.
-Replica with the highest priority should have this field set to the lowest number. ||
+The priority of the replica that ClickHouse takes into account when connecting.
+Replica with the highest priority should have this field set to the lowest number.
+
+The minimum value is 0. ||
 || port | **int64**
 
 Port to use when connecting to the replica.
-If a port is not specified for a replica, ClickHouse uses the port specified for the source. ||
+If a port is not specified for a replica, ClickHouse uses the port specified for the source.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
-Name of the MySQL database user. ||
+Name of the MySQL database user.
+If a user is not specified for a replica, ClickHouse uses the user specified for the source. ||
 || password | **string**
 
-Password of the MySQL database user. ||
+Password of the MySQL database user.
+If a password is not specified for a replica, ClickHouse uses the password specified for the source. ||
 |#
 
 ## ClickhouseSource {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.ClickhouseSource}
@@ -461,16 +569,20 @@ Password of the MySQL database user. ||
 ||Field | Description ||
 || db | **string**
 
-Required field. Name of the ClickHouse database. ||
+Required field. Database name. ||
 || table | **string**
 
-Required field. Name of the table in the specified database to be used as the dictionary source. ||
+Required field. Table name. ||
 || host | **string**
 
-ClickHouse host of the specified database. ||
+ClickHouse host.
+
+The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the ClickHouse database user. ||
@@ -482,7 +594,7 @@ Password of the ClickHouse database user. ||
 Selection criteria for the data in the specified ClickHouse table. ||
 || secure | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
-Use ssl for connection. ||
+Determines whether to use TLS for connection. ||
 |#
 
 ## MongodbSource {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MongodbSource}
@@ -491,23 +603,29 @@ Use ssl for connection. ||
 ||Field | Description ||
 || db | **string**
 
-Required field. Name of the MongoDB database. ||
+Required field. Database name. ||
 || collection | **string**
 
-Required field. Name of the collection in the specified database to be used as the dictionary source. ||
+Required field. Collection name. ||
 || host | **string**
 
-MongoDB host of the specified database. ||
+Required field. MongoDB host.
+
+The maximum string length in characters is 253. ||
 || port | **int64**
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the host.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the MongoDB database user. ||
 || password | **string**
 
 Password of the MongoDB database user. ||
-|| options | **string** ||
+|| options | **string**
+
+Dictionary source options. ||
 |#
 
 ## PostgresqlSource {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.PostgresqlSource}
@@ -516,32 +634,31 @@ Password of the MongoDB database user. ||
 ||Field | Description ||
 || db | **string**
 
-Required field. Name of the PostrgreSQL database. ||
+Required field. Database name. ||
 || table | **string**
 
-Required field. Name of the table in the specified database to be used as the dictionary source. ||
+Required field. Table name. ||
 || hosts[] | **string**
 
-Name of the PostrgreSQL host ||
+PostgreSQL hosts. ||
 || port | **int64**
 
-Port to use when connecting to the host. ||
+Port to use when connecting to the PostgreSQL hosts.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || user | **string**
 
 Required field. Name of the PostrgreSQL database user. ||
 || password | **string**
 
 Password of the PostrgreSQL database user. ||
-|| invalidateQuery | **string**
+|| invalidate_query | **string**
 
-Query for checking the dictionary status, to pull only updated data.
-For more details, see [ClickHouse documentation on dictionaries](https://clickhouse.com/docs/en/query_language/dicts/external_dicts_dict_lifetime/). ||
-|| sslMode | enum **SslMode**
+Query for checking the dictionary status, to pull only updated data. ||
+|| ssl_mode | enum **SslMode**
 
 Mode of SSL TCP/IP connection to the PostgreSQL host.
-For more details, see [PostgreSQL documentation](https://www.postgresql.org/docs/current/libpq-ssl.html).
 
-- `SSL_MODE_UNSPECIFIED`
 - `DISABLE`: Only try a non-SSL connection.
 - `ALLOW`: First try a non-SSL connection; if that fails, try an SSL connection.
 - `PREFER`: First try an SSL connection; if that fails, try a non-SSL connection.

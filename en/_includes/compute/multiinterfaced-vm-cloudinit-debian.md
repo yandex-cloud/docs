@@ -11,7 +11,7 @@ users:
   - name: <username>
     sudo: ALL=(ALL) NOPASSWD:ALL
     shell: /bin/bash
-    ssh-authorized-keys:
+    ssh_authorized_keys:
       - <public_SSH_key>
 write_files:
   - path: "/etc/network/interfaces"

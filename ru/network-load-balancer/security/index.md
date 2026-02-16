@@ -22,7 +22,7 @@ description: Управление доступом в сервисе сетев�
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/network-load-balancer/security/service-roles-hierarchy.svg)
+{% include [network-load-balancer](../../_mermaid/roles/network-load-balancer.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -37,6 +37,10 @@ description: Управление доступом в сервисе сетев�
 #### load-balancer.privateAdmin {#load-balancer-private-admin}
 
 {% include [loadbalancer-privateadmin](../../_roles/load-balancer/privateAdmin.md) %}
+
+#### load-balancer.editor {#load-balancer-editor}
+
+{% include [loadbalancer-editor](../../_roles/load-balancer/editor.md) %}
 
 #### load-balancer.admin {#load-balancer-admin}
 

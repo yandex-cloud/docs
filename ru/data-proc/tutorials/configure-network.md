@@ -1,3 +1,7 @@
+---
+canonical: '{{ link-docs }}/tutorials/routing/data-processing-nat-instance'
+---
+
 # Настройка сети для {{ dataproc-name }}
 
-{% include notitle [Data Proc network with NAT gateway](../../_tutorials/routing/data-proc-nat-gateway.md) %}
+{% include notitle [Data Processing network with NAT instance](../../_tutorials/routing/data-processing-nat-instance.md) %}

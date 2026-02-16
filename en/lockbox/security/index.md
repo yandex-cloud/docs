@@ -1,34 +1,34 @@
 ---
 title: Access management in {{ lockbox-full-name }}
-description: Access management in {{ lockbox-full-name }}, a secret storage system. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ lockbox-full-name }}, a secret storage service. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required for specific actions.
 ---
 
 # Access management in {{ lockbox-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#choosing-roles) for particular actions.
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `lockbox.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `lockbox.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [secret](../concepts/secret.md) in the management console, via the YC CLI or {{ yandex-cloud }} API.
+You can assign a role for a [secret](../concepts/secret.md) in the [management console]({{ link-console-main }}) or using the {{ yandex-cloud }} [CLI](../../cli/cli-ref/lockbox/cli-ref/secret/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/lockbox_secret_iam_binding).
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
-You can manage access to secrets using both service and primitive roles.
+You can manage access to secrets using both service and primitive roles. 
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/lockbox/service-roles-hierarchy.svg)
+{% include [lockbox](../../_mermaid/roles/lockbox.md) %}
 
 ### Service roles {#service-roles}
 
@@ -60,17 +60,17 @@ You can manage access to secrets using both service and primitive roles.
 
 ## What roles do I need {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
 
-| Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter` |
------ | ----- | ----- | ----- | ----- | -----
-| Create and delete secrets | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Change the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Read the metadata of the secret | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - |
-| Change the content of the secret version | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | - |
-| Read the content of the secret version | ![image](../../_assets/common/yes.svg) | - | - | ![image](../../_assets/common/yes.svg) | - |
-| Control access to the secret | ![image](../../_assets/common/yes.svg) | - | - | - | - |
-| Secret encryption and decryption operations | - | - | - | - | ![image](../../_assets/common/yes.svg) |
+Action | `{{ roles-lockbox-admin }}` | `{{ roles-lockbox-editor }}` | `{{ roles-lockbox-viewer }}` | `{{ roles-lockbox-payloadviewer }}` | `kms.keys.encrypterDecrypter`
+----- | ----- | ----- | ----- | ----- | ----- 
+Create and delete secrets                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Change the metadata of the secret                | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Read the metadata of the secret                   | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | -
+Change the content of the secret version        | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) | - | - | -
+Read the content of the secret version           | ![image](../../_assets/common/yes.svg) | - |- | ![image](../../_assets/common/yes.svg) | -
+Control access to the secret               | ![image](../../_assets/common/yes.svg) | - | - | - | -
+Secret encryption and decryption operations   | - | - | - | - | ![image](../../_assets/common/yes.svg)
 
 #### What's next {#what-is-next}
 
@@ -78,5 +78,5 @@ The table below lists the roles required to perform a particular action. You can
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 * [Access management in {{ kms-full-name }}](../../kms/security/index.md)

@@ -1,7 +1,7 @@
-# 4. Шифрование данных и управление ключами и секретами
+# Требования к шифрованию данных и управлению ключами и секретами
 
+## 4. Шифрование данных и управление ключами {#data-encryption-and-key-management}
 
-### Введение {#intro}
 
 {{ yandex-cloud }} предоставляет встроенные функции шифрования при использовании ряда сервисов. В зоне ответственности клиента находится включение шифрования в этих сервисах, а также самостоятельная реализация шифрования в других компонентах обработки критичных данных. Для шифрования данных и управления ключами шифрования предназначен сервис [{{ kms-name }}](../../../kms/) ({{ kms-short-name }}).
 
@@ -11,15 +11,151 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 По умолчанию все пользовательские данные в состоянии покоя (at rest) зашифрованы на уровне {{ yandex-cloud }}. Шифрование на уровне {{ yandex-cloud }} является реализацией одной из лучших практик по защите данных пользователей и выполняется на ключах {{ yandex-cloud }}.
 
-Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте ротации ключей, вы можете шифровать данные собственными ключами. Для этого можно использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на data plane-уровне полностью самостоятельно.
+Если ваша корпоративная политика информационной безопасности предъявляет требования к длине ключа или частоте [ротации ключей](../../../kms/operations/key.md#rotate), вы можете шифровать данные собственными ключами. Для этого можно использовать сервис {{ kms-short-name }} и его интеграцию с другими сервисами {{ yandex-cloud }}, либо реализовать шифрование на уровне Data plane полностью самостоятельно.
 
 {{ yandex-cloud }} предоставляет функции шифрования в состоянии покоя (at rest) для следующих сервисов:
-* {{ objstorage-name }};
-* {{ managed-k8s-name }}.
+* {{ compute-name }} (шифрование дисков ВМ);
+* {{ objstorage-name }} (шифрование бакетов);
+* {{ managed-k8s-name }} (шифрование секретов).
 
-#### 4.1 В {{ objstorage-full-name }} включено шифрование данных at rest с ключом {{ kms-short-name }} {#storage-kms}
+#### 4.1 Включено шифрование дисков в {{ compute-full-name }} {#compute-encryption}
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT17 | Высокая |
+
+**Поиск зашифрованных дисков ВМ:**
+
+{% list tabs group=instructions %}
+
+- Проверка через CLI {#cli}
+
+  1. Посмотрите доступные вам организации и зафиксируйте необходимый ID:
+
+     ```bash
+     yc organization-manager organization list
+     ```
+
+  1. Выполните команду для поиска зашифрованных дисков:
+
+      {% cut "**Bash**" %}
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      CLOUDS=$(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+
+      echo "Encrypted disks:"
+      for CLOUD_ID in $CLOUDS
+        do
+        FOLDERS=$(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id')
+        for FOLDER_ID in $FOLDERS
+        do
+          DISKS=$(yc compute disk list --folder-id $FOLDER_ID --format=json | jq -r '.[] | select(.kms_key.key_id)' | jq -r '.id')
+
+          if [[ -n "$DISKS" ]]; then
+            for DISK in $DISKS
+            do
+              DISKDATA=$(yc compute disk get --id $DISK --folder-id $FOLDER_ID --format=json)
+              VM_ID=$(echo $DISKDATA| jq -r '.instance_ids[]')
+
+              VMDATA=""
+
+              if [[ -n "$VM_ID" ]]; then
+                VMDATA=$(yc compute instance get --id $VM_ID --folder-id $FOLDER_ID --format=json)
+              fi
+
+              echo "------------"
+              echo "CLOUD_ID:" $CLOUD_ID
+              echo "FOLDER_ID:" $FOLDER_ID
+              echo "DISK_ID: "$(echo $DISKDATA | jq -r '.id')
+              echo "DISK_NAME: "$(echo $DISKDATA | jq -r '.name')
+              echo "DISK_TYPE: "$(echo $DISKDATA | jq -r '.type_id')
+              echo "DISK_ZONE: "$(echo $DISKDATA | jq -r '.zone_id')
+              echo "DISK_SIZE: "$(echo $DISKDATA | jq -r '.size')
+              echo "DISK_KEY: "$(echo $DISKDATA | jq -r '.kms_key')
+
+              if [[ -n "$VMDATA" ]]; then
+                echo "VM_ID: "$(echo $VMDATA | jq -r '.id')
+                echo "VM_NAME: "$(echo $VMDATA | jq -r '.name')
+                echo "VM_STATUS: "$(echo $VMDATA | jq -r '.status')
+              fi
+              echo "------------"
+            done
+          fi
+        done
+      done
+      ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<ID_организации>"
+
+      $Clouds = yc resource-manager cloud list --organization-id=$ORG_ID --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $EncryptedVMs = @()
+      $VMDisks = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $FolderDiskList = yc compute disk list --folder-id $Folder.id --format=json | ConvertFrom-Json | where{$_.kms_key}
+
+          foreach($Disk in $FolderDiskList) {
+            $VMData = $null
+
+            if($Disk.instance_ids) {
+              $VMData = yc compute instance get --id $Disk.instance_ids --folder-id $Folder.id --format=json | ConvertFrom-Json
+            }
+
+            $EncryptedVMs += $Disk | Select @{n="CloudID";e={$Cloud.CloudID}}, @{n="CloudName";e={$Cloud.CloudName}}, @{n="FolderID";e={$Folder.id}}, @{n="FolderName";e={$Folder.name}}, @{n="DiskID";e={$_.id}}, @{n="DiskName";e={$_.name}}, @{n="DiskType";e={$_.type_id}}, zone_id, @{n="DiskSize";e={$_.size/1GB}}, kms_key, @{n="VMID";e={$VMData.id}}, @{n="VMName";e={$VMData.name}}, @{n="VMStatus";e={$VMData.status}}
+          }
+        }
+      }
+
+      $EncryptedVMs
+      ```
+
+      {% endcut %}
+
+{% endlist %}
+
+Проверьте список возвращенных зашифрованных дисков. Если список соответствует вашей модели угроз, то дополнительных действий не требуется. Если какие-либо диски отсутствуют в списке, то выполните следующие действия:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}** и найдете в списке диск, который требуется зашифровать.
+
+      Если диск присоединен к ВМ и ВМ включена, рекомендуется выключить ее.
+  1. [Создайте](../../../compute/operations/disk-control/create-snapshot.md) снимок диска.
+  1. Создайте из полученного снимка новый зашифрованный диск:
+
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
+      1. В открывшейся форме:
+          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя диска.
+          1. В поле **{{ ui-key.yacloud.compute.disk-form.field_zone }}** укажите нужную [зону доступности](../../../overview/concepts/geo-scope.md).
+          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и выберите созданный ранее снимок.
+          1. В поле **{{ ui-key.yacloud.compute.disk-form.field_type }}** задайте необходимый [тип диска](../../../compute/concepts/disk.md#disks-types).
+          1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}** включите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** и выберите или создайте [ключ шифрования](../../../kms/concepts/key.md) {{ kms-short-name }}.
+          1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
+  1. После создания зашифрованного диска присоедините его к нужной ВМ вместо незашифрованного.
+
+{% endlist %}
+
+#### 4.2 В {{ objstorage-full-name }} включено шифрование данных at rest с ключом {{ kms-short-name }} {#storage-kms}
 
 Для защиты критичных данных в {{ objstorage-full-name }} рекомендуется использовать шифрование бакета на стороне сервера с помощью ключей {{ kms-full-name }} (server-side encryption). Такое шифрование защищает от случайной или намеренной публикации содержимого бакета в интернете. Подробнее см. в разделе [Шифрование](../../../storage/concepts/encryption.md) документации {{ objstorage-name }}.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT1 | Средняя |
 
 {% list tabs group=instructions %}
 
@@ -71,7 +207,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * {{ api-gw-name }};
 * {{ cdn-name }}.
 
-#### 4.2 В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта {#storage-https}
+#### 4.3 В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта {#storage-https}
 
 [{{ objstorage-name }}](../../../storage/) поддерживает безопасное подключение по протоколу HTTPS. Вы можете загрузить собственный сертификат безопасности, если к сайту в {{ objstorage-name }} требуется доступ по протоколу HTTPS. Также доступна интеграция с сервисом [{{ certificate-manager-name }}](../../../certificate-manager/). См. инструкции в документации {{ objstorage-name }}:
 * [Настройка HTTPS](../../../storage/operations/hosting/certificate.md)
@@ -79,25 +215,43 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 При работе с сервисом [{{ objstorage-name }}](../../../storage/) необходимо убедиться, что в клиенте отключена поддержка протоколов TLS ниже версии 1.2. При помощи политики (bucket policy) [`aws:securetransport`](../../../storage/s3/api-ref/policy/conditions.md) необходимо проверить, что для бакета настроен запрет на работу без протокола TLS.
 
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT2 | Высокая |
+
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
 
-  1. В консоли управления выберите облако или каталог, в которых необходимо проверить бакеты.
-  1. В списке сервисов выберите **{{ objstorage-name }}**.
-  1. Перейдите в настройки бакета.
-  1. Перейдите во вкладку **HTTPS**.
-  1. Убедитесь, что доступ по протоколу включен и указан сертификат.
+  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в нужный бакет.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
+  1. Убедитесь, что доступ по протоколу HTTPS включен и указан TLS-сертификат.
   1. Если доступ по HTTPS включен, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+
+- Проверка через CLI {#cli}
+
+  Выполните команду, указав имя нужного бакета:
+
+  ```bash
+  yc storage bucket get-https <имя_бакета>
+  ```
+
+  Если в поле `certificate_id` команда вернула идентификатор сертификата, значит доступ по протоколу HTTPS включен и рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
 {% endlist %}
 
 **Инструкции и решения по выполнению:**
-Включите доступ по HTTPS, если бакет используется для хостинга статического сайта.
 
-#### 4.3 В {{ alb-full-name }} используется HTTPS {#alb-https}
+[Включите](../../../storage/operations/hosting/certificate.md) доступ по HTTPS, если бакет используется для хостинга статического сайта.
 
-Сервис [{{ alb-name }}](../../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }}. См. [описание настройки обработчика](../../../application-load-balancer/concepts/application-load-balancer.md) в документации {{ alb-full-name }}.
+#### 4.4 В {{ alb-full-name }} используется HTTPS {#alb-https}
+
+Сервис [{{ alb-name }}](../../../application-load-balancer/) поддерживает HTTPS-обработчик с загрузкой [сертификата](../../../certificate-manager/concepts/imported-certificate.md) из {{ certificate-manager-name }}. См. [описание настройки обработчика](../../../application-load-balancer/concepts/application-load-balancer.md#listener) в документации {{ alb-full-name }}.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT3 | Высокая |
 
 {% list tabs group=instructions %}
 
@@ -119,16 +273,44 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
   1. Выполните команду для вывода списка всех балансировщиков без https:
 
-     ```bash
-     export ORG_ID=<ID организации>
-     for CLOUD_ID in $(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id');
-     do for FOLDER_ID in $(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id'); 
-     do for ALB in $(yc application-load-balancer load-balancer list --folder-id=$FOLDER_ID --format=json | jq -r '.[].id'); \
-     do yc application-load-balancer load-balancer get --id $ALB --format json | jq -r '. | select(.listeners[0].tls | not)' | jq -r '.id'
-     done;
-     done;
-     done
-     ```
+      {% cut "**Bash**" %}
+
+      ```bash
+      export ORG_ID=<ID_организации>
+      CLOUDS=$(yc resource-manager cloud list --organization-id=${ORG_ID} --format=json | jq -r '.[].id')
+      for CLOUD_ID in $CLOUDS
+      do
+        FOLDERS=$(yc resource-manager folder list --cloud-id=$CLOUD_ID --format=json | jq -r '.[].id')
+        for FOLDER_ID in $FOLDERS
+        do
+          yc application-load-balancer load-balancer list --folder-id $FOLDER_ID --format=json | jq -r '.[] | select(.listeners[0].tls | not)' | jq -r '.'
+        done
+      done
+      ```
+
+      {% endcut %}
+
+      {% cut "**PowerShell**" %}
+
+      ```powershell
+      $ORG_ID = "<ID_организации>"
+
+      $Clouds = yc resource-manager cloud list --organization-id $ORG_ID --format=json | ConvertFrom-Json | Select @{n="CloudID";e={$_.id}}, created_at, @{n="CloudName";e={$_.name}}, organization_id
+
+      $ALBWithoutTLS = @()
+
+      foreach ($Cloud in $Clouds) {
+        $Folders = yc resource-manager folder list --cloud-id $Cloud.CloudID --format=json | ConvertFrom-Json
+
+        foreach($Folder in $Folders) {
+          $ALBWithoutTLS += yc application-load-balancer load-balancer list --folder-id $Folder.id --format=json | ConvertFrom-Json | where{!$_.listeners.tls}
+        }
+      }
+
+      $ALBWithoutTLS
+      ```
+
+      {% endcut %}
 
   1. Если выведен пустой список, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
@@ -136,11 +318,15 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Включите HTTPS обработчик согласно инструкции.
+Включите HTTPS обработчик согласно [инструкции](../../../application-load-balancer/tutorials/tls-termination/index.md).
 
-#### 4.4 В {{ api-gw-full-name }} используется HTTPS и собственный домен {#api-gateway-https}
+#### 4.5 В {{ api-gw-full-name }} используется HTTPS и собственный домен {#api-gateway-https}
 
 [{{ api-gw-name }}](../../../api-gateway/) обеспечивает безопасное подключение по протоколу HTTPS. Вы можете привязать собственный домен и загрузить собственный сертификат безопасности для доступа к вашему [API-шлюзу](../../../api-gateway/concepts/index.md) по протоколу HTTPS.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT4 | Средняя |
 
 {% list tabs group=instructions %}
 
@@ -182,9 +368,13 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 1. В списке сервисов выберите **{{ api-gw-name }} → Настройки шлюза → Домены**.
 1. Подключите домены и сертификаты.
 
-#### 4.5 В {{ cdn-full-name }} используется HTTPS и собственный SSL-сертификат {#cdn-https}
+#### 4.6 В {{ cdn-full-name }} используется HTTPS и собственный SSL-сертификат {#cdn-https}
 
 [{{ cdn-name }}](../../../cdn/) поддерживает безопасное подключение по протоколу HTTPS к источникам. Также вы можете загрузить собственный сертификат безопасности для доступа к вашему [CDN-ресурсу](../../../cdn/concepts/resource.md) по протоколу HTTPS.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT5 | Низкая |
 
 {% list tabs group=instructions %}
 
@@ -230,32 +420,6 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **При использовании сервисов, которые не имеют встроенных функций шифрования, шифрование критичных данных является ответственностью клиента.**
 
-#### 4.6 Для критичных данных используется шифрование MDB с помощью {{ kms-short-name }} {#self-data-kms}
-
-Если шифрование данных необходимо, следует шифровать их на уровне приложения перед записью в базы данных, например, с помощью [{{ kms-short-name }}](../../../kms/operations/symmetric-encryption.md) и дополнительных надстроек, например `pgcrypto`.
-
-{% list tabs group=instructions %}
-
-- Ручная проверка {#manual}
-
-  Убедитесь, что данные хранятся в зашифрованном виде.
-
-- Проверка через CLI {#cli}
-
-  Чтобы получить список всех расширений, установленных в базе данных, выполните команду:
-
-     ```bash
-     yc managed-postgresql database get <database_name> --cluster-id <managed_postgre_cluster_id> --format=json | jq -r '.extensions | .[].name'
-     ```
-
-  Если результат содержит строку `pgcrypto`, значит в базе данных активировано расширение для шифрования на прикладном уровне.
-
-{% endlist %}
-
-**Инструкции и решения по выполнению:**
-
-Инструкцию о шифровании данных в {{ mpg-full-name }} и {{ mgp-full-name }} с помощью `pgcrypto` см. в разделе [{#T}](../../../managed-greenplum/operations/extensions/pgcrypto.md).
-
 #### 4.7 Используется шифрование данных на уровне приложения {#self-data-app}
 
 Для шифрования данных на уровне приложения (client-side encryption) перед их отправкой в бакет {{ objstorage-full-name }} вы можете использовать следующие подходы:
@@ -268,6 +432,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * [SDK {{ yandex-cloud }}](../../../kms/tutorials/encrypt/sdk.md) вместе с любой другой криптографической библиотекой, совместимой с PCI DSS или другими стандартами, применяемыми в вашей компании.
 
 Сравнение библиотек представлено в разделе [Какой способ шифрования выбрать](../../../kms/tutorials/encrypt/) документации {{ kms-short-name }}.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT7 | Высокая |
 
 {% list tabs group=instructions %}
 
@@ -292,6 +460,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 * Сетевой HDD-диск (`network-hdd`).
 * Нереплицируемый SSD-диск (`network-ssd-nonreplicated`).
 * Сверхбыстрое сетевое хранилище с тремя репликами (SSD) (`network-ssd-io-m3`).
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT8 | Средняя |
 
 {% list tabs group=instructions %}
 
@@ -318,6 +490,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 Чтобы использовать HSM, при создании ключа выберите тип алгоритма AES-256 HSM. Все операции с этим ключом будут выполняться внутри HSM, дополнительные действия не требуются.
 
 Рекомендуется использовать HSM для ключей {{ kms-short-name }}, это увеличивает уровень безопасности.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT9 | Информационная |
 
 {% list tabs group=instructions %}
 
@@ -364,11 +540,15 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Рекомендуется выдавать пользователям и сервисным аккаунтам гранулярные доступы на конкретные ключи сервиса {{ kms-short-name }}. Подробнее см. статью [Управление доступом в {{ kms-name }}](../../../kms/security/) документации {{ kms-short-name }}.
 
-Подробнее о мерах безопасности при управлении доступом читайте в статье [Аутентификация и управление доступом](authentication.md).
+Подробнее о мерах безопасности при управлении доступом читайте в статье [Аутентификация и управление доступом](../../../security/standard/authentication.md).
 
 Для того чтобы проверить права доступа к ключу {{ kms-short-name }}, необходимо проверить, у кого есть права:
 * на организацию, облако, каталоги с правами: `admin`, `editor`, `kms.admin`, `kms.editor`, `kms.keys.encrypterDecrypter`;
 * на ключи: `kms.keys.encrypterDecrypter` и `kms.editor`.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT10 | Средняя |
 
 {% list tabs group=instructions %}
 
@@ -459,6 +639,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 Подробнее о ротации ключей см. в разделе [Версия ключа](../../../kms/concepts/version.md) документации {{ kms-short-name }}.
 
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT11 | Высокая |
+
 {% list tabs group=instructions %}
 
 - Проверка в консоли управления {#console}
@@ -499,6 +683,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 #### 4.12 Для ключей {{ kms-short-name }} включена защита от удаления {#keys-deletion-protection}
 
 Удаление {{ kms-short-name }} ключа приводит к гарантированному удалению данных, поэтому необходимо защищать ключи от непреднамеренного удаления. В {{ kms-short-name }} существует соответствующая функция.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT12 | Высокая |
 
 {% list tabs group=instructions %}
 
@@ -543,21 +731,21 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 #### 4.13 В организации используется {{ lockbox-full-name }} для безопасного хранения секретов {#secrets-lockbox}
 
-Критичные данные и секреты для доступа к данным (токены аутентификации, API-ключи, ключи шифрования и т. п.) не следует использовать в открытом виде в коде, в названиях и описаниях объектов облака, в метаданных виртуальных машин и т. д. Вместо этого используйте сервисы для хранения секретов, такие как {{ lockbox-short-name }} или [HashiCorp Vault](/marketplace/products/yc/vault-yckms) (из {{ marketplace-name }}).
+Критичные данные и секреты для доступа к данным (токены аутентификации, API-ключи, ключи шифрования и т. п.) не следует использовать в открытом виде в коде, в названиях и описаниях объектов облака, в метаданных виртуальных машин и т. д. Вместо этого используйте сервисы для хранения секретов, такие как {{ lockbox-short-name }}.
 
 Сервис {{ lockbox-short-name }} обеспечивает безопасное хранение секретов только в зашифрованном виде. Шифрование выполняется с помощью {{ kms-short-name }}. Для разграничения доступа к секретам используйте сервисные роли.
 
 Инструкции по работе с сервисом см. в [документации](../../../lockbox/) {{ lockbox-short-name }}.
 
-[Vault](https://www.vaultproject.io/) позволяет использовать {{ kms-short-name }} в качестве доверенного сервиса для шифрования секретов. Реализуется это через механизм [Auto Unseal](https://www.vaultproject.io/docs/concepts/seal).
-
-Для хранения секретов с помощью Vault можно использовать виртуальную машину на основе [образа](/marketplace/products/yc/vault-yckms) из {{ marketplace-name }} с предустановленной сборкой HashiCorp Vault и поддержкой Auto Unseal. Инструкция по настройке Auto Unseal приведена в статье [Auto Unseal в Hashicorp Vault](../../../kms/tutorials/vault-secret.md) документации {{ kms-short-name }}.
-
 {% note info %}
 
-При работе в {{ TF }} рекомендуем [заполнять](https://terraform-provider.yandexcloud.net/Resources/lockbox_secret_version) содержимое секрета скриптом. В таком случае содержимое не останется в файле `.tfstate`.
+При работе в {{ TF }} рекомендуем [заполнять]({{ tf-provider-resources-link }}/lockbox_secret_version) содержимое секрета скриптом. В таком случае содержимое не останется в файле `.tfstate`.
 
 {% endnote %}
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT13 | Высокая |
 
 {% list tabs group=instructions %}
 
@@ -566,8 +754,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
   1. В консоли управления выберите облако или каталог, в которых необходимо проверить секреты.
   1. В списке сервисов выберите **{{ lockbox-short-name }}**.
   1. Убедитесь, что используется как минимум один секрет {{ lockbox-short-name }}.
-  1. Найдите параметр **Защита от удаления**.
-  1. Если используется {{ lockbox-short-name }}, либо среди виртуальных машин или сущностей {{ k8s }} находится установленный Hashicorp Vault, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
+  1. Если используется {{ lockbox-short-name }}, рекомендация выполняется. В противном случае перейдите к п. «Инструкции и решения по выполнению».
 
 - Проверка через CLI {#cli}
 
@@ -594,7 +781,7 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Храните секреты в {{ lockbox-short-name }} либо [Hashicorp Vault](/marketplace/products/yc/vault-yckms) из {{ marketplace-short-name }}.
+Храните секреты в {{ lockbox-short-name }}.
 
 #### 4.14 Для {{ serverless-containers-name }} и {{ sf-name }} используются секреты {{ lockbox-short-name }} {#secrets-serverless-functions}
 
@@ -605,6 +792,10 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 Рекомендуется использовать для этих целей интеграцию Serverless с {{ lockbox-short-name }}. Вы можете указать конкретный секрет из сервиса {{ lockbox-full-name }} и сервисный аккаунт с правами на данный секрет для использования его в функции или контейнере. 
 
 Рекомендуется убедиться, что секреты используются именно таким образом. 
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT14 | Средняя |
 
 {% list tabs group=instructions %}
 
@@ -637,41 +828,43 @@ API сервисов {{ yandex-cloud }} поддерживают наборы а
 
 **Инструкции и решения по выполнению:**
 
-Удалите секретные данные из env и [воспользуйтесь](../../../functions/operations/function/version-manage.md) функционалом интеграции с {{ lockbox-short-name }}.
+Удалите секретные данные из env и воспользуйтесь функционалом интеграции с {{ lockbox-short-name }}:
+* [{#T}](../../../serverless-containers/operations/lockbox-secret-transmit.md).
+* [{#T}](../../../functions/operations/function/lockbox-secret-transmit.md).
 
 #### 4.15 При работе {{ coi }} используется шифрование секретов {#secrets-coi}
 
 {{ kms-short-name }} предоставляет возможность шифрования секретов, используемых в конфигурации {{ TF }}, в частности, для передачи секретов на виртуальную машину в зашифрованном виде. См. инструкцию в разделе [Шифрование секретов в {{ TF-full }}](../../../kms/tutorials/terraform-secret.md) документации {{ kms-short-name }}. Передача секретов через переменные окружения в открытом виде небезопасна, поскольку они отображаются в свойствах ВМ.
 
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT15 | Высокая |
+
 **Инструкции и решения по выполнению:**
 
 [Шифрование секретов в {{ TF }} для передачи на ВМ с {{ coi }}](https://github.com/yandex-cloud-examples/yc-encrypt-coi-secrets).
 
-Другие рекомендации по безопасному использованию {{ TF }} см. в статье [Безопасная конфигурация: {{ TF }}](virtualenv-safe-config.md#tf-using).
+Другие рекомендации по безопасному использованию {{ TF }} см. в статье [Безопасная конфигурация: {{ TF }}](../../../security/standard/virtualenv-safe-config.md#tf-using).
 
 #### 4.16 Администратор облака имеет инструкцию по действиям в случае компрометации секретов его облака {#secrets-scanning}
 
 В {{ yandex-cloud }} по умолчанию для всех включен [Secret Scanning Service](../../../security/operations/search-secrets.md).
-Он обнаруживает облачные структурированные секреты в открытом доступе в следующих источниках:
+Источники для обнаружения облачных структурированных секретов в открытом доступе:
 
-* в публичных репозиториях Github;
-* в поисковом индексе Яндекса;
-* в Helm-чартах {{ k8s }} маркетплейса.
+{% include [secret-sources](./secret-sources.md) %}
 
 Список облачных секретов для обнаружения:
 
-* {{ yandex-cloud }} Session Cookie;
-* {{ yandex-cloud }} {{ iam-short-name }} token;
-* {{ yandex-cloud }} API Key;
-* Yandex Passport OAuth token;
-* {{ yandex-cloud }} AWS API compatible Access Secret;
-* (NEW) {{ yandex-cloud }} {{ captcha-name }} Server Key;
-* (NEW) {{ lockbox-short-name }} структурированные секреты.
+{% include [secret-types](./secret-types.md) %}
 
 Сервис автоматически уведомляет клиента о найденном секрете, который относится к его инфраструктуре:
 
 * по электронной почте;
 * с помощью [событий](../../../audit-trails/concepts/events.md) {{ at-full-name }}.
+
+| ID требования | Критичность |
+| --- | --- |
+| CRYPT16 | Информационная |
 
 **Инструкции и решения по выполнению:**
 

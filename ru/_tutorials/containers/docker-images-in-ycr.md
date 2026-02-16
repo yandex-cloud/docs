@@ -20,7 +20,7 @@
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
 1. [Настройте {{ GL }}](#configure-gitlab).
 1. [Создайте тестовое приложение](#app-create).
-1. [Создайте {{ GLR }}](#runner).
+1. [Создайте {{ GLR }}](#runners).
 1. [Создайте переменные окружения {{ GL }}](#add-variables).
 1. [Создайте файл конфигурации сценария CI](#add-ci).
 1. [Проверьте результат](#check-result).
@@ -41,16 +41,14 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
 
 * Диски и постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование динамического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Использование динамического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Хранение созданных Docker-образов и сканер уязвимостей, если вы его [активируете](#vulnerability-scanner) (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование мастера {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
@@ -66,7 +64,7 @@
       * `{{ roles-cr-pusher }}`
       * `{{ roles-cr-puller }}`
 
-   1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) с зональным мастером и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите созданный ранее сервисный аккаунт.
+   1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) с базовым мастером и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). При создании кластера укажите созданный ранее сервисный аккаунт.
    1. Настройте группу безопасности для работы [кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/connect/security-groups.md) и [инстанса {{ mgl-name }}](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Создайте реестр {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
@@ -78,14 +76,14 @@
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Скачайте в ту же рабочую директорию файл конфигурации [container-registry-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-gitlab/container-registry-and-gitlab.tf).
+   1. Скачайте в ту же рабочую директорию файл конфигурации [container-registry-and-gitlab.tf](https://github.com/yandex-cloud-examples/yc-gitlab-cr-integration/blob/main/container-registry-and-gitlab.tf).
 
       В этом файле описаны:
 
       * [Сеть](../../vpc/concepts/network.md#network).
       * [Подсеть](../../vpc/concepts/network.md#subnet).
       * [Группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для работы инстанса {{ mgl-name }} и [кластера {{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * Кластер {{ managed-k8s-name }} с зональным мастером.
+      * Кластер {{ managed-k8s-name }} с базовым мастером.
       * [Группа узлов для кластера](../../managed-kubernetes/concepts/index.md#node-group).
       * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
       * Реестр {{ container-registry-full-name }}.
@@ -324,22 +322,6 @@
 
 - {{ TF }} {#tf}
 
-   Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-
-   1. В терминале перейдите в директорию с планом инфраструктуры.
-   1. Удалите конфигурационный файл `container-registry-and-gitlab.tf`.
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      Все ресурсы, которые были описаны в конфигурационном файле `container-registry-and-gitlab.tf`, будут удалены.
+   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

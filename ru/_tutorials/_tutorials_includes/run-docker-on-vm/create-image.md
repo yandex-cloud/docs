@@ -1,4 +1,6 @@
+1. Откройте терминал.
 1. Для удобства выполнения команд добавьте переменные:
+
     * Имя пользователя и публичный IP-адрес вашей ВМ — в переменную `${PUBLIC_IP}`:
 
         ```bash
@@ -38,7 +40,7 @@
 
       {% endnote %}
 
-      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-name }}-токен.
+      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-short-name }}-токен.
       1. Выполните команду:
 
           ```bash
@@ -54,7 +56,7 @@
 
     - Docker Credential helper {#docker}
 
-      1. Если у вас еще нет профиля для YC CLI, [создайте его](../../../cli/quickstart.md#initialize).
+      1. Если у вас еще нет профиля для CLI, [создайте его](../../../cli/quickstart.md#initialize).
       1. Сконфигурируйте Docker для использования `docker-credential-yc`:
 
           ```bash

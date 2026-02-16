@@ -1,48 +1,104 @@
+---
+title: Creating a connection in {{ speechsense-full-name }}
+description: You can upload a two-channel audio or text chat to {{ speechsense-name }} connections.
+---
+
 # Creating a connection
 
-You can upload a [two-channel audio](#create-connection-audio) or text [chat](#create-connection-chat) to {{ speechsense-name }} connections. To create a connection, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.
+You can upload the following to a {{ speechsense-name }} connection:
+* [Two-channel audio](#create-audio-connection).
+* [Single-channel audio](#create-one-channel-audio-connection).
+* [Chat with text messages](#create-chat-connection). 
 
-## Creating a connection for an audio {#create-audio-connection}
+To create a connection, you need either the `{{ roles-speechsense-admin }}` or `{{ roles-speechsense-editor }}` role for the space.
+
+{% note info %}
+
+You cannot delete a connection from a project, but you can [delete a project](../project/delete.md) or [delete a space](../space/delete.md).
+
+{% endnote %}
+
+## Creating a connection for two-channel audio {#create-audio-connection}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the appropriate space.
-1. In the top-right corner, click **More** → ![create](../../../_assets/console-icons/thunderbolt.svg) **Create connection**.
-1. Name the new connection and, optionally, enter a description.
-1. Select the **Two-channel audio** data type.
-1. Under **Agent** and **Customer**:
+1. Go to the space of your choice.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
-   1. Specify the agent's voice and customer's voice track numbers.
-   1. Specify agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %} 
 
-      By default, connections include keys with the name and ID of the agent and customer. In the **Name in the system** field, enter a name for the key to display in {{ speechsense-name }}. You can also add a description, if required.
+1. Specify a name of the connection and, if needed, add a description.
+1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}** data type.
+1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
 
-      To specify additional metadata for the agent and the customer, click **Add key**.
+    1. Specify the channels with the agent's voice and customer's voice. The left channel corresponds to audio track 0, while the right channel corresponds to audio track 1.
+    1. Specify agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
 
-1. Under **Shared metadata**, provide the keys from the metadata file that are not related to the agent or the customer.
+       {% include [metadata](../../../_includes/speechsense/data/metadata.md) %}
 
-   By default, connections include keys with the date, direction, and language of the call. In the **Name in the system** field, enter a name for the key to be displayed in {{ speechsense-name }}. You can also add a description, if required.
+1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
 
-   To specify additional metadata, click **Add key**.
+   {% include [shared-metadata](../../../_includes/speechsense/data/shared-metadata.md) %}
 
-1. Click **Create connection**.
+1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+
+## Creating a connection for single-channel audio {#create-one-channel-audio-connection}
+
+1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
+1. Go to the space of your choice.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
+
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
+
+1. Specify a name of the connection and, if needed, add a description.
+1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.one-channel-key-value }}** data type.
+1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**:
+
+   Specify agent and customer keys from the metadata file. This file contains the call information collected from CRM systems, PBXs, or other sources.
+
+   {% include [metadata](../../../_includes/speechsense/data/metadata.md) %}
+
+1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent or the customer.
+
+   {% include [shared-metadata](../../../_includes/speechsense/data/shared-metadata.md) %}
+
+1. Optionally, under **{{ ui-key.yc-ui-talkanalytics.connections.additional.title }}**, enable **{{ ui-key.yc-ui-talkanalytics.connections.additional.split.title }}** and select the dialog splitting option:
+
+   * **By duration**: Dialog is divided into segments of specified duration.
+
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.slice-length }}**: Specify the segment length in minutes and seconds.
+
+   * **By phrases**: Dialog is divided into segments based on key phrases.
+
+      * **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.start-key-value }}**, **{{ ui-key.yc-ui-talkanalytics.connections.additional.separators.finish-key-value }}**: List the key phrases for the beginning and the end of the dialog.
+           
+         {% include [key-phrases-restrictions](../../../_includes/speechsense/data/key-phrases-restrictions.md) %}
+
+1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
 ## Creating a connection for a chat {#create-chat-connection}
 
 1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
-1. Go to the appropriate space.
-1. In the top-right corner, click **More** → ![create](../../../_assets/console-icons/thunderbolt.svg) **Create connection**.
-1. Name the new connection and, optionally, enter a description.
-1. Select the **Chat** data type.
-1. Under **Agent**, **Customer**, **Bot**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
+1. Go to the space of your choice.
+1. Go to the **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** tab and select a template to create a connection or click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
 
-   By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **Name in the system** field, enter a name for the key to be displayed in {{ speechsense-name }}. You can also add a description, if required.
+   {% include [metadata](../../../_includes/speechsense/data/templates-connection.md) %}
 
-   To specify additional agent, customer, and bot metadata, click **Add key**.
+1. Specify a name of the connection and, if needed, add a description.
+1. Select the **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}** data type.
+1. Under **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}**, **{{ ui-key.yc-ui-talkanalytics.dialogs.bot }}**, specify the keys from the metadata file. This file contains the dialog information collected from chats, CRM systems, or other sources.
 
-1. Under **Shared metadata**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
+    By default, connections include keys with agent's, customer's, and bot's names and IDs. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}. You can also add a description, if required.
 
-   By default, keys with date, direction, and dialog language are added to the connection. In the **Name in the system** field, enter a name for the key to be displayed in {{ speechsense-name }}. You can also add a description, if required.
+    To specify additional agent, customer, and bot metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
 
-   To specify additional metadata, click **Add key**.
+1. Under **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}**, provide the keys from the metadata file that are not related to the agent, customer, and bot.
 
-1. Click **Create connection**.
+    By default, keys with date, direction, and dialog language are added to the connection. In the **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** field, enter the name the key will have in {{ speechsense-name }}. You can also add a description, if required.
+
+    To specify additional metadata, click **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**. Make sure to enter the new key name and select a [metadata type](../../concepts/resources-hierarchy.md#connection).
+
+    {{ speechsense-name }} can analyze dialogs in Russian and Kazakh; it translates the transcript into Russian for further analysis. Each dialog metadata must contain a string indicating the languages supposedly used in the conversation. When uploading dialogs in Kazakh, provide the `language: ru-RU, kk-KZ` string in the metadata. For Russian, provide `language: ru-RU`. Language codes are case-insensitive.
+
+    To upload [related dialogs](../../concepts/dialogs.md#related-dialogs) into the connection, add the `ticket_id` string key. The dialogs will be linked by this key. Enter the name the key will have in {{ speechsense-name }}, e.g., `Task number`. You can also add a description, if required.
+
+1. Click **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.

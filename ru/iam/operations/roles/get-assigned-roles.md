@@ -21,13 +21,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/users/accounts.md#passport), [федеративного пользователя](../../concepts/users/accounts.md#saml-federation) или [сервисного аккаунта](../../concepts/users/service-accounts.md) на облако:
+  Чтобы посмотреть роли [пользователя с аккаунтом на Яндексе](../../concepts/users/accounts.md#passport), [федеративного](../../concepts/users/accounts.md#saml-federation), [локального](../../concepts/users/accounts.md#local) пользователя или [сервисного аккаунта](../../concepts/users/service-accounts.md) на облако:
 
     {% include [include](../../../_includes/iam/configure-roles-console.md) %}
 
   Чтобы посмотреть роли [сервисного аккаунта](../../concepts/users/service-accounts.md) на каталог и его дочерние ресурсы:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, которому принадлежит сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Роли сервисного аккаунта перечислены в поле **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}**.
@@ -38,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Получите идентификатор аккаунта:
       1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-      1. [Инструкция](../users/get.md) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+      1. [Инструкция](../../../organization/operations/users-get.md) для пользователей с аккаунтом на Яндексе, федеративных и локальных пользователей.
   1. Получите идентификатор или имя желаемого ресурса.
   1. {% include [include](../../../_includes/iam/list-access-bindings-via-cli.md) %}
 
@@ -49,7 +49,7 @@ description: Следуя данной инструкции, вы сможете
 
     1. Получите идентификатор аккаунта:
         1. [Инструкция](../sa/get-id.md) для сервисных аккаунтов.
-        1. [Инструкция](../users/get.md) для пользователей с аккаунтом на Яндексе и федеративных пользователей.
+        1. [Инструкция](../../../organization/operations/users-get.md) для пользователей с аккаунтом на Яндексе, федеративных и локальных пользователей.
     1. Получите идентификатор или имя желаемого ресурса.
     1. {% include [include](../../../_includes/iam/list-access-bindings-via-api.md) %}
 

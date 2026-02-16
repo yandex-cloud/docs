@@ -13,15 +13,13 @@
 Чтобы настроить необходимую инфраструктуру для хранения исходного кода, сборки Docker-образа и развертывания приложения:
 1. [Подготовьте облако к работе](#before-you-begin).
 
-
    1. [Изучите список необходимых платных ресурсов](#paid-resources).
-
 
 1. [Подготовьте инфраструктуру](#deploy-infrastructure).
 1. [Создайте инстанс {{ GL }}](#create-gitlab).
 1. [Настройте {{ GL }}](#configure-gitlab).
 1. [Создайте тестовое приложение](#app-create).
-1. [Создайте {{ GLR }}](#runner).
+1. [Создайте {{ GLR }}](#runners).
 1. [Настройте аутентификацию {{ k8s }} в {{ GL }}](#gitlab-authentication).
 1. [Настройте сценарий CI](#ci).
 1. [Проверьте результат](#check-result).
@@ -32,15 +30,13 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит плата за следующие ресурсы:
 * [Диски](../../compute/concepts/disk.md) и постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Использование динамического [публичного IP-адреса](../../vpc/concepts/ips.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
 * Хранение созданных Docker-образов (см. [тарифы {{ container-registry-name }}](../../container-registry/pricing.md)).
 * Использование [мастера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#master) (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
@@ -222,7 +218,7 @@
                 --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
-            image: bitnami/kubectl:latest
+            image: bitnamilegacy/kubectl:latest
             stage: deploy
             script:
               - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>
@@ -267,7 +263,9 @@
               - docker push "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
-            image: bitnami/kubectl:latest
+            image:
+              name: bitnamilegacy/kubectl:latest
+              entrypoint: [""]
             stage: deploy
             script:
               - kubectl config use-context ${CI_PROJECT_PATH}:<имя_GitLab_Agent>
@@ -319,20 +317,7 @@
 
    - {{ TF }} {#tf}
 
-     1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-     1. Удалите конфигурационный файл `k8s-and-registry-for-gitlab.tf`.
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-     1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `k8s-and-registry-for-gitlab.tf`, будут удалены.
+     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
    {% endlist %}
 

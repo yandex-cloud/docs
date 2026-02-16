@@ -1,7 +1,14 @@
+---
+title: AWS SDK for JavaScript
+description: In this tutorial, you will learn what the AWS SDK for JavaScript is, how to install and configure it, and will also see some code examples.
+---
+
 # AWS SDK for JavaScript
 
 
-The [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/) is a set of developer tools to work AWS services, which is compatible with {{ objstorage-full-name }}.
+The [AWS SDK for JavaScript](https://docs.aws.amazon.com/sdk-for-javascript/) is a {{ objstorage-full-name }}-compatible software development kit for integration with AWS services.
+
+With the AWS SDK for Node.js, you will create a bucket, upload objects to it, get a list of objects, download a single object, clean up the bucket contents, and delete the bucket.
 
 ## Getting started {#before-you-begin}
 
@@ -9,96 +16,146 @@ The [AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/) is a se
 
 {% include [access-bucket-sa](../../_includes/storage/access-bucket-sa.md) %}
 
-## Installation {#installation}
+## Configuring a project {#setup-project}
 
-{% include [install-js-sdk](../../_includes/aws-tools/install-js-sdk.md) %}
-
-## Setup {#setup}
+### Preparing authentication data {#setup-project-aws-tools}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
 
-## Code samples {#js-sdk-examples}
+### Preparing a project directory {#setup-project-folder}
 
-You can find a sample bucket creation code in the repository's `javascriptv3/example_code/nodegetstarted/src` directory.
+{% include [nodejs-project-folder-setup](../_includes_service/storage-sdk-nodejs-project-setup.md) %}
 
-To connect to {{ objstorage-name }} and create a bucket:
+## Code examples {#js-sdk-examples}
 
-1. Install dependencies as described in the `javascriptv3/example_code/nodegetstarted/package.json` file:
+Below we describe how to perform basic operations with a bucket using the AWS SDK for Node.js.
+1. Add the following code to `index.js`:
 
-   ```bash
-   npm install node -g
-   cd aws-doc-sdk-examples/javascriptv3/example_code/nodegetstarted
-   npm install
-   ```
+    ```js
+    import { readFileSync } from "node:fs"
+    import
+    {
+        S3Client,
+        PutObjectCommand,
+        CreateBucketCommand,
+        DeleteObjectCommand,
+        DeleteBucketCommand,
+        paginateListObjectsV2,
+        GetObjectCommand,
+        ListObjectsV2Command,
+    } from "@aws-sdk/client-s3";
 
-1. In the `javascriptv3/example_code/nodegetstarted/src/libs/` directory, open the `s3Client.js` file with a description of the {{ objstorage-name }} client.
-1. Replace the file contents with the code below:
+    (async function ()
+    {
+        // Creating an s3 client to interact with aws.
+        // Authentication data is taken from your environment, but you can specify it explicitly, e.g.:
+        // `new S3Client({ region: 'ru-central1', credentials: {...} })`
+        const s3Client = new S3Client({});
 
-   ```js
-   import { S3Client } from "@aws-sdk/client-s3";
-   // Setting the region {{ objstorage-name }}
-   const REGION = "{{ region-id }}";
-   // Setting the endpoint {{ objstorage-name }}
-   const ENDPOINT = "https://{{ s3-storage-host }}";
-   // Creating a client for {{ objstorage-name }}
-   const s3Client = new S3Client({ region: REGION, endpoint: ENDPOINT });
-   export { s3Client };
-   ```
+        const bucketName = `test-bucket-${Date.now()}`;
+        // Creating a new bucket
+        console.log(`Creating the bucket ${bucketName}.`);
+        await s3Client.send(
+            new CreateBucketCommand({
+                Bucket: bucketName,
+            }),
+        );
+        console.log(`The bucket ${bucketName} was created.\n\n`);
 
-1. In the `javascriptv3/example_code/nodegetstarted/src/` directory, open the `sample.js` file with the code for creating a bucket and an object in it.
+        // Uploading objects to a bucket
+        // From a string
+        console.log('Creating a object from string.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "bucket-text",
+                Body: 'Hello bucket!',
+            }),
+        );
+        console.log('The object from string was created.\n');
+        // From files
+        console.log('Creating the first object from local file.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "my-package.json",
+                Body: readFileSync('package.json'),
+            }),
+        );
+        console.log('The first object was created.\nCreating the second object from local file.');
+        await s3Client.send(
+            new PutObjectCommand({
+                Bucket: bucketName,
+                Key: "my-package-lock.json",
+                Body: readFileSync('package-lock.json'),
+            }),
+        );
+        console.log('The second object was created.\n');
 
-   {% cut "sample.js contents" %}
+        // Getting a list of objects
+        console.log('Getting bucket objects list.');
+        const command = new ListObjectsV2Command({ Bucket: bucketName });
+        const { Contents } = await s3Client.send(command);
+        const contentsList = Contents.map((c) => ` • ${c.Key}`).join("\n");
+        console.log("Here's a list of files in the bucket:");
+        console.log(`${contentsList}\n`);
 
-   ```js
-   // Importing clients and AWS SDK commands to work with Node.js
-   import { PutObjectCommand, CreateBucketCommand } from "@aws-sdk/client-s3";
-   import { s3Client } from "./libs/s3Client.js";
+        // Deleting multiple objects
+        console.log('Deleting objects.');
+        await s3Client.send(
+            new DeleteObjectCommand({ Bucket: bucketName, Key: "my-package.json" }),
+        );
+        await s3Client.send(
+            new DeleteObjectCommand({ Bucket: bucketName, Key: "my-package-lock.json" }),
+        );
+        console.log('The objects were deleted.\n');
 
-   // Setting parameters
-   const params = {
-     Bucket: "<bucket_name>", // Bucket name, such as 'sample-bucket-101'.
-     Key: "<object_name>", // Object name, such as 'sample_upload.txt'.
-     Body: "<object_contents>", // Object contents, such as 'Hello world!".
-   };
+        // Getting an object
+        console.log('Getting your "bucket-text" object')
+        const { Body } = await s3Client.send(
+            new GetObjectCommand({
+                Bucket: bucketName,
+                Key: "bucket-text",
+            }),
+        );
+        console.log('Your "bucket-text" content:')
+        console.log(await Body.transformToString(), '\n');
 
-   const run = async () => {
-     // Creating a bucket
-     try {
-       const data = await s3Client.send(
-           new CreateBucketCommand({ Bucket: params.Bucket })
-       );
-       console.log(data);
-       console.log("Successfully created a bucket called ", data.Location);
-       return data; // For modular testing.
-     } catch (err) {
-       console.log("Error", err);
-     }
-     // Creating an object and uploading it to the bucket
-     try {
-       const results = await s3Client.send(new PutObjectCommand(params));
-       console.log(
-           "Successfully created " +
-           params.Key +
-           " and uploaded it to " +
-           params.Bucket +
-           "/" +
-           params.Key
-       );
-       return results; // For modular testing.
-     } catch (err) {
-       console.log("Error", err);
-     }
-   };
-   run();
-   ```
+        // Deleting bucket objects and the bucket itself
+        // Getting a list of objects page by page
+        const paginator = paginateListObjectsV2(
+            { client: s3Client },
+            { Bucket: bucketName },
+        );
+        for await (const page of paginator)
+        {
+            const objects = page.Contents;
+            if (objects)
+            {
+                // Running the delete command for each object by iterating pages with objects
+                for (const object of objects)
+                {
+                    // Sending the delete command
+                    await s3Client.send(
+                        new DeleteObjectCommand({ Bucket: bucketName, Key: object.Key }),
+                    );
+                }
+            }
+        }
 
-   {% endcut %}
-
-1. Under `const params`, set a name for the bucket and a name and contents for the bucket object.
+        // Deleting the previously created bucket
+        await s3Client.send(new DeleteBucketCommand({ Bucket: bucketName }));
+        console.log('Your bucket was emptied and deleted.');
+    })()
+    ```
+  
+    In this code snippet, we added an [IIFE (Immediately Invoked Function Expression)](https://developer.mozilla.org/en-US/docs/Glossary/IIFE) to invoke the script when running the file.
 1. Run the application:
 
-   ```bash
-   node sample.js
-   ```
+    ```bash
+    node index.js
+    ```
 
-To learn more about using the AWS SDK for JavaScript, see the [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).
+    In the console output, you will see a step-by-step description of the operation results.
+
+Learn more about using the AWS SDK for JavaScript in the [AWS documentation](https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/getting-started-nodejs.html).

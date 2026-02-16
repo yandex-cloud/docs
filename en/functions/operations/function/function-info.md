@@ -1,16 +1,16 @@
 ---
-title: Getting information about a function
+title: Getting function info
 description: Follow this guide to get information about a function.
 ---
 
-# Getting information about a function
+# Getting function info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
     1. Select a function.
     1. The **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page will show the function details.
@@ -42,11 +42,6 @@ description: Follow this guide to get information about a function.
 - API {#api}
 
     To get detailed information about a function, use the [get](../../functions/api-ref/Function/get.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Get](../../functions/api-ref/grpc/Function/get.md) gRPC API call.
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can get more information on a function using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 
 {% endlist %}

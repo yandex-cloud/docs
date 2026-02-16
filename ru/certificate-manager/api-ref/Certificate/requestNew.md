@@ -1,9 +1,77 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requestNew
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a certificate in.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the certificate.
+            Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the certificate.
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels for the certificate as `key:value` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        domains:
+          description: |-
+            **string**
+            Fully qualified domain names of the certificate.
+          type: array
+          items:
+            type: string
+        challengeType:
+          description: |-
+            **enum** (ChallengeType)
+            Type of the domain validation challenge.
+            - `DNS`: Domain validation type that using DNS-records.
+            - `HTTP`: Domain validation type that using HTTP-files.
+          type: string
+          enum:
+            - CHALLENGE_TYPE_UNSPECIFIED
+            - DNS
+            - HTTP
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that protects deletion of the certificate
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/requestNew.md
 ---
 
-# Certificate Manager API, REST: Certificate.RequestNew {#RequestNew}
+# Certificate Manager API, REST: Certificate.RequestNew
 
 Request a certificate in the specified folder.
 
@@ -20,7 +88,7 @@ POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requ
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "domains": [
     "string"
   ],
@@ -33,16 +101,24 @@ POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requ
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create a certificate in. ||
+Required field. ID of the folder to create a certificate in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the certificate. ||
+Name of the certificate.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the certificate. ||
-|| labels | **string**
+Description of the certificate.
 
-Labels for the certificate as `key:value` pairs. ||
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels for the certificate as `key:value` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || domains[] | **string**
 
 Fully qualified domain names of the certificate. ||
@@ -50,7 +126,6 @@ Fully qualified domain names of the certificate. ||
 
 Type of the domain validation challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
 || deletionProtection | **boolean**
@@ -87,7 +162,7 @@ Flag that protects deletion of the certificate ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "type": "string",
     "domains": [
       "string"
@@ -253,14 +328,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the certificate. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Certificate labels as `key:value` pairs. ||
 || type | **enum** (CertificateType)
 
 Type of the certificate.
 
-- `CERTIFICATE_TYPE_UNSPECIFIED`
 - `IMPORTED`: The certificate is imported by user.
 - `MANAGED`: The certificate is created by service. ||
 || domains[] | **string**
@@ -270,7 +344,6 @@ Fully qualified domain names of the certificate. ||
 
 Status of the certificate.
 
-- `STATUS_UNSPECIFIED`
 - `VALIDATING`: The certificate domains validation are required. Used only for managed certificates.
 - `INVALID`: The certificate issuance is failed. Used only for managed certificates.
 - `ISSUED`: The certificate is issued.
@@ -350,7 +423,6 @@ Domain of the challenge. ||
 
 Type of the challenge.
 
-- `CHALLENGE_TYPE_UNSPECIFIED`
 - `DNS`: Domain validation type that using DNS-records.
 - `HTTP`: Domain validation type that using HTTP-files. ||
 || createdAt | **string** (date-time)
@@ -377,7 +449,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 Status of the challenge.
 
-- `STATUS_UNSPECIFIED`
 - `PENDING`: The challenge is waiting to be completed.
 - `PROCESSING`: The challenge is awaiting approval from Let's Encrypt.
 - `VALID`: The challenge is complete.

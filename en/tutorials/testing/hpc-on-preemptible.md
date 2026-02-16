@@ -1,1 +1,1 @@
-{% include [hpc-on-preemptible](../../_tutorials/testing/hpc-on-preemptible.md) %}
+{% include [hpc-on-preemptible](../../_tutorials/dev/hpc-on-preemptible.md) %}

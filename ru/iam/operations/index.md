@@ -5,36 +5,40 @@ description: Пошаговые инструкции по управлению �
 
 # Пошаговые инструкции для {{ iam-name }}
 
-
 ## Секреты в открытом доступе {#credentials}
 
 - [Обработка секретов, попавших в открытый доступ](compromised-credentials.md)
 
-
 ## Пользователи {#users}
 
-- [{#T}](users/create.md)
-- [{#T}](users/get.md)
-- [{#T}](users/delete.md)
+Инструкции по управлению пользователями см. в [документации {{ org-full-name }}](../../organization/operations/manage-users.md).
 
 ## Группы пользователей {#users-groups}
 
-- [{#T}](groups/create.md)
-- [{#T}](groups/access-binding-object.md)
-- [{#T}](groups/access-binding-subject.md)
+Инструкции по управлению группами пользователей см. в [документации {{ org-full-name }}](../../organization/operations/manage-groups.md).
 
 ## Сервисные аккаунты {#sa}
 
 - [{#T}](sa/create.md)
+- [{#T}](sa/list-get.md)
 - [{#T}](sa/update.md)
 - [{#T}](sa/assign-role-for-sa.md)
 - [{#T}](sa/set-access-bindings.md)
+- [{#T}](sa/impersonate-sa.md)
 - [{#T}](sa/get-id.md)
 - [{#T}](sa/delete.md)
+- [{#T}](sa/get-id-token.md)
 
 ## Федерации удостоверений {#federations}
 
 Инструкции по управлению федерациями удостоверений теперь в [документации](../../organization/) сервиса {{ org-full-name }}.
+
+## Политики авторизации {#access-policies}
+
+- [{#T}](access-policies/list.md)
+- [{#T}](access-policies/assign.md)
+- [{#T}](access-policies/view-assigned.md)
+- [{#T}](access-policies/revoke.md)
 
 ## Роли {#roles}
 
@@ -42,30 +46,27 @@ description: Пошаговые инструкции по управлению �
 - [{#T}](roles/get-assigned-roles.md)
 - [{#T}](roles/revoke.md)
 
-## IAM-токены {#iam-tokens}
+## Аутентификация {#authentication}
 
 - [{#T}](iam-token/create.md)
 - [{#T}](iam-token/create-for-sa.md)
 - [{#T}](iam-token/create-for-federation.md)
+- [{#T}](iam-token/create-for-local.md)
 - [Перевыпуск IAM-токена](compromised-credentials.md#iam-reissue)
-
-
-## Статические ключи доступа {#static-keys}
-
-- [{#T}](sa/create-access-key.md)
-- [{#T}](sa/delete-access-key.md)
-
-## Временные ключи доступа {#temporary-keys}
-
+- [{#T}](refresh-token/list.md)
+- [{#T}](refresh-token/revoke.md)
+- [{#T}](authentication/manage-access-keys.md)
+- [{#T}](authentication/manage-api-keys.md)
+- [{#T}](authentication/manage-authorized-keys.md)
 - [{#T}](sa/create-sts-key.md)
 
-## API-ключи {#api-keys}
+## Доступ сервисов {#service-control}
 
-- [{#T}](api-key/create.md)
-- [{#T}](api-key/delete.md)
+{% include notitle [preview](../../_includes/note-preview.md) %}
 
-## Авторизованные ключи {#authorized-keys}
+- [{#T}](service-control/list-get.md)
+- [{#T}](service-control/enable-disable.md)
 
-- [{#T}](authorized-key/create.md)
-- [{#T}](authorized-key/delete.md)
+## Федерации сервисных аккаунтов {#wlif}
 
+- [{#T}](wlif/setup-wlif.md)

@@ -1,3 +1,5 @@
+Чтобы создать [группу](../../organization/concepts/groups.md), у вас должна быть _минимальная_ [роль](../../organization/security/index.md#organization-manager-editor) `organization-manager.groups.editor` на [организацию](../../organization/concepts/organization.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ cloud-center }} {#cloud-center}
@@ -63,12 +65,14 @@
      ```
 
      Где:
+
      * `name` — название группы. Название должно быть уникальным в организации и соответствовать требованиям:
 
         {% include [group-name-format](group-name-format.md) %}
 
      * `description` — описание группы. Необязательный параметр.
      * `organization_id` — [идентификатор](../../organization/operations/organization-get-id.md) организации, к которой нужно присоединить группу.
+
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

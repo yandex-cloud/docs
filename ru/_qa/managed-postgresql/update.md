@@ -26,12 +26,10 @@
 
 Существуют ограничения на управление кластером с помощью команд SQL. Подробнее см. в разделе [{#T}](../../managed-postgresql/concepts/sql-limits.md).
 
-#### Почему я не могу остановить кластер? {#stop-cluster}
+#### Можно ли создать базу данных с помощью команд SQL? {#create-db-sql}
 
-Текст ошибки:
+Нет, создать базу данных с помощью команд SQL нельзя. В кластере {{ mpg-name }} возможно создание баз данных только с помощью интерфейсов {{ yandex-cloud }}.
 
-```text
-ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
-```
+#### Как вывести кластер из режима read-only? {#read-only-exit}
 
-[Остановить](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) кластер, у которого нет резервных копий, невозможно. Чтобы устранить ошибку и остановить кластер, [создайте резервную копию](../../managed-postgresql/operations/cluster-backups.md#create-backup).
+Воспользуйтесь инструкциями в разделах [{#T}](../../managed-postgresql/concepts/storage.md#read-only-solutions) и [{#T}](../../managed-postgresql/operations/storage-space.md#read-only-solutions).

@@ -58,7 +58,7 @@
 
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**, в котором развернут кластер {{ mpg-short-name }}.
      * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** с [ролью](../../../managed-postgresql/security/index.md#required-roles) `managed-postgresql.editor` или выше.
-     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**, в которой расположен хост БД.
+     * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**, в которой расположен хост БД. Подсеть должна находиться в [зоне доступности](../../../overview/concepts/geo-scope.md), в которой создано сообщество.
 
        {% note info %}
 
@@ -73,7 +73,7 @@
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=rc1a-<идентификатор_кластера_PostgreSQL>.mdb.yandexcloud.net
+          host=rc1a-<идентификатор_кластера_PostgreSQL>.{{ dns-zone }}
           port=6432
           sslmode=disable
           dbname=<имя_БД>

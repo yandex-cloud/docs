@@ -5,7 +5,23 @@ description: Видеозаписи конференций и вебинаров
 
 # Публичные материалы о {{ mch-full-name }}
 
+## Статьи, анонсы и видео {#articles}
+
 ## Конференции и вебинары {#conf-and-webinars}
+
+### 2025: Статьи {#article-2025}
+
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+
+  * [Статья](https://yandex.cloud/ru/blog/performance-gains).
+
+* Как Data Warehouse помогает бизнесу экономить деньги и принимать решения.
+
+  * [Статья](https://yandex.cloud/ru/blog/data-warehouse-guide).
+
+* {{ CH }}: рассказываем о колоночной СУБД для аналитики больших данных.
+
+  * [Статья](https://yandex.cloud/ru/blog/clickhouse-overview).
 
 ### 2023: Data Open Source Day {#data-open-source-day-2023}
 

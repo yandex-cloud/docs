@@ -1,54 +1,53 @@
 # Resolving the consequences of cluster storage overflow with WAL logs
 
 
+
 ## Issue description {#issue-description}
 
-You see one or more of the following issues in the operation of your Managed Services for PostgreSQL cluster:
+Your {{ mpg-name }} cluster encountered one or multiple issues listed below:
 
-* As a result of Yandex Data Transfer operation, the database storage has been overflown.
-* The number of replication slots for the cluster has been exceeded.
+* A {{ data-transfer-name }} caused the database storage overflow.
+* The number of replication slots for the cluster is exceeded.
 * New data is not written to your cluster's database tables.
 
 ## Solution {#case-resolution}
 
-The error might occur due to issues with replication slots when Yandex Data Transfer performs operations with cluster databases.
+Errors may occur because of issues with replication slots when {{ data-transfer-name }} performs operations with your cluster databases.
 
-Each running transfer creates a replication slot in the database.
-A replication slot is a pointer to a position in the WAL log. If the slot is not in use, the position in the log does not change.
-If data from this slot has not been read for some reason, the size of the WA log continues to increase until the free space in the cluster storage runs out, or the [`Max slot wal keep size` parameter](../../../managed-postgresql/concepts/settings-list.md) is exceeded.
+Each running transfer creates a replication slot in the database. A replication slot points to a position in the WAL log. If the slot is not in use, the position in the log does not change.
 
-You can find out which replication slots are open in the database by connecting to one of the cluster databases using `psql` and running this query: `select * from pg_replication_slots where slot_type = 'logical';`.
+If data from this slot has not been read for some reason, the size of the WAL log continues to increase until the free space in the cluster storage runs out, or the [`Max slot wal keep size`](../../../managed-postgresql/concepts/settings-list.md) value is exceeded.
 
-{% cut "Example output of the `select * from pg_replication_slots where slot_type = 'logical';` command" %}
+You can find out which replication slots are open in the database by connecting to one of the cluster databases using `psql` and running this query: `SELECT * FROM pg_replication_slots WHERE slot_type = 'logical';`.
+
+{% cut "Example of the `SELECT * FROM pg_replication_slots WHERE slot_type = 'logical';` command output" %}
 
     ```sql
-    select * from pg_replication_slots where slot_type = 'logical';
+    SELECT * FROM pg_replication_slots WHERE slot_type = 'logical';
     -[ RECORD 1 ]-------+---------------------
-    slot_name           | dtt7v7vbpuogkku0oce9
+    slot_name           | dtt*****************
     plugin              | wal2json
     slot_type           | logical
     ```
 
 {% endcut %}
 
-If the `plugin` field in the logical replication slot has the `wal2json`value, it means that Data Transfer is currently interacting with the databases of this cluster.
-Possibly, an error occurred during the transfer process for one or more replication slots.
-Try deleting replication slots using the `select pg_drop_replication_slot('$REPLICATION_SLOT_NAME');`  command, where `$REPLICATION_SLOT_NAME` is the name of the stuck replication port (in the example provided above, it is `dtt8d6vbqjdikau1oaq1`).
+* If the `plugin` field in the logical replication slot has the `wal2json` value, it means that {{ data-transfer-name }} is currently working with the databases of this cluster.
 
-If upon deletion of the replication slot you see this error: `replication slot "$REPLICATION_SLOT_NAME" is active for PID $PID_NUM`, try stopping the  transfer on the Data Transfer side or delete the involved endpoint from the transfer parameters.
+* If an error occurred during the transfer process for one or more replication slots, delete the slot by using the `SELECT pg_drop_replication_slot('$REPLICATION_SLOT_NAME');` command, where `$REPLICATION_SLOT_NAME` is the name of the stuck replication slot. In the example above, it is `dtt*****************`.
 
-{% cut "Example output of the `select pg_drop_replication_slot('$REPLICATION_SLOT_NAME');` command:" %}
+* If after deleting the replication slot you see the `replication slot "$REPLICATION_SLOT_NAME" is active for PID $PID_NUM` error, try stopping the transfer on the {{ data-transfer-name }} side or delete the involved endpoint from the transfer parameters.
+
+{% cut "Example of the `select pg_drop_replication_slot('$REPLICATION_SLOT_NAME');` command output" %}
 
 ```sql
-db-name=> select pg_drop_replication_slot('$REPLICATION_SLOT_NAME');
-ERROR: replication slot "$REPLICATION_SLOT_NAME" is active for PID 12345
+db-NAME=> SELECT pg_drop_replication_slot('$REPLICATION_SLOT_NAME');
+ERROR: replication slot "$REPLICATION_SLOT_NAME" IS active FOR PID 12345
 ```
 {% endcut %}
 
-You can also specify the maximum size of the WAL log, after which the Data Transfer operation will be stopped. To do this, change the value of the [`Max slot wal keep` size parameter](../../../managed-postgresql/concepts/settings-list.md). If the size of your database's WAL log exceeds the size specified in this parameter, the transfer will stop.
-This will prevent filling up all the free space in the cluster storage.
+You can also specify the maximum size of the WAL log ,after reaching which {{ data-transfer-name }} will stop. To do this, edit the [`Max slot wal keep size`](../../../managed-postgresql/concepts/settings-list.md) value. If the size of your database's WAL log exceeds this value, the transfer will stop. This will prevent filling up all free space in the cluster storage.
 
-After an error (or successful completion of transfer), the WAL log is deleted, and the storage space occupied by it is freed up.
-If the transfer does not successfully complete after changing the `Max slot wal keep size` parameter, increase the cluster storage following [this guide](../../../managed-postgresql/operations/update.md#change-disk-size).
+After an error (or successful completion of the transfer), the WAL log is deleted, and the storage space it occupied is freed up. If the transfer does not successfully complete after changing `Max slot wal keep size`, increase the cluster storage following [this guide](../../../managed-postgresql/operations/update.md#change-disk-size).
 
-You can learn more about the operation of replication slots [from the PostgreSQL developer documentation](https://www.postgresql.org/docs/current/view-pg-replication-slots.html).
+You can learn more about the operation of replication slots in the [PostgreSQL developer guide](https://www.postgresql.org/docs/current/view-pg-replication-slots.html).

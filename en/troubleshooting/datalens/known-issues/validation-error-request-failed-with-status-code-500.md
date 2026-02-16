@@ -1,9 +1,10 @@
-# Resolving the "Validation error Request failed with status code 500" error when saving a dashboard
+# Fixing the `Validation error Request failed with status code 500` error when saving a dashboard
+
 
 
 ## Issue description {#issue-description}
 
-* When saving the dashboard, you see this error:
+When saving the dashboard, you see this error:
 
 ```text
 Validation error
@@ -15,14 +16,17 @@ at XMLHttpRequest.y (https://yastatic.net/s3/cloud/datalens/static/freeze/js/ven
 
 ## Solution {#issue-resolution}
 
-For the dashboard name, you can only use the following characters: uppercase and lowercase letters (Latin or Cyrillic), digits, hyphen, dot, and space.
+For the dashboard name, you can only use these characters: 
 
-Try changing the name of the dashboard if it contains characters not from the approved list.
+* Uppercase or lowercase Latin or Cyrillic letters.
+* Digits.
+* Hyphen, period, and space.
+
+Try changing the name of the dashboard if it contains any invalid characters.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above recommendations did not help solve the issue, [create a request for technical support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+If the above recommendations did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. Link to the problematic dashboard
-2. [HAR-file](https://cloud.yandex.ru/docs/support/create-har) built when attempting to add a joined table to the dataset.
+1. Link to the dashboard in question.
+1. [HAR-file](../../../support/create-har.md) built when attempting to add a joined table to the dataset.

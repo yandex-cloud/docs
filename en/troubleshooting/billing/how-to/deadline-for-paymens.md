@@ -1,28 +1,25 @@
 # Payment deadline
 
 
-## Scenario description {#case-description}
 
-You need to find out the date for topping up the balance of your billing account.
+## Case description {#case-description}
+
+You need to find out the deadline for topping up your billing account.
 
 ## Solution {#case-resolution}
 
+{{ yandex-cloud }} uses the postpaid billing model. 
 
-Yandex Cloud uses a postpaid billing system.
+The amount due is based on the volume of resources consumed during the reporting period. {{ yandex-cloud }} expects your payment, i.e., you topping up your billing account, within two weeks from the start of the new reporting period, i.e., month.
 
-The amount to be paid is proportional of your usage of Yandex Cloud resources in the reporting period.
-The payment itself (topping up the balance of your billing account) is expected by Yandex Cloud **within two weeks from the start of the new reporting period (month)**.
+For a more detailed billing cycle description, see these sections:
 
-For a more detailed payment cycle description, see these documentation sections:
+* [Billing cycle for businesses](../../../billing/payment/billing-cycle-business.md)
+* [Billing cycle for individuals](../../../billing/payment/billing-cycle-individual.md)
 
-* [Payment cycle for legal entities](../../../billing/payment/billing-cycle-business.md)
-* [Payment cycle for individuals](../../../billing/payment/billing-cycle-individual.md).
+## If nothing helped {#if-nothing-worked}
 
-## If nothing helped {#if-issue-still-persists}
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-If the above actions did not help, [create a request for technical support]({{ link-console-support }}).
-Provide the following information in the request:
-
-1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
-2. Problem description.
+1. Billing account ID. You can find it on the [page with the billing account details]({{ link-console-support }}).
+1. Issue description.

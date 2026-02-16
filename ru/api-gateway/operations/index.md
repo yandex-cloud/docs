@@ -14,6 +14,9 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](api-gw-network-add.md)
 * [{#T}](api-gw-vars.md)
 * [{#T}](api-gw-canary.md)
+* [Добавить метку](label-add.md)
+* [Изменить метку](label-update.md)
+* [Удалить метку](label-delete.md)
 * [Посмотреть графики мониторинга](api-gw-monitoring.md)
 * [Посмотреть журнал выполнения](api-gw-logs.md)
 * [Записать логи в журнал выполнения](api-gw-logs-write.md)
@@ -56,4 +59,10 @@ description: Из статьи вы узнаете, как работать с {
 * [{{ yds-name }}](spec-constructor/datastreams.md)
 * [{{ ydb-name }}](spec-constructor/ydb.md)
 * [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ yagpt-full-name }}](spec-constructor/yagpt.md)
+* [{{ foundation-models-full-name }}](spec-constructor/yagpt.md)
+* [{{ sw-full-name }}](spec-constructor/workflows.md)
+* [Swagger UI](spec-constructor/swagger.md)
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

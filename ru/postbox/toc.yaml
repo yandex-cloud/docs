@@ -11,6 +11,12 @@ items:
         href: operations/create-address.md
       - name: Проверка владения доменом
         href: operations/check-domain.md
+      - name: Настройка DMARC-политики
+        href: operations/setup-dmarc.md
+      - name: Отправка письма
+        href: operations/send-email.md
+      - name: Шаблонизация письма
+        href: operations/send-templated-email.md
       - name: Создание конфигурации
         href: operations/create-configuration.md
       - name: Привязка конфигурации к адресу
@@ -21,18 +27,50 @@ items:
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Уведомления о доставке писем
+      - name: Уведомления об операциях с письмами
         href: concepts/notification.md
+      - name: Отслеживание открытия писем
+        href: concepts/mail-opened.md
+      - name: Отслеживание переходов по ссылкам в письмах
+        href: concepts/click-tracking.md
+      - name: Механизм отписки от рассылок
+        href: concepts/unsubscribe.md
       - name: Термины и определения
         href: concepts/glossary.md
+      - name: Статистика
+        href: concepts/statistics.md
+      - name: Ограничения на вложения в письмах
+        href: concepts/restrictions.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: >-
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: >-
+          Создание адреса {{ postbox-full-name }} и проверка владения доменом с
+          помощью {{ TF }}
+        href: tutorials/domain-identity-creating.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
+      - name: Отправка писем с помощью AWS SDK
+        items:
+          - name: .NET Core
+            href: tutorials/send-emails-aws-sdk-csharp.md
+          - name: Go
+            href: tutorials/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: tutorials/send-emails-aws-sdk-js.md
+          - name: Python
+            href: tutorials/send-emails-aws-sdk-python.md
+      - name: Интеграция с почтовыми серверами
+        items:
+          - name: Postfix
+            href: tutorials/postfix-integration.md
   - name: Инструменты
     items:
       - name: AWS CLI
@@ -81,6 +119,9 @@ items:
                   aws-compatible-api/api-ref/put-domain-identity-configuration-set-attributes.md
               - name: Метод DeleteConfigurationSet
                 href: aws-compatible-api/api-ref/delete-configuration-set.md
+              - name: Метод PutConfigurationSetDeliveryOptions
+                href: >-
+                  aws-compatible-api/api-ref/put-configuration-set-delivery-options.md
           - name: Подписки
             items:
               - name: Метод GetConfigurationSetEventDestinations
@@ -99,7 +140,9 @@ items:
             href: aws-compatible-api/api-ref/request-headers.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
-base: ru/postbox
-deepBase: 2
+  - name: Вопросы и ответы
+    href: qa/index.md

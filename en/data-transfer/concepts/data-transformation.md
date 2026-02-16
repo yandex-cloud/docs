@@ -34,7 +34,7 @@ You can hash data as follows:
 
 ### Splitting tables into subtables {#subtable-splitting}
 
-A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, …, `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is decided by the following: column list and split string.
+A transfer splits the `X` table into multiple tables (`X_1`, `X_2`, ..., `X_n`) based on data. If a row was located in the `X` table before it was split, it is now in the `X_i` table, where `i` is decided by the following: column list and split string. 
 
 > Example:
 > If the column list features two columns – `month of birth` and `gender` – and the split string states `@`, the information about the employee John, born February 11, 1984, will get from the `Employees` table into the `Employees@February@male` table, which is the new table name.
@@ -61,7 +61,18 @@ To convert column values to string values, specify a list of included and exclud
 
 ### Sharding {#shard}
 
-Set the number of shards for particular tables and a list of columns whose values will be used for calculating a hash to determine a shard.
+Sharding is used when delivering data to queues, primarily to {{ yds-full-name }}, where throughput is limited and data sharding helps improve transfer performance.
+
+Two sharding types are supported:
+
+* Column list (column-based sharding), where rows with identical values in the specified columns are placed in the same shard.
+* Random sharding, where rows are randomly distributed across shards based on an arbitrary [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier), which is regenerated at each data plane restart. If the number of shards changes, a new UUID will be generated, and data will get resharded.
+
+We recommend setting the number of shards to be 3 to 10 times more than partitions in the target. This will help to distribute data across partitions more evenly.
+
+#### Considerations for data delivery to {{ yds-name }}
+
+You can only use one worker for column-based sharding. The reason is that, when delivering data to {{ yds-name }}, the transformer generates the data source ID (`source_id`). Different workers would generate identical source IDs, but {{ yds-name }} does not allow writes with multiple identical `source_id` values.
 
 ### String filter for APPEND-ONLY sources {#append-only-sources}
 
@@ -70,7 +81,7 @@ This filter only applies to transfers using queues (such as {{ KF }}) as a data 
 1. List the tables to filter data in using lists of included and excluded tables.
 1. Set a filtering criterion. For the criterion, you can specify comparison operations for numeric, string, and Boolean values, comparison with NULL, and checking whether a substring is a part of a string and whether a value belongs to a set.
 
-Filtering criteria are determined by a set of rules separated by the `AND` keyword. Available operations: `>`, `>=`, `<`, `<=`, `=`, `!=`, `~` (substring included into a string), `!~` (substring not included into a string), `IN` (value belongs to a set), `NOT IN` (value does not belong to a set). All columns listed in the filter must be present in the table you are filtering.
+Filtering criteria are determined by a set of rules separated by the `AND` keyword. The following operations are supported: `>`, `>=`, `<`, `<=`, `=`, `!=`, `~`(substring is included into a string), `!~` (substring is not included into a string), `IN` (value belongs to a set), `NOT IN` (value does not belong to a set). All columns listed in the filter must be present in the table you are filtering.
 
 Here is an example of a filter string:
 ```text

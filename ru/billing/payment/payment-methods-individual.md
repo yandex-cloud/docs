@@ -1,12 +1,18 @@
-# Оплата банковской картой для физических лиц
+---
+title: Способы оплаты для физических лиц
+description: В этой статье вы узнаете, как физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы.
+---
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
+# Способы оплаты для физических лиц
 
-Физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью [банковской карты](#debit-card), привязанной к платежному аккаунту.
+Физические лица могут пополнять лицевой счет и оплачивать потребленные ресурсы с помощью:
 
-{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
+* банковской карты;
+* системы быстрых платежей.
 
 {% include [billing-account-payers](../../billing/_includes/billing-account-payers.md) %}
+
+{% include [payment-card-types](../../_includes/billing/payment-card-types.md) %}
 
 ## Привязка банковской карты {#pin-card}
 
@@ -22,15 +28,11 @@
 
 Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
 
-
 ## Списание средств {#write-off}
 
 {% include [pay-by-card](../_includes/pay-by-card.md) %}
 
-
 <br/>Дополнительную информацию см. в разделе [Цикл оплаты](../payment/billing-cycle-individual.md).
-
-
 
 ## Сумма списания {#payment-amount}
 

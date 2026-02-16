@@ -1,3 +1,8 @@
+---
+title: Изменить вычислительные ресурсы виртуальной машины
+description: Следуя данной инструкции, вы сможете изменить вычислительные ресурсы виртуальной машины.
+---
+
 # Изменить вычислительные ресурсы виртуальной машины
 
 
@@ -7,6 +12,12 @@
 
 В этом разделе приведена инструкция для изменения количества и производительности ядер процессора (vCPU), а также количества памяти (RAM).
 
+{% note warning %}
+
+{% include [vcpu-note](../../../_includes/compute/vcpu-note.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -14,7 +25,7 @@
   Чтобы изменить vCPU и RAM ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -102,7 +113,7 @@
   Чтобы изменить количество GPU на ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -116,6 +127,7 @@
           * {{ v100-cascade-lake }}
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
+          * {{ t4i-ice-lake }}
 
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
@@ -190,7 +202,7 @@
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -204,6 +216,7 @@
           * {{ v100-cascade-lake }}
           * {{ a100-epyc }}
           * {{ t4-ice-lake }}
+          * {{ t4i-ice-lake }}
 
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
@@ -265,7 +278,7 @@
 
 {% endlist %}
 
-## Включить программно-ускоренную сеть {#enable-software-accelerated-network}
+## Включить программно ускоренную сеть {#enable-software-accelerated-network}
 
 {% note warning %}
 
@@ -277,10 +290,10 @@
 
 - Консоль управления {#console}
 
-  Чтобы включить [программно-ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
+  Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.

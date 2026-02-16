@@ -11,10 +11,12 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите настроить CORS.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого хотите настроить CORS.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_cors }}**.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_cors_empty-create }}**.
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.cors.button_action-edit }}**.
   1. Заполните открывшуюся форму. Вы можете добавлять, удалять и редактировать правила конфигурации.
      
      {% include [storage-cors-create-rule](../../_includes_service/storage-cors-create-rule.md) %}
@@ -33,22 +35,7 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket update --help
       ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Результат:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Сохраните имя бакета (столбец `NAME`), в котором нужно настроить конфигурацию CORS.
   1. Выполните команду:
 
@@ -127,10 +114,11 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+
+  {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
-
 
      ```hcl
      provider "yandex" {
@@ -174,8 +162,6 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
-
-
      Где:
 
      * `access_key` — идентификатор статического ключа доступа.
@@ -191,7 +177,7 @@ description: Следуя данной инструкции, вы сможете
      * `max_age_seconds` — Время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту. Необязательный параметр.
      * `server_side_encryption_configuration` — конфигурация шифрования бакета на стороне сервера. Необязательный параметр.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
 
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.

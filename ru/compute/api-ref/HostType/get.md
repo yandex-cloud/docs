@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
+    method: get
+    path:
+      type: object
+      properties:
+        hostTypeId:
+          description: |-
+            **string**
+            Required field. ID of the host type to return.
+            To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - hostTypeId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/HostType/get.md
 ---
 
-# Compute Cloud API, REST: HostType.Get {#Get}
+# Compute Cloud API, REST: HostType.Get
 
 Returns information about specified host type.
 
@@ -21,7 +40,9 @@ GET https://compute.{{ api-host }}/compute/v1/hostTypes/{hostTypeId}
 
 Required field. ID of the host type to return.
 
-To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request. ||
+To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/HostType/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostType}

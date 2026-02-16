@@ -1,6 +1,7 @@
 ---
 title: How to get a list of log groups in {{ cloud-logging-full-name }}
 description: Follow this guide to get a list of log groups.
+sourcePath: en/logging_includes/operations/list.md
 ---
 
 # Getting a list of log groups
@@ -10,7 +11,7 @@ description: Follow this guide to get a list of log groups.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to view a list of log groups.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/tray.svg) **{{ ui-key.yacloud.logging.label_groups }}**.
 
 - CLI {#cli}
@@ -19,7 +20,7 @@ description: Follow this guide to get a list of log groups.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of log groups in the folder, run the command:
+    To get a list of log groups in the folder, run this command:
 
     ```bash
     yc logging group list
@@ -43,7 +44,7 @@ description: Follow this guide to get a list of log groups.
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
 
-  Run the following query:
+  Run this query:
 
   ```bash
   grpcurl \

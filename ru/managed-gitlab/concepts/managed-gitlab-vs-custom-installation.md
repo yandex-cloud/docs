@@ -2,11 +2,7 @@
 
 _Пользовательская инсталляция_ — это {{ GL }}, который установлен на сервер или локальный компьютер (self-managed {{ GL }}). Ниже рассматривается пользовательская инсталляция [{{ GL }} Community Edition](https://about.gitlab.com/install/ce-or-ee/).
 
-{{ mgl-name }} обладает дополнительной функциональностью, которой нет в Community Edition:
-
-* Поддержка [правил ревью кода](approval-rules.md). Они являются альтернативой инструменту [Approval Rules]({{ gl.docs }}/ee/user/project/merge_requests/approvals/rules.html) в {{ GL }} Enterprise Edition.
-
-* [Интеграция с сервисом управления разработкой {{ tracker-full-name }}](../tutorials/tracker-integration.md). После интеграции в задачи {{ tracker-name }} автоматически добавляются ссылки на [мерж-реквесты]({{ gl.docs }}/ee/user/project/merge_requests/) и отображаются изменения их статусов.
+{{ mgl-name }} имеет поддержку [правил ревью кода](approval-rules.md), которой нет в Community Edition. Правила являются альтернативой инструменту [Approval Rules]({{ gl.docs }}/ee/user/project/merge_requests/approvals/rules.html) в {{ GL }} Enterprise Edition.
 
 Пользовательская инсталляция устанавливается и администрируется вручную. Это требует больше затрат по сравнению с поддержкой {{ mgl-name }}. Администрирование сервиса включает в себя следующие преимущества:
 

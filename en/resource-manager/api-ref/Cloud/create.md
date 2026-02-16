@@ -1,9 +1,58 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to create a cloud in.
+            To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the cloud.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the cloud.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      required:
+        - organizationId
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/resourcemanager/v1/api-ref/Cloud/create.md
 ---
 
-# Resource Manager API, REST: Cloud.Create {#Create}
+# Resource Manager API, REST: Cloud.Create
 
 Creates a cloud in the specified organization.
 
@@ -20,7 +69,7 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
   "organizationId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -29,16 +78,24 @@ POST https://resource-manager.{{ api-host }}/resource-manager/v1/clouds
 || organizationId | **string**
 
 Required field. ID of the organization to create a cloud in.
-To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request. ||
+To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the cloud. ||
+Required field. Name of the cloud.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the cloud. ||
-|| labels | **string**
+Description of the cloud.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -70,7 +127,7 @@ Resource labels as `` key:value `` pairs. ||
     "name": "string",
     "description": "string",
     "organizationId": "string",
-    "labels": "string"
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -199,7 +256,7 @@ Description of the cloud. 0-256 characters long. ||
 || organizationId | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

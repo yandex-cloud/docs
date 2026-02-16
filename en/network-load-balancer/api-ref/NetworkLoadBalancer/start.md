@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:start
+    method: post
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the network load balancer to start.
+            To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request.
+          type: string
+      required:
+        - networkLoadBalancerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/start.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Start {#Start}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Start
 
 Starts load balancing and health checking with the specified network load balancer with specified settings.
 Changes network load balancer status to `` ACTIVE ``.

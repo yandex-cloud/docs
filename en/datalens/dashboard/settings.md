@@ -1,6 +1,9 @@
-# Dashboard settings
+---
+title: Dashboard settings in {{ datalens-full-name }}
+description: In this tutorial, you will learn about dashboard settings in {{ datalens-full-name }}.
+---
 
-
+# Dashboard settings in {{ datalens-full-name }}
 
 Dashboard settings allow you to optimize it for a specific task or work with a specific data source. For example, you can set the dashboard update time, add informational messages, or customize widget loading priority.
 
@@ -25,7 +28,9 @@ You can also set up additional information messages:
 * Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner of the screen and selects **Create request**, they will see an additional message in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they will see the saved message.
 
+  
   {% include [datalens-access-message-note](../../_includes/datalens/datalens-access-message-note.md) %}
+
 
 ## Widget loading settings {#load-settings}
 
@@ -35,25 +40,44 @@ You can customize the loading speed of widgets on the dashboard. To do this, [co
 * **Number of concurrently loaded widgets**. The option limits the maximum number of concurrently loaded widgets on the dashboard. This can be of use if the dashboard data sources are not adapted to a large concurrent workload. If you set it to `Unlimited`, as many widgets will be loaded as there are simultaneous connections supported by your browser.
 * **Loading priority**. Determines the order in which widgets are loaded on the dashboard. For example, if you prioritize charts, all the charts on the screen will be loaded first, followed by selectors.
 
+
 ## Display modes {#display-modes}
 
 
-By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. For more information, see [{#T}](../operations/dashboard/display-modes.md).
+By default, on the mobile version of the dashboard, {{ datalens-short-name }} displays the charts one after another using the following sorting rule: left-to-right, top-to-bottom. In the tab settings, you can change the order of displaying charts and selectors in the mobile version or mailing lists. Learn more in [{#T}](../operations/dashboard/display-modes.md).
+
 
 ## Pinning widgets {#widget-fixation}
 
-You can pin (i.e. lock the position of) a widget in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
+You can pin (i.e., lock the position of) a widget in dedicated lock areas at the top of the dashboard. These areas stay locked as you scroll the page, and the widgets pinned on them keep their position.
 
 There are two lock areas available, one below the other. Their purposes are different:
 
-* Widgets pinned to the top area are always visible. This area has a fixed height. We recommend using it for your selectors.
-* The bottom area, with widgets pinned on it, can be collapsed and expanded as needed. If it contains widgets, you will see the ![image](../../_assets/console-icons/chevrons-up.svg) (hide) or ![image](../../_assets/console-icons/chevrons-down.svg) (show) icon to the right of this area. This area changes its height depending on the height of the widgets pinned on it.
+* Widgets pinned to the top area are always visible. We recommend using it for your selectors.
+* The bottom area, with widgets pinned on it, can be collapsed and expanded as needed. If it contains widgets, you will see the ![image](../../_assets/console-icons/chevrons-up.svg) (hide) or ![image](../../_assets/console-icons/chevrons-down.svg) (show) icon to the right of this area.
 
 You can manage pinned widgets in dashboard edit mode as follows:
 
-* To pin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin.svg) **Pin** or drag it to a lock area. By default, widgets are pinned to the top area. If a widget does not fit into the top area width and height wise, it gets pinned to the bottom area. Widgets are drag-and-droppable from one lock area to another.
-* To to unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
-* To to unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
+* To pin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin.svg) **Pin** or drag it to a lock area. By default, widgets are pinned to the top area. Widgets are drag-and-droppable from one lock area to another.
+* To unpin a widget, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin** or drag it out of the lock area.
+* To unpin all widgets, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/pin-slash.svg) **Unpin all** to the right of the lock area.
 * To customize the bottom lock area behavior as you open the dashboard, click ![image](../../_assets/console-icons/gear.svg) → ![image](../../_assets/console-icons/square.svg) **Hide by default** or ![image](../../_assets/console-icons/square-check.svg) **Hide by default** to the right of the lock area.
 
+When pinning widgets, consider the following:
 
+* The height of the pinned area is determined by the height of widgets you pin in it. If their height exceeds the fixed value, the area will have a scrollbar. Avoid making this area too high.
+* You can put widgets in the pinned area one under another, in which case its height will be the combined height of the widgets.
+* Widget height can be edited unless **Auto height** is enabled in the settings.
+
+
+## Undoing and redoing changes to dashboards {#undo-redo}
+
+When editing a dashboard, you can undo/redo any change introduced within the current version:
+
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a dashboard.

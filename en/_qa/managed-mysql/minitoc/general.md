@@ -1,20 +1,20 @@
 * [What is {{ mmy-short-name }}?](#what-is)
 
-* [What part of database management and maintenance is {{ mmy-short-name }} responsible for?](#services)
+* [What is the role of {{ mmy-short-name }} in database management and maintenance?](#services)
 
-* [Which tasks are best addressed using {{ mmy-short-name }}, and which using VMs with databases?](#mdb-advantage)
+* [When should I use {{ mmy-short-name }}, and when should I use VMs running databases?](#mdb-advantage)
 
 * [What is a database host and database cluster?](#what-is-cluster)
 
 * [How do I get started with {{ mmy-short-name }}?](#quickstart)
 
-* [How many database hosts can a cluster contain?](#how-many-hosts)
+* [How many database hosts can be in a cluster?](#how-many-hosts)
 
 * [How can I access a running database host?](#db-access)
 
 * [How many clusters can I create within a single cloud?](#db-limit)
 
-* [How are DB clusters maintained?](#service-window)
+* [How are database clusters maintained?](#service-window)
 
 * [Which {{ MY }} version does {{ mmy-short-name }} use?](#dbms-version)
 
@@ -22,14 +22,16 @@
 
 * [What happens when a DBMS version becomes deprecated?](#dbms-deprecated)
 
-* [How is usage cost calculated for a database host?](#db-cost)
+* [How do you calculate usage cost for a database host?](#db-cost)
 
 * [How can I change the computing resources and storage size for a database cluster?](#resources-change)
 
-* [Is database host backup enabled by default?](#default-backup)
+* [Are database host backups enabled by default?](#default-backup)
 
-* [When are backups performed? Is a database cluster available during backup?](#backup-window)
+* [When does a backup run? Is a database cluster available during backups?](#backup-window)
 
-* [What metrics and processes can be tracked using monitoring?](#monitoring)
+* [Can I change the retention period for automatic backups?](#backup-retain-days)
 
-* [How do I get the logs of my actions in the services?](#logs)
+* [What metrics and processes can be monitored?](#monitoring)
+
+* [How do I get the logs of my activity in the {{ yandex-cloud }} services?](#logs)

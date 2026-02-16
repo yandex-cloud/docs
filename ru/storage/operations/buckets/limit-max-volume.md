@@ -13,7 +13,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, максимальный размер которого вы хотите ограничить.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, максимальный размер которого вы хотите ограничить.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Задайте значение поля **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}**.
@@ -34,22 +36,7 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket update --help
       ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Результат:
-
-      ```text
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Сохраните имя бакета (столбец `NAME`), размер которого нужно ограничить.
   1. Ограничьте максимальный размера бакета:
 
@@ -81,7 +68,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -102,6 +89,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор статического ключа доступа.
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `max_size` — максимальный размер бакета в байтах.
 

@@ -1,3 +1,8 @@
+---
+title: Метки ресурсов сервисов
+description: Из статьи вы узнаете, что такое метки, ознакомитесь с примерами использования меток и сервисами, в которых поддерживаются метки.
+---
+
 # Метки ресурсов сервисов
 
 
@@ -5,16 +10,7 @@
 
 _Метка_ — это пара ключ-значение в формате `<имя_метки>=<значение_метки>`. Вы можете использовать метки для разделения ресурсов на логические группы.
 
-На метку накладываются следующие ограничения:
-
-* Максимальное количество меток на один ресурс: 64.
-* Для ключа:
-   * Длина — от 1 до 63 символов.
-   * Может содержать строчные буквы латинского алфавита, цифры, дефисы и подчеркивания.
-   * Первый символ — буква.
-* Для значения:
-   * Длина — до 63 символов.
-   * Может содержать строчные буквы латинского алфавита, цифры, дефисы и подчеркивания.
+{% include [tags-restrictions](../../_includes/tags-restrictions.md) %}
 
 ## Примеры использования меток {#examples}
 
@@ -36,36 +32,76 @@ _Метка_ — это пара ключ-значение в формате `<�
 
 ## Сервисы, в которых поддержаны метки {#services}
 
-Список сервисов, ресурсы которых поддерживают использование меток:
+{% note info %}
+
+Метки поддержаны не во всех ресурсах сервисов и могут не отображаться в некоторых интерфейсах. Например, метки ресурсов могут быть не видны в интерфейсах консоли управления, {{ cloud-center }} или {{ billing-name }}.
+
+{% endnote %}
+
+### Инфраструктура и сеть {#infra}
+
 * [{{ api-gw-full-name }}](../../api-gateway/index.yaml)
 * [{{ alb-full-name }}](../../application-load-balancer/index.yaml)
-* [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml)
+* [{{ cdn-full-name }}](../../cdn/index.yaml)
 * [{{ dns-full-name }}](../../dns/index.yaml)
-* [{{ sf-full-name }}](../../functions/index.yaml)
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml)
-* [{{ org-full-name }}](../../organization/index.yaml)
 * [{{ compute-full-name }}](../../compute/index.yaml)
-* [{{ container-registry-full-name }}](../../container-registry/index.yaml)
+* [{{ load-testing-full-name }}](../../load-testing/index.yaml)
+* [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml)
+* [{{ objstorage-full-name }}](../../storage/index.yaml)
+* [{{ vpc-full-name }}](../../vpc/index.yaml)
+
+### Платформа данных {#data-platform}
+
 * [{{ dataproc-full-name }}](../../data-proc/index.yaml)
+* [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
 * [{{ ml-platform-full-name }}](../../datasphere/index.yaml)
-* [{{ iam-full-name }}](../../iam/index.yaml)
-* [{{ iot-full-name }}](../../iot-core/index.yaml)
-* [{{ kms-full-name }}](../../kms/index.yaml)
-* [{{ lockbox-full-name }}](../../lockbox/index.yaml)
+* [{{ message-queue-full-name }}](../../message-queue/index.yaml)
+* [{{ maf-full-name }}](../../managed-airflow/index.yaml)
 * [{{ mkf-full-name }}](../../managed-kafka/index.yaml)
 * [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)
 * [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)
-* [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml)
-* [{{ mmg-full-name }}](../../managed-mongodb/index.yaml)
+* [{{ mmg-full-name }}](../../storedoc/index.yaml)
 * [{{ mmy-full-name }}](../../managed-mysql/index.yaml)
+* [{{ mos-full-name }}](../../managed-opensearch/index.yaml)
 * [{{ mpg-full-name }}](../../managed-postgresql/index.yaml)
-* [{{ mrd-full-name }}](../../managed-redis/index.yaml)
+* [{{ mrd-full-name }}](../../managed-valkey/index.yaml)
 * [{{ ydb-full-name }}](../../ydb/index.yaml)
-* [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.yaml)
-* [{{ objstorage-full-name }}](../../storage/index.yaml)
-* [{{ resmgr-full-name }}](../../resource-manager/index.yaml)
+* [{{ metadata-hub-full-name }}](../../metadata-hub/index.yaml) ({{ connection-manager-full-name }} и кластеры {{ metastore-full-name }})
+
+### Контейнеры {#containers}
+
+* [{{ container-registry-full-name }}](../../container-registry/index.yaml)
+* [{{ managed-k8s-full-name }}](../../managed-kubernetes/index.yaml)
 * [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
-* [{{ vpc-full-name }}](../../vpc/index.yaml)
+
+### Бессерверные вычисления {#serverless}
+
+* [{{ sf-full-name }}](../../functions/index.yaml)
+* [{{ iot-full-name }}](../../iot-core/index.yaml)
+* [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml)
+* [{{ si-full-name }}](../../serverless-integrations/index.yaml) ({{ er-name }})
+
+### Безопасность {#security}
+
+* [{{ at-full-name }}](../../audit-trails/index.yaml)
+* [{{ certificate-manager-full-name }}](../../certificate-manager/index.yaml)
+* [{{ iam-full-name }}](../../iam/index.yaml)
+* [{{ kms-full-name }}](../../kms/index.yaml)
+* [{{ lockbox-full-name }}](../../lockbox/index.yaml)
+
+### Инструменты разработчика {#developer-tools}
+
+* [{{ mgl-full-name }}](../../managed-gitlab/index.yaml)
+
+### Мониторинг и управление ресурсами {#resources-operations}
+
+* [{{ org-full-name }}](../../organization/index.yaml)
+* [{{ resmgr-full-name }}](../../resource-manager/index.yaml)
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/infrastructure-management/serverless-trigger-budget-vm.md)
 
 #### См. также {#see-also}
 
@@ -73,8 +109,8 @@ _Метка_ — это пара ключ-значение в формате `<�
 * [Управление метками в сообществах {{ ml-platform-full-name }}](../../datasphere/operations/community/manage-community-labels.md)
 * [Управление метками в проектах {{ ml-platform-full-name }}](../../datasphere/operations/projects/manage-project-labels.md)
 
-
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
 
+{% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

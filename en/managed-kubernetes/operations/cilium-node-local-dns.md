@@ -1,29 +1,29 @@
 # Configuring NodeLocal DNS for the Cilium network policy controller
 
-This article will show you how to configure a local DNS for the [Cilium network policy controller](../concepts/network-policy.md#cilium) using the [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
+In this article, you will learn how to configure a local DNS for the [Cilium network policy controller](../concepts/network-policy.md#cilium) using the [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
 To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md#kubernetes-cluster):
 1. [Create specifications for NodeLocal DNS and Local Redirect Policy](#create-manifests).
 1. [Create a test environment](#create-test-environment).
-1. [Check NodeLocal DNS functionality](#test-nodelocaldns).
+1. [Check the NodeLocal DNS functionality](#test-nodelocaldns).
 
 ## Getting started {#before-you-begin}
 
-1. [Create a service account](../../iam/operations/sa/create.md) and [grant](../../iam/operations/sa/assign-role-for-sa.md) the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles to it.
+1. [Create a service account](../../iam/operations/sa/create.md) and [assign](../../iam/operations/sa/assign-role-for-sa.md) to it the `k8s.tunnelClusters.agent` and `vpc.publicAdmin` roles.
 
 1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-   {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+    {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
 1. [Create a {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-create.md) with any suitable configuration.
 
-   When creating it, specify the service account and security groups prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
+   When creating it, specify the service account and security groups you prepared in advance. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**, select **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
-1. [Create a node group](node-group/node-group-create.md) of any suitable configuration. When creating it, specify the security groups prepared in advance.
+1. [Create a node group](node-group/node-group-create.md) with any suitable configuration. When creating it, specify the preconfigured security groups.
 
 1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Retrieve the service [IP address](../../vpc/concepts/address.md) for `kube-dns`:
+1. Get the `kube-dns` service [IP address](../../vpc/concepts/address.md):
 
    ```bash
    kubectl get svc kube-dns -n kube-system -o jsonpath={.spec.clusterIP}
@@ -31,7 +31,7 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Create specifications for NodeLocal DNS and Local Redirect Policy {#create-manifests}
 
-1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` DaemonSet settings, specify the `kube-dns` service IP address:
+1. Create a file named `node-local-dns.yaml`. In the `node-local-dns` `DaemonSet` settings, specify the `kube-dns` IP address:
 
    {% cut "node-local-dns.yaml" %}
 
@@ -42,7 +42,6 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    ---
    apiVersion: v1
    kind: Service
@@ -70,7 +69,6 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
    metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
    data:
      Corefile: |
        cluster.local:53 {
@@ -207,7 +205,9 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
    {% endcut %}
 
-1. Create a file named `node-local-dns-lrp.yaml`:
+   {% include [Namespace warning](../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
+1. Create the `node-local-dns-lrp.yaml` file:
 
    {% cut "node-local-dns-lrp.yaml" %}
 
@@ -267,17 +267,14 @@ To set up a local DNS in a [{{ managed-k8s-name }} cluster](../concepts/index.md
 
 ## Create a test environment {#create-test-environment}
 
-To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launched in your {{ managed-k8s-name }} cluster containing the `dnsutils` network utility suite.
-1. Launch the `nettool` pod:
-
+To test the local DNS, the `nettool` [pod](../concepts/index.md#pod) containing the `dnsutils` network utility suite will be launched in your {{ managed-k8s-name }} cluster.
+1. Run the `nettool` pod:
 
    ```bash
    kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
 
-
-
-1. Make sure the pod status changed to `Running`:
+1. Make sure the pod has switched to `Running`:
 
    ```bash
    kubectl get pods
@@ -289,14 +286,14 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    kubectl get pod nettool -o wide
    ```
 
-   The name of the node is shown in the `NODE` column as below:
+   You can find the node name in the `NODE` column, for example:
 
    ```text
    NAME     READY  STATUS   RESTARTS  AGE  IP         NODE        NOMINATED NODE  READINESS GATES
    nettool  1/1    Running  0         23h  10.1.0.68  <node_name>  <none>          <none>
    ```
 
-1. Find out the IP of the pod running NodeLocal DNS:
+1. Get the IP address of the pod running NodeLocal DNS:
 
    ```bash
    kubectl get pod -o wide -n kube-system | grep 'node-local.*<node_name>'
@@ -308,10 +305,10 @@ To test the local DNS, a `nettool` [pod](../concepts/index.md#pod) will be launc
    node-local-dns-gv68c  1/1  Running  0  26m  <pod_IP_address>  <node_name>  <none>  <none>
    ```
 
-## Check NodeLocal DNS functionality {#test-nodelocaldns}
+## Check the NodeLocal DNS functionality {#test-nodelocaldns}
 
-To test the local DNS from the `nettool` pod, several DNS requests will be executed. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
-1. Retrieve the values of the metrics for DNS requests before testing:
+To test the local DNS, several DNS requests will be made from the `nettool` pod. This will change the metrics for the number of DNS requests on the pod servicing NodeLocal DNS.
+1. Get the values of the metrics for DNS requests before testing:
 
    ```bash
    kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
@@ -328,7 +325,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    coredns_dns_requests_total{family="1",proto="udp",server="dns://0.0.0.0:53",type="other",zone="ip6.arpa."} 1
    ```
 
-1. Run the DNS requests:
+1. Run these DNS requests:
 
    ```bash
    kubectl exec -ti nettool -- nslookup kubernetes && \
@@ -336,7 +333,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    kubectl exec -ti nettool -- nslookup ya.ru
    ```
 
-   Result (IPs may differ):
+   Result (IP addresses may differ):
 
    ```text
    Name:   kubernetes.default.svc.cluster.local
@@ -358,7 +355,7 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
    Address: 2a02:6b8::2:242
    ```
 
-1. Make sure that the metric values have increased:
+1. Make sure the metric values have increased:
 
    ```bash
    kubectl exec -ti nettool -- curl http://<pod_IP_address>:9253/metrics | grep coredns_dns_requests_total
@@ -380,4 +377,4 @@ To test the local DNS from the `nettool` pod, several DNS requests will be execu
 
 Delete the resources you no longer need to avoid paying for them:
 1. [Delete the {{ managed-k8s-name }} cluster](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. If static public IP addresses were used for {{ managed-k8s-name }} cluster and node access, release and [delete](../../vpc/operations/address-delete.md) them.
+1. If you used static public IP addresses to access your {{ managed-k8s-name }} cluster or nodes, release and [delete](../../vpc/operations/address-delete.md) them.

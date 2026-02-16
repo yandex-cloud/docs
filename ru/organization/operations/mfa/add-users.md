@@ -1,0 +1,114 @@
+---
+title: Применить политику MFA к пользователям в {{ org-full-name }}
+description: Следуя данной инструкции, вы сможете добавить пользователей и группы в политику MFA в {{ org-full-name }} и удалить их из нее.
+---
+
+# Применить политику MFA к пользователям
+
+Чтобы [политика MFA](../../concepts/mfa.md#mfa-policies) применялась в отношении учетных записей пользователей, в целевые группы этой политики требуется явно добавить нужных пользователей или [группы](../../concepts/groups.md), в которые эти пользователи входят.
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** и в списке политик выберите нужную. В открывшемся окне:
+
+      1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.MfaPolicyPageLayout.tab_groups }}**.
+      1. Чтобы добавить в целевые группы политики нового пользователя или группу:
+
+          1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.mfa-policy-audiences.action_add-users }}**.
+          1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Чтобы удалить из политики пользователя или группу:
+          1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+          1. Подтвердите удаление.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите список пользователей или групп, к которым применяется политика MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement list-audience \
+       --id <идентификатор_политики>
+     ```
+
+  1. Посмотрите описание команды CLI для изменения списка пользователей или групп, к которым применяется политика MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement update-audience --help
+     ```
+
+  1. Чтобы добавить пользователей или группы в политику MFA или удалить их из политики, выполните команду:
+
+     ```bash
+     yc organization-manager mfa-enforcement update-audience \
+       --id <идентификатор_политики> \
+       --audience-delta subject-id=<идентификатор_субъекта>,action=<действие>
+     ```
+
+     Где:
+
+     * `--audience-delta` — параметр для изменения списка пользователей/групп в политике:
+       * `subject-id` — идентификатор пользователя или группы.
+       * `action` — действие: `action-add` — добавить, `action-remove` — удалить.
+
+     Можно указать несколько параметров `--audience-delta` для одновременного изменения нескольких объектов.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Чтобы добавить пользователя или группу в политику MFA, опишите в конфигурационном файле параметры ресурса `yandex_organizationmanager_mfa_enforcement_audience`:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement_audience" "example_mfa_audience" {
+       mfa_enforcement_id = "<идентификатор_политики_MFA>"
+       subject_id         = "<идентификатор_пользователя_или_группы>"
+     }
+     ```
+
+     Где:
+
+     * `mfa_enforcement_id` — идентификатор политики MFA, к которой нужно добавить пользователя или группу. Обязательный параметр.
+     * `subject_id` — идентификатор пользователя или группы, которые нужно добавить в политику MFA. Обязательный параметр.
+
+     Чтобы добавить несколько пользователей или групп, создайте отдельный ресурс `yandex_organizationmanager_mfa_enforcement_audience` для каждого из них.
+
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_mfa_enforcement_audience` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement_audience).
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить добавление пользователей в политику MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement list-audience --id <идентификатор_политики>
+     ```
+
+  1. Чтобы удалить пользователя или группу из политики MFA, удалите соответствующий ресурс `yandex_organizationmanager_mfa_enforcement_audience` из конфигурационного файла и примените изменения.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [UpdateAudience](../../../organization/api-ref/MfaEnforcement/updateAudience.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/UpdateAudience](../../../organization/api-ref/grpc/MfaEnforcement/updateAudience.md).
+
+{% endlist %}
+
+{% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](./create-policy.md)
+* [{#T}](./update-policy.md)
+* [{#T}](./deactivate-reactivate-policy.md)
+* [{#T}](./delete-policy.md)
+* [{#T}](./manage-verification.md)
+* [{#T}](../../concepts/mfa.md)

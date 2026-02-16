@@ -7,7 +7,7 @@ description: Follow this guide to create a network load balancer.
 
 {% note info %}
 
-Before creating a network load balancer, [create](target-group-create.md) a target group to attach to it.
+Before you create a network load balancer, make sure to [create](target-group-create.md) a target group for it.
 
 {% include [type-update](../../_includes/network-load-balancer/type-update.md) %}
 
@@ -19,47 +19,57 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
   To create a [network load balancer](../concepts/index.md):
 
-  1. In the [management console]({{ link-console-main }}), select the folder to create a load balancer in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a load balancer.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
-  1. Enter a name. The naming requirements are as follows:
+  1. Name the load balancer. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
-  1. Assign a public IP address to the load balancer. You can assign an address automatically or select one from the list of reserved addresses.
+  1. Optionally, in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_advanced }}** field:
+      * Enable DDoS protection.
+      * Enable load balancer deletion protection.
+
+        {% note warning %}
+
+        This does not apply to its listeners or target groups.
+
+        {% endnote %}
+
+  1. Assign a public IP address to the load balancer. You can have the IP address assigned automatically or select it from the list of reserved addresses.
   1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**, add a [listener](../concepts/listener.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**.
-      1. In the window that opens, set the listener parameters:
+      1. In the window that opens, specify these listener settings:
 
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}**.
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}` or `{{ ui-key.yacloud.common.label_udp }}`.
 
             {% note info %}
 
-            By default, the listener uses TCP. To use UDP, [submit a request to technical support]({{ link-console-support }}).
+            By default, the listener uses TCP. To use UDP, [contact technical support]({{ link-console-support }}).
 
             {% endnote %}
 
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The value range is from `1` to `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** the load balancer will redirect traffic to. The value range is from `1` to `32767`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** where the listener will listen for incoming traffic. The possible values range from `1` to `32767`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** to which the load balancer will redirect traffic. The possible values range from `1` to `32767`.
 
       1. Click **{{ ui-key.yacloud.common.add }}**.
 
-  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** add a [target group](../concepts/target-resources.md):
+  1. Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**, add a [target group](../concepts/target-resources.md):
       1. Click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
       1. Select a target group or [create a new one](target-group-create.md):
           * In the **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** field, select ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.button_create-target-group }}**.
-          * In the resulting window, enter a target group name.
-          * Add virtual machines to the target group.
+          * In the window that opens, enter a target group name.
+          * Add VMs to the target group.
           * Click **{{ ui-key.yacloud.common.create }}**.
-      1. (Optional) Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
+      1. Optionally, under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, click **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. In the window that opens, specify the [resource health check](../concepts/health-check.md) settings:
           * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}**.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For health checks to use HTTP, specify the URL to check in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The value range is from `1` to `32767`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values are from `1` to `60`. The interval must be at least 1 second longer than the waiting time.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The possible values are from `1` to `60`.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a virtual machine ready to receive traffic.
-          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks after which no traffic will be routed to a virtual machine.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}` or `{{ ui-key.yacloud.common.label_tcp }}`. For HTTP health checks, specify the URL in the **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}** field.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** for health checks. The possible values range from `1` to `32767`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-timeout }}**: Response timeout in seconds. The possible values range from `1` to `60`. The interval must be at least 1 second longer than the response timeout.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-interval }}**: Health check interval in seconds. The possible values range from `1` to `60`.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-healthy-threshold }}**: Number of successful checks required to consider a VM instance ready to receive traffic.
+          * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-unhealthy-threshold }}**: Number of failed checks before traffic is no longer routed to the VM.
 
       1. Click **{{ ui-key.yacloud.common.apply }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -70,7 +80,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View a description of the CLI command to create a network load balancer:
+  1. See the description of the CLI command to create a network load balancer:
 
      ```bash
      yc load-balancer network-load-balancer create --help
@@ -80,6 +90,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
      ```bash
      yc load-balancer network-load-balancer create <load_balancer_name> \
+        --deletion-protection \
         --listener name=<listener_name>,`
                   `port=<port>,`
                   `target-port=<target_port>,`
@@ -87,7 +98,7 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
                   `external-ip-version=<IP_address_version> \
         --target-group target-group-id=<target_group_ID>,`
                       `healthcheck-name=<health_check_name>,`
-                      `healthcheck-interval=<interval_between_checks>s,`
+                      `healthcheck-interval=<health_check_interval>s,`
                       `healthcheck-timeout=<health_check_timeout>s,`
                       `healthcheck-unhealthythreshold=<number_of_failed_checks_to_get_Unhealthy_status>,`
                       `healthcheck-healthythreshold=<number_of_successful_checks_to_get_Healthy_status>,`
@@ -97,6 +108,14 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
      ```
 
      Where:
+
+     * `--deletion-protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled.
+
+       {% note warning %}
+
+       This does not apply to its listeners or target groups.
+
+       {% endnote %}
 
      {% include [listener-cli-description](../../_includes/network-load-balancer/listener-cli-description.md) %}
 
@@ -108,14 +127,14 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. Describe the parameters of the network load balancer resource in a configuration file.
+  1. Describe the network load balancer settings in the configuration file.
 
-     Here is an example of the configuration file structure:
+     Here is a configuration file example:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "<load_balancer_name>"
-       deletion_protection = "<deletion_protection>"
+       deletion_protection = <protecting_load_balancer_from_deletion>
        listener {
          name = "<listener_name>"
          port = <port_number>
@@ -139,20 +158,27 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
      Where:
 
      * `name`: Name of the network load balancer.
-     * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. If load balancer deletion protection is enabled, you can still delete its listeners and target groups. The default value is `false`.
-     * `listener`: Listener parameters:
+     * `deletion_protection`: Deletion protection for the network load balancer. You cannot delete a load balancer with this option enabled. The default value is `false`.
+
+       {% note warning %}
+
+       This does not apply to its listeners or target groups.
+
+       {% endnote %}
+
+     * `listener`: Listener settings:
        * `name`: Listener name.
-       * `port`: Port in the range of `1` to `32767` on which the network load balancer will receive incoming traffic.
-       * `external_address_spec`: Specification of the listener for the external load balancer:
+       * `port`: Port in the range from `1` to `32767` the network load balancer will receive incoming traffic at.
+       * `external_address_spec`: Specification of the listener for the external load balancer settings:
          * `ip_version`: External IP address specification. Specify the IP address version, `ipv4` or `ipv6`. The default value is `ipv4`.
-     * `attached_target_group`: Description of the network load balancer's target group parameters:
+     * `attached_target_group`: Description of the network load balancer's target group settings:
         * `target_group_id`: Target group ID.
 
           {% include [get-target-group-id](../../_includes/network-load-balancer/get-target-group-id.md) %}
 
-        * `healthcheck`: Health check parameters. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
+        * `healthcheck`: Health check settings. Enter a name, a port number ranging from `1` to `32767`, and a path for health checks.
 
-     For more information about the `yandex_lb_network_load_balancer` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about `yandex_lb_network_load_balancer` settings in {{ TF }}, see [this article]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -170,15 +196,15 @@ Before creating a network load balancer, [create](target-group-create.md) a targ
 
 ## Examples {#examples}
 
-### Creating a network load balancer without a listener {without-listener}
+### Creating a network load balancer without a listener {#without-listener}
 
-Create a network load balancer named `test-load-balancer-1` without a listener or target group.
+Create a network load balancer named `test-load-balancer-1` without a listener and a target group.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc load-balancer network-load-balancer create test-load-balancer-1
@@ -186,16 +212,15 @@ Create a network load balancer named `test-load-balancer-1` without a listener o
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the resource parameters without the `listener` section:
+  1. In the configuration file, describe the load balancer settings, skipping the `listener` and `attached_target_group` sections:
 
      ```hcl
      resource "yandex_lb_network_load_balancer" "foo" {
        name = "test-load-balancer-1"
-       deletion_protection = "true"
      }
      ```
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -207,7 +232,7 @@ Create a network load balancer named `test-load-balancer-1` without a listener o
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
 
   ```api
   {
@@ -219,32 +244,32 @@ Create a network load balancer named `test-load-balancer-1` without a listener o
 
 {% endlist %}
 
-### Creating a network load balancer with a listener and attached target group {with-listener-and-target-group}
+### Creating a network load balancer with a listener and attached target group {#with-listener-and-target-group}
 
-Create a network load balancer with a listener and attached target group with the following test specifications:
+Create a network load balancer with a listener and attached target group with the following test settings:
 
-* Name: `test-load-balancer-2`.
+* Name: `test-load-balancer-2`
 * Listener parameters:
-    * Name: `test-listener`.
-    * Port: `80`.
-    * Target port: `81`.
-    * Protocol: `TCP`.
-    * IP address version: `ipv4`.
-* Target group ID: `enpu2l7q9kth********`.
-* Target group resource health check parameters:
-    * Name: `http`.
-    * Health check interval: `2` seconds.
-    * Response timeout: `1` second.
-    * Unhealthy threshold: `2`.
-    * Healthy threshold: `2`.
-    * Port for HTTP health checks: `80`.
-    * URL for health checks: `/`.
+    * Name: `test-listener`
+    * Port: `80`
+    * Target port: `81`
+    * Protocol: `TCP`
+    * IP address version: `ipv4`
+* Target group ID: `enpu2l7q9kth********`
+* Target group health check settings:
+    * Name: `http`
+    * Health check interval: `2` seconds
+    * Response timeout: `1` second
+    * Unhealthy threshold: `2`
+    * Healthy threshold: `2`
+    * Port for HTTP health checks: `80`
+    * URL for health checks: `/`
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  Run the following command:
+  Run this command:
 
   ```bash
   yc load-balancer network-load-balancer create test-load-balancer-2 \
@@ -297,7 +322,7 @@ Create a network load balancer with a listener and attached target group with th
      }
      ```
 
-     For more information about the resources that you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/lb_network_load_balancer).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lb_network_load_balancer).
 
   1. Make sure the settings are correct.
 
@@ -309,7 +334,7 @@ Create a network load balancer with a listener and attached target group with th
 
 - API {#api}
 
-  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method and include the following information in the request body:
+  Use the [create](../api-ref/NetworkLoadBalancer/create.md) API method, providing the following in the request body:
 
   ```api
   {

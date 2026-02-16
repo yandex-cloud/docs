@@ -1,0 +1,1 @@
+Optionally, navigate to the **{{ ui-key.yacloud.serverless-workflows.workflow-viewer_node-output-label }}** tab and set a [jq template](../../../serverless-integrations/concepts/workflows/templating.md) to filter the step outputs added into the [workflow state](../../../serverless-integrations/concepts/workflows/workflow.md#state).

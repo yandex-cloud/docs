@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - serviceAccountId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/IamToken/createForServiceAccount.md
 ---
 
-# Identity and Access Management API, REST: IamToken.CreateForServiceAccount {#CreateForServiceAccount}
+# Identity and Access Management API, REST: IamToken.CreateForServiceAccount
 
 Create an IAM token for service account.
 
@@ -25,7 +43,9 @@ POST https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
 ||Field | Description ||
 || serviceAccountId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.CreateIamTokenResponse}

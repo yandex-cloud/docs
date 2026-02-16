@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/certificates
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the federation to list certificates in.
+            To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken`
+            to the [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
+            returned by a previous list request.
+            The maximum string length in characters is 2000.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Certificate.name](#yandex.cloud.organizationmanager.v1.saml.Certificate) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
+          type: string
+      required:
+        - federationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Certificate/list.md
 ---
 
-# Cloud Organization SAML API, REST: Certificate.List {#List}
+# SAML Federation API, REST: Certificate.List
 
 Retrieves the list of certificates in the specified federation.
 
@@ -20,25 +68,33 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/cer
 || federationId | **string**
 
 Required field. ID of the federation to list certificates in.
-To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID make a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
 to the [ListCertificatesResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Certificate.name](#yandex.cloud.organizationmanager.v1.saml.Certificate) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListCertificatesResponse}
@@ -84,16 +140,24 @@ A certificate.
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the certificate. ||
+Required field. ID of the certificate.
+
+The maximum string length in characters is 50. ||
 || federationId | **string**
 
-Required field. ID of the federation that the certificate belongs to. ||
+Required field. ID of the federation that the certificate belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the certificate. ||
+Name of the certificate.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the certificate. ||
+Description of the certificate.
+
+The maximum string length in characters is 256. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -106,5 +170,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || data | **string**
 
-Required field. Certificate data in PEM format. ||
+Required field. Certificate data in PEM format.
+
+The maximum string length in characters is 32000. ||
 |#

@@ -1,1 +1,0 @@
-You can get the cluster ID with a [list of clusters in the folder](../../managed-elasticsearch/operations/cluster-list.md#list-clusters).

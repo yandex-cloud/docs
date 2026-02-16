@@ -1,11 +1,11 @@
 ---
 title: How to get started with {{ mgl-full-name }}
-description: Follow this guide to create and set up a {{ GL }} cluster.
+description: Follow this guide to set up and configure an {{ GL }} cluster.
 ---
 
 # Getting started with {{ mgl-name }}
 
-To get started with the service:
+To get started:
 1. [Create an instance](#instance-create).
 1. [Set up a working environment](#configure-mgl).
 1. [Add SSH keys to {{ GL }}](#ssh).
@@ -25,22 +25,30 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+  1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
   1. If you do not have a folder yet, create one:
 
      {% include [create-folder](../_includes/create-folder.md) %}
 
-  1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) for creating an instance.
+  1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.gitlab.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create an instance.
+
+      {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% endlist %}
 
 ## Create an instance {#instance-create}
+
+{% include [warn-subnet](../_includes/managed-gitlab/warn-subnet.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   {% include [instance-create-console](../_includes/managed-gitlab/instance-create-console.md) %}
+
+- CLI {#cli}
+
+  {% include [instance-create-cli](../_includes/managed-gitlab/instance-create-cli.md) %}
 
 {% endlist %}
 
@@ -60,7 +68,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    * View issues and merge requests by group.
    * View analytics on group's activities.
 
-   For more information, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/group/).
+   For more information, see [this {{ GL }} article](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -71,13 +79,27 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 1. Create a pair of public and private SSH keys for the {{ GL }} account:
 
-   {% include [vm-ssh-prepare-key](../_includes/vm-ssh-prepare-key.md) %}
+    {% list tabs group=operating_system %}
+
+    - Linux/macOS {#linux-macos}
+
+      {% include [vm-ssh-prepare-key-linux-macos](../_includes/vm-ssh-prepare-key-linux-macos.md) %}
+
+    - Windows 10/11 {#windows}
+
+      {% include [vm-ssh-prepare-key-win-10-11](../_includes/vm-ssh-prepare-key-win-10-11.md) %}
+
+    - Windows 7/8 {#windows7-8}
+
+      {% include [vm-ssh-prepare-key-win-7-8](../_includes/vm-ssh-prepare-key-win-7-8.md) %}
+
+    {% endlist %}
 
 1. {% include [turn-on-ssh-agent](../_includes/turn-on-ssh-agent.md) %}
 1. Add a key to the SSH agent:
 
    ```bash
-   ssh-add <path_to_private_key>
+   ssh-add <private_key_path>
    ```
 
 1. [Assign a public SSH key](https://docs.gitlab.com/ee/user/ssh.html#add-an-ssh-key-to-your-gitlab-account) to the {{ GL }} account.
@@ -87,7 +109,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    ssh -T git@<{{ GL }}_instance_domain>
    ```
 
-   Example:
+   Here is an example:
 
    ```bash
    ssh -T git@example.gitlab.yandexcloud.net
@@ -134,7 +156,7 @@ To start working with a local copy of your repository using the account you crea
    git@<{{ GL }}_instance_domain>: Permission denied (publickey).
    fatal: Could not read from remote repository.
 
-   Please make sure you have the correct access permissions
+   Please make sure you have the correct access rights
    and the repository exists.
    ```
 
@@ -150,7 +172,7 @@ To start working with a local copy of your repository using the account you crea
 
       ```bash
       Host <{{ GL }}_instance_domain>
-         IdentityFile <path_to_private_key>
+         IdentityFile <private_key_path>
       ```
 
       In the `IdentityFile` parameter, specify the absolute path to the private key you created for the {{ GL }} project.
@@ -160,7 +182,7 @@ To start working with a local copy of your repository using the account you crea
 
    {% endcut %}
 
-1. Go to the directory containing the repository:
+1. Go to the repository folder:
 
    ```bash
    cd <project_name>
@@ -173,7 +195,7 @@ To start working with a local copy of your repository using the account you crea
    git add . && git commit -m "<commit_name>"
    ```
 
-1. Push changes to the remote repository:
+1. Push the changes to the remote repository:
 
    ```bash
    git push origin main

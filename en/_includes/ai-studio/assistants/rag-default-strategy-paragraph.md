@@ -1,0 +1,1 @@
+By default, the {{ retrieval-tool-name }} [tool](../../../ai-studio/concepts/assistant/tools/index.md) accesses the index on each user request to the assistant. The tool finds and returns relevant extracts from source files, and the model uses this information to generate a response.

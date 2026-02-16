@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}:unitBalance
+    method: get
+    path:
+      type: object
+      properties:
+        projectId:
+          description: |-
+            **string**
+            Required field. ID of the project to return the unit balance for.
+          type: string
+      required:
+        - projectId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Project/getUnitBalance.md
 ---
 
-# DataSphere API v2, REST: Project.GetUnitBalance {#GetUnitBalance}
+# DataSphere API v2, REST: Project.GetUnitBalance
 
 Returns the unit balance of the specified project.
 

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/resourcemanager/v1/api-ref/grpc/Cloud/get.md
 ---
 
-# Resource Manager API, gRPC: CloudService.Get {#Get}
+# Resource Manager API, gRPC: CloudService.Get
 
 Returns the specified Cloud resource.
 
@@ -17,16 +17,18 @@ To get the list of available Cloud resources, make a [List](/docs/resource-manag
 
 ```json
 {
-  "cloudId": "string"
+  "cloud_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| cloudId | **string**
+|| cloud_id | **string**
 
 Required field. ID of the Cloud resource to return.
-To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request. ||
+To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/grpc/Cloud/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Cloud {#yandex.cloud.resourcemanager.v1.Cloud}
@@ -34,11 +36,11 @@ To get the cloud ID, use a [CloudService.List](/docs/resource-manager/api-ref/gr
 ```json
 {
   "id": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "organizationId": "string",
-  "labels": "string"
+  "organization_id": "string",
+  "labels": "map<string, string>"
 }
 ```
 
@@ -49,7 +51,7 @@ A Cloud resource. For more information, see [Cloud](/docs/resource-manager/conce
 || id | **string**
 
 ID of the cloud. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -58,10 +60,10 @@ Name of the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the cloud. 0-256 characters long. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the cloud belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

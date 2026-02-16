@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ alb-full-name }}
+description: Следуя данной инструкции, вы сможете создать и протестировать инфраструктуру {{ alb-name }}.
+---
+
 # Как начать работать с {{ alb-full-name }}
 
 
@@ -36,7 +41,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создаваться целевая группа.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. В меню слева выберите **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Введите имя целевой группы: `test-target-group`.
@@ -70,7 +75,7 @@
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
       1. Введите имя бэкенда: `backend-1`.
       1. В списке **{{ ui-key.yacloud.alb.label_target-group }}** выберите `test-target-group`.
-      1. Укажите **{{ ui-key.yacloud.alb.label_port }}**: `80`.
+      1. Укажите порт: `8080`.
   1. Разверните поле **{{ ui-key.yacloud.alb.label_protocol-settings }}** и задайте их параметры:
       1. Выберите тип `{{ ui-key.yacloud.alb.label_proto-http-plain }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки:
@@ -78,6 +83,7 @@
       1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
       1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
       1. **{{ ui-key.yacloud.alb.label_unhealthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
       1. **{{ ui-key.yacloud.common.type }}**: `{{ ui-key.yacloud.alb.label_hc-type-http }}`.
       1. **{{ ui-key.yacloud.alb.label_path }}**: `/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -96,7 +102,7 @@
       yc alb backend-group add-http-backend \
         --backend-group-name test-backend-group \
         --name backend-1 \
-        --port 80 \
+        --port 8080 \
         --target-group-name test-target-group \
         --target-group-id <идентификатор_целевой_группы> \
         --http-healthcheck healthy-threshold=2,unhealthy-threshold=2,timeout=1s,interval=3s,path=/

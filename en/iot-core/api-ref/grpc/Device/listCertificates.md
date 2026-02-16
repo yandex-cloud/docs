@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/listCertificates.md
 ---
 
-# IoT Core Service, gRPC: DeviceService.ListCertificates {#ListCertificates}
+# IoT Core Service, gRPC: DeviceService.ListCertificates
 
 Retrieves the list of device certificates for the specified device.
 
@@ -15,13 +15,13 @@ Retrieves the list of device certificates for the specified device.
 
 ```json
 {
-  "deviceId": "string"
+  "device_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 Required field. ID of the device to list certificates for. ||
 |#
@@ -32,10 +32,10 @@ Required field. ID of the device to list certificates for. ||
 {
   "certificates": [
     {
-      "deviceId": "string",
+      "device_id": "string",
       "fingerprint": "string",
-      "certificateData": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "certificate_data": "string",
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -54,16 +54,16 @@ A device certificate. For more information, see [Managing device certificates](/
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 ID of the device that the certificate belongs to. ||
 || fingerprint | **string**
 
 SHA256 hash of the certificate. ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

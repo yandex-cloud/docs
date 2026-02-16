@@ -1,16 +1,16 @@
-# Resolving errors when setting up TLS connections on VMs
+# Fixing TLS connection errors on VMs
+
 
 
 ## Issue description {#issue-description}
 
 * Errors occur when loading packages from remote repositories.
 * The process of establishing a TLS connection takes a long time or terminates with an error.
-* The `curl` utility does not return the HTTP response code and takes a long time to establish connections.
+* `curl` returns no HTTP status code and takes a long time to establish connections.
 
-## Troubleshooting and reproducing issues {#diagnosis-and-reproduction}
+## Diagnostics and issue reproduction {#issue-diagnostics-and-reproduction}
 
-* Check whether the VM instance uses an [external IP address protected from DDoS attacks](../../../vpc/operations/enable-ddos-protection.md).
-* If a web server is running on the VM, send a request to it from another host using the `curl` utility with `-vI` options:
+Check whether your VM uses an [external IP address with DDoS protection](../../../vpc/operations/enable-ddos-protection.md). If the VM runs a web server, send a request to it from another host using `curl` with the `-vI` options:
 
 {% cut "Example of a curl request to a web server with an external IP address protected from DDoS attacks without a changed MTU" %}
 
@@ -41,21 +41,20 @@ The process of establishing a TLS connection will take a long time, noticeably l
 
 ## Solution {#issue-resolution}
 
-Check whether the VM instance uses an [IP address protected from DDoS attacks](../../../vpc/operations/enable-ddos-protection.md).
-For proper interaction with external resources via a protected address, you will need to [decrease the MTU or MSS](../../../vpc/concepts/mtu-mss.md) on the network interface of the VM instance.
+Check whether your VM uses an [IP address with DDoS protection](../../../vpc/operations/enable-ddos-protection.md). For proper access to external resources via a protected address, [reduce the MTU or MSS value](../../../vpc/concepts/mtu-mss.md) on the network interface of the VM.
 
-If a containerization service (for example, Docker) is running on the VM, you will need to specify the MTU for all network interfaces created by this service (a guide for Docker is provided in a separate tab below).
+If your VM runs a containerization service such as Docker, specify the MTU value for all network interfaces created by this service. For Docker-specific steps, see a separate tab below.
 
-{% list tabs %}
+{% list tabs group=operating_system %}
 
-- Linux
+- Linux {#linux}
 
-   In the current Linux shell session, you can reduce the MTU with the `sudo ip link set dev <interface_name> mtu 1450` command.
+   To reduce the MTU in the current Linux shell session, run the `sudo ip link set dev <interface_name> mtu 1450` command.
    These changes will remain in effect until the first reboot.
 
-   As one of the options for permanently applying these changes, you can use the `rc.local` service to execute the specified commands at VM startup. To create a file with commands for `rc.local`, follow these steps:
+   As an option for applying these changes permanently, use the `rc.local` service to run the specified commands at VM startup. To create a command file for `rc.local`, follow these steps:
 
-   1. Create a file for the sequence of commands by running `sudo nano /etc/rc.local`.
+   1. Create a file with the sequence of commands by running `sudo nano /etc/rc.local`. 
       Add the following content to the file:
 
       ```bash
@@ -65,16 +64,15 @@ If a containerization service (for example, Docker) is running on the VM, you wi
 
    {% note info %}
 
-   After `ipconfig`, specify the network interface name for the VM with a DDOS-protected IP and the desired MTU value.
+   After `ipconfig`, specify the network interface name of the VM with a DDoS-protected IP and the MTU value you want to set.
 
    {% endnote %}
 
-   2. Make the file executable by running the `sudo chmod +x /etc/rc.local` command.
+   1. Make the file executable by running `sudo chmod +x /etc/rc.local`.
 
-   3. Activate and start the `rc.local` service using this command: `sudo systemctl enable rc-local.service --now`.
+   1. Enable and start the `rc.local` service by running `sudo systemctl enable rc-local.service --now`.
 
-   4. Check the service status with the command: `sudo systemctl status rc-local.service`.
-      The result of the command execution should look like this:
+   1. Check the service status using the `sudo systemctl status rc-local.service` command. The command output should look like this:
 
       ```bash
       ● rc-local.service - /etc/rc.local Compatibility
@@ -86,27 +84,26 @@ If a containerization service (for example, Docker) is running on the VM, you wi
       Process: 491 ExecStart=/etc/rc.local start (code=exited, status=0/SUCCESS)
       ```
 
-   Note: The return code should be indicated as `0/SUCCESS`
+   Make sure the return code displays `0/SUCCESS`.
 
-- Docker
+- Docker {#docker}
 
    To change the MTU value for all network interfaces created for Docker containers on the VM, modify the Docker service configuration. To do this, follow these steps:
 
-   1. Run this command: `sudo nano /etc/docker/daemon.json` and add the following section to the file:
+   1. Run the `sudo nano /etc/docker/daemon.json` command and add the following section to the file:
 
       ```json
       {
       "mtu": 1450
       }
       ```
-   2. Save the file and restart the Docker service: `sudo systemctl restart docker`.
+   1. Save the file and run `sudo systemctl restart docker` to restart Docker.
 
-   - Managed Service for Kubernetes
+- {{ managed-k8s-name }} {#mk8s}
 
-   To change MTU for the network interfaces of all VMs in the Managed Service for Kubrenetes node group, you need to create an object of type `DaemonSet` and apply it to the cluster.  To do this, follow these steps:
+   To change the MTU value for the network interfaces of all VMs in the {{ managed-k8s-name }} node group, you need to create a `DaemonSet` object and apply it to the cluster. To do this, follow these steps:
 
-   1. Create a file with the object manifest file by running: `nano ds-set-mtu.yaml`.
-      Add the following content to the file:
+   1. Create a file with the object manifest by running `nano ds-set-mtu.yaml`. Add the following content to the file:
 
       ```yaml
       apiVersion: apps/v1
@@ -140,37 +137,34 @@ If a containerization service (for example, Docker) is running on the VM, you wi
             kubernetes.io/os: linux
       ```
 
-   2. Save the manifest file and apply it to the cluster: `kubectl apply -f ds-set-mtu.yaml`.
+   1. Save the manifest file and run `kubectl apply -f ds-set-mtu.yaml` to apply it to the cluster.
 
    {% note info %}
 
-   If you are using the Calico network policy controller, you cannot explicitly set the MTU value for the Managed Service for Kubernetes cluster.
-   In this case, set the MTU value on the upstream network infrastructure (router, NAT instance, or IPsec instance).
+   If you are using the Calico network policy controller, you cannot explicitly set the MTU value for the {{ managed-k8s-name }} cluster. In this case, we recommend setting the MTU value on the upstream network components, such as router, NAT instance, or IPsec instance.
 
    {% endnote %}
 
-- Windows
+- Microsoft Windows® {#windows}
 
-   To change MTU on the VM interface, run the `cmd` command interpreter as an administrator, then complete these steps:
+   To change the MTU value on the VM interface, run `cmd` as administrator and follow these steps:
 
-   1. Run the `netsh interface ipv4 show subinterfaces` command to display a list of all available network interfaces on the VM.
-      In the `Interface` field, select and save the name of the network interface on which you need to change the MTU value.
+   1. Run the `netsh interface ipv4 show subinterfaces` command to display a list of all available network interfaces on the VM. In the `Interface` field, select and save the name of the network interface where you want to change the MTU value.
 
-   2. Run the `netsh interface ipv4 set subinterface "<interface_name>" mtu=1450 store=persistent` command, specifying the name of the desired network interface, to set the desired MTU value for it. The specified value is saved after system reboot.
+   1. Run the `netsh interface ipv4 set subinterface "<interface_name>" mtu=1450 store=persistent` command, specifying the name of the network interface where you want to set the new MTU value. This value will persist after the system reboot.
 
-   3. Reboot the VM instance.
+   1. Restart the VM.
 
-   4. Make sure that the MTU value was saved for the network device by running the `netsh interface ipv4 show subinterfaces` command.
+   1. Make sure the new MTU value persists on the network device by running `netsh interface ipv4 show subinterfaces`.
 
 {% endlist %}
 
 ## If the issue persists {#if-issue-still-persists}
 
-If the above actions didn't help, [create a request for support](https://console.cloud.yandex.ru/support?section=contact).
-In the request, specify the following information:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. ID of the problematic VM.
-2. External IP address with DDoS protection, where the issue occurs.
-3. Description of the issue:
-   * Console output of the package manager (`apt`, `yum`, `dnf`, `apk`, `npm`, etc.) at the attempt to download software from remote repositories.
-   * Output of the `curl -vk https://$DESTINATION_URL` utility, where `$DESTINATION_URL` is the IP address or domain of the site you cannot connect to.
+1. ID of the VM in question.
+1. DDoS-protected external IP address experiencing the issue.
+1. Issue description: 
+   * Console output of the package manager (`apt`, `yum`, `dnf`, `apk`, `npm`, etc.) when attempting to download software from remote repositories.
+   * `curl -vk https://$DESTINATION_URL` output, where `$DESTINATION_URL` is the IP address or website domain you cannot connect to.

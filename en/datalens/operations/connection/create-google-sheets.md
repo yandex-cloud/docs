@@ -43,7 +43,8 @@ To create a Google Sheets connection:
 
    {% note info %}
 
-   To properly identify the data types, select **Format** → **Numbers** in the Google Sheets menu and set the column cell format.
+   * To properly identify the data types, select **Format** → **Numbers** in the Google Sheets menu and set the column cell format.
+   * If a filter is enabled in Google Sheets table, only data matching the filter criteria will be displayed in connections and datasets based on it.
 
    {% endnote %}
 
@@ -57,18 +58,18 @@ You can add, rename, and delete files in the connection.
 
 
 
-{% cut "What do I do if a Google Sheets spreadsheet is not working properly?" %}
+{% cut "What do I do if a Google Sheets spreadsheet works incorrectly?" %}
 
 If a Google Sheets spreadsheet contains empty cells, {{ datalens-name }} may incorrectly display column headers and miss the first several rows.
 
-To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values, e.g., `unavailable`, `none`, `unknown`.
+To fix this, you need to fill empty cells in your Google Sheets spreadsheet with any appropriate values: `unavailable`, `none`, or `unknown`.
 
 To quickly populate empty cells in a Google Sheets spreadsheet:
 1\. Highlight the entire Google Sheets sheet.
 2\. In the spreadsheet menu, select **Data** → **Create a filter**.
 3\. In the right-hand corner of the first column's top cell, click the filter icon.
 4\. Select **Clear** and then select **(Blanks)**.
-5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other.
+5\. In the column's top cell, enter the appropriate value, e.g., `0`, `unavailable`, `none`, or any other value.
 6\. Drag the cell down to fill all the empty cells in the column with the entered value.
 7\. Click the filter icon again and click **Select all**.
 8\. Repeat all the steps starting with Step 3 for the other columns in the spreadsheet.
@@ -81,15 +82,19 @@ To quickly populate empty cells in a Google Sheets spreadsheet:
 
 {% endcut %}
 
+## Additional settings {#additional-settings}
+
+{% include [datalens-file-connection-export-settings](../../../_includes/datalens/operations/datalens-file-connection-export-settings.md) %}
+
 ## Limitations {#restrictions}
 
 When creating a connection to Google Sheets, keep in mind the following limitations:
 
-* Maximum number of Google Sheets sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
+* Maximum number of Google Sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
 * Maximum size per sheet: 200 MB.
-
+  
   {% note info %}
-
+  
   Technically, you cannot check the size of an individual sheet in the connection. If the limit is exceeded, you will get a message saying the data could not be loaded.
 
   {% endnote %}

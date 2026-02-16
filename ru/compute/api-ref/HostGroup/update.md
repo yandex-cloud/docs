@@ -1,9 +1,107 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+    method: patch
+    path:
+      type: object
+      properties:
+        hostGroupId:
+          description: |-
+            **string**
+            Required field. ID of the host group to update.
+            To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - hostGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the group.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the group.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+            The existing set of `labels` is completely replaced by the provided set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        maintenancePolicy:
+          description: |-
+            **enum** (MaintenancePolicy)
+            Behaviour on maintenance events
+            - `RESTART`: Restart instance to move it to another host during maintenance
+            - `MIGRATE`: Use live migration to move instance to another host during maintenance
+          type: string
+          enum:
+            - MAINTENANCE_POLICY_UNSPECIFIED
+            - RESTART
+            - MIGRATE
+        scalePolicy:
+          description: |-
+            **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
+            Scale policy. Only fixed number of hosts are supported at this moment.
+          $ref: '#/definitions/ScalePolicy'
+      additionalProperties: false
+    definitions:
+      FixedScale:
+        type: object
+        properties:
+          size:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+      ScalePolicy:
+        type: object
+        properties:
+          fixedScale:
+            description: |-
+              **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale)**
+              Includes only one of the fields `fixedScale`.
+            $ref: '#/definitions/FixedScale'
+        oneOf:
+          - required:
+              - fixedScale
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/update.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Update {#Update}
+# Compute Cloud API, REST: HostGroup.Update
 
 Updates the specified host group.
 
@@ -20,7 +118,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 || hostGroupId | **string**
 
 Required field. ID of the host group to update.
-To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request. ||
+To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateHostGroupRequest}
@@ -30,7 +130,7 @@ To get the host group ID, use an [HostGroupService.List](/docs/compute/api-ref/H
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "maintenancePolicy": "string",
   "scalePolicy": {
     // Includes only one of the fields `fixedScale`
@@ -56,20 +156,25 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the group. ||
+Name of the group.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-Description of the group. ||
-|| labels | **string**
+Description of the group.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
-The existing set of `labels` is completely replaced by the provided set. ||
+The existing set of `labels` is completely replaced by the provided set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || maintenancePolicy | **enum** (MaintenancePolicy)
 
 Behaviour on maintenance events
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**
@@ -122,7 +227,7 @@ Includes only one of the fields `fixedScale`. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zoneId": "string",
     "status": "string",
     "typeId": "string",
@@ -262,7 +367,7 @@ Name of the group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -272,7 +377,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -284,7 +388,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**

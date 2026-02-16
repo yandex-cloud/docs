@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}
+    method: delete
+    path:
+      type: object
+      properties:
+        federationId:
+          description: |-
+            **string**
+            ID of the federation to delete.
+            To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/saml/api-ref/Federation/delete.md
 ---
 
-# Cloud Organization SAML API, REST: Federation.Delete {#Delete}
+# SAML Federation API, REST: Federation.Delete
 
 Deletes the specified federation.
 
@@ -20,7 +37,9 @@ DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/saml/
 || federationId | **string**
 
 Required field. ID of the federation to delete.
-To get the federation ID, make a [FederationService.List](/docs/organization/api-ref/Federation/list#List) request. ||
+To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

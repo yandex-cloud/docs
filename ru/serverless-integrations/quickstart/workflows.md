@@ -15,13 +15,10 @@ keywords:
 
 # Начало работы с {{ sw-name }}
 
-{% note info %}
+{% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-{{ sw-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+С помощью этой инструкции вы создадите [рабочий процесс](../concepts/workflows/workflow.md) и запустите его. Во время выполнения рабочего процесса будут вызываться [функции](../../functions/concepts/function.md) [{{ sf-full-name }}](../../functions/).
 
-{% endnote %}
-
-С помощью этой инструкции вы создадите [рабочий процесс](../concepts/workflows/workflow.md) и запустите его. Во время выполнения рабочего процесса будут вызываться функции [{{ sf-full-name }}](../../functions/).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -30,14 +27,15 @@ keywords:
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
+
 ## Создайте сервисный аккаунт {#create-sa}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ iam-name }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `sa-for-function`.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}`.
@@ -45,19 +43,21 @@ keywords:
 
 {% endlist %}
 
+
 ## Создайте функцию, которая фильтрует данные {#create-filter-function}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ sf-name }}**.
     1. Создайте функцию:
         1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Введите имя функции: `filter-function`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Создайте версию функции:
-        1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 18`.
+        1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 22`.
         1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         1. Создайте файл `index.js` и добавьте в него следующий код:
@@ -77,19 +77,21 @@ keywords:
 
 {% endlist %}
 
+
 ## Создайте функцию, которая возвращает электронные адреса {#create-return-function}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана функция.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ sf-name }}**.
     1. Создайте функцию:
         1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Введите имя функции: `return-function`.
         1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Создайте версию функции:
-        1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 18`.
+        1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 22`.
         1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
         1. Создайте файл `index.js` и добавьте в него следующий код:
@@ -108,20 +110,20 @@ keywords:
 
 {% endlist %}
 
+
 ## Создайте рабочий процесс {#create-workflow}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ si-name }}**.
-    1. Перейдите на вкладку **{{ sw-name }}**.
-    1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс**.
-    1. Введите имя рабочего процесса.
-    1. В поле **Сервисный аккаунт** укажите сервисный аккаунт `sa-for-function`.
-    1. В поле **YAML-спецификация** добавьте спецификацию, которая приведена ниже. Укажите в поле `functionId`:
-        * в шаге `process_user_transform_info` идентификатор функции `filter-function`;
-        * в шаге `upload_users` идентификатор функции `return-function`.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан рабочий процесс.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ si-name }}**.
+    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+    1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
+    1. В поле **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** добавьте спецификацию, которая приведена ниже. Укажите в поле `functionId`:
+        * на 39 строке в шаге `process_user_transform_info` — идентификатор функции `filter-function`;
+        * на 44 строке в шаге `upload_users` — идентификатор функции `return-function`.
 
         ```yaml
         yawl: "0.1"
@@ -168,9 +170,13 @@ keywords:
               functionId: "<идентификатор_функции>"
               input: '\({loaded_users, resource_type})'
         ```
-    1. Нажмите кнопку **Создать**.
+    1. Разверните блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
+    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя рабочего процесса.
+    1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите сервисный аккаунт `sa-for-function`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
+
 
 ## Запустите рабочий процесс {#execute-workflow}
 
@@ -179,14 +185,18 @@ keywords:
 - Консоль управления {#console}
 
     1. Выберите рабочий процесс.
-    1. В правом верхнем углу нажмите **Запустить**.
-    1. Введите входные данные в формате JSON:
+    1. В правом верхнем углу нажмите ![triangle-right](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
+    1. Введите входные данные в формате JSON и нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
+
+        Входные данные в формате JSON:
+
         ```json
         {
           "resource_type": "users"
         }
         ```
-    1. Когда статус рабочего процесса изменится с `Выполняется` на `Выполнен`, в блоке **Данные на выходе** появится следующий JSON-объект:
+
+    1. Когда статус рабочего процесса изменится с `Выполняется` на `Выполнен`, в блоке **{{ ui-key.yacloud.serverless-workflows.label_output_data }}** появится результат в формате JSON:
         ```json
         {
           "result": "OK",
@@ -207,7 +217,9 @@ keywords:
 
 {% endlist %}
 
+
 ## Что дальше {#what-is-next}
 
-* [Посмотрите еще один пример спецификации рабочего процесса](../concepts/workflows/yawl.md#spec-example)
+* [Посмотрите еще один пример спецификации рабочего процесса](../concepts/workflows/yawl/index.md#spec-example)
 * [Ознакомьтесь с концепциями {{ sw-name }}](../concepts/workflows/workflow.md)
+

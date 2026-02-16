@@ -3,6 +3,7 @@ title: Access to {{ mgp-name }}
 description: To allow access to {{ mgp-name }} resources (DB clusters and hosts, cluster backups, databases and their users), assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 keywords:
   - access
+  - access
   - configuring access
   - '{{ GP }} access'
   - green plum
@@ -14,29 +15,35 @@ keywords:
 
 In this section, you will learn:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [What roles are required for specific actions](#required-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `mdb.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `mdb.admin` role, `managed-greenplum.admin` role, or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
+To allow access to {{ mgp-name }} resources, assign the user the appropriate roles for the folder, cloud, or organization containing these resources.
 
-## Which roles exist in the service {#roles-list}
+You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
-The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of `{{ roles-viewer }}`. You can find the description of each role under the chart.
+## Roles this service has {#roles-list}
 
-![image](../../_assets/mdb/roles-managed-greenplum.svg)
+The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+
+{% include [roles-managed-greenplum](../../_mermaid/roles/managed-greenplum.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../../_roles/managed-greenplum/clusters/connector.md) %}
 
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
@@ -45,6 +52,10 @@ The chart below shows which roles are available in the service and how they inhe
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
 {% include [managed-greenplum.viewer](../../_roles/managed-greenplum/viewer.md) %}
+
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../../_roles/managed-greenplum/restorer.md) %}
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
@@ -66,7 +77,11 @@ The chart below shows which roles are available in the service and how they inhe
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
-When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not similar to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -79,20 +94,20 @@ When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` rol
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## Roles required {#required-roles}
+## Required roles {#required-roles}
 
-To use the service, you need the [{{ roles.mgp.editor }} role](../../iam/concepts/access-control/roles.md) or higher for the folder to house the new cluster. The `{{ roles.mgp.viewer }}` role enables you only to view the list of clusters.
+As a user, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
 
-To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
+To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 
-You can always assign a role with more permissions. For instance, you can assign `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
+You can always assign a role with more permissions. For example, you can assign the `{{ roles.mgp.admin }}` role instead of `{{ roles.mgp.editor }}`.
 
 ## What's next {#whats-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

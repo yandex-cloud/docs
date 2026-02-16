@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref/iam/v1/workload/oidc/workload-identity/api-ref/Federation/index.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: Federation
+# Federation, REST: Federation
 
 A set of methods for managing OIDC workload identity federations.
 
@@ -16,4 +16,7 @@ A set of methods for managing OIDC workload identity federations.
 || [Create](create.md) | Creates an OIDC workload identity federation in the specified folder. ||
 || [Update](update.md) | Updates the specified OIDC workload identity federation. ||
 || [Delete](delete.md) | Deletes the specified OIDC workload identity federation. ||
+|| [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the specified OIDC workload identity federation. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified OIDC workload identity federation. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified OIDC workload identity federation. ||
 |#

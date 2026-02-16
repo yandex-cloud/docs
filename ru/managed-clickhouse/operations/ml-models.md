@@ -11,7 +11,7 @@
 {{ mch-short-name }} работает только с моделями, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
 
 
-1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 1. [Загрузите](../../storage/operations/objects/upload.md) файл обученной модели в {{ objstorage-full-name }}.
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к файлу модели.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
@@ -25,7 +25,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
 
 - CLI {#cli}
@@ -42,11 +43,51 @@
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить список моделей в кластере, воспользуйтесь методом REST API [list](../api-ref/MlModel/list.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/List](../api-ref/grpc/MlModel/list.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [MlModel.List](../api-ref/MlModel/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [MlModelService.List](../api-ref/grpc/MlModel/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.List
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse).
 
 {% endlist %}
 
@@ -56,7 +97,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
 
 - CLI {#cli}
@@ -74,14 +116,52 @@
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы получить детальную информацию о модели, воспользуйтесь методом REST API [get](../api-ref/MlModel/get.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Get](../api-ref/grpc/MlModel/get.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя модели в параметре `mlModelName`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [MlModel.Get](../api-ref/MlModel/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название модели — со [списком моделей](#list) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [MlModelService.Get](../api-ref/grpc/MlModel/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "ml_model_name": "<название_модели>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Get
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название модели — со [списком моделей](#list) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel).
 
 {% endlist %}
 
@@ -99,7 +179,8 @@
 
     1. Выберите кластер:
 
-        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
         1. Нажмите **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
@@ -159,16 +240,72 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы создать модель, воспользуйтесь методом REST API [create](../api-ref/MlModel/create.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Create](../api-ref/grpc/MlModel/create.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя модели в параметре `mlModelName`.
-    * Тип модели `ML_MODEL_TYPE_CATBOOST` в параметре `type`.
-    * Ссылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Воспользуйтесь методом [MlModel.Create](../api-ref/MlModel/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels' \
+            --data '{
+                      "mlModelName": "<название_модели>",
+                      "type": "ML_MODEL_TYPE_CATBOOST",
+                      "uri": "<ссылка_на_файл>"
+                    }'
+        ```
+
+        Где:
+
+        * `mlModelName` — имя модели;
+        * `type` — тип модели, всегда принимает значение `ML_MODEL_TYPE_CATBOOST`;
+        * `uri` — ссылка на файл с моделью в {{ objstorage-name }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [MlModelService.Create](../api-ref/grpc/MlModel/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "ml_model_name": "<название_модели>",
+                    "type": "ML_MODEL_TYPE_CATBOOST",
+                    "uri": "<ссылка_на_файл>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
+        ```
+
+        Где:
+
+        * `ml_model_name` — имя модели;
+        * `type` — тип модели, всегда принимает значение `ML_MODEL_TYPE_CATBOOST`;
+        * `uri` — ссылка на файл с моделью в {{ objstorage-name }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/MlModel/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -212,7 +349,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
@@ -263,16 +401,82 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить модель, воспользуйтесь методом REST API [update](../api-ref/MlModel/update.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Update](../api-ref/grpc/MlModel/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](./cluster-list.md#list-clusters).
-    * Имя модели в параметре `mlModelName`.
-    * Новую ссылку на файл модели в {{ objstorage-full-name }} в параметре `uri`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [MlModel.Update](../api-ref/MlModel/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>' \
+            --data '{
+                      "updateMask": "uri",
+                      "uri": "<ссылка_на_файл>"
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `uri`.
+
+        * `uri` — ссылка на новый файл с моделью в {{ objstorage-name }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [MlModelService.Update](../api-ref/grpc/MlModel/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "ml_model_name": "<название_схемы>",
+                    "update_mask": {
+                      "paths": ["uri"]
+                    },
+                    "uri": "<ссылка_на_файл>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Create
+        ```
+
+        Где:
+
+        * `ml_model_name` — имя модели.
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `uri`.
+
+        * `uri` — ссылка на новый файл с моделью в {{ objstorage-name }}.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/MlModel/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -290,7 +494,8 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** на панели слева.
     1. Выберите нужную модель, нажмите на значок ![image](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -329,14 +534,52 @@
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы удалить модель, воспользуйтесь методом REST API [delete](../api-ref/MlModel/delete.md) для ресурса [MlModel](../api-ref/MlModel/index.md) или вызовом gRPC API [MlModelService/Delete](../api-ref/grpc/MlModel/delete.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`.
-    * Имя модели в параметре `mlModelName`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя модели — со [списком моделей в кластере](#list-ml).
+    1. Воспользуйтесь методом [MlModel.Delete](../api-ref/MlModel/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/mlModels/<название_модели>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название модели — со [списком моделей](#list) в кластере.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/MlModel/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [MlModelService.Delete](../api-ref/grpc/MlModel/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/ml_model_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "ml_model_name": "<название_схемы>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/MlModel/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

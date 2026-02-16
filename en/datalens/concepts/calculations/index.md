@@ -1,4 +1,9 @@
-# Calculated fields
+---
+title: Calculated fields in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, a calculated field is an additional data field whose values are calculated using a formula.
+---
+
+# Calculated fields in {{ datalens-full-name }}
 
 A calculated field is an additional [data field](../../dataset/index.md#field) with values calculated using a formula.
 You can use calculated fields to create new dimensions and measures. The data source remains unchanged.
@@ -43,7 +48,7 @@ In [multi-dataset charts](../chart/index.md#multi-dataset-charts), calculated fi
 
 Functions are the principal components used for creating formulas. You can use them to perform various operations on data fields.
 
-The list of available functions depends on the data source. For more information, see [{#T}](../../function-ref/availability.md).
+The list of available functions depends on the data source. Learn more in [{#T}](../../function-ref/availability.md).
 
 {% note warning %}
 
@@ -74,13 +79,15 @@ You can create calculated fields in the dataset or wizard interface.
 
 {% list tabs %}
 
-- Datasets
+- Dataset
 
   {% include [datalens-create-calculated-field-in-dataset](../../../_includes/datalens/operations/datalens-create-calculated-field-in-dataset.md) %}
 
+  ![dataset-calculated-field](../../../_assets/datalens/concepts/dataset-calculated-field.png)
+
 - Wizard
-
-
+  
+  
   {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
 
 
@@ -89,6 +96,10 @@ You can create calculated fields in the dataset or wizard interface.
   1. Enter a name for the field.
   1. Enter the required formula.
   1. Click **Create**. The field will appear in the list on the left. You can use it in a chart.
+
+  ![chart-calculated-field](../../../_assets/datalens/concepts/chart-calculated-field.png)
+
+  You can also [duplicate](../../dataset/create-dataset.md#duplicate-fields) any dataset field, including the calculated field you previously created.
 
 {% endlist %}
 

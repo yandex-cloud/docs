@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListOrganizationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListOrganizationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationsResponse)
+            returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on the [Organization.name](#yandex.cloud.organizationmanager.v1.Organization) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/list.md
 ---
 
-# Cloud Organization API, REST: Organization.List {#List}
+# Identity Hub API, REST: Organization.List
 
 Retrieves the list of Organization resources.
 
@@ -23,19 +63,25 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListOrganizationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListOrganizationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Organization.name](#yandex.cloud.organizationmanager.v1.Organization) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListOrganizationsResponse}
@@ -51,7 +97,7 @@ The expression must specify:
       "name": "string",
       "description": "string",
       "title": "string",
-      "labels": "string"
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -101,7 +147,7 @@ Description of the organization. 0-256 characters long. ||
 || title | **string**
 
 Display name of the organization. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

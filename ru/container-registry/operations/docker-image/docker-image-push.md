@@ -1,3 +1,8 @@
+---
+title: Загрузить Docker-образ в реестр {{ container-registry-name }}
+description: Инструкция описывает, как загрузить локальный Docker-образ в реестр {{ container-registry-name }}.
+---
+
 # Загрузить Docker-образ в реестр
 
 Инструкция описывает, как загрузить локальный [Docker-образ](../../concepts/docker-image.md) в реестр.

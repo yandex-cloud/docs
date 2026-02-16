@@ -7,9 +7,9 @@
 
 ```
 {
- hostname: "[rc1c-sjgXXXXXXXXXXXXXX.mdb.yandexcloud.net](http://rc1c-sjgXXXXXXXXXXXXXX.mdb.yandexcloud.net/)",
+ hostname: "[rc1c-sjg**************.mdb.yandexcloud.net](http://rc1c-sjg**************.mdb.yandexcloud.net/)",
  message: "\[SocketServer listenerType=ZK_BROKER, nodeId=1\] 
- Failed authentication with /10.X.X.X (channelId=10.X.X.X:9091-10.X.X.Y:43598-3694) 
+ Failed authentication with /10..X.X (channelId=10.X.X.X:9091-10.X.X.Y:43598-3694) 
  (SSL handshake failed) (org.apache.kafka.common.network.Selector)",
  origin: "kafka_server",
  severity: "INFO"

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/billing/v1/api-ref/grpc/Service/list.md
 ---
 
-# Billing API, gRPC: ServiceService.List {#List}
+# Billing API, gRPC: ServiceService.List
 
 Retrieves the list of services.
 
@@ -16,8 +16,8 @@ Retrieves the list of services.
 ```json
 {
   "filter": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
@@ -30,16 +30,16 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Service.id](#yandex.cloud.billing.v1.Service) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
+results is larger than `page_size`,
+the service returns a [ListServicesResponse.next_page_token](#yandex.cloud.billing.v1.ListServicesResponse)
 that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
+set `page_token` to the [ListServicesResponse.next_page_token](#yandex.cloud.billing.v1.ListServicesResponse)
 returned by a previous list request. ||
 |#
 
@@ -54,7 +54,7 @@ returned by a previous list request. ||
       "description": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -63,14 +63,14 @@ returned by a previous list request. ||
 || services[] | **[Service](#yandex.cloud.billing.v1.Service)**
 
 List of services. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListServicesRequest.pageSize](#yandex.cloud.billing.v1.ListServicesRequest), use
-`nextPageToken` as the value
-for the [ListServicesRequest.pageToken](#yandex.cloud.billing.v1.ListServicesRequest) query parameter
+is larger than [ListServicesRequest.page_size](#yandex.cloud.billing.v1.ListServicesRequest), use
+`next_page_token` as the value
+for the [ListServicesRequest.page_token](#yandex.cloud.billing.v1.ListServicesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Service {#yandex.cloud.billing.v1.Service}

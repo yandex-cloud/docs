@@ -1,5 +1,6 @@
 # Разметка SSML
 
+
 Использование Speech Synthesis Markup Language (SSML) дает вам возможность контролировать, как {{ speechkit-name }} синтезирует речь из текста.
 
 {% include [note-not-silence](../../../_includes/speechkit/note-not-silence.md) %}
@@ -114,3 +115,7 @@
   Мой любимый химический элемент — <sub alias="ртуть">Hg</sub>, потому что блестит.
 </speak>
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../api/tts-ssml.md)

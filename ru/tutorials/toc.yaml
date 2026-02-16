@@ -5,6 +5,10 @@ items:
     items:
       - name: Все руководства
         href: security/index.md
+      - name: Разграничение прав доступа для групп пользователей
+        href: security/user-group-access-control.md
+      - name: Приглашение нового пользователя и назначение ролей
+        href: security/add-account-and-assign-roles.md
       - name: Создание L7-балансировщика с защитой от DDoS
         items:
           - name: Обзор
@@ -13,6 +17,80 @@ items:
             href: security/alb-with-ddos-protection/console.md
           - name: '{{ TF }}'
             href: security/alb-with-ddos-protection/terraform.md
+      - name: >-
+          Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{
+          sws-name }}
+        items:
+          - name: Обзор
+            href: security/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
+      - name: >-
+          Создание L7-балансировщика с профилем безопасности {{ sws-name }}
+          через Ingress-контроллер {{ alb-name }}
+        href: security/alb-ingress-with-sws-profile.md
+      - name: Создание распределенной инфраструктуры с защищенным доступом
+        href: security/distributed-secured-infrastructure.md
+      - name: Централизованная публикация в интернете и защита приложений от DDoS
+        href: security/different-folders-services.md
+      - name: Базовая настройка SWS
+        href: security/sws-basic-protection.md
+      - name: Экстренная защита сервисов в {{ alb-name }} от DDoS на уровне L7
+        href: security/sws-protection-ongoing-ddos.md
+      - name: >-
+          Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для
+          подключения защиты {{ sws-name }}
+        items:
+          - name: Обзор
+            href: security/migration-from-nlb-to-alb/index.md
+          - name: Балансировщик NLB с целевыми ресурсами из виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: Балансировщик NLB с целевыми ресурсами из группы виртуальных машин
+            items:
+              - name: Обзор
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Консоль управления
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: >-
+              Балансировщик NLB с целевыми ресурсами из кластера {{
+              managed-k8s-name }}
+            items:
+              - name: Обзор
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Консоль управления
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: Балансировщик NLB как целевой ресурс для ALB
+            items:
+              - name: Обзор
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Консоль управления
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  security/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
       - name: Терминирование TLS-соединений
         items:
           - name: Обзор
@@ -23,29 +101,217 @@ items:
             href: security/tls-termination/terraform.md
       - name: Передача логов с виртуальной машины в {{ cloud-logging-name }}
         href: security/vm-fluent-bit-logging.md
-      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
-        href: security/metastore-logging.md
       - name: Запись логов балансировщика в {{ PG }}
         href: security/logging.md
       - name: >-
           Безопасное хранение паролей для {{ GL }} CI в виде секретов {{
-          lockbox-full-name }}
+          lockbox-name }}
         href: security/gitlab-lockbox-integration.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: security/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: security/static-key-in-lockbox/index.md
+          - name: CLI
+            href: security/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: security/static-key-in-lockbox/terraform.md
       - name: >-
-          Сервисный аккаунт с профилем OS Login для управления ВМ с помощью
+          Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью
           Ansible
         href: security/sa-oslogin-ansible.md
       - name: Организация защищенного доступа к контенту в {{ cdn-name }}
-        href: security/protected-access-to-content.md
+        items:
+          - name: Обзор
+            href: security/protected-access-to-content/index.md
+          - name: Консоль управления, CLI, API
+            href: security/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: security/protected-access-to-content/terraform.md
+      - name: Загрузка аудитных логов в SIEM KUMA
+        items:
+          - name: Обзор
+            href: security/audit-trails-events-to-kuma/index.md
+          - name: Консоль управления, CLI, API
+            href: security/audit-trails-events-to-kuma/console.md
+          - name: '{{ TF }}'
+            href: security/audit-trails-events-to-kuma/terraform.md
+      - name: Передача логов с {{ coi }} в {{ cloud-logging-name }}
+        href: security/coi-fluent-bit-logging.md
+      - name: Поиск событий в аудитных логах
+        items:
+          - name: Обзор
+            href: security/search-events-audit-logs/index.md
+          - name: Инструменты для работы с аудитными логами
+            href: security/search-events-audit-logs/tools.md
+          - name: Примеры запросов для поиска событий
+            href: security/search-events-audit-logs/examples.md
+          - name: Настройка работы с {{ yq-name }}
+            href: security/search-events-audit-logs/query.md
+      - name: Добавление HTML-страницы для работы {{ captcha-name }}
+        href: security/mobile-app/website.md
+      - name: Создание L7-балансировщика с профилем безопасности
+        items:
+          - name: Обзор
+            href: security/balancer-with-sws-profile/index.md
+          - name: Консоль управления
+            href: security/balancer-with-sws-profile/console.md
+          - name: '{{ TF }}'
+            href: security/balancer-with-sws-profile/terraform.md
+      - name: ViPNet Coordinator в {{ yandex-cloud }}
+        href: security/vipnet-to-yc.md
+        hidden: true
+      - name: Настройка алертов и дашбордов в {{ monitoring-name }}
+        href: security/alerts-monitoring.md
+      - name: Загрузка аудитных логов в MaxPatrol SIEM
+        href: security/maxpatrol.md
+      - name: Загрузка аудитных логов в SIEM Splunk
+        href: security/export-logs-to-splunk.md
+      - name: Загрузка аудитных логов в SIEM ArcSight
+        href: security/export-logs-to-arcsight.md
+      - name: Управление федерациями удостоверений
+        items:
+          - name: Аутентификация с помощью Active Directory
+            href: security/integration-adfs.md
+          - name: Аутентификация с помощью Google Workspace
+            href: security/integration-gworkspace.md
+          - name: Аутентификация с помощью {{ microsoft-idp.entra-id-full }}
+            href: security/integration-azure.md
+          - name: Аутентификация с помощью Keycloak
+            href: security/integration-keycloak.md
+          - name: Сопоставление групп пользователей
+            items:
+              - name: >-
+                  Сопоставление групп пользователей в {{
+                  microsoft-idp.adfs-short }}
+                href: security/adfs.md
+              - name: >-
+                  Сопоставление групп пользователей в {{
+                  microsoft-idp.entra-id-full }}
+                href: security/entra-id.md
+              - name: Сопоставление групп пользователей в Keycloak
+                href: security/keycloak.md
+      - name: Сценарии использования {{ captcha-name }}
+        items:
+          - name: Капча в приложении Android
+            href: security/mobile-app/android/quickstart-android.md
+          - name: Невидимая капча в приложении Android
+            href: security/mobile-app/android/invisible-captcha-android.md
+          - name: Капча в приложении Android на Flutter
+            href: security/mobile-app/android/quickstart-android-flutter.md
+          - name: Капча в приложении iOS
+            href: security/mobile-app/ios/quickstart-ios.md
+      - name: Шифрование данных
+        items:
+          - name: Какой способ шифрования выбрать?
+            href: security/encrypt/index.md
+          - name: Шифрование с помощью CLI и API {{ yandex-cloud }}
+            href: security/encrypt/cli-api.md
+          - name: Шифрование с помощью SDK Yandex Cloud
+            href: security/encrypt/sdk.md
+          - name: Шифрование с помощью AWS Encryption SDK
+            href: security/encrypt/aws-encryption-sdk.md
+          - name: Шифрование с помощью Google Tink
+            href: security/encrypt/google-tink.md
+      - name: Шифрование для бакета {{ objstorage-name }} на стороне сервера
+        href: security/server-side-encryption.md
+      - name: Шифрование секретов в {{ TF-full }}
+        href: security/terraform-secret.md
+      - name: Управление ключами KMS с {{ TF-full }}
+        href: security/terraform-key.md
+      - name: Auto Unseal в HashiCorp Vault
+        href: security/vault-secret.md
+      - name: Интеграции федераций удостоверений сервисных аккаунтов
+        items:
+          - name: GitHub
+            href: security/wlif-github-integration.md
+          - name: '{{ GL }}'
+            href: security/wlif-gitlab-integration.md
+          - name: Пользовательская инсталляция {{ k8s }}
+            href: security/wlif-k8s-integration.md
+          - name: '{{ managed-k8s-name }}'
+            href: security/wlif-managed-k8s-integration.md
+      - name: Настройка единого входа в приложения (SSO)
+        items:
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: security/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: security/single-sign-on/oidc-grafana-oss.md
+          - name: 1С:Предприятие
+            href: security/single-sign-on/oidc-1c-enterprise.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
+          - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
+            href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
+      - name: Загрузка аудитных логов в {{ mos-name }}
+        hidden: true
+        href: security/trails-logs-opensearch.md
+      - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
+        href: security/mgp-to-cloud-logging.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: security/info-for-federal-ip-whitelist.md
+      - name: >-
+          Загрузка объектов в бакет {{ objstorage-name }} с помощью эфемерного
+          ключа доступа
+        href: security/ephemeral-key-storage.md
   - name: Хранение и восстановление данных
     items:
       - name: Все руководства
         href: archive/index.md
-      - name: Миграция в {{ yandex-cloud }} с помощью Hystax Acura
+      - name: Резервное копирование в {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: archive/storage-backup-overview.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью aws s3
+              sync
+            href: archive/storage-backup-aws-s3-sync.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью rclone
+            href: archive/storage-backup-rclone.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью GeeseFS
+            href: archive/storage-backup-geesefs.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью MSP360
+              Backup (CloudBerry Desktop Backup)
+            href: archive/object-storage-cloudberry.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Duplicati
+            href: archive/object-storage-duplicati.md
+          - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
+            href: archive/backup-with-bacula.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veritas
+              Backup Exec
+            href: archive/object-storage-veritas.md
+          - name: >-
+              Резервное копирование в {{ objstorage-name }} с помощью Veeam
+              Backup
+            href: archive/backup-with-veeam.md
+          - name: Резервное копирование ВМ с помощью Хайстекс Акура
+            href: infrastructure-management/hystax-backup.md
+          - name: >-
+              Резервное копирование кластера {{ managed-k8s-name }} в {{
+              objstorage-name }}
+            href: archive/kubernetes-backup.md
+      - name: Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
         href: infrastructure-management/hystax-migration.md
-      - name: Защита от сбоев с помощью Hystax Acura
+      - name: Защита от сбоев с помощью Хайстекс Акура
         href: infrastructure-management/hystax-disaster-recovery.md
       - name: Однонодовый файловый сервер
         items:
@@ -57,24 +323,6 @@ items:
             href: archive/single-node-file-server/terraform.md
       - name: Настройка SFTP-сервера на Centos 7
         href: archive/backup-and-archive-to-sftp.md
-      - name: Резервное копирование ВМ с помощью Hystax Acura Backup
-        href: infrastructure-management/hystax-backup.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью MSP360 Backup
-          (CloudBerry Desktop Backup)
-        href: archive/object-storage-cloudberry.md
-      - name: Резервное копирование в {{ objstorage-name }} через Duplicati
-        href: archive/object-storage-duplicati.md
-      - name: Резервное копирование в {{ objstorage-name }} с помощью Bacula
-        href: archive/backup-with-bacula.md
-      - name: >-
-          Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup
-          Exec
-        href: archive/object-storage-veritas.md
-      - name: >-
-          Резервное копирование кластера {{ managed-k8s-name }} в {{
-          objstorage-name }}
-        href: archive/kubernetes-backup.md
       - name: >-
           Развертывание параллельной файловой системы GlusterFS в
           высокодоступном режиме
@@ -93,6 +341,24 @@ items:
             href: archive/vm-with-backup-policy/console.md
           - name: '{{ TF }}'
             href: archive/vm-with-backup-policy/terraform.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}
+        href: archive/replicate-logs-to-storage-via-data-streams.md
+      - name: Репликация логов в {{ objstorage-name }} с помощью Fluent Bit
+        href: archive/replicate-logs-to-storage.md
+      - name: Использование {{ objstorage-name }} в {{ dataproc-name }}
+        href: archive/copy-files-from-object-storage.md
+      - name: Подключить сервер {{ baremetal-name }} к {{ backup-name }}
+        href: archive/backup-baremetal.md
+      - name: Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: archive/integrate-nextcloud/index.md
+          - name: Развертывание Nextcloud на ВМ из образа {{ coi }}
+            href: archive/integrate-nextcloud/coi-based.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ вручную
+            href: archive/integrate-nextcloud/fault-tolerant.md
+          - name: Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}
+            href: archive/integrate-nextcloud/terraform.md
   - name: Разработка и тестирование
     items:
       - name: Все руководства
@@ -117,18 +383,14 @@ items:
         href: testing/hpc-on-preemptible.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: testing/loadtesting-grpc.md
-      - name: >-
-          Развертывание и нагрузочное тестирование gRPC-сервиса с
-          масштабированием
-        href: testing/loadtesting-grpc-autoscaling.md
       - name: HTTPS-тест с постоянной нагрузкой с помощью Phantom
         href: testing/loadtesting-https-phantom.md
       - name: HTTPS-тест со ступенчатой нагрузкой с помощью Pandora
         href: testing/loadtesting-https-pandora.md
+      - name: HTTP-тест с нагрузкой по сценарию с помощью Pandora
+        href: testing/loadtesting-http-scenario-pandora.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: testing/loadtesting-multiply.md
-      - name: Миграция результатов нагрузочного тестирования из OverLoad
-        href: testing/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: testing/loadtesting-external-agent.md
       - name: Нагрузочный тест с помощью JMeter
@@ -137,12 +399,36 @@ items:
           Получение статистики запросов к объектам {{ objstorage-name }} с
           использованием {{ yq-name }}
         href: testing/server-logs-yq.md
+      - name: Получение количества запросов к объектам {{ objstorage-name }}
+        href: testing/server-logs.md
+      - name: Вызов нагрузочного тестирования из {{ GL }} CI
+        href: testing/loadtesting-gitlab-ci.md
+      - name: Развертывание {{ GLR }} на виртуальной машине {{ compute-name }}
+        href: dev/install-gitlab-runner.md
+      - name: >-
+          Развертывание воркера {{ src-full-name }} на виртуальной машине {{
+          compute-name }}
+        href: dev/self-hosted-worker-sourcecraft.md
+      - name: Сравнение результатов нагрузочных тестов
+        href: testing/loadtesting-results-compare.md
+      - name: >-
+          ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
+          Actions
+        href: dev/ai-powered-github-pr-review.md
   - name: Базовая инфраструктура
     items:
       - name: Все руководства
         href: infrastructure/index.md
       - name: Архитектура и защита базового интернет-сервиса
         href: routing/web-service.md
+      - name: >-
+          Анализ поресурсной детализации расходов с помощью {{ objstorage-name
+          }}
+        href: infrastructure/billing-resource-detailing.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: infrastructure/info-for-federal-ip-whitelist.md
       - name: Отказоустойчивость и масштабирование
         items:
           - name: Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
@@ -158,13 +444,25 @@ items:
               - name: '{{ TF }}'
                 href: web/load-balancer-website/terraform.md
           - name: >-
-              Отказоустойчивый сайт с балансировкой нагрузки с помощью {{
-              alb-name }}
-            href: web/application-load-balancer-website.md
+              Отказоустойчивый сайт с балансировкой нагрузки через {{ alb-name
+              }}
+            items:
+              - name: Обзор
+                href: web/application-load-balancer-website/index.md
+              - name: Консоль управления
+                href: web/application-load-balancer-website/console.md
+              - name: '{{ TF }}'
+                href: web/application-load-balancer-website/terraform.md
           - name: >-
               Интеграция L7-балансировщика с {{ cdn-name }} и {{ objstorage-name
               }}
-            href: web/cdn-storage-integration.md
+            items:
+              - name: Обзор
+                href: web/cdn-storage-integration/index.md
+              - name: Консоль управления, CLI и API
+                href: web/cdn-storage-integration/console.md
+              - name: '{{ TF }}'
+                href: web/cdn-storage-integration/terraform.md
           - name: Работа с группой ВМ с автоматическим масштабированием
             items:
               - name: Обзор
@@ -173,8 +471,14 @@ items:
                 href: infrastructure-management/vm-autoscale/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/vm-autoscale/terraform.md
-          - name: Масштабирование группы ВМ по расписанию
-            href: infrastructure-management/vm-scale-scheduled.md
+          - name: Масштабирование группы виртуальных машин по расписанию
+            items:
+              - name: Обзор
+                href: infrastructure-management/vm-scale-scheduled/index.md
+              - name: Консоль управления, CLI и API
+                href: infrastructure-management/vm-scale-scheduled/console.md
+              - name: '{{ TF }}'
+                href: infrastructure-management/vm-scale-scheduled/terraform.md
           - name: >-
               Автомасштабирование группы ВМ для обработки сообщений из очереди
               {{ message-queue-name }}
@@ -209,6 +513,10 @@ items:
             href: infrastructure-management/terraform-state-lock.md
           - name: Использование модулей {{ yandex-cloud }} в {{ TF }}
             href: infrastructure-management/terraform-modules.md
+          - name: Управление ресурсами {{ k8s }} с помощью провайдера {{ TF }}
+            href: infrastructure-management/kubernetes-terraform-provider.md
+          - name: Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}
+            href: infrastructure/coi-with-terraform.md
           - name: Запуск Docker-образа на виртуальной машине
             items:
               - name: Обзор
@@ -217,6 +525,14 @@ items:
                 href: infrastructure-management/run-docker-on-vm/console.md
               - name: '{{ TF }}'
                 href: infrastructure-management/run-docker-on-vm/terraform.md
+          - name: >-
+              Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{
+              cloud-logging-name }}
+            href: infrastructure-management/ua-http-logging.md
+          - name: >-
+              Запуск языковой модели DeepSeek-R1 в кластере GPU {{ compute-name
+              }}
+            href: infrastructure/gpu-cluster-deepseek.md
       - name: Сеть
         items:
           - name: Настройка синхронизации часов с помощью NTP
@@ -243,9 +559,12 @@ items:
                 href: routing/ipsec/index.md
               - name: Самостоятельная реализация средствами {{ yandex-cloud }}
                 href: routing/ipsec/ipsec-vpn.md
+              - name: >-
+                  Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud
+                  }}
+                href: routing/ipsec/s2s-vpn.md
               - name: Решение SGW от команды архитекторов {{ yandex-cloud }}
                 href: routing/ipsec/sgw.md
-            href: routing/ipsec/index.md
           - name: Соединение с облачной сетью при помощи OpenVPN
             href: routing/openvpn.md
           - name: Создание и настройка шлюза UserGate в режиме прокси-сервера
@@ -257,20 +576,170 @@ items:
           - name: Миграция DNS-зон из Яндекс 360 в {{ dns-name }}
             href: infrastructure-management/connect-migration.md
           - name: >-
-              Настройка {{ dns-full-name }} для доступа к кластеру {{
-              mch-full-name }} из других облачных сетей
+              Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
+              других облачных сетей
             href: dataplatform/clickhouse-dns-peering.md
           - name: Интеграция {{ dns-name }} и корпоративного сервиса DNS
             href: infrastructure-management/dns-integration.md
           - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
             href: infrastructure-management/cert-manager-webhook.md
+      - name: GPU
+        items:
+          - name: Запуск языковой модели DeepSeek-R1 в кластере GPU
+            href: infrastructure-management/gpu-cluster-deepseek.md
+          - name: Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU
+            href: infrastructure-management/vllm-gemma-gpu.md
+  - name: Контейнерная инфраструктура
+    items:
+      - name: Все руководства
+        href: container-infrastructure/index.md
+      - name: >-
+          Настройка подключения к {{ mpg-name }} из контейнера {{
+          serverless-containers-name }}
+        href: container-infrastructure/container-pg-connect.md
+      - name: Создать ВМ с {{ coi }}
+        href: container-infrastructure/vm-create.md
+      - name: Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера
+        href: container-infrastructure/vm-create-with-second-disk.md
+      - name: Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами
+        href: container-infrastructure/ig-with-containers.md
+      - name: Создать группу ВМ с {{ coi }}
+        href: container-infrastructure/ig-create.md
+      - name: Создать ВМ с {{ coi }} и несколькими Docker-контейнерами
+        href: container-infrastructure/docker-compose.md
+      - name: Изменить ВМ с {{ coi }}
+        href: container-infrastructure/vm-update.md
+      - name: Настройка вывода информации из Docker-контейнера в серийный порт
+        href: container-infrastructure/serial-port.md
+      - name: >-
+          Запуск Docker-образа на виртуальной машине с помощью {{
+          cloud-registry-name }}
+        href: container-infrastructure/docker-cloud-registry.md
+      - name: '{{ managed-k8s-name }}'
+        items:
+          - name: Создание нового {{ k8s }}-проекта
+            href: container-infrastructure/new-kubernetes-project.md
+          - name: Создание кластера {{ k8s }} без доступа в интернет
+            href: container-infrastructure/k8s-cluster-with-no-internet.md
+          - name: >-
+              Создание кластера {{ k8s }} с помощью провайдера {{ yandex-cloud
+              }} для {{ k8s }} Cluster API
+            href: container-infrastructure/k8s-cluster-api-provider-yandex.md
+          - name: Запуск рабочих нагрузок с GPU
+            href: container-infrastructure/running-pod-gpu.md
+          - name: Использование групп узлов c GPU без предустановленных драйверов
+            href: container-infrastructure/driverless-gpu.md
+          - name: Установка Time-Slicing GPUs
+            href: container-infrastructure/time-slicing-gpu.md
+          - name: Миграция ресурсов в другую зону доступности
+            href: container-infrastructure/migration-to-an-availability-zone.md
+          - name: Шифрование секретов
+            href: container-infrastructure/kms-k8s.md
+          - name: >-
+              Подключение сервера {{ baremetal-name }} как внешнего узла к
+              кластеру {{ managed-k8s-name }}
+            href: container-infrastructure/k8s-connect-bms-as-node.md
+          - name: Настройка и тестирование масштабирования
+            items:
+              - name: Горизонтальное масштабирование приложения в кластере
+                href: container-infrastructure/autoscaling.md
+              - name: Вертикальное масштабирование приложения в кластере
+                href: container-infrastructure/vpa-autoscaling.md
+              - name: >-
+                  Развертывание и нагрузочное тестирование gRPC-сервиса с
+                  масштабированием
+                href: container-infrastructure/loadtesting-grpc-autoscaling.md
+          - name: Установка NGINX
+            items:
+              - name: Установка Ingress-контроллера NGINX с {{ lets-encrypt }}
+                href: container-infrastructure/ingress-cert-manager.md
+              - name: >-
+                  Установка Ingress-контроллера NGINX с сертификатом из {{
+                  certificate-manager-name }}
+                href: container-infrastructure/nginx-ingress-certificate-manager.md
+          - name: Использование {{ container-registry-name }}
+            items:
+              - name: Интеграция с {{ container-registry-name }}
+                href: container-infrastructure/container-registry.md
+              - name: >-
+                  Подпись и проверка Docker-образов {{ container-registry-name
+                  }}
+                href: container-infrastructure/sign-cr-with-cosign.md
+              - name: Хранение Docker-образов из проектов {{ mgl-name }}
+                href: container-infrastructure/image-storage.md
+          - name: Непрерывная интеграция с {{ GL }}
+            items:
+              - name: >-
+                  Сканирование уязвимостей {{ container-registry-name }} при
+                  непрерывном развертывании приложений с помощью {{ GL }}
+                href: container-infrastructure/cr-scanner-with-k8s-and-gitlab.md
+          - name: Работа с DNS
+            items:
+              - name: Интеграция с корпоративной зоной DNS
+                href: container-infrastructure/custom-dns.md
+              - name: Автоматическое масштабирование DNS по размеру кластера
+                href: container-infrastructure/dns-autoscaler.md
+              - name: Настройка NodeLocal DNS Cache
+                href: container-infrastructure/node-local-dns.md
+              - name: Проверка DNS Challenge для сертификатов {{ lets-encrypt }}
+                href: container-infrastructure/dnschallenge.md
+          - name: Резервное копирование
+            items:
+              - name: Работа со снапшотами {{ compute-name }}
+                href: container-infrastructure/pvc-snapshot-restore.md
+          - name: Мониторинг
+            items:
+              - name: >-
+                  Мониторинг кластера с помощью {{ prometheus-name }} и {{
+                  grafana-name }}
+                href: container-infrastructure/prometheus-grafana-monitoring.md
+              - name: >-
+                  Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat
+                  OSS
+                href: container-infrastructure/filebeat-oss-monitoring.md
+          - name: Использование продуктов {{ marketplace-name }}
+            items:
+              - name: Интеграция с Argo CD
+                href: container-infrastructure/argo-cd.md
+              - name: Интеграция с Crossplane
+                href: container-infrastructure/crossplane.md
+              - name: >-
+                  Синхронизация секретов {{ lockbox-name }} и {{
+                  managed-k8s-name }}
+                href: container-infrastructure/kubernetes-lockbox-secrets.md
+              - name: >-
+                  Передача логов кластера {{ managed-k8s-name }} в {{
+                  cloud-logging-name }}
+                href: container-infrastructure/k8s-fluent-bit-logging.md
+              - name: Настройка Gateway API
+                href: container-infrastructure/gateway-api.md
+              - name: Настройка Ingress-контроллера {{ alb-name }}
+                href: container-infrastructure/alb-ingress-controller.md
+              - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+                href: container-infrastructure/alb-ingress-controller-log-options.md
+              - name: >-
+                  Проверка состояния приложений в кластере {{ managed-k8s-name
+                  }} с помощью Ingress-контроллера {{ alb-name }}
+                href: container-infrastructure/custom-health-checks.md
+              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
+                href: container-infrastructure/jaeger-over-ydb.md
+              - name: Настройка Kyverno & Kyverno Policies
+                href: container-infrastructure/kyverno.md
+              - name: Использование {{ MP }} для трансляции метрик
+                href: container-infrastructure/metrics-provider.md
+              - name: Редактирование изображений для сайтов с помощью Thumbor
+                href: container-infrastructure/thumbor.md
+              - name: Использование Istio
+                href: container-infrastructure/istio.md
+              - name: Использование HashiCorp Vault для хранения секретов
+                href: container-infrastructure/hashicorp-vault.md
   - name: Прикладные решения
     items:
       - name: Все руководства
         href: applied/index.md
       - name: Создание сайта
         items:
-          - name: Статический веб-сайт в {{ objstorage-full-name }}
+          - name: Статический сайт в {{ objstorage-name }}
             items:
               - name: Обзор
                 href: web/static/index.md
@@ -278,7 +747,17 @@ items:
                 href: web/static/console.md
               - name: Terraform
                 href: web/static/terraform.md
-          - name: Веб-сайт на LAMP- или LEMP-стеке
+          - name: >-
+              Статический сайт в {{ objstorage-name }} с доступом через {{
+              cdn-name }}
+            items:
+              - name: Обзор
+                href: applied/cdn-hosting/index.md
+              - name: Консоль управления, CLI, API
+                href: applied/cdn-hosting/console.md
+              - name: '{{ TF }}'
+                href: applied/cdn-hosting/terraform.md
+          - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
                 href: web/lamp-lemp/index.md
@@ -286,7 +765,7 @@ items:
                 href: web/lamp-lemp/console.md
               - name: '{{ TF }}'
                 href: web/lamp-lemp/terraform.md
-          - name: Создание сайта на базе Joomla с базой данных PostgreSQL
+          - name: Создание сайта на CMS Joomla с базой данных {{ PG }}
             items:
               - name: Обзор
                 href: web/joomla-postgresql/index.md
@@ -312,7 +791,7 @@ items:
                 href: web/wordpress-mysql/terraform.md
           - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
             href: web/wordpress-transfer.md
-          - name: Создание веб-сайта на базе «1С-Битрикс»
+          - name: Создание сайта на базе «1С-Битрикс»
             items:
               - name: Обзор
                 href: web/bitrix-website/index.md
@@ -331,13 +810,27 @@ items:
           - name: Организация виртуального хостинга
             href: web/virtual-hosting.md
           - name: Привязка доменного имени к ВМ с веб-сервером
-            href: web/bind-domain-vm.md
+            items:
+              - name: Обзор
+                href: web/bind-domain-vm/index.md
+              - name: Консоль управления, CLI и API
+                href: web/bind-domain-vm/console.md
+              - name: '{{ TF }}'
+                href: web/bind-domain-vm/terraform.md
           - name: >-
               Создание веб-приложения на Python с использованием фреймворка
               Flask
             href: web/flask.md
           - name: Хостинг статического сайта на фреймворке Gatsby
             href: web/gatsby-static-website.md
+          - name: Установка Ghost CMS CloudApp
+            href: web/ghost-cms-cloudapp.md
+          - name: Миграция в {{ cdn-name }} из стороннего CDN-провайдера
+            href: web/migrate-to-yc-cdn.md
+          - name: Получение статистики посещения сайта с использованием S3 Select
+            href: web/user-agent-statistics.md
+          - name: Оформление контента из {{ video-name }} в IFrame
+            href: web/video-iframe.md
       - name: 1С
         items:
           - name: Интернет-магазин на «1С-Битрикс»
@@ -352,32 +845,64 @@ items:
               Создание кластера Linux-серверов «1С:Предприятия» с кластером {{
               mpg-name }}
             href: infrastructure-management/1c-postgresql-linux.md
+          - name: Мониторинг кластера «1С:Предприятие» на базе Linux
+            href: infrastructure-management/collect-metrics-1c-cluster.md
       - name: Интернет вещей (IoT)
         items:
+          - name: Работа с помощью Mosquitto
+            items:
+              - name: Отправить сообщение
+                href: iot/mosquitto/mosquitto-publish.md
+              - name: Подписать устройство или реестр на получение сообщений
+                href: iot/mosquitto/mosquitto-subscribe.md
+          - name: Работа с {{ iot-name }} с устройства с Android на языке Java
+            href: iot/android-java.md
+          - name: Работа с {{ iot-name }} на языке C#
+            href: iot/c-sharp.md
+          - name: Работа с {{ iot-name }} на языке Java
+            href: iot/java.md
           - name: Мониторинг состояния географически распределенных устройств
             href: iot/datalens.md
           - name: Мониторинг показаний датчиков и уведомления о событиях
             href: iot/monitoring.md
+          - name: Тестирование доставки сообщения
+            href: iot/message-delivery-check.md
           - name: Эмуляция множества IoT-устройств
             href: testing/iot-emulation.md
+          - name: Запись данных с устройства в базу данных
+            href: iot/data-recording.md
+      - name: Алиса
+        items:
+          - name: Создание навыка Алисы
+            href: serverless/alice-skill.md
+          - name: Разработка навыка Алисы и сайта с авторизацией
+            href: serverless/alice-shareable-todolist.md
       - name: Прочее
         items:
           - name: Публикация обновлений для игр с помощью {{ cdn-name }}
             href: web/prefetch.md
           - name: Создание SAP-программы в {{ yandex-cloud }}
             href: infrastructure-management/sap.md
-          - name: Разработка Telegram-бота для распознавания текста и аудио
-            href: ml-ai/recognizer-bot.md
           - name: Развертывание сервера Minecraft в {{ yandex-cloud }}
             href: infrastructure/minecraft-server.md
           - name: Развертывание мультиплеер-сервера для GTA V в {{ yandex-cloud }}
             href: infrastructure/gta-v-server.md
+          - name: Конвертация видео в GIF на Python
+            href: serverless/video-converting-queue.md
+          - name: >-
+              Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
+              Linux
+            href: applied/desktop-linux-printer.md
   - name: Построение Data Platform
     items:
       - name: Все руководства
         href: dataplatform/index.md
-      - name: Развертывание веб-интерфейса {{ KF }}
+      - name: Самостоятельное развертывание веб-интерфейса {{ KF }}
         href: dataplatform/deploy-kafka-ui.md
+      - name: >-
+          Обновление кластера {{ mkf-name }} с {{ ZK }} на {{ kraft-short-name
+          }}
+        href: dataplatform/zk-kraft-kafka-migration.md
       - name: Миграция БД из стороннего кластера {{ KF }} в {{ mkf-name }}
         href: dataplatform/kafka-connector.md
       - name: >-
@@ -432,24 +957,48 @@ items:
           Поставка данных из {{ mkf-name }} в {{ yds-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mkf-yds-stream.md
+      - name: >-
+          Поставка данных из {{ yds-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-ydb.md
+      - name: >-
+          Поставка данных из {{ yds-name }} в {{ mkf-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-to-kafka.md
+      - name: Захват изменений {{ ydb-short-name }} и поставка в {{ DS }}
+        href: dataplatform/ydb-to-yds.md
       - name: Настройка Kafka Connect для работы с кластером {{ mkf-name }}
         href: dataplatform/kafka-connect.md
+      - name: >-
+          Синхронизация топиков {{ KF }} в {{ objstorage-name }} без
+          использования интернета
+        href: dataplatform/kafka-topic-s3-sync-private.md
       - name: Использование схем формата данных с {{ mkf-name }}
         items:
           - name: Управление схемами данных в {{ mkf-name }}
             href: dataplatform/schema-registry-overview.md
           - name: Использование {{ mkf-msr }} с {{ mkf-name }}
             href: dataplatform/managed-schema-registry.md
+          - name: Использование {{ mkf-msr }} с {{ mkf-name }} с помощью REST API
+            href: dataplatform/managed-schema-registry-rest.md
           - name: Использование Confluent Schema Registry с {{ mkf-name }}
             href: dataplatform/confluent-schema-registry.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
-        href: dataplatform/lockbox-and-airflow.md
-      - name: Автоматизация задач {{ yq-full-name }} с помощью {{ maf-full-name }}
+      - name: Отслеживание потери сообщений в топике {{ KF }}
+        href: dataplatform/retention-policy.md
+      - name: Автоматизация задач {{ yq-name }} с помощью {{ maf-name }}
         href: dataplatform/airflow-auto-tasks.md
       - name: >-
           Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
           Python SDK
         href: dataplatform/using-python-sdk-in-airflow.md
+      - name: Настройка SMTP-сервера для отправки уведомлений по электронной почте
+        href: dataplatform/airflow-test-smtp-notification.md
+      - name: Добавление данных в БД {{ CH }}
+        href: dataplatform/insert-data-ch.md
+      - name: Миграция данных в {{ mch-name }} средствами {{ CH }}
+        href: dataplatform/clickhouse-migration.md
+      - name: Миграция данных в {{ mch-name }} при помощи {{ data-transfer-name }}
+        href: dataplatform/ch-to-mch-migration.md
       - name: >-
           Поставка данных из {{ mmy-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
@@ -462,6 +1011,8 @@ items:
         href: dataplatform/clickhouse-for-graphite.md
       - name: Получение данных из {{ mkf-name }} в {{ mch-name }}
         href: dataplatform/fetch-data-from-mkf.md
+      - name: Получение данных из {{ mkf-name }} в ksqlDB
+        href: dataplatform/use-ksqldb-with-mkf.md
       - name: >-
           Поставка данных из {{ mkf-name }} в {{ mch-name }} с помощью {{
           data-transfer-name }}
@@ -480,25 +1031,31 @@ items:
         href: dataplatform/clickhouse-hybrid-storage.md
       - name: Шардирование таблиц {{ mch-name }}
         href: dataplatform/clickhouse-sharding.md
-      - name: Перешардирование данных в кластере {{ mch-name }}
-        href: dataplatform/mch-mch-resharding.md
       - name: >-
-          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с
-          использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
-          data-transfer-full-name }}
+          Загрузка данных из {{ yandex-direct }} в витрину {{ mch-name }} с
+          использованием {{ sf-name }}, {{ objstorage-name }} и {{
+          data-transfer-name }}
         href: dataplatform/data-transfer-direct-to-mch.md
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ mch-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-clickhouse.md
       - name: >-
           Миграция данных со сменой хранилища из {{ mos-name }} в {{ mch-name }}
-          с помощью {{ data-transfer-full-name }}
+          с помощью {{ data-transfer-name }}
         href: dataplatform/opensearch-to-clickhouse.md
       - name: >-
-          Загрузка данных из {{ ydb-full-name }} в {{ mch-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Загрузка данных из {{ ydb-name }} в {{ mch-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-clickhouse.md
+      - name: >-
+          Интеграция {{ mch-full-name }} с Microsoft SQL Server через {{ CH }}
+          JDBC Bridge
+        href: dataplatform/jdbc-ch-to-sql-server-integration.md
+      - name: Миграция базы данных из Google BigQuery в {{ mch-name }}
+        href: dataplatform/bigquery-to-clickhouse.md
+      - name: Интеграция {{ mch-full-name }} с Oracle через {{ CH }} JDBC Bridge
+        href: dataplatform/jdbc-ch-to-oracle-integration.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластеру {{ mch-name }} из
           других облачных сетей
@@ -512,31 +1069,57 @@ items:
       - name: >-
           Монтирование бакетов {{ objstorage-name }} к файловой системе хостов
           {{ dataproc-name }}
-        href: dataplatform/data-proc-init-actions-geesefs.md
-      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-full-name }}
-        href: dataplatform/data-proc-and-kafka.md
+        href: dataplatform/data-processing-init-actions-geesefs.md
+      - name: Работа с топиками {{ KF }} с помощью {{ dataproc-name }}
+        href: dataplatform/data-processing-and-kafka.md
       - name: Автоматизация работы с {{ dataproc-name }} с помощью {{ maf-name }}
-        href: dataplatform/data-proc-and-airflow.md
+        href: dataplatform/data-processing-and-airflow.md
       - name: >-
           Совместная работа с таблицами {{ dataproc-name }} с использованием {{
           metastore-name }}
-        href: dataplatform/dataproc-to-dataproc.md
+        href: dataplatform/data-processing-to-data-processing.md
       - name: >-
           Перенос метаданных между кластерами {{ dataproc-name }} с помощью {{
           metastore-name }}
         href: dataplatform/metastore-import.md
+      - name: >-
+          Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{
+          mch-name }}
+        href: dataplatform/s3-data-processing-ch.md
+      - name: Работа с заданиями {{ dataproc-name }}
+        items:
+          - name: Работа с заданиями Hive
+            href: dataplatform/hive-job-basics.md
+          - name: Работа с заданиями MapReduce
+            href: dataplatform/mapreduce-job-basics.md
+          - name: Работа с заданиями PySpark
+            href: dataplatform/pyspark-job-basics.md
+          - name: Работа с заданиями Spark
+            href: dataplatform/spark-job-basics.md
+          - name: Запуск заданий Apache Hive
+            href: dataplatform/how-to-use-hive.md
+          - name: Запуск Spark-приложений
+            href: dataplatform/run-spark-job.md
+          - name: Запуск заданий с удаленного хоста
+            href: dataplatform/remote-run-job.md
       - name: Миграция коллекций из стороннего кластера {{ MG }} в {{ mmg-name }}
         href: dataplatform/mongodb-migration-with-data-transfer.md
       - name: Миграция данных в {{ mmg-name }}
-        href: dataplatform/mongodb-data-migration.md
+        href: dataplatform/storedoc-data-migration.md
       - name: Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0
-        href: dataplatform/mongodb-versions.md
-      - name: Шардирование коллекций {{ MG }}
-        href: dataplatform/mongodb-sharding.md
-      - name: Анализ производительности и оптимизация {{ MG }}
-        href: dataplatform/mongodb-profiling.md
+        href: dataplatform/storedoc-versions.md
+      - name: Шардирование коллекций {{ SD }}
+        href: dataplatform/storedoc-sharding.md
+      - name: Анализ производительности и оптимизация {{ SD }}
+        href: dataplatform/storedoc-profiling.md
       - name: Миграция БД из стороннего кластера {{ MY }} в кластер {{ mmy-name }}
-        href: dataplatform/mysql-data-migration.md
+        items:
+          - name: Обзор
+            href: dataplatform/mysql-data-migration/index.md
+          - name: Перенос данных с использованием сервиса {{ data-transfer-name }}
+            href: dataplatform/mysql-data-migration/data-transfer.md
+          - name: Перенос данных с помощью логического дампа
+            href: dataplatform/mysql-data-migration/logical-dump-migration.md
       - name: Анализ производительности и оптимизация {{ mmy-name }}
         href: dataplatform/profiling-mmy.md
       - name: >-
@@ -577,13 +1160,11 @@ items:
           data-transfer-name }}
         href: dataplatform/rds-to-mpg.md
       - name: >-
-          Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mmy-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/mmy-to-mgp.md
-      - name: Настройка политики индексов в {{ mos-full-name }}
+      - name: Настройка политики индексов в {{ mos-name }}
         href: dataplatform/opensearch-index-policy.md
-      - name: Миграция данных из {{ ES }} в {{ mos-name }}
-        href: dataplatform/elasticsearch-to-opensearch.md
       - name: >-
           Миграция данных в {{ mos-name }} из стороннего кластера {{ OS }} с
           помощью {{ data-transfer-name }}
@@ -593,25 +1174,37 @@ items:
           data-transfer-name }}
         href: dataplatform/opensearch-to-object-storage.md
       - name: >-
-          Миграция данных из {{ mos-full-name }} в {{ ydb-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mos-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/opensearch-to-ydb.md
       - name: >-
-          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
+      - name: >-
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
       - name: >-
-          Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с
-          помощью {{ keycloak }}
+          Аутентификация в {{ OS }} Dashboards кластера {{ mos-name }} с помощью
+          {{ keycloak }}
         href: dataplatform/opensearch-saml-keycloak.md
+      - name: Использование плагина yandex-lemmer в {{ mos-name }}
+        href: dataplatform/opensearch-yandex-lemmer.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
+      - name: Поиск проблем с производительностью кластера {{ mpg-name }}
+        href: dataplatform/mpg-performance-problems.md
       - name: Анализ производительности и оптимизация {{ mpg-name }}
         href: dataplatform/mpg-profiling.md
-      - name: Миграция БД из {{ mpg-name }}
-        href: dataplatform/outbound-replication.md
+      - name: Логическая репликация {{ PG }}
+        href: dataplatform/mpg-replication-overview.md
       - name: Миграция БД из стороннего кластера {{ PG }} в {{ mpg-name }}
         href: dataplatform/postgresql-data-migration.md
+      - name: Миграция БД из {{ mpg-name }}
+        href: dataplatform/outbound-replication.md
+      - name: Миграция кластера {{ mpg-name }} на другую версию
+        href: dataplatform/postgresql-versions.md
       - name: Асинхронная репликация данных из {{ PG }} в {{ CH }}
         href: dataplatform/rdbms-to-clickhouse.md
         hidden: true
@@ -631,8 +1224,8 @@ items:
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
-          Перенос данных из {{ objstorage-full-name }} в {{ mpg-full-name }} с
-          использованием {{ data-transfer-full-name }}
+          Перенос данных из {{ objstorage-name }} в {{ mpg-name }} с
+          использованием {{ data-transfer-name }}
         href: dataplatform/object-storage-to-postgresql.md
       - name: Захват изменений {{ PG }} и поставка в {{ DS }}
         href: dataplatform/mpg-to-yds.md
@@ -641,9 +1234,11 @@ items:
           data-transfer-name }}
         href: dataplatform/mpg-to-mmy.md
       - name: >-
-          Миграция данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью
-          {{ data-transfer-full-name }}
+          Миграция данных из {{ mpg-name }} в {{ mos-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/postgresql-to-opensearch.md
+      - name: Решение проблем с сортировкой строк в {{ PG }} после обновления glibc
+        href: dataplatform/postgresql-glibc-collation-issues.md
       - name: Миграция БД из {{ GP }} в {{ CH }}
         href: dataplatform/greenplum-to-clickhouse.md
       - name: Миграция БД из {{ GP }} в {{ PG }}
@@ -651,13 +1246,25 @@ items:
       - name: Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-name }}
         href: dataplatform/greenplum-yezzey.md
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ mgp-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-greenplum.md
-      - name: Миграция БД из стороннего кластера {{ RD }} в {{ mrd-name }}
-        href: dataplatform/redis-data-migration.md
+      - name: >-
+          Копирование данных из {{ mos-name }} в {{ mgp-name }} с помощью {{
+          data-transfer-full-name }}
+        href: dataplatform/opensearch-to-greenplum.md
+      - name: >-
+          Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name
+          }} с помощью конфигурационного файла
+        href: dataplatform/mgp-config-server-for-s3.md
+      - name: >-
+          Получение данных из внешних источников с помощью именованных запросов
+          в {{ GP }}
+        href: dataplatform/pxf-named-queries.md
+      - name: Миграция БД из стороннего кластера {{ VLK }} в {{ mrd-name }}
+        href: dataplatform/valkey-data-migration.md
       - name: Использование кластера {{ mrd-name }} в качестве хранилища сессий PHP
-        href: dataplatform/redis-as-php-sessions-storage.md
+        href: dataplatform/valkey-as-php-sessions-storage.md
       - name: >-
           Поставка данных из {{ ydb-name }} в {{ mkf-name }} с помощью {{
           data-transfer-name }}
@@ -679,17 +1286,67 @@ items:
         href: dataplatform/mpg-ydb-replication.md
         hidden: true
       - name: >-
-          Загрузка данных из {{ objstorage-full-name }} в {{ ydb-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ objstorage-name }} в {{ ydb-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/object-storage-to-ydb.md
       - name: >-
-          Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с
-          помощью {{ data-transfer-full-name }}
+          Загрузка данных из {{ ydb-name }} в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
         href: dataplatform/ydb-to-object-storage.md
+      - name: Обработка аудитных логов {{ at-name }}
+        href: dataplatform/audit-log-processing.md
+      - name: Обработка логов {{ cloud-logging-name }}
+        href: dataplatform/cloud-logging-processing.md
+      - name: Обработка потока изменений Debezium
+        href: dataplatform/debezium-yq.md
+      - name: Анализ данных с помощью {{ jlab }}
+        href: dataplatform/jupyter-yq.md
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
+        href: dataplatform/billing-detail-files-processing.md
+      - name: Ввод данных в системы хранения
+        href: dataplatform/data-ingestion.md
+      - name: Умная обработка логов
+        href: dataplatform/log-ingestion.md
+      - name: Передача данных в микросервисных архитектурах
+        href: dataplatform/message-broker.md
+      - name: >-
+          Миграция данных в {{ objstorage-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/yds-obj-migration.md
+      - name: >-
+          Миграция данных из стороннего кластера {{ GP }} или {{ PG }} в {{
+          mgp-name }} с помощью {{ data-transfer-name }}
+        href: dataplatform/managed-greenplum.md
+      - name: Миграция кластера {{ mmg-name }}
+        href: dataplatform/storedoc.md
+      - name: Миграция кластера {{ MY }}
+        href: dataplatform/managed-mysql.md
+      - name: Миграция на сторонний кластер {{ MY }}
+        href: dataplatform/managed-mysql-to-mysql.md
+      - name: Миграция кластера {{ PG }}
+        href: dataplatform/managed-postgresql.md
+      - name: >-
+          Создание реестра схем для поставки данных в формате Debezium CDC из {{
+          KF }}
+        href: dataplatform/schema-registry-cdc-debezium-kafka.md
+      - name: Автоматизация работы с помощью {{ maf-full-name }}
+        href: dataplatform/airflow-and-spark.md
+      - name: Работа с таблицей в {{ objstorage-name }} из PySpark-задания
+        href: dataplatform/spark-simple-rw-job.md
+      - name: Интеграция {{ msp-full-name }} и {{ metastore-full-name }}
+        href: dataplatform/metastore-and-spark.md
+      - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+        href: dataplatform/airflow-spark-min.md
+      - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
+        href: dataplatform/spark-objstorage-integration.md
+      - name: Запуск PySpark-задания в {{ myt-full-name }}
+        href: dataplatform/yt-run-spark-job.md
   - name: Продукты Microsoft в {{ yandex-cloud }}
     items:
       - name: Все руководства
         href: windows/index.md
+      - name: Безопасная передача пароля в скрипт инициализации
+        href: windows/secure-password-script.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
@@ -702,100 +1359,204 @@ items:
         href: windows/mssql-alwayson-lb.md
       - name: Развертывание Remote Desktop Gateway
         href: windows/rds-gw.md
+      - name: Подключение бакета как диска в Windows
+        href: windows/s3-disk-connect.md
   - name: Архитектура, сетевое взаимодействие
     items:
       - name: Все руководства
         href: routing/index.md
-      - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
-        href: routing/multi-folder-vpc.md
-      - name: Создание бастионного хоста
-        href: routing/bastion.md
-      - name: >-
-          Создание туннеля между двумя подсетями при помощи OpenVPN Access
-          Server
-        href: routing/site-to-site-openvpn.md
-      - name: >-
-          Защищенный доступ пользователей к облачным ресурсам на основе
-          WireGuard VPN
-        href: routing/remote-wireguard-vpn.md
-      - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
-        href: routing/usergate-firewall.md
-      - name: Реализация отказоустойчивых сценариев для сетевых ВМ
-        href: routing/route-switcher.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе Next-Generation Firewall
-        href: routing/high-accessible-dmz.md
-      - name: >-
-          Сегментация облачной инфраструктуры с помощью решения Check Point
-          Next-Generation Firewall
-        href: routing/network-segmentation-checkpoint.md
-      - name: >-
-          Реализация защищенной высокодоступной сетевой инфраструктуры с
-          выделением DMZ на основе UserGate NGFW
-        href: routing/high-accessible-dmz-usergate.md
-      - name: Настройка защищенного туннеля GRE поверх IPsec
-        href: routing/gre-over-ipsec.md
-      - name: Настройка сети для {{ dataproc-name }}
-        href: routing/dataproc-nat-instance.md
-      - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
-        href: routing/storage-vpc-access.md
-      - name: Подключение к {{ container-registry-name }} из {{ vpc-short-name }}
-        href: routing/vpc-cr-access.md
-  - name: Визуализация и анализ данных
+      - name: Организация VPN-подключений
+        items:
+          - name: Создание бастионного хоста
+            href: routing/bastion.md
+          - name: >-
+              Создание туннеля между двумя подсетями при помощи OpenVPN Access
+              Server
+            href: routing/site-to-site-openvpn.md
+          - name: >-
+              Защищенный доступ пользователей к облачным ресурсам на основе
+              WireGuard VPN
+            href: routing/remote-wireguard-vpn.md
+          - name: Настройка защищенного туннеля GRE поверх IPsec
+            href: routing/gre-over-ipsec.md
+      - name: Сетевая облачная инфраструктура на основе NGFW
+        items:
+          - name: >-
+              Сегментация облачной инфраструктуры с помощью решения Check Point
+              Next-Generation Firewall
+            href: routing/network-segmentation-checkpoint.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Check Point NGFW
+            href: routing/high-accessible-dmz.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе UserGate NGFW
+            href: routing/high-accessible-dmz-usergate.md
+          - name: >-
+              Реализация защищенной высокодоступной сетевой инфраструктуры с
+              выделением DMZ на основе Смарт-Софт NGFW
+            href: routing/high-accessible-dmz-ting.md
+          - name: Создание и настройка шлюза UserGate в режиме межсетевого экрана
+            href: routing/usergate-firewall.md
+      - name: '{{ baremetal-name }}'
+        items:
+          - name: Настройка VRRP для кластера серверов {{ baremetal-name }}
+            href: routing/bms-vrf-routing.md
+          - name: Настройка сетевой связности в подсети {{ baremetal-name }}
+            href: routing/bms-simple-subnet.md
+          - name: >-
+              Настройка сетевой связности между подсетями {{ baremetal-name }} и
+              {{ vpc-name }}
+            href: routing/bm-vrf-and-vpc-interconnect.md
+          - name: >-
+              Доставка USB-устройств на сервер {{ baremetal-name }} или
+              виртуальную машину
+            href: routing/usb-over-ip.md
+          - name: >-
+              Настройка межсетевого экрана OPNsense в режиме кластера высокой
+              доступности на серверах {{ baremetal-name }}
+            href: routing/opnsense-failover-cluster.md
+          - name: >-
+              Развертывание веб-приложения на серверах {{ baremetal-name }} с
+              L7-балансировщиком и защитой {{ sws-name }}
+            href: routing/webapp-on-bms-behind-sws.md
+          - name: >-
+              Организация сетевой связности между подсетями {{ baremetal-name }}
+              и On-Prem с помощью {{ interconnect-name }}
+            href: routing/bms-cic-onprem.md
+            hidden: true
+      - name: '{{ interconnect-name }}'
+        items:
+          - name: >-
+              Организация доступа через {{ interconnect-name }} к облачным
+              сетям, размещенным за NGFW
+            href: routing/cic-with-ngfw.md
+          - name: >-
+              Создание прямого транкового подключения и приватного соединения в
+              нем
+            href: routing/trunk-priv-add.md
+          - name: >-
+              Создание прямого транкового подключения и публичного соединения в
+              нем
+            href: routing/trunk-pub-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и приватного
+              соединения в нем
+            href: routing/partner-trunk-priv-add.md
+          - name: >-
+              Создание нового партнерского транкового подключения и публичного
+              соединения в нем
+            href: routing/partner-trunk-pub-add.md
+          - name: >-
+              Добавление приватного соединения в прямое или партнерское
+              транковое подключение
+            href: routing/priv-add.md
+          - name: >-
+              Добавление публичного соединения в прямое или партнерское
+              транковое подключение
+            href: routing/pub-add.md
+          - name: Изменить емкость транкового подключения
+            href: routing/trunk-capacity-change.md
+          - name: Удалить приватное соединение
+            href: routing/priv-del.md
+          - name: Удалить публичное соединение
+            href: routing/pub-del.md
+          - name: Удалить транковое подключение
+            href: routing/trunk-del.md
+      - name: Настройка сетевых ресурсов и взаимодействие между ними
+        items:
+          - name: Настройка сетевого взаимодействия ресурсов из разных каталогов
+            href: routing/multi-folder-vpc.md
+          - name: Реализация отказоустойчивых сценариев для сетевых ВМ
+            href: routing/route-switcher.md
+          - name: Настройка сети для {{ dataproc-name }}
+            href: routing/data-processing-nat-instance.md
+          - name: >-
+              Переключение сетевого соединения при пересоздании кластера {{
+              dataproc-name }}
+            href: routing/data-processing-dns-reconnect.md
+      - name: Подключение к сервисам
+        items:
+          - name: Подключение к {{ objstorage-name }} из {{ vpc-short-name }}
+            href: routing/storage-vpc-access.md
+          - name: >-
+              Подключение к {{ container-registry-name }} из {{ vpc-short-name
+              }}
+            href: routing/vpc-cr-access.md
+  - name: Анализ и визуализация данных
     items:
       - name: Все руководства
         href: datalens/index.md
-      - name: Знакомство с {{ datalens-short-name }}
+      - name: Аналитика
         items:
-          - name: Простой дашборд из CSV-файла
-            href: datalens/data-from-csv-visualization.md
-          - name: Публичный чарт с картой Москвы из CSV-файла
-            href: datalens/data-from-csv-to-public-visualization.md
-          - name: Дашборд сети магазинов из БД {{ CH }}
-            href: datalens/data-from-ch-visualization.md
-      - name: Работа с геоданными
+          - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
+            href: analysis/search-events-query.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}
+            href: analysis/search-events-bucket.md
+          - name: Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
+            href: analysis/search-events-logging.md
+      - name: '{{ datalens-name }}'
         items:
-          - name: Анализ открытых данных ДТП на дорогах России
-            href: datalens/data-from-csv-geo-visualization.md
-          - name: >-
-              Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-              Marketplace
-            href: datalens/data-from-ch-to-geolayers-visualization.md
-          - name: >-
-              Геокодинг с помощью API Яндекс Карт для визуализации в {{
-              datalens-short-name }}
-            href: datalens/data-from-ch-geocoder.md
-      - name: Аналитика сервисов
-        items:
-          - name: 'Яндекс Метрика: прямое подключение'
-            href: datalens/data-from-metrica-visualization.md
-          - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
-            href: datalens/data-from-metrica-yc-visualization.md
-          - name: 'AppMetrica: прямое подключение'
-            href: datalens/data-from-appmetrica-visualization.md
-          - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
-            href: datalens/data-from-appmetrica-yc-visualization.md
-          - name: 'Битрикс24: прямое подключение'
-            href: datalens/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
-            href: datalens/data-from-tracker.md
-          - name: Анализ логов {{ objstorage-name }} при помощи {{ datalens-name }}
-            href: datalens/storage-logs-analysis.md
-          - name: 'Подкасты Яндекс Музыки: статистика'
-            href: datalens/data-from-podcasts.md
-          - name: Визуализация данных {{ yq-full-name }}
-            href: datalens/data-from-yandex-query-visualization.md
-          - name: Визуализация данных {{ monitoring-full-name }}
-            href: datalens/data-from-monitoring-visualization.md
-          - name: Визуализация данных из {{ ytsaurus-name }} CHYT
-            href: datalens/data-from-ch-over-yt.md
-      - name: Функциональные
-        items:
-          - name: Использование параметров
-            href: datalens/data-from-ch-with-parameters.md
-          - name: Примеры создания QL-чартов
-            href: datalens/data-from-ch-to-sql-chart.md
+          - name: Знакомство с {{ datalens-short-name }}
+            items:
+              - name: Простой дашборд из CSV-файла
+                href: datalens/data-from-csv-visualization.md
+              - name: Публичный чарт с картой Москвы из CSV-файла
+                href: datalens/data-from-csv-to-public-visualization.md
+              - name: Дашборд сети магазинов из БД {{ CH }}
+                href: datalens/data-from-ch-visualization.md
+          - name: Работа с геоданными
+            items:
+              - name: Анализ открытых данных ДТП на дорогах России
+                href: datalens/data-from-csv-geo-visualization.md
+              - name: >-
+                  Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
+                  Marketplace
+                href: datalens/data-from-ch-to-geolayers-visualization.md
+              - name: >-
+                  Геокодинг с помощью API Яндекс Карт для визуализации в {{
+                  datalens-short-name }}
+                href: datalens/data-from-ch-geocoder.md
+              - name: >-
+                  Визуализация данных с использованием инструмента Тепловые
+                  карты
+                hidden: true
+                href: datalens/data-on-heat-map-dashboard.md
+          - name: Аналитика сервисов
+            items:
+              - name: 'Яндекс Метрика: прямое подключение'
+                href: datalens/data-from-metrica-visualization.md
+              - name: 'Яндекс Метрика: экспорт, постобработка и визуализация данных'
+                href: datalens/data-from-metrica-yc-visualization.md
+              - name: 'AppMetrica: прямое подключение'
+                href: datalens/data-from-appmetrica-visualization.md
+              - name: 'AppMetrica: экспорт, постобработка и визуализация данных'
+                href: datalens/data-from-appmetrica-yc-visualization.md
+              - name: 'Битрикс24: прямое подключение'
+                href: datalens/data-from-bitrix24-visualization.md
+              - name: '{{ tracker-name }}: экспорт и визуализация данных'
+                href: datalens/data-from-tracker.md
+              - name: >-
+                  Анализ логов {{ objstorage-name }} при помощи {{ datalens-name
+                  }}
+                href: datalens/storage-logs-analysis.md
+              - name: 'Подкасты Яндекс Музыки: статистика'
+                href: datalens/data-from-podcasts.md
+              - name: Визуализация данных {{ yq-name }}
+                href: datalens/data-from-yandex-query-visualization.md
+              - name: Визуализация данных {{ monitoring-name }}
+                href: datalens/data-from-monitoring-visualization.md
+              - name: Визуализация данных из {{ ytsaurus-name }} CHYT
+                href: datalens/data-from-ch-over-yt.md
+          - name: Функциональные
+            items:
+              - name: Использование параметров в вычисляемых полях
+                href: datalens/data-from-ch-with-parameters.md
+              - name: Параметризация источников
+                href: datalens/data-from-ch-dataset-parametrization.md
+              - name: Примеры создания QL-чартов
+                href: datalens/data-from-ch-to-sql-chart.md
   - name: Бессерверные технологии
     items:
       - name: Все руководства
@@ -812,14 +1573,26 @@ items:
         href: serverless/slack-bot-serverless.md
       - name: Разработка Telegram-бота
         href: serverless/telegram-bot-serverless.md
+      - name: Разработка Telegram-бота с поддержкой AI-агента
+        href: serverless/telegram-ai-bot-workflows.md
       - name: Разработка пользовательской интеграции в {{ api-gw-name }}
         href: serverless/api-gw-integration.md
       - name: Разработка CRUD API для сервиса фильмов
         href: serverless/movies-database.md
-      - name: Разработка навыка Алисы и сайта с авторизацией
-        href: serverless/alice-shareable-todolist.md
       - name: Построение пайплайна CI/CD в {{ GL }}
         href: serverless/ci-cd-serverless.md
+      - name: Запуск {{ GLR }} в {{ serverless-containers-name }}
+        href: serverless/serverless-gitlab-runner.md
+      - name: Настройка CI/CD между {{ sf-name }} и {{ src-name }}
+        href: serverless/ci-cd-sourcecraft-functions.md
+      - name: Настройка CI/CD между {{ sf-name }} и GitHub
+        href: serverless/ci-cd-github-functions.md
+      - name: >-
+          Настройка CI/CD в {{ src-name }} для развертывания приложения в {{
+          serverless-containers-name }} с помощью GitHub Actions
+        href: serverless/ci-cd-sourcecraft-github-actions.md
+      - name: Работа с API-шлюзом по протоколу WebSocket
+        href: serverless/api-gw-websocket.md
       - name: >-
           Создание интерактивного serverless-приложения с использованием
           WebSocket
@@ -836,17 +1609,167 @@ items:
         href: serverless/canary-release.md
       - name: Интерактивная отладка функций {{ sf-name }}
         href: serverless/serverless-live-debug.md
-      - name: >-
-          Запуск контейнерного приложения в {{ serverless-containers-full-name
-          }}
+      - name: Создание функции Node.js с помощью TypeScript
+        href: serverless/nodejs-typescript.md
+      - name: Запуск контейнерного приложения в {{ serverless-containers-name }}
         href: serverless/deploy-app-container.md
       - name: >-
-          Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
-          анализ с помощью {{ datalens-full-name }}
+          Передача событий {{ postbox-name }} в {{ yds-name }} и их анализ с
+          помощью {{ datalens-name }}
         href: serverless/events-from-postbox-to-yds.md
       - name: >-
-          Использование {{ api-gw-full-name }} для настройки синтеза речи в {{
-          speechkit-full-name }}
+          Использование {{ api-gw-name }} для настройки синтеза речи в {{
+          speechkit-name }}
         href: serverless/speechkit-integrarion-via-agi-gw.md
-base: ru/tutorials
-deepBase: 2
+      - name: Подключение к {{ ydb-short-name }} из функции {{ sf-name }} на Python
+        href: serverless/connect-from-cf.md
+      - name: >-
+          Подключение к базе данных {{ ydb-short-name }} из функции {{ sf-name
+          }} на Node.js
+        href: serverless/connect-from-cf-nodejs.md
+      - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
+        href: serverless/api-gw-sws-integration.md
+      - name: >-
+          Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и
+          аутентификацией в Firebase
+        href: serverless/jwt-authorizer-firebase.md
+      - name: >-
+          Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью
+          {{ sw-full-name }}
+        href: serverless/auto-upload.md
+      - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
+        href: serverless/logging-functions.md
+      - name: >-
+          Настройка интеграций {{ sw-name }} с {{ tracker-name }}, {{ yagpt-name
+          }} и {{ postbox-name }}
+        href: serverless/tracker-yandexgpt-postbox-integrations.md
+      - name: >-
+          Разработка функций в Functions Framework и их развертывание в {{
+          serverless-containers-full-name }}
+        href: serverless/functions-framework-to-container.md
+      - name: >-
+          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: serverless/forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: serverless/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: serverless/forms-and-datalens-integration/terraform.md
+      - name: >-
+          Создание адреса {{ postbox-full-name }} и проверка владения доменом с
+          помощью {{ TF }}
+        href: serverless/domain-identity-creating.md
+      - name: Отправка писем в {{ postbox-full-name }} с помощью AWS SDK
+        items:
+          - name: .NET Core
+            href: serverless/send-emails-aws-sdk-csharp.md
+          - name: Go
+            href: serverless/send-emails-aws-sdk-go.md
+          - name: JavaScript
+            href: serverless/send-emails-aws-sdk-js.md
+          - name: Python
+            href: serverless/send-emails-aws-sdk-python.md
+      - name: Создание AI-агента с помощью {{ sf-full-name }}
+        href: serverless/create-ai-agent-function.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: serverless/streaming-openai-agent.md
+      - name: Настройка Postfix для отправки через {{ postbox-full-name }}
+        href: serverless/postfix-integration.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: serverless/postbox-webhook.md
+  - name: Машинное обучение и искусственный интеллект
+    items:
+      - name: Все руководства
+        href: ml-ai/index.md
+      - name: Разработка с помощью {{ ml-platform-name }}
+        items:
+          - name: >-
+              Интеграция сервиса {{ ml-platform-name }} с сервисом {{
+              dataproc-name }}
+            href: ml-ai/data-processing-integration.md
+          - name: Классификация изображений на видеокадрах
+            href: ml-ai/video-recognition.md
+          - name: Запуск вычислений по расписанию в {{ ml-platform-name }}
+            href: ml-ai/regular-launch.md
+          - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+            href: ml-ai/batch-code-execution.md
+          - name: >-
+              Использование данных из {{ objstorage-name }} для обучения модели
+              в {{ ml-platform-name }}
+            href: ml-ai/s3-to-datasphere.md
+          - name: Создание сервера MLFlow для логирования экспериментов и артефактов
+            href: ml-ai/mlflow-datasphere.md
+          - name: Дообучение моделей в {{ ml-platform-name }}
+            href: ml-ai/models-fine-tuning.md
+      - name: Эксплуатация {{ ml-platform-name }}
+        items:
+          - name: Развертывание сервиса в {{ ml-platform-name }} из модели ONNX
+            href: ml-ai/node-from-model.md
+          - name: >-
+              Развертывание сервиса в {{ ml-platform-name }} на основе
+              Docker-образа
+            href: ml-ai/node-from-docker.md
+          - name: >-
+              Развертывание сервиса в {{ ml-platform-name }} на основе
+              Docker-образа с FastAPI
+            href: ml-ai/node-from-docker-fast-api.md
+          - name: Развертывание gRPC-сервиса на основе Docker-образа
+            href: ml-ai/grpc-node.md
+          - name: Генерация изображения с помощью модели Stable Diffusion
+            href: ml-ai/stable-diffusion.md
+      - name: Аналитика с помощью {{ ml-platform-name }}
+        items:
+          - name: Анализ данных с помощью {{ yq-name }}
+            href: ml-ai/yq.md
+          - name: Работа с данными в {{ objstorage-name }}
+            href: ml-ai/yq-storage.md
+          - name: Работа с данными в {{ mch-name }}
+            href: ml-ai/yq-clickhouse.md
+          - name: Работа с данными в {{ mpg-name }}
+            href: ml-ai/yq-postgre.md
+          - name: Федеративные запросы к данным
+            href: ml-ai/yq-federative-queries.md
+      - name: Распознавание изображений, текста и речи
+        items:
+          - name: Распознавание архива изображений в {{ vision-name }}
+            href: ml-ai/archive-from-vision-to-object-storage.md
+          - name: Разработка Telegram-бота для распознавания текста и аудио
+            href: ml-ai/recognizer-bot.md
+          - name: >-
+              Регулярное асинхронное распознавание аудиофайлов из {{
+              objstorage-name }}
+            href: ml-ai/batch-recognition-stt.md
+          - name: >-
+              Регулярное распознавание изображений и PDF-документов из бакета {{
+              objstorage-name }}
+            href: ml-ai/vision-ocrrecognizer-storage.md
+      - name: Речевая аналитика
+        items:
+          - name: >-
+              Автоматическая загрузка данных в {{ speechsense-full-name }} с
+              помощью {{ sw-full-name }}
+            href: ml-ai/speechsense/auto-upload.md
+          - name: Интеграция {{ speechsense-name }} с {{ amocrm-name }}
+            href: ml-ai/speechsense/amocrm.md
+          - name: Интеграция {{ speechsense-name }} с {{ bitrix24-name }}
+            href: ml-ai/speechsense/bitrix24.md
+          - name: Работа с AI-ассистентом в {{ speechsense-name }}
+            href: ml-ai/speechsense/ai-assistant.md
+      - name: >-
+          Использование генеративных нейросетей {{ foundation-models-full-name
+          }}
+        items:
+          - name: >-
+              Реализация AI-ассистента с поиском по PDF-файлам со сложным
+              форматированием
+            hidden: true
+            href: ml-ai/pdf-searchindex-ai-assistant.md
+          - name: >-
+              Интеграция генеративных моделей в Visual Studio Code в качестве
+              ассистента для написания кода
+            href: ml-ai/ai-model-ide-integration.md
+          - name: Создание интеллектуального ассистента для Telegram
+            hidden: true
+            href: ml-ai/tg-bot-assistant.md

@@ -4,11 +4,11 @@ The method creates a data query and runs it. After that, the query status change
 
 {% include [!](../../_includes/api-common.md) %}
 
-## Query {#request}
+## Request {#request}
 
-`POST` query to `/queries?project={folder_id}`, where `{folder_id}` is the folder ID.
+`POST` request to `/queries?project={folder_id}`, where `{folder_id}` is a folder ID.
 
-The query body contains data in JSON format:
+The request body contains data in JSON format:
 
 ```json
 {
@@ -22,7 +22,7 @@ The query body contains data in JSON format:
 | Field | Description | Acceptable values | Comment | Limitations |
 | ----- | ----- | ----- | ----- | ----- |
 | `name` | Query name | | If the parameter is not specified, it is assigned the default name. | The length must not exceed 1024 bytes. |
-| `type` | Query type | `STREAMING` or `ANALYTICS` | The default value is `ANALYTICS`. | |
+| `type` | Query type | `STREAMING` for streaming queries, `ANALYTICS` for analytical ones | Default value: `ANALYTICS` | |
 | `text` | Query text | String | Required | The length must be from 1 to 102400 bytes. |
 | `description` | Query description | | The default value is an empty string. | The length must not exceed 10240 bytes. |
 
@@ -38,18 +38,19 @@ If successful, the HTTP code 200 and query ID are returned.
 
 | Field | Description | Comment |
 | ----- | ----- | ----- |
-| `Id` | ID of the created query | Required |
+| `id` | ID of the created query | Required |
 
 ## Example {#example}
 
-Query:
+Request:
 
 ```json
-curl -X 'POST' \
+curl \
+  --request 'POST' \
   'https://api.yandex-query.cloud.yandex.net/api/fq/v1/queries?project=b1gaue5b382m********' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
-  -d '{
+  --header 'accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --data '{
     "name": "Test query",
     "type": "ANALYTICS",
     "text": "select 1",

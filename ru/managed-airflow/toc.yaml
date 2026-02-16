@@ -7,50 +7,142 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Информация об имеющихся кластерах
-        href: operations/cluster-list.md
-      - name: Создание кластера
-        href: operations/cluster-create.md
-      - name: Изменение кластера
-        href: operations/cluster-update.md
-      - name: Остановка и запуск кластера
-        href: operations/cluster-stop.md
+      - name: Кластеры
+        items:
+          - name: Информация об имеющихся кластерах
+            href: operations/cluster-list.md
+          - name: Создание кластера
+            href: operations/cluster-create.md
+          - name: Изменение кластера
+            href: operations/cluster-update.md
+          - name: Остановка и запуск кластера
+            href: operations/cluster-stop.md
+          - name: Управление доступом к кластеру
+            href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
+          - name: Удаление кластера
+            href: operations/cluster-delete.md
+      - name: Подключения
+        items:
+          - name: '{{ maf-name }}: подключение к базе данных'
+            href: operations/update-connections.md
+          - name: '{{ mch-name }}: подключение к базе данных'
+            href: operations/clickhouse.md
+          - name: '{{ mpg-name }}: подключение к базе данных'
+            href: operations/postgres-operator.md
+      - name: Хранение артефактов в {{ lockbox-full-name }}
+        items:
+          - name: Загрузка переменной из {{ lockbox-name }}
+            href: operations/load-variable-from-lockbox.md
+          - name: Хранение подключений {{ AF }} в {{ lockbox-full-name }}
+            href: operations/lockbox-secrets-in-maf-cluster.md
+      - name: Работа с DAG-файлами
+        items:
+          - name: Загрузка DAG-файлов в кластер
+            href: operations/upload-dags.md
+          - name: Получение IAM-токена
+            href: operations/get-iam-token.md
+      - name: Работа с {{ objstorage-full-name }}
+        items:
+          - name: Загрузка файла в {{ objstorage-full-name }}
+            href: operations/upload-file-to-s3.md
+          - name: >-
+              Подключение к бакету {{ objstorage-full-name }} с политикой
+              доступа
+            href: operations/s3-policy-connect.md
+          - name: Чтение файла из {{ objstorage-full-name }}
+            href: operations/read-file-from-dags-bucket.md
       - name: Работа с интерфейсами {{ AF }}
         href: operations/af-interfaces.md
-      - name: Загрузка DAG-файлов в кластер
-        href: operations/upload-dags.md
-      - name: Удаление кластера
-        href: operations/cluster-delete.md
-      - name: Просмотр операций с кластерами
-        href: operations/operation-logs.md
+      - name: Логи и мониторинг
+        items:
+          - name: Мониторинг состояния кластера
+            href: operations/monitoring.md
+          - name: Просмотр логов кластера
+            href: operations/cluster-logs.md
+          - name: Передача логов {{ AF }} в {{ cloud-logging-name }}
+            href: operations/af-logging.md
+          - name: Получение логов выполнения DAG
+            href: operations/export-dag-logs.md
   - name: Практические руководства
     items:
       - name: Все руководства
         href: tutorials/index.md
-      - name: Автоматизация работы с {{ dataproc-name }}
-        href: tutorials/data-proc-automation.md
-      - name: Автоматизация задач {{ yq-full-name }}
-        href: tutorials/airflow-auto-tasks.md
-      - name: >-
-          Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }}
-          Python SDK
-        href: tutorials/using-python-sdk.md
-      - name: Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
-        href: tutorials/lockbox-secrets-in-maf-cluster.md
+      - name: Работа с кластерами
+        items:
+          - name: '{{ dataproc-name }}: автоматизация работы'
+            href: tutorials/data-processing-automation.md
+          - name: '{{ yq-full-name }}: автоматизация задач'
+            href: tutorials/airflow-auto-tasks.md
+          - name: '{{ msp-name }}: автоматизация работы'
+            href: tutorials/spark-automation.md
+          - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
+            href: tutorials/airflow-spark-min.md
+      - name: Другие руководства
+        items:
+          - name: >-
+              Настройка SMTP-сервера для отправки уведомлений по электронной
+              почте
+            href: tutorials/test-smtp-notification.md
+          - name: >-
+              Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud
+              }} Python SDK
+            href: tutorials/using-python-sdk.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
+      - name: Сеть в {{ maf-name }}
+        href: concepts/network.md
+      - name: Доступные версии {{ AF }}
+        href: concepts/versions.md
+      - name: Политика работы с версиями {{ AF }}
+        href: concepts/update-policy.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Имперсонация
         href: concepts/impersonation.md
+      - name: Классы хостов
+        href: concepts/instance-types.md
+      - name: Техническое обслуживание
+        href: concepts/maintenance.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/managed-airflow/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -81,6 +173,12 @@ items:
                 href: api-ref/grpc/Cluster/stop.md
               - name: ListOperations
                 href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
           - name: Operation
             items:
               - name: Overview
@@ -113,6 +211,12 @@ items:
                 href: api-ref/Cluster/stop.md
               - name: ListOperations
                 href: api-ref/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
           - name: Operation
             items:
               - name: Overview
@@ -123,9 +227,9 @@ items:
                 href: api-ref/Operation/cancel.md
   - name: Метрики {{ monitoring-full-name }}
     href: metrics.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/managed-airflow
-deepBase: 2

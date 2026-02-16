@@ -1,9 +1,10 @@
 ---
+title: Правила тарификации для {{ sk-hybrid-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ sk-hybrid-name }}.
 editable: false
 ---
 
 # Правила тарификации для {{ sk-hybrid-full-name }}
-
 
 Стоимость использования {{ sk-hybrid-full-name }} зависит от [модели лицензирования](architecture.md) и [системных требований](system-requirements.md) и обсуждается индивидуально в каждом конкретном случае. {{ sk-hybrid-name }} предоставляет две модели лицензирования: Cloud Billing и Yubikey.
 

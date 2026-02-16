@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://storage.{{ api-host }}/storage/v1/buckets/{name}:getHttpsConfig
+    method: get
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the bucket to return the HTTPS configuration for.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/storage/v1/api-ref/Bucket/getHTTPSConfig.md
 ---
 
-# Object Storage API, REST: Bucket.GetHTTPSConfig {#GetHTTPSConfig}
+# Object Storage API, REST: Bucket.GetHTTPSConfig
 
 Returns the HTTPS configuration for the specified bucket.
 
@@ -52,7 +69,6 @@ Name of the bucket. ||
 
 Type of TLS certificate source.
 
-- `SOURCE_TYPE_UNSPECIFIED`
 - `SOURCE_TYPE_SELF_MANAGED`: Your certificate, uploaded directly.
 - `SOURCE_TYPE_MANAGED_BY_CERTIFICATE_MANAGER`: Certificate managed by Certificate Manager. ||
 || issuer | **string**

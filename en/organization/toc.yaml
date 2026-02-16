@@ -1,52 +1,80 @@
-title: Yandex Cloud Organization
+title: Yandex Identity Hub
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Creating your first organization
+        href: quickstart.md
+      - name: Inviting a new user and assigning roles
+        href: add-account-and-assign-roles.md
   - name: Step-by-step guides
     items:
       - name: All guides
         href: operations/index.md
+      - name: Subscribing a user to notifications
+        href: operations/subscribe-user-for-notifications.md
       - name: Managing organizations
         items:
           - name: Overview
             href: operations/organizations-overview.md
           - name: Creating an organization
             href: operations/enable-org.md
+          - name: Getting organization ID
+            href: operations/organization-get-id.md
           - name: Editing organization data
             href: operations/org-profile.md
           - name: Managing multiple organizations
             href: operations/manage-organizations.md
+          - name: Hiding information about organization members
+            href: operations/hide-user-info.md
           - name: Deleting an organization
             href: operations/delete-org.md
+          - name: Connecting a controlled organization
+            href: operations/add-region.md
       - name: Managing users
         items:
           - name: Overview
             href: operations/manage-users.md
           - name: Adding a user
             href: operations/add-account.md
-          - name: Getting user ID or email
+          - name: Getting user info
             href: operations/users-get.md
+          - name: Updating local user data
+            href: operations/user-pools/edit-user.md
+          - name: Changing a local user password
+            href: operations/user-pools/reset-user-password.md
+          - name: Managing a user in the My Account portal
+            href: operations/manage-account.md
+          - name: Viewing user groups
+            href: operations/get-users-groups.md
+          - name: Activating a user
+            href: operations/user-pools/activate-user.md
+          - name: Deactivating a user
+            href: operations/user-pools/deactivate-user.md
+          - name: Viewing user logs
+            href: operations/user-pools/user-get-logs.md
           - name: Deleting a user account
             href: operations/edit-account.md
           - name: Leaving an organization
             href: operations/leave-organization.md
-          - name: Subscribing a user to notifications
-            href: operations/subscribe-user-for-notifications.md
       - name: Managing user groups
         items:
           - name: Overview
             href: operations/manage-groups.md
-          - name: Create group
+          - name: Creating a group
             href: operations/create-group.md
+          - name: Getting the group ID
+            href: operations/group-get-id.md
           - name: Adding members
             href: operations/add-member-group.md
           - name: Editing a group
             href: operations/edit-group.md
-          - name: Setting up permissions to manage a group
+          - name: Configuring group management access
             href: operations/access-manage-group.md
-          - name: Configuring group access to Yandex Cloud
+          - name: Granting permissions to a group
             href: operations/access-group.md
+          - name: Viewing user groups
+            href: operations/get-users-groups.md
           - name: Deleting members
             href: operations/delete-member-group.md
           - name: Deleting a group
@@ -57,43 +85,137 @@ items:
             href: operations/manage-federations.md
           - name: Configuring an identity federation
             href: operations/setup-federation.md
-          - name: Configuring user group mapping for your federation
+          - name: Configuring a federated user group mapping
             href: operations/federation-group-mapping.md
-      - name: Working with OS Login
+          - name: Renewing a {{ yandex-cloud }} SAML certificate
+            href: operations/renew-yc-certificate.md
+          - name: Setting up a domain in an identity federation
+            href: operations/manage-domain-in-federation.md
+      - name: Managing user pools
         items:
-          - name: Enabling access via OS Login
-            href: operations/os-login-access.md
-          - name: Creating an OS Login profile
-            href: operations/os-login-profile-create.md
+          - name: Creating a user pool
+            href: operations/user-pools/create-userpool.md
+          - name: Updating a user pool
+            href: operations/user-pools/edit-userpool.md
+          - name: Setting up a domain in a user pool
+            href: operations/user-pools/manage-domain.md
+          - name: Getting a list of user pools
+            href: operations/user-pools/get-list-userpools.md
+          - name: Getting information about a user pool
+            href: operations/user-pools/get-userpool.md
+          - name: Getting a list of users in a pool
+            href: operations/user-pools/get-list-users.md
+          - name: Setting up access to a user pool
+            href: operations/user-pools/set-access-bindings-userpool.md
+          - name: Setting up a password policy
+            href: operations/user-pools/set-password-policy.md
+          - name: Deleting a user pool
+            href: operations/user-pools/delete-userpool.md
+      - name: Managing domains
+        items:
+          - name: Associating a domain
+            href: operations/user-pools/add-domain.md
+          - name: Verifying a domain
+            href: operations/user-pools/validate-domain.md
+          - name: Getting a list of domains
+            href: operations/user-pools/list-domain.md
+          - name: Getting domain information
+            href: operations/user-pools/get-domain.md
+          - name: Deleting a domain
+            href: operations/user-pools/delete-domain.md
+      - name: Managing apps (SSO)
+        items:
+          - name: SAML apps
+            items:
+              - name: Creating an app
+                href: operations/applications/saml-create.md
+              - name: Updating an app
+                href: operations/applications/saml-update.md
+              - name: Deactivating and deleting an app
+                href: operations/applications/saml-deactivate-remove.md
+          - name: OIDC apps
+            items:
+              - name: Creating an app
+                href: operations/applications/oidc-create.md
+              - name: Updating an app
+                href: operations/applications/oidc-update.md
+              - name: Setting up access for app users
+                href: operations/applications/oidc-set-access-bindings.md
+              - name: Getting a list of apps
+                href: operations/applications/oidc-list.md
+              - name: Getting app information
+                href: operations/applications/oidc-get.md
+              - name: Deactivating and deleting an app
+                href: operations/applications/oidc-deactivate-remove.md
+      - name: Managing MFA
+        items:
+          - name: Creating an MFA policy
+            href: operations/mfa/create-policy.md
+          - name: Applying an MFA policy to users
+            href: operations/mfa/add-users.md
+          - name: Updating an MFA policy
+            href: operations/mfa/update-policy.md
+          - name: Activating or deactivating an MFA policy
+            href: operations/mfa/deactivate-reactivate-policy.md
+          - name: Deleting an MFA policy
+            href: operations/mfa/delete-policy.md
+          - name: Removing an MFA factor and resetting the verification date
+            href: operations/mfa/manage-verification.md
+      - name: Authentication
+        items:
           - name: Adding an SSH key
             href: operations/add-ssh.md
+          - name: Deleting an SSH key
+            href: operations/delete-ssh.md
+          - name: Enabling refresh tokens
+            href: operations/enable-refresh-tokens.md
+          - name: >-
+              Enabling the two-factor authentication requirement for Yandex
+              accounts
+            href: operations/enable-2fa-access.md
+          - name: Working with {{ oslogin }}
+            items:
+              - name: Enabling access via {{ oslogin }}
+                href: operations/os-login-access.md
+              - name: Creating an {{ oslogin }} profile
+                href: operations/os-login-profile-create.md
       - name: Access management
         items:
           - name: Overview
             href: operations/security.md
-          - name: Assigning a user as organization administrator
+          - name: Assigning a user as an organization administrator
             href: operations/add-org-admin.md
           - name: Assigning a role to a user
             href: operations/add-role.md
           - name: Assigning a role to a user group
             href: operations/groups-access-binding.md
+          - name: Viewing roles assigned in an organization
+            href: operations/org-list-bindings.md
+          - name: Viewing a list of a subject's accesses
+            href: operations/view-subject-access-bindings.md
           - name: Revoking a user's role
             href: operations/revoke-role.md
+      - name: Syncing users and groups with {{ microsoft-idp.ad-short }}
+        href: operations/sync-ad.md
+      - name: Billing management in {{ org-name }}
+        href: operations/manage-billing.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Differentiation of access permissions for user groups
+        href: tutorials/user-group-access-control.md
       - name: Managing identity federations
         items:
           - name: Overview
             href: tutorials/federations/index.md
-          - name: Authentication using Active Directory
+          - name: Active Directory authentication
             href: tutorials/federations/integration-adfs.md
-          - name: Authentication using Google Workspace
+          - name: Google Workspace authentication
             href: tutorials/federations/integration-gworkspace.md
-          - name: Authentication using {{ microsoft-idp.entra-id-full }}
+          - name: '{{ microsoft-idp.entra-id-full }} authentication'
             href: tutorials/federations/integration-azure.md
-          - name: Authentication using Keycloak
+          - name: Keycloak authentication
             href: tutorials/federations/integration-keycloak.md
           - name: User group mapping
             items:
@@ -103,20 +225,70 @@ items:
                 href: tutorials/federations/group-mapping/entra-id.md
               - name: User group mapping in Keycloak
                 href: tutorials/federations/group-mapping/keycloak.md
-      - name: Service account with an OS Login profile for VM management via Ansible
+      - name: >-
+          Service account with an {{ oslogin }} profile for VM management via
+          Ansible
         href: tutorials/sa-oslogin-ansible.md
+      - name: Setting up single sign-on (SSO) for apps
+        items:
+          - name: Overview
+            href: tutorials/single-sign-on/index.md
+          - name: Grafana Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/grafana/saml-grafana.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/grafana/oidc-grafana.md
+          - name: Grafana OSS
+            href: tutorials/single-sign-on/oidc-grafana-oss.md
+          - name: 1C:Enterprise
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
+          - name: '{{ mos-name }}'
+            href: tutorials/single-sign-on/saml-opensearch.md
+          - name: '{{ OS }}'
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
+          - name: '{{ mgl-name }}'
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
+          - name: Zabbix
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: '{{ yandex-360 }}'
+            href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: OpenVPN Access Server
+            href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Using OAuth2 Proxy for applications not supporting SSO
+            href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Concepts
     items:
-      - name: Clouds and services
-        href: concepts/manage-services.md
+      - name: Organization
+        href: concepts/organization.md
       - name: Organization membership
         href: concepts/membership.md
-      - name: Identity federations
-        href: concepts/add-federation.md
       - name: User groups
         href: concepts/groups.md
-      - name: OS Login
+      - name: User pools
+        href: concepts/user-pools.md
+      - name: Password policy
+        href: concepts/password-policy.md
+      - name: Identity federations
+        href: concepts/add-federation.md
+      - name: Domains
+        href: concepts/domains.md
+      - name: Applications (SSO)
+        href: concepts/applications.md
+      - name: '{{ oslogin }}'
         href: concepts/os-login.md
+      - name: MFA
+        href: concepts/mfa.md
+      - name: Controlled organizations
+        href: concepts/controlled-org.md
+      - name: My account portal
+        href: concepts/my-account.md
+      - name: Audit logs and login logs
+        href: concepts/logs.md
+      - name: Syncing with {{ microsoft-idp.ad-short }}
+        href: concepts/ad-sync.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Troubleshooting
@@ -125,6 +297,8 @@ items:
         href: diagnostics.md
       - name: Errors in SAML 2.0 federations
         href: saml-diagnostics.md
+      - name: Errors when working with user pools
+        href: userpool-diagnostics.md
       - name: Authentication errors when using a Yandex account
         href: yandex-id-diagnostics.md
   - name: Access management
@@ -132,7 +306,416 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/organization-manager/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: federation
+        items:
+          - name: Overview
+            href: cli-ref/federation/index.md
+          - name: group-mapping
+            items:
+              - name: Overview
+                href: cli-ref/federation/group-mapping/index.md
+              - name: add-mapping-items
+                href: cli-ref/federation/group-mapping/add-mapping-items.md
+              - name: create
+                href: cli-ref/federation/group-mapping/create.md
+              - name: delete
+                href: cli-ref/federation/group-mapping/delete.md
+              - name: get
+                href: cli-ref/federation/group-mapping/get.md
+              - name: list-mapping-items
+                href: cli-ref/federation/group-mapping/list-mapping-items.md
+              - name: remove-mapping-items
+                href: cli-ref/federation/group-mapping/remove-mapping-items.md
+              - name: update
+                href: cli-ref/federation/group-mapping/update.md
+          - name: saml
+            items:
+              - name: Overview
+                href: cli-ref/federation/saml/index.md
+              - name: add-domain
+                href: cli-ref/federation/saml/add-domain.md
+              - name: add-labels
+                href: cli-ref/federation/saml/add-labels.md
+              - name: add-user-accounts
+                href: cli-ref/federation/saml/add-user-accounts.md
+              - name: certificate
+                items:
+                  - name: Overview
+                    href: cli-ref/federation/saml/certificate/index.md
+                  - name: create
+                    href: cli-ref/federation/saml/certificate/create.md
+                  - name: delete
+                    href: cli-ref/federation/saml/certificate/delete.md
+                  - name: get
+                    href: cli-ref/federation/saml/certificate/get.md
+                  - name: list
+                    href: cli-ref/federation/saml/certificate/list.md
+                  - name: list-operations
+                    href: cli-ref/federation/saml/certificate/list-operations.md
+                  - name: update
+                    href: cli-ref/federation/saml/certificate/update.md
+              - name: create
+                href: cli-ref/federation/saml/create.md
+              - name: delete
+                href: cli-ref/federation/saml/delete.md
+              - name: delete-domain
+                href: cli-ref/federation/saml/delete-domain.md
+              - name: delete-user-accounts
+                href: cli-ref/federation/saml/delete-user-accounts.md
+              - name: get
+                href: cli-ref/federation/saml/get.md
+              - name: get-domain
+                href: cli-ref/federation/saml/get-domain.md
+              - name: list
+                href: cli-ref/federation/saml/list.md
+              - name: list-domains
+                href: cli-ref/federation/saml/list-domains.md
+              - name: list-operations
+                href: cli-ref/federation/saml/list-operations.md
+              - name: list-user-accounts
+                href: cli-ref/federation/saml/list-user-accounts.md
+              - name: reactivate-user-accounts
+                href: cli-ref/federation/saml/reactivate-user-accounts.md
+              - name: remove-labels
+                href: cli-ref/federation/saml/remove-labels.md
+              - name: suspend-user-accounts
+                href: cli-ref/federation/saml/suspend-user-accounts.md
+              - name: update
+                href: cli-ref/federation/saml/update.md
+              - name: validate-domain
+                href: cli-ref/federation/saml/validate-domain.md
+      - name: group
+        items:
+          - name: Overview
+            href: cli-ref/group/index.md
+          - name: add-access-binding
+            href: cli-ref/group/add-access-binding.md
+          - name: add-members
+            href: cli-ref/group/add-members.md
+          - name: create
+            href: cli-ref/group/create.md
+          - name: delete
+            href: cli-ref/group/delete.md
+          - name: get
+            href: cli-ref/group/get.md
+          - name: list
+            href: cli-ref/group/list.md
+          - name: list-access-bindings
+            href: cli-ref/group/list-access-bindings.md
+          - name: list-effective
+            href: cli-ref/group/list-effective.md
+          - name: list-members
+            href: cli-ref/group/list-members.md
+          - name: list-operations
+            href: cli-ref/group/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/group/remove-access-binding.md
+          - name: remove-members
+            href: cli-ref/group/remove-members.md
+          - name: set-access-bindings
+            href: cli-ref/group/set-access-bindings.md
+          - name: update
+            href: cli-ref/group/update.md
+      - name: idp
+        items:
+          - name: Overview
+            href: cli-ref/idp/index.md
+          - name: application
+            items:
+              - name: Overview
+                href: cli-ref/idp/application/index.md
+              - name: oauth
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/application/oauth/index.md
+                  - name: application
+                    items:
+                      - name: Overview
+                        href: cli-ref/idp/application/oauth/application/index.md
+                      - name: add-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/add-access-bindings.md
+                      - name: add-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/add-assignments.md
+                      - name: create
+                        href: cli-ref/idp/application/oauth/application/create.md
+                      - name: delete
+                        href: cli-ref/idp/application/oauth/application/delete.md
+                      - name: get
+                        href: cli-ref/idp/application/oauth/application/get.md
+                      - name: list
+                        href: cli-ref/idp/application/oauth/application/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-access-bindings.md
+                      - name: list-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-assignments.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/idp/application/oauth/application/list-operations.md
+                      - name: reactivate
+                        href: >-
+                          cli-ref/idp/application/oauth/application/reactivate.md
+                      - name: remove-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/remove-access-bindings.md
+                      - name: remove-assignments
+                        href: >-
+                          cli-ref/idp/application/oauth/application/remove-assignments.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/idp/application/oauth/application/set-access-bindings.md
+                      - name: suspend
+                        href: cli-ref/idp/application/oauth/application/suspend.md
+                      - name: update
+                        href: cli-ref/idp/application/oauth/application/update.md
+              - name: saml
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/application/saml/index.md
+                  - name: application
+                    items:
+                      - name: Overview
+                        href: cli-ref/idp/application/saml/application/index.md
+                      - name: add-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/add-access-bindings.md
+                      - name: add-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/add-assignments.md
+                      - name: create
+                        href: cli-ref/idp/application/saml/application/create.md
+                      - name: delete
+                        href: cli-ref/idp/application/saml/application/delete.md
+                      - name: get
+                        href: cli-ref/idp/application/saml/application/get.md
+                      - name: list
+                        href: cli-ref/idp/application/saml/application/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-access-bindings.md
+                      - name: list-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-assignments.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-operations.md
+                      - name: list-supported-attribute-values
+                        href: >-
+                          cli-ref/idp/application/saml/application/list-supported-attribute-values.md
+                      - name: reactivate
+                        href: cli-ref/idp/application/saml/application/reactivate.md
+                      - name: remove-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/remove-access-bindings.md
+                      - name: remove-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/remove-assignments.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/idp/application/saml/application/set-access-bindings.md
+                      - name: suspend
+                        href: cli-ref/idp/application/saml/application/suspend.md
+                      - name: update
+                        href: cli-ref/idp/application/saml/application/update.md
+                      - name: update-assignments
+                        href: >-
+                          cli-ref/idp/application/saml/application/update-assignments.md
+                  - name: signature-certificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/index.md
+                      - name: create
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/create.md
+                      - name: delete
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/delete.md
+                      - name: get
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/get.md
+                      - name: list
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/list.md
+                      - name: update
+                        href: >-
+                          cli-ref/idp/application/saml/signature-certificate/update.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/idp/user/index.md
+              - name: convert-to-external
+                href: cli-ref/idp/user/convert-to-external.md
+              - name: create
+                href: cli-ref/idp/user/create.md
+              - name: delete
+                href: cli-ref/idp/user/delete.md
+              - name: generate-password
+                href: cli-ref/idp/user/generate-password.md
+              - name: get
+                href: cli-ref/idp/user/get.md
+              - name: get-password-metadata
+                href: cli-ref/idp/user/get-password-metadata.md
+              - name: list
+                href: cli-ref/idp/user/list.md
+              - name: reactivate
+                href: cli-ref/idp/user/reactivate.md
+              - name: reset-password
+                href: cli-ref/idp/user/reset-password.md
+              - name: resolve-external-ids
+                href: cli-ref/idp/user/resolve-external-ids.md
+              - name: set-own-password
+                href: cli-ref/idp/user/set-own-password.md
+              - name: set-password
+                href: cli-ref/idp/user/set-password.md
+              - name: set-password-hash
+                href: cli-ref/idp/user/set-password-hash.md
+              - name: suspend
+                href: cli-ref/idp/user/suspend.md
+              - name: update
+                href: cli-ref/idp/user/update.md
+          - name: userpool
+            items:
+              - name: Overview
+                href: cli-ref/idp/userpool/index.md
+              - name: create
+                href: cli-ref/idp/userpool/create.md
+              - name: delete
+                href: cli-ref/idp/userpool/delete.md
+              - name: domain
+                items:
+                  - name: Overview
+                    href: cli-ref/idp/userpool/domain/index.md
+                  - name: add
+                    href: cli-ref/idp/userpool/domain/add.md
+                  - name: delete
+                    href: cli-ref/idp/userpool/domain/delete.md
+                  - name: get
+                    href: cli-ref/idp/userpool/domain/get.md
+                  - name: list
+                    href: cli-ref/idp/userpool/domain/list.md
+                  - name: validate
+                    href: cli-ref/idp/userpool/domain/validate.md
+              - name: get
+                href: cli-ref/idp/userpool/get.md
+              - name: list
+                href: cli-ref/idp/userpool/list.md
+              - name: list-access-bindings
+                href: cli-ref/idp/userpool/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/idp/userpool/list-operations.md
+              - name: set-access-bindings
+                href: cli-ref/idp/userpool/set-access-bindings.md
+              - name: update
+                href: cli-ref/idp/userpool/update.md
+              - name: update-access-bindings
+                href: cli-ref/idp/userpool/update-access-bindings.md
+      - name: mfa-enforcement
+        items:
+          - name: Overview
+            href: cli-ref/mfa-enforcement/index.md
+          - name: activate
+            href: cli-ref/mfa-enforcement/activate.md
+          - name: create
+            href: cli-ref/mfa-enforcement/create.md
+          - name: deactivate
+            href: cli-ref/mfa-enforcement/deactivate.md
+          - name: delete
+            href: cli-ref/mfa-enforcement/delete.md
+          - name: get
+            href: cli-ref/mfa-enforcement/get.md
+          - name: list
+            href: cli-ref/mfa-enforcement/list.md
+          - name: list-audience
+            href: cli-ref/mfa-enforcement/list-audience.md
+          - name: update
+            href: cli-ref/mfa-enforcement/update.md
+          - name: update-audience
+            href: cli-ref/mfa-enforcement/update-audience.md
+      - name: organization
+        items:
+          - name: Overview
+            href: cli-ref/organization/index.md
+          - name: add-access-binding
+            href: cli-ref/organization/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/organization/add-labels.md
+          - name: bind-access-policy
+            href: cli-ref/organization/bind-access-policy.md
+          - name: get
+            href: cli-ref/organization/get.md
+          - name: leave
+            href: cli-ref/organization/leave.md
+          - name: list
+            href: cli-ref/organization/list.md
+          - name: list-access-bindings
+            href: cli-ref/organization/list-access-bindings.md
+          - name: list-access-policy-bindings
+            href: cli-ref/organization/list-access-policy-bindings.md
+          - name: list-operations
+            href: cli-ref/organization/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/organization/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/organization/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/organization/set-access-bindings.md
+          - name: unbind-access-policy
+            href: cli-ref/organization/unbind-access-policy.md
+          - name: update
+            href: cli-ref/organization/update.md
+      - name: oslogin
+        items:
+          - name: Overview
+            href: cli-ref/oslogin/index.md
+          - name: get-settings
+            href: cli-ref/oslogin/get-settings.md
+          - name: profile
+            items:
+              - name: Overview
+                href: cli-ref/oslogin/profile/index.md
+              - name: create
+                href: cli-ref/oslogin/profile/create.md
+              - name: delete
+                href: cli-ref/oslogin/profile/delete.md
+              - name: get
+                href: cli-ref/oslogin/profile/get.md
+              - name: list
+                href: cli-ref/oslogin/profile/list.md
+              - name: set-default
+                href: cli-ref/oslogin/profile/set-default.md
+              - name: update
+                href: cli-ref/oslogin/profile/update.md
+          - name: update-settings
+            href: cli-ref/oslogin/update-settings.md
+          - name: user-ssh-key
+            items:
+              - name: Overview
+                href: cli-ref/oslogin/user-ssh-key/index.md
+              - name: create
+                href: cli-ref/oslogin/user-ssh-key/create.md
+              - name: delete
+                href: cli-ref/oslogin/user-ssh-key/delete.md
+              - name: get
+                href: cli-ref/oslogin/user-ssh-key/get.md
+              - name: list
+                href: cli-ref/oslogin/user-ssh-key/list.md
+              - name: update
+                href: cli-ref/oslogin/user-ssh-key/update.md
+      - name: user
+        items:
+          - name: Overview
+            href: cli-ref/user/index.md
+          - name: list
+            href: cli-ref/user/list.md
+          - name: remove
+            href: cli-ref/user/remove.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -165,12 +748,22 @@ items:
                 href: api-ref/grpc/Group/index.md
               - name: Get
                 href: api-ref/grpc/Group/get.md
+              - name: ResolveExternal
+                href: api-ref/grpc/Group/resolveExternal.md
               - name: List
                 href: api-ref/grpc/Group/list.md
+              - name: ListExternal
+                href: api-ref/grpc/Group/listExternal.md
               - name: Create
                 href: api-ref/grpc/Group/create.md
+              - name: CreateExternal
+                href: api-ref/grpc/Group/createExternal.md
               - name: Update
                 href: api-ref/grpc/Group/update.md
+              - name: ConvertToExternal
+                href: api-ref/grpc/Group/convertToExternal.md
+              - name: ConvertAllToBasic
+                href: api-ref/grpc/Group/convertAllToBasic.md
               - name: Delete
                 href: api-ref/grpc/Group/delete.md
               - name: ListOperations
@@ -185,6 +778,30 @@ items:
                 href: api-ref/grpc/Group/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Group/updateAccessBindings.md
+              - name: ListEffective
+                href: api-ref/grpc/Group/listEffective.md
+          - name: MfaEnforcement
+            items:
+              - name: Overview
+                href: api-ref/grpc/MfaEnforcement/index.md
+              - name: Create
+                href: api-ref/grpc/MfaEnforcement/create.md
+              - name: Update
+                href: api-ref/grpc/MfaEnforcement/update.md
+              - name: Activate
+                href: api-ref/grpc/MfaEnforcement/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/MfaEnforcement/deactivate.md
+              - name: Delete
+                href: api-ref/grpc/MfaEnforcement/delete.md
+              - name: Get
+                href: api-ref/grpc/MfaEnforcement/get.md
+              - name: List
+                href: api-ref/grpc/MfaEnforcement/list.md
+              - name: UpdateAudience
+                href: api-ref/grpc/MfaEnforcement/updateAudience.md
+              - name: ListAudience
+                href: api-ref/grpc/MfaEnforcement/listAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -211,6 +828,12 @@ items:
                 href: api-ref/grpc/Organization/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Organization/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/grpc/Organization/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/grpc/Organization/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/grpc/Organization/unbindAccessPolicy.md
           - name: OsLogin
             items:
               - name: Overview
@@ -259,7 +882,253 @@ items:
                 href: api-ref/grpc/UserSshKey/update.md
               - name: Delete
                 href: api-ref/grpc/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: Identity Provider API
+            items:
+              - name: Overview
+                href: idp/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: idp/api-ref/grpc/Operation/cancel.md
+              - name: Synchronization
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Synchronization/index.md
+                  - name: SetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/setReplicationToken.md
+                  - name: ResetReplicationToken
+                    href: idp/api-ref/grpc/Synchronization/resetReplicationToken.md
+                  - name: CreateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/createSynchronizationSettings.md
+                  - name: UpdateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/updateSynchronizationSettings.md
+                  - name: DeleteSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/deleteSynchronizationSettings.md
+                  - name: GetSynchronizationSettings
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/getSynchronizationSettings.md
+                  - name: ListSupportedAttributes
+                    href: >-
+                      idp/api-ref/grpc/Synchronization/listSupportedAttributes.md
+              - name: SynchronizationSession
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/SynchronizationSession/index.md
+                  - name: OpenSession
+                    href: idp/api-ref/grpc/SynchronizationSession/openSession.md
+                  - name: CloseSession
+                    href: idp/api-ref/grpc/SynchronizationSession/closeSession.md
+                  - name: ReportSessionProgress
+                    href: >-
+                      idp/api-ref/grpc/SynchronizationSession/reportSessionProgress.md
+                  - name: Heartbeat
+                    href: idp/api-ref/grpc/SynchronizationSession/heartbeat.md
+                  - name: GetSession
+                    href: idp/api-ref/grpc/SynchronizationSession/getSession.md
+                  - name: ListSessions
+                    href: idp/api-ref/grpc/SynchronizationSession/listSessions.md
+              - name: Userpool
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/Userpool/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/Userpool/get.md
+                  - name: List
+                    href: idp/api-ref/grpc/Userpool/list.md
+                  - name: Create
+                    href: idp/api-ref/grpc/Userpool/create.md
+                  - name: Update
+                    href: idp/api-ref/grpc/Userpool/update.md
+                  - name: Delete
+                    href: idp/api-ref/grpc/Userpool/delete.md
+                  - name: GetDomain
+                    href: idp/api-ref/grpc/Userpool/getDomain.md
+                  - name: ListDomains
+                    href: idp/api-ref/grpc/Userpool/listDomains.md
+                  - name: AddDomain
+                    href: idp/api-ref/grpc/Userpool/addDomain.md
+                  - name: ValidateDomain
+                    href: idp/api-ref/grpc/Userpool/validateDomain.md
+                  - name: DeleteDomain
+                    href: idp/api-ref/grpc/Userpool/deleteDomain.md
+                  - name: ListOperations
+                    href: idp/api-ref/grpc/Userpool/listOperations.md
+                  - name: ListAccessBindings
+                    href: idp/api-ref/grpc/Userpool/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: idp/api-ref/grpc/Userpool/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: idp/api-ref/grpc/Userpool/updateAccessBindings.md
+              - name: User
+                items:
+                  - name: Overview
+                    href: idp/api-ref/grpc/User/index.md
+                  - name: Get
+                    href: idp/api-ref/grpc/User/get.md
+                  - name: List
+                    href: idp/api-ref/grpc/User/list.md
+                  - name: Create
+                    href: idp/api-ref/grpc/User/create.md
+                  - name: Update
+                    href: idp/api-ref/grpc/User/update.md
+                  - name: Delete
+                    href: idp/api-ref/grpc/User/delete.md
+                  - name: SetOwnPassword
+                    href: idp/api-ref/grpc/User/setOwnPassword.md
+                  - name: SetOthersPassword
+                    href: idp/api-ref/grpc/User/setOthersPassword.md
+                  - name: Suspend
+                    href: idp/api-ref/grpc/User/suspend.md
+                  - name: Reactivate
+                    href: idp/api-ref/grpc/User/reactivate.md
+                  - name: GeneratePassword
+                    href: idp/api-ref/grpc/User/generatePassword.md
+                  - name: GetSelfPasswordMetadata
+                    href: idp/api-ref/grpc/User/getSelfPasswordMetadata.md
+                  - name: ConvertToExternal
+                    href: idp/api-ref/grpc/User/convertToExternal.md
+                  - name: SetPasswordHash
+                    href: idp/api-ref/grpc/User/setPasswordHash.md
+                  - name: ResolveExternalIds
+                    href: idp/api-ref/grpc/User/resolveExternalIds.md
+              - name: OAUTH Application API
+                items:
+                  - name: Overview
+                    href: idp/application/oauth/api-ref/grpc/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/grpc/Application/get.md
+                      - name: List
+                        href: idp/application/oauth/api-ref/grpc/Application/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/update.md
+                      - name: Suspend
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/reactivate.md
+                      - name: Delete
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/delete.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/grpc/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/oauth/api-ref/grpc/Operation/cancel.md
+              - name: SAML Application API
+                items:
+                  - name: Overview
+                    href: idp/application/saml/api-ref/grpc/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/grpc/Application/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/grpc/Application/get.md
+                      - name: List
+                        href: idp/application/saml/api-ref/grpc/Application/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/delete.md
+                      - name: Suspend
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/reactivate.md
+                      - name: ListSupportedAttributeValues
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listSupportedAttributeValues.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/saml/api-ref/grpc/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/grpc/Operation/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/grpc/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/saml/api-ref/grpc/Operation/cancel.md
+                  - name: SignatureCertificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/index.md
+                      - name: Get
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/get.md
+                      - name: List
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/grpc/SignatureCertificate/delete.md
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/grpc/index.md
@@ -301,6 +1170,20 @@ items:
                     href: saml/api-ref/grpc/Federation/listUserAccounts.md
                   - name: ListOperations
                     href: saml/api-ref/grpc/Federation/listOperations.md
+                  - name: GetDomain
+                    href: saml/api-ref/grpc/Federation/getDomain.md
+                  - name: ListDomains
+                    href: saml/api-ref/grpc/Federation/listDomains.md
+                  - name: AddDomain
+                    href: saml/api-ref/grpc/Federation/addDomain.md
+                  - name: ValidateDomain
+                    href: saml/api-ref/grpc/Federation/validateDomain.md
+                  - name: DeleteDomain
+                    href: saml/api-ref/grpc/Federation/deleteDomain.md
+                  - name: SuspendUserAccounts
+                    href: saml/api-ref/grpc/Federation/suspendUserAccounts.md
+                  - name: ReactivateUserAccounts
+                    href: saml/api-ref/grpc/Federation/reactivateUserAccounts.md
               - name: Operation
                 items:
                   - name: Overview
@@ -319,12 +1202,22 @@ items:
                 href: api-ref/Group/index.md
               - name: Get
                 href: api-ref/Group/get.md
+              - name: ResolveExternal
+                href: api-ref/Group/resolveExternal.md
               - name: List
                 href: api-ref/Group/list.md
+              - name: ListExternal
+                href: api-ref/Group/listExternal.md
               - name: Create
                 href: api-ref/Group/create.md
+              - name: CreateExternal
+                href: api-ref/Group/createExternal.md
               - name: Update
                 href: api-ref/Group/update.md
+              - name: ConvertToExternal
+                href: api-ref/Group/convertToExternal.md
+              - name: ConvertAllToBasic
+                href: api-ref/Group/convertAllToBasic.md
               - name: Delete
                 href: api-ref/Group/delete.md
               - name: ListOperations
@@ -339,6 +1232,30 @@ items:
                 href: api-ref/Group/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Group/updateAccessBindings.md
+              - name: ListEffective
+                href: api-ref/Group/listEffective.md
+          - name: MfaEnforcement
+            items:
+              - name: Overview
+                href: api-ref/MfaEnforcement/index.md
+              - name: Create
+                href: api-ref/MfaEnforcement/create.md
+              - name: Update
+                href: api-ref/MfaEnforcement/update.md
+              - name: Activate
+                href: api-ref/MfaEnforcement/activate.md
+              - name: Deactivate
+                href: api-ref/MfaEnforcement/deactivate.md
+              - name: Delete
+                href: api-ref/MfaEnforcement/delete.md
+              - name: Get
+                href: api-ref/MfaEnforcement/get.md
+              - name: List
+                href: api-ref/MfaEnforcement/list.md
+              - name: UpdateAudience
+                href: api-ref/MfaEnforcement/updateAudience.md
+              - name: ListAudience
+                href: api-ref/MfaEnforcement/listAudience.md
           - name: Operation
             items:
               - name: Overview
@@ -365,6 +1282,12 @@ items:
                 href: api-ref/Organization/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Organization/updateAccessBindings.md
+              - name: ListAccessPolicyBindings
+                href: api-ref/Organization/listAccessPolicyBindings.md
+              - name: BindAccessPolicy
+                href: api-ref/Organization/bindAccessPolicy.md
+              - name: UnbindAccessPolicy
+                href: api-ref/Organization/unbindAccessPolicy.md
           - name: OsLogin
             items:
               - name: Overview
@@ -413,7 +1336,241 @@ items:
                 href: api-ref/UserSshKey/update.md
               - name: Delete
                 href: api-ref/UserSshKey/delete.md
-          - name: Cloud Organization SAML API
+          - name: Identity Provider API
+            items:
+              - name: Overview
+                href: idp/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Operation/index.md
+                  - name: Get
+                    href: idp/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: idp/api-ref/Operation/cancel.md
+              - name: Synchronization
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Synchronization/index.md
+                  - name: SetReplicationToken
+                    href: idp/api-ref/Synchronization/setReplicationToken.md
+                  - name: ResetReplicationToken
+                    href: idp/api-ref/Synchronization/resetReplicationToken.md
+                  - name: CreateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/createSynchronizationSettings.md
+                  - name: UpdateSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/updateSynchronizationSettings.md
+                  - name: DeleteSynchronizationSettings
+                    href: >-
+                      idp/api-ref/Synchronization/deleteSynchronizationSettings.md
+                  - name: GetSynchronizationSettings
+                    href: idp/api-ref/Synchronization/getSynchronizationSettings.md
+                  - name: ListSupportedAttributes
+                    href: idp/api-ref/Synchronization/listSupportedAttributes.md
+              - name: SynchronizationSession
+                items:
+                  - name: Overview
+                    href: idp/api-ref/SynchronizationSession/index.md
+                  - name: OpenSession
+                    href: idp/api-ref/SynchronizationSession/openSession.md
+                  - name: CloseSession
+                    href: idp/api-ref/SynchronizationSession/closeSession.md
+                  - name: ReportSessionProgress
+                    href: >-
+                      idp/api-ref/SynchronizationSession/reportSessionProgress.md
+                  - name: Heartbeat
+                    href: idp/api-ref/SynchronizationSession/heartbeat.md
+                  - name: GetSession
+                    href: idp/api-ref/SynchronizationSession/getSession.md
+                  - name: ListSessions
+                    href: idp/api-ref/SynchronizationSession/listSessions.md
+              - name: Userpool
+                items:
+                  - name: Overview
+                    href: idp/api-ref/Userpool/index.md
+                  - name: Get
+                    href: idp/api-ref/Userpool/get.md
+                  - name: List
+                    href: idp/api-ref/Userpool/list.md
+                  - name: Create
+                    href: idp/api-ref/Userpool/create.md
+                  - name: Update
+                    href: idp/api-ref/Userpool/update.md
+                  - name: Delete
+                    href: idp/api-ref/Userpool/delete.md
+                  - name: GetDomain
+                    href: idp/api-ref/Userpool/getDomain.md
+                  - name: ListDomains
+                    href: idp/api-ref/Userpool/listDomains.md
+                  - name: AddDomain
+                    href: idp/api-ref/Userpool/addDomain.md
+                  - name: ValidateDomain
+                    href: idp/api-ref/Userpool/validateDomain.md
+                  - name: DeleteDomain
+                    href: idp/api-ref/Userpool/deleteDomain.md
+                  - name: ListOperations
+                    href: idp/api-ref/Userpool/listOperations.md
+                  - name: ListAccessBindings
+                    href: idp/api-ref/Userpool/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: idp/api-ref/Userpool/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: idp/api-ref/Userpool/updateAccessBindings.md
+              - name: User
+                items:
+                  - name: Overview
+                    href: idp/api-ref/User/index.md
+                  - name: Get
+                    href: idp/api-ref/User/get.md
+                  - name: List
+                    href: idp/api-ref/User/list.md
+                  - name: Create
+                    href: idp/api-ref/User/create.md
+                  - name: Update
+                    href: idp/api-ref/User/update.md
+                  - name: Delete
+                    href: idp/api-ref/User/delete.md
+                  - name: SetOwnPassword
+                    href: idp/api-ref/User/setOwnPassword.md
+                  - name: SetOthersPassword
+                    href: idp/api-ref/User/setOthersPassword.md
+                  - name: Suspend
+                    href: idp/api-ref/User/suspend.md
+                  - name: Reactivate
+                    href: idp/api-ref/User/reactivate.md
+                  - name: GeneratePassword
+                    href: idp/api-ref/User/generatePassword.md
+                  - name: GetSelfPasswordMetadata
+                    href: idp/api-ref/User/getSelfPasswordMetadata.md
+                  - name: ConvertToExternal
+                    href: idp/api-ref/User/convertToExternal.md
+                  - name: SetPasswordHash
+                    href: idp/api-ref/User/setPasswordHash.md
+                  - name: ResolveExternalIds
+                    href: idp/api-ref/User/resolveExternalIds.md
+              - name: OAUTH Application API
+                items:
+                  - name: Overview
+                    href: idp/application/oauth/api-ref/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/Application/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/Application/get.md
+                      - name: List
+                        href: idp/application/oauth/api-ref/Application/list.md
+                      - name: Create
+                        href: idp/application/oauth/api-ref/Application/create.md
+                      - name: Update
+                        href: idp/application/oauth/api-ref/Application/update.md
+                      - name: Suspend
+                        href: idp/application/oauth/api-ref/Application/suspend.md
+                      - name: Reactivate
+                        href: >-
+                          idp/application/oauth/api-ref/Application/reactivate.md
+                      - name: Delete
+                        href: idp/application/oauth/api-ref/Application/delete.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/oauth/api-ref/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/oauth/api-ref/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/oauth/api-ref/Operation/index.md
+                      - name: Get
+                        href: idp/application/oauth/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/oauth/api-ref/Operation/cancel.md
+              - name: SAML Application API
+                items:
+                  - name: Overview
+                    href: idp/application/saml/api-ref/index.md
+                  - name: Application
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/Application/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/Application/get.md
+                      - name: List
+                        href: idp/application/saml/api-ref/Application/list.md
+                      - name: Create
+                        href: idp/application/saml/api-ref/Application/create.md
+                      - name: Update
+                        href: idp/application/saml/api-ref/Application/update.md
+                      - name: Delete
+                        href: idp/application/saml/api-ref/Application/delete.md
+                      - name: Suspend
+                        href: idp/application/saml/api-ref/Application/suspend.md
+                      - name: Reactivate
+                        href: idp/application/saml/api-ref/Application/reactivate.md
+                      - name: ListSupportedAttributeValues
+                        href: >-
+                          idp/application/saml/api-ref/Application/listSupportedAttributeValues.md
+                      - name: ListOperations
+                        href: >-
+                          idp/application/saml/api-ref/Application/listOperations.md
+                      - name: ListAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/listAccessBindings.md
+                      - name: SetAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/setAccessBindings.md
+                      - name: UpdateAccessBindings
+                        href: >-
+                          idp/application/saml/api-ref/Application/updateAccessBindings.md
+                      - name: ListAssignments
+                        href: >-
+                          idp/application/saml/api-ref/Application/listAssignments.md
+                      - name: UpdateAssignments
+                        href: >-
+                          idp/application/saml/api-ref/Application/updateAssignments.md
+                  - name: Operation
+                    items:
+                      - name: Overview
+                        href: idp/application/saml/api-ref/Operation/index.md
+                      - name: Get
+                        href: idp/application/saml/api-ref/Operation/get.md
+                      - name: Cancel
+                        href: idp/application/saml/api-ref/Operation/cancel.md
+                  - name: SignatureCertificate
+                    items:
+                      - name: Overview
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/index.md
+                      - name: Get
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/get.md
+                      - name: List
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/list.md
+                      - name: Create
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/create.md
+                      - name: Update
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/update.md
+                      - name: Delete
+                        href: >-
+                          idp/application/saml/api-ref/SignatureCertificate/delete.md
+          - name: SAML Federation API
             items:
               - name: Overview
                 href: saml/api-ref/index.md
@@ -455,6 +1612,20 @@ items:
                     href: saml/api-ref/Federation/listUserAccounts.md
                   - name: ListOperations
                     href: saml/api-ref/Federation/listOperations.md
+                  - name: GetDomain
+                    href: saml/api-ref/Federation/getDomain.md
+                  - name: ListDomains
+                    href: saml/api-ref/Federation/listDomains.md
+                  - name: AddDomain
+                    href: saml/api-ref/Federation/addDomain.md
+                  - name: ValidateDomain
+                    href: saml/api-ref/Federation/validateDomain.md
+                  - name: DeleteDomain
+                    href: saml/api-ref/Federation/deleteDomain.md
+                  - name: SuspendUserAccounts
+                    href: saml/api-ref/Federation/suspendUserAccounts.md
+                  - name: ReactivateUserAccounts
+                    href: saml/api-ref/Federation/reactivateUserAccounts.md
               - name: Operation
                 items:
                   - name: Overview
@@ -467,5 +1638,5 @@ items:
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
-base: en/organization
-deepBase: 2
+  - name: '{{ org-sync-agent-name }} release notes'
+    href: sync-agent-release-notes.md

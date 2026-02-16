@@ -26,9 +26,21 @@ description: На странице представлены вопросы и о
 
 {% include [cluster-backups-minitoc](../../_qa/managed-postgresql/minitoc/backup.md) %}
 
+### Пользователи и роли {#toc-users}
+
+{% include [users-minitoc](../../_qa/managed-postgresql/minitoc/users.md) %}
+
+### Высокая доступность и балансировка {#toc-ha}
+
+{% include [ha-minitoc](../../_qa/managed-postgresql/minitoc/ha.md) %}
+
 ### Мониторинг и логи {#toc-monitoring}
 
 {% include [monitoring-minitoc](../../_qa/managed-postgresql/minitoc/monitoring.md) %}
+
+### Сообщения об ошибках {#toc-errors}
+
+{% include [errors-minitoc](../../_qa/managed-postgresql/minitoc/errors.md) %}
 
 ## Общие вопросы {#general}
 
@@ -50,6 +62,18 @@ description: На странице представлены вопросы и о
 
 {% include [backup](../../_qa/managed-postgresql/backup.md) %}
 
+## Пользователи и роли {#users}
+
+{% include [users](../../_qa/managed-postgresql/users.md) %}
+
+## Высокая доступность и балансировка {#ha}
+
+{% include [ha](../../_qa/managed-postgresql/ha.md) %}
+
 ## Мониторинг и логи {#monitoring}
 
 {% include [monitoring](../../_qa/managed-postgresql/monitoring.md) %}
+
+## Сообщения об ошибках {#errors}
+
+{% include [errors](../../_qa/managed-postgresql/errors.md) %}

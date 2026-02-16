@@ -1,9 +1,52 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/keys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to create a key pair for.
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            If not specified, it defaults to the subject that made the request.
+            The maximum string length in characters is 50.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key pair.
+            The maximum string length in characters is 256.
+          type: string
+        format:
+          description: |-
+            **enum** (KeyFormat)
+            Output format of the key.
+            - `PEM_FILE`: Privacy-Enhanced Mail (PEM) format. Default value.
+          type: string
+          enum:
+            - PEM_FILE
+        keyAlgorithm:
+          description: |-
+            **enum** (Algorithm)
+            An algorithm used to generate a key pair of the Key resource.
+            - `RSA_2048`: RSA with a 2048-bit key size. Default value.
+            - `RSA_4096`: RSA with a 4096-bit key size.
+          type: string
+          enum:
+            - ALGORITHM_UNSPECIFIED
+            - RSA_2048
+            - RSA_4096
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/Key/create.md
 ---
 
-# Identity and Access Management API, REST: Key.Create {#Create}
+# Identity and Access Management API, REST: Key.Create
 
 Creates a key pair for the specified service account.
 
@@ -30,10 +73,14 @@ POST https://iam.{{ api-host }}/iam/v1/keys
 
 ID of the service account to create a key pair for.
 To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
-If not specified, it defaults to the subject that made the request. ||
+If not specified, it defaults to the subject that made the request.
+
+The maximum string length in characters is 50. ||
 || description | **string**
 
-Description of the key pair. ||
+Description of the key pair.
+
+The maximum string length in characters is 256. ||
 || format | **enum** (KeyFormat)
 
 Output format of the key.
@@ -43,7 +90,6 @@ Output format of the key.
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 |#
@@ -117,7 +163,6 @@ Description of the Key resource. 0-256 characters long. ||
 
 An algorithm used to generate a key pair of the Key resource.
 
-- `ALGORITHM_UNSPECIFIED`
 - `RSA_2048`: RSA with a 2048-bit key size. Default value.
 - `RSA_4096`: RSA with a 4096-bit key size. ||
 || publicKey | **string**

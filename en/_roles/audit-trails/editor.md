@@ -6,4 +6,4 @@ Users with this role can:
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 * View info on the Audit Trails [quotas](../../audit-trails/concepts/limits.md#audit-trails-quotas).
 
-This role also includes the `audit-trails.viewer` permissions.
+This role includes the `audit-trails.viewer` permissions.

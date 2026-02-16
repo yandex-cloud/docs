@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Greenplum® cluster to delete.
+            To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Cluster/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: Cluster.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: Cluster.Delete
 
 Deletes the specified Greenplum® cluster.
 
@@ -20,7 +39,9 @@ DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the Greenplum® cluster to delete.
-To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request. ||
+To get the Greenplum® cluster ID, use a [ClusterService.List](/docs/managed-greenplum/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

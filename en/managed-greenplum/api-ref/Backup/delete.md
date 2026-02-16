@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/backups/{backupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. Required. ID of the backup to delete.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Backup/delete.md
 ---
 
-# Managed Service for Greenplum® API, REST: Backup.Delete {#Delete}
+# Managed Service for Greenplum® API, REST: Backup.Delete
 
 ## HTTP request
 
@@ -111,7 +128,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 Required. ID of the Greenplum backup that is currently being deleted. ||
 || clusterId | **string**
 
-ID of the Greenplum backup that is being deleted. ||
+ID of the Greenplum backup that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

@@ -11,7 +11,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
+
+{% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
 1. [Создайте кластер-источник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
@@ -33,6 +44,8 @@
     ```bash
     sudo apt update && sudo apt install kafkacat postgresql-client --yes
     ```
+
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Подготовьте кластер-источник {#prepare-source}
 
@@ -75,7 +88,7 @@
 
 - Интерфейсы {{ yandex-cloud }} {#yc}
 
-    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, YC CLI, {{ TF }}, API):
+    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, {{ TF }}, API):
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.public.measurements`.
 
@@ -214,7 +227,7 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) и [удалите](../../data-transfer/operations/transfer.md#delete) трансфер.
 
@@ -232,4 +245,10 @@
 
 Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
-@[youtube](bzWmmPp6KFg)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkntkhjbfsn2c7ptv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=bzWmmPp6KFg).
+
+
+

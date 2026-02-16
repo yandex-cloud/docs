@@ -13,7 +13,7 @@ title: Как получить информацию об HTTP-роутере в 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится роутер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
   1. Выберите HTTP-роутер.
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация об  HTTP-роутере.
@@ -47,12 +47,17 @@ title: Как получить информацию об HTTP-роутере в 
           authority:
             - www.first-site.ru
             - first-site.ru
+          route_options:
+            security_profile_id: fevcifh6tr**********
+          rate_limit:
+            all_requests:
+              per_second: "100"
           routes:
             - name: route-1
               http:
                 route:
                   backend_group_id: ds7maho6c4or********
-      created_at: "2023-10-24T12:20:44.091821711Z"
+      created_at: "2024-12-12T12:20:44.091821711Z"
       ```
 
 - {{ TF }} {#tf}

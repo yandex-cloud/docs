@@ -1,9 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/agent/{agentId}
+    method: get
+    path:
+      type: object
+      properties:
+        agentId:
+          description: |-
+            **string**
+            ID of the agent to return.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Agent/get.md
 ---
 
-# Load Testing API, REST: Agent.Get {#Get}
+# Load Testing API, REST: Agent.Get
 
 Returns the specified agent.
 
@@ -41,7 +56,7 @@ Required field. ID of the agent to return. ||
   ],
   "currentJobId": "string",
   "agentVersionId": "string",
-  "labels": "string",
+  "labels": "object",
   "logSettings": {
     "cloudLogGroupId": "string"
   }
@@ -99,7 +114,7 @@ ID of the test that is currently being executed by the agent. ||
 || agentVersionId | **string**
 
 Version of the agent. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Agent labels as `key:value` pairs. ||
 || logSettings | **[LogSettings](#yandex.cloud.loadtesting.api.v1.agent.LogSettings)**

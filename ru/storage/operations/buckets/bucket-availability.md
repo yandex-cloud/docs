@@ -19,7 +19,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого вы хотите настроить публичный доступ.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого вы хотите настроить публичный доступ.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Включите публичный доступ для нужных типов операций.
@@ -37,24 +39,9 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket update --help
       ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Результат:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
-   1. Сохраните имя бакета (столбец `NAME`), к которому нужно открыть публичный доступ.
-   1. Откройте публичный доступ к операциям с бакетом:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Сохраните имя бакета (столбец `NAME`), к которому нужно открыть публичный доступ.
+  1. Откройте публичный доступ к операциям с бакетом:
 
       ```bash
       yc storage bucket update \
@@ -94,7 +81,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
@@ -118,6 +105,9 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `access_key` — идентификатор [статического ключа доступа](../../../iam/concepts/authorization/access-key.md).
+
+        {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
      * `secret_key` — значение секретного ключа доступа.
      * `bucket` — имя бакета, к которому нужно открыть публичный доступ.
      * `anonymous_access_flags` — параметры публичного доступа:
@@ -158,7 +148,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-Если в бакете созданы политики доступа, то для корректной работы публичного доступа их также нужно [настроить](./policy.md#apply-policy).
+Если для бакета настроена запрещающая [политика доступа](../../operations/buckets/policy.md), открыть публичный доступ не получится. 
 
 {% endnote %}
 
@@ -168,7 +158,9 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого вы хотите закрыть публичный доступ.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, для которого вы хотите закрыть публичный доступ.
   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
   1. Включите ограниченный доступ для нужных типов операций.
@@ -186,24 +178,9 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket update --help
       ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Результат:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
-   1. Сохраните имя бакета (столбец `NAME`), к которому нужно закрыть публичный доступ.
-   1. Закройте публичный доступ к операциям с бакетом:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Сохраните имя бакета (столбец `NAME`), к которому нужно закрыть публичный доступ.
+  1. Закройте публичный доступ к операциям с бакетом:
 
       ```bash
       yc storage bucket update \
@@ -241,7 +218,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

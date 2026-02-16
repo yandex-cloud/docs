@@ -21,7 +21,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки шлюза UserGate входит:
@@ -29,7 +28,6 @@
 * плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование [UserGate NGFW](/marketplace/products/usergate/ngfw);
 * плата за использование публичного статического IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Создайте облачную сеть и подсеть {#create-network}
 
@@ -66,13 +64,13 @@
      default_security_group_id: enpbsnnop4ak********
      ```
 
-     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     Подробнее о команде `yc vpc network create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` в зоне доступности `{{ region-id }}-a`:
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` в зоне доступности `{{ region-id }}-d`:
 
      ```bash
-     yc vpc subnet create usergate-subnet-{{ region-id }}-a \
-       --zone {{ region-id }}-a \
+     yc vpc subnet create usergate-subnet-{{ region-id }}-d \
+       --zone {{ region-id }}-d \
        --network-name usergate-network \
        --range 10.1.0.0/16
      ```
@@ -83,14 +81,14 @@
      id: e9bnnssj8sc8********
      folder_id: b1g9hv2loamq********
      created_at: "2022-06-08T09:27:00Z"
-     name: usergate-subnet-{{ region-id }}-a
+     name: usergate-subnet-{{ region-id }}-d
      network_id: enptrcle5q3d********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 10.1.0.0/16
      ```
 
-     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 
 
@@ -104,8 +102,8 @@
      }
 
      resource "yandex_vpc_subnet" {
-       name           = "usergate-subnet-{{ region-id }}-a"
-       zone           = "{{ region-id }}-a"
+       name           = "usergate-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.usergate-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
@@ -137,7 +135,7 @@
 - API {#api}
 
   1. Создайте сеть `usergate-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md) для ресурса Network.
-  1. Создайте подсеть `usergate-subnet-{{ region-id }}-a` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
+  1. Создайте подсеть `usergate-subnet-{{ region-id }}-d` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса Subnet.
 
 {% endlist %}
 
@@ -153,7 +151,7 @@
   1. В списке сервисов выберите **{{ vpc-name }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
   1. Нажмите кнопку **Зарезервировать адрес**.
-  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. Нажмите кнопку **Зарезервировать**.
   
 - CLI {#cli}
@@ -161,7 +159,7 @@
   Выполните команду:
 
   ```bash
-  yc vpc address create --external-ipv4 zone={{ region-id }}-a
+  yc vpc address create --external-ipv4 zone={{ region-id }}-d
   ```
 
   Результат:
@@ -172,12 +170,12 @@
   created_at: "2022-06-08T17:52:42Z"
   external_ipv4_address:
     address: 178.154.253.52
-    zone_id: {{ region-id }}-a
+    zone_id: {{ region-id }}-d
     requirements: {}
   reserved: true
   ```
 
-  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/vpc/address/create.md).
+  Подробнее о команде `yc vpc address create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/address/create.md).
 
 - {{ TF }} {#tf}
 
@@ -187,7 +185,7 @@
   resource "yandex_vpc_address" "usergate-addr" {
   name = "usergate-addr"
   external_ipv4_address {
-    zone_id = "{{ region-id }}-b"
+    zone_id = "{{ region-id }}-d"
     }
   }
   ```
@@ -202,38 +200,34 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ — `usergate-firewall`.
-  1. Выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **Выбор образа/загрузочного диска** на вкладке **{{ marketplace-name }}** выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
-  1. В блоке **Вычислительные ресурсы**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `UserGate NGFW` и выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     * Выберите [платформу](../../compute/concepts/vm-platforms.md) Intel Ice Lake.
-     * Укажите необходимое количество vCPU и объем RAM:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-       * **vCPU** — 4.
-       * **Гарантированная доля vCPU** — 100%.
-       * **RAM** — 8 ГБ.
+      {% note info %}
 
-       {% note info %}
+      Указанные параметры подойдут для функционального тестирования шлюза. Чтобы рассчитать параметры для более серьезной нагрузки, ознакомьтесь с [официальными рекомендациями](https://www.usergate.com/ru/products/usergate-vm) UserGate.
 
-       Указанные параметры подойдут для функционального тестирования шлюза. Чтобы рассчитать параметры для более серьезной нагрузки, ознакомьтесь с [официальными рекомендациями](https://www.usergate.com/ru/products/usergate-vm) UserGate.
+      {% endnote %}
 
-       {% endnote %}
-   
-  1. В блоке **Сетевые настройки**:
-  
-     * Выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-a`.
-     * В поле **Публичный адрес** выберите из списка зарезервированный ранее IP-адрес.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-  1. В блоке **Доступ** укажите данные для доступа на ВМ:
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `usergate-network` и подсеть `usergate-subnet-{{ region-id }}-d`.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** нажмите `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` и выберите [зарезервированный ранее](#get-static-ip) IP-адрес.
 
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-       Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `usergate-firewall`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
    
 - CLI {#cli}
   
@@ -246,7 +240,7 @@
        --name usergate-firewall \
        --memory 8 \
        --cores 4 \
-       --zone {{ region-id }}-a \
+       --zone {{ region-id }}-d \
        --create-boot-disk image-folder-id=standard-images,image-family=usergate-ngfw \
        --ssh-key <путь_к_открытой_части_SSH-ключа> \
        --public-address=<зарезервированный_IP_адрес>
@@ -259,7 +253,7 @@
      folder_id: b1g86q4m5vej********
      created_at: "2022-06-09T11:15:52Z"
      name: usergate-firewall
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      platform_id: standard-v2
      resources:
        memory: "8589934592"
@@ -287,7 +281,7 @@
      placement_policy: {}
      ```
 
-     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/compute/instance/create.md).
+     Подробнее о команде `yc compute instance create` см. в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/create.md).
 
 - {{ TF }} {#tf}
 
@@ -298,7 +292,7 @@
      resource "yandex_compute_disk" "boot-disk" {
        name     = "boot-disk"
        type     = "network-hdd"
-       zone     = "{{ region-id }}-a"
+       zone     = "{{ region-id }}-d"
        size     = "110"
        image_id = "<идентификатор_образа_UserGate_NGFW>"
      }
@@ -306,7 +300,7 @@
      resource "yandex_compute_instance" "usergate-firewall" {
        name        = "usergate-firewall"
        platform_id = "standard-v3"
-       zone        = "{{ region-id }}-a"
+       zone        = "{{ region-id }}-d"
        hostname    = "usergate"
        resources {
          cores         = 4
@@ -428,7 +422,7 @@
 Вы можете добавить и другие правила для фильтрации трафика. Не рекомендуется совмещать сервисы и приложения в одном правиле. В этом случае правило может не сработать.
 
 
-## Настройте маршрутизацию для подсети {#subnet-routing}.
+## Настройте маршрутизацию для подсети {#subnet-routing}
 
 Создайте [статический маршрут](../../vpc/concepts/routing.md):
 
@@ -455,7 +449,7 @@
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
 
   1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **Подсети**.
-  1. В строке подсети `usergate-subnet-{{ region-id }}-a` нажмите кнопку ![image](../../_assets/options.svg).
+  1. В строке подсети `usergate-subnet-{{ region-id }}-d` нажмите кнопку ![image](../../_assets/options.svg).
   1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
   1. В открывшемся окне выберите созданную таблицу в списке.
   1. Нажмите кнопку **Привязать**.
@@ -527,11 +521,11 @@
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      |          ID          |               NAME            |      NETWORK ID      |    ROUTE TABLE ID    |       ZONE    |      RANGE      |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
-     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-a | enpjsdf771h0******** |                      | {{ region-id }}-a | [10.130.0.0/24] |
+     | b0c4l3v9jrgd******** | usergate-subnet-{{ region-id }}-d | enpjsdf771h0******** |                      | {{ region-id }}-d | [10.130.0.0/24] |
      +----------------------+-------------------------------+----------------------+----------------------+---------------+-----------------+
      ```
 
-  1. Привяжите таблицу маршрутизации к подсети, в которой будет работать веб-сервис, например, к подсети `usergate-subnet-{{ region-id }}-a`:
+  1. Привяжите таблицу маршрутизации к подсети, в которой будет работать веб-сервис, например, к подсети `usergate-subnet-{{ region-id }}-d`:
 
      ```bash
      yc vpc subnet update b0c4l3v9jrgd******** --route-table-id e2l5345dlgr1********
@@ -545,7 +539,7 @@
      created_at: "2019-03-12T13:27:22Z"
      name: subnet-1
      network_id: enp846vf5fus********
-     zone_id: {{ region-id }}-a
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 192.168.0.0/24
      route_table_id: e2l5345dlgr1********
@@ -569,7 +563,7 @@
      Пример структуры конфигурационного файла:
 
      ```hcl
-     resource "yandex_vpc_route_table" "usergate-rt-a" {
+     resource "yandex_vpc_route_table" "usergate-rt-d" {
 	   name       = "<имя_таблицы_маршрутизации>"
        network_id = "<идентификатор_сети>"
        static_route {
@@ -620,7 +614,7 @@
 
 ### Подготовьте тестовую виртуальную машину {#test-vm-prepare}
 
-1. [Создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину из публичного образа Linux в подсети `usergate-subnet-{{ region-id }}-a`. В настройках виртуальной машины включите [серийную консоль](../../compute/operations/serial-console/index.md).
+1. [Создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину из публичного образа Linux в подсети `usergate-subnet-{{ region-id }}-d`. В настройках виртуальной машины включите [серийную консоль](../../compute/operations/serial-console/index.md).
 1. Подключитесь к ВМ с помощью [CLI](../../compute/operations/serial-console/connect-cli.md), выполнив команду:
 
    ```bash

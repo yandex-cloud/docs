@@ -5,10 +5,10 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан секрет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
-  1. (Опционально) Для разделения метрик в сервисе {{ monitoring-full-name }} добавьте [метку](../../monitoring/concepts/data-model.md#metric).
+  1. (Опционально) Для разделения ресурсов на логические группы добавьте [метку](../../resource-manager/concepts/labels.md).
   1. (Опционально) Включите опцию **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. Пока опция включена, удалить секрет невозможно. Не защищает содержимое секрета от изменения.
   1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**:
       * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}** — значение формируется автоматически:
@@ -100,25 +100,13 @@
 
 - {{ TF }} {#tf}
 
-  Секрет содержит только метаинформацию о себе: имя, описание, уникальный идентификатор и т. д. Для начала работы с секретом необходимо [создать версию](../../lockbox/operations/secret-version-manage.md) секрета.
+  Секрет содержит только метаинформацию о себе: имя, описание, уникальный идентификатор и т. д. Для начала работы с секретом необходимо, после его создания, [создать версию](../../lockbox/operations/secret-version-manage.md) секрета.
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
      ```hcl
-     terraform {
-       required_providers {
-         yandex = {
-           source = "yandex-cloud/yandex"
-         }
-       }
-       required_version = ">= 0.13"
-     }
-     provider "yandex" {
-       zone = "{{ region-id }}-a"
-     }
-
      resource "yandex_lockbox_secret" "my_secret" {
        name                = "<имя_секрета>"
        description         = "<описание_секрета>"
@@ -126,8 +114,8 @@
        kms_key_id          = "<идентификатор_ключа_шифрования>"
        deletion_protection = <флаг_защиты_от_удаления>
        labels              = {
-         <ключ_метки_1>  = "<значение_метки_1>",
-         <ключ_метки_2>  = "<значение_метки_2>"
+         <ключ_метки_1> = "<значение_метки_1>",
+         <ключ_метки_2> = "<значение_метки_2>"
        }
      }
      ```
@@ -140,7 +128,7 @@
      * `deletion_protection` — флаг защиты от удаления. Для включения защиты укажите значение `true`. Для отключения защиты — `false`. Значение по умолчанию `false`. Необязательный параметр.
      * `labels` — [метка](../../overview/concepts/services.md#labels) ресурса в формате `<ключ>:"<значение>"`. Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}Resources/lockbox_secret).
+     Более подробную информацию о параметрах ресурса `yandex_lockbox_secret` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret).
   1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

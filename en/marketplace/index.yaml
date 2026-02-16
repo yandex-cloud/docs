@@ -7,15 +7,26 @@ description:
   - >-
     Partners may publish their own products in Yandex Cloud Marketplace and
     earn.
-meta:
-  title: '{{ marketplace-full-name }}'
-  description: >-
-    Cloud Marketplace is a store with out-of-the-box tools for development, data
-    analysis, security, business apps, and more.
 links:
   - title: Partners
     description: Publish your product in Cloud Marketplace
     href: quickstart
   - title: Users
     description: Use out-of-the-box solutions provided by Yandex Cloud and our partners
-    href: operations/users/buy-subscription
+    href: operations/users/quickstart
+meta:
+  title: '{{ marketplace-full-name }}'
+  description: >-
+    Cloud Marketplace is a store with out-of-the-box tools for development, data
+    analysis, security, business apps, and more.
+  keywords:
+    - '{{ marketplace-short-name }}'
+    - '{{ marketplace-name }}'
+    - '{{ marketplace-full-name }}'
+    - '{{ marketplace-name }}'
+    - '{{ yandex-cloud }} marketplace'
+    - marketplace in {{ yandex-cloud }}
+    - products in {{ yandex-cloud }}
+    - apps in {{ yandex-cloud }}
+    - yandex cloud marketplace
+    - cloud app marketplace

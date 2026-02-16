@@ -4,14 +4,11 @@ description:
     Yandex Vision OCR is a computer vision service for image text and PDF
     recognition.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the <a
-    href="https://yandex.com/legal/cloud_sla_vision">Service Level for Yandex
-    Vision</a>.
-meta:
-  title: Yandex Vision OCR
-  description: Yandex Vision OCR is a computer vision service for image text recognition.
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.com/legal/cloud_sla_vision">Yandex Vision Service
+    Level</a>.
 links:
   - title: Getting started
     description: Send an image for analysis
@@ -20,17 +17,28 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about the concepts of the service
+    description: Learn more about how it works
     href: concepts/ocr/
   - title: API reference
     description: Authentication and API methods
     href: api-ref/authentication
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and management-related limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Vision OCR
+  description: Yandex Vision OCR is a computer vision service for image text recognition.
+  keywords:
+    - '{{ vision-full-name }}'
+    - '{{ vision-name }}'
+    - computer vision service
+    - computer vision
+    - service for recognizing text on images
+    - image text recognition
+    - PDF file text recognition

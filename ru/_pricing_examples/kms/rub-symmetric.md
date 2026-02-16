@@ -1,0 +1,3 @@
+Например, если c одной версией симметричного ключа выполнено 10&nbsp;000 операций, а с другой — 20&nbsp;000, стоимость за месяц (720 часов) составит:
+
+> 720 × {{ sku|RUB|kms.storage.v1.software|string }}&nbsp;×&nbsp;2 + ({{ sku|RUB|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;10&nbsp;000&nbsp;/&nbsp;10&nbsp;000) + ({{ sku|RUB|kms.api.v1.encryptdecrypt|string }}&nbsp;×&nbsp;20&nbsp;000&nbsp;/&nbsp;10&nbsp;000) = {% calc [currency=RUB] 720 × {{ sku|RUB|kms.storage.v1.software|number }} × 2 + ({{ sku|RUB|kms.api.v1.encryptdecrypt|number }} × 10000 / 10000) + ({{ sku|RUB|kms.api.v1.encryptdecrypt|number }} × 20000 / 10000) %}

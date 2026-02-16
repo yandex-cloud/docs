@@ -1,4 +1,12 @@
+---
+title: Датасеты
+description: На странице представлены вопросы и ответы про датасеты.
+---
+
 # Датасеты
+
+{% include [how-to-change-source-data](../../_qa/datalens/change-source-data.md) %}
+
 
 
 {% include [incorrectly-identified-date-field](../../_qa/datalens/incorrectly-identified-date-field.md) %}
@@ -16,6 +24,7 @@
 {% include [get-geo](../../_qa/datalens/get-geo.md) %}
 
 {% include [qa-materialization-error](../../_qa/datalens/where-is-materialization.md) %}
+
 
 
 

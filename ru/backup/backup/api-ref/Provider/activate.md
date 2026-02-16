@@ -1,9 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/providers/{name}:activate
+    method: post
+    path:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Activate specific provider by name.
+            For more information, please see [activate-provider](/docs/backup/quickstart#activate-provider)
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Activate provider for Folder iD.
+            The maximum string length in characters is 50.
+          type: string
+        skipDefaultPolicy:
+          description: |-
+            **boolean**
+            Don't create default policies while activating the provider.
+          type: boolean
+        instanceRegistrationId:
+          description: |-
+            **string**
+            instance registration token for authorization
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Provider/activate.md
 ---
 
-# Cloud Backup API, REST: Provider.Activate {#Activate}
+# Cloud Backup API, REST: Provider.Activate
 
 Activate provider for specified client.
 
@@ -29,7 +68,8 @@ For more information, please see [activate-provider](/docs/backup/quickstart#act
 ```json
 {
   "folderId": "string",
-  "skipDefaultPolicy": "boolean"
+  "skipDefaultPolicy": "boolean",
+  "instanceRegistrationId": "string"
 }
 ```
 
@@ -37,10 +77,15 @@ For more information, please see [activate-provider](/docs/backup/quickstart#act
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Activate provider for Folder iD. ||
+Required field. Activate provider for Folder iD.
+
+The maximum string length in characters is 50. ||
 || skipDefaultPolicy | **boolean**
 
 Don't create default policies while activating the provider. ||
+|| instanceRegistrationId | **string**
+
+instance registration token for authorization ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -130,7 +175,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || folderId | **string**
 
-Required field. Activate provider for folder specified by ID. ||
+Required field. Activate provider for folder specified by ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

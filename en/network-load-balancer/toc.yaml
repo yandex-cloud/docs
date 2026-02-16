@@ -9,7 +9,7 @@ items:
         href: operations/index.md
       - name: Network load balancers
         items:
-          - name: Information about existing network load balancers
+          - name: Information about current network load balancers
             href: operations/load-balancer-list.md
           - name: Creating a load balancer
             href: operations/load-balancer-create.md
@@ -17,6 +17,8 @@ items:
             href: operations/internal-lb-create.md
           - name: Stopping and starting a load balancer
             href: operations/load-balancer-start-and-stop.md
+          - name: Configuring deletion protection
+            href: operations/deletion-protection.md
           - name: Changing load balancer settings
             href: operations/load-balancer-update.md
           - name: Moving a VM to a target group in a new availability zone
@@ -29,9 +31,15 @@ items:
             href: operations/listener-add.md
           - name: Deleting a listener
             href: operations/listener-remove.md
+          - name: Managing availability zones
+            items:
+              - name: Allowing and denying zonal shift
+                href: operations/manage-zone/allow-and-deny-shift.md
+              - name: Enabling and disabling availability zones
+                href: operations/manage-zone/disable-enable-zone.md
       - name: Target groups
         items:
-          - name: Information about existing target groups
+          - name: Information about current target groups
             href: operations/target-group-list.md
           - name: Creating a target group
             href: operations/target-group-create.md
@@ -41,7 +49,7 @@ items:
             href: operations/target-group-detach.md
           - name: Deleting a target group
             href: operations/target-group-delete.md
-      - name: Viewing operations with the service's resources
+      - name: Viewing service resource operations
         href: operations/operation-logs.md
   - name: Tutorials
     items:
@@ -49,10 +57,12 @@ items:
         href: tutorials/index.md
       - name: Architecture and protection of a basic internet service
         href: tutorials/web-service.md
+      - name: Implementing fault-tolerant scenarios for NAT VMs
+        href: tutorials/route-switcher.md
       - name: Configuring a fault-tolerant architecture in {{ yandex-cloud }}
         href: tutorials/fault-tolerance.md
       - name: >-
-          Fault-tolerant website with load balancing via {{
+          Fault-tolerant website with load balancing via a {{
           network-load-balancer-name }}
         items:
           - name: Overview
@@ -61,7 +71,7 @@ items:
             href: tutorials/load-balancer-website/console.md
           - name: '{{ TF }}'
             href: tutorials/load-balancer-website/terraform.md
-      - name: Running instance groups with autoscaling
+      - name: Working with autoscaling instance groups
         items:
           - name: Overview
             href: tutorials/vm-autoscale/index.md
@@ -73,23 +83,87 @@ items:
         href: tutorials/updating-under-load.md
       - name: Integrating {{ dns-name }} and a corporate DNS service
         href: tutorials/dns-integration.md
+      - name: Connecting to {{ objstorage-name }} from {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Connecting to {{ container-registry-name }} from {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Implementing a secure high-availability network infrastructure with a
+          dedicated DMZ based on the Check Point NGFW
+        href: tutorials/high-accessible-dmz.md
+      - name: Deploying Microsoft Exchange
+        href: tutorials/exchange.md
+      - name: >-
+          Deploying an Always On availability group with an internal network
+          load balancer
+        href: tutorials/mssql-alwayson-lb.md
+      - name: >-
+          Migrating services from an NLB to an L7 ALB to enable {{ sws-name }}
+          protection
+        items:
+          - name: Overview
+            href: tutorials/migration-from-nlb-to-alb/index.md
+          - name: NLB with VMs as targets
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-vm/terraform.md
+          - name: NLB with an instance group as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/terraform.md
+          - name: NLB with a {{ managed-k8s-name }} cluster as a target
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/terraform.md
+          - name: NLB as a target for ALB
+            items:
+              - name: Overview
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md
+              - name: Management console
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
   - name: Concepts
     items:
       - name: Overview
         href: concepts/index.md
       - name: Network load balancer types
         href: concepts/nlb-types.md
-      - name: Traffic listener
+      - name: Listener
         href: concepts/listener.md
-      - name: Target groups and resources
+      - name: Targets and target groups
         href: concepts/target-resources.md
       - name: Health checks
         href: concepts/health-check.md
       - name: Implementation specifics
         href: concepts/specifics.md
-      - name: Use scenarios
+      - name: Use cases
         href: concepts/scenarios.md
-      - name: Recommendations for use
+      - name: Best practices
         href: concepts/best-practices.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -98,12 +172,68 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/load-balancer/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: network-load-balancer
+        items:
+          - name: Overview
+            href: cli-ref/network-load-balancer/index.md
+          - name: add-listener
+            href: cli-ref/network-load-balancer/add-listener.md
+          - name: attach-target-group
+            href: cli-ref/network-load-balancer/attach-target-group.md
+          - name: create
+            href: cli-ref/network-load-balancer/create.md
+          - name: delete
+            href: cli-ref/network-load-balancer/delete.md
+          - name: detach-target-group
+            href: cli-ref/network-load-balancer/detach-target-group.md
+          - name: disable-zones
+            href: cli-ref/network-load-balancer/disable-zones.md
+          - name: enable-zones
+            href: cli-ref/network-load-balancer/enable-zones.md
+          - name: get
+            href: cli-ref/network-load-balancer/get.md
+          - name: list
+            href: cli-ref/network-load-balancer/list.md
+          - name: list-operations
+            href: cli-ref/network-load-balancer/list-operations.md
+          - name: remove-listener
+            href: cli-ref/network-load-balancer/remove-listener.md
+          - name: start
+            href: cli-ref/network-load-balancer/start.md
+          - name: stop
+            href: cli-ref/network-load-balancer/stop.md
+          - name: target-states
+            href: cli-ref/network-load-balancer/target-states.md
+          - name: update
+            href: cli-ref/network-load-balancer/update.md
+      - name: target-group
+        items:
+          - name: Overview
+            href: cli-ref/target-group/index.md
+          - name: add-targets
+            href: cli-ref/target-group/add-targets.md
+          - name: create
+            href: cli-ref/target-group/create.md
+          - name: delete
+            href: cli-ref/target-group/delete.md
+          - name: get
+            href: cli-ref/target-group/get.md
+          - name: list
+            href: cli-ref/target-group/list.md
+          - name: list-operations
+            href: cli-ref/target-group/list-operations.md
+          - name: remove-targets
+            href: cli-ref/target-group/remove-targets.md
+          - name: update
+            href: cli-ref/target-group/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -139,6 +269,10 @@ items:
                 href: api-ref/grpc/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/grpc/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/grpc/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/grpc/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -201,6 +335,10 @@ items:
                 href: api-ref/NetworkLoadBalancer/removeListener.md
               - name: ListOperations
                 href: api-ref/NetworkLoadBalancer/listOperations.md
+              - name: DisableZones
+                href: api-ref/NetworkLoadBalancer/disableZones.md
+              - name: EnableZones
+                href: api-ref/NetworkLoadBalancer/enableZones.md
           - name: Operation
             items:
               - name: Overview
@@ -241,7 +379,7 @@ items:
     href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Release notes
+    href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/network-load-balancer
-deepBase: 2

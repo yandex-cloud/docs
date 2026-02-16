@@ -8,8 +8,8 @@
 ```
 message: Quota limit vpc.externalStaticAddresses.count exceeded; 
 status: 429; description: Quota limit vpc.externalStaticAddresses.count exceeded; 
-code: GATEWAY_REQUEST_ERROR; Request ID: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx; 
-Trace ID: dxxxxxxxxxxxx;
+code: GATEWAY_REQUEST_ERROR; Request ID: ******-****-****-****-********; 
+Trace ID: d************;
 ```
 
 ## Решение {#issue-resolution}

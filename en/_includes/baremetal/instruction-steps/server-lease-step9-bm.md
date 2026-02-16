@@ -1,0 +1,3 @@
+Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, select a [private subnet](../../../baremetal/concepts/network.md#private-subnet) in the [availability zone](../../../overview/concepts/geo-scope.md) where you are leasing the server.
+
+If the server’s availability zone does not have a private subnet yet, or you want to create a new private subnet, click **{{ ui-key.yacloud.common.create }}** and, in the window that opens, specify subnet settings as described in [{#T}](../../../baremetal/operations/subnet-create.md).

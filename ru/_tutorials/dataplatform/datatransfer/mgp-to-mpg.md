@@ -1,5 +1,3 @@
-
-
 Вы можете перенести базу данных из {{ GP }} в кластер {{ PG }} с помощью сервиса {{ data-transfer-full-name }}.
 
 Чтобы перенести базу данных из {{ GP }} в {{ PG }}:
@@ -10,6 +8,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Для примера все нужные ресурсы будут созданы в {{ yandex-cloud }}. Подготовьте инфраструктуру:
@@ -18,18 +24,20 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-источник {{ mgp-full-name }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
+    {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
+    1. [Создайте кластер-источник {{ GP }}](../../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с именем пользователя-администратора `gp-user` и хостами в публичном доступе.
 
     1. [Создайте кластер-приемник {{ mpg-full-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе. При создании кластера укажите:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
 
-
+    
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
         * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 
 - {{ TF }} {#tf}
@@ -45,7 +53,7 @@
 
         * [сети](../../../vpc/concepts/network.md#network) и [подсети](../../../vpc/concepts/network.md#subnet) для размещения кластеров;
         * [группы безопасности](../../../vpc/concepts/security-groups.md) для подключения к кластерам;
-        * кластер-источник {{ mgp-name }};
+        * кластер-источник {{ GP }} в сервисе {{ mgp-name }};
         * кластер-приемник {{ mpg-name }};
         * эндпоинт для приемника;
         * трансфер.
@@ -99,7 +107,7 @@
 
             {% note warning %}
 
-            Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql#additional-settings) указана политика очистки `DROP` или `TRUNCATE`. Иначе данные на приемнике будут дублироваться при копировании.
+            Перед настройкой регулярного копирования убедитесь, что в [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) указана политика очистки `DROP` или `TRUNCATE`. Иначе данные на приемнике будут дублироваться при копировании.
 
             {% endnote %}
 
@@ -126,7 +134,7 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Подключитесь к кластеру {{ mgp-name }}](../../../managed-greenplum/operations/connect.md), создайте в нем таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect/index.md), создайте в нем таблицу `x_tab` и заполните ее данными:
 
     ```sql
     CREATE TABLE x_tab
@@ -162,8 +170,8 @@
 
 ## Проверьте работу копирования при повторной активации {#example-check-copy}
 
-1. В [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
-1. [Подключитесь к кластеру {{ mgp-name }}](../../../managed-greenplum/operations/connect.md).
+1. В [параметрах эндпоинта-приемника](../../../data-transfer/operations/endpoint/target/postgresql.md#additional-settings) установите политику очистки `DROP` или `TRUNCATE`.
+1. [Подключитесь к кластеру {{ GP }}](../../../managed-greenplum/operations/connect/index.md).
 1. Удалите строку с идентификатором `41` и измените строку с идентификатором `42` в таблице `x_tab`:
 
     ```sql
@@ -189,37 +197,21 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../../data-transfer/operations/transfer.md#delete) его.
-* [Удалите эндпоинт-источник и эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
-* Удалите кластеры:
+1. Убедитесь, что трансфер находится в статусе **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}** и [удалите](../../../data-transfer/operations/transfer.md#delete) его.
+1. [Удалите эндпоинт-источник и эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-        * [{{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
 
     - {{ TF }} {#tf}
 
-        Если вы создали ресурсы с помощью {{ TF }}:
-
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `greenplum-postgresql.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `greenplum-postgresql.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

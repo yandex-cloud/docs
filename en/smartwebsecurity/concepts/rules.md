@@ -14,13 +14,15 @@ You can also log information about the traffic matching your conditions, without
 * [Web Application Firewall](#waf-rules)
 * [Advanced Rate Limiter](#arl-rules)
 
-You can learn more in [Managing rules](../operations/#rules).
+You can learn more in [Managing rules](../operations/index.md#rules).
 
 ## Basic rules {#base-rules}
 
 _Basic rule_ is a rule that allows, denies, or directs traffic to [{{ captcha-full-name }}](../../smartcaptcha/) based on specified conditions. It is used for simple traffic filtering based on specific parameters.
 
 Each [security profile](profiles.md) includes a _basic default rule_ with the lowest priority (`1000000`) that allows or denies all traffic.
+
+{% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
 ## Smart Protection rules {#smart-protection-rules}
 
@@ -49,9 +51,37 @@ Actions for basic rules:
 * _Allow_ traffic whose parameters match the conditions.
 
 Actions for Smart Protection and Web Application Firewall rules:
-* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are sent to {{ captcha-name }}.
-* _API Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Suspicious requests are denied.
+* _Full Protection_: Traffic is checked by ML models and behavioral analysis algorithms. Redirect suspicious requests to {{ captcha-name }}.
 
-Advanced Rate Limiter rule action: _Block requests when exceeding the limit_. Requests above the specified limit over a period of time will be blocked. The requesting client will get error `429`.
+     {% note warning %}
 
-Requests that have been allowed by all rules and passed to the protected resource are called _legitimate_.
+     To ensure your application works correctly, apply _API protection_ to HTTP requests with dynamic content loading.
+
+     {% endnote %}
+
+* Use _API protection_ for endpoints that:
+     
+     * Belong to mobile apps.
+     * Receive automated calls.
+     * Process requests with dynamic content loading, such as `ajax`, `xhr`, `iframe`, etc.
+          
+  Traffic is checked by ML models and behavioral analysis algorithms. Requests are not sent to {{ captcha-name }}, which allows making legitimate API calls to the protected resources. Special DDoS protection policies block only overt attack attempts. If, in full protection mode, a request was redirected to a CAPTCHA challenge, the API protection mode may let it through to the protected resource.
+
+Actions for Advanced Rate Limiter rules:
+
+* _Block requests when exceeding the limit_: Requests above the specified limit over a period of time will be blocked until the limit period expires. The requesting client will get error `429`.
+
+* _Temporarily block all requests_: Requests above the specified limit over a period of time will be blocked for a fixed period of time, rather than until the end of the limit period. The requesting client will get error `429`. You can block requests for the period from 1 second to 24 hours.
+
+* _Send over-limit requests for CAPTCHA verification_: Requests above the specified limit over a period of time will be sent to {{ captcha-name }}. 
+
+    Requests exceeding the limit will be sent to CAPTCHA. You can configure CAPTCHA in the security profile to which the ARL profile is connected. This helps differentiate legitimate users from bots, ensuring that requests are not fully blocked and the application remains available.
+
+    {% note warning %}
+
+    Do not use CAPTCHA for HTTP requests with dynamic content loading (`ajax`, `xhr`, `iframe`) and requests to mobile applications.
+
+    {% endnote %}
+    
+    
+The requests that were allowed by all rules and let through to the protected resource are called _legitimate_.

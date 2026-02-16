@@ -1,3 +1,8 @@
+---
+title: Updating a trigger in {{ sf-name }}
+description: In this tutorial, you will learn how to update any trigger parameters in {{ sf-name }} except for the trigger type and launched resource type.
+---
+
 # Updating a trigger in {{ sf-name }}
 
 You can update any parameters except for the trigger type and launched resource type.
@@ -12,8 +17,8 @@ Your changes will apply within five minutes.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing your trigger.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the trigger.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
     1. Select the trigger whose parameters you want to update.
     1. In the top-right corner of the page, click **{{ ui-key.yacloud.common.edit }}**.
@@ -27,7 +32,7 @@ Your changes will apply within five minutes.
 
   {% include [trigger-list-note](../../../_includes/functions/trigger-list-note.md) %}
 
-  1. View a description of the CLI command for updating trigger parameters:
+  1. See the description of the CLI command for updating trigger parameters:
 
       ```bash
       yc serverless trigger update <trigger_type> --help
@@ -41,7 +46,6 @@ Your changes will apply within five minutes.
       ```
 
       Result:
-
 
       ```text
       id: dd0gj5tsj2**********
@@ -70,9 +74,6 @@ Your changes will apply within five minutes.
       status: ACTIVE
       ```
 
-
-
-
 - {{ TF }} {#tf}
 
   For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
@@ -98,9 +99,9 @@ Your changes will apply within five minutes.
       ...
       ```
 
-      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-link }}/function_trigger).
+      For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

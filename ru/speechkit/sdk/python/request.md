@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-speechkit-stt }}`.
-1. Для сервисного аккаунта [получите](../../../iam/operations/api-key/create.md) и сохраните API-ключ.
+1. Для сервисного аккаунта [получите](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) и сохраните API-ключ.
 1. Скачайте [пример](https://{{ s3-storage-host }}/doc-files/speech.wav) аудиофайла для распознавания или [сгенерируйте](synthesis.md) свой.
 
 ## Создайте приложение для синхронного распознавания речи {#create-an-application}
@@ -27,6 +27,7 @@ description: Следуя данной инструкции, вы сможете
    1. {% include [Install a package](../../../_includes/speechkit/install-packages.md) %}
    1. Создайте файл `test.py` и добавьте в него код:
 
+            
       ```python
       from argparse import ArgumentParser
       from speechkit import model_repository, configure_credentials, creds
@@ -65,6 +66,8 @@ description: Следуя данной инструкции, вы сможете
 
          recognize(args.audio)
       ```
+
+
 
       Где:
 

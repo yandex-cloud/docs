@@ -22,7 +22,7 @@ description: Управление доступом в сервисе для ра
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/application-load-balancer/security/service-roles-hierarchy.svg)
+{% include [roles-abl](../../_mermaid/roles/application-load-balancer.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -91,6 +91,12 @@ description: Управление доступом в сервисе для ра
 Удаление ресурсов в целевой группе | `removeTargets` | `alb.editor`
 **Управление доступом к ресурсам** | |
 [Назначение роли](../../iam/operations/roles/grant.md), [отзыв роли](../../iam/operations/roles/revoke.md) и просмотр назначенных ролей на ресурс | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` на этот ресурс
+
+{% note info %}
+
+При [создании](../quickstart-wizard.md) балансировщика с помощью визарда на этапе создания группы бэкендов возможна ошибка обращения к бакету. Чтобы избежать этого, вам нужна роль `storage.viewer`.
+
+{% endnote %}
 
 #### Что дальше
 

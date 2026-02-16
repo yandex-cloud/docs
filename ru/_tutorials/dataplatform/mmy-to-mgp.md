@@ -1,7 +1,6 @@
 # Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-
-Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ mgp-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).
@@ -10,6 +9,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -17,6 +24,8 @@
 {% list tabs group=instructions %}
 
 * Вручную {#manual}
+
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе и следующими настройками:
 
@@ -28,7 +37,7 @@
 
         Подробнее об административных привилегиях см. в [описании настроек](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. В той же зоне доступности [создайте кластер-приемник {{ mgp-name }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+    1. В той же зоне доступности [создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mgp_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
@@ -36,8 +45,8 @@
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configure-security-groups).
-        * [{{ mgp-name }}](../../managed-greenplum/operations/connect.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configure-security-groups).
+        * [{{ mgp-name }}](../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 * С помощью {{ TF }} {#tf}
 
@@ -53,7 +62,7 @@
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
         * кластер-источник {{ mmy-name }};
-        * кластер-приемник {{ mgp-name }};
+        * кластер-приемник {{ GP }} в сервисе {{ mgp-name }};
         * эндпоинт для источника;
         * трансфер.
 
@@ -80,7 +89,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Создайте простую таблицу `table1`:
 
@@ -103,7 +112,7 @@
 
 ## Создайте базу данных в кластере-приемнике {#prepare-data}
 
-1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect.md) `postgres` в кластере-приемнике {{ mgp-name }} от имени пользователя `mgp_user`.
+1. [Подключитесь к служебной базе данных](../../managed-greenplum/operations/connect/index.md) `postgres` в кластере-приемнике {{ GP }} от имени пользователя `mgp_user`.
 
 1. Создайте базу данных `mgp_db`:
 
@@ -131,7 +140,7 @@
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_источника_{{ MY }}>` из выпадающего списка.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.database.title }}** — `mmy_db`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mmy_db`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy_user`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — `<пароль_пользователя>`.
 
@@ -168,7 +177,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ mgp-name }}.
+1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
 
 1. Выполните запрос:
 
@@ -178,7 +187,7 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Подключитесь к базе данных](../../managed-mysql/operations/connect.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
+1. [Подключитесь к базе данных](../../managed-mysql/operations/connect/index.md) `mmy_db` в кластере-источнике {{ mmy-name }}.
 
 1. Добавьте данные в таблицу `table1`:
 
@@ -189,7 +198,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect.md) `mgp_db` в кластере-приемнике {{ mgp-name }}.
+    1. [Подключитесь к базе данных](../../managed-greenplum/operations/connect/index.md) `mgp_db` в кластере-приемнике {{ GP }}.
     1. Выполните запрос:
 
         ```sql
@@ -204,36 +213,19 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Трансфер](../../data-transfer/operations/transfer.md#delete).
-    * [Эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
-    * [Кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-    * [Кластер {{ mgp-name }}](../../managed-greenplum/operations/cluster-delete.md).
+    1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+    1. [Удалите кластер {{ GP }}](../../managed-greenplum/operations/cluster-delete.md).
 
 - С помощью {{ TF }} {#tf}
 
-    Если вы создавали ресурсы с помощью {{ TF }}:
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `mmy-to-mgp.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `mmy-to-mgp.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
-

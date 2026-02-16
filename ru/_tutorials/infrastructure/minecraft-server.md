@@ -1,34 +1,32 @@
 # Развертывание сервера Minecraft в {{ yandex-cloud }}
 
-С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) актуальной версии в {{ yandex-cloud }} на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 22.04.
+С помощью руководства вы развернете сервер [Minecraft](https://www.minecraft.net/) ([Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-edition/)) актуальной версии в {{ yandex-cloud }} на [виртуальной машине](../../compute/concepts/vm.md) с Ubuntu 24.04.
 
-Чтобы развернуть сервер Minecraft актуальной версии в {{ yandex-cloud }}:
+Чтобы развернуть сервер Minecraft в {{ yandex-cloud }}:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Создайте группу безопасности](#create-sg).
 1. [Создайте ВМ для сервера Minecraft](#vm-minecraft).
 1. [Установите необходимые утилиты](#install-tools).
 1. [Скачайте и запустите сервер Minecraft](#get-and-launch-server).
-1. [Протестируйте работоспособность решения](#test-functionality).
+1. [Проверьте работу сервера](#test-functionality).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-
-* плата за постоянно работающие ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
+* плата за постоянно запущенную [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование публичного IP-адреса и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте группу безопасности {#create-sg}
 
-Создайте [группу безопасности](../../vpc/concepts/security-groups.md), с правилом, разрешающим трафик к порту `25565`. Этот порт задан по умолчанию в файле конфигурации сервера.
+Создайте [группу безопасности](../../vpc/concepts/security-groups.md), с правилом, разрешающим входящий трафик к порту `25565`. Этот порт для доступа клиентов задан по умолчанию в файле конфигурации сервера Minecraft. Также в группу безопасности будут добавлены правила, разрешающие доступ на ВМ по SSH для настройки сервера и доступ ВМ в интернет для скачивания ПО.
 
 {% list tabs group=instructions %}
 
@@ -36,24 +34,52 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**. 
+   1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `minecraft-sg`.
    1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите сеть `default`.
    1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
-      | --- | --- | --- | --- | --- | --- |
-      | Входящий | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `25565` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      #|
+      || **Направление**
+      **трафика**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }}** 
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** /
+      **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**
+      | **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** ||
+      || Входящий
+      | `Доступ клиента к`
+      `серверу Minecraft`
+      | `25565`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      || Входящий
+      | `Доступ на ВМ по`
+      `SSH`
+      | `22`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      || Исходящий
+      | `Доступ ВМ в`
+      `интернет`
+      | `0-65535`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`
+      | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
+      | `0.0.0.0/0` ||
+      |#
 
    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
+
 ## Создайте ВМ для сервера Minecraft {#vm-minecraft}
 
-1. Создайте пару ключей [SSH](../../glossary/ssh-keygen.md):
+1. [Создайте](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) пару ключей [SSH](../../glossary/ssh-keygen.md):
    ```bash
    ssh-keygen -t ed25519
    ```
@@ -67,13 +93,13 @@
 
       1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.      
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](/marketplace/products/yc/ubuntu-22-04-lts).
+      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
       1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../compute/concepts/disk.md):
 
-          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd }}`.
+          * **{{ ui-key.yacloud.compute.disk-form.field_type }}** — `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}`.
           * **{{ ui-key.yacloud.compute.disk-form.field_size }}** — `18 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
       1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите рекомендуемые параметры для сервера Minecraft:
@@ -97,7 +123,7 @@
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
           * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `minecraft-sg`.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `ubuntu`.
 
@@ -124,17 +150,26 @@
 
    {% note warning %}
 
-   Обратите внимание, что эта таблица с конфигурацией отражает настройки по умолчанию, определяемые в `server.properties`. Чем больше становится мир, тем выше требования – особенно к оперативной памяти. Чем больше будут области прорисовки игрового мира, деревень и других динамических объектов, тем выше будут требования к виртуальному серверу.
+   Обратите внимание, что эта таблица с конфигурацией отражает настройки по умолчанию, определяемые в `server.properties`. Чем больше становится мир, тем выше требования — особенно к оперативной памяти. Чем больше будут области прорисовки игрового мира, деревень и других динамических объектов, тем выше будут требования к виртуальному серверу.
 
    {% endnote %}
+
 
 ## Установите необходимые утилиты {#install-tools}
 
 1. [Подключитесь по протоколу SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) к созданной ВМ.
 1. Установите необходимые пакеты Java из репозитория и утилиту `screen` для запуска терминальной сессии в фоновом режиме:
 
+   {% note info %}
+
+   Команда ниже устанавливает версию `23` среды OpenJDK. Для запуска актуальной версии сервера Minecraft может потребоваться более новая версия OpenJDK, поэтому, прежде чем устанавливать этот пакет, уточните актуальную версию OpenJDK на [сайте проекта](https://openjdk.org/).
+
+   {% endnote %}
+
    ```bash
-   sudo add-apt-repository -y ppa:openjdk-r/ppa && sudo apt update -y && sudo apt install -y openjdk-17-jre-headless screen
+   sudo add-apt-repository -y ppa:openjdk-r/ppa \
+     && sudo apt update -y \
+     && sudo apt install -y openjdk-23-jre-headless screen
    ```
 
 ## Скачайте и запустите сервер Minecraft {#get-and-launch-server}
@@ -145,10 +180,12 @@
    ```
 
 1. Перейдите по [ссылке](https://www.minecraft.net/en-us/download/server/) и скопируйте URL для скачивания дистрибутива актуальной версии сервера.
-1. Скачайте дистрибутив в текущую директорию с помощью `wget`:
+1. Скачайте актуальный дистрибутив в текущую директорию с помощью `wget`:
    ```bash
-   wget -O minecraft_server_1.20.4.jar https://piston-data.mojang.com/v1/objects/8dd1a28015f51b1803213892b50b7b4fc76e594d/server.jar
+   wget -O minecraft_server.jar <ссылка_на_скачивание>
    ```
+
+   Где `<ссылка_на_скачивание>` — полученная на предыдущем шаге ссылка для скачивания дистрибутива. Например: `https://piston-data.mojang.com/v1/objects/4707d00eb834b446575d89a61a11b5d548d8c001/server.jar`
 
 1. Создайте файл `eula.txt` для автоматического согласия с условиями лицензионного соглашения [EULA](https://aka.ms/MinecraftEULA):
 
@@ -167,7 +204,7 @@
 1. В фоновой сессии запустите сервер:
 
    ```bash
-   java -Xms1024M -Xmx1024M -jar minecraft_server_1.20.4.jar nogui
+   java -Xms1024M -Xmx1024M -jar minecraft_server.jar nogui
    ```
 
    Дождитесь успешного завершения создания игрового мира.
@@ -182,8 +219,7 @@
    [09:19:09] [Server thread/INFO]: Done (92.666s)! For help, type "help"
    ```
 
-   
-1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши `control + a + d` и вернуться в основной терминал виртуальной машины.
+1. (Опционально) Можно оставить сессию `screen` работать в фоне, используя горячие клавиши **Ctrl + A + D** и вернуться в основной терминал виртуальной машины.
 
    Чтобы вернуться к фоновой сессии с запущенным сервером, если такая фоновая сессия только одна, выполните команду:
 
@@ -230,9 +266,10 @@
        4096 Mar 16 09:13 world
    ```
 
-## Протестируйте работоспособность решения {#test-functionality}
 
-1. Добавьте сервер в список серверов в клиенте Minecraft. Название сервера задайте произвольно, а в поле **Адрес сервера** укажите назначенный [публичный IP-адрес](../../vpc/concepts/address#public-addresses) для нашей виртуальной машины при ее создании.
+## Проверьте работу сервера {#test-functionality}
+
+1. Добавьте сервер в список серверов в клиенте Minecraft. Название сервера задайте произвольно, а в поле **Адрес сервера** укажите [публичный IP-адрес](../../vpc/concepts/address#public-addresses) виртуальной машины `minecraft-server`.
 
    ![add-server-address](../../_assets/tutorials/infrastructure/minecraft-add-server-address.png =750x447)
 
@@ -240,8 +277,9 @@
 
    ![server-list](../../_assets/tutorials/infrastructure/minecraft-server-list.png =750x449)
 
+
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. В сервисе {{ compute-name }} [удалите](../../compute/operations/vm-control/vm-delete.md) созданную виртуальную машину.
-1. В сервисе {{ vpc-name }} [удалите](../../vpc/operations/security-group-delete.md) созданную группу безопасности.
+1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину `minecraft-server`.
+1. [Удалите](../../vpc/operations/security-group-delete.md) группу безопасности `minecraft-sg`.

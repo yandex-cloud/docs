@@ -16,16 +16,22 @@ title: Обеспечение доступа к приложению, запущ
   * Из внутренних подсетей организации, подключенных к {{ yandex-cloud }} с помощью сервиса [{{ interconnect-full-name }}](../../interconnect/index.yaml).
   * Через [VPN](../../glossary/vpn.md).
 
-При использовании внешнего балансировщика нагрузки в поле `loadBalancerIP` [можно указать](#advanced) статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Такой адрес необходимо [зарезервировать заранее](../../vpc/operations/get-static-ip.md). Во время резервирования публичного IP-адреса можно активировать [защиту от DDoS-атак](../../vpc/ddos-protection/index.md).
-
-
-Если не указывать статический IP-адрес, то сетевому балансировщику нагрузки будет назначен динамический IP-адрес.
+При использовании внешнего балансировщика нагрузки в поле `loadBalancerIP` [можно указать](#advanced) статический [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses). Такой адрес необходимо [зарезервировать заранее](../../vpc/operations/get-static-ip.md). Во время резервирования публичного IP-адреса можно активировать [защиту от DDoS-атак](../../vpc/ddos-protection/index.md). Если не указывать статический публичный IP-адрес, то сетевому балансировщику нагрузки будет назначен динамический публичный IP-адрес.
 
 {% note info %}
 
-В отличие от IP-адреса пода или узла, который может меняться в случае обновления ресурсов группы узлов, статический IP-адрес сервиса типа `LoadBalancer` не изменяется.
+В отличие от IP-адреса пода или узла, который может меняться в случае обновления ресурсов группы узлов, статический публичный IP-адрес сервиса типа `LoadBalancer` не изменяется.
 
 {% endnote %}
+
+При использовании внутреннего балансировщика нагрузки можно указать [внутренний IP-адрес](../../vpc/concepts/address.md#internal-addresses). Убедитесь, что указанный внутренний IP-адрес не назначен какому-либо ресурсу в той же облачной сети.
+
+{% note warning %}
+
+Если вы в дальнейшем удалите из спецификации внутренний IP-адрес, он может быть автоматически назначен другому ресурсу в той же облачной сети. Рекомендуем выбирать IP-адрес ближе к концу диапазона IP-адресов выбранной подсети.
+
+{% endnote %}
+
 
 Подготовьте и запустите в кластере {{ k8s }} приложение, к которому необходимо предоставить доступ с помощью сервиса типа `LoadBalancer`. В качестве примера используйте приложение, которое отвечает на HTTP-запросы на порт 8080.
 
@@ -34,7 +40,7 @@ title: Обеспечение доступа к приложению, запущ
 1. [Создайте сервис типа LoadBalancer с внутренним IP-адресом](#lb-int-create).
 1. [Укажите дополнительные параметры сервиса](#advanced).
 1. [Укажите параметры проверки состояния узлов](#healthcheck).
-1. (Опционально) [{#T}](#network-policy).
+1. (Опционально) [Создайте объект NetworkPolicy](#network-policy).
 
 {% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
 
@@ -58,7 +64,7 @@ title: Обеспечение доступа к приложению, запущ
 - Вручную {#manual}
 
   1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
-  1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролью](../../iam/concepts/access-control/roles.md) `editor`.
+  1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin` и `load-balancer.admin`. Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
   1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -97,6 +103,8 @@ title: Обеспечение доступа к приложению, запущ
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
 
 {% endlist %}
 
@@ -462,31 +470,18 @@ spec:
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-{% list tabs group=instructions %}
+1. Удалите ресурсы в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-  1. [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, освободите и удалите их.
+    - Вручную {#manual}
 
-- {{ TF }} {#tf}
+        [Удалите кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-load-balancer.tf`.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    - {{ TF }} {#tf}
 
-     ```bash
-     terraform validate
-     ```
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  
-  1. Подтвердите изменение ресурсов.
+    {% endlist %}
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-load-balancer.tf`, будут удалены.
-
-  1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, освободите и удалите их.
-
-{% endlist %}
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, освободите и удалите их.

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Registry/listCertificates.md
 ---
 
-# IoT Core Service, gRPC: RegistryService.ListCertificates {#ListCertificates}
+# IoT Core Service, gRPC: RegistryService.ListCertificates
 
 Retrieves the list of registry certificates for the specified registry.
 
@@ -15,13 +15,13 @@ Retrieves the list of registry certificates for the specified registry.
 
 ```json
 {
-  "registryId": "string"
+  "registry_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to list certificates for. ||
 |#
@@ -32,10 +32,10 @@ Required field. ID of the registry to list certificates for. ||
 {
   "certificates": [
     {
-      "registryId": "string",
+      "registry_id": "string",
       "fingerprint": "string",
-      "certificateData": "string",
-      "createdAt": "google.protobuf.Timestamp"
+      "certificate_data": "string",
+      "created_at": "google.protobuf.Timestamp"
     }
   ]
 }
@@ -54,16 +54,16 @@ A registry certificate. For more information, see [Managing registry certificate
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the certificate belongs to. ||
 || fingerprint | **string**
 
 SHA256 hash of the certificates. ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the certificate. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 |#

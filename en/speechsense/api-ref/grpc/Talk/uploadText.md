@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/uploadText.md
 ---
 
-# Talk Analytics API, gRPC: TalkService.UploadText {#UploadText}
+# Talk Analytics API, gRPC: TalkService.UploadText
 
 rpc for uploading text talk document
 
@@ -15,21 +15,22 @@ rpc for uploading text talk document
 
 ```json
 {
+  "talk_id": "string",
   "metadata": {
-    "connectionId": "string",
-    "fields": "string",
+    "connection_id": "string",
+    "fields": "map<string, string>",
     "users": [
       {
         "id": "string",
         "role": "UserRole",
-        "fields": "string"
+        "fields": "map<string, string>"
       }
     ]
   },
-  "textContent": {
+  "text_content": {
     "messages": [
       {
-        "userId": "string",
+        "user_id": "string",
         "timestamp": "google.protobuf.Timestamp",
         // Includes only one of the fields `text`
         "text": {
@@ -46,18 +47,21 @@ request to create text based dialog
 
 #|
 ||Field | Description ||
+|| talk_id | **string**
+
+talk_id, blank if initial upload request and present on metadata update ||
 || metadata | **[TalkMetadata](#yandex.cloud.speechsense.v1.TalkMetadata)** ||
-|| textContent | **[TextContent](#yandex.cloud.speechsense.v1.TextContent)** ||
+|| text_content | **[TextContent](#yandex.cloud.speechsense.v1.TextContent)** ||
 |#
 
 ## TalkMetadata {#yandex.cloud.speechsense.v1.TalkMetadata}
 
 #|
 ||Field | Description ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 id of connection this talk belongs too ||
-|| fields | **string**
+|| fields | **object** (map<**string**, **string**>)
 
 channel defined fields ||
 || users[] | **[UserMetadata](#yandex.cloud.speechsense.v1.UserMetadata)**
@@ -76,7 +80,7 @@ per user specific metadata ||
 - `USER_ROLE_OPERATOR`
 - `USER_ROLE_CLIENT`
 - `USER_ROLE_BOT` ||
-|| fields | **string** ||
+|| fields | **object** (map<**string**, **string**>) ||
 |#
 
 ## TextContent {#yandex.cloud.speechsense.v1.TextContent}
@@ -90,7 +94,7 @@ per user specific metadata ||
 
 #|
 ||Field | Description ||
-|| userId | **string** ||
+|| user_id | **string** ||
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 || text | **[TextPayload](#yandex.cloud.speechsense.v1.TextPayload)**
 
@@ -108,13 +112,13 @@ Includes only one of the fields `text`. ||
 
 ```json
 {
-  "talkId": "string"
+  "talk_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| talkId | **string**
+|| talk_id | **string**
 
 id of created talk document ||
 |#

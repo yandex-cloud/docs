@@ -2,16 +2,16 @@
 
 **Do not** use {{ dns-full-name }} directly for requesting external domain names.
 
-Instead, install and configure a local caching DNS resolver, e.g., `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, reduce their number, and [save you money](../../dns/pricing.md#public-dns-requests).
+Instead, install and configure a local caching DNS resolver, e.g., `systemd-resolved`, `dnsmasq`, or `unbound`. This will speed up the execution of public DNS queries, decrease their number, and [reduce your expenses](../../dns/pricing.md#public-dns-requests).
 
 If your VM runs Ubuntu 18.04 LTS or higher, it already has the `systemd-resolved` service by default, and no additional installation and setup actions are required. For more information, see [Test `systemd-resolved` performance](#test-resolver).
 
-If you are using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver yourself. We recommend using `dnsmasq` or `unbound`. For more information, see [Install an alternative resolver](#alternate-resolvers).
+If using an older version of Ubuntu, such as [16.04 LTS](/marketplace/products/yc/ubuntu-16-04-lts), you need to install a caching DNS resolver on your own. We recommend using `dnsmasq` or `unbound`. For more information, see [Install an alternative resolver](#alternate-resolvers).
 
 To configure a local caching DNS resolver:
 
-1. [Prepare your cloud](#before-you-begin).
-1. [Prepare your infrastructure](#prepare-infrastructure).
+1. [Get your cloud ready](#before-you-begin).
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Test `systemd-resolved` performance](#test-resolver).
 1. [Install an alternative resolver](#alternate-resolvers).
 1. [Replace the resolver](#change-resolver).
@@ -22,20 +22,18 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or a static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-
-## Prepare the infrastructure {#prepare-infrastructure}
+## Set up your infrastructure {#prepare-infrastructure}
 
 1. [Create](../../compute/operations/#vm-create) a VM with an Ubuntu OS, e.g., [Ubuntu 18.04 LTS](/marketplace/products/yc/ubuntu-18-04-lts).
 1. [Assign](../../compute/operations/vm-control/vm-attach-public-ip.md) a public IP address to the VM.
 
-## Test systemd-resolved performance {#test-resolver}
+## Test `systemd-resolved` performance {#test-resolver}
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 
@@ -45,7 +43,7 @@ The infrastructure support costs include:
    systemd-resolve --status
    ```
 
-   As the `systemd-resolved` utility was renamed to `resolvectl`, for Ubuntu 22.04+, the command will be different:
+   As the `systemd-resolved` utility was renamed to `resolvectl`, the command will be different for Ubuntu 22.04+:
 
    ```bash
    resolvectl status
@@ -63,9 +61,9 @@ The infrastructure support costs include:
                         auto.internal 
    ```
 
-   If the configuration is correct, the `Current DNS Server:` line in the command output will show the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+   If the configuration is correct, the `Current DNS Server:` line in the command output will show the {{ dns-full-name }} server address, the second one in the virtual network. For example, it will be `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
 
-1. Make sure external DNS names are resolved successfully by the `127.0.0.53#53` DNS server. Do it by using the `dig` utility:
+1. Make sure external DNS names are resolved successfully by the `127.0.0.53#53` DNS server. To do this, use the `dig` utility:
 
    ```bash
    dig example.com
@@ -86,7 +84,7 @@ The infrastructure support costs include:
 
 {% note warning %}
 
-Configuration parameters are given as an example. For information about how to set up a caching resolver based on the VM's workload and your needs, see the documentation for the selected resolver.
+Configuration settings are provided for the sake of exemplification. To learn how to set up a caching resolver based on the VM workload and your needs, see the documentation for the selected resolver.
 
 {% endnote %}
 
@@ -94,7 +92,7 @@ Configuration parameters are given as an example. For information about how to s
 
 - dnsmasq
 
-   [dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html) is a lightweight caching DNS resolver that has a small footprint.
+   [dnsmasq](https://thekelleys.org.uk/dnsmasq/doc.html) is a lightweight caching DNS resolver with a small footprint.
 
    1. Install the `dnsmasq` and `dnsutils` packages:
 
@@ -103,7 +101,7 @@ Configuration parameters are given as an example. For information about how to s
       sudo apt-get install dnsmasq dnsutils -y
       ```
 
-   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and restricting to the local VM the addresses listened by the caching resolver.
+   1. Edit the `/etc/dnsmasq.conf` configuration file by increasing the cache size to 1,000 and setting the caching resolver to only listen to local VM addresses.
 
       1. Open the file:
 
@@ -120,7 +118,7 @@ Configuration parameters are given as an example. For information about how to s
          bind-interfaces
          ```
 
-   1. Restart `dnsmasq` to apply the new settings. Make sure `dnsmasq` gets the `active (running)` status and there is the `Started dnsmasq.service` line at the end of the service log:
+   1. Restart `dnsmasq` to apply the new settings. Make sure `dnsmasq` has gotten the `active (running)` status and there is the `Started dnsmasq.service` line at the end of the service log:
 
       ```bash
       sudo systemctl restart dnsmasq.service
@@ -142,9 +140,9 @@ Configuration parameters are given as an example. For information about how to s
       Oct 28 22:39:58 <...> systemd[1]: Started dnsmasq - A lightweight DHCP and caching DNS server.
       ```
 
-      Also pay attention to the address in the `using nameserver <...>`. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
+      Note also the address in the `using nameserver <...>` line. The line should contain the {{ dns-full-name }} server address, the second one in the virtual network. For example, it will be `192.168.6.2` for a VM in the `192.168.6.0/24` subnet.
       
-   1. Use `dig` to check that external DNS names are successfully resolved:
+   1. Use `dig` to make sure external DNS names are successfully resolved:
 
       ```bash
       dig example.com @127.0.0.1 | grep -B3 Query
@@ -160,7 +158,7 @@ Configuration parameters are given as an example. For information about how to s
 
 - unbound
 
-   [unbound](https://unbound.docs.nlnetlabs.nl/en/latest/) is a validating, recursive, and caching DNS resolver. It focuses on fast performance, efficient resource consumption, and compliance with modern open standards.
+   [unbound](https://unbound.docs.nlnetlabs.nl/en/latest/) is a validating, recursive, and caching DNS resolver geared towards fast performance, efficient resource consumption, and compliance with modern open standards.
 
    1. Install the `unbound` and `dnsutils` packages:
       
@@ -196,7 +194,7 @@ Configuration parameters are given as an example. For information about how to s
                verbosity: 1
          ```
 
-   1. Run `unbound` to apply the new settings. Make sure `unbound` gets the `active (running)` status and there is the `Started unbound.service` line at the end of the service log:
+   1. Run `unbound` to apply the new settings. Make sure `unbound` has gotten the `active (running)` status and there is the `Started unbound.service` line at the end of the service log:
 
       ```bash
       sudo systemctl start unbound.service
@@ -210,13 +208,13 @@ Configuration parameters are given as an example. For information about how to s
       Loaded: loaded (/lib/systemd/system/unbound.service; enabled; vendor preset: enabled)
       Active: active (running) <...>
       <...>
-      Oct 29 00:21:06 <...> unbound[<...>]: * Starting DNS server unbound
+      Oct 29 00:21:06 <...> unbound[<...>]:  * Starting DNS server unbound
       Oct 29 00:21:06 <...> unbound[<...>]: [<...>:0] info: start of service (unbound 1.5.8).
-      Oct 29 00:21:06 <...> unbound[<...>]: ...done.
+      Oct 29 00:21:06 <...> unbound[<...>]:    ...done.
       Oct 29 00:23:21 <...> systemd[1]: Started unbound.service.
       ```
    
-   1. Use `dig` to check that external DNS names are successfully resolved:
+   1. Use `dig` to make sure external DNS names are successfully resolved:
 
       ```bash
       dig example.com @127.0.0.1 | grep -B3 Query
@@ -236,7 +234,7 @@ Configuration parameters are given as an example. For information about how to s
 
 If you need to replace `systemd-resolved` with a different local caching DNS resolver:
 
-1. Follow the guide in [Alternative resolvers](#alternate-resolvers) to install an alternative resolver.
+1. Follow the tutorial in [Alternative resolvers](#alternate-resolvers) to install one.
 
 1. Edit the `/etc/systemd/resolved.conf` file to disable the stub resolver and set `127.0.0.1` as the DNS server address:
 
@@ -282,4 +280,4 @@ If you need to replace `systemd-resolved` with a different local caching DNS res
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VM.
+To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) your VM.

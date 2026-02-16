@@ -28,7 +28,6 @@ To push a Helm chart:
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-
   1. Authenticate your Helm client in the {{ container-registry-name }} [registry](../../concepts/registry.md) using one of the available methods.
      * With an OAuth token:
        1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
@@ -39,8 +38,8 @@ To push a Helm chart:
           Password: <OAuth_token>
           ```
 
-     * Using an {{ iam-full-name }} token:
-       1. [Get an {{ iam-name }} token](../../../iam/operations/iam-token/create.md).
+     * Using an {{ iam-short-name }} token:
+       1. [Get an {{ iam-short-name }} token](../../../iam/operations/iam-token/create.md).
        1. Run this command:
 
           ```bash
@@ -54,10 +53,8 @@ To push a Helm chart:
      Login succeeded
      ```
 
-
-
   1. Create a Helm chart:
-
+  
      ```bash
      helm create <Helm_chart_name>
      ```

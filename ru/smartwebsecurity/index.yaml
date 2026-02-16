@@ -6,8 +6,6 @@ description:
     дополнительную защиту: <a href="/docs/smartwebsecurity/concepts/waf">Web
     Application Firewall (WAF)</a> и ограничитель запросов <a
     href="/docs/smartwebsecurity/concepts/arl">Advanced Rate Limiter (ARL)</a>.
-meta:
-  title: Yandex Smart Web Security
 links:
   - title: Начало работы
     description: Создайте первый профиль безопасности и подключите его к L7-балансировщику
@@ -28,7 +26,7 @@ links:
     href: concepts/arl
   - title: Практические руководства
     description: Воспользуйтесь готовыми сценариями для защиты веб-приложений
-    href: tutorials/balancer-with-sws-profile
+    href: tutorials/index
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
@@ -41,3 +39,24 @@ links:
   - title: Справочник API (англ.)
     description: Описание методов HTTP API
     href: api-ref/
+meta:
+  title: Yandex Smart Web Security
+  keywords:
+    - SWS
+    - '{{ sws-name }}'
+    - защита от DDoS-атак
+    - '{{ sws-name }} в {{ yandex-cloud }}'
+    - защита от ботов
+    - профиль {{ sws-name }}
+    - WAF в {{ yandex-cloud }}"
+    - ARL
+    - Firewall в {{ yandex-cloud }}"
+    - профиль безопасности
+    - сервис {{ sws-name }}
+    - фильтрация трафика
+    - фильтрация в {{ sws-name }}
+    - Черный список IP-адресов {{ sws-name }}
+    - Белый список IP-адресов {{ sws-name }}
+    - анализ трафика
+    - трафик в {{ sws-name }}
+    - web security

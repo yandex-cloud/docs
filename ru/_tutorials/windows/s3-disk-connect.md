@@ -17,14 +17,13 @@
 1. [Создайте бакет](#bucket-create).
 1. [Настройте подключение к {{ objstorage-name }}](#rclone-config).
 1. [Смонтируйте бакет](#bucket-mount).
-1. [Настройте службу запуска монтирования](#mount-service).
+1. [Настройте автоматическое монтирование](#auto-mount).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
-
 
 
 ### Необходимые платные ресурсы {#paid-resources}
@@ -35,7 +34,6 @@
 * плата за операции с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md#prices-operations)).
 
 
-
 ## Подготовьте рабочее окружение {#environment-prepare}
 
 1. Скачайте и установите [дистрибутив winfsp](https://winfsp.dev/rel/) с сайта производителя.
@@ -44,11 +42,7 @@
 1. Скачайте с сайта производителя [архив с утилитой rclone](https://rclone.org/downloads/) и распакуйте его в свою рабочую папку на локальном компьютере.
 1. Добавьте папки с утилитами и дистрибутивом в переменную `PATH`. Для этого:
 
-    1. Нажмите кнопку **Пуск** и в строке поиска Windows введите **Изменение системных переменных среды**.
-    1. Справа снизу нажмите кнопку **Переменные среды...**.
-    1. В открывшемся окне найдите параметр `PATH` и нажмите **Изменить**.
-    1. Добавьте пути до папок с утилитами в список.
-    1. Нажмите кнопку **ОК**.
+    {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -69,7 +63,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Создайте сервисный аккаунт с именем `sa-win-disk-connect`:
+  1. Создайте сервисный аккаунт с именем `sa-win-disk-connect`:
 
   ```bash
   yc iam service-account create --name sa-win-disk-connect
@@ -79,13 +73,29 @@
 
   {% include [name-format](../../_includes/name-format.md) %}
 
-  Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/service-account/create.md).
+  Подробнее о команде `yc iam service-account create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+
+  1. Назначьте роль сервисному аккаунту роль `storage.editor`:
+
+  ```bash
+  yc resource-manager folder add-access-binding <идентификатор_каталога> \
+    --role storage.editor \
+    --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+  ```
+  
+  Подробнее о команде `yc resource-manager folder add-access-binding` см. в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md)
 
 - API {#api}
 
-  Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
+  1. Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
+  1. [Назначьте](../../organization/operations/add-role) сервисному аккаунту роль `storage.editor`.
+  
 {% endlist %}
+
+
+{% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
+
 
 ## Создайте статический ключ доступа {#create-static-key}
 
@@ -122,7 +132,7 @@
      secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI9hx*****
      ```
 
-     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/managed-services/iam/access-key/create.md).
+     Подробнее о команде `yc iam access-key create` см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/access-key/create.md).
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Получить значение ключа снова будет невозможно.
 
@@ -131,6 +141,10 @@
   Чтобы создать ключ доступа, воспользуйтесь методом [create](../../iam/awscompatibility/api-ref/AccessKey/create.md) для ресурса [AccessKey](../../iam/awscompatibility/api-ref/AccessKey/index.md).
 
 {% endlist %}
+
+
+{% include [get-static-key-info](../../_includes/storage/get-static-key-result.md) %}
+
 
 ## Создайте бакет {#bucket-create}
 
@@ -212,17 +226,10 @@
 
 ## Настройте подключение к {{ objstorage-name }} {#rclone-config}
 
-1. В рабочей папке запустите командную строку от имени администратора и выполните команду:
+1. Запустите командную строку PowerShell, перейдите в папку с утилитой `rclone` и запустите ее конфигурацию:
 
    ```powershell
-   .\psexec -i -s cmd.exe
-   ```
-
-1. В открывшейся консоли выполните команду `whoami` и убедитесь, что сессия запущена от имени системного пользователя.
-1. Перейдите в папку с утилитой `rclone` и запустите ее конфигурацию:
-
-   ```powershell
-   rclone.exe config
+   ./rclone.exe config
    ```
 
 1. Следуя запросам приложения, создайте новый профиль подключения:
@@ -232,8 +239,8 @@
    1. Выберите тип хранилища: введите в терминал значение `4`.
    1. Выберите провайдера: введите в терминал значение `1`.
    1. Выберите ручной способ ввода учетных данных: введите в терминал значение `1`.
-   1. Введите в терминале идентификатор секретного ключа.
-   1. Введите в терминале значение секретного ключа.
+   1. Введите в терминале идентификатор секретного ключа, [полученный ранее](#create-static-key).
+   1. Введите в терминале значение секретного ключа, [полученное ранее](#create-static-key).
    1. Укажите регион: введите в терминал значение `{{ region-id }}`.
    1. Укажите эндпоинт: введите в терминал значение `{{ s3-storage-host }}`.
    1. Остальные настройки можно оставить по умолчанию — нажмите **Enter**, чтобы их пропустить.
@@ -246,10 +253,10 @@
 
 ## Смонтируйте бакет {#bucket-mount}
 
-1. Проверьте подключение к бакету. В той же командной строке, где выполнялась настройка подключения, выполните команду, указав имя бакета:
+1. Проверьте подключение к бакету. В том же окне командной строки, в котором выполнялась настройка подключения, выполните команду, указав имя бакета:
 
    ```powershell
-   rclone.exe ls s3-connect:<имя_бакета>
+   ./rclone.exe ls s3-connect:<имя_бакета>
    ```
 
    Если конфигурация настроена правильно, в консоль будет выведен список объектов бакета.
@@ -257,58 +264,33 @@
 1. Смонтируйте бакет в файловую систему, указав имя бакета и свободную букву диска в файловой системе:
 
    ```powershell
-   rclone.exe mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full
+   ./rclone.exe mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full --file-perms 0777 --dir-perms 0777
    ```
-   
+
    В проводнике Windows появится новый диск с объектами из бакета.
 
 1. Чтобы отмонтировать бакет, нажмите клавиши **Ctrl** + **C**.
 
-## Настройте службу запуска монтирования {#mount-service}
+## Настройте автоматическое монтирование {#auto-mount}
 
-Чтобы бакет монтировался сразу при запуске компьютера, необходимо настроить запуск монтирования от имени системной службы. 
+Чтобы бакет монтировался автоматически при входе пользователя, необходимо создать скрипт запуска [VBScript](https://{{ lang }}.wikipedia.org/wiki/VBScript) и добавить его в системный реестр. 
 
-1. В папке с утилитой `WinSW` создайте файл `WinSW-x64.xml` (`WinSW-x86.xml`, если у вас 32-битная версия Windows) со следующим содержимым:
-   
-   ```xml
-   <service>
-     <id>rclone</id>
-     <name>rclone-s3-disk</name>
-     <description>This service maps an S3 bucket as a system drive.</description>
-     <executable>"<расположение_рабочей_папки>\rclone.exe"</executable>
-     <arguments>mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full</arguments>
-     <log mode="roll" />
-     <onfailure action="restart" />
-   </service>
-   ```
+1. В вашей рабочей папке на локальном компьютере создайте файл `bucket_mount.vbs` и добавьте в него следующий код:
 
-1. В этой же папке запустите командную строку от имени администратора и выполните команду:
+    ```text
+    Set WshShell = CreateObject("WScript.Shell")
+    command = "<путь_к_папке_rclone>\rclone.exe mount s3-connect:<имя_бакета> <буква_диска>: --vfs-cache-mode full --file-perms 0777 --dir-perms 0777"
+    WshShell.Run command, 0, False
+    ```
 
-   * Если у вас 64-битная версия Windows:
+    В файле укажите имя бакета, букву диска, а также полный путь к файлу `rclone.exe`. Например: `C:\bucket-mounter\rclone\rclone.exe`.
 
-      ```cmd
-      .\WinSW-x64.exe install .\WinSW-x64.xml
-      ```
+1. Откройте редактор системного реестра `regedit.exe` и в открывшемся окне редактора:
 
-   * Если у вас 32-битная версия Windows:
+    1. Перейдите в ветку `HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run` и в этой ветке создайте строковый параметр `bucket-mounter`.
+    1. Измените значение созданного параметра `bucket-mounter` на полный путь к созданному ранее файлу с VBS-скриптом. Например: `C:\bucket-mounter\bucket_mount.vbs`
 
-      ```cmd
-      .\WinSW-x86.exe install .\WinSW-x86.xml
-      ```
-
-1. Откройте панель управления службами Windows и убедитесь в наличии службы `rclone-s3-disk`:
-
-   1. Нажмите сочетание клавиш **Win** + **R**.
-   1. В открывшемся окне введите `services.msc` и нажмите **ОК**.
-   1. В списке служб найдите `rclone-s3-disk`.
-   
-1. Перезагрузите компьютер и проверьте доступность диска.
-
-{% note info %}
-
-Также вы можете настроить запуск службы от имени служебного пользователя (подробнее в разделе [Service account](https://github.com/winsw/winsw/blob/v3/docs/xml-config-file.md#service-account) документации утилиты `WinSW`).
-
-{% endnote %}
+С этого момента ваш бакет будет автоматически монтироваться в операционную систему при каждом входе пользователя на компьютер.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

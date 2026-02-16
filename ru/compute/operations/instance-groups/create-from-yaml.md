@@ -5,6 +5,14 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать группу виртуальных машин по спецификации в формате YAML
 
+{% include [sa.md](../../../_includes/instance-groups/sa.md) %}
+
+Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роль [compute.editor](../../security/index.md#compute-editor).
+
+Если вы хотите интегрировать группу ВМ с сетевым балансировщиком [{{ network-load-balancer-full-name }}](../../../network-load-balancer/), дополнительно назначьте сервисному аккаунту роль [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor).
+
+Чтобы интегрировать группу ВМ с L7-балансировщиком [{{ alb-full-name }}](../../../application-load-balancer/), назначьте сервисному аккаунту роль [alb.editor](../../../application-load-balancer/security/index.md#alb-editor).
+
 Чтобы создать [группу виртуальных машин](../../concepts/instance-groups/index.md) по [спецификации](../../concepts/instance-groups/specification.md) в формате YAML:
 
 {% list tabs group=instructions %}
@@ -21,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-compute-ig }} create --file specification.yaml
   ```
 
-  Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+  Подробнее о команде `{{ yc-compute-ig}} create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 - API {#api}
 

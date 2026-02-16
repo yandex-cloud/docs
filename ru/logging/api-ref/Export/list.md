@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://logging.{{ api-host }}/logging/v1/exports
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. Folder ID of the exports to return.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListExportssResponse.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListExportsResponse.nextPageToken](#yandex.cloud.logging.v1.ListExportsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters exports listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [Export.name](#yandex.cloud.logging.v1.Export) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            Example of a filter: `name="my-export"`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/logging/v1/api-ref/Export/list.md
 ---
 
-# Cloud Logging Service, REST: Export.List {#List}
+# Cloud Logging Service, REST: Export.List
 
 Retrieves the list of exports in the specified folder.
 
@@ -58,7 +102,7 @@ Example of a filter: `name="my-export"`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "groupId": "string",
       "sinkId": "string",
       "params": {
@@ -125,7 +169,7 @@ Export name. ||
 || description | **string**
 
 Export description. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Export lables. ||
 || groupId | **string**

@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Диагностика производительности
 
-Для диагностики производительности кластер {{ mgp-name }} использует:
+Для диагностики производительности кластер {{ GP }} использует:
 
 * в версиях 6.22 и ниже — выделенную базу данных `gpperfmon`;
 * в версиях 6.25 и выше — [командный центр {{ GP }}](../concepts/command-center.md).
@@ -34,12 +34,12 @@ description: Следуя данной инструкции, вы сможете
 * `socket_history` — использование сокетов базы данных {{ GP }}.
 * `system_history` — использование системы.
 
-Для просмотра таблицы [подключитесь к базе данных](../operations/connect.md) `gpperfmon` и выполните запрос:
+Для просмотра таблицы [подключитесь к базе данных](../operations/connect/index.md) `gpperfmon` и выполните запрос:
 
 ```sql
 SELECT * FROM <имя_таблицы>;
 ```
 
-Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.vmware }}/6/greenplum-database/GUID-ref_guide-gpperfmon-dbref.html).
+Подробнее об информационных таблицах базы данных `gpperfmon` в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

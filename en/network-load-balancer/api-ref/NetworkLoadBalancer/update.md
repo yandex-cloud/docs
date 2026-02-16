@@ -1,9 +1,293 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}
+    method: patch
+    path:
+      type: object
+      properties:
+        networkLoadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the network load balancer to update.
+            To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/NetworkLoadBalancer/list#List) request.
+          type: string
+      required:
+        - networkLoadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the network load balancer.
+            The name must be unique within the folder.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the network load balancer.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+            The existing set of `` labels `` is completely replaced with the provided set.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        listenerSpecs:
+          description: |-
+            **[ListenerSpec](#yandex.cloud.loadbalancer.v1.ListenerSpec)**
+            A list of listeners and their specs for the network load balancer.
+          type: array
+          items:
+            $ref: '#/definitions/ListenerSpec'
+        attachedTargetGroups:
+          description: |-
+            **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+            A list of attached target groups for the network load balancer.
+          type: array
+          items:
+            $ref: '#/definitions/AttachedTargetGroup'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Specifies if network load balancer protected from deletion.
+          type: boolean
+        allowZonalShift:
+          description: |-
+            **boolean**
+            Specifies if network load balancer available to zonal shift.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      ExternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              Public IP address for a listener.
+              If you provide a static public IP address for the [NetworkLoadBalancerService.Update](#Update)
+              method, it will replace the existing listener address.
+            type: string
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              IP version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4
+              - `IPV6`: IPv6
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+      InternalAddressSpec:
+        type: object
+        properties:
+          address:
+            description: |-
+              **string**
+              Internal IP address for a listener.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet.
+            type: string
+          ipVersion:
+            description: |-
+              **enum** (IpVersion)
+              IP version.
+              - `IP_VERSION_UNSPECIFIED`
+              - `IPV4`: IPv4
+              - `IPV6`: IPv6
+            type: string
+            enum:
+              - IP_VERSION_UNSPECIFIED
+              - IPV4
+              - IPV6
+      ListenerSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the listener. The name must be unique for each listener on a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          port:
+            description: |-
+              **string** (int64)
+              Port for incoming traffic.
+            type: string
+            format: int64
+          protocol:
+            description: |-
+              **enum** (Protocol)
+              Required field. Protocol for incoming traffic.
+              - `PROTOCOL_UNSPECIFIED`
+              - `TCP`
+              - `UDP`
+            type: string
+            enum:
+              - PROTOCOL_UNSPECIFIED
+              - TCP
+              - UDP
+          externalAddressSpec:
+            description: |-
+              **[ExternalAddressSpec](#yandex.cloud.loadbalancer.v1.ExternalAddressSpec)**
+              External IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/ExternalAddressSpec'
+          internalAddressSpec:
+            description: |-
+              **[InternalAddressSpec](#yandex.cloud.loadbalancer.v1.InternalAddressSpec)**
+              Internal IP address specification.
+              Includes only one of the fields `externalAddressSpec`, `internalAddressSpec`.
+              IP address for incoming traffic. Either the ID of the previously created address or the address specification.
+            $ref: '#/definitions/InternalAddressSpec'
+          targetPort:
+            description: |-
+              **string** (int64)
+              Port of a target.
+              Acceptable values are 1 to 65535, inclusive.
+            type: string
+            format: int64
+        required:
+          - name
+          - protocol
+        oneOf:
+          - required:
+              - externalAddressSpec
+          - required:
+              - internalAddressSpec
+      TcpOptions:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Port to use for TCP health checks.
+            type: string
+            format: int64
+      HttpOptions:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Port to use for HTTP health checks.
+            type: string
+            format: int64
+          path:
+            description: |-
+              **string**
+              URL path to set for health checking requests for every target in the target group.
+              For example `` /ping ``. The default path is `` / ``.
+            type: string
+      HealthCheck:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the health check. The name must be unique for each target group that attached to a single load balancer. 3-63 characters long.
+            pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+            type: string
+          interval:
+            description: |-
+              **string** (duration)
+              The interval between health checks. The default is 2 seconds.
+            type: string
+            format: duration
+          timeout:
+            description: |-
+              **string** (duration)
+              Timeout for a target to return a response for the health check. The default is 1 second.
+            type: string
+            format: duration
+          unhealthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2.
+            type: string
+            format: int64
+          healthyThreshold:
+            description: |-
+              **string** (int64)
+              Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2.
+            type: string
+            format: int64
+          tcpOptions:
+            description: |-
+              **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+              Options for TCP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/TcpOptions'
+          httpOptions:
+            description: |-
+              **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+              Options for HTTP health check.
+              Includes only one of the fields `tcpOptions`, `httpOptions`.
+              Protocol to use for the health check. Either TCP or HTTP.
+            $ref: '#/definitions/HttpOptions'
+        required:
+          - name
+        oneOf:
+          - required:
+              - tcpOptions
+          - required:
+              - httpOptions
+      AttachedTargetGroup:
+        type: object
+        properties:
+          targetGroupId:
+            description: |-
+              **string**
+              Required field. ID of the target group.
+            type: string
+          healthChecks:
+            description: |-
+              **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
+              A health check to perform on the target group.
+              For now we accept only one health check per AttachedTargetGroup.
+            type: array
+            items:
+              $ref: '#/definitions/HealthCheck'
+        required:
+          - targetGroupId
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/NetworkLoadBalancer/update.md
 ---
 
-# Network Load Balancer API, REST: NetworkLoadBalancer.Update {#Update}
+# Network Load Balancer API, REST: NetworkLoadBalancer.Update
 
 Updates the specified network load balancer.
 
@@ -30,7 +314,7 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "listenerSpecs": [
     {
       "name": "string",
@@ -73,7 +357,8 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
       ]
     }
   ],
-  "deletionProtection": "boolean"
+  "deletionProtection": "boolean",
+  "allowZonalShift": "boolean"
 }
 ```
 
@@ -96,7 +381,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the network load balancer. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs.
 
@@ -110,6 +395,9 @@ A list of attached target groups for the network load balancer. ||
 || deletionProtection | **boolean**
 
 Specifies if network load balancer protected from deletion. ||
+|| allowZonalShift | **boolean**
+
+Specifies if network load balancer available to zonal shift. ||
 |#
 
 ## ListenerSpec {#yandex.cloud.loadbalancer.v1.ListenerSpec}
@@ -299,7 +587,7 @@ For example `` /ping ``. The default path is `` / ``. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "regionId": "string",
     "status": "string",
     "type": "string",
@@ -338,7 +626,14 @@ For example `` /ping ``. The default path is `` / ``. ||
         ]
       }
     ],
-    "deletionProtection": "boolean"
+    "deletionProtection": "boolean",
+    "allowZonalShift": "boolean",
+    "disableZoneStatuses": [
+      {
+        "zoneId": "string",
+        "disabledUntil": "string"
+      }
+    ]
   }
   // end of the list of possible fields
 }
@@ -467,7 +762,7 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**
@@ -509,6 +804,12 @@ List of target groups attached to the network load balancer. ||
 || deletionProtection | **boolean**
 
 Specifies if network load balancer protected from deletion. ||
+|| allowZonalShift | **boolean**
+
+Specifies if network load balancer available to zonal shift. ||
+|| disableZoneStatuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -624,4 +925,26 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zoneId | **string**
+
+Required field. ID of zone. ||
+|| disabledUntil | **string** (date-time)
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

@@ -1,9 +1,69 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
+    method: patch
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to update.
+            To get the network ID use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the network.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the network.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/update.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Update {#Update}
+# Virtual Private Cloud API, REST: Network.Update
 
 Updates the specified network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -31,7 +91,7 @@ To get the network ID use a [NetworkService.List](/docs/vpc/api-ref/Network/list
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -54,7 +114,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the network. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. ||
 |#
@@ -88,7 +148,7 @@ Resource labels as `` key:value `` pairs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "defaultSecurityGroupId": "string"
   }
   // end of the list of possible fields
@@ -220,7 +280,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the network. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.

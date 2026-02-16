@@ -1,9 +1,92 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the asymmetric KMS key to update.
+            To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            Required field. A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name for the asymmetric KMS key.
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            **string**
+            New description for the asymmetric KMS key.
+            The maximum string length in characters is 1024.
+          type: string
+        status:
+          description: |-
+            **enum** (Status)
+            New status for the asymmetric KMS key.
+            Using the [AsymmetricSignatureKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
+            - `CREATING`: The key is being created.
+            - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
+            Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
+            - `INACTIVE`: The key is inactive and unusable.
+            Can be set to ACTIVE using the [AsymmetricKeyService.Update] method.
+          type: string
+          enum:
+            - STATUS_UNSPECIFIED
+            - CREATING
+            - ACTIVE
+            - INACTIVE
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the asymmetric KMS key
+          type: boolean
+      required:
+        - updateMask
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/update.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Update {#Update}
+# Key Management Service API, REST: AsymmetricSignatureKey.Update
 
 Updates the specified asymmetric KMS key.
 
@@ -20,7 +103,9 @@ PATCH https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 || keyId | **string**
 
 Required field. ID of the asymmetric KMS key to update.
-To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List) request. ||
+To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.kms.v1.asymmetricsignature.UpdateAsymmetricSignatureKeyRequest}
@@ -31,7 +116,7 @@ To get the ID of a asymmetric KMS key use a [AsymmetricSignatureKeyService.List]
   "name": "string",
   "description": "string",
   "status": "string",
-  "labels": "string",
+  "labels": "object",
   "deletionProtection": "boolean"
 }
 ```
@@ -50,24 +135,29 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name for the asymmetric KMS key. ||
+New name for the asymmetric KMS key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-New description for the asymmetric KMS key. ||
+New description for the asymmetric KMS key.
+
+The maximum string length in characters is 1024. ||
 || status | **enum** (Status)
 
 New status for the asymmetric KMS key.
 Using the [AsymmetricSignatureKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
+Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || deletionProtection | **boolean**
 
 Flag that inhibits deletion of the asymmetric KMS key ||
@@ -102,7 +192,7 @@ Flag that inhibits deletion of the asymmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "signatureAlgorithm": "string",
     "deletionProtection": "boolean"
@@ -234,14 +324,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -251,7 +340,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

@@ -1,5 +1,7 @@
 # Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK
 
+{% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
+
 При работе с {{ maf-name }} вы можете использовать [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) для выполнения запросов к API {{ yandex-cloud }}. Сервис поддерживает отправку запросов к любым типам облачных ресурсов. При этом ручная настройка аутентификации в облаке не требуется. {{ yandex-cloud }} Python SDK аутентифицируется через [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру {{ AF }}.
 
 Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), отправляющий запрос к API {{ yandex-cloud }}. Запрос возвращает список виртуальных машин в каталоге, в котором создан кластер {{ AF }}.
@@ -12,12 +14,23 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера и объем исходящего трафика. (см. [тарифы {{ AF }}](../../managed-airflow/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, хранилища, операционной системы (для отдельных ОС) и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+
 ## Подготовьте инфраструктуру {#create-infrastructure}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
    * `compute.viewer`;
-   * `managed-airflow.integrationProvider`.
+   * `{{ roles.maf.integrationProvider }}`.
 
 1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
 

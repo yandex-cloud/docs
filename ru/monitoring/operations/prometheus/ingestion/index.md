@@ -1,26 +1,22 @@
 ---
 title: Как записать метрики
 description: Следуя данной инструкции, вы сможете записать метрики.
+sourcePath: ru/monitoring_includes/operations/prometheus/ingestion/index.md
 ---
 
 # Запись метрик
 
 
-{% list tabs %}
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvw3emvkulllyhgtkf?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-- VK
-
-  <iframe src="https://vk.com/video_ext.php?oid=-200452713&id=456239450&hash=8fa7722c8be1c400" width="640" height="360" frameborder="0" allowfullscreen="1" allow="autoplay; encrypted-media; fullscreen; picture-in-picture"></iframe><br>
-
-- YouTube
-
-  @[youtube](https://youtu.be/KjDtR_zysPM)
-
-{% endlist %}
+[Смотреть видео на YouTube](https://youtu.be/KjDtR_zysPM).
 
 
 
+Если в вашем окружении есть инсталляция {{ prometheus-name }}, которая [собирает](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) метрики, вы можете подключить {{ managed-prometheus-name }} в качестве [удаленного хранилища](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations). Для этого настройте [запись](remote-write.md) метрик через Remote API. 
 
-Если в вашем окружении есть инсталляция {{ prometheus-name }}, которая [собирает](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#scrape_config) метрики, чтобы подключить {{ managed-prometheus-name }} в качестве [удаленного хранилища](https://prometheus.io/docs/prometheus/latest/storage/#remote-storage-integrations), настройте [запись](remote-write.md) метрик через Remote API. Иначе воспользуйтесь любым агентом для сбора метрик, поддерживающим протокол записи [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), например {{ prometheus-name }}, запущенным в [режиме агента](https://prometheus.io/docs/prometheus/latest/feature_flags/#prometheus-agent).
+Иначе воспользуйтесь любым агентом для сбора метрик, поддерживающим протокол записи [Remote Write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), например {{ prometheus-name }}, запущенным в [режиме агента](https://prometheus.io/docs/prometheus/latest/feature_flags/#prometheus-agent).
+
+Также при развертывании ВМ Linux вы можете [установить {{ unified-agent-full-name }}](prometheus-agent.md) для сбора метрик в формате {{ prometheus-name }}.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

@@ -13,4 +13,4 @@ Users with this role can:
 * View the reports on Marketplace products in the partner profile.
 * Create technical support [requests](../../../support/overview.md), as well as view, leave comments, and close them.
 
-This role also includes the `marketplace.publishers.editor` and `marketplace.publishers.reportViewer` permissions.
+This role includes the `marketplace.publishers.editor` and `marketplace.publishers.reportViewer` permissions.

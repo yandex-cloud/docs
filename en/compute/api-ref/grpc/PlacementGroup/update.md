@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/compute/v1/api-ref/grpc/PlacementGroup/update.md
 ---
 
-# Compute Cloud API, gRPC: PlacementGroupService.Update {#Update}
+# Compute Cloud API, gRPC: PlacementGroupService.Update
 
 Updates the specified placement group.
 
@@ -15,22 +15,22 @@ Updates the specified placement group.
 
 ```json
 {
-  "placementGroupId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "placement_group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 ID of the placement group to update.
 
 To get the placement group ID, use an [PlacementGroupService.List](/docs/compute/api-ref/grpc/PlacementGroup/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the PlacementGroup resource should be updated. ||
 || name | **string**
@@ -39,7 +39,7 @@ Name of the placement group. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 
@@ -52,25 +52,25 @@ The existing set of `labels` is completely replaced by the provided set. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "placementGroupId": "string"
+    "placement_group_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
-    // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-    "spreadPlacementStrategy": "SpreadPlacementStrategy",
-    "partitionPlacementStrategy": {
+    "labels": "map<string, string>",
+    // Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`
+    "spread_placement_strategy": "SpreadPlacementStrategy",
+    "partition_placement_strategy": {
       "partitions": "int64"
     }
     // end of the list of possible fields
@@ -89,13 +89,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -138,7 +138,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| placementGroupId | **string**
+|| placement_group_id | **string**
 
 ID of the placement group that is being updated. ||
 |#
@@ -150,10 +150,10 @@ ID of the placement group that is being updated. ||
 || id | **string**
 
 ID of the placement group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the placement group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -163,21 +163,21 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
-|| spreadPlacementStrategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**
+|| spread_placement_strategy | **[SpreadPlacementStrategy](#yandex.cloud.compute.v1.SpreadPlacementStrategy)**
 
 Anti-affinity placement strategy (`spread`). Instances are distributed
 over distinct failure domains.
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
 field containing approriate structure. ||
-|| partitionPlacementStrategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
+|| partition_placement_strategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
+Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
 field containing approriate structure. ||
@@ -197,5 +197,7 @@ specify the required placement strategy.
 
 #|
 ||Field | Description ||
-|| partitions | **int64** ||
+|| partitions | **int64**
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

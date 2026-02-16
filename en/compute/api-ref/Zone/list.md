@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/zones
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Zone/list.md
 ---
 
-# Compute Cloud API, REST: Zone.List {#List}
+# Compute Cloud API, REST: Zone.List
 
 Retrieves the list of availability zones.
 
@@ -22,11 +49,15 @@ GET https://compute.{{ api-host }}/compute/v1/zones
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request. ||
+[ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListZonesResponse}
@@ -77,7 +108,6 @@ ID of the region. ||
 
 Status of the zone.
 
-- `STATUS_UNSPECIFIED`
 - `UP`: Zone is available. You can access the resources allocated in this zone.
 - `DOWN`: Zone is not available. ||
 |#

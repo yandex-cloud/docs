@@ -1,6 +1,6 @@
 ---
-title: Управление резервными копиями MySQL
-description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий MySQL. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
+title: Управление резервными копиями {{ MY }}
+description: Вы можете создавать резервные копии и восстанавливать кластеры из имеющихся резервных копий {{ MY }}. Технология Point-in-Time Recovery (PITR) позволяет восстановить состояние кластера на любой момент времени, начиная от создания резервной копии.
 ---
 
 # Управление резервными копиями в {{ mmy-name }}
@@ -16,11 +16,11 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -65,7 +65,7 @@ description: Вы можете создавать резервные копии 
 
           Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#responses).
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse).
 
   1. Чтобы получить список резервных копий всех кластеров в каталоге:
 
@@ -79,11 +79,11 @@ description: Вы можете создавать резервные копии 
               --url-query folderId=<идентификатор_каталога>
           ```
 
-
+          
           Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
-      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#responses).
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#yandex.cloud.mdb.mysql.v1.ListBackupsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -132,7 +132,7 @@ description: Вы можете создавать резервные копии 
               yandex.cloud.mdb.mysql.v1.BackupService.List
           ```
 
-
+          
           Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
 
@@ -147,11 +147,11 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -185,7 +185,7 @@ description: Вы можете создавать резервные копии 
 
       Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#yandex.cloud.mdb.mysql.v1.Backup).
 
 - gRPC API {#grpc-api}
 
@@ -222,7 +222,7 @@ description: Вы можете создавать резервные копии 
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -268,7 +268,7 @@ description: Вы можете создавать резервные копии 
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -277,7 +277,7 @@ description: Вы можете создавать резервные копии 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Backup](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.mysql.v1.Backup) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -295,7 +295,7 @@ description: Вы можете создавать резервные копии 
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -305,7 +305,17 @@ description: Вы можете создавать резервные копии 
 
 ## Восстановить кластер из резервной копии {#restore}
 
+{% note warning %}
+
+{% include [deprecated-note](../../_includes/mdb/backups/deprecated-note.md) %}
+
+{% endnote %}
+
 Для нового кластера необходимо задать все параметры, обязательные при создании, кроме типа кластера.
+
+
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [managed-mysql.restorer](../../iam/roles-reference.md#managed-mysql-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+
 
 {% list tabs group=instructions %}
 
@@ -313,7 +323,7 @@ description: Вы можете создавать резервные копии 
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
   1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
@@ -323,7 +333,7 @@ description: Вы можете создавать резервные копии 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mysql.cluster.switch_backups }}**.
   1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -370,7 +380,7 @@ description: Вы можете создавать резервные копии 
 
   1. Запросите создание кластера из резервной копии:
 
-
+      
       ```bash
       {{ yc-mdb-my }} cluster restore \
          --backup-id=<идентификатор_резервной_копии> \
@@ -380,7 +390,7 @@ description: Вы можете создавать резервные копии 
          --network-name=<имя_сети> \
          --host zone-id=<зона_доступности>,`
                `subnet-name=<имя_подсети>,`
-               `assign-public-ip=<публичный_доступ_к_хосту> \
+               `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
          --resource-preset=<класс_хоста> \
          --disk-size=<размер_хранилища_ГБ> \
          --disk-type=<тип_диска>
@@ -402,7 +412,7 @@ description: Вы можете создавать резервные копии 
 
           * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
 
-
+          
           * `subnet-name` — [имя подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
           * `assign-public-ip` — флаг, который указывается, если для хоста нужен [публичный доступ](../concepts/network.md#public-access-to-host): `true` или `false`.
 
@@ -411,11 +421,12 @@ description: Вы можете создавать резервные копии 
       * `--disk-size` — размер хранилища в гигабайтах.
       * `--disk-type` — [тип диска](../concepts/storage.md):
 
-
+          
           * `network-hdd`;
           * `network-ssd`;
           * `local-ssd`;
-          * `network-ssd-nonreplicated`.
+          * `network-ssd-nonreplicated`;
+          * `network-ssd-io-m3`.
 
 
 - {{ TF }} {#tf}
@@ -528,7 +539,7 @@ description: Вы можете создавать резервные копии 
           "environment": "<окружение>",
           "networkId": "<идентификатор_сети>",
           "configSpec": {
-              "version": "<версия_{{ PG }}>",
+              "version": "<версия_{{ MY }}>",
               "resources": {
                   "resourcePresetId": "<класс_хостов>",
                   "diskSize": "<размер_хранилища_в_байтах>",
@@ -539,7 +550,7 @@ description: Вы можете создавать резервные копии 
               {
                   "zoneId": "<зона_доступности>",
                   "subnetId": "<идентификатор_подсети>",
-                  "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+                  "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
               }
           ]
       }
@@ -570,7 +581,7 @@ description: Вы можете создавать резервные копии 
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assignPublicIp` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь методом [Cluster.restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -583,7 +594,7 @@ description: Вы можете создавать резервные копии 
           --data "@body.json"
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -614,7 +625,7 @@ description: Вы можете создавать резервные копии 
               {
                   "zone_id": "<зона_доступности>",
                   "subnet_id": "<идентификатор_подсети>",
-                  "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+                  "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
               }
           ]
       }
@@ -645,7 +656,7 @@ description: Вы можете создавать резервные копии 
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assign_public_ip` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
 
   1. Воспользуйтесь вызовом [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
@@ -662,7 +673,7 @@ description: Вы можете создавать резервные копии 
           < body.json
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -772,7 +783,7 @@ description: Вы можете создавать резервные копии 
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -923,7 +934,7 @@ description: Вы можете создавать резервные копии 
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 
 - gRPC API {#grpc-api}
@@ -1032,12 +1043,12 @@ description: Вы можете создавать резервные копии 
       Где `updateHostSpecs` — массив хостов, которым вы задаете приоритет. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую;
-      * `hostName` — [FQDN изменяемого хоста](connect.md#fqdn);
+      * `hostName` — [FQDN изменяемого хоста](./connect/fqdn.md);
       * `backupPriority` — [приоритет хоста при резервном копировании](../concepts/backup.md#size): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -1076,7 +1087,7 @@ description: Вы можете создавать резервные копии 
       Где `update_host_specs` — массив хостов, которым вы задаете приоритет. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`;
-      * `host_name` — [FQDN изменяемого хоста](connect.md#fqdn);
+      * `host_name` — [FQDN изменяемого хоста](./connect/fqdn.md);
       * `backup_priority` — [приоритет хоста при резервном копировании](../concepts/backup.md#size): от `0` до `100`.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).

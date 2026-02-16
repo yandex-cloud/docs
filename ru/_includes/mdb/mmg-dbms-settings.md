@@ -1,24 +1,52 @@
+- **Storage**{#setting-storage} {{ tag-all }}
+
+  {% note info %}
+
+  Настройка недоступна для хостов с ролью `MONGOS` шардированного кластера.
+
+  Для хостов с ролью `MONGOCFG` доступна только настройка **Engine config → Cache size gb**.
+
+  {% endnote %}
 
 
-- **Net**{#setting-net} {{ tag-all }}
+  - **Journal → Commit interval**{#setting-journal-commit-interval}
+  
+    Интервал в миллисекундах между сохранениями данных журнала {{ SD }} на диск.
 
-  Настройки сетевого взаимодействия.
+    Минимальное значение — `1`, максимальное значение — `500`, значение по умолчанию — `300`.
 
-  - **Max incoming connections**{#setting-max-incoming-connections}
 
-    Максимальное количество входящих соединений.
+  - **Wired tiger**{#setting-wired-tiger}
+  
+    Настройки движка хранения данных:
+    
+    - **Collection config → Block compressor**{#setting-block-compressor}
+    
+      Настройка сжатия данных. Установленное здесь значение будет работать только для новых коллекций. Также вы можете переопределить его для отдельных коллекций и индексов.
 
-    Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
+      - `none` — сжатие отключено.
+      - `snappy` — использование библиотеки [snappy](https://google.github.io/snappy/) для сжатия данных. При выборе этой настройки в большинстве случаев сжатие и распаковка будут быстрее, чем при использовании библиотеки `zlib`, но итоговый размер файлов будет на 20—100% больше.
+      - `zlib` — использование библиотеки [zlib](http://www.zlib.net/) для сжатия данных. Этот способ работает медленнее `snappy`, но в большинстве случаев лучше сжимает данные.
 
-    Подробнее см. в разделе [Ограничения на количество подключений](../../managed-mongodb/operations/connect/index.md#connection-limits).
 
-  - **Compression → Compressors**{#setting-compressors}
+    - **Engine config → Cache size gb**{#setting-engine-cache-size}
 
-    Список методов сжатия, которые может использовать хост с ролью `MONGOD` или `MONGOS` для сжатия сетевых сообщений. Порядок перечисления методов важен.
+      Максимальный размер внутреннего кеша, используемого для хранения данных (в гигабайтах). Эта настройка не влияет на объем RAM, используемый для построения индекса.
 
-    Значение `disabled` отключает сжатие. Значение по умолчанию — `snappy,zstd,zlib`.
+      Минимальное значение — `0.25` (256 МБ). Максимальное значение и значение по умолчанию [зависят от выбранного класса хостов](#settings-instance-dependent) и задаются формулами:
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-net.compression.compressors).
+      - Максимальное значение — `0,9 × <объем_RAM_на_хосте>`.
+      - Значение по умолчанию — `0,5 × <объем_RAM_на_хосте>`.
+
+      Например, для хостов класса {{ s1-medium }} максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
+
+
+    - **Index config → Prefix compression**{#setting-prefix-compression}
+
+      Определяет, будет ли выполняться сжатие префиксов для индексов. Изменение параметра влияет на новые индексы, но не влияет на уже созданные.
+
+      Значение по умолчанию — `true` (сжатие префиксов включено).
+
 
 - **Operation profiling**{#setting-operation-profiling} {{ tag-all }}
 
@@ -38,7 +66,6 @@
     - `slowOp` (по умолчанию) — собирается информация только о медленных операциях (выполняющихся дольше порога, заданного настройкой [Slow op threshold](#setting-slow-op-threshold));
     - `all` — собирается информация обо всех выполняющихся запросах.
 
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/administration/analyzing-mongodb-performance/#database-profiling).
 
   - **Slow op sample rate**{#setting-slow-sample-rate}
 
@@ -46,7 +73,6 @@
 
     Минимальное значение — `0`, максимальное значение — `1`, значение по умолчанию — `1`.
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-operationProfiling.slowOpSampleRate).
 
   - **Slow op threshold**{#setting-slow-op-threshold}
   
@@ -54,7 +80,45 @@
 
     Минимальное значение — `0`, максимальное значение — `36000000` (10 часов), значение по умолчанию — `300`.
 
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/tutorial/manage-the-database-profiler/#specify-the-threshold-for-slow-operations).
+
+- **Net**{#setting-net} {{ tag-all }}
+
+  Настройки сетевого взаимодействия.
+
+  - **Max incoming connections**{#setting-max-incoming-connections}
+
+    Максимальное количество входящих соединений.
+
+    Минимальное значение — `10`, максимальное значение [зависит от выбранного класса хостов](#settings-instance-dependent) и равно объему RAM на хосте в МБ, но не более `16384`. Значение по умолчанию: `1024`.
+
+    Подробнее см. в разделе [Ограничения на количество подключений](../../storedoc/operations/connect/index.md#connection-limits).
+
+  - **Compression → Compressors**{#setting-compressors}
+
+    Список методов сжатия, которые может использовать хост с ролью `MONGOD` или `MONGOS` для сжатия сетевых сообщений. Порядок перечисления методов важен.
+
+    Значение `disabled` отключает сжатие. Значение по умолчанию — `snappy,zstd,zlib`.
+
+
+- **Audit Log**{#setting-audit-log} {{ tag-all }}
+
+  Настройки логов системы аудита.
+
+  - **Filter**{#setting-filter}
+
+    Настройка определяет, какие события аудита будут записаны в лог. Входным параметром служит любое поле из сообщения аудита в формате JSON-строки.
+
+    Например, чтобы логировать только события аудита, связанные с пользователями `example-user` и `new-user`, укажите:
+
+    ```json
+    { "user": { $in: [ "example-user", "new-user" ] } }
+    ```
+
+  {% note info %}
+
+  Вы также можете [настроить](../../audit-trails/operations/create-trail.md) выгрузку [аудитных логов](../../storedoc/at-ref.md) кластера в [трейл](../../audit-trails/concepts/trail.md) с помощью сервиса [{{ at-full-name }}](../../audit-trails/index.yaml).
+
+  {% endnote %}
 
 
 - **Set parameter**{#setting-set-parameter}
@@ -65,7 +129,6 @@
 
     Значение по умолчанию — `false` (контроль скорости отключен).
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.enableFlowControl).
 
   - **Min snapshot history window in seconds**{#setting-min-snapshot-history-window-in-seconds} {{ tag-all }}
 
@@ -79,59 +142,4 @@
 
     Возможные значения — от нуля и выше, значение по умолчанию — `60`. Увеличение значения настройки увеличивает использование диска.
 
-    Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.minSnapshotHistoryWindowInSeconds).
 
-- **Storage**{#setting-storage} {{ tag-all }}
-
-  {% note info %}
-
-  Настройка недоступна для хостов с ролью `MONGOS` шардированного кластера.
-
-  Для хостов с ролью `MONGOCFG` доступна только настройка **Engine config → Cache size gb**.
-
-  {% endnote %}
-
-  Настройки взаимодействия {{ MG }} с [хранилищем данных](https://docs.mongodb.com/manual/core/storage-engines/).
-
-  - **Journal → Commit interval**{#setting-journal-commit-interval}
-  
-    Интервал в миллисекундах между сохранениями [данных журнала](https://docs.mongodb.com/manual/core/journaling/) {{ MG }} на диск.
-
-    Минимальное значение — `1`, максимальное значение — `500`, значение по умолчанию — `300`.
-
-    Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.journal.commitIntervalMs).
-
-  - **Wired tiger**{#setting-wired-tiger}
-  
-    Настройки [движка хранения данных](https://docs.mongodb.com/manual/core/wiredtiger/):
-    
-    - **Collection config → Block compressor**{#setting-block-compressor}
-    
-      Настройка сжатия данных. Установленное здесь значение будет работать только для новых коллекций. Также вы можете переопределить его для [отдельных коллекций](https://docs.mongodb.com/manual/reference/method/db.createCollection/#create-collection-storage-engine-options) и [индексов](https://docs.mongodb.com/manual/reference/method/db.collection.createIndex/#options).
-
-      - `none` — сжатие отключено.
-      - `snappy` — использование библиотеки [snappy](https://google.github.io/snappy/) для сжатия данных. При выборе этой настройки в большинстве случаев сжатие и распаковка будут быстрее, чем при использовании библиотеки `zlib`, но итоговый размер файлов будет на 20—100% больше.
-      - `zlib` — использование библиотеки [zlib](http://www.zlib.net/) для сжатия данных. Этот способ работает медленнее `snappy`, но в большинстве случаев лучше сжимает данные.
-
-      Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.collectionConfig.blockCompressor).
-
-    - **Engine config → Cache size gb**{#setting-engine-cache-size}
-
-      Максимальный размер внутреннего кеша, используемого для хранения данных (в гигабайтах). Эта настройка не влияет на объем RAM, используемый для построения индекса.
-
-      Минимальное значение — `0.25` (256 МБ). Максимальное значение и значение по умолчанию [зависят от выбранного класса хостов](#settings-instance-dependent) и задаются формулами:
-
-      - Максимальное значение — `0,9 × <объем_RAM_на_хосте>`.
-      - Значение по умолчанию — `0,5 × <объем_RAM_на_хосте>`.
-
-      Например, для хостов класса {{ s1-medium }} максимальное значение настройки — `28.8`, значение по умолчанию — `16`.
-
-      Подробнее см. в [документации {{ MG }}](https://docs.mongodb.com/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.engineConfig.cacheSizeGB).
-
-    - **Index config → Prefix compression**{#setting-prefix-compression}
-
-      Определяет, будет ли выполняться сжатие префиксов для индексов. Изменение параметра влияет на новые индексы, но не влияет на уже созданные.
-
-      Значение по умолчанию — `true` (сжатие префиксов включено).
-
-      Подробнее см. в [документации {{ MG }}](https://mongodb.com/docs/manual/reference/configuration-options/#mongodb-setting-storage.wiredTiger.indexConfig.prefixCompression).

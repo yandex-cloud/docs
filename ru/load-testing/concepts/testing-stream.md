@@ -83,3 +83,11 @@ Pandora создает 1000 тестирующих потоков, если пр
 	```
 
 {% endlist %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/loadtesting-grpc.md)
+* [{#T}](../tutorials/loadtesting-https-pandora.md)
+* [{#T}](../tutorials/loadtesting-https-phantom.md)
+* [{#T}](../tutorials/loadtesting-results-compare.md)
+* [{#T}](../tutorials/loadtesting-http-scenario-pandora.md)

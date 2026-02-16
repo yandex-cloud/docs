@@ -2,6 +2,7 @@
 title: How to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}
 description: In this tutorial, you will learn how to set up a {{ PG }} target endpoint in {{ data-transfer-full-name }}.
 ---
+
 # Transferring data to a {{ PG }} target endpoint
 
 {{ data-transfer-full-name }} enables you to migrate data to a {{ PG }} database and implement various data transfer, processing, and transformation scenarios. To implement a transfer:
@@ -11,7 +12,7 @@ description: In this tutorial, you will learn how to set up a {{ PG }} target en
 1. [Prepare the {{ PG }}](#prepare) database for the transfer.
 1. [Configure the target endpoint](#endpoint-settings) in {{ data-transfer-full-name }}.
 1. [Create](../../transfer.md#create) a transfer and [start](../../transfer.md#activate) it.
-1. [Perform the required operations with the database](../../../../_includes/data-transfer/endpoints/sources/pg-work-with-db.md) and [see how the transfer is going](../../monitoring.md).
+1. [Perform the required operations with the database](#db-actions) and [see how the transfer is going](../../monitoring.md).
 1. In case of any issues, [use ready-made solutions](#troubleshooting) to resolve them.
 
 ## Scenarios for transferring data to {{ PG }} {#scenarios}
@@ -44,6 +45,7 @@ Configure one of the supported data sources:
 * [{{ AB }}](../../../transfer-matrix.md#airbyte)
 * [{{ DS }}](../source/data-streams.md)
 * [{{ objstorage-full-name }}](../source/object-storage.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ ydb-name }}](../source/ydb.md)
 * [Oracle](../source/oracle.md).
 
@@ -65,12 +67,12 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -83,16 +85,16 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     * Endpoint type: `postgres-target`.
 
     {% include [Managed PostgreSQL CLI](../../../../_includes/data-transfer/necessary-settings/cli/managed-postgresql.md) %}
-
+    
 - {{ TF }} {#tf}
 
     * Endpoint type: `postgres_target`.
 
     {% include [Managed PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/managed-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is a configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -113,7 +115,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -143,9 +145,9 @@ For OnPremise, all fields are filled in manually.
 
     {% include [On premise PostgreSQL Terraform](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-postgresql.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is a configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -155,7 +157,7 @@ For OnPremise, all fields are filled in manually.
           connection {
             on_premise {
               hosts = ["<list_of_hosts>"]
-              port  = <pot_for_connection>
+              port  = <port_for_connection>
             }
           }
           database = "<name_of_database_to_migrate>"
@@ -169,7 +171,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -186,10 +188,14 @@ For OnPremise, all fields are filled in manually.
     * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/ui/cleanup_policy.md) %}
 
     * {% include [save_tx_boundaries](../../../../_includes/data-transfer/fields/postgresql/ui/save_tx_boundaries.md) %}
+  
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
 
 - {{ TF }} {#tf}
 
-    {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
+    * {% include [cleanup_policy](../../../../_includes/data-transfer/fields/postgresql/terraform/cleanup-policy.md) %}
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 - API {#api}
 
@@ -217,16 +223,19 @@ Known issues when using a {{ PG }} endpoint:
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
 * [No data transfer after changing a source endpoint](#no-data-transfer).
-* [Transfer error when changing a master host](#master-change).
+* [Transfer error when changing the master host](#master-change).
+* [WAL lacks records to continue replication after changing the master host](#no-wal-story).
 * [Error when transferring nested transactions](#inner-tables).
 * [Error transferring tables with deferred constraints](#deferrable-constr).
 * [Cannot create a replication slot at the activation step](#lock-replication).
 * [Excessive WAL size increase](#excessive-wal).
 * [Error when replicating from an external source](#external-replication).
 * [Error when transferring tables without primary keys](#primary-keys).
+* [Duplicate key violates a unique constraint](#duplicate-key).
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+* [Error when transferring tables with generated columns](#generated-columns).
 
-For more troubleshooting tips, see the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -250,6 +259,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
 
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
+
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
@@ -262,4 +273,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

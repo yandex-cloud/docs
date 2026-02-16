@@ -3,7 +3,7 @@
 
 To create an L7 load balancer with DDoS protection using the {{ yandex-cloud }} management console or CLI:
 
-1. [Prepare your cloud](#before-begin).
+1. [Get your cloud ready](#before-begin).
 1. [Create a cloud network](#create-network).
 1. [Create security groups](#create-security-groups).
 1. [Create an instance group](#create-vms).
@@ -16,7 +16,7 @@ To create an L7 load balancer with DDoS protection using the {{ yandex-cloud }} 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Prepare your cloud {#before-begin}
+## Get your cloud ready {#before-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
@@ -25,6 +25,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [paid-resources](../_tutorials_includes/alb-with-ddos-protection/paid-resources.md) %}
 
+
+## Prepare a service account {#prepare-sa}
+
+{% include [alb-warning.md](../../_includes/instance-groups/alb-warning.md) %}
+
+{% include [sa.md](../../_includes/instance-groups/sa.md) %}
+
+To be able to create, update, and delete VMs in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account.
 
 ## Create a cloud network {#create-network}
 
@@ -38,7 +46,7 @@ To create a network:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. Name the network: `ddos-network`.
+  1. Enter `ddos-network` as the network name.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, select **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
@@ -55,7 +63,7 @@ To create a network:
        --name ddos-network
      ```
 
-     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/network/create.md).
+     For more information about the `yc vpc network create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
   1. Create [subnets](../../vpc/concepts/network.md#subnet) in each [availability zone](../../overview/concepts/geo-scope.md) by specifying the cloud network ID using the `--network-name` flag:
 
@@ -83,14 +91,14 @@ To create a network:
        --range 192.168.2.0/24
      ```
 
-     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/subnet/create.md).
+     For more information about the `yc vpc subnet create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
 {% endlist %}
 
 
 ## Create security groups {#create-security-groups}
 
-[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer to receive incoming traffic and redirect it to the VMs so they can receive the traffic. In this use case, we will create two security groups: one for the load balancer and another one for all VMs.
+[Security groups](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) include rules that allow the load balancer to receive inbound traffic and redirect it to the VMs so they can receive it. In this tutorial, we will create two security groups: one for the load balancer and another one for all VMs.
 
 To create security groups:
 
@@ -99,32 +107,32 @@ To create security groups:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Create a security group for the load balancer:
 
      1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-     1. Specify **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** for the security group: `ddos-sg-balancer`.
+     1. Specify the security group **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}**: `ddos-sg-balancer`.
      1. Select **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `ddos-network`.
      1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following rules using the instructions below the table:
 
-        Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>target | {{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}
+        Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source /<br>destination | {{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}
         --- | --- | --- | --- | --- | ---
-        `Outgoing` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Incoming` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Incoming` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-        `Incoming` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
+        `Outbound` | `any` | `All` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Inbound` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Inbound` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+        `Inbound` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | —
 
         1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
         1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports that traffic will come to or from.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** field of the window that opens, specify a single port or a range of ports open for inbound or outbound traffic.
         1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** field, specify the appropriate protocol or leave `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` to allow traffic transmission over any protocol.
-        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the rule purpose:
 
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and masks of subnets that traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDR and subnet masks traffic will come to or from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
            * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`: Rule will apply to the VMs from the current group or the selected security group.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health check VMs.
+           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`: Rule allowing a load balancer to health-check VMs.
 
-        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat the steps to create all the rules from the table.
+        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
 
      1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -132,12 +140,12 @@ To create security groups:
 
      Traffic<br>direction | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Source | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
      --- | --- | --- | --- | --- | ---
-     `Incoming` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer`
-     `Incoming` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+     `Inbound` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `ddos-sg-balancer`
+     `Inbound` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 - CLI {#cli}
 
-  To create a security group for your load balancer, run the command:
+  To create a security group for your load balancer, run this command:
 
   ```bash
   yc vpc security-group create \
@@ -149,7 +157,7 @@ To create security groups:
     --network-name ddos-network
   ```
 
-  To create a security group for your VM, run the command:
+  To create a security group for your VM, run this command:
 
   ```bash
   yc vpc security-group create \
@@ -161,14 +169,14 @@ To create security groups:
 
   Where `security-group-id` is the `ddos-sg-balancer` security group ID.
 
-  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/vpc/security-group/create.md).
+  For more information about the `yc vpc security-group create` command, see the [CLI reference](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
 {% endlist %}
 
 
 ## Create an instance group {#create-vms}
 
-Your application backends will be deployed on the VM instance of the [target group](../../application-load-balancer/concepts/target-group.md). The VM's target group will be connected to the load balancer so that requests can be sent to the backend endpoints of your application. In this scenario, creating an [instance group](../../compute/concepts/instance-groups/index.md) with the minimum configuration is enough.
+Your application backends will be deployed on the VM instance from the [target group](../../application-load-balancer/concepts/target-group.md). The VM target group will be connected to the load balancer, thus enabling requests to the backend endpoints of your application. A minimum configuration [instance group](../../compute/concepts/instance-groups/index.md) is sufficient for this tutorial.
 
 To create an instance group:
 
@@ -177,38 +185,38 @@ To create an instance group:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
 
      * Enter the instance group **{{ ui-key.yacloud.compute.groups.create.field_name }}**: `ddos-group`.
-     * Select a [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VM instances in the instance group, assign the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account. By default, all operations in {{ ig-name }} are performed on behalf of a service account.
+     * Select the [service account](../../iam/concepts/users/service-accounts.md) from the list or create a new one. To be able to create, update, and delete VMs in the group, as well as integrate the group with an {{ alb-name }} L7 load balancer, [assign](../../iam/operations/sa/assign-role-for-sa.md) the `editor` [role](../../iam/concepts/access-control/roles.md) to the service account.
 
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure fault tolerance of your hosting.
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure a basic instance:
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_allocation }}**, select multiple availability zones to ensure the fault tolerance of your hosting.
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_instance }}**, click **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** to configure the base VM instance:
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a **{{ ui-key.yacloud.common.description }}** for the template.
      * Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, open the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab and click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Select [LEMP](/marketplace/products/yc/lemp) and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_disk }}**, specify:
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify:
 
-       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`.
-       * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+       * **{{ ui-key.yacloud.compute.disk-form.field_type }}**: `HDD`
+       * Disk **{{ ui-key.yacloud.compute.disk-form.field_size }}**: `3 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, specify:
 
-       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`.
-       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Cascade Lake`
+       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
+       * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}**: `5%`
+       * **{{ ui-key.yacloud.component.compute.resources.field_memory }}**: `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`
 
      * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-       * Select the `ddos-network` cloud network and its subnets.
+       * Select the cloud network named `ddos-network` and its subnets.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** field, select `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
        * Select the `ddos-sg-vms` security group.
 
-     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the data for access to the VM:
+     * Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the VM access credentials:
 
-       * Enter the username into the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field.
+       * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
        * In the **{{ ui-key.yacloud.compute.instances.create.field_key }}** field, paste the contents of the public key file.
 
         To establish an SSH connection, you need to create a key pair. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -216,25 +224,25 @@ To create an instance group:
      * Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify the instance group **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}**: `2`.
-  1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and enter `tg-ddos` as the group name. You can read more about target groups [here](../../application-load-balancer/concepts/target-group.md).
+  1. Under **{{ ui-key.yacloud.compute.groups.create.section_alb }}**, select **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** and enter `tg-ddos` as the group name. [Read more about target groups](../../application-load-balancer/concepts/target-group.md).
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
   1. Get the resource IDs required to create an instance group using the following commands:
 
-     * [yc iam service-account get <service_account_name>](../../cli/cli-ref/managed-services/iam/service-account/get.md): For a service account.
-     * [yc vpc network get ddos-network](../../cli/cli-ref/managed-services/vpc/network/get.md): For `ddos-network`.
-     * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/managed-services/vpc/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-d` subnets.
-     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/managed-services/compute/image/get-latest-from-family.md): For the boot disk image.
-     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/managed-services/vpc/security-group/get.md): For the `ddos-sg-vms` security group.
+     * [yc iam service-account get <service_account_name>](../../cli/cli-ref/iam/cli-ref/service-account/get.md): For the service account.
+     * [yc vpc network get ddos-network](../../cli/cli-ref/vpc/cli-ref/network/get.md): For `ddos-network`.
+     * [yc vpc subnet get <subnet_name>](../../cli/cli-ref/vpc/cli-ref/subnet/get.md): For the `ddos-network-ru-a`, `ddos-network-ru-b`, and `ddos-network-ru-d` subnets.
+     * [yc compute image get-latest-by-family lemp --folder-id standard-images](../../cli/cli-ref/compute/cli-ref/image/get-latest-from-family.md): For the boot disk image.
+     * [yc vpc security-group get ddos-sg-vms](../../cli/cli-ref/vpc/cli-ref/security-group/get.md): For the `ddos-sg-vms` security group.
 
   1. Create a YAML file named `specification.yaml`.
   1. Add to it the description of the base instance configuration:
 
      ```yaml
      name: ddos-group
-     service_account_id: <service_account_ID>
+     service_account_id: <service_account_ID> // The service account must have the editor role.
      description: "DDoS alb scenario"
      instance_template:
          platform_id: standard-v3
@@ -251,9 +259,9 @@ To create an instance group:
          network_interface_specs:
              - network_id: <cloud_network_ID>
                subnet_ids:
-                 - <{{ region-id }}-a_zone_subnet_ID>
-                 - <{{ region-id }}-b_zone_subnet_ID>
-                 - <{{ region-id }}-d_zone_subnet_ID>
+                 - <subnet_ID_in_{{ region-id }}-a>
+                 - <subnet_ID_in_{{ region-id }}-b>
+                 - <subnet_ID_in_{{ region-id }}-d>
                primary_v4_address_spec: {}
                security_group_ids:
                  - <security_group_ID>
@@ -337,7 +345,7 @@ To create an instance group:
        target_group_id: ds78imh0ds2e********
      ```
 
-     For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/compute/instance-group/create.md).
+     For more information about the `yc compute instance-group create` command, see the [CLI reference](../../cli/cli-ref/compute/cli-ref/instance-group/create.md).
 
 {% endlist %}
 
@@ -350,7 +358,7 @@ You cannot do this using the [CLI](../../cli/).
 
 {% endnote %}
 
-To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option:
+To protect a load balancer against DDoS attacks, reserve a static public IP address with the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option enabled:
 
 {% list tabs group=instructions %}
 
@@ -367,9 +375,9 @@ To protect a load balancer against DDoS attacks, reserve a static public IP addr
 
 ## Create a backend group {#create-backend-group}
 
-You must link the target group created with the VM group to the [backend group](../../application-load-balancer/concepts/backend-group.md) that defines traffic allocation settings.
+You must link the target group created along with the instance group to the [backend group](../../application-load-balancer/concepts/backend-group.md) that defines traffic allocation settings.
 
-For the backends, groups will implement [health checks](../../application-load-balancer/concepts/backend-group.md#health-checks): the load balancer will periodically send health check requests to the VMs and expect a response after a certain delay.
+For the backends, the groups will implement [health checks](../../application-load-balancer/concepts/backend-group.md#health-checks): the load balancer will periodically send health check requests to the VMs and expect a response over a certain period.
 
 To create a backend group:
 
@@ -379,14 +387,14 @@ To create a backend group:
 
   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Enter **{{ ui-key.yacloud.common.name }}** of the backend group: `ddos-backend-group`.
+  1. Enter the backend group **{{ ui-key.yacloud.common.name }}**: `ddos-backend-group`.
   1. Under **{{ ui-key.yacloud.alb.label_backends }}**, click **{{ ui-key.yacloud.common.add }}**.
   1. Enter the backend **{{ ui-key.yacloud.common.name }}**: `backend-1`.
   1. In the **{{ ui-key.yacloud.alb.label_target-groups }}** field, select the `tg-ddos` group.
-  1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to receive incoming traffic from the load balancer: `80`.
+  1. Specify the **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to receive inbound traffic from the load balancer: `80`.
   1. Click **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
-  1. Specify **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to accept health check connections: `80`.
-  1. Specify **{{ ui-key.yacloud.alb.label_path }}** the load balancer will access for health checks: `/`.
+  1. Specify the **{{ ui-key.yacloud.alb.label_port }}** the backend VMs will use to accept health check connections: `80`.
+  1. Specify the **{{ ui-key.yacloud.alb.label_path }}** the load balancer will use for health checks: `/`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -410,9 +418,9 @@ To create a backend group:
      created_at: "2021-08-08T20:46:21.688940670Z"
      ```
 
-     For more information about the `yc alb backend-group create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/create.md).
+     For more information about the `yc alb backend-group create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/create.md).
 
-  1. Add a backend and health check to the group:
+  1. Add a backend and a health check to the group:
 
      ```bash
      yc alb backend-group add-http-backend \
@@ -430,11 +438,11 @@ To create a backend group:
      * `--weight`: Backend weight.
      * `--port`: Port.
      * `--target-group-id`: Target group ID.
-     * `--http-healthcheck`: Resource health check parameters.
+     * `--http-healthcheck`: Resource health check properties.
        * `port`: Port.
        * `timeout`: Timeout.
-       * `interval`: Interval
-       * `host`: Host address
+       * `interval`: Interval.
+       * `host`: Host address.
        * `path`: Path.
 
      Result:
@@ -461,14 +469,14 @@ To create a backend group:
      created_at: "2021-08-08T07:59:22.922603189Z"
      ```
 
-     For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/backend-group/add-http-backend.md).
+     For more information about the `yc alb backend-group add-http-backend` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/backend-group/add-http-backend.md).
 
 {% endlist %}
 
 
 ## Create an HTTP router {#create-http-routers-sites}
 
-The backend group should be linked to an [HTTP router](../../application-load-balancer/concepts/http-router.md) that defines HTTP routing rules.
+The backend group should be linked to an [HTTP router](../../application-load-balancer/concepts/http-router.md) that defines the HTTP routing rules.
 
 To create an HTTP router and add a route to it:
 
@@ -483,11 +491,11 @@ To create an HTTP router and add a route to it:
   1. Specify the virtual host **{{ ui-key.yacloud.common.name }}**: `ddos-host`.
   1. Specify the **{{ ui-key.yacloud.alb.label_authority }}** value: `alb-with-ddos.com`.
   1. Click **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Set **{{ ui-key.yacloud.common.name }}** to `route-1`.
+  1. Enter `route-1` as the **{{ ui-key.yacloud.common.name }}**.
   1. In the **{{ ui-key.yacloud.alb.label_path }}** field, select `{{ ui-key.yacloud.alb.label_match-prefix }}` and specify the `/` path.
   1. In the **{{ ui-key.yacloud.alb.label_route-action }}** field, keep `{{ ui-key.yacloud.alb.label_route-action-route }}`.
-  1. In the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the group you created earlier.
-  1. Leave all other settings unchanged and click **{{ ui-key.yacloud.common.create }}**.
+  1. From the **{{ ui-key.yacloud.alb.label_backend-group }}** list, select the group you created earlier.
+  1. Do not change the other settings. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -510,9 +518,9 @@ To create an HTTP router and add a route to it:
      created_at: "2021-08-08T21:04:59.438292069Z"
      ```
 
-     For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/http-router/create.md).
+     For more information about the `yc alb http-router create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/http-router/create.md).
 
-  1. Create a virtual host by specifying the name of the HTTP router:
+  1. Create a virtual host by specifying the HTTP router name:
 
      ```bash
      yc alb virtual-host create ddos-host \
@@ -520,9 +528,9 @@ To create an HTTP router and add a route to it:
        --authority alb-with-ddos.com
      ```
 
-     For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/create.md).
+     For more information about the `yc alb virtual-host create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/create.md).
 
-  1. Add a route by specifying the router name and the routing parameters:
+  1. Add a route by specifying the router name and the routing settings:
 
      ```bash
      yc alb virtual-host append-http-route route-1 \
@@ -549,7 +557,7 @@ To create an HTTP router and add a route to it:
             timeout: 60s
      ```
 
-     For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/append-http-route.md).
+     For more information about the `yc alb virtual-host append-http-route` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/append-http-route.md).
 
 {% endlist %}
 
@@ -566,11 +574,11 @@ To create a load balancer:
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_load-balancers }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. Enter the load balancer name: `ddos-protect-alb`.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select `ddos-network` and the`ddos-sg-balancer` security group.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select `ddos-network` and the `ddos-sg-balancer` security group.
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select the subnets for the load balancer nodes in each availability zone and enable traffic.
-  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Set the listener settings:
+  1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}**. Configure the listener settings:
 
-     1. Enter the listener name: `ddos-listener`.
+     1. Specify the listener name: `ddos-listener`.
      1. Under **{{ ui-key.yacloud.alb.section_external-address-specs }}**, enable traffic.
      1. Set the port to `80`.
      1. Select the **{{ ui-key.yacloud.alb.label_address-list }}** type and specify the [previously reserved](#reserve-ip) IP address with DDoS protection.
@@ -590,7 +598,7 @@ To create a load balancer:
        --location subnet-name=ddos-network-ru-d,zone={{ region-id }}-d
      ```
 
-     For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/create.md).
+     For more information about the `yc alb load-balancer create` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/create.md).
 
   1. Add a listener:
 
@@ -601,7 +609,7 @@ To create a load balancer:
        --external-ipv4-endpoint port=80, address=<IP_address_with_DDoS_protection>
      ```
 
-     For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/load-balancer/add-listener.md).
+     For more information about the `yc alb load-balancer add-listener` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
 {% endlist %}
 
@@ -614,13 +622,13 @@ After creating the load balancer, [test](#test) it.
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the hosting and stop paying for the created resources:
+To shut down the hosting and stop paying for the resources you created:
 
-1. Delete the non-billable resources that block the deletion of billable resources:
+1. Delete the non-billable resources that prevent the deletion of billable resources:
 
    1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the `ddos-protect-alb` L7 load balancer.
-   1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the `ddos-router` HTTP router.
-   1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) the `ddos-backend-group` backend group.
+   1. [Delete](../../application-load-balancer/operations/http-router-delete.md) the HTTP router named `ddos-router`.
+   1. [Delete](../../application-load-balancer/operations/backend-group-delete.md) `ddos-backend-group`.
 
-1. [Delete](../../compute/operations/instance-groups/delete.md) the `ddos-group` instance group.
+1. [Delete](../../compute/operations/instance-groups/delete.md) the instance group named `ddos-group`.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address you reserved.

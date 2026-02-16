@@ -3,7 +3,12 @@
 
 С помощью serverless-технологий можно создать [бота](../../glossary/chat-bot.md) для Telegram, который будет отвечать на сообщения в чате.
 
-@[youtube](C2Ahit2EBo0)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjsucpfkw2e4zdzy2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=C2Ahit2EBo0).
+
+
 
 Чтобы создать бота:
 
@@ -22,7 +27,6 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки Telegram-бота входят:
@@ -31,10 +35,14 @@
 * плата за объем хранилища, занятый данными, количество операций с данными и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md)).
 
-
 ## Подготовьте ресурсы {#create-resources}
 
-1. [Скачайте](https://{{ s3-storage-host }}/doc-files/telegrambot.zip) архив с файлами, необходимыми для создания бота.
+1. Клонируйте [репозиторий](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless) с исходным кодом, необходимым для создания бота, для этого в терминале выполните команду [git](https://git-scm.com/):
+
+    ```bash
+    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless.git
+    ```
+
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог. 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
@@ -150,7 +158,7 @@
       * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** из раздела **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**, оно потребуется в дальнейшем.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, оно потребуется в дальнейшем.
 
 {% endlist %}
 

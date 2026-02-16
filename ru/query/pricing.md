@@ -1,3 +1,9 @@
+---
+title: Правила тарификации для {{ yq-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ yq-name }}.
+editable: false
+---
+
 # Правила тарификации для {{ yq-full-name }}
 
 
@@ -6,6 +12,9 @@
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 В {{ yq-full-name }} тарифицируется объем считанных из источников данных при исполнении запросов. Если данные считываются из нескольких источников, их объем суммируется.
 
 ## Цены для региона Россия {#prices}
@@ -13,17 +22,14 @@
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yq }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub](../_pricing/query/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt](../_pricing/query/kzt.md) %}
-
-{% endlist %}
 
 
 

@@ -1,9 +1,60 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ClickHouse cluster ID.
+            To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        formatSchemaName:
+          description: |-
+            **string**
+            Required field. Format schema name.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        type:
+          description: |-
+            **enum** (FormatSchemaType)
+            Required field. Schema type. Possible values are the following:
+            * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
+            * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
+            - `FORMAT_SCHEMA_TYPE_PROTOBUF`
+            - `FORMAT_SCHEMA_TYPE_CAPNPROTO`
+          type: string
+          enum:
+            - FORMAT_SCHEMA_TYPE_UNSPECIFIED
+            - FORMAT_SCHEMA_TYPE_PROTOBUF
+            - FORMAT_SCHEMA_TYPE_CAPNPROTO
+        uri:
+          description: |-
+            **string**
+            Required field. [Link to the file](/docs/managed-clickhouse/operations/s3-access#get-link-to-object) of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage.
+          type: string
+      required:
+        - formatSchemaName
+        - type
+        - uri
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/mdb/clickhouse/v1/api-ref/FormatSchema/create.md
 ---
 
-# Managed Service for ClickHouse API, REST: FormatSchema.Create {#Create}
+# Managed Service for ClickHouse API, REST: FormatSchema.Create
 
 Adds a format schema to a cluster.
 
@@ -21,7 +72,9 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/forma
 
 Required field. ClickHouse cluster ID.
 
-To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method. ||
+To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) method.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.clickhouse.v1.CreateFormatSchemaRequest}
@@ -38,7 +91,9 @@ To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clic
 ||Field | Description ||
 || formatSchemaName | **string**
 
-Required field. Format schema name. ||
+Required field. Format schema name.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || type | **enum** (FormatSchemaType)
 
 Required field. Schema type. Possible values are the following:
@@ -46,7 +101,6 @@ Required field. Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**
@@ -203,7 +257,6 @@ Schema type. Possible values are the following:
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
-- `FORMAT_SCHEMA_TYPE_UNSPECIFIED`
 - `FORMAT_SCHEMA_TYPE_PROTOBUF`
 - `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
 || uri | **string**

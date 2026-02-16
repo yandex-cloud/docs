@@ -1,4 +1,9 @@
-# Selectors
+---
+title: Selectors in {{ datalens-full-name }}
+description: In {{ datalens-full-name }}, selectors are filters that affect the results of queries in the linked widgets.
+---
+
+# Selectors in {{ datalens-full-name }}
 
 Selectors are filters that affect the results of queries in the linked [widgets](./widget.md).
 
@@ -8,11 +13,9 @@ Selectors are filters that affect the results of queries in the linked [widgets]
 
 A selector can be linked to a chart or another selector. For more information, see [{#T}](./link.md).
 
-In a single widget, you can [group](../operations/dashboard/add-selector.md) multiple selectors. Each of them will work within one dashboard tab. When working with a selector group:
-* You can add **Apply** and **Reset** buttons to a widget with a selector group.
-* To fix selectors inside the widget, specify the exact width for each one either in pixels or percent of widget width.
-* To place selectors one on top of the other, specify `100%` width for each one of them.
-* You can copy selectors and paste them into a group.
+
+Each selector may apply to a single dashboard tab, selected dashboard tabs, or the entire dashboard. A selector’s values are synchronized between tabs.
+
 
 {{ datalens-short-name }} supports multiple selector types:
 
@@ -21,6 +24,22 @@ In a single widget, you can [group](../operations/dashboard/add-selector.md) mul
 * **Calendar**: Used for entering values of the `Date` or `Date and time` type.
 * **Checkbox**: Allows selecting one of the two possible `Boolean` type values, `True` or `False`. To choose both boolean values, use the **List** selector type.
 
+You can also [add a JS selector](../charts/editor/add-js-selector.md) to a dashboard.
+
+In a single widget, you can [group](../operations/dashboard/add-selector.md) multiple selectors.
+
+When working with a selector group:
+
+* You can add **Apply** and **Reset** buttons to a widget with a selector group.
+
+
+* For a widget with a selector group, you can configure which tabs to show it on.
+* For each selector in a group, you can configure which tabs to show it on, or select to display it on tabs `From group settings`. The group settings restrict how you can set up individual selectors.
+
+
+* To fix selectors inside the widget, specify the exact width for each one either in pixels or percent of widget width.
+* To place selectors one under the other, specify `100%` width for each one of them.
+* You can copy selectors and paste them into a group.
 
 When adding a selector to a dashboard, consider how it affects chart filters:
 
@@ -35,3 +54,4 @@ Filters applied to charts using selectors are displayed in the **Dashboard filte
 #### See also {#see-also}
 
 * [{#T}](../operations/dashboard/add-selector.md)
+* [{#T}](../charts/editor/add-js-selector.md)

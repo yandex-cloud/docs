@@ -1,0 +1,98 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/s3/presign.md
+---
+
+# yc beta storage s3 presign
+
+Generate pre-signed URLs for S3 objects
+
+#### Command Usage
+
+Syntax:
+
+`yc beta storage s3 presign <S3Uri> [Flags...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--expires-in` | `int`
+
+Number of seconds until the pre-signed URL expires (default: 3600) ||
+|| `--local` | Generate pre-signed URL locally without using API ||
+|| `--access-key` | `string`
+
+Access key ID to use when generating a local presigned URL. ||
+|| `--secret-key` | `string`
+
+Secret key to use when generating a local presigned URL. ||
+|| `--as-attachment` | Set Content-Disposition=attachment so that the browser suggests downloading the object. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

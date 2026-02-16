@@ -1,9 +1,90 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases/{databaseName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster to update a database in.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        databaseName:
+          description: |-
+            **string**
+            Required field. Name of the database to update.
+            To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - databaseName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        newDatabaseName:
+          description: |-
+            **string**
+            Optional. New name of the database.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        extensions:
+          description: |-
+            **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
+            PostgreSQL extensions that should be enabled for the database.
+            If the field is sent, the list of enabled extensions is rewritten entirely.
+            Therefore, to disable an active extension you should simply send the list omitting this extension.
+          type: array
+          items:
+            $ref: '#/definitions/Extension'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the database
+            Default value: `unspecified` (inherits cluster's deletion_protection)
+          default: unspecified` (inherits cluster's deletion_protection)
+          type: boolean
+      additionalProperties: false
+    definitions:
+      Extension:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the extension, e.g. `pg_trgm` or `pg_btree`.
+              Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions).
+            type: string
+          version:
+            description: |-
+              **string**
+              Version of the extension. The setting is deprecated and has no effect.
+            deprecated: true
+            type: string
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/update.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.Update {#Update}
+# Managed Service for PostgreSQL API, REST: Database.Update
 
 Updates the specified PostgreSQL database.
 
@@ -20,11 +101,15 @@ PATCH https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/data
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster to update a database in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || databaseName | **string**
 
 Required field. Name of the database to update.
-To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-postgresql/api-ref/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.UpdateDatabaseRequest}
@@ -47,7 +132,9 @@ To get the name of the database use a [DatabaseService.List](/docs/managed-postg
 ||Field | Description ||
 || newDatabaseName | **string**
 
-Optional. New name of the database. ||
+Optional. New name of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
@@ -81,7 +168,7 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -272,5 +359,5 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#

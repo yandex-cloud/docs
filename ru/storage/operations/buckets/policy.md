@@ -9,10 +9,12 @@ description: Следуя данной инструкции, вы научите
 
 [Политики доступа (bucket policy)](../../concepts/policy.md) устанавливают права на действия с [бакетами](../../concepts/bucket.md), [объектами](../../concepts/object.md) и группами объектов.
 
+Образцы политик доступа для решения конкретных задач см. в подразделе [Примеры конфигураций](../../concepts/policy.md#config-examples).
+
 
 {% note warning %}
 
-Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md), не назначайте на бакет политику доступа. Иначе кластер не сможет записывать данные в бакет.
+{% include [s3-with-policy-access](../../../_includes/storage/s3-with-policy-access.md) %}
 
 {% endnote %}
 
@@ -23,7 +25,7 @@ description: Следуя данной инструкции, вы научите
 
 {% note info %}
 
-Если ранее бакету была назначена политика доступа, то после применения изменений она будет полностью перезаписана.
+Если ранее для бакета была настроена политика доступа, то после применения изменений она будет полностью перезаписана.
 
 {% endnote %}
 
@@ -33,7 +35,9 @@ description: Следуя данной инструкции, вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, в котором нужно настроить политику доступа.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, в котором нужно настроить политику доступа.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
   1. Введите идентификатор политики доступа.
@@ -42,7 +46,16 @@ description: Следуя данной инструкции, вы научите
      1. Настройте параметры правила:
         * **{{ ui-key.yacloud.storage.bucket.policy.field_effect }}** — разрешить или запретить.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_principal-type }}** — включить или исключить пользователей.
-        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — все пользователи или набор конкретных пользователей. Чтобы задать набор конкретных пользователей или сервисных аккаунтов, выберите их имена в выпадающем списке.
+        * **{{ ui-key.yacloud.storage.bucket.policy.field_user }}** — выберите всех пользователей или задайте набор конкретных субъектов.
+
+            Чтобы задать набор конкретных субъектов:
+            
+            * Выберите опцию `{{ ui-key.yacloud.storage.bucket.policy.label_select-users }}`.
+
+            * {% include [select-subject-console](../../../_includes/storage/select-subject-console.md) %}
+
+                Вы можете выбрать одновременно нескольких субъектов, для этого выбирайте их поочередно.
+
         * **{{ ui-key.yacloud.storage.bucket.policy.field_action }}**, для которого создается правило. Вы также можете выбрать опцию **Все действия**.
         * **{{ ui-key.yacloud.storage.bucket.policy.field_resource }}** — по умолчанию указан выбранный бакет. Чтобы добавить другие ресурсы в правило, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-resource }}**.
 
@@ -57,13 +70,14 @@ description: Следуя данной инструкции, вы научите
         * Выберите **{{ ui-key.yacloud.storage.bucket.policy.field_operator }}** из списка. Чтобы оператор действовал в существующих полях, выберите опцию **{{ ui-key.yacloud.storage.bucket.policy.label_if-exists }}**. Тогда, если поля не существует, условие будет считаться выполненным.
         * Введите **{{ ui-key.yacloud.storage.bucket.policy.field_value }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-value }}**, чтобы добавить дополнительное значение в условие.
-        
+
         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
 
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
-  1. При необходимости добавьте правила и настройте их.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. При необходимости добавьте другие правила и настройте их.
+  1. (Опционально) Чтобы разрешить доступ к бакету через консоль управления, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. Подробнее см. [{#T}](../../concepts/policy.md#console-access).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}** и подтвердите удаление.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -101,14 +115,11 @@ description: Следуя данной инструкции, вы научите
      * `Version` — версия описания политик доступа. Необязательный параметр.
      * `Statement` — правила политики доступа:
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
-       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
-
+       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
 
          Идентификаторы можно получить следующими способами:
-         * [Пользователь](../../../iam/operations/users/get.md).
-         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -182,14 +193,11 @@ description: Следуя данной инструкции, вы научите
      * `Version` — версия описания политик доступа. Необязательный параметр.
      * `Statement` — правила политики доступа:
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
-       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
-
+       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
 
          Идентификаторы можно получить следующими способами:
-         * [Пользователь](../../../iam/operations/users/get.md).
-         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
 
+         {% include [acl-grantee](../../../_includes/storage/acl-grantee.md) %}
 
        * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
        * `Resource` — ресурс, к которому будет применяться правило.
@@ -215,34 +223,21 @@ description: Следуя данной инструкции, вы научите
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Получите [статические ключи доступа](../../../iam/operations/sa/create-access-key.md) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-name }}.
-  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
+  {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
+  Для редактирования политики бакета вы можете использовать ресурсы:
+  * [yandex_storage_bucket_policy](#tf-storage-bucket-policy);
+  * [yandex_storage_bucket](#tf-storage-bucket) (устаревший способ).
+
+  **yandex_storage_bucket_policy** {#tf-storage-bucket-policy}
+
+  1. Откройте файл конфигурации {{ TF }} и задайте политику с помощью ресурса `yandex_storage_bucket_policy`:
 
      ```hcl
-
-     resource "yandex_iam_service_account" "sa" {
-       name = "<имя_сервисного_аккаунта>"
-     }
-
-     // Назначение роли сервисному аккаунту
-     resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
-       folder_id = "<идентификатор_каталога>"
-       role      = "storage.admin"
-       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
-     }
-
-     // Создание статического ключа доступа
-     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-       service_account_id = yandex_iam_service_account.sa.id
-       description        = "static access key for object storage"
-     }
-
-     resource "yandex_storage_bucket" "b" {
-       access_key = "yandex_iam_service_account_static_access_key.sa-static-key.access_key"
-       secret_key = "yandex_iam_service_account_static_access_key.sa-static-key.secret_key"
-       bucket     = "my-policy-bucket"
-       policy     = <<POLICY
-      {
+     resource "yandex_storage_bucket_policy" "bpolicy" {
+       bucket = "my-policy-bucket"
+       policy = <<POLICY
+     {
        "Version": "2012-10-17",
        "Statement": [
          {
@@ -269,67 +264,97 @@ description: Следуя данной инструкции, вы научите
      }
      ```
 
-     Где:
+     {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     * `access_key` — идентификатор статического ключа доступа.
-     * `secret_key` — значение секретного ключа доступа.
-     * `bucket` — имя бакета. Обязательный параметр.
-     * `policy` — имя политики. Обязательный параметр.
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket_policy` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
-     Настройки политики:
+  1. Примените изменения:
 
-     * `Version` — версия описания политик доступа. Необязательный параметр.
-     * `Statement` — правила политики доступа:
-       * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
-       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../iam/operations/users/get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
-         Идентификаторы можно получить следующими способами:
-         * [Пользователь](../../../iam/operations/users/get.md).
-         * [Сервисный аккаунт](../../../iam/operations/sa/get-id.md).
-         * Группа пользователей — перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
+  **yandex_storage_bucket (устаревший способ)** {#tf-storage-bucket}
 
+  1. Откройте файл конфигурации {{ TF }} и задайте политику в параметре `policy` для ресурса `yandex_storage_bucket`:
 
-       * `Action` — [действие](../../s3/api-ref/policy/actions.md), которое будет разрешено при срабатывании политики. Возможные значения: `s3:GetObject`, `s3:PutObject` и `*` если необходимо применять политику ко всем действиям.
-       * `Resource` — ресурс, к которому будет применяться правило.
-       * `Condition` — [условие](../../s3/api-ref/policy/conditions.md), которое будет проверяться. Необязательный параметр.
+     ```hcl
+     resource "yandex_storage_bucket" "mybucket" {
+       bucket     = "my-policy-bucket"
+       policy     = <<POLICY
+     {
+       "Version": "2012-10-17",
+       "Statement": [
+         {
+           "Effect": "Allow",
+           "Principal": "*",
+           "Action": "s3:*",
+           "Resource": [
+             "arn:aws:s3:::my-policy-bucket/*",
+             "arn:aws:s3:::my-policy-bucket"
+           ]
+         },
+         {
+           "Effect": "Deny",
+           "Principal": "*",
+           "Action": "s3:PutObject",
+           "Resource": [
+             "arn:aws:s3:::my-policy-bucket/*",
+             "arn:aws:s3:::my-policy-bucket"
+           ]
+         }
+       ]
+     }
+     POLICY
+     }
+     ```
 
-         {% include [conditions-combining-and](../../../_includes/storage/conditions-combining-and.md) %}
+     {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Примените изменения:
 
-        ```bash
-        terraform plan
-        ```
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание ресурсов.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
-  Чтобы управлять политикой доступа, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [PutBucketPolicy](../../s3/api-ref/policy/put.md). Если ранее для бакета уже была установлена политика доступа, то после применения новой политики она будет полностью перезаписана.
+  Чтобы управлять политикой доступа, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [PutBucketPolicy](../../s3/api-ref/policy/put.md). Если ранее для бакета уже была настроена политика доступа, то после применения новой политики она будет полностью перезаписана.
 
 {% endlist %}
 
 {% include [storage-note-empty-policy](../../_includes_service/storage-note-empty-policy.md) %}
 
+### Удалить правило {#delete-rule}
+
+Чтобы удалить правило из политики доступа:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите бакет, в котором нужно настроить политику доступа.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.policy.button_policy-edit }}**.
+  1. Рядом с нужным правилом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+
+  {% note tip %}
+  
+  Оставьте в политике доступа хотя бы одно правило. Если к бакету применена политика, в которой нет правил, по умолчанию будут запрещены все действия с бакетом для всех пользователей.
+
+  Чтобы отключить проверку по политике доступа, [удалите политику](#delete-policy).
+  
+  {% endnote %}
+
+{% endlist %}
+
 ## Просмотреть политику {#view-policy}
 
-Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/#storage-config-viewer).
+Минимально необходимая роль для просмотра политики доступа — `storage.configViewer`. См. [описание роли](../../../storage/security/index.md#storage-config-viewer).
 
 Чтобы просмотреть примененную к бакету политику доступа:
 
@@ -337,8 +362,9 @@ description: Следуя данной инструкции, вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет в списке.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите нужный бакет из списка.
   1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
 
 - AWS CLI {#aws-cli}
@@ -369,7 +395,7 @@ description: Следуя данной инструкции, вы научите
 
 ## Удалить политику {#delete-policy}
 
-Минимально необходимая роль для удаления политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/#storage-configurer).
+Минимально необходимая роль для удаления политики доступа — `storage.configurer`. См. [описание роли](../../../storage/security/index.md#storage-configurer).
 
 Чтобы удалить политику доступа:
 
@@ -377,11 +403,12 @@ description: Следуя данной инструкции, вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Выберите бакет в списке.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Выберите нужный бакет из списка.
   1. В меню слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_policy }}**.
   1. Нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.policy.button_policy-delete }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
 - AWS CLI {#aws-cli}
 
@@ -396,58 +423,97 @@ description: Следуя данной инструкции, вы научите
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  Если вы применили политику доступа к бакету при помощи {{ TF }}, вы можете удалить её:
-  1. Найдите в конфигурационном файле параметры созданной ранее политики доступа, которую необходимо удалить:
+  {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
-     ```hcl
-     resource "yandex_storage_bucket" "b" {
-       bucket = "my-policy-bucket"
-       policy = <<POLICY
-      {
-       "Version": "2012-10-17",
-       "Statement": [
-         {
-           "Effect": "Allow",
-           "Principal": "*",
-           "Action": "s3:*",
-           "Resource": [
-             "arn:aws:s3:::my-policy-bucket/*",
-             "arn:aws:s3:::my-policy-bucket"
-           ]
-         },
-         {
-           "Effect": "Deny",
-           "Principal": "*",
-           "Action": "s3:PutObject",
-           "Resource": [
-             "arn:aws:s3:::my-policy-bucket/*",
-             "arn:aws:s3:::my-policy-bucket"
-           ]
-         }
-       ]
-     }
-     POLICY
-     }
-     ```
+  Политика доступа может быть задана ресурсами `yandex_storage_bucket_policy` и `yandex_storage_bucket` (устаревший способ).
 
-  1. Удалите поле `policy` с описанием параметров политики доступа из конфигурационного файла.
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы редактировали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Откройте конфигурационный файл {{ TF }} с описанием политики бакета.
 
-        ```bash
-        terraform plan
-        ```
+      * Если вы применили политику доступа к бакету с помощью ресурса `yandex_storage_bucket`:
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров без удаляемого описания политики доступа. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Удалите политику доступа.
-     1. Если в конфигурации нет ошибок, выполните команду:
+        {% cut "yandex_storage_bucket" %}
+        
+        1. Найдите в конфигурационном файле параметры созданной ранее политики доступа, которую необходимо удалить:
+      
+            ```hcl
+            resource "yandex_storage_bucket" "b" {
+              bucket = "my-policy-bucket"
+              policy = <<POLICY
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Principal": "*",
+                  "Action": "s3:*",
+                  "Resource": [
+                    "arn:aws:s3:::my-policy-bucket/*",
+                    "arn:aws:s3:::my-policy-bucket"
+                  ]
+                },
+                {
+                  "Effect": "Deny",
+                  "Principal": "*",
+                  "Action": "s3:PutObject",
+                  "Resource": [
+                    "arn:aws:s3:::my-policy-bucket/*",
+                    "arn:aws:s3:::my-policy-bucket"
+                  ]
+                }
+              ]
+            }
+            POLICY
+            }
+            ```
 
-        ```bash
-        terraform apply
-        ```
+        1. Удалите поле `policy` с описанием параметров политики доступа из конфигурационного файла.
 
-     1. Введите слово `yes` и нажмите **Enter**.
+        {% endcut %}
+
+      * Если вы применили политику доступа к бакету с помощью ресурса `yandex_storage_bucket_policy`:
+
+        {% cut "yandex_storage_bucket_policy" %}
+        
+        1. Найдите в конфигурационном файле параметры созданной ранее политики доступа, которую необходимо удалить:
+      
+            ```hcl
+            resource "yandex_storage_bucket_policy" "bpolicy" {
+              bucket = "my-policy-bucket"
+              policy = <<POLICY
+            {
+              "Version": "2012-10-17",
+              "Statement": [
+              {
+                "Effect": "Allow",
+                "Principal": "*",
+                "Action": "s3:*",
+                "Resource": [
+                  "arn:aws:s3:::my-policy-bucket/*",
+                  "arn:aws:s3:::my-policy-bucket"
+                ]
+              },
+              {
+                "Effect": "Deny",
+                "Principal": "*",
+                "Action": "s3:PutObject",
+                "Resource": [
+                  "arn:aws:s3:::my-policy-bucket/*",
+                  "arn:aws:s3:::my-policy-bucket"
+                ]
+              }
+              ]
+            }
+            POLICY
+            }
+            ```
+
+        1. Удалите блок `yandex_storage_bucket_policy` с описанием параметров политики доступа из конфигурационного файла.
+
+        {% endcut %}
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      После этого в указанном каталоге будет удалена политика доступа к бакету. Проверить отсутствие политики доступа можно в [консоли управления]({{ link-console-main }}).
 
@@ -456,3 +522,7 @@ description: Следуя данной инструкции, вы научите
   Воспользуйтесь методом S3 API [DeleteBucketPolicy](../../s3/api-ref/policy/delete.md).
 
 {% endlist %}
+
+## См. также {#see-also}
+
+* [{#T}](../../concepts/policy.md#config-examples)

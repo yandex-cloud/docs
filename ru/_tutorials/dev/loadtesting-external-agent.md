@@ -38,7 +38,7 @@ _Внешний агент_ — физический или виртуальны
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт, например `sa-loadtest`, в каталоге, где будет подключен внешний агент.
 1. [Назначьте](../../iam/operations/roles/grant.md) сервисному аккаунту [роли](../../load-testing/security/index.md#roles-list) `loadtesting.editor` и `loadtesting.generatorClient`.
-1. [Создайте](../../iam/operations/authorized-key/create.md) авторизованные ключи для сервисного аккаунта.
+1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованные ключи для сервисного аккаунта.
 
     Сохраните открытый и закрытый ключи единым файлом, для этого нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
 
@@ -84,7 +84,7 @@ _Внешний агент_ — физический или виртуальны
     latest: Pulling from yc/ya-lt-agent
     df6635ed1257: Pull complete 
     7a51fa4387ba: Pull complete 
-    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d2827f1e47b
+    Digest: sha256:fad262e94a8b4021b13336ae31c738ec1e77eb6a8971528429c67d28********
     Status: Downloaded newer image for {{ registry }}/yc/ya-lt-agent:latest
     {{ registry }}/yc/ya-lt-agent:latest
     ```
@@ -116,7 +116,7 @@ _Внешний агент_ — физический или виртуальны
     tankapi_port: 8083
     load_testing_host: 'loadtesting.{{ api-host }}'
     load_testing_port: '443'
-    logging_host: 'ingester.logging.yandexcloud.net'
+    logging_host: '{{ logging-endpoint-ingester }}'
     logging_port: '443'
     object_storage_url: 'https://{{ s3-storage-host }}'
     storage_file: '/tmp/yandex-tank/storage.data'

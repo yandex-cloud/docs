@@ -1,0 +1,1 @@
+Роль `iam.userAccounts.refreshTokenRevoker` позволяет отзывать [refresh-токены](../../../iam/concepts/authorization/refresh-token.md) федеративных пользователей. Роль назначается на [организацию](../../../organization/concepts/organization.md).

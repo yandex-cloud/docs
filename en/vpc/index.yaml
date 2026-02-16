@@ -2,49 +2,74 @@ title: Yandex Virtual Private Cloud
 description:
   - >-
     Yandex Virtual Private Cloud allows you to manage cloud networks and enable
-    cloud resources 
-     to connect to the internet and each other. Virtual Private Cloud
-    allows you to create <a
+    cloud resources to connect to the internet and each other. Virtual Private
+    Cloud allows you to create <a
     href="/docs/vpc/concepts/network#network">networks</a> and <a
     href="/docs/vpc/concepts/network#subnet">subnets</a> in the Yandex Cloud
     availability zones, assign private and public <a
-    href="/docs/vpc/concepts/address">IP addresses</a> to cloud resources,  and
-    provides a dedicated <a
-    href="/docs/vpc/ddos-protection/">DDoS-Protection</a> component.
+    href="/docs/vpc/concepts/address">IP addresses</a> to cloud resources. You
+    can also enable a dedicated <a href="/docs/vpc/ddos-protection/">DDoS
+    Protection</a> component.
   - >-
-    Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">fully
-    secure</a> and in compliance with Russian Federal Law 152-FZ.
+    The Yandex Cloud infrastructure is <a
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on personal data.
   - >-
-    The service is subject to the <a
-    href="https://yandex.com/legal/cloud_sla">Service Level Agreement</a>. The
-    service level is defined in the
-     <a href="https://yandex.com/legal/cloud_sla_yvpc">Service Level
-     for Yandex Virtual Private Cloud</a>.
-meta:
-  title: Yandex Virtual Private Cloud
-  description: >-
-    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
-    cloud resources to connect to the internet and each other.
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. For
+    more information, see the <a
+    href="https://yandex.com/legal/cloud_sla_yvpc">Yandex Virtual Private Cloud
+    Service Level Agreement</a>.
 links:
   - title: Getting started
     description: Create your first cloud network
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn about the concepts and resources of the service
+    description: Learn more about the service's concepts and resources
     href: concepts/
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
+meta:
+  title: Yandex Virtual Private Cloud
+  description: >-
+    Yandex Virtual Private Cloud allows you to manage cloud networks and enable
+    cloud resources to connect to the internet and each other.
+  keywords:
+    - '{{ vpc-name }}'
+    - '{{ vpc-name }} network'
+    - '{{ vpc-name }} subnet'
+    - '{{ yandex-cloud }} network'
+    - cloud network
+    - cloud resource connectivity
+    - '{{ vpc-full-name }} resources'
+    - '{{ vpc-name }} in {{ yandex-cloud }}'
+    - '{{ vpc-name }} gateway'
+    - '{{ vpc-name }} NAT gateway'
+    - '{{ vpc-full-name }} in {{ yandex-cloud }}'
+    - '{{ vpc-full-name }}'
+    - '{{ vpc-name }} routing'
+    - '{{ vpc-name }} security group'
+    - virtual network
+    - '{{ vpc-name }}'
+    - '{{ vpc-name }} physical network'
+    - '{{ vpc-name }}'
+    - public IP address
+    - internal IP address
+    - routing in {{ vpc-name }}
+    - security group
+    - security group
+    - service connection
+    - Private Endpoint

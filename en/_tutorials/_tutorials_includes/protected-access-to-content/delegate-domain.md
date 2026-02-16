@@ -1,0 +1,1 @@
+Delegate your domain to {{ dns-name }}. To do this, in your domain registrar's account, specify the addresses of these DNS servers in your domain settings: `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}`.

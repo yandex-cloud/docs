@@ -1,6 +1,6 @@
 ---
 title: Reference for {{ api-gw-full-name }} metrics in {{ monitoring-full-name }}
-description: This page provides reference information on {{ api-gw-name }} metrics delivered to {{ monitoring-full-name }}.
+description: This page is a reference for {{ api-gw-name }} metrics delivered to {{ monitoring-full-name }}.
 ---
 
 # {{ monitoring-full-name }} metric reference

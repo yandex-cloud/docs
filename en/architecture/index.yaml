@@ -1,0 +1,64 @@
+title: Architecture solutions
+description:
+  - >-
+    Architecture solutions and recommendations for implementing custom use cases
+    in Yandex Cloud.
+blocks:
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    indent:
+      bottom: xs
+    title: Architecture solutions
+    description: >-
+      Architecture solutions and recommendations for implementing custom use
+      cases in Yandex Cloud.
+    children:
+      - type: basic-card
+        title: Recommendations on fault tolerance in Yandex Cloud
+        text: >-
+          Recommended practices for creating a cloud service infrastructure able
+          to continue to operate in the event of loss of one or more of its
+          components.
+        urlTitle: Recommendations on fault tolerance in Yandex Cloud
+        url: fault-tolerance
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Deploying a web app in a fault-tolerant configuration
+        text: >-
+          This is an example of how to deploy a web app in a fault-tolerant
+          configuration based on scalable managed services of the Yandex Cloud
+          ecosystem.
+        urlTitle: Deploying a web app in a fault-tolerant configuration in Yandex Cloud
+        url: app-in-k8s
+        border: shadow
+        controlPosition: content
+        animated: false
+      - type: basic-card
+        title: Fault tolerance testing in Yandex Cloud
+        text: >-
+          Recommended practices for fault tolerance testing on complete failure
+          of one of the availability zones.
+        urlTitle: Fault tolerance testing in Yandex Cloud
+        url: testing-zone-failure
+        border: shadow
+        controlPosition: content
+        animated: false
+meta:
+  title: Architecture solutions
+  description: >-
+    Architecture solutions and recommendations for implementing custom use cases
+    in Yandex Cloud.
+  keywords:
+    - Architecture solutions in {{ yandex-cloud }}
+    - Custom use cases in {{ yandex-cloud }}
+    - Recommendations {{ yandex-cloud }}
+    - Architecture solutions
+    - Use cases
+links: []

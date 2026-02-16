@@ -1,46 +1,68 @@
-## Hardware requirements {#hardware}
+## Hardware requirements for STT and TTS servers {#hardware}
 
 Recommended hardware requirements for running {{ sk-hybrid-name }} containers estimated values of {{ sk-hybrid-name }} specifications are given for reference based on hardware using the NVIDIA 535 driver. The actual values may change after containers are updated and new features are added.
 
-The data in the tables is for the Russian language only:
+The data in the tables is for the Russian language only, unless otherwise specified:
 
-{% list tabs %}
+{% list tabs group=gpu_type %}
 
-- Containers with GPU T4
+- Containers with GPU T4 {#t4}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Intel Gold 6230R<br>physical<br>cores <br>per card | Intel Gold 6230R <br>logical cores <br>per card |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 50 | 64 | 200 | 8 | 16 |
    | Audio file recognition | 250 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 80 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 147 | 64 | 200 | 8 | 16 |
 
-- Containers with GPU V100
+- Containers with GPU V100 {#v100}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Intel Gold 6230R<br>physical<br>cores <br>per card | Intel Gold 6230R <br>logical cores <br>per card |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 110 | 64 | 200 | 8 | 16 |
    | Audio file recognition | 500 | 64 | 200 | 8 | 16 |
    | **Speech synthesis** |
-   | Speech synthesis | 200 | 64 | 200 | 8 | 16 |
+   | Speech synthesis | 105 | 64 | 200 | 8 | 16 |
 
-- Containers with GPU A100
+- Containers with GPU L4 {#l4}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Intel Gold 6230R<br>physical<br>cores <br>per card | Intel Gold 6230R <br>logical cores <br>per card |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   |---|---|---|---|---|---|
+   | **Speech recognition** |
+   | Streaming recognition | 66 | 64 | 200 | 8 | 16 |
+   | Audio file recognition | 330 | 64 | 200 | 8 | 16 |
+   | **Speech synthesis** |
+   | Speech synthesis | 266 | 64 | 200 | 8 | 16 |
+
+- Containers with GPU A100 {#a100}
+
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 245 | 64 | 200 | 14 | 28 |
    | Audio file recognition | 1,000 | 64 | 200 | 14 | 28 |
    | **Speech synthesis** |
-   | Speech synthesis | 480 | 64 | 200 | 14 | 28 |
+   | Speech synthesis | 581 | 64 | 200 | 14 | 28 |
+
+- Containers with GPU H100 PCI {#h100}
+
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   |---|---|---|---|---|---|
+   | **Speech recognition** |
+   | Streaming recognition, Russian | 385 | 64 | 200 | 8 | 16 |
+   | Streaming recognition, multi-lingual model | 245 | 64 | 200 | 8 | 16 |
+   | Audio file recognition, Russian | 3,500 | 64 | 200 | 8 | 16 |
+   | Audio file recognition with speaker labeling, Russian | 2,590 | 64 | 200 | 8 | 16 |
+   | **Speech synthesis** |
+   | Speech synthesis | 1,260 | 64 | 200 | 8 | 16 |
 
 {% endlist %}
 
 ^1^ Seconds per second (SPS): Number of seconds of recognized or synthesized text per runtime second.
 
-### Sample calculations of required hardware {#hardware-calculation}
+### Examples of hardware calculations for STT and TTS servers {#hardware-calculation}
 
 The number of cards required for speech recognition or speech-to-text synthesis depends on the SPS value. Use the following formula for calculation:
 

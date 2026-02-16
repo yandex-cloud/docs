@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to move.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the destination folder.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/move.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Move {#Move}
+# Virtual Private Cloud API, REST: Network.Move
 
 Move network to another folder.
 
@@ -66,7 +93,7 @@ Required field. ID of the destination folder. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "defaultSecurityGroupId": "string"
   }
   // end of the list of possible fields
@@ -198,7 +225,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the network. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.

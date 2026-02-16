@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles/{wafProfileId}
+    method: delete
+    path:
+      type: object
+      properties:
+        wafProfileId:
+          description: |-
+            **string**
+            Required field. ID of the WAF profile to delete.
+          type: string
+      required:
+        - wafProfileId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/smartwebsecurity/v1/waf/api-ref/WafProfile/delete.md
 ---
 
-# SmartWebSecurity WAF API, REST: WafProfile.Delete {#Delete}
+# SmartWebSecurity WAF API, REST: WafProfile.Delete
 
 Deletes the specified WAF profile.
 

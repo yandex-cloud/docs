@@ -1,9 +1,10 @@
 {% list tabs %}
 
 - {{ mmy-name }}
+
     
     1. [Включите режим полного бинарного лога](../../../../managed-mysql/operations/update.md#change-mysql-config) на источнике, установив значение `FULL` или `NOBLOB` для [параметра **Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image).
-    
+ 
     1. (Опционально) [Настройте лимит](../../../../managed-mysql/operations/update.md#change-mysql-config) на размер отправляемых кусков данных (chunk) с помощью параметра **Max allowed packet**.
     
     1. [Создайте пользователя](../../../../managed-mysql/operations/cluster-users.md#adduser) для подключения к источнику.
@@ -29,9 +30,21 @@
     1. Убедитесь, что источник использует подсистему хранения данных низкого уровня MyISAM или InnoDB. При использовании других подсистем трансфер может завершиться с ошибкой.
     
     1. [Включите режим полного бинарного лога](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) на источнике, установив значение `FULL` или `NOBLOB` для параметра `binlog_row_image`.
+
+       {% note info %}
+
+       Для MariaDB 11.4 и выше задайте параметр `binlog_legacy_event_pos = true`.
+
+       {% endnote %}    
     
     1. [Задайте строковый формат бинарного лога](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) на источнике, установив значение `ROW` для параметра `binlog_format`.
-    
+
+    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_:
+
+        * [Укажите путь к расположению бинарного лог-файла]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin) в параметре `log_bin`.
+
+        * Выведите информацию о бинарном логе с помощью запроса [SHOW MASTER STATUS]({{ my.docs }}/refman/8.0/en/show-master-status.html) (для версий {{ MY }} 5.7 и 8.0) или [SHOW BINARY LOG STATUS]({{ my.docs }}/refman/8.4/en/show-binary-log-status.html) (для версии {{ MY }} 8.4). Запрос должен возвращать строку с информацией, а не пустой ответ.
+
     1. Если источник репликации — кластер, который находится за балансером, включите для него GTID-режим (`GTID-MODE = ON`).
     
        Если по какой-то причине включить GTID-режим невозможно, убедитесь, что шаблон имен бинарных логов содержит имя хоста.

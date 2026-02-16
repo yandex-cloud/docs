@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ monitoring-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ monitoring-name }}.
+description: This guide provides information about {{ TF }} resources and data sources supported by {{ monitoring-name }}.
 ---
 
 # {{ TF }} reference for {{ monitoring-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ monitoring-name }}:
+{{ monitoring-name }} supports the following {{ TF }} resources :
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -17,8 +17,8 @@ The following {{ TF }} provider resources are supported for {{ monitoring-name }
 
 ## Data sources {#data-sources}
 
-{{ monitoring-name }} supports the following {{ TF }} provider data sources:
+{{ monitoring-name }} supports the following {{ TF }} data sources:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/datasource_monitoring_dashboard) | [Dashboard](./concepts/visualization/dashboard.md) information |
+| [yandex_monitoring_dashboard]({{ tf-provider-datasources-link }}/monitoring_dashboard) | [Dashboard](./concepts/visualization/dashboard.md) information |

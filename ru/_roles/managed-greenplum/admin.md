@@ -1,15 +1,15 @@
-Роль `managed-greenplum.admin` позволяет управлять кластерами Greenplum® и просматривать их логи, а также получать информацию о квотах и операциях с ресурсами сервиса.
+Роль `managed-greenplum.admin` позволяет управлять кластерами Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL и просматривать их логи, а также получать информацию о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
 * управлять доступом к кластерам Greenplum®;
 * просматривать информацию о [кластерах Greenplum®](../../managed-greenplum/concepts/index.md), а также создавать, изменять, удалять, запускать и останавливать их;
 * просматривать информацию о [хостах](../../managed-greenplum/concepts/instance-types.md) кластеров Greenplum®, а также создавать, изменять и удалять их;
-* просматривать информацию о [резервных копиях](../../managed-greenplum/concepts/backup.md) Greenplum®, а также создавать и удалять их;
+* просматривать информацию о [резервных копиях](../../managed-greenplum/concepts/backup.md) кластеров Greenplum®, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
 * просматривать логи работы кластеров Greenplum®;
 * просматривать информацию о результатах диагностики производительности кластеров Greenplum®;
-* просматривать информацию о [квотах](../../managed-greenplum/concepts/limits.md#quotas) сервиса Managed Service for Greenplum®;
-* просматривать информацию об операциях с ресурсами сервиса Managed Service for Greenplum®.
+* просматривать информацию о [квотах](../../managed-greenplum/concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.editor`.
 
-Для создания кластеров Greenplum® дополнительно необходима роль `vpc.user`.
+Для создания кластеров Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL дополнительно необходима роль `vpc.user`.

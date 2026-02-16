@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/saml/api-ref/grpc/Federation/addUserAccounts.md
 ---
 
-# Cloud Organization SAML API, gRPC: FederationService.AddUserAccounts {#AddUserAccounts}
+# SAML Federation API, gRPC: FederationService.AddUserAccounts
 
 Adds users to the specified federation.
 
@@ -15,8 +15,8 @@ Adds users to the specified federation.
 
 ```json
 {
-  "federationId": "string",
-  "nameIds": [
+  "federation_id": "string",
+  "name_ids": [
     "string"
   ]
 }
@@ -24,13 +24,17 @@ Adds users to the specified federation.
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
-ID of the federation to add users. ||
-|| nameIds[] | **string**
+ID of the federation to add users.
+
+The maximum string length in characters is 50. ||
+|| name_ids[] | **string**
 
 Name IDs returned by the Identity Provider (IdP) on successful authentication.
-These may be UPNs or user email addresses. ||
+These may be UPNs or user email addresses.
+
+The maximum string length in characters for each value is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -39,32 +43,28 @@ These may be UPNs or user email addresses. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "federationId": "string"
+    "federation_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
-    "userAccounts": [
+    "user_accounts": [
       {
         "id": "string",
-        // Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`
-        "yandexPassportUserAccount": {
+        // Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`
+        "yandex_passport_user_account": {
           "login": "string",
-          "defaultEmail": "string"
+          "default_email": "string"
         },
-        "samlUserAccount": {
-          "federationId": "string",
-          "nameId": "string",
-          "attributes": {
-            "value": [
-              "string"
-            ]
-          }
+        "saml_user_account": {
+          "federation_id": "string",
+          "name_id": "string",
+          "attributes": "map<string, Attribute>"
         }
         // end of the list of possible fields
       }
@@ -84,13 +84,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -133,7 +133,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 ID of the federation that is being altered. ||
 |#
@@ -142,43 +142,43 @@ ID of the federation that is being altered. ||
 
 #|
 ||Field | Description ||
-|| userAccounts[] | **[UserAccount](#yandex.cloud.organizationmanager.v1.UserAccount)**
+|| user_accounts[] | **[UserAccount](#yandex.cloud.organizationmanager.v1.UserAccount)**
 
 List of users created by [FederationService.AddUserAccounts](#AddUserAccounts) request. ||
 |#
 
 ## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
 
-Currently represents only [Yandex account](/docs/iam/concepts/#passport).
+Currently represents only [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
 || id | **string**
 
 ID of the user account. ||
-|| yandexPassportUserAccount | **[YandexPassportUserAccount](#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount)**
+|| yandex_passport_user_account | **[YandexPassportUserAccount](#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount)**
 
 A YandexPassportUserAccount resource.
 
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
-|| samlUserAccount | **[SamlUserAccount](#yandex.cloud.organizationmanager.v1.SamlUserAccount)**
+Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`. ||
+|| saml_user_account | **[SamlUserAccount](#yandex.cloud.organizationmanager.v1.SamlUserAccount)**
 
 A SAML federated user.
 
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
+Includes only one of the fields `yandex_passport_user_account`, `saml_user_account`. ||
 |#
 
 ## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
 
 A YandexPassportUserAccount resource.
-For more information, see [Yandex account](/docs/iam/concepts/#passport).
+For more information, see [Yandex account](/docs/iam/concepts/users/accounts#passport).
 
 #|
 ||Field | Description ||
 || login | **string**
 
 Login of the Yandex user account. ||
-|| defaultEmail | **string**
+|| default_email | **string**
 
 Default email of the Yandex user account. ||
 |#
@@ -186,18 +186,22 @@ Default email of the Yandex user account. ||
 ## SamlUserAccount {#yandex.cloud.organizationmanager.v1.SamlUserAccount}
 
 A SAML federated user.
-For more information, see [federations](/docs/iam/concepts/users/saml-federations).
+For more information, see [federations](/docs/iam/concepts/users/accounts#saml-federation).
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
-Required field. ID of the federation that the federation belongs to. ||
-|| nameId | **string**
+Required field. ID of the federation that the federation belongs to.
+
+The maximum string length in characters is 50. ||
+|| name_id | **string**
 
 Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long. ||
-|| attributes | **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**
+The name is unique within the federation. 1-256 characters long.
+
+The string length in characters must be 1-256. ||
+|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**>)
 
 Additional attributes of the SAML federated user. ||
 |#

@@ -41,6 +41,8 @@ items:
         href: operations/message-queue-receive-and-delete-message.md
       - name: Удаление очереди сообщений
         href: operations/message-queue-delete-queue.md
+      - name: Управление метками очереди
+        href: operations/message-queue-tags.md
       - name: Мониторинг процессов в очереди
         href: operations/monitoring.md
   - name: Концепции
@@ -63,6 +65,8 @@ items:
         href: concepts/delay-queues.md
       - name: Квоты и лимиты
         href: concepts/limits.md
+      - name: Метки очередей
+        href: concepts/tags.md
       - name: Сравнение с {{ yds-full-name }}
         href: concepts/yds-ymq-comparison.md
   - name: Практические руководства
@@ -78,7 +82,17 @@ items:
           отправки уведомлений в Telegram
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Хранение статического ключа доступа в секрете {{ lockbox-name }}
-        href: tutorials/static-key-in-lockbox.md
+        items:
+          - name: Обзор
+            href: tutorials/static-key-in-lockbox/index.md
+          - name: CLI
+            href: tutorials/static-key-in-lockbox/console.md
+          - name: '{{ TF }}'
+            href: tutorials/static-key-in-lockbox/terraform.md
+      - name: >-
+          Создание интерактивного serverless-приложения с использованием
+          WebSocket
+        href: tutorials/websocket-app.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -105,6 +119,12 @@ items:
             href: api-ref/queue/PurgeQueue.md
           - name: SetQueueAttributes
             href: api-ref/queue/SetQueueAttributes.md
+          - name: TagQueue
+            href: api-ref/queue/TagQueue.md
+          - name: UntagQueue
+            href: api-ref/queue/UntagQueue.md
+          - name: ListQueueTags
+            href: api-ref/queue/ListQueueTags.md
       - name: Message
         items:
           - name: ChangeMessageVisibility
@@ -143,6 +163,8 @@ items:
             href: api-ref/data-types/SendMessageBatchResultEntry.md
       - name: Стандартные ошибки
         href: api-ref/common-errors.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Публичные материалы
@@ -151,5 +173,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/message-queue
-deepBase: 2

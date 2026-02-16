@@ -4,14 +4,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
 
-    1. В консоли управления в списке слева выберите нужное облако. Пример:
-
-        ![image](../_assets/resource-manager/switch-cloud-n-n.png)
-
+    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В строке поиска введите свою учетную запись.
     1. Проверьте, что для вашей учетной записи указаны роли:
@@ -22,8 +18,6 @@
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если пока нет пользователей, которых можно добавить в облако, [создайте новый аккаунт](https://passport.yandex.ru/registration) на Яндексе и предоставьте доступ в облако для этого аккаунта.
 
-
-
 ## Добавьте пользователя с аккаунтом на Яндексе в организацию {#add-organization-member}
 
 {% list tabs group=instructions %}
@@ -31,19 +25,18 @@
 - Консоль управления {#console}
   
     1. [Войдите в аккаунт]({{ link-passport-login }}) администратора облака.
-    1. Войдите в [консоль управления]({{ link-console-main }}).
-    1. В списке слева выберите нужное облако.
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В правом верхнем углу нажмите на значок ![icon-users](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
     1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
-    1. Нажмите **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+    1. Нажмите **{{ ui-key.yacloud_components.organization.action_send-invitation }}**.
 
 {% endlist %}
 
-Пользователь сможет войти в организацию, как только примет приглашение по ссылке из письма и выберет подходящий аккаунт для входа. Для доступа к [сервисам](../organization/concepts/manage-services.md#collaboration), которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
+Пользователь сможет войти в организацию, как только примет приглашение по ссылке из письма и выберет подходящий аккаунт для входа. Для доступа к сервисам, которые подключены к организации, приглашенным пользователям достаточно войти в свой аккаунт на Яндексе.
 
 ## Назначьте пользователю роли {#assign-role}
 

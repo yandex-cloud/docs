@@ -1,12 +1,3 @@
----
-title: Хостинг статического сайта на фреймворке Gatsby
-description: Создание и размещение статического веб-сайта на фреймворке Gatsby в {{ yandex-cloud }}
-keywords:
-  - gatsby
-  - хостинг сайта gatsby
-  - настройка сайта gatsby
-  - gatsby сайт
----
 
 # Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }}
 
@@ -70,7 +61,7 @@ keywords:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
   1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) **Публичный** для всех операций.
@@ -117,7 +108,7 @@ keywords:
       created_at: "2024-09-09T15:23:34.919887Z"
       ```
 
-      Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/create.md).
+      Подробнее о команде `yc storage bucket create` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/create.md).
 
   1. Включите в бакете хостинг статического сайта:
 
@@ -147,7 +138,7 @@ keywords:
         redirect_all_requests: {}
       ```
 
-      Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/storage/bucket/update.md).
+      Подробнее о команде `yc storage bucket update` читайте в [справочнике CLI](../../cli/cli-ref/storage/cli-ref/bucket/update.md).
 
 - AWS CLI {#aws-cli}
 
@@ -243,7 +234,7 @@ keywords:
       public_visibility: {}
       ```
 
-      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/create.md).
+      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
   1. Создайте ресурсную запись ANAME в публичной зоне DNS `gatsbytest-ru-zone`:
 
@@ -263,7 +254,7 @@ keywords:
       +--------+----------------+-------+---------------------------------------+-----+
       ```
 
-      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+      Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
 - API {#api}
 
@@ -281,7 +272,7 @@ keywords:
 
 - Консоль управления {#console}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом:
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать сертификат.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
@@ -303,7 +294,7 @@ keywords:
 
 - {{ yandex-cloud }} CLI {#cli}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом.
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Выполните команду:
 
@@ -329,7 +320,7 @@ keywords:
       updated_at: "2023-12-24T14:36:39.299844798Z"
       ```
 
-      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/request.md).
+      Подробнее о команде `yc certificate-manager certificate request` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/request.md).
 
       Сохраните идентификатор (`id`) созданного сертификата: он пригодится для прохождения проверки ваших прав на домен.
 
@@ -378,7 +369,7 @@ keywords:
                 value: iiyJJJlsaFIqQ7DMUzira0OKU3iXuaqiN7U********
           ```
 
-          Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/certificate-manager/certificate/get.md).
+          Подробнее о команде `yc certificate-manager certificate get` читайте в [справочнике CLI](../../cli/cli-ref/certificate-manager/cli-ref/certificate/get.md).
 
           Сохраните значение поля `value` из раздела с типом `CNAME` в блоке `challenges.dns_challenge`. Это значение понадобятся на следующем шаге.
 
@@ -404,7 +395,7 @@ keywords:
           +--------+----------------------------------+-------+------------------------------------------+-----+
           ```
 
-          Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/dns/zone/add-records.md).
+          Подробнее о команде `yc dns zone add-records` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
           Проверка прав на домены может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
@@ -436,7 +427,7 @@ keywords:
 
 - API {#api}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться веб-сайтом.
+  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Чтобы добавить сертификат, воспользуйтесь методом REST API [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../certificate-manager/api-ref/Certificate/) или вызовом gRPC API [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md).
 
@@ -554,7 +545,7 @@ keywords:
           resolve: 'gatsby-plugin-s3',
           options: {
             bucketName: '<имя_бакета>',
-            region: 'us-east-1',
+            region: '{{ region-id }}',
             customAwsEndpointHostname: '{{ s3-storage-host }}'
           }
         },
@@ -566,7 +557,7 @@ keywords:
 
     {% note info %}
 
-    Не меняйте значение региона, это может привести к ошибке.
+    В случае возникновения ошибки, замените значение `region` на основной регион AWS — [первая строка в таблице регионов](https://docs.aws.amazon.com/global-infrastructure/latest/regions/aws-regions.html#available-regions).
 
     {% endnote %}
 

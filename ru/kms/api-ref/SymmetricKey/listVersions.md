@@ -1,9 +1,48 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys/{keyId}/versions
+    method: get
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the symmetric KMS key to list versions for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSymmetricKeyVersionsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            The maximum value is 1000.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSymmetricKeyVersionsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/listVersions.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.ListVersions {#ListVersions}
+# Key Management Service API, REST: SymmetricKey.ListVersions
 
 Returns the list of versions of the specified symmetric KMS key.
 
@@ -19,7 +58,9 @@ GET https://{{ api-host-kms }}/kms/v1/keys/{keyId}/versions
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the symmetric KMS key to list versions for. ||
+Required field. ID of the symmetric KMS key to list versions for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.kms.v1.ListSymmetricKeyVersionsRequest}
@@ -31,11 +72,15 @@ Required field. ID of the symmetric KMS key to list versions for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListSymmetricKeyVersionsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListSymmetricKeyVersionsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse) returned by a previous list request. ||
+[ListSymmetricKeyVersionsResponse.nextPageToken](#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.kms.v1.ListSymmetricKeyVersionsResponse}
@@ -90,7 +135,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroyAt` field.
@@ -99,11 +143,11 @@ is specified in the `SymmetricKeyVersion.destroyAt` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || createdAt | **string** (date-time)
 
 Time when the key version was created.

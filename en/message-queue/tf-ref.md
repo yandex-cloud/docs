@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ message-queue-nam
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_message_queue]({{ tf-provider-datasources-link }}/datasource_message_queue) | Information about a [message queue](./concepts/queue.md) |
+| [yandex_message_queue]({{ tf-provider-datasources-link }}/message_queue) | Information about a [message queue](./concepts/queue.md) |

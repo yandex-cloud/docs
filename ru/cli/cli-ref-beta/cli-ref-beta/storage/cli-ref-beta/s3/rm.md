@@ -1,0 +1,108 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/storage/cli-ref-beta/s3/rm.md
+---
+
+# yc beta storage s3 rm
+
+Deletes an S3 object
+
+#### Command Usage
+
+Syntax:
+
+`yc beta storage s3 rm <S3Uri> [Flags...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--no-follow-symlinks` | Symbolic links are followed only when working with the local filesystem. ||
+|| `--recursive` | Command is performed on all files or objects under the specified directory or prefix. ||
+|| `--exclude` | `strings`
+
+Exclude all files or objects from the command that match the specified pattern. ||
+|| `--include` | `strings`
+
+Do not exclude files or objects in the command that match the specified pattern. ||
+|| `--page-size` | `int32`
+
+The number of items to return per page. ||
+|| `--dry-run` | Displays the operations that would be performed using the specified command without actually running them. ||
+|| `--quiet` | Does not display the operations performed from the specified command. ||
+|| `--no-paginate` | Disable automatic pagination. If automatic pagination is disabled, the CLI will only make one call, for the first page of results. ||
+|| `--only-show-errors` | Only errors and warnings are displayed. All other output is suppressed. ||
+|| `--request-payer` | `string`
+
+Confirms that the requester knows that she or he will be charged for the request. ||
+|| `--max-queue-size` | `int`
+
+The maximum number of tasks in the task queue. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

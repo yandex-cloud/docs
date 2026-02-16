@@ -12,7 +12,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
     ```
@@ -89,7 +89,7 @@ Invisible CAPTCHA is only connected using the [advanced method](./widget-methods
 
 By default, a page with an invisible CAPTCHA renders a shield with a link to the document: [Notice on the terms of data processing by the service](https://yandex.com/legal/smartcaptcha_notice/).
 
-The shield is positioned in the bottom-right corner. To move the shield, use the `shieldPosition` parameter of the `render` [method](./widget-methods.md#render). For example:
+The shield is positioned in the bottom-right corner. To move the shield, use the `shieldPosition` parameter of the `render` [method](./widget-methods.md#render). Here is an example:
 
 ```js
 window.smartCaptcha.render('captcha-container', {
@@ -104,7 +104,7 @@ You can hide the shield by using the `hideShield` parameter of the `render` [met
 
 {% include [warning-hideshield](../../_includes/smartcaptcha/warning-hideshield.md) %}
 
-## Things to consider {#specifics}
+## Features {#specifics}
 
 * Invisible CAPTCHA requires less memory than normal CAPTCHA because it doesn't load the code that renders the **"I’m not a robot"** button.
 
@@ -116,7 +116,7 @@ You can hide the shield by using the `hideShield` parameter of the `render` [met
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 

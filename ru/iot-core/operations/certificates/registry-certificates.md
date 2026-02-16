@@ -23,7 +23,7 @@
    Чтобы добавить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
 
@@ -76,7 +76,7 @@
      * `yandex_iot_core_registry` — параметры реестра:
        * `name` — имя реестра.
        * `description` — описание реестра.
-       * `certificates` — список сертификатов реестра для авторизации с помощью [сертификатов](../../concepts/authorization.md#certs).
+       * `certificates` — список сертификатов реестра для аутентификации с помощью [сертификатов](../../concepts/authorization.md#certs).
 
       Пример описания реестра в конфигурации {{ TF }}:
 
@@ -143,7 +143,7 @@
    Чтобы удалить сертификат реестра:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат реестра.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.
    1. В строке с нужным сертификатом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.

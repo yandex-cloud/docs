@@ -1,27 +1,37 @@
+---
+title: Equivalents for Amazon Web Services
+description: This article establishes the equivalence between {{ yandex-cloud }} services and Amazon Web Services.
+---
+
 # Equivalents for Amazon Web Services
 
 
 | Amazon Web Services | {{ yandex-cloud }} |
 |----|----|
+| Amazon API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | Amazon Athena | [{{ yq-full-name }}](../../query/) |
-| Amazon API Gateway | [{{ api-gw-full-name }}](../../api-gateway/) |
-| Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon CloudSearch | [{{ search-api-full-name }}](../../search-api/) |
-| Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../managed-mongodb/) |
+| Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |
+| Amazon CloudWatch Logs | [{{ cloud-logging-full-name }}](../../logging/) |
+| Amazon CodeArtifact | [{{ cloud-registry-full-name }}](../../cloud-registry/) |
+| Amazon DocumentDB (with MongoDB compatibility) | [{{ mmg-full-name }}](../../storedoc/) |
 | Amazon DynamoDB | [{{ ydb-full-name }}](../../ydb/) |
 | Amazon EC2 Auto Scaling | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
 | Amazon Elastic Compute Cloud | [{{ compute-full-name }}](../../compute/) |
 | Amazon Elastic Container Registry | [{{ container-registry-full-name }}](../../container-registry/) |
 | Amazon Elastic Kubernetes Service | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
-| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-redis/) |
+| Amazon ElastiCache | [{{ mrd-full-name }}](../../managed-valkey/) |
 | Amazon EMR | [{{ dataproc-full-name }}](../../data-proc/) |
+| Amazon EMR Trino | [{{ mtr-full-name }}](../../managed-trino/) |
+| Amazon EMR Spark | [{{ msp-full-name }}](../../managed-spark/) |
+| Amazon EventBridge | [{{ si-full-name }}: {{ er-name }}](../../serverless-integrations/quickstart/eventrouter.md) |
 | Amazon Interactive Video Service | [{{ video-full-name }}](../../video/) |
 | Amazon Kinesis Data Streams | [{{ yds-full-name }}](../../data-streams/) |
 | Amazon Managed Workflows for Apache Airflow | [{{ maf-full-name }}](../../managed-airflow/) |
 | Amazon MSK | [{{ mkf-full-name }}](../../managed-kafka/) |
-| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
 | Amazon OpenSearch Service | [{{ mos-full-name }}](../../managed-opensearch/) |
+| Amazon Polly, Amazon Transcribe | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
 | Amazon QuickSight | [{{ datalens-full-name }}](../../datalens/) |
 | Amazon RDS for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Amazon RDS for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
@@ -31,6 +41,7 @@
 | Amazon SageMaker | [{{ ml-platform-full-name }}](../../datasphere/) |
 | Amazon Simple Email Service | [{{ postbox-full-name }}](../../postbox/) |
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
+| Amazon SNS | [{{ cns-full-name }}](../../notifications/) |
 | Amazon Transcribe, Amazon Kinesis | [{{ speechsense-full-name }}](../../speechsense/) |
 | Amazon Translate | [{{ translate-full-name }}](../../translate/) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
@@ -41,17 +52,26 @@
 | AWS Certificate Manager | [{{ certificate-manager-full-name }}](../../certificate-manager/) |
 | AWS CloudTrail | [{{ at-full-name }}](../../audit-trails/) |
 | AWS Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
+| AWS Databricks | [{{ myt-full-name }}](../../managed-ytsaurus/) |
+| AWS DataZone | [{{ metadata-hub-full-name }}](../../metadata-hub/) |
 | AWS Direct Connect | [{{ interconnect-full-name }}](../../interconnect/) |
 | AWS Distributed Load Testing | [{{ load-testing-full-name }}](../../load-testing/) |
+| AWS EC2 Bare Metal | [{{ baremetal-full-name }}](../../baremetal/) |
 | AWS Elastic Container Service | [{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | AWS Identity and Access Management, AWS Cognito | [{{ iam-full-name }}](../../iam/) |
 | AWS IoT Core | [{{ iot-full-name }}](../../iot-core/) |
 | AWS Key Management Service | [{{ kms-full-name }}](../../kms/) |
 | AWS Lambda | [{{ sf-full-name }}](../../functions/) |
 | AWS Organizations | [{{ org-full-name }}](../../organization/) |
+| AWS Outposts | [{{ stackland-full-name }}](../../stackland/) |
+| AWS Redshift | [{{ mch-full-name }}](../../managed-clickhouse/)<br/>[{{ mgp-full-name }}](../../managed-greenplum/) |
 | AWS Resource Access Manager | [{{ resmgr-full-name }}](../../resource-manager/) |
 | AWS Secrets Manager | [{{ lockbox-name }}](../../lockbox/) |
+| AWS Security Hub | [{{ sd-full-name }}](../../security-deck/) |
+| AWS Service Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | AWS Shield,</br>AWS WAF | [{{ sws-full-name }}](../../smartwebsecurity/) |
+| AWS Step Functions | [{{ si-full-name }}: {{ sw-name }}](../../serverless-integrations/quickstart/workflows.md) |
 | AWS WAF Captcha | [{{ captcha-full-name }}](../../smartcaptcha/) |
 | Elastic Load Balancing: Application Load Balancer | [{{ alb-full-name }}](../../application-load-balancer/) |
 | Elastic Load Balancing: Network Load Balancer | [{{ network-load-balancer-full-name }}](../../network-load-balancer/) |
+| GitLab images for VMs in AWS Marketplace and AWS Developer Tools | [{{ mgl-full-name }}](../../managed-gitlab/) |

@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/mysql/v1/api-ref/grpc/Backup/get.md
 ---
 
-# Managed Service for MySQL API, gRPC: BackupService.Get {#Get}
+# Managed Service for MySQL API, gRPC: BackupService.Get
 
 Retrieves information about the specified backup.
 
@@ -15,13 +15,13 @@ Retrieves information about the specified backup.
 
 ```json
 {
-  "backupId": "string"
+  "backup_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| backupId | **string**
+|| backup_id | **string**
 
 Required field. ID of the backup to return information about.
 
@@ -33,13 +33,14 @@ To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/grpc/Bac
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "sourceClusterId": "string",
-  "startedAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "source_cluster_id": "string",
+  "started_at": "google.protobuf.Timestamp",
   "size": "int64",
   "type": "BackupCreationType",
-  "status": "BackupStatus"
+  "status": "BackupStatus",
+  "journal_size": "int64"
 }
 ```
 
@@ -52,16 +53,16 @@ See [the documentation](/docs/managed-mysql/concepts/backup) for details.
 || id | **string**
 
 Required field. ID of the backup. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the backup belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp (the time when the backup operation was completed). ||
-|| sourceClusterId | **string**
+|| source_cluster_id | **string**
 
 ID of the cluster that the backup was created for. ||
-|| startedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| started_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Start timestamp (the time when the backup operation was started). ||
 || size | **int64**
@@ -71,14 +72,15 @@ Size of backup, in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || status | enum **BackupStatus**
 
 Status of backup
 
-- `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journal_size | **int64**
+
+Size of the journal associated with backup, in bytes. ||
 |#

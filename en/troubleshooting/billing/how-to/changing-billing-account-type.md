@@ -1,52 +1,51 @@
-# How to change the billing account owner
+# How to change the billing account type
 
 
-## Issue description {#case-description}
 
-* You need to change the type of your billing account (from "individual" to "legal entity")
-* You need to change the type of your billing account (from "legal entity" to "individual").
+## Case description {#case-description}
 
-## Solution {#case-solution}
+* You need to change the type of your billing account from `individual` to `business`.
+* You need to change the type of your billing account from `business` to `individual`.
 
-You cannot change the type of an existing billing account, but you can transfer your resources to a new billing account.
+## Solution {#case-resolution}
 
-Choose your desired account type in the tab below.
+You cannot change the type of an existing billing account; however, you can transfer your resources to a new billing account.
+
+Choose the account type you need in the tab below.
 
 {% list tabs %}
 
-- Businesses and individual entrepreneurs
+- Business
 
-   1. [Create a new billing account](../../../billing/operations/create-new-account.md) on behalf of a legal entity on the current Yandex ID account or federated account.
-   2. [Submit the documents and wait for verification](../../../billing/qa/billing-account.md#account-notification) of the new billing account to avoid undesired downtime of your cloud resources.
-   3. After verification and activation of the new billing account, link all existing clouds to it [following the guide](../../../billing/operations/pin-cloud.md).
-      Do not forget to pay off outstanding amounts on the old billing account, if any.
+    1. [Create a new billing account](../../../billing/operations/create-new-account.md) as a business in the current Yandex ID account or federated account.
+    1. [Submit the documents and wait for verification](../../../billing/qa/billing-account.md#account-notification) of the new billing account to avoid downtime of your cloud resources.
+    1. After verification and activation of the new billing account, link all existing clouds to it [following this guide](../../../billing/operations/pin-cloud.md).
+    Make sure to pay off the outstanding amounts on the old billing account, if any.
 
-   Once the clouds are moved, you can grant other accounts access to this cloud. To do this, follow these steps:
+    Once the clouds are moved, you can grant access to this cloud to other accounts. To do this, follow these steps:
 
-   1. [Add a user to the cloud](../../../iam/operations/users/create.md#passport-user).
-   2. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md#access-to-user).
+    1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
+    1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md).
 
-   You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
+    You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
 
-- Individuals
+- Individual
 
-   You can [create a new billing account](../../../billing/operations/create-new-account.md) within the current Yandex ID account and [link your cloud to it](../../../billing/operations/pin-cloud.md).
-   Do not forget to pay off outstanding amounts on the old billing account, if any.
+    You can [create a new billing account](../../../billing/operations/create-new-account.md) within the current Yandex ID account and [link your cloud to it](../../../billing/operations/pin-cloud.md).
+    Make sure to pay off the outstanding amounts on the old billing account, if any.
 
-   After the transfer, you will be able to grant access to the cloud to other accounts. To do this, follow these steps:
+    After the transfer, you will be able to grant access to the cloud to other accounts. To do this, follow these steps:
 
-   1. [Add a user to the cloud](../../../iam/operations/users/create.md#passport-user).
-   2. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md#access-to-user).
+    1. [Add a user to the cloud](../../../organization/operations/add-account.md#passport-user).
+    1. [Assign the relevant role to the user](../../../iam/operations/roles/grant.md).
 
-   You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
+    You can find the list of roles [here](../../../iam/concepts/access-control/roles.md).
 
 {% endlist %}
 
-## If nothing helped {#if-issue-still-persists}
+## If nothing helped {#if-nothing-worked}
 
-If these actions did not help, [create a request for technical support]({{ link-console-support }}).
-When creating the request, make sure to specify:
+If the above actions did not help, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
 
-1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
-2. What exactly needs to be done with the billing account.
+1. Billing account ID. You can find this ID on the [page with the billing account details]({{ link-console-billing }}).
+1. What you exactly need to do with your billing account.

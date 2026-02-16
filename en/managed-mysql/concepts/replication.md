@@ -17,37 +17,34 @@ Once you create a {{ MY }} cluster with multiple hosts, it contains one master h
 
 Here is an example of an auto replicated cluster configuration:
 
-
 ![MMY replicas auto control](../../_assets/mdb/mmy-replicas-auto.svg)
 
-
-
-In this example, a master and two replicas are located in different availability zones. In this case:
+In this example, a master and two replicas are located in different availability zones. In which case:
 
 * Each transaction is saved to a minimum of two hosts.
-* The cluster is fault-tolerant to a host disconnecting in one availability zone and to two successive disconnections.
+* The cluster remains available for two consecutive host failures in one of the availability zones.
 
 If a replica and the master are located in different availability zones, the transaction commit latency cannot be less than the round-trip time (RTT) between data centers located in these availability zones. As a result, for single-thread writes with [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit) enabled, the cluster performance may drop considerably. For maximum performance, we recommend using multiple threads for write operations where possible, as well as disabling [AUTOCOMMIT](https://dev.mysql.com/doc/refman/8.0/en/commit.html) and grouping queries into transactions.
 
-Specifics of automatic replication in {{ mmy-name }}:
+{{ mmy-name }} clusters support automatic selection and failover to a new master. If the master host fails, one of its replicas becomes a new master.
 
-* If the master host fails, its replica becomes a new master.
-* When the master changes, the replication source for all replica hosts automatically switches to the new master host.
-
-For more information, see [{#T}](#master-failover).
+For more information on master host selection, see [Selecting a master if the primary master fails](#master-failover).
 
 ### Manual cluster configuration management {#manual-source}
 
 With manual management, other cluster hosts may serve as replication sources for any cluster replica. Replicas that have their [replication sources set](../operations/hosts.md#update) manually are referred to as _cascading_ replicas. Cascading replicas use asynchronous replication from a source host. Therefore, a cascading replica cannot become the master if the master host fails or is switched over manually.
 
-A cluster of two hosts, including one cascading replica, is not fault tolerant.
+If the source host is not responding, a cascading replica temporarily becomes the master until the source host is available again.
+
+{% note info %}
+
+A cluster of two hosts where one is cascading replica is not [highly available](high-availability.md).
+
+{% endnote %}
 
 Here is an example of cluster configuration with cascading replication and hosts in two availability zones:
 
-
 ![MMY replicas auto control](../../_assets/mdb/mmy-cascade-replicas.svg)
-
-
 
 Assigning a replication source for the cluster hosts allows you to:
 
@@ -61,7 +58,17 @@ If the master host fails, any of the cluster hosts available for replication may
 
 You can set host priority:
 
-* When [creating a cluster](../operations/cluster-create.md) with the YC CLI, API, or {{ TF }}.
+* When [creating a cluster](../operations/cluster-create.md) with the CLI, API, or {{ TF }}.
 * When [changing the host settings](../operations/hosts.md#update).
 
 The lowest priority is `0` (default), while the highest one is `100`.
+
+You can also initiate master failover or assign this role to one of the replicas [manually](../operations/update.md#start-manual-failover).
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/cdc-data-transfer.md)
+* [{#T}](../tutorials/mmy-to-mgp.md)
+* [{#T}](../tutorials/mmy-to-mysql-migration.md)
+* [{#T}](../tutorials/mpg-to-mmy.md)
+* [{#T}](../tutorials/mysql-to-clickhouse.md)

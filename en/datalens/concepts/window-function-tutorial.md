@@ -1,4 +1,9 @@
-# Window functions in {{ datalens-short-name }}
+---
+title: Window functions in {{ datalens-full-name }}
+description: This article describes the window functions in {{ datalens-full-name }}, which allow you to get additional information about the original selection.
+---
+
+# Window functions in {{ datalens-full-name }}
 
 [Window functions](../function-ref/window-functions.md) are similar to aggregate functions. They allow you to get additional information about the original sample. For example, you can calculate the cumulative total and the moving average or rank values.
 
@@ -31,7 +36,7 @@ In the chart based on the `Selling` table and grouped by `City` and `Category`, 
 * TotalSales: `SUM(SUM([Sales]) TOTAL)`
 * % Total: `SUM([Sales]) / [TotalSales]`
 
-For example, for the **Table** chart, the result will be as follows:
+For the **Table** chart, the result will look like this:
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-1.png)
 
@@ -185,7 +190,7 @@ The calculation order is changed when you need to calculate the function value f
 
 **Example**
 
-You need to calculate the change in the total sales amount (`IncTotal`) from `17/01/2014` to `11/03/2014`. If you add the `Date` dimension filter and create the `RSUM(SUM([Sales]) TOTAL ORDER BY [Date])` measure, the function will be calculated only for the data limited by the filter:
+You need to calculate the change in the total sales amount (`IncTotal`) from `17.01.2014` to `11.03.2014`. If you add the `Date` dimension filter and create the `RSUM(SUM([Sales]) TOTAL ORDER BY [Date])` measure, the function will be calculated only for the data limited by the filter:
 
 ![image](../../_assets/datalens/concepts/tutorial/window-func-6.png)
 

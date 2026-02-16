@@ -1,0 +1,1 @@
+* Automatic storage expansion is not supported on dedicated hosts.

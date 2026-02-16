@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys/{userSshKeyId}
+    method: get
+    path:
+      type: object
+      properties:
+        userSshKeyId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - userSshKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/UserSshKey/get.md
 ---
 
-# Cloud Organization API, REST: UserSshKey.Get {#Get}
+# Identity Hub API, REST: UserSshKey.Get
 
 ## HTTP request
 
@@ -17,7 +35,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/userSshK
 ||Field | Description ||
 || userSshKeyId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.UserSshKey}

@@ -1,6 +1,6 @@
-# Studying a cloud network map
+# Viewing a cloud network map
 
-You can open your folder's [cloud network map](../concepts/network.md#map) and study the relationships between {{ yandex-cloud }} resources and their networks and subnets.
+You can open your [cloud network map](../concepts/network.md#map) in your folder and check the relationships between {{ yandex-cloud }} resources and their networks and subnets.
 
 ## Opening a cloud network map {#open}
 
@@ -24,7 +24,7 @@ To filter resources on the map:
 
 - Management console {#console}
 
-   On the **{{ ui-key.yacloud.vpc.title_network-map-page }}** page, under **Filter**, select a resource category in the first filter list and a resource in the second.
+   On the **{{ ui-key.yacloud.vpc.title_network-map-page }}** page, under **Filter**, select the resource category in the first filter list and the resource in the second one. 
 
    The map will only show the selected resources and their networks and subnets.
 
@@ -32,7 +32,7 @@ To filter resources on the map:
 
 ## Opening a resource page {#resource-page}
 
-The map allows you to navigate directly to the page of the resource of interest. To do this:
+The map allows you to navigate directly to the page of the resource you need. For this, follow these steps:
 
 {% list tabs group=instructions %}
 

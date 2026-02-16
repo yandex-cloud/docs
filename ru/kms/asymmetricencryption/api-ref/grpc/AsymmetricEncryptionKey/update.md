@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/update.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Update {#Update}
+# Key Management Service API, gRPC: AsymmetricEncryptionKeyService.Update
 
 Updates the specified asymmetric KMS key.
 
@@ -15,46 +15,53 @@ Updates the specified asymmetric KMS key.
 
 ```json
 {
-  "keyId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "key_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
   "status": "Status",
-  "labels": "string",
-  "deletionProtection": "bool"
+  "labels": "map<string, string>",
+  "deletion_protection": "bool"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 Required field. ID of the asymmetric KMS key to update.
-To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/api-ref/grpc/AsymmetricEncryptionKey/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the ID of a asymmetric KMS key use a [AsymmetricEncryptionKeyService.List](/docs/kms/asymmetricencryption/api-ref/grpc/AsymmetricEncryptionKey/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Required field. Field mask that specifies which attributes of the asymmetric KMS key are going to be updated. ||
 || name | **string**
 
-New name for the asymmetric KMS key. ||
+New name for the asymmetric KMS key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-New description for the asymmetric KMS key. ||
+New description for the asymmetric KMS key.
+
+The maximum string length in characters is 1024. ||
 || status | enum **Status**
 
 New status for the asymmetric KMS key.
 Using the [AsymmetricEncryptionKeyService.Update](#Update) method you can only set ACTIVE or INACTIVE status.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key. ||
-|| deletionProtection | **bool**
+Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the asymmetric KMS key ||
 |#
@@ -65,25 +72,25 @@ Flag that inhibits deletion of the asymmetric KMS key ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "keyId": "string"
+    "key_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "map<string, string>",
     "status": "Status",
-    "encryptionAlgorithm": "AsymmetricEncryptionAlgorithm",
-    "deletionProtection": "bool"
+    "encryption_algorithm": "AsymmetricEncryptionAlgorithm",
+    "deletion_protection": "bool"
   }
   // end of the list of possible fields
 }
@@ -99,13 +106,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -148,7 +155,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the key being updated. ||
 |#
@@ -162,10 +169,10 @@ An asymmetric KMS key that may contain several versions of the cryptographic mat
 || id | **string**
 
 ID of the key. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the key belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time when the key was created. ||
 || name | **string**
@@ -174,28 +181,26 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | enum **Status**
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
 - `INACTIVE`: The key is inactive and unusable.
 Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
-|| encryptionAlgorithm | enum **AsymmetricEncryptionAlgorithm**
+|| encryption_algorithm | enum **AsymmetricEncryptionAlgorithm**
 
 Asymmetric Encryption Algorithm ID.
 
-- `ASYMMETRIC_ENCRYPTION_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_ENC_OAEP_SHA_256`: RSA-2048 encryption with OAEP padding and SHA-256
 - `RSA_3072_ENC_OAEP_SHA_256`: RSA-3072 encryption with OAEP padding and SHA-256
 - `RSA_4096_ENC_OAEP_SHA_256`: RSA-4096 encryption with OAEP padding and SHA-256 ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Flag that inhibits deletion of the key ||
 |#

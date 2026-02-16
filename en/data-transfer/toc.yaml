@@ -3,7 +3,7 @@ href: index.yaml
 items:
   - name: Available transfers
     href: transfer-matrix.md
-  - name: Get started
+  - name: Getting started
     href: quickstart.md
   - name: Step-by-step guides
     items:
@@ -57,7 +57,7 @@ items:
             items:
               - name: Source
                 href: operations/endpoint/source/mssql.md
-          - name: MongoDB
+          - name: '{{ MG }}/{{ SD }}'
             items:
               - name: Source
                 href: operations/endpoint/source/mongodb.md
@@ -107,6 +107,12 @@ items:
                 href: operations/endpoint/source/ydb.md
               - name: Target
                 href: operations/endpoint/target/yandex-database.md
+          - name: '{{ ytsaurus-name }}'
+            items:
+              - name: Source
+                href: operations/endpoint/source/yt.md
+              - name: Target
+                href: operations/endpoint/target/yt.md
       - name: Managing transfer process
         href: operations/transfer.md
       - name: Working with databases during transfer
@@ -126,13 +132,13 @@ items:
           - name: Third-party {{ MY }} cluster
             href: tutorials/managed-mysql-to-mysql.md
           - name: '{{ MG }} cluster'
-            href: tutorials/managed-mongodb.md
-          - name: Migrating {{ MG }} cluster from 4.4 to 6.0
-            href: tutorials/mongodb-versions.md
+            href: tutorials/storedoc.md
+          - name: >-
+              Migrating a {{ mmg-name }} (Managed Service for MongoDB) cluster
+              from 4.4 to 6.0
+            href: tutorials/storedoc-versions.md
           - name: '{{ CH }} cluster'
             href: tutorials/managed-clickhouse.md
-          - name: Data resharding in a {{ mch-name }} cluster
-            href: tutorials/mch-mch-resharding.md
           - name: '{{ GP }} cluster'
             href: tutorials/managed-greenplum.md
           - name: Migrating data from AWS RDS for {{ PG }}
@@ -143,6 +149,12 @@ items:
         items:
           - name: '{{ KF }}'
             href: tutorials/mkf-to-mkf.md
+      - name: Syncing data
+        items:
+          - name: >-
+              Syncing data from a third-party {{ MY }} cluster to {{
+              mmy-full-name }}
+            href: tutorials/sync-mysql.md
       - name: Migration with data storage type changed
         items:
           - name: '{{ MY }} to {{ ydb-short-name }}'
@@ -155,12 +167,14 @@ items:
             href: tutorials/mpg-to-mmy.md
           - name: '{{ MY }} to {{ GP }}'
             href: tutorials/mmy-to-mgp.md
-          - name: '{{ ES }} to {{ OS }}'
-            href: tutorials/mes-to-mos.md
-          - name: '{{ OS }} to {{ ydb-short-name }}'
+          - name: '{{ OS }} in {{ ydb-short-name }}'
             href: tutorials/opensearch-to-ydb.md
-          - name: '{{ PG }} to {{ OS }}'
+          - name: '{{ OS }} in {{ GP }}'
+            href: tutorials/opensearch-to-greenplum.md
+          - name: '{{ PG }} in {{ OS }}'
             href: tutorials/postgresql-to-opensearch.md
+          - name: '{{ ES }} in {{ OS }}'
+            href: tutorials/mes-to-mos.md
       - name: Change data capture and delivery to the queue
         items:
           - name: '{{ MY }} to {{ KF }}'
@@ -183,7 +197,7 @@ items:
             href: tutorials/mkf-to-mpg.md
           - name: '{{ KF }} to {{ GP }}'
             href: tutorials/managed-kafka-to-greenplum.md
-          - name: '{{ KF }} to {{ MG }}'
+          - name: '{{ KF }} to {{ SD }}'
             href: tutorials/mkf-to-mmg.md
           - name: '{{ KF }} to {{ MY }}'
             href: tutorials/mkf-to-mmy.md
@@ -193,25 +207,32 @@ items:
             href: tutorials/mkf-to-ydb.md
           - name: '{{ KF }} to {{ DS }}'
             href: tutorials/mkf-to-yds.md
-          - name: '{{ DS }} to {{ CH }}'
+          - name: '{{ DS }} to {{ KF }}'
+            href: tutorials/yds-to-kafka.md
+          - name: '{{ DS }} in {{ CH }}'
             href: tutorials/yds-to-clickhouse.md
-          - name: '{{ DS }} to {{ objstorage-name }}'
+          - name: '{{ DS }} in {{ objstorage-name }}'
             href: tutorials/yds-to-objstorage.md
-          - name: '{{ DS }} to {{ OS }}'
+          - name: '{{ DS }} in {{ OS }}'
+            hidden: true
             href: tutorials/trails-to-os.md
+          - name: '{{ DS }} in {{ ydb-short-name }}'
+            href: tutorials/yds-to-ydb.md
+          - name: Ingesting data into storage systems
+            href: tutorials/data-ingestion.md
       - name: Uploading data to data marts
         items:
           - name: '{{ GP }} to {{ CH }}'
             href: tutorials/greenplum-to-clickhouse.md
-          - name: '{{ MY }} to {{ CH }}'
+          - name: '{{ MY }} in {{ CH }}'
             href: tutorials/mysql-to-clickhouse.md
           - name: '{{ metrika }} to {{ CH }}'
             href: tutorials/metrika-to-clickhouse.md
-          - name: '{{ PG }} to {{ CH }}'
+          - name: '{{ PG }} in {{ CH }}'
             href: tutorials/rdbms-to-clickhouse.md
           - name: '{{ GP }} to {{ PG }}'
             href: tutorials/greenplum-to-postgresql.md
-          - name: '{{ objstorage-name }} to {{ MY }}'
+          - name: '{{ objstorage-name }} in {{ MY }}'
             href: tutorials/objs-mmy-migration.md
           - name: '{{ objstorage-name }} to {{ PG }}'
             href: tutorials/object-storage-to-postgresql.md
@@ -219,13 +240,13 @@ items:
             href: tutorials/object-storage-to-greenplum.md
           - name: '{{ yandex-direct }} to {{ CH }}'
             href: tutorials/direct-to-mch.md
-          - name: '{{ objstorage-name }} to {{ CH }}'
+          - name: '{{ objstorage-name }} in {{ CH }}'
             href: tutorials/object-storage-to-clickhouse.md
           - name: '{{ objstorage-name }} to {{ ydb-short-name }}'
             href: tutorials/object-storage-to-ydb.md
           - name: '{{ ydb-short-name }} to {{ CH }}'
             href: tutorials/ydb-to-clickhouse.md
-          - name: '{{ OS }} to {{ CH }}'
+          - name: '{{ OS }} in {{ CH }}'
             href: tutorials/opensearch-to-clickhouse.md
       - name: Uploading data to {{ objstorage-name }}
         items:
@@ -237,6 +258,10 @@ items:
             href: tutorials/opensearch-to-object-storage.md
           - name: '{{ ydb-name }} to {{ objstorage-name }}'
             href: tutorials/ydb-to-object-storage.md
+          - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
+            href: tutorials/replicate-logs-to-storage-via-data-streams.md
+          - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+            href: tutorials/replicate-logs-to-storage.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -274,26 +299,92 @@ items:
   - name: Access management
     href: security/index.md
   - name: Pricing policy
-    items:
-      - name: Current pricing policy
-        href: pricing.md
-      - name: Archive
-        items:
-          - name: Before August 1, 2024
-            href: pricing-archive/pricing01082024.md
+    href: pricing.md
   - name: CLI reference
     items:
       - name: Overview
-        href: ../cli/cli-ref/managed-services/datatransfer/index.md
-      - name: Transfer
-        href: ../cli/cli-ref/managed-services/datatransfer/transfer/index.md
-      - name: Endpoint
-        href: ../cli/cli-ref/managed-services/datatransfer/endpoint/index.md
+        href: cli-ref/index.md
+      - name: endpoint
+        items:
+          - name: Overview
+            href: cli-ref/endpoint/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/create/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/create/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/create/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/create/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/create/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/create/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/create/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/create/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/create/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/create/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/create/yds-target.md
+          - name: delete
+            href: cli-ref/endpoint/delete.md
+          - name: get
+            href: cli-ref/endpoint/get.md
+          - name: list
+            href: cli-ref/endpoint/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/endpoint/update/index.md
+              - name: clickhouse-source
+                href: cli-ref/endpoint/update/clickhouse-source.md
+              - name: clickhouse-target
+                href: cli-ref/endpoint/update/clickhouse-target.md
+              - name: mongo-source
+                href: cli-ref/endpoint/update/mongo-source.md
+              - name: mongo-target
+                href: cli-ref/endpoint/update/mongo-target.md
+              - name: mysql-source
+                href: cli-ref/endpoint/update/mysql-source.md
+              - name: mysql-target
+                href: cli-ref/endpoint/update/mysql-target.md
+              - name: postgres-source
+                href: cli-ref/endpoint/update/postgres-source.md
+              - name: postgres-target
+                href: cli-ref/endpoint/update/postgres-target.md
+              - name: yds-source
+                href: cli-ref/endpoint/update/yds-source.md
+              - name: yds-target
+                href: cli-ref/endpoint/update/yds-target.md
+      - name: transfer
+        items:
+          - name: Overview
+            href: cli-ref/transfer/index.md
+          - name: activate
+            href: cli-ref/transfer/activate.md
+          - name: create
+            href: cli-ref/transfer/create.md
+          - name: deactivate
+            href: cli-ref/transfer/deactivate.md
+          - name: delete
+            href: cli-ref/transfer/delete.md
+          - name: get
+            href: cli-ref/transfer/get.md
+          - name: list
+            href: cli-ref/transfer/list.md
+          - name: update
+            href: cli-ref/transfer/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -393,22 +484,56 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-      - name: August 2024
-        href: release-notes/2408.md
-      - name: July 2024
-        href: release-notes/2407.md
-      - name: June 2024
-        href: release-notes/2406.md
-      - name: May 2024
-        href: release-notes/2405.md
-      - name: April 2024
-        href: release-notes/2404.md
-      - name: March 2024
-        href: release-notes/2403.md
-      - name: February 2024
-        href: release-notes/2402.md
-      - name: January 2024
-        href: release-notes/2401.md
+      - name: December 2025
+        href: release-notes/2512.md
+      - name: November 2025
+        href: release-notes/2511.md
+      - name: October 2025
+        href: release-notes/2510.md
+      - name: September 2025
+        href: release-notes/2509.md
+      - name: August 2025
+        href: release-notes/2508.md
+      - name: July 2025
+        href: release-notes/2507.md
+      - name: June 2025
+        href: release-notes/2506.md
+      - name: May 2025
+        href: release-notes/2505.md
+      - name: April 2025
+        href: release-notes/2504.md
+      - name: March 2025
+        href: release-notes/2503.md
+      - name: February 2025
+        href: release-notes/2502.md
+      - name: January 2025
+        href: release-notes/2501.md
+      - name: '2024'
+        items:
+          - name: December 2024
+            href: release-notes/2412.md
+          - name: November 2024
+            href: release-notes/2411.md
+          - name: October 2024
+            href: release-notes/2410.md
+          - name: September 2024
+            href: release-notes/2409.md
+          - name: August 2024
+            href: release-notes/2408.md
+          - name: July 2024
+            href: release-notes/2407.md
+          - name: June 2024
+            href: release-notes/2406.md
+          - name: May 2024
+            href: release-notes/2405.md
+          - name: April 2024
+            href: release-notes/2404.md
+          - name: March 2024
+            href: release-notes/2403.md
+          - name: February 2024
+            href: release-notes/2402.md
+          - name: January 2024
+            href: release-notes/2401.md
       - name: '2023'
         items:
           - name: December 2023
@@ -421,5 +546,3 @@ items:
             href: release-notes/2309.md
           - name: August 2023
             href: release-notes/2308.md
-base: en/data-transfer
-deepBase: 2

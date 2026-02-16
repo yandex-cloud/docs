@@ -1,0 +1,141 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-mysql/cli-ref-beta/cluster/add-hosts.md
+---
+
+# yc beta managed-mysql cluster add-hosts
+
+Adds new hosts in a cluster.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta managed-mysql cluster add-hosts <CLUSTER-ID>`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-json > request.json
+2. Edit the template: vim request.json
+3. Run with template: yc beta compute instance create -r request.json ||
+|| `--example-yaml` | Generates a YAML template of the request.
+The template can be customized and used as input for the command.
+Usage example:
+
+1. Generate template: yc beta compute instance create --example-yaml > request.yaml
+2. Edit the template: vim request.yaml
+3. Run with template: yc beta compute instance create -r request.yaml ||
+|| `--cluster-id` | `string`
+
+ID of the cluster to add hosts to. To get this ID, make a [ClusterService.List] request. ||
+|| `--host-specs` | `shorthand/json`
+
+Configuration of the newly added hosts.
+
+Shorthand Syntax:
+
+```hcl
+[
+  {
+    assign-public-ip = bool,
+    backup-priority = int,
+    priority = int,
+    replication-source = str,
+    subnet-id = str,
+    zone-id = str
+  }, ...
+]
+```
+
+JSON Syntax:
+
+```json
+[
+  {
+    "assign-public-ip": "bool",
+    "backup-priority": "int",
+    "priority": "int",
+    "replication-source": "str",
+    "subnet-id": "str",
+    "zone-id": "str"
+  }, ...
+]
+```
+
+Fields:
+
+```
+assign-public-ip -> (bool)
+  Option that enables public IP address for the host so that the host can be accessed from the internet. After a host has been created, this setting cannot be changed. To remove an assigned public IP address, or to assign a public IP address to a host without one, recreate the host with the appropriate [assign_public_ip] value set. Possible values: * 'false' - don't assign a public IP address to the host. * 'true' - assign a public IP address to the host.
+backup-priority -> (int)
+  Host backup priority
+priority -> (int)
+  Host master promotion priority
+replication-source -> (string)
+  [Host.name] of the host to be used as the replication source (for cascading replication).
+subnet-id -> (string)
+  ID of the subnet to assign to the host. This subnet should be a part of the cluster network (the network ID is specified in the [ClusterService.CreateClusterRequest.network_id]).
+zone-id -> (string)
+  ID of the availability zone where the host resides. To get a list of available zones, make the [yandex.cloud.compute.v1.ZoneService.List] request.
+``` ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

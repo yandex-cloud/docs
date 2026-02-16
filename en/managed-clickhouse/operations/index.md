@@ -9,15 +9,18 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
-* [Changing cluster settings](update.md)
+* [Updating cluster settings](update.md)
 * [{#T}](change-server-level-settings.md)
 * [{#T}](change-query-level-settings.md)
+* [{#T}](cluster-patch-version.md)
 * [{#T}](cluster-version-update.md)
 * [Stopping and starting a cluster](cluster-stop.md)
-* [{#T}](zk-hosts.md)
-* [Managing cluster hosts](hosts.md)
+* [Managing {{ CH }} hosts](hosts.md)
+* [Managing {{ ZK }} hosts](zk-hosts.md)
+* [Managing {{ CK }} hosts](ck-hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## Connecting to a cluster {#connect}
@@ -35,13 +38,13 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 
 ## Storing and processing data {#data-storage-and-processing}
 
-* [Adding your own geobase](geobase.md)
+* [Managing a custom geobase](geobase.md)
 * [Connecting external dictionaries](dictionaries.md)
-* [Managing data format schemas](format-schemas.md)
+* [Managing format schemas](format-schemas.md)
 * [Managing machine learning models](ml-models.md)
 
 
-* [Setting up access to {{ objstorage-name }}](s3-access.md)
+* [Configuring access to {{ objstorage-name }}](s3-access.md)
 
 
 ## Sharding {#sharding}
@@ -52,7 +55,7 @@ description: This page provides a list of step-by-step guides for {{ mch-name }}
 ## Logs and monitoring {#monitoring-and-logs}
 
 * [Viewing cluster logs](cluster-logs.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [Connecting to a cluster from {{ datalens-name }}](datalens-connect.md)
 
 

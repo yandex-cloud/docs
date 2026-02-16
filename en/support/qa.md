@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ yandex-cloud }} technical support
-description: This page presents questions and answers about {{ yandex-cloud }} technical support.
+description: This page presents questions and answers about {{ yandex-cloud }} support.
 ---
 
 # FAQ about {{ yandex-cloud }} technical support
@@ -11,21 +11,21 @@ This section offers tips and recommendations on contacts with technical support.
 
 {% endnote %}
 
-#### How do I contact technical support? {#support-channels}
+#### How do I contact support? {#support-channels}
 
 You can contact technical support from the management console in the [Support]({{ link-console-support }}) section.
 
 #### How do I contact technical support if I cannot log in to the management console? {#requesting-support-without-ui}
 
-If you are unable to access your Yandex account, see our [troubleshooting guide](https://yandex.com/support/passport/troubleshooting/problems.html) in the Yandex ID Help.
+If unable to access your Yandex account, see our [troubleshooting guide](https://yandex.com/support/passport/troubleshooting/problems.html) in Yandex ID Help.
 
-If you successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
+If you have successfully logged in to your Yandex account but are unable to connect to the {{ yandex-cloud }} management console, contact technical support at [{{ link-support-mail }}](mailto:{{ link-support-mail }}).
 
 #### What kinds of issues and cases does technical support resolve? {#support-cases-types}
 
 Depending on your service plan, you can contact support for various issues. For more information about service plans, see [{#T}](overview.md).
 
-Regardless of your service plan, you can request the following from technical support:
+Regardless of your service plan, you can request the following:
 
 * [Service logs](request.md#logs) related to your resources and actions in {{ yandex-cloud }}.
 * [Your personal data](request.md#personal) stored by Yandex.
@@ -35,6 +35,21 @@ Regardless of your service plan, you can request the following from technical su
 Technical support is there 24/7.
 
 The response time depends on your service plan. For more information about service plans, see [{#T}](overview.md).
+
+#### How do I find my request in {{ yandex-cloud }}? {#how-to-find-request}
+
+{% include [where-is-requests](../_includes/support/where-is-requests.md) %}
+
+You can also find a link to your request in:
+* {{ yandex-cloud }} support emails you get at the mailbox specified in your Yandex account.
+* {{ yandex-cloud }} notifications. In the {{ yandex-cloud }} management console, click ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** in the left-hand panel. To quickly jump to your request, follow the link in the notification.
+* SMS and Telegram bot messages, if these notification methods are available and properly [configured](../console/operations/update.md#notifications).
+
+For more information on how to get notifications, see [this guide](../support/notify.md#notification-settings).
+
+
+If you have the {{ yandex-cloud }} [mobile app](../overview/mobile-app/index.md) installed, you can track your case there. You will see all your requests on the **Support** tab.
+
 
 #### How quickly can technical support solve an identified problem? {#resolution-time}
 
@@ -46,24 +61,24 @@ There is no limit to the number of times you can contact technical support.
 
 #### How can I get help with architecture-related tasks? {#help-with-arch-tasks}
 
-To get help with architecture-related tasks, use the feedback form on the technical support page in the [support center]({{ link-console-support }}).
+To get help with architecture-related tasks, use the feedback form on the [support center]({{ link-console-support }})'s support page.
 
 #### What third-party software is covered by {{ yandex-cloud }} technical support? {#supported-third-party-sw}
 
 
-Technical support includes troubleshooting third-party software that is used in conjunction with the cloud infrastructure and limited assistance in solving identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
+Technical support includes diagnosing issues in third-party software used in conjunction with the cloud infrastructure and limited assistance in solving the identified problems. Technical support engineers can help you with the installation, basic setup, and diagnostics of the following software:
 
 - [Operating systems](https://yandex.cloud/en/marketplace?categories=os) on {{ yandex-cloud }} VM instances created from public images provided by {{ yandex-cloud }}.
 - Databases and cluster management systems created in:
-   - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
-   - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)   
-   - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
-   - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
-   - [{{ mmg-full-name }}](../managed-mongodb/index.yaml)
-   - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
-   - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
-   - [{{ mrd-full-name }}](../managed-redis/index.yaml)
-   - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
+    - [{{ mkf-full-name }}](../managed-kafka/index.yaml)
+    - [{{ mch-full-name }}](../managed-clickhouse/index.yaml)
+    - [{{ mgp-full-name }}](../managed-greenplum/index.yaml)
+    - [{{ managed-k8s-full-name }}](../managed-kubernetes/index.yaml)
+    - [{{ mmg-full-name }}](../storedoc/index.yaml)
+    - [{{ mmy-full-name }}](../managed-mysql/index.yaml)
+    - [{{ mos-full-name }}](../managed-opensearch/index.yaml)
+    - [{{ mrd-full-name }}](../managed-valkey/index.yaml)
+    - [{{ mpg-full-name }}](../managed-postgresql/index.yaml)
 
 
 
@@ -73,8 +88,9 @@ If the technical support cannot resolve your third-party software issue, contact
 
 #### How do I change my technical support service plan? {#change-pricing-plan}
 
-Only the organization owner or administrator can change the technical support service plan. See [Changing your service plan](support-center.md#change-pricing) for details.
+{% include [change-plan-roles](../_includes/support/pricing-roles.md) %}
 
+See [Changing your service plan](cloud-center.md#change-pricing) for details.
 See [Requesting technical support](overview.md). Service plan upgrades are effective immediately; downgrades take effect on the first day of the following month.
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

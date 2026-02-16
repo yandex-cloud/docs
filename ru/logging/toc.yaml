@@ -51,8 +51,6 @@ items:
           Передача логов кластера Yandex Managed Service for Kubernetes в Cloud
           Logging
         href: tutorials/k8s-fluent-bit-logging.md
-      - name: Передача логов {{ metastore-name }} в {{ cloud-logging-name }}
-        href: tutorials/metastore-logging.md
       - name: Передача логов с ВМ в Cloud Logging
         href: tutorials/vm-fluent-bit-logging.md
       - name: Передача логов с COI в Cloud Logging
@@ -69,8 +67,22 @@ items:
           Визуализация логов в {{ grafana-name }} с помощью плагина {{
           cloud-logging-full-name }}
         href: tutorials/grafana-logs-plugin.md
+      - name: Интерактивная отладка функций {{ sf-name }}
+        href: tutorials/serverless-live-debug.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
+      - name: Настройки логирования для Ingress-контроллеров {{ alb-name }}
+        href: tutorials/alb-ingress-controller-log-options.md
+      - name: Обработка логов {{ cloud-logging-name }}
+        href: tutorials/cloud-logging.md
+      - name: Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}
+        href: tutorials/logging-functions.md
+      - name: Поиск событий в аудитных логах
+        href: tutorials/search-events-audit-logs/index.md
+      - name: Мониторинг записи событий в лог-группу
+        href: tutorials/log-group-record-monitoring.md
+      - name: Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
+        href: tutorials/mgp-to-cloud-logging.md
   - name: Концепции
     items:
       - name: Лог-группа
@@ -83,8 +95,66 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/logging/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: group
+        items:
+          - name: Overview
+            href: cli-ref/group/index.md
+          - name: add-access-binding
+            href: cli-ref/group/add-access-binding.md
+          - name: create
+            href: cli-ref/group/create.md
+          - name: delete
+            href: cli-ref/group/delete.md
+          - name: get
+            href: cli-ref/group/get.md
+          - name: list
+            href: cli-ref/group/list.md
+          - name: list-access-bindings
+            href: cli-ref/group/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/group/list-operations.md
+          - name: list-resources
+            href: cli-ref/group/list-resources.md
+          - name: remove-access-binding
+            href: cli-ref/group/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/group/set-access-bindings.md
+          - name: stats
+            href: cli-ref/group/stats.md
+          - name: update
+            href: cli-ref/group/update.md
+      - name: read
+        href: cli-ref/read.md
+      - name: sink
+        items:
+          - name: Overview
+            href: cli-ref/sink/index.md
+          - name: add-access-binding
+            href: cli-ref/sink/add-access-binding.md
+          - name: create
+            href: cli-ref/sink/create.md
+          - name: delete
+            href: cli-ref/sink/delete.md
+          - name: get
+            href: cli-ref/sink/get.md
+          - name: list
+            href: cli-ref/sink/list.md
+          - name: list-access-bindings
+            href: cli-ref/sink/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/sink/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/sink/remove-access-binding.md
+          - name: set-access-bindings
+            href: cli-ref/sink/set-access-bindings.md
+          - name: update
+            href: cli-ref/sink/update.md
+      - name: write
+        href: cli-ref/write.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -275,9 +345,9 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/logging
-deepBase: 2

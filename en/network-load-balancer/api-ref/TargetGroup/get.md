@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the TargetGroup resource to return.
+            To get the target group ID, use a [TargetGroupService.List](/docs/network-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadbalancer/v1/api-ref/TargetGroup/get.md
 ---
 
-# Network Load Balancer API, REST: TargetGroup.Get {#Get}
+# Network Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified TargetGroup resource.
 
@@ -34,7 +52,7 @@ To get the target group ID, use a [TargetGroupService.List](/docs/network-load-b
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "regionId": "string",
   "targets": [
     {
@@ -72,7 +90,7 @@ The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
 Description of the target group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || regionId | **string**

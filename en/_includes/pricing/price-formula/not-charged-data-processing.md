@@ -1,0 +1,1 @@
+{{ metastore-name }} clusters are not charged.

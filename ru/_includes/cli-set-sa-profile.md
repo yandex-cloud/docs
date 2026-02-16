@@ -44,7 +44,7 @@
      key_algorithm: RSA_2048
      ```
 
-    Подробнее о команде `yc iam key create` см. в [справочнике CLI](../cli/cli-ref/managed-services/iam/service-account/create.md).
+    Подробнее о команде `yc iam key create` см. в [справочнике CLI](../cli/cli-ref/iam/cli-ref/service-account/create.md).
 
 1. Создайте профиль, который будет использоваться для выполнения операций от имени сервисного аккаунта:
 

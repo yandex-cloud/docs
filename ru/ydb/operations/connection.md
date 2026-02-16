@@ -21,8 +21,8 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. Выберите каталог с вашей БД и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Перейдите в [консоль управления]({{ link-console-main }}) и выберите каталог с вашей БД.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, для которой нужно получить эндпоинт и путь.
       
       * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
@@ -93,7 +93,6 @@
 
 {% list tabs %}
 
-
 - OAuth-токен
 
   Получите OAuth-токен с помощью [запроса]({{ link-cloud-oauth }}) и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу с вашим OAuth-токеном.
@@ -130,10 +129,9 @@
   >User SID: aje6o75au36h********@as
   >```
 
-
 - IAM-токен
 
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/) получите IAM-токен:
+  1. С помощью [{{ yandex-cloud }} CLI](../../cli/) получите IAM-токен:
 
       ```bash
       yc iam create-token
@@ -177,7 +175,7 @@
 
   1. {% include [cli-install](../../_includes/cli-install.md) %}
   1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт для доступа к БД. Сервисный аккаунт должен располагаться в том же каталоге, что и БД и иметь роль `viewer` или `viewer` + `editor` в зависимости от того, какой доступ к БД необходим.
-  1. С помощью [CLI {{ yandex-cloud }}](../../cli/) создайте авторизованный ключ для сервисного аккаунта:
+  1. С помощью [{{ yandex-cloud }} CLI](../../cli/) создайте авторизованный ключ для сервисного аккаунта:
 
       ```bash
       yc iam key create \

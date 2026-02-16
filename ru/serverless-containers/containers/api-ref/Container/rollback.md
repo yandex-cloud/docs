@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/containers/{containerId}:rollback
+    method: post
+    path:
+      type: object
+      properties:
+        containerId:
+          description: |-
+            **string**
+            Required field. ID of the container to rollback to an old revision.
+            To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
+          type: string
+      required:
+        - containerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        revisionId:
+          description: |-
+            **string**
+            Required field. ID of the revision to rollback to.
+            To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request.
+          type: string
+      required:
+        - revisionId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/rollback.md
 ---
 
-# Serverless Containers Service, REST: Container.Rollback {#Rollback}
+# Serverless Containers Service, REST: Container.Rollback
 
 Rollback the specified container to an old revision.
 
@@ -21,7 +50,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{cont
 
 Required field. ID of the container to rollback to an old revision.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 |#
 
 ## Body parameters {#yandex.cloud.serverless.containers.v1.RollbackContainerRequest}
@@ -38,7 +67,7 @@ To get a container ID, make a [ContainerService.List](/docs/serverless/container
 
 Required field. ID of the revision to rollback to.
 
-To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
+To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless-containers/containers/api-ref/Container/listRevisions#ListRevisions) request. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -71,7 +100,7 @@ To get a revision ID make a [ContainerService.ListRevisions](/docs/serverless/co
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "url": "string",
     "status": "string"
   }
@@ -203,7 +232,7 @@ Name of the container. The name is unique within the folder. ||
 || description | **string**
 
 Description of the container. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Container labels as `key:value` pairs. ||
 || url | **string**
@@ -213,7 +242,6 @@ URL that needs to be requested to call the container. ||
 
 Status of the container.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Container is being created.
 - `ACTIVE`: Container is ready for use.
 - `DELETING`: Container is being deleted.

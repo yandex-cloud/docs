@@ -1,25 +1,25 @@
 ---
 title: How to configure test agent security groups
-description: This guide describes how you can configure test agent security groups.
+description: Follow this guide to configure test agent security groups.
 ---
 
 # Configuring test agent security groups
 
 {% note warning %}
 
-You must create and configure security groups before creating an [agent](../concepts/agent.md). This way you can restrict the agent's access.
+Make sure to set up security groups before creating the [agent](../concepts/agent.md). This way you can restrict the agent's access.
 
 {% endnote %}
 
 {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
-If you plan to use multiple security groups for an agent, enable all traffic between these groups.
-To assign another security group, [edit](../../compute/operations/vm-control/vm-update.md) the virtual machine network settings in {{ compute-full-name }}.
+If you plan to use multiple security groups for your agent, allow all traffic between them.
+To assign another security group, [update](../../compute/operations/vm-control/vm-update.md) the VM network settings in {{ compute-full-name }}.
 
 {% note info %}
 
-You can set more detailed rules for security groups, such as allowing traffic in only specific subnets.
+You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
 
-It is important to have security groups properly configured for all subnets hosting traffic-generating agents.
+Make sure security groups are properly configured for all subnets that will host traffic-generating agents.
 
 {% endnote %}

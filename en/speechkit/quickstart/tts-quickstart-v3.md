@@ -2,7 +2,11 @@
 
 In this section, you will learn how to synthesize speech from text using the {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) (gRPC).
 
-You will need the `grpcurl` utility to use the API.
+## Authentication for API access {#auth}
+
+{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
+
+In the example below, a Yandex account is used for authentication.
 
 ## Getting started {#before-you-begin}
 
@@ -21,7 +25,7 @@ You can implement speech synthesis in the {{ speechkit-short-name }} API v3 eith
 
 ## Convert text to an audio file {#text-to-wav-file}
 
-To synthesize speech from text with [TTS markup](../tts/markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file:
+To synthesize speech from text in [TTS markup](../tts/markup/tts-markup.md) to a [WAV](https://en.wikipedia.org/wiki/WAV) file:
 
 1. Create a file with the body of an API request and text to synthesize to speech:
 
@@ -57,20 +61,22 @@ To synthesize speech from text with [TTS markup](../tts/markup/tts-markup.md) to
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \
            -H "x-folder-id: ${FOLDER_ID}" \
-           -d @ tts.{{ api-host }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
+           -d @ {{ api-host-sk-tts }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
    jq -r '.audioChunk.data' | base64 -d > speech.wav
    ```
 
    Where:
 
-   * `FOLDER_ID`: Folder ID received [before starting](index.md#before-you-begin). If you are using the service account's IAM token, do not specify the folder ID in your request: the service uses the folder where the service account was created.
-   * `IAM_TOKEN`: IAM token received [before starting](index.md#before-you-begin).
-   * `speech.wav`: File where the response will be written.
+   * `FOLDER_ID`: Folder ID you got [earlier](#auth).
 
-As a result, the `speech.wav` file with synthesized speech will be created in the directory.
+       If you are using an IAM token of a service account, do not specify the folder ID in your request, as the service uses the folder the service account was created in.
+   * `IAM_TOKEN`: IAM token you got [earlier](#auth).
+   * `speech.wav`: Output file.
+
+As a result, a synthesized speech file named `speech.wav` will be created in the folder.
 
 #### See also {#what-is-next}
 
-* [Learn more about the API v3](../../tts-v3/api-ref/grpc/)
+* [Learn more about the API v3](../tts-v3/api-ref/grpc/)
 * [Authentication with the API](../concepts/auth.md)
 * [{#T}](../tts/api/tts-examples-v3.md)

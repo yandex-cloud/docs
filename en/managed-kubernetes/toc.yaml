@@ -1,7 +1,7 @@
 title: Yandex Managed Service for Kubernetes
 href: index.yaml
 items:
-  - name: Comparison with other {{ yandex-cloud }} services
+  - name: Comparing with other {{ yandex-cloud }} services
     href: service-comparison.md
   - name: Getting started
     href: quickstart.md
@@ -17,6 +17,12 @@ items:
         href: operations/update-kubernetes.md
       - name: Configuring autoscaling
         href: operations/autoscale.md
+      - name: Activating a {{ k8s }} {{ TF }} provider
+        href: operations/apply-tf-provider.md
+      - name: >-
+          Installing applications from {{ marketplace-full-name }} using {{ TF
+          }}
+        href: operations/apply-helm-provider.md
       - name: Connecting to a cluster
         items:
           - name: Connection method overview
@@ -25,10 +31,12 @@ items:
             href: operations/connect/security-groups.md
           - name: Creating a static configuration file
             href: operations/connect/create-static-conf.md
-      - name: Installing apps from {{ marketplace-name }}
+      - name: Installing applications from {{ marketplace-name }}
         items:
           - name: Getting started with {{ marketplace-name }}
             href: operations/applications/marketplace.md
+          - name: Installing Bitrix
+            href: operations/applications/bitrix.md
           - name: Installing Argo CD
             href: operations/applications/argo-cd.md
           - name: Installing Chaos Mesh
@@ -55,15 +63,15 @@ items:
             href: operations/applications/gatekeeper.md
           - name: Installing Gateway API
             href: operations/applications/gateway-api.md
-          - name: Installing the {{ GL }} Agent
+          - name: Installing the {{ GL }} agent
             href: operations/applications/gitlab-agent.md
           - name: Installing {{ GLR }}
             href: operations/applications/gitlab-runner.md
+          - name: Installing Gwin
+            href: alb-ref/gwin-quickstart.md
           - name: Installing HashiCorp Vault
             href: operations/applications/hashicorp-vault.md
-          - name: Installing Ingress NGINX
-            href: operations/applications/ingress-nginx.md
-          - name: Installing the {{ alb-name }} Ingress controller
+          - name: Installing an {{ alb-name }} ingress controller
             href: operations/applications/alb-ingress-controller.md
           - name: Upgrading the {{ alb-name }} Ingress controller
             href: operations/applications/upgrade-alb-ingress-controller.md
@@ -71,8 +79,12 @@ items:
             href: operations/applications/istio.md
           - name: Installing Jaeger
             href: operations/applications/jaeger.md
+          - name: Installing KEDA
+            href: operations/applications/keda.md
           - name: Installing Kruise
             href: operations/applications/kruise.md
+          - name: Installing Kubernetes Node Remediation
+            href: operations/applications/kubernetes-node-remediation.md
           - name: Installing Kyverno & Kyverno Policies
             href: operations/applications/kyverno.md
           - name: Installing Loki
@@ -81,6 +93,8 @@ items:
             href: operations/applications/metrics-provider.md
           - name: Installing NodeLocal DNS
             href: operations/applications/node-local-dns.md
+          - name: Installing OIDC Authentication
+            href: operations/applications/oidc.md
           - name: Installing Policy Reporter
             href: operations/applications/policy-reporter.md
           - name: Installing Prometheus Operator
@@ -89,9 +103,11 @@ items:
             href: operations/applications/thumbor.md
           - name: Installing Velero
             href: operations/applications/velero-yc-csi.md
+          - name: Installing VictoriaLogs
+            href: operations/applications/victoria-logs.md
       - name: Network scenarios
         items:
-          - name: Granting access to an app running in a {{ k8s }} cluster
+          - name: Granting access to an application running in a {{ k8s }} cluster
             href: operations/create-load-balancer.md
           - name: Configuring the Calico network policy controller
             href: operations/calico.md
@@ -99,7 +115,7 @@ items:
             href: operations/cilium.md
           - name: Configuring NodeLocal DNS for the Cilium network policy controller
             href: operations/cilium-node-local-dns.md
-          - name: Creating a network load balancer using an NGINX Ingress controller
+          - name: Creating a network load balancer using an NGINX ingress controller
             href: operations/create-load-balancer-with-ingress-nginx.md
       - name: Working with persistent volumes
         items:
@@ -109,11 +125,11 @@ items:
             href: operations/volumes/static-create-pv.md
           - name: Managing storage classes
             href: operations/volumes/manage-storage-class.md
-          - name: Expanding a pod volume
+          - name: Encrypted disks for persistent volumes
+            href: operations/volumes/encrypted-disks.md
+          - name: Expanding a volume for pods
             href: operations/volumes/volume-expansion.md
-          - name: Expanding a StatefulSet controller volume
-            href: operations/volumes/statefulset-pvc-expansion.md
-          - name: Mounting a volume in Block mode
+          - name: Mounting a volume in block mode
             href: operations/volumes/mode-block.md
           - name: Integration with {{ objstorage-name }}
             href: operations/volumes/s3-csi-integration.md
@@ -130,7 +146,14 @@ items:
           - name: Creating a namespace in a {{ k8s }} cluster
             href: >-
               operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
-          - name: Monitoring cluster state {{ k8s }}
+          - name: Managing {{ k8s }} cluster access
+            href: operations/kubernetes-cluster/kubernetes-cluster-access.md
+          - name: >-
+              Getting a list of available master configurations in a {{ k8s }}
+              cluster
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md
+          - name: '{{ k8s }} cluster state monitoring'
             href: operations/kubernetes-cluster/kubernetes-cluster-get-stats.md
           - name: Deleting a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-delete.md
@@ -152,8 +175,18 @@ items:
             href: operations/node-group/node-label-management.md
           - name: Deleting a node group
             href: operations/node-group/node-group-delete.md
-      - name: Connecting external nodes to the cluster
-        href: operations/external-nodes-connect.md
+      - name: Working with external nodes
+        items:
+          - name: Connecting external nodes to a cluster
+            href: operations/external-nodes-connect.md
+          - name: >-
+              Configuring WireGuard gateways to connect external nodes to a
+              cluster
+            href: operations/external-nodes-connect-wireguard.md
+          - name: Configuring IPSec gateways to connect external nodes to a cluster
+            href: operations/external-nodes-connect-ipsec.md
+          - name: Connecting a {{ baremetal-name }} server as an external node
+            href: operations/bms-server-connect.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -166,28 +199,40 @@ items:
         href: tutorials/running-pod-gpu.md
       - name: Using node groups with GPUs and no pre-installed drivers
         href: tutorials/driverless-gpu.md
-      - name: Setting up Time-Slicing GPUs
+      - name: Setting up time-slicing GPUs
         href: tutorials/time-slicing-gpu.md
       - name: Migrating resources to a different availability zone
         href: tutorials/migration-to-an-availability-zone.md
-      - name: Using {{ yandex-cloud }} modules in {{ TF }}
-        href: tutorials/terraform-modules.md
+      - name: Creating a project using {{ TF }}
+        items:
+          - name: Managing {{ k8s }} resources via the {{ TF }} provider
+            href: tutorials/kubernetes-terraform-provider.md
+          - name: Using {{ yandex-cloud }} modules in {{ TF }}
+            href: tutorials/terraform-modules.md
+      - name: Encrypting secrets in {{ managed-k8s-name }}
+        href: tutorials/kms-k8s.md
+      - name: >-
+          Creating a {{ k8s }} cluster using the {{ yandex-cloud }} provider for
+          the {{ k8s }} Cluster API
+        href: tutorials/k8s-cluster-api-provider-yandex.md
+      - name: >-
+          Accessing the {{ yandex-cloud }} API from a {{ managed-k8s-name }}
+          cluster using a workload identity federation
+        href: tutorials/wlif-managed-k8s-integration.md
       - name: Setting up and testing scaling
         items:
-          - name: Horizontal application scaling in a cluster
+          - name: Horizontal scaling of an application in a cluster
             href: tutorials/autoscaling.md
-          - name: Vertical application scaling in a cluster
+          - name: Vertical scaling of an application in a cluster
             href: tutorials/vpa-autoscaling.md
-          - name: Updating the Metrics Server parameters
-            href: tutorials/metrics-server.md
-          - name: Deploying and load testing a gRPC service with scaling
+          - name: Deploying and load testing a scalable gRPC service
             href: tutorials/load-testing-grpc-autoscaling.md
       - name: Installing NGINX
         items:
-          - name: Installing an NGINX Ingress controller with Let's Encrypt®
+          - name: Installing an NGINX ingress controller with Let's Encrypt®
             href: tutorials/ingress-cert-manager.md
           - name: >-
-              Installing an NGINX Ingress controller with a {{
+              Installing an NGINX ingress controller with a {{
               certificate-manager-name }} certificate
             href: tutorials/nginx-ingress-certificate-manager.md
       - name: Using {{ container-registry-name }}
@@ -196,9 +241,11 @@ items:
             href: tutorials/container-registry.md
           - name: Signing and verifying {{ container-registry-name }} Docker images
             href: tutorials/sign-cr-with-cosign.md
+          - name: Storing Docker images created in {{ mgl-name }} projects
+            href: tutorials/image-storage.md
       - name: Using {{ mkf-name }}
         items:
-          - name: Deploying the UI for {{ KF }}
+          - name: Deploying the {{ KF }} web interface
             href: tutorials/deploy-kafka-ui.md
       - name: Continuous integration with {{ GL }}
         items:
@@ -208,32 +255,40 @@ items:
               Scanning {{ container-registry-name }} for vulnerabilities during
               continuous deployment of applications using {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
+          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+            href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:
-          - name: Integrating into a corporate DNS zone
+          - name: Integration with a corporate DNS zone
             href: tutorials/custom-dns.md
-          - name: Automatic DNS scaling by cluster size
+          - name: DNS autoscaling based on the cluster size
             href: tutorials/dns-autoscaler.md
           - name: Setting up NodeLocal DNS Cache
             href: tutorials/node-local-dns.md
-          - name: Checking DNS Challenge for Let's Encrypt® certificates
+          - name: DNS Challenge for Let's Encrypt® certificates
             href: tutorials/dnschallenge.md
-          - name: Creating an ACME resolver webhook for responses to DNS01 checks
+          - name: >-
+              Creating an ACME resolver webhook for responses to DNS01
+              challenges
             href: tutorials/cert-manager-webhook.md
-      - name: Backup
+      - name: Backups
         items:
-          - name: Backups in {{ objstorage-name }}
+          - name: Backing up to {{ objstorage-name }}
             href: tutorials/kubernetes-backup.md
           - name: Working with snapshots
             href: tutorials/pvc-snapshot-restore.md
       - name: Monitoring
         items:
           - name: >-
-              Monitoring a cluster using {{ prometheus-name }} and {{
-              grafana-name }}
+              Cluster monitoring with the help of {{ prometheus-name }} Operator
+              with {{ monitoring-full-name }} support
             href: tutorials/prometheus-grafana-monitoring.md
-          - name: Monitoring a {{ managed-k8s-name }} cluster using Filebeat OSS
+          - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
             href: tutorials/filebeat-oss-monitoring.md
+          - name: >-
+              Transferring {{ managed-k8s-name }} cluster logs to {{
+              cloud-logging-name }}
+            href: tutorials/k8s-fluent-bit-logging.md
       - name: Using {{ marketplace-name }} products
         items:
           - name: Integration with Argo CD
@@ -244,27 +299,31 @@ items:
             href: tutorials/kubernetes-lockbox-secrets.md
           - name: Configuring Fluent Bit for {{ cloud-logging-name }}
             href: tutorials/fluent-bit-logging.md
-          - name: Setting up Gateway API
+          - name: Setting up the Gateway API
             href: tutorials/marketplace/gateway-api.md
-          - name: Setting up the {{ alb-name }} Ingress controller
+          - name: Configuring an L7 {{ alb-name }} using an ingress controller
             href: tutorials/alb-ingress-controller.md
-          - name: Logging settings for {{ alb-name }} Ingress controllers
+          - name: Configuring L7 {{ alb-name }} logging via an ingress controller
             href: tutorials/alb-ingress-controller-log-options.md
           - name: >-
-              Health checking your apps in a cluster using the {{ alb-name }}
-              Ingress controller
+              Creating an L7 load balancer with a {{ sws-name }} profile through
+              an {{ alb-name }} ingress controller
+            href: tutorials/alb-ingress-with-sws-profile.md
+          - name: >-
+              Health checking applications in a {{ managed-k8s-name }} cluster
+              via an L7 {{ alb-name }}
             href: tutorials/custom-health-checks.md
-          - name: Using Jaeger to trace requests in {{ ydb-name }}
+          - name: Using Jaeger to trace queries in {{ ydb-name }}
             href: tutorials/marketplace/jaeger-over-ydb.md
-          - name: Setting up Kyverno & Kyverno Policies
+          - name: Setting up Kyverno &amp; Kyverno Policies
             href: tutorials/marketplace/kyverno.md
-          - name: Using {{ MP }} to stream metrics
+          - name: Using {{ MP }} to deliver metrics
             href: tutorials/marketplace/metrics-provider.md
-          - name: Editing website images using Thumbor
+          - name: Editing website images with Thumbor
             href: tutorials/marketplace/thumbor.md
           - name: Using Istio
             href: tutorials/marketplace/istio.md
-          - name: Using HashiCorp Vault for storing secrets
+          - name: Using HashiCorp Vault to store secrets
             href: tutorials/marketplace/hashicorp-vault.md
   - name: Concepts
     items:
@@ -272,17 +331,21 @@ items:
         href: concepts/index.md
       - name: Release channels and updates
         href: concepts/release-channels-and-updates.md
+      - name: Zones of control in {{ managed-k8s-name }}
+        href: concepts/kubernetes-responsibilities.md
+      - name: Updating node group OS
+        href: concepts/node-os-update.md
       - name: Encryption
         href: concepts/encryption.md
       - name: Using {{ k8s }} API objects
         items:
-          - name: Volumes
+          - name: Volume
             href: concepts/volume.md
           - name: Service
             href: concepts/service.md
       - name: Node group
         items:
-          - name: Cluster autoscaler
+          - name: Node group autoscaling
             href: concepts/node-group/cluster-autoscaler.md
           - name: Evicting pods from nodes
             href: concepts/node-group/node-drain.md
@@ -294,7 +357,7 @@ items:
         href: concepts/network.md
       - name: Network settings and cluster policies
         href: concepts/network-policy.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: concepts/autoscale.md
       - name: Audit policy
         href: concepts/audit-policy.md
@@ -302,19 +365,121 @@ items:
         href: concepts/external-nodes.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: '{{ managed-k8s-name }} usage recommendations'
+      - name: Recommendations on using {{ managed-k8s-name }}
         href: concepts/usage-recommendations.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-kubernetes/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/cluster/add-labels.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-credentials
+            href: cli-ref/cluster/get-credentials.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-node-groups
+            href: cli-ref/cluster/list-node-groups.md
+          - name: list-nodes
+            href: cli-ref/cluster/list-nodes.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/cluster/remove-labels.md
+          - name: reschedule-maintenance
+            href: cli-ref/cluster/reschedule-maintenance.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: create-token
+        href: cli-ref/create-token.md
+      - name: list-versions
+        href: cli-ref/list-versions.md
+      - name: marketplace
+        items:
+          - name: Overview
+            href: cli-ref/marketplace/index.md
+          - name: helm-release
+            items:
+              - name: Overview
+                href: cli-ref/marketplace/helm-release/index.md
+              - name: get
+                href: cli-ref/marketplace/helm-release/get.md
+              - name: install
+                href: cli-ref/marketplace/helm-release/install.md
+              - name: list
+                href: cli-ref/marketplace/helm-release/list.md
+              - name: uninstall
+                href: cli-ref/marketplace/helm-release/uninstall.md
+              - name: update
+                href: cli-ref/marketplace/helm-release/update.md
+      - name: node-group
+        items:
+          - name: Overview
+            href: cli-ref/node-group/index.md
+          - name: add-labels
+            href: cli-ref/node-group/add-labels.md
+          - name: add-metadata
+            href: cli-ref/node-group/add-metadata.md
+          - name: add-node-labels
+            href: cli-ref/node-group/add-node-labels.md
+          - name: create
+            href: cli-ref/node-group/create.md
+          - name: delete
+            href: cli-ref/node-group/delete.md
+          - name: get
+            href: cli-ref/node-group/get.md
+          - name: list
+            href: cli-ref/node-group/list.md
+          - name: list-nodes
+            href: cli-ref/node-group/list-nodes.md
+          - name: list-operations
+            href: cli-ref/node-group/list-operations.md
+          - name: remove-labels
+            href: cli-ref/node-group/remove-labels.md
+          - name: remove-metadata
+            href: cli-ref/node-group/remove-metadata.md
+          - name: remove-node-labels
+            href: cli-ref/node-group/remove-node-labels.md
+          - name: update
+            href: cli-ref/node-group/update.md
+      - name: resource-preset
+        items:
+          - name: Overview
+            href: cli-ref/resource-preset/index.md
+          - name: get
+            href: cli-ref/resource-preset/get.md
+          - name: list
+            href: cli-ref/resource-preset/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: Managed Service for Kubernetes gRPC
         items:
@@ -338,12 +503,22 @@ items:
                 href: managed-kubernetes/api-ref/grpc/Cluster/stop.md
               - name: Start
                 href: managed-kubernetes/api-ref/grpc/Cluster/start.md
+              - name: RescheduleMaintenance
+                href: >-
+                  managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md
               - name: ListNodeGroups
                 href: managed-kubernetes/api-ref/grpc/Cluster/listNodeGroups.md
               - name: ListOperations
                 href: managed-kubernetes/api-ref/grpc/Cluster/listOperations.md
               - name: ListNodes
                 href: managed-kubernetes/api-ref/grpc/Cluster/listNodes.md
+              - name: ListAccessBindings
+                href: managed-kubernetes/api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: managed-kubernetes/api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: >-
+                  managed-kubernetes/api-ref/grpc/Cluster/updateAccessBindings.md
           - name: NodeGroup
             items:
               - name: Overview
@@ -370,6 +545,14 @@ items:
                 href: managed-kubernetes/api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: managed-kubernetes/api-ref/grpc/Operation/cancel.md
+          - name: ResourcePreset
+            items:
+              - name: Overview
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/index.md
+              - name: Get
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/get.md
+              - name: List
+                href: managed-kubernetes/api-ref/grpc/ResourcePreset/list.md
           - name: Version
             items:
               - name: Overview
@@ -398,12 +581,20 @@ items:
                 href: managed-kubernetes/api-ref/Cluster/stop.md
               - name: Start
                 href: managed-kubernetes/api-ref/Cluster/start.md
+              - name: RescheduleMaintenance
+                href: managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md
               - name: ListNodeGroups
                 href: managed-kubernetes/api-ref/Cluster/listNodeGroups.md
               - name: ListOperations
                 href: managed-kubernetes/api-ref/Cluster/listOperations.md
               - name: ListNodes
                 href: managed-kubernetes/api-ref/Cluster/listNodes.md
+              - name: ListAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: managed-kubernetes/api-ref/Cluster/updateAccessBindings.md
           - name: NodeGroup
             items:
               - name: Overview
@@ -496,25 +687,77 @@ items:
     items:
       - name: Overview
         href: alb-ref/index.md
+      - name: Gwin
+        items:
+          - name: Overview
+            href: alb-ref/gwin-index.md
+          - name: Gwin policies
+            href: alb-ref/gwin-policies.md
+          - name: Installing Gwin
+            href: alb-ref/gwin-quickstart.md
+          - name: Migrating apps from an ALB ingress controller to Gwin
+            href: alb-ref/ingress-gwin-migration.md
+          - name: Migrating applications from NGINX Ingress to Gwin
+            href: alb-ref/nginx-gwin-migration.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
+              - name: GRPCRoute
+                href: gwin-ref/grpcroute.md
+              - name: HTTPRoute
+                href: gwin-ref/httproute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
+              - name: IngressPolicy
+                href: gwin-ref/ingresspolicy.md
+              - name: RoutePolicy
+                href: gwin-ref/routepolicy.md
+              - name: Service
+                href: gwin-ref/service.md
+              - name: ServicePolicy
+                href: gwin-ref/servicepolicy.md
+              - name: TLSRoute
+                href: gwin-ref/tlsroute.md
+              - name: YCCertificate
+                href: gwin-ref/yccertificate.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
           - name: Ingress
             href: alb-ref/ingress.md
           - name: HttpBackendGroup
             href: alb-ref/http-backend-group.md
+          - name: GrpcBackendGroup
+            href: alb-ref/grpc-backend-group.md
           - name: IngressClass
             href: alb-ref/ingress-class.md
-          - name: Service for Ingress
+          - name: Ingress service
             href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
           - name: Gateway
             href: alb-ref/gateway.md
+          - name: GatewayPolicy
+            href: alb-ref/gateway-policy.md
+          - name: YCCertificate
+            href: alb-ref/yc-certificate.md
           - name: HTTPRoute
             href: alb-ref/http-route.md
+          - name: GRPCRoute
+            href: alb-ref/grpc-route.md
+          - name: RoutePolicy
+            href: alb-ref/route-policy.md
+          - name: YCStorageBucket
+            href: alb-ref/yc-storage-bucket.md
           - name: TLSRoute
             href: alb-ref/tls-route.md
-          - name: Service for Gateway API
+          - name: Gateway API service
             href: alb-ref/service-for-gateway.md
   - name: '{{ network-load-balancer-name }} tools'
     items:
@@ -534,7 +777,7 @@ items:
         href: qa/volumes.md
       - name: Configuring and updating
         href: qa/settings.md
-      - name: Automatic scaling
+      - name: Autoscaling
         href: qa/cluster-autoscaler.md
       - name: Resources
         href: qa/resources.md
@@ -544,5 +787,3 @@ items:
         href: qa/troubleshooting.md
       - name: All questions on one page
         href: qa/all.md
-base: en/managed-kubernetes
-deepBase: 2

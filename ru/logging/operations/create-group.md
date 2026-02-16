@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как создать лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как создать лог-группу в {{ cloud-logging-name }}.
+sourcePath: ru/logging_includes/operations/create-group.md
 ---
 
 # Создать лог-группу
@@ -10,7 +11,7 @@ description: Из статьи вы узнаете, как создать лог
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../concepts/log-group.md).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
     1. (Опционально) Введите имя и описание лог-группы. Формат имени:
 
@@ -19,7 +20,7 @@ description: Из статьи вы узнаете, как создать лог
     1. Укажите срок хранения записей в лог-группе.
 
     1. (Опционально) Выберите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) или создайте новый, чтобы перенаправлять в него записи, которые добавили в лог-группу.
-        
+
 
     1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
 
@@ -31,7 +32,6 @@ description: Из статьи вы узнаете, как создать лог
 
     Чтобы создать [лог-группу](../concepts/log-group.md), выполните команду:
 
-
     ```
     yc logging group create \
       --name=group \
@@ -39,14 +39,11 @@ description: Из статьи вы узнаете, как создать лог
       --data-stream=<идентификатор_потока>
     ```
 
-
-
     Где:
     * `--name` — имя лог-группы.
     * `--retention-period` — срок хранения записей в лог-группе. Необязательный параметр.
 
         {% include [retention-period](../../_includes/logging/retention-period-format.md) %}
-
 
     * `--data-stream` — идентификатор [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}. Необязательный параметр. В указанный поток автоматически будут перенаправляться записи, которые добавили в лог-группу. Идентификатор потока состоит из зоны доступности, идентификатора каталога, идентификатора базы данных {{ ydb-full-name }} и имени потока.
 
@@ -55,11 +52,9 @@ description: Из статьи вы узнаете, как создать лог
         >* `{{ region-id }}` — зона доступности;
         >* `aoeu1kuk2dht********` — идентификатор каталога;
         >* `cc8029jgtuab********` — идентификатор базы данных {{ ydb-full-name }}.
-        
 
 
     Результат:
-
 
     ```
     done (1s)
@@ -72,7 +67,6 @@ description: Из статьи вы узнаете, как создать лог
     retention_period: 3600s
     data_stream: /{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/aws_stream
     ```
-
 
 - {{ TF }} {#tf}
 
@@ -94,7 +88,6 @@ description: Из статьи вы узнаете, как создать лог
 
      Пример структуры конфигурационного файла:
 
-
      ```hcl
      provider "yandex" {
        token     = "<OAuth-токен>"
@@ -109,8 +102,6 @@ description: Из статьи вы узнаете, как создать лог
        retention_period = "5h"
      }
      ```
-
-
 
      Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
 

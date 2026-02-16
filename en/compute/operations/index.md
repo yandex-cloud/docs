@@ -1,18 +1,21 @@
 ---
-title: Working with VMs. Step-by-step guides
-description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to work with VMs, manage resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
+title: How to use VMs. Step-by-step guides
+description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud }}. In this article, you will learn how to use VMs, manage their resources, and connect to them using SSH, RDP, and PowerShell. Find out how to use disks, images, and hosts.
 ---
 
 # Step-by-step guides for {{ compute-name }}
 
-## Creating VMs {#vm-create}
+## Creating a VM {#vm-create}
 
 * [{#T}](vm-create/create-linux-vm.md)
 * [{#T}](vm-create/create-from-disks.md)
 * [{#T}](vm-create/create-from-snapshots.md)
 * [{#T}](vm-create/create-from-user-image.md)
 * [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
 * [{#T}](vm-create/create-vm-with-gpu.md)
+* [{#T}](vm-create/create-gen2-vm.md)
 * [{#T}](vm-create/create-preemptible-vm.md)
 
 ## DSVM {#dsvm}
@@ -40,12 +43,12 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](images-with-pre-installed-software/get-list.md)
 * [{#T}](images-with-pre-installed-software/get-info.md)
 
-## Getting information about VMs {#vm-info}
+## Getting VM info {#vm-info}
 
 * [{#T}](vm-info/get-info.md)
 * [{#T}](vm-info/get-serial-port-output.md)
 
-## Managing VMs {#vm-control}
+## Managing a VM {#vm-control}
 
 * [{#T}](vm-control/vm-stop-and-start.md)
 * [{#T}](vm-control/vm-reset-password.md)
@@ -57,17 +60,31 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](vm-control/attach-network-interface.md)
 * [{#T}](vm-control/detach-network-interface.md)
 * [{#T}](vm-control/vm-attach-public-ip.md)
+* [{#T}](vm-control/vm-transferring-public-ip.md)
 * [{#T}](vm-control/vm-detach-public-ip.md)
 * [{#T}](vm-control/vm-set-static-ip.md)
 * [{#T}](vm-control/vm-update.md)
 * [{#T}](vm-control/vm-update-resources.md)
 * [{#T}](vm-control/vm-change-security-groups-set.md)
+* [{#T}](vm-control/vm-connect-sa.md)
 * [{#T}](vm-control/vm-access.md)
 * [{#T}](vm-control/vm-delete.md)
+* [{#T}](vm-control/gpus-maintenance.md)
 
-## Working on a VM {#vm-use}
+## Working with VM metadata {#use-metadata}
+
+* [{#T}](vm-metadata/setup-metadata-service.md)
+* [{#T}](vm-metadata/get-vm-metadata.md)
+* [{#T}](vm-metadata/get-identity-document.md)
+* [{#T}](vm-metadata/update-vm-metadata.md)
+* [{#T}](vm-create/create-with-cloud-init-scripts.md)
+* [{#T}](vm-create/create-with-env-variables.md)
+* [{#T}](vm-create/create-with-lockbox-secret.md)
+
+## Using a VM {#vm-use}
 
 * [{#T}](vm-connect/ssh.md)
+* [{#T}](vm-connect/cloud-shell.md)
 * [{#T}](vm-connect/rdp.md)
 * [{#T}](vm-connect/powershell.md)
 * [{#T}](vm-connect/os-login-create-vm.md)
@@ -90,14 +107,16 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-create/empty.md)
 * [{#T}](disk-create/empty-disk-blocksize.md)
 * [{#T}](disk-create/nonreplicated.md)
+* [{#T}](disk-create/ssd-io.md)
 * [{#T}](disk-create/from-snapshot.md)
 * [{#T}](disk-create/from-image.md)
 
-## Disk management {#disk-control}
+## Managing a disk {#disk-control}
 
 * [{#T}](disk-control/update.md)
 * [{#T}](disk-control/configure-schedule.md)
 * [{#T}](disk-control/disk-change-folder.md)
+* [{#T}](disk-control/disk-change-zone.md)
 * [{#T}](disk-control/disk-encrypt.md)
 * [{#T}](disk-control/get-info.md)
 * [{#T}](disk-control/disk-access.md)
@@ -117,7 +136,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](snapshot-control/snapshot-schedule-access.md)
 * [{#T}](snapshot-control/delete-schedule.md)
 
-
 ## Disk placement groups {#placement-groups}
 
 * [{#T}](disk-placement-groups/create.md)
@@ -125,7 +143,6 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](disk-placement-groups/get-info.md)
 * [{#T}](disk-placement-groups/access.md)
 * [{#T}](disk-placement-groups/remove-disk.md)
-
 
 ## Creating an image {#image-create}
 
@@ -135,14 +152,14 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](image-create/create-from-snapshot.md)
 * [{#T}](image-create/create-from-image.md)
 
-## Managing images {#image-control}
+## Managing an image {#image-control}
 
 * [{#T}](image-control/get-list.md)
 * [{#T}](image-control/image-control-get-info.md)
-* [{#T}](image-control/delete.md)
 * [{#T}](image-control/import.md)
+* [{#T}](image-control/encrypt.md)
 * [{#T}](image-control/access.md)
-
+* [{#T}](image-control/delete.md)
 
 ## File storages {#filesystem}
 
@@ -154,8 +171,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](filesystem/filesystem-access.md)
 * [{#T}](filesystem/delete.md)
 
-
-## Managing the serial console {#serial-console}
+## Managing a serial console {#serial-console}
 
 * [{#T}](serial-console/index.md)
 * [{#T}](serial-console/connect-ssh.md)
@@ -163,7 +179,7 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](serial-console/windows-sac.md)
 * [{#T}](serial-console/disable.md)
 
-## Creating instance groups {#ig-create}
+## Creating an instance group {#ig-create}
 
 * [{#T}](instance-groups/create-fixed-group.md)
 * [{#T}](instance-groups/create-with-balancer.md)
@@ -176,16 +192,17 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/create-with-filesystem.md)
 * [{#T}](instance-groups/create-with-bucket.md)
 
-## Getting information about instance groups {#ig-info}
+## Getting instance group info {#ig-info}
 
 * [{#T}](instance-groups/get-list.md)
 * [{#T}](instance-groups/get-info.md)
 * [{#T}](instance-groups/get-list-instances.md)
 
-## Managing instance groups {#ig-control}
+## Managing an instance group {#ig-control}
 
 * [{#T}](instance-groups/update.md)
 * [{#T}](instance-groups/update-from-yaml.md)
+* [{#T}](instance-groups/disable-enable-zone.md)
 * [{#T}](instance-groups/move-group.md)
 * [{#T}](instance-groups/move-group-with-nlb.md)
 * [{#T}](instance-groups/move-group-with-alb.md)
@@ -196,12 +213,12 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](instance-groups/resume-processes.md)
 * [{#T}](instance-groups/rolling-restart.md)
 * [{#T}](instance-groups/rolling-recreate.md)
+* [{#T}](instance-groups/enable-deletion-protection.md)
 * [{#T}](instance-groups/stop.md)
 * [{#T}](instance-groups/start.md)
 * [{#T}](instance-groups/access.md)
 * [{#T}](instance-groups/delete.md)
 * [{#T}](placement-groups/delete-ig-from-pg.md)
-
 
 ## Dedicated hosts {#dedicated-host}
 
@@ -209,6 +226,14 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](dedicated-host/running-host-group-vms.md)
 * [{#T}](dedicated-host/running-host-vms.md)
 * [{#T}](dedicated-host/access.md)
+
+## Reserved instance pools {#reserved-pools}
+
+* [{#T}](reserved-pools/create-reserved-pool.md)
+* [{#T}](reserved-pools/update-reserved-pool.md)
+* [{#T}](reserved-pools/delete-reserved-pool.md)
+* [{#T}](reserved-pools/manage-pool-vms.md)
+
 
 ## GPU clusters {#gpu-cluster}
 
@@ -218,4 +243,13 @@ description: Step-by-step guides on how to use and manage VMs in {{ yandex-cloud
 * [{#T}](gpu-cluster/gpu-cluster-delete.md)
 * [{#T}](gpu-cluster/gpu-cluster-get-info.md)
 * [{#T}](gpu-cluster/access.md)
+* [{#T}](gpu-cluster/gpu-cluster-test-physical-state.md)
+* [{#T}](gpu-cluster/gpu-cluster-mpirun-parallel.md)
+* [{#T}](gpu-cluster/test-infiniband-bandwidth.md)
 
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)
+* [{#T}](metrics-pull.md)
+* [{#T}](gpu-driver-update.md)

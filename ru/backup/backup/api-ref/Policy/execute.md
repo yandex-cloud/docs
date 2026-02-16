@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}:execute
+    method: post
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Required field. Policy ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - policyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/execute.md
 ---
 
-# Cloud Backup API, REST: Policy.Execute {#Execute}
+# Cloud Backup API, REST: Policy.Execute
 
 Run policy on specific Compute Cloud instance. That will create backup
 according selected policy. In order to perform this action, policy should be
@@ -21,7 +50,9 @@ POST https://backup.{{ api-host }}/backup/v1/policies/{policyId}:execute
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.backup.v1.ExecuteRequest}
@@ -36,7 +67,9 @@ Required field. Policy ID. ||
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

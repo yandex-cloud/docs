@@ -1,13 +1,14 @@
 ---
 title: Как читать метрики через Remote API
 description: Следуя данной инструкции, вы сможете прочитать метрики через Remote API.
+sourcePath: ru/monitoring_includes/operations/prometheus/querying/remote-read.md
 ---
 
 # Чтение метрик через Remote API
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хранятся данные.
 1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-viewer }}` на выбранный каталог.
-1. [Создайте API-ключ](../../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. [Создайте API-ключ](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_read), в секцию `remote_read`, добавьте эндпоинт (`url`):
    ```yaml
    ...
@@ -45,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 | `401` | Сервисный аккаунт не найден. Убедитесь, что в конфигурации указан правильный [API-ключ](../../../../iam/concepts/authorization/api-key.md). | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 401 Unauthorized: {"status":"error","errorType":"","error":"cannot authenticate by either token or api-key, cause: UNAUTHENTICATED: The token is invalid"}` |
 | `403` | Отсутствуют права на чтение. Убедитесь, что сервисный аккаунт имеет роль `{{ roles-monitoring-viewer }}` на выбранный каталог. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 403 Forbidden: {"status":"error","errorType":"","error":"PERMISSION_DENIED: Permission denied"}` |
 | `429` | Превышена квота [Количество запросов в секунду на чтение через Remote Read API](../index.md#limits). | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 429 Too Many Requests: {"status":"error","errorType":"execution","error":"too many read requests: monb1piptmdo********"}` |
-| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 400 Bad Request: {"status":"error","errorType":"bad_data","error":"Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 10000"}` |
+| `400` | Запрос вернул слишком много линий. Попробуйте уточнить запрос. | `remote_read: remote server https://monitoring.{{ api-host }}/prometheus/workspaces/monb1piptmdo********/api/v1/read returned`<br/>`HTTP status 400 Bad Request: {"status":"error","errorType":"bad_data","error":"Too many metrics are loaded by selectors {job=='grafana'}, expected not more than: 20000"}` |
 
 ## Метрики {{ prometheus-name }} {#metrics}
 
@@ -53,5 +54,9 @@ description: Следуя данной инструкции, вы сможете
 |----|----|----|
 `prometheus_remote_storage_read_queries_total` | Вызовы | Общее количество запросов на чтение.
 `prometheus_remote_storage_read_request_duration_seconds` | Секунды | Гистограмма времени выполнения запросов на чтение.
+
+## Текущие ограничения {#restrictions}
+
+{% include [maximum-time-lines](../../../../_includes/monitoring/maximum-time-lines.md) %}
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}

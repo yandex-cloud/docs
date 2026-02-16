@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/repositories/{repositoryId}
+    method: delete
+    path:
+      type: object
+      properties:
+        repositoryId:
+          description: |-
+            **string**
+            Required field. ID of the repository to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - repositoryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Repository/delete.md
 ---
 
-# Container Registry API, REST: Repository.Delete {#Delete}
+# Container Registry API, REST: Repository.Delete
 
 Deletes the specified repository.
 
@@ -19,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/repositor
 ||Field | Description ||
 || repositoryId | **string**
 
-Required field. ID of the repository to delete. ||
+Required field. ID of the repository to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

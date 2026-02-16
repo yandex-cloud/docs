@@ -1,6 +1,8 @@
 # Подключение к управляемым БД из функции
 
-Создайте подключение, чтобы обращаться из функций к хостам кластера {{ mpg-full-name }} и {{ mch-full-name }}, для которых не настроен публичный доступ.
+Чтобы обращаться из функций к управляемым БД и другим ресурсам {{ yandex-cloud }}, для которых не настроен публичный доступ, используйте [пользовательскую сеть](../concepts/networking.md#user-network).
+
+Если настроить доступ к хостам кластеров {{ mpg-full-name }} и {{ mch-full-name }} через пользовательскую сеть невозможно, создайте подключение по инструкции ниже. К другим управляемым БД и ресурсам {{ yandex-cloud }} можно настроить доступ только через пользовательскую сеть.
 
 ## Создать подключение {#create}
 
@@ -9,7 +11,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать подключение.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-mdb-proxy.list.button_create }}**.
     1. Введите имя и описание подключения. Формат имени:
@@ -28,7 +30,7 @@
 ## Подключиться к БД {#connect}
 
 Чтобы обратиться из функции к хостам кластера БД, используя созданное подключение:
-* в настройках версии функции укажите сервисный аккаунт, которому назначена роль `serverless.mdbProxies.user` на каталог, в котором создано подключение. [Как назначить роль](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* в настройках версии функции укажите сервисный аккаунт, которому назначена роль `{{ roles-functions-mdbProxiesUser }}` на каталог, в котором создано подключение. [Как назначить роль](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * в дополнительных настройках кластера включите опцию **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
 Чтобы подключиться к БД из функции, в качестве пароля используйте [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, указанного в настройках версии функции. [Как получить IAM-токен](./function-sa.md).

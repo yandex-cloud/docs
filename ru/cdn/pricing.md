@@ -12,6 +12,9 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 При расчете стоимости использования {{ cdn-name }} учитываются:
 * Объем исходящего трафика с CDN-серверов, в том числе запрошенного с пользовательских ресурсов сервисов {{ yandex-cloud }}, например с [виртуальных машин](../compute/concepts/vm.md) {{ compute-full-name}}. Входящий трафик, поступающий на CDN-серверы от сервисов и ресурсов {{ yandex-cloud }} и из интернета, не тарифицируется.
 * Платные функции, включенные для ресурсов: [экранирование источников](concepts/origins-shielding.md) и [выгрузка логов](concepts/logs.md).
@@ -20,39 +23,17 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Исходящий трафик {#traffic}
+Если функция экранирования источников или выгрузки логов подключена или отключена в любой день месяца, в последний день будет списана полная цена функции в месяц.
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|cdn }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub.md](../_pricing/cdn/rub.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt.md](../_pricing/cdn/kzt.md) %}
-
-{% endlist %}
-
-
-
-### Платные функции {#paid-features}
-
-Тарификация помесячная. Если функция подключена или отключена в любой день месяца, в последний день будет списана полная цена функции в месяц.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-paid-features.md](../_pricing/cdn/rub-paid-features.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-paid-features.md](../_pricing/cdn/kzt-paid-features.md) %}
-
-{% endlist %}
 
 
 

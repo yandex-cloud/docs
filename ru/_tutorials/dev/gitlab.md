@@ -6,17 +6,13 @@
 
 Чтобы создать и протестировать проект в среде {{ GL }}:
 1. [Подготовьте облако к работе](#before-you-begin).
-
-
 1. [Необходимые платные ресурсы](#paid-resources).
-
-
 1. [Создайте ВМ с {{ GL }}](#create-vm).
 1. [Настройте {{ GL }}](#confgure-gitlab).
 1. [Задайте настройки приватности](#disable-signup).
 1. [Создайте проект](#create-project).
 1. [Настройте и запустите тестирование для проекта](#ci-cd).
-1. [Настройте и зарегистрируйте runner](#configure-runner).
+1. [Настройте и зарегистрируйте раннер](#configure-runner).
 1. [Создайте сценарий тестирования](#create-test-case).
 1. [Создайте ошибку в проекте](#create).
 1. [Как удалить созданные ресурсы](#clear-out).
@@ -25,38 +21,39 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки сервера для {{ GL }} входит:
 * Плата за [диск](../../compute/concepts/disk.md) и постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
-
 ## Создайте виртуальную машину с {{ GL }} {#create-vm}
 
-1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
-1. В поле **{{ ui-key.yacloud.common.name }}** введите имя ВМ: `gitlab`.
-1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой должна находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** выберите [жесткий диск SSD](../../compute/concepts/disk.md#disks_types) размером 20 Гб.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
-   * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
-   * Укажите необходимое количество vCPU и объем RAM.
+1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Gitlab` и выберите публичный образ [{{ GL }}](/marketplace/products/yc/gitlab).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-     Для корректной работы системы {{ GL }} укажите конфигурацию:
-     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** - `Intel Ice Lake`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-   * Выберите **{{ ui-key.yacloud.compute.instance.overview.section_network }}** и **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}**, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение **{{ ui-key.yacloud.component.compute.network-select.switch_auto }}**, чтобы назначить ВМ случайный [внешний IP-адрес](../../vpc/operations/subnet-create.md) из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите предпочтительное имя пользователя, который будет создан на ВМ.
-   * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** скопируйте ваш открытый SSH-ключ. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+    * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+    * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
+
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `gitlab`.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
-1. Подождите примерно пять минут, пока не будет создана ВМ и на ней не запустятся все сервисы. После полного запуска всех сервисов, {{ GL }} станет доступен через веб-интерфейс в браузере.
+
+Подождите примерно пять минут, пока не будет создана ВМ и на ней не запустятся все сервисы. После полного запуска всех сервисов, {{ GL }} станет доступен через веб-интерфейс в браузере.
 
 ## Настройте {{ GL }} {#confgure-gitlab}
 
@@ -129,9 +126,9 @@
 
 ## Настройте и запустите тестирование для проекта {#ci-cd}
 
-Runner - это программа, которая осуществляет процесс тестирования и сборки проекта в среде {{ GL }} по заданной инструкции.
+Раннер — это программа, которая осуществляет процесс тестирования и сборки проекта в среде {{ GL }} по заданной инструкции.
 
-### Настройте и зарегистрируйте runner {#configure-runner}
+### Настройте и зарегистрируйте раннер {#configure-runner}
 
 1. [Зайдите по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) на ВМ и перейдите в режим администратора в консоли:
 
@@ -139,32 +136,32 @@ Runner - это программа, которая осуществляет пр
    sudo -i
    ```
 
-1. Загрузите runner:
+1. Загрузите раннер:
 
    ```bash
    curl --location --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
    ```
 
-1. Сделайте runner исполняемым:
+1. Сделайте раннер исполняемым:
 
    ```bash
    chmod +x /usr/local/bin/gitlab-runner
    ```
 
-1. Создайте отдельного пользователя для запуска runner:
+1. Создайте отдельного пользователя для запуска раннера:
 
    ```bash
    useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
    ```
 
-1. Установите и запустите runner:
+1. Установите и запустите раннер:
 
    ```bash
    gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
    gitlab-runner start
    ```
 
-1. Зарегистрируйте runner в {{ GL }}:
+1. Зарегистрируйте раннер в {{ GL }}:
    1. Запустите интерактивную регистрацию командой `gitlab-runner register`.
    1. Введите адрес вашего {{ GL }}-сервера. При запросе:
 
@@ -173,7 +170,7 @@ Runner - это программа, которая осуществляет пр
       ```
 
       введите `http://<публичный_IP-адрес_вашей_ВМ>`.
-   1. Введите регистрационный токен для runner. Чтобы его найти, нужно перейти в {{ GL }} на страницу проекта, затем в панели слева выбрать **Settings** и открыть вкладку **CI/CD**. После этого нажмите кнопку **Expand** в блоке **Runners**. В разделе **Set up a specific Runner manually** скопируйте токен из третьего пункта и введите его в ответ на запрос:
+   1. Введите регистрационный токен для раннера. Чтобы его найти, нужно перейти в {{ GL }} на страницу проекта, затем в панели слева выбрать **Settings** и открыть вкладку **CI/CD**. После этого нажмите кнопку **Expand** в блоке **Runners**. В разделе **Set up a specific Runner manually** скопируйте токен из третьего пункта и введите его в ответ на запрос:
 
       ```text
       Please enter the gitlab-ci token for this runner
@@ -188,8 +185,8 @@ Runner - это программа, которая осуществляет пр
       Please enter the gitlab-ci description for this runner
       ```
 
-      введите описание runner: `My runner`.
-   1. В поле ввода тегов не указывайте ничего, нажмите **Enter**. Иначе по умолчанию runner не будет выполнять работу без указания соответствующих тегов для проекта.
+      введите описание раннера: `My runner`.
+   1. В поле ввода тегов не указывайте ничего, нажмите **Enter**. Иначе по умолчанию раннер не будет выполнять работу без указания соответствующих тегов для проекта.
    1. Укажите среду выполнения. В нашем случае, на запрос:
 
       ```text
@@ -198,13 +195,13 @@ Runner - это программа, которая осуществляет пр
 
       введите: `shell`.
 
-На этом установка и настойка runner выполнена. Если все сделано правильно, то на странице, где вы копировали регистрационный токен, должен появиться раздел **Runners activated for this project**, в котором будет отображаться зарегистрированный runner.
+На этом установка и настройка раннера выполнены. Если все сделано правильно, то на странице, где вы копировали регистрационный токен, должен появиться раздел **Runners activated for this project**, в котором будет отображаться зарегистрированный раннер.
 
 ![Успешная настройка](../../_assets/tutorials/gitlab/gitlab5.png)
 
 ### Создайте сценарий тестирования {#create-test-case}
 
-Создайте сценарий тестирования, который будет выполнять runner. Сценарий описывается в специальном файле `.gitlab-ci.yml`, который должен находиться в корневой директории проекта. По сценарию runner будет компилировать исходный файл проекта в исполняемый файл, а затем запускать его.
+Создайте сценарий тестирования, который будет выполнять раннер. Сценарий описывается в специальном файле `.gitlab-ci.yml`, который должен находиться в корневой директории проекта. По сценарию раннер будет компилировать исходный файл проекта в исполняемый файл, а затем запускать его.
 
 Так как тестирование будет выполняться в операционной системе ВМ, установите приложения, которые необходимы для тестирования: `git` для клонирования проекта из репозитория и `g++` для компиляции проекта.
 
@@ -263,7 +260,7 @@ Runner - это программа, которая осуществляет пр
 
 ### Создайте ошибку в проекте {#create}
 
-Теперь сделайте так, чтобы в проекте произошла ошибка, которую runner должен помочь найти в процессе выполнения тестирования. Для этого:
+Теперь сделайте так, чтобы в проекте произошла ошибка, которую раннер должен помочь найти в процессе выполнения тестирования. Для этого:
 1. Зайдите в репозиторий проекта и откройте файл `test.cpp`.
 1. Нажмите **Edit**.
 1. Укажите в проверке (assert), что результат выполнения умножения 2 на 2 должен быть равен 5. В этом случае при выполнении программы произойдет ошибка и она завершится некорректно.

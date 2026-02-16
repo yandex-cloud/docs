@@ -8,6 +8,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -21,13 +29,17 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `pg-user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
+    
     1. Если вы используете [группы безопасности](../../../managed-postgresql/operations/connect.md#configuring-security-groups) в кластере, убедитесь, что они настроены правильно и допускают подключение к нему.
 
 
     1. [Создайте бакет {{ objstorage-full-name }}](../../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `storage-sa` и ролью `storage.uploader`. Трансфер будет использовать его для доступа к бакету.
+
 
 - {{ TF }} {#tf}
 
@@ -90,7 +102,11 @@
 1. [Создайте эндпоинт-приемник](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `storage-sa`.
+
+    
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_PostgreSQL`.
@@ -152,37 +168,23 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* Убедитесь, что трансфер находится в статусе **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
-* [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
-* Удалите трансфер, эндпоинт-источник, кластер и бакет:
+1. Убедитесь, что трансфер находится в статусе **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+1. [Удалите эндпоинт-приемник](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        * [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-        * [Эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-        * [Бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
+        1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+        1. [Удалите эндпоинт-источник](../../../data-transfer/operations/endpoint/index.md#delete).
+        1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+        1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
 
     - {{ TF }} {#tf}
 
-        1. В терминале перейдите в директорию с планом инфраструктуры.
-        1. Удалите конфигурационный файл `postgresql-to-objstorage.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `postgresql-to-objstorage.tf`, будут удалены.
+        {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

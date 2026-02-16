@@ -26,9 +26,10 @@ noIndex: true
 
     {% note info %}
 
-    Нужно изображение? [Скачайте пример](https://{{ s3-storage-host }}/vision/moderate-watermark.jpg).
+    Нужен пример? [Скачайте изображение](https://{{ s3-storage-host }}/doc-files/ml/vision/moderate-watermark.jpg).
 
     {% endnote %}
+    
 1. Кодируйте файл в формат Base64:
 
     {% include [base64-encode-command](../../../_includes/vision/base64-encode-command.md) %}

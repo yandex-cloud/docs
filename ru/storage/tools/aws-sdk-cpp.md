@@ -1,4 +1,6 @@
 ---
+title: AWS SDK для C++
+description: Из статьи вы узнаете, что такое AWS SDK для C++, как его установить и настроить, а также ознакомитесь с примерами кода.
 author: alehay
 ---
 
@@ -20,7 +22,6 @@ author: alehay
 ## Настройка {#setup}
 
 {% include [storage-sdk-setup](../_includes_service/storage-sdk-setup-storage-url.md) %}
-
 
 ## Примеры кода {#cpp-sdk-examples}
 

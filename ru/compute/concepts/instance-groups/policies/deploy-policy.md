@@ -82,6 +82,10 @@ deploy_policy:
 ----- | -----
 `minimal_action` | Минимальное действие для обновления виртуальных машин. Возможные значения:<ul><li>`LIVE_UPDATE` — обновление ВМ без остановки.</li><li>`RESTART` — обновление ВМ с перезапуском.</li><li>`RECREATE` — обновление ВМ с пересозданием.</li></ul> Значение по умолчанию: `LIVE_UPDATE`.
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/autoscale-monitoring.md)
+
 #### См. также {#see-also}
 
 * [{#T}](healing-policy.md)

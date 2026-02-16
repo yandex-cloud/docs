@@ -1,41 +1,4 @@
-### Bash {#bash}
-
-Перед подключением установите зависимости:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-Подключитесь к базе данных:
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  ```bash
-  psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-        port={{ port-mgp }} \
-        sslmode=disable \
-        dbname=postgres \
-        user=<имя_пользователя> \
-        target_session_attrs=read-write"
-  ```
-
-- Подключение с SSL {#with-ssl}
-
-  {% include [default-connstring](default-connstring.md) %}
-
-{% endlist %}
-
-После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-Для проверки успешности подключения выполните запрос:
-
-```sql
-SELECT version();
-```
-
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 Необходимые пакеты:
 
@@ -92,7 +55,7 @@ SELECT version();
 
 {% endlist %}
 
-### Go {#go}
+## Go {#go}
 
 Перед подключением установите зависимости:
 
@@ -252,7 +215,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Перед подключением:
 
@@ -433,7 +396,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Перед подключением установите зависимости:
 
@@ -511,7 +474,7 @@ npm install pg
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Перед подключением установите зависимости:
 
@@ -576,7 +539,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
 Перед подключением установите зависимости:
 
@@ -652,47 +615,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
-
-Перед подключением установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) актуальной версии. Выберите только установку *Command Line Tools*.
-
-Подключитесь к базе данных:
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  ```powershell
-  & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
-      host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-      port={{ port-mgp }} `
-      sslmode=disable `
-      dbname=postgres `
-      user=<имя_пользователя>"
-  ```
-
-- Подключение с SSL {#with-ssl}
-
-  ```powershell
-  & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
-      host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-      port={{ port-mgp }} `
-      sslmode=verify-full `
-      dbname=postgres `
-      user=<имя_пользователя>"
-  ```
-
-{% endlist %}
-
-После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-Для проверки успешности подключения выполните запрос:
-
-```sql
-SELECT version();
-```
-
-### Python {#python}
+## Python {#python}
 
 Перед подключением установите зависимости:
 
@@ -771,7 +694,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 Перед подключением установите зависимости:
 

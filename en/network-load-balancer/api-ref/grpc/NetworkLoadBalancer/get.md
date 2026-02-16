@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/loadbalancer/v1/api-ref/grpc/NetworkLoadBalancer/get.md
 ---
 
-# Network Load Balancer API, gRPC: NetworkLoadBalancerService.Get {#Get}
+# Network Load Balancer API, gRPC: NetworkLoadBalancerService.Get
 
 Returns the specified NetworkLoadBalancer resource.
 
@@ -17,13 +17,13 @@ Get the list of available NetworkLoadBalancer resources by making a [List](/docs
 
 ```json
 {
-  "networkLoadBalancerId": "string"
+  "network_load_balancer_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| networkLoadBalancerId | **string**
+|| network_load_balancer_id | **string**
 
 ID of the NetworkLoadBalancer resource to return.
 To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/docs/network-load-balancer/api-ref/grpc/NetworkLoadBalancer/list#List) request. ||
@@ -34,41 +34,41 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
 ```json
 {
   "id": "string",
-  "folderId": "string",
-  "createdAt": "google.protobuf.Timestamp",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
   "name": "string",
   "description": "string",
-  "labels": "string",
-  "regionId": "string",
+  "labels": "map<string, string>",
+  "region_id": "string",
   "status": "Status",
   "type": "Type",
-  "sessionAffinity": "SessionAffinity",
+  "session_affinity": "SessionAffinity",
   "listeners": [
     {
       "name": "string",
       "address": "string",
       "port": "int64",
       "protocol": "Protocol",
-      "targetPort": "int64",
-      "subnetId": "string",
-      "ipVersion": "IpVersion"
+      "target_port": "int64",
+      "subnet_id": "string",
+      "ip_version": "IpVersion"
     }
   ],
-  "attachedTargetGroups": [
+  "attached_target_groups": [
     {
-      "targetGroupId": "string",
-      "healthChecks": [
+      "target_group_id": "string",
+      "health_checks": [
         {
           "name": "string",
           "interval": "google.protobuf.Duration",
           "timeout": "google.protobuf.Duration",
-          "unhealthyThreshold": "int64",
-          "healthyThreshold": "int64",
-          // Includes only one of the fields `tcpOptions`, `httpOptions`
-          "tcpOptions": {
+          "unhealthy_threshold": "int64",
+          "healthy_threshold": "int64",
+          // Includes only one of the fields `tcp_options`, `http_options`
+          "tcp_options": {
             "port": "int64"
           },
-          "httpOptions": {
+          "http_options": {
             "port": "int64",
             "path": "string"
           }
@@ -77,7 +77,14 @@ To get the network load balancer ID, use a [NetworkLoadBalancerService.List](/do
       ]
     }
   ],
-  "deletionProtection": "bool"
+  "deletion_protection": "bool",
+  "allow_zonal_shift": "bool",
+  "disable_zone_statuses": [
+    {
+      "zone_id": "string",
+      "disabled_until": "google.protobuf.Timestamp"
+    }
+  ]
 }
 ```
 
@@ -88,10 +95,10 @@ A NetworkLoadBalancer resource. For more information, see [Network Load Balancer
 || id | **string**
 
 ID of the network load balancer. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the network load balancer belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
@@ -100,10 +107,10 @@ Name of the network load balancer. The name is unique within the folder. 3-63 ch
 || description | **string**
 
 Optional description of the network load balancer. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| regionId | **string**
+|| region_id | **string**
 
 ID of the region that the network load balancer belongs to. ||
 || status | enum **Status**
@@ -127,7 +134,7 @@ Type of the network load balancer. Only external network load balancers are avai
 - `TYPE_UNSPECIFIED`
 - `EXTERNAL`: External network load balancer.
 - `INTERNAL`: Internal network load balancer. ||
-|| sessionAffinity | enum **SessionAffinity**
+|| session_affinity | enum **SessionAffinity**
 
 Type of the session affinity. Only 5-tuple affinity is available now.
 
@@ -136,12 +143,18 @@ Type of the session affinity. Only 5-tuple affinity is available now.
 || listeners[] | **[Listener](#yandex.cloud.loadbalancer.v1.Listener)**
 
 List of listeners for the network load balancer. ||
-|| attachedTargetGroups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
+|| attached_target_groups[] | **[AttachedTargetGroup](#yandex.cloud.loadbalancer.v1.AttachedTargetGroup)**
 
 List of target groups attached to the network load balancer. ||
-|| deletionProtection | **bool**
+|| deletion_protection | **bool**
 
 Specifies if network load balancer protected from deletion. ||
+|| allow_zonal_shift | **bool**
+
+Specifies if network load balancer available to zonal shift. ||
+|| disable_zone_statuses[] | **[DisableZoneStatus](#yandex.cloud.loadbalancer.v1.DisableZoneStatus)**
+
+List of disabled zones for the network load balancer. ||
 |#
 
 ## Listener {#yandex.cloud.loadbalancer.v1.Listener}
@@ -166,13 +179,13 @@ Network protocol for incoming traffic.
 - `PROTOCOL_UNSPECIFIED`
 - `TCP`
 - `UDP` ||
-|| targetPort | **int64**
+|| target_port | **int64**
 
 Port of a target. ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 ID of the subnet. ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 IP version of the external address.
 
@@ -187,10 +200,10 @@ An AttachedTargetGroup resource. For more information, see [Targets and groups](
 
 #|
 ||Field | Description ||
-|| targetGroupId | **string**
+|| target_group_id | **string**
 
 Required field. ID of the target group. ||
-|| healthChecks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
+|| health_checks[] | **[HealthCheck](#yandex.cloud.loadbalancer.v1.HealthCheck)**
 
 A health check to perform on the target group.
 For now we accept only one health check per AttachedTargetGroup. ||
@@ -211,24 +224,24 @@ The interval between health checks. The default is 2 seconds. ||
 || timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for a target to return a response for the health check. The default is 1 second. ||
-|| unhealthyThreshold | **int64**
+|| unhealthy_threshold | **int64**
 
 Number of failed health checks before changing the status to `` UNHEALTHY ``. The default is 2. ||
-|| healthyThreshold | **int64**
+|| healthy_threshold | **int64**
 
 Number of successful health checks required in order to set the `` HEALTHY `` status for the target. The default is 2. ||
-|| tcpOptions | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
+|| tcp_options | **[TcpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.TcpOptions)**
 
 Options for TCP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`.
+Includes only one of the fields `tcp_options`, `http_options`.
 
 Protocol to use for the health check. Either TCP or HTTP. ||
-|| httpOptions | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
+|| http_options | **[HttpOptions](#yandex.cloud.loadbalancer.v1.HealthCheck.HttpOptions)**
 
 Options for HTTP health check.
 
-Includes only one of the fields `tcpOptions`, `httpOptions`.
+Includes only one of the fields `tcp_options`, `http_options`.
 
 Protocol to use for the health check. Either TCP or HTTP. ||
 |#
@@ -257,4 +270,19 @@ Port to use for HTTP health checks. ||
 
 URL path to set for health checking requests for every target in the target group.
 For example `` /ping ``. The default path is `` / ``. ||
+|#
+
+## DisableZoneStatus {#yandex.cloud.loadbalancer.v1.DisableZoneStatus}
+
+Status of the disabled zone.
+
+#|
+||Field | Description ||
+|| zone_id | **string**
+
+Required field. ID of zone. ||
+|| disabled_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp until which the zone will be disabled.
+If not present then zone will be disabled until it is removed through a separate call. ||
 |#

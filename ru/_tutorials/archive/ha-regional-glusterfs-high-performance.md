@@ -20,14 +20,12 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
 
 * плата за постоянно работающие ВМ и диски (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
 * плата за использование публичных IP-адресов и исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-
 
 ## Настройте профиль CLI {#setup-profile}
 
@@ -137,7 +135,7 @@
          ```
          yc config set service-account-key key.json
          yc config set cloud-id <идентификатор_облака>
-         yc config set folder-id <идентификатор_каталога>  
+         yc config set folder-id <идентификатор_каталога>
          ```
 
          Где:
@@ -194,11 +192,11 @@
 
 ## Разверните ресурсы {#deploy-resources}
    
-   1. Выполните инициализацию {{TF}}:
+   1. Выполните инициализацию {{ TF }}:
       ```bash
       terraform init
       ```
-   1. Проверьте конфигурацию {{TF}} файлов:
+   1. Проверьте конфигурацию {{ TF }} файлов:
       ```bash
       terraform validate
       ```
@@ -243,7 +241,7 @@
       default: cluster
       confdir: /etc/clustershell/groups.conf.d $CFGDIR/groups.conf.d
       autodir: /etc/clustershell/groups.d $CFGDIR/groups.d
-      EOF      
+      EOF
 
       cat > /etc/clustershell/groups.d/cluster.yaml <<EOF
       cluster:
@@ -311,7 +309,7 @@
    1. Проверьте статус папки общего доступа `stripe-volume`:
       ```bash
       clush -w gluster01  gluster volume status
-      ```      
+      ``
 
    1. Создайте текстовый файл:
       ```bash

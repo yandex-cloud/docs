@@ -5,9 +5,9 @@ description: Network load balancers (NLBs) are designed to build fault-tolerant 
 
 # Network load balancer. Overview
 
-*Network load balancers (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}.
+*Network load balancers* (NLBs) are designed to build fault-tolerant and scalable applications and services in {{ yandex-cloud }}.
 
-Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it. 
+Fault tolerance and scalability are achieved by distributing the traffic entering the load balancer among the cloud resources behind it.
 
 Network load balancers operate at Level 4 of the OSI network model. Yet they employ technologies operating at Level 3 to accelerate data packet processing.
 
@@ -19,7 +19,7 @@ A network load balancer can be used together with the following resources and se
 * [Instance groups ({{ ig-name }})](./scenarios.md#nlb-ig). The instance group tracks the number of VMs in the group and changes the composition of the balancer's target group as needed.
 * [Clusters ({{ managed-k8s-name }})](./scenarios.md#nlb-mk8s). The master node of the {{ k8s }} cluster tracks the number of VMs in the cluster node groups and changes the composition of the balancer's target group as needed.
 
-The traffic coming to the balancer is distributed in a certain way across the instances located behind it.
+A load balancer’s incoming traffic is distributed in a certain way among VMs located downstream of the load balancer.
 
 The structure of the network load balancer includes the following key components:
 
@@ -29,9 +29,11 @@ The structure of the network load balancer includes the following key components
 
 You can create a network load balancer by specifying only its name. The other parameters are optional. An [external balancer](#nlb-types) is created by default. Traffic listeners and target groups can be created later and linked to the previously created network load balancer.
 
+To prevent unintended deletion of a network load balancer, enable deletion protection for it. You can now enable deletion protection for a [load balancer](../operations/deletion-protection.md#enable-deletion-protection) that already exists or when creating a new [external](../operations/load-balancer-create.md) or [internal](../operations/internal-lb-create.md) load balancer.
+
 ## Deployment tools {#tools}
 
 A network load balancer can be deployed in {{ yandex-cloud }} using the following tools:
 * [Cloud console]({{ link-console-main }})
-* [YC CLI](../../cli/quickstart.md)
-* [Terraform](https://terraform-provider.yandexcloud.net/Resources/lb_network_load_balancer)
+* [CLI](../../cli/quickstart.md)
+* [Terraform]({{ tf-provider-resources-link }}/lb_network_load_balancer)

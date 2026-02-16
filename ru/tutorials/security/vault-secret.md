@@ -1,0 +1,1 @@
+{% include [vault-secret](../../_tutorials/security/vault-secret.md) %}

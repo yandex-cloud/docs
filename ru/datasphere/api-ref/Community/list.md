@@ -1,9 +1,57 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListCommunitiesResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListCommunitiesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListCommunitiesResponse.nextPageToken](#yandex.cloud.datasphere.v2.ListCommunitiesResponse) returned by a previous list request.
+          type: string
+        nameOrDescriptionPattern:
+          description: |-
+            **string**
+            Community name or description pattern.
+            Only communities with names or descriptions matching specified pattern will be returned.
+          type: string
+        ownedById:
+          description: |-
+            **string**
+            ID of the user. Only communities owned by specified user will be returned.
+          type: string
+        listPublic:
+          description: |-
+            **boolean**
+            If set to true, only public communities will be returned.
+          type: boolean
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the organization to list communities in.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/list.md
 ---
 
-# DataSphere API v2, REST: Community.List {#List}
+# DataSphere API v2, REST: Community.List
 
 List communities in specified organization.
 
@@ -54,7 +102,7 @@ Required field. ID of the organization to list communities in. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "createdById": "string",
       "organizationId": "string",
       "zoneId": "string"
@@ -102,7 +150,7 @@ Name of the community. ||
 || description | **string**
 
 Description of the comminuty. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels of the community. ||
 || createdById | **string**

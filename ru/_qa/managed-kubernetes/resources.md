@@ -1,5 +1,3 @@
-# Ресурсы
-
 #### Какие ресурсы требуются для обслуживания кластера {{ k8s }}, в который входит группа, например, из трех узлов? {#required-resources}
 
 Для каждого [узла](../../managed-kubernetes/concepts/index.md#node-group) необходимы ресурсы для запуска компонентов, которые отвечают за функционирование узла как части [кластера {{ k8s }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Подробнее читайте в разделе [{#T}](../../managed-kubernetes/concepts/node-group/allocatable-resources.md).
@@ -11,3 +9,9 @@
 #### Кто будет следить за масштабированием кластера {{ k8s }}? {#scaling}
 
 В {{ managed-k8s-name }} можно включить [автоматическое масштабирование кластера](../../managed-kubernetes/concepts/autoscale.md#ca).
+
+#### Нужен ли узлам кластера {{ k8s }} доступ в интернет? {#internet-access}
+
+{% include [nodes-internet-access](../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+{% include [nodes-internet-access-additional](../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}

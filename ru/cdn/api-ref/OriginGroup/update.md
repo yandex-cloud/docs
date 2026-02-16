@@ -1,9 +1,142 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/originGroups
+    method: patch
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin group belongs to.
+            The maximum string length in characters is 50.
+          type: string
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of the origin group.
+            Value must be greater than 0.
+          type: string
+          format: int64
+        groupName:
+          description: |-
+            **string**
+            Name of the origin group.
+          type: string
+        useNext:
+          description: |-
+            **boolean**
+            This option have two possible values:
+            True - The option is active. In case the origin responds with 4XX or 5XX
+            codes, use the next origin from the list.
+            False - The option is disabled.
+          type: boolean
+        origins:
+          description: |-
+            **[OriginParams](#yandex.cloud.cdn.v1.OriginParams)**
+            List of origins: IP addresses or Domain names of your origins and the port
+            (if custom).
+          type: array
+          items:
+            $ref: '#/definitions/OriginParams'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      OriginNamedMeta:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the origin.
+            type: string
+      OriginBalancerMeta:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the origin.
+            type: string
+      OriginMeta:
+        type: object
+        properties:
+          common:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              A server with a domain name linked to it
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          bucket:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket not configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          website:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          balancer:
+            description: |-
+              **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+              An L7 load balancer from Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginBalancerMeta'
+        oneOf:
+          - required:
+              - common
+          - required:
+              - bucket
+          - required:
+              - website
+          - required:
+              - balancer
+      OriginParams:
+        type: object
+        properties:
+          source:
+            description: |-
+              **string**
+              Source: IP address or Domain name of your origin and the port (if custom).
+            type: string
+          enabled:
+            description: |-
+              **boolean**
+              The setting allows to enable or disable an Origin source in the Origins group.
+              It has two possible values:
+              True - The origin is enabled and used as a source for the CDN. An origins
+              group must contain at least one enabled origins. False - The origin is disabled
+              and the CDN is not using it to pull content.
+            type: boolean
+          backup:
+            description: |-
+              **boolean**
+              backup option has two possible values:
+              True - The option is active. The origin will not be used until one of
+              active origins become unavailable.
+              False - The option is disabled.
+            type: boolean
+          meta:
+            description: |-
+              **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
+              Set up origin of the content.
+            $ref: '#/definitions/OriginMeta'
 sourcePath: en/_api-ref/cdn/v1/api-ref/OriginGroup/update.md
 ---
 
-# Cloud CDN API, REST: OriginGroup.Update {#Update}
+# Cloud CDN API, REST: OriginGroup.Update
 
 Updates the specified origin group.
 
@@ -54,10 +187,14 @@ PATCH https://cdn.{{ api-host }}/cdn/v1/originGroups
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || originGroupId | **string** (int64)
 
-ID of the origin group. ||
+ID of the origin group.
+
+Value must be greater than 0. ||
 || groupName | **string**
 
 Name of the origin group. ||
@@ -213,7 +350,15 @@ ID of the origin. ||
             "id": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "providerType": "string"
+      }
+    ],
+    "providerType": "string",
+    "resourcesMetadata": [
+      {
+        "id": "string",
+        "cname": "string"
       }
     ]
   }
@@ -296,7 +441,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || originGroupId | **string** (int64)
 
-ID of the origin group. ||
+ID of the origin group.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -340,6 +487,12 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
+|| resourcesMetadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -374,6 +527,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}
@@ -433,4 +589,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

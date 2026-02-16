@@ -15,6 +15,50 @@ items:
         href: quickstart/tts-quickstart-v1.md
       - name: How to synthesize speech in the API v3
         href: quickstart/tts-quickstart-v3.md
+  - name: Step-by-step guides
+    items:
+      - name: Speech recognition using Playground
+        href: operations/stt-playground.md
+      - name: Speech synthesis using Playground
+        href: operations/tts-playground.md
+      - name: Recognition
+        items:
+          - name: Audio file streaming recognition, API v3
+            href: stt/api/streaming-examples-v3.md
+          - name: Microphone speech streaming recognition, API v3
+            href: stt/api/microphone-streaming.md
+          - name: Automatic language detection, API v3
+            href: stt/api/stt-language-labels-example.md
+          - name: Streaming recognition, API v2
+            href: stt/api/streaming-examples.md
+          - name: Synchronous recognition, API v1
+            href: stt/api/request-examples.md
+          - name: Asynchronous recognition of WAV audio files, API v3
+            href: stt/api/transcribation-api-v3.md
+          - name: Asynchronous recognition of LPCM format, API v2
+            href: stt/api/transcribation-lpcm.md
+          - name: Asynchronous recognition of OggOpus format, API v2
+            href: stt/api/transcribation-ogg.md
+          - name: Regular asynchronous recognition of audio files, API v2
+            href: stt/api/batch-transcribation.md
+      - name: Speech synthesis
+        items:
+          - name: Speech synthesis in the API v3
+            href: tts/api/tts-examples-v3.md
+          - name: Speech synthesis in REST API v3
+            href: tts/api/tts-v3-rest.md
+          - name: Streaming synthesis
+            href: tts/api/tts-streaming.md
+          - name: Pattern-based speech synthesis
+            href: tts/api/tts-templates.md
+          - name: Brand Voice Call Center pattern-based speech synthesis
+            href: tts/api/tts-templates-bvcc.md
+          - name: "Speech synthesis in WAV format, API\_v1"
+            href: tts/api/tts-wav.md
+          - name: "Speech synthesis in OggOpus format, API\_v1"
+            href: tts/api/tts-ogg.md
+          - name: "Speech synthesis from SSML text, API\_v1"
+            href: tts/api/tts-ssml.md
   - name: Speech recognition
     items:
       - name: About the technology
@@ -35,10 +79,10 @@ items:
         href: stt/analysis.md
       - name: Speaker labeling
         href: stt/speaker-labeling.md
+      - name: Using LLMs to process recognition results
+        href: stt/llm-results.md
       - name: Extending a speech recognition model
         href: stt/additional-training.md
-      - name: Uploading fine-tuning data for a speech recognition model
-        href: stt/upload-data-for-training.md
       - name: Detecting the end of utterance
         href: stt/eou.md
   - name: Speech synthesis
@@ -63,10 +107,12 @@ items:
         items:
           - name: Overview
             href: tts/brand-voice/index.md
-          - name: Data for {{ brand-voice-core }}
-            href: tts/brand-voice/bv-full-data-upload.md
+          - name: Data for {{ brand-voice-lite-name }}
+            href: tts/brand-voice/bv-lite.md
           - name: Data for {{ brand-voice-cc-name }}
             href: tts/templates.md
+          - name: Tips for recording roles
+            href: tts/brand-voice/roles-records.md
   - name: '{{ sk-hybrid-name }}'
     items:
       - name: About the technology
@@ -75,23 +121,23 @@ items:
         href: hybrid-speechkit/system-requirements.md
       - name: '{{ sk-hybrid-name }} documentation'
         href: ../speechkit-hybrid/
-  - name: API Reference
+  - name: API references
     items:
       - name: Overview
         href: concepts/api.md
-      - name: Authentication with the API
+      - name: API authentication
         href: concepts/auth.md
       - name: Recognition
         items:
           - name: API v1
             items:
-              - name: Synchronous Recognition API
+              - name: Synchronous recognition API
                 href: stt/api/request-api.md
           - name: API v2
             items:
               - name: Streaming Recognition API
                 href: stt/api/streaming-api.md
-              - name: Asynchronous Recognition API
+              - name: Asynchronous recognition API
                 href: stt/api/transcribation-api.md
           - name: gRPC API v3
             items:
@@ -105,6 +151,8 @@ items:
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/grpc/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview
@@ -131,6 +179,8 @@ items:
                     href: stt-v3/api-ref/AsyncRecognizer/recognizeFile.md
                   - name: GetRecognition
                     href: stt-v3/api-ref/AsyncRecognizer/getRecognition.md
+                  - name: DeleteRecognition
+                    href: stt-v3/api-ref/AsyncRecognizer/deleteRecognition.md
               - name: Operation
                 items:
                   - name: Overview
@@ -153,6 +203,8 @@ items:
                     href: tts-v3/api-ref/grpc/Synthesizer/index.md
                   - name: UtteranceSynthesis
                     href: tts-v3/api-ref/grpc/Synthesizer/utteranceSynthesis.md
+                  - name: StreamSynthesis
+                    href: tts-v3/api-ref/grpc/Synthesizer/streamSynthesis.md
           - name: API v3 REST
             items:
               - name: Overview
@@ -187,42 +239,10 @@ items:
           Using {{ api-gw-full-name }} to set up speech synthesis in {{
           speechkit-name }}
         href: tutorials/speechkit-integrarion-via-agi-gw.md
-      - name: Recognition
-        items:
-          - name: Audio file streaming recognition, API v3
-            href: stt/api/streaming-examples-v3.md
-          - name: Microphone speech streaming recognition, API v3
-            href: stt/api/microphone-streaming.md
-          - name: Automatic language detection, API v3
-            href: stt/api/stt-language-labels-example.md
-          - name: Streaming recognition, API v2
-            href: stt/api/streaming-examples.md
-          - name: Synchronous recognition, API v1
-            href: stt/api/request-examples.md
-          - name: Asynchronous recognition of WAV audio files, API v3
-            href: stt/api/transcribation-api-v3.md
-          - name: Asynchronous recognition of LPCM format, API v2
-            href: stt/api/transcribation-lpcm.md
-          - name: Asynchronous recognition of OggOpus format, API v2
-            href: stt/api/transcribation-ogg.md
-          - name: Regular asynchronous recognition of audio files, API v2
-            href: stt/api/batch-transcribation.md
-      - name: Speech synthesis
-        items:
-          - name: Speech synthesis in the API v3
-            href: tts/api/tts-examples-v3.md
-          - name: Speech synthesis in REST API v3
-            href: tts/api/tts-v3-rest.md
-          - name: Pattern-based speech synthesis
-            href: tts/api/tts-templates.md
-          - name: Brand Voice Call Center pattern-based speech synthesis
-            href: tts/api/tts-templates-bvcc.md
-          - name: "Speech synthesis in WAV format, API\_v1"
-            href: tts/api/tts-wav.md
-          - name: "Speech synthesis in OggOpus format, API\_v1"
-            href: tts/api/tts-ogg.md
-          - name: "Speech synthesis from SSML text, API\_v1"
-            href: tts/api/tts-ssml.md
+      - name: >-
+          Regular asynchronous recognition of audio files from {{
+          objstorage-name }}
+        href: tutorials/batch-recognition-stt.md
   - name: Supported audio formats
     href: formats.md
   - name: IVR integration
@@ -233,6 +253,8 @@ items:
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
   - name: Release notes
     items:
       - name: Recognition releases
@@ -241,11 +263,12 @@ items:
         href: release-notes-tts.md
       - name: Release archive
         href: release-notes.md
+        hidden: true
   - name: Troubleshooting
     items:
-      - name: Response format
+      - name: Error codes
         href: concepts/response.md
-      - name: Troubleshooting
+      - name: Request headers for troubleshooting
         href: concepts/support-headers.md
       - name: General questions
         href: qa/general.md
@@ -255,5 +278,3 @@ items:
         href: qa/tts.md
       - name: All questions on one page
         href: qa/all.md
-base: en/speechkit
-deepBase: 2

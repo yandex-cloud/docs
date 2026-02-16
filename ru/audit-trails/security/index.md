@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для уп
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [трейл](../concepts/trail.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+На [трейл](../concepts/trail.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/audit-trails/cli-ref/trail/add-access-binding.md) или [API](../api-ref/authentication.md).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -74,4 +74,4 @@ description: Управление доступом в сервисе для уп
 ## Что дальше {#whats-next}
 
 * Ознакомьтесь со структурой [аудитного лога](../concepts/format.md).
-* Ознакомьтесь с примером [загрузки аудитных логов в {{ cloud-logging-name }}](../operations/export-cloud-logging.md).
+* Узнайте, как создать трейл, который [загружает логи в нужный объект назначения](../operations/create-trail.md).

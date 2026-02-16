@@ -1,12 +1,8 @@
----
-title: Виртуальный хостинг — инструкция по созданию
-description: Из данной инструкции вы узнаете, как организовать виртуальный хостинг с размещением нескольких веб-сайтов и разными доменными именами по одному IP-адресу.
----
 
 # Организация виртуального хостинга
 
 
-Сценарий описывает организацию виртуального хостинга — размещение нескольких веб-сайтов с разными доменными именами по одному [IP-адресу](../../vpc/concepts/address.md) — с помощью [{{ alb-full-name }}](../../application-load-balancer/).
+Сценарий описывает организацию виртуального хостинга — размещение нескольких сайтов с разными доменными именами по одному [IP-адресу](../../vpc/concepts/address.md) — с помощью [{{ alb-full-name }}](../../application-load-balancer/).
 
 В качестве примеров в сценарии будут использоваться три доменных имени: `site-a.com`, `site-b.com` и `default.com`.
 
@@ -68,7 +64,7 @@ description: Из данной инструкции вы узнаете, как 
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+  1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -83,7 +79,7 @@ description: Из данной инструкции вы узнаете, как 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
      1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `vhosting-sg-balancer`.
@@ -142,7 +138,7 @@ description: Из данной инструкции вы узнаете, как 
 
 ## Создайте группы ВМ для сайтов {#create-vms}
 
-В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее см. в сценарии использования [Веб-сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
+В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее см. в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../tutorials/web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ для сайта `site-a.com`:
 
@@ -151,7 +147,7 @@ description: Из данной инструкции вы узнаете, как 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите имя группы ВМ: `vhosting-ig-a`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
@@ -189,7 +185,7 @@ description: Из данной инструкции вы узнаете, как 
 
 Аналогично создайте для сайта `site-b.com` вторую группу ВМ с именем `vhosting-ig-b` и целевую группу с именем `vhosting-tg-b`.
 
-Создание группы ВМ может занять несколько минут. Когда группа перейдет в [статус](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, а все ВМ в ней — в [статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, вы можете [загрузить на них файлы веб-сайта](#upload-sites-files).
+Создание группы ВМ может занять несколько минут. Когда группа перейдет в [статус](../../compute/concepts/instance-groups/statuses.md#group-statuses) `RUNNING`, а все ВМ в ней — в [статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) `RUNNING_ACTUAL`, вы можете [загрузить на них файлы сайта](#upload-sites-files).
 
 ![ig-running](../../_assets/application-load-balancer/tutorials/virtual-hosting/ig-running.png)
 

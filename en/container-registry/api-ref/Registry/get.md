@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}
+    method: get
+    path:
+      type: object
+      properties:
+        registryId:
+          description: |-
+            **string**
+            Required field. ID of the Registry resource to return.
+            To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - registryId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Registry/get.md
 ---
 
-# Container Registry API, REST: Registry.Get {#Get}
+# Container Registry API, REST: Registry.Get
 
 Returns the specified Registry resource.
 
@@ -23,7 +42,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{
 
 Required field. ID of the Registry resource to return.
 
-To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request. ||
+To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.Registry}
@@ -37,7 +58,7 @@ To get the registry ID use a [RegistryService.List](/docs/container-registry/api
   "name": "string",
   "status": "string",
   "createdAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
@@ -58,7 +79,6 @@ Name of the registry. ||
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
@@ -72,7 +92,7 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#

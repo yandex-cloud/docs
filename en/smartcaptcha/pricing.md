@@ -1,6 +1,6 @@
 ---
 title: '{{ captcha-full-name }} pricing policy'
-description: This article describes the {{ captcha-name }} pricing policy.
+description: This article covers the {{ captcha-name }} pricing policy.
 editable: false
 ---
 
@@ -8,17 +8,29 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+
+
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=064c7fd1932b#calculator) on our website or check out the pricing below.
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ captcha-full-name }} {#rules}
 
-You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://smartcaptcha.yandexcloud.net/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:
+You pay for [requests to the {{ captcha-name }} API](./quickstart.md#check-answer) made at `https://{{ captcha-domain }}/validate`. You only pay for [correct requests](concepts/validation.md#service-response) to which the API returns the `ok` status. Correct requests satisfy the following conditions:
 
 * {{ captcha-name }} has identified the request as one sent by a human, not a bot.
 * Correct `secret` and `token` values were provided.
-* A unique `token` was issued not more than 10 minutes ago.
+* A unique `token` was issued 10 minutes ago or later.
 
 {% note info %}
 
@@ -26,13 +38,13 @@ Using {{ captcha-name }} in [restricted mode](concepts/restricted-mode) is free 
 
 {% endnote %}
 
-Examples of {{ captcha-name }} usage cost calculation:
+Examples of {{ captcha-name }} cost calculation:
 
 1. The user has passed the CAPTCHA test resulting in a correct `/validate` request from the server. A fee will be charged.
 
 1. The user has sent an empty or incorrect `token` resulting in an incorrect `/validate` request. No fee will be charged.
 
-1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in a response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
+1. A backend developer has made a mistake and sent an incorrect `secret` or `token` in the response `/validate` request. The API will return an error in the `message` field. No fee will be charged.
 
 1. An intruder has passed the CAPTCHA test, got a `token`, and sent it 10 times during the first minute. The API will return the `ok` status only to the first request, and you will be charged for the first request only.
 
@@ -44,10 +56,17 @@ Examples of {{ captcha-name }} usage cost calculation:
 
 
 
-{% include [usd](../_pricing/smartcaptcha/usd.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|smart-captcha }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 You pay for the actual number of requests.
 
 {% include [usd-smartcaptcha](../_pricing_examples/smartcaptcha/usd-smartcaptcha.md) %}
+
 
 

@@ -1,6 +1,6 @@
 ---
-title: Step-by-step guides for {{ mmy-full-name }}®
-description: This page provides a list of step-by-step guides for {{ mmy-name }}®.
+title: Step-by-step guides for {{ mmy-full-name }}
+description: This page provides a list of step-by-step guides for {{ mmy-name }}.
 ---
 
 # Step-by-step guides for {{ mmy-name }}
@@ -14,12 +14,19 @@ description: This page provides a list of step-by-step guides for {{ mmy-name }}
 * [Managing cluster hosts](hosts.md)
 * [Migrating cluster hosts to a different availability zone](host-migration.md)
 * [Managing backups](cluster-backups.md)
+* [Managing cluster access](cluster-access.md)
 * [{#T}](cluster-version-update.md)
 * [Deleting a cluster](cluster-delete.md)
 
+## Connection {#connect}
+
+* [Pre-configuring a cluster connection](./connect/index.md)
+* [FQDNs of hosts](./connect/fqdn.md)
+* [Connecting to a cluster from applications](./connect/clients.md)
+* [Code examples for connecting to a cluster](./connect/code-examples.md)
+
 ## Databases {#databases}
 
-* [Connecting to a database in a cluster](connect.md)
 * [{#T}](web-sql-query.md)
 * [Managing databases](databases.md)
 
@@ -32,5 +39,5 @@ description: This page provides a list of step-by-step guides for {{ mmy-name }}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Performance diagnostics](performance-diagnostics.md)
-* [Monitoring the state of clusters and hosts](monitoring.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [{#T}](datalens-connect.md)

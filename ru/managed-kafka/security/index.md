@@ -24,11 +24,13 @@ description: Управление доступом в сервисе созда�
 
 Чтобы разрешить доступ к ресурсам сервиса {{ mkf-name }} (кластеры и хосты, резервные копии кластеров, разделы и топики, пользователи), назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
 
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-kafka.svg)
+{% include [roles-managed-kafka](../../_mermaid/roles/managed-kafka.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -40,6 +42,7 @@ description: Управление доступом в сервисе созда�
 
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../../_roles/managed-kafka/editor.md) %}
@@ -47,6 +50,10 @@ description: Управление доступом в сервисе созда�
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.interfaceUser {#managed-kafka-interface-user}
+
+{% include [managed-kafka.interfaceUser](../../_roles/managed-kafka/interfaceUser.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -60,10 +67,10 @@ description: Управление доступом в сервисе созда�
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
-
 
 ### Примитивные роли {#primitive-roles}
 

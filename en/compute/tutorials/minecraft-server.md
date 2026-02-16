@@ -1,6 +1,6 @@
 ---
-title: Minecraft game server in {{ yandex-cloud }}
-description: A cloud game server is a powerful solution for an efficient Minecraft infrastructure. Follow this guide to configure and deploy your own server on {{ yandex-cloud }}.
+title: Minecraft server in {{ yandex-cloud }}
+description: A cloud server is an efficient solution for Minecraft gamers. Follow this guide to configure your own Minecraft server in {{ yandex-cloud }}.
 canonical: '{{ link-docs }}/tutorials/infrastructure/minecraft-server'
 keywords:
   - minecraft

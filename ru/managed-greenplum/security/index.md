@@ -29,15 +29,21 @@ keywords:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-{% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
+Чтобы разрешить доступ к ресурсам сервиса {{ mgp-name }}, назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
+
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-greenplum.svg)
+{% include [roles-managed-greenplum](../../_mermaid/roles/managed-greenplum.md) %}
 
 ### Сервисные роли {#service-roles}
+
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../../_roles/managed-greenplum/clusters/connector.md) %}
 
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
@@ -46,6 +52,10 @@ keywords:
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
 {% include [managed-greenplum.viewer](../../_roles/managed-greenplum/viewer.md) %}
+
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../../_roles/managed-greenplum/restorer.md) %}
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
@@ -67,7 +77,11 @@ keywords:
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
-При создании кластера {{ mgp-name }} вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `{{ roles-mdb-admin }}` в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../concepts/cluster-users.md).
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+При создании кластера {{ GP }} вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `{{ roles-mdb-admin }}` в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -84,7 +98,7 @@ keywords:
 
 Чтобы пользоваться сервисом, необходима роль [{{ roles.mgp.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `{{ roles.mgp.viewer }}` позволит только просматривать список кластеров.
 
-Чтобы создать кластер {{ mgp-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mgp.editor }}` или выше.
+Чтобы создать кластер {{ GP }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mgp.editor }}` или выше.
 
 Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mgp.admin }}` вместо `{{ roles.mgp.editor }}`.
 

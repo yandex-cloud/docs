@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% include [bash-windows-note](../../_includes/translate/bash-windows-note.md) %}
 
-{% include [ai-before-beginning](../../_includes/translate/ai-before-beginning.md) %}
+{% include [translate-instruction-auth](../../_includes/translate/translate-instruction-auth.md) %}
 
 
 ## Указать язык исходного текста {#with-source-language}
@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -40,7 +40,7 @@ description: Из статьи вы узнаете, как можно повыс
 
     Где:
 
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `texts` — текст для перевода в виде списка из строк.
     * `targetLanguageCode` — [язык](../concepts/supported-languages.md), на который переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `sourceLanguageCode` — язык, с которого переводится текст.
@@ -49,19 +49,12 @@ description: Из статьи вы узнаете, как можно повыс
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод с корректно распознанного языка:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "удочка"
-            }
-        ]
-    }
-    ```
+    {% include [with-source-language](../../_untranslatable/translate/with-source-language.md) %}
+
 
 {% endlist %}
 
@@ -75,65 +68,30 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
-    ```json
-    {
-        "sourceLanguageCode": "tr",
-        "targetLanguageCode": "ru",
-        "texts": [
-            "cırtlı çocuk spor ayakkabı"
-        ],
-        "folderId": "<идентификатор_каталога>",
-        "glossaryConfig": {
-            "glossaryData": {
-                "glossaryPairs": [
-                    {
-                        "sourceText": "spor ayakkabı",
-                        "translatedText": "кроссовки"
-                    }
-                ]
-            }
-        }
-    }
-    ```
+    {% include [with-glossary-req](../../_untranslatable/translate/with-glossary-req.md) %}
 
     Где:
 
     * `sourceLanguageCode` — [язык](../concepts/supported-languages.md), с которого переводится текст. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `targetLanguageCode` — язык, на который переводится текст.
     * `texts` — текст для перевода в виде списка из строк.
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
 
     Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод с использованием терминов из глоссария:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "Детские кроссовки с липучкой"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans1](../../_untranslatable/translate/with-glossary-ans1.md) %}
 
     Без использования глоссария перевод будет таким:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "детская спортивная обувь с липучкой"
-            }
-        ]
-    }
-    ```
+    {% include [with-glossary-ans2](../../_untranslatable/translate/with-glossary-ans2.md) %}
 
 {% endlist %}
 
@@ -143,7 +101,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
   ```json
   {
@@ -179,7 +137,7 @@ description: Из статьи вы узнаете, как можно повыс
 
 {% list tabs group=programming_language %}
 
-- Bash {#bash}
+- cURL {#curl}
 
     ```json
     {
@@ -198,37 +156,21 @@ description: Из статьи вы узнаете, как можно повыс
     * `sourceLanguageCode` — [язык](../concepts/supported-languages.md) оригинала. Вы можете узнать код языка вместе со [списком поддерживаемых языков](list.md).
     * `targetLanguageCode` — целевой язык перевода.
     * `texts` — текст для перевода в виде списка строк.
-    * `folderId` — идентификатор каталога, полученный [перед началом работы](#before-begin).
+    * `folderId` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, полученный [перед началом работы](#before-begin).
     * `speller` — параметр, который включает проверку орфографии.
 
     Сохраните тело запроса в файле, например в `body.json`, и передайте файл с помощью метода [translate](../api-ref/Translation/translate):
 
     {% include [translate-file](../../_includes/translate/translate-file.md) %}
 
-    Где `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](#before-begin).
+    {% include [api-key-legend-desc](../../_includes/translate/api-key-legend-desc.md) %}
 
     В ответе будет перевод слова, проверенного на наличие ошибок:
     
-    ```json
-    {
-        "translations": [
-            {
-                "text": "эллада"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans1](../../_untranslatable/translate/with-speller-ans1.md) %}
 
     Без проверки ошибок в слове (`"speller": false`) перевод будет таким:
 
-    ```json
-    {
-        "translations": [
-            {
-                "text": "хелас"
-            }
-        ]
-    }
-    ```
+    {% include [with-speller-ans2](../../_untranslatable/translate/with-speller-ans2.md) %}
 
 {% endlist %}

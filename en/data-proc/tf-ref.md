@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ dataproc-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ dataproc-name }}.
+description: This page describes the {{ TF }} provider’s resources and data sources supported by {{ dataproc-name }}.
 ---
 
 # {{ TF }} reference for {{ dataproc-full-name }}
@@ -9,7 +9,7 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ dataproc-name }}:
+{{ dataproc-name }} supports the following {{ TF }} provider resources:
 
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
@@ -21,4 +21,4 @@ The following {{ TF }} provider resources are supported for {{ dataproc-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/datasource_dataproc_cluster) | [{{ dataproc-name }} cluster](./concepts/index.md#resources) information |
+| [yandex_dataproc_cluster]({{ tf-provider-datasources-link }}/dataproc_cluster) | [{{ dataproc-name }} cluster](./concepts/index.md#resources) information |

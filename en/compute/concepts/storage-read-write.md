@@ -11,25 +11,34 @@ The actual IOPS value depends on the disk or storage configuration, total bandwi
 ![image](../../_assets/compute/iops.svg)
 
 Where:
-* _Max IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
-* _Max bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
+* _Max. IOPS_: [Maximum IOPS value](../concepts/limits.md#limits-disks) for the disk or storage.
+* _Max. bandwidth_: [Maximum bandwidth value](../concepts/limits.md#limits-disks) for the disk or storage.
 
 Read and write operations utilize the same disk resource. The more read operations you do, the fewer write operations you can do, and vice versa. The total number of read and write operations per second is determined by this formula:
 
 ![image](../../_assets/compute/max-iops.svg)
 
 Where:
-* ![image](../../_assets/compute/alpha.svg): Share of write operations out of the total number of read and write operations per second. The possible values are: &alpha;&isin;[0,1].
+* ![image](../../_assets/compute/alpha.svg) is the share of write operations out of the total number of read and write operations per second. Possible values: &alpha;&isin;[0,1].
 * _WriteIOPS_: IOPS write value obtained using the formula for the actual IOPS value.
 * _ReadIOPS_: IOPS read value obtained using the formula for the actual IOPS value.
 
 For more information about maximum possible IOPS and bandwidth values, see [Quotas and limits](../concepts/limits.md#limits-disks).
 
+{% note warning %}
+
+VMs with [vCPU performance level](performance-levels.md) below 100% may operate at lower speed with network drives.
+
+{% include [vcpu-perfomance-disks](../../_includes/compute/vcpu-perfomance-disks.md) %}
+
+{% endnote %}
+
+
 ## Disk and file storage performance {#performance}
 
 The maximum IOPS values are achieved when performing reads and writes that are 4 KB in size. Network SSDs and file storage have much higher IOPS for read operations and process requests faster than HDDs.
 
-To achieve the maximum possible bandwidth, we recommend performing 4 MB reads and writes.
+For maximum bandwidth, we recommend 4 MB reads and writes.
 
 Disk or storage performance depends on its size: with more allocation units, you get higher IOPS and bandwidth values.
 
@@ -37,16 +46,11 @@ For smaller HDDs, there is a performance boosting mechanism in place for them to
 
 ### Testing disk performance {#test-performance}
 
-{% note info %}
-
-We do not recommend testing writes to your `/dev/vda` disk. If you need to test writes to the boot disk, run the `fio` utility with the `--filename=./testfile` and `--filesize=1G` parameters.
-
-{% endnote %}
-
 You can test the performance of your network disks with [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) (Flexible I/O Tester):
 
-1. [Attach](../operations/vm-control/vm-attach-disk.md) a disk to a VM instance.
+1. [Attach](../operations/vm-control/vm-attach-disk.md) the disk to the VM.
 1. Install [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) on your VM instance.
+
     Sample command for Ubuntu:
 
     ```bash
@@ -57,7 +61,9 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
     ```bash
     sudo fio \
-    --filename=/dev/vdb \
+    --name=<job_name>
+    --filename=<path_to_mount_point>/testfile.bin \
+    --filesize=1G \
     --direct=1 \
     --rw=write \
     --bs=4k \
@@ -72,13 +78,21 @@ You can test the performance of your network disks with [fio](https://fio.readth
 
     Where:
 
-    * `--filename=/dev/vdb`: Name of the disk you are testing. To view the attached disks, run the `lsblk` command.
+    * `--name`: Random job name.
+    * `--filename`: Path to the mount point of the disk whose performance you want to test.
+
+        {% note alert %}
+
+        When testing write operations, do not use disk ID (e.g., `/dev/vdb`) as the `--filename` parameter value. This may cause you to lose all data on the disk.
+
+        {% endnote %}
+
     * `--direct`: Flag that toggles buffering; `0` means buffering is used, `1` means buffering is not used.
     * `--rw`: Load template. The possible values are as follows: 
       * `read`: Sequential reads.
       * `write`: Sequential writes.
       * `rw`: Sequential reads and writes.
-      * `randrw`: Random reads and writes.
+      * `randread`: Random reads and writes.
       * `randwrite`: Random writes.
       * `randread`: Random reads.
     * `--bs`: Read and write block size. To get better results, specify a value that is equal to the disk block size or less.
@@ -93,7 +107,8 @@ You can test the performance of your network disks with [fio](https://fio.readth
 ```bash
 sudo fio \
 --name=readio \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=write \
 --bs=4k \
@@ -122,7 +137,8 @@ Result:
 ```bash
 sudo fio \
 --name=randwrite \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=randwrite \
 --bs=4k \
@@ -151,7 +167,8 @@ write: IOPS=9596, BW=37.5MiB/s (39.3MB/s)(4499MiB/120011msec); 0 zone resets
 ```bash
 sudo fio \
 --name=writebw \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=write \
 --bs=4M \
@@ -180,7 +197,8 @@ Result:
 ```bash
 sudo fio \
 --name=readio \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=read \
 --bs=4k \
@@ -209,7 +227,8 @@ Result:
 ```bash
 sudo fio \
 --name=readbw \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=read \
 --bs=4M \
@@ -238,7 +257,8 @@ Result:
 ```bash
 sudo fio \
 --name=randread \
---filename=/dev/vdd \
+--filename=<path_to_mount_point>/testfile.bin \
+--filesize=1G \
 --direct=1 \
 --rw=randread \
 --bs=4k \
@@ -266,10 +286,10 @@ Result:
 
 If a VM exceeds [disk limits](limits.md#compute-limits-disks) at any time, this will trigger throttling.
 
-_Throttling_ is a feature that intentionally limits performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. Since all write and read operations are processed in a single thread (vCPU), overloading system disks may cause network problems. This is true for both VMs and physical servers.
+_Throttling_ is a feature that forcibly limits the performance. When throttled, disk operations are suspended, and the disk operation wait time (`iowait`) is increased. The processes maintaining the operation of [network disks](disk.md) are separated from the user load and run on compute cores from a [separate pool](software-accelerated-network.md#reg-vm), the service cores. Overloading system disks may cause network problems. This is true for both VMs and physical servers.
 
 > For example, let's assume there is a write limit of 300 IPOS. The limit is split into 10 parts and applies once every 100 ms. 300 / 10 = 30 IOPS per write request will be allowed every 100 ms. If you send 30 requests once and then 30 more requests within 100 ms (evenly distributed across the 100 ms interval), this will trigger throttling and only the first 30 requests will be sent. The rest of them will be enqueued and processed within the next 100 ms. If write requests are executed sporadically, throttling may cause significant delays. At times, there will be up to N IOPS of requests within 100 ms.
 
-Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, consequently, the performance.
+Disk performance depends on its [size](disk.md#maximum-disk-size). To improve the overall performance of the disk subsystem, use VMs with SSD network storage (`network-ssd`). Every increment of 32 GB increases the number of allocation units and, in turn, the performance.
 
 You can select the storage type only when creating a VM. However, you can [take a disk snapshot](../operations/disk-control/create-snapshot.md) and [create a new VM](../operations/vm-create/create-from-snapshots.md) from such a snapshot with a `network-ssd`.

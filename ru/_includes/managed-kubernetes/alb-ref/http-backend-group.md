@@ -1,7 +1,8 @@
 # Поля ресурса HttpBackendGroup
 
-
 Ресурс `HttpBackendGroup` позволяет объединять бэкенды — сервисы {{ k8s }}, между которыми распределяется трафик, — в группу. По таким ресурсам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md).
+
+{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
 
 Указание на `HttpBackendGroup` нужно добавить в [ресурс `Ingress`](../../../application-load-balancer/k8s-ref/ingress.md).
 
@@ -39,6 +40,10 @@ spec:
           unhealthyThreshold: <int32>
           timeout: <string>
           interval: <string>
+      loadBalancingConfig:
+        balancerMode: <string>
+        panicThreshold: <int64>
+        localityAwareRouting: <int64>
     - ...
 ```
 
@@ -159,3 +164,28 @@ spec:
         Интервал отправки проверочных запросов в секундах.
 
         Возможные значения — от `1s` до `60s`. Значение `interval` должно быть больше значения `timeout` минимум на одну секунду.
+
+      {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+
+    * `loadBalancingConfig` (`LoadBalancingConfig`)
+
+      Настройки балансировки.
+
+      * `balancerMode` (`string`)
+
+        Режим распределения трафика между эндпоинтами бэкенда. Возможные значения — `ROUND_ROBIN`, `RANDOM`, `LEAST_REQUEST`, `MAGLEV_HASH`. [Подробнее о каждом режиме](../../../application-load-balancer/concepts/backend-group.md#balancing-mode).
+
+      * `panicThreshold` (`int64`)
+
+        Процент работоспособных эндпоинтов. Если он опустится ниже указанного, включится [режим паники](../../../application-load-balancer/concepts/backend-group.md#panic-mode).
+
+        Значение по умолчанию — `0`, при котором режим паники не активируется никогда.
+
+      * `localityAwareRouting` (`int64`)
+
+        Процент входящего трафика, который балансировщик передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. [Подробнее о локализации трафика](../../../application-load-balancer/concepts/backend-group.md#locality).
+
+        Значение по умолчанию — `0`.
+
+
+

@@ -1,21 +1,20 @@
 title: Yandex WebSQL
 description:
   - >-
-    Yandex WebSQL — это сервис Yandex Cloud, который позволит вам подключаться к
-    кластерам управляемых БД, работать с БД, таблицами и схемами и выполнять
-    запросы. Сервис работает в браузере, не требует дополнительной авторизации и
-    предлагает удобные подсказки для работы с SQL-командами.
+    Yandex WebSQL — это сервис Yandex Cloud, который позволяет вам подключаться
+    к кластерам управляемых БД, работать с БД, таблицами и схемами и выполнять
+    запросы. Сервис работает в браузере и предлагает удобные подсказки для
+    работы с SQL-командами.
   - >-
     Yandex WebSQL поддерживает интеграцию с сервисом Yandex MetaData Hub на
     уровне каталога пользователя. Созданные в WebSQL подключения автоматически
     появляются в Connection Manager сервиса MetaData Hub и наоборот.
   - >-
     Yandex WebSQL поддерживает работу со следующими версиями БД: <ul>
-    <li>PostgreSQL: 12, 13, 14, 15, 16.</li> <li>MySQL: 5, 8.</li>
-    <li>ClickHouse®: 23, 24.</li> <li>Redis (только нешардированные кластеры):
-    6.2, 7.</li> </ul>
-meta:
-  title: Yandex WebSQL
+    <li>PostgreSQL: 12 и выше.</li> <li>MySQL: 5 и выше.</li> <li>ClickHouse®:
+    23 и выше.</li> <li>Redis/Valkey™ (только нешардированные кластеры): 6 и
+    выше.</li> <li>MongoDB/Yandex StoreDoc: 6 и выше.</li> <li>Yandex Managed
+    Service for Trino: 454 и выше.</li> <li>Greenplum®: 6 и выше.</li>     </ul>
 links:
   - title: Начало работы
     description: Подключитесь к базе данных
@@ -29,6 +28,21 @@ links:
   - title: Квоты и лимиты
     description: Технические и организационные ограничения сервиса
     href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex WebSQL
+  keywords:
+    - '{{ websql-name }}'
+    - '{{ websql-full-name }}'
+    - Сервис {{ websql-name }}
+    - '{{ websql-name }} в {{ yandex-cloud }}'
+    - SQL в {{ yandex-cloud }}
+    - Как подключиться к базе данных {{ yandex-cloud }}
+    - Как подключиться к кластеру {{ yandex-cloud }}
+    - Как подключиться к публичной базе данных
+    - сервис для работы с SQL-командами

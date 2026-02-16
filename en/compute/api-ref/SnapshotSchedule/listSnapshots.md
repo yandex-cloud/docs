@@ -1,9 +1,44 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/snapshots
+    method: get
+    path:
+      type: object
+      properties:
+        snapshotScheduleId:
+          description: |-
+            **string**
+            ID of the snapshot schedule to list created snapshots for.
+            To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request.
+          type: string
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSnapshotScheduleOperationsResponse.nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSnapshotScheduleOperationsResponse.nextPageToken](/docs/compute/api-ref/SnapshotSchedule/listOperations#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsResponse) returned by a previous list request.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/listSnapshots.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.ListSnapshots {#ListSnapshots}
+# Compute Cloud API, REST: SnapshotSchedule.ListSnapshots
 
 Retrieves the list of snapshots created by the specified snapshot schedule.
 
@@ -54,7 +89,7 @@ Page token. To get the next page of results, set `pageToken` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "storageSize": "string",
       "diskSize": "string",
       "productIds": [
@@ -69,6 +104,10 @@ Page token. To get the next page of results, set `pageToken` to the
         },
         "generation2Features": "object"
         // end of the list of possible fields
+      },
+      "kmsKey": {
+        "keyId": "string",
+        "versionId": "string"
       }
     }
   ],
@@ -116,7 +155,7 @@ Name of the snapshot. 1-63 characters long. ||
 || description | **string**
 
 Description of the snapshot. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || storageSize | **string** (int64)
@@ -139,7 +178,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the snapshot.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Snapshot is being created.
 - `READY`: Snapshot is ready to use.
 - `ERROR`: Snapshot encountered a problem and cannot operate.
@@ -151,6 +189,9 @@ ID of the source disk used to create this snapshot. ||
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this snapshot as source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -179,7 +220,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

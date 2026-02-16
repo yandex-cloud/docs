@@ -7,12 +7,12 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Подключиться к провайдеру {{ cdn-name }}
-        href: operations/enable-provider.md
       - name: Ресурсы
         items:
           - name: Создать ресурс
             href: operations/resources/create-resource.md
+          - name: Копировать конфигурацию одного ресурса в другой
+            href: operations/resources/copy-resource.md
           - name: Изменить основные настройки ресурса
             href: operations/resources/configure-basics.md
           - name: Получить информацию о ресурсе
@@ -39,12 +39,18 @@ items:
             href: operations/resources/enable-shielding.md
           - name: Настроить перенаправление запросов
             href: operations/resources/setup-http-rewrite.md
+          - name: Настроить следование перенаправлениям запросов
+            href: operations/resources/setup-follow-redirects.md
+          - name: Настроить скрытие заголовков от источника
+            href: operations/resources/hiding-headers.md
           - name: Настроить доступ по защищенному токену
             href: operations/resources/enable-secure-token.md
-          - name: Управлять дополнительными настройками ресурса
-            href: operations/resources/configure-additions.md
+          - name: Настроить локационные правила
+            href: operations/resources/location-rules.md
           - name: Отключить ресурс
             href: operations/resources/disable-resource.md
+          - name: Управление метками ресурса
+            href: operations/resources/labeling.md
           - name: Удалить ресурс
             href: operations/resources/delete-resource.md
           - name: Посмотреть статистику ресурса
@@ -61,6 +67,9 @@ items:
             href: operations/origin-groups/get-group-info.md
           - name: Удалить группу источников
             href: operations/origin-groups/delete-group.md
+      - name: Миграция ресурса из EdgeCDN
+        href: operations/migration.md
+        hidden: true
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -69,16 +78,42 @@ items:
         href: tutorials/prefetch.md
       - name: Редактирование изображений для сайтов с помощью Thumbor
         href: tutorials/thumbor.md
-      - name: Интеграция L7-балансировщика с CDN и Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+        items:
+          - name: Обзор
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Сине-зеленое и канареечное развертывание версий сервиса
         href: tutorials/blue-green-canary-deployment.md
       - name: Организация защищенного доступа к контенту
-        href: tutorials/protected-access-to-content.md
+        items:
+          - name: Обзор
+            href: tutorials/protected-access-to-content/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: tutorials/protected-access-to-content/terraform.md
+      - name: Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
+        href: tutorials/migrate-to-yc-cdn.md
+      - name: >-
+          Настройка хостинга статического сайта в бакете {{ objstorage-full-name
+          }} с доступом через {{ cdn-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/cdn-hosting/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
   - name: Концепции
     items:
       - name: Обзор сервиса
         href: concepts/index.md
+      - name: Точки присутствия
+        href: concepts/points-of-presence.md
       - name: Ресурс
         href: concepts/resource.md
       - name: Источники и их группы
@@ -103,6 +138,10 @@ items:
             href: concepts/slicing.md
           - name: Экранирование источников
             href: concepts/origins-shielding.md
+          - name: Следование перенаправлениям запросов
+            href: concepts/follow-redirects.md
+          - name: Скрытие заголовков от источника
+            href: concepts/hiding-headers.md
       - name: Перенаправление запросов
         href: concepts/http-rewrite.md
       - name: Кеширование контента
@@ -111,16 +150,82 @@ items:
         href: concepts/secure-tokens.md
       - name: Политика доступа по IP-адресам
         href: concepts/ip-address-acl.md
+      - name: Локационные правила
+        href: concepts/location-rules.md
       - name: Выгрузка логов
         href: concepts/logs.md
+      - name: Метки
+        href: concepts/labels.md
       - name: Квоты и лимиты
         href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/cdn/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cache
+        items:
+          - name: Overview
+            href: cli-ref/cache/index.md
+          - name: prefetch
+            href: cli-ref/cache/prefetch.md
+          - name: purge
+            href: cli-ref/cache/purge.md
+      - name: origin
+        items:
+          - name: Overview
+            href: cli-ref/origin/index.md
+          - name: create
+            href: cli-ref/origin/create.md
+          - name: delete
+            href: cli-ref/origin/delete.md
+          - name: get
+            href: cli-ref/origin/get.md
+          - name: list
+            href: cli-ref/origin/list.md
+          - name: update
+            href: cli-ref/origin/update.md
+      - name: origin-group
+        items:
+          - name: Overview
+            href: cli-ref/origin-group/index.md
+          - name: create
+            href: cli-ref/origin-group/create.md
+          - name: delete
+            href: cli-ref/origin-group/delete.md
+          - name: get
+            href: cli-ref/origin-group/get.md
+          - name: list
+            href: cli-ref/origin-group/list.md
+          - name: update
+            href: cli-ref/origin-group/update.md
+      - name: provider
+        items:
+          - name: Overview
+            href: cli-ref/provider/index.md
+          - name: activate
+            href: cli-ref/provider/activate.md
+          - name: list-activated
+            href: cli-ref/provider/list-activated.md
+      - name: resource
+        items:
+          - name: Overview
+            href: cli-ref/resource/index.md
+          - name: create
+            href: cli-ref/resource/create.md
+          - name: delete
+            href: cli-ref/resource/delete.md
+          - name: get
+            href: cli-ref/resource/get.md
+          - name: get-provider-cname
+            href: cli-ref/resource/get-provider-cname.md
+          - name: list
+            href: cli-ref/resource/list.md
+          - name: update
+            href: cli-ref/resource/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -225,6 +330,22 @@ items:
                 href: api-ref/grpc/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/grpc/Resource/getProviderCName.md
+              - name: GetAttributes
+                href: api-ref/grpc/Resource/getAttributes.md
+          - name: Shielding
+            items:
+              - name: Overview
+                href: api-ref/grpc/Shielding/index.md
+              - name: Activate
+                href: api-ref/grpc/Shielding/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/Shielding/deactivate.md
+              - name: Get
+                href: api-ref/grpc/Shielding/get.md
+              - name: Update
+                href: api-ref/grpc/Shielding/update.md
+              - name: ListAvailableLocations
+                href: api-ref/grpc/Shielding/listAvailableLocations.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -324,12 +445,50 @@ items:
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
   - name: Метрики {{ monitoring-name }}
-    href: metrics.md
+    href: metrics-yc.md
+  - name: Логи запросов
+    href: logs-ref.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Справочник аудитных логов
+    items:
+      - name: CachePrefetch
+        href: events-ref/CachePrefetch.md
+      - name: CachePurge
+        href: events-ref/CachePurge.md
+      - name: OriginCreate
+        href: events-ref/OriginCreate.md
+      - name: OriginDelete
+        href: events-ref/OriginDelete.md
+      - name: OriginGroupCreate
+        href: events-ref/OriginGroupCreate.md
+      - name: OriginGroupDelete
+        href: events-ref/OriginGroupDelete.md
+      - name: OriginGroupUpdate
+        href: events-ref/OriginGroupUpdate.md
+      - name: OriginUpdate
+        href: events-ref/OriginUpdate.md
+      - name: ProviderActivate
+        href: events-ref/ProviderActivate.md
+      - name: RawLogsActivate
+        href: events-ref/RawLogsActivate.md
+      - name: RawLogsDeactivate
+        href: events-ref/RawLogsDeactivate.md
+      - name: RawLogsUpdate
+        href: events-ref/RawLogsUpdate.md
+      - name: ResourceCreate
+        href: events-ref/ResourceCreate.md
+      - name: ResourceDelete
+        href: events-ref/ResourceDelete.md
+      - name: ResourceRuleCreate
+        href: events-ref/ResourceRuleCreate.md
+      - name: ResourceRuleDelete
+        href: events-ref/ResourceRuleDelete.md
+      - name: ResourceRuleUpdate
+        href: events-ref/ResourceRuleUpdate.md
+      - name: ResourceUpdate
+        href: events-ref/ResourceUpdate.md
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем
     href: troubleshooting.md
-base: ru/cdn
-deepBase: 2

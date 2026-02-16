@@ -22,7 +22,7 @@ SELECT * FROM ydb_connection.my_table
 Чтобы создать соединение с {{ ydb-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
@@ -58,7 +58,19 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
-{% include [!](_includes/predicate_pushdown.md) %}
+{% include [!](_includes/predicate_pushdown_preamble.md) %}
+
+|Описание|Пример|Ограничение|
+|---|---|---|
+|Фильтров вида `IS NULL`/`IS NOT NULL`|`WHERE column1 IS NULL` или `WHERE column1 IS NOT NULL`||
+|Логических условий `OR`, `NOT`, `AND` и круглых скобок для управления приоритетом вычислений. |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.||
+|Операторов сравнения `=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, `<=` с другими колонками или константами.|`WHERE column1 > column2 OR column3 <= 10`.||
+|Оператора сопоставления строк с образцом `LIKE`.|`WHERE column1 LIKE '_abc%'`|В настоящее время поддерживается пушдаун только простых паттернов, основанных на префиксах (`'abc_'`, `'abc%'`), суффиксах (`'_abc'`, `'%abc'`) или поиске подстроки в строке (`'_abc_'`, `'%abc%'`, `'_abc%'`, `'%abc_'`). При необходимости пушдауна более сложных паттернов рекомендуется воспользоваться `REGEXP`.|
+|Оператора сопоставления строк с образцом `REGEXP`.|`WHERE column1 REGEXP '.*abc.*'`||
+
+При использовании других видов фильтров пушдаун на источник не выполняется: фильтрация строк внешней таблицы будет выполнена на стороне федеративной {{ yq-full-name }}, что означает, что {{ yq-full-name }} выполнит полное чтение (full scan) внешней таблицы в момент обработки запроса.
+
+Поддерживаемые типы данных для пушдауна фильтров:
 
 |Тип данных {{ yq-full-name }}|
 |----|
@@ -101,6 +113,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `String` | `String` |
 | `Utf8` | `Utf8` |
 | `Json` | `Json` |
+| `JsonDocument` | `Json` |
 
 ### Опциональные типы данных {#supported_types_nullable}
 
@@ -123,4 +136,5 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Optional<String>` | `Optional<String>` |
 | `Optional<Utf8>` | `Optional<Utf8>` |
 | `Optional<Json>` | `Optional<Json>` |
+| `Optional<JsonDocument>` | `Optional<Json>` |
 

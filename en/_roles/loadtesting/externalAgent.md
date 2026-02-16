@@ -6,6 +6,6 @@ Users with this role can:
 * Create and edit load test configurations.
 * Upload the test [result](../../load-testing/concepts/load-test-results.md) data to the storage.
 
-This role also includes the `loadtesting.generatorClient` permissions.
+This role includes the `loadtesting.generatorClient` permissions.
 
 Assign this role to the [service account](../../iam/concepts/users/service-accounts.md) under which you create a VM with an agent.

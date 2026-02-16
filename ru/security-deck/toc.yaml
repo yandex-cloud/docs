@@ -10,43 +10,185 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Контроль данных (DSPM)
+      - name: Окружения {{ sd-name }}
         items:
+          - name: Обзор
+            href: operations/workspaces/index.md
+          - name: Создать окружение
+            href: operations/workspaces/create.md
+          - name: Посмотреть дашборд и операции с окружением
+            href: operations/workspaces/view-dashboard.md
+          - name: Изменить окружение
+            href: operations/workspaces/update.md
+          - name: Настроить права доступа к окружению
+            href: operations/workspaces/manage-access.md
+          - name: Удалить окружение
+            href: operations/workspaces/delete.md
+      - name: Контроль данных ({{ dspm-name }})
+        items:
+          - name: Обзор
+            href: operations/dspm/index.md
           - name: Создать источник данных
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
-      - name: Диагностика доступов (CIEM)
+      - name: Контроль {{ k8s }}® (KSPM)
         items:
+          - name: Обзор
+            href: operations/kspm/index.md
+          - name: Активировать модуль KSPM
+            href: operations/kspm/enable-kspm.md
+          - name: Работать с дашбордом
+            href: operations/kspm/use-kspm.md
+          - name: Посмотреть правила контроля
+            href: operations/kspm/view-rules.md
+          - name: Проверить соответствие стандартам безопасности
+            href: operations/kspm/check-compliance.md
+          - name: Управлять исключениями из правил контроля
+            href: operations/kspm/manage-exceptions.md
+      - name: Диагностика доступов ({{ ciem-name }})
+        items:
+          - name: Обзор
+            href: operations/ciem/index.md
           - name: Просмотреть список доступов
             href: operations/ciem/view-permissions.md
           - name: Отозвать доступ
             href: operations/ciem/revoke-permissions.md
+      - name: Контроль конфигурации ({{ cspm-name }})
+        items:
+          - name: Обзор
+            href: operations/cspm/index.md
+          - name: Посмотреть правила контроля и нарушения
+            href: operations/cspm/view-rules.md
+          - name: Проверить соответствие стандартам безопасности
+            href: operations/cspm/check-compliance.md
+          - name: Управлять исключениями из правил контроля
+            href: operations/cspm/manage-exceptions.md
   - name: Концепции
     items:
       - name: Обзор
         href: concepts/index.md
-      - name: Access Transparency
-        href: concepts/access-transparency.md
-      - name: Контроль данных (DSPM)
+      - name: Окружения {{ sd-name }}
+        href: concepts/workspace.md
+      - name: '{{ alerts-name }} в {{ sd-name }}'
+        href: concepts/alerts.md
+      - name: Интерфейс соответствия требованиям
+        items:
+          - name: Обзор
+            href: concepts/standard-compliance/index.md
+          - name: Базовые правила безопасности облачной платформы {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-security-baseline.md
+          - name: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-cloud-security-standard.md
+      - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
-      - name: Диагностика доступов (CIEM)
+      - name: Контроль {{ k8s }}® (KSPM)
+        href: concepts/kspm.md
+      - name: Диагностика доступов ({{ ciem-name }})
         href: concepts/ciem.md
+      - name: Контроль конфигурации ({{ cspm-name }})
+        href: concepts/cspm.md
+      - name: '{{ atr-name }}'
+        href: concepts/access-transparency.md
       - name: Портал соответствия требованиям
         href: concepts/compliance.md
+      - name: AI-ассистент
+        href: concepts/ai-assistant.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Управление доступом
+  - name: Диагностика ошибок
     items:
       - name: Обзор
+        href: diagnostics/index.md
+      - name: Ошибки в работе KSPM
+        href: diagnostics/kspm-diagnostics.md
+      - name: Ошибки в работе DSPM
+        href: diagnostics/dspm-diagnostics.md
+  - name: Управление доступом
+    items:
+      - name: Общие роли {{ sd-name }}
         href: security/index.md
-      - name: Роли Access Transparency
-        href: security/access-transparency-roles.md
-      - name: Роли DSPM
+      - name: Роли {{ dspm-name }}
         href: security/dspm-roles.md
-      - name: Роли CIEM
+      - name: Роли KSPM
+        href: security/kspm-roles.md
+      - name: Роли {{ ciem-name }}
         href: security/ciem-roles.md
+      - name: Роли {{ cspm-name }}
+        href: security/cspm-roles.md
+      - name: Роли {{ atr-name }}
+        href: security/access-transparency-roles.md
+      - name: Роли модуля {{ alerts-name }}
+        href: security/alerts-roles.md
   - name: Правила тарификации
     href: pricing.md
-base: ru/security-deck
-deepBase: 2
+  - name: Справочник API
+    items:
+      - name: Аутентификация
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Alert
+            items:
+              - name: Overview
+                href: api-ref/grpc/Alert/index.md
+              - name: List
+                href: api-ref/grpc/Alert/list.md
+              - name: Get
+                href: api-ref/grpc/Alert/get.md
+              - name: Update
+                href: api-ref/grpc/Alert/update.md
+              - name: ListRelatedResources
+                href: api-ref/grpc/Alert/listRelatedResources.md
+          - name: Comment
+            items:
+              - name: Overview
+                href: api-ref/grpc/Comment/index.md
+              - name: List
+                href: api-ref/grpc/Comment/list.md
+              - name: Create
+                href: api-ref/grpc/Comment/create.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Alert
+            items:
+              - name: Overview
+                href: api-ref/Alert/index.md
+              - name: List
+                href: api-ref/Alert/list.md
+              - name: Get
+                href: api-ref/Alert/get.md
+              - name: Update
+                href: api-ref/Alert/update.md
+          - name: Comment
+            items:
+              - name: Overview
+                href: api-ref/Comment/index.md
+              - name: List
+                href: api-ref/Comment/list.md
+              - name: Create
+                href: api-ref/Comment/create.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: Аудитные логи {{ at-name }}
+    href: at-ref.md
+  - name: История изменений
+    href: release-notes.md

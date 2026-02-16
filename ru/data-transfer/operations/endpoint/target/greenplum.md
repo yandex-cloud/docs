@@ -21,6 +21,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * [Миграция кластера {{ GP }}](../../../tutorials/managed-greenplum.md);
     * [Миграция со сменой хранилища: {{ MY }} в {{ GP }}](../../../tutorials/mmy-to-mgp.md).
+    * [Миграция со сменой хранилища: {{ OS }} в {{ GP }}](../../../tutorials/opensearch-to-greenplum.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
     * [Поставка данных из {{ KF }} в {{ GP }}](../../../tutorials/managed-kafka-to-greenplum.md).
@@ -42,6 +43,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ ydb-name }}](../source/ydb.md);
 * [Oracle](../source/oracle.md).
 
@@ -68,8 +70,7 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endnote %}
 
-
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 

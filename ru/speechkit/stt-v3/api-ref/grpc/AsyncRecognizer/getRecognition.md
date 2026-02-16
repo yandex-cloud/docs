@@ -3,7 +3,9 @@ editable: false
 sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRecognition.md
 ---
 
-# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.GetRecognition {#GetRecognition}
+# SpeechKit Recognition API v3, gRPC: AsyncRecognizer.GetRecognition
+
+Gets results of asynchronous recognition after finishing the operation.
 
 ## gRPC request
 
@@ -13,56 +15,56 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
 
 ```json
 {
-  "operationId": "string"
+  "operation_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| operationId | **string** ||
+|| operation_id | **string** ||
 |#
 
 ## StreamingResponse {#speechkit.stt.v3.StreamingResponse}
 
 ```json
 {
-  "sessionUuid": {
+  "session_uuid": {
     "uuid": "string",
-    "userRequestId": "string"
+    "user_request_id": "string"
   },
-  "audioCursors": {
-    "receivedDataMs": "int64",
-    "resetTimeMs": "int64",
-    "partialTimeMs": "int64",
-    "finalTimeMs": "int64",
-    "finalIndex": "int64",
-    "eouTimeMs": "int64"
+  "audio_cursors": {
+    "received_data_ms": "int64",
+    "reset_time_ms": "int64",
+    "partial_time_ms": "int64",
+    "final_time_ms": "int64",
+    "final_index": "int64",
+    "eou_time_ms": "int64"
   },
-  "responseWallTimeMs": "int64",
-  // Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`
+  "response_wall_time_ms": "int64",
+  // Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`
   "partial": {
     "alternatives": [
       {
         "words": [
           {
             "text": "string",
-            "startTimeMs": "int64",
-            "endTimeMs": "int64"
+            "start_time_ms": "int64",
+            "end_time_ms": "int64"
           }
         ],
         "text": "string",
-        "startTimeMs": "int64",
-        "endTimeMs": "int64",
+        "start_time_ms": "int64",
+        "end_time_ms": "int64",
         "confidence": "double",
         "languages": [
           {
-            "languageCode": "string",
+            "language_code": "string",
             "probability": "double"
           }
         ]
       }
     ],
-    "channelTag": "string"
+    "channel_tag": "string"
   },
   "final": {
     "alternatives": [
@@ -70,71 +72,71 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         "words": [
           {
             "text": "string",
-            "startTimeMs": "int64",
-            "endTimeMs": "int64"
+            "start_time_ms": "int64",
+            "end_time_ms": "int64"
           }
         ],
         "text": "string",
-        "startTimeMs": "int64",
-        "endTimeMs": "int64",
+        "start_time_ms": "int64",
+        "end_time_ms": "int64",
         "confidence": "double",
         "languages": [
           {
-            "languageCode": "string",
+            "language_code": "string",
             "probability": "double"
           }
         ]
       }
     ],
-    "channelTag": "string"
+    "channel_tag": "string"
   },
-  "eouUpdate": {
-    "timeMs": "int64"
+  "eou_update": {
+    "time_ms": "int64"
   },
-  "finalRefinement": {
-    "finalIndex": "int64",
-    // Includes only one of the fields `normalizedText`
-    "normalizedText": {
+  "final_refinement": {
+    "final_index": "int64",
+    // Includes only one of the fields `normalized_text`
+    "normalized_text": {
       "alternatives": [
         {
           "words": [
             {
               "text": "string",
-              "startTimeMs": "int64",
-              "endTimeMs": "int64"
+              "start_time_ms": "int64",
+              "end_time_ms": "int64"
             }
           ],
           "text": "string",
-          "startTimeMs": "int64",
-          "endTimeMs": "int64",
+          "start_time_ms": "int64",
+          "end_time_ms": "int64",
           "confidence": "double",
           "languages": [
             {
-              "languageCode": "string",
+              "language_code": "string",
               "probability": "double"
             }
           ]
         }
       ],
-      "channelTag": "string"
+      "channel_tag": "string"
     }
     // end of the list of possible fields
   },
-  "statusCode": {
-    "codeType": "CodeType",
+  "status_code": {
+    "code_type": "CodeType",
     "message": "string"
   },
-  "classifierUpdate": {
-    "windowType": "WindowType",
-    "startTimeMs": "int64",
-    "endTimeMs": "int64",
-    "classifierResult": {
+  "classifier_update": {
+    "window_type": "WindowType",
+    "start_time_ms": "int64",
+    "end_time_ms": "int64",
+    "classifier_result": {
       "classifier": "string",
       "highlights": [
         {
           "text": "string",
-          "startTimeMs": "int64",
-          "endTimeMs": "int64"
+          "start_time_ms": "int64",
+          "end_time_ms": "int64"
         }
       ],
       "labels": [
@@ -145,20 +147,20 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
       ]
     }
   },
-  "speakerAnalysis": {
-    "speakerTag": "string",
-    "windowType": "WindowType",
-    "speechBoundaries": {
-      "startTimeMs": "int64",
-      "endTimeMs": "int64"
+  "speaker_analysis": {
+    "speaker_tag": "string",
+    "window_type": "WindowType",
+    "speech_boundaries": {
+      "start_time_ms": "int64",
+      "end_time_ms": "int64"
     },
-    "totalSpeechMs": "int64",
-    "speechRatio": "double",
-    "totalSilenceMs": "int64",
-    "silenceRatio": "double",
-    "wordsCount": "int64",
-    "lettersCount": "int64",
-    "wordsPerSecond": {
+    "total_speech_ms": "int64",
+    "speech_ratio": "double",
+    "total_silence_ms": "int64",
+    "silence_ratio": "double",
+    "words_count": "int64",
+    "letters_count": "int64",
+    "words_per_second": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -170,7 +172,7 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "lettersPerSecond": {
+    "letters_per_second": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -182,7 +184,7 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "wordsPerUtterance": {
+    "words_per_utterance": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -194,7 +196,7 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "lettersPerUtterance": {
+    "letters_per_utterance": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -206,8 +208,8 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "utteranceCount": "int64",
-    "utteranceDurationEstimation": {
+    "utterance_count": "int64",
+    "utterance_duration_estimation": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -220,14 +222,14 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
       ]
     }
   },
-  "conversationAnalysis": {
-    "conversationBoundaries": {
-      "startTimeMs": "int64",
-      "endTimeMs": "int64"
+  "conversation_analysis": {
+    "conversation_boundaries": {
+      "start_time_ms": "int64",
+      "end_time_ms": "int64"
     },
-    "totalSimultaneousSilenceDurationMs": "int64",
-    "totalSimultaneousSilenceRatio": "double",
-    "simultaneousSilenceDurationEstimation": {
+    "total_simultaneous_silence_duration_ms": "int64",
+    "total_simultaneous_silence_ratio": "double",
+    "simultaneous_silence_duration_estimation": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -239,9 +241,9 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "totalSimultaneousSpeechDurationMs": "int64",
-    "totalSimultaneousSpeechRatio": "double",
-    "simultaneousSpeechDurationEstimation": {
+    "total_simultaneous_speech_duration_ms": "int64",
+    "total_simultaneous_speech_ratio": "double",
+    "simultaneous_speech_duration_estimation": {
       "min": "double",
       "max": "double",
       "mean": "double",
@@ -253,87 +255,102 @@ sourcePath: en/_api-ref-grpc/ai/stt/v3/stt-v3/api-ref/grpc/AsyncRecognizer/getRe
         }
       ]
     },
-    "speakerInterrupts": [
+    "speaker_interrupts": [
       {
-        "speakerTag": "string",
-        "interruptsCount": "int64",
-        "interruptsDurationMs": "int64",
+        "speaker_tag": "string",
+        "interrupts_count": "int64",
+        "interrupts_duration_ms": "int64",
         "interrupts": [
           {
-            "startTimeMs": "int64",
-            "endTimeMs": "int64"
+            "start_time_ms": "int64",
+            "end_time_ms": "int64"
           }
         ]
       }
     ],
-    "totalSpeechDurationMs": "int64",
-    "totalSpeechRatio": "double"
+    "total_speech_duration_ms": "int64",
+    "total_speech_ratio": "double"
+  },
+  "summarization": {
+    "results": [
+      {
+        "response": "string"
+      }
+    ],
+    "content_usage": {
+      "input_text_tokens": "int64",
+      "completion_tokens": "int64",
+      "total_tokens": "int64"
+    }
   },
   // end of the list of possible fields
-  "channelTag": "string"
+  "channel_tag": "string"
 }
 ```
 
 Responses from server.
-Each response contains session uuid
-AudioCursors
-plus specific event
+Each response contains session UUID, AudioCursors, and specific event.
 
 #|
 ||Field | Description ||
-|| sessionUuid | **[SessionUuid](#speechkit.stt.v3.SessionUuid)**
+|| session_uuid | **[SessionUuid](#speechkit.stt.v3.SessionUuid)**
 
-Session identifier ||
-|| audioCursors | **[AudioCursors](#speechkit.stt.v3.AudioCursors)**
+Session identifier. ||
+|| audio_cursors | **[AudioCursors](#speechkit.stt.v3.AudioCursors)**
 
 Progress bar for stream session recognition: how many data we obtained; final and partial times; etc. ||
-|| responseWallTimeMs | **int64**
+|| response_wall_time_ms | **int64**
 
-Wall clock on server side. This is time when server wrote results to stream ||
+Wall clock on server side. This is time when server wrote results to stream. ||
 || partial | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
-Partial results, server will send them regularly after enough audio data was received from user. This are current text estimation
-from final_time_ms to partial_time_ms. Could change after new data will arrive.
+Partial results, server will send them regularly after enough audio data was received from user.
+This is the current text estimation from `final_time_ms` to `partial_time_ms`. Could change after new data will arrive.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
 || final | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
-Final results, the recognition is now fixed until final_time_ms. For now, final is sent only if the EOU event was triggered. This could be change in future releases.
+Final results, the recognition is now fixed until `final_time_ms`. For now, final is sent only if the EOU event was triggered. This behavior could be changed in future releases.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| eouUpdate | **[EouUpdate](#speechkit.stt.v3.EouUpdate)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| eou_update | **[EouUpdate](#speechkit.stt.v3.EouUpdate)**
 
 After EOU classifier, send the message with final, send the EouUpdate with time of EOU
 before eou_update we send final with the same time. there could be several finals before eou update.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| finalRefinement | **[FinalRefinement](#speechkit.stt.v3.FinalRefinement)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| final_refinement | **[FinalRefinement](#speechkit.stt.v3.FinalRefinement)**
 
 For each final, if normalization is enabled, sent the normalized text (or some other advanced post-processing).
 Final normalization will introduce additional latency.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| statusCode | **[StatusCode](#speechkit.stt.v3.StatusCode)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| status_code | **[StatusCode](#speechkit.stt.v3.StatusCode)**
 
 Status messages, send by server with fixed interval (keep-alive).
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| classifierUpdate | **[RecognitionClassifierUpdate](#speechkit.stt.v3.RecognitionClassifierUpdate)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| classifier_update | **[RecognitionClassifierUpdate](#speechkit.stt.v3.RecognitionClassifierUpdate)**
 
-Result of the triggered classifier
+Result of the triggered classifier.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| speakerAnalysis | **[SpeakerAnalysis](#speechkit.stt.v3.SpeakerAnalysis)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| speaker_analysis | **[SpeakerAnalysis](#speechkit.stt.v3.SpeakerAnalysis)**
 
-Speech statistics for every speaker
+Speech statistics for every speaker.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| conversationAnalysis | **[ConversationAnalysis](#speechkit.stt.v3.ConversationAnalysis)**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| conversation_analysis | **[ConversationAnalysis](#speechkit.stt.v3.ConversationAnalysis)**
 
-Conversation statistics
+Conversation statistics.
 
-Includes only one of the fields `partial`, `final`, `eouUpdate`, `finalRefinement`, `statusCode`, `classifierUpdate`, `speakerAnalysis`, `conversationAnalysis`. ||
-|| channelTag | **string**
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| summarization | **[Summarization](#speechkit.stt.v3.Summarization)**
+
+Summary.
+
+Includes only one of the fields `partial`, `final`, `eou_update`, `final_refinement`, `status_code`, `classifier_update`, `speaker_analysis`, `conversation_analysis`, `summarization`. ||
+|| channel_tag | **string**
 
 Tag for distinguish audio channels. ||
 |#
@@ -347,7 +364,7 @@ Session identifier.
 || uuid | **string**
 
 Internal session identifier. ||
-|| userRequestId | **string**
+|| user_request_id | **string**
 
 User session identifier. ||
 |#
@@ -358,27 +375,27 @@ AudioCursors are state of ASR recognition stream.
 
 #|
 ||Field | Description ||
-|| receivedDataMs | **int64**
+|| received_data_ms | **int64**
 
 Amount of audio chunks server received. This cursor is moved after each audio chunk was received by server. ||
-|| resetTimeMs | **int64**
+|| reset_time_ms | **int64**
 
 Input stream reset data. ||
-|| partialTimeMs | **int64**
+|| partial_time_ms | **int64**
 
-How much audio was processed. This time includes trimming silences as well. This cursor is moved after server received enough data
-to update recognition results (includes silence as well). ||
-|| finalTimeMs | **int64**
+How much audio was processed. This time includes trimming silences as well.
+This cursor is moved after server received enough data to update recognition results (includes silence as well). ||
+|| final_time_ms | **int64**
 
-Time of last final. This cursor is moved when server decides that recognition from start of audio until final_time_ms will not change anymore
-usually this even is followed by EOU detection (but this could change in future). ||
-|| finalIndex | **int64**
+Time of last final. This cursor is moved when server decides that recognition from start of audio until `final_time_ms` will not change anymore
+usually this event is followed by EOU detection. This behavior could change in future. ||
+|| final_index | **int64**
 
 This is index of last final server send. Incremented after each new final. ||
-|| eouTimeMs | **int64**
+|| eou_time_ms | **int64**
 
 Estimated time of EOU. Cursor is updated after each new EOU is sent.
-For external classifier this equals to received_data_ms at the moment EOU event arrives.
+For external classifier this equals to `received_data_ms` at the moment EOU event arrives.
 For internal classifier this is estimation of time. The time is not exact and has the same guarantees as word timings. ||
 |#
 
@@ -391,7 +408,7 @@ Update of hypothesis.
 || alternatives[] | **[Alternative](#speechkit.stt.v3.Alternative)**
 
 List of hypothesis for timeframes. ||
-|| channelTag | **string** ||
+|| channel_tag | **string** ||
 |#
 
 ## Alternative {#speechkit.stt.v3.Alternative}
@@ -406,10 +423,10 @@ Words in time frame. ||
 || text | **string**
 
 Text in time frame. ||
-|| startTimeMs | **int64**
+|| start_time_ms | **int64**
 
 Start of time frame. ||
-|| endTimeMs | **int64**
+|| end_time_ms | **int64**
 
 End of time frame. ||
 || confidence | **double**
@@ -429,10 +446,10 @@ Recognized word.
 || text | **string**
 
 Word text. ||
-|| startTimeMs | **int64**
+|| start_time_ms | **int64**
 
 Estimation of word start time in ms. ||
-|| endTimeMs | **int64**
+|| end_time_ms | **int64**
 
 Estimation of word end time in ms. ||
 |#
@@ -443,9 +460,9 @@ Estimation of language and its probability.
 
 #|
 ||Field | Description ||
-|| languageCode | **string**
+|| language_code | **string**
 
-Language code in ISO 639-1 format. ||
+Language tag in IETF BCP 47 format, consisting of ISO 639-1 language code and ISO 3166-1 country code (e.g., en-US, ru-RU). ||
 || probability | **double**
 
 Estimation of language probability. ||
@@ -457,7 +474,7 @@ Update information for external End of Utterance.
 
 #|
 ||Field | Description ||
-|| timeMs | **int64**
+|| time_ms | **int64**
 
 EOU estimated time. ||
 |#
@@ -468,31 +485,31 @@ Refinement for final hypo. For example, text normalization is refinement.
 
 #|
 ||Field | Description ||
-|| finalIndex | **int64**
+|| final_index | **int64**
 
 Index of final for which server sends additional information. ||
-|| normalizedText | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
+|| normalized_text | **[AlternativeUpdate](#speechkit.stt.v3.AlternativeUpdate)**
 
 Normalized text instead of raw one.
 
-Includes only one of the fields `normalizedText`.
+Includes only one of the fields `normalized_text`.
 
 Type of refinement. ||
 |#
 
 ## StatusCode {#speechkit.stt.v3.StatusCode}
 
-Status message
+Status message.
 
 #|
 ||Field | Description ||
-|| codeType | enum **CodeType**
+|| code_type | enum **CodeType**
 
 Code type.
 
 - `CODE_TYPE_UNSPECIFIED`
 - `WORKING`: All good.
-- `WARNING`: For example, if speech is sent not in real time or context is unknown and we've made fallback.
+- `WARNING`: For example, if speech is sent not in real-time or context is unknown and we've made fallback.
 - `CLOSED`: After session was closed. ||
 || message | **string**
 
@@ -503,23 +520,23 @@ Human readable message. ||
 
 #|
 ||Field | Description ||
-|| windowType | enum **WindowType**
+|| window_type | enum **WindowType**
 
-Response window type
+Response window type.
 
 - `WINDOW_TYPE_UNSPECIFIED`
-- `LAST_UTTERANCE`: The result of applying the classifier to the last utterance response
-- `LAST_FINAL`: The result of applying the classifier to the last final response
-- `LAST_PARTIAL`: The result of applying the classifier to the last partial response ||
-|| startTimeMs | **int64**
+- `LAST_UTTERANCE`: The result of applying the classifier to the last utterance response.
+- `LAST_FINAL`: The result of applying the classifier to the last final response.
+- `LAST_PARTIAL`: The result of applying the classifier to the last partial response. ||
+|| start_time_ms | **int64**
 
-Start time of the audio segment used for classification ||
-|| endTimeMs | **int64**
+Start time of the audio segment used for classification. ||
+|| end_time_ms | **int64**
 
-End time of the audio segment used for classification ||
-|| classifierResult | **[RecognitionClassifierResult](#speechkit.stt.v3.RecognitionClassifierResult)**
+End time of the audio segment used for classification. ||
+|| classifier_result | **[RecognitionClassifierResult](#speechkit.stt.v3.RecognitionClassifierResult)**
 
-Result for dictionary-based classifier ||
+Result for dictionary-based classifier. ||
 |#
 
 ## RecognitionClassifierResult {#speechkit.stt.v3.RecognitionClassifierResult}
@@ -528,13 +545,13 @@ Result for dictionary-based classifier ||
 ||Field | Description ||
 || classifier | **string**
 
-Name of the triggered classifier ||
+Name of the triggered classifier. ||
 || highlights[] | **[PhraseHighlight](#speechkit.stt.v3.PhraseHighlight)**
 
-List of highlights, i.e. parts of phrase that determine the result of the classification ||
+List of highlights, i.e. parts of phrase that determine the result of the classification. ||
 || labels[] | **[RecognitionClassifierLabel](#speechkit.stt.v3.RecognitionClassifierLabel)**
 
-Classifier predictions ||
+Classifier predictions. ||
 |#
 
 ## PhraseHighlight {#speechkit.stt.v3.PhraseHighlight}
@@ -543,13 +560,13 @@ Classifier predictions ||
 ||Field | Description ||
 || text | **string**
 
-Text transcription of the highlighted audio segment ||
-|| startTimeMs | **int64**
+Text transcription of the highlighted audio segment. ||
+|| start_time_ms | **int64**
 
-Start time of the highlighted audio segment ||
-|| endTimeMs | **int64**
+Start time of the highlighted audio segment. ||
+|| end_time_ms | **int64**
 
-End time of the highlighted audio segment ||
+End time of the highlighted audio segment. ||
 |#
 
 ## RecognitionClassifierLabel {#speechkit.stt.v3.RecognitionClassifierLabel}
@@ -558,63 +575,63 @@ End time of the highlighted audio segment ||
 ||Field | Description ||
 || label | **string**
 
-The label of the class predicted by the classifier ||
+The label of the class predicted by the classifier. ||
 || confidence | **double**
 
-The prediction confidence ||
+The prediction confidence. ||
 |#
 
 ## SpeakerAnalysis {#speechkit.stt.v3.SpeakerAnalysis}
 
 #|
 ||Field | Description ||
-|| speakerTag | **string**
+|| speaker_tag | **string**
 
-Speaker tag ||
-|| windowType | enum **WindowType**
+Speaker tag. ||
+|| window_type | enum **WindowType**
 
-Response window type
+Response window type.
 
 - `WINDOW_TYPE_UNSPECIFIED`
 - `TOTAL`: Stats for all received audio.
 - `LAST_UTTERANCE`: Stats for last utterance. ||
-|| speechBoundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
+|| speech_boundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Audio segment boundaries ||
-|| totalSpeechMs | **int64**
+Audio segment boundaries. ||
+|| total_speech_ms | **int64**
 
-Total speech duration ||
-|| speechRatio | **double**
+Total speech duration. ||
+|| speech_ratio | **double**
 
-Speech ratio within audio segment ||
-|| totalSilenceMs | **int64**
+Speech ratio within audio segment. ||
+|| total_silence_ms | **int64**
 
-Total silence duration ||
-|| silenceRatio | **double**
+Total duration of silence. ||
+|| silence_ratio | **double**
 
-Silence ratio within audio segment ||
-|| wordsCount | **int64**
+Silence ratio within audio segment. ||
+|| words_count | **int64**
 
-Number of words in recognized speech ||
-|| lettersCount | **int64**
+Number of words in recognized speech. ||
+|| letters_count | **int64**
 
-Number of letters in recognized speech ||
-|| wordsPerSecond | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Number of letters in recognized speech. ||
+|| words_per_second | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for words per second distribution ||
-|| lettersPerSecond | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Descriptive statistics for words per second distribution. ||
+|| letters_per_second | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for letters per second distribution ||
-|| wordsPerUtterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Descriptive statistics for letters per second distribution. ||
+|| words_per_utterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for words per utterance distribution ||
-|| lettersPerUtterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Descriptive statistics for words per utterance distribution. ||
+|| letters_per_utterance | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for letters per utterance distribution ||
-|| utteranceCount | **int64**
+Descriptive statistics for letters per utterance distribution. ||
+|| utterance_count | **int64**
 
 Number of utterances ||
-|| utteranceDurationEstimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+|| utterance_duration_estimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
 Descriptive statistics for utterance duration distribution ||
 |#
@@ -623,12 +640,12 @@ Descriptive statistics for utterance duration distribution ||
 
 #|
 ||Field | Description ||
-|| startTimeMs | **int64**
+|| start_time_ms | **int64**
 
-Audio segment start time ||
-|| endTimeMs | **int64**
+Audio segment start time. ||
+|| end_time_ms | **int64**
 
-Audio segment end time ||
+Audio segment end time. ||
 |#
 
 ## DescriptiveStatistics {#speechkit.stt.v3.DescriptiveStatistics}
@@ -637,19 +654,19 @@ Audio segment end time ||
 ||Field | Description ||
 || min | **double**
 
-Minimum observed value ||
+Minimum observed value. ||
 || max | **double**
 
-Maximum observed value ||
+Maximum observed value. ||
 || mean | **double**
 
-Estimated mean of distribution ||
+Estimated mean of distribution. ||
 || std | **double**
 
-Estimated standard deviation of distribution ||
+Estimated standard deviation of distribution. ||
 || quantiles[] | **[Quantile](#speechkit.stt.v3.DescriptiveStatistics.Quantile)**
 
-List of evaluated quantiles ||
+List of evaluated quantiles. ||
 |#
 
 ## Quantile {#speechkit.stt.v3.DescriptiveStatistics.Quantile}
@@ -658,62 +675,102 @@ List of evaluated quantiles ||
 ||Field | Description ||
 || level | **double**
 
-Quantile level in range (0, 1) ||
+Quantile level in range (0, 1). ||
 || value | **double**
 
-Quantile value ||
+Quantile value. ||
 |#
 
 ## ConversationAnalysis {#speechkit.stt.v3.ConversationAnalysis}
 
 #|
 ||Field | Description ||
-|| conversationBoundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
+|| conversation_boundaries | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Audio segment boundaries ||
-|| totalSimultaneousSilenceDurationMs | **int64**
+Audio segment boundaries. ||
+|| total_simultaneous_silence_duration_ms | **int64**
 
-Total simultaneous silence duration ||
-|| totalSimultaneousSilenceRatio | **double**
+Total simultaneous silence duration. ||
+|| total_simultaneous_silence_ratio | **double**
 
-Simultaneous silence ratio within audio segment ||
-|| simultaneousSilenceDurationEstimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Simultaneous silence ratio within audio segment. ||
+|| simultaneous_silence_duration_estimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for simultaneous silence duration distribution ||
-|| totalSimultaneousSpeechDurationMs | **int64**
+Descriptive statistics for simultaneous silence duration distribution. ||
+|| total_simultaneous_speech_duration_ms | **int64**
 
-Total simultaneous speech duration ||
-|| totalSimultaneousSpeechRatio | **double**
+Total simultaneous speech duration. ||
+|| total_simultaneous_speech_ratio | **double**
 
-Simultaneous speech ratio within audio segment ||
-|| simultaneousSpeechDurationEstimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
+Simultaneous speech ratio within audio segment. ||
+|| simultaneous_speech_duration_estimation | **[DescriptiveStatistics](#speechkit.stt.v3.DescriptiveStatistics)**
 
-Descriptive statistics for simultaneous speech duration distribution ||
-|| speakerInterrupts[] | **[InterruptsEvaluation](#speechkit.stt.v3.ConversationAnalysis.InterruptsEvaluation)**
+Descriptive statistics for simultaneous speech duration distribution. ||
+|| speaker_interrupts[] | **[InterruptsEvaluation](#speechkit.stt.v3.ConversationAnalysis.InterruptsEvaluation)**
 
-Interrupts description for every speaker ||
-|| totalSpeechDurationMs | **int64**
+Interrupts description for every speaker. ||
+|| total_speech_duration_ms | **int64**
 
-Total speech duration, including both simultaneous and separate speech ||
-|| totalSpeechRatio | **double**
+Total speech duration, including both simultaneous and separate speech. ||
+|| total_speech_ratio | **double**
 
-Total speech ratio within audio segment ||
+Total speech ratio within audio segment. ||
 |#
 
 ## InterruptsEvaluation {#speechkit.stt.v3.ConversationAnalysis.InterruptsEvaluation}
 
 #|
 ||Field | Description ||
-|| speakerTag | **string**
+|| speaker_tag | **string**
 
-Speaker tag ||
-|| interruptsCount | **int64**
+Speaker tag. ||
+|| interrupts_count | **int64**
 
-Number of interrupts made by the speaker ||
-|| interruptsDurationMs | **int64**
+Number of interrupts made by the speaker. ||
+|| interrupts_duration_ms | **int64**
 
-Total duration of all interrupts ||
+Total duration of all interrupts. ||
 || interrupts[] | **[AudioSegmentBoundaries](#speechkit.stt.v3.AudioSegmentBoundaries)**
 
-Boundaries for every interrupt ||
+Boundaries for every interrupt. ||
+|#
+
+## Summarization {#speechkit.stt.v3.Summarization}
+
+#|
+||Field | Description ||
+|| results[] | **[SummarizationPropertyResult](#speechkit.stt.v3.SummarizationPropertyResult)**
+
+A list of summarizations of transcription. ||
+|| content_usage | **[ContentUsage](#speechkit.stt.v3.ContentUsage)**
+
+A set of statistics describing the number of content tokens used by the completion model. ||
+|#
+
+## SummarizationPropertyResult {#speechkit.stt.v3.SummarizationPropertyResult}
+
+Represents summarization response entry for transcription.
+
+#|
+||Field | Description ||
+|| response | **string**
+
+Summarization response text. ||
+|#
+
+## ContentUsage {#speechkit.stt.v3.ContentUsage}
+
+An object representing the number of content [tokens](/docs/foundation-models/concepts/yandexgpt/tokens) used by the completion model.
+
+#|
+||Field | Description ||
+|| input_text_tokens | **int64**
+
+The number of tokens in the textual part of the model input. ||
+|| completion_tokens | **int64**
+
+The number of tokens in the generated completion. ||
+|| total_tokens | **int64**
+
+The total number of tokens, including all input tokens and all generated tokens. ||
 |#

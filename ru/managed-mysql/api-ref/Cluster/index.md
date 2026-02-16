@@ -31,4 +31,7 @@ A set of methods for managing MySQL clusters.
 || [AddHosts](addHosts.md) | Adds new hosts in a cluster. ||
 || [UpdateHosts](updateHosts.md) | Updates the specified hosts. ||
 || [DeleteHosts](deleteHosts.md) | Deletes the specified hosts for a cluster. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified MySQL cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified MySQL cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified MySQL cluster. ||
 |#

@@ -1,3 +1,8 @@
+---
+title: Поддерживаемые форматы аудио
+description: 'Из статьи вы узнаете про поддерживаемые форматы аудио: LPCM, WAV, MP3 и OggOpus.'
+---
+
 # Поддерживаемые форматы аудио
 
 {{ speechsense-name }} позволяет [загружать аудио](../operations/data/upload-data.md) в форматах:
@@ -6,6 +11,12 @@
 * [WAV](#WAV);
 * [MP3](#MP3) — предпочтительный формат;
 * [OggOpus](#OggOpus).
+
+{% note info %}
+
+{% include notitle [max-duration](../../_includes/speechsense/data/max-duration.md) %}
+
+{% endnote %}
 
 ## LPCM {#lpcm}
 

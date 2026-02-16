@@ -1,4 +1,4 @@
-# Посмотреть операции с ресурсами сервиса
+# Посмотреть операции с ресурсами сервиса {{ cloud-desktop-name }}
 
 Все действия с ресурсами сервиса {{ cloud-desktop-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
@@ -11,7 +11,7 @@
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для [рабочего стола](../concepts/desktops-and-groups.md). Для других ресурсов сервиса последовательность действий такая же.
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится рабочий стол.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/display.svg) **{{ ui-key.yacloud.vdi.label_desktops }}**.
   1. Выберите нужный рабочий стол.
   1. Перейдите на панель ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранного рабочего стола.
@@ -49,7 +49,7 @@
   +----------------------+---------------------+----------------------+---------------------+---------+-----------------+
   ```
 
-  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью флага `--format`:
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
 
   ```bash
   yc desktops desktop list-operations e3v7nfkhn0q4******** --format yaml
@@ -76,6 +76,10 @@
       '@type': type.googleapis.com/yandex.cloud.clouddesktop.v1.api.CreateDesktopMetadata
       desktop_id: e3v7nfkhn0q4********
   ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Desktop/listOperations.md) для ресурса [Desktop](../api-ref/Desktop/index.md) или вызовом gRPC API [DesktopService/ListOperations](../api-ref/grpc/Desktop/listOperations.md).
 
 {% endlist %}
 

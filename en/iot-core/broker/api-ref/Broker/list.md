@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list brokers in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListBrokersResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokersResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListBrokersResponse.nextPageToken](#yandex.cloud.iot.broker.v1.ListBrokersResponse) returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/list.md
 ---
 
-# IoT Core Broker Service, REST: Broker.List {#List}
+# IoT Core Broker Service, REST: Broker.List
 
 Retrieves the list of brokers in the specified folder.
 
@@ -47,7 +81,7 @@ Page token. To get the next page of results, set `page_token` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "logOptions": {
         "disabled": "boolean",
@@ -105,7 +139,7 @@ Name of the broker. The name is unique within the folder. ||
 || description | **string**
 
 Description of the broker. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

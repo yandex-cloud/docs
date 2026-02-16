@@ -1,20 +1,46 @@
 title: Yandex Cloud Postbox
 description:
-  - Yandex Cloud Postbox is a transactional email service.
+  - Yandex Cloud Postbox is an email service.
+  - >-
+    Use Cloud Postbox to save time and money on server management, network
+    configuration, and reputation monitoring of IP addresses. Yandex Cloud
+    Postbox provides: <ul><li>Ready-made infrastructure used by Yandex for its
+    own tasks.</li> <li>Flexible monitoring and logging through integration with
+    <a href="/docs/monitoring/">Yandex Monitoring</a> and <a
+    href="/docs/logging/">Yandex Cloud Logging</a>.</li> <li>Compliance with
+    international and national standards.</li> <li>Simplified integration with
+    other {{ yandex-cloud }} services and your applications.</li></ul>
 nav:
   title: Yandex Cloud Postbox
+links:
+  - title: Getting started
+    description: Learn how to get started with Yandex Cloud Postbox
+    href: quickstart
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
 meta:
   title: Yandex Cloud Postbox
   description: >-
     Yandex Cloud Postbox enables sending transactional messages, such as those
     about password recovery or order placement.
-links:
-  - title: Getting started
-    description: Learn how to get started with Yandex Cloud Postbox
-    href: quickstart
-  - title: Quotas and limits
-    description: Technical and organizational limitations of the service
-    href: concepts/limits
-  - title: Pricing policy
-    description: Service pricing and cost calculations
-    href: pricing
+  keywords:
+    - postbox
+    - yandex postbox
+    - cloud postbox
+    - '{{ postbox-full-name }}'
+    - '{{ postbox-name }}'
+    - mailing in {{ yandex-cloud }}
+    - email in {{ yandex-cloud }}
+    - emails in {{ yandex-cloud }}
+    - mailing lists in {{ yandex-cloud }}
+    - mailing lists
+    - sending emails
+    - emailing lists
+    - email sending

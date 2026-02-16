@@ -1,16 +1,16 @@
-# Connecting a domain
+# Adding a domain
 
-You can connect your own domain to access the API gateway. You can connect a wildcard domain, e.g., `*.example.com`, to the API gateway for it to handle requests for all `example.com` subdomains. You can also connect multiple domains. The domain will be identified by the `Host` header.
+You can add your own domain to access the API gateway. You can add a wildcard domain, e.g., `*.example.com`, to the API gateway for it to handle requests for all `example.com` subdomains. You can also add multiple domains. The domain will be identified by the `Host` header.
 
 {% note warning %}
 
-If a third-party DNS provider manages your domain, it must be a third-level domain or lower. For example, you can connect the `www.example.com` domain, but not `example.com`. This has to do with how CNAME records are processed on DNS hostings. Learn more in [RFC 1912, section 2.4](https://www.ietf.org/rfc/rfc1912.txt).
+If a third-party DNS provider manages your domain, it must be a third-level domain or lower. For example, you can add the `www.example.com` domain, but not `example.com`. This has to do with how CNAME records are processed on DNS hostings. Learn more in [RFC 1912, section 2.4](https://www.ietf.org/rfc/rfc1912.txt).
 
-To use the second-level domain, such as `example.com`, delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/concepts/resource-record.md#aname) in the DNS zone.
+To use a second-level domain, such as `example.com`, delegate it to [{{ dns-full-name }}](../../dns/) and create an [ANAME record](../../dns/concepts/resource-record.md#aname) in the DNS zone.
 
 {% endnote %}
 
-To connect a domain to an API gateway:
+To add a domain to an API gateway:
 
 {% list tabs group=instructions %}
 
@@ -24,10 +24,10 @@ To connect a domain to an API gateway:
 
         To find out an API gateway's service domain:
 
-       1. Go to the [management console]({{ link-console-main }}).
-       1. Select the folder where the API gateway is located, and in the service list, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+       1. Navigate to the [management console]({{ link-console-main }}).
+       1. Select the folder where the API gateway is located and [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Select the API gateway.
-       1. You can see the service domain under **{{ ui-key.yacloud.serverless-functions.gateways.overview.section_base }}**.
+       1. You can see the service domain in the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field.
 
         Domain names must end in a dot.
 
@@ -35,13 +35,13 @@ To connect a domain to an API gateway:
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the API gateway.
 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and:
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** and do the following:
 
-        1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [custom certificate](../../certificate-manager/operations/import/cert-create.md) for the domain to connect.
+        1. Add a [Let's Encrypt<sup>®</sup> certificate](../../certificate-manager/operations/managed/cert-create.md) or a [user certificate](../../certificate-manager/operations/import/cert-create.md) for the domain you are adding.
 
             {% note info %}
 
-            Be sure to timely update your certificates. For more info, refer to our guides on [updating Let's Encrypt<sup>®</sup> certificates](../../certificate-manager/operations/managed/cert-update.md) and [custom certificates](../../certificate-manager/operations/import/cert-update.md).
+            Make sure to timely update your certificates. Learn more about updating [Let's Encrypt<sup>®</sup> certificates](../../certificate-manager/operations/managed/cert-update.md) and [custom certificates](../../certificate-manager/operations/import/cert-update.md).
 
             {% endnote %}
 
@@ -49,7 +49,7 @@ To connect a domain to an API gateway:
     
     1. Go back to the folder page.
 
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and:
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
 
         1. Select the API gateway.
         1. In the window that opens, go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.

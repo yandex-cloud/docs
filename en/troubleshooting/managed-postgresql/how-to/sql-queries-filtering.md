@@ -1,15 +1,15 @@
 # How to set up SQL query filtering
 
 
-## Scenario description {#case-description}
+
+## Case description {#case-description}
 
 You need to set up SQL query filtering.
 
 ## Solution {#case-resolution}
 
-Currently, there is filtering only by the `hostname` and `error_severity` fields.
+Currently, you can only filter queries by the `hostname` and `error_severity` fields.
 
-One way to work with logs would be to export them from the API service and import them, for instance, to the `Cloud Logging` service, where you can [filter and view the logs](../../../logging/concepts/filter).
+You can also work with logs by exporting them from the service API and importing them to {{ cloud-logging-name }}, where you can [filter and view the logs](../../../logging/concepts/filter.md). 
 
 You can also export queries using a script and perform filtering with console utilities.
-

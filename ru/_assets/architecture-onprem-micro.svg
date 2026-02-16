@@ -1,0 +1,709 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3134" height="1601" preserveAspectRatio="none" style="width:3134px;height:1601px;background:#fff" viewBox="0 0 3134 1601">
+    <path fill="none" d="M1804.657 902.5h115.557a3.75 3.75 0 0 1 2.5 2.5l7 19.988h447.943a2.5 2.5 0 0 1 2.5 2.5V1450a2.5 2.5 0 0 1-2.5 2.5h-573a2.5 2.5 0 0 1-2.5-2.5V905a2.5 2.5 0 0 1 2.5-2.5" style="stroke:#000;stroke-width:1.5"/>
+    <path d="M1802.157 924.988h127.557" style="stroke:#000;stroke-width:1.5"/>
+    <text x="1806.157" y="918.035" font-family="sans-serif" font-size="14" textLength="114.557">transcribe_frame</text>
+    <path fill="none" d="M123.657 910.5h107.47a3.75 3.75 0 0 1 2.5 2.5l7 19.988h464.03a2.5 2.5 0 0 1 2.5 2.5V1452a2.5 2.5 0 0 1-2.5 2.5h-581a2.5 2.5 0 0 1-2.5-2.5V913a2.5 2.5 0 0 1 2.5-2.5" style="stroke:#000;stroke-width:1.5"/>
+    <path d="M121.157 932.988h119.47" style="stroke:#000;stroke-width:1.5"/>
+    <text x="125.157" y="926.035" font-family="sans-serif" font-size="14" textLength="106.47">classifier_frame</text>
+    <path fill="none" d="M894.657 902.5h149.278a3.75 3.75 0 0 1 2.5 2.5l7 19.988h446.222a2.5 2.5 0 0 1 2.5 2.5V1450a2.5 2.5 0 0 1-2.5 2.5h-605a2.5 2.5 0 0 1-2.5-2.5V905a2.5 2.5 0 0 1 2.5-2.5" style="stroke:#000;stroke-width:1.5"/>
+    <path d="M892.157 924.988h161.278" style="stroke:#000;stroke-width:1.5"/>
+    <text x="896.157" y="918.035" font-family="sans-serif" font-size="14" textLength="148.278">summarization_frame</text>
+    <path fill="none" d="M2422.657 910.5h124.047a3.75 3.75 0 0 1 2.5 2.5l7 19.988h447.453a2.5 2.5 0 0 1 2.5 2.5V1450a2.5 2.5 0 0 1-2.5 2.5h-581a2.5 2.5 0 0 1-2.5-2.5V913a2.5 2.5 0 0 1 2.5-2.5" style="stroke:#000;stroke-width:1.5"/>
+    <path d="M2420.157 932.988h136.047" style="stroke:#000;stroke-width:1.5"/>
+    <text x="2424.157" y="926.035" font-family="sans-serif" font-size="14" textLength="123.047">embedding_frame</text>
+    <path fill="none" d="M190.657 505H298.25a3.75 3.75 0 0 1 2.5 2.5l7 19.988h390.907a2.5 2.5 0 0 1 2.5 2.5V814a2.5 2.5 0 0 1-2.5 2.5h-508a2.5 2.5 0 0 1-2.5-2.5V507.5a2.5 2.5 0 0 1 2.5-2.5" style="stroke:#000;stroke-width:1.5"/>
+    <path d="M188.157 527.488H307.75" style="stroke:#000;stroke-width:1.5"/>
+    <text x="192.157" y="520.535" font-family="sans-serif" font-size="14" textLength="106.593">statistics_frame</text>
+    <rect width="203.664" height="86.844" x="1528.157" y="4" fill="#08427B" rx="2.5" ry="2.5" style="stroke:#073b6f;stroke-width:.5"/>
+    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" width="48" height="48" x="1605.989" y="14"/>
+    <text x="1538.157" y="77.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="115.773">Пользователь</text>
+    <text x="1653.931" y="77.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1659.204" y="77.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="62.617">фронта</text>
+    <rect width="248.953" height="86.844" x="463.657" y="159" fill="#08427B" rx="2.5" ry="2.5" style="stroke:#073b6f;stroke-width:.5"/>
+    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" width="48" height="48" x="564.134" y="169"/>
+    <text x="473.657" y="232.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="109.789">Технический</text>
+    <text x="583.446" y="232.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="588.72" y="232.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="113.891">пользователь</text>
+    <rect width="167.945" height="86.844" x="1208.157" y="545.5" fill="#08427B" rx="2.5" ry="2.5" style="stroke:#073b6f;stroke-width:.5"/>
+    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACMElEQVR4Xu2YvUrFQBCFb+kj+Ai+gq3Y2PgA+gCCtZ2V2AhqaSNiqY1gYWMjaCvXykoEKy21sLCNfELgMscksz8mWfDAB3Kuye7sTmYnmcwtbU9KRozSECOVla3T6uTqvrqZPlcPT68/XNw+VtvH19XC+sGe/f9UxIhl8/Cy+vj8qrpEYIsbR1N7fSxihDK/urvMKoeKHbH3ikGMEJi8Z9WbtH92lxyEGCHErLwVqWfvG4IYXkiBXGIn7f29iOGBAe0kUkTVsmN4EcMD255bdgwvYnigFOYW54cdx4MYHlIqT5Niy6oYHuzgORRbUsXwYAfPoV4DeHl7t+MnK/Y8EMMDzVlu9foQ5y6jFAU7hhcxvOSsRLH5D2J4KbqVqMlxoK3tnEevPogRAiuXUpFiD69ZxIghZidSV75GjFiYkGc3KMEpOW8RIxXed0kNJsrOAO0ypTfnxGvEKA0xSkMMD3zfIedJFQ4hCPlUwrX1daQWbURseonRBhNue1D5rc53JkVQwN9c21Wt+D20JxLjN7hpztahSwTi3RExLDlbhhCxm55PkWLMkrvrDBW73rUTYtSQu/aGQ4h0snNzBdD1wPWptrZDDBjL6tfiebBzbA2AUjg2NT3QYkBbrR9KTS/9YoC9eAxqeu0UI/eH21yiu7VzLSqApnIqxn8Af6TiA3A/A9Bn5+lV0xcMMWDoJs6qrakTo4a6OwZxqLa97YkxC1HzMkMzNQRtE3cFUAJilMY3OGTNL0NDLqIAAAAASUVORK5CYII=" width="48" height="48" x="1268.13" y="555.5"/>
+    <text x="1218.157" y="618.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="115.773">Пользователь</text>
+    <text x="1333.931" y="618.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1339.204" y="618.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="26.898">API</text>
+    <rect width="317.938" height="118.93" x="1254.157" y="328" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1388.099" y="353.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="50.055">Lobby</text>
+    <text x="1360.892" y="368.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="1391.789" y="368.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1395.586" y="368.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="69.773">PostgreSQL]</text>
+    <text x="1410.911" y="384.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1264.157" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="70.725">Операции</text>
+    <text x="1334.882" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1339.311" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.171">с</text>
+    <text x="1346.482" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1350.912" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="118.118">пространствами,</text>
+    <text x="1469.03" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1473.46" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="75.435">проектами</text>
+    <text x="1548.894" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1553.324" y="401" fill="#FFF" font-family="sans-serif" font-size="14" textLength="8.771">и</text>
+    <text x="1354.166" y="417.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="117.92">коннекшеннами.</text>
+    <text x="1304.462" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="60.84">Загрузка</text>
+    <text x="1365.302" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1369.731" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="65.598">диалогов</text>
+    <text x="1435.329" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1439.759" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.349">в</text>
+    <text x="1447.107" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1451.537" y="433.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="70.253">коннекшн</text>
+    <rect width="288.529" height="102.441" x="1089.657" y="714.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1185.949" y="739.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="35.773">Talk</text>
+    <text x="1221.723" y="739.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1226.996" y="739.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="54.898">Router</text>
+    <text x="1181.688" y="754.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="1212.585" y="754.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1216.382" y="754.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="69.773">PostgreSQL]</text>
+    <text x="1231.707" y="771.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1099.657" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.373">Ставит</text>
+    <text x="1147.03" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1151.46" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.701">задачи</text>
+    <text x="1199.161" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1203.591" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="88.464">алгоритмам,</text>
+    <text x="1292.055" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1296.484" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="71.702">сохраняет</text>
+    <text x="1136.294" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.9">текущее</text>
+    <text x="1194.195" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1198.624" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="71.114">состояние</text>
+    <text x="1269.739" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1274.168" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <rect width="137.867" height="85.953" x="1394.157" y="546" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1404.157" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="54.219">Search</text>
+    <text x="1458.376" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1463.649" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.375">Service</text>
+    <text x="1409.149" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="1440.046" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1443.843" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="73.189">OpenSearch]</text>
+    <text x="1460.876" y="602.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1406.725" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="42.704">Поиск</text>
+    <text x="1449.429" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1453.859" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="65.598">диалогов</text>
+    <rect width="166.768" height="85.953" x="1717.657" y="546" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1741.721" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="54.992">Report</text>
+    <text x="1796.713" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1801.986" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.375">Service</text>
+    <text x="1749.323" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="1780.22" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1784.016" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="68.742">ClickHouse]</text>
+    <text x="1798.826" y="602.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1727.657" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="88.819">Составление</text>
+    <text x="1816.476" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1820.906" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="53.519">отчетов</text>
+    <rect width="290.484" height="102.441" x="1941.157" y="336.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2035.837" y="361.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="37.477">User</text>
+    <text x="2073.313" y="361.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2078.587" y="361.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.375">Service</text>
+    <text x="2034.166" y="376.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="2065.062" y="376.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="2068.859" y="376.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="69.773">PostgreSQL]</text>
+    <text x="2084.184" y="393.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1951.157" y="409.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="71.9">Управляет</text>
+    <text x="2023.057" y="409.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2027.487" y="409.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="91.308">настройками</text>
+    <text x="2118.795" y="409.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2123.224" y="409.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="98.417">кастомизации</text>
+    <text x="2058.273" y="425.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="56.253">экранов</text>
+    <path fill="#1168BD" d="M2249.157 357c0-10 66.82-10 66.82-10s66.82 0 66.82 10v60.82c0 10-66.82 10-66.82 10s-66.82 0-66.82-10V357" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M2249.157 357c0 10 66.82 10 66.82 10s66.82 0 66.82-10" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2306.13" y="386.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="19.695">S3</text>
+    <text x="2313.763" y="403.379" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2259.157" y="419.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="67.218">Хранение</text>
+    <text x="2326.375" y="419.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2330.805" y="419.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="41.993">аудио</text>
+    <path fill="#1168BD" d="M1478.157 735c0-10 139.821-10 139.821-10s139.822 0 139.822 10v60.82c0 10-139.822 10-139.822 10s-139.82 0-139.82-10V735" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1478.157 735c0 10 139.821 10 139.821 10s139.822 0 139.822-10" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1608.131" y="764.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="19.695">S3</text>
+    <text x="1615.764" y="781.379" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1488.157" y="797.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="76.569">Временное</text>
+    <text x="1564.726" y="797.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1569.156" y="797.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="67.04">хранение</text>
+    <text x="1636.196" y="797.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1640.626" y="797.867" fill="#FFF" font-family="sans-serif" font-size="14" textLength="107.174">Excel-выгрузок</text>
+    <rect width="71.734" height="38.844" x="1634.157" y="183" fill="#B3B3B3" rx="2.5" ry="2.5" style="stroke:#a6a6a6;stroke-width:.5"/>
+    <text x="1644.157" y="208.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="51.734">Фронт</text>
+    <path fill="#438DD5" d="M919.157 551h266.28c5 0 5 37.977 5 37.977s0 37.976-5 37.976h-266.28c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1185.436 551c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="951.699" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="191.195">talk-analytics.task.new</text>
+    <text x="1027.138" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="1045.082" y="602.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="919.157" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="48.542">Задачи</text>
+    <text x="967.699" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="972.129" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="988.631" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="993.06" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="72.707">обработку</text>
+    <text x="1065.767" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1070.197" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="43.429">новых</text>
+    <text x="1113.626" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1118.056" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <path fill="#438DD5" d="M760.157 719.5h262.25c5 0 5 46.22 5 46.22s0 46.221-5 46.221h-262.25c-5 0-5-46.22-5-46.22s0-46.221 5-46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1022.407 719.5c-5 0-5 46.22-5 46.22 0 46.221 5 46.221 5 46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="760.157" y="739.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="252.25">talk-analytics.topology.update</text>
+    <text x="866.123" y="754.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="884.067" y="771.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="770.539" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="59.76">События</text>
+    <text x="830.299" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="834.729" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="17.37">по</text>
+    <text x="852.099" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="856.529" y="787.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="145.496">созданию/удалению</text>
+    <text x="771.852" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="95.225">организаций,</text>
+    <text x="867.077" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="871.506" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="60.06">спейсов,</text>
+    <text x="931.567" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="935.996" y="803.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="64.716">проектов</text>
+    <path fill="#438DD5" d="M1517.657 956.5H1748.9c5 0 5 37.977 5 37.977s0 37.976-5 37.976h-231.242c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1748.9 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1517.657" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="221.242">talk-analytics.talk.updated</text>
+    <text x="1608.119" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="1626.063" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1554.72" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="85.306">Обновление</text>
+    <text x="1640.026" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1644.456" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <path fill="#438DD5" d="M2079.157 948.5h288.045c5 0 5 46.22 5 46.22s0 46.221-5 46.221h-288.045c-5 0-5-46.22-5-46.22s0-46.221 5-46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M2367.202 948.5c-5 0-5 46.22-5 46.22 0 46.221 5 46.221 5 46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2110.894" y="968.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="214.57">talk-analytics.transcibe.in</text>
+    <text x="2198.02" y="983.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="2215.965" y="1000.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2079.157" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.503">Задача</text>
+    <text x="2126.66" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2131.09" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="2147.592" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2152.021" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="110.291">транскрибацию</text>
+    <text x="2262.312" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2266.742" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.171">с</text>
+    <text x="2273.913" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2278.343" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.928">ссылкой</text>
+    <text x="2336.27" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2340.7" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="2197.183" y="1032.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="41.993">аудио</text>
+    <path fill="#438DD5" d="M1815.157 956.5h236.07c5 0 5 37.977 5 37.977s0 37.976-5 37.976h-236.07c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M2051.227 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1815.157" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="226.07">talk-analytics.transcibe.out</text>
+    <text x="1908.033" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="1925.977" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1822.963" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="103.496">Переведённый</text>
+    <text x="1926.459" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1930.889" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.349">в</text>
+    <text x="1938.238" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1942.667" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="36.675">текст</text>
+    <text x="1979.342" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1983.772" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="49.649">диалог</text>
+    <rect width="174.567" height="71.82" x="2133.657" y="1372.5" fill="#999" rx="2.5" ry="2.5" style="stroke:#8a8a8a;stroke-width:.5"/>
+    <text x="2178.023" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="57.516">Speech</text>
+    <text x="2235.539" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2240.812" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="23.047">Kit</text>
+    <text x="2218.726" y="1414.879" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2143.657" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="108.144">Транскрибация</text>
+    <text x="2251.802" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2256.231" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="41.993">аудио</text>
+    <rect width="301.401" height="118.93" x="2070.657" y="1153" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2133.553" y="1178.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="57.516">Speech</text>
+    <text x="2191.069" y="1178.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2196.342" y="1178.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="23.047">Kit</text>
+    <text x="2219.389" y="1178.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2224.662" y="1178.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="84.5">Connector</text>
+    <text x="2205.857" y="1193.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="31.002">[Java]</text>
+    <text x="2219.143" y="1209.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2121.352" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="75.749">Переводит</text>
+    <text x="2197.101" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2201.53" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="48.057">общую</text>
+    <text x="2249.587" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2254.017" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="46.416">задачу</text>
+    <text x="2300.432" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2304.862" y="1226" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="2080.657" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="110.291">транскрибацию</text>
+    <text x="2190.948" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2195.378" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.349">в</text>
+    <text x="2202.727" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2207.156" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="53.06">формат</text>
+    <text x="2260.217" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2264.646" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="68.038">понятный</text>
+    <text x="2332.684" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2337.114" y="1242.488" fill="#FFF" font-family="sans-serif" font-size="14" textLength="24.944">для</text>
+    <text x="2189.69" y="1258.977" fill="#FFF" font-family="sans-serif" font-size="14" textLength="63.335">спичкита</text>
+    <path fill="#438DD5" d="M446.657 956.5H693.94c5 0 5 37.977 5 37.977s0 37.976-5 37.976H446.657c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M693.94 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="454.243" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="222.109">talk-analytics.classifiers.in</text>
+    <text x="545.139" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="563.083" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="446.657" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="38.609">Текст</text>
+    <text x="485.267" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="489.696" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <text x="547.077" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="551.507" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="568.009" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="572.438" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="111.501">классификацию</text>
+    <path fill="#438DD5" d="M134.157 956.5h283.964c5 0 5 37.977 5 37.977s0 37.976-5 37.976H134.157c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M418.121 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="154.334" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="233.609">talk-analytics.classifiers.out</text>
+    <text x="250.98" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="268.924" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="134.157" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="50.866">Список</text>
+    <text x="185.023" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="189.453" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="91.82">сработавших</text>
+    <text x="281.273" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="285.703" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="122.418">классификаторов</text>
+    <rect width="174.984" height="71.82" x="464.657" y="1372.5" fill="#999" rx="2.5" ry="2.5" style="stroke:#8a8a8a;stroke-width:.5"/>
+    <text x="490.813" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="59.117">Lemma</text>
+    <text x="549.931" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="555.204" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.281">service</text>
+    <text x="549.934" y="1414.879" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="474.657" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="49.588">Сервис</text>
+    <text x="524.245" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="528.675" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="100.967">лемматизации</text>
+    <rect width="292.979" height="151.906" x="405.657" y="1136.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="468.366" y="1161.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="77.789">Classifier</text>
+    <text x="546.155" y="1161.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="551.428" y="1161.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="84.5">Connector</text>
+    <text x="499.913" y="1176.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="530.81" y="1176.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="534.607" y="1176.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="69.773">PostgreSQL]</text>
+    <text x="549.932" y="1193.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="462.774" y="1209.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="49.766">Хранит</text>
+    <text x="512.539" y="1209.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="516.969" y="1209.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="124.551">пользовательские</text>
+    <text x="415.657" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="121.023">классификаторы.</text>
+    <text x="536.681" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="541.11" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="75.749">Переводит</text>
+    <text x="616.859" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="621.289" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="46.416">задачу</text>
+    <text x="667.705" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="672.135" y="1225.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="427.06" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="52.938">рассчёт</text>
+    <text x="479.997" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="484.427" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="122.418">классификаторов</text>
+    <text x="606.845" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="611.274" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="17.37">по</text>
+    <text x="628.644" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="633.074" y="1242.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="44.16">тексту</text>
+    <text x="423.095" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <text x="480.476" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="484.905" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.349">в</text>
+    <text x="492.254" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="496.683" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="53.06">формат</text>
+    <text x="549.744" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="554.174" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="68.038">понятный</text>
+    <text x="622.212" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="626.641" y="1258.965" fill="#FFF" font-family="sans-serif" font-size="14" textLength="54.558">сервису</text>
+    <text x="495.494" y="1275.453" fill="#FFF" font-family="sans-serif" font-size="14" textLength="113.306">классификации.</text>
+    <path fill="#438DD5" d="M151.657 1370.5h273.375c5 0 5 37.977 5 37.977s0 37.976-5 37.976H151.657c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M425.032 1370.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="151.657" y="1390.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="263.375">talk-analytics.classifiers.update</text>
+    <text x="263.185" y="1405.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="281.13" y="1422.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="177.268" y="1438.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="85.306">Обновление</text>
+    <text x="262.574" y="1438.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="267.003" y="1438.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="122.418">классификаторов</text>
+    <path fill="#438DD5" d="M1217.157 948.5h271.899c5 0 5 46.22 5 46.22s0 46.221-5 46.221h-271.899c-5 0-5-46.22-5-46.22s0-46.221 5-46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1489.056 948.5c-5 0-5 46.22-5 46.22 0 46.221 5 46.221 5 46.221" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1217.157" y="968.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="261.898">talk-analytics.summarization.in</text>
+    <text x="1327.947" y="983.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="1345.891" y="1000.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1240.3" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.503">Задача</text>
+    <text x="1287.803" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1292.233" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.171">с</text>
+    <text x="1299.404" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1303.833" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="55.44">текстом</text>
+    <text x="1359.273" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1363.703" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="71.278">разговора</text>
+    <text x="1434.981" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1439.41" y="1016.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="1296.047" y="1032.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="104.118">cуммаризацию</text>
+    <path fill="#438DD5" d="M905.657 956.5h283.399c5 0 5 37.977 5 37.977s0 37.976-5 37.976H905.657c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M1189.056 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="905.657" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="273.398">talk-analytics.summarization.out</text>
+    <text x="1022.197" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="1040.141" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="953.226" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="102.553">Суммаризация</text>
+    <text x="1055.779" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1060.208" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="71.278">разговора</text>
+    <rect width="101.478" height="71.82" x="1097.657" y="1372.5" fill="#999" rx="2.5" ry="2.5" style="stroke:#8a8a8a;stroke-width:.5"/>
+    <text x="1132.005" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="32.781">GPT</text>
+    <text x="1146.181" y="1414.879" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1107.657" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="50.34">Yandex</text>
+    <text x="1157.997" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1162.427" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="26.708">GPT</text>
+    <rect width="314.813" height="85.953" x="990.657" y="1169.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="1041.259" y="1194.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="123.836">Summarization</text>
+    <text x="1165.095" y="1194.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="1170.369" y="1194.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="84.5">Connector</text>
+    <text x="1132.563" y="1209.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="31.002">[Java]</text>
+    <text x="1145.849" y="1226.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1000.657" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="90.986">Запрашивает</text>
+    <text x="1091.643" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1096.073" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="104.118">суммаризацию</text>
+    <text x="1200.191" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1204.621" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="7.485">у</text>
+    <text x="1212.106" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1216.536" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="50.34">Yandex</text>
+    <text x="1266.876" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="1271.306" y="1242.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="24.165">Gpt</text>
+    <path fill="#438DD5" d="M2713.657 956.5h278.632c5 0 5 37.977 5 37.977s0 37.976-5 37.976h-278.632c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M2992.289 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2732.727" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="230.492">talk-analytics.embedding.in</text>
+    <text x="2827.814" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="2845.758" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2713.657" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="38.609">Текст</text>
+    <text x="2752.267" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2756.696" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <text x="2814.077" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2818.507" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="2835.009" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2839.438" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="45.767">расчёт</text>
+    <text x="2885.205" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2889.635" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="92.654">эмбеддингов</text>
+    <path fill="#438DD5" d="M2433.157 956.5h251.992c5 0 5 37.977 5 37.977s0 37.976-5 37.976h-251.992c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M2685.15 956.5c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2433.157" y="976.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="241.992">talk-analytics.embedding.out</text>
+    <text x="2533.994" y="991.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="2551.938" y="1008.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2483.613" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="79.269">Эмбеддинг</text>
+    <text x="2562.883" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2567.312" y="1024.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <rect width="176.125" height="71.82" x="2475.157" y="1372.5" fill="#999" rx="2.5" ry="2.5" style="stroke:#8a8a8a;stroke-width:.5"/>
+    <text x="2485.157" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="92.57">Embedding</text>
+    <text x="2577.727" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2583.001" y="1397.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.281">service</text>
+    <text x="2561.005" y="1414.879" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2488.602" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="49.588">Сервис</text>
+    <text x="2538.19" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2542.619" y="1431.367" fill="#FFF" font-family="sans-serif" font-size="14" textLength="95.218">Эмбеддингов</text>
+    <rect width="270.312" height="102.441" x="2428.157" y="1161.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="2440.317" y="1186.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="92.57">Embedding</text>
+    <text x="2532.887" y="1186.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2538.16" y="1186.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="84.5">Connector</text>
+    <text x="2622.66" y="1186.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="2627.934" y="1186.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="58.375">Service</text>
+    <text x="2511.079" y="1201.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="30.896">[Java,</text>
+    <text x="2541.976" y="1201.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="2545.773" y="1201.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="69.773">PostgreSQL]</text>
+    <text x="2561.098" y="1218.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2438.157" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="85.586">Расчитывает</text>
+    <text x="2523.743" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2528.173" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="85.477">эмбеддинги</text>
+    <text x="2613.649" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2618.079" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="17.37">по</text>
+    <text x="2635.449" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2639.879" y="1234.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="48.59">тексту.</text>
+    <text x="2466.745" y="1250.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="49.766">Хранит</text>
+    <text x="2516.511" y="1250.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2520.94" y="1250.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="77.13">эмеддинги</text>
+    <text x="2598.07" y="1250.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2602.5" y="1250.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <path fill="#438DD5" d="M201.657 551h223.078c5 0 5 37.977 5 37.977s0 37.976-5 37.976H201.657c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M424.735 551c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="201.657" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="213.078">talk-analytics.statistics.in</text>
+    <text x="288.037" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="305.981" y="602.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="208.962" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.503">Задача</text>
+    <text x="256.465" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="260.895" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="16.502">на</text>
+    <text x="277.397" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="281.827" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="52.938">рассчёт</text>
+    <text x="334.764" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="339.194" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="68.236">статистик</text>
+    <path fill="#438DD5" d="M452.657 551h234.578c5 0 5 37.977 5 37.977s0 37.976-5 37.976H452.657c-5 0-5-37.976-5-37.976s0-37.977 5-37.977" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <path fill="none" d="M687.235 551c-5 0-5 37.977-5 37.977 0 37.976 5 37.976 5 37.976" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="452.657" y="571.469" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="224.578">talk-analytics.statistics.out</text>
+    <text x="544.787" y="586.445" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <text x="562.731" y="602.512" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="457.082" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="72.481">Текстовые</text>
+    <text x="529.563" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="533.993" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="77.007">статистики</text>
+    <text x="611" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="615.43" y="619" fill="#FFF" font-family="sans-serif" font-size="14" textLength="57.381">диалога</text>
+    <rect width="187.023" height="85.953" x="329.657" y="722.5" fill="#438DD5" rx="2.5" ry="2.5" style="stroke:#3c7fc0;stroke-width:.5"/>
+    <text x="341.215" y="747.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="75.016">Statistics</text>
+    <text x="416.231" y="747.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="5.273"> </text>
+    <text x="421.504" y="747.969" fill="#FFF" font-family="sans-serif" font-size="16" font-weight="bold" textLength="83.617">Calculator</text>
+    <text x="407.667" y="762.945" fill="#FFF" font-family="sans-serif" font-size="12" font-style="italic" textLength="31.002">[Java]</text>
+    <text x="420.954" y="779.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="339.657" y="795.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="85.586">Расчитывает</text>
+    <text x="425.243" y="795.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="429.673" y="795.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="77.007">статистики</text>
+    <path fill="none" d="m2222.74 1040.518-3.074 7.972 6 .055-2.926-8.027zm-.074 7.999-.967 104.472" style="stroke:#666;stroke-width:1"/>
+    <text x="2225.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="2226.033" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m1982.666 1032.632 4.6 7.2 3.6-4.8-8.2-2.4zm6.4 4.8 153.967 115.475" style="stroke:#666;stroke-width:1"/>
+    <text x="2097.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="2097.441" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m2221.157 1372.362 3-8h-6l3 8zm0-100.129v92.129" style="stroke:#666;stroke-width:1"/>
+    <text x="2223.157" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="73.313">Отправляет</text>
+    <text x="2296.47" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2300.425" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="38.238">аудио</text>
+    <text x="2338.663" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2342.618" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="15.006">на</text>
+    <text x="2257.519" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="65.742">обработку</text>
+    <text x="2271.485" y="1348.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m567.063 1032.632-3.654 7.723 5.98.498-2.326-8.221zm-.665 7.972-7.984 95.819" style="stroke:#666;stroke-width:1"/>
+    <text x="567.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="568.033" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m323.603 1032.632 4.451 7.293 3.698-4.725-8.149-2.568zm6.3 4.93 126.322 98.86" style="stroke:#666;stroke-width:1"/>
+    <text x="433.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="433.441" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m552.157 1372.432 3-8h-6l3 8zm0-83.927v75.927" style="stroke:#666;stroke-width:1"/>
+    <text x="554.157" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="73.313">Отправляет</text>
+    <text x="627.47" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="631.425" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="32.631">текст</text>
+    <text x="562.211" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="93.791">лемматизацию</text>
+    <text x="590.201" y="1348.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m754.94 806.327-8.474-1.088 1.374 5.84 7.1-4.752z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M405.434 1202.214c-110.856-15.622-256.162-56.41-330.277-161.714-35.3-50.156-39.288-90.902 0-138 90.511-108.503 490.65-62.615 630-86 16.241-2.726 25.33-4.421 41.996-8.341" style="stroke:#666;stroke-width:1"/>
+    <text x="77.157" y="992.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="77.623" y="1006.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1310.432 1040.518-7.683 3.737 4.352 4.13 3.33-7.867zm-5.507 5.802-116.881 123.153" style="stroke:#666;stroke-width:1"/>
+    <text x="1295.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1296.033" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m1064.52 1032.632.67 8.517 5.436-2.541-6.106-5.976zm3.388 7.247 60.522 129.432" style="stroke:#666;stroke-width:1"/>
+    <text x="1106.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="1106.441" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m1148.157 1372.303 3-8h-6l3 8zm0-116.708v108.708" style="stroke:#666;stroke-width:1"/>
+    <text x="1150.157" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="73.313">Отправляет</text>
+    <text x="1223.47" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1227.425" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="32.631">текст</text>
+    <text x="1260.056" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1264.011" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="15.006">на</text>
+    <text x="1167.296" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="94.582">суммаризацию</text>
+    <text x="1195.681" y="1348.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1089.484 805.574-8.51-.768 1.593 5.784 6.917-5.016z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M990.537 1179.473c-76.807-24.399-162.339-66.644-208.38-138.973-32.935-51.74-36.592-88.778 0-138 9.633-12.958 171.05-59.394 299.614-94.802" style="stroke:#666;stroke-width:1"/>
+    <text x="795.334" y="978.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="83.168">Запрашивает</text>
+    <text x="784.157" y="992.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="94.582">суммаризацию</text>
+    <text x="878.739" y="992.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="882.694" y="992.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="6.984">у</text>
+    <text x="810.94" y="1006.367" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="51.955">диалога</text>
+    <text x="818.013" y="1020.5" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m2803.304 1032.632-8.208 2.372 3.584 4.812 4.624-7.184zm-6.415 4.778-166.36 123.91" style="stroke:#666;stroke-width:1"/>
+    <text x="2769.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="2770.033" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m2559.845 1032.632-2.852 8.054 6-.111-3.148-7.943zm.148 7.998 2.231 120.49" style="stroke:#666;stroke-width:1"/>
+    <text x="2564.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="2564.441" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m2563.157 1372.487 3-8h-6l3 8zm0-108.775v100.775" style="stroke:#666;stroke-width:1"/>
+    <text x="2565.435" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="73.313">Отправляет</text>
+    <text x="2638.748" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2642.703" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="32.631">текст</text>
+    <text x="2675.334" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2679.289" y="1320.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="15.006">на</text>
+    <text x="2565.157" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.49">расчёт</text>
+    <text x="2606.647" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2610.602" y="1334.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="83.971">эмбеддингов</text>
+    <text x="2610.96" y="1348.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m338.726 1370.34 8.223-2.32-3.553-4.835-4.67 7.155z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M450.088 1288.505c-38.16 28.043-73.397 53.936-104.916 77.097" style="stroke:#666;stroke-width:1"/>
+    <text x="422.283" y="1327.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="422.157" y="1341.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m336.485 627.007 1.729 8.367 5.075-3.2-6.804-5.167zm4.266 6.768 55.826 88.56" style="stroke:#666;stroke-width:1"/>
+    <text x="380.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="381.033" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m538.982 627.007-7.448 4.186 4.588 3.865 2.86-8.051zm-5.154 6.118-75.15 89.21" style="stroke:#666;stroke-width:1"/>
+    <text x="521.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="521.441" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="39.498">[kafka]</text>
+    <path fill="none" d="m1665.236 182.677.879-8.499-5.805 1.518 4.926 6.98zM1641.3 91.119l21.913 83.818" style="stroke:#666;stroke-width:1"/>
+    <text x="1656.157" y="122.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="69.334">пользуется</text>
+    <text x="1663.525" y="136.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="54.598">[browser]</text>
+    <path fill="none" d="m1617.746 724.914 2.928-8.027-6 .054 3.072 7.973z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1627.652 91.006c-2.435 43.452-5.981 112.9-7.495 172.994-4.321 171.56-3.236 368.3-2.482 452.914" style="stroke:#666;stroke-width:1"/>
+    <text x="1621.157" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="65.197">Скачивает</text>
+    <text x="1686.354" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1690.31" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="58.5">выгрузку</text>
+    <text x="1666.034" y="399.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.898">[https]</text>
+    <path fill="none" d="m1253.914 351.177-7.16-4.661-1.3 5.857 8.46-1.196zM713.009 231.194l533.095 118.25" style="stroke:#666;stroke-width:1"/>
+    <text x="1052.157" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="63.779">загружает</text>
+    <text x="1115.936" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1119.891" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="52.998">диалоги</text>
+    <text x="1077.382" y="298.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="32.578">[Rest,</text>
+    <text x="1109.96" y="298.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1113.757" y="298.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="33.908">gRPC]</text>
+    <path fill="none" d="m1258.206 714.411 5.86-6.217-5.532-2.32-.328 8.537zm25.022-81.911c-4.61 19.712-10.797 43.306-18.07 64-2.066 5.875-1.353 4.56-3.858 10.534" style="stroke:#666;stroke-width:1"/>
+    <text x="1280.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="60.445">вызывает</text>
+    <text x="1340.602" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1344.557" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="20.174">API</text>
+    <text x="1290.599" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="33.791">[grpc,</text>
+    <text x="1324.389" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="3.797"> </text>
+    <text x="1328.186" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="26.104">rest]</text>
+    <path fill="none" d="m654.209 1136.392 7.831-3.416-4.177-4.307-3.654 7.723zm979.847-929.798c-172.777 15.278-906.899 85.733-906.899 179.906v609c0 54.9-28.808 98.088-67.205 135.322" style="stroke:#666;stroke-width:1"/>
+    <text x="743.079" y="664.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="79.125">Настраивает</text>
+    <text x="729.157" y="678.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="106.969">классификаторы</text>
+    <text x="763.736" y="692.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1495.505 327.863 8.257-2.196-3.48-4.888-4.777 7.084zM1644.1 222.054l-142.078 101.169" style="stroke:#666;stroke-width:1"/>
+    <text x="1582.157" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="57.252">получает</text>
+    <text x="1639.409" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1643.364" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="85.031">информацию</text>
+    <text x="1619.944" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="7.664">о</text>
+    <text x="1627.608" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1631.563" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="59.045">диалогах</text>
+    <text x="1636.371" y="305.867" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m2062.779 336.249-1.328-8.44-5.222 2.954 6.55 5.486z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1706.392 206.671c75.221 7.134 245.34 26.29 293.765 57.329 27.127 17.388 44.213 39.71 58.683 65.286" style="stroke:#666;stroke-width:1"/>
+    <text x="2048.157" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="65.666">Управляет</text>
+    <text x="2113.823" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2117.778" y="277.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="78.375">кастомными</text>
+    <text x="2053.226" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="82.471">настройками</text>
+    <text x="2135.696" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2139.651" y="291.734" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="51.434">экранов</text>
+    <text x="2103.25" y="305.867" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m243.958 1370.277-4-7.55-3.978 4.492 7.978 3.058z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1089.43 806.869c-17.83 3.84-35.892 7.2-53.273 9.631-258.935 36.22-327.816-7.758-588 18-181.195 17.938-286.419-71.026-404 68-127.329 150.552 93.464 373.603 193.812 462.474" style="stroke:#666;stroke-width:1"/>
+    <text x="37.157" y="1086.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="37.623" y="1100.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1117.529 550.804 8.44-1.33-2.956-5.222-5.484 6.552zm187.131-103.661c-33.852 18.41-71.282 38.883-105.503 57.857-26.785 14.851-49.235 27.467-74.666 41.863" style="stroke:#666;stroke-width:1"/>
+    <text x="1272.283" y="478.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="1272.157" y="492.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1150.706 627.064 5.279 6.717 3.115-5.128-8.394-1.59zm6.837 4.153c11.069 6.725 14.709 10.347 23.614 19.283 17.565 17.623 29.996 42.158 38.383 63.953" style="stroke:#666;stroke-width:1"/>
+    <text x="1214.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1214.623" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m2271.507 346.713-4.662-7.16-3.558 4.83 8.22 2.33zm-6.441-4.745c-9.77-7.197-14.023-9.167-24.909-13.968-100.615-44.372-134.416-31.857-244-41-182.497-15.226-231.84-1.381-410 41a610.373 610.373 0 0 0-13.564 3.397" style="stroke:#666;stroke-width:1"/>
+    <text x="1888.157" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="63.943">сохраняет</text>
+    <text x="1952.101" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1956.056" y="284.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="38.238">аудио</text>
+    <text x="1922.32" y="298.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m867.937 719.08-.526-8.528-5.477 2.448 6.003 6.08zm385.902-318.854C1108.74 414.61 909.895 444.903 861.157 505c-49.277 60.763-21.788 150.159 3.515 206.776" style="stroke:#666;stroke-width:1"/>
+    <text x="863.157" y="586.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="864.285" y="600.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1452.624 545.975.966-8.49-5.82 1.46 4.854 7.03zm-24.804-98.966 22.86 91.206" style="stroke:#666;stroke-width:1"/>
+    <text x="1442.157" y="478.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="32.549">ищет</text>
+    <text x="1474.706" y="478.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1478.661" y="478.602" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="52.998">диалоги</text>
+    <text x="1468.003" y="492.734" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1800.386 545.853 2.643-8.124-5.994.265 3.35 7.86zm-103.772-323.632c13.251 10.746 28.383 25.354 37.543 41.779 51.057 91.554 63.014 209.241 65.875 273.861" style="stroke:#666;stroke-width:1"/>
+    <text x="1793.157" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="67.969">составляет</text>
+    <text x="1861.126" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1865.081" y="385.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="43.77">отчеты</text>
+    <text x="1832.099" y="399.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m2161.431 948.423-5.132-6.83-3.226 5.059 8.358 1.771zM1378.94 813.582a464.448 464.448 0 0 0 14.217 2.918c116.008 21.86 150.944-12.443 265 18 58.767 15.686 63.934 45.483 123 60 61.312 15.07 223.242-9.166 284 8 33.966 9.596 61.572 23.795 89.529 41.622" style="stroke:#666;stroke-width:1"/>
+    <text x="1783.283" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="1783.157" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1878.38 956.42-5.254-6.737-3.134 5.116 8.388 1.621zm-508.794-139.852c88.508 31.878 196.17 68.832 243.571 77.932 65.128 12.503 85.109-9.775 149 8 41.309 11.492 77.065 29.93 109.402 49.74" style="stroke:#666;stroke-width:1"/>
+    <text x="1615.157" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1615.623" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m591.662 956.496 6.843-5.116-5.051-3.238-1.792 8.354z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1089.637 806.379c-17.907 3.938-36.044 7.456-53.48 10.121-70.625 10.796-256.473-12.672-321 18-55.167 26.222-94.695 77.071-119.178 115.261" style="stroke:#666;stroke-width:1"/>
+    <text x="717.283" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="717.157" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m335.54 956.443 8.4-1.557-3.095-5.14-5.306 6.697zM1089.406 806.7c-17.826 3.868-35.88 7.282-53.249 9.8-195.012 28.274-250.703-25.026-443 18-75.802 16.96-91.531 33.248-161 68-32.668 16.342-61.057 32.53-89.764 49.816" style="stroke:#666;stroke-width:1"/>
+    <text x="595.157" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="595.623" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m2458.099 1161.405-6.269-5.806-2.271 5.554 8.54.252zm-1759.167 13.289c58.525-13.864 126.724-28.515 189.225-38.194h1496c24.574 6.106 42.708 12.129 66.537 21.876" style="stroke:#666;stroke-width:1"/>
+    <text x="1572.157" y="1072.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="83.168">Запрашивает</text>
+    <text x="1655.325" y="1072.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1659.28" y="1072.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="47.543">ембедд</text>
+    <text x="1597.736" y="1086.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="15.615">по</text>
+    <text x="1613.351" y="1086.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1617.306" y="1086.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="51.885">диалогу</text>
+    <text x="1669.191" y="1086.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1673.146" y="1086.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="8.098">и</text>
+    <text x="1587.517" y="1100.367" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="103.945">классификатору</text>
+    <text x="1620.585" y="1114.5" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1027.212 765.5 8 3v-6l-8 3zm8 0h54.32" style="stroke:#666;stroke-width:1"/>
+    <text x="1037.907" y="744.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1038.373" y="758.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1269.323 948.253-4.527-7.246-3.648 4.764 8.175 2.482zm-51.966-131.443c-5.274 24.582-7.035 53.912 4.8 77.69 10.606 21.31 21.88 34.386 40.815 48.889" style="stroke:#666;stroke-width:1"/>
+    <text x="1224.283" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="1224.157" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1072.335 956.272 7.024-4.865-4.93-3.419-2.094 8.284z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1181.65 816.536c-5.7 5.93-11.307 11.998-16.493 17.964-34.505 39.694-65.355 82.16-88.264 115.198" style="stroke:#666;stroke-width:1"/>
+    <text x="1167.157" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1167.623" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1593.95 956.394-4.187-7.448-3.865 4.59 8.052 2.858zm-276.524-139.55c6.092 5.506 11.778 11.402 16.731 17.656 17.731 22.388-.09 43.193 23 60 13.405 9.757 133.357 2.507 149 8 32.63 11.458 58.142 28.922 81.674 48.74" style="stroke:#666;stroke-width:1"/>
+    <text x="1359.283" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="1359.157" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1594.3 956.412-4.163-7.46-3.88 4.577 8.043 2.883zm-335.619-139.737c2.64 5.958 5.192 11.994 7.476 17.825 10.2 26.046-3.265 43.068 19 60 19.559 14.873 197.746.062 221 8 32.858 11.216 58.505 28.794 82.04 48.74" style="stroke:#666;stroke-width:1"/>
+    <text x="1287.157" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1287.623" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m417.424 627.073 6.879 5.068 1.636-5.772-8.515.704z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M425.12 629.255c6.977 1.977 6.235 1.63 13.037 3.245 56.322 13.377 73.644 1.066 129 18 44.477 13.606 48.952 34.424 94 46 161.608 41.53 209.957-6.549 375 18 17.359 2.582 35.408 6.035 53.23 9.925" style="stroke:#666;stroke-width:1"/>
+    <text x="663.283" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="663.157" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m692.926 611.682 7.397 4.274.987-5.918-8.384 1.644zm7.891 1.315c43.283 7.216 84.447 13.595 129.34 19.503 79.712 10.49 105.888-13.168 180 18 29.375 12.354 27.66 29.629 55 46 10.582 6.337 21.862 12.32 33.382 17.913" style="stroke:#666;stroke-width:1"/>
+    <text x="1067.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1067.623" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m2799.678 956.326-5.1-6.854-3.25 5.045 8.35 1.81zM1378.887 813.89c4.792.968 9.558 1.843 14.27 2.61 221.129 35.973 785.605-9.065 1008 18 134.854 16.411 171.793 17.734 298 68 35.198 14.019 65.098 31.011 93.796 49.494" style="stroke:#666;stroke-width:1"/>
+    <text x="2679.283" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="40.066">пишет</text>
+    <text x="2679.157" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m2499.738 956.423-5.44-6.588-2.99 5.202 8.43 1.386z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1378.902 813.8a404.26 404.26 0 0 0 14.255 2.7c242.86 41.333 308.722-4.982 554 18 195.703 18.337 250.23 6.74 437 68 40.348 13.234 75.732 31.01 108.646 49.936" style="stroke:#666;stroke-width:1"/>
+    <text x="2354.157" y="862.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="2354.623" y="876.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1592.89 956.313-4.252-7.411-3.825 4.622 8.076 2.789z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1446.437 632.168c-8.525 23.763-17.982 54.233-22.28 82.332-6.05 39.555-22.73 151.151 5 180 11.922 12.402 60.916 1.897 77 8 31.954 12.124 57.056 29.258 80.569 48.713" style="stroke:#666;stroke-width:1"/>
+    <text x="1426.157" y="763.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1426.623" y="777.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m908.209 719.314 6.163-5.917-5.41-2.594-.753 8.51zm485.879-89.656a131.064 131.064 0 0 1-8.93 2.842c-45.007 12.498-379.44-5.166-420 18-26.432 15.096-41.557 36.712-53.49 61.6" style="stroke:#666;stroke-width:1"/>
+    <text x="967.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="967.623" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1490.13 724.99-4.75-7.102-3.499 4.873 8.248 2.23z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1452.353 632.26c-2.898 20.913-2.404 45.601 9.804 64.24 7.366 11.245 10.542 15.975 21.474 23.824" style="stroke:#666;stroke-width:1"/>
+    <text x="1464.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="66.106">Сохраняет</text>
+    <text x="1530.263" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1534.218" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="58.5">выгрузку</text>
+    <text x="1509.532" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1687.96 956.466 8.31-1.988-3.356-4.973-4.954 6.961zm114.784-324.29c2.013 72.913 2.614 218.898-22.587 262.324-3.217 5.544-6.676 4.43-12 8a27950.568 27950.568 0 0 0-73.565 49.491" style="stroke:#666;stroke-width:1"/>
+    <text x="1806.157" y="763.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1806.623" y="777.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m1027.417 731.628 8.524.588-1.714-5.75-6.81 5.162z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1717.48 606.256c-50.801 9.224-117.065 20.119-176.323 26.244-45.247 4.677-371.059-7.093-409 18-18.902 12.502-4.856 31.179-22 46-14.004 12.107-39.07 22.106-75.073 32.842" style="stroke:#666;stroke-width:1"/>
+    <text x="1134.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="1134.623" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="40.318">[Kafka]</text>
+    <path fill="none" d="m2698.205 1199.888 8.378 1.678-.962-5.922-7.416 4.244z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1883.554 632.185c109.641 53.806 311.056 144.628 494.603 184.315 150.941 32.637 194.174-4.195 347 18 31.897 4.632 262.058 42.678 282 68 37.947 48.185 34.202 87.088 0 138-67.943 101.136-197.092 141.213-301.055 158.105" style="stroke:#666;stroke-width:1"/>
+    <text x="2995.157" y="855.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="83.168">Запрашивает</text>
+    <text x="3078.325" y="855.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="3082.28" y="855.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="42.99">вектор</text>
+    <text x="3020.074" y="869.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="22.752">для</text>
+    <text x="3042.826" y="869.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="3046.781" y="869.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="53.572">промпта</text>
+    <text x="3041.309" y="883.367" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1305.742 1199.841 8.24 2.257-.547-5.975-7.693 3.718zm517.944-567.673c11.284 23.51 23.74 53.738 29.471 82.332 8.91 44.45 12.724 58.489 0 102-6.367 21.773-45.914 65.214-55 86-41.385 94.68.313 159.193-86 216-65.228 42.93-255.435 67.494-398.448 80.61" style="stroke:#666;stroke-width:1"/>
+    <text x="1850.976" y="848.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="83.168">Запрашивает</text>
+    <text x="1846.157" y="862.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="66.1">подсказки</text>
+    <text x="1912.257" y="862.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1916.212" y="862.234" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="22.752">для</text>
+    <text x="1846.465" y="876.367" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="92.191">суммаризации</text>
+    <text x="1873.655" y="890.5" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m1619.767 724.938 3.944-7.58-5.956-.724 2.012 8.304z" style="stroke:#666;stroke-width:1"/>
+    <path fill="none" d="M1717.497 607.463c-25.346 9.033-51.235 22.633-69.34 43.037-18.066 20.36-24.491 42.393-27.424 66.497" style="stroke:#666;stroke-width:1"/>
+    <text x="1650.157" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="66.106">Сохраняет</text>
+    <text x="1716.263" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="1720.218" y="671.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="58.5">выгрузку</text>
+    <text x="1695.532" y="685.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="m2343.895 428.089 1.724 8.368 5.077-3.198-6.801-5.17zm-36.384 724.841c45.774-38.563 92.646-93.629 92.646-157.43V588c0-59.19-27.532-114.292-51.999-153.142" style="stroke:#666;stroke-width:1"/>
+    <text x="2402.157" y="763.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="41.25">читает</text>
+    <text x="2443.407" y="763.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="3.955"> </text>
+    <text x="2447.362" y="763.102" fill="#666" font-family="sans-serif" font-size="12" font-weight="bold" textLength="38.238">аудио</text>
+    <text x="2424.974" y="777.234" fill="#666" font-family="sans-serif" font-size="12" font-style="italic" textLength="37.81">[gRPC]</text>
+    <path fill="none" d="M2718.686 1475.5h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2718.686" y="1489.035" font-family="sans-serif" font-size="14" font-weight="bold" textLength="52.254">Legend</text>
+    <text x="2775.554" y="1489.035" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path fill="#08427B" d="M2718.686 1491.988h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2723.115" y="1505.523" fill="#073B6F" font-family="sans-serif" font-size="14" textLength="8.429">▯</text>
+    <text x="2731.544" y="1505.523" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAApklEQVR4XmPgcKpmQMfRjcsb/CoWNqCLgzCGwH80gC6Pwjl17RG6+v9T1h47gFPD95+/0dX/33v2DootKBriW1Y2oGvQjesPxKkBhDuW7D8AUxzfunIiujwKRzWyO8ksdXIxjG+XPaNBNqgNuw3IzkAHIL+haNh67MZndEXooGXh3kVwDeiS2MCtx6/BtoA1/P7zF10eA5y69hihAYQNkyY24MMwdQBvKDvWFDAX9QAAAABJRU5ErkJggg==" width="12" height="12" x="2735.974" y="1496.477"/>
+    <text x="2756.833" y="1505.523" fill="#FFF" font-family="sans-serif" font-size="14" textLength="46.765">person</text>
+    <text x="2808.027" y="1505.523" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path fill="#1168BD" d="M2718.686 1508.477h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2723.115" y="1522.012" fill="#3C7FC0" font-family="sans-serif" font-size="14" textLength="8.429">▯</text>
+    <text x="2731.544" y="1522.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2740.403" y="1522.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="47.694">system</text>
+    <text x="2792.527" y="1522.012" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path fill="#438DD5" d="M2718.686 1524.965h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2723.115" y="1538.5" fill="#3C7FC0" font-family="sans-serif" font-size="14" textLength="8.429">▯</text>
+    <text x="2731.544" y="1538.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2740.403" y="1538.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="63.69">container</text>
+    <text x="2808.523" y="1538.5" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path fill="#999" d="M2718.686 1541.453h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2723.115" y="1554.988" fill="#8A8A8A" font-family="sans-serif" font-size="14" textLength="8.429">▯</text>
+    <text x="2731.544" y="1554.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2740.403" y="1554.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="107.741">external system</text>
+    <text x="2852.574" y="1554.988" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path fill="#B3B3B3" d="M2718.686 1557.941h154.315v16.488h-154.315z" style="stroke:none;stroke-width:1"/>
+    <text x="2723.115" y="1571.477" fill="#A6A6A6" font-family="sans-serif" font-size="14" textLength="8.429">▯</text>
+    <text x="2731.544" y="1571.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <text x="2740.403" y="1571.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="123.737">external container</text>
+    <text x="2868.57" y="1571.477" fill="#FFF" font-family="sans-serif" font-size="14" textLength="4.43"> </text>
+    <path d="M2718.686 1475.5H2873m-154.314 16.488H2873m-154.314 16.489H2873m-154.314 16.488H2873m-154.314 16.488H2873m-154.314 16.488H2873m-154.314 16.489H2873m-154.314-98.93v98.93M2873 1475.5v98.93" style="stroke:none;stroke-width:1"/>
+</svg>

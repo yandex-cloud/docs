@@ -1,3 +1,8 @@
+---
+title: Управление классами хранилищ
+description: Следуя данной инструкции, вы сможете управлять классами хранилищ.
+---
+
 # Управление классами хранилищ
 
 
@@ -8,7 +13,6 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
 
 {% endnote %}
-
 
 В {{ managed-k8s-name }} доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
@@ -35,13 +39,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 {% endnote %}
 
 
-
 ## Создайте класс хранилищ {#sc-create}
 
 1. Сохраните спецификацию для создания класса хранилищ в YAML-файл `my-sc-hdd.yaml`:
 
    Подробнее про [формат спецификации для создания класса хранилищ](#sc-spec).
-
 
    ```yaml
    kind: StorageClass
@@ -57,25 +59,17 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
    reclaimPolicy: Retain
    ```
 
-
-
 1. Выполните команду:
-
 
    ```bash
    kubectl create -f my-sc-hdd.yaml
    ```
 
-
-
    Результат:
-
 
    ```text
    storageclass.storage.k8s.io/my-sc-hdd created
    ```
-
-
 
 1. Проверьте, что класс хранилищ создался:
 
@@ -85,15 +79,12 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
    Результат:
 
-
    ```text
    NAME                      PROVISIONER                    AGE
    my-sc-hdd                 disk-csi-driver.mks.ycloud.io  76s
    yc-network-hdd (default)  disk-csi-driver.mks.ycloud.io  16m
    yc-network-ssd            disk-csi-driver.mks.ycloud.io  16m
    ```
-
-
 
 ### Формат спецификации для создания класса хранилищ {#sc-spec}
 
@@ -183,3 +174,10 @@ reclaimPolicy: <политика_переиспользования>
    yc-network-hdd       disk-csi-driver.mks.ycloud.io  19m
    yc-network-ssd       disk-csi-driver.mks.ycloud.io  19m
    ```
+
+### См. также {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./dynamic-create-pv.md)
+* [{#T}](./static-create-pv.md)

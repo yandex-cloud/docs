@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        diskPlacementGroupId:
+          description: |-
+            **string**
+            Required field. ID of the placement group to return.
+            To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - diskPlacementGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskPlacementGroup/get.md
 ---
 
-# Compute Cloud API, REST: DiskPlacementGroup.Get {#Get}
+# Compute Cloud API, REST: DiskPlacementGroup.Get
 
 Returns the specified placement group.
 
@@ -20,7 +39,9 @@ GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacement
 || diskPlacementGroupId | **string**
 
 Required field. ID of the placement group to return.
-To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request. ||
+To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.DiskPlacementGroup}
@@ -34,7 +55,7 @@ To get the placement group ID, use [DiskPlacementGroupService.List](/docs/comput
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "status": "string",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
@@ -71,7 +92,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -81,7 +102,6 @@ ID of the availability zone where the placement group resides. ||
 
 Current status of the placement group
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `DELETING` ||

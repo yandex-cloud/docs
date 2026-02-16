@@ -1,3 +1,8 @@
+---
+title: Основные принципы API {{ yandex-cloud }}
+description: Из статьи вы узнаете про основные принципы API {{ yandex-cloud }}, а также ознакомитесь с ресурсо-ориентированным подходом.
+---
+
 # Основные принципы
 
 API {{ yandex-cloud }} спроектированы на основе механизма [gRPC](https://grpc.io/docs/). Для описания методов и структур данных в API используется [Protocol Buffers](https://developers.google.com/protocol-buffers/docs/proto3) (proto 3).
@@ -14,8 +19,7 @@ API {{ yandex-cloud }} спроектированы на основе механ
 
    {% include [method-sets](../_includes/method-sets.md) %}
 
-- Все операции, изменяющие состояние ресурса, имеют асинхронную сигнатуру. При вызове таких
- операций сервер возвращает объект [Operation](operation.md). Этот объект будет содержать состояние операции, а также идентификатор ресурса, над которым производится операция.
+- Все операции, изменяющие состояние ресурса, имеют асинхронную сигнатуру. При вызове таких операций сервер возвращает объект [Operation](operation.md). Этот объект будет содержать состояние операции, а также идентификатор ресурса, над которым производится операция.
 
 - Операции на создание, изменение и удаление ресурсов поддерживают механизм [идемпотентности](idempotency.md).
 
@@ -23,7 +27,7 @@ API {{ yandex-cloud }} спроектированы на основе механ
 #### Исключения для ресурсо-ориентированного подхода {#exceptions}
 
 - [API {{ objstorage-full-name }}](../../storage/s3/index.md). Его архитектура обеспечивает совместимость с Amazon S3 API, поэтому принципы API {{ objstorage-name }} не всегда совпадают с принципами ресурсо-ориентированного подхода. Подробнее читайте в документации к сервису.
-- API сервисов искусственного интеллекта [{{ yagpt-full-name }}](../../yandexgpt/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/) и [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
+- API сервисов искусственного интеллекта [{{ foundation-models-full-name }}](../../ai-studio/concepts/api.md), [{{ speechkit-full-name }}](../../speechkit/concepts/api.md), [{{ translate-full-name }}](../../translate/api-ref/grpc/) и [{{ vision-full-name }}](../../vision/vision/api-ref/grpc/). Их API не оперирует ресурсами {{ yandex-cloud }}, запросы не идемпотентны.
 
 
 #### См. также {#see-also}

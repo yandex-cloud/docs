@@ -4,28 +4,23 @@ description:
     Yandex Container Registry — сервис для хранения и распространения
     Docker-образов.
   - >-
-    Container Registry предоставляет надежное и независимое от внешних 
+    Container Registry предоставляет надежное и независимое от внешних
     блокировок хранилище. Docker-образы в {{ container-registry-name }}
     размещаются в тех же <a
     href="/docs/overview/concepts/geo-scope">дата-центрах</a> Yandex Cloud, в
-    которых размещена остальная облачная инфраструктура,  что обеспечивает
-    высокую скорость работы с образами  и отсутствие затрат на внешний трафик.
+    которых размещена остальная облачная инфраструктура, что обеспечивает
+    высокую скорость работы с образами и отсутствие затрат на внешний трафик.
   - >-
     Container Registry предоставляет встроенный <a
     href="/docs/container-registry/concepts/vulnerability-scanner">сканер
-    уязвимостей</a>,  с помощью которого можно сканировать Docker-образы как в
-    момент  их загрузки в реестр, так и позднее по расписанию, а также гибко 
+    уязвимостей</a>, с помощью которого можно сканировать Docker-образы как в
+    момент их загрузки в реестр, так и позднее по расписанию, а также гибко
     управлять результатами сканирования.
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_ycr">Уровень
     обслуживания Yandex Container Registry</a>.
-meta:
-  title: Yandex Container Registry
-  description: >-
-    Yandex Container Registry — сервис для хранения и распространения
-    Docker-образов.
 links:
   - title: Начало работы
     description: Создайте первый реестр
@@ -56,3 +51,18 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Container Registry
+  description: >-
+    Yandex Container Registry — сервис для хранения и распространения
+    Docker-образов.
+  keywords:
+    - '{{ container-registry-name }}'
+    - '{{ container-registry-full-name }}'
+    - сервис {{ container-registry-name }}
+    - docker в {{ yandex-cloud }}
+    - helm в {{ yandex-cloud }}
+    - хранение docker-образов
+    - реестр docker-образов
+    - docker в облаке
+    - реестр контейнеров

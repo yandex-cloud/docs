@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{userName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster the user belongs to.
+            To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the Kafka user to return.
+            To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+            The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `.
+          pattern: '[a-zA-Z0-9_]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/User/get.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: User.Get {#Get}
+# Managed Service for Apache Kafka® API, REST: User.Get
 
 Returns the specified Kafka user.
 
@@ -23,12 +51,16 @@ GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/users/{user
 
 Required field. ID of the Apache Kafka® cluster the user belongs to.
 
-To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the Kafka user to return.
 
-To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request. ||
+To get the name of the user, make a [UserService.List](/docs/managed-kafka/api-ref/User/list#List) request.
+
+The string length in characters must be 1-63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.kafka.v1.User}
@@ -76,16 +108,21 @@ Set of permissions granted to this user. ||
 || topicName | **string**
 
 Name or prefix-pattern with wildcard for the topic that the permission grants access to.
+With roles SCHEMA_READER and SCHEMA_WRITER: string that contains set of schema registry subjects, separated by ';'.
 
 To get the topic name, make a [TopicService.List](/docs/managed-kafka/api-ref/Topic/list#List) request. ||
 || role | **enum** (AccessRole)
 
 Access role type to grant to the user.
 
-- `ACCESS_ROLE_UNSPECIFIED`
 - `ACCESS_ROLE_PRODUCER`: Producer role for the user.
 - `ACCESS_ROLE_CONSUMER`: Consumer role for the user.
-- `ACCESS_ROLE_ADMIN`: Admin role for the user. ||
+- `ACCESS_ROLE_ADMIN`: Admin role for the user.
+- `ACCESS_ROLE_TOPIC_ADMIN`: Admin permissions on topics role for the user.
+- `ACCESS_ROLE_TOPIC_PRODUCER`
+- `ACCESS_ROLE_TOPIC_CONSUMER`
+- `ACCESS_ROLE_SCHEMA_READER`
+- `ACCESS_ROLE_SCHEMA_WRITER` ||
 || allowHosts[] | **string**
 
 Lists hosts allowed for this permission.

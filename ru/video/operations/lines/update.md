@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить линию
 
+{% note info %}
+
+После изменения линии ключ трансляции обновится. Замените его в вашей [программе для трансляции](../streams/start.md#configure-soft).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ video-name }} {#console}

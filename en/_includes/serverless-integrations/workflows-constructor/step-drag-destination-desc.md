@@ -1,0 +1,1 @@
+You can drag and drop steps into areas marked by the dotted line in the workflow schema, such as **Add a step**, etc.

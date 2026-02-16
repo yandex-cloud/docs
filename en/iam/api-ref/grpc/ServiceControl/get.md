@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/get.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.Get {#Get}
+# Identity and Access Management API, gRPC: ServiceControlService.Get
 
 Returns the Service information in the specified resource container.
 
@@ -17,7 +17,7 @@ To get the list of available Services, make a [List](/docs/iam/api-ref/grpc/Serv
 
 ```json
 {
-  "serviceId": "string",
+  "service_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
@@ -27,9 +27,11 @@ To get the list of available Services, make a [List](/docs/iam/api-ref/grpc/Serv
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
-Required field. ID of the Service. ||
+Required field. ID of the Service.
+
+The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container to get a service information in.
@@ -45,22 +47,26 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## Service {#yandex.cloud.iam.v1.Service}
 
 ```json
 {
-  "serviceId": "string",
+  "service_id": "string",
   "resource": {
     "id": "string",
     "type": "string"
   },
-  "updatedAt": "google.protobuf.Timestamp",
+  "updated_at": "google.protobuf.Timestamp",
   "status": "Status"
 }
 ```
@@ -69,20 +75,19 @@ A Service.
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
 
 Resource that the service belongs to. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last status update of the service. ||
 || status | enum **Status**
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
@@ -102,8 +107,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

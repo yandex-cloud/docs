@@ -6,7 +6,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* A budget which, when exceeded, fires a trigger. If you do not have a budget, [create one](../../../billing/operations/budgets.md).
+* Budget for which a trigger will fire in case it is exceeded. If you do not have a budget, [create one](../../../billing/operations/budgets.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -18,7 +18,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) to send
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 

@@ -1,4 +1,4 @@
-{% include [include](../../_includes/cli-install.md) %}
+{% include [cli-install](../../_includes/cli-install.md) %}
 
 {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
@@ -12,9 +12,9 @@
 
     ```bash
     yc vpc private-endpoint create \
-      --name s3-vpc-link \
-      --description "Private Endpoint to the Object Storage" \
-      --network-name default-net \
+      --name <имя_сервисного_подключения> \
+      --description "<описание_сервисного_подключения>" \
+      --network-name <имя_сети> \
       --object-storage 
     ```
 
@@ -39,22 +39,7 @@
 
     * `--private-dns-records-enabled` — (опционально) параметр для создания дополнительных [ресурсных записей](../../dns/concepts/resource-record.md) в DNS для переопределения публичного FQDN сервиса, к которому создается подключение.
 
-      В зависимости от того, применен ли параметр, будут автоматически созданы следующие ресурсные записи для доступа в {{ objstorage-name }}:
-      * параметр _не используется_:
-
-        Имя | Тип | Значение
-        --- | --- | ---
-        storage.pe.yandexcloud.net | A | <внутренний_IP-адрес_сервисного_подключения>
-        *.storage.pe.yandexcloud.net | A | <внутренний_IP-адрес_сервисного_подключения>
-
-      * параметр _используется_:
-
-        Имя | Тип | Значение
-        --- | --- | ---
-        storage.pe.yandexcloud.net | A | <внутренний_IP-адрес_сервисного_подключения>
-        *.storage.pe.yandexcloud.net | A | <внутренний_IP-адрес_сервисного_подключения>
-        {{ s3-storage-host }} | A | <внутренний_IP-адрес_сервисного_подключения>
-        *.{{ s3-storage-host }} | A | <внутренний_IP-адрес_сервисного_подключения>
+      {% include [private-endpoint-create-dns](private-endpoint-create-dns.md) %}
 
 1. Проверьте, что сервисное подключение создалось:
 
@@ -73,4 +58,3 @@
     +----------------------+-------------+--------------------------------+
     ```
 
-О том, как узнать параметры созданного сервисного подключения, см. в разделе [{#T}](../../vpc/operations/private-endpoint-get-info.md).

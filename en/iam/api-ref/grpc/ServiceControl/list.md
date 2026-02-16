@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceControl/list.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceControlService.List {#List}
+# Identity and Access Management API, gRPC: ServiceControlService.List
 
 Retrieves the list of Service in the specified resource container.
 
@@ -19,8 +19,8 @@ Retrieves the list of Service in the specified resource container.
     "id": "string",
     "type": "string"
   },
-  "pageSize": "int64",
-  "pageToken": "string"
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
@@ -31,18 +31,22 @@ Retrieves the list of Service in the specified resource container.
 Required field. Resource container to list a services.
 
 It is supported only resource-manager.cloud resource container now. ||
-|| pageSize | **int64**
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
+results is larger than `page_size`,
+the service returns a [ListServicesResponse.next_page_token](#yandex.cloud.iam.v1.ListServicesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100 ||
-|| pageToken | **string**
+Default value: 100
 
-Page token. To get the next page of results, set `pageToken`
-to the [ListServicesResponse.nextPageToken](#yandex.cloud.iam.v1.ListServicesResponse)
-returned by a previous list request. ||
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+Page token. To get the next page of results, set `page_token`
+to the [ListServicesResponse.next_page_token](#yandex.cloud.iam.v1.ListServicesResponse)
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Resource {#yandex.cloud.iam.v1.Resource}
@@ -53,10 +57,14 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#
 
 ## ListServicesResponse {#yandex.cloud.iam.v1.ListServicesResponse}
@@ -65,16 +73,16 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
 {
   "services": [
     {
-      "serviceId": "string",
+      "service_id": "string",
       "resource": {
         "id": "string",
         "type": "string"
       },
-      "updatedAt": "google.protobuf.Timestamp",
+      "updated_at": "google.protobuf.Timestamp",
       "status": "Status"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -83,14 +91,14 @@ Required field. The type of the resource, e.g. resource-manager.folder, billing.
 || services[] | **[Service](#yandex.cloud.iam.v1.Service)**
 
 List of Services. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListServicesRequest.pageSize](#yandex.cloud.iam.v1.ListServicesRequest), use
-the `nextPageToken` as the value
-for the [ListServicesRequest.pageToken](#yandex.cloud.iam.v1.ListServicesRequest) query parameter
+is larger than [ListServicesRequest.page_size](#yandex.cloud.iam.v1.ListServicesRequest), use
+the `next_page_token` as the value
+for the [ListServicesRequest.page_token](#yandex.cloud.iam.v1.ListServicesRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Service {#yandex.cloud.iam.v1.Service}
@@ -99,20 +107,19 @@ A Service.
 
 #|
 ||Field | Description ||
-|| serviceId | **string**
+|| service_id | **string**
 
 ID of the service. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource2)**
 
 Resource that the service belongs to. ||
-|| updatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the last status update of the service. ||
 || status | enum **Status**
 
 Current status of the service.
 
-- `STATUS_UNSPECIFIED`
 - `ENABLED`: The service is enabled.
 - `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
@@ -132,8 +139,12 @@ A Resource. For more information, see [Resource](/docs/iam/concepts/access-contr
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the resource. ||
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
 || type | **string**
 
-Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc. ||
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
 |#

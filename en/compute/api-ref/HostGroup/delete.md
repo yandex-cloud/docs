@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        hostGroupId:
+          description: |-
+            **string**
+            Required field. ID of the host group to delete.
+            To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - hostGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/delete.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Delete {#Delete}
+# Compute Cloud API, REST: HostGroup.Delete
 
 Deletes the specified host group.
 
@@ -20,7 +39,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 || hostGroupId | **string**
 
 Required field. ID of the host group to delete.
-To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request. ||
+To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

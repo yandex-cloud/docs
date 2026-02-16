@@ -1,3 +1,8 @@
+---
+title: Аутентификация и соединение с БД по Kafka API
+description: Следуя данной инструкции, вы сможете аутентифицироваться и установить соединение с БД по Kafka API.
+---
+
 # Аутентификация и соединение с БД по Kafka API
 
 ## Эндпоинт {#endpoint}
@@ -14,7 +19,7 @@
 1. [Назначить сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa):
    * Для чтения из потока данных: `ydb.kafkaApi.client` и `ydb.viewer`.
    * Для записи в поток данных: `ydb.kafkaApi.client` и `ydb.editor`.
-1. [Создать API-ключ](../../iam/operations/api-key/create) c областью действия `yc.ydb.topics.manage`.
+1. [Создать API-ключ](../../iam/operations/authentication/manage-api-keys.md) c областью действия `yc.ydb.topics.manage`.
 
 
 ## Аутентификация {#auth}
@@ -41,13 +46,13 @@
  * `<kafka-api-endpoint>` — [эндпоинт](#endpoint).
  * `<stream-name>` — имя [потока данных](../concepts/glossary.md#stream-concepts).
 
-1. Установите SSL-сертификат:
+1. Установите SSL-сертификат, если используете Dedicated базу:
 
    ```bash
-    mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-    wget "https://crls.yandex.net/YandexInternalRootCA.crt" \
+    sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
+    wget "{{ crt-web-path }}" \
      --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
-    chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+    sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
    ```
 
    Сертификат будет сохранен в файле `/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt`.
@@ -60,31 +65,59 @@
 
 1. Запустите команду получения сообщений из потока:
 
-    ```ini
-    kcat -C \
+    {% list tabs %}
+    - Serverless база
+      ```bash
+      kcat -C \
+        -b <kafka-api-endpoint> \
+        -t <stream-name> \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanism=PLAIN \
+        -X sasl.username="<sasl.username>" \
+        -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated база
+      ```bash
+      kcat -C \
         -b <kafka-api-endpoint> \
         -t <stream-name> \
         -X security.protocol=SASL_SSL \
         -X sasl.mechanism=PLAIN \
         -X sasl.username="<sasl.username>" \
         -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
 
     Команда будет непрерывно считывать новые сообщения из потока.
 
 1. В отдельном терминале запустите команду отправки сообщения в поток:
 
-    ```ini
-    echo "test message" | kcat -P \
-        -b <kafka-api-endpoint> \
-        -t <stream-name> \
-        -k key \
-        -X security.protocol=SASL_SSL \
-        -X sasl.mechanism=PLAIN \
-        -X sasl.username="<sasl.username>" \
-        -X sasl.password="<sasl.password>" \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt -Z
-    ```
+    {% list tabs %}
+    - Serverless база
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>"
+      ```
+    - Dedicated база
+      ```bash
+      echo "test message" | kcat -P \
+          -b <kafka-api-endpoint> \
+          -t <stream-name> \
+          -k key \
+          -X security.protocol=SASL_SSL \
+          -X sasl.mechanism=PLAIN \
+          -X sasl.username="<sasl.username>" \
+          -X sasl.password="<sasl.password>" \
+          -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
+      ```
+    {% endlist %}
+
 
 Основную документацию по работе с {{ yds-name }} через Kafka API и больше примеров см. в [документации YDB]({{ ydb.docs }}/reference/kafka-api).

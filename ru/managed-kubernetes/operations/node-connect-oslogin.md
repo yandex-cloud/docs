@@ -16,14 +16,13 @@ description: Следуя данной инструкции, вы сможете
 * [с помощью CLI](#connect-via-cli);
 * [с помощью SSH](#connect-via-ssh).
 
-## Перед началом работы
+## Перед началом работы {#before-begin}
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
 1. [Включите доступ через {{ oslogin }}](../../organization/operations/os-login-access.md) на уровне организации.
-
 1. [Включите доступ к узлам из интернета](./node-group/node-group-update.md#node-internet-access) для группы узлов, содержащей узел, к которому нужно подключиться.
 
 1. Убедитесь, что аккаунту, с которого вы подключаетесь к узлу, [назначена одна из ролей](../../iam/operations/roles/grant.md):
@@ -117,6 +116,8 @@ description: Следуя данной инструкции, вы сможете
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+          {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
       Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
     - API {#api}
@@ -201,6 +202,12 @@ description: Следуя данной инструкции, вы сможете
     yc compute ssh --name <имя_узла>
     ```
 
+    {% note info %}
+
+    {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+    {% endnote %}
+
 ## Подключитесь к узлу с помощью SSH {#connect-via-ssh}
 
 1. [Экспортируйте сертификат](../../compute/operations/vm-connect/os-login-export-certificate.md) {{ oslogin }}.
@@ -252,13 +259,20 @@ description: Следуя данной инструкции, вы сможете
 1. Подключитесь к ВМ:
 
     ```bash
-    ssh -i <путь_к_файлу_сертификата> <имя_пользователя>@<публичный_IP-адрес_узла>
+    ssh -i <путь_к_файлу_сертификата> <логин_пользователя>@<публичный_IP-адрес_узла>
     ```
 
     Где:
 
     * `<путь_к_файлу_сертификата>` — путь к сохраненному ранее файлу `Identity` сертификата. Например: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<имя_пользователя>` — имя пользователя в организации. Оно указано в конце имени экспортированного сертификата {{ oslogin }}. В примере выше это `orgusername`.
+    * `<логин_пользователя>` — логин пользователя, заданный для этого пользователя в [профиле {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles). Логин также указывается в конце имени экспортированного сертификата {{ oslogin }}. В примере выше это `orgusername`.
+
+        {% note info %}
+
+        {% include [os-login-sa-default-profile-notice](../../_includes/organization/os-login-sa-default-profile-notice.md) %}
+
+        {% endnote %}
+
     * `<публичный_IP-адрес_узла>` — полученный ранее публичный адрес узла.
 
     При первом подключении к узлу появится предупреждение о неизвестном хосте:

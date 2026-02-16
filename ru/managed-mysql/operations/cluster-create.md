@@ -17,22 +17,32 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+
 ## Создать кластер {#create-cluster}
 
+
 Для создания кластера {{ mmy-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mmy.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+
+
+
+{% include [Connection Manager](../../_includes/mdb/connman-cluster-create.md) %}
+
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvfjog2u3zppo74es4?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=XflGoG03SHE&list=PL1x4ET76A10bW1KU3twrdm7hH376z8G5R&index=5&pp=iAQB).
+
 
 
   Чтобы создать кластер {{ mmy-name }}:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать кластер БД.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Введите имя кластера {{ mmy-name }} в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
   1. Выберите окружение, в котором нужно создать кластер {{ mmy-name }} (после создания кластера окружение изменить невозможно):
@@ -44,11 +54,7 @@ description: Следуя данной инструкции, вы сможете
 
      * Выберите [тип диска](../concepts/storage.md).
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
-
-
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
-
 
      * Выберите объем, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
@@ -58,31 +64,69 @@ description: Следуя данной инструкции, вы сможете
 
        {% endnote %}
 
+     
+     * (Опционально) Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**, чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md).
+
+       * Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+
+       * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
+      
+     {% include [disk-size-autoscaling-console](../../_includes/mdb/mmy/disk-size-autoscaling-console.md) %}
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
      * Имя БД. Это имя должно быть уникальным в рамках каталога.
 
        {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
 
-     * Имя пользователя—владельца БД и пароль.
+     * Имя пользователя — владельца БД.
 
-       {% include [user-name-and-passwords-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
+
+     
+     * Пароль пользователя:
+
+         * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — выберите, чтобы ввести свой пароль. Длина пароля — от 8 до 128 символов.
+
+         * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — выберите, чтобы сгенерировать пароль с помощью сервиса {{ connection-manager-name }}.
+
+         Чтобы увидеть пароль, после создания кластера выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
 
+  
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
-     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера {{ mmy-name }}.
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mmy-name }}. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
+
+     * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](./connect/index.md#configure-security-groups), чтобы можно было подключаться к кластеру {{ mmy-name }}.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите на значок ![image](../../_assets/console-icons/pencil.svg) и выберите параметры хостов БД, создаваемых вместе с кластером {{ mmy-name }}:
      * Зону доступности.
      * [Подсеть](../../vpc/concepts/network.md#subnet) хоста — по умолчанию каждый хост создается в отдельной подсети.
+
+     
      * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
      * [Приоритет назначения хоста мастером](../concepts/replication.md#master-failover).
      * [Приоритет хоста как {{ MY }}-реплики](../concepts/backup.md#size) для создания резервной копии.
 
+     Минимальное количество хостов в кластере зависит от выбранного [типа диска](../concepts/storage.md). Конфигурация кластера по умолчанию, предлагаемая в консоли управления, включает:
 
-     Если в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выбран `local-ssd` или `network-ssd-nonreplicated`, необходимо добавить не менее трех хостов в кластер {{ mmy-name }}. После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
+      * два хоста, если выбран тип диска `network-ssd`, `network-hdd` или `network-ssd-io-m3`.
+      * три хоста, если выбран тип диска `local-ssd` или `network-ssd-nonreplicated`.
 
+     {% note warning %}
+
+     Не рекомендуется создавать кластер из одного хоста. Такой кластер обходится дешевле, но не обеспечивает [высокую доступность](../concepts/high-availability.md#host-configuration).
+
+     {% endnote %}
+
+     После создания кластера {{ mmy-name }} в него можно добавить дополнительные хосты, если для этого достаточно [ресурсов каталога](../concepts/limits.md).
 
   1. При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
@@ -102,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы создать кластер {{ mmy-name }}:
 
-
+  
   1. Проверьте, есть ли в каталоге [подсети](../../vpc/concepts/network.md#subnet) для хостов кластера {{ mmy-name }}:
 
      ```bash
@@ -120,8 +164,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Укажите параметры кластера {{ mmy-name }} в команде создания:
 
-
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name=<имя_кластера> \
@@ -129,7 +172,7 @@ description: Следуя данной инструкции, вы сможете
        --network-name <имя_сети> \
        --host zone-id=<зона_доступности>,`
          `subnet-id=<идентификатор_подсети>,`
-         `assign-public-ip=<публичный_доступ_к_хосту>,`
+         `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
          `priority=<приоритет_при_выборе_хоста-мастера>,`
          `backup-priority=<приоритет_для_резервного_копирования> \
        --mysql-version <версия_{{ MY }}> \
@@ -144,59 +187,96 @@ description: Следуя данной инструкции, вы сможете
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
 
-
-
      Где:
 
-     * `environment` — окружение: `prestable` или `production`.
+     * `--environment` — окружение: `prestable` или `production`.
+
+     
+     * `--assign-public-ip` — публичный доступ к хосту: `true` или `false`.
 
 
-     * `assign-public-ip` — публичный доступ к хосту: `true` или `false`.
+     * `--disk-type` — [тип диска](../concepts/storage.md).
+     * `--priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
+     * `--backup-priority` — приоритет для резервного копирования: от `0` до `100`.
+     * `--mysql-version` — версия {{ MY }}: `{{ versions.cli.str }}`.
+     * `--user` — содержит имя (`name`) и пароль (`password`) пользователя {{ MY }}.
 
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
-     * `--disk-type` — тип диска.
+       Длина пароля — от 8 до 128 символов.
 
-       {% include [storages-type-no-change](../../_includes/mdb/storages-type-no-change.md) %}
+       
+       {% note info %}
 
-     * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
-     * `backup-priority` — приоритет для резервного копирования: от `0` до `100`.
-     * `mysql-version` — версия {{ MY }}: `{{ versions.cli.str }}`.
+       Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого измените команду и задайте параметры пользователя таким образом:
+
+       ```bash
+         --user name=<имя_пользователя>,generate-password=true
+       ```
+
+       Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+       {% endnote %}
+    
+     * `--database name` — имя базы данных.
+     
+       {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+
 
      При необходимости задайте дополнительные настройки кластера {{ mmy-name }}:
 
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        ...
        --backup-window-start <время_начала_резервного_копирования> \
        --backup-retain-period-days=<срок_хранения_копий> \
-       --datalens-access=<true_или_false> \
-       --websql-access=<true_или_false> \
+       --disk-encryption-key-id <идентификатор_ключа_KMS> \
+       --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+       --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
+       --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
        --deletion-protection \
        --performance-diagnostics enabled=true,`
                                 `sessions-sampling-interval=<интервал_сбора_сессий>,`
                                 `statements-sampling-interval=<интервал_сбора_запросов>
+       --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_ГБ>,`
+                              `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                              `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах> \
+       --maintenance-window type=<тип_технического_обслуживания>,`
+                           `day=<день_недели>,`
+                           `hour=<час_дня>
      ```
+
 
      Где:
 
-     * `backup-window-start` — время начала резервного копирования.
-     * `backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
-     * `datalens-access` — разрешает доступ из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
-     * `websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-     * `deletion-protection` — защита от удаления кластера.
-     * `performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
+     * `--backup-window-start` — время начала резервного копирования.
+     * `--backup-retain-period-days` — срок хранения автоматических резервных копий в днях.
 
-     {% include [db-name-limits](../../_includes/mdb/mmy/note-info-db-name-limits.md) %}
+     
+     * `--disk-encryption-key-id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
-     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
+
+     * `--datalens-access` — разрешает доступ к кластеру из {{ datalens-full-name }}. Значение по умолчанию — `false`. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+     * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
+     * `--yandexquery-access` — разрешает выполнять YQL-запросы к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md). Значение по умолчанию — `false`.
+
+
+     * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+     * `--performance-diagnostics` — активация сбора статистики для [диагностики производительности кластера](performance-diagnostics.md). Допустимые значения параметров `sessions-sampling-interval` и `statements-sampling-interval` — от `1` до `86400` секунд.
+
+     {% include [disk-size-autoscaling-cli](../../_includes/mdb/mmy/disk-size-autoscaling-cli.md) %}
+
+     * `--maintenance-window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), где `type` — тип технического обслуживания:
+
+        {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
      При необходимости задайте [настройки СУБД](../concepts/settings-list.md#dbms-cluster-settings).
-
-     {% note info %}
-
-     По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
-
-     {% endnote %}
 
 - {{ TF }} {#tf}
 
@@ -219,8 +299,7 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-
-
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
        name                = "<имя_кластера>"
@@ -228,7 +307,7 @@ description: Следуя данной инструкции, вы сможете
        network_id          = "<идентификатор_сети>"
        version             = "<версия_{{ MY }}>"
        security_group_ids  = [ "<список_идентификаторов_групп_безопасности>" ]
-       deletion_protection = <защита_от_удаления_кластера>
+       deletion_protection = <защитить_кластер_от_удаления>
 
        resources {
          resource_preset_id = "<класс_хоста>"
@@ -239,7 +318,7 @@ description: Следуя данной инструкции, вы сможете
        host {
          zone             = "<зона_доступности>"
          subnet_id        = "<идентификатор_подсети>"
-         assign_public_ip = <публичный_доступ_к_хосту>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
          priority         = <приоритет_при_выборе_хоста-мастера>
          backup_priority  = <приоритет_для_резервного_копирования>
        }
@@ -271,20 +350,50 @@ description: Следуя данной инструкции, вы сможете
      ```
 
 
-
-
      Где:
 
      * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
      * `version` — версия {{ MY }}: `{{ versions.tf.str }}`.
-     * `deletion_protection` — защита от удаления кластера: `true` или `false`.
+     * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
      * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
      * `priority` — приоритет при выборе нового хоста-мастера: от `0` до `100`.
      * `backup_priority` — приоритет для резервного копирования: от `0` до `100`.
+     * `name`и `password`— имя и пароль пользователя {{ MY }}.
 
-     {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+       {% include [user-name-limits](../../_includes/mdb/mmy/note-info-user-name-and-pass-limits.md) %}
 
+       Длина пароля — от 8 до 128 символов.
+
+       
+       {% note info %}
+
+       Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<пароль_пользователя>"` укажите `generate_password = true`.
+
+       Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+       {% endnote %}
+
+
+     * {% include [disk-size-autoscaling](../../_includes/mdb/mmy/terraform/disk-size-autoscaling.md) %}
+  
      * {% include [Maintenance window](../../_includes/mdb/mmy/terraform/maintenance-window.md) %}
+
+     
+     * Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+
+       ```hcl
+       resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+         ...
+         disk_encryption_key_id = <идентификатор_ключа_KMS>
+         ...
+       }
+       ```
+
+       Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+
 
      * {% include [Access settings](../../_includes/mdb/mmy/terraform/access-settings.md) %}
 
@@ -355,7 +464,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folderId": "<идентификатор_каталога>",
@@ -368,7 +477,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletionProtection": <защита_от_удаления:_true_или_false>,
+          "deletionProtection": <защитить_кластер_от_удаления>,
           "configSpec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -377,14 +486,19 @@ description: Следуя данной инструкции, вы сможете
                   "diskTypeId": "<тип_диска>"
               },
               "access": {
-                  "dataLens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "webSql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "dataTransfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "webSql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "yandexQuery": <разрешить_доступ_из_Yandex_Query>
               },
               "performanceDiagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessionsSamplingInterval": "<интервал_сбора_сессий>",
                   "statementsSamplingInterval": "<интервал_сбора_запросов>"
+              },
+              "diskSizeAutoscaling": {
+                  "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "databaseSpecs": [
@@ -416,12 +530,18 @@ description: Следуя данной инструкции, вы сможете
               {
                   "zoneId": "<зона_доступности>",
                   "subnetId": "<идентификатор_подсети>",
-                  "assignPublicIp": <публичный_адрес_хоста:_true_или_false>
+                  "assignPublicIp": <разрешить_публичный_доступ_к_хосту>
               },
               { <аналогичный_набор_настроек_для_хоста_2> },
               { ... },
               { <аналогичный_набор_настроек_для_хоста_N> }
-          ]
+          ],
+          "maintenanceWindow": {
+              "weeklyMaintenanceWindow": {
+                  "day": "<день_недели>",
+                  "hour": "<час_дня>"
+              }
+          }
       }
       ```
 
@@ -433,33 +553,39 @@ description: Следуя данной инструкции, вы сможете
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `securityGroupIds` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletionProtection` — защита от удаления кластера, его баз данных и пользователей.
+      * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `configSpec` — настройки кластера:
 
-          * `version` — версия {{ PG }}.
+          * `version` — версия {{ MY }}.
           * `resources` — ресурсы кластера:
 
               * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
               * `diskSize` — размер диска в байтах;
               * `diskTypeId` — [тип диска](../concepts/storage.md).
 
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `dataLens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+            * `webSql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandexQuery` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+            Возможные значения настроек: `true` или `false`.
 
       * `performanceDiagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-          * `enabled` — активация сбора статистики;
+          * `enabled` — активация сбора статистики: `true` или `false`;
           * `sessionsSamplingInterval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statementsSamplingInterval` — интервал сбора запросов: от `1` до `86400` секунд.
+
+      {% include [disk-size-autoscaling-rest](../../_includes/mdb/mmy/disk-size-autoscaling-rest.md) %}
 
       * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
 
@@ -468,7 +594,15 @@ description: Следуя данной инструкции, вы сможете
       * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
           * `name` — имя пользователя.
-          * `password` — пароль пользователя.
+
+          * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+              
+              Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generatePassword": true`.
+
+              Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
           * `permissions` — настройки разрешений пользователя:
 
               * `databaseName` — имя базы данных, к которой пользователь получает доступ.
@@ -480,7 +614,9 @@ description: Следуя данной инструкции, вы сможете
 
           * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assignPublicIp` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
+      
+      {% include [maintenance-window-rest](../../_includes/mdb/mmy/maintenance-window-rest.md) %}
 
   1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -493,7 +629,7 @@ description: Следуя данной инструкции, вы сможете
           --data "@body.json"
       ```
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -504,7 +640,7 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-
+      
       ```json
       {
           "folder_id": "<идентификатор_каталога>",
@@ -517,7 +653,7 @@ description: Следуя данной инструкции, вы сможете
               ...
               "<идентификатор_группы_безопасности_N>"
           ],
-          "deletion_protection": <защита_от_удаления:_true_или_false>,
+          "deletion_protection": <защитить_кластер_от_удаления>,
           "config_spec": {
               "version": "<версия_{{ MY }}>",
               "resources": {
@@ -526,14 +662,19 @@ description: Следуя данной инструкции, вы сможете
                   "disk_type_id": "<тип_диска>"
               },
               "access": {
-                  "data_lens": <доступ_к_{{ datalens-name }}:_true_или_false>,
-                  "web_sql": <доступ_к_{{ websql-name }}:_true_или_false>,
-                  "data_transfer": <доступ_к_Data_Transfer:_true_или_false>
+                  "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+                  "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
+                  "yandex_query": <разрешить_доступ_из_Yandex_Query>
               },
               "performance_diagnostics": {
-                  "enabled": <активация_сбора_статистики:_true_или_false>,
+                  "enabled": <активировать_сбор_статистики>,
                   "sessions_sampling_interval": "<интервал_сбора_сессий>",
                   "statements_sampling_interval": "<интервал_сбора_запросов>"
+              },
+              "disk_size_autoscaling": {
+                  "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                  "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                  "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
               }
           },
           "database_specs": [
@@ -562,9 +703,15 @@ description: Следуя данной инструкции, вы сможете
               {
                   "zone_id": "<зона_доступности>",
                   "subnet_id": "<идентификатор_подсети>",
-                  "assign_public_ip": <публичный_адрес_хоста:_true_или_false>
+                  "assign_public_ip": <разрешить_публичный_доступ_к_хосту>
               }
-          ]
+          ],
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час_дня>"
+            }
+          }
       }
       ```
 
@@ -576,39 +723,53 @@ description: Следуя данной инструкции, вы сможете
       * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
       * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
 
-
+      
       * `security_group_ids` — идентификаторы [групп безопасности](../concepts/network.md#security-groups).
 
 
-      * `deletion_protection` — защита от удаления кластера, его баз данных и пользователей.
+      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
       * `config_spec` — настройки кластера:
 
-          * `version` — версия {{ PG }}.
+          * `version` — версия {{ MY }}.
           * `resources` — ресурсы кластера:
 
               * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
               * `disk_size` — размер диска в байтах;
               * `disk_type_id` — [тип диска](../concepts/storage.md).
 
+          * `access` — настройки доступа к кластеру из сервисов {{ yandex-cloud }}:
 
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `data_lens` — доступ из {{ datalens-full-name }}. Подробнее о настройке подключения см в разделе [{#T}](datalens-connect.md).
+            * `web_sql` — [выполнение SQL-запросов](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}.
+            * `yandex_query` — выполнение YQL-запросов к базам данных кластера из сервиса [{{ yq-full-name }}](../../query/concepts/index.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
-              * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
-              * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
-              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml).
 
+            Возможные значения настроек: `true` или `false`.
 
       * `performance_diagnostics` — настройки для [сбора статистики](performance-diagnostics.md#activate-stats-collector):
 
-          * `enabled` — активация сбора статистики;
+          * `enabled` — активация сбора статистики: `true` или `false`;
           * `sessions_sampling_interval` — интервал сбора сессий: от `1` до `86400` секунд;
           * `statements_sampling_interval` — интервал сбора запросов: от `60` до `86400` секунд.
+
+      {% include [disk-size-autoscaling-grpc](../../_includes/mdb/mmy/disk-size-autoscaling-grpc.md) %}
 
       * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной БД и содержит параметр `name` — имя БД.
       * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
 
           * `name` — имя пользователя.
-          * `password` — пароль пользователя.
+
+          * `password` — пароль пользователя. Длина пароля — от 8 до 128 символов.
+
+              
+              Пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `"password": "<пароль_пользователя>"` укажите `"generate_password": true`.
+
+              Чтобы увидеть пароль, в [консоли управления]({{ link-console-main }}) выберите созданный кластер, перейдите на вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Для просмотра паролей требуется роль `lockbox.payloadViewer`.
+
+
           * `permissions` — настройки разрешений пользователя:
 
               * `database_name` — имя базы данных, к которой пользователь получает доступ.
@@ -620,7 +781,9 @@ description: Следуя данной инструкции, вы сможете
 
           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
           * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-          * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
+          * `assign_public_ip` — разрешение на [подключение](./connect/index.md) к хосту из интернета: `true` или `false`.
+
+      {% include [maintenance-window-grpc](../../_includes/mdb/mmy/maintenance-window-grpc.md) %}    
 
   1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
@@ -644,7 +807,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-Если вы указали идентификаторы групп безопасности при создании кластера {{ mmy-name }}, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configure-security-groups).
+Если вы указали идентификаторы групп безопасности при создании кластера {{ mmy-name }}, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](./connect/index.md#configure-security-groups).
 
 {% endnote %}
 
@@ -736,7 +899,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mmy-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `my-mysql`.
   * Версии `{{ versions.cli.latest }}`.
   * В окружении `production`.
@@ -746,12 +909,12 @@ description: Следуя данной инструкции, вы сможете
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
   * С одним пользователем (`user1`), с паролем `user1user1`.
   * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-  * С защитой от случайного удаления кластера.
+  * С защитой от непреднамеренного удаления.
 
 
   1. Запустите команду создания кластера {{ mmy-name }}:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql" \
@@ -790,19 +953,18 @@ description: Следуя данной инструкции, вы сможете
     * В новой сети `mynet`.
     * С одним хостом класса `{{ host-class }}` в новой подсети `mysubnet`, в зоне доступности `{{ region-id }}-a`. Подсеть `mysubnet` будет иметь диапазон `10.5.0.0/24`.
 
-
+    
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
 
 
     * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) объемом 20 ГБ.
     * С одним пользователем (`user1`), с паролем `user1user1`.
     * С одной БД `db1`, в которой пользователь `user1` имеет полные права (эквивалент `GRANT ALL PRIVILEGES on db1.*`).
-    * С защитой от случайного удаления кластера {{ mmy-name }}.
+    * С защитой от непреднамеренного удаления.
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-
-
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql" {
     name                = "my-mysql"
@@ -829,7 +991,7 @@ description: Следуя данной инструкции, вы сможете
     name       = "db1"
   }
 
-  resource "yandex_mdb_mysql_user" "<имя_пользователя>" {
+  resource "yandex_mdb_mysql_user" "user1" {
     cluster_id = yandex_mdb_mysql_cluster.my-mysql.id
     name       = "user1"
     password   = "user1user1"
@@ -864,8 +1026,6 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 
-
-
 {% endlist %}
 
 ### Создание кластера из нескольких хостов {#creating-multiple-hosts-cluster}
@@ -879,7 +1039,7 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mmy-name }} с тестовыми характеристиками:
 
-
+  
   * С именем `my-mysql-3`.
   * Версии `{{ versions.cli.latest }}`.
   * В окружении `prestable`.
@@ -901,7 +1061,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Запустите команду создания кластера {{ mmy-name }}:
 
-
+     
      ```bash
      {{ yc-mdb-my }} cluster create \
        --name="my-mysql-3" \
@@ -957,7 +1117,7 @@ description: Следуя данной инструкции, вы сможете
 
       Хосту в подсети `mysubnet-b` будет присвоен приоритет резервного копирования. Резервные копии будут создаваться из данных с этого хоста, если он не выбран хостом-мастером.
 
-
+    
     * В новой группе безопасности `mysql-sg`, разрешающей подключение к кластеру {{ mmy-name }} из интернета через порт `{{ port-mmy }}`.
 
 
@@ -967,8 +1127,7 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера {{ mmy-name }} выглядит так:
 
-
-
+  
   ```hcl
   resource "yandex_mdb_mysql_cluster" "my-mysql-3" {
     name                = "my-mysql-3"
@@ -1057,10 +1216,4 @@ description: Следуя данной инструкции, вы сможете
   ```
 
 
-
-
 {% endlist %}
-
-
-{% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
-

@@ -1,3 +1,8 @@
+---
+title: Создание виртуальной машины в группе выделенных хостов
+description: Следуя данной инструкции, вы сможете создать виртуальную машину в группе выделенных хостов.
+---
+
 # Создание виртуальной машины в группе выделенных хостов
 
 
@@ -65,7 +70,7 @@
 
       * {% include [dedicated-cli-attach-local-disk](../../../_includes/compute/dedicated-cli-attach-local-disk.md) %}
 
-      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
+      Чтобы указать остальные характеристики ВМ, используйте параметры команды `yc compute instance create`, описанные в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/instance/create.md). Подробнее см. в разделах [{#T}](../../concepts/vm.md) и [{#T}](../index.md#vm-create).
 
       Результат:
 
@@ -98,7 +103,7 @@
 
 Перед созданием ВМ:
 
-1. [Создайте группу выделенных хостов](create-host-group.md) и узнайте ее идентификатор с помощью [команды CLI](../../../cli/cli-ref/managed-services/compute/host-group/list.md) `yc compute host-group list`.
+1. [Создайте группу выделенных хостов](create-host-group.md) и узнайте ее идентификатор с помощью [команды CLI](../../../cli/cli-ref/compute/cli-ref/host-group/list.md) `yc compute host-group list`.
 1. [Создайте пару ключей](../vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ по SSH.
 
 Создайте ВМ со следующими характеристиками:

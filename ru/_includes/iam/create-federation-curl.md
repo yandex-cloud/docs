@@ -1,4 +1,4 @@
-Чтобы создать федерацию, воспользуйтесь методом REST API [create](../../organization/saml/api-ref/Federation/create.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Create](../../organization/api-ref/grpc/federation_service#Create) и передайте в запросе файл с параметрами запроса.
+Чтобы создать федерацию, воспользуйтесь методом REST API [create](../../organization/saml/api-ref/Federation/create.md) для ресурса [Federation](../../organization/saml/api-ref/Federation/index.md) или вызовом gRPC API [FederationService/Create](../../organization/saml/api-ref/grpc/Federation/create.md) и передайте в запросе файл с параметрами запроса.
 
 Пример запроса:
 

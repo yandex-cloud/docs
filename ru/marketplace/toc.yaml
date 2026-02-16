@@ -22,8 +22,18 @@ items:
             href: operations/create-trial-period.md
           - name: Интеграция с {{ license-manager }} API
             href: operations/license-manager-integration.md
+          - name: Создание конфигурации для продукта {{ cloud-apps-name }}
+            href: operations/create-configuration.md
+          - name: Заявки на доступ к продуктам
+            href: operations/access-requests.md
+      - name: Практические руководства
+        items:
+          - name: Создание демонстрационного продукта {{ cloud-apps-name }}
+            href: tutorials/demo-cloud-apps.md
       - name: Концепции
         items:
+          - name: Профиль партнера
+            href: concepts/publisher.md
           - name: Продукт
             href: concepts/product.md
           - name: Версия
@@ -43,20 +53,36 @@ items:
             href: concepts/api-usage.md
           - name: Пробный период
             href: concepts/trial-period.md
+          - name: >-
+              Справочник полей, доступных для формы продукта {{ cloud-apps-name
+              }}
+            href: concepts/form-fields-ref.md
+          - name: >-
+              Вычисляемые выражения в конфигурации продукта {{ cloud-apps-name
+              }}
+            href: concepts/expressions.md
       - name: Управление доступом
         href: security/partners.md
-      - name: Справочник API
+      - name: Справочник Metering API
         items:
-          - name: REST
+          - name: Начало работы с API
+            href: api-ref/quickstart.md
+          - name: REST (англ.)
             items:
-              - name: Обзор
-                href: api-ref/index.md
+              - name: Overview
+                href: metering/api-ref/index.md
               - name: ImageProductUsage
                 items:
-                  - name: Описание
-                    href: api-ref/ImageProductUsage/index.md
-                  - name: write
-                    href: api-ref/ImageProductUsage/write.md
+                  - name: Overview
+                    href: metering/api-ref/ImageProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ImageProductUsage/write.md
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ProductUsage/write.md
           - name: gRPC (англ.)
             items:
               - name: Overview
@@ -67,8 +93,16 @@ items:
                     href: metering/api-ref/grpc/ImageProductUsage/index.md
                   - name: Write
                     href: metering/api-ref/grpc/ImageProductUsage/write.md
-      - name: Справочник License Manager API
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/grpc/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/grpc/ProductUsage/write.md
+      - name: Справочник {{ license-manager }} API
         items:
+          - name: Начало работы с {{ license-manager }} API
+            href: license-manager/api-ref/quickstart.md
           - name: gRPC (англ.)
             items:
               - name: Overview
@@ -142,8 +176,10 @@ items:
                     href: license-manager/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/api-ref/Operation/cancel.md
-      - name: Справочник License Manager SaaS API
+      - name: Справочник {{ license-manager }} SaaS API
         items:
+          - name: Начало работы с {{ license-manager }} SaaS API
+            href: license-manager/saas/api-ref/quickstart.md
           - name: gRPC (англ.)
             items:
               - name: Overview
@@ -154,6 +190,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/grpc/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview
@@ -162,6 +200,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/grpc/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -180,6 +220,8 @@ items:
                     href: license-manager/saas/api-ref/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview
@@ -188,6 +230,8 @@ items:
                     href: license-manager/saas/api-ref/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -196,21 +240,148 @@ items:
                     href: license-manager/saas/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/saas/api-ref/Operation/cancel.md
+      - name: Справочник {{ cloud-apps-name }} Workload API
+        items:
+          - name: Начало работы с {{ cloud-apps-name }} Workload API
+            href: cloudapps/workload/api-ref/quickstart.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: workload/api-ref/grpc/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/grpc/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/grpc/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: >-
+                      workload/api-ref/grpc/CloudApplication/resolveByWorkload.md
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: workload/api-ref/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: workload/api-ref/CloudApplication/resolveByWorkload.md
+      - name: Справочник Product Instance Management API
+        items:
+          - name: REST (англ.)
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/ProductInstance/claim.md
+          - name: gRPC (англ.)
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/grpc/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/grpc/ProductInstance/claim.md
   - name: Пользователям
     expanded: true
     items:
+      - name: Начало работы
+        href: operations/users/quickstart.md
       - name: Пошаговые инструкции
         items:
-          - name: Покупка подписки
-            href: operations/users/buy-subscription.md
-          - name: Привязка подписки
-            href: operations/users/lock-subscription.md
-          - name: Отвязка подписки
-            href: operations/users/unlock-subscription.md
-          - name: Перемещение подписки
-            href: operations/users/move-subscription.md
-          - name: Отключение автопродления
-            href: operations/users/cancel-subscription.md
+          - name: Управление подпиской
+            items:
+              - name: Покупка подписки
+                href: operations/users/buy-subscription.md
+              - name: Привязка подписки
+                href: operations/users/lock-subscription.md
+              - name: Отвязка подписки
+                href: operations/users/unlock-subscription.md
+              - name: Перемещение подписки
+                href: operations/users/move-subscription.md
+              - name: Отключение автопродления
+                href: operations/users/cancel-subscription.md
+          - name: Запрос доступа к продукту
+            href: operations/users/access-requests.md
+      - name: Практические руководства
+        items:
+          - name: Все руководства
+            href: tutorials/index.md
+          - name: Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
+            href: tutorials/s2s-vpn.md
+          - name: Установка Ghost CMS CloudApp в {{ objstorage-name }}
+            href: tutorials/ghost-cms-cloudapp.md
+          - name: >-
+              Использование продуктов {{ marketplace-name }} в {{
+              managed-k8s-name }}
+            items:
+              - name: Интеграция с Argo CD
+                href: tutorials/argo-cd.md
+              - name: Интеграция с Crossplane
+                href: tutorials/crossplane.md
+              - name: Синхронизация с секретами {{ lockbox-name }}
+                href: tutorials/kubernetes-lockbox-secrets.md
+              - name: Настройка Fluent Bit для работы с {{ cloud-logging-name }}
+                href: tutorials/fluent-bit-logging.md
+              - name: Настройка Gateway API
+                href: tutorials/gateway-api.md
+              - name: >-
+                  Настройка L7-балансировщика {{ alb-name }} с помощью
+                  Ingress-контроллера
+                href: tutorials/alb-ingress-controller.md
+              - name: >-
+                  Настройка логирования для L7-балансировщика {{ alb-name }} с
+                  помощью Ingress-контроллера
+                href: tutorials/alb-ingress-controller-log-options.md
+              - name: >-
+                  Создание L7-балансировщика с профилем безопасности {{ sws-name
+                  }} через Ingress-контроллер {{ alb-name }}
+                href: tutorials/alb-ingress-with-sws-profile.md
+              - name: >-
+                  Проверка состояния приложений в кластере {{ managed-k8s-name
+                  }} с помощью L7-балансировщика {{ alb-name }}
+                href: tutorials/custom-health-checks.md
+              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
+                href: tutorials/jaeger-over-ydb.md
+              - name: Настройка Kyverno & Kyverno Policies
+                href: tutorials/kyverno.md
+              - name: Использование {{ MP }} для трансляции метрик
+                href: tutorials/metrics-provider.md
+              - name: Редактирование изображений для сайтов с помощью Thumbor
+                href: tutorials/thumbor.md
+              - name: Использование Istio
+                href: tutorials/istio.md
+              - name: Использование HashiCorp Vault для хранения секретов
+                href: tutorials/hashicorp-vault.md
       - name: Концепции
         items:
           - name: Подписка
@@ -221,5 +392,3 @@ items:
         href: security/index.md
       - name: Аудитные логи {{ at-name }}
         href: at-ref.md
-base: ru/marketplace
-deepBase: 2

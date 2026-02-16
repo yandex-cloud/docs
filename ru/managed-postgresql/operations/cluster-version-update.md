@@ -1,6 +1,6 @@
 # Обновление версии {{ PG }}
 
-Вы можете обновить кластер {{ mpg-name }} до любой поддерживаемой версии.
+Вы можете обновить кластер {{ mpg-name }} до версии 18 или ниже.
 
 {% note info %}
 
@@ -8,9 +8,13 @@
 
 {% endnote %}
 
-Обновление доступно только на следующую версию относительно текущей, например, с версии 11 на 12. Обновление до более поздних версий производится поэтапно. Например, обновление версии {{ PG }} с 11 до 15 выполняется в такой последовательности: 11 → 12 → 13 → 14 → 15.
+{% note warning %}
 
-Обновление до версии 16 возможно только при помощи {{ data-transfer-full-name }}. Для этого [создайте кластер](cluster-create.md#create-cluster) с версией 16 и [перенесите в него данные](../tutorials/data-migration.md#data-transfer) из кластера, который хотите обновить.
+Для обновления версии в хранилище кластера должно быть не менее 10% свободного места — как минимум 10 ГБ.
+
+{% endnote %}
+
+Обновление доступно только на следующую версию относительно текущей, например, с версии 14 на 15. Обновление до более поздних версий производится поэтапно. Например, обновление версии {{ PG }} с 14 до 16 выполняется в такой последовательности: 14 → 15 → 16.
 
 В однохостовых кластерах на обновление выводится единственный хост-мастер. Во время обновления такие кластеры будут недоступными на чтение и запись.
 
@@ -30,7 +34,7 @@
 Убедитесь, что это не нарушит работу ваших приложений:
 
 1. Посмотрите в [истории изменений](https://www.postgresql.org/docs/release/) {{ PG }}, как обновления могут повлиять на работу ваших приложений или установленных [расширений](./extensions/cluster-extensions.md).
-1. Попробуйте обновить версию на тестовом кластере. Его можно развернуть из резервной копии основного кластера.
+1. Попробуйте обновить версию на тестовом кластере. Его можно [развернуть](cluster-backups.md#restore) из резервной копии основного кластера.
 1. [Создайте резервную копию](cluster-backups.md) основного кластера непосредственно перед обновлением версии.
 
 ## Обновить кластер {#start-update}
@@ -42,19 +46,12 @@
 
 {% endnote %}
 
-### Обновить кластер до версии {{ PG }} 16 {#update-to-v16}
-
-  1. [Создайте кластер](cluster-create.md#create-cluster) с версией {{ PG }} 16.
-  1. При помощи {{ data-transfer-name }} [перенесите в него данные](../tutorials/data-migration.md#data-transfer) из кластера, который хотите обновить.
-
-### Обновить кластер до версии {{ PG }} 15 или ниже {#update-to-v15-or-lower}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}  
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
@@ -120,7 +117,7 @@
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -148,7 +145,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -157,7 +154,7 @@
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -193,7 +190,7 @@
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -201,9 +198,15 @@
 
 Время обновления кластера зависит от размера базы данных.
 
+{% note tip %}
+
+Если с переходом на версию 18 возникнут проблемы, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
+
 ## Примеры {#examples}
 
-Допустим, нужно обновить кластер с версии 11 до версии 12.
+Допустим, нужно обновить кластер с версии 14 до версии 15.
 
 {% list tabs group=instructions %}
 
@@ -233,14 +236,15 @@
         id: c9q8p8j2gaih********
         ...
         config:
-          version: "11"
+          version: "14"
           ...
       ```
 
-   1. Для обновления кластера `postgre406` до версии 12, выполните команду:
+   1. Для обновления кластера `postgre406` до версии 15, выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 12
+      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 15
       ```
 
 {% endlist %}
+

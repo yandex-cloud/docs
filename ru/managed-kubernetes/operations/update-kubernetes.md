@@ -4,13 +4,11 @@
 
 При обновлении мажорной версии {{ k8s }} сначала обновите кластер {{ managed-k8s-name }}, потом его группу узлов.
 
-{% note info %}
-
 Вы можете изменить политику обновления [кластера {{ managed-k8s-name }}](#cluster-auto-upgrade) или [группы узлов](#node-group-auto-upgrade) в любое время.
 
-{% endnote %}
-
 Подробнее см. в разделе [{#T}](../concepts/release-channels-and-updates.md).
+
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
 ## Список доступных версий {{ k8s }} {#versions-list}
 
@@ -60,7 +58,7 @@
 
   Настройки обновлений можно указать при [создании кластера {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении его настроек](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-update.md).
 
-  В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите политику обновления кластера {{ managed-k8s-name }}:
+  В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления кластера {{ managed-k8s-name }}:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.
@@ -137,7 +135,10 @@
        }
        ```
 
-       Где `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       Где:
+
+       * `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       * `duration` — длительность обновления (например `4h30m`).
 
      * Чтобы включить режим обновления в выбранные дни (можно указать несколько периодов):
 
@@ -148,18 +149,24 @@
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<день_начала_обновления,_например_monday>"
-             start_time = "<время_начала_обновления,_UTC>"
+             day        = "<день_начала_обновления>"
+             start_time = "<время_начала_обновления>"
              duration   = "<длительность_обновления>"
            }
            maintenance_window {
-             day        = "<день_начала_обновления,_например_monday>"
-             start_time = "<время_начала_обновления,_UTC>"
+             day        = "<день_начала_обновления>"
+             start_time = "<время_начала_обновления>"
              duration   = "<длительность_обновления>"
            }
          }
        }
        ```
+
+       Где:
+
+       * `day` — день недели (например `monday`).
+       * `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       * `duration` — длительность обновления (например `4h30m`).
 
      * Чтобы включить режим произвольного времени обновления, не добавляйте блок параметров `maintenance_policy` в описание кластера {{ managed-k8s-name }}. Если в описании кластера {{ managed-k8s-name }} не указаны настройки автоматического обновления, оно будет производиться в произвольное время.
      * Чтобы отключить автоматическое обновление:
@@ -181,6 +188,8 @@
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
@@ -249,6 +258,8 @@
 
 {% endlist %}
 
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
+
 ### Ручное обновление версии кластера {#cluster-manual-upgrade}
 
 При необходимости обновите версию кластера {{ managed-k8s-name }} вручную. За один этап кластер {{ managed-k8s-name }} можно обновить только до следующей минорной версии относительно текущей. Обновление до более новых версий производится в несколько этапов, например: 1.19 → 1.20 → 1.21.
@@ -297,6 +308,8 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster}}).
 
 - API {#api}
@@ -312,6 +325,8 @@
 
 ## Обновление группы узлов {#node-group-upgrade}
 
+{% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
+
 ### Настройка автоматического обновления группы узлов {#node-group-auto-upgrade}
 
 Выберите режим автоматического обновления группы узлов {{ managed-k8s-name }} и задайте нужный график обновления:
@@ -323,10 +338,13 @@
   Настройки обновлений можно указать при [создании группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/operations/node-group/node-group-create.md) или [изменении ее настроек](../../managed-kubernetes/operations/node-group/node-group-update.md).
 
   В поле **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}** укажите настройки масштабирования группы узлов {{ managed-k8s-name }}:
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — задайте максимальное количество виртуальных машин, на которое можно превысить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
-  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество ВМ, на которое можно уменьшить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — задайте максимальное количество узлов, на которое можно превысить размер группы при ее обновлении.
 
-  В поле **{{ ui-key.yacloud.k8s.clusters.create.field_maintenance-window }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — задайте максимальное количество недоступных узлов группы при ее обновлении.
+
+  В поле **{{ ui-key.yacloud.k8s.MaintenanceSection.maintenance-window-field-with-none-option_tx5Wn }}** выберите политику обновления группы узлов {{ managed-k8s-name }}:
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-disabled }}` — выберите эту опцию, чтобы не использовать автоматические обновления.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-anytime }}` — выберите эту опцию, чтобы {{ managed-k8s-name }} управлял графиком установки обновлений.
   * `{{ ui-key.yacloud.k8s.clusters.create.value_maintenance-daily }}` — укажите время начала и продолжительность обновления.
@@ -339,8 +357,8 @@
   ```bash
   {{ yc-k8s }} node-group <create_или_update> <имя_или_идентификатор_группы_узлов> \
   ...
-    --max-expansion <количество_ВМ> \
-    --max-unavailable <количество_ВМ> \
+    --max-expansion <расширение_размера_группы_при_обновлении> \
+    --max-unavailable <количество_недоступных_узлов_при_обновлении> \
     --auto-upgrade <режим_автоматического_обновления> \
     --auto-repair <режим_пересоздания> \
     --anytime-maintenance-window \
@@ -350,12 +368,15 @@
 
   Где:
 
-  * `--max-expansion` — максимальное количество ВМ, на которое можно превысить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
-  * `--max-unavailable` — максимальное количество ВМ, на которое можно уменьшить размер группы узлов {{ managed-k8s-name }} при ее обновлении.
+  * `--max-expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+  * `--max-unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
 
     {% note info %}
 
-    Флаги `--max-expansion` и `--max-unavailable` следует использовать совместно.
+    Параметры `--max-expansion` и `--max-unavailable` следует использовать совместно.
 
     {% endnote %}
 
@@ -421,7 +442,10 @@
        }
        ```
 
-       Где `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       Где:
+
+       * `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       * `duration` — длительность обновления (например `4h30m`).
 
      * Чтобы включить режим обновления в выбранные дни (можно указать несколько периодов):
 
@@ -432,32 +456,45 @@
          maintenance_policy {
            auto_upgrade = true
            maintenance_window {
-             day        = "<день_начала_обновления,_например_monday>"
-             start_time = "<время_начала_обновления,_UTC>"
+             day        = "<день_начала_обновления>"
+             start_time = "<время_начала_обновления>"
              duration   = "<длительность_обновления>"
            }
            maintenance_window {
-             day        = "<день_начала_обновления,_например_monday>"
-             start_time = "<время_начала_обновления,_UTC>"
+             day        = "<день_начала_обновления>"
+             start_time = "<время_начала_обновления>"
              duration   = "<длительность_обновления>"
            }
          }
        }
        ```
 
+       Где:
+
+       * `day` — день недели (например `monday`).
+       * `start_time` — время начала обновления в формате [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+       * `duration` — длительность обновления (например `4h30m`).
+
      * Чтобы включить режим произвольного времени обновления, не добавляйте блок параметров `maintenance_policy` в описание группы узлов {{ managed-k8s-name }}. Если в описании группы узлов {{ managed-k8s-name }} не указаны настройки автоматического обновления, оно будет производиться в произвольное время.
-     * Чтобы задать настройки масштабирования группы узлов {{ managed-k8s-name }} при обновлении:
+     * Чтобы задать настройки развертывания группы узлов {{ managed-k8s-name }} при обновлении:
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
          name = <имя_группы_узлов>
          ...
          deploy_policy {
-           max_expansion   = <максимальное_количество_ВМ,_на_которое_можно_превысить_размер_группы_узлов>
-           max_unavailable = <максимальное_количество_ВМ,_на_которое_можно_уменьшить_размер_группы_узлов>
+           max_expansion   = <расширение_размера_группы_при_обновлении>
+           max_unavailable = <количество_недоступных_узлов_при_обновлении>
          }
        }
        ```
+
+       Где:
+       * `max_expansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+         {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
+
+       * `max_unavailable` — максимальное количество недоступных узлов группы при ее обновлении.
 
        {% note info %}
 
@@ -484,6 +521,8 @@
   1. Подтвердите изменение ресурсов.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
@@ -550,21 +589,25 @@
     * `nanos` — доля секунды начала обновления, в наносекундах.
     * `duration` — длительность периода обновления, в часах.
 
-  Для настройки масштабирования группы узлов {{ managed-k8s-name }} добавьте блок `deployPolicy`:
+  Для настройки развертывания группы узлов {{ managed-k8s-name }} при ее обновлении добавьте блок `deployPolicy`:
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<максимальное_количество_ВМ>",
-    "maxExpansion": "<максимальное_количество_ВМ>"
+    "maxUnavailable": "<количество_недоступных_узлов_при_обновлении>",
+    "maxExpansion": "<расширение_размера_группы_при_обновлении>"
   }
   ```
 
-    Где:
+  Где:
 
-    * `maxUnavailable` — максимальное количество ВМ, на которое можно уменьшить размер группы узлов.
-    * `maxExpansion` — максимальное количество ВМ, на которое можно превысить размер группы узлов.
+  * `maxUnavailable` — максимальное количество недоступных узлов группы при ее обновлении.
+  * `maxExpansion` — максимальное количество узлов, на которое можно увеличить размер группы при ее обновлении.
+
+    {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
+
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
 
 ### Ручное обновление версии группы узлов {#node-group-manual-upgrade}
 
@@ -623,6 +666,8 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
@@ -640,10 +685,10 @@
 
 Для кластера {{ managed-k8s-name }} и группы узлов доступно обновление в рамках одной версии {{ k8s }}. При установке обновления мажорная версия {{ k8s }} не меняется.
 
-При таком обновлении возможна:
+При таком обновлении возможны:
 * Установка новых пакетов.
 * Обновление образа {{ k8s }}.
-* Обновление минорной версии {{ k8s }}.
+* Обновление патч-версии {{ k8s }}.
 
 Кластер {{ managed-k8s-name }} и группы узлов будут обновлены, если в их настройках включен любой из вариантов автоматического обновления.
 
@@ -716,3 +761,68 @@
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+
+## Обязательное обновление {#necessary-update}
+
+Для кластера {{ managed-k8s-name }} может быть назначено [обязательное обновление](../concepts/release-channels-and-updates.md#necessary-update).
+
+При таком обновлении возможны:
+
+* Установка новых пакетов.
+* Обновление мажорной версии {{ k8s }}.
+* Применение обновлений безопасности {{ k8s }}.
+
+Если в кластере выбран режим произвольного времени обновления, то обязательное обновление произойдет в порядке, определенном сервисом. В иных случаях по умолчанию обновление устанавливается через 14 дней после оповещения пользователей. Вы можете перенести обязательное обновление на более ранний срок.
+
+### Немедленное обновление {#instant-update}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. В блоке **Обновления** нажмите кнопку **Обновить сейчас**.
+
+{% endlist %}
+
+### Перенос даты обновления {#move-update}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. В блоке **Обновления** нажмите кнопку **Перенести**.
+  1. Выберите новую дату обновления и нажмите кнопку **Перенести**.
+
+- CLI {#cli}
+
+  Выполните перенос даты обновления кластера:
+
+  ```bash
+  {{ yc-k8s }} reschedule-maintenance \
+      --id <идентификатор_кластера> \
+      --delayed-until <дата_и_время_обновления>
+  ```
+
+  Где:
+
+  * `--delayed-until` — новые дата и время обновления в формате `YYYY-MM-DDThh:mm:ssZ`. Например: `2026-01-01T21:00:00Z`. Обязательный параметр.
+
+  Идентификатор кластера {{ managed-k8s-name }} можно [получить со списком кластеров в каталоге](./kubernetes-cluster/kubernetes-cluster-list.md).
+
+- API {#api}
+
+  Воспользуйтесь методом [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) и передайте в запросе:
+  * Идентификатор кластера {{ managed-k8s-name }} в параметре `clusterId`. Чтобы узнать идентификатор кластера {{ managed-k8s-name }}, [получите список кластеров в каталоге](kubernetes-cluster/kubernetes-cluster-list.md#list).
+  * Новые дату и время обновления в формате `YYYY-MM-DDThh:mm:ssZ` в параметре `delayedUntil`. Например: `2026-01-01T21:00:00Z`.
+
+{% endlist %}
+
+{% note info %}
+
+Обновление может начаться позже указанного времени.  
+
+{% endnote %}

@@ -10,10 +10,8 @@ description:
     API</a>.
   - >-
     На стадии Preview доступна отправка push-уведомлений на устройства с iOS и
-    Android, а также SMS.
-  - Позднее будет реализована отправка уведомлений в мессенджеры и браузеры.
-meta:
-  title: Yandex Cloud Notification Service
+    Android, в браузеры и SMS.
+  - Позднее будет реализована отправка уведомлений в мессенджеры.
 links:
   - title: Начало работы
     description: Создайте первый канал уведомлений
@@ -33,3 +31,22 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Cloud Notification Service
+  keywords:
+    - notification
+    - notification service
+    - push-уведомлений
+    - '{{ cns-name }}'
+    - сервис {{ cns-name }}
+    - push {{ cns-name }}
+    - пуши {{ cns-name }}
+    - уведомления
+    - SMS {{ cns-name }}
+    - SMS-уведомление в {{ yandex-cloud }}
+    - CNS в {{ yandex-cloud }}
+    - всплывающие сообщения
+    - push в {{ yandex-cloud }}
+    - SMS в {{ yandex-cloud }}
+    - '{{ cns-name }} в {{ yandex-cloud }}'
+    - уведомления в {{ yandex-cloud }}

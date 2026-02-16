@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/getProfile.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.GetProfile {#GetProfile}
+# Identity Hub API, gRPC: OsLoginService.GetProfile
 
 OsLogin Profiles
 
@@ -15,15 +15,17 @@ OsLogin Profiles
 
 ```json
 {
-  "osLoginProfileId": "string"
+  "os_login_profile_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| osLoginProfileId | **string**
+|| os_login_profile_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OsLoginProfile {#yandex.cloud.organizationmanager.v1.OsLoginProfile}
@@ -31,12 +33,12 @@ Required field.  ||
 ```json
 {
   "id": "string",
-  "organizationId": "string",
-  "subjectId": "string",
+  "organization_id": "string",
+  "subject_id": "string",
   "login": "string",
   "uid": "int64",
-  "isDefault": "bool",
-  "homeDirectory": "string",
+  "is_default": "bool",
+  "home_directory": "string",
   "shell": "string"
 }
 ```
@@ -44,11 +46,11 @@ Required field.  ||
 #|
 ||Field | Description ||
 || id | **string** ||
-|| organizationId | **string** ||
-|| subjectId | **string** ||
+|| organization_id | **string** ||
+|| subject_id | **string** ||
 || login | **string** ||
 || uid | **int64** ||
-|| isDefault | **bool** ||
-|| homeDirectory | **string** ||
+|| is_default | **bool** ||
+|| home_directory | **string** ||
 || shell | **string** ||
 |#

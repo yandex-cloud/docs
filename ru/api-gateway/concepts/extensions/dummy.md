@@ -36,3 +36,10 @@ x-yc-apigateway-integration:
     * Если ключа нет, то возвращается ответ `415 Media not supported`. 
 * Если заголовка `Accept` нет, то выбирается произвольный вариант ответа.
 * Если вариант контента выбран по ключу `*`, то `Content-Type` ответа будет выбран из `http_headers`. Если он там не указан, возвращается фактический `Content-Type`.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/api-gw-sws-integration.md)
+* [{#T}](../../tutorials/api-gw-websocket.md)
+* [{#T}](../../tutorials/slack-bot-serverless.md)

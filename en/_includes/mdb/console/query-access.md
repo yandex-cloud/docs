@@ -1,0 +1,1 @@
+The **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** option enables you to run YQL queries from [{{ yq-full-name }}](../../../query/concepts/index.md) to a managed database in {{ mgp-name }}.

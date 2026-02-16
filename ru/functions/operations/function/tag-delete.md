@@ -5,6 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Удалить тег версии функции
 
+{% note info %}
+
+Тег `$latest` нельзя удалить.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - CLI {#cli}
@@ -104,11 +110,6 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
     Чтобы удалить тег версии функции, воспользуйтесь методом REST API [removeTag](../../functions/api-ref/Function/removeTag.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md).
-
-
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    Удалить тег можно с помощью [плагина {{ yandex-cloud }} Toolkit](https://github.com/yandex-cloud/ide-plugin-jetbrains) для семейства IDE на [платформе IntelliJ](https://www.jetbrains.com/ru-ru/opensource/idea/) от [JetBrains](https://www.jetbrains.com/).
 
 
 {% endlist %}

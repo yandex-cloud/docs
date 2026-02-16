@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/backups/{backupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to return information about.
+            To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/list#List) request (lists all backups in a folder) or a [ClusterService.ListBackups](/docs/managed-mysql/api-ref/Cluster/listBackups#ListBackups) request (lists all backups for an existing cluster).
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for MySQL API, REST: Backup.Get {#Get}
+# Managed Service for MySQL API, REST: Backup.Get
 
 Retrieves information about the specified backup.
 
@@ -37,7 +55,8 @@ To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/l
   "startedAt": "string",
   "size": "string",
   "type": "string",
-  "status": "string"
+  "status": "string",
+  "journalSize": "string"
 }
 ```
 
@@ -83,14 +102,15 @@ Size of backup, in bytes ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || status | **enum** (BackupStatus)
 
 Status of backup
 
-- `BACKUP_STATUS_UNSPECIFIED`
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| journalSize | **string** (int64)
+
+Size of the journal associated with backup, in bytes. ||
 |#

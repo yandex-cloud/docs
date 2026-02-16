@@ -1,21 +1,95 @@
 title: Yandex Security Deck
 description:
   - >-
-    <em>The Yandex Security Deck Service is at the <a
+    <em>Yandex Security Deck is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
+  - ''
   - >-
-    Yandex Security Deck is the first CNAPP platform and a complex service that
-    comprises the following modules: Access Transparency, Data Security Posture
-    Management (DSPM), Cloud Infrastructure Entitlement Management (CIEM), and
-    the Compliance Portal.
+    Yandex Security Deck is a comprehensive CNAPP solution comprising the
+    following modules:
   - >-
-    The tools provided by the service make it possible to detect
-    vulnerabilities, monitor and protect data access, as well as ensure
-    compliance with legal regulations and industry standards.
+    <ul><li><a href="/docs/security-deck/concepts/access-transparency">{{
+    atr-name }} to monitor {{ yandex-cloud }} team actions on user
+    resources</a>.</li> <li><a href="/docs/security-deck/concepts/dspm">Data
+    Security Posture Management</a> ({{ dspm-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/cspm">Cloud Security Posture
+    Management</a> ({{ cspm-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/kspm">{{ k8s }} Security Posture
+    Management</a> (KSPM).</li> <li><a
+    href="/docs/security-deck/concepts/ciem">Cloud Infrastructure Entitlement
+    Management</a> ({{ ciem-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/alerts">Alerts</a>.</li> <li><a
+    href="/docs/security-deck/concepts/compliance">Compliance
+    Portal</a>.</li></ul>
+  - >-
+    Yandex Security Deck also offers a {{ yagpt-name }}-powered <a
+    href="/docs/security-deck/concepts/ai-assistant">AI assistant</a> to provide
+    you with security recommendations.
+  - >-
+    Its tools enable you to monitor and respond to incidents, detect
+    vulnerabilities, manage cloud infrastructure and container security, monitor
+    and protect access to data, and enforce compliance with regulations and
+    industry standards. You can manage module settings and resources using <a
+    href="/docs/security-deck/concepts/workspace">workspaces</a>.
 links:
   - title: Getting started
-    description: Learn how to get started with Yandex Security Deck
+    description: Getting started with Yandex Security Deck
     href: quickstart-overview
+  - title: Step-by-step guides
+    description: How to perform routine operations
+    href: operations/
+  - title: Concepts
+    description: Learn about service concepts and entities
+    href: concepts/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Access management
+    description: Configure access permissions to use this service
+    href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
+meta:
+  title: Yandex Security Deck
+  description: >-
+    Yandex Security Deck is a comprehensive CNAPP solution comprising such
+    modules as Data Security Posture Management ({{ dspm-name }}), Cloud
+    Security Posture Management ({{ cspm-name }}), {{ k8s }} Security Posture
+    Management (KSPM), Cloud Infrastructure Entitlement Management ({{ ciem-name
+    }}), {{ alerts-name }}, {{ atr-name }}, cloud security AI assistant, and
+    Compliance Portal.
+  keywords:
+    - '{{ sd-name }}'
+    - '{{ sd-full-name }}'
+    - '{{ sd-name }}'
+    - CNAPP
+    - '{{ atr-name }} modules'
+    - data security posture management ({{ dspm-name }})
+    - yandex cloud compliance
+    - cloud infrastructure entitlement management ({{ ciem-name }})
+    - compliance portal in {{ yandex-cloud }}
+    - compliance {{ yandex-cloud }}
+    - '{{ yandex-cloud }} information security'
+    - cloud infrastructure entitlement management in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} vulnerabilities'
+    - data protection in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} incident monitoring'
+    - '{{ yandex-cloud }} incident response'
+    - SOC {{ yandex-cloud }}
+    - '{{ cspm-name }} module'
+    - '{{ cspm-name }}'
+    - Cloud Security Posture Management
+    - '{{ k8s }} Security Posture Management module'
+    - KSPM {{ yandex-cloud }}
+    - Kubernetes Security Posture Management
+    - '{{ yandex-cloud }} container security'
+    - '{{ alerts-name }}'
+    - '{{ yandex-cloud }} security alerts'
+    - security alerts in {{ yandex-cloud }}
+    - security AI assistant
+    - '{{ yagpt-name }} security'
+    - '{{ yandex-cloud }} security recommendations'
+    - '{{ sd-name }} workspaces'
+    - Workspaces {{ sd-name }}
+    - managing security workspaces

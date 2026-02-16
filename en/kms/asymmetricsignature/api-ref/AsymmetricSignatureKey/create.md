@@ -1,9 +1,92 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a asymmetric KMS key in.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the key.
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key.
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        signatureAlgorithm:
+          description: |-
+            **enum** (AsymmetricSignatureAlgorithm)
+            Asymmetric signature algorithm.
+            - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
+            - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
+            - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512
+            - `RSA_3072_SIGN_PSS_SHA_256`: RSA-3072 signature with PSS padding and SHA-256
+            - `RSA_3072_SIGN_PSS_SHA_384`: RSA-3072 signature with PSS padding and SHA-384
+            - `RSA_3072_SIGN_PSS_SHA_512`: RSA-3072 signature with PSS padding and SHA-512
+            - `RSA_4096_SIGN_PSS_SHA_256`: RSA-4096 signature with PSS padding and SHA-256
+            - `RSA_4096_SIGN_PSS_SHA_384`: RSA-4096 signature with PSS padding and SHA-384
+            - `RSA_4096_SIGN_PSS_SHA_512`: RSA-4096 signature with PSS padding and SHA-512
+            - `ECDSA_NIST_P256_SHA_256`: ECDSA signature with NIST P-256 curve and SHA-256
+            - `ECDSA_NIST_P384_SHA_384`: ECDSA signature with NIST P-384 curve and SHA-384
+            - `ECDSA_NIST_P521_SHA_512`: ECDSA signature with NIST P-521 curve and SHA-512
+            - `ECDSA_SECP256_K1_SHA_256`: ECDSA signature with SECP256_K1 curve and SHA-256
+          type: string
+          enum:
+            - ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED
+            - RSA_2048_SIGN_PSS_SHA_256
+            - RSA_2048_SIGN_PSS_SHA_384
+            - RSA_2048_SIGN_PSS_SHA_512
+            - RSA_3072_SIGN_PSS_SHA_256
+            - RSA_3072_SIGN_PSS_SHA_384
+            - RSA_3072_SIGN_PSS_SHA_512
+            - RSA_4096_SIGN_PSS_SHA_256
+            - RSA_4096_SIGN_PSS_SHA_384
+            - RSA_4096_SIGN_PSS_SHA_512
+            - ECDSA_NIST_P256_SHA_256
+            - ECDSA_NIST_P384_SHA_384
+            - ECDSA_NIST_P521_SHA_512
+            - ECDSA_SECP256_K1_SHA_256
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - folderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/create.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Create {#Create}
+# Key Management Service API, REST: AsymmetricSignatureKey.Create
 
 control plane
 Creates an asymmetric KMS key in the specified folder.
@@ -21,7 +104,7 @@ POST https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "signatureAlgorithm": "string",
   "deletionProtection": "boolean"
 }
@@ -31,22 +114,29 @@ POST https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create a asymmetric KMS key in. ||
+Required field. ID of the folder to create a asymmetric KMS key in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the key. ||
+Name of the key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-Description of the key. ||
-|| labels | **string**
+Description of the key.
+
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the asymmetric KMS key as `key:value` pairs. Maximum 64 per key.
-For example, `"project": "mvp"` or `"source": "dictionary"`. ||
+For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || signatureAlgorithm | **enum** (AsymmetricSignatureAlgorithm)
 
 Asymmetric signature algorithm.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512
@@ -94,7 +184,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "signatureAlgorithm": "string",
     "deletionProtection": "boolean"
@@ -226,14 +316,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -243,7 +332,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

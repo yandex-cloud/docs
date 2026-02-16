@@ -8,32 +8,26 @@
 
 ## Подключить диск {#attach}
 
-
 {% note info %}
 
 Подключить локальный диск к ВМ на [выделенном хосте](../../concepts/dedicated-host.md) можно только при ее создании. Подробнее см. в [инструкциях](../index.md#dedicated-host).
 
 {% endnote %}
 
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Выберите неподключенный диск или [создайте](../disk-create/empty.md) новый.
   1. Напротив диска, который вы хотите подключить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.disks.button_action-attach }}**.
   1. В открывшемся окне:
      * В поле **{{ ui-key.yacloud.compute.attach-disk.field_instance }}** выберите виртуальную машину, к которой нужно подключить диск.
-
-
      * Если в хотите подключить [зашифрованный](../../concepts/encryption.md) диск, выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) c [ролью](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на [ключ {{ kms-short-name }}](../../../kms/concepts/key.md), которым зашифрован диск.
-
-
      * Укажите название устройства.
-     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete }}**.
+     * При необходимости включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.attach-disk.button_attach }}**.
 
 - CLI {#cli}
@@ -87,6 +81,41 @@
      ```bash
      yc compute instance start first-instance
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. В конфигурационном файле в описании ресурса `yandex_compute_instance` добавьте новый блок `secondary_disk`:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        secondary_disk {
+            disk_id = "<идентификатор_диска>"
+        }
+        ...
+      }
+      ```
+
+      Где `disk_id` — идентификатор дополнительного диска.
+
+      {% note info %}
+
+      Дополнительный диск и виртуальная машина должны находиться в одной зоне доступности.
+
+      {% endnote %}
+
+      Более подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-datasources-link }}/compute_disk).
+
+  1. Примените новую конфигурацию:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+
 
 - API {#api}
 

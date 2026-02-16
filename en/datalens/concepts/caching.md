@@ -8,9 +8,9 @@ _Cache_ stores frequently queried data and provides quick access to it.
 
 {% endnote %}
 
-{{ datalens-short-name }} caches the results of the user's query, so when the data in the source changes, dashboards and charts may not be updated immediately. The maximum amount of cached data per query is 512 MB.
+{{ datalens-short-name }} caches the results of the user's query, so when the data in the source changes, dashboards and charts may not be updated immediately. If a dashboard contains widgets built on different connections, the data refresh rate for them may vary depending on the cache lifetime settings for each connection. The maximum amount of cached data per query is 512 MB.
 
-The default cache lifetime is 300 seconds (5 minutes). The user can change cache lifetime in the [connection](connection.md) settings up to 86,400 seconds (1 day).
+The default connection cache lifetime is 300 seconds (5 minutes). The user can change cache lifetime in the connection settings up to 86,400 seconds (1 day). This setting is available for connections listed under `Databases` in the [{#T}](./connection/index.md) section, except for the Snowflake connection. You can use the links on that page to see how to change the setting for each specific connection.
 
 ## Specifics of using {{ datalens-short-name }} cache {#using}
 
@@ -41,7 +41,7 @@ The cache will be purged if:
 
 {% cut "Can I track it in the Chart inspector whether a query has been cached?" %}
 
-This is not supported yet. However, if you use time functions, such as `NOW()`, you can see the difference between the current real time and the current cached time. By this difference you can understand how current the cached data is.
+This is not supported yet. However, if you use time functions, such as `NOW()`, in your request, you may see the difference between the current real time and the current cached time. By this difference you can understand how current the cached data is.
 
 {% endcut %}
 

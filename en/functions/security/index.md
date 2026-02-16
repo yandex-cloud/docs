@@ -5,26 +5,28 @@ description: Access management in {{ sf-name }}, a service for running applicati
 
 # Access management in {{ sf-name }}
 
-In this section, you will learn:
+In this section, you will learn about:
 
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
+* [What resources you can assign a role for](#resources).
+* [What roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-Roles for a resource can be assigned by users who have the `functions.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `functions.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role for a [function](../concepts/function.md) via the YC CLI or the {{ yandex-cloud }} API.
+To assign a role for a [function](../concepts/function.md), use the {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/function/add-access-binding.md), [API](../api-ref/functions/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/function_iam_binding).
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ sf-name }}.
+The list below shows all roles used for access control in {{ sf-name }}.
+
+{% include [functions](../../_mermaid/roles/functions.md) %}
 
 ### Service roles {#service-roles}
 
@@ -44,11 +46,9 @@ The list below shows all roles considered when verifying access permissions in {
 
 {% include [functions.editor](../../_roles/functions/editor.md) %}
 
-
 #### functions.mdbProxiesUser {#functions-mdbProxiesUser}
 
 {% include [functions.mdbProxiesUser](../../_roles/functions/mdbProxiesUser.md) %}
-
 
 #### functions.admin {#functions-admin}
 

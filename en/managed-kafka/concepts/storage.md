@@ -1,24 +1,56 @@
+---
+title: Storage in {{ mkf-full-name }}
+description: In this article, you will learn what a storage is in {{ mkf-name }}, its minimum size, and the maximum size of a log segment. You will also learn about the automatic storage size increase mechanism and some things you should consider when selecting disk type for your new cluster.
+---
+
 # Storage in {{ mkf-name }}
 
 
-{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, which are virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
+{{ mkf-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on [broker servers](brokers.md).
 
 {% include [storage-type-nrd](../../_includes/mdb/mkf/storage-type.md) %}
 
+## Selecting disk type when creating a cluster {#storage-type-selection}
 
-## Selecting the disk type during cluster creation {#storage-type-selection}
 
+The number of broker hosts you can create together with an {{ KF }} cluster depends on the selected disk type:
 
-The number of broker hosts that can be created along with an {{ KF }} cluster depends on the selected disk type:
+* You can create a cluster of only three or more broker hosts using the following disk types:
 
-* With local SSDs (`local-ssd`) or non-replicated SSDs (`network-ssd-nonreplicated`), you can create a cluster with three or more broker hosts.
+    * Local SSDs (`local-ssd`)
+    * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
-    This cluster will be fail-safe only if it meets all [fault tolerance conditions](index.md#fault-tolerance).
+    This cluster will be highly available only if all the [conditions](ha-cluster.md) are met.
 
-* With network HDD (`network-hdd`) or network SSD (`network-ssd`) storage, you can add any number of broker hosts within the current quota.
+* You can add any number of broker hosts within the current quota when using the following disk types:
+
+    * Network HDDs (`network-hdd`)
+    * Network SSDs (`network-ssd`)
+    * Ultra high-speed network SSDs with three replicas (`network-ssd-io-m3`)
 
 For more information about limits on the number of broker hosts per cluster, see [Quotas and limits](./limits.md).
 
+
+
+## Disk encryption {#disk-encryption}
+
+When creating a cluster, you can encrypt the storage disk with a [custom KMS key](../../kms/concepts/key.md).
+
+{% note warning %}
+
+Encryption is not available for local disks (`local-hdd` and `local-ssd`).
+
+{% endnote %}
+
+{% include [encryption-role](../../_includes/compute/encryption-role.md) %}
+
+If you deactivate the key used to encrypt a disk, access to the data will be suspended until you reactivate the key.
+
+{% note alert %}
+
+If you delete the key used to encrypt a disk or its [version](../../kms/concepts/version.md), you will irrevocably lose access to your data. For more information, see [this {{ kms-name }} guide](../../kms/concepts/version.md#version-distruct).
+
+{% endnote %}
 
 
 ## Minimum storage size {#minimal-storage-size}
@@ -33,7 +65,7 @@ You can always [increase](../operations/storage-space.md#change-disk-size) the s
 
 You can calculate the minimum storage size for all topics using the formula below:
 
-`2 × maximum log segment size × number of partitions in cluster × replication factor`
+`2 × maximum log segment size × number of partitions in cluster × replication factor`.
 
 If topic partitions are evenly distributed, divide the value calculated with this formula by the number of broker hosts.
 
@@ -47,17 +79,39 @@ Thus, the minimum storage size for all topics is: `2 × maximum log segment size
 
 By default, the segment size is 1 GB.
 
-## Automatic increase of storage size {#auto-rescale}
+## Managing disk space {#manage-storage-space}
 
-Automatic storage size increase prevents situations where the disk runs out of free space. The storage size increases upon reaching the specified trigger threshold: a percentage of the total capacity. There are two thresholds:
+As soon as {{ KF }} logs take up 97% of storage capacity, the host automatically enters read-only mode. The {{ mkf-name }} cluster blocks requests to write to the topic.
 
-* Scheduled increase threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
-* Immediate increase threshold: When reached, the storage size increases immediately.
+
+You can monitor storage utilization on cluster hosts [by setting up alerts in {{ monitoring-full-name }}](../operations/storage-space.md#set-alert):
+
+
+### Recovering a cluster from read-only mode {#read-only-solutions}
+
+Use one of these methods:
+
+* [Increase the storage capacity](../operations/storage-space.md#change-disk-size) to exceed the threshold value. The {{ mkf-name }} cluster will then automatically clear read-only mode.
+* [Configure](../operations/storage-space.md#disk-size-autoscale) automatic storage expansion.
+
+### Automatic storage expansion {#auto-rescale}
+
+Automatic increase of storage size prevents situations where the disk runs out of free space and the host switches to read-only mode. The storage size increases upon reaching the specified threshold percentage of the total capacity. There are two thresholds:
+
+* Scheduled expansion threshold: When reached, the storage size increases during the next [maintenance window](maintenance.md#maintenance-window).
+* Immediate expansion threshold: When reached, the storage size increases immediately.
 
 You can use either one or both thresholds. If you set both, make sure the immediate increase threshold is higher than the scheduled one.
 
 {% include [storage-resize-steps](../../_includes/mdb/mkf/storage-resize-steps.md) %}
 
-You can configure automatic increase of the storage size when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
+You can configure automatic storage expansion when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/storage-space.md#disk-size-autoscale). If you set the scheduled increase threshold, you also need to configure the maintenance window schedule.
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/kafka-connect.md)
+* [{#T}](../tutorials/managed-schema-registry.md)
+* [{#T}](../tutorials/confluent-schema-registry.md)

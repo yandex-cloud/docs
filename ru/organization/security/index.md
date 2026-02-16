@@ -2,7 +2,7 @@
 
 Управление доступом в {{ yandex-cloud }} построено на политике [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC). Чтобы предоставить пользователю определенные права или доступ к ресурсу, нужно назначить ему соответствующие роли.
 
-Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца организации](#admin), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
+Каждая роль состоит из набора разрешений, описывающих допустимые операции с ресурсом. Пользователь может назначить роли только с теми разрешениями, которые имеются у него самого. Например, чтобы назначить роль [владельца организации](#organization-manager-organizations-owner), пользователь должен сам обладать этой ролью, а роли администратора для этого недостаточно.
 
 Если у ресурса есть дочерние ресурсы, то все разрешения от родительского ресурса будут унаследованы дочерними ресурсами. Например, если вы назначите пользователю роль администратора организации, в которой находится облако, то все разрешения этой роли будут действовать для облака и всех вложенных ресурсов этого облака.
 
@@ -12,17 +12,61 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-С помощью [интерфейса {{ cloud-center }}]({{ cloud-center-link }}), [YC CLI](../../cli/quickstart.md) или [API {{ yandex-cloud }}](../../api-design-guide/index.yaml) роль можно назначить на отдельные ресурсы сервиса:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  Через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Пул пользователей](../concepts/user-pools.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+  * [SAML-приложение](../concepts/applications.md#saml)
+  * [OIDC-приложение](../concepts/applications.md#oidc)
+
+- {{ TF }} {#tf}
+
+  Через [{{ TF }}]({{ tf-provider-link }}) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Организация](../operations/security.md)
+  * [Пул пользователей](../concepts/user-pools.md)
+  * [Группа пользователей](../operations/access-manage-group.md)
+  * [SAML-приложение](../concepts/applications.md#saml)
+  * [OIDC-приложение](../concepts/applications.md#oidc)
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 ### Сервисные роли {#service-roles}
 
+#### organization-manager.auditor {#organization-manager-auditor}
+
+{% include [organizationmanager-auditor](../../_roles/organization-manager/auditor.md) %}
+
 #### organization-manager.viewer {#organization-manager-viewer}
 
 {% include [organizationmanager-viewer](../../_roles/organization-manager/viewer.md) %}
+
+#### organization-manager.editor {#organization-manager-editor}
+
+{% include [organizationmanager-editor](../../_roles/organization-manager/editor.md) %}
 
 #### organization-manager.admin {#organization-manager-admin}
 
@@ -32,9 +76,29 @@
 
 {% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
+
+{% include [organization-manager.federations.extGroupsViewer](../../_roles/organization-manager/federations/extGroupsViewer.md) %}
+
+#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
+
+{% include [organization-manager.federations.extGroupsManager](../../_roles/organization-manager/federations/extGroupsManager.md) %}
+
+#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
+
+{% include [organization-manager.federations.extGroupsCleaner](../../_roles/organization-manager/federations/extGroupsCleaner.md) %}
+
+#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
+
+{% include [organization-manager.federations.auditor](../../_roles/organization-manager/federations/auditor.md) %}
+
 #### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
 {% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.editor {#organization-manager-federations-editor}
+
+{% include [organization-manager.federations.editor](../../_roles/organization-manager/federations/editor.md) %}
 
 #### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
 
@@ -52,9 +116,121 @@
 
 {% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
+
+{% include [organization-manager-groups-externalCreator](../../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
+
+{% include [organization-manager-groups-externalConverter](../../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
+
+{% include [organization-manager.groups.externalManager](../../_roles/organization-manager/groups/externalManager.md) %}
+
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../../_roles/organization-manager/groups/editor.md) %}
+
 #### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
 
 {% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../../_roles/organization-manager/groups/admin.md) %}
+
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../../_roles/organization-manager/users/viewer.md) %}
+
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../../_roles/organization-manager/passportUserAdmin.md) %}
+
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
+
+{% include [organizationmanager-oauthApplications-userAdmin](../../_roles/organization-manager/oauthApplications/userAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
+
+{% include [organizationmanager-samlApplications-userAdmin](../../_roles/organization-manager/samlApplications/userAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
+
+{% include [organization-manager.userpools.extGroupsViewer](../../_roles/organization-manager/userpools/extGroupsViewer.md) %}
+
+#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
+
+{% include [organization-manager.userpools.extGroupsManager](../../_roles/organization-manager/userpools/extGroupsManager.md) %}
+
+#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
+
+{% include [organization-manager.userpools.extGroupsCleaner](../../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../../_roles/organization-manager/userpools/syncAgent.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
+
+{% include [organizationmanager-userpools-userAdmin](../../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../../_roles/organization-manager/userpools/admin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../../_roles/organization-manager/idpInstances/billingViewer.md) %}
+
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../../_roles/organization-manager/idpInstances/billingAdmin.md) %}
 
 ### Примитивные роли {#primitive-roles}
 
@@ -62,12 +238,9 @@
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-### Назначить пользователя администратором организации {#admin}
+### Назначить пользователя администратором организации {#add-admin}
 
-Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему одну из ролей:
-
-* `organization-manager.admin`;
-* `organization-manager.organizations.owner`.
+Чтобы дать пользователю права на управление организацией, [назначьте](#add-role) ему роль `organization-manager.admin`.
 
 ### Назначить роль пользователю {#add-role}
 
@@ -94,6 +267,7 @@
           --role <идентификатор_роли> \
           --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
+
       * `<имя_сервиса>` — имя сервиса, на чей ресурс назначается роль, например `organization-manager`.
       * `<ресурс>` — категория ресурса. Для организации всегда имеет значение `organization`.
       * `<имя_или_идентификатор_ресурса>` — имя или идентификатор ресурса. Для организации в качестве имени используйте [техническое название](../operations/org-profile.md).
@@ -116,10 +290,10 @@
 
      * `organization_id` — [идентификатор](../operations/organization-get-id.md) организации.
      * `role` — роль, которую хотите назначить. Описание ролей можно найти в документации {{ iam-full-name }} в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md). Для каждой роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
-     * `members` — массив идентификаторов пользователей, которым будет назначена роль: 
+     * `members` — массив идентификаторов пользователей, которым будет назначена роль:
        * `userAccount:{user_id}` — идентификатор аккаунта пользователя на Яндексе.
        * `serviceAccount:{service_account_id}` — идентификатор сервисного аккаунта.
-       * `federatedUser:{federated_user_id}` —  идентификатор федеративного пользователя.
+       * `federatedUser:{federated_user_id}` — идентификатор федеративного пользователя.
 
      Пример структуры конфигурационного файла:
 
@@ -133,7 +307,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
 
   1. Проверьте корректность конфигурационных файлов.
     
@@ -208,7 +382,7 @@
 
 Если вы хотите запретить пользователю доступ к ресурсу, отзовите у него соответствующие роли на этот ресурс и на ресурсы, от которых наследуются права доступа. Подробнее об управлении доступом в {{ yandex-cloud }} читайте в документации [{{ iam-full-name }}](../../iam/concepts/access-control/index.md).
 
-Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#admin).
+Отозвать роль может пользователь с ролью администратора `organization-manager.admin` или владельца `organization-manager.organizations.owner` организации. О том, как назначить пользователю роль, читайте в разделе [Роли](#add-role).
 
 {% list tabs group=instructions %}
 
@@ -247,7 +421,6 @@
       +------------------------------------------+--------------+----------------------+
       ```
 
-
   1. Чтобы удалить права доступа, выполните команду:
 
       ```bash
@@ -266,7 +439,6 @@
           --role organization-manager.admin \
           --subject userAccount:aje6o61dvog2********
       ```
-
 
 - API {#api}
 
@@ -334,7 +506,7 @@
 
 ### Назначить роль группе пользователей {#access-group-users}
 
-Назначьте [группе пользователей](../../organization/operations/manage-groups.md) роль, чтобы предоставить доступ к какому-либо ресурсу. Воспользуйтесь инструкцией [{#T}](../../iam/operations/groups/access-binding-object.md), чтобы дать [субъекту](../../iam/concepts/access-control/index.md#subject) права на доступ к группе.
+Назначьте [группе пользователей](../../organization/operations/manage-groups.md) роль, чтобы предоставить доступ к какому-либо ресурсу. Воспользуйтесь инструкцией [{#T}](../../organization/operations/access-manage-group.md), чтобы дать [субъекту](../../iam/concepts/access-control/index.md#subject) права на доступ к группе.
 
 В сервисе {{ org-full-name }} группе можно назначить роль на организацию, облако, каталог, другую группу или сервисный аккаунт.
 
@@ -345,3 +517,8 @@
 #### Назначить роль на организацию {#access-binding-organization}
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
+
+
+## Какие роли назначены в организации {#list-access-bingings}
+
+{% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}

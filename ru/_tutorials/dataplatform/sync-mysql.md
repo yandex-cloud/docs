@@ -19,12 +19,10 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры передачи данных входит:
-
-1. Плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-1. Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-1. Плата за постоянно запущенный кластер {{ mmy-name }} (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md));
-1. Плата за сервис {{ data-transfer-name }} (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing)).
 
 
 ## Создайте ВМ с интернет-магазином {#create-vm-mysql}
@@ -49,8 +47,8 @@
       ```bash
       yc compute instance create \
          --name magento \
-         --zone {{ region-id }}-a \
-         --network-interface subnet-name=default-{{ region-id }}-a,nat-ip-version=ipv4 \
+         --zone {{ region-id }}-d \
+         --network-interface subnet-name=default-{{ region-id }}-d,nat-ip-version=ipv4 \
          --hostname ya-sample-store \
          --use-boot-disk disk-name=web-store-lab-dataplatform \
          --ssh-key ~/.ssh/id_ed25519.pub
@@ -95,8 +93,8 @@
 1. В блоке **Сетевые настройки** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера.
 1. В блоке **Хосты** выберите параметры хостов БД, создаваемых вместе с кластером:
 
-   * Зона доступности — `{{ region-id }}-a`.
-   * Подсеть — `default-{{ region-id }}-a`.
+   * Зона доступности — `{{ region-id }}-d`.
+   * Подсеть — `default-{{ region-id }}-d`.
 
 1. Нажмите кнопку **Создать кластер**.
 Подробнее о создании кластера см. раздел [Как начать работать с {{ mmy-short-name }}](../../managed-mysql/quickstart.md#cluster-create.md).
@@ -153,18 +151,20 @@
 
 1. Создайте заказ в интернет-магазине по адресу `http://ya-sample-store.local/`.
 1. Выполните запрос к БД в облаке:
+
    ``` sql
    SELECT so.*, soi.* FROM sales_order_grid so
    INNER JOIN sales_order_item soi ON so.entity_id = soi.order_id
    ORDER BY entity_id DESC 
    LIMIT 10
    ```
+
 1. Убедитесь, что данные вашего заказа появились в БД.
 
-## Как удалить созданные ресурсы {#clear-out}
+## Удалите созданные ресурсы {#clear-out}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
-* [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `magento`.
-* [Удалите кластер](../../managed-mysql/operations/cluster-delete.md) `ya-sample-cloud-mysql`.
-* Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).
+1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md) `magento`.
+1. [Удалите кластер](../../managed-mysql/operations/cluster-delete.md) `ya-sample-cloud-mysql`.
+1. Если вы зарезервировали публичный статический IP-адрес, [удалите его](../../vpc/operations/address-delete.md).

@@ -1,5 +1,6 @@
 # TTS markup
 
+
 TTS markup grants the ability to control speech synthesis using special characters and SIL tags. This helps make synthesized speech more natural.
 
 TTS markup is supported for Russian in the [API v3](../../tts-v3/api-ref/grpc/) and [API v1](../request.md) for data in `text` format.
@@ -12,11 +13,11 @@ Pausing is available for testing in all languages the speech synthesis is suppor
 
 | Description | Special characters and tags |
 |---|---|
-| [Apply stress](#a) | `+` |
-| [Explicitly define a pause between sentences](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. |
+| [Mark the stress](#a) | `+` |
+| [Set a pause between sentences explicitly](#pause) | `sil<[t]>`, where `t` is the pause duration in milliseconds. The maximum value is 7,000. |
 | [Set a pause depending on the context](#context-pause) | `<[small]>`. Acceptable values: `tiny`, `small`, `medium`, `large`, and `huge`. |
-| [Place emphasis](#accent) | `<[accented]>` or `**accented word**` |
-| [Use phonetic pronunciation](#phoneme) | `[[ <word_phonemes_separated_by_spaces> ]]` |
+| [Place emphasis](#accent) | `<[accented]>` or `**emphasized word**` |
+| [Use phonetic pronunciation](#phoneme) | `[[<word_phonemes_separated_by_spaces>]]` |
 
 {% include [note-templates-markup](../../../_includes/speechkit/note-templates-markup.md) %}
 
@@ -38,10 +39,10 @@ If you contr+act malaria, you will have to spend a long time in a hospital.
 
 ### Set a pause between sentences explicitly {#pause}
 
-To explicitly define a pause between sentences, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
+To set a pause between sentences explicitly, you can add a special tag, `sil<[t]>`, where `t` is the pause duration in milliseconds:
 
 ```text
-Stop. sil<[300]> Think about it!
+Stop! sil<[300]> Think about it!
 ```
 
 {% note info %}
@@ -64,13 +65,13 @@ Frost and sun; <[medium]> a wonderful day!
 
 Currently, this feature works only for Russian.
 
-To place emphasis on a word, you can prepend it with the `<[accented]>` tag. For example:
+To place emphasis on a word, you can prepend it with `<[accented]>`. Here is an example:
 
 ```text
-Convenient interfaces to troubleshoot <[accented]> issues.
+Convenient interfaces for your <[accented]> needs.
 ```
 
-You can also use asterisks to place emphasis on one or more words (`**word**`). For example:
+You can also use asterisks to place emphasis on one or more words (`**word**`). Here is an example:
 
 ```text
 We are **forever** responsible for what we have tamed.
@@ -81,7 +82,41 @@ We are **forever** responsible for what we have tamed.
 Tag text with `[[ ]]` to ensure proper pronunciation using phonemes. The following tagged text will be used for playback:
 
 ```text
-Hello, My name is [[v a sʲ ʌ]]
+Hi! My name is [[v a sʲ ʌ]]
 ```
 
 You can find the list of supported phonemes [here](tts-supported-phonemes.md).
+
+### Usage examples for Russian phonemes {#rus-examples}
+
+**Example 1**
+
+Ishimbay is a city in Russia.
+
+```text
+Всем привет! Я взял билеты на автобус в город [[i ʂ ɨ m b a j]] и буду там наслаждаться природой.
+```
+
+**Example 2**
+
+Keremet is a Kazakh female name. Possible confusion: `Keremet`/`keremyot`.
+
+```text
+Познакомься, это моя подруга [[kʲ ɪ rʲ ɪ mʲ ɛ t]]. Мы вместе учились в школе.
+```
+
+**Example 3**
+
+Lena, a female name, used in the genitive plural case. Possible confusion: `Len`/`lyon`.
+
+```text
+В моей семье очень много [[lʲ ɛ n]]. Это очень популярное имя у нас.
+```
+
+**Example 4**
+
+Beret is a type of headwear. Possible confusion: `beret`/`beryot`.
+
+```text
+Голубой [[bʲ ɪ rʲ ɛ t]]. Передай мне, пожалуйста, мой берет.
+```

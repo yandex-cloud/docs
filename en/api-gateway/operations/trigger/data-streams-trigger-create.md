@@ -1,12 +1,23 @@
+---
+title: Creating a trigger for {{ yds-full-name }} that sends messages to WebSocket connections
+description: Follow this guide to create a trigger for {{ yds-name }} that sends messages to WebSocket connections and test the result of its operation.
+---
+
 # Creating a trigger for {{ yds-name }} that sends messages to WebSocket connections
 
 Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to send messages to [WebSocket connections](../../concepts/extensions/websocket.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
+
+{% note info %}
+
+{% include [trigger-message-format-note](../../../_includes/functions/trigger-message-format-note.md) %}
+
+{% endnote %}
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/api-gateway/trigger-before-you-begin.md) %}
 
-* The stream that activates the trigger when it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
+* Stream for which the trigger will fire as soon as it receives data. If you do not have a stream, [create one](../../../data-streams/quickstart/create-stream.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -16,96 +27,96 @@ Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigge
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-   1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
-   1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-      * Enter a name and description for the trigger.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
+        * Enter a name and description for the trigger.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with permissions to read data from the stream and write data to it.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions to the stream.
 
-   1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
-      * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
-      * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
+        * Message batch size in bytes. The values may range from 1 B to 64 KB. The default value is 1 B.
+        * Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second.
 
-      The trigger groups messages for a period not exceeding the specified wait time and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed the specified batch size if the data is transmitted as a single message. Otherwise, the amount of data does not exceed the batch size.
+        The trigger groups messages within the specified wait time period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
-   1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
+    1. {% include [api-gateway-settings](../../../_includes/api-gateway/api-gateway-settings.md) %}
 
-   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+    {% include [cli-install](../../../_includes/cli-install.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   To create a trigger that sends messages to WebSocket connections, run this command:
+    To create a trigger that sends messages to WebSocket connections, run this command:
 
-   ```bash
-   yc serverless trigger create yds \
-     --name <trigger_name> \
-     --database <database_location> \
-     --stream <data_stream_name> \
-     --batch-size 1b \
-     --batch-cutoff 1s \
-     --stream-service-account-id <service_account_ID> \
-     --gateway-id <API_gateway_ID> \
-     --gateway-websocket-broadcast-path <path> \
-     --gateway-websocket-broadcast-service-account-id <service_account_ID>
-   ```
+    ```bash
+    yc serverless trigger create yds \
+      --name <trigger_name> \
+      --database <database_location> \
+      --stream <data_stream_name> \
+      --batch-size 1b \
+      --batch-cutoff 1s \
+      --stream-service-account-id <service_account_ID> \
+      --gateway-id <API_gateway_ID> \
+      --gateway-websocket-broadcast-path <path> \
+      --gateway-websocket-broadcast-service-account-id <service_account_ID>
+    ```
 
-   Where:
+    Where:
 
-   * `--name`: Trigger name.
-   * `--database`: Location of the {{ ydb-short-name }} database that the {{ yds-name }} stream is linked to.
+    * `--name`: Trigger name.
+    * `--database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
 
-      To find out where the database is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
+      To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mbah2********/etn7hehf6gh3********`.
 
-   * `--stream`: Data stream name.
+    * `--stream`: Stream name.
 
-   * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-   * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. Otherwise, the amount of data does not exceed `batch-size`.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to WebSocket connections. The total amount of data transmitted to connections may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
 
-   * `--stream-service-account-id`: ID of the service account with permissions to read from the data stream and write to it.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
 
-   {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
+    {% include [trigger-cli-param](../../../_includes/api-gateway/trigger-cli-param.md) %}
 
-   Result:
+    Result:
 
-   ```text
-   id: a1s5msktijh2********
-   folder_id: b1gmit33hgh2********
-   created_at: "2022-10-24T14:07:04.693126923Z"
-   name: data-streams-trigger
-   rule:
-     data_stream:
-       database: /{{ region-id }}/b1gia87mbah2********/etn7hehh2********
-       stream: streams-name
-       service_account_id: ajep8qm0kh2********
-       batch_settings:
-         size: "1"
-         cutoff: 1s
-       gateway_websocket_broadcast:
-         gateway_id: d4eofc7n0mh2********
-         path: /
-         service_account_id: aje3932acdh2********
-   status: ACTIVE
-   ```
+    ```text
+    id: a1s5msktijh2********
+    folder_id: b1gmit33hgh2********
+    created_at: "2022-10-24T14:07:04.693126923Z"
+    name: data-streams-trigger
+    rule:
+      data_stream:
+        database: /{{ region-id }}/b1gia87mbah2********/etn7hehh2********
+        stream: streams-name
+        service_account_id: ajep8qm0kh2********
+        batch_settings:
+          size: "1"
+          cutoff: 1s
+        gateway_websocket_broadcast:
+          gateway_id: d4eofc7n0mh2********
+          path: /
+          service_account_id: aje3932acdh2********
+    status: ACTIVE
+    ```
 
 - API {#api}
 
-   To create a trigger for {{ yds-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
+  To create a trigger for {{ yds-name }}, use the [create](../../triggers/api-ref/Trigger/create.md) REST API method for the [Trigger](../../triggers/api-ref/Trigger/index.md) resource or the [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md) gRPC API call.
 
 {% endlist %}
 

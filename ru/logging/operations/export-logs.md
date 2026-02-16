@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}
 description: Из статьи вы узнаете, как выгружать логи из {{ cloud-logging-name }} в {{ objstorage-name }}.
+sourcePath: ru/logging_includes/operations/export-logs.md
 ---
 
 # Выгрузить логи в {{ objstorage-name }}
@@ -16,7 +17,7 @@ description: Из статьи вы узнаете, как выгружать л
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся лог-группа и приемник логов.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Выберите лог-группу, из которой хотите выгрузить логи.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. Справа от кнопки **{{ ui-key.yacloud.logging.button_execute }}** нажмите значок ![image](../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud.logging.label_export }}**.
@@ -33,3 +34,9 @@ description: Из статьи вы узнаете, как выгружать л
     Чтобы выгрузить логи, воспользуйтесь методом REST API [run](../api-ref/Export/run.md) для ресурса [Export](../api-ref/Export/index.md) или вызовом gRPC API [ExportService/Run](../api-ref/grpc/Export/run.md).
 
 {% endlist %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../tutorials/replicate-logs-to-storage.md)
+* [{#T}](../tutorials/replicate-logs-to-storage-via-data-streams.md)

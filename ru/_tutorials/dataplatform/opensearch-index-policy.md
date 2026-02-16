@@ -14,6 +14,15 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mos-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам с ролью `MANAGER`), и дискового пространства (см. [тарифы {{ OS }}](../../managed-opensearch/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру:
@@ -22,9 +31,11 @@
 
     - Вручную {#manual}
 
-        1. [Создайте кластер-приемник {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичный доступом к группе хостов с ролью `DATA`.
+        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к группе хостов с ролью `DATA`.
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect.md#configuring-security-groups).
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
     - С помощью {{ TF }} {#tf}
 
@@ -61,7 +72,7 @@
 
     {% endlist %}
 
-1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Установите SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
 1. Проверьте подключение к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
@@ -256,20 +267,6 @@
 
 - С помощью {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `opensearch-index-policy.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `opensearch-index-policy.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

@@ -28,7 +28,7 @@ description: Группы безопасности позволяют контр
 
 Группы безопасности не предназначены для защиты от DDoS атак.
 
-Для фильтрации больших объемов нежелательного сетевого трафика используйте сервис [ {{ ddos-protection-full-name }}](../ddos-protection/index.md).
+Для фильтрации больших объемов нежелательного сетевого трафика используйте сервис [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
 
 {% endnote %}
 
@@ -45,8 +45,8 @@ description: Группы безопасности позволяют контр
 | [{{ mch-name }}](../../managed-clickhouse/) | [кластер](../../managed-clickhouse/concepts/network.md#security-groups) |
 | [{{ mgp-name }}](../../managed-greenplum/) | [кластер](../../managed-greenplum/concepts/network.md#security-groups) |
 | [{{ mmy-name }}](../../managed-mysql/) | [кластер](../../managed-mysql/concepts/network.md#security-groups) |
-| [{{ mrd-name }}](../../managed-redis/) | [кластер](../../managed-redis/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../managed-mongodb) | [кластер](../../managed-mongodb/concepts/network.md#security-groups) |
+| [{{ mrd-name }}](../../managed-valkey/) | [кластер](../../managed-valkey/concepts/network.md#security-groups) |
+| [{{ mmg-name }}](../../storedoc) | [кластер](../../storedoc/concepts/network.md#security-groups) |
 | [{{ mkf-name }}](../../managed-kafka/) | [кластер](../../managed-kafka/concepts/network.md#security-groups) |
 | [{{ mos-name }}](../../managed-opensearch/) | [кластер](../../managed-opensearch/concepts/network.md#security-groups) |
 | [{{ dataproc-name }}](../../data-proc/) | [кластер](../../data-proc/concepts/network.md#security-groups) |
@@ -296,14 +296,24 @@ resource yandex_vpc_security_group vm_group_sg {
 В {{ yandex-cloud }} с группами безопасности можно работать через:
 
 * [Консоль управления]({{ link-console-main }}/folders/{folder-id}/vpc/security-groups/)
-* [Интерфейс командной строки (CLI)](../../cli/cli-ref/managed-services/vpc/security-group/index.md)
+* [Интерфейс командной строки (CLI)](../../cli/cli-ref/vpc/cli-ref/security-group/index.md)
 * {{ TF }}:
-  * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
-  * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)
-  * [Default Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_default_security_group)
+  * [Security Group]({{ tf-provider-resources-link }}/vpc_security_group)
+  * [Security Group Rule]({{ tf-provider-resources-link }}/vpc_security_group_rule)
+  * [Default Security Group]({{ tf-provider-resources-link }}/vpc_default_security_group)
 
 ## Пошаговые инструкции по работе с группами безопасности {#security-group-howto}
 
 [Примеры работы с группами безопасности](../../vpc/operations/index.md#security-groups) в {{ yandex-cloud }}.
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/openvpn.md)
+* [{#T}](../tutorials/usergate-proxy.md)
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/data-processing-nat-instance.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
           --description "my 8k blocksize disk via yc"
         ```
 
-       Данная команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
+       Команда создаст диск размером 40 ГБ и размером блока 8 КБ, с именем `big-disk` и описанием `my 8k blocksize disk via yc`.
 
        Требования к имени диска:
 
@@ -76,3 +76,8 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызовом gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md).
 
 {% endlist %}
+
+
+#### См. также {#see-also}
+
+* [{#T}](../snapshot-control/create-schedule.md)

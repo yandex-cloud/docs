@@ -1,4 +1,6 @@
 ---
+title: Маршрутизация через NAT-инстанс
+description: Из статьи вы узнаете, как настроить маршрутизацию через NAT-инстанс.
 canonical: '{{ link-docs }}/tutorials/routing/nat-instance/'
 ---
 

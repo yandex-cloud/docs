@@ -1,3 +1,8 @@
+---
+title: Эндпоинты API сервисов {{ yandex-cloud }}
+description: Из статьи вы узнаете про эндпоинты API сервисов {{ yandex-cloud }}, а также ознакомитесь с примерами эндпоинтов.
+---
+
 # Эндпоинты API сервисов {{ yandex-cloud }}
 
 У каждого из сервисов {{ yandex-cloud }} есть эндпоинт, к которому следует отправлять HTTP-запросы. Полный список эндпоинтов можно запросить с помощью вызова [endpoints](https://{{ api-host }}/endpoints) к URL `https://{{ api-host }}`.
@@ -11,11 +16,11 @@ curl https://{{ api-host }}/endpoints
  "endpoints": [
   {
    "id": "ai-foundation-models",
-   "address": "llm.{{ api-host }}:443"
+   "address": "ai.{{ api-host }}:443"
   },
   {
    "id": "ai-llm",
-   "address": "llm.{{ api-host }}:443"
+   "address": "ai.{{ api-host }}:443"
   },
   {
    "id": "ai-speechkit",
@@ -84,6 +89,10 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "certificate-manager-data",
    "address": "{{ api-host-certmanager-certcontent }}:443"
+  },
+  {
+   "id": "cloudapps",
+   "address": "cloudapps.{{ api-host }}:443"
   },
   {
    "id": "cloudbackup",
@@ -179,11 +188,11 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "log-ingestion",
-   "address": "ingester.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-ingester }}:443"
   },
   {
    "id": "log-reading",
-   "address": "reader.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-reader }}:443"
   },
   {
    "id": "logging",
@@ -230,6 +239,10 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
+   "id": "managed-sharded-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
    "id": "managed-redis",
    "address": "mdb.{{ api-host }}:443"
   },
@@ -259,6 +272,10 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "mdb-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
+   "id": "mdb-sharded-postgresql",
    "address": "mdb.{{ api-host }}:443"
   },
   {

@@ -71,35 +71,17 @@
 
     Подробнее о статусах трансфера см. в разделе [Жизненный цикл трансфера](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
-1. Удалите созданные эндпоинты и трансфер:
+1. Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-      Если вы создали эндпоинты и трансфер вручную, то:
-
-        1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
-        1. [Удалите эндпоинты для источника и приемника](../../../data-transfer/operations/endpoint/index.md#delete).
+      1. [Удалите остановленный трансфер](../../../data-transfer/operations/transfer.md#delete).
+      1. [Удалите эндпоинты для источника и приемника](../../../data-transfer/operations/endpoint/index.md#delete).
 
     - {{ TF }} {#tf}
 
-      Если вы создали эндпоинты и трансфер с помощью {{ TF }}, то:
-
-        1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-        1. Удалите конфигурационный файл `data-transfer-mmy-mysql.tf`.
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-            ```bash
-            terraform validate
-            ```
-
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-        1. Подтвердите изменение ресурсов.
-
-            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-            Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mmy-mysql.tf`, будут удалены.
+      {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
     {% endlist %}

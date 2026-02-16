@@ -12,20 +12,33 @@ keywords:
 
 Каждый [кластер](../../glossary/cluster.md) {{ maf-name }} состоит из набора компонентов {{ AF }}, каждый из которых может быть представлен в нескольких экземплярах. Экземпляры могут находиться в разных зонах доступности.
 
-## Создать кластер {#create-cluster}
+## Роли для создания кластера {#roles}
 
-Для создания кластера {{ maf-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.maf.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера {{ maf-name }} вашему аккаунту в {{ yandex-cloud }} нужны роли:
+
+* [{{ roles.maf.editor }}](../security/index.md#managed-airflow-editor) — чтобы создать кластер;
+* [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
+
+Сервисному аккаунту кластера должна быть назначена роль `managed-airflow.integrationProvider`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+
+О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
+
+## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
+  
+  <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvxzljddzxt6u5z4s6?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
-  @[youtube](https://www.youtube.com/watch?v=vWCmvbrhDsI)
+  [Смотреть видео на YouTube](https://www.youtube.com/watch?v=vWCmvbrhDsI).
+
 
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -52,21 +65,21 @@ keywords:
 
         * Выберите существующий сервисный аккаунт или создайте новый.
 
-           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `managed-airflow.integrationProvider`.
+           Сервисному аккаунту должна быть назначена [роль](../../iam/concepts/access-control/roles.md) `{{ roles.maf.integrationProvider }}`.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите:
 
-      * [Зоны доступности](../../overview/concepts/geo-scope) для размещения кластера.
+      * [Зоны доступности](../../overview/concepts/geo-scope.md) для размещения кластера.
       * Облачную сеть.
       * Подсеть в каждой из выбранных зон доступности.
 
-        {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }} в дополнительной служебной подсети. Убедитесь, что диапазон IP-адресов выбранных вами подсетей не пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. Иначе возникнет ошибка при создании кластера.
+        {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
 
-      * [Группу безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+      * [Группу безопасности](../concepts/network.md#security-groups) для сетевого трафика кластера.
 
         {% include [sg-ui-access](../../_includes/mdb/maf/note-sg-ui-access.md) %}
 
-  1. Задайте количество экземпляров и ресурсы для [компонентов](../concepts/index.md#components) {{ maf-name }}:
+  1. Задайте количество экземпляров и [конфигурацию вычислительных ресурсов](../concepts/instance-types.md) для [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
       * веб-сервера;
       * планировщика;
@@ -78,9 +91,13 @@ keywords:
 
         {% endnote %}
 
+      * dag-процессора;
+
+        {% include [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
       * (опционально) службы Triggerer.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите названия pip- и deb-пакетов, чтобы установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов.
 
       Чтобы указать более одного пакета, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
@@ -100,11 +117,30 @@ keywords:
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
+  1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите **Тип источника данных** и укажите его параметры:
+     * **S3** – выберите существующий бакет или создайте новый. В этом бакете будут храниться DAG-файлы.
 
-      Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
+        Сервисному аккаунту кластера должно быть [предоставлено разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для этого бакета.
 
-  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите защиту от удаления кластера.
+     * **Git** — укажите адрес репозитория, рабочую ветку, путь к каталогу с DAG-файлами и содержимое закрытого SSH-ключа доступа к репозиторию.
+
+        {% note warning %}
+
+        * Адрес репозитория должен разрешать подключения по протоколу SSH.
+
+        * Закрытый ключ не должен быть защищен паролем.
+
+        * Для использования Git-репозитория укажите в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** сеть с настроенным [NAT-шлюзом](../../vpc/operations/create-nat-gateway.md). Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера {{ maf-name }}.
+
+        {% endnote %}
+
+  1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+
+      * Выберите время [технического обслуживания](../concepts/maintenance.md) кластера:
+
+        {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
+
+      * Включите защиту кластера от удаления.
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.airflow.section_airflow-configuration }}**:
   
@@ -160,10 +196,20 @@ keywords:
                    `resource-preset-id=<идентификатор_ресурсов> \
            --triggerer count=<количество_экземпляров>,`
                       `resource-preset-id=<идентификатор_ресурсов> \
+           --dag-processor count=<количество_экземпляров>,`
+                      `resource-preset-id=<идентификатор_ресурсов> \         
            --deb-packages <список_deb-пакетов> \
            --pip-packages <список_pip-пакетов> \
            --dags-bucket <имя_бакета> \
-           --deletion-protection \
+           --gitsync repo=<SSH-адрес_репозитория>,`
+                     `branch=<рабочая_ветка>,`
+                     `subpath=<путь_к_каталогу_DAG-файлов>,`
+                     `ssh-key=<закрытый_SSH-ключ>,`
+                     `ssh-key-path=<путь_к_файлу_приватного_SSH-ключа> \
+           --maintenance-window type=<тип_технического_обслуживания>,`
+                                `day=<день_недели>,`
+                                `hour=<час_дня> \
+           --deletion-protection \                   
            --lockbox-secrets-backend \
            --airflow-config <список_свойств> \
            --log-enabled \
@@ -172,6 +218,12 @@ keywords:
         ```
 
         {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters.md) %}
+
+        * `--subnet-ids` — список идентификаторов подсетей.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [CLI cluster parameters description](../../_includes/mdb/maf/cli/cluster-parameters-part-2.md) %}
 
 - {{ TF }} {#tf}
 
@@ -190,6 +242,12 @@ keywords:
         * {% include [Terraform subnet description](../../_includes/mdb/terraform/subnet.md) %}
 
         {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters.md) %}
+
+        * `subnet_ids` — список идентификаторов подсетей.
+
+            {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+        {% include [Terraform cluster parameters description](../../_includes/mdb/maf/terraform/cluster-parameters-part-2.md) %}
 
     1. Проверьте корректность настроек.
 
@@ -213,7 +271,7 @@ keywords:
 
         ```json
         {
-          "folderId": "<идентификатор_каталога>,
+          "folderId": "<идентификатор_каталога>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
@@ -252,7 +310,13 @@ keywords:
               "debPackages": [ <список_deb-пакетов> ]
             },
             "lockbox": {
-              "enabled": <использование_логирования>
+              "enabled": <использование_секретов>
+            },
+            "dagProcessor": {
+              "count": "<количество_экземпляров>",
+              "resources": {
+                "resourcePresetId": "<идентификатор_ресурсов>"
+              }
             }
           },
           "network": {
@@ -262,6 +326,18 @@ keywords:
           "codeSync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            },
+            "gitSync": {
+              "repo": "<SSH-адрес_репозитория>",
+              "branch": "<рабочая_ветка>",
+              "subPath": "<путь_к_каталогу_DAG-файлов>",
+              "sshKey": "<приватный_SSH-ключ>"
+            }
+          },
+          "maintenanceWindow": {
+            "weeklyMaintenanceWindow": {
+              "day": "<день_недели>",
+              "hour": "<час>"
             }
           },
           "deletionProtection": <защита_от_удаления>,
@@ -269,9 +345,7 @@ keywords:
           "logging": {
             "enabled": <использование_логирования>,
             "minLevel": "<уровень_логирования>",
-            // Укажите один из параметров: `folderId` или `logGroupId`
-            "folderId": "<идентификатор_каталога>",
-            "logGroupId": "<идентификатор_лог-группы>",
+            "folderId": "<идентификатор_каталога>"
           },
           "adminPassword": "<пароль_администратора>"
         }
@@ -288,7 +362,7 @@ keywords:
             * `versionId` — версия {{ AF }}.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
@@ -296,16 +370,22 @@ keywords:
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dagProcessor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и триггера.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `minCount`, `maxCount` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и триггера. Возможные значения:
+                * `resources.resourcePresetId` — идентификатор вычислительных ресурсов веб-сервера, планировщика, DAG-процессора, воркера и Triggerer. Возможные значения:
 
+                    * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
+                    * `c2-m4` — 2 vCPU, 4 ГБ RAM.
                     * `c2-m8` — 2 vCPU, 8 ГБ RAM.
+                    * `c4-m8` — 4 vCPU, 8 ГБ RAM.
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:
 
@@ -331,22 +411,42 @@ keywords:
         * `network` — сетевые настройки:
 
             * `subnetIds` — список идентификаторов подсетей.
-            * `securityGroupIds` — список идентификаторов групп безопасности.
 
-        * `codeSync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `securityGroupIds` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
+
+        * `codeSync` — тип и параметры источника DAG-файлов:
+
+            * `s3.bucket` — имя бакета.
+
+            * `gitSync` — параметры Git-репозитория:
+
+              * `repo` — адрес репозитория.
+              * `branch` — рабочая ветка.
+              * `subPath` — путь к каталогу DAG-файлов в репозитории.
+              * `sshKey` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Укажите один из двух параметров: `s3` либо `gitSync`.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-rest.md) %}
+
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `serviceAccountId` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `serviceAccountId` — идентификатор сервисного аккаунта.
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `minLevel` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folderId` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
-            * `logGroupId` — идентификатор пользовательской лог-группы.
+            * `logGroupId` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
-            Вы можете указать только один из параметров: `folderId` или `logGroupId`.
+                Укажите один из двух параметров: `folderId` либо `logGroupId`.
 
         * `adminPassword` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
 
@@ -361,17 +461,17 @@ keywords:
 
             {% endnote %}
 
-    1. Воспользуйтесь методом [Cluster.create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters'
+            --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters' \
             --data '@body.json'
         ```
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#responses).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -385,7 +485,7 @@ keywords:
 
         ```json
         {
-          "folder_id": "<идентификатор_каталога>,
+          "folder_id": "<идентификатор_каталога>",
           "name": "<имя_кластера>",
           "description": "<описание_кластера>",
           "labels": { <список_меток> },
@@ -424,7 +524,13 @@ keywords:
               "deb_packages": [ <список_deb-пакетов> ]
             },
             "lockbox": {
-              "enabled": <использование_логирования>
+              "enabled": <использование_секретов>
+            },
+            "dag_processor": {
+              "count": "<количество_экземпляров>",
+              "resources": {
+                "resource_preset_id": "<идентификатор_ресурсов>"
+              }
             }
           },
           "network": {
@@ -434,6 +540,18 @@ keywords:
           "code_sync": {
             "s3": {
               "bucket": "<имя_бакета>"
+            },
+            "git_sync": {
+              "repo": "<SSH-адрес_репозитория>",
+              "branch": "<рабочая_ветка>",
+              "sub_path": "<путь_к_каталогу_DAG-файлов>",
+              "ssh_key": "<закрытый_SSH-ключ>"
+            }
+          },
+          "maintenance_window": {
+            "weekly_maintenance_window": {
+              "day": "<день_недели>",
+              "hour": "<час>"
             }
           },
           "deletion_protection": <защита_от_удаления>,
@@ -441,9 +559,7 @@ keywords:
           "logging": {
             "enabled": <использование_логирования>,
             "min_level": "<уровень_логирования>",
-            // Укажите один из параметров: `folder_id` или `log_group_id`
-            "folder_id": "<идентификатор_каталога>",
-            "log_group_id": "<идентификатор_лог-группы>",
+            "folder_id": "<идентификатор_каталога>"
           },
           "admin_password": "<пароль_администратора>"
         }
@@ -460,7 +576,7 @@ keywords:
             * `version_id` — версия {{ AF }}.
             * `airflow.config` — [дополнительные свойства {{ AF }}](https://airflow.apache.org/docs/apache-airflow/2.2.4/configurations-ref.html). Задаются в формате `"<раздел_конфигурации>.<ключ>": "<значение>"`, например:
 
-                ```bash
+                ```json
                 "airflow": {
                   "config": {
                     "core.load_examples": "False"
@@ -468,16 +584,22 @@ keywords:
                 }
                 ```
 
-            * `webserver`, `scheduler`, `triggerer`, `worker` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
+            * `webserver`, `scheduler`, `triggerer`, `worker`, `dag_processor` — конфигурация [компонентов](../concepts/index.md#components) {{ maf-name }}:
 
-                * `count` — количество экземпляров в кластере для веб-сервера, планировщика и триггера.
+                * `count` — количество экземпляров в кластере для веб-сервера, планировщика, DAG-процессора и Triggerer.
                 * `min_count`, `max_count` — минимальное и максимальное количество экземпляров в кластере для воркера.
-                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, воркера и триггера. Возможные значения:
+                * `resources.resource_preset_id` — идентификатор вычислительных ресурсов веб-сервера, планировщика, DAG-процессора, воркера и Triggerer. Возможные значения:
 
+                    * `c1-m2` — 1 vCPU, 2 ГБ RAM.
                     * `c1-m4` — 1 vCPU, 4 ГБ RAM.
+                    * `c2-m4` — 2 vCPU, 4 ГБ RAM.
                     * `c2-m8` — 2 vCPU, 8 ГБ RAM.
+                    * `c4-m8` — 4 vCPU, 8 ГБ RAM.
                     * `c4-m16` — 4 vCPU, 16 ГБ RAM.
+                    * `c8-m16` — 8 vCPU, 16 ГБ RAM.
                     * `c8-m32` — 8 vCPU, 32 ГБ RAM.
+                
+                {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
 
             * `dependencies` — списки пакетов, которые позволяют установить в кластер дополнительные библиотеки и приложения для запуска DAG-файлов:
 
@@ -503,22 +625,42 @@ keywords:
         * `network` — сетевые настройки:
 
             * `subnet_ids` — список идентификаторов подсетей.
-            * `security_group_ids` — список идентификаторов групп безопасности.
 
-        * `code_sync.s3.bucket` — имя бакета, в котором будут храниться DAG-файлы.
+                {% include [choose-subnet](../../_includes/mdb/maf/choose-subnet.md) %}
+
+            * `security_group_ids` — список идентификаторов [групп безопасности](../concepts/network.md#security-groups).
+
+        * `code_sync` — тип и параметры источника DAG-файлов:
+
+            * `s3.bucket` — имя бакета.
+
+            * `git_sync` — параметры Git-репозитория:
+
+              * `repo` — адрес репозитория.
+              * `branch` — рабочая ветка.
+              * `sub_path` — путь к каталогу DAG-файлов в репозитории.
+              * `ssh_key` — закрытый SSH-ключ доступа к репозиторию в одну строчку с символами переноса строки `\n`.
+
+              {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
+
+            Укажите один из двух параметров: `s3` либо `git_sync`.
+
+        * {% include [maintenance](../../_includes/mdb/maf/maintenance-window-grpc.md) %}
+
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
             Включенная защита от удаления не помешает подключиться к кластеру вручную и удалить его.
 
-        * `service_account_id` — идентификатор сервисного аккаунта, [созданного ранее](#before-creating).
+        * `service_account_id` — идентификатор сервисного аккаунта.
+
         * `logging` — параметры логирования:
 
             * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ AF }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `min_level` — минимальный уровень логирования. Возможные значения: `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
-            * `log_group_id` — идентификатор пользовательской лог-группы.
+            * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
 
-            Вы можете указать только один из параметров: `folder_id` или `log_group_id`.
+                Укажите один из двух параметров: `folder_id` либо `log_group_id`.
 
         * `admin_password` — пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:
 
@@ -533,7 +675,7 @@ keywords:
 
             {% endnote %}
 
-    1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -549,5 +691,187 @@ keywords:
         ```
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Примеры {#examples}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    Создайте кластер {{ maf-name }} с тестовыми характеристиками:
+
+    * Имя — `myaf`.
+    * Версия {{ AF }} — `3.0`.
+    * Пароль администратора — `Password*1`.
+    * Сервисный аккаунт с идентификатором `aje8r2rp7fkl********`.
+    * Подсети с идентификаторами:
+      
+      * `e9bhbia2scnk********`
+      * `e2lfqbm5nt9r********`
+      * `fl8beqmjckv8********`
+
+    * Один веб-сервер для размещения экземпляра {{ AF }} с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Бакет с произвольным именем для хранения DAG-файлов.
+
+    Выполните следующую команду:
+
+    ```bash
+    {{ yc-mdb-af }} cluster create \
+      --name myaf \
+      --airflow-version 3.0 \
+      --admin-password Password*1 \
+      --service-account-id aje8r2rp7fkl******** \
+      --subnet-ids e9bhbia2scnk********,e2lfqbm5nt9r********,fl8beqmjckv8******** \
+      --security-group-ids enp68jq81uun******** \
+      --webserver count=1,resource-preset-id=c1-m2 \
+      --scheduler count=1,resource-preset-id=c1-m2 \
+      --worker min-count=1,max-count=4,resource-preset-id=c1-m2 \
+      --dag-processor count=1,resource-preset-id=c1-m2 \
+      --dags-bucket <имя_бакета>
+    ```
+
+- {{ TF }} {#tf}
+
+    Создайте кластер {{ maf-name }} с тестовыми характеристиками:
+
+    * Каталог с идентификатором `b1g4unjqq856********`.
+    * Имя — `myaf`.
+    * Версия {{ AF }} — `3.0`.
+    * Пароль администратора — `Password*1`.
+    * Новый сервисный аккаунт `af-sa` со следующими ролями:
+      
+      * `managed-airflow.integrationProvider`
+      * `storage.editor`
+      * `monitoring.editor`
+    
+    * Новая сеть `af-net` с подсетями:
+      
+      * `af-subnet-a` в зоне доступности `ru-central1-a` и с диапазоном адресов `10.1.0.0/24`;
+      * `af-subnet-b` в зоне доступности `ru-central1-b` и с диапазоном адресов `10.2.0.0/24`;
+      * `af-subnet-d` в зоне доступности `ru-central1-d` и с диапазоном адресов `10.3.0.0/24`.
+    
+    * Новая группа безопасности `af-sg`, разрешающая весь входящий и исходящий трафик.
+    
+    * Один веб-сервер для размещения экземпляра {{ AF }} с классом хостов `c1-m2`.
+    * Один планировщик с классом хостов `c1-m2`.
+    * Задачи выполняют воркеры с классом хостов `c1-m2`, количество таких воркеров — от `1` до `4`.
+    * Один DAG-процессор с классом хостов `c1-m2`.
+    * Новый бакет с произвольным именем для хранения DAG-файлов.
+
+    Конфигурационный файл для такого кластера выглядит так:
+
+    ```hcl
+    locals {
+      folder_id = "b1g4unjqq856********"
+    }
+    
+    resource "yandex_airflow_cluster" "myaf" {
+      name               = "myaf"
+      airflow_version    = "3.0"
+      admin_password     = "Password*1"
+      service_account_id = yandex_iam_service_account.af-sa.id
+      subnet_ids         = [yandex_vpc_subnet.af-subnet-a.id,yandex_vpc_subnet.af-subnet-b.id,yandex_vpc_subnet.af-subnet-d.id]
+      security_group_ids = [yandex_vpc_security_group.af-sg.id]
+
+      webserver = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      scheduler = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      worker = {
+        min_count          = 1
+        max_count          = 4
+        resource_preset_id = "c1-m2"
+      }
+
+      dag_processor = {
+        count              = 1
+        resource_preset_id = "c1-m2"
+      }
+
+      code_sync = {
+        s3 = {
+          bucket = yandex_storage_bucket.af-bucket.bucket
+        }
+      }
+    }
+
+    resource "yandex_vpc_network" "af-net" {
+      name = "af-net"
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-a" {
+      name           = "af-subnet-a"
+      zone           = "ru-central1-a"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.1.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-b" {
+      name           = "af-subnet-b"
+      zone           = "ru-central1-b"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.2.0.0/24"]
+    }
+
+    resource "yandex_vpc_subnet" "af-subnet-d" {
+      name           = "af-subnet-d"
+      zone           = "ru-central1-d"
+      network_id     = yandex_vpc_network.af-net.id
+      v4_cidr_blocks = ["10.3.0.0/24"]
+    }
+
+    resource "yandex_vpc_security_group" "af-sg" {
+      name       = "af-sg"
+      network_id = yandex_vpc_network.af-net.id
+  
+      ingress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+
+      egress {
+        protocol       = "ANY"
+        v4_cidr_blocks = ["0.0.0.0/0"]
+      }
+    }
+
+    resource "yandex_iam_service_account" "af-sa" {
+      name = "af-sa"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-af" {
+      folder_id = local.folder_id
+      role      = "managed-airflow.integrationProvider"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-storage" {
+      folder_id = local.folder_id
+      role      = "storage.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_resourcemanager_folder_iam_member" "sa-role-monitoring" {
+      folder_id = local.folder_id
+      role      = "monitoring.editor"
+      member    = "serviceAccount:${yandex_iam_service_account.af-sa.id}"
+    }
+
+    resource "yandex_storage_bucket" "af-bucket" {
+      bucket    = "<имя_бакета>"
+      folder_id = local.folder_id
+    }
+    ```
 
 {% endlist %}

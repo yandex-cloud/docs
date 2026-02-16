@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
+    method: delete
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. Resource ID is used to identify Compute Cloud instance in backup service.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/delete.md
 ---
 
-# Cloud Backup API, REST: Resource.Delete {#Delete}
+# Cloud Backup API, REST: Resource.Delete
 
 Delete specific Compute Cloud instance from Cloud Backup. It does not delete
 instance from Cloud Compute service.
@@ -20,7 +48,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.backup.v1.DeleteResourceRequest}

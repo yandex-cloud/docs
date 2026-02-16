@@ -7,11 +7,11 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Getting information about instances
+      - name: Getting instance info
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and instance access restrictions
+      - name: Setting up security groups and access restrictions to an instance
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
@@ -19,9 +19,9 @@ items:
         href: operations/instance/instance-update.md
       - name: Managing backups
         href: operations/instance/instance-backups.md
-      - name: Migration from a {{ GL }} custom installation
+      - name: Migrating from a custom {{ GL }} installation
         href: operations/instance/migration.md
-      - name: Migrating from the ru-central1-c availability zone
+      - name: Migrating to a different availability zone
         href: operations/instance/zone-migration.md
       - name: Cleaning up full disk space
         href: operations/instance/clean-up-disk-space.md
@@ -31,43 +31,49 @@ items:
         href: operations/create-user.md
       - name: Setting up approval rules
         href: operations/approval-rules.md
+      - name: Monitoring the instance status
+        href: operations/instance/monitoring.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
+      - name: Integration with {{ objstorage-name }}
+        href: operations/objstorage-integration.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Installing {{ GL }} Runner on a virtual machine
+      - name: Deploying {{ GLR }} on a {{ compute-full-name }} VM
         href: tutorials/install-gitlab-runner.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
       - name: >-
-          Continuous deployment of {{ managed-k8s-name }} containerized
+          Continuous deployment of containerized {{ managed-k8s-name }}
           applications
         href: tutorials/gitlab-containers.md
       - name: >-
           Scanning {{ container-registry-name }} for vulnerabilities during
           continuous deployment of {{ managed-k8s-name }} applications
         href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-      - name: Building a CI/CD pipeline using serverless products
+      - name: Building a CI/CD pipeline with serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Storing Docker images in {{ container-registry-full-name }}
         href: tutorials/image-storage.md
-      - name: Testing applications with {{ GL }}
+      - name: App testing with {{ GL }}
         href: tutorials/application-testing-with-gitlab.md
       - name: Creating test VMs via {{ GL }} CI
         href: tutorials/test-vms-creation-via-gitlab-ci.md
       - name: Integration with {{ tracker-full-name }}
         href: tutorials/tracker-integration.md
-      - name: Invoking load testing from {{ GL }}} CI
+      - name: Invoking a load test from {{ GL }} CI
         href: tutorials/loadtesting-gitlab-ci.md
+      - name: Integration with Argo CD
+        href: tutorials/argo-cd.md
   - name: Concepts
     items:
       - name: Resource relationships
         href: concepts/index.md
-      - name: Service advantages over a {{ GL }} custom installation
+      - name: Advantages over a custom {{ GL }} installation
         href: concepts/managed-gitlab-vs-custom-installation.md
-      - name: Running migration from a {{ GL }} custom installation
+      - name: Running migration from a custom {{ GL }} installation
         href: concepts/migration.md
       - name: Approval rules
         href: concepts/approval-rules.md
@@ -77,15 +83,105 @@ items:
         href: concepts/security.md
       - name: Quotas and limits
         href: concepts/limits.md
+      - name: Integration with {{ objstorage-name }}
+        href: concepts/s3-integration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
     href: pricing.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: instance
+        items:
+          - name: Overview
+            href: cli-ref/instance/index.md
+          - name: create
+            href: cli-ref/instance/create.md
+          - name: delete
+            href: cli-ref/instance/delete.md
+          - name: get
+            href: cli-ref/instance/get.md
+          - name: list
+            href: cli-ref/instance/list.md
+          - name: start
+            href: cli-ref/instance/start.md
+          - name: stop
+            href: cli-ref/instance/stop.md
+          - name: update
+            href: cli-ref/instance/update.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: API reference
+    items:
+      - name: API authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: api-ref/grpc/Instance/index.md
+              - name: Get
+                href: api-ref/grpc/Instance/get.md
+              - name: List
+                href: api-ref/grpc/Instance/list.md
+              - name: Create
+                href: api-ref/grpc/Instance/create.md
+              - name: Update
+                href: api-ref/grpc/Instance/update.md
+              - name: Delete
+                href: api-ref/grpc/Instance/delete.md
+              - name: Start
+                href: api-ref/grpc/Instance/start.md
+              - name: Stop
+                href: api-ref/grpc/Instance/stop.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Instance
+            items:
+              - name: Overview
+                href: api-ref/Instance/index.md
+              - name: Get
+                href: api-ref/Instance/get.md
+              - name: List
+                href: api-ref/Instance/list.md
+              - name: Create
+                href: api-ref/Instance/create.md
+              - name: Update
+                href: api-ref/Instance/update.md
+              - name: Delete
+                href: api-ref/Instance/delete.md
+              - name: Start
+                href: api-ref/Instance/start.md
+              - name: Stop
+                href: api-ref/Instance/stop.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/managed-gitlab
-deepBase: 2

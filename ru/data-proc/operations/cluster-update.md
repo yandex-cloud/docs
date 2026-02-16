@@ -1,31 +1,39 @@
+---
+title: Изменение кластера {{ dataproc-name }}
+description: После создания кластера {{ dataproc-name }} вы можете изменить его основные и дополнительные настройки.
+---
+
 # Изменение кластера {{ dataproc-name }}
 
 После создания кластера вы можете изменить его основные и дополнительные настройки.
 
-
 Вы можете выключить передачу логов кластера в сервис {{ cloud-logging-full-name }}. Подробнее см. в разделе [Работа с логами](logging.md#disable-logs).
-
 
 Кластер {{ dataproc-name }} также можно переместить в другую зону доступности. Процесс зависит от типа кластера:
 
 * [Миграция легковесного кластера в другую зону доступности](migration-to-an-availability-zone.md).
 * [Миграция кластера с файловой системой HDFS в другую зону доступности](../tutorials/hdfs-cluster-migration.md).
 
-Чтобы изменить настройки кластера {{ dataproc-name }}:
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
+
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените имя и описание кластера в полях **{{ ui-key.yacloud.mdb.forms.base_field_name }}** и **{{ ui-key.yacloud.mdb.forms.base_field_description }}**.
     1. Добавьте или удалите [метки](../../resource-manager/concepts/labels.md) кластера в поле **{{ ui-key.yacloud.component.label-set.label_labels }}**.
     1. Измените настройки кластера:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому нужно разрешить доступ к кластеру {{ dataproc-full-name }}.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) кластера {{ dataproc-full-name }}.
 
             Выберите существующий сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md).
+
+            Для изменения сервисного аккаунта в кластере {{ dataproc-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+            {% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
 
         * **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** — [свойства компонентов](../concepts/settings-list.md) кластера.
 
@@ -49,13 +57,13 @@
 
             {% note warning %}
 
-            Некорректные настройки групп безопасности могут препятствовать работе кластера {{ dataproc-full-name }}. Подробнее о настройке групп безопасности см. в разделе [Подключение к кластеру](./connect.md#configuring-security-groups).
+            Некорректные настройки групп безопасности могут препятствовать работе кластера {{ dataproc-full-name }}. Подробнее о настройке групп безопасности см. в разделе [Настройка групп безопасности](security-groups.md).
 
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** — опция, управляющая доступом к [веб-интерфейсам компонентов](../concepts/interfaces.md) через [UI Proxy](./connect-interfaces.md#ui-proxy).
+        * **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** — опция, управляющая доступом к [веб-интерфейсам компонентов](../concepts/interfaces.md) через [UI Proxy](connect-interfaces.md#ui-proxy).
 
-            {% include [ui-proxy-sg-warning](../../_includes/data-proc/ui-proxy-sg-warning.md) %}
+            {% include [ui-proxy-sg-warning](../../_includes/data-processing/ui-proxy-sg-warning.md) %}
 
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}** — [лог-группа](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую кластер будет отправлять логи.
 
@@ -77,12 +85,27 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
+
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
         {{ yc-dp }} cluster update --help
         ```
 
+    1. Чтобы изменить сервисный аккаунт кластера, передайте имя или идентификатор нужного аккаунта в параметре `--service-account-name` или `--service-account-id`.
+
+        ```bash
+        {{ yc-dp }} cluster update <имя_или_идентификатор_кластера> \
+           --service-account-id=<идентификатор_сервисного_аккаунта>
+        ```
+
+    1. Чтобы добавить или изменить сервисный аккаунт [автомасштабируемых подкластеров](../concepts/autoscaling.md), передайте имя или идентификатор нужного аккаунта в параметре `--autoscaling-service-account-name` или `--autoscaling-service-account-id`.
+
+        ```bash
+        {{ yc-dp }} cluster update <имя_или_идентификатор_кластера> \
+           --autoscaling-service-account-id=<идентификатор_сервисного_аккаунта>
+        ```
 
     1. Чтобы изменить [лог-группу](../../logging/concepts/log-group.md), в которую отправляются логи кластера, передайте идентификатор нужной лог-группы в параметре `--log-group-id`:
 
@@ -92,7 +115,6 @@
         ```
 
         Идентификатор лог-группы можно получить со [списком лог-групп в каталоге](../../logging/operations/list.md).
-
 
     1. Чтобы защитить кластер от непреднамеренного удаления пользователем вашего облака, добавьте параметр `--deletion-protection`:
 
@@ -116,9 +138,11 @@
 
         {% endnote %}
 
-    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](./cluster-list.md#list).
+    Идентификатор и имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list).
 
 - {{ TF }} {#tf}
+
+    Чтобы изменить настройки кластера {{ dataproc-name }}:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -131,6 +155,26 @@
           ...
           deletion_protection = true
           ui_proxy            = true
+          ...
+        }
+        ```
+
+    1. Чтобы изменить сервисный аккаунт кластера {{ dataproc-name }}, измените значение параметра `service_account_id` в описании кластера {{ dataproc-name }}:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          ...
+        }
+        ```
+
+    1. Чтобы добавить или изменить сервисный аккаунт для управления [автомасштабируемыми подкластерами](../concepts/autoscaling.md), используйте параметр `autoscaling_service_account_id` в описании кластера {{ dataproc-name }}:
+
+        ```hcl
+        resource "yandex_dataproc_cluster" "data_cluster" {
+          ...
+          autoscaling_service_account_id = "<идентификатор_сервисного_аккаунта>"
           ...
         }
         ```

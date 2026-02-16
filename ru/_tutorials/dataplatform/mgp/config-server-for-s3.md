@@ -1,6 +1,6 @@
 # Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
 
-При [создании внешней таблицы](../../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете {{ objstorage-full-name }}, необходимо передать в запросе [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3]({{ gp.docs.vmware }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
+При [создании внешней таблицы](../../../managed-greenplum/operations/pxf/create-table.md) из таблицы, расположенной в бакете {{ objstorage-full-name }}, необходимо передать в запросе [статический ключ доступа](../../../iam/concepts/authorization/access-key.md) для сервисного аккаунта. Это можно сделать с помощью [протокола S3]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) и конфигурационного файла, хранящегося на HTTP-сервере.
 
 Чтобы создать внешнюю таблицу с помощью конфигурационного файла:
 
@@ -8,6 +8,18 @@
 1. [Создайте внешнюю таблицу](#create-ext-table).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ GP }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ GP }}](../../../managed-greenplum/pricing/index.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)). 
+* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -17,14 +29,14 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ mgp-name }} любой подходящей конфигурации.
+    1. [Создайте кластер](../../../managed-greenplum/operations/cluster-create.md) {{ GP }} любой подходящей конфигурации.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
-
-    1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ mgp-name }}.
+    
+    1. [Создайте виртуальную машину с Linux](../../../compute/operations/vm-create/create-linux-vm.md) в той же облачной подсети, в которой расположен кластер {{ GP }}.
 
 
     1. [Создайте бакет в {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с ограниченным доступом. [Загрузите](../../../storage/operations/objects/upload.md) в него файл `example.csv`, содержащий тестовую таблицу:
@@ -33,8 +45,8 @@
         10,2010
         ```
 
-
-    1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+    
+    1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 
 
 - {{ TF }} {#tf}
@@ -57,13 +69,13 @@
         * сеть;
         * подсеть;
         * сервисный аккаунт со статическим ключом доступа;
-        * кластер {{ mgp-name }};
+        * кластер {{ GP }} в сервисе {{ mgp-name }};
         * бакет, в который будет помещен файл `example.csv`;
         * виртуальная машина с [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 
     1. Укажите в файле `greenplum-s3-vm.tf`:
 
-        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру {{ mgp-name }}.
+        * Пароль пользователя `user`, который будет использоваться для доступа к кластеру {{ GP }}.
         * Идентификатор образа виртуальной машины.
         * Имя пользователя и путь к [SSH-ключу](../../../glossary/ssh-keygen.md) для доступа к виртуальной машине.
         * Идентификатор каталога для сервисного аккаунта, такой же как в настройках провайдера.
@@ -95,7 +107,7 @@
 
         Команда сохраняет в файл `static-key.txt` идентификатор статического ключа и статический ключ, они потребуются далее.
 
-
+    
     1. Перейдите в [консоль управления]({{ link-console-main }}) и [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для подсети, в которой расположен кластер.
 
 
@@ -169,7 +181,7 @@
 
 ## Создайте внешнюю таблицу {#create-ext-table}
 
-1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect.md) {{ mgp-name }}.
+1. [Подключитесь к кластеру](../../../managed-greenplum/operations/connect/index.md) {{ GP }}.
 1. Выполните запрос на создание внешней таблицы, которая ссылается на таблицу `example.csv` в бакете:
 
     ```sql
@@ -207,11 +219,11 @@
 
 - Вручную {#manual}
 
-
+    
     1. [Удалите виртуальную машину](../../../compute/operations/vm-control/vm-delete.md).
     1. Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, [удалите его](../../../vpc/operations/address-delete.md).
     1. [Удалите бакет в {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Удалите кластер {{ mgp-name }}](../../../managed-greenplum/operations/cluster-delete.md).
+    1. [Удалите кластер {{ GP }}](../../../managed-greenplum/operations/cluster-delete.md).
     1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
     1. [Удалите подсеть](../../../vpc/operations/subnet-delete.md).
     1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
@@ -221,22 +233,6 @@
 
 - {{ TF }} {#tf}
 
-    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите файл `greenplum-s3-vm.tf`.
-    1. Выполните команду:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в файле `greenplum-s3-vm.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

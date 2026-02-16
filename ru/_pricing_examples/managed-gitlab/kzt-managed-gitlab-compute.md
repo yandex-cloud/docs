@@ -1,9 +1,9 @@
-> 720 × (2 × 8,40&nbsp;₸ + 8 × 2,25&nbsp;₸) = 25&nbsp;056,00&nbsp;₸
+> 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|string }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|string }}) = {% calc [currency=KZT] 720 × (2 × {{ sku|KZT|gitlab.instance.free.cpu|number }} + 8 × {{ sku|KZT|gitlab.instance.free.ram|number }}) %}
 
   Где:
 
   * 720 — количество часов в 30 днях.
   * 2 — количество vCPU.
-  * 8,40&nbsp;₸ — стоимость часа использования vCPU.
+  * {{ sku|KZT|gitlab.instance.free.cpu|string }} — стоимость часа использования vCPU.
   * 8 — объем RAM (в гигабайтах).
-  * 2,25&nbsp;₸ — стоимость часа использования 1 ГБ RAM.
+  * {{ sku|KZT|gitlab.instance.free.ram|string }} — стоимость часа использования 1 ГБ RAM.

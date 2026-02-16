@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
+    method: get
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to return.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        deviceView:
+          description: |-
+            **enum** (DeviceView)
+            Specifies which parts of the device resource should be returned
+            in the response.
+            - `BASIC`: Server responses without monitoring data.
+            The default value.
+            - `FULL`: Server responses with monitoring data.
+          type: string
+          enum:
+            - BASIC
+            - FULL
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/get.md
 ---
 
-# IoT Core Service, REST: Device.Get {#Get}
+# IoT Core Service, REST: Device.Get
 
 Returns the specified device.
 
@@ -51,15 +84,17 @@ The default value.
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "string",
+  "topicAliases": "object",
   "status": "string",
   "monitoringData": {
     "lastAuthIp": "string",
     "lastAuthTime": "string",
     "lastPubActivityTime": "string",
     "lastSubActivityTime": "string",
-    "lastOnlineTime": "string"
-  }
+    "lastOnlineTime": "string",
+    "lastDisconnectTime": "string"
+  },
+  "labels": "object"
 }
 ```
 
@@ -89,7 +124,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -105,6 +140,9 @@ Status of the device.
 || monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -137,6 +175,14 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || lastOnlineTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastDisconnectTime | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

@@ -1,3 +1,8 @@
+---
+title: Delta Lake в {{ dataproc-full-name }}
+description: Из статьи вы узнаете, что такое Delta Lake в {{ dataproc-name }}, ознакомитесь с преимуществами Delta Lake и совместимостью версий Delta Lake и {{ dataproc-name }}.
+---
+
 # Delta Lake в {{ dataproc-name }}
 
 [Delta Lake](https://delta.io/) — это программное обеспечение с открытым исходным кодом, которое расширяет возможности платформы [{{ SPRK }}](https://spark.apache.org/):
@@ -17,7 +22,7 @@
 При работе в мультикластерном режиме за координацию доступа к таблицам Delta Lake из разных кластеров и заданий {{ SPRK }} отвечает вспомогательная база данных. В {{ yandex-cloud }} в качестве такой базы используется [{{ ydb-full-name }}](../../ydb/index.yaml).
 
 
-{% include [deltalake-disclaimer](../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 Подробную информацию о Delta Lake см. в [документации Delta Lake](https://docs.delta.io/latest/index.html).

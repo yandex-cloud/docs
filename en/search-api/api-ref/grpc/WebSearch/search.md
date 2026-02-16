@@ -1,0 +1,206 @@
+---
+editable: false
+sourcePath: en/_api-ref-grpc/searchapi/v2/api-ref/grpc/WebSearch/search.md
+---
+
+# Web Search API, gRPC: WebSearchService.Search
+
+## gRPC request
+
+**rpc Search ([WebSearchRequest](#yandex.cloud.searchapi.v2.WebSearchRequest)) returns ([WebSearchResponse](#yandex.cloud.searchapi.v2.WebSearchResponse))**
+
+## WebSearchRequest {#yandex.cloud.searchapi.v2.WebSearchRequest}
+
+```json
+{
+  "query": {
+    "search_type": "SearchType",
+    "query_text": "string",
+    "family_mode": "FamilyMode",
+    "page": "int64",
+    "fix_typo_mode": "FixTypoMode"
+  },
+  "sort_spec": {
+    "sort_mode": "SortMode",
+    "sort_order": "SortOrder"
+  },
+  "group_spec": {
+    "group_mode": "GroupMode",
+    "groups_on_page": "int64",
+    "docs_in_group": "int64"
+  },
+  "max_passages": "int64",
+  "region": "string",
+  "l10n": "Localization",
+  "folder_id": "string",
+  "response_format": "Format",
+  "user_agent": "string",
+  "metadata": {
+    "fields": "map<string, string>"
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| query | **[SearchQuery](#yandex.cloud.searchapi.v2.SearchQuery)**
+
+Required field. Search query. ||
+|| sort_spec | **[SortSpec](#yandex.cloud.searchapi.v2.SortSpec)**
+
+The rules for sorting search results that define the sequence of the returned search results. ||
+|| group_spec | **[GroupSpec](#yandex.cloud.searchapi.v2.GroupSpec)**
+
+Grouping settings that are used to group documents from a single domain into a container. ||
+|| max_passages | **int64**
+
+The maximum number of passages that can be used when generating a document snippet.
+
+Acceptable values are 1 to 5, inclusive. ||
+|| region | **string**
+
+ID of the search country or region that impacts the document ranking rules.
+
+The maximum string length in characters is 100. ||
+|| l10n | enum **Localization**
+
+The notification language for a search response.
+
+- `LOCALIZATION_RU`: Russian (default value)
+- `LOCALIZATION_UK`: Ukrainian
+- `LOCALIZATION_BE`: Belarusian
+- `LOCALIZATION_KK`: Kazakh
+- `LOCALIZATION_TR`: Turkish
+- `LOCALIZATION_EN`: English ||
+|| folder_id | **string**
+
+ID of the folder.
+
+The maximum string length in characters is 50. ||
+|| response_format | enum **Format**
+
+Search results format.
+
+- `FORMAT_XML`: XML format (default value)
+- `FORMAT_HTML`: HTML format ||
+|| user_agent | **string**
+
+User-Agent request header value.
+
+The maximum string length in characters is 300. ||
+|| metadata | **[SearchMetadata](#yandex.cloud.searchapi.v2.SearchMetadata)**
+
+Search flags ||
+|#
+
+## SearchQuery {#yandex.cloud.searchapi.v2.SearchQuery}
+
+#|
+||Field | Description ||
+|| search_type | enum **SearchType**
+
+Required field. Search type that determines the domain name that will be used for the search queries.
+
+- `SEARCH_TYPE_RU`: Russian search type (default), yandex.ru search domain name will be used.
+- `SEARCH_TYPE_TR`: Turkish search type, yandex.tr search domain name will be used.
+- `SEARCH_TYPE_COM`: International search type, yandex.com search domain name will be used.
+- `SEARCH_TYPE_KK`: Kazakh search type, yandex.kz search domain name will be used.
+- `SEARCH_TYPE_BE`: Belarusian search type, yandex.by search domain name will be used.
+- `SEARCH_TYPE_UZ`: Uzbek search type, yandex.uz search domain name will be used. ||
+|| query_text | **string**
+
+Required field. Search query text
+
+The maximum string length in characters is 400. ||
+|| family_mode | enum **FamilyMode**
+
+Rule for filtering search results and determines whether any documents should be excluded.
+
+- `FAMILY_MODE_NONE`: Filtering is disabled. Search results include any documents regardless of their contents.
+- `FAMILY_MODE_MODERATE`: Moderate filter (default value). Documents of the Adult category are excluded from search results
+unless a query is explicitly made for searching resources of this category.
+- `FAMILY_MODE_STRICT`: Regardless of a search query, documents of the Adult category
+and those with profanity are excluded from search results. ||
+|| page | **int64**
+
+The number of a requested page with search results
+
+The minimum value is 0. ||
+|| fix_typo_mode | enum **FixTypoMode**
+
+Typos autocorrections mode
+
+- `FIX_TYPO_MODE_ON`: Automatically correct typos (default value).
+- `FIX_TYPO_MODE_OFF`: Autocorrection is off. ||
+|#
+
+## SortSpec {#yandex.cloud.searchapi.v2.SortSpec}
+
+#|
+||Field | Description ||
+|| sort_mode | enum **SortMode**
+
+Documents sorting mode.
+
+- `SORT_MODE_BY_RELEVANCE`: Sort documents by relevance (default value).
+- `SORT_MODE_BY_TIME`: Sort documents by update time. ||
+|| sort_order | enum **SortOrder**
+
+Documents sorting order.
+
+- `SORT_ORDER_ASC`: Reverse order from oldest to most recent.
+- `SORT_ORDER_DESC`: Direct order from most recent to oldest (default). ||
+|#
+
+## GroupSpec {#yandex.cloud.searchapi.v2.GroupSpec}
+
+#|
+||Field | Description ||
+|| group_mode | enum **GroupMode**
+
+Grouping method.
+
+- `GROUP_MODE_FLAT`: Flat grouping. Each group contains a single document.
+- `GROUP_MODE_DEEP`: Grouping by domain. Each group contains documents from one domain. ||
+|| groups_on_page | **int64**
+
+Maximum number of groups that can be returned per page with search results.
+
+Acceptable values are 1 to 100, inclusive. ||
+|| docs_in_group | **int64**
+
+Maximum number of documents that can be returned per group.
+
+Acceptable values are 1 to 3, inclusive. ||
+|#
+
+## SearchMetadata {#yandex.cloud.searchapi.v2.SearchMetadata}
+
+#|
+||Field | Description ||
+|| fields | **object** (map<**string**, **string**>)
+
+Search flags, `key:value` pairs.
+No more than 64.
+The maximum string length in characters for each value is 63.
+Each value must match the regular expression `[-_0-9a-z]*`.
+The string length in characters for each key must be 1-63.
+Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+|#
+
+## WebSearchResponse {#yandex.cloud.searchapi.v2.WebSearchResponse}
+
+```json
+{
+  "raw_data": "bytes"
+}
+```
+
+#|
+||Field | Description ||
+|| raw_data | **bytes**
+
+Required field. Search results, either in XML or HTML format depending on the request settings. ||
+|#

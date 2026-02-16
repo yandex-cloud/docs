@@ -1,31 +1,31 @@
-# Moving a VM to another folder
+# Moving a VM to a different folder
 
 When you create a VM, it is placed in the current folder.
 
-In {{ yandex-cloud }}, you can move a VM to another folder within one cloud. You do not have to stop the VM when moving it.
+In {{ yandex-cloud }}, you can move a VM to a different folder within a single cloud. You do not have to stop the VM to move it.
 
-You can learn more about the resource hierarchy in {{ yandex-cloud }} [here](../../../resource-manager/concepts/resources-hierarchy.md).
+Learn more about the {{ yandex-cloud }} resource hierarchy [here](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ## Limitations {#limits}
 
-Limitations when moving a VM:
+When moving a VM, keep in mind the following limitations:
 
-* In [{{ monitoring-full-name }}](../../../monitoring/), metrics are not movable. The metrics in the previous folder stay there and new metrics will already be created in the new folder.
-* You can move VMs only within a single cloud.
+* [{{ monitoring-full-name }}](../../../monitoring/) does not support metric relocation: existing metrics remain in the source folder, and new ones will be created in the destination folder.
+* You can only move VMs within a single cloud.
 
 ## Moving a VM {#relocate-vm}
 
-### Updating a VM's folder {#change-folder}
+### Updating a VM folder {#change-folder}
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   1. Get a list of all VMs in the default folder:
+  1. Get a list of all VMs in the default folder:
 
       ```bash
       yc compute instance list
@@ -40,9 +40,9 @@ Limitations when moving a VM:
       | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
       | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
-      ```
+      ```      
 
-   1. Get a list of all folders in the default cloud:
+  1. Get a list of all folders in the default cloud:
 
       ```bash
       yc resource-manager folder list
@@ -59,16 +59,16 @@ Limitations when moving a VM:
       +----------------------+--------------------+------------------+--------+
       ```
 
-   1. View the description of the CLI command for moving a VM:
+  1. See the description of the CLI command for moving a VM:
 
       ```bash
       yc compute instance move --help
       ```
 
-   1. Move the VM to another folder with the following parameters:
-
-      * In `id`, enter the ID of the VM, e.g., `fhm0b28lgfp4********`.
-      * In `destination-folder-id`, enter the ID of the destination folder, e.g., `b1gd129pp9ha********`.
+  1. Move the VM to a different folder by specifying the following values: 
+      
+      * In `id`, enter the VM ID, e.g., `fhm0b28lgfp4********`.
+      * In `destination-folder-id`, specify the destination folder ID, e.g., `b1gd129pp9ha********`.
 
       ```bash
       yc compute instance move \
@@ -76,33 +76,66 @@ Limitations when moving a VM:
         --destination-folder-id b1gd129pp9ha********
       ```
 
-      For more information about the `yc compute instance move` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/move.md).
+      For more information about the `yc compute instance move` command, see this [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/move.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Configure](../../../resource-manager/operations/folder/set-access-bindings.md) access permissions for the target folder. The account from the source folder you are going to use to perform the operation must have at least the `compute.editor` [role](../../../compute/security/index.md#compute-editor) for the target folder.
+
+  1. [Get the target folder ID](../../../resource-manager/operations/folder/get-id.md).
+  1. In the configuration file, add the following parameters to the `yandex_compute_instance` resource:
+
+      ```bash
+      resource "yandex_compute_instance" "vm-1" {
+          ...
+          allow_stopping_for_update = true
+          folder_id = <target_folder_ID>
+          ...
+      }
+      ```
+
+      Where:
+
+      * `allow_stopping_for_update`: Parameter to allow the VM to stop for updates.
+      * `folder_id`: ID of the folder to deploy the VM in (by default, specified from the [environment variable](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials)).
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Apply the new configuration:
+
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-   Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/Instance/move.md) gRPC API call.
+  Use the [move](../../api-ref/Instance/move.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/Move](../../api-ref/grpc/Instance/move.md) gRPC API call.
 
-   **Example**
+  **Example**
 
-   Below is a sample Bash script for Linux OS.
+  Below is an example of a Bash script for Linux.
+  
+  To use it, [get authenticated](../../api-ref/authentication.md) with the API and install [cURL](https://curl.haxx.se).
 
-   To use the example, [authenticate](../../api-ref/authentication.md) in the API and install [cURL](https://curl.haxx.se).
+  You can move a VM without stopping it.
 
-   You can move a VM without stopping it.
-
-   1. Create a script file:
-
-      ```bash
-      sudo touch <filename>
-      ```
-
-   1. Open the file to write the script to:
+  1. Create a script file:
 
       ```bash
-      sudo nano <filename>
+      sudo touch <file_name>
       ```
 
-   1. Place the script in the file:
+  1. Open the file to write the script to:
+
+      ```bash
+      sudo nano <file_name>
+      ```
+  
+  1. Place the script in the file: 
 
       ```bash
       #!/bin/bash
@@ -110,113 +143,117 @@ Limitations when moving a VM:
       # Creating variables
 
       export IAM_TOKEN=`yc iam create-token`
-
+      
       instanceId='<VM_ID>'
       bootDiskId='<VM_boot_disk_ID>'
       destinationFolderId='<folder_ID>'
+      
+      # Moving a VM
 
-      # Moving the VM
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move"
+      
+      # Moving a boot disk
 
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/instances/{${instanceId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
-
-      # Moving the boot disk
-
-      curl -X POST "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move" \
-      -H "Authorization: Bearer ${IAM_TOKEN}" \
-      -d '{ "destinationFolderId": "'"${destinationFolderId}"'" }'
+      curl \
+        --request POST \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '{ "destinationFolderId": "'"${destinationFolderId}"'" }' \
+        "https://compute.{{ api-host }}/compute/v1/disks/{${bootDiskId}}:move"
       ```
 
       Where:
 
-      * `IAM_TOKEN`: IAM token used for authentication in the API.
+      * `IAM_TOKEN`: IAM token for API authentication.
       * `instanceId`: ID of the VM to move.
-      * `bootDiskId`: ID of the boot disk of the VM being moved.
+      * `bootDiskId`: ID of the boot disk of the VM to move.
       * `destinationFolderId`: ID of the folder to move the VM to.
 
-   1. Make the file executable:
+  1. Make the file executable:
 
       ```bash
-      chmod +x <filename>
+      chmod +x <file_name>
       ```
 
-   1. Run the script:
+  1. Run the script:
 
       ```bash
-      ./<filename>
+      ./<file_name>
       ```
 
 {% endlist %}
 
-### Updating a VM's subnet {#change-subnet}
+### Updating a VM subnet {#change-subnet}
 
-Moved VM's network interfaces remain connected to the [subnets](../../../vpc/concepts/network.md#subnet) in the source folder. To connect your VM to subnets in the destination folder:
+After moving a VM, its network interfaces remain connected to the [subnets](../../../vpc/concepts/network.md#subnet) in the source folder. To connect your VM to subnets in the destination folder, follow these steps:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select the folder where you moved the VM.
-   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-   1. Click the VM name.
-   1. Click **{{ ui-key.yacloud.common.stop }}**.
-   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
-   1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
-   1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder you moved the VM to.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. Click the VM name.
+  1. Click **{{ ui-key.yacloud.common.stop }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+  1. Under **{{ ui-key.yacloud.compute.instance.overview.section_network }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) in the top-right corner of the relevant network interface section and select **{{ ui-key.yacloud.compute.instance.overview.button_edit-network-interface }}**.
+  1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select a new subnet and click **{{ ui-key.yacloud.common.save }}**.
       If a VM has multiple [network interfaces](../../concepts/network.md), update the subnet for each one.
-   1. Click **{{ ui-key.yacloud.common.start }}**.
+  1. Click **{{ ui-key.yacloud.common.start }}**.
 
 - CLI {#cli}
 
-   {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-   1. View a description of the update subnet CLI command:
+  1. See the description of the CLI command for updating a subnet:
 
       ```bash
       yc compute instance update-network-interface --help
       ```
 
-   1. Stop the VM:
+  1. Stop the VM:
 
       ```bash
       yc compute instance stop fhm0b28lgfp4********
       ```
 
-   1. Get a list of VM's network interfaces by specifying the VM ID:
+  1. Get a list of VM network interfaces by specifying the VM ID:
 
-      ```bash
-      yc compute instance get fhm0b28lgfp4********
-      ```
+     ```bash
+     yc compute instance get fhm0b28lgfp4********
+     ```
 
-      Result:
+     Result:
 
-      ```yml
-      ...
-      network_interfaces:
-        - index: "0"
-          mac_address: d0:0d:24:**:**:**
-          subnet_id: e2lpp96bvvgp********
-          primary_v4_address:
-            address: 192.168.2.23
-        - index: "1"
-          mac_address: d0:1d:24:**:**:**
-          subnet_id: e2lrucutusnd********
-          primary_v4_address:
-            address: 192.168.1.32
-        - index: "2"
-          mac_address: d0:2d:24:**:**:**
-          subnet_id: e2lv9c6aek1d********
-          primary_v4_address:
-            address: 192.168.4.26
-      ...
-      ```
+     ```yml
+     ...
+     network_interfaces:
+       - index: "0"
+         mac_address: d0:0d:24:**:**:**
+         subnet_id: e2lpp96bvvgp********
+         primary_v4_address:
+           address: 192.168.2.23
+       - index: "1"
+         mac_address: d0:1d:24:**:**:**
+         subnet_id: e2lrucutusnd********
+         primary_v4_address:
+           address: 192.168.1.32
+       - index: "2"
+         mac_address: d0:2d:24:**:**:**
+         subnet_id: e2lv9c6aek1d********
+         primary_v4_address:
+           address: 192.168.4.26
+     ...
+     ```
 
-      Save the `index` field value, i.e., the number of the network interface to connect to a different subnet.
+     Save the `index` field value, i.e., the number of the network interface you want to connect to a different subnet.
 
-   1. Run this command:
+  1. Run this command:
 
       ```bash
       yc compute instance update-network-interface fhm0b28lgfp4******** \
@@ -229,9 +266,9 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
       Where:
 
       * `--subnet-id`: Subnet in the destination folder.
-      * `--ipv4-address`: Internal IP address of the VM's network interface in the subnet in the destination folder. Set to `auto` to automatically assign the internal address.
+      * `--ipv4-address`: Internal IP address of the VM network interface in the subnet in the destination folder. Set to `auto` to enable automatic internal address assignment.
       * `--network-interface-index`: VM's network interface number you previously saved.
-      * `--security-group-id`: ID of the security group to assign to the VM's network interface.
+      * `--security-group-id`: Security group that will be assigned to the VM's network interface.
 
       Result:
 
@@ -286,14 +323,50 @@ Moved VM's network interfaces remain connected to the [subnets](../../../vpc/con
 
       If a VM has multiple network interfaces, update the subnet for each one.
 
-   1. Run the VM:
+  1. Run the VM:
 
       ```bash
       yc compute instance start fhm0b28lgfp4********
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. [Configure](../../../resource-manager/operations/folder/set-access-bindings.md) access permissions for the folder you are updating the VM subnet in. The account used to perform the operation must have at least the `vpc.admin` [role](../../../vpc/security/index.md#vpc-admin) for the this folder.
+
+  1. If an additional subnet already exists, [obtain](../../../vpc/operations/subnet-get-info.md) its ID.
+  1. Edit the `yandex_compute_instance` resource in the configuration file:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        network_interface {
+          subnet_id = "<subnet_ID>"
+        }
+
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Where:
+
+      * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
+      * `allow_stopping_for_update`: Parameter to allow your VM to stop for updates.
+
+      For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/compute_instance).
+
+  1. Apply the new configuration:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}).
+
 - API {#api}
 
-   Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/Instance/updateNetworkInterface.md) gRPC API call.
+  Use the [updateNetworkInterface](../../api-ref/Instance/updateNetworkInterface.md) REST API method for the [Instance](../../api-ref/Instance/index.md) resource or the [InstanceService/UpdateNetworkInterface](../../api-ref/grpc/Instance/updateNetworkInterface.md) gRPC API call.
 
 {% endlist %}

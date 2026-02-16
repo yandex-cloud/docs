@@ -30,6 +30,7 @@
 
 {% include [s3-connectors-nat-gateway](../../_includes/datasphere/s3-connectors-nat-gateway.md) %}
 
-#### См. также {#see-also}
+## Примеры использования {#examples}
 
 * [Как подключиться к хранилищу S3 с помощью коннектора S3](../operations/data/s3-connectors.md)
+* [{#T}](../tutorials/s3-to-datasphere.md)

@@ -56,7 +56,6 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `yq-sa`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли:
-     * `datasphere.community-project.editor` — для запуска вычислений {{ ml-platform-name }}.
      * `yq.editor` — для отправки запросов {{ yq-name }}.
      * `managed-postgresql.viewer` — для просмотра содержимого кластера {{ mpg-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -69,7 +68,9 @@
 
 1. {% include [find project](../../_includes/datasphere/ui-find-project.md) %}
 1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-1. Выберите аккаунт `yq-sa` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. Выберите аккаунт `yq-sa` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**. 
+1. Измените роль сервисного аккаунта на **Editor**.
+
 
 ### Создайте авторизованный ключ для сервисного аккаунта {#create-key}
 
@@ -130,7 +131,7 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}**:
      * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_name }}**, например `db1`.
      * Укажите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** и **Доступ из консоли управления**.
   1. Остальные настройки можно оставить по умолчанию.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -144,7 +145,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `postgresql` и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
+  1. В [консоли управления]({{ link-console-main }}), откройте страницу кластера `postgresql` и перейдите на вкладку **SQL**.
   1. Введите **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** и **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, указанные при создании кластера.
   1. В окно ввода справа вставьте SQL-запрос:
 

@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list secrets in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListSecretsRequest.next_page_token] returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/list.md
 ---
 
-# Lockbox API, REST: Secret.List {#List}
+# Lockbox API, REST: Secret.List
 
 Retrieves the list of secrets in the specified folder.
 
@@ -23,13 +56,13 @@ Required field. ID of the folder to list secrets in. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
-results is larger than `page_size`, the service returns a [ListSecretsRequest.nextPageToken](#yandex.cloud.lockbox.v1.ListSecretsResponse)
+results is larger than `page_size`, the service returns a [ListSecretsRequest.next_page_token]
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListSecretsRequest.nextPageToken](#yandex.cloud.lockbox.v1.ListSecretsResponse) returned by a previous list request. ||
+[ListSecretsRequest.next_page_token] returned by a previous list request. ||
 |#
 
 ## Response {#yandex.cloud.lockbox.v1.ListSecretsResponse}
@@ -45,7 +78,7 @@ Page token. To get the next page of results, set `page_token` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "kmsKeyId": "string",
       "status": "string",
       "currentVersion": {
@@ -132,7 +165,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kmsKeyId | **string**
@@ -234,7 +267,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

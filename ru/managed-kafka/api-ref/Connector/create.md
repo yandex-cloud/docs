@@ -1,9 +1,225 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster to create the connector in.
+            To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        connectorSpec:
+          description: |-
+            **[ConnectorSpec](#yandex.cloud.mdb.kafka.v1.ConnectorSpec)**
+            Required field. Configuration of the connector to create.
+          $ref: '#/definitions/ConnectorSpec'
+      required:
+        - connectorSpec
+      additionalProperties: false
+    definitions:
+      ThisClusterSpec:
+        type: object
+        properties: {}
+      ExternalClusterConnectionSpec:
+        type: object
+        properties:
+          bootstrapServers:
+            description: |-
+              **string**
+              List of bootstrap servers of the cluster, separated by `,`.
+            type: string
+          saslUsername:
+            description: |-
+              **string**
+              SASL username to use for connection to the cluster.
+            type: string
+          saslPassword:
+            description: |-
+              **string**
+              SASL password to use for connection to the cluster.
+            type: string
+          saslMechanism:
+            description: |-
+              **string**
+              SASL mechanism to use for connection to the cluster.
+            type: string
+          securityProtocol:
+            description: |-
+              **string**
+              Security protocol to use for connection to the cluster.
+            type: string
+          sslTruststoreCertificates:
+            description: |-
+              **string**
+              CA in PEM format to connect to external cluster.
+              Lines of certificate separated by '\n' symbol.
+            type: string
+      ClusterConnectionSpec:
+        type: object
+        properties:
+          alias:
+            description: |-
+              **string**
+              Alias of cluster connection configuration.
+              Examples: `source`, `target`.
+            type: string
+          thisCluster:
+            description: |-
+              **object**
+              Connection configuration of the cluster the connector belongs to. As all credentials are already known, leave this parameter empty.
+              Includes only one of the fields `thisCluster`, `externalCluster`.
+              Type of connection to Apache Kafka® cluster.
+            $ref: '#/definitions/ThisClusterSpec'
+          externalCluster:
+            description: |-
+              **[ExternalClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ExternalClusterConnectionSpec)**
+              Configuration of connection to an external cluster with all the necessary credentials.
+              Includes only one of the fields `thisCluster`, `externalCluster`.
+              Type of connection to Apache Kafka® cluster.
+            $ref: '#/definitions/ExternalClusterConnectionSpec'
+        oneOf:
+          - required:
+              - thisCluster
+          - required:
+              - externalCluster
+      ConnectorConfigMirrorMakerSpec:
+        type: object
+        properties:
+          sourceCluster:
+            description: |-
+              **[ClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec)**
+              Source cluster configuration for the MirrorMaker connector.
+            $ref: '#/definitions/ClusterConnectionSpec'
+          targetCluster:
+            description: |-
+              **[ClusterConnectionSpec](#yandex.cloud.mdb.kafka.v1.ClusterConnectionSpec)**
+              Target cluster configuration for the MirrorMaker connector.
+            $ref: '#/definitions/ClusterConnectionSpec'
+          topics:
+            description: |-
+              **string**
+              List of Kafka topics, separated by `,`.
+            type: string
+          replicationFactor:
+            description: |-
+              **string** (int64)
+              Replication factor for automatically created topics.
+            type: string
+            format: int64
+      ExternalS3StorageSpec:
+        type: object
+        properties:
+          accessKeyId:
+            description: '**string**'
+            type: string
+          secretAccessKey:
+            description: '**string**'
+            type: string
+          endpoint:
+            description: '**string**'
+            type: string
+          region:
+            description: |-
+              **string**
+              Default is 'us-east-1'.
+            type: string
+      S3ConnectionSpec:
+        type: object
+        properties:
+          bucketName:
+            description: '**string**'
+            type: string
+          externalS3:
+            description: |-
+              **[ExternalS3StorageSpec](#yandex.cloud.mdb.kafka.v1.ExternalS3StorageSpec)**
+              Includes only one of the fields `externalS3`.
+            $ref: '#/definitions/ExternalS3StorageSpec'
+        oneOf:
+          - required:
+              - externalS3
+      ConnectorConfigS3SinkSpec:
+        type: object
+        properties:
+          topics:
+            description: |-
+              **string**
+              List of Kafka topics, separated by ','.
+            type: string
+          fileCompressionType:
+            description: |-
+              **string**
+              The compression type used for files put on GCS.
+              The supported values are: `gzip`, `snappy`, `zstd`, `none`.
+              Optional, the default is `none`.
+            type: string
+          fileMaxRecords:
+            description: |-
+              **string** (int64)
+              Max records per file.
+            type: string
+            format: int64
+          s3Connection:
+            description: |-
+              **[S3ConnectionSpec](#yandex.cloud.mdb.kafka.v1.S3ConnectionSpec)**
+              Credentials for connecting to S3 storage.
+            $ref: '#/definitions/S3ConnectionSpec'
+      ConnectorSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the connector.
+            type: string
+          tasksMax:
+            description: |-
+              **string** (int64)
+              Maximum number of connector tasks. Default value is the number of brokers.
+            type: string
+            format: int64
+          properties:
+            description: |-
+              **object** (map<**string**, **string**>)
+              A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
+              Example: `sync.topics.config.enabled: true`.
+            type: object
+            additionalProperties:
+              type: string
+          connectorConfigMirrormaker:
+            description: |-
+              **[ConnectorConfigMirrorMakerSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigMirrorMakerSpec)**
+              Configuration of the MirrorMaker connector.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+              Additional settings for the connector.
+            $ref: '#/definitions/ConnectorConfigMirrorMakerSpec'
+          connectorConfigS3Sink:
+            description: |-
+              **[ConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3SinkSpec)**
+              Configuration of S3-Sink connector.
+              Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`.
+              Additional settings for the connector.
+            $ref: '#/definitions/ConnectorConfigS3SinkSpec'
+        oneOf:
+          - required:
+              - connectorConfigMirrormaker
+          - required:
+              - connectorConfigS3Sink
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Connector/create.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Connector.Create {#Create}
+# Managed Service for Apache Kafka® API, REST: Connector.Create
 
 Creates a new Apache Kafka® connector in a cluster.
 
@@ -21,7 +237,9 @@ POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors
 
 Required field. ID of the Apache Kafka® cluster to create the connector in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.CreateConnectorRequest}
@@ -31,7 +249,7 @@ To get this ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster
   "connectorSpec": {
     "name": "string",
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     // Includes only one of the fields `connectorConfigMirrormaker`, `connectorConfigS3Sink`
     "connectorConfigMirrormaker": {
       "sourceCluster": {
@@ -107,7 +325,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||
@@ -270,7 +488,7 @@ Default is 'us-east-1'. ||
   "response": {
     "name": "string",
     "tasksMax": "string",
-    "properties": "string",
+    "properties": "object",
     "health": "string",
     "status": "string",
     "clusterId": "string",
@@ -402,7 +620,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ID of the Apache Kafka® cluster the connector is being created in. ||
 || connectorName | **string**
 
-Required field. Name of the Apache Kafka® connector that is being created. ||
+Required field. Name of the Apache Kafka® connector that is being created.
+
+The maximum string length in characters is 256. Value must match the regular expression ` [-_.a-zA-Z0-9]* `. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -432,7 +652,7 @@ Name of the connector. ||
 || tasksMax | **string** (int64)
 
 Maximum number of connector tasks. Default value is the number of brokers. ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
 A set of properties passed to Managed Service for Apache Kafka® with the connector configuration.
 Example: `sync.topics.config.enabled: true`. ||

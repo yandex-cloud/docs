@@ -1,3 +1,8 @@
+---
+title: Установка Loki
+description: Следуя данной инструкции, вы сможете установить Loki.
+---
+
 # Установка Loki
 
 
@@ -16,22 +21,13 @@
 1. Подготовьтесь к установке Loki:
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролями](../../../iam/concepts/access-control/roles.md) `storage.uploader` и `storage.viewer`. Он необходим для доступа к [{{ objstorage-full-name }}](../../../storage/).
-    1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md):
+    1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) в формате JSON:
 
-        * Если установка Loki будет выполняться с помощью [{{ marketplace-full-name }}](#marketplace-install), создайте статический ключ в формате JSON и сохраните его в файл `sa-key.json`:
-
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<имя_сервисного_аккаунта> \
-               --format=json > sa-key.json
-            ```
-
-        * Если установка Loki будет выполняться с помощью [Helm-чарта](#helm-install), выполните команду и сохраните полученные идентификатор ключа (`key_id`) и секретный ключ (`secret`):
-
-            ```bash
-            yc iam access-key create \
-               --service-account-name=<имя_сервисного_аккаунта>
-            ```
+        ```bash
+        yc iam access-key create \
+          --service-account-name=<имя_сервисного_аккаунта> \
+          --format=json > sa-key.json
+        ```
 
     1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-name }}.
 
@@ -42,7 +38,7 @@
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Loki](/marketplace/products/yc/loki) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
-   * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) для Loki или создайте новое.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `loki-space`). Если вы оставите пространство имен по умолчанию, Loki может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Имя бакета** — укажите имя [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}.
    * **Статический ключ для доступа** — скопируйте содержимое файла `sa-key.json`.
@@ -50,7 +46,6 @@
 
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
-1. После развертывания Loki будет доступен по адресу внутри кластера {{ managed-k8s-name }}: `http://loki-gateway.<пространство_имен>.svc.cluster.local`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
@@ -58,7 +53,7 @@
 
 1. {% include [Настройка kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Loki выполните команду, указав в ней параметры ресурсов, созданных [ранее](#before-you-begin):
 
     ```bash
     helm pull oci://{{ mkt-k8s-key.yc_loki.helmChart.name }} \
@@ -67,13 +62,40 @@
     helm install \
       --namespace <пространство_имен> \
       --create-namespace \
-      --set loki-distributed.loki.storageConfig.aws.bucketnames=<имя_бакета_Object_Storage> \
-      --set loki-distributed.serviceaccountawskeyvalue_generated.accessKeyID=<идентификатор_ключа_сервисного_аккаунта> \
-      --set loki-distributed.serviceaccountawskeyvalue_generated.secretAccessKey=<секретный_ключ_сервисного_аккаунта> \
+      --set global.bucketname=<имя_бакета> \
+      --set-file global.serviceaccountawskeyvalue=<путь_к_файлу_sa-key.json> \
       loki ./loki/
     ```
 
+    Если вы укажете в параметре `namespace` пространство имен по умолчанию, Loki может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `loki-space`).
+
     {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
+
+1. Убедитесь, что все поды Loki перешли в состояние `Running`:
+
+    ```bash
+    kubectl get pods -A -l "app.kubernetes.io/instance=loki"
+    ```
+
+## Подключение к Loki {#loki-connect}
+
+После развертывания Loki будет доступен внутри кластера {{ managed-k8s-name }} по следующему адресу:
+
+```text
+http://<имя_сервиса_Loki_gateway>.<пространство_имен>.svc.cluster.local
+```
+
+Чтобы узнать пространство имен и имя сервиса Loki gateway выполните команду:
+
+```bash
+kubectl get service -A | grep distributed-gateway
+```
+
+Результат:
+
+```text
+test-namespace   loki-loki-distributed-gateway   ClusterIP   10.96.168.88   <none>   80/TCP    15m
+```
 
 ## См. также {#see-also}
 

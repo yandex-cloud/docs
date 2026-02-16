@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать новый платежный аккаунт
 
-{% include [individual-nonresidents](../../_includes/billing/individual-nonresidents.md) %}
-
 Участник любого облака может создать один или несколько [платежных аккаунтов](../concepts/billing-account.md).
 
 {% list tabs group=customers %}
@@ -15,9 +13,15 @@ description: Следуя данной инструкции, вы сможете
 
    {% include [start-for-individuals](../../_includes/billing/billing-account-create-individual.md) %}
 
-- Юридические лица, ИП или нерезидент Российской Федерации и Республики Казахстан {#businesses-entrepreneurs}
+- Юридические лица и ИП {#businesses-entrepreneurs}
 
    {% include [start-for-legal-entities](../../_includes/billing/billing-account-create-legal-entities.md) %}
+
+   {% note info %}
+   
+   Юридическим лицам также доступен [сабаккаунт](../../partner/terms.md#sub-account), зарегистрированный через [партнерский портал](../../partner/operations/pin-cloud.md) как аккаунт их клиента. Счета за потребление сабаккаунта всегда выставляются партнеру.
+   
+   {% endnote %}
 
 {% endlist %}
 
@@ -32,4 +36,5 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](get-data.md)
 * [{#T}](pin-cloud.md)
 * [{#T}](change-organization.md)
+* [{#T}](../../partner/operations/pin-cloud.md)
 * [{#T}](delete-account.md)

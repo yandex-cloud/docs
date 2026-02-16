@@ -23,4 +23,4 @@ The following {{ TF }} provider resources are supported for {{ serverless-contai
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_serverless_container]({{ tf-provider-datasources-link }}/datasource_serverless_container) | [Container](./concepts/container.md) information |
+| [yandex_serverless_container]({{ tf-provider-datasources-link }}/serverless_container) | [Container](./concepts/container.md) information |

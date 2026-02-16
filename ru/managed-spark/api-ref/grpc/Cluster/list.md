@@ -1,0 +1,436 @@
+---
+editable: false
+sourcePath: en/_api-ref-grpc/spark/v1/api-ref/grpc/Cluster/list.md
+---
+
+# Managed Spark API, gRPC: ClusterService.List
+
+Retrieves a list of Spark clusters.
+
+## gRPC request
+
+**rpc List ([ListClustersRequest](#yandex.cloud.spark.v1.ListClustersRequest)) returns ([ListClustersResponse](#yandex.cloud.spark.v1.ListClustersResponse))**
+
+## ListClustersRequest {#yandex.cloud.spark.v1.ListClustersRequest}
+
+```json
+{
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
+  "filter": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+Required field. ID of the folder to list Spark clusters in.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+The maximum number of results per page that should be returned. If the number of available
+results is larger than `page_size`, the service returns a `next_page_token` that can be used
+to get the next page of results in subsequent ListClusters requests.
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Page token. Set `page_token` to the `next_page_token` returned by a previous ListClusters
+request to get the next page of results.
+
+The maximum string length in characters is 200. ||
+|| filter | **string**
+
+String that describes a display filter.
+
+The maximum string length in characters is 1000. ||
+|#
+
+## ListClustersResponse {#yandex.cloud.spark.v1.ListClustersResponse}
+
+```json
+{
+  "clusters": [
+    {
+      "id": "string",
+      "folder_id": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "name": "string",
+      "description": "string",
+      "labels": "map<string, string>",
+      "config": {
+        "resource_pools": {
+          "driver": {
+            "resource_preset_id": "string",
+            "scale_policy": {
+              // Includes only one of the fields `fixed_scale`, `auto_scale`
+              "fixed_scale": {
+                "size": "int64"
+              },
+              "auto_scale": {
+                "min_size": "int64",
+                "max_size": "int64"
+              }
+              // end of the list of possible fields
+            }
+          },
+          "executor": {
+            "resource_preset_id": "string",
+            "scale_policy": {
+              // Includes only one of the fields `fixed_scale`, `auto_scale`
+              "fixed_scale": {
+                "size": "int64"
+              },
+              "auto_scale": {
+                "min_size": "int64",
+                "max_size": "int64"
+              }
+              // end of the list of possible fields
+            }
+          }
+        },
+        "history_server": {
+          "enabled": "bool"
+        },
+        "dependencies": {
+          "pip_packages": [
+            "string"
+          ],
+          "deb_packages": [
+            "string"
+          ]
+        },
+        "metastore": {
+          "cluster_id": "string"
+        },
+        "spark_version": "string"
+      },
+      "status": "Status",
+      "network": {
+        "subnet_ids": [
+          "string"
+        ],
+        "security_group_ids": [
+          "string"
+        ]
+      },
+      "deletion_protection": "bool",
+      "service_account_id": "string",
+      "logging": {
+        "enabled": "bool",
+        // Includes only one of the fields `folder_id`, `log_group_id`
+        "folder_id": "string",
+        "log_group_id": "string"
+        // end of the list of possible fields
+      },
+      "health": "Health",
+      "links": [
+        {
+          "name": "string",
+          "url": "string"
+        }
+      ],
+      "maintenance_window": {
+        // Includes only one of the fields `anytime`, `weekly_maintenance_window`
+        "anytime": "AnytimeMaintenanceWindow",
+        "weekly_maintenance_window": {
+          "day": "WeekDay",
+          "hour": "int64"
+        }
+        // end of the list of possible fields
+      },
+      "planned_operation": {
+        "info": "string",
+        "delayed_until": "google.protobuf.Timestamp",
+        "latest_maintenance_time": "google.protobuf.Timestamp",
+        "next_maintenance_window_time": "google.protobuf.Timestamp"
+      }
+    }
+  ],
+  "next_page_token": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| clusters[] | **[Cluster](#yandex.cloud.spark.v1.Cluster)**
+
+Requested list of Spark clusters. ||
+|| next_page_token | **string**
+
+This token allows you to get the next page of results for ListClusters requests,
+if the number of results is larger than `page_size` specified in the request.
+To get the next page, specify the value of `next_page_token` as a value for
+the `page_token` parameter in the next ListClusters request. Subsequent ListClusters
+requests will have their own `next_page_token` to continue paging through the results.
+
+The maximum string length in characters is 200. ||
+|#
+
+## Cluster {#yandex.cloud.spark.v1.Cluster}
+
+Spark cluster.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. Unique ID of the Spark cluster.
+This ID is assigned by Cloud in the process of creating a Spark cluster.
+
+The maximum string length in characters is 50. ||
+|| folder_id | **string**
+
+ID of the folder that the Spark cluster belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Spark cluster was created. ||
+|| name | **string**
+
+Name of the Spark cluster.
+The name is unique within the folder. 1-64 characters long. ||
+|| description | **string**
+
+Description of the Spark cluster. 0-256 characters long. ||
+|| labels | **object** (map<**string**, **string**>) ||
+|| config | **[ClusterConfig](#yandex.cloud.spark.v1.ClusterConfig)**
+
+Configuration of the Spark cluster. ||
+|| status | enum **Status**
+
+Cluster status.
+
+- `STATUS_UNKNOWN`: Cluster status is unknown
+- `CREATING`: Cluster is being created
+- `RUNNING`: Cluster is running normally.
+- `UPDATING`: Cluster is being updated.
+- `ERROR`: Cluster encountered a problem and cannot operate.
+- `STOPPING`: Cluster is stopping.
+- `STOPPED`: Cluster is stopped.
+- `STARTING`: Cluster is starting. ||
+|| network | **[NetworkConfig](#yandex.cloud.spark.v1.NetworkConfig)** ||
+|| deletion_protection | **bool**
+
+Deletion Protection inhibits deletion of the cluster ||
+|| service_account_id | **string**
+
+Service account that will be used to access a YC resources
+
+The maximum string length in characters is 50. ||
+|| logging | **[LoggingConfig](#yandex.cloud.spark.v1.LoggingConfig)**
+
+Cloud logging configuration. ||
+|| health | enum **Health**
+
+Aggregated cluster health.
+
+- `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data).
+- `ALIVE`: Cluster is alive and well.
+- `DEAD`: Cluster is inoperable (it cannot perform any of its essential functions).
+- `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions). ||
+|| links[] | **[UILink](#yandex.cloud.spark.v1.UILink)**
+
+UI URLs ||
+|| maintenance_window | **[MaintenanceWindow](#yandex.cloud.spark.v1.MaintenanceWindow)**
+
+Window of maintenance operations. ||
+|| planned_operation | **[MaintenanceOperation](#yandex.cloud.spark.v1.MaintenanceOperation)**
+
+Maintenance operation planned at nearest maintenance_window. ||
+|#
+
+## ClusterConfig {#yandex.cloud.spark.v1.ClusterConfig}
+
+#|
+||Field | Description ||
+|| resource_pools | **[ResourcePools](#yandex.cloud.spark.v1.ResourcePools)**
+
+Required field. ||
+|| history_server | **[HistoryServerConfig](#yandex.cloud.spark.v1.HistoryServerConfig)**
+
+Configuration for HistoryServer ||
+|| dependencies | **[Dependencies](#yandex.cloud.spark.v1.Dependencies)**
+
+Container custom environment dependencies ||
+|| metastore | **[Metastore](#yandex.cloud.spark.v1.Metastore)**
+
+Metastore Cluster ||
+|| spark_version | **string**
+
+Spark version. Format: "Major.Minor" ||
+|#
+
+## ResourcePools {#yandex.cloud.spark.v1.ResourcePools}
+
+#|
+||Field | Description ||
+|| driver | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
+
+Required field. ||
+|| executor | **[ResourcePool](#yandex.cloud.spark.v1.ResourcePool)**
+
+Required field. ||
+|#
+
+## ResourcePool {#yandex.cloud.spark.v1.ResourcePool}
+
+#|
+||Field | Description ||
+|| resource_preset_id | **string**
+
+Required field. ID of the preset for computational resources allocated to a instance (e.g., CPU, memory, etc.).
+
+The maximum string length in characters is 50. ||
+|| scale_policy | **[ScalePolicy](#yandex.cloud.spark.v1.ScalePolicy)**
+
+Required field. ||
+|#
+
+## ScalePolicy {#yandex.cloud.spark.v1.ScalePolicy}
+
+#|
+||Field | Description ||
+|| fixed_scale | **[FixedScale](#yandex.cloud.spark.v1.ScalePolicy.FixedScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|| auto_scale | **[AutoScale](#yandex.cloud.spark.v1.ScalePolicy.AutoScale)**
+
+Includes only one of the fields `fixed_scale`, `auto_scale`. ||
+|#
+
+## FixedScale {#yandex.cloud.spark.v1.ScalePolicy.FixedScale}
+
+#|
+||Field | Description ||
+|| size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## AutoScale {#yandex.cloud.spark.v1.ScalePolicy.AutoScale}
+
+#|
+||Field | Description ||
+|| min_size | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
+|| max_size | **int64**
+
+Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## HistoryServerConfig {#yandex.cloud.spark.v1.HistoryServerConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|#
+
+## Dependencies {#yandex.cloud.spark.v1.Dependencies}
+
+#|
+||Field | Description ||
+|| pip_packages[] | **string** ||
+|| deb_packages[] | **string** ||
+|#
+
+## Metastore {#yandex.cloud.spark.v1.Metastore}
+
+#|
+||Field | Description ||
+|| cluster_id | **string**
+
+The maximum string length in characters is 50. ||
+|#
+
+## NetworkConfig {#yandex.cloud.spark.v1.NetworkConfig}
+
+#|
+||Field | Description ||
+|| subnet_ids[] | **string**
+
+IDs of VPC network subnets where instances of the cluster are attached. ||
+|| security_group_ids[] | **string**
+
+User security groups ||
+|#
+
+## LoggingConfig {#yandex.cloud.spark.v1.LoggingConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|| folder_id | **string**
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|| log_group_id | **string**
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
+Includes only one of the fields `folder_id`, `log_group_id`. ||
+|#
+
+## UILink {#yandex.cloud.spark.v1.UILink}
+
+#|
+||Field | Description ||
+|| name | **string** ||
+|| url | **string** ||
+|#
+
+## MaintenanceWindow {#yandex.cloud.spark.v1.MaintenanceWindow}
+
+#|
+||Field | Description ||
+|| anytime | **[AnytimeMaintenanceWindow](#yandex.cloud.spark.v1.AnytimeMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|| weekly_maintenance_window | **[WeeklyMaintenanceWindow](#yandex.cloud.spark.v1.WeeklyMaintenanceWindow)**
+
+Includes only one of the fields `anytime`, `weekly_maintenance_window`. ||
+|#
+
+## AnytimeMaintenanceWindow {#yandex.cloud.spark.v1.AnytimeMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## WeeklyMaintenanceWindow {#yandex.cloud.spark.v1.WeeklyMaintenanceWindow}
+
+#|
+||Field | Description ||
+|| day | enum **WeekDay**
+
+- `MON`
+- `TUE`
+- `WED`
+- `THU`
+- `FRI`
+- `SAT`
+- `SUN` ||
+|| hour | **int64**
+
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
+|#
+
+## MaintenanceOperation {#yandex.cloud.spark.v1.MaintenanceOperation}
+
+#|
+||Field | Description ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
+|| delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| latest_maintenance_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| next_maintenance_window_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|#

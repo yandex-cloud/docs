@@ -1,6 +1,7 @@
 ---
 title: Step-by-step guides for {{ monitoring-full-name }}
-description: This page provides a list of step-by-step guides for {{ monitoring-name }}.
+description: This page presents a list of step-by-step guides for {{ monitoring-name }}.
+sourcePath: en/monitoring_includes/operations/index.md
 ---
 
 # Step-by-step guides for {{ monitoring-full-name }}
@@ -21,6 +22,7 @@ description: This page provides a list of step-by-step guides for {{ monitoring-
 * [{#T}](dashboard/create.md)
 * [{#T}](dashboard/copy.md)
 * [{#T}](dashboard/add-widget.md)
+* [{#T}](dashboard/widget-management.md)
 * [{#T}](dashboard/add-parameters.md)
 * [{#T}](dashboard/delete-widget.md)
 * [{#T}](dashboard/delete-dashboard.md)

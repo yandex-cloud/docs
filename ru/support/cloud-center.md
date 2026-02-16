@@ -1,0 +1,83 @@
+---
+title: '{{ support-center-name }}'
+description: Эта инструкция поможет начать работу с {{ support-center-name }} — найти решение возникших проблем, создать обращения в поддержку и просмотреть их, а также изменить тарифный план.
+---
+
+# Работа с {{ support-center-name }}
+
+{{ support-center-name }} поможет вам найти решение возникших в {{ yandex-cloud }} проблем, создать обращения в поддержку и просмотреть их. Также в {{ support-center-name }} вы можете изменить тарифный план.
+
+{% note info %}
+
+Создать запрос в центре поддержки может [пользователь](../overview/roles-and-resources.md#users) {{ yandex-cloud }} с любой ролью, входящий в [организацию](../organization/concepts/organization.md), в рамках которой оказывается поддержка. Чтобы получить приглашение, попросите [владельца](../organization/security/index.md#organization-manager-organizations-owner) или [администратора](../organization/security/index.md#organization-manager-admin) этой организации [добавить](../organization/operations/add-account.md) вас. Подробнее см. [{#T}](./overview.md).
+
+{% endnote %}
+
+## Перед началом работы {#before-you-begin}
+
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Откройте [главную страницу поддержки]({{ link-console-support }}) в {{ support-center-name }}.
+1. Выберите [организацию](../organization/quickstart.md), в которой вы будете работать с {{ support-center-name }}, или [создайте новую](../organization/operations/enable-org.md).
+
+Если вы работаете с центром поддержки из собственной организации, то на странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`.
+
+## Поиск решения проблемы {#search-for-solution}
+
+Чтобы найти ответы на вопросы по работе {{ yandex-cloud }} в {{ support-center-name }}:
+
+1. Откройте [главную страницу поддержки]({{ link-console-support }}) в {{ support-center-name }}.
+1. Перейдите в раздел **{{ ui-key.support-center.common.tickets }}**.
+1. Посмотрите ответы на наиболее популярные вопросы, используя кнопки быстрого поиска.
+1. Если вы не нашли свой вопрос среди наиболее популярных:
+   1. В окне **{{ ui-key.yacloud_org.support.tickets.label_search-placeholder }}** введите краткое описание проблемы, с которой вы столкнулись, например `Как восстановить доступ к платежному аккаунту`. {{ support-center-name }} выполнит поиск по вашему запросу в базе знаний технической поддержки и покажет все релевантные статьи.
+
+      ![image](../_assets/support/problem-solution/cloud-center.png)
+      
+   1. Если подходящих статей не нашлось, под строкой поиска появится окно с соответствующим сообщением. В этом окне нажмите кнопку **{{ ui-key.support-center.search.common.action_search-in-documentation }}**, чтобы найти ответ на ваш вопрос в документации {{ yandex-cloud }}, либо нажмите кнопку **{{ ui-key.support-center.tickets.common.action_create-ticket }}** для создания обращения.
+
+## Создание обращения {#create-request}
+
+Если [поиск решения проблемы](#finding-solution) в базе знаний технической поддержки и документации {{ yandex-cloud }} не дал результата, создайте обращение в поддержку.
+
+Создать обращение в поддержку можно на [главной странице поддержки]({{ link-console-support }}) в {{ support-center-name }} с помощью кнопки **{{ ui-key.support-center.tickets.common.action_create-ticket }}** или с любой страницы консоли управления, нажав на панели слева ![image](../_assets/console-icons/circle-question.svg)**Центр поддержки** -> **{{ ui-key.support-center.tickets.common.action_create-ticket }}**.
+
+В открывшейся форме **{{ ui-key.support-center.ticket.create.title_create-ticket-page }}**:
+
+1. Выберите формат обращения: **{{ ui-key.support-center.tickets.common.label_ticket-type-question }}**, **{{ ui-key.support-center.tickets.common.label_ticket-type-incident }}** или **Квоты**.
+1. Для тарифа **Бизнес** или **Премиум** выберите приоритет **Проблемы**:
+
+   * **Средний** (по умолчанию) — проблема не блокирует работу.
+   * **Высокий** — проблема не блокирует работу, но требует особого внимания.
+   * **Критичный** — проблема блокирует работу, нужна срочная реакция.
+
+1. Заполните поля формы:
+
+   * **{{ ui-key.support-center.ticket.create.field_service }}** — укажите сервисы, связанные с обращением. Можно указать не более трех сервисов.
+   * **{{ ui-key.support-center.ticket.create.field_subject }}** — укажите тему обращения. Во время ввода текста происходит поиск по базе знаний.
+
+1. Если по указанной вами теме обращения, готовых решений не найдется, нажмите кнопку **Продолжить** и заполните поля:
+
+   * Подробно опишите ситуацию. Желательно при этом указать ID ресурса, дату и время, когда произошло событие.
+   * Нажмите кнопку **Прикрепить файлы**, если необходимо прикрепить скриншоты или другие файлы. Можно просто перенести нужные файлы в поле ввода текста обращения.
+   * Если вам нужно прикрепить скриншот текущей вкладки браузера, без учета окна создания обращения, используйте опцию **Добавить скриншот**.
+   * Выберите уровень доступа к обращению: **Обращение доступно всем в организации** или **Доступно только мне**.
+   * **Облако** — выберите облако, ресурсы которого имеют отношение к теме обращения.
+   * **Ресурсы** — добавьте имя, ID или ссылку на ресурсы, связанные с проблемой. Их можно будет выбрать со ссылкой на соответствующий раздел консоли. Если вы введете ресурсы вручную, они будут сохранены без ссылки.
+
+1. Нажмите кнопку **{{ ui-key.support-center.ticket.create.action_create-ticket }}**.
+
+Откроется форма с идентификатором обращения и QR-кодом для настройки пуш уведомлений в мобильном приложении {{ yandex-cloud }}.
+
+## Просмотр обращений {#view-requests}
+
+Чтобы отслеживать статус ваших обращений, нажмите ![image](../_assets/console-icons/bell.svg)**{{ ui-key.yacloud.component.navigation-menu.label_notifications }}** на панели слева. Для быстрого перехода к нужному обращению, нажмите на ссылку в уведомлении.
+
+{% include [where-is-requests](../_includes/support/where-is-requests.md) %}
+
+## Изменение тарифного плана {#change-pricing}
+
+{% include [change-tariff](../_includes/support/change-pricing.md) %}
+
+## Изменение платежного аккаунта для действующего тарифа {#change-ba}
+
+{% include [change-ba](../_includes/support/change-ba.md) %}

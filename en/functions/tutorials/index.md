@@ -1,3 +1,8 @@
+---
+title: '{{ sf-full-name }} tutorials'
+description: This section contains tutorials for {{ sf-name }}.
+---
+
 # {{ sf-name }} tutorials
 
 * [{#T}](alice-skill.md)
@@ -22,9 +27,20 @@
 * [{#T}](nodejs-cron-restart-vm.md)
 * [{#T}](serverless-trigger-budget-queue-vm-tg.md)
 * [{#T}](data-transfer-direct-to-mch.md)
-* [{#T}](vm-scale-scheduled.md)
+* [{#T}](vm-scale-scheduled/index.md)
 * [{#T}](datalens.md)
 * [{#T}](monitoring.md)
 * [{#T}](iot-emulation.md)
-* [{#T}](./serverless-trigger-budget-queue-vm-tg.md)
 * [Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and analyzing them using {{ datalens-full-name }}](./events-from-postbox-to-yds.md)
+* [{#T}](./serverless-url-shortener.md)
+* [{#T}](data-from-tracker.md)
+* [{#T}](batch-code-execution.md)
+* [{#T}](recognizer-bot.md)
+* [{#T}](logging-functions.md)
+* [{#T}](functions-framework-to-container.md)
+* [{#T}](forms-and-datalens-integration/index.md)
+* [{#T}](ci-cd-sourcecraft-functions.md)
+* [{#T}](ci-cd-github-functions.md)
+* [{#T}](create-ai-agent-function.md)
+* [{#T}](streaming-openai-agent.md)
+* [{#T}](postbox-webhook.md)

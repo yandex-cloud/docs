@@ -17,9 +17,10 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет и нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите **{{ ui-key.yacloud.storage.file.popup-confirm_button_delete }}**.
+  1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 
   {% include [work-with-multiple-buckets](../../../_includes/storage/work-with-multiple-buckets.md) %}
 
@@ -35,22 +36,7 @@ description: Следуя данной инструкции, вы сможете
       yc storage bucket delete --help
       ```
 
-  1. Получите список бакетов в каталоге по умолчанию:
-
-      ```bash
-      yc storage bucket list
-      ```
-
-      Результат:
-
-      ```text
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      |       NAME       |      FOLDER ID       |  MAX SIZE   | DEFAULT STORAGE CLASS |     CREATED AT      |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      | first-bucket     | b1gmit33ngp6******** | 53687091200 | STANDARD              | 2022-12-16 13:58:18 |
-      +------------------+----------------------+-------------+-----------------------+---------------------+
-      ```
-
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
   1. Сохраните имя бакета (столбец `NAME`), который нужно удалить.
   1. Удалите бакет:
 
@@ -141,7 +127,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-
+  
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 

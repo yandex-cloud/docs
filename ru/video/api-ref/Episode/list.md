@@ -1,11 +1,82 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/episodes
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        streamId:
+          description: |-
+            **string**
+            ID of the stream containing the episodes to list.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `streamId`, `lineId`.
+            Specifies the parent resource to list episodes from (exactly one must be chosen).
+          type: string
+        lineId:
+          description: |-
+            **string**
+            ID of the stream line containing the episodes to list.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `streamId`, `lineId`.
+            Specifies the parent resource to list episodes from (exactly one must be chosen).
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of episodes to return per page.
+            The maximum value is 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token for retrieving the next page of results.
+            This token is obtained from the next_page_token field in the previous ListEpisodesResponse.
+            The maximum string length in characters is 15000.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Specifies the ordering of results.
+            Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
+            Default: "id asc".
+            Supported fields: ["id", "createdAt", "updatedAt"].
+            Both snake_case and camelCase field names are supported.
+            The maximum string length in characters is 50.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter expression to narrow down the list of returned episodes.
+            Expressions consist of terms connected by logical operators.
+            Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+            with inner quotes being backslash-escaped.
+            Supported logical operators: ["AND", "OR"].
+            Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+            Parentheses can be used to group logical expressions.
+            Example: `title:'highlight' AND id='episode-1'`
+            Filterable fields: ["id", "title"].
+            Both snake_case and camelCase field names are supported.
+            The maximum string length in characters is 1000.
+          type: string
+      additionalProperties: false
+      oneOf:
+        - required:
+            - streamId
+        - required:
+            - lineId
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/list.md
 ---
 
-# Video API, REST: Episode.List {#List}
+# Video API, REST: Episode.List
 
-List episodes for stream or line.
+Lists all episodes associated with a specific stream or stream line with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## HTTP request
 
@@ -19,35 +90,59 @@ GET https://video.{{ api-host }}/video/v1/episodes
 ||Field | Description ||
 || streamId | **string**
 
-ID of the stream.
+ID of the stream containing the episodes to list.
 
-Includes only one of the fields `streamId`, `lineId`. ||
+The maximum string length in characters is 50.
+
+Includes only one of the fields `streamId`, `lineId`.
+
+Specifies the parent resource to list episodes from (exactly one must be chosen). ||
 || lineId | **string**
 
-ID of the line.
+ID of the stream line containing the episodes to list.
 
-Includes only one of the fields `streamId`, `lineId`. ||
+The maximum string length in characters is 50.
+
+Includes only one of the fields `streamId`, `lineId`.
+
+Specifies the parent resource to list episodes from (exactly one must be chosen). ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of episodes to return per page.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListEpisodesResponse.
+
+The maximum string length in characters is 15000. ||
 || orderBy | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "createdAt", "updatedAt"]
-Both snake_case and camelCase are supported for fields. ||
+Specifies the ordering of results.
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
+Default: "id asc".
+Supported fields: ["id", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 50. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title"]
-Both snake_case and camelCase are supported for fields. ||
+Filter expression to narrow down the list of returned episodes.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
+Supported logical operators: ["AND", "OR"].
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'highlight' AND id='episode-1'`
+
+Filterable fields: ["id", "title"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListEpisodesResponse}
@@ -68,9 +163,10 @@ Both snake_case and camelCase are supported for fields. ||
       "finishTime": "string",
       "dvrSeconds": "string",
       "visibilityStatus": "string",
-      // Includes only one of the fields `publicAccess`, `authSystemAccess`
+      "stylePresetId": "string",
+      // Includes only one of the fields `publicAccess`, `signUrlAccess`
       "publicAccess": "object",
-      "authSystemAccess": "object",
+      "signUrlAccess": "object",
       // end of the list of possible fields
       "createdAt": "string",
       "updatedAt": "string"
@@ -84,37 +180,45 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || episodes[] | **[Episode](#yandex.cloud.video.v1.Episode)**
 
-List of episodes for specific parent_id. ||
+List of episodes matching the request criteria.
+May be empty if no episodes match the criteria or if the parent resource has no episodes. ||
 || nextPageToken | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## Episode {#yandex.cloud.video.v1.Episode}
+
+Entity representing a stream fragment that can be accessed independently.
+Episodes can be linked to either a stream or a line
+and provide a way to reference specific portions of the corresponding content.
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the episode. ||
+Unique identifier of the episode. ||
 || streamId | **string**
 
-ID of the stream. Optional, empty if the episode is linked to the line ||
+Identifier of the stream this episode is linked to.
+Optional, empty if the episode is linked to a line. ||
 || lineId | **string**
 
-ID of the line. Optional, empty if the episode is linked to the stream ||
+Identifier of the line this episode is linked to.
+Optional, empty if the episode is linked to a stream. ||
 || title | **string**
 
-Channel title. ||
+Title of the episode displayed in interfaces and players. ||
 || description | **string**
 
-Channel description. ||
+Detailed description of the episode content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the episode visually. ||
 || startTime | **string** (date-time)
 
-Episode start time.
+Timestamp marking the beginning of the episode content.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -124,7 +228,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Episode finish time.
+Timestamp marking the end of the episode content.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -134,33 +238,39 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || dvrSeconds | **string** (int64)
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Controls the Digital Video Recording (DVR) functionality for the episode.
+Determines how many seconds of the stream are available for time-shifted viewing.
 
-possible values:
-* `0`: infinite dvr size, the full length of the stream allowed to display
-* `>0`: size of dvr window in seconds, the minimum value is 30s ||
+Possible values:
+* `0`: Infinite DVR size, the full length of the stream is available for viewing.
+* `>0`: Size of DVR window in seconds, the minimum value is 30s. ||
 || visibilityStatus | **enum** (VisibilityStatus)
 
-- `VISIBILITY_STATUS_UNSPECIFIED`
-- `PUBLISHED`
-- `UNPUBLISHED` ||
+Current visibility status controlling whether the episode is publicly available.
+
+- `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The episode is available only to administrators. ||
+|| stylePresetId | **string**
+
+Identifier of the style preset used in the player during episode playback. ||
 || publicAccess | **object**
 
-Episode is available to everyone.
+Allows unrestricted public access to the episode via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
-|| authSystemAccess | **object**
+Specifies the episode access permission settings. ||
+|| signUrlAccess | **object**
 
-Checking access rights using the authorization system.
+Restricts episode access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || createdAt | **string** (date-time)
 
-Time when episode was created.
+Timestamp when the episode was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -170,7 +280,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last episode update.
+Timestamp of the last modification to the episode or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

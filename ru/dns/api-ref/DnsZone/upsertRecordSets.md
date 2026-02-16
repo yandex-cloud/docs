@@ -1,9 +1,76 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:upsertRecordSets
+    method: post
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone to upsert record sets to.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        deletions:
+          description: |-
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
+            Delete only specified records from corresponding record sets.
+          type: array
+          items:
+            $ref: '#/definitions/RecordSet'
+        replacements:
+          description: |-
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
+            Entirely replace specified record sets.
+          type: array
+          items:
+            $ref: '#/definitions/RecordSet'
+        merges:
+          description: |-
+            **[RecordSet](#yandex.cloud.dns.v1.RecordSet)**
+            Replace specified records or add new ones if no such record sets exists.
+          type: array
+          items:
+            $ref: '#/definitions/RecordSet'
+      additionalProperties: false
+    definitions:
+      RecordSet:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Domain name.
+            type: string
+          type:
+            description: |-
+              **string**
+              Record type.
+            type: string
+          ttl:
+            description: |-
+              **string** (int64)
+              Time to live in seconds.
+            type: string
+            format: int64
+          data:
+            description: |-
+              **string**
+              Data of the record set.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/upsertRecordSets.md
 ---
 
-# Cloud DNS API, REST: DnsZone.UpsertRecordSets {#UpsertRecordSets}
+# Cloud DNS API, REST: DnsZone.UpsertRecordSets
 
 Method without strict control for changing zone state. Nothing happens if deleted record doesn't exist.
 Deletes records that match all specified fields which allows to delete only specified records from a record set.

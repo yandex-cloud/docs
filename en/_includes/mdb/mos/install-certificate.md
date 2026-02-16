@@ -9,14 +9,16 @@
    chmod 0600 ~/.opensearch/root.crt
    ```
 
-   The certificate is saved to the `~/.opensearch/root.crt` file.
+   The certificate will be saved to the `~/.opensearch/root.crt` file.
 
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.opensearch; curl -o $HOME\.opensearch\root.crt {{ crt-web-path }}
+   mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt {{ crt-web-path }}
    ```
 
-   The certificate is saved to the `$HOME\.opensearch\root.crt` file.
+   The certificate will be saved to the `$HOME\.opensearch\root.crt` file.
+
+   Your corporate security policies and antivirus software may block the certificate download. For more information, see [FAQ](../../../managed-opensearch/qa/index.md#get-ssl-error).
 
 {% endlist %}

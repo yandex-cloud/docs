@@ -20,7 +20,6 @@ description: In this tutorial, you will learn how to configure a {{ CH }} source
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Migrating a {{ CH }} cluster](../../../tutorials/managed-clickhouse.md).
-* [Redistributing data across shards](../../../tutorials/mch-mch-resharding.md).
 
 For a detailed description of possible {{ data-transfer-full-name }} scenarios, see [Tutorials](../../../tutorials/index.md).
 
@@ -40,12 +39,12 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mch.viewer }}` role](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mch.viewer }}`](../../../../managed-clickhouse/security.md#managed-clickhouse-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -65,9 +64,9 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -93,7 +92,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -103,7 +102,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
 ### Custom installation {#on-premise}
 
-Connecting to the database with explicitly specified network addresses and ports.
+Connection to the database with explicitly specified network addresses and ports.
 
 {% list tabs group=instructions %}
 
@@ -123,9 +122,9 @@ Connecting to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-source.md) %}
 
-    Here is an example of the configuration file structure:
+    Here is the configuration file example:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -163,7 +162,7 @@ Connecting to the database with explicitly specified network addresses and ports
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -183,7 +182,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
+    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
     Leave the lists empty to transfer all the tables.
 
@@ -223,6 +222,7 @@ Connecting to the database with explicitly specified network addresses and ports
 
 Configure the target endpoint:
 
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ CH }}](../target/clickhouse.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
@@ -231,16 +231,14 @@ After configuring the data source and target, [create and start the transfer](..
 
 ## Troubleshooting data transfer issues {#troubleshooting}
 
-* [New tables are not added](#no-new-tables).
+* [New tables cannot be added](#no-new-tables).
 * [Data is not transferred](#no-transfer).
 * [Unsupported date range](#date-range).
 
 For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
-{% include [no-new-tables](../../../../_includes/data-transfer/troubles/no-new-tables.md) %}
+{% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
 
-{% include [table-names](../../../../_includes/data-transfer/troubles/table-names.md) %}
-
-{% include [date-range](../../../../_includes/data-transfer/troubles/date-range.md) %}
+{% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 
 {% include [clickhouse-disclaimer](../../../../_includes/clickhouse-disclaimer.md) %}

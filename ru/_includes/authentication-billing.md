@@ -5,6 +5,7 @@
 
 * [Инструкция](../iam/operations/iam-token/create.md) для аккаунта на Яндексе.
 * [Инструкция](../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+* [Инструкция](../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
 {% include [iam-token-usage](iam-token-usage.md) %}
 

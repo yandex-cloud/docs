@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        accessKeyId:
+          description: |-
+            **string**
+            Required field. ID of the access key to delete.
+            To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - accessKeyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/AccessKey/delete.md
 ---
 
-# Identity and Access Management API, REST: AccessKey.Delete {#Delete}
+# Access Key, REST: AccessKey.Delete
 
 Deletes the specified access key.
 
@@ -20,7 +39,9 @@ DELETE https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKey
 || accessKeyId | **string**
 
 Required field. ID of the access key to delete.
-To get the access key ID, use a [AccessKeyService.List](/docs/iam/api-ref/AccessKey/list#List) request. ||
+To get the access key ID, use a [AccessKeyService.List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

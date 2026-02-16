@@ -1,6 +1,6 @@
 ---
-title: Getting bucket information and statistics
-description: Follow this guide to get bucket information and statistics.
+title: Getting bucket information and statistics in {{ objstorage-full-name }}
+description: Follow this guide to get bucket information and statistics in {{ objstorage-name }}.
 ---
 
 # Getting bucket information and statistics
@@ -11,37 +11,32 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
 {% list tabs group=instructions %}
 
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket from the list.
+  1. In the left-hand panel, select the appropriate section with bucket information.
+     * ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**: List of objects stored in the bucket.
+     * ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**: Main bucket settings, information about website hosting in the bucket, versioning, logging, and lifecycles of bucket objects.
+     * ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**: Description of access permissions and policy in the bucket, information about HTTPS and CORS configurations, object locks and object encryption in the bucket.
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get bucket information:
+  1. See the description of the CLI command for getting bucket information:
 
      ```bash
      yc storage bucket get --help
      ```
 
-  1. Get a list of buckets in the default folder:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Save the name (from the `NAME` column) of the bucket you want to get information about.
 
-     ```bash
-     yc storage bucket list
-     ```
-
-     Result:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
-  1. Save the name of the bucket (`NAME` column) you want to get information on.
-
-  1. Get the bucket information:
+  1. Get bucket info:
 
      ```bash
      yc storage bucket get <bucket_name> --full
@@ -75,9 +70,20 @@ To view full information about a [bucket](../../concepts/bucket.md):
 
 ## Getting bucket statistics {#get-statistics}
 
-To view the statistics for a bucket:
+To view bucket statistics:
 
 {% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**. 
+  1. Select the bucket from the list.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.common.monitoring }}**.
+  1. On the page that opens, you can view bucket statistics for a certain period:
+     
+     {% include [storage-monitoring-dashboards](../../_includes_service/storage-monitoring-dashboards.md) %}
+
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -85,31 +91,16 @@ To view the statistics for a bucket:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get bucket statistics:
+  1. See the description of the CLI command for getting bucket statistics:
 
      ```bash
      yc storage bucket stats --help
      ```
 
-  1. Get a list of buckets in the default folder:
+  1. {% include [bucket-list-cli](../../../_includes/storage/bucket-list-cli.md) %}
+  1. Save the name (from the `NAME` column) of the bucket you want to get statistics on.
 
-     ```bash
-     yc storage bucket list
-     ```
-
-     Result:
-
-       ```text
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       |       NAME       |      FOLDER ID       | MAX SIZE | DEFAULT STORAGE CLASS |     CREATED AT      |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-       | first-bucket     | b1gmit33ngp6******** | 0        | STANDARD              | 2022-12-16 13:58:18 |
-       +------------------+----------------------+----------+-----------------------+---------------------+
-      ```
-
-  1. Save the name of the bucket (`NAME` column) you want to get statistics on.
-
-  1. Get the bucket statistics:
+  1. Get bucket statistics:
 
      ```bash
      yc storage bucket stats <bucket_name>

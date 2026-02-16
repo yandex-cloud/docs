@@ -12,7 +12,9 @@ description: Вы можете вызвать контейнер с помощь
 
 {% include [active-revision](../../_includes/serverless-containers/active-revision.md) %}
 
-{% include [port-variable-note.md](../../_includes/serverless-containers/port-variable-note.md) %}
+{% include [port-variable-note](../../_includes/serverless-containers/port-variable-note.md) %}
+
+{% include [invoke-container](../../_includes/serverless-containers/invoke-container.md) %}
 
 ## HTTPS {#https}
 
@@ -24,7 +26,7 @@ description: Вы можете вызвать контейнер с помощь
 
 {% list tabs %}
 
-- Заголовки запроса
+- Заголовки запроса {#request-headers}
     
     Удаляются из запроса:
 
@@ -42,7 +44,7 @@ description: Вы можете вызвать контейнер с помощь
     - "Www-Authenticate"
     - "Cookie"
 
-- Заголовки ответа
+- Заголовки ответа {#response-headers}
         
     - Удаляются из ответа:
         - "Host"
@@ -78,9 +80,12 @@ description: Вы можете вызвать контейнер с помощь
 
 При вызове контейнера с помощью триггера по [адресу, по которому вызывается контейнер](../operations/invocation-link.md), отправляется HTTP-запрос с методом POST. Тело запроса содержит JSON-описание события триггера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о [триггерах](trigger/index.md).
 
-
-
 ## Расширение {{ api-gw-full-name }} {#extension}
 
 При вызове контейнера с помощью расширения {{ api-gw-name }} в контейнер передается HTTP-запрос, адресованный к API-шлюзу. В заголовке `Host` при этом указывается хост, по которому пользователь обратился к API-шлюзу, а не хост контейнера. IP-адрес источника запроса передается так же, как и при [вызове контейнера через HTTPS](#ip). Подробнее о расширении в [документации {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/movies-database.md)
+* [{#T}](../tutorials/pg-connect.md)
+* [{#T}](../tutorials/functions-framework-to-container.md)

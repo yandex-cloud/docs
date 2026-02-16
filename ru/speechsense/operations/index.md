@@ -7,13 +7,20 @@ description: Страница содержит все инструкции дл�
 
 ## Работа с данными {#data}
 
-* [{#T}](data/upload-data.md)
-* [{#T}](data/upload-chat-text.md)
+* Загрузка данных:
+
+  * [{#T}](data/upload-audio-console.md)
+  * [{#T}](data/upload-data.md)
+  * [{#T}](data/upload-data-split.md)
+  * [{#T}](data/upload-chat-text.md)
 
 * Поиск данных:
 
   * [{#T}](data/search-data-grpc.md)
-  * [{#T}](data/search-data-rest.md)
+  * Поиск данных через REST API:
+    * [{#T}](data/rest-full-text-search.md)
+    * [{#T}](data/rest-search-filters.md)
+    * [{#T}](data/rest-get-dialog-data.md)
 
 * [{#T}](data/manage-dialogs.md)
 * [{#T}](data/manage-reports.md)
@@ -22,6 +29,7 @@ description: Страница содержит все инструкции дл�
 
 * [{#T}](space/create.md)
 * [{#T}](space/link-ba.md)
+* [{#T}](space/change-ba.md)
 * [{#T}](space/add-user-to-space.md)
 * [{#T}](space/delete.md)
 * [{#T}](space/delete-user-from-space.md)
@@ -29,6 +37,7 @@ description: Страница содержит все инструкции дл�
 ## Подключения {#connection}
 
 * [{#T}](connection/create.md)
+* [{#T}](connection/edit.md)
 
 ## Проекты {#project}
 
@@ -36,11 +45,24 @@ description: Страница содержит все инструкции дл�
 * [{#T}](project/add-user-to-project.md)
 * [{#T}](project/delete.md)
 * [{#T}](project/delete-user-from-project.md)
+* [{#T}](project/yandexgpt-training.md)
+
+## Ассистенты {#assistant}
+
+* [{#T}](assistant/create.md)
+* [{#T}](assistant/edit.md)
+* [{#T}](assistant/delete.md)
 
 ## Теги {#tag}
 
-* [{#T}](project/tag/create.md)
-* [{#T}](project/tag/change.md)
+* [{#T}](project/tag/create-dictionary-tag.md)
+* [{#T}](project/tag/create-sense-tag.md)
+* [{#T}](project/tag/create-sense-pro-tag.md)
+* [{#T}](project/tag/create-dependent-tag.md)
+* [{#T}](project/tag/change-dictionary-tag.md)
+* [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/change-sense-pro-tag.md)
+* [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)
 
 ## Словари {#dictionary}
@@ -49,3 +71,12 @@ description: Страница содержит все инструкции дл�
 * [{#T}](dictionary/change.md)
 * [{#T}](dictionary/add.md)
 * [{#T}](dictionary/delete.md)
+
+
+## Задачи на пересчет {#task-recalculation}
+* [{#T}](task-recalculation/tags-recalc.md)
+* [{#T}](task-recalculation/assistants-recalc.md)
+
+## Внешние интеграции {#external-integrations}
+
+* [{#T}](external-integrations/create-datalens-connection.md)

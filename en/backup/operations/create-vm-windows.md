@@ -1,6 +1,6 @@
 # Creating a Windows Server VM with a connection to {{ backup-name }}
 
-You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
+You can back up your {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [supported Windows-based operating systems](../concepts/vm-connection.md#windows).
 
 {% include [requirements](../../_includes/backup/requirements.md) %}
 
@@ -16,26 +16,26 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
-      * Enter a name and description for the VM. The naming requirements are as follows:
-
-        {% include [name-format](../../_includes/name-format.md) %}
-
-        {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
-
-      * Select an [availability zone](../../overview/concepts/geo-scope.md) to place your VM in.
-
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [operating system supported in {{ backup-name }}](../concepts/vm-connection.md#windows).
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+
       1. Choose a subnet in the selected availability zone.
       1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      1. Select a security group configured to work with {{ backup-name }}.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select the service account with the `backup.editor` role.
+      1. Select a [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name and description. Follow these naming requirements:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+      {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
+
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
 
-      {% include [backup-enable](../../_includes/compute/backup-enable.md) %}
+      1. Select the service account with the `backup.editor` role.
+      1. Enable **{{ backup-name }}**.
+      1. Optionally, select a backup policy or click **{{ ui-key.yacloud.common.create }}** to [create](./policy-vm/create.md) a new one.
 
   1. Specify the other VM parameters as needed.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -82,7 +82,7 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       ```powershell
       #ps1_sysnative
       echo 'Starting to execute backup agent installation'
-      Invoke-WebRequest https://storage.yandexcloud.net/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
+      Invoke-WebRequest https://{{ s3-storage-host }}/backup-distributions/agent_installer.ps1 -UseBasicParsing | Invoke-Expression
       ```
 
   1. Create a VM:
@@ -107,11 +107,11 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
 
         {% include [name-fqdn](../../_includes/compute/name-fqdn.md) %}
 
-      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) matching the selected subnet.
+      * `--zone`: [Availability zone](../../overview/concepts/geo-scope.md) corresponding to the selected subnet.
       * `subnet-name`: Name of the selected [subnet](../../vpc/concepts/network.md#subnet).
       * `security-group-ids`: ID of the [security group](../../vpc/concepts/security-groups.md) configured to work with {{ backup-name }}.
       * `image-id`: OS [image ID](../../compute/concepts/image.md). See the [list of supported Windows-based operating systems](../concepts/vm-connection.md#windows).
-      * `create-boot-disk`: Boot disk size.
+      * `size`: Boot disk size.
       * `--cores`: [Number of vCPUs](../../compute/concepts/vm.md) in the VM.
       * `--core-fraction`: Guaranteed vCPU share in %.
       * `--memory`: VM [RAM size](../../compute/concepts/vm.md).
@@ -144,6 +144,8 @@ You can back up {{ compute-name }} [VMs](../../compute/concepts/vm.md) with [sup
       ...
       placement_policy: {}
       ```
+
+      {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
 
 {% endlist %}
 

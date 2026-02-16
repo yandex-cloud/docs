@@ -1,7 +1,12 @@
+---
+title: OAuth-токен
+description: Из статьи вы узнаете, что такое OAuth-токен, зачем он нужен, какие у него формат и время жизни, а также какие сервисы поддерживают этот способ аутентификации.
+---
+
 # OAuth-токен
 
 
-OAuth-токен необходим для авторизации в {{ yandex-cloud }} пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [{{ iam-name }}-токен](iam-token.md).
+OAuth-токен необходим для аутентификации в {{ yandex-cloud }} пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [{{ iam-short-name }}-токен](iam-token.md).
 
 Получить OAuth-токен для работы с {{ yandex-cloud }} можно с помощью [запроса]({{ link-cloud-oauth }}) к сервису Яндекс OAuth.
 
@@ -36,6 +41,10 @@ OAuth-токен недоступен для федеративных польз
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
 * [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)
 
+## Примеры использования {#examples}
+
+* [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
+* [{#T}](../../../serverless-containers/tutorials/movies-database.md)
 
 #### См. также {#see-also}
 

@@ -24,4 +24,7 @@ A set of methods for managing Apache Kafka® clusters.
 || [StreamLogs](streamLogs.md) | Same as [ListLogs](#ListLogs) but using server-side streaming. Also allows for `tail -f` semantics. ||
 || [ListOperations](listOperations.md) | Retrieves the list of operations for the specified Apache Kafka® cluster. ||
 || [ListHosts](listHosts.md) | Retrieves a list of hosts for the specified Apache Kafka® cluster. ||
+|| [ListAccessBindings](listAccessBindings.md) | Retrieves a list of access bindings for the specified Apache Kafka® cluster. ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified Apache Kafka® cluster. ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified Apache Kafka® cluster. ||
 |#

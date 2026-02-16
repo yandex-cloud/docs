@@ -1,5 +1,9 @@
-# Обзор {{ ydb-full-name }}
+---
+title: Обзор {{ ydb-full-name }}
+description: Из статьи вы узнаете про СУБД {{ ydb-short-name }} и соглашение об уровне обслуживания.
+---
 
+# Обзор {{ ydb-full-name }}
 
 Сервис {{ ydb-full-name }} обеспечивает создание и управление базами данных {{ ydb-short-name }} в {{ yandex-cloud }}.
 
@@ -7,7 +11,9 @@
 
 * [{#T}](resources.md).
 * [{#T}](serverless-and-dedicated.md).
+* [{#T}](autoscaling.md).
 * [{#T}](dynamodb-tables.md).
+* [{#T}](transfer.md).
 * [{#T}](limits.md).
 
 ## СУБД {{ ydb-short-name }} {#ydb}
@@ -30,8 +36,6 @@
 * [Ограничения базы данных]({{ ydb.docs }}/concepts/limits-ydb).
 * [Кластер {{ ydb-short-name }}]({{ ydb.docs }}/concepts/cluster/).
 
-
 ## Соглашение об уровне обслуживания {#sla}
 
 Для сервиса действует [соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla). Уровень обслуживания сервиса определен в документе [Уровень обслуживания Yandex {{ ydb-name }}](https://yandex.ru/legal/cloud_sla_ydb).
-

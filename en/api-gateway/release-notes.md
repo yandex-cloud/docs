@@ -5,6 +5,70 @@ description: This section contains {{ api-gw-name }} release notes.
 
 # {{ api-gw-full-name }} release notes
 
+## September 2025 {#september-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Improved forms for adding the [x-yc-apigateway-integration:http](operations/spec-constructor/http.md) and [x-yc-apigateway-integration:dummy](operations/spec-constructor/dummy.md) extensions in the specification builder: now you can specify HTTP headers and query parameters not in the common field, but use separate fields to enter names and values.
+* Fixed an error in the [x-yc-apigateway-integration:cloud_ymq](concepts/extensions/ymq.md) extension when calling the API gateway with the `Content-Type: application/json; charset=utf-8` header: now, instead of Base64-encoded data, the source data is written to the queue.
+
+## July 2025 {#july-2025}
+
+### Updates {#updates}
+
+* Increased the default number of [user networks](concepts/networking.md#user-network) per cloud from 1 to 10. This is no longer a limit but a [quota](concepts/limits.md#api-gw-quotas), which can be changed through a request to support.
+
+## June 2025 {#june-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Improved WebSocket protocol stability in {{ api-gw-full-name }}: fixed incorrect ping event processing, fixed unresponsive long-lived connections, optimized event processing.
+
+## May 2025 {#may-2025}
+
+### Updates {#updates}
+
+* Added support for [integration with {{ sw-full-name }}](operations/spec-constructor/workflows.md).
+
+## March 2025 {#march-2025}
+
+### Updates {#updates}
+
+* Added the request execution timeout setting.
+
+## February 2025 {#february-2025}
+
+### Fixes and improvements {#fixes-improvements}
+
+* Added error output to API-gateway logs when using [integration with {{ yds-full-name }}](concepts/extensions/datastreams.md).
+
+## January 2025 {#january-2025}
+
+### Updates {#updates}
+
+* Updated the load distribution mechanism:
+    * Changed the API gateway service domain format from `https://d5ds7sk1ahjl********.apigw.yandexcloud.net` to `{{ api-host-apigw }}`: the new format contains one level more.
+    * Increased the number of external IP addresses used to process user requests; one API gateway can now have multiple IP addresses.
+
+    With the new mechanism in place, the network remains stable when the load increases.
+
+## November 2024 {#november-2024}
+
+### Updates {#updates}
+
+* Added support for labels.
+
+## September — October 2024 {#sept-oct-2024}
+
+### Updates {#updates}
+
+* Added [validation error handler](concepts/extensions/validator.md#errorhandler) support.
+
+### Fixes and improvements {#fixes-improvements}
+
+* Upgraded the [{{ foundation-models-full-name }} integration](operations/spec-constructor/yagpt.md) form in the specification constructor.
+* Updated [integration with {{ objstorage-full-name }}](operations/spec-constructor/object-storage.md): changed the logic of managing the response code returned if a queried object is not in the specified bucket.
+
 ## August 2024 {#august-2024}
 
 ### Updates {#updates}
@@ -37,12 +101,12 @@ description: This section contains {{ api-gw-name }} release notes.
 
 * Updates to the [x-yc-apigateway-authorizer:jwt](concepts/extensions/jwt-authorizer.md) extension:
     * Added an alternative name for the `scopes` parameter: `scp`.
-    * Added the option of selecting the array data type for one of the `scopes`/`scp` objects.
-* Added support for automatically sending the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
+    * Added the option to select the array data type for one of the `scopes`/`scp` objects.
+* Added support for automatic sending of the result of invoking an integration to a [WebSocket connection](concepts/extensions/websocket.md) when running the `x-yc-apigateway-websocket-connect` operation.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Removed the [user network](concepts/networking#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/ru-central1-c-deprecation).
+* Removed the [user network](concepts/networking.md#user-network) requirement to have a subnet in the `ru-central1-c` availability zone because [this zone is discontinued](../overview/concepts/region.md).
 
 ## March 2024 {#march-2024}
 
@@ -50,7 +114,7 @@ description: This section contains {{ api-gw-name }} release notes.
 
 * Added the `default_object` parameter to the OpenAPI specification extension for [integration with {{ objstorage-full-name }}](concepts/extensions/object-storage.md).
 * Added parameter substitution support to `error_object` and `default_object` in the OpenAPI specification extension for integration with {{ objstorage-full-name }}.
-* Added support for provision of the `Via` and `Www-Authenticate` headers from integration responses.
+* Added support for provision of the `Via` and `Www-Authenticate` headers from integrations' responses.
 * Added support for automatic sending of an integration response to a web socket within the `x-yc-apigateway-websocket-connect` [operation](concepts/extensions/websocket.md#connect).
 
 ## January – February 2024 {#jan-feb-2024}
@@ -63,6 +127,6 @@ description: This section contains {{ api-gw-name }} release notes.
 
 ### Fixes and improvements {#fixes-improvements}
 
-* Fixed the error with validation of the names of variables in the API gateway specification.
-* Fixed the error with transferring the array of query parameter values in the [HTTP Access](concepts/extensions/http.md) integration.
+* Fixed an error with validation of the names of variables in the API gateway specification.
+* Fixed the error of transferring an array of query parameter values in the [HTTP Access](concepts/extensions/http.md) integration.
 * Reduced API gateway response time at high RPS.

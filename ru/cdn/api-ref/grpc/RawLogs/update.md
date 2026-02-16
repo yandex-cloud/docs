@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/update.md
 ---
 
-# Cloud CDN API, gRPC: RawLogsService.Update {#Update}
+# Cloud CDN API, gRPC: RawLogsService.Update
 
 ## gRPC request
 
@@ -13,20 +13,22 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/update.md
 
 ```json
 {
-  "resourceId": "string",
+  "resource_id": "string",
   "settings": {
-    "bucketName": "string",
-    "bucketRegion": "string",
-    "filePrefix": "string"
+    "bucket_name": "string",
+    "bucket_region": "string",
+    "file_prefix": "string"
   }
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
-Required field. ID of CDN resource. ||
+Required field. ID of CDN resource.
+
+The maximum string length in characters is 50. ||
 || settings | **[RawLogsSettings](#yandex.cloud.cdn.v1.RawLogsSettings)**
 
 Raw logs settings. ||
@@ -38,20 +40,26 @@ User settings for Raw logs.
 
 #|
 ||Field | Description ||
-|| bucketName | **string**
+|| bucket_name | **string**
 
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
-|| bucketRegion | **string**
+Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
 
-Bucket region, unused for now, could be blank. ||
-|| filePrefix | **string**
+The maximum string length in characters is 1024. ||
+|| bucket_region | **string**
+
+Bucket region, unused for now, could be blank.
+
+The maximum string length in characters is 50. ||
+|| file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
 
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup. ||
+could be setup.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -60,21 +68,21 @@ could be setup. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "resourceId": "string"
+    "resource_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "status": "RawLogsStatus",
     "settings": {
-      "bucketName": "string",
-      "bucketRegion": "string",
-      "filePrefix": "string"
+      "bucket_name": "string",
+      "bucket_region": "string",
+      "file_prefix": "string"
     }
   }
   // end of the list of possible fields
@@ -91,13 +99,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -140,7 +148,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of CDN resource. ||
 |#
@@ -153,7 +161,6 @@ ID of CDN resource. ||
 
 Raw logs status.
 
-- `RAW_LOGS_STATUS_UNSPECIFIED`
 - `RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.
 - `RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.
 - `RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but CDN provider has been failed to store logs.
@@ -169,18 +176,24 @@ User settings for Raw logs.
 
 #|
 ||Field | Description ||
-|| bucketName | **string**
+|| bucket_name | **string**
 
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
-|| bucketRegion | **string**
+Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
 
-Bucket region, unused for now, could be blank. ||
-|| filePrefix | **string**
+The maximum string length in characters is 1024. ||
+|| bucket_region | **string**
+
+Bucket region, unused for now, could be blank.
+
+The maximum string length in characters is 50. ||
+|| file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
 
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup. ||
+could be setup.
+
+The maximum string length in characters is 50. ||
 |#

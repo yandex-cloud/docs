@@ -1,3 +1,8 @@
+---
+title: Запись логов в журнал выполнения в {{ serverless-containers-full-name }}
+description: Следуя данной инструкции, вы сможете настроить логирование контейнера.
+---
+
 # Записать логи в журнал выполнения контейнера
 
 {% include [logging-note](../../_includes/functions/logging-note.md) %}
@@ -7,16 +12,19 @@
 - Консоль управления {#console}
     
     1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится контейнер.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер, для которого хотите настроить логирование.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-    1. В блоке **{{ ui-key.yacloud.logging.label_title }}** в поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` — чтобы выключить логирование.
-        * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать [логи](../concepts/logs.md) в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится контейнер.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}` — чтобы записывать логи в пользовательскую лог-группу.
-            1. (Опционально) В поле **{{ ui-key.yacloud.logging.label_minlevel }}** выберите минимальный уровень логирования.
-            1. В поле **{{ ui-key.yacloud.logging.label_loggroup }}** выберите лог-группу, в которую будут записываться логи. Если у вас нет лог-группы, [создайте ее](../../logging/operations/create-group.md).
+    1. В блоке **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите:
+                  
+           * `{{ ui-key.yacloud.common.folder }}` — чтобы записывать [логи](../concepts/logs.md) в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для каталога, в котором находится контейнер.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. (Опционально) Выберите минимальный уровень логирования.
+
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. 
     
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
@@ -31,7 +39,9 @@
 
     {% include [logging-destination](../../_includes/serverless-containers/logging-destination.md) %}
 
-    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор лог-группы в параметре `--log-group-id` при [создании ревизии контейнера](manage-revision.md). Лог-группа должна находиться в том же каталоге, в котором находится контейнер.
+    Чтобы записывать логи в лог-группу по умолчанию для другого каталога, укажите идентификатор этого каталога в параметре `--log-folder-id` при [создании ревизии контейнера](manage-revision.md). [Аккаунту](../../iam/concepts/users/accounts.md), от имени которого выполняется команда, на этот каталог должна быть назначена [роль](../../logging/security/index.md#logging-editor) `logging.editor` или выше.
+
+    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор этой лог-группы в параметре `--log-group-id` при создании ревизии контейнера. Лог-группа может находиться в другом каталоге. Аккаунту, от имени которого выполняется команда, на этот каталог должна быть назначена роль `logging.editor` или выше.
 
     ### Минимальный уровень логирования {#log-level}
 
@@ -95,11 +105,13 @@
 
     {% include [logging-destination](../../_includes/serverless-containers/logging-destination.md) %}
 
-    Чтобы записывать логи в пользовательскую лог-группу, в блоке `log_options` укажите идентификатор лог-группы в параметре `log_group_id` при [создании ревизии контейнера](manage-revision.md). Лог-группа должна находиться в том же каталоге, в котором находится контейнер.
+    Чтобы записывать логи в лог-группу по умолчанию для другого каталога, укажите идентификатор этого каталога в блоке `log_options` в параметре `folder_id` при [создании ревизии контейнера](manage-revision.md). [Аккаунту](../../iam/concepts/users/accounts.md), от имени которого выполняется команда, на этот каталог должна быть назначена [роль](../../logging/security/index.md#logging-editor) `logging.editor` или выше.
+
+    Чтобы записывать логи в пользовательскую лог-группу, укажите идентификатор этой лог-группы в блоке `log_options` в параметре `log_group_id` при создании ревизии контейнера. Лог-группа может находиться в другом каталоге. Аккаунту, от имени которого выполняется команда, на этот каталог должна быть назначена роль `logging.editor` или выше.
 
     ### Минимальный уровень логирования {#log-level}
 
-    Чтобы задать минимальный уровень логирования, укажите его в параметре `log_group_id` при создании ревизии контейнера. 
+    Чтобы задать минимальный уровень логирования, укажите его в блоке `log_options` в параметре `min_level` при создании ревизии контейнера. 
 
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
 
@@ -134,9 +146,11 @@
         * `name` — имя контейнера.
         * `service_account_id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
         * `memory` — требуемая память. По умолчанию — 128 МБ.
-        * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
-        * `folder_id` — идентификатор каталога.
-        * `min_level` — минимальный уровень логирования. Необязательный параметр.
+        * `image` — параметры Docker-образа:
+            * `url` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
+        * `log_options` — настройки логирования:
+            * `folder_id` — идентификатор каталога.
+            * `min_level` — минимальный уровень логирования. Необязательный параметр.
 
         Более подробную информацию о параметрах ресурса `yandex_serverless_container` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
 
@@ -202,8 +216,7 @@
     sanic==22.12.0
     ```
 
-    **index.py**
-
+    **index.py*
   
     ```python
     import logging
@@ -241,7 +254,6 @@
     if __name__ == "__main__":
         app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
     ```
-
 
     **Dockerfile**
     ```dockerfile

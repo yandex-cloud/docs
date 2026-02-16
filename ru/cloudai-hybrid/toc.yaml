@@ -2,16 +2,29 @@ title: '{{ cloudml-full-name }}'
 href: index.yaml
 noIndex: true
 items:
-  - name: Функциональные характеристрики и архитектура
+  - name: Функциональные характеристики и архитектура
     href: architecture.md
   - name: Системные требования
     href: system-requirements.md
-  - name: Начало работы
+  - name: Установка программного обеспечения
     href: quickstart.md
-  - name: Правила тарификации
+  - name: Эксплуатация программного обеспечения
+    href: usage.md
+  - name: Стоимость программного обеспечения
     href: pricing.md
   - name: Документация "{{ cloudml-full-name }}"
     href: docs.md
     hidden: true
-base: ru/cloudai-hybrid
-deepBase: 2
+  - name: Модуль {{ speechsense-hybrid-name }}
+    href: speechsense/index.yaml
+    items:
+      - name: Функциональные характеристики и архитектура
+        href: speechsense/architecture.md
+      - name: Системные требования
+        href: speechsense/system-requirements.md
+      - name: Установка программного обеспечения
+        href: speechsense/quickstart.md
+      - name: Эксплуатация программного обеспечения
+        href: speechsense/usage.md
+      - name: Стоимость программного обеспечения
+        href: speechsense/pricing.md

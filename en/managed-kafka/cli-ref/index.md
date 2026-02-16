@@ -1,0 +1,149 @@
+---
+editable: false
+sourcePath: en/_cli-ref/cli-ref/managed-kafka/cli-ref/index.md
+---
+
+# yc managed-kafka
+
+Manage Apache Kafka clusters, brokers, topics, users and connectors.
+
+#### Command Usage
+
+Syntax:
+
+`yc managed-kafka <group>`
+
+Aliases:
+
+- `kafka`
+
+#### Command Tree
+
+- [yc managed-kafka cluster](cluster/index.md) — Manage Kafka clusters.
+
+  - [yc managed-kafka cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Kafka cluster
+
+  - [yc managed-kafka cluster create](cluster/create.md) — Create Kafka cluster
+
+  - [yc managed-kafka cluster delete](cluster/delete.md) — Delete the specified Kafka cluster
+
+  - [yc managed-kafka cluster get](cluster/get.md) — Show information about the specified Kafka cluster
+
+  - [yc managed-kafka cluster list](cluster/list.md) — List Kafka clusters
+
+  - [yc managed-kafka cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Kafka cluster
+
+  - [yc managed-kafka cluster list-hosts](cluster/list-hosts.md) — List hosts for a cluster.
+
+  - [yc managed-kafka cluster list-logs](cluster/list-logs.md) — Retrieve logs for a Kafka cluster.
+
+  - [yc managed-kafka cluster list-operations](cluster/list-operations.md) — List operations for the specified Kafka cluster
+
+  - [yc managed-kafka cluster move](cluster/move.md) — Move the specified Kafka cluster into the folder
+
+  - [yc managed-kafka cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Kafka cluster
+
+  - [yc managed-kafka cluster reschedule-maintenance](cluster/reschedule-maintenance.md) — Reschedule currently planned maintenance operation.
+
+  - [yc managed-kafka cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Kafka cluster and delete all existing access bindings if there were any
+
+  - [yc managed-kafka cluster start](cluster/start.md) — Start the specified Kafka cluster
+
+  - [yc managed-kafka cluster stop](cluster/stop.md) — Stop the specified Kafka cluster
+
+  - [yc managed-kafka cluster update](cluster/update.md) — Modify configuration or attributes of a Kafka cluster.
+
+- [yc managed-kafka connector](connector/index.md) — Manage Kafka connectors.
+
+  - [yc managed-kafka connector delete](connector/delete.md) — Delete a Kafka connector.
+
+  - [yc managed-kafka connector get](connector/get.md) — Get information about a Kafka connector.
+
+  - [yc managed-kafka connector list](connector/list.md) — List connectors of a Kafka cluster.
+
+  - [yc managed-kafka connector pause](connector/pause.md) — Pause a Kafka connector.
+
+  - [yc managed-kafka connector resume](connector/resume.md) — Resume a Kafka connector.
+
+- [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
+
+  - [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.
+
+  - [yc managed-kafka connector-mirrormaker update](connector-mirrormaker/update.md) — Modify attributes of a Kafka Mirrormaker connector.
+
+- [yc managed-kafka connector-s3-sink](connector-s3-sink/index.md) — Manage Kafka S3-Sink connector.
+
+  - [yc managed-kafka connector-s3-sink create](connector-s3-sink/create.md) — Create a Kafka S3-Sink connector.
+
+  - [yc managed-kafka connector-s3-sink update](connector-s3-sink/update.md) — Modify attributes of a Kafka S3-Sink connector.
+
+- [yc managed-kafka topic](topic/index.md) — Manage Kafka topics.
+
+  - [yc managed-kafka topic create](topic/create.md) — Create a Kafka topic.
+
+  - [yc managed-kafka topic delete](topic/delete.md) — Delete a Kafka topic.
+
+  - [yc managed-kafka topic get](topic/get.md) — Get information about a Kafka topic.
+
+  - [yc managed-kafka topic list](topic/list.md) — List topics of a Kafka cluster.
+
+  - [yc managed-kafka topic update](topic/update.md) — Modify attributes of a Kafka topic.
+
+- [yc managed-kafka user](user/index.md) — Manage Kafka users.
+
+  - [yc managed-kafka user create](user/create.md) — Create a Kafka user.
+
+  - [yc managed-kafka user delete](user/delete.md) — Delete a Kafka user.
+
+  - [yc managed-kafka user get](user/get.md) — Get information about a Kafka user.
+
+  - [yc managed-kafka user grant-permission](user/grant-permission.md) — Grant permission to the specified Kafka user.
+
+  - [yc managed-kafka user list](user/list.md) — List users of a Kafka cluster.
+
+  - [yc managed-kafka user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified Kafka user.
+
+  - [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

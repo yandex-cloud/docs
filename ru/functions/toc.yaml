@@ -23,6 +23,8 @@ items:
             href: quickstart/create-function/bash-function-quickstart.md
           - name: Java
             href: quickstart/create-function/java-function-quickstart.md
+          - name: Kotlin
+            href: quickstart/create-function/kotlin-function-quickstart.md
       - name: Создание триггера
         items:
           - name: Обзор
@@ -47,6 +49,8 @@ items:
             href: operations/function/function-info.md
           - name: Получить информацию о версии функции
             href: operations/function/version-info.md
+          - name: Настроить параметры сервиса метаданных
+            href: operations/function/metadata-options.md
       - name: Управление правами доступа к функции
         items:
           - name: Сделать функцию публичной
@@ -97,7 +101,7 @@ items:
             href: operations/function/lockbox-secret-transmit.md
           - name: Выделить память для директории /tmp
             href: operations/function/allocate-memory-tmp.md
-          - name: Смонтировать файловые системы
+          - name: Смонтировать внешние ресурсы на файловую систему функции
             items:
               - name: Смонтировать бакеты
                 href: operations/function/mount-bucket.md
@@ -127,6 +131,8 @@ items:
                 href: operations/function/logs-write.md
           - name: Миграция в зону {{ region-id }}-d
             href: operations/function/migration.md
+          - name: Удалить версию функции
+            href: operations/function/version-delete.md
           - name: Удалить функцию
             href: operations/function/function-delete.md
       - name: Получение информации о триггере
@@ -203,7 +209,7 @@ items:
             href: concepts/runtime/execution-context.md
           - name: Предзагружаемая среда выполнения
             href: concepts/runtime/preload-runtime.md
-      - name: Монтирование файловых систем
+      - name: Монтирование внешних ресурсов на файловую систему функции
         href: concepts/mounting.md
       - name: Сборщик
         href: concepts/builder.md
@@ -303,6 +309,8 @@ items:
     items:
       - name: Обзор
         href: lang/bash/index.md
+      - name: Управление зависимостями
+        href: lang/bash/dependencies.md
       - name: Обработчик запросов
         href: lang/bash/handler.md
       - name: Журналирование
@@ -379,7 +387,7 @@ items:
         href: lang/r/logging.md
       - name: Обработка ошибок
         href: lang/r/errors.md
-  - name: Разработка на C#
+  - name: Разработка на .NET Core
     items:
       - name: Обзор
         href: lang/csharp/index.md
@@ -413,7 +421,7 @@ items:
         href: tutorials/java-servlet-todo-list.md
       - name: Разработка навыка Алисы и сайта с авторизацией
         href: tutorials/alice-shareable-todolist.md
-      - name: Запись данных с устройства в {{ mpg-short-name }}
+      - name: Запись данных с устройства в базу данных
         href: tutorials/data-recording.md
       - name: Запись логов балансировщика в {{ PG }}
         href: tutorials/logging.md
@@ -447,7 +455,9 @@ items:
         href: tutorials/regular-launch-datasphere.md
       - name: Интерактивная отладка функций
         href: tutorials/serverless-live-debug.md
-      - name: Регулярное распознавание аудиофайлов в бакете {{ objstorage-name }}
+      - name: >-
+          Регулярное асинхронное распознавание аудиофайлов из {{ objstorage-name
+          }}
         href: tutorials/batch-recognition-stt.md
       - name: Канареечный релиз функции {{ sf-name }}
         href: tutorials/canary-release.md
@@ -462,8 +472,14 @@ items:
           использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{
           data-transfer-full-name }}
         href: tutorials/data-transfer-direct-to-mch.md
-      - name: Масштабирование группы ВМ по расписанию
-        href: tutorials/vm-scale-scheduled.md
+      - name: Масштабирование группы виртуальных машин по расписанию
+        items:
+          - name: Обзор
+            href: tutorials/vm-scale-scheduled/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/vm-scale-scheduled/console.md
+          - name: '{{ TF }}'
+            href: tutorials/vm-scale-scheduled/terraform.md
       - name: Мониторинг состояния географически распределенных устройств
         href: tutorials/datalens.md
       - name: Мониторинг показаний датчиков и уведомления о событиях
@@ -474,14 +490,56 @@ items:
           Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их
           анализ с помощью {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
+      - name: Сокращатель ссылок
+        href: tutorials/serverless-url-shortener.md
+      - name: '{{ tracker-full-name }}: экспорт и визуализация данных'
+        href: tutorials/data-from-tracker.md
+      - name: Запуск вычислений в {{ ml-platform-name }} с помощью API
+        href: tutorials/batch-code-execution.md
+      - name: Разработка Telegram-бота для распознавания текста и аудио
+        href: tutorials/recognizer-bot.md
+      - name: Настройка реагирования в {{ cloud-logging-full-name }} и {{ sf-name }}
+        href: tutorials/logging-functions
+      - name: >-
+          Разработка функций в Functions Framework и их развертывание в {{
+          serverless-containers-full-name }}
+        href: tutorials/functions-framework-to-container.md
+      - name: >-
+          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: tutorials/forms-and-datalens-integration/terraform.md
+      - name: Настройка CI/CD с {{ src-name }}
+        href: tutorials/ci-cd-sourcecraft-functions.md
+      - name: Настройка CI/CD с GitHub
+        href: tutorials/ci-cd-github-functions.md
+      - name: Создание AI-агента с помощью {{ sf-name }}
+        href: tutorials/create-ai-agent-function.md
+      - name: Создание AI-агента со стримингом ответа через веб-сокеты
+        href: tutorials/streaming-openai-agent.md
+      - name: Интеграция {{ postbox-full-name }} с внешними системами через вебхуки
+        href: tutorials/postbox-webhook.md
+  - name: Инструменты
+    href: tools.md
   - name: Правила тарификации
     href: pricing.md
   - name: Управление доступом
     href: security/index.md
-  - name: Справочник CLI Functions
-    href: ../cli/cli-ref/managed-services/serverless/function/index.md
-  - name: Справочник CLI Triggers
-    href: ../cli/cli-ref/managed-services/serverless/trigger/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Functions
+        href: ../cli/cli-ref/serverless/cli-ref/function/index.md
+      - name: Triggers
+        href: ../cli/cli-ref/serverless/cli-ref/trigger/index.md
+      - name: MDB Proxy
+        href: ../cli/cli-ref/serverless/cli-ref/mdbproxy/index.md
+      - name: Network
+        href: ../cli/cli-ref/serverless/cli-ref/network/index.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Functions
@@ -710,11 +768,11 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Публичные материалы
+    href: public-talks.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/functions
-deepBase: 2

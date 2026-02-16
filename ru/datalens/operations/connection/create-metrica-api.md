@@ -1,15 +1,16 @@
 ---
 title: Как создать подключение к Metrica в {{ datalens-full-name }}
-description: Следуя данной инструкции, вы сможете создать подключение к Metrica.
+description: Следуя данной инструкции, вы сможете создать подключение к Metrica в {{ datalens-full-name }}.
 ---
 
-# Создание подключения к Metrica
+# Создание подключения к Metrica в {{ datalens-full-name }}
 
 
 {% include [datalens-metrica-pro-note](../../../_includes/datalens/datalens-metrica-pro-note.md) %}
 
 
 Чтобы создать подключение к Metrica:
+
 
 1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **Metrica**.
@@ -42,3 +43,5 @@ description: Следуя данной инструкции, вы сможете
 {% include [datalens-get-token](../../../_includes/datalens/operations/datalens-get-token.md) %}
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
+
+

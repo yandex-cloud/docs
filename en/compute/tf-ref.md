@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ compute-full-name }}'
-description: This page provides reference information on {{ TF }} provider resources and data sources supported for {{ compute-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ compute-name }}.
 ---
 
 # {{ TF }} reference for {{ compute-full-name }}
@@ -40,13 +40,13 @@ The following {{ TF }} provider resources are supported for {{ compute-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_compute_disk]({{ tf-provider-datasources-link }}/datasource_compute_disk) | [Disk](./concepts/disk.md) information |
-| [yandex_compute_disk_placement_group]({{ tf-provider-datasources-link }}/datasource_compute_disk_placement_group) | Information on a [non-replicated disk placement group](./concepts/disk-placement-group.md) |
-| [yandex_compute_filesystem]({{ tf-provider-datasources-link }}/datasource_compute_filesystem) | [File storage](./concepts/filesystem.md) information |
-| [yandex_compute_gpu_cluster]({{ tf-provider-datasources-link }}/datasource_compute_gpu_cluster) | [GPU cluster](./concepts/gpus.md#gpu-clusters) information |
-| [yandex_compute_image]({{ tf-provider-datasources-link }}/datasource_compute_image) | [Image](./concepts/image.md) information |
-| [yandex_compute_instance]({{ tf-provider-datasources-link }}/datasource_compute_instance) | [VM instance](./concepts/vm.md) information |
-| [yandex_compute_instance_group]({{ tf-provider-datasources-link }}/datasource_compute_instance_group) | [Instance group](./concepts/instance-groups/index.md) information |
-| [yandex_compute_placement_group]({{ tf-provider-datasources-link }}/datasource_compute_placement_group) | [VM placement group](./concepts/placement-groups.md) information |
-| [yandex_compute_snapshot]({{ tf-provider-datasources-link }}/datasource_compute_snapshot) | [Disk snapshot](./concepts/snapshot.md) information |
-| [yandex_compute_snapshot_schedule]({{ tf-provider-datasources-link }}/datasource_compute_snapshot_schedule) | Information on a [disk snapshot schedule](./concepts/snapshot-schedule.md) |
+| [yandex_compute_disk]({{ tf-provider-datasources-link }}/compute_disk) | [Disk](./concepts/disk.md) information |
+| [yandex_compute_disk_placement_group]({{ tf-provider-datasources-link }}/compute_disk_placement_group) | Information on a [non-replicated disk placement group](./concepts/disk-placement-group.md) |
+| [yandex_compute_filesystem]({{ tf-provider-datasources-link }}/compute_filesystem) | [File storage](./concepts/filesystem.md) information |
+| [yandex_compute_gpu_cluster]({{ tf-provider-datasources-link }}/compute_gpu_cluster) | [GPU cluster](./concepts/gpus.md#gpu-clusters) information |
+| [yandex_compute_image]({{ tf-provider-datasources-link }}/compute_image) | [Image](./concepts/image.md) information |
+| [yandex_compute_instance]({{ tf-provider-datasources-link }}/compute_instance) | [VM instance](./concepts/vm.md) information |
+| [yandex_compute_instance_group]({{ tf-provider-datasources-link }}/compute_instance_group) | [Instance group](./concepts/instance-groups/index.md) information |
+| [yandex_compute_placement_group]({{ tf-provider-datasources-link }}/compute_placement_group) | [VM placement group](./concepts/placement-groups.md) information |
+| [yandex_compute_snapshot]({{ tf-provider-datasources-link }}/compute_snapshot) | [Disk snapshot](./concepts/snapshot.md) information |
+| [yandex_compute_snapshot_schedule]({{ tf-provider-datasources-link }}/compute_snapshot_schedule) | Information on a [disk snapshot schedule](./concepts/snapshot-schedule.md) |

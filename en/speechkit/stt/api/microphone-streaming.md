@@ -6,19 +6,19 @@ This example uses the following parameters:
 
 * [Language](../models.md#languages): Russian.
 * Format of the audio stream: [LPCM](../../formats.md#LPCM) with a sampling rate of 8000 Hz.
-* [Number of audio channels](../../stt-v3/api-ref/grpc/stt_service#RawAudio): 1.
+* [Number of audio channels](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.RawAudio): 1.
 * Recording buffer size: 4096.
-* Audio recording duration: 30 seconds.
-* [Profanity filter](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions): Enabled.
+* Voice recording duration: 30 seconds.
+* [Profanity filter](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions): Enabled.
 
-To use the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages.
+To work with the API, you need the `grpcio-tools`, `PortAudio`, and `PyAudio` packages.
 
 Authentication is performed under a service account using an [API key](../../../iam/concepts/authorization/api-key.md). Learn more about [authentication in the {{speechkit-name}} API](../../concepts/auth.md).
 
 ## Prepare the required data {#preparations}
 
-1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-speechkit-stt }}` role.
-1. [Get](../../../iam/operations/api-key/create.md) an API key for the service account and save it.
+1. [Create](../../../iam/operations/sa/create.md) a service account and [assign](../../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-speechkit-stt }}` role to it.
+1. [Get](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key for the service account and save it.
 
 ## Create an application for streaming speech recognition {#create-an-application}
 
@@ -46,17 +46,17 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Use the pip package manager to install the following packages:
 
-      * `grpcio-tools` for working with the {{speechkit-name}} API.
-      * `PyAudio` for audio recording.
+      * `grpcio-tools` to work with the {{speechkit-name}} API.
+      * `PyAudio` to record audio.
 
       ```bash
       pip install grpcio-tools PyAudio
       ```
 
-   1. Go to the directory hosting the {{ yandex-cloud }} API repository, create an `output` directory, and generate the client interface code there:
+   1. Go to the folder with the {{ yandex-cloud }} API repository, create a folder named `output` and generate the client interface code in it:
 
       ```bash
-      cd <path_to_cloudapi_directory> && \
+      cd <path_to_cloudapi_folder> && \
       mkdir output && \
       python3 -m grpc_tools.protoc -I . -I third_party/googleapis \
          --python_out=output \
@@ -71,9 +71,9 @@ Authentication is performed under a service account using an [API key](../../../
            yandex/cloud/ai/stt/v3/stt.proto
       ```
 
-      As a result, the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files as well as dependency files will be created in the `output` directory.
+      This will create the `stt_pb2.py`, `stt_pb2_grpc.py`, `stt_service_pb2.py`, and `stt_service_pb2_grpc.py` client interface files, as well as dependency files, in the `output` folder.
 
-   1. Create a `test.py` file in the `output` directory and add the following code to it:
+   1. Create a file named `test.py` in the `output` folder and add the following code to it:
 
       ```python
       import pyaudio
@@ -83,7 +83,7 @@ Authentication is performed under a service account using an [API key](../../../
       import yandex.cloud.ai.stt.v3.stt_pb2 as stt_pb2
       import yandex.cloud.ai.stt.v3.stt_service_pb2_grpc as stt_service_pb2_grpc
 
-      # Streaming recognition settings.
+      # Stream recognition settings.
       FORMAT = pyaudio.paInt16
       CHANNELS = 1
       RATE = 8000
@@ -120,26 +120,26 @@ Authentication is performed under a service account using an [API key](../../../
          # Send a message with recognition settings.
          yield stt_pb2.StreamingRequest(session_options=recognize_options)
 
-         # Start audio recording.
+         # Start voice recording.
          stream = audio.open(format=FORMAT, channels=CHANNELS,
                      rate=RATE, input=True,
                      frames_per_buffer=CHUNK)
          print("recording")
          frames = []
 
-         # Recognize speech in chunks.
+         # Recognize speech in fragments.
          for i in range(0, int(RATE / CHUNK * RECORD_SECONDS)):
             data = stream.read(CHUNK)
             yield stt_pb2.StreamingRequest(chunk=stt_pb2.AudioChunk(data=data))
             frames.append(data)
          print("finished")
 
-         # Stop audio recording.
+         # Stop recording.
          stream.stop_stream()
          stream.close()
          audio.terminate()
 
-         # Create a WAV file with the recorded audio.
+         # Create a WAV file with recorded voice.
          waveFile = wave.open(WAVE_OUTPUT_FILENAME, 'wb')
          waveFile.setnchannels(CHANNELS)
          waveFile.setsampwidth(audio.get_sample_size(FORMAT))
@@ -148,16 +148,16 @@ Authentication is performed under a service account using an [API key](../../../
          waveFile.close()
 
       def run(secret):
-         # Establish a connection to the server.
+         # Establish a connection with the server.
          cred = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('stt.{{ api-host }}:443', cred)
+         channel = grpc.secure_channel('{{ api-host-sk-stt }}:443', cred)
          stub = stt_service_pb2_grpc.RecognizerStub(channel)
 
          # Send data for recognition.
          it = stub.RecognizeStreaming(gen(), metadata=(
-         # Parameters for authenticating with an API key as a service account
+         # Parameters for authentication with an API key as a service account.
             ('authorization', f'Api-Key {secret}'),
-         # To authenticate with an IAM token use the string below
+         # To authenticate with an IAM token, use the string below:
          #   ('authorization', f'Bearer {secret}'),
          ))
 
@@ -185,14 +185,14 @@ Authentication is performed under a service account using an [API key](../../../
 
       Where:
 
-      * `FORMAT`: Format of the audio stream.
+      * `FORMAT`: Audio stream format.
       * `CHANNELS`: Number of audio channels.
       * `RATE`: Audio stream sampling rate in Hz.
       * `CHUNK`: Recording buffer size. The size is determined based on the number of frames the recorded speech is split into.
-      * `RECORD_SECONDS`: Audio recording duration in seconds.
-      * `WAVE_OUTPUT_FILENAME`: Name of the audio file with the recorded speech. The file is created by a script.
+      * `RECORD_SECONDS`: Voice recording duration in seconds.
+      * `WAVE_OUTPUT_FILENAME`: Name of the voice audio file. The file is created by a script.
       * `profanity_filter`: Profanity filter.
-      * `literature_text`: [Flag to generate the recognized text in a literary style](../../stt-v3/api-ref/grpc/stt_service#TextNormalizationOptions).
+      * `literature_text`: [Flag to present the recognized text in a literary style](../../stt-v3/api-ref/grpc/AsyncRecognizer/recognizeFile#speechkit.stt.v3.TextNormalizationOptions).
       * `language_code`: Recognition language.
 
    1. Set the service account's API key as an environment variable:
@@ -211,27 +211,27 @@ Authentication is performed under a service account using an [API key](../../../
 
    1. Speak using a microphone.
 
-      The recorded speech is output to the terminal. For example:
+      The recorded speech is output to the terminal. Example:
 
       ```text
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['check']
-      type=partial, alternatives=['check']
+      type=partial, alternatives=['test']
+      type=partial, alternatives=['test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['recognition check']
+      type=partial, alternatives=['recognition test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['recognition check']
-      type=partial, alternatives=['speech recognition check']
+      type=partial, alternatives=['recognition test']
+      type=partial, alternatives=['voice recognition test']
       type=status_code, alternatives=None
       type=status_code, alternatives=None
-      type=partial, alternatives=['speech recognition check']
+      type=partial, alternatives=['voice recognition test']
       ```
 
-   The script recognizes speech and records it during 30 seconds. Once the script is executed, its results are saved to an `audio.wav` file with the recorded speech.
+   The script recognizes speech and records it during 30 seconds. Once the script is executed, its results are saved to an `audio.wav` file with recorded voice.
 
 {% endlist %}
 
@@ -239,7 +239,7 @@ Authentication is performed under a service account using an [API key](../../../
 
 #### The script is run with no speech recognized {#no-recognition}
 
-Possible causes:
+The possible causes include:
 
 * The script is run in the terminal embedded in an IDE. This terminal might have no microphone access. Run the script in an external terminal.
 * The script is run on macOS and the terminal is not allowed to access the microphone. Open the system settings of the OS and make sure the terminal has the appropriate access permission.

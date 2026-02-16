@@ -1,3 +1,8 @@
+---
+title: boto3 и boto
+description: Из статьи вы узнаете, что такое boto3 и boto, как их установить и настроить, а также ознакомитесь с примерами операций.
+---
+
 # boto3 и boto
 
 
@@ -46,6 +51,25 @@
 
   {% include [boto3-example](../../_includes/storage/boto3-example.md) %}
 
+  Boto3 по умолчанию использует аутентификационные данные из директории `~/.aws`, но вы можете указать переменные `AWS_ACCESS_KEY_ID` и `AWS_SECRET_ACCESS_KEY` явно:
+
+  ```python
+  ...
+  session = boto3.session.Session()
+  s3 = session.client(
+      service_name='s3',
+      endpoint_url='https://{{ s3-storage-host }}',
+      aws_access_key_id='<идентификатор_статического_ключа>',
+      aws_secret_access_key='<секретный_ключ>'
+  )
+  ```
+
+  {% note info %}
+
+  Данный метод считается небезопасным, так как существует риск утечки ключей.
+
+  {% endnote %}
+
   {% cut "boto" %}
 
   {% include [boto-example](../../_includes/storage/boto-example.md) %}
@@ -54,7 +78,7 @@
 
 - {{ sf-full-name }} {#functions}
 
-  См. пример в [руководстве по конвертации видео](../../functions/tutorials/video-converting-queue.md).
+  См. пример в [руководстве по конвертации видео](../tutorials/video-converting-queue.md).
 
 {% endlist %}
 

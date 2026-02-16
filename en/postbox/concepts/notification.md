@@ -1,6 +1,6 @@
-# Email delivery notifications
+# Email event notifications
 
-To get email delivery notifications, [create a configuration](../operations/create-configuration.md) and [link it to your address](../operations/bind-configuration.md).
+To get email event notifications, [create a configuration](../operations/create-configuration.md) and [associate it with your address](../operations/bind-configuration.md).
 
 ## Notification types {#types}
 
@@ -23,6 +23,23 @@ Notification example:
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+               "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "send": {  },
@@ -49,6 +66,32 @@ Notification example:
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"vgAyRUls8591ybPKeH-Ov",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+               "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "ses:outgoing-tls-cipher": [
+                "AES_128_GCM_SHA256"
+            ],
+            "ses:outgoing-tls-version": [
+                "TLSv1.3"
+            ],
+            "ses:outgoing-ip": [
+                "51.250.56.125"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "bounce": null,
@@ -65,7 +108,7 @@ Notification example:
 
 ### Email not delivered notification {#bounce}
 
-Comes when the recipient's email client responds to a delivery attempt with an error that {{ postbox-name }} regards as not requiring another delivery attempt, or the recipient's address is on the stop list.
+Comes when the recipient's email client responds to a delivery attempt with an error which, according to {{ postbox-name }}, does not require another delivery attempt, or when the recipient's address is on the stop list.
 
 Notification example:
 
@@ -82,6 +125,23 @@ Notification example:
             "to":[ "Recipient Name <recipient@example.com>" ],
             "messageId":"QA_JPkU2fkpIWdkxAOASH",
             "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
         }
     },
     "bounce": {
@@ -102,38 +162,241 @@ Notification example:
 }
 ```
 
+### Email open notification {#open}
+
+You get this type of notification when the recipient opens the email.
+
+Notification example:
+
+```json
+{
+    "eventType": "Open",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "open": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Email click notification {#click}
+
+You get this type of notification when the recipient clicks the link in your email.
+
+Notification example:
+
+```json
+{
+    "eventType": "Click",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using {{ postbox-full-name }}"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "click": {
+        "ipAddress": "192.0.2.1",
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60",
+        "url": "https://example.com/some-link",
+        "linkTags": {
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Delayed email delivery notification {#delayed-delivery}
+
+Once successfully accepted by {{ postbox-name }}, the email is normally sent it right away. However, a slight delay in delivery may sometimes occur. It is in this case that you receive this type of notification.
+
+Notification example:
+
+```json
+{
+    "eventType": "DeliveryDelay",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "deliveryDelay": {
+        "delayType": "General",
+        "delayedRecipients": [
+            {
+                "emailAddress": "recipient@example.com"
+            }
+        ],
+        "timestamp": "2024-04-25T18:10:04.973666+03:00"
+    },
+    "eventId": "jdMtnVniDeHqlQX8ygwEX:0"
+}
+```
+
+### Recipient unsubscribe notification {#subscription}
+
+You get this type of notification when the recipient uses `one-click unsubscribe` that {{ postbox-name }} adds to emails.
+
+Notification example:
+
+```json
+{
+    "eventType": "Unsubscribe",
+    "mail": {
+        "timestamp": "2024-04-25T18:08:04.933666+03:00",
+        "messageId": "QA_JPkU2fkpIWdkxAOASH",
+        "identityId": "ZtYk0rrjN87m-Ovxjte1G",
+        "commonHeaders": {
+            "from":[ "User <user@example.com>" ],
+            "date":"Thu, 27 Jun 2024 14:05:45 +0000",
+            "to":[ "Recipient Name <recipient@example.com>" ],
+            "messageId":"QA_JPkU2fkpIWdkxAOASH",
+            "subject":"Message sent using Yandex Cloud Postbox"
+        },
+        "tags": {
+            "ses:configuration-set": [
+                "kXVCt2Vd4dvm3MDvpc5Ml"
+            ],
+            "ses:from-domain": [
+                "example.com"
+            ],
+            "ses:source-ip": [
+                "123.123.123.123"
+            ],
+            "key1": [
+                "value1"
+            ],
+            "key2": [
+                "value2"
+            ]
+        }
+    },
+    "subscription": {
+        "contactList": "my-list",
+        "timestamp": "2024-04-25T18:08:04.973666+03:00",
+        "source": "UnsubscribeHeader"
+    }
+}
+```
+
 ## Notification format {#format}
 
 The notification is written to the {{ yds-full-name }} [data stream](../../data-streams/concepts/glossary.md#stream-concepts) in JSON format. The list and sequence of fields may differ from those described below.
 
 ### Main object {#main-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `notificationType` | String | [Notification type](#types). Possible values: `Bounce`, `Delivery`, `Send`. |
-| `mail` | [Mail](#mail-object) object | Object containing general information about the sent email. |
-| `bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present. |
-| `delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present. |
-| `eventId` | String | Unique ID of the event. |
+`notificationType` | String | [Notification type](#types). The possible values are `Bounce`, `Delivery`, and `Send`.
+`mail` | [Mail](#mail-object) object | Object containing general information about the sent email.
+`bounce` | [Bounce](#bounce-object) object | Object containing information that the email has not been delivered. Required if the `notificationType` is `Bounce`; otherwise, not present.
+`delivery` | [Delivery](#delivery-object) object | Object containing information about the email being delivered to an individual recipient. Required if the `notificationType` is `Delivery`; otherwise, not present.
+`subscription` | [Subscription](#subscription-object) object | Object containing information that the recipient has unsubscribed from the mailing list. Required if the `notificationType` is `Subscription`; otherwise, not present.
+`open` | [Open](#open-object) object | Object containing information that the email has been opened. Required if the `notificationType` is `Open`; otherwise, not present.
+`eventId` | String | Unique ID of the event.
 
 ### Mail object {#mail-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the email was accepted by {{ postbox-name }}. |
-| `messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing. |
-| `identityId` | String | ID of the {{ postbox-name }} address used when sending the email. |
-| `commonHeaders` | [CommonHeaders](#common-headers-object) object | Object containing the main headers of the email. |
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the email was accepted by {{ postbox-name }}.
+`messageId` | String | Unique ID of the email. One email can have multiple recipients. Sent by {{ postbox-name }} when accepting the email for processing.
+`identityId` | String | ID of the {{ postbox-name }} address used when sending the email.
+`commonHeaders` | [CommonHeaders](#common-headers-object) object | Object containing the main headers of the email.
+`tags` | Object | Object containing tags added to the email.
 
 ### CommonHeaders object {#common-headers-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `from` | Array of strings | Contents of the `From` header, broken down by address. |
-| `to` | Array of strings | Contents of the `To` header, broken down by address. |
-| `subject` | String | `Subject` header contents. |
-| `date` | String | `Date` header contents. |
-| `messageId` | String | Unique ID of the email. Sent by {{ postbox-name }} when accepting the email. |
+`from` | Array of strings | Contents of the `From` header, broken down by address.
+`to` | Array of strings | Contents of the `To` header, broken down by address.
+`subject` | String | Contents of the `Subject` header.
+`date` | String | Contents of the `Date` header.
+`messageId` | String | Unique ID of the email. Sent by {{ postbox-name }} when accepting the email.
 
 ### Send object {#send-object}
 
@@ -141,45 +404,105 @@ Empty object.
 
 ### Bounce object {#bounce-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `bounceType` | String | Error type. The possible values include:<ul><li>`Permenent`: Email not delivered.</li></ul> |
-| `bounceSubType` | String | Error subtype. The possible values include:<ul><li>`Undetermined`: Unknown error.</li><li>`Suppressed`: Email not delivered because the recipient is on the stop list.</li></ul> |
-| `bouncedRecipients` | Array of [BounceRecipient](#bounce-recipent-object) objects | Array containing information about the email recipient and the related delivery error, if any. |
-| `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the error was received from the recipient's email client. |
+`bounceType` | String | Error type. The possible values are:<ul><li>`Permenent`: Email not delivered.</li></ul>
+`bounceSubType` | String | Error subtype. The possible values are:<ul><li>`Undetermined`: Unknown error.</li><li>`Suppressed`: Email not delivered because the recipient is on the stop list.</li></ul>
+`bouncedRecipients` | Array of [BounceRecipient](#bounce-recipent-object) objects | Array containing information about the email recipient and the related delivery error, if any.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time the error was received from the recipient's email client.
 
 ### BounceRecipient object {#bounce-recipent-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `emailAddress` | String | Recipient's email address. |
-| `action` | String | Optional field. Result of sending. Possible values: `failed`. |
-| `status` | String | Optional field. SMTP response code. |
-| `diagnosticCode` | String | Optional field. Extended error text. May contain error text from the recipient's email client. |
+`emailAddress` | String | Recipient's email address.
+`action` | String | Optional field. Result of sending. The possible value is `failed`.
+`status` | String | Optional field. SMTP response code.
+`diagnosticCode` | String | Optional field. Extended error text. May contain error text from the recipient's email client.
+
+### Click object {#click-object}
+
+Field | Type | Description
+--- | --- | ---
+`ipAddress` | String | IP address of the recipient’s device used to open the link.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when the recipient clicked the link.
+`userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the link.
+`url` | String | Original URL the recipient opened.
+`linkTags` | Object | Object containing tags added to the link.
 
 ### Delivery object {#delivery-object}
 
-| Name | Type | Description |
+Field | Type | Description
 --- | --- | ---
-| `timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client. |
-| `processingTimeMillis` | Integer | Time it took to process the email in milliseconds. |
-| `recipients` | Array of strings | Addresses of recipients. |
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Time when {{ postbox-name }} sent the email and received a successful response from the recipient's email client.
+`processingTimeMillis` | Integer | Time spent to process the email in milliseconds.
+`recipients` | Array of strings | Addresses of recipients.
+
+### DeliveryDelay object {#delivery-delay-object}
+
+Field | Type | Description
+--- | --- | ---
+`delayType` | String | Delay type. The possible value is `General`.
+`delayedRecipients` | [DelayedRecipient](#delayed-recipient-object) object array | Array containing information about the email recipient and the related delivery delay.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Delivery delay timestamp.
+
+### DelayedRecipient object {#delayed-recipient-object}
+
+Field | Type | Description
+--- | --- | ---
+`emailAddress` | String | Recipient's email address.
+
+### Subscription object {#subscription-object}
+
+Field | Type | Description
+--- | --- | ---
+`contactList` | String | Name of the contact list associated with the email.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Recipient unsubscribe timestamp.
+`source` | String | Unsubscribe source. The possible value is `UnsubscribeHeader`.
+
+### Open object {#open-object}
+
+Field | Type | Description
+--- | --- | ---
+`ipAddress` | String | IP address of the recipient’s device used to open the email.
+`timestamp` | String | Date in [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) (`2006-01-02T15:04:05Z07:00`) format. Email opening timestamp.
+`userAgent` | String | Identification string (`User-Agent`) of the device or email the client used to open the email.
+
+## System tags {#system-tags}
+
+When sending an email, {{ postbox-name }} adds the following system tags to it and then includes them in notifications.
+
+Common tags:
+
+Field | Description
+--- | ---
+`ses:configuration-set` | ID of the [configuration](glossary.md#configuration) used when sending the email.
+`ses:from-domain` | Domain the email was sent from.
+`ses:source-ip` | IP address of the server the email to {{ postbox-name }} was sent from by the user.
+
+Additional tags included only into [delivery notifications](#delivery):
+
+Field | Description
+--- | ---
+`ses:outgoing-tls-version` | TLS version used to send the email to the recipient server.
+`ses:outgoing-tls-cipher` | TLS cipher used to send the email to the recipient server.
+`ses:outgoing-ip` | IP address of the server from which the email was sent by {{ postbox-name }} to the recipient server.
 
 ## Quality of service (QoS) level {#qos}
 
-When delivering notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
+To deliver notifications, the service supports the `QoS 1: At least once` quality of service level, so it is possible to resend notifications. Identical notifications have the same `eventId`.
 
 If an address is linked to a [configuration](glossary.md#configuration) that has multiple [subscriptions](glossary.md#subscription.md) added to it, a separate notification will come for each assignment.
 
-## Example {#example}
+## Use case {#example}
 
 You sent an email to two recipients: `user1@example.com` and `user2@other.example.com`. {{ postbox-name }} sent it to both recipients separately.
 
-The email client of the recipient `user1@example.com` accepted the email. The email client of the recipient `user2@other.example.com` returned an error after the first attempt to send the email and declined to accept the email after the second attempt, replying that the user was not found.
+The email client of `user1@example.com` accepted the email. The email client of the recipient `user2@other.example.com` returned an error after the first attempt to send the email and declined to accept the email after the second attempt, replying that the user was not found.
 
 In which case you will get these three notifications:
 * Notification that {{ postbox-name }} accepted the email for processing.
 * Notification that the email was delivered to `user1@example.com`.
 * Notification that the email was not delivered to `user2@other.example.com` with the error info. The notification will come after the second attempt to send the email.
 
-Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list.
+Since the mail client responded that the recipient `user2@other.example.com` was not found, the address will be temporarily put on the stop list. You should wait for some time before trying to reach the address again, otherwise you will get notified that your message was not delivered because the recipient was on the stop list. 

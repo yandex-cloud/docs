@@ -1,11 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required. ID of the Hadoop cluster.
+            The maximum string length in characters is 50.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Cluster/listUILinks.md
 ---
 
-# Data Proc API, REST: Cluster.ListUILinks {#ListUILinks}
+# Yandex Data Processing API, REST: Cluster.ListUILinks
 
-Retrieves a list of links to web interfaces being proxied by Data Proc UI Proxy.
+Retrieves a list of links to web interfaces being proxied by Yandex Data Processing UI Proxy.
 
 ## HTTP request
 
@@ -19,7 +35,9 @@ GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/ui_links
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Hadoop cluster. ||
+Required field. Required. ID of the Hadoop cluster.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.dataproc.v1.ListUILinksResponse}

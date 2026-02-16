@@ -5,12 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Начало работы с {{ compute-name }}
 
-Выберите инструкцию для знакомства с:
+{% include [compute-description](../../_includes/compute/compute-description.md) %}
 
-* {{ compute-name }}
-
-    * [Создание виртуальной машины Linux](quick-create-linux.md)    
-
-* {{ ig-name }}
-
-    * [Создание группы виртуальных машин](ig.md)
+Чтобы начать работать с сервисом, выберите подходящую инструкцию:
+* [Создание виртуальной машины Linux](quick-create-linux.md)
+* [Создание группы виртуальных машин](ig.md)

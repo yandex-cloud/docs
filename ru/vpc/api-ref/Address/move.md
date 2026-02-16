@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/addresses/{addressId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        addressId:
+          description: |-
+            **string**
+            Required field. ID of the address that is being moved.
+          type: string
+      required:
+        - addressId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to move address to.
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Address/move.md
 ---
 
-# Virtual Private Cloud API, REST: Address.Move {#Move}
+# Virtual Private Cloud API, REST: Address.Move
 
 Move an address to another folder
 
@@ -66,7 +93,7 @@ Required field. ID of the folder to move address to. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `externalIpv4Address`
     "externalIpv4Address": {
       "address": "string",
@@ -220,7 +247,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Description of the address. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Address labels as `key:value` pairs.
 No more than 64 per resource.

@@ -8,9 +8,20 @@ editable: false
 
 
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d620c0eb35d#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ mgl-name }} {#rules}
 
@@ -104,45 +115,17 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-Все цены указаны с включением НДС.
-
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
-### Вычислительные ресурсы инстансов {#prices-instance}
-
-Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md):
+Цена вычислительных ресурсов зависит от выбранной конфигурации [правил ревью кода](concepts/approval-rules.md).
 
 
-{% list tabs group=pricing %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|managed-gitlab }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-instance-resources.md](../_pricing/managed-gitlab/rub-instance-resources.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-instance-resources.md](../_pricing/managed-gitlab/kzt-instance-resources.md) %}
-
-{% endlist %}
-
-
-
-### Хранилище и резервные копии {#prices-storage}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub-storage.md](../_pricing/managed-gitlab/rub-storage.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt-storage.md](../_pricing/managed-gitlab/kzt-storage.md) %}
-
-{% endlist %}
 
 
 

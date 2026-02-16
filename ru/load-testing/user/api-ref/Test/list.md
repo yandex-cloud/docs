@@ -1,9 +1,70 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            ID of the folder to list tests in.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `page_size`, the service returns a [ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListTestsResponse.nextPageToken](#yandex.cloud.loadtesting.api.v1.ListTestsResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters tests listed in the response.
+            The filter expression may contain multiple field expressions joined by `AND`.
+            The field expression must specify:
+            1. The field name.
+            2. An operator:
+            - `=`, `!=`, `<`, `<=`, `>`, `>=`, `CONTAINS`, `:` for single values.
+            - `IN` or `NOT IN` for lists of values.
+            3. The value. String values must be encosed in `"`, boolean values are {`true`, `false`}, timestamp values in ISO-8601.
+            Currently supported fields:
+            - `id` [yandex.cloud.loadtesting.api.v1.test.Test.id](#yandex.cloud.loadtesting.api.v1.test.Test)
+            - operators: `=`, `!=`, `IN`, `NOT IN`
+            - `details.name` [yandex.cloud.loadtesting.api.v1.test.Details.name](#yandex.cloud.loadtesting.api.v1.test.Details)
+            - operators: `=`, `!=`, `IN`, `NOT IN`, `CONTAINS`
+            - `details.tags.<TAG_NAME>` [yandex.cloud.loadtesting.api.v1.test.Details.tags](#yandex.cloud.loadtesting.api.v1.test.Details)
+            - operators: `:`
+            - `summary.status` [yandex.cloud.loadtesting.api.v1.test.Summary.status](#yandex.cloud.loadtesting.api.v1.test.Summary)
+            - operators: `=`, `!=`, `IN`, `NOT IN`
+            - `summary.is_finished` [yandex.cloud.loadtesting.api.v1.test.Summary.isFinished](#yandex.cloud.loadtesting.api.v1.test.Summary)
+            - operators: `=`
+            - `summary.created_at` [yandex.cloud.loadtesting.api.v1.test.Summary.createdAt](#yandex.cloud.loadtesting.api.v1.test.Summary)
+            - operators: `<`, `<=`, `>`, `>=`
+            - `summary.created_by` [yandex.cloud.loadtesting.api.v1.test.Summary.createdBy](#yandex.cloud.loadtesting.api.v1.test.Summary)
+            - operators: `=`, `!=`, `IN`, `NOT IN`
+            Examples:
+            - `summary.status IN ("DONE", "ERROR") AND details.tags.author:"yandex"`
+            - `summary.is_finished = true AND details.name CONTAINS "nightly-test"`
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Test/list.md
 ---
 
-# Load Testing API, REST: Test.List {#List}
+# Load Testing API, REST: Test.List
 
 Retrieves the list of test in the specified folder.
 
@@ -82,14 +143,7 @@ Examples:
             "anonymousAgent": "boolean"
             // end of the list of possible fields
           },
-          "files": {
-            // Includes only one of the fields `objectStorage`
-            "objectStorage": {
-              "bucket": "string",
-              "name": "string"
-            }
-            // end of the list of possible fields
-          }
+          "files": "object"
         }
       ],
       "details": {
@@ -176,7 +230,7 @@ Configuration of the test.
 
 A test can have multiple configurations if it can be
 executed on multiple agents simultaneously. For more information, see
-[Load testing using multiple agents](docs/load-testing/tutorials/loadtesting-multiply). ||
+[Load testing using multiple agents](/docs/load-testing/tutorials/loadtesting-multiply). ||
 || details | **[Details](#yandex.cloud.loadtesting.api.v1.test.Details)**
 
 Test meta information. Name, description, etc. ||
@@ -200,7 +254,7 @@ ID of the config. ||
 || agentSelector | **[AgentSelector](#yandex.cloud.loadtesting.api.v1.test.AgentSelector)**
 
 Agent selection criterion. ||
-|| files | **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**
+|| files | **object** (map<**string**, **[FilePointer](#yandex.cloud.loadtesting.api.v1.test.FilePointer)**>)
 
 Additional files to be used during test execution, represented as `rel_path:file` pairs.
 
@@ -354,14 +408,15 @@ Status of the test.
 - `POST_PROCESSING`: Execution stage: results post-processing.
 - `FAILED`: Test has failed due to some error.
 - `STOPPING`: Test is being stopped.
-- `STOPPED`: Test has been stopped.
+- `STOPPED`: Test has been stopped by user.
 - `AUTOSTOPPED`: Test has been stopped automatically by satisfying autostop condition.
 - `WAITING`: Execution stage: waiting for a trigger to start.
 - `DELETING`: Test is being deleted.
 - `LOST`: Test status has not been reported in a while during execution stage.
 
   Means that either an agent is too busy to send it, got offline, or failed without
-reporting a final status. ||
+reporting a final status.
+- `CANCELLED`: Test has been cancelled. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.

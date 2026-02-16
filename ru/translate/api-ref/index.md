@@ -1,11 +1,19 @@
 ---
 editable: false
-sourcePath: ru/_api-ref/ai/translate/api-ref/index.md
+sourcePath: en/_api-ref/ai/translate/v2/api-ref/index.md
 ---
 
-# Yandex Translation API v2
-Сервис не оперирует ресурсами. Все методы сервиса представлены на странице [Translation](Translation/).
+# Translate API v2: REST reference
 
-Ресурс | Описание
---- | ---
-[Translation](Translation/index.md) | Набор методов для сервиса Yandex Translate.
+The service does not operate with resources.
+
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/ai/translate/v2).
+
+**Service URL**: `https://translate.{{ api-host }}`
+
+#|
+||Service | Description ||
+|| [Translation](Translation/index.md) | A set of methods for the Translate service.
+
+Make sure you send your [authentication](/docs/translate/api-ref/authentication) credentials in the `Authorization` header of each request. ||
+|#

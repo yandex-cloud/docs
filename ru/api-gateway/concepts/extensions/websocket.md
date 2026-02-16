@@ -5,16 +5,16 @@ description: Чтобы подключиться к API-шлюзу по прот
 
 # Поддержка протокола WebSocket
 
-{% note info %}
-
-{% include [preview-pp.md](../../../_includes/preview-pp.md) %}
-
-{% endnote %}
+{% include [note-preview-pricing.md](../../../_includes/mdb/mgp/cloud-storage-preview.md) %}
 
 Чтобы подключиться к API-шлюзу по протоколу WebSocket, клиентские приложения должны сделать [GET-запрос](https://www.rfc-editor.org/rfc/rfc6455#section-1.3) на URI, для которого настроены интеграции в OpenAPI-спецификации. Интеграции вызываются, когда выполняются следующие операции:
 * `x-yc-apigateway-websocket-connect` — открытие соединения.
 * `x-yc-apigateway-websocket-message` — отправка сообщений через веб-сокет.
 * `x-yc-apigateway-websocket-disconnect` — закрытие соединения.
+
+{{ api-gw-name }} не ограничивает количество WebSocket-соединений, которые подключены к одному API-шлюзу.
+
+Сообщения, отправленные клиентам (например, с помощью вызова gRPC API [Send](../../apigateway/websocket/api-ref/grpc/Connection/send.md)), и пинги внутри WebSocket-соединений не тарифицируются.
 
 ## Операция x-yc-apigateway-websocket-connect {#connect}
 
@@ -29,7 +29,7 @@ description: Чтобы подключиться к API-шлюзу по прот
 
 Если в качестве интеграции используется функция {{ sf-full-name }}, перечисленная выше информация про веб-сокет передается в виде отдельных полей внутри `requestContext` [JSON-структуры](../../../functions/concepts/function-invoke.md#request) запроса к функции.
 
-Для данной операции можно настроить [авторизацию с помощью функции](../extensions/function-authorizer.md). Если авторизация будет неуспешной, соединение не установится и клиент получит ответ с HTTP-кодом `401` ил `403`.
+Для данной операции можно настроить [авторизацию с помощью функции](../extensions/function-authorizer.md). Если авторизация будет неуспешной, соединение не установится и клиент получит ответ с HTTP-кодом `401` или `403`.
 
 Клиенты могут использовать заголовок `Sec-WebSocket-Protocol` согласно [RFC](https://www.rfc-editor.org/rfc/rfc6455#page-12), чтобы запрашивать у API-шлюза поддержку подпротоколов. API-шлюз передаст этот заголовок в HTTP-запросе к интеграции.
 
@@ -117,6 +117,6 @@ description: Чтобы подключиться к API-шлюзу по прот
       service_account_id: ajehfe56h**********
 ```
 
-#### См. также
+## Примеры использования {#examples}
 
-* [Работа с API-шлюзом по протоколу WebSocket](../../tutorials/api-gw-websocket.md).
+* [{#T}](../../tutorials/api-gw-websocket.md)

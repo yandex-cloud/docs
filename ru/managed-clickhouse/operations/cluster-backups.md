@@ -8,7 +8,7 @@ description: Вы можете создавать резервные копии 
 
 Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
 
-Также {{ mch-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) для нее.
+Также {{ mch-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала резервного копирования](#set-backup-window) и [срок хранения](#set-backup-retain) для нее.
 
 ## Создать резервную копию {#create-backup}
 
@@ -22,7 +22,8 @@ description: Вы можете создавать резервные копии 
 
 - Консоль управления {#console}
   
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -50,11 +51,53 @@ description: Вы можете создавать резервные копии 
   
       Имя и идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы создать резервную копию, воспользуйтесь методом REST API [backup](../api-ref/Cluster/backup.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Backup](../api-ref/grpc/Cluster/backup.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>:backup'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Backup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -62,12 +105,21 @@ description: Вы можете создавать резервные копии 
 
 ## Восстановить кластер из резервной копии {#restore}
 
+{% note warning %}
+
+Для кластеров с неподдерживаемой [версией СУБД](../concepts/update-policy.md#versioning-policy) восстановление из резервных копий недоступно.
+
+{% endnote %}
+
 Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в облаке не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится. Средняя скорость восстановления из резервной копии — 10 МБайт/с на каждое ядро БД.
 
-Вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком. Восстановить кластер целиком можно только с помощью CLI или API.
+Из резервной копии вы можете восстановить как отдельный [шард](../concepts/sharding.md), так и весь кластер целиком.
 
 
-Перед началом работы [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше. Она нужна, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
+
+* [managed-clickhouse.restorer](../../iam/roles-reference.md#managed-clickhouse-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
 
 
 {% include [mch-mergetree-conversion](../../_includes/mdb/mch-restore-tables-conversion-alert.md) %}
@@ -77,18 +129,33 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы восстановить из резервной копии существующий кластер:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+
+      Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+
+      Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+
+      Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный ранее кластер:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно восстановить кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
-  1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
+
+      Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+
+      Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+
+      Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
 
   {{ mch-name }} запустит операцию создания кластера из резервной копии.
@@ -114,82 +181,304 @@ description: Вы можете создавать резервные копии 
       ```
 
       ```text
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-      |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-      | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
-      | ...                      |                     |                      |                     |             |       |           |
-      +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      |            ID        |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+      | mdb29m1kk9v2******** | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+      | ...                  |                     |                      |                     |             |       |           |
+      +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
       ```
 
-  1. Чтобы восстановить отдельный шард, передайте идентификатор одной резервной копии:
+  1. Чтобы восстановить кластер, выполните команду в зависимости от резервной копии:
+
+      * Если резервная копия создавалась сразу на все шарды кластера ([актуальный вариант создания резервных копий](../concepts/backup.md#size)), передайте в команде идентификатор этой резервной копии:
+
+          
+          ```bash
+          {{ yc-mdb-ch }} cluster restore \
+             --backup-id=<идентификатор_кластера>:<идентификатор_резервной_копии> \
+             --name=<имя_кластера> \
+             --environment=<окружение> \
+             --network-name=<имя_сети> \
+             --host type=<тип_хоста>,`
+                   `zone-id=<зона_доступности>,`
+                   `subnet-id=<идентификатор_подсети> \
+             --shard name=<имя_шарда>,`
+                   `weight=<вес_шарда> \
+             --clickhouse-disk-size=<размер_хранилища_ГБ> \
+             --clickhouse-disk-type=<тип_диска> \
+             --clickhouse-resource-preset=<класс_хоста>
+          ```
 
 
-      ```bash
-      {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<идентификатор_резервной_копии> \
-         --name=<имя_кластера> \
-         --environment=<окружение> \
-         --network-name=<имя_сети> \
-         --host type=<тип_хоста>,`
-               `zone-id=<зона_доступности>,`
-               `subnet-id=<идентификатор_подсети> \
-         --clickhouse-disk-size=<размер_хранилища_ГБ> \
-         --clickhouse-disk-type=<тип_диска> \
-         --clickhouse-resource-preset=<класс_хоста>
-      ```
+          Где:
+
+          * `--backup-id` — идентификаторы кластера и резервной копии.
+          * `--name` — имя кластера.
+          * `--environment` — окружение:
+
+              * `PRODUCTION` — для стабильных версий ваших приложений.
+              * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+
+          * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
+          * `--host` — параметры хоста:
+
+              * `type` — тип хоста: `clickhouse` или `zookeeper`.
+              * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+              * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+
+          * `--shard` — параметры шарда:
+
+              * `name` — имя шарда.
+              * `weight` — вес шарда. Минимальное значение — `0`.
+
+              Чтобы восстановить отдельный шард кластера, укажите параметры только того шарда, который нужно восстановить. Имя шарда должно соответствовать имени шарда в исходном кластере.
+
+              Чтобы восстановить кластер целиком, параметры шардов можно не указывать.
+
+          * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
+          * `--disk-size` — размер хранилища в гигабайтах.
+          * `--disk-type` — [тип диска](../concepts/storage.md):
+
+              
+              * `network-hdd`;
+              * `network-ssd`;
+              * `local-ssd`;
+              * `network-ssd-nonreplicated`;
+              * `network-ssd-io-m3`.
 
 
-      Где:
+      * Если резервные копии создавались отдельно на каждый шард кластера ([устаревший вариант создания резервных копий](../concepts/backup.md#size)), чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера:
 
-      * `--backup-id` — идентификатор [резервной копии](../concepts/backup.md).
-      * `--name` — имя кластера.
-      * `--environment` — окружение:
+          ```bash
+          {{ yc-mdb-ch }} cluster restore \
+             --backup-id=<список_идентификаторов_резервных_копий_всех_шардов> \
+             ...
+          ```
 
-          * `PRODUCTION` — для стабильных версий ваших приложений.
-          * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+- REST API {#api}
 
-      * `--network-name` — [имя сети](../../vpc/concepts/network.md#network).
-      * `--host` — параметры хоста:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-          * `type` — тип хоста: `clickhouse` или `zookeeper`.
-          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
-          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      * `--resource-preset` — [класс хоста](../concepts/instance-types.md#available-flavors).
-      * `--disk-size` — размер хранилища в гигабайтах.
-      * `--disk-type` — [тип диска](../concepts/storage.md):
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
-          * `network-hdd`;
-          * `network-ssd`;
+            ```json
+            {
+              "backupId": "<идентификатор_кластера>:<идентификатор_резервной_копии>",
+              "additionalBackupIds": [
+                <список_дополнительных_идентификаторов_резервных_копий>
+              ],
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "configSpec": { <конфигурация_кластера> },
+              "hostSpecs": [
+                {
+                  "type": "<тип_хоста>",
+                  "zoneId": "<зона_доступности>",
+                  "subnetId": "<идентификатор_подсети>",
+                  "shardName": "<имя_шарда>",
+                  "assignPublicIp": <публичный_доступ_к_хосту>
+                },
+                { <аналогичный_набор_настроек_для_хоста_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_хоста_N> }
+              ],
+              "shardSpecs: [
+                {
+                  "name": "<имя_шарда>",
+                  "configSpec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>"
+                    }
+                }
+              ],
+              "folderId": "<идентификатор_каталога>",
+              "networkId": "<идентификатор_сети>",
+              "serviceAccountId": "<идентификатор_сервисного аккаунта>",
+              "securityGroupIds": [
+                <список_идентификаторов_групп_безопасности>
+              ],
+              "deletionProtection": <защита_кластера_от_удаления>
+            }
+            ```
 
+            Где:
 
-          * `local-ssd`;
-          * `network-ssd-nonreplicated`.
+            * `backupId` — идентификаторы кластера и резервной копии.
 
+                Будет восстановлен весь кластер целиком.
 
+            * `additionalBackupIds` — массив, содержащий список дополнительных идентификаторов резервных копий. Параметр используется, если резервные копии создавались отдельно для каждого шарда (устаревший вариант создания резервных копий).
 
-  1. Чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера:
+                Будут восстановлены шарды, для которых были созданы эти резервные копии. Чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера.
 
-      ```bash
-      {{ yc-mdb-ch }} cluster restore \
-         --backup-id=<список_идентификаторов_резервных_копий_всех_шардов> \
-         ...
-      ```
+            * `name` — имя кластера.
+            * `environment` — окружение:
 
-- API {#api}
+                * `PRODUCTION` — для стабильных версий ваших приложений.
+                * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
-  Чтобы восстановить кластер из резервной копии, воспользуйтесь методом REST API [restore](../api-ref/Cluster/restore.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md) и передайте в запросе:
+            * `configSpec` — конфигурация кластера {{ CH }}. Подробное описание параметров см. в описании метода [Cluster.restore](../api-ref/Cluster/restore.md).
+            * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
 
-  * Идентификатор резервной копии нужного шарда в параметре `backupId`. Чтобы узнать идентификатор, [получите список резервных копий в кластере](#list-backups).
-  * Имя нового кластера, который будет содержать восстановленные из резервной копии данные, в параметре `name`. Имя кластера должно быть уникальным в рамках каталога.
-  * Окружение кластера в параметре `environment`.
-  * Конфигурацию кластера в параметре `configSpec`.
-  * Конфигурацию хостов кластера в одном или нескольких параметрах `hostSpecs`.
-  * Идентификатор сети в параметре `networkId`.
+                * `type` — тип хоста.
+                * `zoneId` — зона доступности.
+                * `subnetId` — идентификатор подсети.
+                * `shardName` — имя шарда.
+                * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
-  Чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех остальных шардов кластера в параметре `additionalBackupIds`.
+            * `shardSpecs` — массив, содержащий настройки восстанавливаемых шардов:
+
+              * `name` — имя шарда. Значение должно соответствовать имени шарда в исходном кластере.
+              * `configSpec.clickhouse.weight` — вес шарда. Минимальное значение — `0`.
+
+              Чтобы восстановить отдельный шард кластера, укажите параметры только того шарда, который нужно восстановить.
+
+              Чтобы восстановить кластер целиком, параметр можно не указывать.
+
+              Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
+
+            * `folderId` — идентификатор каталога, в котором будет создан кластер.
+            * `networkId` — идентификатор сети, в которой будет создан кластер.
+            * `serviceAccountId` — идентификатор сервисного аккаунта.
+            * `securityGroupIds` — массив, содержащий список идентификаторов групп безопасности.
+            * `deletionProtection` — опция, которая управляет защитой кластера от непреднамеренного удаления.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            Идентификатор кластера и идентификатор резервной копии можно запросить со [списком резервных копий в каталоге](#list-backups).
+
+        1. Выполните запрос:
+
+            ```bash
+            curl \
+                --request POST \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --header "Content-Type: application/json" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters:restore' \
+                --data "@body.json"
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "backup_id": "<идентификатор_кластера>:<идентификатор_резервной_копии>",
+              "additional_backup_ids": [
+                <список_дополнительных_идентификаторов_резервных_копий>
+              ],
+              "name": "<имя_кластера>",
+              "environment": "<окружение>",
+              "config_spec": { <конфигурация_кластера> },
+              "host_specs": [
+                {
+                  "type": "<тип_хоста>",
+                  "zone_id": "<зона_доступности>",
+                  "subnet_id": "<идентификатор_подсети>",
+                  "shard_name": "<имя_шарда>",
+                  "assign_public_ip": <публичный_доступ_к_хосту>
+                },
+                { <аналогичный_набор_настроек_для_хоста_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_хоста_N> }
+              ],
+              "shard_specs: [
+                {
+                  "name": "<имя_шарда>",
+                  "config_spec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>"
+                    }
+                }
+              ],
+              "folder_id": "<идентификатор_каталога>",
+              "network_id": "<идентификатор_сети>",
+              "service_account_id": "<идентификатор_сервисного аккаунта>",
+              "security_group_ids": [
+                <список_идентификаторов_групп_безопасности>
+              ],
+              "deletion_protection": <защита_кластера_от_удаления>
+            }
+            ```
+
+            Где:
+
+            * `backup_id` — идентификаторы кластера и резервной копии.
+
+                Будет восстановлен весь кластер целиком.
+
+            * `additional_backup_ids` — массив, содержащий список дополнительных идентификаторов резервных копий. Параметр используется, если резервные копии создавались отдельно для каждого шарда (устаревший вариант создания резервных копий).
+
+                Будут восстановлены шарды, для которых были созданы эти резервные копии. Чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера.
+
+            * `name` — имя кластера.
+            * `environment` — окружение:
+
+                * `PRODUCTION` — для стабильных версий ваших приложений.
+                * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
+
+            * `config_spec` — конфигурация кластера {{ CH }}. Подробное описание параметров см. в описании вызова [ClusterService/Restore](../api-ref/grpc/Cluster/restore.md).
+            * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+                * `type` — тип хоста.
+                * `zone_id` — зона доступности.
+                * `subnet_id` — идентификатор подсети.
+                * `shard_name` — имя шарда.
+                * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+            * `shard_specs` — массив, содержащий настройки восстанавливаемых шардов:
+
+              * `name` — имя шарда. Значение должно соответствовать имени шарда в исходном кластере.
+              * `config_spec.clickhouse.weight` — вес шарда. Минимальное значение — `0`.
+
+              Чтобы восстановить отдельный шард кластера, укажите параметры только того шарда, который нужно восстановить.
+
+              Чтобы восстановить кластер целиком, параметр можно не указывать.
+
+              Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
+
+            * `folder_id` — идентификатор каталога, в котором будет создан кластер.
+            * `network_id` — идентификатор сети, в которой будет создан кластер.
+            * `service_account_id` — идентификатор сервисного аккаунта.
+            * `security_group_ids` — массив, содержащий список идентификаторов групп безопасности.
+            * `deletion_protection` — опция, которая управляет защитой кластера от непреднамеренного удаления.
+
+                {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            Идентификатор кластера и идентификатор резервной копии можно запросить со [списком резервных копий в каталоге](#list-backups).
+
+        1. Выполните запрос:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d @ \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ClusterService.Restore \
+                < body.json
+            ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -200,17 +489,19 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить список резервных копий кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
 
   Чтобы получить список всех резервных копий в каталоге:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
   В этих списках содержится следующая информация:
 
-  * Имя резервной копии.
-  * Шард-источник.
+  * Идентификатор резервной копии.
+  * Имена шардов-источников.
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`Automated`) или ручная (`Manual`).
   * Время начала создания резервной копии по UTC (Coordinated Universal Time).
@@ -229,12 +520,12 @@ description: Вы можете создавать резервные копии 
   ```
 
   ```text
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-  |            ID            |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
-  | c9qud5etkq19********:... | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
-  | c9qud5etkq19********:... | 2023-12-07 08:17:04 | c9qud5etkq19******** | 2023-12-07 08:15:54 | shard1      | 30 KB | MANUAL    |
-  +--------------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  |            ID        |     CREATED AT      |  SOURCE CLUSTER ID   |     STARTED AT      | SHARD NAMES | SIZE  |   TYPE    |
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
+  | mdb29m1kk9v2******** | 2023-12-08 00:09:17 | c9qud5etkq19******** | 2023-12-08 00:08:06 | shard1      | 30 KB | AUTOMATED |
+  | mdb9sds0ast2******** | 2023-12-07 08:17:04 | c9qud5etkq19******** | 2023-12-07 08:15:54 | shard1      | 30 KB | MANUAL    |
+  +----------------------+---------------------+----------------------+---------------------+-------------+-------+-----------+
   ```
 
   В выведенной таблице содержится следующая информация:
@@ -243,20 +534,104 @@ description: Вы можете создавать резервные копии 
   * Время окончания создания резервной копии по UTC (Coordinated Universal Time).
   * Идентификатор кластера, для которого создавалась эта резервная копия.
   * Время начала создания резервной копии по UTC.
-  * Имя шарда-источника.
+  * Имена шардов-источников.
   * Размер резервной копии.
   * Тип резервной копии: автоматическая (`AUTOMATED`) или ручная (`MANUAL`).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить список резервных копий кластера, воспользуйтесь методом REST API [listBackups](../api-ref/Cluster/listBackups.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListBackups](../api-ref/grpc/Cluster/listBackups.md) и передайте в запросе идентификатор кластера в параметре `clusterId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы получить список резервных копий всех кластеров {{ mch-name }} в каталоге, воспользуйтесь методом REST API [list](../api-ref/Backup/list.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/List](../api-ref/grpc/Backup/list.md) и передайте в запросе идентификатор каталога в параметре `folderId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+    1. Чтобы получить список резервных копий кластера {{ CH }}:
+
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/backups'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#responses).
+
+    1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
+
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups' \
+                --url-query folderId=<идентификатор_каталога>
+            ```
+
+            
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Чтобы получить список резервных копий кластера {{ CH }}:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                        "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.ClusterService.ListBackups
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.clickhouse.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
+
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                        "folder_id": "<идентификатор_каталога>"
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.clickhouse.v1.BackupService.List
+            ```
+
+            
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.clickhouse.v1.ListBackupsResponse).
 
 {% endlist %}
-
 
 ## Получить информацию о резервной копии {#get-backup}
 
@@ -265,11 +640,13 @@ description: Вы можете создавать резервные копии 
 - Консоль управления {#console}
 
   Чтобы получить информацию о резервной копии существующего кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного ранее кластера:
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находился кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.clickhouse.switch_backups }}**.
 
 - CLI {#cli}
@@ -281,16 +658,57 @@ description: Вы можете создавать резервные копии 
   Чтобы получить данные о резервной копии кластера {{ CH }}, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} backup get <идентификатор_резервной_копии>
+  {{ yc-mdb-ch }} backup get <идентификатор_кластера>:<идентификатор_резервной_копии>
   ```
 
-  Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+  Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы получить информацию о резервной копии, воспользуйтесь методом REST API [get](../api-ref/Backup/get.md) для ресурса [Backup](../api-ref/Backup/index.md) или вызовом gRPC API [BackupService/Get](../api-ref/grpc/Backup/get.md) и передайте в запросе идентификатор резервной копии в параметре `backupId`.
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы узнать идентификатор, [получите список резервных копий](#list-backups).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "backup_id": "<идентификатор_кластера>:<идентификатор_резервной_копии>"
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.BackupService.Get
+        ```
+
+        Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.clickhouse.v1.Backup).
 
 {% endlist %}
 
@@ -317,16 +735,291 @@ description: Вы можете создавать резервные копии 
 
   Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы задать время начала резервного копирования, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Его можно получить [со списком кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новое время начала резервного копирования в параметре `configSpec.backupWindowStart`.
-    * Список изменяемых полей конфигурации кластера в параметре `updateMask` (в данном случае — `configSpec.backupWindowStart`).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                      "updateMask": "configSpec.backupWindowStart",
+                      "configSpec": {
+                        "backupWindowStart": {
+                          "hours": "<часы>",
+                          "minutes": "<минуты>",
+                          "seconds": "<секунды>",
+                          "nanos": "<наносекунды>"
+                        }
+                      }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае указан только один параметр: `configSpec.backupWindowStart`.
+
+        * {% include [backup-windows-start-rest](../../_includes/mdb/api/backup-windows-start-rest.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#responses).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.backup_window_start"
+                    ]
+                  },
+                  "config_spec": {
+                    "backup_window_start": {
+                      "hours": "<часы>",
+                      "minutes": "<минуты>",
+                      "seconds": "<секунды>",
+                      "nanos": "<наносекунды>"
+                    }
+                  }
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае указан только один параметр: `config_spec.backup_window_start`.
+
+        * {% include [backup-windows-start-grpc](../../_includes/mdb/api/backup-windows-start-grpc.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
+
+## Задать срок хранения автоматических резервных копий {#set-backup-retain}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+  
+  В [консоли управления]({{ link-console-main }}) задать срок хранения автоматических резервных копий можно при [создании](cluster-create.md) или [изменении кластера](update.md).
+  
+- CLI {#cli}
+
+  {% include [cli-install](../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Чтобы задать срок хранения автоматических резервных копий, передайте нужное значение в формате `HH:MM:SS` в аргументе `--backup-retain-period-days` команды изменения кластера:
+
+  ```bash
+  {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+     --backup-retain-period-days=<срок_хранения_автоматических_резервных_копий_в_днях>
+  ```
+  
+  Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+      ```bash
+      curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+          --data '{
+                    "updateMask": "configSpec.backupRetainPeriodDays",
+                    "configSpec": {
+                      "backupRetainPeriodDays": <количество_дней>
+                    }
+                  }'
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        В данном случае указан только один параметр: `configSpec.backupRetainPeriodDays`.
+
+      * `configSpec.backupRetainPeriodDays` — новый срок хранения автоматических резервных копий в днях.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "update_mask": {
+                    "paths": [
+                      "config_spec.backup_retain_period_days"
+                    ]
+                  },
+                  "config_spec": {
+                    "backup_retain_period_days": <количество_дней>
+                  }
+                }' \
+          {{ api-host-mdb }}:{{ port-https }} \
+          yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+      ```
+
+      Где:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+        В данном случае указан только один параметр: `config_spec.backup_retain_period_days`.
+
+      * `config_spec.backup_retain_period_days` — новый срок хранения автоматических резервных копий в днях.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Удалить резервную копию {#delete-backup}
+
+{% note warning %}
+
+Удалить можно только резервные копии, созданные вручную.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_backups }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии и нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
+
+- CLI {#cli}
+  
+  {% include [cli-install](../../_includes/cli-install.md) %}
+  
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+  
+  Чтобы удалить резервную копию кластера:
+  
+  1. Посмотрите описание команды CLI для удаления резервной копии {{ CH }}:
+  
+      ```bash
+      {{ yc-mdb-ch }} backup delete --help
+      ```
+  
+  1. Запросите удаление резервной копии, указав ее идентификатор:
+  
+      ```bash
+      {{ yc-mdb-ch }} backup delete <идентификатор_кластера>:<идентификатор_резервной_копии>
+      ```
+
+      Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/<идентификатор_кластера>:<идентификатор_резервной_копии>'
+     ```
+
+     Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/backup_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "backup_id": "<идентификатор_кластера>:<идентификатор_резервной_копии>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.clickhouse.v1.BackupService.Delete
+     ```
+
+     Идентификатор кластера и идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/delete.md#yandex.cloud.operation.Operation).
+
+{% endlist %}  
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

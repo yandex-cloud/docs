@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.DeleteDashboardsNodeGroup {#DeleteDashboardsNodeGroup}
+# Managed Service for OpenSearch API, gRPC: ClusterService.DeleteDashboardsNodeGroup
 
 Deletes a Dashboards type host group.
 
@@ -15,21 +15,25 @@ Deletes a Dashboards type host group.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "name": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Dashboards type host group to delete. ||
+Required field. Name of the Dashboards type host group to delete.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -38,12 +42,12 @@ Required field. Name of the Dashboards type host group to delete. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string",
+    "cluster_id": "string",
     "name": "string"
   },
   // Includes only one of the fields `error`, `response`
@@ -63,13 +67,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -112,7 +116,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the OpenSearch cluster where the host group is being deleted. ||
 || name | **string**

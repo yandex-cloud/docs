@@ -1,9 +1,76 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
+    method: patch
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to update.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the device. The name must be unique within the registry.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the device.
+          type: string
+        topicAliases:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Alias of a device topic.
+            Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`.
+          type: object
+          additionalProperties:
+            type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/update.md
 ---
 
-# IoT Core Service, REST: Device.Update {#Update}
+# IoT Core Service, REST: Device.Update
 
 Updates the specified device.
 
@@ -31,7 +98,8 @@ To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/lis
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "topicAliases": "string"
+  "topicAliases": "object",
+  "labels": "object"
 }
 ```
 
@@ -53,11 +121,14 @@ Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
 Alias is an alternate name of a device topic assigned by the user. Map alias to canonical topic name prefix, e.g. `my/custom/alias` match to `$device/{id}/events`. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -89,15 +160,17 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topicAliases": "object",
     "status": "string",
     "monitoringData": {
       "lastAuthIp": "string",
       "lastAuthTime": "string",
       "lastPubActivityTime": "string",
       "lastSubActivityTime": "string",
-      "lastOnlineTime": "string"
-    }
+      "lastOnlineTime": "string",
+      "lastDisconnectTime": "string"
+    },
+    "labels": "object"
   }
   // end of the list of possible fields
 }
@@ -226,7 +299,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topicAliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -242,6 +315,9 @@ Status of the device.
 || monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
@@ -274,6 +350,14 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || lastOnlineTime | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| lastDisconnectTime | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

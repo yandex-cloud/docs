@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/passwords
+    method: get
+    path:
+      type: object
+      properties:
+        brokerId:
+          description: |-
+            **string**
+            Required field. ID of the broker to list passwords in.
+            To get a broker ID make a [BrokerService.List](/docs/iot-core/broker/api-ref/Broker/list#List) request.
+          type: string
+      required:
+        - brokerId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/broker/v1/broker/api-ref/Broker/listPasswords.md
 ---
 
-# IoT Core Broker Service, REST: Broker.ListPasswords {#ListPasswords}
+# IoT Core Broker Service, REST: Broker.ListPasswords
 
 Retrieves the list of passwords for the specified broker.
 

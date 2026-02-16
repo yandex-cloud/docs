@@ -2,145 +2,139 @@
 
 To transfer a database from {{ MY }} to {{ mmy-name }}:
 
-1. [Start data transfer](#start-transfer).
-1. [Finish data transfer](#finish-transfer).
+1. [Start the data transfer](#start-transfer).
+1. [Complete your data transfer](#finish-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Start data transfer {#start-transfer}
 
-1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
-1. Prepare the infrastructure and start the data transfer:
+## Required paid resources {#paid-resources}
 
-   {% list tabs group=instructions %}
+* {{ mmy-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../../managed-mysql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
 
-   - Manually {#manual}
 
-      1. Create a [{{ mmy-name }} target cluster](../../../managed-mysql/operations/cluster-create.md) in any suitable configuration. Note that:
+## Start the data transfer {#start-transfer}
 
-         * The {{ MY }} version must be the same or higher than the version in the source cluster.
+1. [Set up the source cluster](../../../data-transfer/operations/prepare.md#source-my).
+1. Set up your infrastructure and start the data transfer:
 
-            Transferring data with {{ MY }} major version upgrade is possible but not guaranteed. For more information, see the [{{ MY }} documentation](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
+    {% list tabs group=instructions %}
 
-            You [cannot](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html) perform migration while downgrading {{ MY }} version.
+    - Manually {#manual}
 
-         * [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
+        1. Create a [target {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-create.md) with any suitable configuration. In this case, the following applies:
 
-      1. [Prepare the target cluster](../../../data-transfer/operations/prepare.md#target-my).
+            * The {{ MY }} version must be the same as or higher than in the source cluster.
 
-      1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
+                Data transfer with a major {{ MY }} version upgrade is possible but not guaranteed. For more information, see [this {{ MY }} article](https://dev.mysql.com/doc/refman/8.0/en/faqs-migration.html).
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
+                Migration to an earlier {{ MY }} version is [not supported](https://dev.mysql.com/doc/refman/8.0/en/downgrading.html).
 
-            Specify the parameters for connecting to the source cluster.
+            * [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
 
-      1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
+        1. [Set up the target cluster](../../../data-transfer/operations/prepare.md#target-my).
 
-         * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
-         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-            Select a target cluster from the list and specify its connection settings.
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.on_premise.title }}`.
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_ type that will use the created endpoints.
-      1. [Activate](../../../data-transfer/operations/transfer.md#activate) your transfer.
+                Configure the source cluster connection settings.
 
-         {% note warning %}
+        1. [Create a target endpoint](../../../data-transfer/operations/endpoint/index.md#create):
 
-         Abstain from making any changes to the data schema in the source and target clusters when the data transfer is running. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
+            * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}**: `MySQL`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlTarget.connection.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
 
-         {% endnote %}
+                Select your target cluster from the list and specify its connection settings.
 
-   - {{ TF }} {#tf}
+        1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the _{{ dt-type-copy-repl }}_-type that will use the endpoints you created.
+        1. [Activate](../../../data-transfer/operations/transfer.md#activate) the transfer.
 
-      1. [Prepare the source cluster](../../../data-transfer/operations/prepare.md#source-my).
+            {% note warning %}
 
-      1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
-      1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
-      1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
-      1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
+            Avoid changing the data schema in either the source or target cluster while the transfer is in progress. For more information, see [{#T}](../../../data-transfer/operations/db-actions.md).
 
-      1. Download the [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-on-premise-mysql-to-cloud/blob/main/data-transfer-mysql-mmy.tf) configuration file to the same working directory.
+            {% endnote %}
 
-         This file describes:
+    - {{ TF }} {#tf}
 
-         * [Network](../../../vpc/concepts/network.md#network).
-         * [Subnet](../../../vpc/concepts/network.md#subnet).
-         * [Security group](../../../vpc/concepts/security-groups.md) and the rule required to connect to a cluster.
-         * {{ mmy-name }} target cluster.
-         * Source endpoint.
-         * Target endpoint.
-         * Transfer.
+        1. [Set up the source cluster](../../../data-transfer/operations/prepare.md#source-my).
 
-      1. Specify in the `data-transfer-mysql-mmy.tf` file:
+        1. {% include [terraform-install-without-setting](../../../_includes/mdb/terraform/install-without-setting.md) %}
+        1. {% include [terraform-authentication](../../../_includes/mdb/terraform/authentication.md) %}
+        1. {% include [terraform-setting](../../../_includes/mdb/terraform/setting.md) %}
+        1. {% include [terraform-configure-provider](../../../_includes/mdb/terraform/configure-provider.md) %}
 
-         * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
-         * Target cluster parameters also used as [target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+        1. Download the [data-transfer-mysql-mmy.tf](https://github.com/yandex-cloud-examples/yc-data-transfer-from-on-premise-mysql-to-cloud/blob/main/data-transfer-mysql-mmy.tf) configuration file to the same working directory.
 
-            * `target_mysql_version`: {{ MY }} version must be the same or higher than the version in the source cluster.
-            * `target_sql_mode`: [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode) must be the same as in the source cluster.
-            * `target_db_name`: Database name.
-            * `target_user` and `target_password`: Database owner username and password.
+            This file describes:
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+            * [Network](../../../vpc/concepts/network.md#network).
+            * [Subnet](../../../vpc/concepts/network.md#subnet).
+            * [Security group](../../../vpc/concepts/security-groups.md) and the rule permitting access to the cluster.
+            * {{ mmy-name }} target cluster.
+            * Source endpoint.
+            * Target endpoint.
+            * Transfer.
 
-         ```bash
-         terraform validate
-         ```
+        1. In the `data-transfer-mysql-mmy.tf` file, specify the following:
 
-         If there are any errors in the configuration files, {{ TF }} will point them out.
+            * [Source endpoint parameters](../../../data-transfer/operations/endpoint/source/mysql.md#on-premise).
+            * [Target endpoint parameters](../../../data-transfer/operations/endpoint/target/mysql.md#managed-service) inherited from the cluster configuration:
 
-      1. Create the required infrastructure:
+                * `target_mysql_version`: {{ MY }} version. Make sure it is the same as or higher than in the source cluster.
+                * `target_sql_mode`: [SQL mode](../../../managed-mysql/concepts/settings-list.md#setting-sql-mode). It must be the same as in the source cluster.
+                * `target_db_name`: Database name.
+                * `target_user` and `target_password`: Database owner username and password.
 
-         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
-         {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+            ```bash
+            terraform validate
+            ```
 
-         Once created, your transfer will be activated automatically.
+            {{ TF }} will show any errors found in your configuration files.
 
-   {% endlist %}
+        1. Create the required infrastructure:
 
-## Finish data transfer {#finish-transfer}
+            {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+            {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
+
+            The transfer will activate automatically upon creation.
+
+    {% endlist %}
+
+## Complete your data transfer {#finish-transfer}
 
 1. Wait for the transfer status to change to {{ dt-status-repl }}.
-1. Switch the source cluster to read-only and transfer the load to the target cluster.
-1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait for the **Maximum data transfer delay** metric to decrease to zero. This means that all changes that occurred in the source cluster after data was copied are transferred to the target cluster.
+1. Switch the source cluster to <q>read-only</q> mode and move the workload to the target cluster.
+1. On the [transfer monitoring](../../../data-transfer/operations/monitoring.md) page, wait until the **Maximum data transfer delay** value drops to zero. This indicates that the target cluster now contains all changes made in the source cluster after the data copy completed.
 1. [Deactivate](../../../data-transfer/operations/transfer.md#deactivate) the transfer and wait for its status to change to {{ dt-status-stopped }}.
 
-   For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
+    For more information about transfer statuses, see [Transfer lifecycle](../../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-   * [Delete the {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
-   * [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
-   * [Delete endpoints](../../../data-transfer/operations/endpoint/index.md#delete) for both the source and target.
+    1. [Delete the {{ mmy-name }} cluster](../../../managed-mysql/operations/cluster-delete.md).
+    1. [Delete the stopped transfer](../../../data-transfer/operations/transfer.md#delete).
+    1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
 
 - {{ TF }} {#tf}
 
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `data-transfer-mysql-mmy.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the configuration file `data-transfer-mysql-mmy.tf` will be deleted.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 
 
-For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing MySQL data using {{ data-transfer-full-name }}](../../../tutorials/dataplatform/sync-mysql.md).
+For a real example of {{ MY }} database migration using {{ data-transfer-name }}, see [Syncing data from using {{ data-transfer-full-name }}](../../../tutorials/dataplatform/sync-mysql.md).
 

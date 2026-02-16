@@ -8,11 +8,6 @@ description:
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
     документе <a href="https://yandex.ru/legal/cloud_sla_vision">Уровень
     обслуживания Yandex Vision</a>.
-meta:
-  title: Yandex Vision OCR
-  description: >-
-    Yandex Vision OCR — сервис компьютерного зрения для распознавания текста на
-    изображениях.
 links:
   - title: Начало работы
     description: Отправьте ваше изображение на анализ
@@ -35,3 +30,16 @@ links:
   - title: Правила тарификации
     description: Цены и правила расчета стоимости услуг сервиса
     href: pricing
+meta:
+  title: Yandex Vision OCR
+  description: >-
+    Yandex Vision OCR — сервис компьютерного зрения для распознавания текста на
+    изображениях.
+  keywords:
+    - '{{ vision-full-name }}'
+    - сервис {{ vision-name }}
+    - сервис компьютерного зрения
+    - компьютерное зрение
+    - сервис по распознаванию текста на изображениях
+    - распознавание текста на изображениях
+    - распознавание текста в файлах PDF

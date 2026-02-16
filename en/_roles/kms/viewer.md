@@ -6,4 +6,4 @@ Users with this role can:
 * View information on [digital signature key pairs](../../kms/concepts/asymmetric-signature-key.md) and on access permissions assigned to them.
 * View details on the Key Management Service [quotas](../../kms/concepts/limits.md#kms-quotas).
 
-This role also includes the `kms.auditor` permissions.
+This role includes the `kms.auditor` permissions.

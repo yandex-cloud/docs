@@ -10,13 +10,14 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](basics.md)
 * [{#T}](community-for-students.md)
 * [{#T}](automation-community-settings.md)
-* [{#T}](data-proc-integration.md)
+* [{#T}](data-processing-integration.md)
 
 ## Разработка {#development}
 
 * [{#T}](video-recognition.md)
 * [{#T}](regular-launch.md)
 * [{#T}](batch-code-execution.md)
+* [{#T}](data-from-ch-geocoder.md)
 * [{#T}](s3-to-datasphere.md)
 * [{#T}](mlflow-datasphere.md)
 
@@ -26,13 +27,13 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](node-from-docker.md)
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
-* [{#T}](yagpt-tuning.md)
-* [{#T}](yagpt-tuning-classifier.md)
 * [{#T}](stable-diffusion.md)
+* [{#T}](tg-bot-assistant.md)
 
 ## Аналитика {#analytics}
 
 * [{#T}](data-from-metrica-yc-visualization.md)
+* [{#T}](data-from-appmetrica-yc-visualization.md)
 * [{#T}](yq.md)
 * [{#T}](yq-storage.md)
 * [{#T}](yq-clickhouse.md)

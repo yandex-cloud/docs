@@ -1,9 +1,11 @@
 ---
+title: Квоты и лимиты в {{ datalens-full-name }}
+description: Из статьи вы узнаете, какие квоты и лимиты действуют в {{ datalens-full-name }}.
 editable: false
 ---
 
 
-# Квоты и лимиты в {{ datalens-name }}
+# Квоты и лимиты в {{ datalens-full-name }}
 
 
 

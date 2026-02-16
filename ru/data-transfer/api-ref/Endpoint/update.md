@@ -1,9 +1,2029 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
+    method: patch
+    path:
+      type: object
+      properties:
+        endpointId:
+          description: |-
+            **string**
+            Identifier of the endpoint to be updated.
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            The new endpoint name. Must be unique within the folder.
+          type: string
+        description:
+          description: |-
+            **string**
+            The new description for the endpoint.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Endpoint labels as `key:value` pairs.
+            For details about the concept, see [documentation]({{ api-url-prefix
+            }}/resource-manager/concepts/labels).
+          type: object
+          additionalProperties:
+            type: string
+        settings:
+          description: |-
+            **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
+            The new endpoint settings.
+          $ref: '#/definitions/EndpointSettings'
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+      additionalProperties: false
+    definitions:
+      TLSConfig:
+        type: object
+        properties:
+          caCertificate:
+            description: |-
+              **string**
+              CA certificate
+              X.509 certificate of the certificate authority which issued the server's
+              certificate, in PEM format. When CA certificate is specified TLS is used to
+              connect to the server.
+            type: string
+      TLSMode:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `enabled`.
+            type: undefined
+            format: empty
+          enabled:
+            description: |-
+              **[TLSConfig](#yandex.cloud.datatransfer.v1.endpoint.TLSConfig)**
+              Includes only one of the fields `enabled`.
+            $ref: '#/definitions/TLSConfig'
+        oneOf:
+          - required:
+              - disabled
+          - required:
+              - enabled
+      OnPremiseMysql:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Database port
+            type: string
+            format: int64
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          tlsMode:
+            description: |-
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+              TLS settings for server connection. Disabled by default.
+            $ref: '#/definitions/TLSMode'
+      ConnectionManagerConnection:
+        type: object
+        properties:
+          connectionId:
+            description: '**string**'
+            type: string
+      MysqlConnection:
+        type: object
+        properties:
+          mdbClusterId:
+            description: |-
+              **string**
+              Managed Service for MySQL cluster ID
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            type: string
+          onPremise:
+            description: |-
+              **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
+              Connection options for on-premise MySQL
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/OnPremiseMysql'
+          connectionManagerConnection:
+            description: |-
+              **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/ConnectionManagerConnection'
+        oneOf:
+          - required:
+              - mdbClusterId
+          - required:
+              - onPremise
+          - required:
+              - connectionManagerConnection
+      Secret:
+        type: object
+        properties:
+          raw:
+            description: |-
+              **string**
+              Raw secret value
+              Includes only one of the fields `raw`.
+            type: string
+        oneOf:
+          - required:
+              - raw
+      MysqlObjectTransferSettings:
+        type: object
+        properties:
+          view:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Views
+              CREATE VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          routine:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Routines
+              CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          trigger:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Triggers
+              CREATE TRIGGER ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          tables:
+            description: |-
+              **enum** (ObjectTransferStage)
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+      MysqlSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
+              Database connection settings
+            $ref: '#/definitions/MysqlConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+              You can leave it empty, then it will be possible to transfer tables from several
+              databases at the same time from this source.
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for database access.
+            $ref: '#/definitions/Secret'
+          timezone:
+            description: |-
+              **string**
+              Database timezone
+              Is used for parsing timestamps for saving source timezones. Accepts values from
+              IANA timezone database. Default: local timezone.
+            default: local timezone
+            type: string
+          objectTransferSettings:
+            description: |-
+              **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
+              Schema migration
+              Select database objects to be transferred during activation or deactivation.
+            $ref: '#/definitions/MysqlObjectTransferSettings'
+          includeTablesRegex:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          excludeTablesRegex:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          serviceDatabase:
+            description: |-
+              **string**
+              Database for service tables
+              Default: data source database. Here created technical tables (__tm_keeper,
+              __tm_gtid_keeper).
+            type: string
+      OnPremisePostgres:
+        type: object
+        properties:
+          port:
+            description: |-
+              **string** (int64)
+              Will be used if the cluster ID is not specified.
+            type: string
+            format: int64
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          tlsMode:
+            description: |-
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+              TLS settings for server connection. Disabled by default.
+            $ref: '#/definitions/TLSMode'
+      PostgresConnection:
+        type: object
+        properties:
+          mdbClusterId:
+            description: |-
+              **string**
+              Managed Service for PostgreSQL cluster ID
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            type: string
+          onPremise:
+            description: |-
+              **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
+              Connection options for on-premise PostgreSQL
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/OnPremisePostgres'
+          connectionManagerConnection:
+            description: |-
+              **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/ConnectionManagerConnection'
+        oneOf:
+          - required:
+              - mdbClusterId
+          - required:
+              - onPremise
+          - required:
+              - connectionManagerConnection
+      PostgresObjectTransferSettings:
+        type: object
+        properties:
+          sequence:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Sequences
+              CREATE SEQUENCE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          sequenceOwnedBy:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Owned sequences
+              CREATE SEQUENCE ... OWNED BY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          table:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Tables
+              CREATE TABLE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          primaryKey:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Primary keys
+              ALTER TABLE ... ADD PRIMARY KEY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          fkConstraint:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Foreign keys
+              ALTER TABLE ... ADD FOREIGN KEY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          defaultValues:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Default values
+              ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          constraint:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Constraints
+              ALTER TABLE ... ADD CONSTRAINT ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          index:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Indexes
+              CREATE INDEX ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          view:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Views
+              CREATE VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          function:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Functions
+              CREATE FUNCTION ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          trigger:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Triggers
+              CREATE TRIGGER ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          type:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Types
+              CREATE TYPE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          rule:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Rules
+              CREATE RULE ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          collation:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Collations
+              CREATE COLLATION ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          policy:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Policies
+              CREATE POLICY ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          cast:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Casts
+              CREATE CAST ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          materializedView:
+            description: |-
+              **enum** (ObjectTransferStage)
+              Materialized views
+              CREATE MATERIALIZED VIEW ...
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+          sequenceSet:
+            description: |-
+              **enum** (ObjectTransferStage)
+              - `OBJECT_TRANSFER_STAGE_UNSPECIFIED`
+              - `BEFORE_DATA`: Before data transfer
+              - `AFTER_DATA`: After data transfer
+              - `NEVER`: Don't copy
+            type: string
+            enum:
+              - OBJECT_TRANSFER_STAGE_UNSPECIFIED
+              - BEFORE_DATA
+              - AFTER_DATA
+              - NEVER
+      PostgresSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
+              Database connection settings
+            $ref: '#/definitions/PostgresConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for database access.
+            $ref: '#/definitions/Secret'
+          includeTables:
+            description: |-
+              **string**
+              Included tables
+              If none or empty list is presented, all tables are replicated. Full table name
+              with schema. Can contain schema_name.* patterns.
+            type: array
+            items:
+              type: string
+          excludeTables:
+            description: |-
+              **string**
+              Excluded tables
+              If none or empty list is presented, all tables are replicated. Full table name
+              with schema. Can contain schema_name.* patterns.
+            type: array
+            items:
+              type: string
+          slotByteLagLimit:
+            description: |-
+              **string** (int64)
+              Maximum lag of replication slot (in bytes); after exceeding this limit
+              replication will be aborted.
+            type: string
+            format: int64
+          serviceSchema:
+            description: |-
+              **string**
+              Database schema for service tables (__consumer_keeper,
+              __data_transfer_mole_finder). Default is public
+            type: string
+          objectTransferSettings:
+            description: |-
+              **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
+              Select database objects to be transferred during activation or deactivation.
+            $ref: '#/definitions/PostgresObjectTransferSettings'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      YdbSource:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Path in YDB where to store tables
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135
+            type: string
+          paths:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          serviceAccountId:
+            description: '**string**'
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          saKeyContent:
+            description: |-
+              **string**
+              Authorization Key
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          changefeedCustomName:
+            description: |-
+              **string**
+              Pre-created change feed
+            type: string
+          changefeedCustomConsumerName:
+            description: '**string**'
+            type: string
+      ColSchema:
+        type: object
+        properties:
+          name:
+            description: '**string**'
+            type: string
+          type:
+            description: |-
+              **enum** (ColumnType)
+              - `COLUMN_TYPE_UNSPECIFIED`
+              - `INT32`
+              - `INT16`
+              - `INT8`
+              - `UINT64`
+              - `UINT32`
+              - `UINT16`
+              - `UINT8`
+              - `DOUBLE`
+              - `BOOLEAN`
+              - `STRING`
+              - `UTF8`
+              - `ANY`
+              - `DATETIME`
+              - `INT64`
+            type: string
+            enum:
+              - COLUMN_TYPE_UNSPECIFIED
+              - INT32
+              - INT16
+              - INT8
+              - UINT64
+              - UINT32
+              - UINT16
+              - UINT8
+              - DOUBLE
+              - BOOLEAN
+              - STRING
+              - UTF8
+              - ANY
+              - DATETIME
+              - INT64
+          key:
+            description: '**boolean**'
+            type: boolean
+          required:
+            description: '**boolean**'
+            type: boolean
+          path:
+            description: '**string**'
+            type: string
+      FieldList:
+        type: object
+        properties:
+          fields:
+            description: |-
+              **[ColSchema](#yandex.cloud.datatransfer.v1.endpoint.ColSchema)**
+              Column schema
+            type: array
+            items:
+              $ref: '#/definitions/ColSchema'
+      DataSchema:
+        type: object
+        properties:
+          jsonFields:
+            description: |-
+              **string**
+              Includes only one of the fields `jsonFields`, `fields`.
+            type: string
+          fields:
+            description: |-
+              **[FieldList](#yandex.cloud.datatransfer.v1.endpoint.FieldList)**
+              Includes only one of the fields `jsonFields`, `fields`.
+            $ref: '#/definitions/FieldList'
+        oneOf:
+          - required:
+              - jsonFields
+          - required:
+              - fields
+      GenericParserCommon:
+        type: object
+        properties:
+          dataSchema:
+            description: '**[DataSchema](#yandex.cloud.datatransfer.v1.endpoint.DataSchema)**'
+            $ref: '#/definitions/DataSchema'
+          nullKeysAllowed:
+            description: |-
+              **boolean**
+              Allow null keys, if no - null keys will be putted to unparsed data
+            type: boolean
+          addRestColumn:
+            description: |-
+              **boolean**
+              Will add _rest column for all unknown fields
+            type: boolean
+          unescapeStringValues:
+            description: |-
+              **boolean**
+              Unescape string values
+            type: boolean
+      AuditTrailsV1Parser:
+        type: object
+        properties: {}
+      CloudLoggingParser:
+        type: object
+        properties: {}
+      Parser:
+        type: object
+        properties:
+          jsonParser:
+            description: |-
+              **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+              Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+            $ref: '#/definitions/GenericParserCommon'
+          auditTrailsV1Parser:
+            description: |-
+              **object**
+              Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+            $ref: '#/definitions/AuditTrailsV1Parser'
+          cloudLoggingParser:
+            description: |-
+              **object**
+              Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+            $ref: '#/definitions/CloudLoggingParser'
+          tskvParser:
+            description: |-
+              **[GenericParserCommon](#yandex.cloud.datatransfer.v1.endpoint.GenericParserCommon)**
+              Includes only one of the fields `jsonParser`, `auditTrailsV1Parser`, `cloudLoggingParser`, `tskvParser`.
+            $ref: '#/definitions/GenericParserCommon'
+        oneOf:
+          - required:
+              - jsonParser
+          - required:
+              - auditTrailsV1Parser
+          - required:
+              - cloudLoggingParser
+          - required:
+              - tskvParser
+      YDSSource:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              SA which has read access to the stream.
+            type: string
+          supportedCodecs:
+            description: |-
+              **enum** (YdsCompressionCodec)
+              Compression codec
+              - `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+              - `YDS_COMPRESSION_CODEC_RAW`
+              - `YDS_COMPRESSION_CODEC_GZIP`
+              - `YDS_COMPRESSION_CODEC_ZSTD`
+            type: array
+            items:
+              type: string
+              enum:
+                - YDS_COMPRESSION_CODEC_UNSPECIFIED
+                - YDS_COMPRESSION_CODEC_RAW
+                - YDS_COMPRESSION_CODEC_GZIP
+                - YDS_COMPRESSION_CODEC_ZSTD
+          parser:
+            description: |-
+              **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
+              Data parsing rules
+            $ref: '#/definitions/Parser'
+          allowTtlRewind:
+            description: |-
+              **boolean**
+              Should continue working, if consumer read lag exceed TTL of topic
+              False: stop the transfer in error state, if detected lost data. True: continue
+              working with losing part of data
+            type: boolean
+          endpoint:
+            description: |-
+              **string**
+              for dedicated db
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          consumer:
+            description: |-
+              **string**
+              for important streams
+            type: string
+      OnPremiseKafka:
+        type: object
+        properties:
+          brokerUrls:
+            description: |-
+              **string**
+              Kafka broker URLs
+            type: array
+            items:
+              type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          tlsMode:
+            description: |-
+              **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**
+              TLS settings for broker connection. Disabled by default.
+            $ref: '#/definitions/TLSMode'
+      KafkaConnectionOptions:
+        type: object
+        properties:
+          clusterId:
+            description: |-
+              **string**
+              Managed Service for Kafka cluster ID
+              Includes only one of the fields `clusterId`, `onPremise`.
+            type: string
+          onPremise:
+            description: |-
+              **[OnPremiseKafka](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseKafka)**
+              Connection options for on-premise Kafka
+              Includes only one of the fields `clusterId`, `onPremise`.
+            $ref: '#/definitions/OnPremiseKafka'
+        oneOf:
+          - required:
+              - clusterId
+          - required:
+              - onPremise
+      KafkaSaslSecurity:
+        type: object
+        properties:
+          user:
+            description: |-
+              **string**
+              User name
+            type: string
+          mechanism:
+            description: |-
+              **enum** (KafkaMechanism)
+              SASL mechanism for authentication
+              - `KAFKA_MECHANISM_UNSPECIFIED`
+              - `KAFKA_MECHANISM_SHA256`
+              - `KAFKA_MECHANISM_SHA512`
+            type: string
+            enum:
+              - KAFKA_MECHANISM_UNSPECIFIED
+              - KAFKA_MECHANISM_SHA256
+              - KAFKA_MECHANISM_SHA512
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for user
+            $ref: '#/definitions/Secret'
+      NoAuth:
+        type: object
+        properties: {}
+      KafkaAuth:
+        type: object
+        properties:
+          sasl:
+            description: |-
+              **[KafkaSaslSecurity](#yandex.cloud.datatransfer.v1.endpoint.KafkaSaslSecurity)**
+              Authentication with SASL
+              Includes only one of the fields `sasl`, `noAuth`.
+            $ref: '#/definitions/KafkaSaslSecurity'
+          noAuth:
+            description: |-
+              **object**
+              No authentication
+              Includes only one of the fields `sasl`, `noAuth`.
+            $ref: '#/definitions/NoAuth'
+        oneOf:
+          - required:
+              - sasl
+          - required:
+              - noAuth
+      DataTransformationOptions:
+        type: object
+        properties:
+          cloudFunction:
+            description: |-
+              **string**
+              Cloud function
+            type: string
+          numberOfRetries:
+            description: |-
+              **string** (int64)
+              Number of retries
+            type: string
+            format: int64
+          bufferSize:
+            description: |-
+              **string**
+              Buffer size for function
+            type: string
+          bufferFlushInterval:
+            description: |-
+              **string**
+              Flush interval
+            type: string
+          invocationTimeout:
+            description: |-
+              **string**
+              Invocation timeout
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              Service account
+            type: string
+      KafkaSource:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
+              Connection settings
+            $ref: '#/definitions/KafkaConnectionOptions'
+          auth:
+            description: |-
+              **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
+              Authentication settings
+            $ref: '#/definitions/KafkaAuth'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          topicName:
+            description: |-
+              **string**
+              Full source topic name
+              Deprecated in favor of topic names
+            deprecated: true
+            type: string
+          transformer:
+            description: |-
+              **[DataTransformationOptions](#yandex.cloud.datatransfer.v1.endpoint.DataTransformationOptions)**
+              Data transformation rules
+            $ref: '#/definitions/DataTransformationOptions'
+          parser:
+            description: |-
+              **[Parser](#yandex.cloud.datatransfer.v1.endpoint.Parser)**
+              Data parsing rules
+            $ref: '#/definitions/Parser'
+          topicNames:
+            description: |-
+              **string**
+              List of topic names to read
+            type: array
+            items:
+              type: string
+      OnPremiseMongo:
+        type: object
+        properties:
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          port:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          replicaSet:
+            description: '**string**'
+            type: string
+          tlsMode:
+            description: '**[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**'
+            $ref: '#/definitions/TLSMode'
+      MongoConnectionManagerConnection:
+        type: object
+        properties:
+          connectionId:
+            description: '**string**'
+            type: string
+          replicaSet:
+            description: |-
+              **string**
+              Used only for on-premise connections
+            type: string
+      MongoConnectionOptions:
+        type: object
+        properties:
+          mdbClusterId:
+            description: |-
+              **string**
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            type: string
+          onPremise:
+            description: |-
+              **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/OnPremiseMongo'
+          connectionManagerConnection:
+            description: |-
+              **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
+              Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`.
+            $ref: '#/definitions/MongoConnectionManagerConnection'
+          user:
+            description: |-
+              **string**
+              User name
+            type: string
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for user
+            $ref: '#/definitions/Secret'
+          authSource:
+            description: |-
+              **string**
+              Database name associated with the credentials
+            type: string
+        oneOf:
+          - required:
+              - mdbClusterId
+          - required:
+              - onPremise
+          - required:
+              - connectionManagerConnection
+      MongoConnection:
+        type: object
+        properties:
+          connectionOptions:
+            description: |-
+              **[MongoConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionOptions)**
+              Includes only one of the fields `connectionOptions`.
+            $ref: '#/definitions/MongoConnectionOptions'
+        oneOf:
+          - required:
+              - connectionOptions
+      MongoCollection:
+        type: object
+        properties:
+          databaseName:
+            description: '**string**'
+            type: string
+          collectionName:
+            description: '**string**'
+            type: string
+      MongoSource:
+        type: object
+        properties:
+          connection:
+            description: '**[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)**'
+            $ref: '#/definitions/MongoConnection'
+          subnetId:
+            description: '**string**'
+            type: string
+          collections:
+            description: |-
+              **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
+              List of collections for replication. Empty list implies replication of all
+              tables on the deployment. Allowed to use * as collection name.
+            type: array
+            items:
+              $ref: '#/definitions/MongoCollection'
+          excludedCollections:
+            description: |-
+              **[MongoCollection](#yandex.cloud.datatransfer.v1.endpoint.MongoCollection)**
+              List of forbidden collections for replication. Allowed to use * as collection
+              name for forbid all collections of concrete schema.
+            type: array
+            items:
+              $ref: '#/definitions/MongoCollection'
+          secondaryPreferredMode:
+            description: |-
+              **boolean**
+              Read mode for mongo client
+            type: boolean
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      ClickhouseShard:
+        type: object
+        properties:
+          name:
+            description: '**string**'
+            type: string
+          hosts:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      OnPremiseClickhouse:
+        type: object
+        properties:
+          shards:
+            description: '**[ClickhouseShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseShard)**'
+            type: array
+            items:
+              $ref: '#/definitions/ClickhouseShard'
+          httpPort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          nativePort:
+            description: '**string** (int64)'
+            type: string
+            format: int64
+          tlsMode:
+            description: '**[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)**'
+            $ref: '#/definitions/TLSMode'
+      ClickhouseConnectionOptions:
+        type: object
+        properties:
+          onPremise:
+            description: |-
+              **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
+              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+            $ref: '#/definitions/OnPremiseClickhouse'
+          connectionManagerConnection:
+            description: |-
+              **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+            $ref: '#/definitions/ConnectionManagerConnection'
+          mdbClusterId:
+            description: |-
+              **string**
+              Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`.
+            type: string
+          user:
+            description: '**string**'
+            type: string
+          password:
+            description: '**[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**'
+            $ref: '#/definitions/Secret'
+          database:
+            description: |-
+              **string**
+              Database
+            type: string
+        oneOf:
+          - required:
+              - onPremise
+          - required:
+              - connectionManagerConnection
+          - required:
+              - mdbClusterId
+      ClickhouseConnection:
+        type: object
+        properties:
+          connectionOptions:
+            description: |-
+              **[ClickhouseConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnectionOptions)**
+              Includes only one of the fields `connectionOptions`.
+            $ref: '#/definitions/ClickhouseConnectionOptions'
+        oneOf:
+          - required:
+              - connectionOptions
+      ClickhouseSource:
+        type: object
+        properties:
+          connection:
+            description: '**[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)**'
+            $ref: '#/definitions/ClickhouseConnection'
+          includeTables:
+            description: |-
+              **string**
+              White list of tables for replication. If none or empty list is presented - will
+              replicate all tables. Can contain * patterns.
+            type: array
+            items:
+              type: string
+          excludeTables:
+            description: |-
+              **string**
+              Exclude list of tables for replication. If none or empty list is presented -
+              will replicate all tables. Can contain * patterns.
+            type: array
+            items:
+              type: string
+          subnetId:
+            description: '**string**'
+            type: string
+          securityGroups:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+          clickhouseClusterName:
+            description: |-
+              **string**
+              Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+              ShardGroup.
+            type: string
+      MysqlTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[MysqlConnection](#yandex.cloud.datatransfer.v1.endpoint.MysqlConnection)**
+              Database connection settings
+            $ref: '#/definitions/MysqlConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+              Allowed to leave it empty, then the tables will be created in databases with the
+              same names as on the source. If this field is empty, then you must fill below db
+              schema for service table.
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for database access.
+            $ref: '#/definitions/Secret'
+          sqlMode:
+            description: |-
+              **string**
+              Default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION.
+            default: NO_AUTO_VALUE_ON_ZERO,NO_DIR_IN_CREATE,NO_ENGINE_SUBSTITUTION
+            type: string
+          skipConstraintChecks:
+            description: |-
+              **boolean**
+              Disable constraints checks
+              Recommend to disable for increase replication speed, but if schema contain
+              cascading operations we don't recommend to disable. This option set
+              FOREIGN_KEY_CHECKS=0 and UNIQUE_CHECKS=0.
+            type: boolean
+          timezone:
+            description: |-
+              **string**
+              Database timezone
+              Is used for parsing timestamps for saving source timezones. Accepts values from
+              IANA timezone database. Default: local timezone.
+            default: local timezone
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              Cleanup policy
+              Cleanup policy for activate, reactivate and reupload processes. Default is
+              DISABLED.
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          serviceDatabase:
+            description: |-
+              **string**
+              Database schema for service table
+              Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
+            default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper)
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      PostgresTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[PostgresConnection](#yandex.cloud.datatransfer.v1.endpoint.PostgresConnection)**
+              Database connection settings
+            $ref: '#/definitions/PostgresConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          user:
+            description: |-
+              **string**
+              User for database access. not required as may be in connection
+            type: string
+          password:
+            description: |-
+              **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
+              Password for database access.
+            $ref: '#/definitions/Secret'
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              Cleanup policy for activate, reactivate and reupload processes. Default is
+              truncate.
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      AltName:
+        type: object
+        properties:
+          fromName:
+            description: |-
+              **string**
+              Source table name
+            type: string
+          toName:
+            description: |-
+              **string**
+              Target table name
+            type: string
+      ColumnValueHash:
+        type: object
+        properties:
+          columnName:
+            description: '**string**'
+            type: string
+      ColumnValue:
+        type: object
+        properties:
+          stringValue:
+            description: |-
+              **string**
+              Includes only one of the fields `stringValue`.
+            type: string
+        oneOf:
+          - required:
+              - stringValue
+      ValueToShard:
+        type: object
+        properties:
+          columnValue:
+            description: '**[ColumnValue](#yandex.cloud.datatransfer.v1.endpoint.ColumnValue)**'
+            $ref: '#/definitions/ColumnValue'
+          shardName:
+            description: '**string**'
+            type: string
+      ColumnValueMapping:
+        type: object
+        properties:
+          columnName:
+            description: '**string**'
+            type: string
+          mapping:
+            description: '**[ValueToShard](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping.ValueToShard)**'
+            type: array
+            items:
+              $ref: '#/definitions/ValueToShard'
+      ClickhouseSharding:
+        type: object
+        properties:
+          columnValueHash:
+            description: |-
+              **[ColumnValueHash](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueHash)**
+              Includes only one of the fields `columnValueHash`, `customMapping`.
+            $ref: '#/definitions/ColumnValueHash'
+          customMapping:
+            description: |-
+              **[ColumnValueMapping](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding.ColumnValueMapping)**
+              Includes only one of the fields `columnValueHash`, `customMapping`.
+            $ref: '#/definitions/ColumnValueMapping'
+          transferId:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `columnValueHash`, `customMapping`.
+            type: undefined
+            format: empty
+          roundRobin:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `columnValueHash`, `customMapping`.
+            type: undefined
+            format: empty
+        oneOf:
+          - required:
+              - columnValueHash
+          - required:
+              - customMapping
+          - required:
+              - transferId
+          - required:
+              - roundRobin
+      ClickhouseTarget:
+        type: object
+        properties:
+          connection:
+            description: '**[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)**'
+            $ref: '#/definitions/ClickhouseConnection'
+          subnetId:
+            description: '**string**'
+            type: string
+          altNames:
+            description: |-
+              **[AltName](#yandex.cloud.datatransfer.v1.endpoint.AltName)**
+              Alternative table names in target
+            type: array
+            items:
+              $ref: '#/definitions/AltName'
+          cleanupPolicy:
+            description: |-
+              **enum** (ClickhouseCleanupPolicy)
+              - `CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED`
+              - `CLICKHOUSE_CLEANUP_POLICY_DISABLED`
+              - `CLICKHOUSE_CLEANUP_POLICY_DROP`
+              - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE`
+            type: string
+            enum:
+              - CLICKHOUSE_CLEANUP_POLICY_UNSPECIFIED
+              - CLICKHOUSE_CLEANUP_POLICY_DISABLED
+              - CLICKHOUSE_CLEANUP_POLICY_DROP
+              - CLICKHOUSE_CLEANUP_POLICY_TRUNCATE
+          sharding:
+            description: '**[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)**'
+            $ref: '#/definitions/ClickhouseSharding'
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+          clickhouseClusterName:
+            description: |-
+              **string**
+              Name of the ClickHouse cluster. For Managed ClickHouse that is name of
+              ShardGroup.
+            type: string
+          securityGroups:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      YdbTarget:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Path in YDB where to store tables
+            type: string
+          instance:
+            description: |-
+              **string**
+              Instance of YDB. example: ydb-ru-prestable.yandex.net:2135
+            type: string
+          path:
+            description: |-
+              **string**
+              Path extension for database, each table will be layouted into this path
+            type: string
+          serviceAccountId:
+            description: '**string**'
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (YdbCleanupPolicy)
+              Cleanup policy
+              - `YDB_CLEANUP_POLICY_UNSPECIFIED`
+              - `YDB_CLEANUP_POLICY_DISABLED`
+              - `YDB_CLEANUP_POLICY_DROP`
+            type: string
+            enum:
+              - YDB_CLEANUP_POLICY_UNSPECIFIED
+              - YDB_CLEANUP_POLICY_DISABLED
+              - YDB_CLEANUP_POLICY_DROP
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          saKeyContent:
+            description: |-
+              **string**
+              SA content
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          isTableColumnOriented:
+            description: |-
+              **boolean**
+              Should create column-oriented table (OLAP). By default it creates row-oriented
+              (OLTP)
+            type: boolean
+          defaultCompression:
+            description: |-
+              **enum** (YdbDefaultCompression)
+              Compression that will be used for default columns family on YDB table creation
+              - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
+              - `YDB_DEFAULT_COMPRESSION_DISABLED`
+              - `YDB_DEFAULT_COMPRESSION_LZ4`
+            type: string
+            enum:
+              - YDB_DEFAULT_COMPRESSION_UNSPECIFIED
+              - YDB_DEFAULT_COMPRESSION_DISABLED
+              - YDB_DEFAULT_COMPRESSION_LZ4
+          isSchemaMigrationDisabled:
+            description: '**boolean**'
+            type: boolean
+      KafkaTargetTopic:
+        type: object
+        properties:
+          topicName:
+            description: |-
+              **string**
+              Topic name
+            type: string
+          saveTxOrder:
+            description: |-
+              **boolean**
+              Save transactions order
+              Not to split events queue into separate per-table queues.
+            type: boolean
+      KafkaTargetTopicSettings:
+        type: object
+        properties:
+          topic:
+            description: |-
+              **[KafkaTargetTopic](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopic)**
+              Full topic name
+              Includes only one of the fields `topic`, `topicPrefix`.
+            $ref: '#/definitions/KafkaTargetTopic'
+          topicPrefix:
+            description: |-
+              **string**
+              Topic prefix
+              Analogue of the Debezium setting database.server.name.
+              Messages will be sent to topic with name &lt;topic_prefix&gt;.&lt;schema&gt;.&lt;table_name&gt;.
+              Includes only one of the fields `topic`, `topicPrefix`.
+            type: string
+        oneOf:
+          - required:
+              - topic
+          - required:
+              - topicPrefix
+      SerializerAuto:
+        type: object
+        properties: {}
+      SerializerJSON:
+        type: object
+        properties: {}
+      DebeziumSerializerParameter:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Name of the serializer parameter
+            type: string
+          value:
+            description: |-
+              **string**
+              Value of the serializer parameter
+            type: string
+      SerializerDebezium:
+        type: object
+        properties:
+          serializerParameters:
+            description: |-
+              **[DebeziumSerializerParameter](#yandex.cloud.datatransfer.v1.endpoint.DebeziumSerializerParameter)**
+              Settings of sterilization parameters as key-value pairs
+            type: array
+            items:
+              $ref: '#/definitions/DebeziumSerializerParameter'
+      Serializer:
+        type: object
+        properties:
+          serializerAuto:
+            description: |-
+              **object**
+              Select the serialization format automatically
+              Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+            $ref: '#/definitions/SerializerAuto'
+          serializerJson:
+            description: |-
+              **object**
+              Serialize data in json format
+              Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+            $ref: '#/definitions/SerializerJSON'
+          serializerDebezium:
+            description: |-
+              **[SerializerDebezium](#yandex.cloud.datatransfer.v1.endpoint.SerializerDebezium)**
+              Serialize data in debezium format
+              Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`.
+            $ref: '#/definitions/SerializerDebezium'
+        oneOf:
+          - required:
+              - serializerAuto
+          - required:
+              - serializerJson
+          - required:
+              - serializerDebezium
+      KafkaTarget:
+        type: object
+        properties:
+          connection:
+            description: |-
+              **[KafkaConnectionOptions](#yandex.cloud.datatransfer.v1.endpoint.KafkaConnectionOptions)**
+              Connection settings
+            $ref: '#/definitions/KafkaConnectionOptions'
+          auth:
+            description: |-
+              **[KafkaAuth](#yandex.cloud.datatransfer.v1.endpoint.KafkaAuth)**
+              Authentication settings
+            $ref: '#/definitions/KafkaAuth'
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+          topicSettings:
+            description: |-
+              **[KafkaTargetTopicSettings](#yandex.cloud.datatransfer.v1.endpoint.KafkaTargetTopicSettings)**
+              Target topic settings
+            $ref: '#/definitions/KafkaTargetTopicSettings'
+          serializer:
+            description: |-
+              **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
+              Data serialization format settings
+            $ref: '#/definitions/Serializer'
+      MongoTarget:
+        type: object
+        properties:
+          connection:
+            description: '**[MongoConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnection)**'
+            $ref: '#/definitions/MongoConnection'
+          database:
+            description: |-
+              **string**
+              Database name
+            type: string
+          cleanupPolicy:
+            description: |-
+              **enum** (CleanupPolicy)
+              - `CLEANUP_POLICY_UNSPECIFIED`
+              - `DISABLED`: Don't cleanup
+              - `DROP`: Drop
+              - `TRUNCATE`: Truncate
+            type: string
+            enum:
+              - CLEANUP_POLICY_UNSPECIFIED
+              - DISABLED
+              - DROP
+              - TRUNCATE
+          subnetId:
+            description: '**string**'
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      MetrikaStream:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (MetrikaStreamType)
+              - `METRIKA_STREAM_TYPE_UNSPECIFIED`
+              - `METRIKA_STREAM_TYPE_HITS`
+              - `METRIKA_STREAM_TYPE_VISITS`
+              - `METRIKA_STREAM_TYPE_HITS_V2`
+            type: string
+            enum:
+              - METRIKA_STREAM_TYPE_UNSPECIFIED
+              - METRIKA_STREAM_TYPE_HITS
+              - METRIKA_STREAM_TYPE_VISITS
+              - METRIKA_STREAM_TYPE_HITS_V2
+          columns:
+            description: '**string**'
+            type: array
+            items:
+              type: string
+      MetrikaSource:
+        type: object
+        properties:
+          counterIds:
+            description: '**string** (int64)'
+            type: array
+            items:
+              type: string
+              format: int64
+          token:
+            description: '**[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**'
+            $ref: '#/definitions/Secret'
+          streams:
+            description: '**[MetrikaStream](#yandex.cloud.datatransfer.v1.endpoint.MetrikaStream)**'
+            type: array
+            items:
+              $ref: '#/definitions/MetrikaStream'
+      YDSTarget:
+        type: object
+        properties:
+          database:
+            description: |-
+              **string**
+              Database
+            type: string
+          stream:
+            description: |-
+              **string**
+              Stream
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              SA which has read access to the stream.
+            type: string
+          saveTxOrder:
+            description: |-
+              **boolean**
+              Save transaction order
+              Not to split events queue into separate per-table queues.
+              Incompatible with setting Topic prefix, only with Topic full name.
+            type: boolean
+          compressionCodec:
+            description: |-
+              **enum** (YdsCompressionCodec)
+              - `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+              - `YDS_COMPRESSION_CODEC_RAW`
+              - `YDS_COMPRESSION_CODEC_GZIP`
+              - `YDS_COMPRESSION_CODEC_ZSTD`
+            type: string
+            enum:
+              - YDS_COMPRESSION_CODEC_UNSPECIFIED
+              - YDS_COMPRESSION_CODEC_RAW
+              - YDS_COMPRESSION_CODEC_GZIP
+              - YDS_COMPRESSION_CODEC_ZSTD
+          serializer:
+            description: |-
+              **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
+              Data serialization format
+            $ref: '#/definitions/Serializer'
+          endpoint:
+            description: |-
+              **string**
+              for dedicated db
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              Network interface for endpoint. If none will assume public ipv4
+            type: string
+          securityGroups:
+            description: |-
+              **string**
+              Security groups
+            type: array
+            items:
+              type: string
+      EndpointSettings:
+        type: object
+        properties:
+          mysqlSource:
+            description: |-
+              **[MysqlSource](#yandex.cloud.datatransfer.v1.endpoint.MysqlSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/MysqlSource'
+          postgresSource:
+            description: |-
+              **[PostgresSource](#yandex.cloud.datatransfer.v1.endpoint.PostgresSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/PostgresSource'
+          ydbSource:
+            description: |-
+              **[YdbSource](#yandex.cloud.datatransfer.v1.endpoint.YdbSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/YdbSource'
+          ydsSource:
+            description: |-
+              **[YDSSource](#yandex.cloud.datatransfer.v1.endpoint.YDSSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/YDSSource'
+          kafkaSource:
+            description: |-
+              **[KafkaSource](#yandex.cloud.datatransfer.v1.endpoint.KafkaSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/KafkaSource'
+          mongoSource:
+            description: |-
+              **[MongoSource](#yandex.cloud.datatransfer.v1.endpoint.MongoSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/MongoSource'
+          clickhouseSource:
+            description: |-
+              **[ClickhouseSource](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/ClickhouseSource'
+          mysqlTarget:
+            description: |-
+              **[MysqlTarget](#yandex.cloud.datatransfer.v1.endpoint.MysqlTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/MysqlTarget'
+          postgresTarget:
+            description: |-
+              **[PostgresTarget](#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/PostgresTarget'
+          clickhouseTarget:
+            description: |-
+              **[ClickhouseTarget](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/ClickhouseTarget'
+          ydbTarget:
+            description: |-
+              **[YdbTarget](#yandex.cloud.datatransfer.v1.endpoint.YdbTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/YdbTarget'
+          kafkaTarget:
+            description: |-
+              **[KafkaTarget](#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/KafkaTarget'
+          mongoTarget:
+            description: |-
+              **[MongoTarget](#yandex.cloud.datatransfer.v1.endpoint.MongoTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/MongoTarget'
+          metrikaSource:
+            description: |-
+              **[MetrikaSource](#yandex.cloud.datatransfer.v1.endpoint.MetrikaSource)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/MetrikaSource'
+          ydsTarget:
+            description: |-
+              **[YDSTarget](#yandex.cloud.datatransfer.v1.endpoint.YDSTarget)**
+              Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`.
+            $ref: '#/definitions/YDSTarget'
+        oneOf:
+          - required:
+              - mysqlSource
+          - required:
+              - postgresSource
+          - required:
+              - ydbSource
+          - required:
+              - ydsSource
+          - required:
+              - kafkaSource
+          - required:
+              - mongoSource
+          - required:
+              - clickhouseSource
+          - required:
+              - mysqlTarget
+          - required:
+              - postgresTarget
+          - required:
+              - clickhouseTarget
+          - required:
+              - ydbTarget
+          - required:
+              - kafkaTarget
+          - required:
+              - mongoTarget
+          - required:
+              - metrikaSource
+          - required:
+              - ydsTarget
 sourcePath: en/_api-ref/datatransfer/v1/api-ref/Endpoint/update.md
 ---
 
-# Data Transfer API, REST: Endpoint.Update {#Update}
+# Data Transfer API, REST: Endpoint.Update
+
+Updates the specified endpoint.
 
 ## HTTP request
 
@@ -26,12 +2046,12 @@ Required field. Identifier of the endpoint to be updated. ||
 {
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "settings": {
     // Includes only one of the fields `mysqlSource`, `postgresSource`, `ydbSource`, `ydsSource`, `kafkaSource`, `mongoSource`, `clickhouseSource`, `mysqlTarget`, `postgresTarget`, `clickhouseTarget`, `ydbTarget`, `kafkaTarget`, `mongoTarget`, `metrikaSource`, `ydsTarget`
     "mysqlSource": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -46,6 +2066,9 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -76,7 +2099,7 @@ Required field. Identifier of the endpoint to be updated. ||
     },
     "postgresSource": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -91,6 +2114,9 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -145,7 +2171,8 @@ Required field. Identifier of the endpoint to be updated. ||
       "securityGroups": [
         "string"
       ],
-      "changefeedCustomName": "string"
+      "changefeedCustomName": "string",
+      "changefeedCustomConsumerName": "string"
     },
     "ydsSource": {
       "database": "string",
@@ -311,7 +2338,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -326,6 +2353,10 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "replicaSet": "string"
           },
           // end of the list of possible fields
           "user": "string",
@@ -360,7 +2391,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
+          // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -379,6 +2410,9 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string"
           },
           "mdbClusterId": "string",
           // end of the list of possible fields
@@ -406,7 +2440,7 @@ Required field. Identifier of the endpoint to be updated. ||
     },
     "mysqlTarget": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -421,6 +2455,9 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -438,11 +2475,12 @@ Required field. Identifier of the endpoint to be updated. ||
       "serviceDatabase": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "isSchemaMigrationDisabled": "boolean"
     },
     "postgresTarget": {
       "connection": {
-        // Includes only one of the fields `mdbClusterId`, `onPremise`
+        // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
         "mdbClusterId": "string",
         "onPremise": {
           "port": "string",
@@ -457,6 +2495,9 @@ Required field. Identifier of the endpoint to be updated. ||
             }
             // end of the list of possible fields
           }
+        },
+        "connectionManagerConnection": {
+          "connectionId": "string"
         }
         // end of the list of possible fields
       },
@@ -470,13 +2511,14 @@ Required field. Identifier of the endpoint to be updated. ||
       "cleanupPolicy": "string",
       "securityGroups": [
         "string"
-      ]
+      ],
+      "isSchemaMigrationDisabled": "boolean"
     },
     "clickhouseTarget": {
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `onPremise`, `mdbClusterId`
+          // Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`
           "onPremise": {
             "shards": [
               {
@@ -495,6 +2537,9 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string"
           },
           "mdbClusterId": "string",
           // end of the list of possible fields
@@ -536,6 +2581,7 @@ Required field. Identifier of the endpoint to be updated. ||
         }
         // end of the list of possible fields
       },
+      "isSchemaMigrationDisabled": "boolean",
       "clickhouseClusterName": "string",
       "securityGroups": [
         "string"
@@ -553,7 +2599,8 @@ Required field. Identifier of the endpoint to be updated. ||
         "string"
       ],
       "isTableColumnOriented": "boolean",
-      "defaultCompression": "string"
+      "defaultCompression": "string",
+      "isSchemaMigrationDisabled": "boolean"
     },
     "kafkaTarget": {
       "connection": {
@@ -619,7 +2666,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "connection": {
         // Includes only one of the fields `connectionOptions`
         "connectionOptions": {
-          // Includes only one of the fields `mdbClusterId`, `onPremise`
+          // Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`
           "mdbClusterId": "string",
           "onPremise": {
             "hosts": [
@@ -634,6 +2681,10 @@ Required field. Identifier of the endpoint to be updated. ||
               }
               // end of the list of possible fields
             }
+          },
+          "connectionManagerConnection": {
+            "connectionId": "string",
+            "replicaSet": "string"
           },
           // end of the list of possible fields
           "user": "string",
@@ -676,6 +2727,7 @@ Required field. Identifier of the endpoint to be updated. ||
       "stream": "string",
       "serviceAccountId": "string",
       "saveTxOrder": "boolean",
+      "compressionCodec": "string",
       "serializer": {
         // Includes only one of the fields `serializerAuto`, `serializerJson`, `serializerDebezium`
         "serializerAuto": "object",
@@ -710,10 +2762,15 @@ The new endpoint name. Must be unique within the folder. ||
 || description | **string**
 
 The new description for the endpoint. ||
-|| labels | **string** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Endpoint labels as `key:value` pairs.
+
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)**
 
-The new endpoint name. Must be unique within the folder. ||
+The new endpoint settings. ||
 || updateMask | **string** (field-mask)
 
 A comma-separated names off ALL fields to be updated.
@@ -792,7 +2849,7 @@ You can leave it empty, then it will be possible to transfer tables from several
 databases at the same time from this source. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -828,12 +2885,15 @@ __tm_gtid_keeper). ||
 
 Managed Service for MySQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMysql](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql)**
 
 Connection options for on-premise MySQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremiseMysql {#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMysql}
@@ -872,6 +2932,13 @@ CA certificate
 X.509 certificate of the certificate authority which issued the server's
 certificate, in PEM format. When CA certificate is specified TLS is used to
 connect to the server. ||
+|#
+
+## ConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
 |#
 
 ## Secret {#yandex.cloud.datatransfer.v1.endpoint.Secret}
@@ -979,12 +3046,15 @@ Security groups ||
 
 Managed Service for PostgreSQL cluster ID
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremisePostgres](#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres)**
 
 Connection options for on-premise PostgreSQL
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 |#
 
 ## OnPremisePostgres {#yandex.cloud.datatransfer.v1.endpoint.OnPremisePostgres}
@@ -1209,6 +3279,7 @@ Security groups ||
 || changefeedCustomName | **string**
 
 Pre-created change feed ||
+|| changefeedCustomConsumerName | **string** ||
 |#
 
 ## YDSSource {#yandex.cloud.datatransfer.v1.endpoint.YDSSource}
@@ -1491,10 +3562,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || onPremise | **[OnPremiseMongo](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseMongo)**
 
-Includes only one of the fields `mdbClusterId`, `onPremise`. ||
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
+|| connectionManagerConnection | **[MongoConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection)**
+
+Includes only one of the fields `mdbClusterId`, `onPremise`, `connectionManagerConnection`. ||
 || user | **string**
 
 User name ||
@@ -1516,6 +3590,16 @@ Database name associated with the credentials ||
 || tlsMode | **[TLSMode](#yandex.cloud.datatransfer.v1.endpoint.TLSMode)** ||
 |#
 
+## MongoConnectionManagerConnection {#yandex.cloud.datatransfer.v1.endpoint.MongoConnectionManagerConnection}
+
+#|
+||Field | Description ||
+|| connectionId | **string** ||
+|| replicaSet | **string**
+
+Used only for on-premise connections ||
+|#
+
 ## MongoCollection {#yandex.cloud.datatransfer.v1.endpoint.MongoCollection}
 
 #|
@@ -1531,7 +3615,7 @@ Database name associated with the credentials ||
 || connection | **[ClickhouseConnection](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseConnection)** ||
 || includeTables[] | **string**
 
-While list of tables for replication. If none or empty list is presented - will
+White list of tables for replication. If none or empty list is presented - will
 replicate all tables. Can contain * patterns. ||
 || excludeTables[] | **string**
 
@@ -1560,10 +3644,13 @@ Includes only one of the fields `connectionOptions`. ||
 ||Field | Description ||
 || onPremise | **[OnPremiseClickhouse](#yandex.cloud.datatransfer.v1.endpoint.OnPremiseClickhouse)**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
+|| connectionManagerConnection | **[ConnectionManagerConnection](#yandex.cloud.datatransfer.v1.endpoint.ConnectionManagerConnection)**
+
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || mdbClusterId | **string**
 
-Includes only one of the fields `onPremise`, `mdbClusterId`. ||
+Includes only one of the fields `onPremise`, `connectionManagerConnection`, `mdbClusterId`. ||
 || user | **string** ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)** ||
 || database | **string**
@@ -1605,7 +3692,7 @@ same names as on the source. If this field is empty, then you must fill below db
 schema for service table. ||
 || user | **string**
 
-User for database access. ||
+User for database access. not required as may be in connection ||
 || password | **[Secret](#yandex.cloud.datatransfer.v1.endpoint.Secret)**
 
 Password for database access. ||
@@ -1644,6 +3731,7 @@ Default: db name. Here created technical tables (__tm_keeper, __tm_gtid_keeper).
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## PostgresTarget {#yandex.cloud.datatransfer.v1.endpoint.PostgresTarget}
@@ -1674,6 +3762,7 @@ truncate.
 || securityGroups[] | **string**
 
 Security groups ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## ClickhouseTarget {#yandex.cloud.datatransfer.v1.endpoint.ClickhouseTarget}
@@ -1692,6 +3781,7 @@ Alternative table names in target ||
 - `CLICKHOUSE_CLEANUP_POLICY_DROP`
 - `CLICKHOUSE_CLEANUP_POLICY_TRUNCATE` ||
 || sharding | **[ClickhouseSharding](#yandex.cloud.datatransfer.v1.endpoint.ClickhouseSharding)** ||
+|| isSchemaMigrationDisabled | **boolean** ||
 || clickhouseClusterName | **string**
 
 Name of the ClickHouse cluster. For Managed ClickHouse that is name of
@@ -1796,6 +3886,7 @@ Compression that will be used for default columns family on YDB table creation
 - `YDB_DEFAULT_COMPRESSION_UNSPECIFIED`
 - `YDB_DEFAULT_COMPRESSION_DISABLED`
 - `YDB_DEFAULT_COMPRESSION_LZ4` ||
+|| isSchemaMigrationDisabled | **boolean** ||
 |#
 
 ## KafkaTarget {#yandex.cloud.datatransfer.v1.endpoint.KafkaTarget}
@@ -1833,7 +3924,7 @@ Includes only one of the fields `topic`, `topicPrefix`. ||
 Topic prefix
 
 Analogue of the Debezium setting database.server.name.
-Messages will be sent to topic with name <topic_prefix>.<schema>.<table_name>.
+Messages will be sent to topic with name &lt;topic_prefix&gt;.&lt;schema&gt;.&lt;table_name&gt;.
 
 Includes only one of the fields `topic`, `topicPrefix`. ||
 |#
@@ -1955,6 +4046,12 @@ SA which has read access to the stream. ||
 Save transaction order
 Not to split events queue into separate per-table queues.
 Incompatible with setting Topic prefix, only with Topic full name. ||
+|| compressionCodec | **enum** (YdsCompressionCodec)
+
+- `YDS_COMPRESSION_CODEC_UNSPECIFIED`
+- `YDS_COMPRESSION_CODEC_RAW`
+- `YDS_COMPRESSION_CODEC_GZIP`
+- `YDS_COMPRESSION_CODEC_ZSTD` ||
 || serializer | **[Serializer](#yandex.cloud.datatransfer.v1.endpoint.Serializer)**
 
 Data serialization format ||

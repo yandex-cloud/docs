@@ -5,9 +5,11 @@ description: Follow this guide to move a VM to a different availability zone.
 
 # Moving a VM to a different availability zone
 
-When creating a VM, you can choose the {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) where it will be located.
+When creating a VM, you can select a {{ yandex-cloud }} [availability zone](../../../overview/concepts/geo-scope.md) to place it in.
 
-You can move an existing VM to a different availability zone using a special command in the [management console]({{ link-console-main }}) or the [CLI](../../../cli/cli-ref/managed-services/compute/instance/relocate.md) or by creating its copy in the target availability zone using [disk snapshots](../../concepts/snapshot.md).
+You can move a VM to a different availability zone by creating its copy in the target availability zone using disk snapshots.
+
+You can also move a VM from the `{{ region-id }}-a` and `{{ region-id }}-b` zones to the `{{ region-id }}-d` zone using a special [CLI](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md) command.
 
 
 {% include [relocate-note](../../../_includes/compute/relocate-note.md) %}
@@ -18,15 +20,15 @@ You can move an existing VM to a different availability zone using a special com
 The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell [platform](../../concepts/vm-platforms.md). To move such VMs to the `{{ region-id }}-d` zone, do one of the following:
 
 * Take a disk snapshot and use it to create a new VM in the `{{ region-id }}-d` zone on a different platform.
-* Stop the VM, change the platform, and move the VM by running `relocate`.
+* Stop the VM, change the platform, and move the VM by running `yc compute instance relocate`.
 
 {% endnote %}
 
 ## Moving a VM using disk snapshots {#relocate-snapshots}
 
-To move a VM to a different availability zone using snapshots, create its copy in the target availability zone and delete the original one.
+To move a VM to a different availability zone using snapshots, create its copy in the target availability zone and delete the source VM.
 
-### Create a snapshot of each of the VM's disks {#create-snapshot}
+### Create a snapshot of each of the VM disks {#create-snapshot}
 
 #### Prepare the disks {#prepare-disks}
 
@@ -38,62 +40,32 @@ To [create](../disk-control/create-snapshot.md) a disk snapshot:
 
 {% include [create-snapshot](../../../_includes/compute/create-snapshot.md) %}
 
-Repeat the steps to create a snapshot of each disk.
+Repeat the steps above to create snapshots of all the disks.
 
 ### Create a VM in a different availability zone with the disks from the snapshots {#create-vm}
 
-To [create](../vm-create/create-from-snapshots.md) a VM in a different availability zone with the disks from the snapshots:
+To [create](../vm-create/create-from-snapshots.md) a VM in a different availability zone with disks from snapshots:
 
 {% include [create-from-snapshot](../../../_includes/compute/create-from-snapshot.md) %}
 
-### Delete the original VM {#delete-vm}
+### Delete the source VM {#delete-vm}
 
-To [delete](vm-delete.md) the original VM:
+To [delete](vm-delete.md) a source VM:
 
 {% include [delete-vm](../../../_includes/compute/delete-vm.md) %}
 
-## Moving a VM using a special command {#relocate-command}
+## Moving a VM instance to the {{ region-id }}-d zone using a special command {#relocate-command}
 
-When a VM is moved to a different availability zone using the management console or the CLI, its metadata and ID will be preserved. The VM will be moved to the new availability zone together with all the disks attached to it.
+The special CLI command can be used to move a VM instance only to the `{{ region-id }}-d` availability zone. The instance moved this way preserves its ID and metadata. All disks attached to the VM will also be transferred to the new availability zone.
 
 {% note info %}
 
-The time it takes to move a VM to a different availability zone depends on the size of its disks. It takes about 10 minutes to move a 100 GB disk.
-
-In some cases, the migration may take longer if you are moving it to the `{{ region-id }}-d` availability zone.
+The time it takes to move a VM to a different availability zone depends on the size of its disks. A 100 GB disk typically takes more than 10 minutes to move.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
-
-  {% note warning %}
-
-  Currently, the management console only allows moving VMs from the `{{ region-id }}-c` availability zone. To move VMs from other availability zones, use the CLI or disk snapshots.
-
-  {% endnote %}
-
-  1. In the [management console]({{ link-console-main }}), select the folder the VM belongs to.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. In the line with the appropriate VM, click ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.compute.button_relocate-to-another-zone }}**. In the window that opens:
-
-      1. In the **{{ ui-key.yacloud.compute.instances.create.field_zone }}** field, choose the availability zone to move the VM to, e.g., `{{ region-id }}-d`.
-      1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, configure each [network interface](../../concepts/network.md) of your VM as follows:
-          1. In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the subnet that corresponds to the selected availability zone.
-          1. In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, choose a method for public IP address assignment:
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`: Assign a random IP address from the {{ yandex-cloud }} IP address pool. In this case, you can enable [DDoS protection](../../../vpc/ddos-protection/index.md) in additional settings.
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}`: Select a public IP address from the list of previously reserved static addresses. For more information, see [{#T}](../../../vpc/operations/set-static-ip.md).
-              * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`: Do not assign a public IP address.
-
-          1. Select the [appropriate security groups in the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**](../../../vpc/concepts/security-groups.md) field.
-          1. To set up an internal IP address for a VM and enable DDoS protection, expand the **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** section and select a method for internal IP address assignment in the **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** field:
-              * `{{ ui-key.yacloud.common.label_auto }}`: Assign a random IP address from the pool of IP addresses available in the selected subnet.
-              * `{{ ui-key.yacloud.common.label_list }}`: Select an internal IP address from the list of previously reserved IP addresses. Click **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}** to reserve an internal IP address in the selected subnet if needed.
-          1. Enable the **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** option, if needed. The option is available if you previously selected the automatic IP assignment method in the public address settings.
-
-      1. Click **{{ ui-key.yacloud.compute.instances.button_start-instance-relocation }}** to start moving the VM to a different availability zone.
 
 - CLI {#cli}
 
@@ -116,14 +88,13 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
       Result:
 
       ```text
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |       RANGE       |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.11.0/24] |
-      | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.12.0/24] |
-      | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.13.0/24] |
-      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.1.0/24]  |
-      +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
+      |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE      |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
+      | e2l5iit0t6dr******** | default-{{ region-id }}-b | enpnohfm8jb5******** |                | {{ region-id }}-b | [10.129.0.0/24] |
+      | e9b2ljn7h9pj******** | default-{{ region-id }}-a | enpnohfm8jb5******** |                | {{ region-id }}-a | [10.128.0.0/24] |
+      | fl8in4sila9i******** | default-{{ region-id }}-d | enpnohfm8jb5******** |                | {{ region-id }}-d | [10.130.0.0/24] |
+      +----------------------+-----------------------+----------------------+----------------+---------------+-----------------+
       ```
 
   1. Get a list of all security groups in the default folder:
@@ -138,8 +109,8 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
       +----------------------+---------------------------------+--------------------------------+----------------------+
       |          ID          |              NAME               |          DESCRIPTION           |      NETWORK-ID      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
-      | c646ev94tb6k******** | my-sg-group                     |                                | c64pv6m0aqq6******** |
-      | c64r84tbt32j******** | default-sg-c64pv6m0aqq6******** | Default security group for     | c64pv6m0aqq6******** |
+      | enpagmu40nj5******** | my-sg-group                     |                                | enpnohfm8jb5******** |
+      | enpe9n88cell******** | default-sg-enpnohfm8jb5******** | Default security group for     | enpnohfm8jb5******** |
       |                      |                                 | network                        |                      |
       +----------------------+---------------------------------+--------------------------------+----------------------+
       ```
@@ -153,12 +124,12 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
       Result:
 
       ```text
-      +----------------------+---------+---------------+---------+---------------+-------------+
-      |          ID          |  NAME   |    ZONE ID    | STATUS  |  EXTERNAL IP  | INTERNAL IP |
-      +----------------------+---------+---------------+---------+---------------+-------------+
-      | a7lh48f5jvlk******** | my-vm-1 | {{ region-id }}-a | RUNNING |               | 192.168.0.7 |
-      | epdsj30mndgj******** | my-vm-2 | {{ region-id }}-b | RUNNING |               | 192.168.1.7 |
-      +----------------------+---------+---------------+---------+---------------+-------------+
+      +----------------------+---------+---------------+---------+--------------+-------------+
+      |          ID          |  NAME   |    ZONE ID    | STATUS  | EXTERNAL IP  | INTERNAL IP |
+      +----------------------+---------+---------------+---------+--------------+-------------+
+      | epdi9vnr8i6n******** | my-vm-1 | {{ region-id }}-b | RUNNING | 84.201.166.2 | 10.129.0.31 |
+      | epdjhkhtqjfp******** | my-vm-2 | {{ region-id }}-d | RUNNING |              | 10.130.0.6  |
+      +----------------------+---------+---------------+---------+--------------+-------------+
       ```
 
   1. Get a list of [network interfaces](../../concepts/network.md) of the VM in question by specifying the VM ID:
@@ -173,23 +144,13 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
      ...
      network_interfaces:
        - index: "0"
-         mac_address: d0:0d:24:**:**:**
-         subnet_id: bucqps2lt75g********
+         mac_address: d0:0d:12:4f:ef:b4
+         subnet_id: e2l5iit0t6dr********
          primary_v4_address:
-           address: 192.168.11.23
+           address: 10.129.0.31
            one_to_one_nat:
-             address: 158.160.**.***
+             address: 84.201.166.2
              ip_version: IPV4
-       - index: "1"
-         mac_address: d0:1d:24:**:**:**
-         subnet_id: e2lrucutusnd********
-         primary_v4_address:
-           address: 192.168.12.32
-       - index: "2"
-         mac_address: d0:2d:24:**:**:**
-         subnet_id: e2lv9c6aek1d********
-         primary_v4_address:
-           address: 192.168.13.26
      ...
      ```
 
@@ -197,79 +158,27 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
 
       ```bash
       yc compute instance relocate <VM_ID> \
-        --destination-zone-id <availability_zone_ID> \
+        --destination-zone-id {{ region-id }}-d \
         --network-interface subnet-id=<subnet_ID>,security-group-ids=<security_group_ID>
       ```
 
       Where:
 
       * `<VM_ID>`: ID of the VM to move to a different availability zone.
-      * `--destination-zone-id`: ID of the [availability zone](../../../overview/concepts/geo-scope.md) to move the VM to.
+      * `--destination-zone-id`: [Availability zone](../../../overview/concepts/geo-scope.md) ID. Only `{{ region-id }}-d` is supported.
       * `--network-interface`: VM [network interface](../../concepts/network.md) settings:
           * `subnet-id`: ID of the subnet in the availability zone to move the VM to.
           * `security-group-ids`: ID of the [security group](../../../vpc/concepts/security-groups.md) to link to the VM you are moving. You can link multiple security groups to a single VM by providing a comma-separated list of security group IDs in `[id1,id2]` format.
 
           If a VM has multiple network interfaces, specify the `--network-interface` parameter as many times as needed (for each network interface).
 
-      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
-
-      Example:
-
-      ```bash
-      yc compute instance relocate a7lh48f5jvlk******** \
-        --destination-zone-id {{ region-id }}-b \
-        --network-interface \
-          subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
-      ```
-
-      In this example, we are moving a VM named `my-vm-1` from the `{{ region-id }}-a` availability zone to `{{ region-id }}-b`.
-
-      Result:
-
-      ```text
-      done (3m15s)
-      id: a7lh48f5jvlk********
-      folder_id: aoeg2e07onia********
-      created_at: "2023-10-13T19:47:40Z"
-      name: my-vm-1
-      zone_id: {{ region-id }}-b
-      platform_id: standard-v3
-      resources:
-        memory: "2147483648"
-        cores: "2"
-        core_fraction: "100"
-      status: RUNNING
-      metadata_options:
-        gce_http_endpoint: ENABLED
-        aws_v1_http_endpoint: ENABLED
-        gce_http_token: ENABLED
-        aws_v1_http_token: DISABLED
-      boot_disk:
-        mode: READ_WRITE
-        device_name: a7lp7jpslu59********
-        auto_delete: true
-        disk_id: a7lp7jpslu59********
-      network_interfaces:
-        - index: "0"
-          mac_address: d0:0d:11:**:**:**
-          subnet_id: bltign9kcffv********
-          primary_v4_address:
-            address: 192.168.1.17
-          security_group_ids:
-            - c646ev94tb6k********
-      gpu_settings: {}
-      fqdn: my-vm-1.{{ region-id }}.internal
-      scheduling_policy: {}
-      network_settings:
-        type: STANDARD
-      placement_policy: {}
-      ```
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
       If you are moving a VM with a [disk in a placement group](../../concepts/disk-placement-group.md), use this command:
 
       ```bash
       yc compute instance relocate <VM_ID> \
-        --destination-zone-id <availability_zone_ID> \
+        --destination-zone-id {{ region-id }}-d \
         --network-interface subnet-id=<subnet_ID>,security-group-ids=<security_group_ID> \
         --boot-disk-placement-group-id <disk_placement_group_ID> \
         --boot-disk-placement-group-partition <partition_number> \
@@ -286,15 +195,15 @@ In some cases, the migration may take longer if you are moving it to the `{{ reg
         * `disk-placement-group-id`: ID of the disk placement group to place the disk in.
         * `disk-placement-group-partition`: Partition number in the disk placement group.
 
-      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/managed-services/compute/instance/relocate.md).
+      For more information about the `yc compute instance relocate` command, see the [CLI reference](../../../cli/cli-ref/compute/cli-ref/instance/relocate.md).
 
-  Please note that connecting VM's [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM's network interfaces, use the `ipv4-address=<internal_IP_address>` property in `network-interface`; for public IP addresses, use `nat-address=<public_IP_address>`. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
+  Please note that connecting VM [network interfaces](../../concepts/network.md) to new subnets changes their IP addressing. If you need to specify internal IP addresses for the VM network interfaces, use the `ipv4-address=<internal_IP_address>` property of the `network-interface` parameter; for public IP addresses, use the `nat-address=<public_IP_address>` property. Other than that, setting up network interface parameters when moving a VM to a different availability zone is similar to setting up the same parameters when creating a VM.
 
 {% endlist %}
 
 {% note info %}
 
-If the VM disks are being written to, moving them may end in an error. In this case, stop writing to the disks or shut down the VM and restart the move.
+Active writes to the VM disks being moved may cause the migration to fail. In this case, stop writing to the disks or shut down the VM and restart the migration.
 
 {% endnote %}
 
@@ -302,29 +211,28 @@ If the VM disks are being written to, moving them may end in an error. In this c
 
 #### Moving a VM to a different zone {#jump-from-a-to-d}
 
-In this example, we are moving a VM named `my-vm-1` from the `{{ region-id }}-a` availability zone to `{{ region-id }}-d`.
+In this example, we are moving a VM named `my-vm-1` from the `{{ region-id }}-b` availability zone to `{{ region-id }}-d`.
 
 ```bash
-yc compute instance relocate a7lh48f5jvlk******** \
+yc compute instance relocate epdi9vnr8i6n******** \
   --destination-zone-id {{ region-id }}-d \
-  --network-interface \
-    subnet-id=bltign9kcffv********,security-group-ids=c646ev94tb6k********
+  --network-interface subnet-id=fl8in4sila9i********,security-group-ids=enpagmu40nj5********
 ```
 
 Result:
 
 ```text
-done (3m15s)
-id: a7lh48f5jvlk********
-folder_id: aoeg2e07onia********
-created_at: "2023-10-13T19:47:40Z"
+done (1m28s)
+id: epdi9vnr8i6n********
+folder_id: b1g0ijbfaqsn********
+created_at: "2025-11-04T18:44:29Z"
 name: my-vm-1
 zone_id: {{ region-id }}-d
 platform_id: standard-v3
 resources:
   memory: "2147483648"
   cores: "2"
-  core_fraction: "100"
+  core_fraction: "50"
 status: RUNNING
 metadata_options:
   gce_http_endpoint: ENABLED
@@ -333,23 +241,29 @@ metadata_options:
   aws_v1_http_token: DISABLED
 boot_disk:
   mode: READ_WRITE
-  device_name: a7lp7jpslu59********
+  device_name: epdkl5gn20gv********
   auto_delete: true
-  disk_id: a7lp7jpslu59********
+  disk_id: epdkl5gn20gv********
 network_interfaces:
   - index: "0"
-mac_address: d0:0d:11:**:**:**
-subnet_id: bltign9kcffv********
-primary_v4_address:
-  address: 192.168.1.17
-security_group_ids:
-  - c646ev94tb6k********
+    mac_address: d0:0d:12:4f:ef:b4
+    subnet_id: fl8in4sila9i********
+    primary_v4_address:
+      address: 10.130.0.8
+    security_group_ids:
+      - enpagmu40nj5********
+serial_port_settings:
+  ssh_authorization: OS_LOGIN
 gpu_settings: {}
 fqdn: my-vm-1.{{ region-id }}.internal
 scheduling_policy: {}
 network_settings:
   type: STANDARD
 placement_policy: {}
+hardware_generation:
+  legacy_features:
+    pci_topology: PCI_TOPOLOGY_V1
+application: {}
 ```
 
 #### Moving a VM with disks in a placement group {#jump-with-disk-placement-group}

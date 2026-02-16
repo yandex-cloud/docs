@@ -16,12 +16,14 @@
 
 1. {% include [add-roles-to-sa](../_includes/audit-trails/add-roles-to-sa.md) %}
 
-1. На странице [Управление доступом]({{ link-console-access-management }}) убедитесь, что у вас есть роли:
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли:
     * `iam.serviceAccounts.user` на сервисный аккаунт;
     * `audit-trails.editor` на каталог, где будет находиться трейл;
     * `audit-trails.viewer` на организацию, с которой будут собираться аудитные логи;
     * `kms.editor` на каталог, в котором будет создан ключ шифрования для бакета;
     * `storage.viewer` на бакет или каталог.
+
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 {% include [bucket-encryption-section](../_includes/audit-trails/bucket-encryption-section.md) %}
 
@@ -36,7 +38,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите разместить трейл.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя создаваемого трейла.
   1. В поле **{{ ui-key.yacloud.common.description }}** задайте описание трейла, необязательный параметр.
@@ -129,7 +131,7 @@
       cloud_id: b1glti4eser3********
       ```
 
-      Подробнее о команде `yc audit-trails trail create` читайте в [справочнике CLI](../cli/cli-ref/managed-services/audit-trails/trail/create.md).
+      Подробнее о команде `yc audit-trails trail create` читайте в [справочнике CLI](../cli/cli-ref/audit-trails/cli-ref/trail/create.md).
 
 - {{ TF }} {#tf}
 

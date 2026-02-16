@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/get.md
 ---
 
-# Cloud CDN API, gRPC: RawLogsService.Get {#Get}
+# Cloud CDN API, gRPC: RawLogsService.Get
 
 ## gRPC request
 
@@ -13,15 +13,17 @@ sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/RawLogs/get.md
 
 ```json
 {
-  "resourceId": "string"
+  "resource_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
-Required field. ID of CDN resource to request status and settings. ||
+Required field. ID of CDN resource to request status and settings.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetRawLogsResponse {#yandex.cloud.cdn.v1.GetRawLogsResponse}
@@ -30,9 +32,9 @@ Required field. ID of CDN resource to request status and settings. ||
 {
   "status": "RawLogsStatus",
   "settings": {
-    "bucketName": "string",
-    "bucketRegion": "string",
-    "filePrefix": "string"
+    "bucket_name": "string",
+    "bucket_region": "string",
+    "file_prefix": "string"
   }
 }
 ```
@@ -43,7 +45,6 @@ Required field. ID of CDN resource to request status and settings. ||
 
 Raw logs status.
 
-- `RAW_LOGS_STATUS_UNSPECIFIED`
 - `RAW_LOGS_STATUS_NOT_ACTIVATED`: Raw logs wasn't activated.
 - `RAW_LOGS_STATUS_OK`: Raw logs was activated, and logs storing process works as expected.
 - `RAW_LOGS_STATUS_FAILED`: Raw logs was activated, but CDN provider has been failed to store logs.
@@ -59,18 +60,24 @@ User settings for Raw logs.
 
 #|
 ||Field | Description ||
-|| bucketName | **string**
+|| bucket_name | **string**
 
-Required field. Destination S3 bucket name, note that the suer should be owner of the bucket. ||
-|| bucketRegion | **string**
+Required field. Destination S3 bucket name, note that the suer should be owner of the bucket.
 
-Bucket region, unused for now, could be blank. ||
-|| filePrefix | **string**
+The maximum string length in characters is 1024. ||
+|| bucket_region | **string**
+
+Bucket region, unused for now, could be blank.
+
+The maximum string length in characters is 50. ||
+|| file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
 
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders
-could be setup. ||
+could be setup.
+
+The maximum string length in characters is 50. ||
 |#

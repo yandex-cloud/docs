@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/jobs/api-ref/grpc/ProjectJob/downloadJobFiles.md
 ---
 
-# DataSphere Jobs API v2, gRPC: ProjectJobService.DownloadJobFiles {#DownloadJobFiles}
+# DataSphere Jobs API v2, gRPC: ProjectJobService.DownloadJobFiles
 
 Returns download urls for job files.
 
@@ -15,7 +15,7 @@ Returns download urls for job files.
 
 ```json
 {
-  "jobId": "string",
+  "job_id": "string",
   "files": [
     {
       "desc": {
@@ -23,8 +23,8 @@ Returns download urls for job files.
         "var": "string"
       },
       "sha256": "string",
-      "sizeBytes": "int64",
-      "compressionType": "FileCompressionType"
+      "size_bytes": "int64",
+      "compression_type": "FileCompressionType"
     }
   ]
 }
@@ -32,7 +32,7 @@ Returns download urls for job files.
 
 #|
 ||Field | Description ||
-|| jobId | **string**
+|| job_id | **string**
 
 Required field.  ||
 || files[] | **[File](#yandex.cloud.datasphere.v2.jobs.File)** ||
@@ -46,10 +46,10 @@ Required field.  ||
 || sha256 | **string**
 
 SHA256 of the file. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 File size in bytes. ||
-|| compressionType | enum **FileCompressionType**
+|| compression_type | enum **FileCompressionType**
 
 File compression info
 
@@ -74,7 +74,7 @@ Variable to use in cmd substitution. ||
 
 ```json
 {
-  "downloadFiles": [
+  "download_files": [
     {
       "file": {
         "desc": {
@@ -82,8 +82,8 @@ Variable to use in cmd substitution. ||
           "var": "string"
         },
         "sha256": "string",
-        "sizeBytes": "int64",
-        "compressionType": "FileCompressionType"
+        "size_bytes": "int64",
+        "compression_type": "FileCompressionType"
       },
       "url": "string"
     }
@@ -93,7 +93,7 @@ Variable to use in cmd substitution. ||
 
 #|
 ||Field | Description ||
-|| downloadFiles[] | **[StorageFile](#yandex.cloud.datasphere.v2.jobs.StorageFile)** ||
+|| download_files[] | **[StorageFile](#yandex.cloud.datasphere.v2.jobs.StorageFile)** ||
 |#
 
 ## StorageFile {#yandex.cloud.datasphere.v2.jobs.StorageFile}
@@ -114,10 +114,10 @@ File URL. ||
 || sha256 | **string**
 
 SHA256 of the file. ||
-|| sizeBytes | **int64**
+|| size_bytes | **int64**
 
 File size in bytes. ||
-|| compressionType | enum **FileCompressionType**
+|| compression_type | enum **FileCompressionType**
 
 File compression info
 

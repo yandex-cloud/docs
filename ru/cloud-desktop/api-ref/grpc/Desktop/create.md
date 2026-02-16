@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/clouddesktop/v1/api-ref/grpc/Desktop/create.md
 ---
 
-# Cloud Desktop API, gRPC: DesktopService.Create {#Create}
+# Cloud Desktop API, gRPC: DesktopService.Create
 
 Creates desktop in the specified folder.
 
@@ -15,10 +15,12 @@ Creates desktop in the specified folder.
 
 ```json
 {
-  "desktopGroupId": "string",
+  "desktop_group_id": "string",
+  "subnet_id": "string",
   "users": [
     {
-      "subjectId": "string"
+      "subject_id": "string",
+      "subject_type": "string"
     }
   ]
 }
@@ -26,21 +28,37 @@ Creates desktop in the specified folder.
 
 #|
 ||Field | Description ||
-|| desktopGroupId | **string**
+|| desktop_group_id | **string**
 
-Required field. ID of the desktop group. ||
+Required field. ID of the desktop group.
+
+The maximum string length in characters is 50. ||
+|| subnet_id | **string**
+
+ID of the subnet for desktop.
+
+The maximum string length in characters is 50. ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
-List of users. ||
+List of users.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User}
 
 #|
 ||Field | Description ||
-|| subjectId | **string**
+|| subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subject_type | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -49,38 +67,40 @@ Required field. Identity of the access binding. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "desktopId": "string"
+    "desktop_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "desktopGroupId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "desktop_group_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "status": "Status",
     "name": "string",
     "resources": {
       "memory": "int64",
       "cores": "int64",
-      "coreFraction": "int64"
+      "core_fraction": "int64"
     },
-    "networkInterfaces": [
+    "network_interfaces": [
       {
-        "networkId": "string",
-        "subnetId": "string"
+        "network_id": "string",
+        "subnet_id": "string"
       }
     ],
     "users": [
       {
-        "subjectId": "string"
+        "subject_id": "string",
+        "subject_type": "string"
       }
-    ]
+    ],
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -96,13 +116,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -145,7 +165,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| desktopId | **string**
+|| desktop_id | **string**
 
 ID of the desktop that is being created. ||
 |#
@@ -159,59 +179,86 @@ A desktop resource.
 || id | **string**
 
 Desktop ID. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the desktop belongs to. ||
-|| desktopGroupId | **string**
+|| desktop_group_id | **string**
 
 ID of the desktop group that the desktop belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || status | enum **Status**
 
 Status of the desktop.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Desktop is being created.
-- `ACTIVE`: Desktop is ready to use.
-- `DELETING`: Desktop is being deleted. ||
+- `ACTIVE`: Desktop is ready to be used.
+- `DELETING`: Desktop is being deleted.
+- `RESTARTING`: Desktop is restarting.
+- `UPDATING`: Desktop is updating.
+- `STARTING`: Desktop is starting.
+- `STOPPING`: Desktop is stopping.
+- `STOPPED`: Desktop is stopped.
+- `ERROR`: Desktop did not manage start or restart.
+- `CREATION_FAILED`: Desktop did not manage to get created or updated.
+- `HEALTH_CHECK`: Desktop in the process of health check. ||
 || name | **string**
 
 Name of the desktop. ||
 || resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
 
 Resources of the desktop. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
+|| network_interfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User2)** ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
 
 #|
 ||Field | Description ||
-|| memory | **int64** ||
-|| cores | **int64** ||
-|| coreFraction | **int64** ||
+|| memory | **int64**
+
+The minimum value is 1. ||
+|| cores | **int64**
+
+The minimum value is 1. ||
+|| core_fraction | **int64**
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.clouddesktop.v1.api.NetworkInterface}
 
 #|
 ||Field | Description ||
-|| networkId | **string**
+|| network_id | **string**
 
-Required field.  ||
-|| subnetId | **string**
+Required field.
 
-Required field.  ||
+The maximum string length in characters is 50. ||
+|| subnet_id | **string**
+
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## User {#yandex.cloud.clouddesktop.v1.api.User2}
 
 #|
 ||Field | Description ||
-|| subjectId | **string**
+|| subject_id | **string**
 
-Required field. Identity of the access binding. ||
+Required field. Identity of the access binding.
+
+The maximum string length in characters is 100. ||
+|| subject_type | **string**
+
+Required field. Type of the access binding, e.g. userAccount, serviceAccount, system.
+
+The maximum string length in characters is 100. ||
 |#

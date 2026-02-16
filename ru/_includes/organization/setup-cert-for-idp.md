@@ -1,0 +1,1 @@
+[Скачать и установить сертификат](../../organization/operations/setup-federation.md#add-certificate-idp) {{ yandex-cloud }} вы можете и после создания федерации.

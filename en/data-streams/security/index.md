@@ -1,12 +1,12 @@
 # Access management in {{ yds-name }}
 
-{{ yds-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ yds-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To enable access to {{ yds-full-name }} resources (data streams, {{ ydb-full-name }} databases storing the data streams, and database users), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow access to {{ yds-full-name }} resources (data streams, {{ ydb-full-name }} databases for streams and their users), assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-Roles for a resource can be assigned by users who have the `yds.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you should have the `yds.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -18,15 +18,21 @@ For more information about role inheritance, see [{#T}](../../resource-manager/c
 
 ## Assigning roles {#grant-roles}
 
-To assign a user a role:
+To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Which roles exist in the service {#roles-list}
+## What roles exist in this service {#roles-list}
 
-The list below shows all roles considered when verifying access permissions in {{ yds-name }}.
+The list below shows all roles used for access control in {{ yds-name }}.
+
+{% include [data-streams](../../_mermaid/roles/data-streams.md) %}
 
 ### Service roles {#service-roles}
+
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../../_roles/yds/auditor.md) %}
 
 #### yds.viewer {#yds-viewer}
 
@@ -46,18 +52,6 @@ The list below shows all roles considered when verifying access permissions in {
 
 ### Primitive roles {#primitive-roles}
 
-#### {{ roles-viewer }} {#viewer}
+{% include [roles-primitive](../../_includes/roles-primitive.md) %}
 
-A user with the `{{ roles-viewer }}` role can view information about resources, e.g., lists of data streams and databases they are created in, their properties.
-
-#### {{ roles-editor }} {#editor}
-
-A user with the `{{ roles-editor }}` role can manage any resources, e.g., create a stream or delete it. In addition, this role allows writing application data to streams.
-
-The `{{ roles-editor }}` role also includes all permissions of the `{{ roles-viewer }}` role.
-
-#### {{ roles-admin }} {#admin}
-
-Users with the `{{ roles-admin }}` role can manage resource access rights, for example, allow other users to create streams or view information about them.
-
-The `{{ roles-admin }}` role also includes all permissions of the `{{ roles-editor }}` role.
+{% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}

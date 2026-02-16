@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/OriginGroup/create.md
 ---
 
-# Cloud CDN API, gRPC: OriginGroupService.Create {#Create}
+# Cloud CDN API, gRPC: OriginGroupService.Create
 
 Creates origin group.
 
@@ -15,9 +15,9 @@ Creates origin group.
 
 ```json
 {
-  "folderId": "string",
+  "folder_id": "string",
   "name": "string",
-  "useNext": "google.protobuf.BoolValue",
+  "use_next": "google.protobuf.BoolValue",
   "origins": [
     {
       "source": "string",
@@ -40,19 +40,22 @@ Creates origin group.
         // end of the list of possible fields
       }
     }
-  ]
+  ],
+  "provider_type": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to. ||
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the origin group. ||
-|| useNext | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+|| use_next | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 This option have two possible conditions:
 true - The option is active. In case the origin responds with 4XX or 5XX codes,
@@ -64,6 +67,16 @@ default value is true ||
 
 List of origins: IP addresses or Domain names of your origins and the port
 (if custom). ||
+|| provider_type | **string**
+
+Set up origin group provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## OriginParams {#yandex.cloud.cdn.v1.OriginParams}
@@ -161,24 +174,24 @@ ID of the origin. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "originGroupId": "int64"
+    "origin_group_id": "int64"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "int64",
-    "folderId": "string",
+    "folder_id": "string",
     "name": "string",
-    "useNext": "bool",
+    "use_next": "bool",
     "origins": [
       {
         "id": "int64",
-        "originGroupId": "int64",
+        "origin_group_id": "int64",
         "source": "string",
         "enabled": "bool",
         "backup": "bool",
@@ -197,7 +210,15 @@ ID of the origin. ||
             "id": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "provider_type": "string"
+      }
+    ],
+    "provider_type": "string",
+    "resources_metadata": [
+      {
+        "id": "string",
+        "cname": "string"
       }
     ]
   }
@@ -215,13 +236,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -264,9 +285,11 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
-ID of created origin group. ||
+ID of created origin group.
+
+Value must be greater than 0. ||
 |#
 
 ## OriginGroup {#yandex.cloud.cdn.v1.OriginGroup}
@@ -278,13 +301,13 @@ Origin group parameters. For details about the concept, see [documentation](/doc
 || id | **int64**
 
 ID of the origin group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the origin group belongs to. ||
 || name | **string**
 
 Name of the origin group. ||
-|| useNext | **bool**
+|| use_next | **bool**
 
 This option have two possible conditions:
 true - the option is active. In case the origin responds with 4XX or 5XX codes,
@@ -293,6 +316,12 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
+|| resources_metadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -304,7 +333,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -327,6 +356,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}
@@ -386,4 +418,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

@@ -1,27 +1,29 @@
 ---
-title: Отложенный режим выполнения поисковых запросов в {{ search-api-full-name }}
-description: В данном разделе вы узнаете об отложенных поисковых запросах в сервисе {{ search-api-name }}.
+title: Поисковые запросы через интерфейс API сервиса {{ search-api-full-name }}
+description: В данном разделе вы узнаете об особенностях использования и формате поисковых запросов при обращении к сервису {{ search-api-name }} через интерфейс API.
 ---
 
-# Отложенный режим выполнения поисковых запросов в {{ search-api-name }}
+# Текстовый поиск
 
-_Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md)._
+Интерфейсы [{{ ml-sdk-full-name }}](./index.md#sdk) и [API](./index.md#api-v2) сервиса {{ search-api-name }} позволяют выполнять запросы к поисковой базе Яндекса с получением ответа в [синхронном](#sync-mode) или [отложенном](#async-mode) режиме. Поисковая выдача зависит от заданных в запросе [параметров](#parameters).
 
-{{ search-api-name }} позволяет выполнять запросы к поисковой базе Яндекса с получением ответа в отложенном режиме. Выполнять запросы можно с помощью [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/) сервиса {{ search-api-name }}. Поисковая выдача зависит от заданных в запросе [параметров](#parameters).
+Выполнять запросы может пользователь или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому назначена [роль](../security/index.md#search-api-webSearch-user) `search-api.webSearch.user`.
 
-[Выполнять запросы](../operations/web-search.md) может пользователь или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../iam/concepts/access-control/roles.md) `search-api.webSearch.user`.
+В зависимости от заданных параметров запроса, результат возвращается в формате [XML](./response.md) или [HTML](./html-response.md).
 
-В ответ на отложенный запрос {{ search-api-name }} возвращает [объект Operation](#response-format), содержащий информацию об операции: статус, идентификатор, время вызова и т.д. 
+{% note info %}
 
-Зная идентификатор объекта Operation, вы можете [отследить](../operations/web-search.md#verify-operation) статус обработки запроса, а также [получить результат](../operations/web-search.md#get-response) по завершении обработки.
+Параметры и примеры поисковых запросов с использованием {{ ml-sdk-name }} см. в [инструкциях](../operations/index.md) по работе с {{ search-api-full-name }}.
 
-## Формат тела запроса {#parameters}
+{% endnote %}
 
-Имена полей тела запроса различаются в [REST API](../api-ref/) и [gPRC API](../api-ref/grpc/): в REST API используется [CamelCase](https://ru.wikipedia.org/wiki/CamelCase), в gPRC API — [snake_case](https://ru.wikipedia.org/wiki/Snake_case).
+## Формат тела API-запроса {#parameters}
 
-{% list tabs group=api_type %}
+{% include [rest-grpc-fields-differ](../../_includes/search-api/rest-grpc-fields-differ.md) %}
 
-- REST API {#rest-api}
+{% list tabs group=instructions %}
+
+- REST API {#api}
 
   {% include [http-body-v2](../../_includes/search-api/http-body-v2.md) %}
 
@@ -39,13 +41,33 @@ _Функциональность находится на стадии [Preview]
 
 {% endlist %}
 
-## Формат ответа {#response-format}
+## Синхронный режим поиска {#sync-mode}
 
-В ответ на отложенный запрос {{ search-api-name }} возвращает [объект Operation](../../api-design-guide/concepts/operation.md) в следующем формате:
+В синхронном режиме запросы можно [выполнять](../operations/web-search-sync.md) с помощью [{{ ml-sdk-full-name }}](./index.md#sdk), [REST API](../api-ref/index.md) и [gRPC API](../api-ref/grpc/index.md).
 
-{% list tabs group=api_type %}
+В ответ на запрос в синхронном режиме сервис {{ search-api-name }} в зависимости от заданных [параметров](#parameters) запроса возвращает результат в формате [XML](./response.md) или [HTML](./html-response.md). Результат возвращается в поле `rawData` ответа в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
 
-- REST API {#rest-api}
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
+## Отложенный (асинхронный) режим поиска {#async-mode}
+
+В отложенном режиме запросы можно [выполнять](../operations/web-search.md) с помощью [{{ ml-sdk-full-name }}](./index.md#sdk), [REST API](../api-ref/index.md) и [gRPC API](../api-ref/grpc/index.md). 
+
+В ответ на отложенный запрос {{ search-api-name }} возвращает [объект Operation](#response-format), содержащий информацию об операции: статус, идентификатор, время вызова и т.д. 
+
+Зная идентификатор объекта Operation, вы можете отследить статус обработки запроса, а также получить результат по завершении обработки. Подробнее см. в разделе [{#T}](../operations/web-search.md).
+
+В зависимости от заданных [параметров](#parameters) запроса [результат](#response-format) возвращается в поле `response.rawData` ответа в формате [XML](./response.md) или [HTML](./html-response.md).
+
+### Формат ответа при асинхронном поиске {#response-format}
+
+В ответ на отложенный запрос API {{ search-api-name }} возвращает [объект Operation](../../api-design-guide/concepts/operation.md) в следующем формате:
+
+{% include [empty-response-notice](../../_includes/search-api/empty-response-notice.md) %}
+
+{% list tabs group=instructions %}
+
+- REST API {#api}
 
   ```json
   {
@@ -83,12 +105,13 @@ _Функциональность находится на стадии [Preview]
 
 Объект `response` внутри [объекта Operation](../../api-design-guide/concepts/operation.md) становится доступен только после того, как запрос был выполнен на стороне {{ search-api-name }}, а значение поля `done` (статус операции) изменилось на `true`.
 
-Значение поля `rawData` объекта `response` содержит [XML-ответ](./response.md) в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
+Значение поля `rawData` объекта `response` в зависимости от параметров запроса содержит [XML](./response.md) или [HTML](./html-response.md) ответ в кодировке [Base64](https://ru.wikipedia.org/wiki/Base64).
 
 Подробнее об объекте Operation и его полях см. в разделе [{#T}](../../api-design-guide/concepts/operation.md).
 
 #### См. также {#see-also}
 
+* [{#T}](../operations/web-search-sync.md)
 * [{#T}](../operations/web-search.md)
 * [{#T}](./response.md)
 * [{#T}](../api-ref/authentication.md)

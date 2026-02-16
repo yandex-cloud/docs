@@ -1,8 +1,20 @@
-A VM's minimum configuration required to install and correctly run the {{ backup-name }} agent is as follows:
+The minimum VM and {{ baremetal-name }} server specification to install and correctly run the {{ backup-name }} agent is as follows:
 
 * Free disk space:
 
-   * For Linux-based VMs: 2 GB.
-   * For Windows-based VMs: 1.2 GB.
+  * For Linux-based VMs: 2 GB.
+  * For Windows-based VMs: 1.2 GB.
 
-* RAM: For backups, 1 GB of RAM is required per TB of a backup. The amount of RAM used depends on the volume and type of data handled by the agent.
+* RAM: For backups, 1 GB of RAM is required per 1 TB of backup. The RAM requirement depends on the amount and type of data processed by the [{{ backup-name }} agent](../../backup/concepts/agent.md).
+
+{% note tip %}
+
+{% include [cloud-backup-resources-note](./cloud-backup-resources-note.md) %}
+
+{% endnote %}
+
+{% include [agent-ram-usage-paragraph](./operations/agent-ram-usage-paragraph.md) %}
+
+{% include [agent-ram-usage-second-paragraph](./operations/agent-ram-usage-second-paragraph.md) %}
+
+{% include [agent-ram-usage-notice](./operations/agent-ram-usage-notice.md) %}

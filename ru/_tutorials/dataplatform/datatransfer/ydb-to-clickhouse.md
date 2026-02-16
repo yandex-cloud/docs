@@ -11,6 +11,18 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -25,9 +37,13 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
 
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
     1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с именем `ydb-account` и ролью `ydb.editor`. Трансфер будет использовать его для доступа к базе данных.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -112,7 +128,10 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.connection.title }}**:
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите сервисный аккаунт `ydb-account`.
+
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.paths.title }}** — укажите таблицу `table1`.
 
@@ -223,35 +242,24 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-    * [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
-    * [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
-    * [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+    1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
+    1. [Удалите кластер {{ mch-name }}](../../../managed-clickhouse/operations/cluster-delete.md).
+
+    
+    1. [Удалите сервисный аккаунт](../../../iam/operations/sa/delete.md).
+
 
 - С помощью {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `ydb-to-clickhouse.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `ydb-to-clickhouse.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
 

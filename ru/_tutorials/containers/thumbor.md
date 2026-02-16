@@ -16,6 +16,18 @@ Thumbor удобно использовать для подготовки изо
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за сервис {{ cdn-name }}: исходящий трафик (см. [тарифы {{ objstorage-name }}](../../cdn/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 ### Подготовьте инфраструктуру {#infra}
@@ -179,36 +191,6 @@ Thumbor удобно использовать для подготовки изо
 
 ## Настройте CDN {#cdn}
 
-1. Активируйте CDN-провайдер для вашего каталога:
-
-   ```bash
-   yc cdn provider activate --type=gcore --folder-id=<идентификатор_каталога>
-   ```
-
-1. Получите доменное имя CDN-провайдера:
-
-   ```bash
-   yc cdn resource get-provider-cname
-   ```
-
-   Пример результата:
-
-   ```text
-   cname: {{ cname-example }}
-   folder_id: {{ folder-id-example }}
-   ```
-
-   Доменное имя указано в параметре `cname`.
-
-1. Настройте CNAME для своего домена:
-
-   1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
-   1. Подготовьте CNAME-запись таким образом, чтобы она указывала на скопированный ранее адрес в домене `.edgecdn.ru`. Например, если доменное имя сайта — `{{ domain-name-example }}`, создайте CNAME-запись или замените уже существующую запись для `cdn`:
-
-      ```http
-      cdn CNAME {{ cname-example }}.
-      ```
-
 1. Получите внешний IP-адрес Thumbor:
 
    ```bash
@@ -290,6 +272,17 @@ Thumbor удобно использовать для подготовки изо
 
    Подключение CDN-ресурса занимает от 15 до 30 минут.
 
+1. В [консоли управления]({{ link-console-main }}) на странице CDN-ресурса получите доменное имя CDN-провайдера, например `{{ cname-example-yc }}`.
+
+1. Настройте CNAME для своего домена:
+
+   1. Перейдите в настройки DNS вашего домена на сайте компании, которая предоставляет вам услуги DNS-хостинга.
+   1. Подготовьте CNAME-запись таким образом, чтобы она указывала на скопированный ранее адрес в домене `.yccdn.cloud.yandex.net`. Например, если доменное имя сайта — `{{ domain-name-example }}`, создайте CNAME-запись или замените уже существующую запись для `cdn`:
+
+      ```http
+      cdn CNAME {{ cname-example-yc }}.
+      ```
+
 ## Проверьте результат {#check-result}
 
 Откройте ваш сайт по URL:
@@ -307,49 +300,23 @@ Thumbor удобно использовать для подготовки изо
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-{% list tabs group=instructions %}
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакетов.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-   Удалите:
+    - Вручную {#manual}
 
-   1. [CDN-ресурс](../../cdn/operations/resources/delete-resource.md).
-   1. [Группу источников CDN](../../cdn/operations/origin-groups/delete-group.md).
-   1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md).
-   1. [Кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-   1. [Публичный статический IP-адрес](../../vpc/operations/address-delete.md), если вы зарезервировали его для кластера.
-   1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
-   1. [Бакеты](../../storage/operations/buckets/delete.md) и [объекты в них](../../storage/operations/objects/delete.md).
+        1. [CDN-ресурс](../../cdn/operations/resources/delete-resource.md).
+        1. [Группу источников CDN](../../cdn/operations/origin-groups/delete-group.md).
+        1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md).
+        1. [Кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+        1. [Публичный статический IP-адрес](../../vpc/operations/address-delete.md), если вы зарезервировали его для кластера.
+        1. [Сервисные аккаунты](../../iam/operations/sa/delete.md).
+        1. [Бакеты](../../storage/operations/buckets/delete.md).
 
-- {{ TF }} {#tf}
+    - {{ TF }} {#tf}
 
-   1. В терминале перейдите в директорию с планом инфраструктуры.
-   1. Удалите конфигурационный файл `images-for-thumbor.tf`. Чтобы удалить бакет, сначала удалите объекты в нем.
-   1. Проверьте корректность изменений с помощью команды:
+        {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-   1. Удалите конфигурационный файл `k8s-for-thumbor.tf`.
-   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-      ```bash
-      terraform validate
-      ```
-
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-   1. Подтвердите изменение ресурсов.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      Все ресурсы, которые были описаны в конфигурационном файле `k8s-for-thumbor.tf`, будут удалены.
-
-{% endlist %}
+    {% endlist %}

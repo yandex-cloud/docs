@@ -1,14 +1,11 @@
----
-title: Блокировка состояний {{ TF }}
-description: При работе с {{ TF }} в облаке важно исключить возможность одновременного изменения инфраструктуры разными пользователями. Для этого применяется блокировка состояний {{ TF }} (state locking).
----
-
 # Блокировка состояний {{ TF }} с помощью {{ ydb-full-name }}
 
 
-В {{ yandex-cloud }} поддерживается [управление инфраструктурой с помощью {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+{% include [terraform-ref-intro](../../_includes/terraform-ref-intro.md) %}
 
-Когда несколько пользователей одновременно работают с одним состоянием из {{ objstorage-name }}, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [{{ ydb-full-name }}](../../ydb/) и использовать ее для механизма блокировок, встроенного в {{ TF }} (state locking). При каждом изменении инфраструктуры через {{ TF }} состояние будет автоматически блокироваться, пока изменение не применится.
+Чтобы управлять инфраструктурой могли несколько пользователей одновременно, состояния {{ TF }} можно [автоматически загружать и хранить в {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
+
+Когда несколько пользователей одновременно работают с одним состоянием, загруженным в {{ objstorage-name }}, возможны конфликты. Чтобы предотвратить их, вы можете развернуть базу данных в [{{ ydb-full-name }}](../../ydb/) и использовать ее для механизма блокировок, встроенного в {{ TF }} (state locking). При каждом изменении инфраструктуры через {{ TF }} состояние будет автоматически блокироваться, пока изменение не применится.
 
 Чтобы настроить хранение состояний {{ TF }} в {{ objstorage-name }} и их блокировку с помощью {{ ydb-name }}:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -22,8 +19,6 @@ description: При работе с {{ TF }} в облаке важно искл
 1. [Проверьте блокировку состояния](#check-state-lock).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-{{ TF }} и его провайдеры распространяются под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
@@ -44,7 +39,7 @@ description: При работе с {{ TF }} в облаке важно искл
 ## Создайте сервисный аккаунт и статический ключ доступа {#create-service-account}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) [storage.editor](../../storage/security/index.md#storage-editor) и [ydb.admin](../../ydb/security/index.md#ydbadmin) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), указанный в настройках провайдера.
-1. [Получите статический ключ доступа](../../iam/operations/sa/create-access-key.md). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
+1. [Получите статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Сохраните идентификатор ключа и секретный ключ — они понадобятся в следующих разделах инструкции.
 
 ## Создайте бакет {#create-service-account}
 
@@ -127,7 +122,7 @@ description: При работе с {{ TF }} в облаке важно искл
      ```
 
    - PowerShell {#powershell}
-   
+
     ```powershell
     $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
     $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
@@ -150,7 +145,7 @@ description: При работе с {{ TF }} в облаке важно искл
        endpoints = {
          s3       = "https://{{ s3-storage-host }}"
          dynamodb = "<эндпоинт_Document_API_БД>"
-
+       }
        bucket            = "<имя_бакета>"
        region            = "{{ region-id }}"
        key               = "<путь_к_файлу_состояния_в_бакете>/<имя_файла_состояния>.tfstate"
@@ -161,11 +156,11 @@ description: При работе с {{ TF }} в облаке важно искл
        skip_credentials_validation = true
        skip_requesting_account_id  = true # Необходимая опция {{ TF }} для версии 1.6.1 и старше.
        skip_s3_checksum            = true # Необходимая опция при описании бэкенда для {{ TF }} версии 1.6.3 и старше.
-       }
      }
+   }
 
-     provider "yandex" {
-       zone = "<зона_доступности_по_умолчанию>"
+   provider "yandex" {
+     zone = "<зона_доступности_по_умолчанию>"
    }
    ```
 
@@ -185,7 +180,7 @@ description: При работе с {{ TF }} в облаке важно искл
 
 ## Разверните конфигурацию {#deploy}
 
-В этом примере будет создана ВМ `terraform-vm`, которая будет подключена к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Подсеть будет принадлежать облачной [сети](../../vpc/concepts/network.md#network) `network-1`.
+В этом примере будет создана ВМ `terraform-vm`, которая будет подключена к [подсети](../../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Подсеть будет принадлежать облачной [сети](../../vpc/concepts/network.md#network) `network-1`.
 
 У ВМ будет: 2 ядра и 4 ГБ оперативной памяти и она автоматически получит публичный и [приватный IP-адреса](../../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа по [SSH](../../glossary/ssh-keygen.md).
 1. Сохраните следующую конфигурацию в отдельном файле `example-vm.tf` в папке с файлом конфигурации бэкенда:
@@ -198,7 +193,7 @@ description: При работе с {{ TF }} в облаке важно искл
    resource "yandex_compute_disk" "boot-disk" {
      name     = "boot-disk"
      type     = "network-hdd"
-     zone     = "{{ region-id }}-a"
+     zone     = "{{ region-id }}-d"
      size     = "20"
      image_id = yandex_compute_image.ubuntu_2004.id
    }
@@ -231,7 +226,7 @@ description: При работе с {{ TF }} в облаке важно искл
 
    resource "yandex_vpc_subnet" "subnet-1" {
      name           = "subnet1"
-     zone           = "{{ region-id }}-a"
+     zone           = "{{ region-id }}-d"
      network_id     = yandex_vpc_network.network-1.id
      v4_cidr_blocks = ["192.168.10.0/24"]
    }

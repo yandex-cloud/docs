@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://ydb.{{ api-host }}/ydb/v1/storageTypes/{storageTypeId}
+    method: get
+    path:
+      type: object
+      properties:
+        storageTypeId:
+          description: |-
+            **string**
+            Required field. Required. ID of the storage type to return.
+          type: string
+      required:
+        - storageTypeId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/ydb/v1/api-ref/StorageType/get.md
 ---
 
-# Managed Service for YDB API, REST: StorageType.Get {#Get}
+# Managed Service for YDB API, REST: StorageType.Get
 
 Returns the specified storage types.
 

@@ -64,11 +64,10 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте ключи с помощью приложения PuTTY:
   1. [Скачайте](https://www.putty.org) и установите PuTTY.
-  1. Убедитесь, что директория, куда вы установили PuTTY, присутствует в `PATH`:
-     1. Нажмите правой кнопкой на **Мой компьютер**. Выберите пункт **Свойства**.
-     1. В открывшемся окне выберите **Дополнительные параметры системы**, затем **Переменные среды** (находится в нижней части окна).
-     1. В разделе **Системные переменные** найдите `PATH` и нажмите **Изменить**.
-     1. В поле **Значение переменной** допишите путь к директории, куда вы установили PuTTY.
+  1. Добавьте папку с PuTTY в переменную `PATH`:
+
+      {% include [windows-environment-vars](../../_includes/windows-environment-vars.md) %}
+
   1. Запустите приложение PuTTYgen.
   1. В качестве типа генерируемой пары выберите **Ed25519**. Нажмите **Generate** и поводите курсором в поле выше до тех пор, пока не закончится создание ключа.
 
@@ -190,6 +189,8 @@ description: Следуя данной инструкции, вы сможете
   1. Подтвердите изменение ресурсов.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
@@ -361,7 +362,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в каталоге, где создан ваш кластер {{ managed-k8s-name }}.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Нажмите на группу ВМ, имя которой соответствует идентификатору группы узлов {{ managed-k8s-name }}.
   1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
   1. Нажмите на ВМ, публичный адрес которой хотите узнать.

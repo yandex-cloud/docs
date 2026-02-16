@@ -2,8 +2,8 @@
 
 Чтобы привязывать мерж-реквесты из {{ GL }} к задачам в {{ tracker-name }}, создайте хук:
 
-1. Если у вас еще нет OAuth-токена для работы с {{ tracker-name }} API, [получите его](../../tracker/concepts/access.md#section_about_OAuth).
-1. Проверьте наличие доступа к API с помощью [запроса информации о текущем пользователе](../../tracker/get-user-info.md).
+1. Если у вас еще нет OAuth-токена для работы с {{ tracker-name }} API, [получите его]({{ link-tracker-cloudless }}concepts/access#section_about_OAuth).
+1. Проверьте наличие доступа к API с помощью [запроса информации о текущем пользователе]({{ link-tracker-cloudless }}get-user-info).
 1. Откройте инстанс {{ GL }} и перейдите к настройкам хука:
     * Для включения интеграции на весь [инстанс {{ GL }}](../../managed-gitlab/concepts/index.md) (требуются права администратора {{ GL }}):
         1. В панели слева нажмите на раскрывающийся список **Your work** и выберите пункт **Admin Area**.

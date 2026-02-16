@@ -75,6 +75,12 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Запись данных
             href: sources-and-sinks/data-streams-write.md
+      - name: Работа с {{ monitoring-full-name }}
+        items:
+          - name: Чтение данных с помощью соединений
+            href: sources-and-sinks/monitoring.md
+          - name: Запись данных
+            href: sources-and-sinks/monitoring-write.md
       - name: Работа с базами данных {{ mch-name }}
         href: sources-and-sinks/clickhouse.md
       - name: Работа с базами данных {{ mgp-name }}
@@ -85,24 +91,48 @@ items:
         href: sources-and-sinks/postgresql.md
       - name: Работа с базами данных {{ ydb-name }}
         href: sources-and-sinks/ydb.md
-      - name: Запись метрик в {{ monitoring-full-name }}
-        href: sources-and-sinks/monitoring.md
+      - name: Чтение данных из таблиц {{ yq-iceberg-name }}
+        href: sources-and-sinks/iceberg.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Обработка логов {{ cloud-logging-name }}
         href: tutorials/cloud-logging.md
       - name: Обработка потока изменений Debezium
         href: tutorials/debezium.md
-      - name: Визуализация данных из {{ datalens-name }} в {{ objstorage-name }}
+      - name: Визуализация данных из {{ objstorage-name }} в {{ datalens-name }}
         href: tutorials/datalens.md
       - name: Обработка аудитных логов {{ at-name }}
         href: tutorials/audit-trails.md
-      - name: Обработка файлов детализации биллинга
+      - name: Обработка файлов детализации в сервисе {{ billing-name }}
         href: tutorials/billing.md
-      - name: Анализ данных с помощью Jupyter
+      - name: Анализ данных с помощью {{ jlab }}
         href: tutorials/jupyter.md
       - name: Автоматизация задач с помощью {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: Анализ данных с помощью {{ yq-name }}
+        href: tutorials/yq.md
+      - name: Работа с данными в {{ objstorage-name }}
+        href: tutorials/yq-storage.md
+      - name: Работа с данными в {{ mch-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Работа с данными в {{ mpg-name }}
+        href: tutorials/yq-postgre.md
+      - name: Федеративные запросы к данным
+        href: tutorials/yq-federative-queries.md
+      - name: Поиск событий {{ yandex-cloud }} в {{ yq-name }}
+        href: tutorials/search-events-query.md
+      - name: >-
+          Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с
+          использованием {{ sf-full-name }} и {{ yq-full-name }}
+        items:
+          - name: Обзор
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Консоль управления
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: tutorials/forms-and-datalens-integration/terraform.md
   - name: Работа с YQL
     items:
       - name: Обзор
@@ -163,5 +193,3 @@ items:
     href: public_talks.md
   - name: Обучающие курсы
     href: training.md
-base: ru/query
-deepBase: 2

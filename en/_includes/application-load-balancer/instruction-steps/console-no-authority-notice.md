@@ -1,0 +1,1 @@
+If **{{ ui-key.yacloud.alb.label_authority }}** is not specified, all traffic will be routed to this virtual host (same as `*`).

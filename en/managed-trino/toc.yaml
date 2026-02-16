@@ -1,9 +1,313 @@
 title: '{{ mtr-full-name }}'
 href: index.yaml
-stage: preview
-noIndex: true
 items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Clusters
+        items:
+          - name: Getting information on existing clusters
+            href: operations/cluster-list.md
+          - name: Creating a cluster
+            href: operations/cluster-create.md
+          - name: Updating a cluster
+            href: operations/cluster-update.md
+          - name: '{{ TR }} version upgrade'
+            href: operations/cluster-version-update.md
+          - name: Stopping and starting a cluster
+            href: operations/cluster-stop.md
+          - name: Connecting to a cluster
+            href: operations/connect.md
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
+          - name: Deleting a cluster
+            href: operations/cluster-delete.md
+      - name: Catalogs
+        items:
+          - name: Getting information on existing catalogs
+            href: operations/catalog-list.md
+          - name: Creating a catalog
+            href: operations/catalog-create.md
+          - name: Updating a catalog
+            href: operations/catalog-update.md
+          - name: Deleting a catalog
+            href: operations/catalog-delete.md
+      - name: Logs and monitoring
+        items:
+          - name: Monitoring cluster state
+            href: operations/monitoring.md
+          - name: Viewing cluster logs
+            href: operations/cluster-logs.md
+      - name: Object access rules
+        items:
+          - name: Access management
+            href: operations/access-control.md
+          - name: Getting access rules
+            href: operations/access-control-get.md
+          - name: Assigning rules for catalog objects
+            href: operations/access-control-catalogs.md
+          - name: Assigning rules for schemas
+            href: operations/access-control-schemas.md
+          - name: Assigning rules for tables
+            href: operations/access-control-tables.md
+          - name: Assigning rules for functions
+            href: operations/access-control-functions.md
+          - name: Assigning rules for procedures
+            href: operations/access-control-procedures.md
+          - name: Assigning rules for queries
+            href: operations/access-control-queries.md
+          - name: Assigning rules for system session properties
+            href: operations/access-control-session-properties.md
+          - name: Assigning rules for catalog session properties
+            href: operations/access-control-catalog-properties.md
+          - name: Deleting access rules
+            href: operations/access-control-delete.md
+  - name: Concepts
+    items:
+      - name: Resource relationships
+        href: concepts/index.md
+      - name: Networking in {{ mtr-name }}
+        href: concepts/network.md
+      - name: Impersonation
+        href: concepts/impersonation.md
+      - name: Fault-tolerant query execution
+        href: concepts/retry-policy.md
+      - name: Host classes
+        href: concepts/instance-types.md
+      - name: Maintenance
+        href: concepts/maintenance.md
+  - name: CLI reference
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: catalog
+        items:
+          - name: Overview
+            href: cli-ref/catalog/index.md
+          - name: create
+            items:
+              - name: Overview
+                href: cli-ref/catalog/create/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/create/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/create/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/create/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/create/hive.md
+              - name: hudi
+                href: cli-ref/catalog/create/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/create/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/create/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/create/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/create/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/create/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/create/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/create/tpch.md
+          - name: delete
+            href: cli-ref/catalog/delete.md
+          - name: get
+            href: cli-ref/catalog/get.md
+          - name: list
+            href: cli-ref/catalog/list.md
+          - name: update
+            items:
+              - name: Overview
+                href: cli-ref/catalog/update/index.md
+              - name: clickhouse
+                href: cli-ref/catalog/update/clickhouse.md
+              - name: delta-lake
+                href: cli-ref/catalog/update/delta-lake.md
+              - name: greenplum
+                href: cli-ref/catalog/update/greenplum.md
+              - name: hive
+                href: cli-ref/catalog/update/hive.md
+              - name: hudi
+                href: cli-ref/catalog/update/hudi.md
+              - name: iceberg
+                href: cli-ref/catalog/update/iceberg.md
+              - name: mysql
+                href: cli-ref/catalog/update/mysql.md
+              - name: oracle
+                href: cli-ref/catalog/update/oracle.md
+              - name: postgresql
+                href: cli-ref/catalog/update/postgresql.md
+              - name: sqlserver
+                href: cli-ref/catalog/update/sqlserver.md
+              - name: tpcds
+                href: cli-ref/catalog/update/tpcds.md
+              - name: tpch
+                href: cli-ref/catalog/update/tpch.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: get-access-control
+            href: cli-ref/cluster/get-access-control.md
+          - name: get-resource-groups
+            href: cli-ref/cluster/get-resource-groups.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/cluster/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: remove-access-control
+            href: cli-ref/cluster/remove-access-control.md
+          - name: remove-resource-groups
+            href: cli-ref/cluster/remove-resource-groups.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: set-access-control
+            href: cli-ref/cluster/set-access-control.md
+          - name: set-resource-groups
+            href: cli-ref/cluster/set-resource-groups.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: update
+            href: cli-ref/cluster/update.md
+  - name: '{{ TF }} reference'
+    href: tf-ref.md
+  - name: API reference
+    items:
+      - name: API authentication
+        href: api-ref/authentication.md
+      - name: gRPC
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/grpc/Catalog/index.md
+              - name: Get
+                href: api-ref/grpc/Catalog/get.md
+              - name: List
+                href: api-ref/grpc/Catalog/list.md
+              - name: Create
+                href: api-ref/grpc/Catalog/create.md
+              - name: Update
+                href: api-ref/grpc/Catalog/update.md
+              - name: Delete
+                href: api-ref/grpc/Catalog/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/grpc/Cluster/index.md
+              - name: Get
+                href: api-ref/grpc/Cluster/get.md
+              - name: List
+                href: api-ref/grpc/Cluster/list.md
+              - name: Create
+                href: api-ref/grpc/Cluster/create.md
+              - name: Update
+                href: api-ref/grpc/Cluster/update.md
+              - name: Delete
+                href: api-ref/grpc/Cluster/delete.md
+              - name: Start
+                href: api-ref/grpc/Cluster/start.md
+              - name: Stop
+                href: api-ref/grpc/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/grpc/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+      - name: REST
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Catalog
+            items:
+              - name: Overview
+                href: api-ref/Catalog/index.md
+              - name: Get
+                href: api-ref/Catalog/get.md
+              - name: List
+                href: api-ref/Catalog/list.md
+              - name: Create
+                href: api-ref/Catalog/create.md
+              - name: Update
+                href: api-ref/Catalog/update.md
+              - name: Delete
+                href: api-ref/Catalog/delete.md
+          - name: Cluster
+            items:
+              - name: Overview
+                href: api-ref/Cluster/index.md
+              - name: Get
+                href: api-ref/Cluster/get.md
+              - name: List
+                href: api-ref/Cluster/list.md
+              - name: Create
+                href: api-ref/Cluster/create.md
+              - name: Update
+                href: api-ref/Cluster/update.md
+              - name: Delete
+                href: api-ref/Cluster/delete.md
+              - name: Start
+                href: api-ref/Cluster/start.md
+              - name: Stop
+                href: api-ref/Cluster/stop.md
+              - name: ListOperations
+                href: api-ref/Cluster/listOperations.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+  - name: Quotas and limits
+    href: concepts/limits.md
+  - name: Access management
+    href: security.md
   - name: Pricing policy
     href: pricing.md
-base: en/managed-trino
-deepBase: 2
+  - name: '{{ monitoring-full-name }} metrics'
+    href: metrics.md
+  - name: '{{ at-name }} events'
+    href: at-ref.md
+  - name: Release notes
+    href: release-notes.md

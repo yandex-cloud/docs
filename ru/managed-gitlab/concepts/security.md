@@ -61,11 +61,21 @@ description: Из статьи вы узнаете, какие меры безо
 * Для безопасной сборки контейнеров используйте утилиту [kaniko](https://docs.gitlab.com/ee/ci/docker/using_kaniko.html).
 * Не используйте `Shell executor`, `Docker-in-Docker` и `Docker socket binding` — это дает доступ к `Docker socket` и `privileged mode`. Подробнее см. в [статье Securing GitLab CI pipelines with Sysbox](https://blog.nestybox.com/2020/10/21/gitlab-dind.html).
 
+
+### Примеры использования {#examples-docker}
+
+* [{#T}](../tutorials/image-storage.md)
+
+
 ### Интеграция с {{ managed-k8s-full-name }} {#using-kubernetes}
 
 * Для безопасной интеграции используйте [{{ GL }} Agent for {{ k8s }}](https://docs.gitlab.com/ee/user/clusters/agent/).
 * Чтобы исключить использование [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) с ролью `cluster-admin` и открытия API {{ k8s }} в интернет, не используйте [certificate-based интеграцию](https://docs.gitlab.com/ee/user/infrastructure/clusters/).
 * Чтобы исключить связанность агента {{ GL }} Runner и {{ k8s }}, используйте развертывание с помощью [CI/CD tunnel](https://docs.gitlab.com/ee/user/clusters/agent/ci_cd_tunnel.html).
+
+### Примеры использования {#examples-k8s}
+
+* [{#T}](../tutorials/gitlab-containers.md)
 
 ### Использование переменных {#using-env-vars}
 
@@ -86,3 +96,8 @@ description: Из статьи вы узнаете, какие меры безо
 * Используйте наиболее изолированные и безопасные [управляющие программы `Docker` и `{{ k8s }}`](https://docs.gitlab.com/runner/executors/). Не рекомендуется использовать устаревший `Shell executor`.
 * Чтобы ограничить сетевой доступ к агенту {{ GL }} Runner, используйте [группы безопасности](../../vpc/concepts/security-groups.md).
 * Используйте безопасный механизм [назначения сервисных аккаунтов виртуальной машине](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) для взаимодействия с облачным API внутри заданий. Такой способ более безопасен, чем указание учетных данных через `env`.
+
+
+### Примеры использования {#examples-runners}
+
+* [{#T}](../tutorials/install-gitlab-runner.md)

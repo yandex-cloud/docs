@@ -1,11 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobId}:cancel
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. Required. ID of the Yandex Data Processing cluster.
+            The maximum string length in characters is 50.
+          type: string
+        jobId:
+          description: |-
+            **string**
+            Required field. Required. ID of the Yandex Data Processing job to cancel.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+        - jobId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Job/cancel.md
 ---
 
-# Data Proc API, REST: Job.Cancel {#Cancel}
+# Yandex Data Processing API, REST: Job.Cancel
 
-Cancels the specified Dataproc job.
+Cancels the specified Yandex Data Processing job.
 
 ## HTTP request
 
@@ -19,10 +44,14 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/jobs/{jobI
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. Required. ID of the Dataproc cluster. ||
+Required field. Required. ID of the Yandex Data Processing cluster.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-Required field. Required. ID of the Dataproc job to cancel. ||
+Required field. Required. ID of the Yandex Data Processing job to cancel.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -72,7 +101,7 @@ Required field. Required. ID of the Dataproc job to cancel. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       // Includes only one of the fields `mainJarFileUri`, `mainClass`
       "mainJarFileUri": "string",
       "mainClass": "string"
@@ -91,7 +120,7 @@ Required field. Required. ID of the Dataproc job to cancel. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "mainJarFileUri": "string",
       "mainClass": "string",
       "packages": [
@@ -117,7 +146,7 @@ Required field. Required. ID of the Dataproc job to cancel. ||
       "archiveUris": [
         "string"
       ],
-      "properties": "string",
+      "properties": "object",
       "mainPythonFileUri": "string",
       "pythonFileUris": [
         "string"
@@ -133,9 +162,9 @@ Required field. Required. ID of the Dataproc job to cancel. ||
       ]
     },
     "hiveJob": {
-      "properties": "string",
+      "properties": "object",
       "continueOnFailure": "boolean",
-      "scriptVariables": "string",
+      "scriptVariables": "object",
       "jarFileUris": [
         "string"
       ],
@@ -238,10 +267,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the cluster that the job is being created for. ||
+Required field. ID of the cluster that the job is being created for.
+
+The maximum string length in characters is 50. ||
 || jobId | **string**
 
-ID of the job being created. ||
+ID of the job being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -263,7 +296,7 @@ A list of messages that carry the error details. ||
 
 ## Job {#yandex.cloud.dataproc.v1.Job}
 
-A Data Proc job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
+A Yandex Data Processing job. For details about the concept, see [documentation](/docs/data-proc/concepts/jobs).
 
 #|
 ||Field | Description ||
@@ -272,7 +305,7 @@ A Data Proc job. For details about the concept, see [documentation](/docs/data-p
 ID of the job. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the job belongs to. ||
+ID of the Yandex Data Processing cluster that the job belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -313,7 +346,6 @@ The id of the user who created the job ||
 
 Job status.
 
-- `STATUS_UNSPECIFIED`
 - `PROVISIONING`: Job is logged in the database and is waiting for the agent to run it.
 - `PENDING`: Job is acquired by the agent and is in the queue for execution.
 - `RUNNING`: Job is being run in the cluster.
@@ -363,17 +395,17 @@ Attributes of YARN application. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and MapReduce. ||
+Property names and values, used to configure Yandex Data Processing and MapReduce. ||
 || mainJarFileUri | **string**
 
 HCFS URI of the .jar file containing the driver class.
@@ -395,17 +427,17 @@ Includes only one of the fields `mainJarFileUri`, `mainClass`. ||
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Spark. ||
+Property names and values, used to configure Yandex Data Processing and Spark. ||
 || mainJarFileUri | **string**
 
 The HCFS URI of the JAR file containing the `main` class for the job. ||
@@ -432,17 +464,17 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 Optional arguments to pass to the driver. ||
 || jarFileUris[] | **string**
 
-JAR file URIs to add to CLASSPATH of the Data Proc driver and each task. ||
+JAR file URIs to add to CLASSPATH of the Yandex Data Processing driver and each task. ||
 || fileUris[] | **string**
 
-URIs of resource files to be copied to the working directory of Data Proc drivers
+URIs of resource files to be copied to the working directory of Yandex Data Processing drivers
 and distributed Hadoop tasks. ||
 || archiveUris[] | **string**
 
-URIs of archives to be extracted to the working directory of Data Proc drivers and tasks. ||
-|| properties | **string**
+URIs of archives to be extracted to the working directory of Yandex Data Processing drivers and tasks. ||
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and PySpark. ||
+Property names and values, used to configure Yandex Data Processing and PySpark. ||
 || mainPythonFileUri | **string**
 
 URI of the file with the driver code. Must be a .py file. ||
@@ -464,13 +496,13 @@ List of groupId:artifactId, to exclude while resolving the dependencies provided
 
 #|
 ||Field | Description ||
-|| properties | **string**
+|| properties | **object** (map<**string**, **string**>)
 
-Property names and values, used to configure Data Proc and Hive. ||
+Property names and values, used to configure Yandex Data Processing and Hive. ||
 || continueOnFailure | **boolean**
 
 Flag indicating whether a job should continue to run if a query fails. ||
-|| scriptVariables | **string**
+|| scriptVariables | **object** (map<**string**, **string**>)
 
 Query variables and their values. ||
 || jarFileUris[] | **string**

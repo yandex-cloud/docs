@@ -1,26 +1,20 @@
-title: '{{ sf-name }}'
+title: '{{ sf-full-name }}'
 description:
   - >-
-    This service allows you to run your applications in a secure,
-    fault-tolerant, and scalable environment without creating or maintaining
-    VMs.
-meta:
-  title: '{{ sf-full-name }}'
-  description: >-
-    This service allows you to run your applications in a secure,
+    {{ sf-name }} allows you to run your applications in a secure,
     fault-tolerant, and scalable environment without creating or maintaining
     VMs.
 links:
   - title: Getting started
     description: Create your first function
     href: quickstart/
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
     description: Basic concepts and how the service works
     href: concepts/
-  - title: Runtime environments
+  - title: Runtime environment
     description: Supported runtime environments
     href: concepts/runtime/
   - title: Node.js
@@ -41,10 +35,13 @@ links:
   - title: Java
     description: Writing functions in Java
     href: lang/java/
+  - title: Kotlin
+    description: Writing functions in Kotlin
+    href: lang/kotlin/
   - title: R
     description: Writing functions in R
     href: lang/r/
-  - title: C#
+  - title: .NET Core
     description: Writing functions in C#
     href: lang/csharp/
   - title: API Functions reference
@@ -54,14 +51,33 @@ links:
     description: HTTP API method descriptions
     href: triggers/api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
     description: Permissions required to use the service
     href: security/
+  - title: Tutorials
+    description: Use actionable tutorials for working with functions
+    href: tutorials/
   - title: Pricing policy
     description: Service pricing and cost calculations
     href: pricing
   - title: FAQ
     description: Answers to frequently asked questions
     href: qa/
+meta:
+  title: '{{ sf-full-name }}'
+  description: >-
+    Yandex Cloud Functions allows you to run your applications in a secure,
+    fault-tolerant, and scalable environment without creating or maintaining
+    VMs.
+  keywords:
+    - '{{ sf-short-name }}'
+    - '{{ sf-name }}'
+    - '{{ sf-full-name }}'
+    - '{{ sf-name }}'
+    - functions in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} functions'
+    - serverless functions
+    - serverless computing
+    - cloud functions

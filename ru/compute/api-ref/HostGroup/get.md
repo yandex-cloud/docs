@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        hostGroupId:
+          description: |-
+            **string**
+            Required field. ID of the host group to return.
+            To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - hostGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/HostGroup/get.md
 ---
 
-# Compute Cloud API, REST: HostGroup.Get {#Get}
+# Compute Cloud API, REST: HostGroup.Get
 
 Returns the specified host group.
 
@@ -20,7 +39,9 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 || hostGroupId | **string**
 
 Required field. ID of the host group to return.
-To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request. ||
+To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostGroup}
@@ -34,7 +55,7 @@ To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/Host
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zoneId": "string",
   "status": "string",
   "typeId": "string",
@@ -75,7 +96,7 @@ Name of the group. The name is unique within the folder. ||
 || description | **string**
 
 Description of the group. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
 || zoneId | **string**
@@ -85,7 +106,6 @@ Availability zone where all dedicated hosts are allocated. ||
 
 Status of the group.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `READY`
 - `UPDATING`
@@ -97,7 +117,6 @@ ID of host type. Resources provided by each host of the group. ||
 
 Behaviour on maintenance events.
 
-- `MAINTENANCE_POLICY_UNSPECIFIED`
 - `RESTART`: Restart instance to move it to another host during maintenance
 - `MIGRATE`: Use live migration to move instance to another host during maintenance ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy)**

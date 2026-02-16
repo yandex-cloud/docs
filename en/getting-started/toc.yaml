@@ -3,36 +3,32 @@ href: index.yaml
 items:
   - name: For individuals
     items:
-      - name: Step 1. Registration
+      - name: Getting started
+        href: individuals/index.md
+      - name: Step 1. Creating a billing account
         href: individuals/registration.md
-      - name: Step 2. Payment
+      - name: Step 2. Account top-up and spending control
         href: individuals/payments.md
-      - name: Step 3. Resource hierarchy
-        href: individuals/resources-hierarchy.md
-      - name: Step 4. Selecting a service plan
+      - name: Step 3. Selecting your support plan
         href: individuals/service-plan.md
-      - name: Step 5. Setting up a secure network configuration
-        href: individuals/configure-network.md
-      - name: Step 6. Logging
-        href: individuals/logs.md
+      - name: Step 4. Creating a VM and connecting to it
+        href: individuals/create-vm.md
+      - name: What's next?
+        href: individuals/what-is-next.md
   - name: For businesses
     items:
-      - name: Step 1. Registration
+      - name: Getting started for businesses
+        href: legal-entity/index.md
+      - name: Step 1. Creating a billing account
         href: legal-entity/registration.md
-      - name: Step 2. Payment
+      - name: Step 2. Account top-up and spending control
         href: legal-entity/payments.md
-      - name: Step 3. Creating an organization
-        href: legal-entity/create-organization.md
-      - name: Step 4. Selecting a service plan
+      - name: Step 3. Selecting your support plan
         href: legal-entity/service-plan.md
-      - name: Step 5. Managing users
-        href: legal-entity/manage-users.md
-      - name: Step 6. Resource hierarchy
-        href: legal-entity/resources-hierarchy.md
-      - name: Step 7. Setting up a secure network configuration
-        href: legal-entity/configure-network.md
-      - name: Step 8. Logging
-        href: legal-entity/logs.md
+      - name: Step 4. Creating a VM and connecting to it
+        href: legal-entity/create-vm.md
+      - name: What's next?
+        href: legal-entity/what-is-next.md
   - name: Initial grant
     href: usage-grant.md
   - name: Trial period
@@ -45,5 +41,3 @@ items:
         href: free-trial/concepts/trial-ending.md
       - name: Upgrading to the paid version
         href: free-trial/concepts/upgrade-to-paid.md
-base: en/getting-started
-deepBase: 2

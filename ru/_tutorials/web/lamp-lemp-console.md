@@ -2,7 +2,7 @@
 1. [Создайте облачную сеть и подсети](#create-network).
 1. [Создайте группу безопасности](#create-security-groups).
 1. [Создайте ВМ с предустановленным веб-сервером](#create-vm).
-1. [Загрузите файлы веб-сайта](#upload-files).
+1. [Загрузите файлы сайта](#upload-files).
 1. [Настройте DNS](#configure-dns).
 1. [Проверьте работу сайта](#test-site).
 
@@ -26,7 +26,7 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления 
+- Консоль управления {#console} 
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
   1. Нажмите кнопку **Создать сеть**.
@@ -78,47 +78,56 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Виртуальная машина**.
-  1. В поле **Имя** введите имя ВМ: `lamp-vm` или `lemp-vm`. Требования к имени:
-
-      {% include [name-format](../../_includes/name-format.md) %}
-
-  1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Выбор образа/загрузочного диска** перейдите на вкладку **{{ marketplace-name }}** и выберите образ ВМ с нужным набором компонентов:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` или `LEMP` и выберите образ ВМ с нужным набором компонентов: 
       * [LAMP](/marketplace/products/yc/lamp) для Linux, Apache, {{ MY }}, PHP.
       * [LEMP](/marketplace/products/yc/lemp) для Linux, Nginx, {{ MY }}, PHP.
 
-        LEMP рекомендуется использовать для статических сайтов.
-  1. В блоке **Вычислительные ресурсы**:
-      * Выберите [платформу](../../compute/concepts/vm-platforms.md) ВМ.
-      * Укажите необходимое количество vCPU и объем RAM.
+          LEMP рекомендуется использовать для статических сайтов.
 
-      Для функционального тестирования сайта хватит минимальной конфигурации:
-      * **Платформа** — Intel Ice Lake.
-      * **Гарантированная доля vCPU** — 20%.
-      * **vCPU** — 2.
-      * **RAM** — 1 ГБ.
-  1. В блоке **Сетевые настройки** нужно выбрать сеть `web-network` и подсеть, к которым нужно подключить ВМ.
-  1. В поле **Публичный адрес** оставьте значение **Автоматически**, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-  1. Укажите данные для доступа на ВМ:
-      * В поле **Логин** введите имя пользователя.
-      * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM. Для функционального тестирования сайта будет достаточно минимальной конфигурации:
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. раздел [{#T}](../../compute/operations/vm-connect/ssh.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `web-network` и подсеть, в которой будет создана ВМ.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+
+          Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
+          * Нажмите кнопку **Добавить ключ**.
+          * Задайте имя SSH-ключа.
+          * Загрузите или вставьте содержимое открытого SSH-ключа. Пару SSH-ключей для подключения к ВМ по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+          {% include [ssh-add-to-org-profile](../../_includes/compute/create/ssh-add-to-org-profile.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `lamp-vm` или `lemp-vm`. Требования к имени:
+
+      {% include [name-format](../../_includes/name-format.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
       {% note alert %}
 
-      IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный адрес**, вы не сможете обращаться к ВМ из интернета.
+      IP-адрес и [имя хоста (FQDN)](../../compute/concepts/network.md#hostname) для подключения к ВМ назначается ей при создании. Если в поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** вы выбрали вариант `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`, вы не сможете обращаться к ВМ из интернета.
 
       {% endnote %}
 
   1. Нажмите кнопку **Создать ВМ**.
 
-      Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете [загрузить на нее файлы веб-сайта](#upload-files).
+      Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете [загрузить на нее файлы сайта](#upload-files).
 
 {% endlist %}
 
-## Загрузите файлы веб-сайта {#upload-files}
+## Загрузите файлы сайта {#upload-files}
 
 {% include [lamp-lemp-paid-upload-files](../_tutorials_includes/lamp-lemp-upload-files.md) %}
 
@@ -167,7 +176,7 @@
          * Задайте параметры записи:
            * **Имя**: `www`.
            * **Тип записи**: выберите значение `CNAME`.
-           * **TTL** (время кэширования записи): оставьте значение по умолчанию.
+           * **TTL** (время кеширования записи): оставьте значение по умолчанию.
            * **Значение**: введите `example.com`.
          * Нажмите кнопку **Создать**.
       
@@ -181,7 +190,7 @@
 
 Чтобы делегировать домен, укажите для него DNS-серверы в личном кабинете регистратора.
 
-Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи до 24 часов (86 400 секунд). Это обусловлено значением TTL, в течение которого кэшируются записи для доменов.
+Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи в течение 24 часов (86 400 секунд). Это обусловлено значением TTL, в течение которого кешируются записи для доменов.
 
 Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
 

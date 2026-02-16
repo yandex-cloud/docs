@@ -12,6 +12,6 @@ description: Follow this guide to assign an access policy in {{ objstorage-short
 
 The minimum role required to apply or modify an access policy is `storage.configurer`. For more information, see the [role description](../../storage/security/index.md#storage-configurer).
 
-To assign an access policy in {{ objstorage-short-name }} for a service connection:
+To assign an access policy in {{ objstorage-short-name }} for a [service connection](../concepts/private-endpoint.md):
 
 {% include [private-endpoint-policy-tabs](../../_includes/storage/private-endpoint-policy-tabs.md) %}

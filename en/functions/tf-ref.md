@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ sf-full-name }}'
-description: This page gives reference information about the {{ TF }} provider resources and data sources supported for {{ sf-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ sf-name }}.
 ---
 
 # {{ TF }} reference for {{ sf-full-name }}
@@ -24,6 +24,6 @@ The following {{ TF }} provider resources are supported for {{ sf-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_function]({{ tf-provider-datasources-link }}/datasource_function) | Information about a [function](./concepts/function.md) |
-| [yandex_function_scaling_policy]({{ tf-provider-datasources-link }}/datasource_function_scaling_policy) | Information about [function scaling settings](./concepts/function.md#scaling) |
-| [yandex_function_trigger]({{ tf-provider-datasources-link }}/datasource_function_trigger) | Information about a [trigger](./concepts/trigger/index.md) |
+| [yandex_function]({{ tf-provider-datasources-link }}/function) | Information about a [function](./concepts/function.md) |
+| [yandex_function_scaling_policy]({{ tf-provider-datasources-link }}/function_scaling_policy) | Information about [function scaling settings](./concepts/function.md#scaling) |
+| [yandex_function_trigger]({{ tf-provider-datasources-link }}/function_trigger) | Information about a [trigger](./concepts/trigger/index.md) |

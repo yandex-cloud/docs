@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/LifecyclePolicy/getDryRunResult.md
 ---
 
-# Container Registry API, gRPC: LifecyclePolicyService.GetDryRunResult {#GetDryRunResult}
+# Container Registry API, gRPC: LifecyclePolicyService.GetDryRunResult
 
 Returns the dry run result of the specified lifecycle policy.
 
@@ -15,40 +15,42 @@ Returns the dry run result of the specified lifecycle policy.
 
 ```json
 {
-  "dryRunLifecyclePolicyResultId": "string"
+  "dry_run_lifecycle_policy_result_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResultId | **string**
+|| dry_run_lifecycle_policy_result_id | **string**
 
-Required field. ID of the dry run result of the lifecycle policy. ||
+Required field. ID of the dry run result of the lifecycle policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## DryRunLifecyclePolicyResult {#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult}
 
 ```json
 {
-  "dryRunLifecyclePolicyResultId": "string",
-  "lifecyclePolicyId": "string",
-  "runAt": "google.protobuf.Timestamp",
-  "affectedImagesCount": "int64"
+  "dry_run_lifecycle_policy_result_id": "string",
+  "lifecycle_policy_id": "string",
+  "run_at": "google.protobuf.Timestamp",
+  "affected_images_count": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| dryRunLifecyclePolicyResultId | **string**
+|| dry_run_lifecycle_policy_result_id | **string**
 
 ID of the dry run result of the lifecycle policy. ||
-|| lifecyclePolicyId | **string**
+|| lifecycle_policy_id | **string**
 
 ID of the lifecycle policy. ||
-|| runAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| run_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time of the getting result. ||
-|| affectedImagesCount | **int64**
+|| affected_images_count | **int64**
 
 Count of affected images. ||
 |#

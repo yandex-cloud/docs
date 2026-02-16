@@ -1,32 +1,38 @@
+---
+title: Migrating {{ CH }} cluster hosts to a different availability zone
+description: Follow this guide to migrate {{ CH }} cluster hosts to a different availability zone.
+---
+
 # Migrating {{ CH }} cluster hosts to a different availability zone
 
 
-{{ CH }} and {{ ZK }} hosts of the {{ mch-name }} cluster are located in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). Follow this guide to migrate {{ CH }} and {{ ZK }} hosts to a different availability zone. If you want to migrate {{ CK }} hosts, contact [support]({{ link-console-support }}).
+{{ CH }} and {{ ZK }} hosts of a {{ mch-name }} cluster reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). Follow this guide to migrate {{ CH }} and {{ ZK }} hosts to a different availability zone. If you want to migrate {{ CK }} hosts, contact [support]({{ link-console-support }}).
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 
 ## Migrating {{ CH }} hosts {#clickhouse-hosts}
 
-1. Make sure the migration will only include [replicated tables](../concepts/replication.md#replicated-tables) on the `ReplicatedMergeTree` family engine.
+1. Make sure the migration will only move [replicated tables](../concepts/replication.md#replicated-tables) on the `ReplicatedMergeTree` family engine.
 
    Non-replicated tables will be lost during migration.
 
-1. If you have created a cluster without [{{ CK }}](../concepts/replication.md#ck) support, [enable fault tolerance](zk-hosts.md#add-zk) using {{ ZK }} hosts. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. If you created your cluster without [{{ CK }}](../concepts/replication.md#ck) support, you should [add at least three {{ ZK }}](zk-hosts.md#add-zk) or {{ CK }} hosts to ensure [high availability](../concepts/high-availability.md) of the cluster. Otherwise, you will not be able to add new hosts to [shards](../concepts/sharding.md) and perform migration.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
-      1. Specify the host parameters:
+      1. Specify the following host settings:
 
-         * Availability zone to which you want to move the hosts.
+         * Availability zone to move your hosts to.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -44,14 +50,14 @@
          --host type=clickhouse,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
-      1. Add a host manifest to the {{ TF }} configuration file with the infrastructure plan:
+      1. Add a host manifest to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -60,12 +66,12 @@
              type             = "CLICKHOUSE"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 
@@ -75,24 +81,96 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "CLICKHOUSE",
+                           "zoneId": "<availability_zone>",
+                           "subnetId": "<subnet_ID>",
+                           "assignPublicIp": <allow_public_access_to_host>
+                         }
+                       ]
+                     }'
+         ```
+
+         Where `hostSpecs` is the array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
+
+         * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+         * `zoneId`: Availability zone.
+         * `subnetId`: Subnet ID.
+         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_specs": [
+                         {
+                             "type": "CLICKHOUSE",
+                             "zone_id": "<availability_zone>",
+                             "subnet_id": "<subnet_ID>",
+                             "assign_public_ip": <allow_public_access_to_host>
+                         }
+                     ]
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Where `host_specs` is the array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
+
+         * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+         * `zone_id`: Availability zone.
+         * `subnet_id`: Subnet ID.
+         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. To successfully connect to the database after the migration is complete, specify the new host's FQDN in your backend or client (for example, in the code or graphical IDE). Delete the original host's FQDN in the source availability zone.
+1. To connect to the database after migration, specify the new host’s FQDN in your backend or client, e.g., in your application code or graphical IDE. Delete the original host's FQDN in your source availability zone.
 
-   To find out the FQDN, get a list of hosts in the cluster:
+   To get the FQDN, request the list of hosts in the cluster:
 
    ```bash
    {{ yc-mdb-ch }} host list --cluster-name <cluster_name>
    ```
 
-   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect/fqdn.md#auto) for a connection.
+   You will see the FQDN under `NAME` in the command output. Alternatively, you can connect using a [special FQDN](connect/fqdn.md#auto).
 
 1. Delete the hosts in the source availability zone:
 
@@ -100,9 +178,10 @@
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -114,7 +193,7 @@
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` sections with the source availability zone from your cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -123,27 +202,29 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter. You can get FQDN names in the [management console]({{ link-console-main }}), on the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab of the cluster page.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 ## Migrating {{ ZK }} hosts {#zookeeper-hosts}
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
       1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
       1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
       1. Specify the new subnet and the availability zone to move the hosts to.
@@ -163,14 +244,14 @@
          --host type=zookeeper,`
                `zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
-      1. Add a host manifest to the {{ TF }} configuration file with the infrastructure plan:
+      1. Add a host manifest to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
@@ -179,12 +260,12 @@
              type             = "ZOOKEEPER"
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
       1. Make sure the settings are correct.
 
@@ -194,12 +275,83 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addZookeeper](../api-ref/Cluster/addZookeeper.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `resources` and `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+         ```bash
+         curl \
+             --request POST \
+             --header "Authorization: Bearer $IAM_TOKEN" \
+             --header "Content-Type: application/json" \
+             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+             --data '{
+                       "hostSpecs": [
+                         {
+                           "type": "ZOOKEEPER",
+                           "zoneId": "<availability_zone>",
+                           "subnetId": "<subnet_ID>",
+                           "assignPublicIp": <allow_public_access_to_host>
+                         }
+                       ]
+                     }'
+         ```
+
+         Where `hostSpecs` is the array of settings for the new host. Each array element contains the configuration for a single host and has the following structure:
+
+         * `type`: Host type, `ZOOKEEPER`.
+         * `zoneId`: Availability zone.
+         * `subnetId`: Subnet ID.
+         * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Call the [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+         ```bash
+         grpcurl \
+             -format json \
+             -import-path ~/cloudapi/ \
+             -import-path ~/cloudapi/third_party/googleapis/ \
+             -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+             -d '{
+                     "cluster_id": "<cluster_ID>",
+                     "host_specs": [
+                         {
+                             "type": "ZOOKEEPER",
+                             "zone_id": "<availability_zone>",
+                             "subnet_id": "<subnet_ID>",
+                             "assign_public_ip": <allow_public_access_to_host>
+                         }
+                 }' \
+             {{ api-host-mdb }}:{{ port-https }} \
+             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
+         ```
+
+         Where `host_specs` is the array of settings for the new hosts. Each element of the `host_specs` array contains settings for a single host and has the following structure:
+
+         * `type`: `ZOOKEEPER` host type.
+         * `zone_id`: Availability zone.
+         * `subnet_id`: Subnet ID.
+         * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
+
+         You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
@@ -209,9 +361,10 @@
 
    - Management console {#console}
 
-      1. Go to the [folder page]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-      1. Click the cluster name and open the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+      1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host's row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -223,7 +376,7 @@
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` sections with the source availability zone from your cluster description.
       1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -232,16 +385,17 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-rest.md) %}
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter. You can get FQDN names in the [management console]({{ link-console-main }}), on the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab of the cluster page.
+   - gRPC API {#grpc-api}
+
+      {% include [delete-hosts-for-migration](../../_includes/mdb/mch/api/delete-hosts-for-migration-grpc.md) %}
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster state to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**. You can see the cluster state in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [migration-in-data-transfer](../../_includes/data-transfer/migration-in-data-transfer.md) %}
 

@@ -15,7 +15,7 @@
      * `All users in organization X` — в группу входят все пользователи организации `X`.
      * `All users in federation N` — в группу входят все пользователи федерации `N`.
 
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.form.acl.edit.action.role.add }}** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на организацию. Вы можете назначить несколько ролей.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md), которую хотите назначить группе на организацию. Вы можете назначить несколько ролей.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -33,7 +33,7 @@
        --federation-users <идентификатор_федерации>
      ```
 
-     Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`. Передайте в нем соответственно идентификатор [организации](../../organization/quickstart.md) или [федерации удостоверений](../../organization/concepts/add-federation.md), всем пользователям, которым вы хотите назначить роль.
+     Для того чтобы назначить роль одной из [системных групп](../../iam/concepts/access-control/system-group.md), вместо параметра `--subject` используйте параметр `--organization-users <идентификатор_организации>` или `--federation-users <идентификатор_федерации>`. Передайте в нем соответственно идентификатор [организации](../../organization/quickstart.md) или [федерации удостоверений](../../organization/concepts/add-federation.md), всем пользователям которых вы хотите назначить роль.
          
      Вы также можете назначить роль системной группе с помощью параметра `--subject`. Для этого передайте в нем идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), соответствующий выбранной системной группе.
 
@@ -64,7 +64,7 @@
 
      ```hcl
      resource "yandex_organizationmanager_organization_iam_member" "users-editors" {
-       organization_id = "<идентификатор_облака>"
+       organization_id = "<идентификатор_организации>"
        role            = "<идентификатор_роли>"
        member          = "group:<идентификатор_группы>"
      }
@@ -72,7 +72,7 @@
 
      Где:
      
-     * `organization_id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md). Обязательный параметр.
+     * `organization_id` — [идентификатор организации](../../organization/operations/organization-get-id.md). Обязательный параметр.
      * `role` — назначаемая роль. Обязательный параметр.
      * `member` — группа, которой назначается роль. Указывается в виде `group:<идентификатор_группы>`. Обязательный параметр.
 

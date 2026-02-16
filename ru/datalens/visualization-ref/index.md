@@ -1,18 +1,34 @@
 ---
 title: Справочник визуализаций в {{ datalens-full-name }}
-description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-short-name }}.
+description: Из статьи вы узнаете, какие чарты доступны в {{ datalens-full-name }}.
 ---
 
-# Справочник визуализаций
+# Справочник визуализаций в {{ datalens-full-name }}
 
+Чтобы представлять данные в понятном виде, а также анализировать связи внутри массивов с данными, используйте возможности визуализации в DataLens.
+
+Справочник визуализаций поможет в этом: выбирайте подходящий тип чарта и подготавливайте материалы для отчетов по показателям и связям между ними.
+
+
+
+
+
+
+{% note info %}
+
+В [Editor](../charts/editor/index.md) доступен свой [список визуализаций](../charts/editor/widgets/index.md).
+
+{% endnote %}
 
 
 В {{ datalens-full-name }} доступны следующие типы чартов:
 
-* **Диаграммы**:
+{% list tabs %}
+
+- Диаграммы
 
   * [Линейная диаграмма](line-chart.md)
-  * [Накопительная диаграмма с областями](area-chart.md)
+  * [Диаграмма с областями](area-chart.md)
   * [Нормированная диаграмма с областями](normalized-area-chart.md)
   * [Столбчатая диаграмма](column-chart.md)
   * [Нормированная столбчатая диаграмма](normalized-column-chart.md)
@@ -24,14 +40,14 @@ description: Из статьи вы узнаете, какие чарты дос
   * [Древовидная диаграмма](tree-chart.md)
   * [Комбинированная диаграмма](combined-chart.md)
 
-* **Таблицы**:
+- Таблицы
 
   * [Таблица](table-chart.md)
-  * [Сводная таблица](pivot-table-chart.md)
+  * [Сводная таблица](pivot-table-chart.md) — Не поддерживается в [QL-чартах](../concepts/chart/index.md#sql-charts)
 
-* **Географическая карта**:
+- Географическая карта
 
-  * [Карта](map-chart.md)
+  * [Карта](map-chart.md) — Не поддерживаются в [QL-чартах](../concepts/chart/index.md#sql-charts)
 
     * [Точечная карта](point-map-chart.md)
     * [Точечная карта с кластеризацией](cluster-point-map-chart.md)
@@ -39,15 +55,9 @@ description: Из статьи вы узнаете, какие чарты дос
     * [Фоновая карта](choropleth-map-chart.md)
     * [Тепловая карта](heat-map-chart.md)
 
-* **Другое**:
+- Другое
 
   * [Индикатор](indicator-chart.md)
 
-{% note info %}
+{% endlist %}
 
-[QL-чарты](../concepts/chart/index.md#sql-charts) не поддерживают:
-
-* любые типы карт;
-* сводную таблицу.
-
-{% endnote %}

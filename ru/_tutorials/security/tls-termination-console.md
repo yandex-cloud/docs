@@ -67,7 +67,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_security-groups }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы безопасности: `mysite-sg-balancer`.
@@ -131,7 +131,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.compute.switch_groups }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите имя группы ВМ: `mysite-ig`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.

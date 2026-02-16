@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        serviceAccountId:
+          description: |-
+            **string**
+            Required field. ID of the service account to create a federated credential for.
+            To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        federationId:
+          description: |-
+            **string**
+            Required field. ID of the workload identity federation that is used for authentication.
+            The maximum string length in characters is 50.
+          type: string
+        externalSubjectId:
+          description: |-
+            **string**
+            Required field. Id of the external subject.
+            The maximum string length in characters is 1000.
+          type: string
+      required:
+        - serviceAccountId
+        - federationId
+        - externalSubjectId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/workload/workload-identity/api-ref/FederatedCredential/create.md
 ---
 
-# Identity and Access Management Workload Identity API, REST: FederatedCredential.Create {#Create}
+# Workload Identity, REST: FederatedCredential.Create
 
 Creates a federated credential for the specified service account.
 
@@ -28,13 +61,19 @@ POST https://iam.{{ api-host }}/iam/v1/workload/federatedCredentials
 || serviceAccountId | **string**
 
 Required field. ID of the service account to create a federated credential for.
-To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request. ||
+To get the service account ID, use a [yandex.cloud.iam.v1.ServiceAccountService.List](/docs/iam/api-ref/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || federationId | **string**
 
-Required field. ID of the workload identity federation that is used for authentication. ||
+Required field. ID of the workload identity federation that is used for authentication.
+
+The maximum string length in characters is 50. ||
 || externalSubjectId | **string**
 
-Required field. Id of the external subject. ||
+Required field. Id of the external subject.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -15,6 +15,7 @@ A set of methods for managing DNS zones.
 || [List](list.md) | Retrieves the list of DNS zones in the specified folder. ||
 || [Create](create.md) | Creates a DNS zone in the specified folder. ||
 || [Update](update.md) | Updates the specified DNS zone. ||
+|| [Move](move.md) | Moves the specified DNS zone to another folder. ||
 || [Delete](delete.md) | Deletes the specified DNS zone. ||
 || [GetRecordSet](getRecordSet.md) | Returns the specified record set. ||
 || [ListRecordSets](listRecordSets.md) | Retrieves the list of record sets in the specified folder. ||

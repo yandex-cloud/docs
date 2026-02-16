@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/updateAccessBindings.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureKeyService.UpdateAccessBindings {#UpdateAccessBindings}
+# Key Management Service API, gRPC: AsymmetricSignatureKeyService.UpdateAccessBindings
 
 Updates access bindings for the specified key.
 
@@ -15,12 +15,12 @@ Updates access bindings for the specified key.
 
 ```json
 {
-  "resourceId": "string",
-  "accessBindingDeltas": [
+  "resource_id": "string",
+  "access_binding_deltas": [
     {
       "action": "AccessBindingAction",
-      "accessBinding": {
-        "roleId": "string",
+      "access_binding": {
+        "role_id": "string",
         "subject": {
           "id": "string",
           "type": "string"
@@ -33,12 +33,16 @@ Updates access bindings for the specified key.
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
-Required field. ID of the resource for which access bindings are being updated. ||
-|| accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
+Required field. ID of the resource for which access bindings are being updated.
 
-Updates to access bindings. ||
+The maximum string length in characters is 50. ||
+|| access_binding_deltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
+
+Updates to access bindings.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AccessBindingDelta {#yandex.cloud.access.AccessBindingDelta}
@@ -49,10 +53,9 @@ Updates to access bindings. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
-|| accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
+|| access_binding | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
 
 Required field. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings). ||
 |#
@@ -61,9 +64,11 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 
 #|
 ||Field | Description ||
-|| roleId | **string**
+|| role_id | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 50. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -85,11 +90,13 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -100,7 +107,9 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -109,12 +118,12 @@ For more information, see [Subject to which the role is assigned](/docs/iam/conc
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "resourceId": "string"
+    "resource_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
@@ -133,13 +142,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -182,7 +191,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| resourceId | **string**
+|| resource_id | **string**
 
 ID of the resource for which access bindings are being updated. ||
 |#

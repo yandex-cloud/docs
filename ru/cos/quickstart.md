@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ cos-name }}
+description: Следуя данной инструкции, вы сможете создать виртуальную машину из образа {{ coi }} и запустить на ней Docker-контейнер.
+---
+
 # Создание ВМ с {{ coi }}
 
 Создайте виртуальную машину из образа [{{ coi }}](concepts/index.md) и запустите на ней [Docker-контейнер](/blog/posts/2022/03/docker-containers).
@@ -14,8 +19,8 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. На панели слева выберите ![image](../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
   1. В открывшемся окне **{{ ui-key.yacloud.compute.instances.create.section_coi }}** задайте параметры, используя подсказки:
@@ -68,7 +73,10 @@
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../compute/quickstart/quick-create-linux.md#create-ssh).
      * `--service-account-name` — имя сервисного аккаунта.
-     * `--create-boot-disk size` — размер загрузочного диска. Должен быть не менее 30 ГБ.
+     * `--create-boot-disk size` — размер загрузочного диска.
+
+        {% include [min-disk-size](../_includes/cos/min-disk-size.md) %}
+
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
      * `--container-name` — имя Docker-контейнера.
      * `--container-image` — имя Docker-образа для запуска Docker-контейнера.

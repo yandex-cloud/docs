@@ -13,11 +13,21 @@
 
 ## Перед началом работы {#before-you-begin}
 
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
+
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-kafka/concepts/instance-types.md). Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -30,7 +40,7 @@
 
     1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md). Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-
+    
     1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
         * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
@@ -224,14 +234,14 @@
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — укажите имя топика в кластере {{ mkf-name }}.
 
-        * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSource.advanced_settings.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**:
 
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.format.title }}** — `JSON`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`:
 
-                Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
+                Скопируйте и вставьте схему данных в формате JSON:
 
-                {% cut "json_schema.json" %}
+                {% cut "схема данных" %}
 
                 ```json
                 [
@@ -370,37 +380,22 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
 
-    * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-    * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mkf-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-mch.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

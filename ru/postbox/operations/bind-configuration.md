@@ -1,13 +1,15 @@
 # Привязка конфигурации к адресу
 
-Привяжите [конфигурацию](../concepts/glossary.md#configuration) к адресу, чтобы получать [уведомления о доставке писем](../concepts/notification.md).
+Привяжите предварительно созданную [конфигурацию](../concepts/glossary.md#configuration) к адресу, чтобы получать [уведомления об операциях с письмами](../concepts/notification.md).
+
+Конфигурация будет применяться ко всем письмам, которые отправляются с адреса. Чтобы применить конфигурацию к отдельному письму, передайте ее название в заголовке `X-Ses-Configuration-Set`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся адрес и конфигурация.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
     1. Выберите адрес, к которому хотите привязать конфигурацию.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.

@@ -1,6 +1,6 @@
 ---
 title: '{{ yds-full-name }} pricing policy'
-description: This article describes the {{ yds-name }} pricing policy.
+description: This article covers the {{ yds-name }} pricing policy.
 editable: false
 ---
 
@@ -12,75 +12,78 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
-{{ yds-name }} supports two pricing modes:
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
-* [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period and additionally for the number of units of actually written data.
-* [On-demand](#on-demand): You pay for data writes and reads performed, the amount of data read/written, and the size of storage actually used for messages with a valid retention period.
+{% include [vat](../_includes/vat.md) %}
 
-The pricing mode is set for each data stream individually. By default, streams in {{ yds-name }} are created with pricing based on allocated resources.
+{{ yds-name }} supports two pricing models:
 
-## Pricing based on allocated resources {#rules}
+* [Based on allocated resources](#rules): You pay a fixed hourly rate for the established throughput limit and message retention period, and additionally for the number of units of actually written data.
+* [On-demand](#on-demand): You pay for the performed read/write operations, the amount of read or written data, and the actual storage used for messages that are still within their retention period.
 
-If pricing for allocated resources is used, the number of units of written data and resources allocated for streaming data are billed.
+The pricing model is set individually for each data stream. By default, new {{ yds-name }} data streams use the provisioned capacity pricing model.
 
-Pricing for the allocated resources includes the established segment throughput limit as well as storage time and size.
+The size of a written data unit is 40 KB.
+
+## Provisioned capacity pricing model {#rules}
+
+In provisioned capacity mode, billing is based on allocated resources for data stream processing and the actually written data.
+
+Pricing for provisioned resources is based on the allocated throughput limit per segment and storage configuration, i.e., size or retention period.
 
 {% include [not-charged-streams.md](../_includes/pricing/price-formula/not-charged-streams.md) %}
 
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
-### Examples of cost calculation {#price-example}
+### Cost calculation examples {#price-example}
 
-A single-shard stream receives two 50 KB messages per second. The message retention period is 12 hours.
+Let’s assume a single-shard stream receives two messages per second (50 KB each). The record retention period is 12 hours.
 
-Data processing cost per month (for a 31-day month):
+The cost of data processing per month (for a 31-day month) will be:
+
 
 
 
 {% include [usd.md](../_pricing_examples/data-streams/usd-data-streams.md) %}
 
 
-## Prices for the Russia region {#prices}
+
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Price per unit of written data {#event}
-
-The first 2,000,000 units of written data per month are free of charge.
 
 
 
-{% include [usd.md](../_pricing/data-streams/usd-event.md) %}
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|yds }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
-### Price of allocated resources {#resources}
+If the data storage time is one hour, the time of resource usage by multiple streams is summed up. For example, if two streams are running 24/7 during a month, the time of resource usage will be 2 × 24 × 30 = 1,440 hours. The first 744 hours are free of charge. They will be used up by the two streams in 15 days. After that, you will be charged.
 
-### Pricing based on storage time {#time-limit}
+With extended storage, data is stored for up to 7 days.
 
-The price is specified for one hour of using allocated resources:
-
-
-
-#### Data storage with throughput limit per segment of up to 1 MB/s {#up-to-1}
+The minimum storage size for the provided storage limit is 50 GB per segment.
 
 
+## On-demand pricing {#on-demand}
 
-{% include [usd.md](../_pricing/data-streams/usd-resources.md) %}
+To calculate the cost of requests in {{ yds-full-name }}, we use so-called _request units (RU)_. Each executed request, depending on its type, complexity, and data size, consumes a certain number of RUs. The total cost of all executed requests to {{ ydb-short-name }} is the sum of the RU costs for each request.
 
+Below, you can find the rules for calculating the cost of requests to {{ yds-full-name }} in RUs:
+* [Topic operations](../ydb/pricing/ru-topics.md).
 
-### Pricing based on storage size {#storage-limit}
-
-Data is stored for up to 7 days.
-
-
-
-{% include [usd.md](../_pricing/data-streams/usd-resources-storage-limit.md) %}
+With on-demand pricing:
+* Until February 19, 2026, data streams stored in [serverless {{ ydb-short-name }} databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy {{ ydb-short-name }}](../ydb/pricing/serverless.md) for the serverless mode. After February 20, 2026, pricing will be calculated according to the table below.
 
 
-## Pricing based on actual usage {#on-demand}
+  
+  {% include [usd.md](../_pricing/data-streams/usd-serverless.md) %}
 
-If pricing based on the actual usage is used:
-* Data streams stored in [{{ ydb-short-name }} serverless databases](../ydb/concepts/serverless-and-dedicated.md#serverless) are charged for based on the [pricing policy for {{ ydb-short-name }} serverless mode](../ydb/pricing/serverless.md).
 
-* Data streams stored in [{{ ydb-short-name }} dedicated databases](../ydb/concepts/serverless-and-dedicated.md#dedicated) are not charged for separately (you only pay for a dedicated database, see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md)).
+* Data streams stored in [dedicated {{ ydb-short-name }} database](../ydb/concepts/serverless-and-dedicated.md#dedicated)s are not charged for separately. Instead, you only pay for a dedicated database (see the [pricing policy for dedicated databases](../ydb/pricing/dedicated.md) for details).
 

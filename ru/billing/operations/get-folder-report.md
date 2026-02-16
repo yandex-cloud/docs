@@ -1,4 +1,4 @@
-# Получать детализацию расходов по каталогам
+# Экспортировать расширенную детализацию
 
 Вы можете получать CSV-файл с общей или поресурсной детализацией расходов. Файл можно скачать разово или настроить получение на постоянной основе.
 
@@ -10,10 +10,10 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud.billing.account.switch_detail }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа вверху нажмите **Еще** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
   1. Выберите промежуток времени, за который хотите получить детализацию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.billing.account.detail.popup-csv_button_download }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
 
 {% endlist %}
 
@@ -31,6 +31,7 @@
  
    * Не делайте бакет публичным, иначе любой сможет скачать вашу детализацию по ссылке на бакет.
    * Не добавляйте [шифрование](../../storage/concepts/encryption.md) бакету.
+   * Не настраивайте [политику доступа](../../storage/concepts/policy.md) для бакета.
 
    {% endnote %}
 
@@ -46,17 +47,19 @@
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. На панели слева выберите **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}** укажите:
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_bucket }}** имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud_billing.billing.account.exports.field_prefix }}** название папки для файла. Последний символ должен быть `/`.
-     * Выберите язык, на котором будут отображаться названия продуктов – английский или русский.
-     * Выберите тип детализации – **{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}** или **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}**.
+  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}**:
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** укажите имя бакета, где будет храниться CSV-файл с детализацией.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** выберите язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** выберите тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         Выбирая тип **{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}** для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
 
          {% endnote %}
+
+  1. (Опционально) Чтобы экспортировать данные за предыдущий период, активируйте соответствующую опцию. В появившемся поле **Загрузить отчеты начиная с** выберите дату начала загрузки отчетов.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -77,13 +80,13 @@
 
 Таблица содержит следующие столбцы:
 
-* `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account).
+* `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account.md).
 * `billing_account_name` — имя платежного аккаунта.
-* `cloud_id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy#cloud), для которого собрана детализация.
+* `cloud_id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), для которого собрана детализация.
 * `cloud_name` — имя облака.
 * `folder_id` — идентификатор каталога.
 * `folder_name` — имя каталога на момент выгрузки детализации. Значение поля может быть пустым, если вы удалили каталог до выгрузки детализации.
-* `resource_id` — идентификатор ресурса, имя ресурса или идентификатор подписки. Значение поля может быть пустым, если использование сервиса относится ко всему каталогу или не содержит ресурсов. Соответствие сервисов и значения столбца `resource_id`:
+* `resource_id` — (только для регулярного экспорта) идентификатор ресурса, имя ресурса или идентификатор подписки. Значение поля может быть пустым, если использование сервиса относится ко всему каталогу или не содержит ресурсов. Соответствие сервисов и значения столбца `resource_id`:
    * {{ compute-name }} и {{ marketplace-name }} — идентификатор виртуальной машины, снимка диска, образа диска или другого ресурса, установленного через {{ marketplace-name }}.
    * {{ objstorage-name }} — имя бакета.
    * {{ vpc-name }} — идентификатор ресурса, работающего с входящим или исходящим трафиком.
@@ -92,9 +95,10 @@
    * {{ container-registry-short-name }} — идентификатор контейнера.
    * {{ k8s }} и {{ dataproc-name }} — идентификатор кластера.
    * {{ mpg-short-name }}, {{ mch-short-name }}, {{ mmg-short-name }}, {{ mmy-short-name }}, {{ mrd-short-name }} и {{ mkf-name }} — идентификатор хоста в кластере.
-     * {{ message-queue-name }} — идентификатор запроса.
+   * {{ message-queue-name }} — идентификатор запроса.
    * {{ sf-name }} — идентификатор функции.
-   * {{ monitoring-short-name }}, {{ datalens-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
+   * {{ monitoring-short-name }}, {{ iot-name }}, {{ speechkit-short-name }}, {{ translate-name }} и {{ vision-short-name }} — пустое значение.
+   * {{ datalens-short-name }} — идентификатор экземпляра {{ datalens-short-name }}.
    * Техническая поддержка — идентификатор подписки.
 * `service_id` — идентификатор сервиса, которому принадлежит потребленный продукт.
 * `service_name` — имя сервиса, которому принадлежит потребленный продукт.
@@ -105,16 +109,15 @@
 * `pricing_quantity` — количество потребленных единиц продукта. Десятичный разделитель — точка.
 * `pricing_unit` — единица измерения потребления продукта.
 * `cost` — общая стоимость потребления. Десятичный разделитель — точка.
-* `credit` — сумма скидок. Десятичный разделитель — точка.
+* `credit` — сумма скидок. Не учитывается в общей стоимости потребления (`credit`). Всегда отрицательна. Десятичный разделитель — точка.
 * `monetary_grant_credit` — скидка по гранту, в том числе по гранту на знакомство с платформой. Десятичный разделитель — точка.
 * `volume_incentive_credit` — скидка за объем потребления продукта. Десятичный разделитель — точка.
-* `cud_credit` — скидка за [резервированное потребление](../concepts/cvos.md) ресурса. Стоимость объема потребления сверх резервированного будет равна разнице между столбцами `cost` и `credit`. Десятичный разделитель — точка.
+* `cud_credit` — скидка за [резервированное потребление](../concepts/cvos.md) ресурса. Стоимость объема потребления сверх резервированного будет равна сумме значений столбцов `cost` и `credit`. Десятичный разделитель — точка.
 * `misc_credit` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой, но до перехода на платную версию. Десятичный разделитель — точка.
 * `label.user_labels.<имя_метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. Возможные значения `en` и `ru`.
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).
 * `exported_at` — дата и время добавления строки в файл детализации.
-
 
 {% cut "Устаревшие параметры" %}
 

@@ -15,13 +15,18 @@
 ## Подготовка рабочего окружения {#create-environment}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке {{ CSI }}.
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке {{ CSI }}.
 1. [Создайте бакет](../../../storage/operations/buckets/create.md) {{ objstorage-name }}, который будет смонтирован к `PersistentVolume`. Сохраните имя бакета — оно понадобится при установке {{ CSI }}.
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 ## Настройка {{ CSI }} {#configure-csi}
 
+
+{% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
+
+
 {% list tabs group=instructions %}
+
 
 - {{ marketplace-full-name }} {#marketplace}
 
@@ -37,6 +42,7 @@
   Значения остальных параметров оставьте по умолчанию.
 
   После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
+
 
 - Вручную {#manual}
 
@@ -68,7 +74,7 @@
      parameters:
        mounter: geesefs
        options: "--memory-limit=1000 --dir-mode=0777 --file-mode=0666"
-       bucket: <опционально:_имя_существующего_бакета>
+       bucket: <имя_существующего_бакета>
        csi.storage.k8s.io/provisioner-secret-name: csi-s3-secret
        csi.storage.k8s.io/provisioner-secret-namespace: kube-system
        csi.storage.k8s.io/controller-publish-secret-name: csi-s3-secret
@@ -79,7 +85,7 @@
        csi.storage.k8s.io/node-publish-secret-namespace: kube-system
      ```
 
-     Чтобы использовать существующий бакет, укажите его имя в параметре `bucket`. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
+     Параметр `bucket` опциональный. Задайте его, чтобы использовать существующий бакет. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
   1. Клонируйте [GitHub-репозиторий](https://github.com/yandex-cloud/k8s-csi-s3.git), содержащий актуальный драйвер {{ CSI }}:
 
      ```bash
@@ -234,7 +240,7 @@
 1. Создайте в контейнере файл `/usr/share/nginx/html/s3/hello_world`. Для этого [выполните команду](https://kubernetes.io/docs/tasks/debug-application-cluster/get-shell-running-container/) на поде:
 
     ```bash
-    kubectl exec -ti csi-s3-test-nginx -- touch /usr/share/nginx/html/s3/hello_world
+    kubectl exec -ti csi-s3-test-nginx-dynamic -- touch /usr/share/nginx/html/s3/hello_world
     ```
 
 1. Убедитесь, что файл попал в бакет:
@@ -270,7 +276,7 @@
       {% endcut %}
 
       Для статического `PersistentVolume` имя класса хранилища в параметре `spec.storageClassName` не указывается. При необходимости измените размер запрашиваемого хранилища в значении параметра `spec.resources.requests.storage`.
-   1. Создайте файл `pv-static.yaml`, содержащий описание статического `PersistentVolume`:
+   1. Создайте файл `pv-static.yaml`, содержащий описание статического `PersistentVolume`, и укажите в нем значение параметра `volumeHandle`:
 
       {% cut "pv-static.yaml" %}
 
@@ -287,11 +293,11 @@
         accessModes:
           - ReadWriteMany
         claimRef:
-          namespace: defalt
+          namespace: default
           name: csi-s3-pvc-static
         csi:
           driver: ru.yandex.s3.csi
-          volumeHandle: "<имя_static-бакета>/<опционально:_путь_к_каталогу_в_бакете>"
+          volumeHandle: "<имя_static-бакета>/<путь_к_каталогу_в_бакете>"
           controllerPublishSecretRef:
             name: csi-s3-secret
             namespace: kube-system
@@ -308,6 +314,8 @@
       ```
 
       В этом примере настройки GeeseFS для работы с бакетом изменены по сравнению со `StorageClass`. В них добавлена опция `--uid`, в которой указан идентификатор пользователя-владельца всех файлов в хранилище — `1001`. Подробнее о настройке GeeseFS для статического `PersistentVolume` см. [выше](#spvc-csi-usage).
+
+      В параметре `volumeHandle` путь к каталогу в бакете задается опционально.
 
       {% endcut %}
 

@@ -6,9 +6,9 @@ Here you can learn how to manage access to your resources and how {{ iam-short-n
 
 All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-short-name }}. For example:
 
-1. A user requests {{ compute-name }} to create a new disk in the folder named <q>default</q>.
-1. The service sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
-1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the required permissions to create a disk in that folder.
+1. A user requests {{ compute-name }} to create a new disk in the <q>default</q> folder.
+1. {{ compute-name }} sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
+1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
 1. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error.
     If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
@@ -21,13 +21,13 @@ Access management in {{ yandex-cloud }} leverages the [Role Based Access Control
 
 To assign a role, you need to [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) getting the role. As a result, the subject gets [permissions to access](#access-bindings) the resource.
 
-You can also assign a role to a parent resource to [inherit access permissions](#inheritance) from, e.g., a folder or cloud.
+You can also assign a role for a parent resource to [inherit access permissions](#inheritance) from, e.g., a folder or cloud.
 
 {% note warning %}
 
 It usually takes 5 seconds or less to update access permissions. If the role was assigned to you, but you do not have access yet, repeat the operation.
 
-For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access rights have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
+For example, you were given the right to create folders in the cloud and you were able to create one folder, but couldn't create another one. This is because the access permissions have not yet been updated on the server where the second create folder operation was performed. Try creating the folder again.
 
 {% endnote %}
 
@@ -49,17 +49,17 @@ For information about available roles and permissions they offer, see [{#T}](rol
 
 Roles are assigned to subjects. There are the following subject types:
 
-* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }}:
+* `userAccount`: [Yandex account](../users/accounts.md#passport) added to {{ yandex-cloud }} or an account from a [user pool](../../../organization/concepts/user-pools.md):
 
     Subject ID: `userAccount:<user_ID>`.
 
-    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../operations/users/get.md) to a user, e.g., `userAccount:ajecpdmpr4pr********`.
+    Where `<user_ID>` is the unique [ID](../../../api-design-guide/concepts/resources-identification.md) [assigned](../../../organization/operations/users-get.md) to the user, e.g., `userAccount:ajecpdmpr4pr********`.
 
 * `serviceAccount`: [Service account](../users/service-accounts.md) created in {{ yandex-cloud }}:
 
     Subject ID: `serviceAccount:<service_account_ID>`.
 
-    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account. e.g., `serviceAccount:ajevnu4u2q3m********`.
+    Where `<service_account_ID>` is the unique ID [assigned](../../operations/sa/get-id.md) to the service account, e.g., `serviceAccount:ajevnu4u2q3m********`.
 
     {% include [include](../../../_includes/sa-assign-role-note.md) %}
 
@@ -67,7 +67,7 @@ Roles are assigned to subjects. There are the following subject types:
 
     Subject ID: `federatedUser:<user_ID>`.
 
-    Where `<user_ID>` is the unique ID [assigned](../../operations/users/get.md) to a federated user, e.g., `federatedUser:aje7b4u65nb6********`.
+    Where `<user_ID>` is the unique ID [assigned](../../../organization/operations/users-get.md) to the federated user, e.g., `federatedUser:aje7b4u65nb6********`.
 
 * `group`: [{{ org-full-name }}](../../../organization/) user group:
 
@@ -75,19 +75,19 @@ Roles are assigned to subjects. There are the following subject types:
 
         Subject ID: `group:<user_group_ID>`.
 
-        Where `<user_group_ID>` is the unique ID assigned to a user group created by the organization administrator, e.g., `group:ajeser8mnc4c********`.
+        Where `<user_group_ID>` is the unique ID assigned to the user group created by the organization administrator, e.g., `group:ajeser8mnc4c********`.
 
     * `All users in organization X` [system group](./system-group.md#allOrganizationUsers):
 
         Subject ID: `group:organization:<organization_ID>:users`.
 
-        Where `<organization_ID>` is the unique ID assigned to the `X` [organization](../../../organization/quickstart.md), e.g., `group:organization:bpfaidqca8vd********:users`.
+        Where `<organization_ID>` is the unique [ID](../../../organization/operations/organization-get-id.md) assigned to the `X` [organization](../../../organization/quickstart.md), e.g., `group:organization:bpfaidqca8vd********:users`.
 
     * `All users in federation N` [system group](./system-group.md#allFederationUsers):
 
         Subject ID: `group:federation:<federation_ID>:users`.
 
-        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/quickstart.md). e.g., `group:federation:bpf8tpgggfoi********:users`.
+        Where `<federation_ID>` is the unique ID assigned to the `N` [identity federation](../../../organization/concepts/add-federation.md), e.g., `group:federation:bpf8tpgggfoi********:users`.
 
 * `system`: [Public group](./public-group.md) of users:
 
@@ -99,7 +99,7 @@ Roles are assigned to subjects. There are the following subject types:
 
         Subject ID: `system:allUsers`.
 
-### Creating access bindings {#access-bindings}
+### Assigning access permissions {#access-bindings}
 
 Roles for a resource are assigned as a list of _role-subject_ bindings. They are called _access bindings_. You can add or remove these bindings to control permissions to access a resource.
 
@@ -113,23 +113,23 @@ If a resource has child resources, all permissions from the parent resource will
 
 If a child resource is also assigned some roles, a list of permissions for this resource will be combined with a list of permissions for its parent resource. You cannot limit the list of permissions inherited from the parent resource.
 
-### Impersonation {#impersonation}
-
-_Impersonation_ occurs when a user performs certain actions with cloud resources on behalf of a service account with the appropriate permissions. Impersonation is mostly used to temporarily expand user permissions without generating static credentials for the user.
-
-For example, the user needs temporary permissions to view a folder they do not have view access to. To this end, the administrator may [assign](../../operations/sa/set-access-bindings.md#impersonation) a viewer role for the folder to the service account and the special `iam.serviceAccounts.tokenCreator` role to the user. This will enable the user to view the folder's resources on behalf of the service account or obtain an IAM token for the service account. The user will not be able to edit permissions or delete the service account.
-
-The administrator can revoke the role whenever needed.
-
 ### Access control restrictions in the management console {#console-restrictions}
 
 Some restrictions apply to [assigning roles](../../operations/roles/grant.md) in the management console:
 
 * You cannot assign roles to multiple subjects at once, unlike in the API or CLI. In the management console, you should first select the subject (user or service account) and then assign roles to it.
 
+## Managing service access to user cloud resources {#service-control}
+
+{{ iam-full-name }} allows you to manage [service access](../service-control.md) to resources in a user cloud by [enabling](../../operations/service-control/enable-disable.md#enable) or [disabling](../../operations/service-control/enable-disable.md#disable) the relevant services.
+
+Service control is the whole of the access permissions needed to create and operate the service's resources in the user's cloud. Such access permissions are assigned to special service accounts, [service agents](../service-control.md#service-agent), which the service uses to access the user's resources in the cloud.
+
+The user cannot directly create or delete service agents. All the required service agents with the appropriate access permissions are automatically created when you enable a service and get deleted when you disable it.
+
 #### See also {#see-also}
 
-For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the relevant service documentation.
+For more information about managing access to a specific {{ yandex-cloud }} service, see the <q>Access management</q> section in the documentation for that service.
 
 Step-by-step guides and examples:
 
@@ -137,5 +137,7 @@ Step-by-step guides and examples:
 * [{#T}](../../operations/roles/revoke.md)
 * [{#T}](../../operations/sa/assign-role-for-sa.md)
 * [{#T}](../../operations/sa/set-access-bindings.md)
+* [{#T}](../../operations/sa/impersonate-sa.md)
 * [{#T}](../../../resource-manager/operations/cloud/set-access-bindings.md)
 * [{#T}](../../../resource-manager/operations/folder/set-access-bindings.md)
+* [{#T}](../../operations/service-control/enable-disable.md)

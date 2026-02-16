@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles/{osLoginProfileId}
+    method: get
+    path:
+      type: object
+      properties:
+        osLoginProfileId:
+          description: |-
+            **string**
+            Required field.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - osLoginProfileId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/OsLogin/getProfile.md
 ---
 
-# Cloud Organization API, REST: OsLogin.GetProfile {#GetProfile}
+# Identity Hub API, REST: OsLogin.GetProfile
 
 OsLogin Profiles
 
@@ -19,7 +37,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginP
 ||Field | Description ||
 || osLoginProfileId | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.OsLoginProfile}

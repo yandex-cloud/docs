@@ -1,9 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        placementGroupId:
+          description: |-
+            **string**
+            ID of the placement group to return.
+            To get a placement group ID make a [PlacementGroupService.List](/docs/compute/api-ref/PlacementGroup/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/PlacementGroup/get.md
 ---
 
-# Compute Cloud API, REST: PlacementGroup.Get {#Get}
+# Compute Cloud API, REST: PlacementGroup.Get
 
 Returns the specified placement group.
 
@@ -37,7 +53,7 @@ To get a placement group ID make a [PlacementGroupService.List](/docs/compute/ap
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
   "spreadPlacementStrategy": "object",
   "partitionPlacementStrategy": {
@@ -72,7 +88,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the placement group. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Placement group labels as `key:value` pairs. ||
 || spreadPlacementStrategy | **object**
@@ -96,5 +112,7 @@ field containing approriate structure. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64) ||
+|| partitions | **string** (int64)
+
+Acceptable values are 2 to 5, inclusive. ||
 |#

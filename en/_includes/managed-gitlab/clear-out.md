@@ -4,7 +4,7 @@ If you no longer need the resources you created, delete them:
 1. [Delete the {{ mgl-name }} instance](../../managed-gitlab/operations/instance/instance-delete.md) or the [created VM with the {{ GL }} image](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete all Docker images](../../container-registry/operations/docker-image/docker-image-delete.md) from the {{ container-registry-name }} [registry](../../container-registry/concepts/registry.md).
 
-Delete the other resources, depending on the method used to create them:
+Delete the other resources depending on how they were created:
 
 {% list tabs group=instructions %}
 
@@ -18,20 +18,6 @@ Delete the other resources, depending on the method used to create them:
 
 - {{ TF }} {#tf}
 
-   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-   1. In the terminal window, switch to the directory containing the infrastructure plan.
-   1. Delete the `k8s-and-registry-for-gitlab.tf` configuration file.
-   1. Check that the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All resources described in the `k8s-and-registry-for-gitlab.tf` configuration file will be deleted.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

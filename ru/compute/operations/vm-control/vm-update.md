@@ -10,8 +10,8 @@
 
   Чтобы изменить ВМ:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите на имя нужной ВМ.
   1. Нажмите кнопку ![image](../../../_assets/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
   1. Измените параметры ВМ, например, переименуйте машину, отредактировав поле **{{ ui-key.yacloud.common.name }}**.
   1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
@@ -107,83 +107,12 @@
 
 ### Изменить метаданные {#changing-metadata}
 
-Метаданные на базе разных операционных систем могут отличаться. При изменении имеющийся набор метаданных полностью перезаписывается набором, переданным в команде.
-
-Чтобы изменить метаданные ВМ, выполните следующие шаги:
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Получите список ВМ в каталоге по умолчанию:
-
-     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
-  1. Получите информацию о ВМ вместе с метаданными. Все пользовательские метаданные определены в ключе `user-data`.
-
-     ```bash
-     yc compute instance get --full first-instance
-     ```
-
-  1. Измените метаданные ВМ. Изменить метаданные можно с помощью флагов:
-     * `--metadata` — для изменения значения из одной строки.
-     * `--metadata-from-file` — для изменения значения из нескольких строк.
-
-{% endlist %}
+{% include [update-metadata-part1](../../../_includes/compute/metadata/update-metadata-part1.md) %}
 
 ### Удалить SSH-ключи из метаданных {#delete-keys-from-metadata}
 
 {% include [delete-keys-from-metadata](../../../_includes/compute/delete-keys-from-metadata.md) %}
 
-### Включить доступ по OS Login {#enable-oslogin-access}
+### Включить доступ по {{ oslogin }} {#enable-oslogin-access}
 
-Чтобы к ВМ можно было [подключиться](../vm-connect/os-login.md) по [OS Login](../../../organization/concepts/os-login.md), необходимо включить эту опцию в ее настройках:
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}** и нажмите на имя нужной ВМ.
-  1. В правом верхнем углу экрана нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** включите опцию **Доступ через OS Login**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
-
-  1. Посмотрите описание команды CLI для обновления параметров ВМ:
-
-     ```bash
-     yc compute instance update --help
-     ```
-
-  1. Получите список ВМ в каталоге по умолчанию:
-
-     {% include [compute-instance-list](../../_includes_service/compute-instance-list.md) %}
-
-  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
-
-  1. Включите доступ по OS Login:
-
-     ```bash
-     yc compute instance update first-instance \
-       --metadata enable-oslogin=true
-     ```
-
-- API {#api}
-
-  Передайте в поле `metadata` пару `enable-oslogin=true` в методе REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/) или в вызове gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
-
-{% endlist %}
-
-{% include [metadata-keys](../../../_includes/compute/metadata-keys.md) %}
+{% include [update-metadata-part2-oslogin](../../../_includes/compute/metadata/update-metadata-part2-oslogin.md) %}

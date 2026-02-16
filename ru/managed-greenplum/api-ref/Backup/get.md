@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-greenplum/v1/backups/{backupId}
+    method: get
+    path:
+      type: object
+      properties:
+        backupId:
+          description: |-
+            **string**
+            Required field. ID of the backup to return.
+          type: string
+      required:
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/greenplum/v1/api-ref/Backup/get.md
 ---
 
-# Managed Service for Greenplum® API, REST: Backup.Get {#Get}
+# Managed Service for Greenplum® API, REST: Backup.Get
 
 Returns the specified backup of Greenplum® cluster.
 
@@ -78,14 +95,12 @@ Size of the backup in bytes. ||
 
 How this backup was created (manual/automatic/etc...)
 
-- `BACKUP_CREATION_TYPE_UNSPECIFIED`
 - `AUTOMATED`: Backup created by automated daily schedule
 - `MANUAL`: Backup created by user request ||
 || method | **enum** (BackupMethod)
 
 Method of backup creation
 
-- `BACKUP_METHOD_UNSPECIFIED`
 - `BASE`: Base backup
 - `INCREMENTAL`: Delta (incremental) Greenplum backup ||
 || journalSize | **string** (int64)

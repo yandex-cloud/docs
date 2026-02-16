@@ -12,4 +12,5 @@ A set of methods for managing certificate content.
 #|
 ||Method | Description ||
 || [Get](get.md) | Returns chain and private key of the specified certificate. ||
+|| [GetEx](getEx.md) |  ||
 |#

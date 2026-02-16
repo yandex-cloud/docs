@@ -1,26 +1,35 @@
-# Markdown
+---
+title: Markdown in {{ datalens-full-name }}
+description: In this tutorial, you will learn how to use Markdown in {{ datalens-full-name }}.
+---
 
-{{ datalens-short-name }} allows you to use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
+# Markdown in {{ datalens-full-name }}
+
+{{ datalens-short-name }} lets you use the Markdown markup language in the [{#T}](./widget.md#text) widget on the dashboard.
 You can insert explanatory text, links, tables, images, or use formatting to highlight key points.
 
 In text widgets, you can use the following elements:
 
 * [Headers](#headings)
-* [Bold and italics](#emphasizing)
+* [Highlighting text](#emphasizing)
 * [Text color](#text-color)
 * [Lists](#lists)
-   * [Simple unordered list](#unordered-list)
-   * [Nested unordered list](#unordered-sublist)
-   * [Simple ordered list](#ordered-list)
-   * [Nested ordered list](#ordered-sublist)
+  * [Simple unordered list](#unordered-list)
+  * [Nested unordered list](#unordered-sublist)
+  * [Simple ordered list](#ordered-list)
+  * [Nested ordered list](#ordered-sublist)
 * [Tables](#tables)
+* [Cuts](#cuts)
+* [Tabs](#tabs)
 * [Links](#links)
 * [Code formatting](#code)
-   * [Inline code snippet](#inline-code)
-   * [Code block](#codeblock)
+  * [Inline code snippet](#inline-code)
+  * [Code block](#codeblock)
 * [Image](#image)
+* [Emoji](#emoji)
+* [Mermaid diagrams](#mermaid)
 
-## Headers {#headings}
+## Headings {#headings}
 
 You can use four levels of headings in the widget.
 Use `#` to mark up headings.
@@ -36,26 +45,66 @@ Syntax example:
 
 ## Highlighting text {#emphasizing}
 
-Use formatting to highlight key points in your text:
+Use formatting to highlight the key points in your text:
 
-* To make text **bold**, use double `*`:
+* Use `**` on both sides for **bold**:
 
-   ```markdown
-   This text will be **bold**.
-   ```
+  ```markdown
+  This text is **bold**.
+  ```
 
-* To make text _italic_, use `_`:
+* Use `_` on both sides for _italics_:
 
-   ```markdown
-   This text will be _italic_.
-   ```
+  ```markdown
+  This text is _italic_.
+  ```
 
-* To combine _****bold and italics****_, use double `*` and `_` at the same time:
+* For _**bold and italics**_ together, use `**_` or `_**` on both sides:
 
-   ```markdown
-   This text will be _**bold and italic**_.
-   This text will be **_bold and italic_**.
-   ```
+  ```markdown
+  This text is _**bold and italic**_.
+  This text is **_bold and italic_**.
+  ```
+
+* To <u>underline</u> text, add `++` on both sides:
+
+  ```markdown
+  This text is ++underlined++.
+  ```
+
+* To ~~strikethrough~~ text, add `~~` on both sides:
+
+  ```markdown
+  This text is ~~strikethrough~~.
+  ```
+
+* Subscript
+
+  For <sub>subscript</sub>, add `~` on both sides:
+
+  ```markdown
+  This text is in ~subscript~.
+  ```
+
+* Superscript
+
+  For ^superscript^, add `^` on both sides:
+
+  ```markdown
+  This text is in ^superscript^.
+  ```
+
+* For <samp>monospaced</samp> text, add `##` on both sides:
+
+  ```markdown
+  This text is ##monospaced##.
+  ```
+
+* For a <mark>highlight</mark>, add `==` on both sides:
+
+  ```markdown
+  This text is ==highlighted==.
+  ```
 
 ## Text color {#text-color}
 
@@ -72,12 +121,12 @@ You can set the text color this way: `{color}(text)`. The following colors are s
 For example, the following markup:
 
 ```markdown
-This text is {green}(green).
+This text is {green}green.
 ```
 
 will be displayed as:
 
-This text is <font color="green">green</font>.
+This text is <font color=green>green</font>.
 
 ## Lists {#lists}
 
@@ -85,7 +134,7 @@ You can use multiple list types to arrange the data on the dashboard.
 
 ### Simple unordered list {#unordered-list}
 
-To make an unordered bulleted list, use characters such as `*`, `-`, or `+`.
+To make an unordered bulleted list, use `*`, `-`, or `+`.
 
 For example, the following markup:
 
@@ -123,20 +172,20 @@ will be displayed as:
 
 ### Simple ordered list {#ordered-list}
 
-To make an ordered list, use numbers with a `.` or `)` symbol.
+To make an ordered list, use numbers with a `.` or `)`.
 
 For example, the following markup:
 
 ```markdown
-1. First item
-1. Second item
+1. Item 1
+1. Item 2
 1. Third item
 ```
 
 will be displayed as:
 
-1. First item
-1. Second item
+1. Item 1
+1. Item 2
 1. Third item
 
 ### Nested ordered list {#ordered-sublist}
@@ -146,27 +195,27 @@ To make a nested ordered list, add an indent for the lines with the nested list 
 For example, the following markup:
 
 ```markdown
-1. First item
-    1. Nested item
-    1. Nested item
-1. Second item
+1. Item 1
+   1. Nested item
+   1. Nested item
+1. Item 2
 ```
 
 will be displayed as:
 
-1. First item
+1. Item 1
 
    1.1. Nested item<br>
-   1.2 Nested item
-1. Second item
+   1.2. Nested item
+1. Item 2
 
 ## Tables {#tables}
 
 A table consists of a single row with headers, a separator row, and rows with data.
 
-Each row in a table consists of cells that are separated from each other by a `|`.
+Each table row consists of cells that are separated from each other by `|`.
 
-The cells of the separator row only allow the `-` character and `:` character. The colon (`:`) is used at the beginning, end, or on both sides of the cell content of the separator row to indicate left, right, or center alignment of text in the corresponding column, respectively.
+In the separator row cells, only `-` and `:` can be used. The colon (`:`) is used at the beginning, end, or on both sides of the separator row cell content to indicate left, right, or center alignment of text in the column, respectively.
 
 A table should be separated from the surrounding text with empty lines.
 
@@ -180,15 +229,15 @@ Text | Text | Text
 
 will be displayed as:
 
-| Left-aligned | Right-aligned | Centered |
+Left-aligned | Right-aligned | Centered
 :--- | ---: | :---:
-| Text | Text | Text |
+Text | Text | Text
 
 To add a line break or a more complex element (such as a list or code block) to a table cell, use an alternative markup:
 
 ```
 #|
-|| **Header1** | **Header2** ||
+|| **Heading1** | **Heading2** ||
 || Text | Text ||
 |#
 ```
@@ -198,7 +247,7 @@ Sample markup with line breaks and a list:
 ```
 #|
 ||Text
-on two lines
+in two lines
 |
 - Item 1
 - Item 2
@@ -207,7 +256,116 @@ on two lines
 |#
 ```
 
-See more in the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
+For more information, see the [YFM documentation](https://ydocs.tech/ru/syntax/tables/multiline).
+
+## Cuts {#cuts}
+
+Use `cuts` to hide content, e.g., additional information or long blocks of code.
+
+For example, the following markup:
+
+```markdown
+
+{% cut "`cut` title" %}
+
+Content displayed on click.
+
+{% endcut %}
+
+```
+
+will be displayed as:
+
+{% cut "`cut` title" %}
+
+Content displayed on click.
+
+{% endcut %}
+
+## Tabs {#tabs}
+
+Use tabs for mutually exclusive sections. For example, to separate instructions for different operating systems.
+
+For example, the following markup:
+
+```markdown
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+  * You can use lists.
+  * And **other** markup.
+
+- Tab 2 name
+
+  Tab 2 text
+
+{% endlist %}
+
+```
+
+will be displayed as:
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+  * You can use lists.
+  * And **other** markup.
+
+- Tab 2 name
+
+  Tab 2 text
+
+{% endlist %}
+
+If you want an element to be expanded by default, add the `{selected}` attribute to it.
+
+For example, the following markup:
+
+```markdown
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+- Tab 2 name {selected}
+
+  The item will be expanded by default.
+
+- Tab 3 name
+
+  Tab 3 text
+
+{% endlist %}
+
+```
+
+will be displayed as:
+
+{% list tabs %}
+
+- Tab 1 name
+
+  Tab 1 text
+
+- Tab 2 name {selected}
+
+  The item will be expanded by default.
+
+- Tab 3 name
+
+  Tab 3 text
+
+{% endlist %}
+
 
 ## Links {#links}
 
@@ -216,8 +374,8 @@ For example, you can add links to other dashboards and specify data sources.
 
 A link consists of two parts:
 
-* `[text]`: Link text
-* `(link)`: URL or path to the referenced file
+* `[text]`: Link text.
+* `(link)`: URL or path to the referenced file.
 
 For example, the following markup:
 
@@ -227,12 +385,10 @@ For example, the following markup:
 ```
 
 
-
 will be displayed as:
 
 
 [link to yandex.ru](https://yandex.ru).
-
 
 
 
@@ -242,7 +398,7 @@ You can use inline code snippets or code blocks.
 
 ### Inline code snippet {#inline-code}
 
-Use <code>`</code> to format inline code snippets.
+Use <code>`</code> to format an inline code snippet.
 
 For example, the following markup:
 
@@ -256,7 +412,7 @@ A sentence with a `code snippet`.
 
 ### Code block {#codeblock}
 
-Use triple <code>`</code> and the programming language name to format your snippet as a code block.
+Use triple <code>`</code> and the appropriate programming language name to format your snippet as a code block.
 
 For example, the following markup:
 
@@ -312,7 +468,7 @@ For the uploaded image to be permanently available, open access to it via an [AC
 
 {% note warning %}
 
-Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [documentation](../../storage/security/overview.md).
+Public access to the file is granted to an unlimited number of anonymous users. For more information about methods of access management in {{ objstorage-name }}, see the [relevant documentation](../../storage/security/overview.md).
 
 {% endnote %}
 
@@ -341,4 +497,52 @@ Public access to the file is granted to an unlimited number of anonymous users. 
 
 
 
+## Emoji {#emoji}
+
+To add an emoji, enter a keyword and add `:` on both sides. You can see the list of available keywords in the visual editor.
+
+For example, the following markup:
+
+```markdown
+Emoji :smiley:.
+```
+
+will be displayed as:
+
+Emoji 😀.
+
+## Mermaid diagrams {#mermaid}
+
+Mermaid is a library for creating diagrams and flowcharts in a browser using an easy-to-use markup language. It allows you to create diagrams using a syntax similar to Markdown.
+
+Mermaid has many built-in templates and functions for creating various types of diagrams, such as flowcharts, graphs, trees, Gantt charts, mind maps, and C4 diagrams.
+
+Using text definitions, you can set a description of the structure, which is then converted into a diagram. For example, the following markup:
+
+<pre><code>
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+</code></pre>
+
+will be displayed as:
+
+![mermaid-flowcharts-example](../../_assets/datalens/internal/editor/mermaid-flowcharts-example.svg)
+
+See the [Mermaid documentation](https://mermaid.js.org/intro/) for details.
+
+{% note info %}
+
+When using Mermaid, keep the following limitations in mind:
+
+* There is no HTML support.
+* You cannot use the `class` attribute to style diagrams.
+* You cannot use CSS variables for colors.
+* Markdown inside diagram sections is only supported in part (for instance, links do not work).
+
+{% endnote %}
 

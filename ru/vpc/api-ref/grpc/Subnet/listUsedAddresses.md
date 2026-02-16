@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/vpc/v1/api-ref/grpc/Subnet/listUsedAddresses.md
 ---
 
-# Virtual Private Cloud API, gRPC: SubnetService.ListUsedAddresses {#ListUsedAddresses}
+# Virtual Private Cloud API, gRPC: SubnetService.ListUsedAddresses
 
 List used addresses in specified subnet.
 
@@ -15,20 +15,20 @@ List used addresses in specified subnet.
 
 ```json
 {
-  "subnetId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "subnet_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
+|| subnet_id | **string**
 
 Required field.  ||
-|| pageSize | **int64** ||
-|| pageToken | **string** ||
+|| page_size | **int64** ||
+|| page_token | **string** ||
 || filter | **string** ||
 |#
 
@@ -39,7 +39,7 @@ Required field.  ||
   "addresses": [
     {
       "address": "string",
-      "ipVersion": "IpVersion",
+      "ip_version": "IpVersion",
       "references": [
         {
           "referrer": {
@@ -51,14 +51,14 @@ Required field.  ||
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
 || addresses[] | **[UsedAddress](#yandex.cloud.vpc.v1.UsedAddress)** ||
-|| nextPageToken | **string** ||
+|| next_page_token | **string** ||
 |#
 
 ## UsedAddress {#yandex.cloud.vpc.v1.UsedAddress}
@@ -66,7 +66,7 @@ Required field.  ||
 #|
 ||Field | Description ||
 || address | **string** ||
-|| ipVersion | enum **IpVersion**
+|| ip_version | enum **IpVersion**
 
 - `IP_VERSION_UNSPECIFIED`
 - `IPV4`

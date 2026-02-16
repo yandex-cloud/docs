@@ -35,7 +35,7 @@ ACL, загруженный для объектов, применяется мг
 
   Идентификатор можно получить:
   * В разделе [IAM]({{ link-console-access-management }}) консоли управления.
-  * С помощью [CLI или API {{ iam-short-name }}](../../../iam/operations/users/get.md).
+  * С помощью [CLI или API {{ iam-short-name }}](../../../organization/operations/users-get.md).
 * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts)
 
   Для получения идентификатора в консоли управления в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, на панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
@@ -47,8 +47,6 @@ ACL, загруженный для объектов, применяется мг
 * [Группа пользователей](../../../organization/concepts/groups.md)
 
   Для получения идентификатора перейдите на вкладку [**{{ ui-key.yacloud_org.pages.groups }}**]({{ link-org-cloud-center }}/groups) в интерфейсе {{ cloud-center }}.
-
-  Задать группу пользователей можно с помощью {{ yandex-cloud }} CLI, AWS CLI, {{ TF }} и API. Подробнее см. на страницах [Редактирование ACL бакета](../../../storage/operations/buckets/edit-acl.md) и [Редактирование ACL объекта](../../../storage/operations/objects/edit-acl.md).
 
 ## Операции с ACL {#acl-operations}
 

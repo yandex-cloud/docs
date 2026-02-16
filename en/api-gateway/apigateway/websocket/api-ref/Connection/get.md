@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/connections/{connectionId}
+    method: get
+    path:
+      type: object
+      properties:
+        connectionId:
+          description: |-
+            **string**
+            Required field. ID of the connection to get.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - connectionId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/websocket/v1/apigateway/websocket/api-ref/Connection/get.md
 ---
 
-# API Gateway WebSocket Connection Service, REST: Connection.Get {#Get}
+# API Gateway WebSocket Connection Service, REST: Connection.Get
 
 Returns the specified connection info.
 
@@ -19,7 +37,9 @@ GET https://apigateway-connections.{{ api-host }}/apigateways/websocket/v1/conne
 ||Field | Description ||
 || connectionId | **string**
 
-Required field. ID of the connection to get. ||
+Required field. ID of the connection to get.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.serverless.apigateway.websocket.v1.Connection}

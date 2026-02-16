@@ -1,9 +1,39 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:addDomain
+    method: post
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway that the domain is attached to.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        domainName:
+          description: |-
+            **string**
+            Name of the attaching domain.
+          type: string
+        certificateId:
+          description: |-
+            **string**
+            ID of certificate for the attaching domain.
+          type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/addDomain.md
 ---
 
-# API Gateway Service, REST: ApiGateway.AddDomain {#AddDomain}
+# API Gateway Service, REST: ApiGateway.AddDomain
 
 Attaches domain to the specified API gateway.
 

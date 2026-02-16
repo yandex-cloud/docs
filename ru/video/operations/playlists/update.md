@@ -11,9 +11,9 @@ description: Следуя данной инструкции, вы сможете
 
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **Плейлисты** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. На вкладке ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** в строке с нужным плейлистом нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Измените название и описание плейлиста.
-  1. В блоке **Порядок воспроизведения**:
+  1. В блоке **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**:
 
      * Чтобы удалить видео или трансляцию из плейлиста, нажмите ![image](../../../_assets/console-icons/trash-bin.svg) в нужной строке.
 
@@ -25,10 +25,14 @@ description: Следуя данной инструкции, вы сможете
 
        {% endnote %}
 
-     * Чтобы добавить видео или завершенную трансляцию в плейлист, нажмите **Добавить видео**. В открывшемся окне:
+     * Чтобы добавить видео или завершенную трансляцию в плейлист, нажмите **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**. В открывшемся окне:
 
-       1. На вкладке `Видео` или `Трансляции` выберите нужные видео или трансляции.
+       1. На вкладке **{{ ui-key.yacloud_video.playlists.switch_video-select }}** или **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** выберите нужные видео или трансляции.
+
+          В плейлистах будут доступны к просмотру только видео с [постоянными ссылками](../../concepts/videos.md#permanent-link).
+
        1. Нажмите **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. В списке **{{ ui-key.yacloud_video.presets.label_style-preset }}** выберите [шаблон](../../concepts/presets.md) оформления плеера из доступных в канале или создайте новый.
   1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 {% endlist %}

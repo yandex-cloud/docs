@@ -15,17 +15,15 @@
 
 {% include [before](../../_includes/compute/before-solution.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки группы ВМ {{ yandex-cloud }} входит плата за:
 * [Диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) – [тарифы {{ compute-full-name }}](../../compute/pricing.md).
 * Использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) – [тарифы {{ vpc-full-name }}](../../vpc/pricing.md).
 
-
 ## Подготовьте окружение {#create-environment}
 
-1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load` и назначьте ему роль `editor`:
+1. Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с именем `for-load`. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor):
 
    {% list tabs group=instructions %}
 
@@ -35,7 +33,7 @@
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-load`.
-     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `editor`.
+     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}**. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor).
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
@@ -57,19 +55,27 @@
         name: for-load
         ```
 
-     1. Назначьте роль сервисному аккаунту:
+     1. Назначьте роль сервисному аккаунту роль compute.editor:
 
         ```bash
-        yc resource-manager folder add-access-binding b0g12ga82bcv******** \
-          --role editor \
-          --subject serviceAccount:ajeab0cnib1p********
+        yc resource-manager folder add-access-binding <идентификатор_каталога> \
+          --role compute.editor \
+          --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
+
+      1. Назначьте роль сервисному аккаунту роль load-balancer.editor:
+
+          ```bash
+          yc resource-manager folder add-access-binding <идентификатор_каталога> \
+            --role load-balancer.editor \
+            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+          ```
 
    - API {#api}
 
      1. Создайте сервисный аккаунт `for-load`:
          Воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
-     1. Назначьте сервисному аккаунту в текущем каталоге роль `editor`:
+     1. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../network-load-balancer/security/index.md#load-balancer-editor):
          Воспользуйтесь методом REST API [setAccessBindings](../../resource-manager/api-ref/Folder/setAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/SetAccessBindings](../../resource-manager/api-ref/grpc/Folder/setAccessBindings.md).
 
    {% endlist %}
@@ -104,10 +110,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне `{{ region-id }}-a`:
+     1. Создайте подсеть в зоне `{{ region-id }}-d`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-d
         ```
 
         Результат выполнения команды:
@@ -117,7 +123,7 @@
         folder_id: b0g12ga82bcv********
         created_at: "2021-02-09T17:34:32.561702Z"
         network_id: enpabce123hd********
-        zone_id: {{ region-id }}-a
+        zone_id: {{ region-id }}-d
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -144,7 +150,7 @@
 
      1. Создайте сеть:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Network/create.md) для ресурса [Network](../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md).
-     1. Создайте подсети в зонах `{{ region-id }}-a` и `{{ region-id }}-b`:
+     1. Создайте подсети в зонах `{{ region-id }}-d` и `{{ region-id }}-b`:
          Воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md).
 
    {% endlist %}
@@ -155,17 +161,16 @@
 
    {% list tabs group=instructions %}
 
-
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать группу ВМ.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
      1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
         * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `group-for-load`.
         * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `for-load`.
-     1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-a` и `{{ region-id }}-b`.
+     1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите `{{ region-id }}-d` и `{{ region-id }}-b`.
      1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
         * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
@@ -173,7 +178,7 @@
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** укажите `nginx`.
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и введите `{{ registry }}/yc/demo/autoscaling-example-app:v1`.
           * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}**:
+        * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
           * Для загрузочного диска укажите **{{ ui-key.yacloud.compute.disk-form.field_size }}** `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
         * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
           * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `for-load`.
@@ -191,7 +196,6 @@
         * Включите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**.
         * В поле **{{ ui-key.yacloud.compute.groups.create.field_target-group-name }}** укажите `load-generator`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
- 
 
    - CLI {#cli}
 
@@ -221,7 +225,7 @@
 
         {% note info %}
 
-        Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md#keys-processed-in-public-images) можно с помощью параметра `ssh-keys` или в строке с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
+        Передать [SSH-ключ](../../glossary/ssh-keygen.md) в [метаданных ВМ](../../compute/concepts/vm-metadata.md) можно с помощью параметра `ssh-keys` или в ключе с пользовательскими метаданными `user-data`. В этом руководстве используется первый вариант.
 
         {% endnote %}
 
@@ -263,7 +267,7 @@
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+     1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Нажмите на имя группы ВМ `group-for-load`.
 
    - CLI {#cli}
@@ -378,7 +382,6 @@
      ```
 
      Результат выполнения команды:
-     
 
      ```bash
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
@@ -387,8 +390,6 @@
      | b0ruab1ccvpd******** | load-generator | {{ region-id }}     | EXTERNAL |              1 | b0r1tabcphde********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
-     
-     
 
    - API {#api}
 
@@ -451,11 +452,11 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+  1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Нажмите на имя группы ВМ `group-for-load`.
   1. Нажмите кнопку ![edit](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_disk }}** укажите новый размер диска — `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите новый размер диска — `35 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
      * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. В блоке **{{ ui-key.yacloud.compute.group.overview.section_instances-state }}** поэтапно отобразятся изменения размера диска для всех ВМ группы.
@@ -535,7 +536,7 @@ Transfer/sec:     206.94B
    1. Удалите группу ВМ:
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
       1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.switch_groups }}**.
+      1. На панели слева выберите ![](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
       1. Справа в строке группы `load-generator` нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
       1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.groups.popup-confirm_button_delete }}**.
    1. Удалите сервисный аккаунт:

@@ -5,13 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка HTTP-заголовков запросов и ответов
 
-Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
-
 {% note info %}
 
 Заголовок `Access-Control-Allow-Origin` для конфигурации CORS настраивается в блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-cors }}**. Подробнее читайте в разделе [{#T}](configure-cors.md).
 
 {% endnote %}
+
+Чтобы настроить для ресурса HTTP-заголовки запросов и ответов:
 
 {% list tabs group=instructions %}
 
@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -111,14 +111,13 @@ description: Следуя данной инструкции, вы сможете
       * `--static-request-headers` добавляет заголовки запроса к источнику. Удалить их можно с помощью флага `--clear-static-request-headers`.
       * `--static-headers` добавляет заголовки ответа клиента. Удалить их можно с помощью флага `--clear-static-headers`.
 
-      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      Подробнее о команде `yc cdn resource update` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
-
 
       ```hcl
       terraform {
@@ -152,8 +151,6 @@ description: Следуя данной инструкции, вы сможете
 
       }
       ```
-
-
 
       Где:
 

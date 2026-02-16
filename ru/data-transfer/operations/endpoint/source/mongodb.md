@@ -2,7 +2,7 @@
 title: Как настроить эндпоинт-источник {{ MG }} в {{ data-transfer-full-name }}
 description: Из статьи вы узнаете, как задать настройки при создании или изменении эндпоинта-источника {{ MG }} в {{ data-transfer-full-name }}.
 ---
-# Передача данных из эндпоинта-источника {{ MG }}
+# Передача данных из эндпоинта-источника {{ MG }}/{{ SD }} (Managed Service for MongoDB)
 
 
 С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из базы {{ MG }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
@@ -15,12 +15,12 @@ description: Из статьи вы узнаете, как задать наст
 1. [Выполняйте необходимые действия по работе с базой](#db-actions) и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](#troubleshooting) по их устранению.
 
-## Сценарии передачи данных из {{ MG }} {#scenarios}
+## Сценарии передачи данных из {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Миграция кластера {{ MG }}](../../../tutorials/managed-mongodb.md);
-    * [Миграция кластера {{ MG }} с версии 4.4 на 6.0](../../../tutorials/mongodb-versions.md).
+    * [Миграция кластера {{ MG }}](../../../tutorials/storedoc.md);
+    * [Миграция кластера {{ SD }} (Managed Service for MongoDB) с версии 4.4 на 6.0](../../../tutorials/storedoc-versions.md).
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
@@ -30,27 +30,26 @@ description: Из статьи вы узнаете, как задать наст
 
 {% include [prepare db](../../../../_includes/data-transfer/endpoints/sources/mongodb-prepare.md) %}
 
-## Настройка эндпоинта-источника {{ MG }} {#endpoint-settings}
+## Настройка эндпоинта-источника {{ MG }}/{{ SD }} (Managed Service for MongoDB) {#endpoint-settings}
 
-{% include [MongodDB Verstion](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
+{% include [MongodDB Version](../../../../_includes/data-transfer/notes/mongodb-version.md) %}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
 * Настройки подключения к [кластеру {{ mmg-full-name }}](#managed-service) или [пользовательской инсталляции](#on-premise), в т. ч. на базе виртуальных машин {{ compute-full-name }}. Эти параметры обязательные.
 * [Дополнительные параметры](#additional-settings).
 
-
-### Кластер {{ mmg-name }} {#managed-service}
+### Кластер {{ mmg-name }} (Managed Service for MongoDB) {#managed-service}
 
 
 {% note warning %}
 
-Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmg.viewer }}`](../../../../managed-mongodb/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
+Для создания или редактирования эндпоинта управляемой базы данных вам потребуется [роль `{{ roles.mmg.viewer }}`](../../../../storedoc/security/index.md#mmg-viewer) или примитивная [роль `viewer`](../../../../iam/roles-reference.md#viewer), выданная на каталог кластера этой управляемой базы данных.
 
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -72,7 +71,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -105,7 +104,6 @@ description: Из статьи вы узнаете, как задать наст
 
 {% endlist %}
 
-
 ### Пользовательская инсталляция {#on-premise}
 
 Настройки приведены для случая OnPremise, когда все поля заполняются вручную.
@@ -130,7 +128,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -223,7 +221,7 @@ description: Из статьи вы узнаете, как задать наст
 {% note info %}
 
 * Если вы используете несколько эндпоинтов, то для каждого из них необходимо создать отдельный трансфер.
-* Так как трансферы не поддерживают перенос [коллекций timeseries]({{ mg.docs.comd }}/core/timeseries-collections/), такие коллекции необходимо исключить.
+* Так как трансферы не поддерживают перенос коллекций `Time Series`, такие коллекции необходимо исключить.
 
 {% endnote %}
 
@@ -232,8 +230,9 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ objstorage-full-name }}](../target/object-storage.md).
-* [{{ MG }}](../target/mongodb.md).
+* [{{ objstorage-full-name }}](../target/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
+* [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
@@ -254,6 +253,8 @@ description: Из статьи вы узнаете, как задать наст
 * [Ошибка при переносе коллекций timeseries](#timeseries)
 * [Не распознается IP-адрес или FQDN внешнего кластера](#cluster-config-issue)
 * [Ошибка на стадии копирования](#history-lost)
+* [Данные в источнике не подходят для шардирования](#cannot-get-delimiters)
+* [Прерывание трансфера с ошибкой cursor.Decode returned error](#invalid-length)
 
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
@@ -272,3 +273,5 @@ description: Из статьи вы узнаете, как задать наст
 {% include [history lost](../../../../_includes/data-transfer/troubles/mongodb/history-lost.md) %}
 
 {% include [cannot-get-delimiters](../../../../_includes/data-transfer/troubles/mongodb/cannot-get-delimiters.md) %}
+
+{% include [invalid-length](../../../../_includes/data-transfer/troubles/mongodb/invalid-length.md) %}

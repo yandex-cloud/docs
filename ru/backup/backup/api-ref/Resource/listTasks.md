@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}/tasks
+    method: get
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - computeInstanceId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            Number of results per page.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Token for the results page.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Resource/listTasks.md
 ---
 
-# Cloud Backup API, REST: Resource.ListTasks {#ListTasks}
+# Cloud Backup API, REST: Resource.ListTasks
 
 List tasks of resources.
 
@@ -19,7 +53,9 @@ GET https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}/tasks
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID. ||
+Required field. Compute Cloud instance ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.backup.v1.ListTasksRequest}
@@ -28,10 +64,14 @@ Required field. Compute Cloud instance ID. ||
 ||Field | Description ||
 || pageSize | **string** (int64)
 
-Number of results per page. ||
+Number of results per page.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
-Token for the results page. ||
+Token for the results page.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.ListTasksResponse}
@@ -92,7 +132,6 @@ Policy ID. ||
 
 Type of the task.
 
-- `TYPE_UNSPECIFIED`
 - `BACKUP`
 - `RETENTION`
 - `RECOVERY`
@@ -105,7 +144,6 @@ Task progress. ||
 
 Task status.
 
-- `STATUS_UNSPECIFIED`
 - `ENQUEUED`
 - `ASSIGNED`
 - `STARTED`
@@ -150,7 +188,6 @@ Compute Cloud instance ID. ||
 
 Task result code.
 
-- `CODE_UNSPECIFIED`
 - `OK`
 - `ERROR`
 - `WARNING`

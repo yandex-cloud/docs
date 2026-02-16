@@ -9,20 +9,20 @@ spec: <ServiceSpec>
 ```
 
 #|
-|| **Field**       | **Value or type**      | **Description**          ||
-|| `apiVersion`    | `v1`                   | **Required**.
+|| **Field**        | **Value / Type**   | **Description**          ||
+|| `apiVersion`    | `v1`                   | **This is a required field**.
 
 Kubernetes API version. ||
 || `kind`          | `Service`              | Resource type.          ||
-|| `metadata`      | `ObjectMeta`           | **Required**.
+|| `metadata`      | `ObjectMeta`           | **This is a required field**.
 
 Resource metadata. ||
-|| `metadata.name` | `string`               | **Required**.
+|| `metadata.name` | `string`               | **This is a required field**.
 
 [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-This name is not the balancer name in {{ alb-name }}. ||
-|| `spec`          | `ServiceSpec`          | **Required**.
+Do not mistake this name for the {{ alb-name }} load balancer name. ||
+|| `spec`          | `ServiceSpec`          | **This is a required field**.
 
 Resource specification. ||
 |#

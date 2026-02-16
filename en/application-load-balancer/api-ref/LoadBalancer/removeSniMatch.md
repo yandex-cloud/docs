@@ -1,9 +1,42 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to remove the SNI handler from.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        listenerName:
+          description: |-
+            **string**
+            Required field. Name of the listener te remove the SNI handler from.
+          type: string
+        sniMatchName:
+          description: |-
+            **string**
+            Required field. Name of the SNI handler to remove.
+          type: string
+      required:
+        - listenerName
+        - sniMatchName
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/removeSniMatch.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.RemoveSniMatch {#RemoveSniMatch}
+# Application Load Balancer API, REST: LoadBalancer.RemoveSniMatch
 
 Deletes the specified SNI handler.
 

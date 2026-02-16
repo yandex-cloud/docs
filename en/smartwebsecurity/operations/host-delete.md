@@ -1,19 +1,21 @@
 ---
-title: How to disconnect a security profile in {{ sws-full-name }} from a virtual host
-description: Follow this guide to disconnect a security profile in {{ sws-full-name }} from a virtual host.
+title: How to disconnect a security profile in {{ sws-full-name }} from a virtual host, domain, or API gateway
+description: Follow this guide to disconnect a security profile in {{ sws-full-name }} from a protected resource.
 ---
 
-# Disconnecting a security profile from a virtual host
+# Disconnecting a security profile from a resource
+
+## Disconnecting from a virtual host {#virtual-host}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md) you need.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [security profile](../concepts/profiles.md).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select the security profile to disconnect from the [{{ alb-full-name }}](../../application-load-balancer/) [virtual host](../../application-load-balancer/concepts/http-router.md#virtual-host).
-  1. Go to the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab.
-  1. In the row with the host you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
+  1. Navigate to the **{{ ui-key.yacloud.smart-web-security.overview.title_connected-to-the-hosts }}** tab.
+  1. Next to the host in question, click ![options](../../_assets/console-icons/ellipsis.svg) and select ![disconnect](../../_assets/console-icons/arrow-shape-left-from-line.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_disconnect-host }}**.
   1. Confirm your action.
 
 - CLI {#cli}
@@ -80,8 +82,8 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
      Where:
 
      * `<virtual_host_name>`: Virtual host name from the previous step.
-     * `--http-router-name`: [HTTP router](../../application-load-balancer/concepts/http-router.md) name. This is a required parameter. Instead of the HTTP router name, you can provide its ID in the `http-router-id` parameter.
-     * `--security-profile-id`: Security profile ID. This is a required parameter.
+     * `--http-router-name`: [HTTP router](../../application-load-balancer/concepts/http-router.md) name. This is a required setting. Instead of the HTTP router name, you can provide its ID in the `http-router-id` parameter.
+     * `--security-profile-id`: Security profile ID. This is a required setting.
 
      Result:
 
@@ -101,10 +103,71 @@ description: Follow this guide to disconnect a security profile in {{ sws-full-n
      route_options: {}
      ```
 
-  For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/managed-services/application-load-balancer/virtual-host/update.md).
+  For more information about the `yc application-load-balancer virtual-host update` command, see the [CLI reference](../../cli/cli-ref/application-load-balancer/cli-ref/virtual-host/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  You can disconnect a {{ sws-full-name }} profile from a [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md) in the virtual host settings.
+
+  1. In the {{ TF }} configuration file, for the `yandex_alb_virtual_host` resource, delete `security_profile_id` under `route_options`.
+
+      ```hcl
+      resource "yandex_alb_virtual_host" "my-virtual-host" {
+        name                    = "<virtual_host_name>"
+        ...
+
+        route_options {
+          security_profile_id   = "<security_profile_ID>"
+        }
+      }
+      ```
+
+  1. Apply the changes:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc alb http-router get <HTTP_router_ID>
+  ```
 
 - API {#api}
 
   {% include [api-host](../../_includes/smartwebsecurity/api-host.md) %}
+
+{% endlist %}
+
+## Disconnecting from a domain {#domain}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. Select **Domain protection** → **Domains**.
+  1. Select the domain.
+  1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Delete the connected security profile.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+## Disconnecting from an API gateway {#gateway}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) the API gateway is in.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Select the API gateway.
+  1. In the top-right corner, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. Delete the [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md) extension from the API gateway specification.
 
 {% endlist %}

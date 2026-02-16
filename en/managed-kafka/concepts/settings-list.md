@@ -12,12 +12,12 @@ Depending on the selected interface, the same setting will be represented differ
 
 ## Cluster-level settings {#cluster-settings}
 
-You can use the following settings:
+The following settings are available:
 
 {% include [kafka-settings](../../_includes/mdb/mkf/kafka-settings.md) %}
 
 ## Settings for individual topics {#topic-settings}
 
-You can use the following settings:
+The following settings are available:
 
 {% include [topic-settings](../../_includes/mdb/mkf/topic-settings.md) %}

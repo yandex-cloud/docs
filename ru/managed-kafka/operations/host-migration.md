@@ -1,3 +1,8 @@
+---
+title: Миграция хостов кластера {{ KF }} в другую зону доступности
+description: Следуя данной инструкции, вы сможете переместить хосты кластера {{ KF }} в другую зону доступности.
+---
+
 # Миграция хостов кластера {{ KF }} в другую зону доступности
 
 
@@ -11,7 +16,7 @@
 
 Есть несколько способов провести миграцию:
 
-* [Воспользоваться интерфейсами {{ yandex-cloud }}](#interfaces). В этом случае меняется зона доступности в конфигурации кластера. Создавать дополнительный кластер не нужно.
+* [Воспользоваться интерфейсами {{ yandex-cloud }}](#yandex-cloud-interfaces). В этом случае меняется зона доступности в конфигурации кластера. Создавать дополнительный кластер не нужно.
 
    Этот вариант проще в реализации, но во время миграции кластер будет простаивать, пока его зона доступности будет меняться. Это может занять несколько минут.
 
@@ -31,8 +36,9 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-      1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. В разделе **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** укажите новую зону доступности.
       1. Укажите подсеть в новой зоне доступности, если в ней находится больше одной подсети.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -87,16 +93,102 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы изменить зону доступности у кластера и его хоста {{ KF }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * Новую зону доступности в параметре `configSpec.zoneId`.
-      * Новую подсеть в параметре `subnetIds`, если в новой зоне доступности находится больше одной подсети.
-      * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+          {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+       1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+          {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+          ```bash
+          curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+              --data '{
+                        "updateMask": "configSpec.zoneId,subnetIds",
+                        "subnetIds": [
+                          "<подсеть>"
+                        ]
+                        "configSpec": {
+                          "zoneId": [
+                            "<зона_доступности>"
+                          ]
+                        }
+                      }'
+          ```
+
+          Где:
+
+          * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+              Укажите нужные параметры:
+              * `subnetIds` — если нужно изменить список подсетей.
+              * `configSpec.zoneId` — если нужно изменить зону доступности.
+          * `subnetIds` — массив строк. Каждая строка — идентификатор подсети. Если в новой зоне доступности находится только одна подсеть, параметр `subnetIds` указывать не обязательно.
+          * `zoneId` — новая зона доступности кластера.
+
+          Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+       1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+            {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>",
+                      "update_mask": {
+                        "paths": [
+                          "subnet_ids",
+                          "config_spec.zone_id"
+                        ]
+                      },
+                      "subnet_ids": [
+                        "<подсеть>"
+                      ]
+                      "config_spec": {
+                        "zone_id": [
+                          "<зона_доступности>"
+                        ]
+                      }
+                    }' \
+                {{ api-host-mdb }}:{{ port-https }} \
+                yandex.cloud.mdb.kafka.v1.ClusterService.Update
+            ```
+
+            Где:
+
+            * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+               Укажите нужные параметры:
+               * `subnet_ids` — если нужно изменить список подсетей.
+               * `config_spec.zone_id` — если нужно изменить зону доступности.
+            * `subnet_ids` — массив строк. Каждая строка — идентификатор подсети. Если в новой зоне доступности находится только одна подсеть, параметр `subnet_ids` указывать не обязательно.
+            * `zone_id` — новая зона доступности кластера.
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
    {% endlist %}
 
@@ -128,11 +220,17 @@
 
 ## Миграция кластера с несколькими хостами {#multiple-hosts}
 
-Если создать кластер из более чем одного хоста {{ KF }}, в кластер автоматически добавляются три выделенных хоста {{ ZK }}. Каждому из хостов назначается подсеть из разных зон доступности. После создания кластера для него нельзя сменить подсеть в зоне доступности.
+{% note info %}
 
-Процесс миграции зависит от того, в каких зонах доступности располагаются хосты {{ KF }} и {{ ZK }} до миграции и сколько подсетей находится в каждой зоне доступности. Ознакомьтесь с частными случаями в [примерах](#examples), чтобы лучше понять особенности миграции.
+В [кластерах с версией {{ KF }} 3.6 или выше](../concepts/index.md#kraft) не используются хосты {{ ZK }}. Миграция возможна только для конфигурации с тремя брокерами в одной зоне доступности.
 
-Чтобы в кластере перенести хосты {{ KF }} в другую зону доступности:
+{% endnote %}
+
+Если создать кластер версии {{ KF }} 3.5 из более чем одного хоста-брокера, в кластер автоматически добавляются три отдельных хоста {{ ZK }}. Каждому из хостов назначается подсеть из разных зон доступности. После создания кластера для него нельзя сменить подсеть в зоне доступности.
+
+Процесс миграции кластера версии {{ KF }} 3.5 зависит от того, в каких зонах доступности располагаются хосты {{ KF }} и {{ ZK }} до миграции и сколько подсетей находится в каждой зоне доступности. Ознакомьтесь с частными случаями в [примерах](#examples), чтобы лучше понять особенности миграции.
+
+Чтобы в кластере с версией {{ KF }} 3.5 перенести хосты {{ KF }} в другую зону доступности:
 
 1. Узнайте, в каких зонах доступности располагаются хосты {{ KF }} и {{ ZK }}:
 
@@ -141,10 +239,14 @@
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
       1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**. Зона доступности каждого хоста указана в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}**.
 
    - CLI {#cli}
+
+      {% include [cli-install](../../_includes/cli-install.md) %}
+
+      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       ```bash
       {{ yc-mdb-kf }} cluster list-hosts <имя_или_идентификатор_кластера>
@@ -152,11 +254,52 @@
 
       Зона доступности указана в выводе команды, в столбце `ZONE ID`.
 
-   - API {#api}
+   - REST API {#api}
 
-      Воспользуйтесь методом REST API [listHosts](../api-ref/Cluster/listHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-      Зона доступности указана в ответе в поле `hosts[].zoneId`.
+           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+       1. Воспользуйтесь методом [Cluster.listHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+           ```bash
+           curl \
+               --request GET \
+               --header "Authorization: Bearer $IAM_TOKEN" \
+               --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/hosts'
+           ```
+
+           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse). Зона доступности указана в ответе в поле `hosts[].zoneId`.
+
+   - gRPC API {#grpc-api}
+
+       1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+           {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+       1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+       1. Воспользуйтесь вызовом [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+           ```bash
+           grpcurl \
+               -format json \
+               -import-path ~/cloudapi/ \
+               -import-path ~/cloudapi/third_party/googleapis/ \
+               -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+               -d '{
+                       "cluster_id": "<идентификатор_кластера>"
+                   }' \
+               {{ api-host-mdb }}:443 \
+               yandex.cloud.mdb.kafka.v1.ClusterService.ListHosts
+           ```
+
+           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.kafka.v1.ListClusterHostsResponse). Зона доступности указана в ответе в поле `hosts[].zone_id`.
 
    {% endlist %}
 
@@ -171,8 +314,9 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-      1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
+      1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+      1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
       1. В разделе **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** укажите новый набор зон доступности. Их количество не должно уменьшиться.
 
          {% note warning %}
@@ -189,10 +333,6 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - CLI {#cli}
-
-      {% include [cli-install](../../_includes/cli-install.md) %}
-
-      {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
       Чтобы изменить набор зон доступности у кластера и его хостов {{ KF }}, выполните команду:
 
@@ -244,7 +384,7 @@
          * вы переносите хосты {{ KF }} в зону доступности, где хосты {{ ZK }} ранее не размещались;
          * в целевой зоне доступности находится больше одной подсети.
 
-         Если хосты кластера размещаются в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` и вы меняете зоны доступности на `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`, укажите подсеть, только если в зоне `{{ region-id }}-d` несколько подсетей. Иначе подсеть указывать не нужно.
+         Если хосты кластера размещаются в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b` и вы меняете зоны доступности на `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`, укажите подсеть, только если в зоне `{{ region-id }}-d` несколько подсетей. Иначе подсеть указывать не нужно.
 
          ```hcl
          resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
@@ -266,34 +406,260 @@
 
       {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      Чтобы изменить набор зон доступности у кластера и его хостов {{ KF }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+       1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-      * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-      * Новый набор зон доступности в параметре `configSpec.zoneId`. Их количество не должно уменьшиться.
-      * Новый набор подсетей в параметре `subnetIds`, если выполняются два условия:
+          {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-         * вы переносите хосты {{ KF }} в зону доступности, где хосты {{ ZK }} ранее не размещались;
-         * в целевой зоне доступности находится больше одной подсети.
+          ```bash
+          curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+              --data '{
+                        "updateMask": "configSpec.zoneId,subnetIds",
+                        "subnetIds": [
+                          <список_подсетей>
+                        ],
+                        "configSpec": {
+                          "zoneId": [
+                            <список_зон_доступности>
+                          ]
+                        }
+                      }'
+          ```
 
-         Если хосты кластера размещаются в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` и вы меняете зоны доступности на `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`, укажите подсеть, только если в зоне `{{ region-id }}-d` несколько подсетей. Иначе подсеть указывать не нужно.
+          Где:
 
-      * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+          * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
-      {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+            Укажите нужные параметры:
+            * `subnetIds` — если нужно изменить список подсетей.
+            * `configSpec.zoneId` — если нужно изменить список зон доступности.
+          * `subnetIds` — массив строк. Каждая строка — идентификатор подсети. Измените список подсетей, если выполняются два условия:
+
+            * вы переносите хосты {{ KF }} в зону доступности, где хосты {{ ZK }} ранее не размещались;
+            * в целевой зоне доступности находится больше одной подсети.
+
+            Если хосты кластера размещаются в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` и вы меняете зоны доступности на `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`, укажите подсеть, только если в зоне `{{ region-id }}-d` несколько подсетей. Иначе подсеть указывать не нужно.
+          * `zoneId` — новый набор зон доступности кластера. Их количество не должно уменьшиться.
+
+          Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+       1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+           {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+           ```bash
+           grpcurl \
+               -format json \
+               -import-path ~/cloudapi/ \
+               -import-path ~/cloudapi/third_party/googleapis/ \
+               -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+               -d '{
+                     "cluster_id": "<идентификатор_кластера>",
+                     "update_mask": {
+                       "paths": [
+                         "subnet_ids",
+                         "config_spec.zone_id"
+                       ]
+                     },
+                     "subnet_ids": [
+                       <список_подсетей>
+                     ],
+                     "config_spec": {
+                       "zone_id": [
+                         <список_зон_доступности>
+                       ]
+                     }
+                   }' \
+               {{ api-host-mdb }}:{{ port-https }} \
+               yandex.cloud.mdb.kafka.v1.ClusterService.Update
+           ```
+
+           Где:
+
+           * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+              Укажите нужные параметры:
+              * `subnet_ids` — если нужно изменить список подсетей.
+              * `config_spec.zone_id` — если нужно изменить список зон доступности.
+           * `subnet_ids` — массив строк. Каждая строка — идентификатор подсети. Измените список подсетей, если выполняются два условия:
+
+             * вы переносите хосты {{ KF }} в зону доступности, где хосты {{ ZK }} ранее не размещались;
+             * в целевой зоне доступности находится больше одной подсети.
+
+             Если хосты кластера размещаются в зонах доступности `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-c` и вы меняете зоны доступности на `{{ region-id }}-a`, `{{ region-id }}-b` и `{{ region-id }}-d`, укажите подсеть, только если в зоне `{{ region-id }}-d` несколько подсетей. Иначе подсеть указывать не нужно.
+           * `zone_id` — новый набор зон доступности кластера. Их количество не должно уменьшиться.
+
+           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
    {% endlist %}
 
-1. Чтобы успешно выполнять подключение к топикам после миграции, укажите FQDN нового брокера в вашем бэкенде или клиенте (например, в коде или графической IDE). Удалите FQDN прежнего брокера в первоначальной зоне доступности.
+Чтобы в кластере с версией {{ KF }} 3.6 или выше перенести хосты {{ KF }} в другую зону доступности:
 
-   Чтобы узнать FQDN, получите список хостов в кластере:
+1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в целевой зоне доступности, куда вы переносите хосты {{ KF }}.
+1. Проверьте группу безопасности кластера. Если она настроена для подсети в исходной зоне доступности, перенастройте группу для подсети в целевой зоне доступности. Для этого в правилах группы безопасности замените CIDR исходной подсети на CIDR целевой подсети.
+1. Измените зону доступности у кластера и его хостов {{ KF }}:
 
-   {% include [list-hosts-quick](../../_includes/mdb/mkf/list-hosts-short.md) %}
+   {% list tabs group=instructions %}
+
+   - CLI {#cli}
+
+      Чтобы изменить зону доступности у кластера и его хостов {{ KF }}, выполните команду:
+
+      ```bash
+      {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+         --zone-ids <зона_доступности> \
+         --subnet-ids <идентификатор_подсети>
+      ```
+
+   - {{ TF }} {#tf}
+
+      1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+
+         О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+
+      1. Измените в описании кластера {{ mkf-name }} зону доступности в параметре `zones`:
+
+         ```hcl
+         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
+           ...
+           config {
+             ...
+             zones = ["<зона_доступности>"]
+           }
+           ...
+         }
+         ```
+
+      1. Укажите в параметре `subnet_ids` подсеть в целевой зоне доступности.
+
+         ```hcl
+         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
+           ...
+           subnet_ids = ["<подсеть>"]
+           ...
+         }
+         ```
+
+      1. Проверьте корректность настроек.
+
+         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+      1. Подтвердите изменение ресурсов.
+
+         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+
+      {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
+
+   - REST API {#api}
+
+       1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+          {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+          ```bash
+          curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+              --data '{
+                        "updateMask": "configSpec.zoneId,subnetIds",
+                        "subnetIds": [
+                          <подсеть_в_целевой_зоне_доступности>
+                        ],
+                        "configSpec": {
+                          "zoneId": [
+                            <целевая_зона_доступности>
+                          ]
+                        }
+                      }'
+          ```
+
+          Где:
+
+          * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+             В данном случае укажите параметры `subnetIds` и `configSpec.zoneId`.
+
+          * `subnetIds` — массив строк. Каждая строка — идентификатор подсети. Укажите только подсеть в целевой зоне доступности.
+          * `zoneId` — новый набор зон доступности кластера. Укажите только целевую зону доступности.
+
+          Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+       1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+           {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+           ```bash
+           grpcurl \
+               -format json \
+               -import-path ~/cloudapi/ \
+               -import-path ~/cloudapi/third_party/googleapis/ \
+               -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/cluster_service.proto \
+               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+               -d '{
+                     "cluster_id": "<идентификатор_кластера>",
+                     "update_mask": {
+                       "paths": [
+                         "subnet_ids",
+                         "config_spec.zone_id"
+                       ]
+                     },
+                     "subnet_ids": [
+                       <подсеть_в_целевой_зоне_доступности>
+                     ],
+                     "config_spec": {
+                       "zone_id": [
+                         <целевая_зона_доступности>
+                       ]
+                     }
+                   }' \
+               {{ api-host-mdb }}:{{ port-https }} \
+               yandex.cloud.mdb.kafka.v1.ClusterService.Update
+           ```
+
+           Где:
+
+           * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+              В данном случае массив состоит из строк `subnetIds` и `configSpec.zoneId`.
+
+           * `subnetIds` — массив строк. Каждая строка — идентификатор подсети. Укажите только подсеть в целевой зоне доступности.
+           * `zoneId` — новый набор зон доступности кластера. Укажите только целевую зону доступности.
+
+           Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
+
+       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
+
+   {% endlist %}
+
+Чтобы успешно выполнять подключение к топикам после миграции, укажите FQDN нового брокера в вашем бэкенде или клиенте (например, в коде или графической IDE). Удалите FQDN прежнего брокера в первоначальной зоне доступности.
+
+Чтобы узнать FQDN, получите список хостов в кластере:
+
+{% include [list-hosts-quick](../../_includes/mdb/mkf/list-hosts-short.md) %}
 
 ### Примеры миграции кластера с несколькими хостами {#examples}
 
-Примеры ниже позволяют понять, в каких ситуациях нужно указывать подсеть, чтобы выполнить миграцию кластера {{ mkf-name }} с несколькими хостами в другую зону доступности.
+Примеры ниже позволяют понять, в каких ситуациях нужно указывать подсеть, чтобы выполнить миграцию кластера {{ mkf-name }} версии 3.5 с несколькими хостами в другую зону доступности.
 
 #### Хост {{ ZK }} уже расположен в целевой зоне доступности {#already-located}
 

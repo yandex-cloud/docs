@@ -14,4 +14,13 @@
 
 Пример работы с федеративными запросами с помощью {{ yq-full-name }}:
 
-@[YouTube](https://youtu.be/1EN28LVncPM?si=kmytEx5zGRTnXrJ4)
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvtaitffc5pk6hpa24?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=1EN28LVncPM).
+
+
+
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/yq-federative-queries.md).

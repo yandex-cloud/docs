@@ -1,0 +1,75 @@
+---
+editable: false
+sourcePath: en/_cli-ref/cli-ref/storage/cli-ref/s3api/put-object-legal-hold.md
+---
+
+# yc storage s3api put-object-legal-hold
+
+Puts or removes legal hold for an object version
+
+#### Command Usage
+
+Syntax:
+
+`yc storage s3api put-object-legal-hold [Flags...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--bucket` | `string`
+
+[REQUIRED] Bucket name ||
+|| `--key` | `string`
+
+[REQUIRED] Object key ||
+|| `--legal-hold` | `string`
+
+Legal hold status. Shorthand Syntax: Status=(ON\|OFF) JSON Syntax: {"Status": "string"}. Example of usage: 1) --legal-hold Status=ON 2) --legal-hold '{"Status":"ON"}' ||
+|| `--version-id` | `string`
+
+Version ID used to reference a specific version of the object. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

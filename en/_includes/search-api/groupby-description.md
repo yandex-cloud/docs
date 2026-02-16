@@ -1,1 +1,3 @@
-The `groupby` parameter combines rules for grouping results. Grouping is used to group documents from a single domain into a container. Within the container, the documents are ranked by the sorting rules set in the `sortby` field. The results provided in the container can be used to include multiple documents from the same domain in search results.
+The `groupby` parameter is not supported when getting the result in [HTML format](../../search-api/concepts/html-response.md).
+
+The `groupby` parameter consolidates rules for grouping results. Grouping is used to group documents from a single domain into a container. Within the container, the documents are ranked by the sorting rules defined in the `sortby` field. The results provided in the container can be used to include multiple documents from the same domain in search results.

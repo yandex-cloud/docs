@@ -12,12 +12,12 @@
 * Ваши чарты и дашборды не содержат персональных данных или коммерческой тайны. Доступ к опубликованным данным неограничен.
 * Подключение, поверх которого построены объекты, поддерживает публикацию данных. Нельзя публиковать данные из следующих подключений:
 
-  * [Google BigQuery](../operations/connection/create-big-query.md)
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
   * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
   * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
+  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md)
 
     {% note info %}
 
@@ -50,6 +50,7 @@
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
+1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации** нажмите кнопку **Посмотреть опубликованное**.
 
 ## Поделиться чартом на основе данных Метрики или AppMetrica {#metrica-share}
@@ -62,8 +63,6 @@
 
 ## Отключить возможность публикации {#publication-disable}
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
-
 По умолчанию пользователи могут публиковать чарты и дашборды, на которые у них есть права администратора. Эту возможность можно отключить на уровне экземпляра {{ datalens-short-name }}. После запрета публикации:
 
 * все ранее опубликованные объекты пропадут из публичного доступа;
@@ -75,6 +74,7 @@
 
 1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
+1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации**:
 
    1. Посмотрите список опубликованных объектов, которые пропадут из публичного доступа. Для этого нажмите кнопку **Посмотреть опубликованное**.

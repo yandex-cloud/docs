@@ -33,20 +33,12 @@ items:
             href: operations/import/cert-modify.md
           - name: Удаление сертификата
             href: operations/import/cert-delete.md
-      - name: Домен
-        items:
-          - name: Добавление домена
-            href: operations/domain/domain-create.md
-          - name: Привязка сертификата к домену
-            href: operations/domain/domain-link-cert.md
-          - name: Изменение домена
-            href: operations/domain/domain-modify.md
-          - name: Удаление домена
-            href: operations/domain/domain-delete.md
       - name: Резервное копирование
         href: operations/cert-backup.md
       - name: Добавление алерта для сертификата
         href: operations/alert.md
+      - name: Настроить права доступа к сертификату
+        href: operations/cert-access.md
       - name: Посмотреть операции с сертификатом
         href: operations/operation-logs.md
   - name: Практические руководства
@@ -89,12 +81,43 @@ items:
             href: concepts/domains/index.md
           - name: Интеграция с сервисами {{ yandex-cloud }}
             href: concepts/domains/services.md
+        hidden: true
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/certificate-manager/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: certificate
+        items:
+          - name: Overview
+            href: cli-ref/certificate/index.md
+          - name: add-access-binding
+            href: cli-ref/certificate/add-access-binding.md
+          - name: content
+            href: cli-ref/certificate/content.md
+          - name: create
+            href: cli-ref/certificate/create.md
+          - name: delete
+            href: cli-ref/certificate/delete.md
+          - name: get
+            href: cli-ref/certificate/get.md
+          - name: list
+            href: cli-ref/certificate/list.md
+          - name: list-access-bindings
+            href: cli-ref/certificate/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/certificate/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/certificate/remove-access-binding.md
+          - name: request
+            href: cli-ref/certificate/request.md
+          - name: set-access-bindings
+            href: cli-ref/certificate/set-access-bindings.md
+          - name: update
+            href: cli-ref/certificate/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -111,6 +134,8 @@ items:
                 href: api-ref/grpc/CertificateContent/index.md
               - name: Get
                 href: api-ref/grpc/CertificateContent/get.md
+              - name: GetEx
+                href: api-ref/grpc/CertificateContent/getEx.md
           - name: Certificate
             items:
               - name: Overview
@@ -145,6 +170,143 @@ items:
                 href: api-ref/grpc/Operation/get.md
               - name: Cancel
                 href: api-ref/grpc/Operation/cancel.md
+          - name: Certificate Manager Private CA API
+            items:
+              - name: Overview
+                href: privateca/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: privateca/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: privateca/api-ref/grpc/Operation/cancel.md
+              - name: Policy
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/Policy/index.md
+                  - name: Create
+                    href: privateca/api-ref/grpc/Policy/create.md
+                  - name: Update
+                    href: privateca/api-ref/grpc/Policy/update.md
+                  - name: Delete
+                    href: privateca/api-ref/grpc/Policy/delete.md
+                  - name: Get
+                    href: privateca/api-ref/grpc/Policy/get.md
+                  - name: List
+                    href: privateca/api-ref/grpc/Policy/list.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/grpc/Policy/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/grpc/Policy/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/grpc/Policy/updateAccessBindings.md
+              - name: PrivateCaCertificateContent
+                items:
+                  - name: Overview
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificateContent/index.md
+                  - name: GetChain
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificateContent/getChain.md
+                  - name: GetPrivateKey
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificateContent/getPrivateKey.md
+              - name: PrivateCaCertificate
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/index.md
+                  - name: IssueCertificate
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/issueCertificate.md
+                  - name: IssueCertificateByCsr
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/issueCertificateByCsr.md
+                  - name: Update
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/update.md
+                  - name: Delete
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/delete.md
+                  - name: Get
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/get.md
+                  - name: List
+                    href: privateca/api-ref/grpc/PrivateCaCertificate/list.md
+                  - name: RevokeCertificate
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/revokeCertificate.md
+                  - name: ListAccessBindings
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCaCertificate/updateAccessBindings.md
+              - name: PrivateCaContent
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/PrivateCaContent/index.md
+                  - name: GetChain
+                    href: privateca/api-ref/grpc/PrivateCaContent/getChain.md
+                  - name: GetPrivateKey
+                    href: privateca/api-ref/grpc/PrivateCaContent/getPrivateKey.md
+              - name: PrivateCa
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/PrivateCa/index.md
+                  - name: GenerateCertificateAuthority
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/generateCertificateAuthority.md
+                  - name: GenerateCertificateAuthorityByCsr
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/generateCertificateAuthorityByCsr.md
+                  - name: ImportCertificateAuthority
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/importCertificateAuthority.md
+                  - name: GenerateCsrForCertificateAuthority
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/generateCsrForCertificateAuthority.md
+                  - name: SendSignedCertificateOfCertificateAuthority
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/sendSignedCertificateOfCertificateAuthority.md
+                  - name: Delete
+                    href: privateca/api-ref/grpc/PrivateCa/delete.md
+                  - name: GetCsrForCertificateAuthority
+                    href: >-
+                      privateca/api-ref/grpc/PrivateCa/getCsrForCertificateAuthority.md
+                  - name: Get
+                    href: privateca/api-ref/grpc/PrivateCa/get.md
+                  - name: List
+                    href: privateca/api-ref/grpc/PrivateCa/list.md
+                  - name: Update
+                    href: privateca/api-ref/grpc/PrivateCa/update.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/grpc/PrivateCa/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/grpc/PrivateCa/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/grpc/PrivateCa/updateAccessBindings.md
+              - name: Template
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/grpc/Template/index.md
+                  - name: Create
+                    href: privateca/api-ref/grpc/Template/create.md
+                  - name: Delete
+                    href: privateca/api-ref/grpc/Template/delete.md
+                  - name: Get
+                    href: privateca/api-ref/grpc/Template/get.md
+                  - name: List
+                    href: privateca/api-ref/grpc/Template/list.md
+                  - name: Update
+                    href: privateca/api-ref/grpc/Template/update.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/grpc/Template/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/grpc/Template/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/grpc/Template/updateAccessBindings.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -155,6 +317,8 @@ items:
                 href: api-ref/CertificateContent/index.md
               - name: Get
                 href: api-ref/CertificateContent/get.md
+              - name: GetEx
+                href: api-ref/CertificateContent/getEx.md
           - name: Certificate
             items:
               - name: Overview
@@ -189,15 +353,186 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+          - name: Certificate Manager Private CA API
+            items:
+              - name: Overview
+                href: privateca/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/Operation/index.md
+                  - name: Get
+                    href: privateca/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: privateca/api-ref/Operation/cancel.md
+              - name: Policy
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/Policy/index.md
+                  - name: Create
+                    href: privateca/api-ref/Policy/create.md
+                  - name: Update
+                    href: privateca/api-ref/Policy/update.md
+                  - name: Delete
+                    href: privateca/api-ref/Policy/delete.md
+                  - name: Get
+                    href: privateca/api-ref/Policy/get.md
+                  - name: List
+                    href: privateca/api-ref/Policy/list.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/Policy/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/Policy/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/Policy/updateAccessBindings.md
+              - name: PrivateCaCertificateContent
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/PrivateCaCertificateContent/index.md
+                  - name: GetChain
+                    href: privateca/api-ref/PrivateCaCertificateContent/getChain.md
+                  - name: GetPrivateKey
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificateContent/getPrivateKey.md
+              - name: PrivateCaCertificate
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/PrivateCaCertificate/index.md
+                  - name: IssueCertificate
+                    href: privateca/api-ref/PrivateCaCertificate/issueCertificate.md
+                  - name: IssueCertificateByCsr
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificate/issueCertificateByCsr.md
+                  - name: Update
+                    href: privateca/api-ref/PrivateCaCertificate/update.md
+                  - name: Delete
+                    href: privateca/api-ref/PrivateCaCertificate/delete.md
+                  - name: Get
+                    href: privateca/api-ref/PrivateCaCertificate/get.md
+                  - name: List
+                    href: privateca/api-ref/PrivateCaCertificate/list.md
+                  - name: RevokeCertificate
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificate/revokeCertificate.md
+                  - name: ListAccessBindings
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificate/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificate/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: >-
+                      privateca/api-ref/PrivateCaCertificate/updateAccessBindings.md
+              - name: PrivateCaContent
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/PrivateCaContent/index.md
+                  - name: GetChain
+                    href: privateca/api-ref/PrivateCaContent/getChain.md
+                  - name: GetPrivateKey
+                    href: privateca/api-ref/PrivateCaContent/getPrivateKey.md
+              - name: PrivateCa
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/PrivateCa/index.md
+                  - name: GenerateCertificateAuthority
+                    href: >-
+                      privateca/api-ref/PrivateCa/generateCertificateAuthority.md
+                  - name: GenerateCertificateAuthorityByCsr
+                    href: >-
+                      privateca/api-ref/PrivateCa/generateCertificateAuthorityByCsr.md
+                  - name: ImportCertificateAuthority
+                    href: privateca/api-ref/PrivateCa/importCertificateAuthority.md
+                  - name: GenerateCsrForCertificateAuthority
+                    href: >-
+                      privateca/api-ref/PrivateCa/generateCsrForCertificateAuthority.md
+                  - name: SendSignedCertificateOfCertificateAuthority
+                    href: >-
+                      privateca/api-ref/PrivateCa/sendSignedCertificateOfCertificateAuthority.md
+                  - name: Delete
+                    href: privateca/api-ref/PrivateCa/delete.md
+                  - name: GetCsrForCertificateAuthority
+                    href: >-
+                      privateca/api-ref/PrivateCa/getCsrForCertificateAuthority.md
+                  - name: Get
+                    href: privateca/api-ref/PrivateCa/get.md
+                  - name: List
+                    href: privateca/api-ref/PrivateCa/list.md
+                  - name: Update
+                    href: privateca/api-ref/PrivateCa/update.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/PrivateCa/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/PrivateCa/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/PrivateCa/updateAccessBindings.md
+              - name: Template
+                items:
+                  - name: Overview
+                    href: privateca/api-ref/Template/index.md
+                  - name: Create
+                    href: privateca/api-ref/Template/create.md
+                  - name: Delete
+                    href: privateca/api-ref/Template/delete.md
+                  - name: Get
+                    href: privateca/api-ref/Template/get.md
+                  - name: List
+                    href: privateca/api-ref/Template/list.md
+                  - name: Update
+                    href: privateca/api-ref/Template/update.md
+                  - name: ListAccessBindings
+                    href: privateca/api-ref/Template/listAccessBindings.md
+                  - name: SetAccessBindings
+                    href: privateca/api-ref/Template/setAccessBindings.md
+                  - name: UpdateAccessBindings
+                    href: privateca/api-ref/Template/updateAccessBindings.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: Справочник аудитных логов
+    items:
+      - name: CreateCaUsageRestriction
+        href: events-ref/CreateCaUsageRestriction.md
+      - name: CreateCertificate
+        href: events-ref/CreateCertificate.md
+      - name: CreateDomain
+        href: events-ref/CreateDomain.md
+      - name: DeleteCaUsageRestriction
+        href: events-ref/DeleteCaUsageRestriction.md
+      - name: DeleteCertificate
+        href: events-ref/DeleteCertificate.md
+      - name: DeleteDomain
+        href: events-ref/DeleteDomain.md
+      - name: GetCertificateContent
+        href: events-ref/GetCertificateContent.md
+      - name: GetExCertificateContent
+        href: events-ref/GetExCertificateContent.md
+      - name: SetCaUsageRestrictionAccessBindings
+        href: events-ref/SetCaUsageRestrictionAccessBindings.md
+      - name: SetCertificateAccessBindings
+        href: events-ref/SetCertificateAccessBindings.md
+      - name: SetCertificateAuthorityAccessBindings
+        href: events-ref/SetCertificateAuthorityAccessBindings.md
+      - name: SetDomainPrimaryCertificate
+        href: events-ref/SetDomainPrimaryCertificate.md
+      - name: UpdateCaUsageRestriction
+        href: events-ref/UpdateCaUsageRestriction.md
+      - name: UpdateCaUsageRestrictionAccessBindings
+        href: events-ref/UpdateCaUsageRestrictionAccessBindings.md
+      - name: UpdateCertificate
+        href: events-ref/UpdateCertificate.md
+      - name: UpdateCertificateAccessBindings
+        href: events-ref/UpdateCertificateAccessBindings.md
+      - name: UpdateCertificateAuthorityAccessBindings
+        href: events-ref/UpdateCertificateAuthorityAccessBindings.md
+      - name: UpdateDomain
+        href: events-ref/UpdateDomain.md
+      - name: UpdateDomainAccessBindings
+        href: events-ref/UpdateDomainAccessBindings.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/certificate-manager
-deepBase: 2

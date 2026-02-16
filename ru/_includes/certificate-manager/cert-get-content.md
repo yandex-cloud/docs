@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сертификат.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Напротив сертификата нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_export }}**.
 
        Экспортировать можно только сертификаты в статусе `Issued`.
@@ -74,7 +74,6 @@
   Чтобы получить содержимое пользовательского сертификата с помощью {{ TF }}:
   1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
 
-
      ```hcl
      data "yandex_cm_certificate_content" "cert_by_id" {
        certificate_id = "<идентификатор_сертификата>"
@@ -89,7 +88,6 @@
        sensitive = true
      }
      ```
-
 
      Где:
      * `data "yandex_cm_certificate_content"` — описание источника данных для содержимого сертификата:

@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}:move
+    method: post
+    path:
+      type: object
+      properties:
+        gatewayId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - gatewayId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        destinationFolderId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - destinationFolderId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/move.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Move {#Move}
+# Virtual Private Cloud API, REST: Gateway.Move
 
 Move a gateway to another folder
 
@@ -66,7 +93,7 @@ Required field.  ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `sharedEgressGateway`
     "sharedEgressGateway": "object"
     // end of the list of possible fields
@@ -198,7 +225,7 @@ Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
 || description | **string**
 
 Description of the gateway. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs.
 No more than 64 per resource.

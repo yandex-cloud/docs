@@ -1,6 +1,6 @@
 # Using the SDK for Bash functions
 
-The runtime environment has the [{{ yandex-cloud }} CLI](../../../cli/) installed by default to work with the {{ yandex-cloud }} API.
+The runtime environment comes with the [{{ yandex-cloud }} CLI](../../../cli/) utility installed by default to work with the {{ yandex-cloud }} API.
 
 The user interacts with {{ yandex-cloud }} services using the [service account](../../operations/function-sa.md) specified in the Bash function. This does not require any additional actions from the user: the utility applies the service account automatically.
 
@@ -10,14 +10,14 @@ For example, you can get a list of cloud folders using the following script:
 #!/bin/bash
 set -e
 
-HOME=/tmp yc --format json resource-manager folder list --cloud-id <cloud_ID> | jq -c '{body:. | tostring}'
+HOME=/tmp yc --format json resource-manager folder list --cloud-id <cloud_ID> | jq -c  '{body:. | tostring}'
 ```
 
-For YC CLI commands to run successfully, make sure they specify the appropriate [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID with the `--folder-id` or `--cloud-id` flag, respectively.
+For the {{ yandex-cloud }} CLI commands to be executed successfully, use the `--folder-id` or `--cloud-id` parameters to specify the [folder](../../../resource-manager/operations/folder/get-id.md) or [cloud](../../../resource-manager/operations/cloud/get-id.md) ID, respectively.
+ 
+The runtime environment comes with pre-installed [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html) to support [{{ yandex-cloud }} services compatible with the AWS API](../../../iam/concepts/authorization/access-key.md#supported-services). To use it:
+1. [Create](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key for the service account.
+1. [Save](../../../lockbox/operations/secret-create.md) the static access key to a {{ lockbox-full-name }} secret.
+1. [Provide](../../operations/function/lockbox-secret-transmit.md) the {{ lockbox-full-name }} secret to a function.
 
-To work with {{ yandex-cloud }} compatible services, such as [{{ objstorage-full-name }}](../../../storage/index.yaml) and [{{ message-queue-full-name }}](../../../message-queue/index.yaml), the runtime environment comes with pre-installed [AWS CLI version 2](https://docs.aws.amazon.com/cli/index.html).
-
-In this case, copy the [static access keys for the service account](../../../iam/operations/sa/create-access-key.md) and provide them, e.g., using the function's [environment variables](../../concepts/runtime/environment-variables.md).
-
-For more information and sample commands, see [AWS Command Line Interface](../../../storage/tools/aws-cli.md) and the [{{ message-queue-full-name }}](../../../message-queue/instruments/index.md) documentation.
-
+For more information and examples of commands, see [AWS Command Line Interface](../../../storage/tools/aws-cli.md) and the relevant documentation of AWS-compatible {{ yandex-cloud }} services.

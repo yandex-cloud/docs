@@ -1,6 +1,7 @@
 ---
 title: Как записать метрики через Remote API
 description: Следуя данной инструкции, вы сможете записать метрики через Remote API.
+sourcePath: ru/monitoring_includes/operations/prometheus/ingestion/remote-write.md
 ---
 
 # Запись метрик через Remote API
@@ -9,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите хранить данные.
 1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) с ролью `{{ roles-monitoring-editor }}` на выбранный каталог.
-1. [Создайте API-ключ](../../../../iam/operations/api-key/create.md) для сервисного аккаунта.
+1. [Создайте API-ключ](../../../../iam/operations/authentication/manage-api-keys.md#create-api-key) для сервисного аккаунта.
 1. В [конфигурацию Prometheus](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write), в секцию `remote_write`, добавьте эндпоинт (`url`):
    ```yaml
    ...
@@ -48,6 +49,8 @@ description: Следуя данной инструкции, вы сможете
 | Имя метрики | Единицы измерения | Пояснения |
 |----|----|----|
 `prometheus_remote_storage_sent_batch_duration_seconds` | Секунды | Гистограмма времени выполнения запроса на запись.
+`prometheus_remote_storage_highest_timestamp_in_seconds`  | Секунды | Последняя временная метка, записанная в WAL.
+`prometheus_remote_storage_queue_highest_sent_timestamp_seconds`  | Секунды | Последняя временная метка, успешно отправленная в удаленное хранилище.
 `prometheus_remote_storage_bytes_total`  | Байты | Общее количество байтов данных (не метаданных), отправленных в удаленное хранилище после сжатия.
 `prometheus_remote_storage_enqueue_retries_total`  | Штуки | Общее количество неудачных попыток добавления точки в очередь отправки.
 `prometheus_remote_storage_max_samples_per_send`  | Штуки | Максимальное количество точек, отправленных в одном запросе на запись.
@@ -56,6 +59,12 @@ description: Следуя данной инструкции, вы сможете
 `prometheus_remote_storage_samples_pending`  | Штуки | Количество точек, ожидающих отправки в удаленное хранилище.
 `prometheus_remote_storage_samples_retried_total`  | Штуки | Общее количество точек, которые не удалось отправить в удаленное хранилище, но для которых была предпринята повторная попытка, поскольку ошибка отправки является устранимой.
 `prometheus_remote_storage_samples_total`  | Штуки | Общее количество точек, отправленных в удаленное хранилище.
+`prometheus_remote_storage_shards`  | Штуки | Общее количество шардов, задействованных для отправки точек в удаленное хранилище.
+`prometheus_remote_storage_shards_min`  | Штуки | Минимальное доступное количество шардов.
+`prometheus_remote_storage_shards_max`  | Штуки | Максимальное доступное количество шардов.
+`prometheus_remote_storage_shards_desired`  | Штуки | Результат вычисления количества шардов, оптимального для того, чтобы обработать объем приходящих точек.
+`prometheus_wal_watcher_current_segment`  | Число | Текущий сегмент WAL, из которого производится чтение.
+`prometheus_tsdb_wal_segment_current`  | Число | Текущий сегмент WAL, в который записываются новые точки.
 
 {% include [trademark](../../../../_includes/monitoring/trademark.md) %}
 

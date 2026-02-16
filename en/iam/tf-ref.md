@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ iam-full-name }}'
-description: This page provides reference information about the {{ TF }} provider resources and data sources supported for {{ iam-name }}.
+description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ iam-name }}.
 ---
 
 # {{ TF }} reference for {{ iam-full-name }}
@@ -27,7 +27,7 @@ The following {{ TF }} provider resources are supported for {{ iam-name }}:
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_iam_policy]({{ tf-provider-datasources-link }}/datasource_iam_policy) | Access policy information |
-| [yandex_iam_role]({{ tf-provider-datasources-link }}/datasource_iam_role) | [Role](./concepts/access-control/roles.md) information |
-| [yandex_iam_service_account]({{ tf-provider-datasources-link }}/datasource_iam_service_account) | [Service account](./concepts/users/service-accounts.md) information |
-| [yandex_iam_user]({{ tf-provider-datasources-link }}/datasource_iam_user) | User information |
+| [yandex_iam_policy]({{ tf-provider-datasources-link }}/iam_policy) | Access policy information |
+| [yandex_iam_role]({{ tf-provider-datasources-link }}/iam_role) | [Role](./concepts/access-control/roles.md) information |
+| [yandex_iam_service_account]({{ tf-provider-datasources-link }}/iam_service_account) | [Service account](./concepts/users/service-accounts.md) information |
+| [yandex_iam_user]({{ tf-provider-datasources-link }}/iam_user) | User information |

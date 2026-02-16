@@ -1,0 +1,76 @@
+title: '{{ ai-studio-full-name }}'
+description:
+  - >-
+    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
+    applications and AI agents based on large generative models. {{
+    ai-studio-name }} provides everything you need through all stages – from
+    experiments and prototyping to production deployment.
+  - >-
+    For terms of use, see the <a
+    href="https://yandex.com/legal/cloud_terms_yandex_foundation_models">{{
+    ai-studio-full-name }} Terms of Use</a>. For terms of use, see the <a
+    href="https://yandex.com/legal/cloud_terms_speechkit">{{ speechkit-full-name
+    }} Terms of Use</a>. For terms of use, see the <a
+    href="https://yandex.com/legal/cloud_terms_search_api">{{
+    search-api-full-name }} Terms of Use</a>.
+  - >-
+    This service is subject to a <a
+    href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
+    service level is set out in the document titled <a
+    href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">{{
+    ai-studio-full-name }}</a> Service Level.
+links:
+  - title: About {{ ai-studio-name }}
+    description: Summary of main features
+    href: concepts/
+  - title: Getting started with {{ model-gallery-name }}
+    description: How to use {{ model-gallery-name }} models for text generation
+    href: quickstart/yandexgpt
+  - title: '{{ agents-atelier-name }}'
+    description: What are AI agents and how to create them
+    href: concepts/agents/
+  - title: '{{ ai-search-name }}'
+    description: Search tools for AI agents
+    href: concepts/search/
+  - title: '{{ mcp-hub-name }}'
+    description: Creating, managing, and monitoring MCP servers
+    href: concepts/mcp-hub/
+  - title: Step-by-step guides
+    description: Simple guides for routine operations
+    href: operations/
+  - title: API references
+    description: Description of {{ ai-studio-name }} API methods
+    href: concepts/api
+  - title: Access management
+    description: Permissions required to use the service
+    href: security/
+  - title: Quotas and limits
+    description: Technical and organizational limitations
+    href: concepts/limits
+  - title: Pricing policy
+    description: Service pricing and cost calculation
+    href: pricing
+meta:
+  title: '{{ ai-studio-full-name }}'
+  description: >-
+    {{ ai-studio-full-name }} is a {{ yandex-cloud }} platform for creating AI
+    applications and AI agents based on large generative models. {{
+    ai-studio-name }} provides everything you need through all stages – from
+    experiments and prototyping to production deployment.
+  keywords:
+    - '{{ ai-studio-full-name }}'
+    - '{{ ai-studio-name }}'
+    - '{{ ai-studio-name }}'
+    - generative models for business
+    - neural networks in {{ yandex-cloud }}
+    - prompting guide
+    - YandexGPT Lite
+    - YandexGPT Pro
+    - YandexART
+    - AI assistant
+    - AI agent
+    - machine learning technologies
+    - generative models in {{ yandex-cloud }}
+    - neural networks in business apps
+    - neural networks in web services
+    - neural networks in business

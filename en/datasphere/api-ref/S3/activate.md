@@ -1,9 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/s3/activate
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        s3Id:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+        projectId:
+          description: |-
+            **string**
+            Required field. 
+          type: string
+      required:
+        - s3Id
+        - projectId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/S3/activate.md
 ---
 
-# DataSphere API v2, REST: S3.Activate {#Activate}
+# DataSphere API v2, REST: S3.Activate
 
 Activates shared s3 for project
 

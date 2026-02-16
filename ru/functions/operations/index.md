@@ -1,6 +1,6 @@
 ---
 title: Инструкции по работе с {{ sf-full-name }}
-description: Из статьи вы узнаете как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
+description: Из статьи вы узнаете, как работать с {{ sf-full-name }} в {{ yandex-cloud }}. Рассказываем, как управлять функцией (создание, изменение, вызов и удаление функции), как управлять триггером (создание таймера, создание триггера для {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
 ---
 
 # Пошаговые инструкции для {{ sf-name }}
@@ -14,6 +14,7 @@ description: Из статьи вы узнаете как работать с {{
 * [{#T}](function/version-list.md)
 * [{#T}](function/function-info.md)
 * [{#T}](function/version-info.md)
+* [Настроить параметры сервиса метаданных](function/metadata-options.md)
 
 ## Управление правами доступа к функции {#function-access-rights}
 
@@ -56,6 +57,7 @@ description: Из статьи вы узнаете как работать с {{
 * [Посмотреть логи](function/function-logs.md)
 * [Записать логи в журнал выполнения](function/logs-write.md)
 * [{#T}](function/migration.md)
+* [{#T}](function/version-delete.md)
 * [{#T}](function/function-delete.md)
 
 
@@ -85,3 +87,8 @@ description: Из статьи вы узнаете как работать с {{
 * [Удалить метку](trigger/label-delete.md)
 * [Посмотреть графики мониторинга](trigger/trigger-monitoring.md)
 * [Удалить триггер](trigger/trigger-delete.md)
+
+
+## Получение дополнительной информации {#get-additional-info}
+
+* [{#T}](operation-logs.md)

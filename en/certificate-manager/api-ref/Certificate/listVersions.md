@@ -1,9 +1,45 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{certificateId}/versions
+    method: get
+    path:
+      type: object
+      properties:
+        certificateId:
+          description: |-
+            **string**
+            Required field. ID of the certificate to list versions for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - certificateId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            Page token. To get the next page of results, set `page_token` to the
+            [ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/certificatemanager/v1/api-ref/Certificate/listVersions.md
 ---
 
-# Certificate Manager API, REST: Certificate.ListVersions {#ListVersions}
+# Certificate Manager API, REST: Certificate.ListVersions
 
 ## HTTP request
 
@@ -17,7 +53,9 @@ GET https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/{cert
 ||Field | Description ||
 || certificateId | **string**
 
-Required field. ID of the certificate to list versions for. ||
+Required field. ID of the certificate to list versions for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.ListVersionsRequest}
@@ -27,11 +65,15 @@ Required field. ID of the certificate to list versions for. ||
 || pageSize | **string** (int64)
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request. ||
+[ListCertificatesResponse.nextPageToken](/docs/certificate-manager/api-ref/Certificate/list#yandex.cloud.certificatemanager.v1.ListCertificatesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.certificatemanager.v1.ListVersionsResponse}

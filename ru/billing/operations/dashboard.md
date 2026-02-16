@@ -1,3 +1,8 @@
+---
+title: Посмотреть детализацию использования сервисов в {{ datalens-full-name }}
+description: Следуя данной инструкции, вы сможете посмотреть детализацию использования сервисов в {{ datalens-name }}.
+---
+
 # Посмотреть детализацию использования сервисов в {{ datalens-full-name }}
 
 
@@ -11,7 +16,8 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите ![image](../../_assets/console-icons/chart-area-stacked.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}** нажмите **{{ ui-key.yacloud_billing.billing.account.detail.button_move-to-datalens }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+  1. Справа вверху нажмите ![image](../../_assets/console-icons/arrow-up-right-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.detail.button_move-to-datalens }}**.
   1. Нажмите **Создать подключение**.
   1. В открывшемся окне укажите название подключения и нажмите **Создать**.
   1. В списке выберите **{{ yandex-cloud }} Billing Dashboard**.

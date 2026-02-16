@@ -1,9 +1,141 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opensearch/node_groups
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to create the OpenSearch type host group in.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        nodeGroupSpec:
+          description: |-
+            **[NodeGroup](#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec.NodeGroup)**
+            Configuration of the new host group.
+          $ref: '#/definitions/NodeGroup'
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources allocated to a host.
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage used by the host, in bytes.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`.
+            type: string
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              Limit on how large the storage for database instances can automatically grow, in bytes.
+            type: string
+            format: int64
+      NodeGroup:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the group.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
+              Resources allocated to the hosts.
+            $ref: '#/definitions/Resources'
+          hostsCount:
+            description: |-
+              **string** (int64)
+              Number of hosts in the group.
+              The minimum value is 1.
+            type: string
+            format: int64
+          zoneIds:
+            description: |-
+              **string**
+              IDs of the availability zones the hosts belong to.
+              The maximum number of elements is 10. The maximum string length in characters for each value is 50.
+            type: array
+            items:
+              type: string
+          subnetIds:
+            description: |-
+              **string**
+              IDs of the subnets that the hosts belong to.
+              The maximum number of elements is 10. The maximum string length in characters for each value is 50.
+            type: array
+            items:
+              type: string
+          assignPublicIp:
+            description: |-
+              **boolean**
+              Determines whether a public IP is assigned to the hosts in the group.
+            type: boolean
+          roles:
+            description: |-
+              **enum** (GroupRole)
+              Roles of the hosts in the group.
+              - `DATA`
+              - `MANAGER`
+            type: array
+            items:
+              type: string
+              enum:
+                - GROUP_ROLE_UNSPECIFIED
+                - DATA
+                - MANAGER
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
+              Disk size autoscaling settings
+            $ref: '#/definitions/DiskSizeAutoscaling'
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/addOpenSearchNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.AddOpenSearchNodeGroup {#AddOpenSearchNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.AddOpenSearchNodeGroup
 
 Creates an OpenSearch type host group.
 
@@ -21,7 +153,9 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/opens
 
 Required field. ID of the OpenSearch cluster to create the OpenSearch type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.opensearch.v1.AddOpenSearchNodeGroupRequest}
@@ -70,19 +204,27 @@ Configuration of the host group.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the group. ||
+Required field. Name of the group.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || resources | **[Resources](#yandex.cloud.mdb.opensearch.v1.Resources)**
 
 Resources allocated to the hosts. ||
 || hostsCount | **string** (int64)
 
-Number of hosts in the group. ||
+Number of hosts in the group.
+
+The minimum value is 1. ||
 || zoneIds[] | **string**
 
-IDs of the availability zones the hosts belong to. ||
+IDs of the availability zones the hosts belong to.
+
+The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
 || subnetIds[] | **string**
 
-IDs of the subnets that the hosts belong to. ||
+IDs of the subnets that the hosts belong to.
+
+The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
 || assignPublicIp | **boolean**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
@@ -90,7 +232,6 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the hosts in the group.
 
-- `GROUP_ROLE_UNSPECIFIED`
 - `DATA`
 - `MANAGER` ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -121,10 +262,14 @@ Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||

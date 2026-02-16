@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/serverless/functions/v1/functions/api-ref/grpc/Function/update.md
 ---
 
-# Cloud Functions Service, gRPC: FunctionService.Update {#Update}
+# Cloud Functions Service, gRPC: FunctionService.Update
 
 Updates the specified function.
 
@@ -15,37 +15,43 @@ Updates the specified function.
 
 ```json
 {
-  "functionId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "function_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 Required field. ID of the function to update.
 
 To get a function ID make a [FunctionService.List](/docs/functions/functions/api-ref/grpc/Function/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which attributes of the function should be updated. ||
 || name | **string**
 
 New name for the function.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-New description for the function. ||
-|| labels | **string**
+New description for the function.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Function labels as `key:value` pairs.
 
 Existing set of labels is completely replaced by the provided set, so if you just want
-to add or remove a label, request the current set of labels with a [FunctionService.Get](/docs/functions/functions/api-ref/grpc/Function/get#Get) request. ||
+to add or remove a label, request the current set of labels with a [FunctionService.Get](/docs/functions/functions/api-ref/grpc/Function/get#Get) request.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -54,23 +60,23 @@ to add or remove a label, request the current set of labels with a [FunctionServ
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "functionId": "string"
+    "function_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
-    "httpInvokeUrl": "string",
+    "labels": "map<string, string>",
+    "http_invoke_url": "string",
     "status": "Status"
   }
   // end of the list of possible fields
@@ -87,13 +93,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -136,7 +142,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| functionId | **string**
+|| function_id | **string**
 
 ID of the function that is being updated. ||
 |#
@@ -150,29 +156,34 @@ A serverless function. For details about the concept, see [Functions](/docs/func
 || id | **string**
 
 ID of the function. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the function belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp for the function. ||
 || name | **string**
 
-Name of the function. The name is unique within the folder. ||
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
 || description | **string**
 
-Description of the function. ||
-|| labels | **string**
+Description of the function.
 
-Function labels as `key:value` pairs. ||
-|| httpInvokeUrl | **string**
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
+|| http_invoke_url | **string**
 
 URL that needs to be requested to invoke the function. ||
 || status | enum **Status**
 
 Status of the function.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Function is being created.
 - `ACTIVE`: Function is ready to be invoked.
 - `DELETING`: Function is being deleted.

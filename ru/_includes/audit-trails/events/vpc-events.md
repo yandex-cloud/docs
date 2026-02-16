@@ -5,12 +5,14 @@
 `CreateAddress` | Создание адреса облачных ресурсов
 `CreateGateway` | Создание шлюза
 `CreateNetwork` | Создание облачной сети
+`CreatePrivateEndpoint` | Создание сервисного подключения
 `CreateRouteTable` | Создание таблицы маршрутизации
 `CreateSecurityGroup` | Создание группы безопасности
 `CreateSubnet` | Создание облачной подсети
 `DeleteAddress` | Удаление адреса облачных ресурсов
 `DeleteGateway` | Удаление шлюза
 `DeleteNetwork` | Удаление облачной сети
+`DeletePrivateEndpoint` | Удаление сервисного подключения
 `DeleteRouteTable` | Удаление таблицы маршрутизации
 `DeleteSecurityGroup` | Удаление группы безопасности
 `DeleteSubnet` | Удаление облачной подсети
@@ -28,6 +30,7 @@
 `UpdateAddress` | Изменение адреса облачных ресурсов
 `UpdateGateway` | Изменение шлюза
 `UpdateNetwork` | Изменение облачной сети
+`UpdatePrivateEndpoint` | Изменение сервисного подключения
 `UpdateRouteTable` | Изменение таблицы маршрутизации
 `UpdateSecurityGroup` | Изменение группы безопасности
 `UpdateSubnet` | Изменение облачной подсети

@@ -18,13 +18,18 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** БД. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. В блоке **Тип нагрузки** выберите одну из следующих опций:
+
+      - `OLTP`;
+      - `OLAP (Analytics β)`.
+
   1. Вам будут предложены значения по умолчанию. Они подобраны таким образом, чтобы вы могли эффективно начать работу. Вы можете изменить их сейчас или в будущем, если потребуется. Подробнее о настройках БД [см. раздел Режимы работы Serverless и Dedicated](../concepts/serverless-and-dedicated.md).
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
 
@@ -80,7 +85,7 @@
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
-  
+
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
   1. Опишите в конфигурационном файле {{ TF }} параметры Serverless БД, которую необходимо создать:
@@ -107,11 +112,11 @@
      * `provisioned_rcu_limit` — ограничение потребления Request Units в секунду. Необязательный параметр. Значение по умолчанию `0`.
      * `storage_size_limit` — ограничение на объем данных, байт. Необязательный параметр. Значение по умолчанию `50` ГБ.
      * `throttling_rcu_limit` — устанавленное значение показывает, какое потребление Request Units в секунду оплачивается по часам по тарифу. Ноль выключает почасовую оплату. Необязательный параметр. Значение по умолчанию `0`.
-     
+
   1. Примените изменения:
-  
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
-      
+
     {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
     ```bash
@@ -126,7 +131,7 @@
     > resource "yandex_ydb_database_serverless" "database1" {
     >   name                = "test-ydb-serverless"
     >   deletion_protection = "true"
-    > 
+    >
     >   serverless_database {
     >     enable_throttling_rcu_limit = false
     >     provisioned_rcu_limit       = 10
@@ -154,7 +159,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
@@ -221,8 +226,8 @@
      * `storage_size_limit` — объем данных, ГБ. Необязательный параметр. Значение по умолчанию `50`.
      * `throttling_rcu_limit` — устанавленное значение показывает, какое потребление Request Units в секунду оплачивается по часам по тарифу. Ноль выключает почасовую оплату. Необязательный параметр. Значение по умолчанию `0`.
 
-  1. Примените изменения: 
-  
+  1. Примените изменения:
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {{ TF }} применит требуемые изменения к ресурсам. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
@@ -230,7 +235,7 @@
     ```bash
     yc ydb database get <имя_БД>
     ```
-  
+
   **Пример**
 
   Изменение выделенной пропускной способности и объема данных для БД `test-ydb-serverless`:
@@ -278,13 +283,18 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
   1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_dedicated-type }}`.
+  1. В блоке **Тип нагрузки** выберите одну из следующих опций:
+
+      - `OLTP`;
+      - `OLAP`.
+
   1. В блоке **{{ ui-key.yacloud.ydb.forms.label_section-compute }}** выберите тип и количество [вычислительных ресурсов](../concepts/resources.md#resource-presets).
 
       {% note warning %}
@@ -300,12 +310,12 @@
           {% include [traffic_metering](../_includes/traffic_metering.md) %}
 
       1. Выберите существующую сеть из списка **{{ ui-key.yacloud.ydb.forms.field_network }}** или создайте новую:
-          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-network-new }}**.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
           * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** новой сети.
           * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**. Подсети в каждой зоне доступности будут созданы автоматически.
           * Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
       1. В блоке **{{ ui-key.yacloud.ydb.forms.field_subnetworks }}** для каждой зоны доступности выберите подсеть или создайте новую:
-          * Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-subnetwork-new }}**.
+          * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
           * В открывшемся окне укажите **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** новой подсети.
           * (Опционально) Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_description }}** подсети.
           * Выберите из списка **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** нужную зону.
@@ -351,7 +361,7 @@
   * `--async` — флаг асинхронного создания. Создание Dedicated БД может занимать значительное время, измеряемое минутами. Вы можете указать данный флаг для того, чтобы управление было возвращено сразу как только команда на создание БД будет принята облаком.
 
   **Примеры**
-  
+
   1. Создание минимальной одноузловой Dedicated БД YDB с именем dedb, доступной из интернета:
 
       > ```bash
@@ -361,13 +371,13 @@
       >   --storage type=ssd,groups=1 \
       >   --resource-preset medium \
       >   --public-ip
-      > ```  
+      > ```
 
   1. Асинхронное создание трехузловой георезервированной Dedicated БД YDB с хранилищем в 300 ГБ и вычислительным узлами по 64 ГБ RAM, с именем dedb3, доступной из интернета:
 
       > ```bash
       > yc ydb database create dedb3 \
-      >   --dedicated 
+      >   --dedicated
       >   --network-name default \
       >   --storage type=ssd,groups=3 \
       >   --resource-preset medium-m64 \
@@ -406,7 +416,7 @@
      ```
 
      Где:
-    
+
      * `name` — имя БД.
      * `network_id` — идентификатор сети, к которой подключается БД.
      * `subnet_ids` — список идентификаторов подсетей. Перечисляются через запятую.
@@ -417,8 +427,8 @@
         * `group_count` — количество [групп хранения](../concepts/resources.md#storage-groups).
         * `storage_type_id` — тип носителя. Для типа `ssd` одна группа хранения вмещает 100 ГБ данных.
 
-  1. Создайте БД: 
-  
+  1. Создайте БД:
+
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
     {{ TF }} создаст все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
@@ -472,7 +482,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить настройки БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-edit }}**.
   1. Настройте параметры БД:
       1. При необходимости измените имя БД.
@@ -559,7 +569,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, для которого нужно получить список БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -588,7 +598,7 @@
 * Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите на имя нужной БД.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
@@ -615,7 +625,7 @@
      yc ydb database list
      ```
 
-  1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роль.
   1. С помощью одной из команд ниже назначьте роль:
 
      * Пользователю:
@@ -672,7 +682,7 @@
 * Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите на имя нужной БД.
   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
   1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к БД.
@@ -708,10 +718,10 @@
      yc ydb database list
      ```
 
-  1. Получите [идентификатор пользователя](../../iam/operations/users/get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
+  1. Получите [идентификатор пользователя](../../organization/operations/users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или группы пользователей, которым назначаете роли.
   1. С помощью одной из команд ниже назначьте роли:
 
-     * Пользователю с аккаунтом на Яндексе:
+     * Пользователю с аккаунтом на Яндексе или локальному пользователю:
 
         ```bash
         yc ydb database set-access-bindings \
@@ -743,7 +753,7 @@
            --access-binding role=<роль>,subject=group:<идентификатор_группы>
         ```
 
-     Для каждой роли передайте отдельный флаг `--access-binding`. Пример:
+     Для каждой роли передайте отдельный параметр `--access-binding`. Пример:
 
      ```bash
      yc ydb database set-access-bindings \
@@ -772,7 +782,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно удалить БД.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.ydb.overview.button_action-delete }}**.
   1. Подтвердите удаление.
 

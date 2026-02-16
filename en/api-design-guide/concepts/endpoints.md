@@ -1,3 +1,8 @@
+---
+title: '{{ yandex-cloud }} service API endpoints'
+description: In this article, you will learn about {{ yandex-cloud }} service API endpoints and see endpoint examples.
+---
+
 # {{ yandex-cloud }} service API endpoints
 
 Each {{ yandex-cloud }} service has an endpoint that HTTP requests should be sent to. You can request a full list of endpoints using the [endpoints](https://{{ api-host }}/endpoints) call to the `https://{{ api-host }}` URL.
@@ -84,6 +89,10 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "certificate-manager-data",
    "address": "{{ api-host-certmanager-certcontent }}:443"
+  },
+  {
+   "id": "cloudapps",
+   "address": "cloudapps.{{ api-host }}:443"
   },
   {
    "id": "cloudbackup",
@@ -179,11 +188,11 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "log-ingestion",
-   "address": "ingester.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-ingester }}:443"
   },
   {
    "id": "log-reading",
-   "address": "reader.logging.yandexcloud.net:443"
+   "address": "{{ logging-endpoint-reader }}:443"
   },
   {
    "id": "logging",
@@ -230,6 +239,10 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
+   "id": "managed-sharded-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
    "id": "managed-redis",
    "address": "mdb.{{ api-host }}:443"
   },
@@ -259,6 +272,10 @@ curl https://{{ api-host }}/endpoints
   },
   {
    "id": "mdb-postgresql",
+   "address": "mdb.{{ api-host }}:443"
+  },
+  {
+   "id": "mdb-sharded-postgresql",
    "address": "mdb.{{ api-host }}:443"
   },
   {

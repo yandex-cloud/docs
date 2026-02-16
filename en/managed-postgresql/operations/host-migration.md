@@ -1,23 +1,28 @@
+---
+title: Migrating {{ PG }} cluster hosts to a different availability zone
+description: In this tutorial, you will learn how to migrate {{ PG }} cluster hosts to a different availability zone.
+---
+
 # Migrating {{ PG }} cluster hosts to a different availability zone
 
 
-{{ mpg-name }} cluster hosts reside in [availability zones](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. To move hosts from one availability zone to another:
+{{ mpg-name }} cluster hosts reside in {{ yandex-cloud }} [availability zones](../../overview/concepts/geo-scope.md). To migrate hosts from one availability zone to another, do the following:
 
-1. [Create a subnet](../../vpc/operations/subnet-create.md) in the availability zone you want to move cluster hosts to.
+1. [Create a subnet](../../vpc/operations/subnet-create.md) in your target availability zone.
 1. Add a host to your cluster:
 
    {% list tabs group=instructions %}
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Click the cluster name and go to the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
-      1. Specify the host parameters:
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+      1. Specify the following host settings:
 
-         * Availability zone to which you want to move the hosts.
+         * Target availability zone for your hosts.
          * New subnet.
-         * Select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if the host must be accessible from outside {{ yandex-cloud }}.
+         * If needed, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to allow external access to the host from outside {{ yandex-cloud }}.
 
       1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
@@ -34,14 +39,14 @@
          --cluster-name <cluster_name> \
          --host zone-id=<availability_zone>,`
                `subnet-id=<new_subnet_ID>,`
-               `assign-public-ip=<public_access_to_host:_true_or_false>
+               `assign-public-ip=<allow_public_access_to_host>
       ```
 
-      You can retrieve the cluster name with a [list of clusters in the folder](cluster-list.md#list-clusters). In the `zone-id` parameter, specify the availability zone you want to move the hosts to.
+      You can get the cluster name from the [folder’s cluster list](cluster-list.md#list-clusters). In the `zone-id` argument, specify the target availability zone for your hosts.
 
    - {{ TF }} {#tf}
 
-      1. Add a host manifest to the {{ TF }} configuration file with the infrastructure plan:
+      1. Add a host resource to the {{ TF }} configuration file describing your infrastructure:
 
          ```hcl
          resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
@@ -49,39 +54,95 @@
            host {
              zone             = "<availability_zone>"
              subnet_id        = "<new_subnet_ID>"
-             assign_public_ip = <public_access_to_host:_true_or_false>
+             assign_public_ip = <allow_public_access_to_host>
            }
          }
          ```
 
-         In the `zone` parameter, specify the availability zone you are moving the hosts to.
+         In the `zone` attribute, specify the target availability zone for your hosts.
 
-      1. Make sure the settings are correct.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To add a host to a cluster, use the [addHosts](../api-ref/Cluster/addHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) gRPC API call and provide the following in the request:
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
-      * Cluster ID in the `clusterId` parameter. You can get the ID with a [list of clusters in the folder](cluster-list.md#list-clusters).
-      * New host settings in the `hostSpecs` parameters.
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. Call the [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/hosts:batchCreate' \
+            --data '{
+                       "hostSpecs": [
+                          {
+                             "zoneId": "<availability_zone>",
+                             "subnetId": "<subnet_ID>",
+                             "assignPublicIp": <allow_public_access_to_host>
+                          }
+                       ]
+                    }'
+         ```
+
+         You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+      1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+
+         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+      1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+      1. Call [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                   "cluster_id": "<cluster_ID>",
+                   "host_specs": [
+                      {
+                         "zone_id": "<availability_zone>",
+                         "subnet_id": "<subnet_ID>",
+                         "assign_public_ip": <allow_public_access_to_host>
+                      }
+                   ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
+         ```
+
+         You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+
+      1. Check the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. To successfully connect to the database after the migration is complete, specify the new host's FQDN in your backend or client (for example, in the code or graphical IDE). Delete the original host's FQDN in the source availability zone.
+1. To connect to the database after migration, specify your new host's FQDN in your backend or client, e.g., in your application code or a GUI IDE. Delete the original host’s FQDN in your source availability zone.
 
-   To find out the FQDN, get a list of hosts in the cluster:
+   To get the FQDN, request the list of hosts in the cluster:
 
    ```bash
    {{ yc-mdb-pg }} host list --cluster-name <cluster_name>
    ```
 
-   The FQDN is specified in the command output under `NAME`. You can also use a [special FQDN](connect.md#special-fqdns) for a connection.
+   You will see your host’s FQDN in the command output under `NAME`. Alternatively, you can connect using a [special FQDN](connect.md#special-fqdns).
 
 1. Delete the hosts in the source availability zone:
 
@@ -89,9 +150,9 @@
 
    - Management console {#console}
 
-      1. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Click the cluster name and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
-      1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the required host row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
+      1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Click the name of your cluster and open the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
+      1. Find the host you need in the list, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, select **{{ ui-key.yacloud.common.delete }}**, and confirm the deletion.
 
    - CLI {#cli}
 
@@ -103,8 +164,8 @@
 
    - {{ TF }} {#tf}
 
-      1. In the {{ TF }} configuration file with the infrastructure plan, remove the `host` sections with the source availability zone from the cluster description.
-      1. Make sure the settings are correct.
+      1. In your {{ TF }} infrastructure configuration file, delete the `host` resource blocks for the source availability zone from your cluster’s description.
+      1. Validate your configuration.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -112,16 +173,59 @@
 
          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-   - API {#api}
+   - REST API {#api}
 
-      To delete a host, use the [deleteHosts](../api-ref/Cluster/deleteHosts.md) REST API method for the [Cluster](../api-ref/Cluster/index.md) resource or the [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) gRPC API call and provide the following in the request:
+      1. Call the [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
 
-      * Cluster ID in the `clusterId` parameter. To find out the cluster ID, [get a list of clusters in the folder](cluster-list.md#list-clusters).
-      * FQDN or an array of names of the hosts you want to delete, in the `hostNames` parameter.
+         ```bash
+         curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<cluster_ID>/hosts:batchDelete' \
+            --data '{
+                       "hostNames": [
+                          "<host_FQDN>"
+                       ]
+                    }'
+         ```
+
+         Where `hostNames` is the array containing the host you want to delete.
+
+         You can only specify one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
+
+      1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+   - gRPC API {#grpc-api}
+
+      1. Call the [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+
+         ```bash
+         grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/postgresql/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                   "cluster_id": "<cluster_ID>",
+                   "host_names": [
+                      "<host_FQDN>"
+                   ]
+                }' \
+            {{ api-host-mdb }}:{{ port-https }} \
+            yandex.cloud.mdb.postgresql.v1.ClusterService.DeleteHosts
+         ```
+
+         Where `host_names` is the array containing the host you want to delete.
+
+         You can only specify one host FQDN per request. If you need to delete multiple hosts, make a separate request for each of them.
+
+      1. Check the [server response](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
-1. Wait until the cluster status changes to **Alive**. In the management console, go to the folder page and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can see the cluster status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
+1. Wait for the cluster status to change to **Alive**. In the management console, [go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. You can see the cluster’s status in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

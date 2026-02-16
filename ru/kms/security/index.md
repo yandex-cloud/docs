@@ -20,7 +20,7 @@ description: Управление доступом в сервисе для со
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-В консоли управления, через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
+В [консоли управления]({{ link-console-main }}), через {{ yandex-cloud }} [CLI](../../cli/cli-ref/kms/cli-ref/index.md), [API](../api-ref/authentication.md) или [{{ TF }}]({{ tf-provider-link }}) роль можно назначить на отдельные ресурсы сервиса:
 
 {% include notitle [kms-resources](../../_includes/iam/resources-with-access-control/kms.md) %}
 
@@ -30,13 +30,17 @@ description: Управление доступом в сервисе для со
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/kms/service-roles-hierarchy.svg)
+{% include [kms](../../_mermaid/roles/kms.md) %}
 
 ### Сервисные роли {#service-roles}
 
 Сервисные роли обеспечивают более гранулярный, учитывающий специфику сервиса, контроль над ключами {{ kms-short-name }}: предполагают строгое разделение субъектов на администраторов ключей (роль `kms.admin`) и пользователей (роль `kms.keys.encrypterDecrypter`).
 
 Пользователи, у которых отсутствует роль `resource-manager.clouds.owner` или роль `admin`, не могут назначать роли через консоль управления.
+
+#### kms.keys.user {#kms-keys-user}
+
+{% include [kms.keys.user](../../_roles/kms/keys/user.md) %}
 
 #### kms.keys.encrypter {#kms-keys-encrypter}
 

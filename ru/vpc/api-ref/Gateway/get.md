@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
+    method: get
+    path:
+      type: object
+      properties:
+        gatewayId:
+          description: |-
+            **string**
+            Required field. ID of the Gateway resource to return.
+            To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gateway/list#List) request.
+          type: string
+      required:
+        - gatewayId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/get.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Get {#Get}
+# Virtual Private Cloud API, REST: Gateway.Get
 
 Returns the specified Gateway resource.
 
@@ -37,7 +55,7 @@ To get Gateway resource ID make a [GatewayService.List](/docs/vpc/api-ref/Gatewa
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `sharedEgressGateway`
   "sharedEgressGateway": "object"
   // end of the list of possible fields
@@ -72,7 +90,7 @@ Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
 || description | **string**
 
 Description of the gateway. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs.
 No more than 64 per resource.

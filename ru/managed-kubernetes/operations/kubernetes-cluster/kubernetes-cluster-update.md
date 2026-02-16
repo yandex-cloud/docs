@@ -9,10 +9,17 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить кластер {{ managed-k8s-name }} {#update-cluster}
 
+{% note warning %}
+
+[Публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses) можно назначить только при [создании](kubernetes-cluster-create.md) кластера {{ managed-k8s-name }}. После этого назначить публичный IP-адрес существующему кластеру невозможно.
+
+{% endnote %}
+
 Вы можете изменить следующие параметры [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster):
 * Имя.
 * Описание.
 * [Сервисные аккаунты](../../../iam/operations/sa/create.md).
+* [Конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 * Список [групп безопасности](../connect/security-groups.md).
@@ -28,7 +35,8 @@ description: Следуя данной инструкции, вы сможете
 
   {% note warning %}
 
-  Если изменить маску подсети для работающего кластера {{ managed-k8s-name }}, его блоки CIDR могут быть израсходованы, тогда развертывание [подов](../../concepts/index.md#pod) на новых группах узлов станет невозможным.
+  * Если изменить маску подсети для работающего кластера {{ managed-k8s-name }}, его блоки CIDR могут быть израсходованы, тогда развертывание [подов](../../concepts/index.md#pod) на новых группах узлов станет невозможным.
+  * После изменения маски подсети необходимо пересоздать группы узлов кластера.
 
   {% endnote %}
 
@@ -98,6 +106,8 @@ description: Следуя данной инструкции, вы сможете
        * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
        * `--weekly-maintenance-window` — обновлять в выбранные дни.
 
+         {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
+
 - {{ TF }} {#tf}
 
   Чтобы изменить кластер {{ managed-k8s-name }}:
@@ -122,11 +132,13 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
-  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
+  Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/).
 
   Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging`.
 
@@ -134,7 +146,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Управлять облачными метками кластера {{ managed-k8s-name }} {#manage-label}
 
-Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#node-labels) {{ managed-k8s-name }}:
+Вы можете выполнять следующие действия с [облачными метками кластера](../../concepts/index.md#cluster-labels) {{ managed-k8s-name }}:
 
 * [Добавить](#add-label).
 * [Изменить](#update-label).
@@ -143,6 +155,15 @@ description: Следуя данной инструкции, вы сможете
 ### Добавить облачную метку {#add-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Введите ключ и значение и нажмите **Enter**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -171,6 +192,17 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
+    1. Нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
+    1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   Выполните команду:
@@ -179,11 +211,7 @@ description: Следуя данной инструкции, вы сможете
   yc managed-kubernetes cluster update k8s-demo --labels test_label=my_k8s_label
   ```
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   Результат:
 
@@ -204,6 +232,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
+    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   Выполните команду:
@@ -222,5 +258,98 @@ description: Следуя данной инструкции, вы сможете
   name: k8s-demo
   ...
   ```
+
+{% endlist %}
+
+## Изменить конфигурацию ресурсов мастера {#manage-resources}
+
+{% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
+  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** раскройте секцию **Вычислительные ресурсы** и выберите [конфигурацию ресурсов](../../concepts/index.md#master-resources) для мастера.
+
+      {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+      {% include [master-default-config](../../../_includes/managed-kubernetes/master-default-config.md) %}
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  Укажите нужную конфигурацию ресурсов мастера в команде изменения кластера:
+
+  ```bash
+  {{ yc-k8s }} cluster update <имя_кластера_Managed_Service_for_Kubernetes> \
+    --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера>
+  ```
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  Результат:
+
+  ```text
+  done (1s)
+  id: abcd123ef4gh********
+  folder_id: l1m01nopqr1s********
+  ...
+  description: My test {{ k8s }} cluster
+  master:
+    scale_policy:
+      auto_scale:
+        min_resource_preset_id: <класс_хостов_мастера>
+  ...
+  ```
+
+- {{ TF }} {#tf}
+
+  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
+
+     О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+
+  1. Добавьте или измените в описании кластера {{ managed-k8s-name }} конфигурацию [вычислительных ресурсов мастера](../../concepts/index.md#master-resources) в блоке `scale_policy`:
+
+     >```hcl
+     >resource "yandex_kubernetes_cluster" "<имя_кластера>" {
+     >  ...
+     >  master {
+     >    ...
+     >    scale_policy {
+     >      auto_scale  {
+     >        min_resource_preset_id = "<класс_хостов_мастера>"
+     >      }
+     >    }
+     >  }
+     >}
+     >```
+
+     {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
+
+  1. Проверьте корректность конфигурационных файлов.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Подтвердите изменение ресурсов.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
+
+     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+
+- API {#api}
+
+  Чтобы изменить конфигурацию ресурсов мастера, воспользуйтесь методом [Update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) и передайте в запросе параметр `masterSpec.scalePolicy.autoScale.minResourcePresetId`.
+
+  {% include [master-autoscale](../../../_includes/managed-kubernetes/master-autoscale.md) %}
 
 {% endlist %}

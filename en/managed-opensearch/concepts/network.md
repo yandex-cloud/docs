@@ -1,6 +1,6 @@
 ---
-title: Network and DB clusters in {{ mos-full-name }}
-description: In this tutorial, you will learn about the basic network interface settings for an {{ OS }} cluster.
+title: Network and database clusters in {{ mos-full-name }}
+description: In this tutorial, you will learn about the basic network interface settings for a {{ OS }} cluster.
 ---
 
 # Networking in {{ mos-name }}
@@ -12,23 +12,21 @@ When creating a cluster, you can:
 * Specify subnets for each host in the cluster.
 * Request public access to connect to the cluster host groups from outside {{ yandex-cloud }}.
 
-You can create a cluster without specifying any subnets for the hosts if the availability zone selected for each host contains exactly one subnet of the cluster network.
+You can create a cluster without specifying any subnets for hosts if the availability zone for each host contains only one subnet of the cluster network.
 
 
 ## Host name and FQDN {#hostname}
 
-{{ mos-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
+{{ mos-short-name }} generates a name for each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). You cannot change the host name and, consequently, FQDN.
 
 {% include [see-fqdn](../../_includes/mdb/mos/fqdn-host.md) %}
 
 
-You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
+You can use the FQDN to access the host within a single cloud network. For more information, see [this {{ vpc-full-name }} guide](../../vpc/).
 
 ## Public access to a host {#public-access-to-a-host}
 
-Any cluster host can be accessible from outside {{ yandex-cloud }} if you requested public access when creating its host group. To connect to such a host, use its FQDN.
-
-You cannot request public access after creating a host group.
+Any cluster host will be accessible from outside {{ yandex-cloud }} if you requested public access when creating the host group or updating its configuration. To connect to such a host, use its FQDN.
 
 When deleting a host group with public FQDNs, the assigned IP addresses are revoked.
 
@@ -46,3 +44,9 @@ If you connect to a cluster from within its cloud network, [configure](../operat
 
 {% include [sg-rules-concept](../../_includes/mdb/sg-rules-concept.md) %}
 
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/migration-from-mkf.md)
+* [{#T}](../tutorials/migration-from-standalone.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

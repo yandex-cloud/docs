@@ -1,19 +1,26 @@
 # x-yc-apigateway-integration:object_storage extension
 
-The `x-yc-apigateway-integration:object_storage` extension enables {{ objstorage-short-name }} to manage request handling for serving static files.
+The `x-yc-apigateway-integration:object_storage` extension delegates request handling to {{ objstorage-short-name }} for static file distribution.
+
 {% include [add-extentions-console](../../../_includes/api-gateway/add-extentions-console.md) %}
 
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description 
 ----|----|----
-| `bucket` | `string` | [Bucket](../../../storage/concepts/bucket.md) name |
-| `object` | `string` | [Object](../../../storage/concepts/object.md) name. It supports parameter templating from the path of the original request. <br>`object` is used for parameter substitution. |
-| `error_object` | `string` | This is an optional parameter. It specifies the [object](../../../storage/concepts/object.md) name returned if an HTTP error code 4xx is received instead of `object`. `error_object` is used for parameter substitution. |
-| `default_object` | `string` | This is an optional parameter. It specifies the name of the [object](../../../storage/concepts/object.md) returned if an HTTP error code 404 is received instead of `object`. `default_object` is used for parameter substitution. |
-| `service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If it is not specified, its default value is taken from the [parent](./index.md#top-level) `service_account_id`. If the parent parameter is also missing, the object will be available without authorization. |
+`bucket` | `string` | [Bucket](../../../storage/concepts/bucket.md) name.
+`object` | `string` | [Object](../../../storage/concepts/object.md) name. It supports parameter templating from the original request path. <br>The parameters are subsituted into `object`.
+`error_object` | `string \| ErrorObjectSettings` | This is an optional parameter. The name of the [object](../../../storage/concepts/object.md) and the optional response code returned if `object` does not exist in the specified `bucket`. The parameters are subsituted into `error_object`.
+`service_account_id` | `string` | ID of the service account used for authorization when accessing {{ objstorage-short-name }}. If you omit the parameter, the `service_account_id` [top-level](./index.md#top-level) parameter value will be used. If the top-level parameter is also missing, the object will be available without authorization.
+
+The `ErrorObjectSettings` object may contain the following parameters:
+
+Parameter | Type | Description
+----|----|----
+`object` | `string` | [Object](../../../storage/concepts/object.md) name. The parameters are subsituted into `object`.
+`statusCode` | `number` |  Returned response code.
 
 
 ## Extension specification {#spec}
@@ -37,3 +44,9 @@ Specification example:
         error_object: error.html
         service_account_id: ajehfe65fhl********
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/java-servlet-todo-list.md)
+* [{#T}](../../tutorials/serverless-url-shortener.md)
+* [{#T}](../../tutorials/telegram-bot-serverless.md)

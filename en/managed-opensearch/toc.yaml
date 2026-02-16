@@ -19,11 +19,11 @@ items:
                 href: operations/connect.md
               - name: Configuring SAML authentication
                 href: operations/saml-authentication.md
-          - name: Updating parameters
+          - name: Updating properties
             items:
               - name: Updating cluster settings
                 href: operations/update.md
-              - name: Upgrading the {{ OS }} version
+              - name: '{{ OS }} version upgrade'
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/plugins.md
@@ -37,6 +37,8 @@ items:
             href: operations/cluster-stop.md
           - name: Managing backups
             href: operations/cluster-backups.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Configuring access to Object Storage
             href: operations/s3-access.md
           - name: Deleting a cluster
@@ -47,40 +49,39 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of clusters and hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Configuring an index policy in {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
-      - name: Migrating data from {{ ES }}
-        href: tutorials/migration-to-opensearch.md
       - name: Uploading logs from {{ at-name }}
+        hidden: true
         href: tutorials/trails-to-opensearch.md
-      - name: >-
-          Delivering data from {{ mkf-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/migration-from-mkf.md
-      - name: >-
-          Migrating data from a third-party {{ OS }} cluster using {{
-          data-transfer-full-name }}
-        href: tutorials/migration-from-standalone.md
-      - name: >-
-          Loading data from {{ mos-name }} to {{ objstorage-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-object-storage.md
-      - name: >-
-          Migrating data from {{ mos-name }} to {{ ydb-full-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-ydb.md
-      - name: >-
-          Copying data from {{ mos-name }} to {{ mch-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/opensearch-to-clickhouse.md
-      - name: >-
-          Migrating data from {{ mpg-name }} to {{ mos-name }} using {{
-          data-transfer-full-name }}
-        href: tutorials/postgresql-to-opensearch.md
+      - name: Authentication in {{ OS }} Dashboards using {{ keycloak }}
+        href: tutorials/saml-keycloak.md
+      - name: Using the yandex-lemmer plugin
+        href: tutorials/opensearch-yandex-lemmer.md
+      - name: Migrating and copying data
+        items:
+          - name: Migrating data from a third-party {{ OS }} cluster
+            href: tutorials/migration-from-standalone.md
+          - name: Migrating data from {{ ES }}
+            href: tutorials/migration-to-opensearch.md
+          - name: Migrating data from {{ mpg-full-name }}
+            href: tutorials/postgresql-to-opensearch.md
+          - name: Delivering data from {{ mkf-full-name }}
+            href: tutorials/migration-from-mkf.md
+          - name: Uploading data to {{ objstorage-name }}
+            href: tutorials/opensearch-to-object-storage.md
+          - name: Migrating data to {{ ydb-full-name }}
+            href: tutorials/opensearch-to-ydb.md
+          - name: Copying data to {{ mch-full-name }}
+            href: tutorials/opensearch-to-clickhouse.md
+          - name: Copying data to {{ mgp-name }}
+            href: tutorials/opensearch-to-greenplum.md
+      - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
+        href: tutorials/filebeat-oss-monitoring.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -99,7 +100,7 @@ items:
         href: concepts/network.md
       - name: Quotas and limits
         href: concepts/limits.md
-      - name: Disk types
+      - name: Storage
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
@@ -116,12 +117,90 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/managed-opensearch/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: auth-settings
+        items:
+          - name: Overview
+            href: cli-ref/auth-settings/index.md
+          - name: get
+            href: cli-ref/auth-settings/get.md
+          - name: update
+            href: cli-ref/auth-settings/update.md
+      - name: backup
+        items:
+          - name: Overview
+            href: cli-ref/backup/index.md
+          - name: get
+            href: cli-ref/backup/get.md
+          - name: list
+            href: cli-ref/backup/list.md
+      - name: cluster
+        items:
+          - name: Overview
+            href: cli-ref/cluster/index.md
+          - name: add-access-binding
+            href: cli-ref/cluster/add-access-binding.md
+          - name: backup
+            href: cli-ref/cluster/backup.md
+          - name: create
+            href: cli-ref/cluster/create.md
+          - name: delete
+            href: cli-ref/cluster/delete.md
+          - name: get
+            href: cli-ref/cluster/get.md
+          - name: list
+            href: cli-ref/cluster/list.md
+          - name: list-access-bindings
+            href: cli-ref/cluster/list-access-bindings.md
+          - name: list-backups
+            href: cli-ref/cluster/list-backups.md
+          - name: remove-access-binding
+            href: cli-ref/cluster/remove-access-binding.md
+          - name: restart-opensearch
+            href: cli-ref/cluster/restart-opensearch.md
+          - name: restore
+            href: cli-ref/cluster/restore.md
+          - name: set-access-bindings
+            href: cli-ref/cluster/set-access-bindings.md
+          - name: start
+            href: cli-ref/cluster/start.md
+          - name: stop
+            href: cli-ref/cluster/stop.md
+          - name: switch-master
+            href: cli-ref/cluster/switch-master.md
+          - name: update
+            href: cli-ref/cluster/update.md
+      - name: extension
+        items:
+          - name: Overview
+            href: cli-ref/extension/index.md
+          - name: create
+            href: cli-ref/extension/create.md
+          - name: delete
+            href: cli-ref/extension/delete.md
+          - name: get
+            href: cli-ref/extension/get.md
+          - name: list
+            href: cli-ref/extension/list.md
+          - name: update
+            href: cli-ref/extension/update.md
+      - name: node-group
+        items:
+          - name: Overview
+            href: cli-ref/node-group/index.md
+          - name: add
+            href: cli-ref/node-group/add.md
+          - name: delete
+            href: cli-ref/node-group/delete.md
+          - name: update
+            href: cli-ref/node-group/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -151,6 +230,8 @@ items:
                 href: api-ref/grpc/Cluster/delete.md
               - name: Backup
                 href: api-ref/grpc/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/grpc/Cluster/deleteBackup.md
               - name: Restore
                 href: api-ref/grpc/Cluster/restore.md
               - name: RescheduleMaintenance
@@ -187,6 +268,30 @@ items:
                 href: api-ref/grpc/Cluster/getAuthSettings.md
               - name: UpdateAuthSettings
                 href: api-ref/grpc/Cluster/updateAuthSettings.md
+              - name: RestartOpenSearch
+                href: api-ref/grpc/Cluster/restartOpenSearch.md
+              - name: SwitchMaster
+                href: api-ref/grpc/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Cluster/updateAccessBindings.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/grpc/Extension/index.md
+              - name: Get
+                href: api-ref/grpc/Extension/get.md
+              - name: List
+                href: api-ref/grpc/Extension/list.md
+              - name: Create
+                href: api-ref/grpc/Extension/create.md
+              - name: Update
+                href: api-ref/grpc/Extension/update.md
+              - name: Delete
+                href: api-ref/grpc/Extension/delete.md
           - name: Operation
             items:
               - name: Overview
@@ -231,6 +336,8 @@ items:
                 href: api-ref/Cluster/delete.md
               - name: Backup
                 href: api-ref/Cluster/backup.md
+              - name: DeleteBackup
+                href: api-ref/Cluster/deleteBackup.md
               - name: Restore
                 href: api-ref/Cluster/restore.md
               - name: RescheduleMaintenance
@@ -267,6 +374,30 @@ items:
                 href: api-ref/Cluster/getAuthSettings.md
               - name: UpdateAuthSettings
                 href: api-ref/Cluster/updateAuthSettings.md
+              - name: RestartOpenSearch
+                href: api-ref/Cluster/restartOpenSearch.md
+              - name: SwitchMaster
+                href: api-ref/Cluster/switchMaster.md
+              - name: ListAccessBindings
+                href: api-ref/Cluster/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Cluster/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Cluster/updateAccessBindings.md
+          - name: Extension
+            items:
+              - name: Overview
+                href: api-ref/Extension/index.md
+              - name: Get
+                href: api-ref/Extension/get.md
+              - name: List
+                href: api-ref/Extension/list.md
+              - name: Create
+                href: api-ref/Extension/create.md
+              - name: Update
+                href: api-ref/Extension/update.md
+              - name: Delete
+                href: api-ref/Extension/delete.md
           - name: Operation
             items:
               - name: Overview
@@ -293,5 +424,3 @@ items:
     href: release-notes.md
   - name: FAQ
     href: qa/index.md
-base: en/managed-opensearch
-deepBase: 2

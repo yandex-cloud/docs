@@ -7,13 +7,13 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Connecting to a {{ cdn-name }} provider
-        href: operations/enable-provider.md
       - name: Resources
         items:
           - name: Creating a resource
             href: operations/resources/create-resource.md
-          - name: Editing basic settings of a resource
+          - name: Copying configuration from one resource to another
+            href: operations/resources/copy-resource.md
+          - name: Updating basic settings of a resource
             href: operations/resources/configure-basics.md
           - name: Getting information about a resource
             href: operations/resources/get-resources-info.md
@@ -21,7 +21,7 @@ items:
             href: operations/resources/configure-caching.md
           - name: Configuring log export
             href: operations/resources/configure-logs.md
-          - name: Pre-loading files to CDN servers
+          - name: Prefetching files to CDN servers
             href: operations/resources/prefetch-files.md
           - name: Purging resource cache
             href: operations/resources/purge-cache.md
@@ -41,10 +41,12 @@ items:
             href: operations/resources/setup-http-rewrite.md
           - name: Setting up access via a secure token
             href: operations/resources/enable-secure-token.md
-          - name: Managing additional resource settings
-            href: operations/resources/configure-additions.md
+          - name: Setting up location rules
+            href: operations/resources/location-rules.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
+          - name: Managing resource labels
+            href: operations/resources/labeling.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
           - name: Viewing resource statistics
@@ -53,37 +55,60 @@ items:
         items:
           - name: Creating an origin group
             href: operations/origin-groups/create-group.md
-          - name: Editing an origin group
+          - name: Updating an origin group
             href: operations/origin-groups/edit-group.md
-          - name: Connecting an origin group to a resource
+          - name: Adding an origin group to a resource
             href: operations/origin-groups/bind-group-to-resource.md
           - name: Getting information about origins
             href: operations/origin-groups/get-group-info.md
           - name: Deleting an origin group
             href: operations/origin-groups/delete-group.md
+      - name: Migrating a resource from EdgeCDN
+        href: operations/migration.md
+        hidden: true
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Publishing game updates
         href: tutorials/prefetch.md
-      - name: Editing website images using Thumbor
+      - name: Editing website images with Thumbor
         href: tutorials/thumbor.md
       - name: Integrating an L7 load balancer with CDN and Object Storage
         href: tutorials/cdn-storage-integration.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
-      - name: Providing secure access to content
-        href: tutorials/protected-access-to-content.md
+      - name: Setting up secure content access
+        items:
+          - name: Overview
+            href: tutorials/protected-access-to-content/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/protected-access-to-content/console.md
+          - name: '{{ TF }}'
+            href: tutorials/protected-access-to-content/terraform.md
+      - name: Migrating to {{ cdn-full-name }} from a third-party CDN provider
+        href: tutorials/migrate-to-yc-cdn.md
+      - name: >-
+          Setting up static website hosting in a {{ objstorage-full-name }}
+          bucket with {{ cdn-full-name }} access
+        items:
+          - name: Overview
+            href: tutorials/cdn-hosting/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-hosting/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-hosting/terraform.md
   - name: Concepts
     items:
-      - name: Service overview
+      - name: Overview
         href: concepts/index.md
+      - name: Points of presence
+        href: concepts/points-of-presence.md
       - name: Resource
         href: concepts/resource.md
       - name: Origins and origin groups
         href: concepts/origins.md
-      - name: Exchanging data between clients and the CDN
+      - name: Data exchange between clients and the CDN
         items:
           - name: Overview
             href: concepts/clients-to-servers.md
@@ -93,7 +118,7 @@ items:
             href: concepts/cors.md
           - name: Content compression
             href: concepts/compression.md
-      - name: Exchanging data between the CDN and origins
+      - name: Data exchange between the CDN and origins
         items:
           - name: Overview
             href: concepts/servers-to-origins.md
@@ -111,8 +136,12 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Location rules
+        href: concepts/location-rules.md
       - name: Log export
         href: concepts/logs.md
+      - name: Labels
+        href: concepts/labels.md
       - name: Quotas and limits
         href: concepts/limits.md
   - name: Access management
@@ -120,12 +149,74 @@ items:
   - name: Pricing policy
     href: pricing.md
   - name: CLI reference
-    href: ../cli/cli-ref/managed-services/cdn/index.md
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: cache
+        items:
+          - name: Overview
+            href: cli-ref/cache/index.md
+          - name: prefetch
+            href: cli-ref/cache/prefetch.md
+          - name: purge
+            href: cli-ref/cache/purge.md
+      - name: origin
+        items:
+          - name: Overview
+            href: cli-ref/origin/index.md
+          - name: create
+            href: cli-ref/origin/create.md
+          - name: delete
+            href: cli-ref/origin/delete.md
+          - name: get
+            href: cli-ref/origin/get.md
+          - name: list
+            href: cli-ref/origin/list.md
+          - name: update
+            href: cli-ref/origin/update.md
+      - name: origin-group
+        items:
+          - name: Overview
+            href: cli-ref/origin-group/index.md
+          - name: create
+            href: cli-ref/origin-group/create.md
+          - name: delete
+            href: cli-ref/origin-group/delete.md
+          - name: get
+            href: cli-ref/origin-group/get.md
+          - name: list
+            href: cli-ref/origin-group/list.md
+          - name: update
+            href: cli-ref/origin-group/update.md
+      - name: provider
+        items:
+          - name: Overview
+            href: cli-ref/provider/index.md
+          - name: activate
+            href: cli-ref/provider/activate.md
+          - name: list-activated
+            href: cli-ref/provider/list-activated.md
+      - name: resource
+        items:
+          - name: Overview
+            href: cli-ref/resource/index.md
+          - name: create
+            href: cli-ref/resource/create.md
+          - name: delete
+            href: cli-ref/resource/delete.md
+          - name: get
+            href: cli-ref/resource/get.md
+          - name: get-provider-cname
+            href: cli-ref/resource/get-provider-cname.md
+          - name: list
+            href: cli-ref/resource/list.md
+          - name: update
+            href: cli-ref/resource/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:
@@ -225,6 +316,22 @@ items:
                 href: api-ref/grpc/Resource/delete.md
               - name: GetProviderCName
                 href: api-ref/grpc/Resource/getProviderCName.md
+              - name: GetAttributes
+                href: api-ref/grpc/Resource/getAttributes.md
+          - name: Shielding
+            items:
+              - name: Overview
+                href: api-ref/grpc/Shielding/index.md
+              - name: Activate
+                href: api-ref/grpc/Shielding/activate.md
+              - name: Deactivate
+                href: api-ref/grpc/Shielding/deactivate.md
+              - name: Get
+                href: api-ref/grpc/Shielding/get.md
+              - name: Update
+                href: api-ref/grpc/Shielding/update.md
+              - name: ListAvailableLocations
+                href: api-ref/grpc/Shielding/listAvailableLocations.md
       - name: REST
         items:
           - name: Overview
@@ -324,12 +431,50 @@ items:
               - name: GetProviderCName
                 href: api-ref/Resource/getProviderCName.md
   - name: '{{ monitoring-name }} metrics'
-    href: metrics.md
+    href: metrics-yc.md
+  - name: Request logs
+    href: logs-ref.md
   - name: '{{ at-name }} events'
     href: at-ref.md
+  - name: Event reference
+    items:
+      - name: CachePrefetch
+        href: events-ref/CachePrefetch.md
+      - name: CachePurge
+        href: events-ref/CachePurge.md
+      - name: OriginCreate
+        href: events-ref/OriginCreate.md
+      - name: OriginDelete
+        href: events-ref/OriginDelete.md
+      - name: OriginGroupCreate
+        href: events-ref/OriginGroupCreate.md
+      - name: OriginGroupDelete
+        href: events-ref/OriginGroupDelete.md
+      - name: OriginGroupUpdate
+        href: events-ref/OriginGroupUpdate.md
+      - name: OriginUpdate
+        href: events-ref/OriginUpdate.md
+      - name: ProviderActivate
+        href: events-ref/ProviderActivate.md
+      - name: RawLogsActivate
+        href: events-ref/RawLogsActivate.md
+      - name: RawLogsDeactivate
+        href: events-ref/RawLogsDeactivate.md
+      - name: RawLogsUpdate
+        href: events-ref/RawLogsUpdate.md
+      - name: ResourceCreate
+        href: events-ref/ResourceCreate.md
+      - name: ResourceDelete
+        href: events-ref/ResourceDelete.md
+      - name: ResourceRuleCreate
+        href: events-ref/ResourceRuleCreate.md
+      - name: ResourceRuleDelete
+        href: events-ref/ResourceRuleDelete.md
+      - name: ResourceRuleUpdate
+        href: events-ref/ResourceRuleUpdate.md
+      - name: ResourceUpdate
+        href: events-ref/ResourceUpdate.md
   - name: Release notes
     href: release-notes.md
   - name: Troubleshooting
     href: troubleshooting.md
-base: en/cdn
-deepBase: 2

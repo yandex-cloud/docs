@@ -1,19 +1,12 @@
 title: Yandex SmartCaptcha
 description:
-  - >-
-    Yandex SmartCaptcha lets you determine who the system user is: an individual
-    or a computer.
-meta:
-  title: Yandex SmartCaptcha
-  description: >-
-    Yandex SmartCaptcha lets you determine who the system user is: an individual
-    or a computer.
+  - Yandex SmartCaptcha can tell human system users from computers.
 links:
   - title: Getting started
     description: Set up the first widget and check the user
     href: quickstart
-  - title: Step-by-step instructions
-    description: Instructions on how to perform routine operations
+  - title: Step-by-step guides
+    description: How to perform routine operations
     href: operations
   - title: Widget installation methods
     description: Learn about the methods to add SmartCaptcha to your site
@@ -25,11 +18,31 @@ links:
     description: React package to work with SmartCaptcha
     href: concepts/react
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
+  - title: Tutorials
+    description: Detailed instructions on how to use SmartCaptcha
+    href: tutorials/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing
   - title: Demo page
     description: See how SmartCaptcha works
-    href: https://smartcaptcha.yandexcloud.net/demo
+    href: https://smartcaptcha.cloud.yandex.ru/demo
+meta:
+  title: Yandex SmartCaptcha
+  description: Yandex SmartCaptcha can tell human system users from computers.
+  keywords:
+    - captcha
+    - captcha {{ captcha-name }}
+    - captcha
+    - captcha in {{ captcha-name }}
+    - smartcaptcha
+    - captcha widget
+    - '{{ captcha-name }}'
+    - '{{ captcha-name }} widget'
+    - user validation
+    - '{{ captcha-name }} validation'
+    - captcha in {{ yandex-cloud }}
+    - '{{ captcha-name }} in {{ yandex-cloud }}'
+    - human verification {{ yandex-cloud }}

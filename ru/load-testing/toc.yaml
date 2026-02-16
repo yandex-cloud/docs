@@ -15,6 +15,14 @@ items:
         href: operations/security-groups-target.md
       - name: Создать тест с данными из бакета
         href: operations/create-test-bucket.md
+      - name: Управление дашбордом регрессий
+        items:
+          - name: Создать и настроить дашборд
+            href: operations/regressions/create.md
+          - name: Редактировать данные на дашборде
+            href: operations/regressions/update.md
+          - name: Удалить дашборд
+            href: operations/regressions/delete.md
       - name: Экспорт отчётов с результатами тестирования
         href: operations/export-test-reports.md
       - name: Собрать пользовательские запросы с помощью Dispatcher
@@ -29,6 +37,8 @@ items:
         href: operations/operation-logs.md
   - name: Практические руководства
     items:
+      - name: Все практические руководства
+        href: tutorials/index.md
       - name: Нагрузочное тестирование gRPC-сервиса
         href: tutorials/loadtesting-grpc.md
       - name: >-
@@ -45,8 +55,6 @@ items:
         href: tutorials/loadtesting-jmeter.md
       - name: Нагрузочное тестирование с нескольких агентов
         href: tutorials/loadtesting-multiply.md
-      - name: Миграция результатов нагрузочного тестирования из OverLoad
-        href: tutorials/loadtesting-overload-migration.md
       - name: Запуск внешних агентов для нагрузочного тестирования
         href: tutorials/loadtesting-external-agent.md
       - name: Вызов нагрузочного тестирования из {{ GL }} CI
@@ -85,16 +93,18 @@ items:
         href: concepts/testing-stream.md
       - name: Автостоп
         href: concepts/auto-stop.md
+      - name: Resource Check
+        href: concepts/resource-check.md
       - name: Мониторинг агентов тестирования
         href: concepts/monitoring.md
       - name: Отчеты
         href: concepts/reports.md
-      - name: Регрессии нагрузочных тестов
-        href: concepts/load-test-regressions.md
       - name: Результаты нагрузочного теста
         href: concepts/load-test-results.md
       - name: Сравнение результатов нагрузочных тестов
         href: concepts/load-tests-compare.md
+      - name: Регрессии нагрузочных тестов
+        href: concepts/load-test-regressions.md
       - name: Артефакты тестирования
         href: concepts/artifacts.md
       - name: Квоты и лимиты
@@ -103,8 +113,52 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/loadtesting/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: agent
+        items:
+          - name: Overview
+            href: cli-ref/agent/index.md
+          - name: create
+            href: cli-ref/agent/create.md
+          - name: delete
+            href: cli-ref/agent/delete.md
+          - name: get
+            href: cli-ref/agent/get.md
+          - name: list
+            href: cli-ref/agent/list.md
+      - name: test
+        items:
+          - name: Overview
+            href: cli-ref/test/index.md
+          - name: check-regression
+            href: cli-ref/test/check-regression.md
+          - name: create
+            href: cli-ref/test/create.md
+          - name: delete
+            href: cli-ref/test/delete.md
+          - name: get
+            href: cli-ref/test/get.md
+          - name: get-report-table
+            href: cli-ref/test/get-report-table.md
+          - name: list
+            href: cli-ref/test/list.md
+          - name: stop
+            href: cli-ref/test/stop.md
+          - name: wait
+            href: cli-ref/test/wait.md
+      - name: test-config
+        items:
+          - name: Overview
+            href: cli-ref/test-config/index.md
+          - name: create
+            href: cli-ref/test-config/create.md
+          - name: get
+            href: cli-ref/test-config/get.md
+          - name: list
+            href: cli-ref/test-config/list.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -289,5 +343,3 @@ items:
     href: release-notes.md
   - name: Обучающие курсы
     href: training.md
-base: ru/load-testing
-deepBase: 2

@@ -1,9 +1,104 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/routeTables
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the route table belongs to.
+            To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the route table.
+            The name must be unique within the folder.
+          pattern: '|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the route table.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Resource labels, `` key:value `` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the network the route table belongs to.
+          type: string
+        staticRoutes:
+          description: |-
+            **[StaticRoute](#yandex.cloud.vpc.v1.StaticRoute)**
+            List of static routes.
+          type: array
+          items:
+            $ref: '#/definitions/StaticRoute'
+      required:
+        - folderId
+        - networkId
+      additionalProperties: false
+    definitions:
+      StaticRoute:
+        type: object
+        properties:
+          destinationPrefix:
+            description: |-
+              **string**
+              Destination subnet in CIDR notation
+              Includes only one of the fields `destinationPrefix`.
+            type: string
+          nextHopAddress:
+            description: |-
+              **string**
+              Next hop IP address
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          gatewayId:
+            description: |-
+              **string**
+              Next hop gateway id
+              Includes only one of the fields `nextHopAddress`, `gatewayId`.
+            type: string
+          labels:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Resource labels as `` key:value `` pairs. Maximum of 64 per resource.
+            type: object
+            additionalProperties:
+              type: string
+        allOf:
+          - oneOf:
+              - required:
+                  - destinationPrefix
+          - oneOf:
+              - required:
+                  - nextHopAddress
+              - required:
+                  - gatewayId
 sourcePath: en/_api-ref/vpc/v1/api-ref/RouteTable/create.md
 ---
 
-# Virtual Private Cloud API, REST: RouteTable.Create {#Create}
+# Virtual Private Cloud API, REST: RouteTable.Create
 
 Creates a route table in the specified folder and network.
 Method starts an asynchronous operation that can be cancelled while it is in progress.
@@ -21,7 +116,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "networkId": "string",
   "staticRoutes": [
     {
@@ -32,7 +127,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/routeTables
       "nextHopAddress": "string",
       "gatewayId": "string",
       // end of the list of possible fields
-      "labels": "string"
+      "labels": "object"
     }
   ]
 }
@@ -51,7 +146,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the route table. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `` key:value `` pairs. ||
 || networkId | **string**
@@ -83,7 +178,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#
@@ -117,7 +212,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "networkId": "string",
     "staticRoutes": [
       {
@@ -128,7 +223,7 @@ Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
         "nextHopAddress": "string",
         "gatewayId": "string",
         // end of the list of possible fields
-        "labels": "string"
+        "labels": "object"
       }
     ]
   }
@@ -261,7 +356,7 @@ Value must match the regular expression `\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-
 || description | **string**
 
 Optional description of the route table. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.
@@ -297,7 +392,7 @@ Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
 Next hop gateway id
 
 Includes only one of the fields `nextHopAddress`, `gatewayId`. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 |#

@@ -1,0 +1,78 @@
+title: '{{ ai-studio-full-name }}'
+description:
+  - >-
+    {{ ai-studio-full-name }} — это платформа {{ yandex-cloud }} для создания
+    AI-приложений и AI-агентов на базе больших генеративных моделей. {{
+    ai-studio-name }} предоставляет все необходимое для всех этапов от
+    экспериментов и прототипирования до промышленного внедрения разработок.
+  - >-
+    Правила использования сервиса определены в документе <a
+    href="https://yandex.ru/legal/cloud_terms_yandex_foundation_models">Условия
+    использования сервиса {{ ai-studio-full-name }}</a>. Правила использования
+    сервиса {{ speechkit-full-name }} определены в документе <a href
+    ="https://yandex.ru/legal/cloud_terms_speechkit">Условия использования
+    сервиса {{ speechkit-full-name }}</a>. Правила использования сервиса {{
+    search-api-full-name }} определены в документе <a
+    href="https://yandex.ru/legal/cloud_terms_search_api">Условия использования
+    сервиса {{ search-api-full-name }}</a>.
+  - >-
+    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
+    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
+    документе <a
+    href="https://yandex.ru/legal/cloud_sla_yandex_foundation_models/">Уровень
+    обслуживания {{ ai-studio-full-name }}</a>.
+links:
+  - title: О сервисе {{ ai-studio-name }}
+    description: Краткий обзор основных возможностей сервиса
+    href: concepts/
+  - title: Начало работы с {{ model-gallery-name }}
+    description: Как использовать модели {{ model-gallery-name }} для генерации текста
+    href: quickstart/yandexgpt
+  - title: '{{ agents-atelier-name }}'
+    description: Что такое AI-агенты и как их создавать
+    href: concepts/agents/
+  - title: '{{ ai-search-name }}'
+    description: Инструменты поиска для AI-агентов
+    href: concepts/search/
+  - title: '{{ mcp-hub-name }}'
+    description: Создание, управление и мониторинг MCP-серверов
+    href: concepts/mcp-hub/
+  - title: Пошаговые инструкции
+    description: Простые инструкции для рутинных операций
+    href: operations/
+  - title: Справочники API
+    description: Описание методов API {{ ai-studio-name }}
+    href: concepts/api
+  - title: Управление доступом
+    description: Какие права доступа нужны для работы с сервисом
+    href: security/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
+meta:
+  title: '{{ ai-studio-full-name }}'
+  description: >-
+    {{ ai-studio-full-name }} — это платформа {{ yandex-cloud }} для создания
+    AI-приложений и AI-агентов на базе больших генеративных моделей. {{
+    ai-studio-name }} предоставляет все необходимое для всех этапов от
+    экспериментов и прототипирования до промышленного внедрения разработок.
+  keywords:
+    - '{{ ai-studio-full-name }}'
+    - '{{ ai-studio-name }}'
+    - сервис {{ ai-studio-name }}
+    - генеративные модели для бизнеса
+    - нейросети в {{ yandex-cloud }}
+    - учебник промптинга
+    - YandexGPT Lite
+    - YandexGPT Pro
+    - YandexART
+    - AI-ассистент
+    - AI-агент
+    - технологии машинного обучения
+    - генеративные модели в {{ yandex-cloud }}
+    - нейросети в бизнес-приложениях
+    - нейросети в веб-сервисах
+    - нейросети в бизнесе

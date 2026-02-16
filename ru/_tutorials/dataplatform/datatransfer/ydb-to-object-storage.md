@@ -9,6 +9,17 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
+
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 
@@ -22,7 +33,9 @@
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md).
 
+    
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) с ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к базе данных и бакету.
+
 
 - С помощью {{ TF }} {#tf}
 
@@ -65,7 +78,7 @@
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Создайте](../../../ydb/operations/crud.md/#web-sql) в базе данных {{ ydb-name }} таблицу `seasons`:
+1. [Создайте](../../../ydb/operations/crud.md#web-sql) в базе данных {{ ydb-name }} таблицу `seasons`:
 
     ```sql
     CREATE TABLE seasons
@@ -107,7 +120,11 @@
     1. [Создайте эндпоинт для приемника](../../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
+
+
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_YDB`.
@@ -115,7 +132,10 @@
     1. [Создайте эндпоинт для источника](../../../data-transfer/operations/endpoint/source/ydb.md) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к базе данных:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-short-name }} из списка.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите созданный ранее сервисный аккаунт.
+
 
     1. [Создайте трансфер](../../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
 
@@ -157,37 +177,25 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md#delete-db).
 
-    1. [Удалите бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-    1. [Удалите базу данных {{ ydb-name }}](../../../ydb/operations/manage-databases.md/#delete-db).
-    1. Если вы создавали сервисный аккаунт, [удалите его](../../../iam/operations/sa/delete.md).
+       
+       1. Если вы создавали сервисный аккаунт, [удалите его](../../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `ydb-to-object-storage.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, описанные в конфигурационном файле `ydb-to-object-storage.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

@@ -20,6 +20,15 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 ### Подготовьте инфраструктуру {#deploy-infrastructure}
@@ -28,7 +37,7 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }}:
+    1. [Создайте кластер](../../managed-clickhouse/operations/cluster-create.md) {{ mch-name }} с хостами в публичном доступе и настройками:
 
         * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `chcluster`.
         * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — выберите нужный тип дисков.
@@ -44,10 +53,10 @@
 
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
 
-        Хосты кластера должны быть доступны из интернета.
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте два дополнительных шарда](../../managed-clickhouse/operations/shards.md#add-shard) с именами `shard2`, `shard3`.
-    1. [Добавьте в кластер три хоста {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md#add-zk-host).
+    1. [Добавьте в кластер три хоста {{ ZK }}](../../managed-clickhouse/operations/zk-hosts.md#add-zk).
     1. [Создайте группы шардов](../../managed-clickhouse/operations/shard-groups.md#create-shard-group). Их количество зависит от типа шардирования:
 
         * [Шардирование с использованием групп шардов](#shard-groups-example) требует одну группу шардов с именем `sgroup`, которая включает шарды `shard1` и `shard2`.
@@ -57,7 +66,7 @@
 
          Для [классического шардирования](#shard-example) создание групп шардов не требуется.
 
-
+    
     1. Если вы используете группы безопасности, [настройте их](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
@@ -224,7 +233,7 @@
 
 1. Загрузите тестовый набор данных `hits_v1`:
 
-
+   
    ```bash
    curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
@@ -271,22 +280,6 @@
 
 - {{ TF }} {#tf}
 
-    Чтобы удалить инфраструктуру, [созданную с помощью {{ TF }}](#deploy-infrastructure):
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл (`simple-sharding.tf` `sharding-with-group.tf` или `advanced-sharding-with-groups.tf`).
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

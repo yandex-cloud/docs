@@ -1,3 +1,8 @@
+---
+title: Начало работы с серийной консолью
+description: Следуя данной инструкции, вы научитесь работать с серийной консолью.
+---
+
 # Начало работы с серийной консолью
 
 
@@ -69,7 +74,6 @@
 
      В ОС ВМ будет автоматически создан пользователь `yc-user` с указанным открытым ключом.
 
-
 {% endlist %}
 
 ## Включение консоли при изменении ВМ {#turn-on-for-current-instance}
@@ -94,11 +98,9 @@
 
 ## Настройка ВМ для доступа через серийный порт {#configuration}
 
-Для настройки доступа через серийную консоль у ВМ должен быть [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Вы можете посмотреть адрес в [консоли управления]({{ link-console-main }}) в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** на странице **{{ ui-key.yacloud.compute.switch_instances }}**. Если вы создали ВМ без публичного IP-адреса, вы можете [привязать его](../vm-control/vm-attach-public-ip.md). После настройки адрес можно отвязать, для подключения через серийную консоль он не нужен.
+Для настройки доступа через серийную консоль у ВМ должен быть [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Вы можете посмотреть адрес в [консоли управления]({{ link-console-main }}) в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** на странице **{{ ui-key.yacloud.compute.instances_jsoza }}**. Если вы создали ВМ без публичного IP-адреса, вы можете [привязать его](../vm-control/vm-attach-public-ip.md). После настройки адрес можно отвязать, для подключения через серийную консоль он не нужен.
 
-Чтобы серийная консоль была доступна со стороны ОС, ОС должна быть настроена соответствующим образом:
-* [Linux](#linux-configuration)
-
+Чтобы серийная консоль была доступна со стороны ОС, ОС должна быть настроена соответствующим образом.
 
 ### Linux {#linux-configuration}
 
@@ -160,3 +162,16 @@
 
 1. Завершите SSH-сессию с помощью команды `exit`.
 
+#### Включите нужный способ авторизации {#ssh-authorization}
+
+{% list tabs %}
+
+- SSH-ключ
+
+  {% include [enable-metadata-serial-console-auth](../../../_includes/compute/enable-metadata-serial-console-auth.md) %}
+
+- {{ oslogin }}
+
+  {% include [enable-os-login-serial-console-auth](../../../_includes/compute/enable-os-login-serial-console-auth.md) %}
+
+{% endlist %}

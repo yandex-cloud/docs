@@ -35,3 +35,7 @@
         tag: "$latest"
         service_account_id: ajehfe56hhl********
 ```
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/deploy-app-container.md)

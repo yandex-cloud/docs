@@ -1,41 +1,64 @@
 ---
-title: How to create a {{ sws-full-name }} security profile
-description: Follow this guide to create a {{ sws-full-name }} security profile.
+title: How to create a {{ sws-full-name }} profile
+description: Follow this guide to create a {{ sws-full-name }} profile.
 ---
 
 # Creating a security profile
+
+{% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
+
+![profiles-rules](../../_assets/smartwebsecurity/profiles-rules.svg)
+
+{% include [security-profile-sa-roles](../../_includes/smartwebsecurity/security-profile-sa-roles.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
-  1. Select one of the creation options:
-      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}** (recommended). A preset profile includes:
+  1. Select one of these creation options:
+      * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
 
-        * [Basic default rule](../concepts/rules.md#base-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-deny }}` [action type](../concepts/rules.md#rule-action).
-        * [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}` action type.
+        {% include [pre-configured-profile](../../_includes/smartwebsecurity/pre-configured-profile.md) %}
+        
       * **{{ ui-key.yacloud.smart-web-security.title_no-template }}**. This profile includes only the basic default rule enabled for all traffic.
 
-  1. Enter the profile name.
-  1. (Optional) Enter a description.
-  1. (Optional) Add [labels](../../resource-manager/concepts/labels.md) for your profile.
-  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select an action to be applied to the traffic that mismatches the criteria of other rules: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
+  1. Name the profile.
+  1. Optionally, provide a description.
+  1. Optionally, add [labels](../../resource-manager/concepts/labels.md) to your profile.
+  1. In the **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** field, select what to do with traffic that does not match any other rule: `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` or `{{ ui-key.yacloud.smart-web-security.form.label_action-allow }}`.
   1. Select or create an [ARL profile](../operations/arl-profile-create.md) to limit the number of requests.
   1. Select or create a [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests:
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
+
+  1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
+
+  1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
+     1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select the logs to write: **{{ cloud-logging-name }}** and **{{ at-name }}**.
+     1. For {{ cloud-logging-name }}, select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
+     1. For logging, you can choose only those requests that triggered:
+        * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
+        * **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}** rules.
+        * **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}** rules.
+        * **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}** rules.
+        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}** action (verdict).
+        * All selected rules applied the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** action (legitimate requests).
+  
+     For more information on how to configure logging, see [this guide](configure-logging.md).
 
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
   1. In the rule creation window:
 
       {% include [add-rule](../../_includes/smartwebsecurity/add-rule.md) %}
 
+  1. If the `Deny` action is set for the default basic rule and the requests are sent to {{ captcha-name }} for verification, [add](captcha-rule.md) an allowing rule.
   1. Add all relevant rules to the profile one by one.
 
-      The rules you created will appear under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** in the table.
+      The rules you created will appear in the table under **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}**.
+  1. Optionally, enable or disable the use of HTTP request info to improve your machine learning models under **{{ ui-key.yacloud.component.disallow-data-processing.title_ml-model-training }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -64,12 +87,12 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
 
      Where:
 
-     * `--name`: Security profile name. This is a required parameter. If you specify only the profile name without additional parameters, a single [basic rule](../concepts/rules.md#base-rules) will be created in the security profile.
+     * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
      * `--description`: Text description of the security profile. This is an optional parameter.
-     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional parameter. For example: `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to perform for the traffic that mismatches the criteria of other rules. This is an optional parameter. The default value is `allow`, which allows all requests to the service. To block requests, set the parameter to `deny`.
-     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional parameter.
-      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional parameter. For example:
+     * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
+      * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
           {% include [profile-create-yaml-example](../../_includes/smartwebsecurity/profile-create-yaml-example.md) %}
 
@@ -86,7 +109,88 @@ description: Follow this guide to create a {{ sws-full-name }} security profile.
      created_at: "2024-07-25T19:21:05.039610Z"
      ```
 
-  For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/create.md).
+  For more information about the `yc smartwebsecurity security-profile create` command, see the [CLI reference](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/create.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<security_profile_name>"
+        default_action                   = "DENY"
+        captcha_id                       = "<CAPTCHA_ID>"
+        advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
+
+        # Smart Protection rule
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        # Basic rule
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # WAF profile rule
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<WAF_profile_ID>"
+          }
+        }
+      }
+      ```
+
+      Where:
+      * `name`: Security profile name.
+      * `default_action`: Action for the default basic rule. This action will apply to traffic that does not match any other rule. It can be either `ALLOW` to allow all requests to {{ sws-full-name }} or `DENY` to deny them.
+      * `captcha_id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
+      * `advanced_rate_limiter_profile_id`: [ARL profile](../concepts/arl.md) ID. This is an optional setting.
+      * `security_rule`: Security [rule](../concepts/rules.md) description:
+         * `name`: Security rule name.
+         * `priority`: Rule [priority](../concepts/rules.md). The possible values range from 1 to 1,000,000.
+         * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
+            * `mode`: [Rule action](../concepts/rules.md#rule-action). It can be either `FULL` to enable full protection, where suspicious requests are challenged with CAPTCHA, or `API` to enable API protection, where suspicious requests are blocked.
+         * `waf`: Web application firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
+            * `waf_profile_id`: [WAF profile](../concepts/waf.md) ID.
+
+      If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
+
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Create the resources:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+
+  ```bash
+  yc smartwebsecurity security-profile get <security_profile_ID>
+  ```
 
 - API {#api}
 

@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ serverless-containers-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ serverless-containers-name }}.
 editable: false
 ---
 
@@ -9,6 +11,9 @@ editable: false
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
+
+{% include [vat](../_includes/vat.md) %}
 
 ## Из чего складывается стоимость использования {{ serverless-containers-name }} {#rules}
 
@@ -98,90 +103,16 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Вызов контейнера {#prices-invoking}
 
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|serverless-containers }}']}
+    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
+    installationCode="ru"
+    currency="RUB"
+  />
+</MDX>
 
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-invocation.md](../_pricing/serverless-containers/rub-invocations.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-invocation.md](../_pricing/serverless-containers/kzt-invocations.md) %}
-
-{% endlist %}
-
-
-
-### Время использования RAM при обработке запросов {#prices-ram}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-ram.md](../_pricing/serverless-containers/rub-ram.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-ram.md](../_pricing/serverless-containers/kzt-ram.md) %}
-
-{% endlist %}
-
-
-
-### Время использования CPU при обработке запросов {#prices-cpu}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-cpu.md](../_pricing/serverless-containers/rub-cpu.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-cpu.md](../_pricing/serverless-containers/kzt-cpu.md) %}
-
-{% endlist %}
-
-
-
-### Подготовленные экземпляры {#provisioned-instances}
-
-#### Время использования RAM {#prices-ram-provisioned-instances}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-ram-provisioned-instances.md](../_pricing/serverless-containers/rub-ram-provisioned-instances.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-ram-provisioned-instances.md](../_pricing/serverless-containers/kzt-ram-provisioned-instances.md) %}
-
-{% endlist %}
-
-
-
-#### Время использования CPU {#prices-cpu-provisioned-instances}
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include notitle [rub-cpu-provisioned-instances.md](../_pricing/serverless-containers/rub-cpu-provisioned-instances.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include notitle [kzt-cpu-provisioned-instances.md](../_pricing/serverless-containers/kzt-cpu-provisioned-instances.md) %}
-
-{% endlist %}
 
 
 

@@ -1,0 +1,4 @@
+Before activating, deactivating, or modifying your technical support service plan, as well as changing the billing account from which the payment will be debited, make sure you have the following roles:
+
+* [{{ roles-organization-owner }}](../../organization/security/index.md#organization-manager-organizations-owner) for a cloud organization where you need to change or activate a paid support service plan.
+* [billing.accounts.admin](../../billing/security/index.md#billing-accounts-admin) or higher for your billing account if it is not linked to this cloud organization. This role will be inherited if your account is linked to the organization. For more information about roles and the link between a cloud organization and a billing account, see [Organization](../../billing/concepts/organization.md).

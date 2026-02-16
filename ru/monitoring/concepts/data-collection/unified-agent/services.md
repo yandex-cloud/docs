@@ -1,3 +1,9 @@
+---
+title: Служебные секции
+description: 'Из статьи вы узнаете про служебные секции: status, main_thread_pool, agent_log, system и flow_control.'
+sourcePath: ru/monitoring_includes/concepts/data-collection/unified-agent/services.md
+---
+
 # Служебные секции
 
 ## Секция status {#status}

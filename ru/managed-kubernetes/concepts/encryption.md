@@ -1,3 +1,8 @@
+---
+title: Шифрование в {{ managed-k8s-full-name }}
+description: Из статьи вы узнаете, что такое шифрование в {{ managed-k8s-name }}.
+---
+
 # Шифрование в {{ managed-k8s-name }}
 
 В {{ yandex-cloud }} действует множество [мер обеспечения информационной безопасности](../../security/standarts.md). В том числе реализовано многоуровневое шифрование данных сервиса {{ managed-k8s-name }}:
@@ -13,9 +18,13 @@
 
 Управление этими ключами обеспечивает {{ yandex-cloud }}.
 
-Также доступно [шифрование секретов {{ k8s }}](#k8s-secrets-encryption) с помощью [симметричного ключа шифрования](../../kms/concepts/key.md), который хранится в сервисе [{{ kms-full-name }}](../../kms/concepts/index.md).
+## Шифрование с помощью пользовательских симметричных ключей {#kms-keys-encryption}
 
-Управление таким ключом происходит на стороне пользователя, что дает дополнительные возможности:
+В {{ managed-k8s-name }} поддерживается шифрование с помощью [пользовательских симметричных ключей](../../kms/concepts/key.md) {{ kms-full-name }} для следующих ресурсов:
+* [Секреты {{ k8s }}](#k8s-secrets-encryption)
+* [Диски для постоянных томов](./volume.md#encrypted-disks)
+
+Управление такими ключами происходит на стороне пользователя, что дает дополнительные возможности:
 
 * Аудит [событий](../../kms/at-ref.md), связанных с использованием ключа, с помощью сервиса [{{ at-full-name }}](../../audit-trails/).
 * Отслеживание работы с ключами с помощью сервиса [{{ monitoring-full-name }}](../../monitoring/).
@@ -29,7 +38,7 @@
 
     {% endnote %}
 
-## Шифрование секретов {{ k8s }} {#k8s-secrets-encryption}
+### Шифрование секретов {{ k8s }} {#k8s-secrets-encryption}
 
 [_Секрет {{ k8s }}_](https://kubernetes.io/docs/concepts/configuration/secret/) — конфиденциальная информация, используемая кластером {{ k8s }} при управлении подами, например, OAuth-ключи, пароли, [SSH-ключи](../../glossary/ssh-keygen.md) и т. д.
 
@@ -59,10 +68,19 @@
 
 Расшифровка секрета происходит аналогичным образом.
 
+## Примеры использования {#examples}
+
+* [{#T}](../tutorials/kms-k8s.md)
+* [{#T}](../tutorials/nginx-ingress-certificate-manager.md)
+* [{#T}](../operations/volumes/encrypted-disks.md)
+
+
+* [{#T}](../tutorials/kubernetes-lockbox-secrets.md)
+
 ## См. также {#see-also}
 
 * [{#T}](../operations/applications/hashicorp-vault.md)
 * [{#T}](../tutorials/marketplace/hashicorp-vault.md)
-* [{#T}](../../kms/tutorials/k8s.md)
+* [{#T}](../tutorials/kms-k8s.md)
 * [{#T}](../operations/applications/external-secrets-operator.md)
 * [{#T}](../tutorials/kubernetes-lockbox-secrets.md)

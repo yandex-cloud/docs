@@ -1,17 +1,26 @@
+---
+title: Free tier
+description: In this article, you will learn about the free tier and what services it is available for.
+---
+
 # Free tier
 
 
-Some {{ yandex-cloud }} services offer special plans where certain amounts of services are provided free of charge. These are selected to enable you to develop and launch a small service, website, or application.
+Some {{ yandex-cloud }} services offer special plans where certain amounts of services are provided free of charge. These are selected to enable you to develop and launch a small service, website, or application, or try out the service features.
+
+{% include [price-formula/free-tier](../../_includes/pricing/price-formula/free-tier.md) %}
 
 {% note info %}
 
-Free tier applies to billing accounts. If multiple organizations or clouds are linked to a billing account, the tag counts all the resources they consume.
+Free tier applies to billing accounts. If multiple organizations or clouds are linked to a billing account, the tag counts all the resources they consume. 
 
 For example, Cloud-1 and Cloud-2 are linked to a billing account. Cloud-1 has consumed 500,000 function calls, and Cloud-2 600,000 function calls a month. For function calls, free tier is 1,000,000. This is our calculation of the number of billable function calls:
 
 > (500,000 + 600,000) - 1,000,000 = 100,000
 
 {% endnote %}
+
+To calculate the cost of using the services, use our [calculator]({{ link-cloud-calculator }}) on the {{ yandex-cloud }} website or see the .
 
 
 Free tier applies to the following services:
@@ -26,7 +35,6 @@ Free tier applies to the following services:
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
 * [{{ datalens-full-name }}](#datalens)
-* [{{ ml-platform-full-name }}](#datasphere)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
@@ -34,11 +42,9 @@ Free tier applies to the following services:
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
-* [{{ search-api-full-name }}](#search-api)
 * [{{ serverless-containers-full-name }}](#serverless-containers)
 * [{{ captcha-full-name }}](#smartcaptcha)
 * [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ tracker-full-name }}](#tracker)
 * [{{ vpc-full-name }}](#vpc)
 
 ## {{ api-gw-full-name }} {#api-gw}
@@ -109,9 +115,9 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ dataproc-full-name }} {#dataproc}
 
-[{{ dataproc-full-name }}](../../data-proc/quickstart.md) assists in deploying Apache Hadoop® and Apache Spark™ clusters in a {{ yandex-cloud }} infrastructure. The cluster size, node capacity, and selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
+[{{ dataproc-full-name }}](../../data-proc/quickstart.md) assists in deploying Apache Hadoop® and Apache Spark™ clusters in a {{ yandex-cloud }} infrastructure. The cluster size, node capacity, and the selection of Apache® services (Spark™, HDFS, YARN, Hive, HBase®, Oozie™, Sqoop™, Flume™, Tez®, Zeppelin™) are all up to you.
 
-{% include [not-charged-dataproc.md](../../_includes/pricing/price-formula/not-charged-dataproc.md) %}
+{% include [not-charged-data-processing.md](../../_includes/pricing/price-formula/not-charged-data-processing.md) %}
 
 ## {{ yds-full-name }} {#yds}
 
@@ -135,19 +141,9 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ datalens-full-name }} {#datalens}
 
-[{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. It allows you to connect to various data sources, visualize data, create dashboards, and share your results.
+[{{ datalens-full-name }}](../../datalens/quickstart.md) is a business analytics service. That allows you to connect to various data sources, visualize data, create dashboards, and share your results.
 
 {% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
-
-## {{ ml-platform-full-name }} {#datasphere}
-
-[{{ ml-platform-full-name }}](../../datasphere/quickstart.md) is a full-cycle ML development service leveraging all cloud technology advantages. It combines an intuitive and easy-to-use web interface, familiar IDEs, and seamless integration of various {{ yandex-cloud }} computing resources.
-
-{% include [not-charged-datasphere.md](../../_includes/pricing/price-formula/not-charged-datasphere.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../datasphere/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ iot-full-name }} {#iot}
 
@@ -201,7 +197,7 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ objstorage-full-name }} {#objstorage}
 
-[{{ objstorage-full-name }}](../../storage/quickstart.md) is a universal scalable solution for data storage. It is equally suited for high-load services requiring reliable and fast access to data and for projects with moderate storage infrastructure requirements.
+[{{ objstorage-full-name }}](../../storage/quickstart.md) is a universal scalable solution for data storage. It is equally effective for high-load services requiring reliable and fast access to data as well as for projects that do not need any complex storage infrastructure.
 
 {% include [not-charged-storage.md](../../_includes/pricing/price-formula/not-charged-storage.md) %}
 
@@ -219,15 +215,6 @@ After you spend the free amount of services, you will be charged at the applicab
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ search-api-full-name }} {#search-api}
-
-[{{ search-api-full-name }}](../../search-api/quickstart.md) is a service you can use to submit requests to the Yandex search database and get XML responses. The service is tailored for developers and webmasters, helping them to implement the search feature on individual websites, groups of websites, or across the internet. Additionally, it offers features to monitor website ranking for specific queries in Yandex search results.
-
-{% include [not-charged-search-api.md](../../_includes/pricing/price-formula/not-charged-search-api.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../search-api/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
@@ -251,21 +238,11 @@ After you spend the free amount of services, you will be charged at the applicab
 
 ## {{ sws-full-name }} {#smartwebsecurity}
 
-[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) protects your infrastructure against DDoS attacks and bots at the application level (L7).
+[{{ sws-full-name }}](../../smartwebsecurity/quickstart.md) protects your infrastructure against DDoS attacks and bots at the application layer (L7).
 
 {% include [not-charged-smartwebsecurity.md](../../_includes/pricing/price-formula/not-charged-smartwebsecurity.md) %}
 
 After you spend the free amount of services, you will be charged at the applicable [rate](../../smartwebsecurity/pricing.md).
-
-{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
-
-## {{ tracker-full-name }} {#tracker}
-
-[{{ tracker-full-name }}](../../tracker/quick-start.md) is a management service for your projects and processes.
-
-{% include [not-charged-tracker.md](../../_includes/pricing/price-formula/not-charged-tracker.md) %}
-
-After you spend the free amount of services, you will be charged at the applicable [rate](../../tracker/pricing.md).
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 

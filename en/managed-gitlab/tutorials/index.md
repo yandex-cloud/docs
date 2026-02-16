@@ -14,3 +14,4 @@ description: Various {{ mgl-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](application-testing-with-gitlab.md)
 * [{#T}](test-vms-creation-via-gitlab-ci.md)
 * [{#T}](tracker-integration.md)
+* [{#T}](argo-cd.md)

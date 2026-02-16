@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/Group/list.md
 ---
 
-# Cloud Organization API, gRPC: GroupService.List {#List}
+# Identity Hub API, gRPC: GroupService.List
 
 Retrieves the list of group resources.
 
@@ -15,38 +15,46 @@ Retrieves the list of group resources.
 
 ```json
 {
-  "organizationId": "string",
-  "pageSize": "int64",
-  "pageToken": "string",
+  "organization_id": "string",
+  "page_size": "int64",
+  "page_token": "string",
   "filter": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 Required field. ID of the organization to list groups in.
-To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request. ||
-|| pageSize | **int64**
+To get the organization ID, use a [yandex.cloud.organizationmanager.v1.OrganizationService.List](/docs/organization/api-ref/grpc/Organization/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupsResponse)
+results is larger than `page_size`,
+the service returns a [ListGroupsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
-|| pageToken | **string**
+Default value: 100.
 
-Page token. Set `pageToken`
-to the [ListGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListGroupsResponse)
-returned by a previous list request to get the next page of results. ||
+Acceptable values are 0 to 1000, inclusive. ||
+|| page_token | **string**
+
+Page token. Set `page_token`
+to the [ListGroupsResponse.next_page_token](#yandex.cloud.organizationmanager.v1.ListGroupsResponse)
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [Group.name](#yandex.cloud.organizationmanager.v1.Group) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListGroupsResponse {#yandex.cloud.organizationmanager.v1.ListGroupsResponse}
@@ -56,13 +64,15 @@ The expression must specify:
   "groups": [
     {
       "id": "string",
-      "organizationId": "string",
-      "createdAt": "google.protobuf.Timestamp",
+      "organization_id": "string",
+      "created_at": "google.protobuf.Timestamp",
       "name": "string",
-      "description": "string"
+      "description": "string",
+      "subject_container_id": "string",
+      "external_id": "string"
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
@@ -71,14 +81,14 @@ The expression must specify:
 || groups[] | **[Group](#yandex.cloud.organizationmanager.v1.Group)**
 
 List of Group resources. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
 This token allows you to get the next page of results for list requests. If the number of results
-is larger than [ListGroupsRequest.pageSize](#yandex.cloud.organizationmanager.v1.ListGroupsRequest), use
-the `nextPageToken` as the value
-for the [ListGroupsRequest.pageToken](#yandex.cloud.organizationmanager.v1.ListGroupsRequest) query parameter
+is larger than [ListGroupsRequest.page_size](#yandex.cloud.organizationmanager.v1.ListGroupsRequest), use
+the `next_page_token` as the value
+for the [ListGroupsRequest.page_token](#yandex.cloud.organizationmanager.v1.ListGroupsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## Group {#yandex.cloud.organizationmanager.v1.Group}
@@ -91,10 +101,10 @@ For more information, see [Groups](/docs/organization/operations/manage-groups).
 || id | **string**
 
 ID of the group. ||
-|| organizationId | **string**
+|| organization_id | **string**
 
 ID of the organization that the group belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -103,4 +113,10 @@ Name of the group. ||
 || description | **string**
 
 Description of the group. ||
+|| subject_container_id | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| external_id | **string**
+
+Id of the group from external system. It is set if group is external. ||
 |#

@@ -1,9 +1,68 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanResultId}:listVulnerabilities
+    method: get
+    path:
+      type: object
+      properties:
+        scanResultId:
+          description: |-
+            **string**
+            Required field. ID of the ScanResult to get list of vulnerabilities for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - scanResultId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            2. An `=` operator.
+            3. The value in double quotes (`"`).
+            The maximum string length in characters is 1000.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            An order expression that orders resources listed in the response.
+            The expression must specify:
+            1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
+            2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/Scanner/listVulnerabilities.md
 ---
 
-# Container Registry API, REST: Scanner.ListVulnerabilities {#ListVulnerabilities}
+# Container Registry API, REST: Scanner.ListVulnerabilities
 
 Retrieves the list of vulnerabilities found in particular scan.
 
@@ -19,7 +78,9 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/scans/{scanR
 ||Field | Description ||
 || scanResultId | **string**
 
-Required field. ID of the ScanResult to get list of vulnerabilities for. ||
+Required field. ID of the ScanResult to get list of vulnerabilities for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListVulnerabilitiesRequest}
@@ -32,24 +93,32 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+[ListRegistriesResponse.nextPageToken](/docs/container-registry/api-ref/Registry/list#yandex.cloud.containerregistry.v1.ListRegistriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
 2. An `=` operator.
-3. The value in double quotes (`"`). ||
+3. The value in double quotes (`"`).
+
+The maximum string length in characters is 1000. ||
 || orderBy | **string**
 
 An order expression that orders resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Vulnerability.severity](#yandex.cloud.containerregistry.v1.Vulnerability) and [PackageVulnerability.name](#yandex.cloud.containerregistry.v1.PackageVulnerability) fields.
-2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first). ||
+2. Order selector. Currently you can use ordering only on `Vulnerability.severity` field (recent first).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.containerregistry.v1.ListVulnerabilitiesResponse}
@@ -104,7 +173,6 @@ A Vulnerability resource.
 
 Output only. Severity of the Vulnerability.
 
-- `SEVERITY_UNSPECIFIED`
 - `CRITICAL`: Critical severity is a world-burning problem, exploitable for nearly all users.
 Includes remote root privilege escalations, or massive data loss.
 - `HIGH`: High severity is a real problem, exploitable for many users in a default installation.

@@ -1,0 +1,77 @@
+---
+editable: false
+noIndex: true
+sourcePath: en/_cli-ref-beta/cli-ref-beta/managed-mysql/cli-ref-beta/database/index.md
+---
+
+# yc beta managed-mysql database
+
+A set of methods for managing MySQL databases in a cluster.
+See [the documentation](/docs/managed-mysql/operations/databases) for details.
+
+#### Command Usage
+
+Syntax:
+
+`yc beta managed-mysql database <command>`
+
+#### Command Tree
+
+- [yc beta managed-mysql database create](create.md) — Creates a new database in a cluster.
+
+- [yc beta managed-mysql database delete](delete.md) — Deletes a database from a cluster.
+
+- [yc beta managed-mysql database get](get.md) — Retrieves information about the specified database.
+
+- [yc beta managed-mysql database list](list.md) — Retrieves the list of databases in a cluster.
+
+- [yc beta managed-mysql database update](update.md) — Updates the specified database.
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary. ||
+|| `--summary` | `strings`
+
+Fields to include in summary output.
+Each value is a dot-separated path to a field.
+Examples:
+  --summary instance.id                  # simple field
+  --summary instance.type                # another simple field
+  --summary instance.disks.size          # collect values from all list elements
+  --summary instance.disks[0].size       # field from a specific list element ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--timeout` | `string`
+
+Set the timeout. ||
+|| `--token` | `string`
+
+Set the IAM token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--query` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

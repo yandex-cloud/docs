@@ -1,6 +1,6 @@
 ---
 title: '{{ at-full-name }}. Overview'
-description: '{{ at-full-name }} lets you collect audit logs about {{ yandex-cloud }} resource events and upload them for further analysis and export.'
+description: With {{ at-full-name }}, you can collect audit logs about {{ yandex-cloud }} resource events and export those logs for further analysis or export.
 ---
 
 # {{ at-full-name }} overview
@@ -13,15 +13,14 @@ description: '{{ at-full-name }} lets you collect audit logs about {{ yandex-clo
 
 Collecting audit logs enables you to use analytical tools and promptly respond to {{ yandex-cloud }} events:
 
-* [Searching audit logs in a bucket](../tutorials/search-bucket.md).
-* [Searching audit logs in a log group](../tutorials/search-cloud-logging.md).
+* [Searching for events in audit logs](../tutorials/search-events-audit-logs/index.md).
 * [Exporting audit logs to SIEM systems](./export-siem.md).
 * [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
 
 The following [management events](./events.md) are logged:
 
 * Logins by federated users
-* Creating/deleting service accounts
+* Creating or deleting service accounts
 * Creating/deleting keys of service accounts
 * Editing user roles and service accounts
 * Creating/deleting resources

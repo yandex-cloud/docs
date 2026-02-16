@@ -31,7 +31,7 @@ description: В этой инструкции вы научитесь созда
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите на нужную версию секрета.
@@ -86,9 +86,11 @@ description: В этой инструкции вы научитесь созда
           text_value: value_2
       ```
 
+      {% include [secret-content-base64-cli](../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - API {#api}
 
-    При запросе без указания версии, будет возвращаться содержимое текущей (последней) версии.
+    При запросе без указания версии будет возвращаться содержимое текущей (последней) версии.
 
     Вы можете использовать эту логику в скриптах, сервисах и приложениях, где необходимо использовать содержимое секрета.
 
@@ -113,6 +115,9 @@ description: В этой инструкции вы научитесь созда
           --header "Authorization: Bearer ${IAM_TOKEN}" \
           https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор_секрета>/payload
         ```
+
+    {% include [secret-content-base64](../_includes/lockbox/secret-content-base64.md) %}
+
 {% endlist %}
 
 Вы можете управлять секретами и их содержимым не только при помощи [консоли управления]({{ link-console-main }}), [CLI](../cli/quickstart.md) и [API](../overview/api.md), но и с использованием SDK для популярных языков программирования. Подробнее см. в разделе [{#T}](./concepts/index.md#interface).

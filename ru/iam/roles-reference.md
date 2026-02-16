@@ -45,6 +45,55 @@ description: В статье приведен полный справочник 
 {% include [ai-admin](../_roles/ai/admin.md) %}
 
 
+## Партнерская программа {{ yandex-cloud }} {#partner-program}
+
+#### billing.accounts.owner {#billing-accounts-owner}
+
+{% include [billing.accounts.owner](../_roles/billing/accounts/owner.md) %}
+
+#### billing.accounts.viewer {#billing-accounts-viewer}
+
+{% include [billing.accounts.viewer](../_roles/billing/accounts/viewer.md) %}
+
+#### billing.accounts.accountant {#billing-accounts-accountant}
+
+{% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
+
+#### billing.accounts.editor {#billing-accounts-editor}
+
+{% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
+
+#### billing.accounts.varWithoutDiscounts {#billing-accounts-var-without-discounts}
+
+{% include [billing.accounts.varwithoutdiscounts](../_roles/billing/accounts/varWithoutDiscounts.md) %}
+
+#### billing.accounts.admin {#billing-accounts-admin}
+
+{% include [billing.accounts.admin](../_roles/billing/accounts/admin.md) %}
+
+#### billing.accounts.partnerViewer {#billing-accounts-partnerViewer}
+
+{% include [billing.accounts.partnerViewer](../_roles/billing/accounts/partnerViewer.md) %}
+
+#### billing.accounts.piiPartnerViewer {#billing-accounts-piiPartnerViewer}
+
+{% include [billing.accounts.piiPartnerViewer](../_roles/billing/accounts/piiPartnerViewer.md) %}
+
+#### billing.accounts.partnerEditor {#billing-accounts-partnerEditor}
+
+{% include [billing.accounts.partnerEditor](../_roles/billing/accounts/partnerEditor.md) %}
+
+#### billing.accounts.piiPartnerEditor {#billing-accounts-piiPartnerEditor}
+
+{% include [billing.accounts.piiPartnerEditor](../_roles/billing/accounts/piiPartnerEditor.md) %}
+
+#### billing.accounts.partnerAdmin {#billing-accounts-partnerAdmin}
+
+{% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
+
+Подробнее см. [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
+
+
 ## {{ api-gw-full-name }} {#api-gateway-roles}
 
 #### api-gateway.auditor {#api-gateway-auditor}
@@ -124,6 +173,85 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../audit-trails/security/index.md).
 
 
+## {{ baremetal-full-name }} {#baremetal-roles}
+
+#### baremetal.auditor {#baremetal-auditor}
+
+{% include [baremetal-auditor](../_roles/baremetal/auditor.md) %}
+
+#### baremetal.viewer {#baremetal-viewer}
+
+{% include [baremetal-viewer](../_roles/baremetal/viewer.md) %}
+
+#### baremetal.operator {#baremetal-operator}
+
+{% include [baremetal-operator](../_roles/baremetal/operator.md) %}
+
+#### baremetal.editor {#baremetal-editor}
+
+{% include [baremetal-editor](../_roles/baremetal/editor.md) %}
+
+#### baremetal.admin {#baremetal-admin}
+
+{% include [baremetal-admin](../_roles/baremetal/admin.md) %}
+
+Подробнее см. [{#T}](../baremetal/security/index.md).
+
+
+## {{ interconnect-full-name }} {#interconnect-roles}
+
+#### cic.auditor {#cic-auditor}
+
+{% include [cic.auditor](../_roles/cic/auditor.md) %}
+
+#### cic.viewer {#cic-viewer}
+
+{% include [cic.viewer](../_roles/cic/viewer.md) %}
+
+#### cic.editor {#cic-editor}
+
+{% include [cic.editor](../_roles/cic/editor.md) %}
+
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
+
+#### cic.secretViewer {#cic-secretviewer}
+
+{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
+
+#### cic.secretEditor {#cic-secreteditor}
+
+{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
+
+Подробнее см. [{#T}](../interconnect/security/index.md).
+
+
+## {{ cr-full-name }} {#cloudrouter-roles}
+
+#### cloud-router.auditor {#cloudrouter-auditor}
+
+{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
+
+#### cloud-router.viewer {#cloudrouter-viewer}
+
+{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
+
+#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
+
+#### cloud-router.editor {#cloudrouter-editor}
+
+{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
+
+#### cloud-router.admin {#cloudrouter-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+Подробнее см. [{#T}](../cloud-router/security/index.md).
+
+
 ## {{ certificate-manager-full-name }} {#certificate-manager-roles}
 
 #### certificate-manager.auditor {#certificate-manager-auditor}
@@ -134,7 +262,7 @@ description: В статье приведен полный справочник 
 
 {% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
 
-#### certificate-manager.editor {#certificate-manager.editor}
+#### certificate-manager.editor {#certificate-manager-editor}
 
 {% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
 
@@ -151,9 +279,17 @@ description: В статье приведен полный справочник 
 
 ## {{ backup-full-name }} {#backup-roles}
 
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../_roles/backup/auditor.md) %}
+
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../_roles/backup/viewer.md) %}
+
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
 
 #### backup.editor {#backup-editor}
 
@@ -225,6 +361,14 @@ description: В статье приведен полный справочник 
 #### vdi.viewer {#vdi-viewer}
 
 {% include [vdi.viewer](../_roles/vdi/viewer.md) %}
+
+#### vdi.desktopGroups.maintainer {#vdi-desktopGroups-maintainer}
+
+{% include [vdi.desktopGroups.maintainer](../_roles/vdi/desktopGroups/maintainer.md) %}
+
+#### vdi.desktopGroups.user {#vdi-desktopGroups-user}
+
+{% include [vdi.desktopGroups.maintainer](../_roles/vdi/desktopGroups/user.md) %}
 
 #### vdi.editor {#vdi-editor}
 
@@ -394,9 +538,17 @@ description: В статье приведен полный справочник 
 
 ## {{ org-full-name }} {#organization-roles}
 
+#### organization-manager.auditor {#organization-manager-auditor}
+
+{% include [organizationmanager-auditor](../_roles/organization-manager/auditor.md) %}
+
 #### organization-manager.viewer {#organization-manager-viewer}
 
 {% include [organizationmanager-viewer](../_roles/organization-manager/viewer.md) %}
+
+#### organization-manager.editor {#organization-manager-editor}
+
+{% include [organizationmanager-editor](../_roles/organization-manager/editor.md) %}
 
 #### organization-manager.admin {#organization-manager-admin}
 
@@ -406,9 +558,29 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-organizations-owner](../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
+
+{% include [organization-manager.federations.extGroupsViewer](../_roles/organization-manager/federations/extGroupsViewer.md) %}
+
+#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
+
+{% include [organization-manager.federations.extGroupsManager](../_roles/organization-manager/federations/extGroupsManager.md) %}
+
+#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
+
+{% include [organization-manager.federations.extGroupsCleaner](../_roles/organization-manager/federations/extGroupsCleaner.md) %}
+
+#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
+
+{% include [organization-manager.federations.auditor](../_roles/organization-manager/federations/auditor.md) %}
+
 #### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
 {% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.editor {#organization-manager-federations-editor}
+
+{% include [organization-manager.federations.editor](../_roles/organization-manager/federations/editor.md) %}
 
 #### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
 
@@ -426,9 +598,121 @@ description: В статье приведен полный справочник 
 
 {% include [organizationmanager-oslogins-admin](../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
+
+{% include [organization-manager-groups-externalCreator](../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
+
+{% include [organization-manager-groups-externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
+
+{% include [organization-manager.groups.externalManager](../_roles/organization-manager/groups/externalManager.md) %}
+
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
+
 #### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
 
 {% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../_roles/organization-manager/groups/admin.md) %}
+
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../_roles/organization-manager/users/viewer.md) %}
+
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../_roles/organization-manager/passportUserAdmin.md) %}
+
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
+
+{% include [organizationmanager-oauthApplications-userAdmin](../_roles/organization-manager/oauthApplications/userAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
+
+{% include [organizationmanager-samlApplications-userAdmin](../_roles/organization-manager/samlApplications/userAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
+
+{% include [organization-manager.userpools.extGroupsViewer](../_roles/organization-manager/userpools/extGroupsViewer.md) %}
+
+#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
+
+{% include [organization-manager.userpools.extGroupsManager](../_roles/organization-manager/userpools/extGroupsManager.md) %}
+
+#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
+
+{% include [organization-manager.userpools.extGroupsCleaner](../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
+
+{% include [organizationmanager-userpools-userAdmin](../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
+
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
 
 Подробнее см. [{#T}](../organization/security/index.md).
 
@@ -456,6 +740,35 @@ description: В статье приведен полный справочник 
 {% include [postbox.admin](../_roles/postbox/admin.md) %}
 
 Подробнее см. [{#T}](../postbox/security/index.md).
+
+
+## {{ cloud-registry-full-name }} {#cloud-registry-roles}
+
+#### cloud-registry.auditor {#cloud-registry-auditor}
+
+{% include [cloud-registry-auditor](../_roles/cloud-registry/auditor.md) %}
+
+#### cloud-registry.viewer {#cloud-registry-viewer}
+
+{% include [cloud-registry-viewer](../_roles/cloud-registry/viewer.md) %}
+
+#### cloud-registry.editor {#cloud-registry-editor}
+
+{% include [cloud-registry-editor](../_roles/cloud-registry/editor.md) %}
+
+#### cloud-registry.admin {#cloud-registry-admin}
+
+{% include [cloud-registry-admin](../_roles/cloud-registry/admin.md) %}
+
+#### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
+
+{% include [cloud-registry-artifacts-puller](../_roles/cloud-registry/artifacts/puller.md) %}
+
+#### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
+
+{% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
+
+Подробнее см. [{#T}](../cloud-registry/security/index.md).
 
 
 ## {{ video-full-name }} {#video-roles}
@@ -578,6 +891,38 @@ description: В статье приведен полный справочник 
 
 ## {{ datalens-full-name }} {#datalens-roles}
 
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
+
+{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
+
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
+
+{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
+
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
+
+{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
+
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
+
+{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
+
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
+
+{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
+
+#### datalens.collections.viewer {#datalens-collections-viewer}
+
+{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.editor {#datalens-collections-editor}
+
+{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
+
+#### datalens.collections.admin {#datalens-collections-admin}
+
+{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}
@@ -605,31 +950,31 @@ description: В статье приведен полный справочник 
 
 #### dataproc.agent {#dataproc-agent}
 
-{% include [dataproc.agent](../_roles/dataproc/agent.md) %}
+{% include [dataproc.agent](../_roles/data-processing/agent.md) %}
 
 #### dataproc.auditor {#dataproc-auditor}
 
-{% include [dataproc.auditor](../_roles/dataproc/auditor.md) %}
+{% include [dataproc.auditor](../_roles/data-processing/auditor.md) %}
 
 #### dataproc.viewer {#dataproc-viewer}
 
-{% include [dataproc.viewer](../_roles/dataproc/viewer.md) %}
+{% include [dataproc.viewer](../_roles/data-processing/viewer.md) %}
 
 #### dataproc.user {#dataproc-user}
 
-{% include [dataproc.user](../_roles/dataproc/user.md) %}
+{% include [dataproc.user](../_roles/data-processing/user.md) %}
 
 #### dataproc.provisioner {#dataproc-provisioner}
 
-{% include [dataproc.provisioner](../_roles/dataproc/provisioner.md) %}
+{% include [dataproc.provisioner](../_roles/data-processing/provisioner.md) %}
 
 #### dataproc.editor {#dataproc-editor}
 
-{% include [dataproc.editor](../_roles/dataproc/editor.md) %}
+{% include [dataproc.editor](../_roles/data-processing/editor.md) %}
 
 #### dataproc.admin {#dataproc-admin}
 
-{% include [dataproc.admin](../_roles/dataproc/admin.md) %}
+{% include [dataproc.admin](../_roles/data-processing/admin.md) %}
 
 #### mdb.dataproc.agent {#mdb-dataproc-agent}
 
@@ -711,7 +1056,18 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../datasphere/security/index.md).
 
 
+## {{ ycdr-full-name }} {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+
 ## {{ yds-full-name }} {#yds-roles}
+
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../_roles/yds/auditor.md) %}
 
 #### yds.viewer {#yds-viewer}
 
@@ -811,6 +1167,14 @@ description: В статье приведен полный справочник 
 
 {% include [iam.workloadIdentityFederations.admin](../_roles/iam/workloadIdentityFederations/admin.md) %}
 
+#### iam.userAccounts.refreshTokenViewer {#iam-userAccounts-refreshTokenViewer}
+
+{% include [iam.userAccounts.refreshTokenViewer](../_roles/iam/userAccounts/refreshTokenViewer.md) %}
+
+#### iam.userAccounts.refreshTokenRevoker {#iam-userAccounts-refreshTokenRevoker}
+
+{% include [iam.userAccounts.refreshTokenRevoker](../_roles/iam/userAccounts/refreshTokenRevoker.md) %}
+
 #### iam.auditor {#iam-auditor}
 
 {% include [iam.auditor](../_roles/iam/auditor.md) %}
@@ -857,6 +1221,10 @@ description: В статье приведен полный справочник 
 
 ## {{ foundation-models-full-name }} {#fm-roles}
 
+#### ai.playground.user {#ai-playground-user}
+
+{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
+
 #### ai.languageModels.user {#languageModels-user}
 
 {% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
@@ -865,10 +1233,94 @@ description: В статье приведен полный справочник 
 
 {% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
 
-Подробнее см. [{#T}](../foundation-models/security/index.md).
+#### ai.assistants.auditor {#ai-assistants-auditor}
+
+{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
+
+#### ai.assistants.viewer {#ai-assistants-viewer}
+
+{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
+
+#### ai.assistants.editor {#ai-assistants-editor}
+
+{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
+
+#### ai.assistants.admin {#ai-assistants-admin}
+
+{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.datasets.auditor {#ai-datasets-auditor}
+
+{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
+
+#### ai.datasets.viewer {#ai-datasets-viewer}
+
+{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
+
+#### ai.datasets.user {#ai-datasets-user}
+
+{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
+
+#### ai.datasets.editor {#ai-datasets-editor}
+
+{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
+
+#### ai.datasets.admin {#ai-datasets-admin}
+
+{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
+
+#### ai.models.auditor {#ai-models-auditor}
+
+{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
+
+#### ai.models.viewer {#ai-models-viewer}
+
+{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
+
+#### ai.models.user {#ai-models-user}
+
+{% include [ai-models-user](../_roles/ai/models/user.md) %}
+
+#### ai.models.editor {#ai-models-editor}
+
+{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
+
+#### ai.models.admin {#ai-models-admin}
+
+{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
+
+#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
+
+{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
+
+#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
+
+{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
+
+#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
+
+{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
+
+#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
+
+{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
+
+#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
+
+{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
+
+#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
+
+{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
+
+Подробнее см. [{#T}](../ai-studio/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
+
+#### kms.keys.user {#kms-keys-user}
+
+{% include [kms.keys.user](../_roles/kms/keys/user.md) %}
 
 #### kms.keys.encrypter {#kms-keys-encrypter}
 
@@ -985,6 +1437,9 @@ description: В статье приведен полный справочник 
 
 {% include [mdb-admin](../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
@@ -1025,6 +1480,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../_roles/managed-kafka/editor.md) %}
@@ -1033,7 +1489,40 @@ description: В статье приведен полный справочник 
 
 {% include [managed-kafka.admin](../_roles/managed-kafka/admin.md) %}
 
+#### managed-kafka.interfaceUser {#managed-kafka-interface-user}
+
+{% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
+
 Подробнее см. [{#T}](../managed-kafka/security/index.md).
+
+
+## {{ msp-full-name }} {#msp-roles}
+
+#### managed-spark.auditor {#managed-spark-auditor}
+
+{% include [managed-spark.auditor](../_roles/managed-spark/auditor.md) %}
+
+#### managed-spark.viewer {#managed-spark-viewer}
+
+{% include [managed-spark.viewer](../_roles/managed-spark/viewer.md) %}
+
+#### managed-spark.user {#managed-spark-user}
+
+{% include [managed-spark.user](../_roles/managed-spark/user.md) %}
+
+#### managed-spark.editor {#managed-spark-editor}
+
+{% include [managed-spark.editor](../_roles/managed-spark/editor.md) %}
+
+#### managed-spark.admin {#managed-spark-admin}
+
+{% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
+
+#### managed-spark.integrationProvider {#managed-spark-integrationProvider}
+
+{% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
+
+Подробнее см. [{#T}](../managed-spark/security.md).
 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
@@ -1046,6 +1535,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-clickhouse.viewer](../_roles/managed-clickhouse/viewer.md) %}
 
+#### managed-clickhouse.restorer {#managed-clickhouse-restorer}
+
+{% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -1055,8 +1548,6 @@ description: В статье приведен полный справочник 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
 
 Подробнее см. [{#T}](../managed-clickhouse/security.md).
-
-
 
 
 ## {{ mgl-full-name }} {#managed-gitlab-roles}
@@ -1082,6 +1573,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mgp-full-name }} {#managed-greenplum-roles}
 
+#### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
+
+{% include [managed-greenplum.clusters.connector](../_roles/managed-greenplum/clusters/connector.md) %}
+
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
 {% include [managed-greenplum.auditor](../_roles/managed-greenplum/auditor.md) %}
@@ -1089,6 +1584,10 @@ description: В статье приведен полный справочник 
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
 {% include [managed-greenplum.viewer](../_roles/managed-greenplum/viewer.md) %}
+
+#### managed-greenplum.restorer {#managed-greenplum-restorer}
+
+{% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
@@ -1138,7 +1637,7 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-kubernetes/security/index.md).
 
 
-## {{ mmg-full-name }} {#managed-mongodb-roles}
+## {{ mmg-full-name }} {#storedoc-roles}
 
 #### managed-mongodb.auditor {#managed-mongodb-auditor}
 
@@ -1148,6 +1647,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
 
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
@@ -1156,10 +1659,14 @@ description: В статье приведен полный справочник 
 
 {% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
 
-Подробнее см. [{#T}](../managed-mongodb/security/index.md).
+Подробнее см. [{#T}](../storedoc/security/index.md).
 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
+
+#### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
+
+{% include [managed-mysql.clusters.connector](../_roles/managed-mysql/clusters/connector.md) %}
 
 #### managed-mysql.auditor {#managed-mysql-auditor}
 
@@ -1168,6 +1675,10 @@ description: В статье приведен полный справочник 
 #### managed-mysql.viewer {#managed-mysql-viewer}
 
 {% include [managed-mysql.viewer](../_roles/managed-mysql/viewer.md) %}
+
+#### managed-mysql.restorer {#managed-mysql-restorer}
+
+{% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
 #### managed-mysql.editor {#managed-mysql-editor}
 
@@ -1190,6 +1701,10 @@ description: В статье приведен полный справочник 
 
 {% include [opensearch.viewer](../_roles/managed-opensearch/viewer.md) %}
 
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../_roles/managed-opensearch/editor.md) %}
@@ -1203,6 +1718,10 @@ description: В статье приведен полный справочник 
 
 ## {{ mpg-full-name }} {#mpg-roles}
 
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../_roles/managed-postgresql/clusters/connector.md) %}
+
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 
 {% include [managed-postgresql.auditor](../_roles/managed-postgresql/auditor.md) %}
@@ -1210,6 +1729,10 @@ description: В статье приведен полный справочник 
 #### managed-postgresql.viewer {#managed-postgresql-viewer}
 
 {% include [managed-postgresql.viewer](../_roles/managed-postgresql/viewer.md) %}
+
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
@@ -1222,6 +1745,31 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-postgresql/security/index.md).
 
 
+## {{ mspqr-full-name }} {#mspqr-roles}
+
+#### managed-spqr.auditor {#managed-spqr-auditor}
+
+{% include [managed-spqr.auditor](../_roles/managed-spqr/auditor.md) %}
+
+#### managed-spqr.viewer {#managed-spqr-viewer}
+
+{% include [managed-spqr.viewer](../_roles/managed-spqr/viewer.md) %}
+
+#### managed-spqr.restorer {#managed-spqr-restorer}
+
+{% include [managed-spqr.restorer](../_roles/managed-spqr/restorer.md) %}
+
+#### managed-spqr.editor {#managed-spqr-editor}
+
+{% include [managed-spqr.editor](../_roles/managed-spqr/editor.md) %}
+
+#### managed-spqr.admin {#managed-spqr-admin}
+
+{% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
+
+Подробнее см. [{#T}](../managed-spqr/security.md).
+
+
 ## {{ mrd-full-name }} {#mrd-roles}
 
 #### managed-redis.auditor {#managed-redis-auditor}
@@ -1232,6 +1780,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-redis.viewer](../_roles/managed-redis/viewer.md) %}
 
+#### managed-redis.restorer {#managed-redis-restorer}
+
+{% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../_roles/managed-redis/editor.md) %}
@@ -1240,7 +1792,7 @@ description: В статье приведен полный справочник 
 
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
 
-Подробнее см. [{#T}](../managed-redis/security/index.md).
+Подробнее см. [{#T}](../managed-valkey/security/index.md).
 
 
 ## {{ mms-full-name }} {#mms-roles}
@@ -1253,6 +1805,10 @@ description: В статье приведен полный справочник 
 
 {% include [managed-sqlserver.viewer](../_roles/managed-sqlserver/viewer.md) %}
 
+#### managed-sqlserver.restorer {#managed-sqlserver-restorer}
+
+{% include [managed-sqlserver-restorer](../_roles/managed-sqlserver/restorer.md) %}
+
 #### managed-sqlserver.editor {#managed-sqlserver-editor}
 
 {% include [managed-sqlserver.editor](../_roles/managed-sqlserver/editor.md) %}
@@ -1260,6 +1816,60 @@ description: В статье приведен полный справочник 
 #### managed-sqlserver.admin {#managed-sqlserver-admin}
 
 {% include [managed-sqlserver.admin](../_roles/managed-sqlserver/admin.md) %}
+
+
+## {{ mtr-full-name }} {#mtr-roles}
+
+#### managed-trino.auditor {#managed-trino-auditor}
+
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
+
+#### managed-trino.viewer {#managed-trino-viewer}
+
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.user {#managed-trino-user}
+
+{% include [managed-trino.user](../_roles/managed-trino/user.md) %}
+
+#### managed-trino.editor {#managed-trino-editor}
+
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
+
+#### managed-trino.admin {#managed-trino-admin}
+
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.integrationProvider {#managed-trino-integrationProvider}
+
+{% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}
+
+Подробнее см. [{#T}](../managed-trino/security.md).
+
+
+## {{ myt-full-name }} {#myt-roles}
+
+#### managed-ytsaurus.auditor {#managed-ytsaurus-auditor}
+
+{% include [managed-ytsaurus.auditor](../_roles/managed-ytsaurus/auditor.md) %}
+
+#### managed-ytsaurus.viewer {#managed-ytsaurus-viewer}
+
+{% include [managed-ytsaurus.viewer](../_roles/managed-ytsaurus/viewer.md) %}
+
+#### managed-ytsaurus.user {#managed-ytsaurus-user}
+
+{% include [managed-ytsaurus.user](../_roles/managed-ytsaurus/user.md) %}
+
+#### managed-ytsaurus.editor {#managed-ytsaurus-editor}
+
+{% include [managed-ytsaurus.editor](../_roles/managed-ytsaurus/editor.md) %}
+
+#### managed-ytsaurus.admin {#managed-ytsaurus-admin}
+
+{% include [managed-ytsaurus.admin](../_roles/managed-ytsaurus/admin.md) %}
+
+Подробнее см. [{#T}](../managed-ytsaurus/security/index.md).
 
 
 ## {{ ydb-full-name }} {#ydb-roles}
@@ -1334,6 +1944,10 @@ description: В статье приведен полный справочник 
 #### load-balancer.privateAdmin {#load-balancer-private-admin}
 
 {% include [loadbalancer-privateadmin](../_roles/load-balancer/privateAdmin.md) %}
+
+#### load-balancer.editor {#load-balancer-editor}
+
+{% include [loadbalancer-editor](../_roles/load-balancer/editor.md) %}
 
 #### load-balancer.admin {#load-balancer-admin}
 
@@ -1456,23 +2070,35 @@ description: В статье приведен полный справочник 
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
-### Сервисные роли для анализа данных Access Transparency {#access-transparency-roles}
+### Общие роли {{ sd-name }} {#general-sd-roles}
 
-#### access-transparency.viewer {#access-transparency-viewer}
+#### security-deck.worker {#security-deck-worker}
 
-{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+{% include [security-deck.worker](../_roles/security-deck/worker.md) %}
 
-#### access-transparency.editor {#access-transparency-editor}
+#### security-deck.auditor {#security-deck-auditor}
 
-{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+{% include [security-deck.auditor](../_roles/security-deck/auditor.md) %}
 
-#### access-transparency.admin {#access-transparency-admin}
+#### security-deck.viewer {#security-deck-viewer}
 
-{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+{% include [security-deck.viewer](../_roles/security-deck/viewer.md) %}
 
-Подробнее см. [Управление доступом в Access Transparency](../security-deck/security/access-transparency-roles.md).
+#### security-deck.editor {#security-deck-editor}
 
-### Сервисные роли для контроля данных (DSPM) {#dspm-roles}
+{% include [security-deck.editor](../_roles/security-deck/editor.md) %}
+
+#### security-deck.admin {#security-deck-admin}
+
+{% include [security-deck.admin](../_roles/security-deck/admin.md) %}
+
+Подробнее см. [Общие роли {{ sd-full-name }}](../security-deck/security/index.md).
+
+### Сервисные роли для контроля данных ({{ dspm-name }}) {#dspm-roles}
+
+#### dspm.worker {#dspm-worker}
+
+{% include [dspm.worker](../_roles/dspm/worker.md) %}
 
 #### dspm.inspector {#dspm-inspector}
 
@@ -1494,7 +2120,103 @@ description: В статье приведен полный справочник 
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-Подробнее см. [Управление доступом в DSPM](../security-deck/security/dspm-roles.md).
+Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+
+### Сервисные роли для модуля Контроль {{ k8s }}® (KSPM) {#kspm-roles}
+
+#### kspm.worker {#kspm-worker}
+
+{% include [kspm.worker](../_roles/kspm/worker.md) %}
+
+#### kspm.auditor {#kspm-auditor}
+
+{% include [kspm.auditor](../_roles/kspm/auditor.md) %}
+
+#### kspm.viewer {#kspm-viewer}
+
+{% include [kspm.viewer](../_roles/kspm/viewer.md) %}
+
+#### kspm.editor {#kspm-editor}
+
+{% include [kspm.editor](../_roles/kspm/editor.md) %}
+
+#### kspm.admin {#kspm-admin}
+
+{% include [kspm.admin](../_roles/kspm/admin.md) %}
+
+Подробнее см. [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
+
+### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
+
+#### cspm.worker {#cspm-worker}
+
+{% include [cspm.worker](../_roles/cspm/worker.md) %}
+
+#### cspm.auditor {#cspm-auditor}
+
+{% include [cspm.auditor](../_roles/cspm/auditor.md) %}
+
+#### cspm.viewer {#cspm-viewer}
+
+{% include [cspm.viewer](../_roles/cspm/viewer.md) %}
+
+#### cspm.editor {#cspm-editor}
+
+{% include [cspm.editor](../_roles/cspm/editor.md) %}
+
+#### cspm.admin {#cspm-admin}
+
+{% include [cspm.admin](../_roles/cspm/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ cspm-name }}](../security-deck/security/cspm-roles.md).
+
+### Сервисные роли для анализа данных {{ atr-name }} {#access-transparency-roles}
+
+#### access-transparency.viewer {#access-transparency-viewer}
+
+{% include [access-transparency.viewer](../_roles/access-transparency/viewer.md) %}
+
+#### access-transparency.editor {#access-transparency-editor}
+
+{% include [access-transparency.editor](../_roles/access-transparency/editor.md) %}
+
+#### access-transparency.admin {#access-transparency-admin}
+
+{% include [access-transparency.admin](../_roles/access-transparency/admin.md) %}
+
+#### access-transparency.billingProvider {#access-transparency-billingProvider}
+
+{% include [access-transparency.billingProvider](../_roles/access-transparency/billingProvider.md) %}
+
+#### access-transparency.subscriptionManager {#access-transparency-subscriptionManager}
+
+{% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
+
+Подробнее см. [Управление доступом в {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
+
+### Сервисные роли для модуля {{ alerts-name }} {#alerts-roles}
+
+#### security-deck.alertSinks.user {#security-deck-alertSinks-user}
+
+{% include [security-deck.alertSinks.user](../_roles/security-deck/alertSinks/user.md) %}
+
+#### security-deck.alertSinks.auditor {#security-deck-alertSinks-auditor}
+
+{% include [security-deck.alertSinks.auditor](../_roles/security-deck/alertSinks/auditor.md) %}
+
+#### security-deck.alertSinks.viewer {#security-deck-alertSinks-viewer}
+
+{% include [security-deck.alertSinks.viewer](../_roles/security-deck/alertSinks/viewer.md) %}
+
+#### security-deck.alertSinks.editor {#security-deck-alertSinks-editor}
+
+{% include [security-deck.alertSinks.editor](../_roles/security-deck/alertSinks/editor.md) %}
+
+#### security-deck.alertSinks.admin {#security-deck-alertSinks-admin}
+
+{% include [security-deck.alertSinks.admin](../_roles/security-deck/alertSinks/admin.md) %}
+
+Подробнее см. [Управление доступом в модуле Алерты](../security-deck/security/alerts-roles.md).
 
 
 ## {{ serverless-containers-full-name }} {#serverless-containers-roles}
@@ -1536,6 +2258,57 @@ description: В статье приведен полный справочник 
 {% include [serverless.containers.invoker](../_roles/serverless/containers/invoker.md) %}
 
 Подробнее см. [{#T}](../serverless-containers/security/index.md).
+
+
+## {{ si-full-name }} {#serverless-integrations-roles}
+
+### Сервисные роли {{ er-full-name }} {#eventrouter-roles}
+
+#### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
+
+{% include [serverless.eventrouter.auditor](../_roles/serverless/eventrouter/auditor.md) %}
+
+#### serverless.eventrouter.viewer {#serverless-eventrouter-viewer}
+
+{% include [serverless.eventrouter.viewer](../_roles/serverless/eventrouter/viewer.md) %}
+
+#### serverless.eventrouter.supplier {#serverless-eventrouter-supplier}
+
+{% include [serverless.eventrouter.supplier](../_roles/serverless/eventrouter/supplier.md) %}
+
+#### serverless.eventrouter.editor {#serverless-eventrouter-editor}
+
+{% include [serverless.eventrouter.editor](../_roles/serverless/eventrouter/editor.md) %}
+
+#### serverless.eventrouter.admin {#serverless-eventrouter-admin}
+
+{% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+
+### Сервисные роли {{ sw-full-name }} {#workflows-roles}
+
+#### serverless.workflows.auditor {#serverless-workflows-auditor}
+
+{% include [serverless.workflows.auditor](../_roles/serverless/workflows/auditor.md) %}
+
+#### serverless.workflows.viewer {#serverless-workflows-viewer}
+
+{% include [serverless.workflows.viewer](../_roles/serverless/workflows/viewer.md) %}
+
+#### serverless.workflows.executor {#serverless-workflows-executor}
+
+{% include [serverless.workflows.executor](../_roles/serverless/workflows/executor.md) %}
+
+#### serverless.workflows.editor {#serverless-workflows-editor}
+
+{% include [serverless.workflows.editor](../_roles/serverless/workflows/editor.md) %}
+
+#### serverless.workflows.admin {#serverless-workflows-admin}
+
+{% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
 
 
 ## {{ captcha-full-name }} {#captcha-roles}
@@ -1692,6 +2465,18 @@ description: В статье приведен полный справочник 
 #### vpc.securityGroups.admin {#vpc-sg-admin}
 
 {% include [vpc-securitygroups-admin](../_roles/vpc/securityGroups/admin.md) %}
+
+#### vpc.privateEndpoints.viewer {#vpc-privateEndpoints-viewer}
+
+{% include [vpc-privateEndpoints-viewer](../_roles/vpc/privateEndpoints/viewer.md) %}
+
+#### vpc.privateEndpoints.editor {#vpc-privateEndpoints-editor}
+
+{% include [vpc-privateEndpoints-editor](../_roles/vpc/privateEndpoints/editor.md) %}
+
+#### vpc.privateEndpoints.admin {#vpc-privateEndpoints-admin}
+
+{% include [vpc-privateEndpoints-admin](../_roles/vpc/privateEndpoints/admin.md) %}
 
 Подробнее см. [{#T}](../vpc/security/index.md).
 

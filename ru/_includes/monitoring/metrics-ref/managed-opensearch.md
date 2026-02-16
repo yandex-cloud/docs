@@ -4,33 +4,48 @@
 
 Метка | Значение
 ----|----
-service | Идентификатор сервиса: `managed-opensearch`
-resource_type | Тип ресурса: `cluster`
-resource_id | Идентификатор кластера
+dc | [Зона доступности](../../../overview/concepts/geo-scope.md)
 host | FQDN хоста
+node | Тип хоста
+resource_id | Идентификатор кластера
+resource_type | Тип ресурса: `cluster`
+sensor | Дополнительная метка, дублирует имя метрики
+service | Идентификатор сервиса: `managed-opensearch`
+shard | Идентификатор шарда
+shard_name | Имя шарда
+subcluster_name | Имя субкластера
 
 ## Метрики CPU {#managed-opensearch-cpu-metrics}
+
 Загрузка процессорных ядер.
+
+Тип потребления пишется в метку `systag`.
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Гарантированная доля vCPU. | 
 | `cpu.guarantee`<br/>`DGAUGE`, штуки | Гарантированное число ядер. | 
-| `cpu.limit`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. | 
-| `cpu.guest`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest`. | 
 | `cpu.guest_nice`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest_nice`. | 
+| `cpu.guest`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `guest`. | 
 | `cpu.idle`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `idle`. | 
 | `cpu.iowait`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `iowait`. | 
 | `cpu.irq`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `irq`. | 
+| `cpu.limit`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. | 
 | `cpu.nice`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `nice`. | 
 | `cpu.softirq`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `softirq`. | 
 | `cpu.steal`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `steal`. | 
 | `cpu.system`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `system`. | 
 | `cpu.user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. |
-| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 15 секунд. Принимает значения от 0% до [уровня производительности vCPU](../../../compute/concepts/performance-levels.md). | 
+| `cpu_time_iowait_counter`<br/>`DGAUGE`, секунды | Накопленное время ожидания ввода-вывода. |
+| `cpu_time_iowait`<br/>`DGAUGE`, секунды | Время ожидания ввода-вывода. |
+| `cpu_time_system_counter`<br/>`DGAUGE`, секунды | Накопленное время в системном режиме. |
+| `cpu_time_system`<br/>`DGAUGE`, секунды | Время в системном режиме. |
+| `cpu_time_user_counter`<br/>`DGAUGE`, секунды | Накопленное время в пользовательском режиме. |
+| `cpu_time_user`<br/>`DGAUGE`, секунды | Время в пользовательском режиме. |
 | `cpu_utilization_by_db_15_limit`<br/>`DGAUGE`, % | Предельная утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 15 секунд. | 
-| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. | 
+| `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 15 секунд. Принимает значения от 0% до [уровня производительности vCPU](../../../compute/concepts/performance-levels.md). | 
 | `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Предельная утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. |
+| `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных в процентах за 60 секунд. | 
 | `load.avg_15min`<br/>`DGAUGE`, % | Средняя нагрузка за 15 минут. | 
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. | 
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
@@ -48,19 +63,46 @@ host | FQDN хоста
 ## Метрики дисковых операций {#managed-opensearch-diskio-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
+| `io.avg.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций в текущий момент. |
+| `io.avg.read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения данных с диска. |
+| `io.avg.read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения в секунду. |
+| `io.avg.read_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций чтения в секунду. |
+| `io.avg.read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения по всем дискам. |
+| `io.avg.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Суммарное (взвешенное) время, затраченное на I/O-операции. |
+| `io.avg.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи данных на диск. |
+| `io.avg.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. |
+| `io.avg.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи в секунду. |
+| `io.avg.write_time`<br/>`DGAUGE`, миллисекунды | Общее время, затраченное на запись на диск. |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
-| `io.disk*.merged_reads`<br/>`DGAUGE`, штуки | Количество слитых операций чтения с конкретного диска. | 
-| `io.disk*.merged_writes`<br/>`DGAUGE`, штуки | Количество слитых операций записи на конкретный диск. | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с конкретного диска. | 
 | `io.disk*.read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения с конкретного диска в секунду. | 
+| `io.disk*.read_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций чтения с конкретного диска в секунду. |
 | `io.disk*.read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с конкретного диска. | 
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Использование конкретного диска. Не работает для сетевых дисков. | 
 | `io.disk*.weighted_io_time`<br/>`DGAUGE`, миллисекунды | Длительность ожидания операций ввода/вывода на конкретном диске. | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на конкретный диск. | 
 | `io.disk*.write_count`<br/>`DGAUGE`, операций/с | Количество операций записи на конкретный диск в секунду. | 
+| `io.disk*.write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи на конкретный диск в секунду. |
 | `io.disk*.write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на конкретный диск. | 
+| `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Средний процент используемой квоты диска. |
+| `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Максимальный процент используемой квоты диска. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, прочитанных с диска. |
+| `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, прочитанных с диска. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, байты/с | Среднее количество байт, записанных на диск. |
+| `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, байты/с | Максимальное количество байт, записанных на диск. |
+| `read_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на чтение с диска. |
+| `read_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций чтения с диска. |
+| `read_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций чтения с диска. |
+| `read_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций чтения при превышении квоты диска. |
+| `write_latency`<br/>`DGAUGE`, миллисекунды | Гистограмма распределения времени обработки запросов на запись на диск. |
+| `write_ops`<br/>`DGAUGE`, операции/с | Среднее количество операций записи на диск. |
+| `write_ops_burst`<br/>`DGAUGE`, операции/с | Максимальное количество операций записи на диск. |
+| `write_throttler_delay`<br/>`DGAUGE`, миллисекунды | Гистограмма задержки, вносимой в длительность выполнения операций записи при превышении квоты диска. |
 
 ## Метрики RAM {#managed-opensearch-ram-metrics}
+
+Тип потребления пишется в метку `systag`.
+
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, байты | Объем оперативной памяти, которая используется наиболее часто и освобождается только в крайнем случае. | 
@@ -72,12 +114,14 @@ host | FQDN хоста
 | `mem.committed_as_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `committed_as`. | 
 | `mem.dirty_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `dirty`. | 
 | `mem.free_bytes`<br/>`DGAUGE`, байты | Объем свободной оперативной памяти, доступной для использования, без учета `mem.buffers_bytes` и `mem.cached_bytes`. |
+| `mem.guarantee_bytes`<br/>`DGAUGE`, байты | Гарантированный объем оперативной памяти. |
 | `mem.high_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_free`. | 
 | `mem.high_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_total`. | 
 | `mem.huge_page_size_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_page_size`. | 
 | `mem.huge_pages_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_free`. | 
 | `mem.huge_pages_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_total`. | 
 | `mem.inactive_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `inactive`. | 
+| `mem.limit_bytes`<br/>`DGAUGE`, байты | Предельный размер оперативной памяти. | 
 | `mem.low_free_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_free`. | 
 | `mem.low_total_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_total`. | 
 | `mem.mapped_bytes`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `mapped`. | 
@@ -103,16 +147,13 @@ host | FQDN хоста
 | ----- | ----- |
 | `net.bytes_recv`<br/>`DGAUGE`, байт/с | Скорость получения данных по сети. | 
 | `net.bytes_sent`<br/>`DGAUGE`, байт/с | Скорость отправки данных по сети. | 
-| `net.drop_in`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при получении. | 
-| `net.drop_out`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
 | `net.dropin`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при получении. | 
 | `net.dropout`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
-| `net.err_in`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
-| `net.err_out`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
 | `net.errin`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
 | `net.errout`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
 | `net.packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
+| `net.speed`<br/>`DGAUGE`, бит/с | Максимальная скорость передачи данных в сети для данного интерфейса. |
 
 ## Метрики сервиса {#managed-opensearch-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
@@ -121,19 +162,18 @@ host | FQDN хоста
 | `available`<br/>`DGAUGE`, штуки | Использование оперативной памяти, тип потребления `available`. |
 | `available_percent`<br/>`DGAUGE`, % | Доля использования оперативной памяти, тип потребления `available`. |
 | `buffered`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `buffered`. |
-| `bytes_recv`<br/>`DGAUGE`, байты | Размер полученных данных. |
-| `bytes_sent`<br/>`DGAUGE`, байты | Размер отправленных данных. |
 | `cached`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `cached`. |
 | `commit_limit`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `commit_limit`. |
 | `committed_as`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `committed_as`. |
+| `count`<br/>`DGAUGE`, объектов | Количество объектов. |
 | `dirty`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `dirty`. | 
-| `drop_in`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при получении. | 
-| `drop_out`<br/>`DGAUGE`, штуки | Количество пакетов, отброшенных при отправке. | 
-| `err_in`<br/>`DGAUGE`, штуки | Количество ошибок при получении. | 
-| `err_out`<br/>`DGAUGE`, штуки | Количество ошибок при отправке. | 
 | `free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `free`. | 
 | `high_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_free`. | 
 | `high_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `high_total`. | 
+| `hosts.ha`<br/>`DGAUGE`, штуки | Количество узлов с включенной отказоустойчивостью. |
+| `hosts.subcluster.dashboards.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере Dashboards. |
+| `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, штуки | Количество узлов в подкластере {{ OS }}. |
+| `hosts.total`<br/>`DGAUGE`, штуки | Количество узлов в кластере. |
 | `huge_page_size`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_page_size`. | 
 | `huge_pages_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_free`. | 
 | `huge_pages_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `huge_pages_total`. | 
@@ -159,6 +199,8 @@ host | FQDN хоста
 | `icmp_outerrors`<br/>`DGAUGE`, штуки | Количество ICMP-сообщений, которые этот объект не отправил из-за проблем, обнаруженных в ICMP, таких как нехватка буферов. | 
 | `icmp_outmsgs`<br/>`DGAUGE`, штуки | Общее количество ICMP-сообщений, которые пытался отправить этот объект. Включает все сообщения, подсчитанные `icmp_outerrors`. |
 | `icmp_outparmprobs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений о проблемах с параметрами ICMP. | 
+| `icmp_outratelimitglobal`<br/>`DGAUGE`, штуки | ICMP-пакеты, отброшенные из-за ограничения скорости. |
+| `icmp_outratelimithost`<br/>`DGAUGE`, штуки | ICMP-пакеты, отброшенные из-за превышения лимита скорости хоста. |
 | `icmp_outredirects`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с перенаправлениями маршрута.  | 
 | `icmp_outsrcquenchs`<br/>`DGAUGE`, штуки | Количество отправленных сообщений Source Quench по протоколу ICMP. |
 | `icmp_outtimeexcds`<br/>`DGAUGE`, штуки | Количество отправленных сообщений с превышением времени ICMP превысило количество отправленных сообщений. | 
@@ -169,11 +211,15 @@ host | FQDN хоста
 | `icmpmsg_outtype0`<br/>`DGAUGE`, штуки | Общее количество отправленных ICMP-сообщений типа 0 (Echo Reply).  | 
 | `icmpmsg_outtype3`<br/>`DGAUGE`, штуки | Общее количество отправленных ICMP-сообщений типа 3 (Destination Unreachable).  | 
 | `icmpmsg_outtype8`<br/>`DGAUGE`, штуки | Общее количество отправленных ICMP-сообщений типа 8 (Echo Request).  | 
+| `icmpmsg_outtype11`<br/>`DGAUGE`, штуки | Общее количество отправленных ICMP-сообщений типа 11 (Time Exceeded). |
 | `inactive`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `inactive`. | 
+| `index_docs_count`<br/>`DGAUGE`, штуки | Количество документов в индексе. Отображаются 10 индексов с наибольшим количеством документов. Учитываются только индексы размером более 1 МБ.<br/>Специальная метка `index` — имя индекса. |
+| `index_primary_store_size`<br/>`DGAUGE`, байты | Размер индекса. Отображаются 10 индексов наибольшего размера. Учитываются только индексы размером более 1 МБ.<br/>Специальная метка `index` — имя индекса. |
 | `inodes_free`<br/>`DGAUGE`, штуки | Свободное количество inodes. | 
 | `inodes_total`<br/>`DGAUGE`, штуки | Доступное количество inodes. | 
 | `inodes_used`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
-| `instance_userfault_broken`<br/>`DGAUGE`, штуки | Количество ошибок в операциях с памятью. |
+| `inodes_used_percent`<br/>`DGAUGE`, % | Процент занятых inodes. |
+| `instance_userfault_broken`<br/>`DGAUGE`, 0/1 | Показатель, оценивающий вывод хоста из строя по вине пользователя. |
 | `iops_in_progress`<br/>`DGAUGE`, штуки | Количество незавершенных дисковых операций. | 
 | `ip_defaultttl`<br/>`DGAUGE`, строка | Значение по умолчанию, вставляемое в поле Time-To-Live заголовка IP-пакетов, созданных в этом объекте, когда значение TTL не предоставляется протоколом транспортного уровня. | 
 | `ip_forwarding`<br/>`DGAUGE` | Состояние пересылки IP (в сетевом протоколе SNMP) (`0` — отключено, `1` — включено).  | 
@@ -190,23 +236,26 @@ host | FQDN хоста
 | `ip_outdiscards`<br/>`DGAUGE`, штуки | Количество выходящих IP-пакетов, для которых не возникло проблем, препятствующих их передаче по назначению, но которые были отброшены (например, из-за нехватки места в буфере). Обратите внимание, что этот счетчик включал бы пакеты, подсчитанные в `ip_forwdatagrams`, если бы такие пакеты удовлетворяли этому (дискреционному) критерию отбрасывания. | 
 | `ip_outnoroutes`<br/>`DGAUGE`, штуки | Количество отброшенных IP-пакетов, для которых не удалось найти маршрут для их передачи по назначению. Этот счетчик включает все пакеты, подсчитанные в `ip_forwdatagrams`, которые соответствуют критерию «без маршрута». Сюда входят любые пакеты, которые хост не может перенаправить, поскольку все его маршрутизаторы по умолчанию не работают. | 
 | `ip_outrequests`<br/>`DGAUGE`, штуки | Общее количество IP-пакетов, которые локальные пользовательские протоколы IP (включая ICMP) передали IP в запросах на передачу. Этот счетчик не включает в себя пакеты, подсчитанные в `ip_forwdatagrams`. | 
+| `ip_outtransmits`<br/>`DGAUGE`, штуки | Количество успешно отправленных IP-пакетов. |
 | `ip_reasmfails`<br/>`DGAUGE`, штуки | Количество сбоев, обнаруженных алгоритмом повторной сборки IP (по любой причине: тайм-аут, ошибки и т.д.). Это не обязательно количество отброшенных IP-фрагментов, поскольку некоторые алгоритмы (в частности, алгоритм в RFC 815) могут потерять отслеживание количества фрагментов, объединяя их по мере их получения. | 
 | `ip_reasmoks`<br/>`DGAUGE`, штуки | Количество IP-пакетов, успешно собранных повторно. | 
 | `ip_reasmreqds`<br/>`DGAUGE`, штуки | Количество полученных IP-фрагментов, которые необходимо было повторно собрать в этом объекте. | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, секунды | Максимальное количество секунд, в течение которых удерживаются полученные фрагменты, пока они ожидают повторной сборки в этом объекте. | 
 | `low_free`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_free`. | 
 | `low_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `low_total`. | 
+| `memory_pss`<br/>`DGAUGE`, байт | Пропорциональный объем физической памяти (Proportional Set Size), занимаемый процессом, с учетом разделяемых страниц памяти. |
 | `mapped`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `mapped`. | 
 | `merged_reads`<br/>`DGAUGE`, штуки | Количество слитых операций чтения с дисков. | 
 | `merged_writes`<br/>`DGAUGE`, штуки | Количество слитых операций записи на диски. | 
 | `n_cpus`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. | 
+| `n_unique_users`<br/>`DGAUGE`, штуки | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
 | `n_users`<br/>`DGAUGE`, штуки | Предельное число пользователей. | 
-| `packets_recv`<br/>`DGAUGE`, пакетов/с | Интенсивность получения данных по сети. | 
-| `packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. | 
 | `page_tables`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `page_tables`. | 
 | `read_bytes`<br/>`DGAUGE`, байт/с | Скорость чтения с конкретного диска. | 
 | `read_count`<br/>`DGAUGE`, операций/с | Количество операций чтения с конкретного диска в секунду. | 
+| `read_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций чтения в секунду. |
 | `read_time`<br/>`DGAUGE`, миллисекунды | Среднее время чтения с дисков. | 
+| `running`<br/>`DGAUGE`, 0/1 | Принимает значение `1`, если сервис запущен, `0` — если нет. |
 | `shared`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `shared`. | 
 | `slab`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `slab`. | 
 | `sreclaimable`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `sreclaimable`. | 
@@ -234,6 +283,7 @@ host | FQDN хоста
 | `udp_incsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный UDP-пакет содержит недопустимую контрольную сумму кода ядра. | 
 | `udp_indatagrams`<br/>`DGAUGE`, штуки | Общее количество принятых UDP-пакетов.  | 
 | `udp_inerrors`<br/>`DGAUGE`, штуки | Количество полученных UDP-пакетов с ошибками, не включая ошибки контрольной суммы.  | 
+| `udp_memerrors`<br/>`DGAUGE`, ошибки | Количество ошибок, связанных с нехваткой памяти для протокола UDP. |
 | `udp_noports`<br/>`DGAUGE`, штуки | Общее количество полученных UDP-пакетов, для которых на порту назначения не было приложения. | 
 | `udp_outdatagrams`<br/>`DGAUGE`, штуки | Общее количество UDP-пакетов, отправленных от этого объекта. | 
 | `udp_rcvbuferrors`<br/>`DGAUGE`, штуки | Количество ошибок буфера приема UDP.  | 
@@ -242,6 +292,7 @@ host | FQDN хоста
 | `udplite_incsumerrors`<br/>`DGAUGE`, штуки | Увеличивается, когда полученный пакет UDP Lite содержит недопустимую контрольную сумму кода ядра. | 
 | `udplite_indatagrams`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP-Lite.  | 
 | `udplite_inerrors`<br/>`DGAUGE`, штуки | Общее количество ошибок при получении пакетов UDP-Lite.  | 
+| `udplite_memerrors`<br/>`DGAUGE`, ошибки | Количество ошибок, связанных с нехваткой памяти для протокола UDP-Lite. |
 | `udplite_noports`<br/>`DGAUGE`, штуки | Общее количество принятых пакетов UDP Lite, для которых на порте назначения не было слушателя. Перебои в значении этого счетчика могут возникать при повторной инициализации системы управления и в другое время, на что указывает значение `udplite_statsdiscontinuitytime`. | 
 | `udplite_outdatagrams`<br/>`DGAUGE`, штуки | Общее количество отправленных датаграмм UDP-Lite.  | 
 | `udplite_rcvbuferrors`<br/>`DGAUGE`, штуки | Увеличивается, когда память не может быть выделена для обработки входящего пакета UDP Lite. | 
@@ -259,7 +310,6 @@ host | FQDN хоста
 | `usage_user`<br/>`DGAUGE`, % | Использование процессорных ядер, тип потребления `user`. | 
 | `used`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `used`. | 
 | `used_percent`<br/>`DGAUGE`, % | Доля использования оперативной памяти, тип потребления `used`. | 
-| `utilization`<br/>`DGAUGE`, % | Средняя утилизация процессорных ядер ВМ (vCPU) базой данных. | 
 | `vmalloc_chunk`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_chunk`. | 
 | `vmalloc_total`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_total`. | 
 | `vmalloc_used`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `vmalloc_used`. | 
@@ -268,19 +318,28 @@ host | FQDN хоста
 | `write_back_tmp`<br/>`DGAUGE`, байты | Использование оперативной памяти, тип потребления `write_back_tmp`. |
 | `write_bytes`<br/>`DGAUGE`, байт/с | Скорость записи на диски. | 
 | `write_count`<br/>`DGAUGE`, операций/с | Количество операций записи в секунду. | 
+| `write_merged_count`<br/>`DGAUGE`, операций/с | Количество слитых операций записи на конкретный диск в секунду. | 
 | `write_time`<br/>`DGAUGE`, миллисекунды | Среднее время записи на диски. | 
 
 #### Нативные метрики {{ OS }} {#managed-opensearch-system-metrics}
 
 | Имя<br/>Тип, единицы измерения | 
 | ----- | 
+| `opensearch_above_critical_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_flood_stage_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_high_watermark`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | 
+| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, штуки | 
+| `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, штуки | 
 | `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, килобайты | 
 | `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, штуки | 
+| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, килобайты | 
 | `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, штуки | 
+| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, байты | 
@@ -295,8 +354,8 @@ host | FQDN хоста
 | `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_flush_periodic`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_flush_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_flush_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_get_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_indices_get_exists_total`<br/>`DGAUGE`, штуки | 
@@ -307,22 +366,25 @@ host | FQDN хоста
 | `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, штуки |
 | `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, миллисекунды  | 
+| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, миллисекунды  | 
 | `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_merges_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_merges_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_merges_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_merges_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_query_cache_cache_size`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_query_cache_evictions`<br/>`DGAUGE`, штуки | 
@@ -333,15 +395,19 @@ host | FQDN хоста
 | `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
-| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_refresh_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_refresh_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_request_cache_memory_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды |
 | `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, штуки | 
@@ -352,6 +418,24 @@ host | FQDN хоста
 | `opensearch_indices_search_query_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
 | `opensearch_indices_search_query_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, миллисекунды | 
+| `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, штуки |
 | `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, миллисекунды |
 | `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, штуки | 
@@ -366,6 +450,21 @@ host | FQDN хоста
 | `opensearch_indices_segments_memory_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_segments_norms_memory_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_segments_points_memory_in_bytes`<br/>`DGAUGE`, байты | 
+| `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_segment_replication_max_bytes_behind`<br/>`DGAUGE`, байты |
+| `opensearch_indices_segments_segment_replication_max_replication_lag`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_segments_segment_replication_total_bytes_behind`<br/>`DGAUGE`, байты |
 | `opensearch_indices_segments_stored_fields_memory_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_segments_term_vectors_memory_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_segments_terms_memory_in_bytes`<br/>`DGAUGE`, байты | 
@@ -374,12 +473,19 @@ host | FQDN хоста
 | `opensearch_indices_store_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_translog_earliest_last_modified_age`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_translog_operations`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_translog_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, байты |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_failed`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, штуки |
+| `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, штуки |
 | `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, байты | 
-| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, штуки |  | 
+| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, штуки |  | 
 | `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_indices_warmer_current`<br/>`DGAUGE`, штуки | 
-| `opensearch_indices_warmer_total`<br/>`DGAUGE`, штуки | 
 | `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, миллисекунды |
+| `opensearch_indices_warmer_total`<br/>`DGAUGE`, штуки | 
+| `opensearch_is_master`<br/>`DGAUGE`, 0/1 |
 | `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, штуки | 
 | `opensearch_jvm_gc_collectors_young_collection_count`<br/>`DGAUGE`, штуки | 
 | `opensearch_jvm_mem_heap_committed_in_bytes`<br/>`DGAUGE`, байты | 
@@ -408,6 +514,7 @@ host | FQDN хоста
 | `opensearch_thread_pool_<thread_pool_name>_queue`<br/>`DGAUGE`, штуки | 
 | `opensearch_thread_pool_<thread_pool_name>_rejected`<br/>`DGAUGE`, штуки | 
 | `opensearch_thread_pool_<thread_pool_name>_threads`<br/>`DGAUGE`, штуки | 
+| `opensearch_thread_pool_<thread_pool_name>_total_wait_time_in_nanos`<br/>`DGAUGE`, наносекунды |
 | `opensearch_transport_rx_count`<br/>`DGAUGE`, штуки | 
 | `opensearch_transport_rx_size_in_bytes`<br/>`DGAUGE`, байты | 
 | `opensearch_transport_server_open`<br/>`DGAUGE`, штуки | 
@@ -418,14 +525,34 @@ host | FQDN хоста
 #### Прочие метрики {#managed-opensearch-other-metrics}
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-opensearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
-| `opensearch_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
-| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
-| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |
-| `opensearch_initializing_shards`<br/>`DGAUGE`, штуки | Количество шардов в состоянии инициализации. | 
-| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
-| `opensearch_relocating_shards`<br/>`DGAUGE`, штуки | Количество перемещаемых шардов. | 
-| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Уровень работоспособности и техническое состояние кластера:<br/>`0` — красный: неработоспособное или частично работоспособное состояние. Хотя бы один из первичных шардов недоступен. Если кластер отвечает на запросы, результаты поиска в ответах будут неполными.<br/>`1` — желтый: работоспособное состояние. Нет доступа хотя бы к одному из шардов-реплик. Результаты поиска в ответах кластера полные, но если появятся еще недоступные шарды, работоспособность кластера нарушится.<br/>`2` — зеленый: исправное состояние. Все шарды кластера доступны. |
-| `opensearch_unassigned_shards`<br/>`DGAUGE`, штуки | Количество неактивных шардов с неназначенным хостом. |
 | `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
 | `dashboards_metrics_requests_total`<br/>`DGAUGE`, штуки | Общее количество запросов к кластеру. | 
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, штуки | Количество активных [первичных шардов](../../../managed-opensearch/concepts/scalability-and-resilience.md) и общее количество активных шардов в кластере. | 
+| `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, штуки | Процент активных шардов. | 
+| `opensearch_active_shards`<br/>`DGAUGE`, штуки | Количество активных шардов. | 
+| `opensearch_backup_age`<br/>`DGAUGE`, секунды | Возраст последней резервной копии. |
+| `opensearch_backup_free_space_required`<br/>`DGAUGE`, байты | Объем хранилища, необходимый для восстановления кластера из резервной копии. |
+| `opensearch_backup_incremental_size`<br/>`DGAUGE`, байты | Размер файлов, созданных в рамках инкрементной резервной копии. |
+| `opensearch_backup_total_size`<br/>`DGAUGE`, байты | Размер файлов, на которые ссылается резервная копия. |
+| `opensearch_critical_watermark_bytes`<br/>`DGAUGE`, байты | Критический порог занятого места на диске. |
+| `opensearch_critical_watermark_percentage`<br/>`DGAUGE`, % | Критический порог заполнения диска. |
+| `opensearch_delayed_unassigned_shards`<br/>`DGAUGE`, штуки | Количество отложенных к назначению шардов. |
+| `opensearch_flood_stage_watermark_bytes`<br/>`DGAUGE`, байты | Порог Flood stage для занятого места на диске. |
+| `opensearch_flood_stage_watermark_percentage`<br/>`DGAUGE`, % | Порог Flood stage для заполненности диска. |
+| `opensearch_high_watermark_bytes`<br/>`DGAUGE`, байты | Верхний порог занятого места на диске. |
+| `opensearch_high_watermark_percentage`<br/>`DGAUGE`, процент | Верхний порог заполнения диска. |
+| `opensearch_initializing_shards`<br/>`DGAUGE`, штуки | Количество шардов в состоянии инициализации. | 
+| `opensearch_is_alive`<br/>`DGAUGE`, 0/1 | Показатель работоспособности хоста.<br/>Принимает значение `1`, если хост БД работает, `0`, если нет. | 
+| `opensearch_low_watermark_bytes`<br/>`DGAUGE`, байты | Нижний порог занятого места на диске. |
+| `opensearch_low_watermark_percentage`<br/>`DGAUGE`, процент | Нижний порог заполнения диска. |
+| `opensearch_primary_shards_count`<br/>`DGAUGE`, штуки | Количество первичных шардов в кластере. |
+| `opensearch_relocating_shards`<br/>`DGAUGE`, штуки | Количество перемещаемых шардов. | 
+| `opensearch_shards_count`<br/>`DGAUGE`, штуки | Общее количество шардов в кластере. |
+| `opensearch_status_green`<br/>`DGAUGE`, 0/1 | Индикатор зеленого (исправного) статуса кластера. |
+| `opensearch_status_red`<br/>`DGAUGE`, 0/1 | Индикатор красного (неисправного) статуса кластера. |
+| `opensearch_status_yellow`<br/>`DGAUGE`, 0/1 | Индикатор желтого (частично исправного) статуса кластера. |
+| `opensearch_status`<br/>`DGAUGE`, 0/1/2 | Уровень работоспособности и техническое состояние кластера:<br/>`0` — красный: неработоспособное или частично работоспособное состояние. Хотя бы один из первичных шардов недоступен. Если кластер отвечает на запросы, результаты поиска в ответах будут неполными.<br/>`1` — желтый: работоспособное состояние. Нет доступа хотя бы к одному из шардов-реплик. Результаты поиска в ответах кластера полные, но если появятся еще недоступные шарды, работоспособность кластера нарушится.<br/>`2` — зеленый: исправное состояние. Все шарды кластера доступны. |
+| `opensearch_unassigned_shards`<br/>`DGAUGE`, штуки | Количество неактивных шардов с неназначенным хостом. |
+| `opensearch_unassigned_user_shards_count`<br/>`DGAUGE`, штуки | Количество пользовательских шардов без назначения. |
+| `opensearch_user_shards_without_primary_count`<br/>`DGAUGE`, штуки | Количество пользовательских шардов без первичных копий. |
+| `opensearch_user_shards_without_replica_count`<br/>`DGAUGE`, штуки | Количество пользовательских шардов без реплик. |

@@ -4,30 +4,40 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 
 To transfer data:
 
-1. [Prepare the test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Prepare your test data](#prepare-data).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Required paid resources {#paid-resources}
+
+* {{ mos-name }} cluster: Use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
 
-Prepare the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
-    1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) in any suitable configuration with publicly available hosts.
+    1. [Create a {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-create.md) of any suitable configuration with publicly accessible hosts.
 
-    1. If using security groups in your cluster, make sure they are configured correctly and allow connecting to the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#configuring-security-groups) cluster.
+    1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect.md#configuring-security-groups).
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
     1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md).
 
+    
     1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role. The transfer will use it to access the bucket.
+
 
 - {{ TF }} {#tf}
 
@@ -49,23 +59,23 @@ Prepare the infrastructure:
         * Endpoints.
         * Transfer.
 
-    1. In the `opensearch-to-object-storage.tf` file, specify the following parameters:
+    1. In the `opensearch-to-object-storage.tf` file, specify the following settings:
 
         * `folder_id`: [Folder ID](../../../resource-manager/operations/folder/get-id.md).
         * `mos_version`: {{ OS }} version.
         * `mos_password`: User password of the {{ OS }} cluster owner.
         * `bucket_name`: Bucket name consistent with the [naming conventions](../../../storage/concepts/bucket.md#naming).
-        * `profile_name`: Your YC CLI profile name.
+        * `profile_name`: Name of your CLI profile.
 
           {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
+        {{ TF }} will show any errors found in your configuration files.
 
     1. Create the required infrastructure:
 
@@ -75,11 +85,11 @@ Prepare the infrastructure:
 
 {% endlist %}
 
-## Prepare the test data {#prepare-data}
+## Prepare your test data {#prepare-data}
 
 1. [Connect to the {{ mos-name }} source cluster](../../../managed-opensearch/operations/connect.md).
 
-1. Create a test index named `people` and set its schema:
+1. Create a test index named `people` and define its schema:
 
     ```bash
     curl --user admin:<password> \
@@ -89,7 +99,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' -d'
+         --request PUT 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_mapping?pretty' \
+         --data'
          {
                "properties": {
                   "name": {"type": "text"},
@@ -105,7 +116,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Alice",
                "age" : "30"
@@ -114,7 +126,8 @@ Prepare the infrastructure:
     curl --user admin:<password> \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
-         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' -d'
+         --request POST 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_doc/?pretty' \
+         --data'
          {
                "name" : "Robert",
                "age" : "32"
@@ -122,7 +135,7 @@ Prepare the infrastructure:
          '
     ```
 
-1. (Optional) Check the data in the test index:
+1. Optionally, check the data in the test index:
 
     ```bash
     curl --user admin:<password> \
@@ -131,20 +144,24 @@ Prepare the infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../../data-transfer/operations/endpoint/target/object-storage.md) of the `{{ objstorage-name }}` type with the following settings:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}**: `<name_of_previously_created_bucket>`
+
+    
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}**: `<name_of_previously_created_service_account>`
+
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}**: `from_MOS`
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.connection_type.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select the {{ mos-name }} cluster from the list.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnectionType.mdb_cluster_id.title }}**: Select your {{ mos-name }} cluster from the list.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.user.title }}**: `admin`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.opensearch.console.form.opensearch.OpenSearchConnection.password.title }}**: `<user_password>`.
 
@@ -154,7 +171,7 @@ Prepare the infrastructure:
 
     - Manually {#manual}
 
-      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the created endpoints.
+      1. [Create a transfer](../../../data-transfer/operations/transfer.md#create) of the **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}** type that will use the endpoints you created.
 
       1. [Activate the transfer](../../../data-transfer/operations/transfer.md#activate).
 
@@ -162,71 +179,59 @@ Prepare the infrastructure:
 
       1. In the `opensearch-to-object-storage.tf` file, specify the values of the following variables:
 
-          * `target_endpoint_id`: ID of the target endpoint.
-          * `source_endpoint_id`: ID of the source endpoint.
-          * `transfer_enabled`: Put `1` to create a transfer.
+          * `target_endpoint_id`: Target endpoint ID.
+          * `source_endpoint_id`: Source endpoint ID.
+          * `transfer_enabled`: Set to `1` to create a transfer.
 
-      1. Make sure the {{ TF }} configuration files are correct using this command:
+      1. Validate your {{ TF }} configuration files using this command:
 
           ```bash
           terraform validate
           ```
 
-          If there are any errors in the configuration files, {{ TF }} will point them out.
+          {{ TF }} will show any errors found in your configuration files.
 
       1. Create the required infrastructure:
 
           {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-          Once created, your transfer will be activated automatically.
+          The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
-## Test the transfer {#verify-transfer}
+## Test your transfer {#verify-transfer}
 
 Make sure the data has been transferred from the {{ mos-name }} cluster to the {{ objstorage-name }} bucket:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
-1. In the [management console]({{ link-console-main }}), select the folder where the bucket is located.
+1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
 1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Select the bucket from the list.
-1. Go to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
-1. Check that the {{ objstorage-name }} bucket contains the `from_MOS` folder with the JSON file with the test data.
+1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
+1. Make sure the {{ objstorage-name }} bucket contains the `from_MOS` folder with the test data JSON file.
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
+1. [Delete](../../../storage/operations/objects/delete.md) the `from_MOS` folder from the bucket you created.
+1. Delete the other resources depending on how you created them:
 
-Delete the other resources depending on how they were created:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Manually {#manual}
 
-- Manually {#manual}
+       1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
+       1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
 
-    1. [Delete the {{ objstorage-name }} bucket](../../../storage/operations/buckets/delete.md).
-    1. [Delete the {{ mos-name }} cluster](../../../managed-opensearch/operations/cluster-delete.md).
-    1. [Delete the service account](../../../iam/operations/sa/delete.md).
+       
+       1. [Delete the service account](../../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
 
-    1. In the [management console]({{ link-console-main }}), delete the `from_MOS` folder from the created bucket.
-    1. In the terminal window, go to the directory containing the infrastructure plan.
-    1. Delete the `opensearch-to-object-storage.tf` configuration file.
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
-        If there are any errors in the configuration files, {{ TF }} will point them out.
-
-    1. Confirm updating the resources.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        All the resources described in the `opensearch-to-object-storage.tf` configuration file will be deleted.
-
-{% endlist %}
+   {% endlist %}

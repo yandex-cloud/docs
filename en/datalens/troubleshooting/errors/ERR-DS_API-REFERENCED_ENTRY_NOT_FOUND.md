@@ -1,4 +1,9 @@
-# Accessing a nonexistent object
+---
+title: '{{ datalens-full-name }} error ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND'
+description: This page describes the Accessing a nonexistent object {{ datalens-full-name }} error.
+---
+
+# [{{ datalens-full-name }}] Accessing a nonexistent object
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`
 

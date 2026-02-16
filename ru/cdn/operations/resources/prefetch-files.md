@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен [ресурс](../../concepts/resource.md).
 
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -91,7 +91,7 @@ description: Следуя данной инструкции, вы сможете
         --path <пути_к_файлам>
       ```
 
-      Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/cdn/cache/prefetch.md).
+      Подробнее о команде `yc cdn cache prefetch` см. в [справочнике CLI](../../../cli/cli-ref/cdn/cli-ref/cache/prefetch.md).
 
 - API {#api}
 

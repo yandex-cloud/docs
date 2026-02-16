@@ -1,0 +1,4 @@
+* `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_all }}` — в SAML-ответе в значение данного поля будут включены все [группы](../../organization/concepts/groups.md), в которые входит пользователь.
+
+    Максимальное количество передаваемых в этом поле групп — 1&nbsp;000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп. 
+* `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}` — в SAML-ответе в значение данного поля из всех групп, в которые входит пользователь, будут включены только те группы, которые явно заданы на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** SAML-приложения.

@@ -11,6 +11,17 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+
+    * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
+    * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
+
+
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
@@ -21,8 +32,9 @@
 
     1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
 
-
+    
     1. Если вы используете группы безопасности, [настройте их](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
+
 
 
 - {{ TF }} {#tf}
@@ -74,7 +86,7 @@
 
 1. Если создавали инфраструктуру вручную, [подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 
@@ -111,7 +123,10 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+
+        
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `ydb.editor`.
+
 
 1. Создайте эндпоинт для источника и трансфер:
 
@@ -180,7 +195,7 @@
 
     {% endlist %}
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md) и добавьте данные в таблицу `measurements`:
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md) и добавьте данные в таблицу `measurements`:
 
     ```sql
     INSERT INTO measurements VALUES
@@ -219,38 +234,27 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
+
+
 1. Если при создании эндпоинта для приемника вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
-Остальные ресурсы удалите в зависимости от способа их создания:
 
-{% list tabs group=instructions %}
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-- Вручную {#manual}
+   {% list tabs group=instructions %}
 
-    * [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
-    * [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
-    * [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+   - Вручную {#manual}
 
-- {{ TF }} {#tf}
+       1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mmy-ydb.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+   - {{ TF }} {#tf}
 
-        ```bash
-        terraform validate
-        ```
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mmy-ydb.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

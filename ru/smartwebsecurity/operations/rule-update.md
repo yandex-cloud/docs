@@ -5,14 +5,15 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменить правило в профиле безопасности
 
-В [профиле безопасности](../concepts/profiles.md) можно изменить базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF. Правила ARL [изменяются в профиле ARL](arl-rule-update.md).
+В [профиле безопасности](../concepts/profiles.md) можно изменить базовые [правила](../concepts/rules.md), а также правила Smart Protection и WAF. Правила ARL [изменяются в профиле ARL](arl-rule-update.md). Если при редактировании правил возникает ошибка, проверьте, что сервисному аккаунту назначена роль `logging.writer`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный профиль безопасности.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Выберите профиль, в котором вы хотите изменить правило.
   1. На вкладке **{{ ui-key.yacloud.smart-web-security.overview.title_security-rules }}** в строке с нужным правилом нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В открывшемся окне задайте новые параметры правила:
@@ -173,7 +174,73 @@ description: Следуя данной инструкции, вы сможете
 
          {% endcut %}
 
-  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/smartwebsecurity/security-profile/update.md).
+  Подробнее о команде `yc smartwebsecurity security-profile update` читайте в [справочнике CLI](../../cli/cli-ref/smartwebsecurity/cli-ref/security-profile/update.md).
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и в описании профиля безопасности `yandex_sws_security_profile` измените нужный блок `security_rule` с правилом безопасности :
+
+      ```hcl
+      resource "yandex_sws_security_profile" "demo-profile-simple" {
+        name                             = "<имя_профиля_безопасности>"
+        default_action                   = "DENY"
+        captcha_id                       = "<идентификатор_капчи>"
+        advanced_rate_limiter_profile_id = "<идентификатор_ARL_профиля>"
+
+        # Правило Smart Protection
+        security_rule {
+          name     = "smart-protection"
+          priority = 99999
+
+          smart_protection {
+            mode = "API"
+          }
+        }
+
+        #Базовое правило
+        security_rule {
+          name = "base-rule-geo"
+          priority = 100000
+          rule_condition {
+            action = "ALLOW"
+            condition {
+              source_ip {
+                geo_ip_match {
+                  locations = ["ru", "kz"]
+                }
+              }
+            }
+          }
+        }
+
+        # Правило c WAF профилем
+        security_rule {
+          name     = "waf"
+          priority = 88888
+
+          waf {
+            mode           = "API"
+            waf_profile_id = "<идентификатор_WAF_профиля>"
+          }
+        }
+      }
+      ```
+
+      Более подробную информацию о параметрах ресурса `yandex_sws_security_profile` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/sws_security_profile).
+
+  1. Создайте ресурсы:
+
+       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/):
+
+  ```bash
+  yc smartwebsecurity security-profile get <идентификатор_профиля_безопасности>
+  ```
 
 - API {#api}
 

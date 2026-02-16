@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iot/devices/v1/api-ref/grpc/Device/create.md
 ---
 
-# IoT Core Service, gRPC: DeviceService.Create {#Create}
+# IoT Core Service, gRPC: DeviceService.Create
 
 Creates a device in the specified registry.
 
@@ -15,36 +15,37 @@ Creates a device in the specified registry.
 
 ```json
 {
-  "registryId": "string",
+  "registry_id": "string",
   "name": "string",
   "description": "string",
   "certificates": [
     {
-      "certificateData": "string"
+      "certificate_data": "string"
     }
   ],
-  "topicAliases": "string",
-  "password": "string"
+  "topic_aliases": "map<string, string>",
+  "password": "string",
+  "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| registryId | **string**
+|| registry_id | **string**
 
 Required field. ID of the registry to create a device in.
 
 To get a registry ID, make a [yandex.cloud.iot.devices.v1.RegistryService.List](/docs/iot-core/api-ref/grpc/Registry/list#List) request. ||
 || name | **string**
 
-Required field. Name of the device. The name must be unique within the registry. ||
+Name of the device. The name must be unique within the registry. ||
 || description | **string**
 
 Description of the device. ||
 || certificates[] | **[Certificate](#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate)**
 
 Device certificate. ||
-|| topicAliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -54,6 +55,9 @@ Alias is an alternate name of a device topic assigned by the user. Map alias to 
 Device password.
 
 The password must contain at least three character categories among the following: upper case latin, lower case latin, numbers and special symbols. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
 |#
 
 ## Certificate {#yandex.cloud.iot.devices.v1.CreateDeviceRequest.Certificate}
@@ -62,7 +66,7 @@ Specification of a device certificate.
 
 #|
 ||Field | Description ||
-|| certificateData | **string**
+|| certificate_data | **string**
 
 Public part of the device certificate. ||
 |#
@@ -73,30 +77,32 @@ Public part of the device certificate. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "deviceId": "string"
+    "device_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "registryId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "registry_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "topicAliases": "string",
+    "topic_aliases": "map<string, string>",
     "status": "Status",
-    "monitoringData": {
-      "lastAuthIp": "string",
-      "lastAuthTime": "google.protobuf.Timestamp",
-      "lastPubActivityTime": "google.protobuf.Timestamp",
-      "lastSubActivityTime": "google.protobuf.Timestamp",
-      "lastOnlineTime": "google.protobuf.Timestamp"
-    }
+    "monitoring_data": {
+      "last_auth_ip": "string",
+      "last_auth_time": "google.protobuf.Timestamp",
+      "last_pub_activity_time": "google.protobuf.Timestamp",
+      "last_sub_activity_time": "google.protobuf.Timestamp",
+      "last_online_time": "google.protobuf.Timestamp",
+      "last_disconnect_time": "google.protobuf.Timestamp"
+    },
+    "labels": "map<string, string>"
   }
   // end of the list of possible fields
 }
@@ -112,13 +118,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -161,7 +167,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| deviceId | **string**
+|| device_id | **string**
 
 ID of the device that is being created. ||
 |#
@@ -175,10 +181,10 @@ A device. For more information, see [Device](/docs/iot-core/concepts/index#devic
 || id | **string**
 
 ID of the device. ||
-|| registryId | **string**
+|| registry_id | **string**
 
 ID of the registry that the device belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -187,7 +193,7 @@ Name of the device. The name is unique within the registry. ||
 || description | **string**
 
 Description of the device. 0-256 characters long. ||
-|| topicAliases | **string**
+|| topic_aliases | **object** (map<**string**, **string**>)
 
 Alias of a device topic.
 
@@ -200,18 +206,22 @@ Status of the device.
 - `CREATING`: Device is being created.
 - `ACTIVE`: Device is ready to use.
 - `DELETING`: Device is being deleted. ||
-|| monitoringData | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
+|| monitoring_data | **[DeviceMonitoringData](#yandex.cloud.iot.devices.v1.DeviceMonitoringData)**
 
 Device monitoring data, returns if FULL view specified. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 |#
 
 ## DeviceMonitoringData {#yandex.cloud.iot.devices.v1.DeviceMonitoringData}
 
 #|
 ||Field | Description ||
-|| lastAuthIp | **string** ||
-|| lastAuthTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastPubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastSubActivityTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| lastOnlineTime | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_auth_ip | **string** ||
+|| last_auth_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_pub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_sub_activity_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_online_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
+|| last_disconnect_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
 |#

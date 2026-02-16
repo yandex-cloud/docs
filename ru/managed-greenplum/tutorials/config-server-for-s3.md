@@ -1,5 +1,9 @@
-# Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
+---
+title: Создание внешней таблицы на базе таблицы из бакета {{ objstorage-full-name }} с помощью конфигурационного файла
+description: В этом руководстве вы создадите внешнюю таблицу на базе таблицы из бакета {{ objstorage-name }} с помощью конфигурационного файла.
+canonical: '{{ link-docs }}/tutorials/dataplatform/mgp-config-server-for-s3'
+---
 
-{% include notitle [External table](../../_tutorials/dataplatform/mgp/config-server-for-s3.md) %}
+{% include [External table](../../_tutorials/dataplatform/mgp/config-server-for-s3.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

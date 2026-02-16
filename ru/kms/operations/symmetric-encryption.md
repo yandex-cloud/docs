@@ -1,12 +1,18 @@
 # Симметричное шифрование данных
 
-В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные небольшого размера (до 32 КБ) с помощью CLI и API по схеме [симметричного шифрования](../concepts/symmetric-encryption.md). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../tutorials/encrypt/index.md)
+В этом разделе вы узнаете, как в {{ kms-short-name }} шифровать и расшифровывать данные небольшого размера (до 32 КБ) с помощью CLI, {{ TF }} и API по схеме [симметричного шифрования](../concepts/symmetric-encryption.md). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../tutorials/encrypt/index.md)
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [cli-install](../../_includes/cli-install.md) %}
 
 ## Зашифруйте данные {#encryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../concepts/consistency.md), становятся применимыми для шифрования с задержкой до трех часов.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -52,10 +58,15 @@
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
-
 {% endlist %}
 
 ## Расшифруйте данные {#decryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../concepts/consistency.md), становятся применимыми для расшифрования с задержкой до трех часов.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -65,9 +76,9 @@
 
   * `--id` — идентификатор [ключа KMS](../concepts/key.md), должен быть указан один из флагов: `--id` или `--name`.
   * `--name` — название ключа KMS, должен быть указан один из флагов: `--id` или `--name`.
-  * `--ciphertext-file` — входной файл с открытым текстом.
+  * `--ciphertext-file` — входной файл с шифртекстом.
   * `--aad-context-file` — (опционально) входной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
-  * `--plaintext-file` — выходной файл с шифртекстом.
+  * `--plaintext-file` — выходной файл с открытым текстом.
 
   ```bash
   yc kms symmetric-crypto decrypt \
@@ -92,13 +103,56 @@
 
   {% include [tink](../../_includes/kms/google-encypt.md) %}
 
+{% endlist %}
+
+## Смените ключ шифрования данных {#reencryption}
+
+{% note info %}
+
+Изменения, вызванные [eventually consistent операциями](../concepts/consistency.md), становятся применимыми для смены ключа шифрования с задержкой до трех часов.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Команда расшифрует шифртекст, переданный в файле `--source-ciphertext-file`, зашифрует его другим ключом или другой версией исходного ключа и запишет в файл `--ciphertext-file`.
+
+  * `--id` или `--name` — идентификатор или имя нового [ключа KMS](../concepts/key.md), который будет использоваться для шифрования.
+
+    {% note info %}
+
+    * Чтобы использовать другой ключ, укажите флаг `--id` или `--name`.
+
+    * Чтобы сменить только версию ключа, не указывайте ни `--id`, ни `--name`.
+
+    {% endnote %}
+
+  * `--version-id` — (опционально) [версия](../concepts/version.md) ключа KMS, которая будет использоваться для шифрования. По умолчанию используется основная.
+  * `--aad-context-file` — (опционально) выходной файл с [AAD-контекстом](../concepts/symmetric-encryption.md#add-context).
+  * `--ciphertext-file` — выходной файл с шифртекстом.
+  * `--source-key-id` — идентификатор ключа {{ kms-name }}, использованного для шифрования исходного текста.
+  * `--source-aad-context-file` — (опционально) входной файл с AAD-контекстом.
+  * `--source-ciphertext-file` — входной файл с шифртекстом.
+
+  ```bash
+  yc kms symmetric-crypto reencrypt \
+    --id <идентификатор_ключа> \
+    --ciphertext-file ciphertext-file
+    --source-key-id <идентификатор_исходного_ключа> \
+    --source-ciphertext-file source-ciphertext-file
+  ```
+
+- API {#api}
+
+  Чтобы сменить ключ или версию ключа шифрования данных, воспользуйтесь методом REST API [reEncrypt](../../kms/api-ref/SymmetricCrypto/reEncrypt.md) для ресурса [SymmetricCrypto](../../kms/api-ref/SymmetricCrypto/index.md) или вызовом gRPC API [SymmetricCryptoService/ReEncrypt](../../kms/api-ref/grpc/SymmetricCrypto/reEncrypt.md).
 
 {% endlist %}
 
-
 #### См. также {#see-also}
 
-* [Интерфейс командной строки YC CLI](../../cli).
+* [Интерфейс командной строки CLI](../../cli).
 * [Симметричное шифрование в {{ kms-full-name }}](../concepts/symmetric-encryption.md).
 * [Асимметричное шифрование в {{ kms-full-name }}](../concepts/asymmetric-encryption.md).
 * [Управление ключами в KMS](./index.md).

@@ -1,9 +1,92 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create DNS zones in.
+            To get a folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the DNS zone.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the DNS zone.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            DNS zone labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        zone:
+          description: |-
+            **string**
+            Required field. DNS zone suffix.
+          pattern: '[.]|[a-z0-9][-a-z0-9.]*\.'
+          type: string
+        privateVisibility:
+          description: |-
+            **[PrivateVisibility](#yandex.cloud.dns.v1.PrivateVisibility)**
+            Privately visible zone settings.
+            At least one of two visibility fields must be set.
+          $ref: '#/definitions/PrivateVisibility'
+        publicVisibility:
+          description: |-
+            **object**
+            Publicly visible zone settings.
+            At least one of two visibility fields must be set.
+          $ref: '#/definitions/PublicVisibility'
+        deletionProtection:
+          description: |-
+            **boolean**
+            Prevents accidental zone removal.
+          type: boolean
+      required:
+        - folderId
+        - zone
+      additionalProperties: false
+    definitions:
+      PrivateVisibility:
+        type: object
+        properties:
+          networkIds:
+            description: |-
+              **string**
+              Network IDs.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      PublicVisibility:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/create.md
 ---
 
-# Cloud DNS API, REST: DnsZone.Create {#Create}
+# Cloud DNS API, REST: DnsZone.Create
 
 Creates a DNS zone in the specified folder.
 
@@ -20,7 +103,7 @@ POST https://dns.{{ api-host }}/dns/v1/zones
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zone": "string",
   "privateVisibility": {
     "networkIds": [
@@ -46,7 +129,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**
@@ -105,7 +188,7 @@ Network IDs. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zone": "string",
     "privateVisibility": {
       "networkIds": [
@@ -243,7 +326,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

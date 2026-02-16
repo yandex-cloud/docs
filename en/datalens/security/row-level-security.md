@@ -1,14 +1,14 @@
-# Managing access at the data row level (RLS)
+# Row-level security (RLS)
 
-With RLS (_row-level security_), you can restrict data access for users or [user groups](../../organization/concepts/groups.md) within a single dataset. For example, you can restrict access for different customers.
+RLS (_row-level security_) enables you to restrict data access for users or [user group](../../organization/concepts/groups.md) within a single dataset. For example, you can introduce data access control for different customers.
 
 {% include [rls-note](../../_includes/datalens/datalens-rls-note.md) %}
 
-You can introduce data access control at the row level either in a [dataset](#dataset-rls) or a [data source](#datasource-rls).
+You can introduce row-level access control either in a [dataset](#dataset-rls) or a [data source](#datasource-rls).
 
 ## Configuring RLS at the dataset level {#dataset-rls}
 
-You can restrict access to any dataset dimension. Each [user](#user-rls) or [user group](#group-rls) can be granted permissions for an unlimited number of measure values.
+You can control access to any dataset dimension. Each [user](#user-rls) or [user group](#group-rls) can be granted permissions for an unlimited number of measure values.
 
 With RLS, a query to a dataset passes through the following filter:
 
@@ -16,7 +16,9 @@ With RLS, a query to a dataset passes through the following filter:
 where dimension in (value_1, value_2 ... value_N)
 ```
 
-### Access for users {#user-rls}
+
+
+### User access {#user-rls}
 
 For users, access control is based on the access configuration which looks like this:
 
@@ -26,13 +28,15 @@ For users, access control is based on the access configuration which looks like 
 'value_3': user_1, user_2, user_3
 ```
 
-For example, to allow the `user-login` user to access the `first-company` value of the `Company name` field, [specify the following configuration](#how-to-manage-rls):
+For example, to configure `user-login` access to all rows with the `first-company` value in the `Company name` field, [set the following configuration](#how-to-manage-rls):
 
 
 
 ```yaml
 'first-company': user-login@yandex.ru
 ```
+
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
 
 
 To configure access for multiple users, list their accounts in the access configuration separated by commas:
@@ -56,7 +60,7 @@ For user groups, access control is based on the access configuration which looks
 
 The configuration specifies the group name rather than its identifier. If a group is renamed, you will need to update its RLS configuration accordingly.
 
-For example, to allow the `group-name` user group to access the `first-company` value of the `Company name` field, specify the following configuration:
+For example, to configure `group-name` user group access to all rows with the `first-company` value in the `Company name` field, set the following configuration:
 
 ```yaml
 'first-company': @group:group-name
@@ -80,6 +84,8 @@ You can configure access for users and groups at the same time:
 'first-company': user-login-1@yandex.ru, user-login-2@yandex.ru, @group:group-name-1, @group:group-name-2
 ```
 
+{% include [datalens-domain-federation-note](../../_includes/datalens/datalens-domain-federation-note.md) %}
+
 
 
 ### Wildcards and quotation marks in RLS configuration {#special-}
@@ -92,7 +98,7 @@ You can define values, users, and group names using wildcard characters:
   *: user_1, user_2, @group:group_1_name
   ```
 
-  For example, to configure access to all values of the `Company name` field, specify the following configuration:
+  For example, to configure access to all rows with any value in the `Company name` field, set the following configuration:
 
 
   ```yaml
@@ -106,7 +112,7 @@ You can define values, users, and group names using wildcard characters:
   'value_1': *
   ```
 
-  For example, to allow all users and groups to access the `first-company` value of the `Company name` field, specify the following configuration:
+  For example, to allow all users to access all rows with the `first-company` value in the `Company name` field, set the following configuration:
 
   ```yaml
   'first-company': *
@@ -134,21 +140,25 @@ You can also use the `"` character:
 ```
 
 
+
 ## Configuring RLS at the data source level {#datasource-rls}
 
-Configuring RLS at the dataset level requires editing the dataset every time the RLS settings change.
+Configuring RLS at the dataset level requires editing the datatset every time the RLS settings change.
 
-To avoid this, you can move the access control logic at the row level to the data source side:
+To avoid this, you can move the row-level security logic to the data source side:
 
-1. Add a new field for storing user IDs to the source data. All requests to the source will be filtered by this field.
+1. Add a new field for storing the user ID to the source data. All requests to the source will be filtered by this field.
+
+   
+   
+   Use [this link]({{ link-org-cloud-center }}/users) to look up your ID. If you need another user's ID, ask them to open the link and send you the ID.
 
 
-   To view your ID, follow [this link]({{ link-console-access-management }}). If you need another user's ID, ask them to open this link and pass the ID to you.
+
+1. For each source data row, specify the ID of the user who should get access to this row. If multiple users must have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
 
 
-1. For each row of source data, specify the ID of the user who is allowed to access this row. If multiple users should have access to the same row, you can move the access control logic to a separate table and [join](../dataset/settings.md#multi-table) it to the main table at the dataset level.
-
-1. In the dataset, enter `userid:userid` in the ID field under the RLS settings. The `userid` variable can be used together with the regular RLS type in the dataset:
+1. In the dataset RLS setting, enter `userid:userid` in the ID field. The `userid` variable can be used together with the regular RLS type in the dataset:
 
    ```yaml
    'value_1': user_1, user_2
@@ -156,14 +166,16 @@ To avoid this, you can move the access control logic at the row level to the dat
       userid:userid
    ```
 
+
 {% note info %}
 
-You can transfer the RLS logic to the source side for sources where the data structure can be changed. In Yandex Metrica and AppMetrica, the data structure is closed, so this method is unavailable.
+You can transfer the RLS logic to the source side for sources where the data structure can be changed. In Yandex Metrica and AppMetrica, the data structure is closed, so this method is not available.
 
 {% endnote %}
 
+
 ## How to change permissions to a row in a dataset {#how-to-manage-rls}
 
-To configure access to a data row value:
+To configure access permissions to data rows:
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}

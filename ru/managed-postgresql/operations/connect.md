@@ -77,7 +77,7 @@ description: К хостам кластера {{ PG }} можно подключ
 
 ## Получение SSL-сертификата {#get-ssl-cert}
 
-{{ PG }}-хосты с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
+Хосты {{ PG }} с публичным доступом поддерживают только шифрованные соединения. Чтобы использовать их, получите SSL-сертификат:
 
 {% include [install-certificate](../../_includes/mdb/mpg/install-certificate.md) %}
 
@@ -101,11 +101,7 @@ description: К хостам кластера {{ PG }} можно подключ
 
 Наравне с [обычными FQDN](#fqdn), {{ mpg-name }} предоставляет несколько особых FQDN, которые также можно использовать при подключении к кластеру.
 
-{% note warning %}
-
-Если при [автоматической смене мастера](../concepts/replication.md#replication-auto) новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к ним из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](hosts.md#update) для всех хостов кластера.
-
-{% endnote %}
+{% include [special-fqdns-info](../../_includes/mdb/special-fqdns-info.md) %}
 
 ### Текущий мастер {#fqdn-master}
 
@@ -113,22 +109,7 @@ FQDN вида `c-<идентификатор_кластера>.rw.{{ dns-zone }}
 
 При подключении к этому FQDN разрешено выполнять операции чтения и записи.
 
-{% note info %}
-
-Используйте подключение с помощью особых FQDN хоста-мастера только для процессов, которые могут переживать 15-30 минут недоступность базы данных. Например, при переключении мастера приложение, которое использует FQDN хоста-мастера, еще некоторое время будет пытаться выполнять `write`-запросы на реплике.
-
-{% endnote %}
-
-Пример подключения к хосту-мастеру для кластера с идентификатором `c9qash3nb1v9********`:
-
-```bash
-psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<имя_БД> \
-      user=<имя_пользователя> \
-      target_session_attrs=read-write"
-```
+{% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 ### Наименее отстающая реплика {#fqdn-replica}
 
@@ -138,33 +119,111 @@ FQDN вида `c-<идентификатор_кластера>.ro.{{ dns-zone }}
 
 * При подключении к этому FQDN разрешено выполнять только операции чтения.
 * Если в кластере нет активных реплик, то этот FQDN укажет на текущий хост-мастер.
+* Реплики, для которых [вручную установлен источник репликации](../concepts/replication.md#replication-manual), не могут выбираться как наименее отстающие при использовании этого FQDN.
 
-Пример подключения к наименее отстающей реплике для кластера с идентификатором `c9qash3nb1v9********`:
+## Выбор FQDN и способа подключения к кластеру {#automatic-master-host-selection}
 
-```bash
-psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
-      port=6432 \
-      sslmode=verify-full \
-      dbname=<имя_БД> \
-      user=<имя_пользователя> \
-      target_session_attrs=any"
-```
+К кластеру можно подключиться с использованием [FQDN хостов](#fqdn) или с использованием [особых FQDN](#special-fqdns). Если кластер [состоит из нескольких хостов](../concepts/planning-cluster-topology.md), то при подключении необходимо учитывать, что текущий мастер может в следующий момент времени стать репликой, и наоборот.
 
-## Автоматический выбор хоста-мастера {#automatic-master-host-selection}
+{% note warning %}
 
-Чтобы гарантированно подключиться к хосту-мастеру:
+Если при автоматическом переключении мастера новым мастером или наименее отстающей репликой станет хост без публичного доступа, подключиться к такому хосту из интернета будет невозможно. Чтобы этого избежать, [включите публичный доступ](hosts.md#update) для всех хостов кластера.
 
-1. Укажите в аргументе `host` на выбор:
+{% endnote %}
 
-    * или [особый FQDN хоста-мастера](#fqdn-master), как сделано [в примерах ниже](#connection-string);
-    * или [FQDN](#fqdn) всех хостов кластера.
+Воспользуйтесь одним из способов, чтобы подключиться к хостам-мастерам с возможностью чтения и записи:
 
-1. Передайте параметр `target_session_attrs=read-write`. Этот параметр поддерживается библиотекой `libpq` начиная с [версии 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+* Подключитесь с помощью [особого FQDN](#fqdn-master), который указывает на текущий мастер.
 
-Чтобы обновить версию библиотеки, которую использует утилита `psql`:
+    При переключении мастера этот FQDN может некоторое время указывать на бывший мастер, который стал репликой, поскольку необходимо время для обновления DNS-записи.
+
+    Поэтому если приложение использует такой FQDN, то оно должно корректно обрабатывать ситуацию, когда мастер временно недоступен. Например, можно повторять запросы на запись через некоторое время.
+
+    {% cut "Пример подключения" %}
+
+    В этом примере используется идентификатор кластера `c9qash3nb1v9********`:
+
+    ```bash
+    psql "host=c-c9qash3nb1v9********.rw.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<имя_БД> \
+          user=<имя_пользователя>"
+    ```
+
+    {% endcut %}
+
+* Подключитесь, перечислив все хосты кластера и указав параметр `target_session_attrs=read-write`.
+
+    {% cut "Пример подключения" %}
+
+    В этом примере перечисляются все хосты кластера.
+
+    Хосты имеют идентификаторы `rc1a-be***.{{ dns-zone }}`, `rc1b-5r***.{{ dns-zone }}` и `rc1d-t4***.{{ dns-zone }}`:
+
+    ```bash
+    psql "host=rc1a-be***.{{ dns-zone }},rc1b-5r***.{{ dns-zone }},rc1d-t4***.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<имя_БД> \
+          user=<имя_пользователя> \
+          target_session_attrs=read-write"
+    ```
+
+    {% endcut %}
+
+Воспользуйтесь одним из способов, чтобы подключиться к хостам с возможностью чтения:
+
+* Подключитесь с помощью [особого FQDN](#fqdn-replica), который указывает на наименее отстающую реплику.
+
+    {% cut "Пример подключения" %}
+
+    В этом примере используется идентификатор кластера `c9qash3nb1v9********`:
+
+    ```bash
+    psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<имя_БД> \
+          user=<имя_пользователя>"
+    ```
+
+    {% endcut %}
+
+* Подключитесь, перечислив все хосты кластера и указав параметр `target_session_attrs=any`.
+
+    {% cut "Пример подключения" %}
+
+    В этом примере перечисляются все хосты кластера.
+
+    Хосты имеют идентификаторы `rc1a-be***.{{ dns-zone }}`, `rc1b-5r***.{{ dns-zone }}` и `rc1d-t4***.{{ dns-zone }}`:
+
+    ```bash
+    psql "host=rc1a-be***.{{ dns-zone }},rc1b-5r***.{{ dns-zone }},rc1d-t4***.{{ dns-zone }} \
+          port={{ port-mpg }} \
+          sslmode=verify-full \
+          dbname=<имя_БД> \
+          user=<имя_пользователя> \
+          target_session_attrs=any"
+    ```
+
+    {% endcut %}
+
+{% note info %}
+
+Параметр `target_session_attrs` можно указать, если для подключения используется клиент, работающий с библиотекой `libpq`.
+
+Значение `read-write` для этого параметра поддерживается библиотекой `libpq` начиная с [версии 10](https://www.postgresql.org/docs/10/static/libpq-connect.html).
+
+{% cut "Как обновить версию библиотеки, которую использует утилита `psql`" %}
 
 * Для дистрибутивов Linux на основе Debian — установите пакет `postgresql-client-10` или новее (например, через [apt-репозиторий](https://www.postgresql.org/download/linux/ubuntu/)).
 * Для ОС, использующих RPM-пакеты — воспользуйтесь дистрибутивом {{ PG }}, доступным в [yum-репозитории](https://yum.postgresql.org/).
+
+{% endcut %}
+
+{% endnote %}
+
 
 ## Подключение из графических IDE {#connection-ide}
 
@@ -185,13 +244,13 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
         * **URL** — строка подключения:
 
           ```http
-          jdbc:postgresql://<особый_FQDN>:{{ port-mpg }}>/<имя_БД>
+          jdbc:postgresql://<особый_FQDN>:{{ port-mpg }}/<имя_БД>
           ```
 
           Также в строке подключения можно использовать список [FQDN](#fqdn) всех хостов кластера:
 
           ```http
-          jdbc:postgresql://<хост_1_{{ PG }}:{{ port-mpg }}>,...,<хост_N_{{ PG }}:{{ port-mpg }}>/<имя_БД>
+          jdbc:postgresql://<хост_1_{{ PG }}>:{{ port-mpg }},...,<хост_N_{{ PG }}>:{{ port-mpg }}/<имя_БД>
           ```
 
         * Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
@@ -221,9 +280,59 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 {% endlist %}
 
 
+
+
+## Подключение с аутентификацией через IAM {#iam}
+
+К базе данных {{ PG }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
+
+Перед подключением установите клиент {{ PG }}:
+
+```bash
+sudo apt update && sudo apt install --yes postgresql-client
+```
+
+Подготовьте кластер {{ PG }} к подключению:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Включите публичный доступ для хостов кластера:
+     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+     1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
+     1. Повторите операцию для остальных хостов кластера.
+  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Введите электронную почту пользователя, к которой привязан аккаунт.
+     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-postgresql.clusters.connector`.
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Создайте пользователя {{ PG }}:
+     1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+     1. Выберите способ аутентификации **{{ ui-key.yacloud.mdb.AuthMethodColumn.value_iam_boWet }}**.
+     1. Выберите аккаунт, которому была назначена роль `managed-postgresql.clusters.connector`.
+     1. В поле **{{ ui-key.yacloud.mdb.dialogs.popup_field_permissions }}** нажмите значок ![image](../../_assets/console-icons/plus.svg).
+     1. Выберите базу данных из выпадающего списка.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
+
+{% endlist %}
+
+Чтобы подключиться к БД {{ PG }}, выполните команду:
+
+```bash
+{{ yc-mdb-pg }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
+```
+
+
+
 ## Подключение из {{ websql-full-name }} {#websql}
 
 {% include [WebSQL](../../_includes/mdb/mpg/websql.md) %}
+
 
 
 
@@ -253,6 +362,7 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 1. Нажмите кнопку **Save**, чтобы сохранить настройки подключения к серверу.
 
 Кластер появится в списке серверов в навигационном меню.
+
 
 ## Подключение из {{ google-looker }} {#connection-google-looker}
 
@@ -322,7 +432,7 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 
 {% include [conn-strings-environment](../../_includes/mdb/mpg-conn-strings-env.md) %}
 
-Подключиться к {{ PG }}-хостам в публичном доступе можно только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#get-ssl-cert).
+Подключиться к хостам {{ PG }} в публичном доступе можно только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](#get-ssl-cert).
 
 В примерах ниже предполагается, что SSL-сертификат `root.crt` расположен в директории:
 
@@ -338,5 +448,3 @@ psql "host=c-c9qash3nb1v9********.ro.{{ dns-zone }} \
 {% include [mpg-connection-strings](../../_includes/mdb/mpg-conn-strings.md) %}
 
 При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ PG }}. Исключение — [пример для фреймворка userver](#cpp-userver), в котором будет выполняться тестовый запрос `SELECT 1 as ping` для периодической проверки доступности кластера {{ PG }}.
-
-{% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

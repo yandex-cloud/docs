@@ -1,5 +1,6 @@
 ---
 noIndex: true
+canonical: '{{ link-docs }}/tutorials/dataplatform/ydb-to-clickhouse'
 ---
 
 # Loading data from {{ ydb-full-name }} to {{ mch-name }} using {{ data-transfer-full-name }}

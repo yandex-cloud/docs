@@ -26,7 +26,8 @@ description: Следуя данной инструкции, вы сможете
 
     * [{{ DS }} в {{ CH }}](../../../tutorials/yds-to-clickhouse.md);
     * [{{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md);
-    * [{{ DS }} в {{ OS }}](../../../tutorials/trails-to-os.md).
+    * [{{ DS }} в {{ ydb-name }}](../../../tutorials/yds-to-ydb.md);
+    * [{{ DS }} в {{ mkf-name }}](../../../tutorials/yds-to-kafka.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -53,20 +54,17 @@ description: Следуя данной инструкции, вы сможете
 
 ### Расширенные настройки {#additional-settings}
 
-
 {% include [Note processing order](../../../../_includes/data-transfer/notes/kafka-yds-evhub-processing-order.md) %}
-
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.transformer.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataTransformationOptions.cloud_function.title }}** — выберите одну из функций, созданных в сервисе {{ sf-name }}.
 
-
+            
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или [создайте](../../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будет запускаться функция обработки.
 
 
@@ -91,14 +89,19 @@ description: Следуя данной инструкции, вы сможете
 
         {% endnote %}
 
-
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}**:
 
        * {% include [conversion-rules](../../../../_includes/data-transfer/fields/yds/ui/conversion-rules.md) %}    
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}** — укажите требуемый формат сжатия данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.supported_codecs.title }}** — укажите требуемый формат сжатия данных: `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.gzip.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.zstd.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YdsSupportedCodecs.raw.title }}`.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}** — выберите опцию, чтобы продолжить работу трансфера при превышении TTL топика, потеряв часть данных. Если опция не выбрана, трансфер остановится с ошибкой, определив потерю данных.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.allow_ttl_rewind.title }}** — включите настройку, чтобы разрешить трансферу начать или продолжить чтение из топика, даже если часть данных в нем была удалена в связи с превышением периода хранения. Если настройка выключена, при превышении периода хранения и удалении данных из топика трансфер остановится с ошибкой. Обычно это происходит в случае, когда трансфер не успевает переносить все данные и отставание чтения превышает период хранения.
+    
+        {% note warning %}   
+
+        {% include [ttl](../../../../_includes/data-transfer/notes/ttl.md) %} 
+
+        {% endnote %}
 
 {% endlist %}
 
@@ -116,7 +119,6 @@ description: Следуя данной инструкции, вы сможете
 * [{{ objstorage-full-name }}](../target/object-storage.md);
 * [{{ KF }}](../target/kafka.md);
 * [{{ DS }}](../target/data-streams.md);
-* [{{ ES }}](../target/elasticsearch.md);
 * [{{ OS }}](../target/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).

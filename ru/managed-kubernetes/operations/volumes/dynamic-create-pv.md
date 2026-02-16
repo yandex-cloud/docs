@@ -22,17 +22,13 @@ description: Следуя данной инструкции, вы сможете
 
 1. Сохраните следующую спецификацию для создания объекта `PersistentVolumeClaim` в YAML-файл с названием `pvc-dynamic.yaml`.
 
-
    {% note info %}
 
    Если не указать параметр `storageClassName`, будет использован класс хранилищ по умолчанию: `yc-network-hdd`. Как изменить класс по умолчанию читайте в разделе [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
    Подробнее о спецификации для создания объекта `PersistentVolumeClaim` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
-
 
    ```yaml
    apiVersion: v1
@@ -47,8 +43,6 @@ description: Следуя данной инструкции, вы сможете
        requests:
          storage: 4Gi
    ```
-
-
 
 1. Выполните команду:
 
@@ -70,7 +64,6 @@ description: Следуя данной инструкции, вы сможете
 
    Результат:
 
-
    ```text
    Name:          pvc-dynamic
    Namespace:     default
@@ -80,8 +73,6 @@ description: Следуя данной инструкции, вы сможете
    ----    ------                ----              ----                         -------
    Normal  WaitForFirstConsumer  9s (x3 over 15s)  persistentvolume-controller  waiting for first consumer to be created before binding
    ```
-
-
 
 ## Создайте под с динамически подготовленным томом {#create-pod}
 
@@ -140,7 +131,7 @@ description: Следуя данной инструкции, вы сможете
    ```
 
    После создания пода:
-   * В [консоли управления]({{ link-console-main }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.switch_disks }}** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
+   * В [консоли управления]({{ link-console-main }}) в **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый [диск](../../../compute/concepts/disk.md) с префиксом `k8s-csi` в имени диска.
    * В событиях объекта `PersistentVolumeClaim` появится информация о выделении диска:
 
      ```bash
@@ -148,7 +139,6 @@ description: Следуя данной инструкции, вы сможете
      ```
 
      Результат:
-
 
      ```text
      Name:          pvc-dynamic
@@ -160,8 +150,6 @@ description: Следуя данной инструкции, вы сможете
        Normal  ProvisioningSucceeded  4m7s                   disk-csi-driver.mks.ycloud.io_cat1h5l0v862oq74cp8j_d0f0b837-a875-11e9-b6cb-d00d********  Successfully provisioned volume pvc-c4794058-ad68-11e9-b71a-d00d********
      ```
 
-
-
 ## Как удалить том {#delete-volume}
 
 Чтобы удалить динамически подготовленный том, удалите объект `PersistentVolumeClaim`:
@@ -171,3 +159,10 @@ kubectl delete pvc <идентификатор_объекта_PersistentVolumeCl
 ```
 
 Диск в [{{ compute-full-name }}](../../../compute/) удалится автоматически.
+
+### См. также {#see-also}
+
+* [{#T}](../../concepts/volume.md)
+* [{#T}](./encrypted-disks.md)
+* [{#T}](./static-create-pv.md)
+* [{#T}](./manage-storage-class.md)

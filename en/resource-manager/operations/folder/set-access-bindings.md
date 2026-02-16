@@ -2,6 +2,8 @@
 
 To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder) resources, assign the user a [role](../../../iam/concepts/access-control/roles.md) for the folder.
 
+{% include [console-user-access](../../../_includes/organization/console-user-access.md) %}
+
 ## Assigning a role for a folder {#access-to-user}
 
 {% list tabs group=instructions %}
@@ -96,7 +98,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -105,14 +107,13 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        {% endnote %}
 
      * `member`: User to assign the role to. This is a required parameter. It may have one of the following values:
-       * `userAccount:<user_ID>`: [User ID](../../../iam/operations/users/get.md).
+       * `userAccount:<user_ID>`: [User ID](../../../organization/operations/users-get.md).
        * `serviceAccount:<service_account_ID>`: [Service account ID](../../../iam/operations/sa/get-id.md).
        * `federatedUser:<user_account_ID>`: [User account ID](../../../organization/operations/users-get.md).
-       * `system:group:organization:<organization_ID>:users`: ID of the [organization](../../../organization/quickstart.md) to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
-       * `system:group:federation:<federation_ID>:users`: ID of the [identity federation](../../../organization/concepts/add-federation.md) to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
+       * `system:group:organization:<organization_ID>:users`: [Organization](../../../organization/quickstart.md) ID to assign a role to the `All users in organization X` [system group](../../../iam/concepts/access-control/system-group.md#allOrganizationUsers).
+       * `system:group:federation:<federation_ID>:users`: [Identity federation](../../../organization/concepts/add-federation.md) ID to assign a role to the `All users in federation N` [system group](../../../iam/concepts/access-control/system-group.md#allFederationUsers).
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
-
 
      ```hcl
      ...
@@ -128,10 +129,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      ...
      ```
 
-
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -149,9 +149,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -170,7 +170,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   1. Find out the folder ID using the [list](../../api-ref/Folder/list.md) REST API method:
       ```bash
-      curl -H "Authorization: Bearer <IAM_token>" \
+      curl \
+        --header "Authorization: Bearer <IAM_token>" \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders?cloudId=b1gg8sgd16g7********
       ```
 
@@ -189,9 +190,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        ]
       }
       ```
+
   1. Find out the user ID from the login using the [getByLogin](../../../iam/api-ref/YandexPassportUserAccount/getByLogin.md) REST API method:
       ```bash
-      curl -H "Authorization: Bearer <IAM_token>" \
+      curl \
+        --header "Authorization: Bearer <IAM_token>" \
         https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
       ```
 
@@ -206,13 +209,15 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
        }
       }
       ```
+
   1. Assign the `editor` role to the user for `my-folder`. Set the `action` property to `ADD` and specify the `userAccount` type and user ID in the `subject` property:
 
       ```bash
-      curl -X POST \
-        -H 'Content-Type: application/json' \
-        -H "Authorization: Bearer <IAM_token>" \
-        -d '{
+      curl \
+        --request POST \
+        --header 'Content-Type: application/json' \
+        --header "Authorization: Bearer <IAM_token>" \
+        --data '{
         "accessBindingDeltas": [{
             "action": "ADD",
             "accessBinding": {
@@ -223,7 +228,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
         }}}]}' \
         https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:updateAccessBindings
       ```
-
 
 {% endlist %}
 
@@ -244,11 +248,11 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `set-access-binding` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `set-access-binding` command completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
-  1. Make sure the resource has no roles assigned that you would not want to lose:
+  1. Make sure the resource has no important roles assigned before proceeding:
       ```bash
       yc resource-manager folder list-access-bindings my-folder
       ```
@@ -277,7 +281,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -285,10 +289,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
        {% endnote %}
 
-     * `member`: User to assign the role to. To add a user to the list, create an entry as follows: `userAccount:<user_ID>`, where `<user_ID>` is a Yandex email address, such as `ivan@yandex.ru`. This is a required parameter.
+     * `member`: User to assign the role to. To add a user to the list, create an entry in this format: `userAccount:<user_ID>`, where `<user_ID>` is the email address of a Yandex account, e.g., `ivan@yandex.ru`. This is a required parameter.
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
-
 
      ```hcl
      ...
@@ -309,10 +312,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      ...
      ```
 
-
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -330,9 +332,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -347,13 +349,14 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 - API {#api}
 
-  Assign the `editor` role to one user and the `viewer` role to another:
+  Assign the `editor` role to one user and the `viewer` role to another user:
 
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM_token>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
     "accessBindingDeltas": [{
         "action": "ADD",
         "accessBinding": {
@@ -378,16 +381,16 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% note alert %}
 
-  The `setAccessBindings` method completely rewrites access permissions for the resource. All current resource roles will be deleted.
+  The `setAccessBindings` method completely overwrites access permissions for the resource! All roles previously assigned for this resource will be deleted.
 
   {% endnote %}
 
-
   ```bash
-  curl -X POST \
-    -H 'Content-Type: application/json' \
-    -H "Authorization: Bearer <IAM_token>" \
-    -d '{
+  curl \
+    --request POST \
+    --header 'Content-Type: application/json' \
+    --header "Authorization: Bearer <IAM_token>" \
+    --data '{
     "accessBindings": [{
         "roleId": "editor",
         "subject": { "id": "ajei8n54hmfh********", "type": "userAccount" }
@@ -397,7 +400,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
     }]}' \
     https://resource-manager.{{ api-host }}/resource-manager/v1/folders/b1gd129pp9ha********:setAccessBindings
   ```
-
 
 {% endlist %}
 
@@ -426,12 +428,12 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
   {% endnote %}
 
-  To assign a service account a role to a folder created with {{ TF }}:
+  To assign a service account a role for a folder created with {{ TF }}:
 
   1. Describe the parameters of the folder role in a configuration file:
 
      * `folder_id`: [ID of the folder](get-id.md) to grant permissions for. This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
+     * `role`: Role. This is a required parameter.
 
        {% note info %}
 
@@ -439,7 +441,7 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
        {% endnote %}
 
-     * `member`: User to assign the role to. To add a user to the list, create an entry as follows: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account ID](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
+     * `member`: User to assign the role to. To add a user to the list, create a record in this format: `serviceAccount:<service_account_ID>`, where `<service_account_ID>` is the [service account ID](../../../iam/operations/sa/get-id.md). You can list several service accounts. This is a required parameter.
 
      {% cut "Example of assigning roles to a folder using {{ TF }}" %}
 
@@ -452,14 +454,14 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      resource "yandex_resourcemanager_folder_iam_member" "editor" {
        folder_id = "${data.yandex_resourcemanager_folder.project1.id}"
        role      = "editor"
-       member    = "serviceAccount:<service_account_ID>"
+       member   = "serviceAccount:<service_account_ID>"
      }
      ...
      ```
 
      {% endcut %}
 
-     For more information about the `yandex_resourcemanager_folder_iam_member` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+     For more information about the `yandex_resourcemanager_folder_iam_member` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
 
   1. Check the configuration using this command:
      ```
@@ -477,9 +479,9 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
@@ -498,7 +500,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 
 {% endlist %}
 
-
 ## Folder access for a federated user {#access-to-federated-user}
 
 {% list tabs group=instructions %}
@@ -512,8 +513,8 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
 - CLI {#cli}
 
   1. Select a role from the [{{ yandex-cloud }} role reference](../../../iam/roles-reference.md).
-  1. [Get the user ID](../../../iam/operations/users/get.md).
-  1. Assign the role using the command:
+  1. [Get the user ID](../../../organization/operations/users-get.md).
+  1. To assign the role, run the following command:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_name_or_ID> \
@@ -536,7 +537,6 @@ To grant a user access to [folder](../../concepts/resources-hierarchy.md#folder)
       ```
 
 {% endlist %}
-
 
 
 ## What's next {#what-is-next}

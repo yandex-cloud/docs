@@ -9,11 +9,9 @@
 
    Базовый курс по основам работы с {{ datalens-short-name }} на Яндекс Практикуме. Подготовлен командой продукта, аналитиками Яндекса и внешними экспертами. Рекомендуем начинать погружение в {{ datalens-short-name }} именно с него!
 
-
-* [**{{ datalens-full-name }} Festival**](https://yandex.cloud/ru/datalens-festival)
+* [**{{ datalens-full-name }} Festival**]({{ link-datalens-main }}/festival)
 
    Образовательный фестиваль с примерами и кейсами партнеров. В программе вас также ждет сравнение {{ datalens-short-name }} с лидерами рынка — Power BI, Tableau и Superset. Кроме того, вы изучите особенности построения корпоративной аналитики в облаке: хранилище, ETL, безопасность.
-
 
 * {% include [training-corpplatform](../_includes/training/training-cdp.md) %}
 
@@ -31,8 +29,8 @@
 
    Базовый курс от {{ yandex-cloud }} для тех, кто хочет изучить не только инструменты визуализации и аналитики данных, но и фундаментальные основы облачной инфраструктуры.
 
-
 {% include [training-courses](../_includes/training/training-courses.md) %}
+
 
 ## Полезные материалы {#related-links}
 
@@ -43,8 +41,10 @@
 
 * Новости и истории успеха доступны в [блоге {{ yandex-cloud }}](https://yandex.cloud/ru/blog?services=23).
 
-* [Демонстрационный дашборд]({{ link-datalens-main }}/marketplace/f2eui5ar8omalpcg1j3r) {{ datalens-short-name }}.
+* [Демонстрационный дашборд]({{ link-datalens-main }}/gallery/wcyljs3cf5mwi) {{ datalens-short-name }}.
 
 
 * Сообщество пользователей {{ datalens-short-name }} в [Telegram](https://t.me/YandexDataLens).
+
+* Сертификация [{{ datalens-full-name }} Certified Analyst](https://yandex.cloud/ru/certification/datalens-analyst).
 

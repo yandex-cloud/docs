@@ -1,6 +1,6 @@
 ---
 title: How to connect to a Windows VM via PowerShell
-description: This guide describes how you can connect to a Windows VM via PowerShell.
+description: Follow this guide to connect to a Windows VM via PowerShell.
 ---
 
 # Connecting to a Windows VM via PowerShell
@@ -9,4 +9,4 @@ description: This guide describes how you can connect to a Windows VM via PowerS
 
 #### What's next {#what-is-next}
 
-* [Learn how to work with {{ yandex-cloud }} from inside a VM](auth-inside-vm.md)
+* [Using {{ yandex-cloud }} from within a VM](auth-inside-vm.md)

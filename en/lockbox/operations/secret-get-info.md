@@ -13,7 +13,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
 
@@ -78,12 +78,12 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      * `output "current_version"`: Output variable that contains information about the current secret version:
        * `value`: Returned value.
 
-     You can replace `current_version` with any other parameter to get the information you need. For more information about the `yandex_lockbox_secret` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret).
-  1. Create resources:
+     You can replace `current_version` with any other parameter to get the information you need. For more information about the `yandex_lockbox_secret` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/lockbox_secret).
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output
@@ -120,7 +120,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
@@ -152,6 +152,8 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
           text_value: example-value
       ```
 
+      {% include [secret-content-base64-cli](../../_includes/lockbox/secret-content-base64-cli.md) %}
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -176,17 +178,17 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
      Where:
      * `data "yandex_lockbox_secret_version"`: Description of the secret as a data source:
        * `secret_id`: Secret ID.
-       * `version_id`: Secret version ID. This is an optional parameter. Defaults to the current secret version.
+       * `version_id`: Secret version ID. This is an optional setting. Defaults to the current secret version.
      * `output "my_secret_entries"`: Output variable which stores the contents of the secret:
        * `value`: Returned value.
 
-     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_lockbox_secret_version).
+     For more information about the `yandex_lockbox_secret_version` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/lockbox_secret_version).
 
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output
@@ -211,6 +213,8 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
   To get the secret contents, use the [get](../api-ref/Payload/get.md) REST API method for the [Payload](../api-ref/Payload/index.md) resource or the [PayloadService/Get](../api-ref/grpc/Payload/get.md) gRPC API call.
 
+  {% include [secret-content-base64](../../_includes/lockbox/secret-content-base64.md) %}
+
 {% endlist %}
 
 ## Viewing permissions to a secret {#secret-access}
@@ -220,7 +224,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Click the name of the secret you need.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
@@ -231,7 +235,7 @@ You can get detailed [information about a secret](#secret-info) and [secret cont
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to view access permissions to a secret:
+  1. See the description of the CLI command to view access permissions for a secret:
 
       ```bash
       yc lockbox secret list-access-bindings --help

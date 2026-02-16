@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/iam/v1/api-ref/grpc/ServiceAccount/update.md
 ---
 
-# Identity and Access Management API, gRPC: ServiceAccountService.Update {#Update}
+# Identity and Access Management API, gRPC: ServiceAccountService.Update
 
 Updates the specified service account.
 
@@ -15,33 +15,41 @@ Updates the specified service account.
 
 ```json
 {
-  "serviceAccountId": "string",
-  "updateMask": "google.protobuf.FieldMask",
+  "service_account_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "labels": "string"
+  "labels": "map<string, string>"
 }
 ```
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 Required field. ID of the ServiceAccount resource to update.
-To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request. ||
-|| updateMask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+To get the service account ID, use a [ServiceAccountService.List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the ServiceAccount resource are going to be updated. ||
 || name | **string**
 
 Required field. Name of the service account.
-The name must be unique within the cloud. ||
+The name must be unique within the cloud.
+
+Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || description | **string**
 
-Description of the service account. ||
-|| labels | **string**
+Description of the service account.
 
-Resource labels as `` key:value `` pairs. ||
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `` key:value `` pairs.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -50,23 +58,23 @@ Resource labels as `` key:value `` pairs. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "serviceAccountId": "string"
+    "service_account_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "id": "string",
-    "folderId": "string",
-    "createdAt": "google.protobuf.Timestamp",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
     "name": "string",
     "description": "string",
-    "labels": "string",
-    "lastAuthenticatedAt": "google.protobuf.Timestamp"
+    "labels": "map<string, string>",
+    "last_authenticated_at": "google.protobuf.Timestamp"
   }
   // end of the list of possible fields
 }
@@ -82,13 +90,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -131,7 +139,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| serviceAccountId | **string**
+|| service_account_id | **string**
 
 ID of the ServiceAccount resource that is being updated. ||
 |#
@@ -145,10 +153,10 @@ A ServiceAccount resource. For more information, see [Service accounts](/docs/ia
 || id | **string**
 
 ID of the service account. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the service account belongs to. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || name | **string**
@@ -158,10 +166,10 @@ The name is unique within the cloud. 3-63 characters long. ||
 || description | **string**
 
 Description of the service account. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|| lastAuthenticatedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| last_authenticated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Timestamp for the last authentication of this service account. ||
 |#

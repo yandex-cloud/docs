@@ -2,19 +2,6 @@
 
 All text language models support Russian and English.
 
-## English-Russian model {#engrus}
-
-This model works best, but supports only two languages:
-
-* `en`: English
-* `ru`: Russian
-
-{% note warning %}
-
-Currently, this model cannot be selected with [automatic language detection](../../operations/ocr/text-detection-image.md#ocr-api-recognition). To use this model, explicitly specify one or both languages in the `languageCodes` property for the [OCR API](../../ocr/api-ref/index.md) or in the `language_codes` property for the [Vision API](../../vision/api-ref/index.md).
-
-{% endnote %}
-
 ## Latin-Cyrillic model {#latcyr}
 
 This model supports languages that use Latin and Cyrillic characters:
@@ -72,7 +59,16 @@ Other models only support a single basic language apart from Russian and English
 * `vi`, `en`, `ru`: Vietnamese
 * `zh`, `en`, `ru`: Chinese
 
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/archive-from-vision-to-object-storage.md)
+* [{#T}](../../tutorials/recognizer-bot.md)
+* [{#T}](../../operations/ocr/text-detection-image.md)
+* [{#T}](../../operations/ocr/text-detection-pdf.md)
+* [{#T}](../../operations/ocr/text-detection-handwritten.md)
+* [{#T}](../../operations/ocr/text-detection-table.md)
+
 #### What's next {#what-is-next}
 
-* [Learn about known issues for the current version](known-issues.md)
+* [Learn about known issues in the current version](known-issues.md)
 * [Try recognizing text in an image](../../operations/ocr/text-detection-image.md)

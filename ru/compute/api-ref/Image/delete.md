@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/images/{imageId}
+    method: delete
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the image to delete.
+            To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/delete.md
 ---
 
-# Compute Cloud API, REST: Image.Delete {#Delete}
+# Compute Cloud API, REST: Image.Delete
 
 Deletes the specified image.
 
@@ -22,7 +41,9 @@ DELETE https://compute.{{ api-host }}/compute/v1/images/{imageId}
 || imageId | **string**
 
 Required field. ID of the image to delete.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

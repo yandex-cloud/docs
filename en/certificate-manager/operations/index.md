@@ -1,9 +1,9 @@
 ---
-title: Tutorial on working with {{ certificate-manager-full-name }} (TLS certificates)
-description: In this tutorial, you will learn how to work with {{ certificate-manager-full-name }} in {{ yandex-cloud }}. We will tell you about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and assign TLS certificates to it.
+title: Guides on using {{ certificate-manager-full-name }} (TLS certificates)
+description: In this article, you will learn how to work with {{ certificate-manager-full-name }} in {{ yandex-cloud }}. We will tell you about managing certificates issued by your certificate authority and by Let's Encrypt. Learn how to create your domain and assign TLS certificates to it.
 ---
 
-# Step-by-step guide for {{ certificate-manager-name }}
+# Step-by-step guides for {{ certificate-manager-name }}
 
 
 ## Certificate from Let's Encrypt {#managed-certificate}
@@ -23,13 +23,6 @@ description: In this tutorial, you will learn how to work with {{ certificate-ma
 - [{#T}](import/cert-modify.md)
 - [{#T}](import/cert-delete.md)
 
-## Domain {#domain}
-
-- [{#T}](domain/domain-create.md)
-- [{#T}](domain/domain-link-cert.md)
-- [{#T}](domain/domain-modify.md)
-- [{#T}](domain/domain-delete.md)
-
 ## Backups {#backup}
 
 - [{#T}](cert-backup.md)
@@ -37,3 +30,11 @@ description: In this tutorial, you will learn how to work with {{ certificate-ma
 ## Certificate status tracking {#alerts}
 
 - [{#T}](alert.md)
+
+## Access {#access}
+
+- [{#T}](cert-access.md)
+
+## Getting additional information {#get-additional-info}
+
+- [{#T}](operation-logs.md)

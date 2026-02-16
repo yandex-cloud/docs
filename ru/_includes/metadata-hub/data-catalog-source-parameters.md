@@ -1,0 +1,2 @@
+* **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}** — идентификатор управляемого подключения в [{{ connection-manager-full-name }}](../../metadata-hub/quickstart/connection-manager.md).
+* **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}** — имя базы данных, из которой будут загружаться метаданные.

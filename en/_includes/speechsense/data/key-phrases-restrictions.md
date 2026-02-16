@@ -1,0 +1,1 @@
+Each phrase can contain no more than 10 words, the total limit is 20,000 phrases.

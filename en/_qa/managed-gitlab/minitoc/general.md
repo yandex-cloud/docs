@@ -6,8 +6,20 @@
 
 * [Can I use Yandex ID or Yandex 360 for authentication?](#auth-yandex-id)
 
-* [Is {{ GL }} integration with {{ tracker-full-name }} supported?](#tracker-integration)
+* [Is there support for {{ GL }} integration with {{ tracker-full-name }}?](#tracker-integration)
 
 * [Why cannot I push changes to the {{ mgl-name }} repository?](#push)
 
 * [I get `500 Internal Server Error` when opening an instance. What could be the problem?](#500-error)
+
+* [How can I clear pipeline logs to free up disk space?](#pipeline-cleanup)
+
+* [Where can I track my disk space usage?](#disk-space)
+
+* [How do I set up an alert that triggers when a certain percentage of disk space is used?](#alert-for-disk-space)
+
+* [Why backups are not created?](#backup-failed)
+
+* [Can I change instance type or disk size after the instance has been created?](#change-type-size)
+
+* [What should I do if I cannot connect to the system hook on `localhost`?](#system-hooks-localhost)

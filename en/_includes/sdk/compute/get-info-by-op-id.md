@@ -1,0 +1,1 @@
+You can track the operation status in the management console as well as in the {{ yandex-cloud }} CLI and API. To learn more, see [Viewing operations with {{ compute-name }} resources](../../../compute/operations/operation-logs.md).

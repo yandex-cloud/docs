@@ -12,7 +12,7 @@ description: Управление доступом в сервисе по соз
 * [какие роли действуют в сервисе](#roles-list);
 * [какие роли необходимы](#required-roles) для того или иного действия.
 
-Для использования сервиса необходимо авторизоваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport) или с [федеративным аккаунтом](../../iam/concepts/users/accounts.md#saml-federation).
+Для использования сервиса необходимо аутентифицироваться в консоли управления с [аккаунтом на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) аккаунтом.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -26,11 +26,13 @@ description: Управление доступом в сервисе по соз
 
 Чтобы разрешить доступ к ресурсам сервиса {{ mos-name }} (кластеры и хосты, резервные копии кластеров, учетные записи), назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
 
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-opensearch.svg)
+{% include [roles-managed-opensearch](../../_mermaid/roles/managed-opensearch.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -41,6 +43,10 @@ description: Управление доступом в сервисе по соз
 #### managed-opensearch.viewer {#managed-opensearch-viewer}
 
 {% include [opensearch.viewer](../../_roles/managed-opensearch/viewer.md) %}
+
+#### managed-opensearch.restorer {#managed-opensearch-restorer}
+
+{% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
 
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
@@ -61,6 +67,10 @@ description: Управление доступом в сервисе по соз
 #### mdb.admin {#mdb-admin}
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
+
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 

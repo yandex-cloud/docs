@@ -1,28 +1,28 @@
 ---
-title: How to create a VM backup in {{ backup-full-name }}
-description: Follow this guide to create a backup of your VM.
+title: How to create a VM or {{ baremetal-full-name }} server backup in {{ backup-full-name }}
+description: Follow this guide to create a VM or {{ baremetal-name }} server backup.
 ---
 
-# Creating a VM backup
+# Creating a VM or {{ baremetal-full-name }} server backup
 
-To create a backup of your VM, [connect](../../concepts/vm-connection.md) it to {{ backup-name }}, and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
 
-VM backups in {{ backup-name }} are automatically created on the schedule specified in the respective policy.
+To create a backup of a VM or {{ baremetal-name }} server, [connect](../../concepts/vm-connection.md) it to {{ backup-name }} and [link](../policy-vm/attach-and-detach-vm.md#attach-vm) it to at least one [backup policy](../../concepts/policy.md). Any backup can only be created within policies.
 
-To create a non-scheduled VM backup:
+{{ backup-name }} automatically creates backups based on the schedule detailed in the policy.
+
+To create an out-of-schedule backup:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder to create a backup in.
-  1. In the list of services, select **{{ compute-name }}**.
-  1. Select the VM with the `Running` [status](../../../compute/concepts/vm-statuses.md#list-of-statuses) that you want to back up.
-  1. Go to the **Backups** tab.
-  1. Click **Create backup**.
-  1. In the window that opens, select the backup policy to create the VM backup under and click **Create**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your backup policy.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. Depending on the resource you want to create a backup for, select ![vm](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** or ![bms](../../../_assets/console-icons/objects-align-justify-horizontal.svg) **{{ ui-key.yacloud.backup.label_baremetal-instances }}** in the left-hand panel.
+  1. In the row with the VM or {{ baremetal-name }} server, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.backup.action_start_backup }}**.
+  1. In the window that opens, select the backup policy for creating the backup and click **{{ ui-key.yacloud.common.create }}**.
 
-  The VM backup creation will start.
+  {{ backup-name }} will start creating a backup of your VM or {{ baremetal-name }} server. You can follow the progress in the VM or {{ baremetal-name }} server row in the **{{ ui-key.yacloud.backup.column_baremetal-instance-status }}** field.
 
 - CLI {#cli}
 
@@ -36,26 +36,28 @@ To create a non-scheduled VM backup:
       yc backup policy execute --help
       ```
 
-  1. Get the ID of the backup policy to use for creating the backup:
+  1. Get the ID of the backup policy the backup will be based on:
 
       {% include [get-backup-id](../../../_includes/backup/operations/get-policy-id.md) %}
 
-  1. Get the ID of the VM you want to back up:
+  1. Get the ID of the VM you need to back up:
 
       {% include [get-vm-id](../../../_includes/backup/operations/get-vm-id.md) %}
+
+      {% include [get-bms-ids](../../../_includes/backup/operations/get-bms-ids.md) %}
 
   1. Create a backup:
 
       ```bash
       yc backup policy execute \
         --id <policy_ID> \
-        --instance-id <VM_ID>
+        --instance-id <VM_or_{{ baremetal-name }}_server_ID>
       ```
 
       Where:
 
-      * `--id`: ID of the backup policy to use for creating the backup.
-      * `--instance-id`: ID of the VM you want to back up.
+      * `--id`: ID of the backup policy the backup will be based on.
+      * `--instance-id`: ID of the VM or {{ baremetal-name }} server you need to back up.
 
       Result:
 
@@ -71,6 +73,6 @@ To create a non-scheduled VM backup:
         compute_instance_id: klmc87d7q49r********
       ```
 
-  For more information about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/backup/policy/execute.md).
+  For more information about this command, see the [CLI reference](../../../cli/cli-ref/backup/cli-ref/policy/execute.md).
 
 {% endlist %}

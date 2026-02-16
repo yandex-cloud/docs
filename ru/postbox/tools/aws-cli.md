@@ -1,3 +1,8 @@
+---
+title: Использование {{ postbox-full-name }} с помощью AWS CLI
+description: В этой статье вы узнаете, как установить и настроить AWS CLI для работы с {{ postbox-name }}.
+---
+
 # AWS CLI
 
 [AWS CLI](https://docs.aws.amazon.com/cli/) — это интерфейс командной строки для работы с сервисами AWS. Общий [порядок вызова команд](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/index.html) смотрите в официальной документации Amazon.
@@ -6,7 +11,7 @@
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт.
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa) сервисному аккаунту [роли](../security/index.md), необходимые для вашего проекта. Подробнее о ролях см. в [документации Identity and Access Management](../../iam/concepts/access-control/roles).
-1. [Создайте](../../iam/operations/sa/create-access-key.md) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
+1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статические ключи доступа. Надежно сохраните идентификатор и секретный ключ. После того как вы закроете окно, параметры секретного ключа станут недоступны.
 
 ## Установка {#installation}
 

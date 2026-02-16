@@ -31,11 +31,11 @@ Public IP addresses can be dynamic or static. When creating a cloud resource wit
 
 You can convert a dynamic public IP address to static. Static IP addresses do not change when resources are stopped, and you can reserve them in your folder for future use even if they are not linked to any cloud resources. To learn how to convert a dynamic IP address to static, see [{#T}](../../compute/operations/vm-control/vm-set-static-ip.md).
 
+To prevent accidental deletion of a static public IP address, enable deletion protection for it. You can [enable deletion protection](../operations/deletion-protection.md#enable-deletion-protection) for an address that is already reserved or for a new address when [reserving](../operations/get-static-ip.md) it.
+
 {% include notitle [note-public-ip-traffic.md](../../_includes/pricing/note-public-ip-traffic.md) %}
 
-
 For more information about IP address pricing, see [{#T}](../pricing.md#prices-public-ip) in the {{ vpc-name }} documentation.
-
 
 ### Outgoing traffic to TCP port 25 {#port-25}
 
@@ -48,3 +48,10 @@ You can use a _host name_ to access one cloud resource from another within the s
 The host name is either set manually or generated automatically using the VM ID.
 
 For more information about how FQDNs are generated, see the [Host name and internal FQDN](../../compute/concepts/network.md#hostname) section in the {{ compute-name }} documentation.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/dhcp-options.md)
+* [{#T}](../tutorials/clickhouse-dns-peering.md)

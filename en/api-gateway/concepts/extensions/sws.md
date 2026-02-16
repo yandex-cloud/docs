@@ -1,18 +1,20 @@
 # x-yc-apigateway:smartWebSecurity extension
 
-`x-yc-apigateway:smartWebSecurity` protects the [API gateway](../../concepts/index.md) based on rules set in the [{{ sws-full-name }} security profile](../../../smartwebsecurity/concepts/profiles.md). You are not charged for blocked API gateway requests.
+The `x-yc-apigateway:smartWebSecurity` extension uses rules set in the [{{ sws-full-name }} security profile](../../../smartwebsecurity/concepts/profiles.md) to protect an [API gateway](../../concepts/index.md). For example, you can use the [basic rules](../../../smartwebsecurity/concepts/rules.md#base-rules) to block unwanted traffic or [Advanced Rate Limiter](../../../smartwebsecurity/concepts/arl.md) to limit the number of requests.
+
+You only pay for those requests to an API gateway that were checked and not blocked. There is a separate fee for using the security profile as per the [{{ sws-full-name }} pricing policy](../../../smartwebsecurity/pricing.md).
 
 ## Supported parameters {#parameters}
 
 {% include [param-table](../../../_includes/api-gateway/parameters-table.md) %}
 
-| Parameter | Type | Description |
+Parameter | Type | Description 
 ----|----|----
-| `securityProfileId` | `string` | {{ sws-name }} [security profile](../../../smartwebsecurity/concepts/profiles.md) ID |
+`securityProfileId` | `string` | {{ sws-name }} [security profile](../../../smartwebsecurity/concepts/profiles.md) ID
 
 ## Extension specification {#spec}
 
-Specification example:
+Specification example: 
 
 ```yaml
 openapi: "3.0.0"
@@ -35,3 +37,7 @@ paths:
           '*': "This pet store is protected by SWS!"
         http_code: 200
 ```
+
+## Use cases {#examples}
+
+* [{#T}](../../tutorials/api-gw-sws-integration.md)

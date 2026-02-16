@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/OsLogin/getSettings.md
 ---
 
-# Cloud Organization API, gRPC: OsLoginService.GetSettings {#GetSettings}
+# Identity Hub API, gRPC: OsLoginService.GetSettings
 
 OsLogin settings
 
@@ -15,26 +15,28 @@ OsLogin settings
 
 ```json
 {
-  "organizationId": "string"
+  "organization_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| organizationId | **string**
+|| organization_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}
 
 ```json
 {
-  "userSshKeySettings": {
+  "user_ssh_key_settings": {
     "enabled": "bool",
-    "allowManageOwnKeys": "bool"
+    "allow_manage_own_keys": "bool"
   },
-  "sshCertificateSettings": {
+  "ssh_certificate_settings": {
     "enabled": "bool"
   }
 }
@@ -42,8 +44,8 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| userSshKeySettings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
-|| sshCertificateSettings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
+|| user_ssh_key_settings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
+|| ssh_certificate_settings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
 |#
 
 ## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UserSshKeySettings}
@@ -51,7 +53,7 @@ Required field.  ||
 #|
 ||Field | Description ||
 || enabled | **bool** ||
-|| allowManageOwnKeys | **bool** ||
+|| allow_manage_own_keys | **bool** ||
 |#
 
 ## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.SshCertificateSettings}

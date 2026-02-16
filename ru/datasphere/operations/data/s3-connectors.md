@@ -12,7 +12,7 @@
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
 1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) созданному аккаунту [роль](../../../storage/security/), которая разрешит либо только чтение, либо чтение и запись.
-1. [Создайте ключ доступа](../../../iam/operations/sa/create-access-key.md) для сервисного аккаунта.
+1. [Создайте ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
 
 ## Создать коннектор S3 {#create}
 
@@ -79,7 +79,7 @@
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
 1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../../_assets/console-icons/bucket.svg)**{{ ui-key.yc-ui-datasphere.resources.s3 }}**.
-1. В списке коннекторов S3 выберите тот, который хотите удалить. Нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В строке с нужным хранилищем S3 нажмите ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 Отобразится сообщение о том, что секрет удален.

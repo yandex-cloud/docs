@@ -1,0 +1,3 @@
+**Escalation policy** is a sequence of notifications to send when an alert gets the **Alarm** status. If a notification is not acknowledged within the specified period, the system will automatically send it using a different method. Escalation thus guarantees that you or your team do not miss an important message.
+
+You can include any number of steps in your notification sequence, set delays between them, select notification methods, and specify users. For example, it can start by sending a notification to an employee's email or messenger, call them after five minutes, and escalate to their supervisor after ten.

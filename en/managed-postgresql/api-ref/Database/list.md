@@ -1,9 +1,47 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databases
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the PostgreSQL cluster to list databases in.
+            To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, Set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse)
+            returned by the previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/postgresql/v1/api-ref/Database/list.md
 ---
 
-# Managed Service for PostgreSQL API, REST: Database.List {#List}
+# Managed Service for PostgreSQL API, REST: Database.List
 
 Retrieves the list of PostgreSQL Database resources in the specified cluster.
 
@@ -20,7 +58,9 @@ GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/databa
 || clusterId | **string**
 
 Required field. ID of the PostgreSQL cluster to list databases in.
-To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.mdb.postgresql.v1.ListDatabasesRequest}
@@ -31,11 +71,15 @@ To get the cluster ID use a [ClusterService.List](/docs/managed-postgresql/api-r
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, Set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.mdb.postgresql.v1.ListDatabasesResponse}
@@ -125,5 +169,5 @@ Name of the extension, e.g. `pg_trgm` or `pg_btree`.
 Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](/docs/managed-postgresql/operations/extensions/cluster-extensions). ||
 || version | **string**
 
-Version of the extension. ||
+Version of the extension. The setting is deprecated and has no effect. ||
 |#

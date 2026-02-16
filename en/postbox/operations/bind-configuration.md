@@ -1,13 +1,15 @@
 # Linking a configuration to an address
 
-Link a [configuration](../concepts/glossary.md#configuration) to an address to get [email delivery notifications](../concepts/notification.md).
+Create a [configuration](../concepts/glossary.md#configuration) and associate it with your address to get [email event notifications](../concepts/notification.md).
+
+The configuration will apply to all emails sent from this address. To apply your configuration to an individual email, provide the configuration name in the `X-Ses-Configuration-Set` header.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your address and configuration.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}**.
     1. Select an address to link the configuration to.
     1. Click **{{ ui-key.yacloud.common.edit }}**.
@@ -18,7 +20,7 @@ Link a [configuration](../concepts/glossary.md#configuration) to an address to g
 
     If you do not have the AWS CLI yet, [install and configure it](../tools/aws-cli.md).
 
-    To link a configuration to an address, assign the `postbox.editor` [role](../security/index.md#postbox-editor) to the service account enabling the AWS CLI.
+    To associate the configuration with your address, assign the `postbox.editor` [role](../security/index.md#postbox-editor) to the service account used for the AWS CLI.
 
     1. In the terminal, define these variables:
 

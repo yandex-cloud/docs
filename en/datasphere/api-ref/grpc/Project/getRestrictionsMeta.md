@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/datasphere/v2/api-ref/grpc/Project/getRestrictionsMeta.md
 ---
 
-# DataSphere API v2, gRPC: ProjectService.GetRestrictionsMeta {#GetRestrictionsMeta}
+# DataSphere API v2, gRPC: ProjectService.GetRestrictionsMeta
 
 Get meta information about available restrictions.
 
@@ -26,10 +26,10 @@ Get meta information about available restrictions.
 
 ```json
 {
-  "restrictionsMeta": [
+  "restrictions_meta": [
     {
       "name": "string",
-      "valueType": "RestrictionValueType"
+      "value_type": "RestrictionValueType"
     }
   ]
 }
@@ -37,7 +37,7 @@ Get meta information about available restrictions.
 
 #|
 ||Field | Description ||
-|| restrictionsMeta[] | **[RestrictionMeta](#yandex.cloud.datasphere.v2.RestrictionMeta)**
+|| restrictions_meta[] | **[RestrictionMeta](#yandex.cloud.datasphere.v2.RestrictionMeta)**
 
 List of restrictions. ||
 |#
@@ -49,7 +49,7 @@ List of restrictions. ||
 || name | **string**
 
 Name of restriction. ||
-|| valueType | enum **RestrictionValueType**
+|| value_type | enum **RestrictionValueType**
 
 Value type of restriction.
 

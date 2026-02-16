@@ -1,11 +1,128 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/episodes
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        streamId:
+          description: |-
+            **string**
+            ID of the stream.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `streamId`, `lineId`.
+            Parent resource ID to link the episode to (exactly one must be chosen).
+          type: string
+        lineId:
+          description: |-
+            **string**
+            ID of the line.
+            The maximum string length in characters is 50.
+            Includes only one of the fields `streamId`, `lineId`.
+            Parent resource ID to link the episode to (exactly one must be chosen).
+          type: string
+        title:
+          description: |-
+            **string**
+            Required field. Episode title.
+            The maximum string length in characters is 300.
+          type: string
+        description:
+          description: |-
+            **string**
+            Episode description.
+            The maximum string length in characters is 5000.
+          type: string
+        thumbnailId:
+          description: |-
+            **string**
+            ID of the thumbnail.
+            The maximum string length in characters is 50.
+          type: string
+        startTime:
+          description: |-
+            **string** (date-time)
+            Episode start time.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        finishTime:
+          description: |-
+            **string** (date-time)
+            Episode finish time.
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+        dvrSeconds:
+          description: |-
+            **string** (int64)
+            Enables episode DVR mode.
+            Determines how many last seconds of the stream are available.
+            Possible values:
+            * `0`: infinite dvr size, the full length of the stream allowed to display
+            * `>0`: size of dvr window in seconds, the minimum value is 30s
+          type: string
+          format: int64
+        stylePresetId:
+          description: |-
+            **string**
+            ID of the style preset.
+            The maximum string length in characters is 50.
+          type: string
+        publicAccess:
+          description: |-
+            **object**
+            Episode is publicly available.
+            Includes only one of the fields `publicAccess`, `signUrlAccess`.
+            Episode access permission settings (exactly one must be chosen).
+          $ref: '#/definitions/EpisodePublicAccessParams'
+        signUrlAccess:
+          description: |-
+            **object**
+            Access to the episode is restricted by temporarily signed links.
+            Includes only one of the fields `publicAccess`, `signUrlAccess`.
+            Episode access permission settings (exactly one must be chosen).
+          $ref: '#/definitions/EpisodeSignURLAccessParams'
+      required:
+        - title
+      additionalProperties: false
+      allOf:
+        - oneOf:
+            - required:
+                - streamId
+            - required:
+                - lineId
+        - oneOf:
+            - required:
+                - publicAccess
+            - required:
+                - signUrlAccess
+    definitions:
+      EpisodePublicAccessParams:
+        type: object
+        properties: {}
+      EpisodeSignURLAccessParams:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/create.md
 ---
 
-# Video API, REST: Episode.Create {#Create}
+# Video API, REST: Episode.Create
 
-Create episode.
+Creates a new episode associated with a stream or stream line.
+Episodes can be configured with various settings including title, description,
+time boundaries, and access rights.
 
 ## HTTP request
 
@@ -27,9 +144,10 @@ POST https://video.{{ api-host }}/video/v1/episodes
   "startTime": "string",
   "finishTime": "string",
   "dvrSeconds": "string",
-  // Includes only one of the fields `publicAccess`, `authSystemAccess`
+  "stylePresetId": "string",
+  // Includes only one of the fields `publicAccess`, `signUrlAccess`
   "publicAccess": "object",
-  "authSystemAccess": "object"
+  "signUrlAccess": "object"
   // end of the list of possible fields
 }
 ```
@@ -40,21 +158,35 @@ POST https://video.{{ api-host }}/video/v1/episodes
 
 ID of the stream.
 
-Includes only one of the fields `streamId`, `lineId`. ||
+The maximum string length in characters is 50.
+
+Includes only one of the fields `streamId`, `lineId`.
+
+Parent resource ID to link the episode to (exactly one must be chosen). ||
 || lineId | **string**
 
 ID of the line.
 
-Includes only one of the fields `streamId`, `lineId`. ||
+The maximum string length in characters is 50.
+
+Includes only one of the fields `streamId`, `lineId`.
+
+Parent resource ID to link the episode to (exactly one must be chosen). ||
 || title | **string**
 
-Episode title. ||
+Required field. Episode title.
+
+The maximum string length in characters is 300. ||
 || description | **string**
 
-Episode description. ||
+Episode description.
+
+The maximum string length in characters is 5000. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+ID of the thumbnail.
+
+The maximum string length in characters is 50. ||
 || startTime | **string** (date-time)
 
 Episode start time.
@@ -77,25 +209,31 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || dvrSeconds | **string** (int64)
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Enables episode DVR mode.
+Determines how many last seconds of the stream are available.
 
-possible values:
+Possible values:
 * `0`: infinite dvr size, the full length of the stream allowed to display
 * `>0`: size of dvr window in seconds, the minimum value is 30s ||
+|| stylePresetId | **string**
+
+ID of the style preset.
+
+The maximum string length in characters is 50. ||
 || publicAccess | **object**
 
-Episode is available to everyone.
+Episode is publicly available.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
-|| authSystemAccess | **object**
+Episode access permission settings (exactly one must be chosen). ||
+|| signUrlAccess | **object**
 
-Checking access rights using the authorization system.
+Access to the episode is restricted by temporarily signed links.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
+Episode access permission settings (exactly one must be chosen). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -132,9 +270,10 @@ Episode access rights. ||
     "finishTime": "string",
     "dvrSeconds": "string",
     "visibilityStatus": "string",
-    // Includes only one of the fields `publicAccess`, `authSystemAccess`
+    "stylePresetId": "string",
+    // Includes only one of the fields `publicAccess`, `signUrlAccess`
     "publicAccess": "object",
-    "authSystemAccess": "object",
+    "signUrlAccess": "object",
     // end of the list of possible fields
     "createdAt": "string",
     "updatedAt": "string"
@@ -218,7 +357,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || episodeId | **string**
 
-ID of the episode. ||
+ID of the episode being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -240,29 +379,35 @@ A list of messages that carry the error details. ||
 
 ## Episode {#yandex.cloud.video.v1.Episode}
 
+Entity representing a stream fragment that can be accessed independently.
+Episodes can be linked to either a stream or a line
+and provide a way to reference specific portions of the corresponding content.
+
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the episode. ||
+Unique identifier of the episode. ||
 || streamId | **string**
 
-ID of the stream. Optional, empty if the episode is linked to the line ||
+Identifier of the stream this episode is linked to.
+Optional, empty if the episode is linked to a line. ||
 || lineId | **string**
 
-ID of the line. Optional, empty if the episode is linked to the stream ||
+Identifier of the line this episode is linked to.
+Optional, empty if the episode is linked to a stream. ||
 || title | **string**
 
-Channel title. ||
+Title of the episode displayed in interfaces and players. ||
 || description | **string**
 
-Channel description. ||
+Detailed description of the episode content and context. ||
 || thumbnailId | **string**
 
-ID of the thumbnail. ||
+Identifier of the thumbnail image used to represent the episode visually. ||
 || startTime | **string** (date-time)
 
-Episode start time.
+Timestamp marking the beginning of the episode content.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -272,7 +417,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || finishTime | **string** (date-time)
 
-Episode finish time.
+Timestamp marking the end of the episode content.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -282,33 +427,39 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || dvrSeconds | **string** (int64)
 
-Enables episode DVR mode. DVR seconds determines how many last seconds of the stream are available.
+Controls the Digital Video Recording (DVR) functionality for the episode.
+Determines how many seconds of the stream are available for time-shifted viewing.
 
-possible values:
-* `0`: infinite dvr size, the full length of the stream allowed to display
-* `>0`: size of dvr window in seconds, the minimum value is 30s ||
+Possible values:
+* `0`: Infinite DVR size, the full length of the stream is available for viewing.
+* `>0`: Size of DVR window in seconds, the minimum value is 30s. ||
 || visibilityStatus | **enum** (VisibilityStatus)
 
-- `VISIBILITY_STATUS_UNSPECIFIED`
-- `PUBLISHED`
-- `UNPUBLISHED` ||
+Current visibility status controlling whether the episode is publicly available.
+
+- `PUBLISHED`: The episode is publicly available, subject to its access permission settings.
+- `UNPUBLISHED`: The episode is available only to administrators. ||
+|| stylePresetId | **string**
+
+Identifier of the style preset used in the player during episode playback. ||
 || publicAccess | **object**
 
-Episode is available to everyone.
+Allows unrestricted public access to the episode via direct link.
+No additional authorization or access control is applied.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
-|| authSystemAccess | **object**
+Specifies the episode access permission settings. ||
+|| signUrlAccess | **object**
 
-Checking access rights using the authorization system.
+Restricts episode access using URL signatures for secure time-limited access.
 
-Includes only one of the fields `publicAccess`, `authSystemAccess`.
+Includes only one of the fields `publicAccess`, `signUrlAccess`.
 
-Episode access rights. ||
+Specifies the episode access permission settings. ||
 || createdAt | **string** (date-time)
 
-Time when episode was created.
+Timestamp when the episode was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -318,7 +469,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last episode update.
+Timestamp of the last modification to the episode or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.

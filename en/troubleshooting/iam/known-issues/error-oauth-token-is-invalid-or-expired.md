@@ -1,16 +1,17 @@
-# Resolving the "OAuth token is invalid or expired" error
+# Fixing the `OAuth token is invalid or expired` error
+
 
 
 ## Issue description {#issue-description}
 
-The OAuth token has expired, and you see this error: `OAuth token is invalid or expired`.
+The OAuth token has expired, causing the `OAuth token is invalid or expired` error.
 
 ## Solution {#issue-resolution}
 
-The OAuth token is valid for one year: it could have been revoked on expiry of this period.
+An OAuth token lives 12 months. Once this time frame is over, the token will not work anymore.
 
-The password or authentication method for the account to which the token belonged has probably changed. A list of reasons why the token could have been invalidated is provided [here](https://yandex.ru/dev/id/doc/dg/oauth/reference/token-invalidate.html).
+The password or authentication method for the account that owns the token might have changed. For the full list of possible causes of token invalidation, see [this Yandex ID article](https://yandex.com/dev/id/doc/en/tokens/token-invalidate) that explains how revoking tokens works.
 
-For working with the YC CLI, we recommend authenticating via a service account with the necessary roles and setting up authorization using an authorized key. We have described the setup process in detail in this [article](https://cloud.yandex.ru/docs/cli/operations/authentication/service-account).
+To get a valid OAuth token, [run a request]({{ link-cloud-oauth }}) to Yandex OAuth. You will see the token on the page that opens. 
 
-An authorized key has no expiry period, and the user should store it independently. If someone might have learned your secret key, delete it. We write more about this authentication method in the [documentation](https://cloud.yandex.ru/docs/iam/concepts/authorization/key).
+For working with the YC CLI, you may want to use a service account through an authorized key. For more details, check out [this article](../../../cli/operations/authentication/service-account.md) on authenticating on behalf of a service account.

@@ -1,3 +1,8 @@
+---
+title: AWS Command Line Interface (AWS CLI)
+description: Из статьи вы узнаете, что такое AWS Command Line Interface (AWS CLI), как его установить и настроить, а также ознакомитесь с особенностями AWS CLI при работе с {{ objstorage-name }} и примерами операций.
+---
+
 # AWS Command Line Interface (AWS CLI)
 
 
@@ -20,8 +25,8 @@
 ## Настройка {#setup}
 
 Для настройки AWS CLI в терминале введите команду `aws configure`. Команда запросит значения для следующих параметров:
-1. `AWS Access Key ID` — идентификатор статического ключа, созданного при [подготовке к работе](#before-you-begin).
-1. `AWS Secret Access Key` — содержимое статического ключа.
+1. `AWS Access Key ID` — идентификатор статического ключа, [полученный ранее](#before-you-begin).
+1. `AWS Secret Access Key` — содержимое статического ключа, [полученное ранее](#before-you-begin).
 1. `Default region name` — регион `{{ region-id }}`.
 
     Для работы с {{ objstorage-name }} всегда указывайте регион — `{{ region-id }}`. Другие значения региона могут привести к ошибке авторизации.
@@ -35,45 +40,66 @@
 
   ```ini
   [default]
-    aws_access_key_id = <идентификатор_статического_ключа>
-    aws_secret_access_key = <содержимое_статического_ключа>
+  aws_access_key_id = <идентификатор_статического_ключа>
+  aws_secret_access_key = <содержимое_статического_ключа>
   ```
 
 * Формат региона по умолчанию в `.aws/config`:
 
   ```ini
   [default]
-    region = {{ region-id }}
+  region = {{ region-id }}
   ```
 
-* Вы можете создать несколько профилей для разных сервисных аккаунтов, указав их данные в файле `.aws/credentials`:
+
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
+
+### Настройка дополнительного профиля {#additional-profile}
+
+Вы можете создать несколько профилей для AWS CLI с помощью команды:
+
+  ```bash
+  aws configure --profile <имя_профиля>
+  ```
+
+Данные профилей будут сохранены в файлах `.aws/credentials` и `.aws/config` в следующем виде:
+* `credentials`:
 
   ```ini
   [default]
-    aws_access_key_id = <идентификатор_статического_ключа_1>
-    aws_secret_access_key = <содержимое_статического_ключа_1>
+  aws_access_key_id = <идентификатор_статического_ключа_1>
+  aws_secret_access_key = <содержимое_статического_ключа_1>
   [<имя_профиля_2>]
-    aws_access_key_id = <идентификатор_статического_ключа_2>
-    aws_secret_access_key = <содержимое_статического_ключа_2>
+  aws_access_key_id = <идентификатор_статического_ключа_2>
+  aws_secret_access_key = <содержимое_статического_ключа_2>
   ...
   [<имя_профиля_n>]
-    aws_access_key_id = <идентификатор_статического_ключа_n>
-    aws_secret_access_key = <содержимое_статического_ключа_n>
+  aws_access_key_id = <идентификатор_статического_ключа_n>
+  aws_secret_access_key = <содержимое_статического_ключа_n>
+  ```
+
+* `config`:
+
+  ```ini
+  [default]
+  region = {{ region-id }}
+  [profile <имя_профиля_2>]
+  region = {{ region-id }}
+  ...
+  [profile <имя_профиля_n>]
+  region = {{ region-id }}
   ```
 
   Где `default` — профиль по умолчанию.
 
-  Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
+Чтобы переключаться между разными профилями в командах AWS CLI используется опция `--profile`, например:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }}/ \
     --profile <имя_профиля_2> \
     s3 mb s3://<имя_бакета>
   ```
-
-
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
 
 ## Особенности {#specifics}
 
@@ -111,7 +137,7 @@
 
 {% note info %}
 
-Для включения отладочного вывода в консоли используйте ключ `--debug`.
+Для включения отладочного вывода в консоли используйте флаг `--debug`.
 
 {% endnote %}
 
@@ -174,7 +200,7 @@ make_bucket: bucket-name
   ```text
   upload: ./testfile.txt to s3://bucket-name/path_style_prefix/textfile.txt
   ```
-  
+
 ### Получить список объектов {#getting-objects-list}
 
 ```bash

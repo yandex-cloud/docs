@@ -1,9 +1,41 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:updatePrivateNetworks
+    method: patch
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            ID of the DNS zone which private networks will be updated
+          type: string
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        privateNetworkIdAdditions:
+          description: |-
+            **string**
+            Network IDs to remove
+          type: array
+          items:
+            type: string
+        privateNetworkIdDeletions:
+          description: |-
+            **string**
+            Network IDs to add
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/updatePrivateNetworks.md
 ---
 
-# Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks {#UpdatePrivateNetworks}
+# Cloud DNS API, REST: DnsZone.UpdatePrivateNetworks
 
 Atomically updates zone private networks
 
@@ -74,7 +106,7 @@ Network IDs to add ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "zone": "string",
     "privateVisibility": {
       "networkIds": [
@@ -212,7 +244,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

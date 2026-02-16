@@ -1,17 +1,22 @@
+---
+title: '{{ dns-full-name }} event reference in {{ at-full-name }}'
+description: This page gives a reference for {{ dns-name }} events tracked in {{ at-name }}.
+---
+
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking of [management (control plane) events](../audit-trails/concepts/format.md) and [data (data plane) events](../audit-trails/concepts/format-data-plane.md) for {{ dns-full-name }}.
+{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ dns-full-name }}.
 
-The general view of the `event_type` field value is as follows:
+The `event_type` value follows this general format:
 
 ```text
 {{ at-event-prefix }}.audit.dns.<event_name>
 ```
 
-## Management event reference {#control-plane-events}
+## Control plane event reference {#control-plane-events}
 
 {% include [dns-events](../_includes/audit-trails/events/dns-events.md) %}
 
-## Data event reference {#data-plane-events}
+## Data plane event reference {#data-plane-events}
 
 {% include [dns-events-dp](../_includes/audit-trails/events/dns-events-dp.md) %}

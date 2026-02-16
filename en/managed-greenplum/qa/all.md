@@ -1,6 +1,6 @@
 ---
-title: Questions and answers about {{ mgp-full-name }}
-description: This page provides answers to questions about {{ mgp-short-name }}.
+title: FAQ about {{ mgp-full-name }}
+description: This page covers FAQ about {{ mgp-short-name }}.
 ---
 
 # FAQ about {{ mgp-short-name }}
@@ -21,7 +21,7 @@ description: This page provides answers to questions about {{ mgp-short-name }}.
 
 {% include [update-minitoc](../../_qa/managed-greenplum/minitoc/update.md) %}
 
-### {{ mgp-short-name }} clusters and hosts {#toc-cluster-hosts}
+### {{ GP }} clusters and hosts {#toc-cluster-hosts}
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 
@@ -49,7 +49,7 @@ description: This page provides answers to questions about {{ mgp-short-name }}.
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 
-## {{ mgp-short-name }} clusters and hosts {#cluster-hosts}
+## {{ GP }} clusters and hosts {#cluster-hosts}
 
 {% include [cluster-hosts](../../_qa/managed-greenplum/cluster-hosts.md) %}
 

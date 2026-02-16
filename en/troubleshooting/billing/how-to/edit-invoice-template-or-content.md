@@ -1,32 +1,31 @@
 # How to change the format and data in the issued payment invoices
 
 
-## Issue description {#case-description}
 
-You need to adjust the layout or format of the invoice issued for the consumption of Yandex Cloud services.
+## Case description {#case-description}
+
+You need to edit the layout or format of the invoice issued for the {{ yandex-cloud }} services you consumed.
+
 
 ## Solution {#case-resolution}
 
-We cannot customize the invoices issued, as they are automatically created based on a predefined template and sent to your email.
-The invoice date is not indicated in the document because the invoice contains data about the entire debt existing at the time of its issue.
+We cannot customize the invoices we issue, since we create them automatically based on a predefined template and send to your email. There is no create or due date in the invoice, since it contains information on the entire amount due at the time of its issue.
+
 You can pay the issued invoice at any convenient time within the payment period.
 
-The correct accrual of services in accounting is based on the act and the invoice.
-Currently, there are no legislative acts indicating that the preparation of an invoice for payment is a mandatory procedure when settling with counterparties.
+The cost of services is determined using the accounting methods based on the service report and the invoice. Currently, there are no laws or regulations stating that creating a payment invoice is mandatory when settling with counterparties.
 
-According to clause 6.10 of the [offer to conclude a contract for the use of the Yandex Cloud Platform Services](https://yandex.ru/legal/cloud_oferta/?lang=ru), accepted when creating a billing account, the Customer makes a payment without an invoice issued by Yandex.
+According to clause 6.10 of the [Offer to conclude an agreement on the use of the Yandex Cloud services]({{ billing-oferta-url }}) that the client accepts when creating a billing account, the client makes a payment without any invoice issued by Yandex.
 
-This means that you can post a payment even without an automatically generated payment invoice.
-You can pay for services both under the Contract and the Report of provided services. The Report is accompanied by a breakdown, which contains all the necessary details of the billing account and can be used for payment. Most importantly, correctly specify the recipient's details and the billing account in the payment purpose.
+This means that you can issue payment without an automatically generated payment invoice. You can pay for services both under the Agreement and the Report of provided services. The Report also has a breakdown with all the details of the billing account, which you can also use for payment. Just make sure to correctly specify the recipient's details and the billing account in the payment details.
 
-After that, send the resulting payment order on behalf of the legal entity indicated in your billing account.
-If you comply with these conditions, the payment will automatically be credited to the billing account balance.
+After that, send your payment order on behalf of the legal entity that shows up in your billing account.
 
-## If nothing helped {#if-issue-still-persists}
+If you follow these requirements, the payment will be automatically credited to the billing account balance.
 
-If you can't find the payment details for the invoice, you can [create a new request for technical support]({{ link-console-support }}).
-When creating the request, make sure to specify:
+## If nothing helped {#if-nothing-worked}
 
-1. Billing account ID.
-   You can find this ID on the [page with billing account details]({{ link-console-support }}).
-2. List of documents documents required to make a payment.
+If you cannot find the payment details for your invoice, you can [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
+
+1. Billing account ID. You can find this ID on the [page with the billing account details]({{ link-console-billing }}).
+1. List of documents required to make a payment.

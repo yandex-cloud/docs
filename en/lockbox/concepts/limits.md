@@ -1,11 +1,11 @@
 ---
-title: Quotas and limits in {{ lockbox-full-name }}
-description: '{{ lockbox-full-name }} has limits and quotas for the maximum number of key-value pairs in the secret version and the maximum total size of values in the key-value pairs of the secret version. For more information about the service restrictions, read this article.'
+title: '{{ lockbox-full-name }} quotas and limits'
+description: '{{ lockbox-full-name }} has limits and quotas for maximum total size of values from key-value pairs in a secret version and the maximum number of versions per secret. For more information about the service limitations, read this article.'
 ---
 
 # Quotas and limits in {{ lockbox-name }}
 
-{{ lockbox-name }} has the following limits:
+{{ lockbox-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

@@ -1,9 +1,25 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+    method: get
+    path:
+      type: object
+      properties:
+        gpuClusterId:
+          description: |-
+            **string**
+            ID of the GPU cluster to return.
+            To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/GpuCluster/list#List) request.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/GpuCluster/get.md
 ---
 
-# Compute Cloud API, REST: GpuCluster.Get {#Get}
+# Compute Cloud API, REST: GpuCluster.Get
 
 Returns the specified GPU cluster.
 
@@ -37,14 +53,14 @@ To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/G
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "status": "string",
   "zoneId": "string",
   "interconnectType": "string"
 }
 ```
 
-A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpu-cluster).
+A GPU cluster. For details about the concept, see [documentation](/docs/compute/concepts/gpus#gpu-clusters).
 
 #|
 ||Field | Description ||
@@ -72,14 +88,13 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the GPU cluster. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 GPU cluster labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the GPU cluster.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: GPU cluster is being created.
 - `READY`: GPU cluster is ready to use.
 - `ERROR`: GPU cluster encountered a problem and cannot operate.
@@ -91,6 +106,5 @@ ID of the availability zone where the GPU cluster resides. ||
 
 Type of interconnect used for this GPU cluster.
 
-- `GPU_INTERCONNECT_TYPE_UNSPECIFIED`
 - `INFINIBAND`: InfiniBand interconnect. ||
 |#

@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
+    method: get
+    path:
+      type: object
+      properties:
+        dnsZoneId:
+          description: |-
+            **string**
+            Required field. ID of the DNS zone to return.
+            To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/list#List) request.
+          type: string
+      required:
+        - dnsZoneId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dns/v1/api-ref/DnsZone/get.md
 ---
 
-# Cloud DNS API, REST: DnsZone.Get {#Get}
+# Cloud DNS API, REST: DnsZone.Get
 
 Returns the specified DNS zone.
 
@@ -37,7 +55,7 @@ To get a DNS zone ID, make a [DnsZoneService.List](/docs/dns/api-ref/DnsZone/lis
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "zone": "string",
   "privateVisibility": {
     "networkIds": [
@@ -76,7 +94,7 @@ The name is unique within the folder. ||
 || description | **string**
 
 Description of the DNS zone. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 DNS zone labels as `key:value` pairs. ||
 || zone | **string**

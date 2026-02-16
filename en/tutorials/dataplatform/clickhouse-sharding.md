@@ -1,4 +1,4 @@
-# Sharding tables {{ mch-full-name }}
+# Sharding {{ mch-full-name }} tables
 
 {% include notitle [clickhouse-sharding](../../_tutorials/dataplatform/clickhouse-sharding.md) %}
 

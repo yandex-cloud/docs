@@ -1,3 +1,8 @@
+---
+title: Delta Lake in {{ dataproc-full-name }}
+description: In this article, you will learn about Delta Lake in {{ dataproc-name }}, discover Delta Lake benefits, and review compatible Delta Lake and {{ dataproc-name }} versions.
+---
+
 # Delta Lake in {{ dataproc-name }}
 
 [Delta Lake](https://delta.io/) is open-source software that expands [{{ SPRK }}](https://spark.apache.org/) functionality:
@@ -17,7 +22,7 @@ Although single-cluster mode allows using tables from different clusters and {{ 
 In multi-cluster mode, access to Delta Lake tables from different clusters and {{ SPRK }} jobs is managed by an auxiliary database. In {{ yandex-cloud }}, this role is performed by [{{ ydb-full-name }}](../../ydb/index.yaml).
 
 
-{% include [deltalake-disclaimer](../../_includes/data-proc/deltalake-disclaimer.md) %}
+{% include [deltalake-disclaimer](../../_includes/data-processing/deltalake-disclaimer.md) %}
 
 
 For more information about Delta Lake, see the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
@@ -37,7 +42,7 @@ Delta Lake and {{ dataproc-name }} versions are only compatible if the Delta Lak
 
 {% note info %}
 
-{{ dataproc-name }} 2.1.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and provided upon request. To access such clusters, contact [support]({{ link-console-support }}) or your account manager.
+{{ dataproc-name }} 2.1.x clusters are at the [Preview stage](../../overview/concepts/launch-stages.md) and provided upon request. Contact [support]({{ link-console-support }}) or your account manager.
 
 {% endnote %}
 

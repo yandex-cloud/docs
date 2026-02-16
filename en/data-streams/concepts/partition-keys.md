@@ -2,11 +2,11 @@
 
 The following examples illustrate the concepts of [partitions](glossary.md#hard) and [partition keys](glossary.md#partition-key).
 
-## When the message processing order is important {#order}
+## When message processing order matters {#order}
 
 Let's consider a financial application that calculates the user's account balance and either allows or denies debiting the funds.
 
-You can approach such tasks using a [message queue](https://en.wikipedia.org/wiki/Message_queue). When you top up your account, debit funds, or make a purchase, a message with the account ID, amount, and transaction type is registered in the queue. The application processes incoming messages and calculates the balance.
+For such tasks, you can use a [message queue](https://en.wikipedia.org/wiki/Message_queue). When you top up your account, debit funds, or make a purchase, a message with the account ID, amount, and transaction type is registered in the queue. The application processes incoming messages and calculates the balance.
 
 
 
@@ -37,3 +37,9 @@ In the example below, all transactions for accounts with even IDs are passed to 
 For some tasks, the message processing order is not critical. For example, when you [enter data into a storage system](../tutorials/data-ingestion.md), it's important to deliver data and the storage system will organize it.
 
 In this case, the partition key can be a random value. The key determines the partition where a message will be saved, so identical keys for all messages will cause data to be sent to the same partition with the resulting partition overload. To avoid this, a message checksum is used as the key. The exceptional checksum uniqueness allows data to be uniformly written across all partitions. You can also use any unique ID as the partition key.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-ingestion.md)
+* [{#T}](../tutorials/yds-to-kafka.md)
+* [{#T}](../tutorials/yds-to-ydb.md)

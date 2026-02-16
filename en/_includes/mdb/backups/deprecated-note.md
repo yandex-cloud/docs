@@ -1,0 +1,1 @@
+For clusters running an unsupported DBMS version, restoring from backups is not available.

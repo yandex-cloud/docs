@@ -1,0 +1,1 @@
+^1^ `amd-v1` is available to a limited number of users for private testing at the [Preview](../../overview/concepts/launch-stages.md) stage and is not free of charge. To request access to the platform, contact your account manager.

@@ -1,9 +1,40 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}:removeScalingPolicy
+    method: post
+    path:
+      type: object
+      properties:
+        functionId:
+          description: |-
+            **string**
+            Required field. ID of the function to remove scaling policies for.
+            To get a function ID, make a [FunctionService.List](/docs/functions/functions/api-ref/Function/list#List) request.
+          type: string
+      required:
+        - functionId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        tag:
+          description: |-
+            **string**
+            Required field. Version tag.
+            To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+            Value must match the regular expression ` [a-z][-_0-9a-z]*|[$]latest `.
+          pattern: '[a-z][-_0-9a-z]*|[$]latest'
+          type: string
+      required:
+        - tag
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/functions/v1/functions/api-ref/Function/removeScalingPolicy.md
 ---
 
-# Cloud Functions Service, REST: Function.RemoveScalingPolicy {#RemoveScalingPolicy}
+# Cloud Functions Service, REST: Function.RemoveScalingPolicy
 
 Remove scaling policy for specified function and tag
 
@@ -38,7 +69,9 @@ To get a function ID, make a [FunctionService.List](/docs/functions/functions/ap
 
 Required field. Version tag.
 
-To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request. ||
+To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/Function/listTagHistory#ListTagHistory) request.
+
+Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

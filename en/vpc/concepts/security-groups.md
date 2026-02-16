@@ -13,9 +13,9 @@ Currently, you can only use IPv4 in {{ yandex-cloud }} networks. IPv6 is not sup
 
 {% endnote %}
 
-A security group (SG) is a resource that is created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
+A *security group* (SG) is a resource created at the [cloud network](./network.md#network) level. Once created, a security group can be used in {{ yandex-cloud }} services to control network access to an object it applies to.
 
-A default security group (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
+A *default security group* (DSG) is created automatically while creating a [new cloud network](./network.md#network). The default security group has the following properties:
 
 * It will allow any network traffic, both egress and ingress, in the new cloud network.
 * It applies to traffic passing through all subnets in the network where the DSG is created.
@@ -28,7 +28,7 @@ You can combine security groups by assigning up to five groups per object.
 
 Security groups are not designed to protect against DDoS attacks.
 
-To filter out large amounts of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
+To filter out large volumes of unsolicited network traffic, use [{{ ddos-protection-full-name }}](../ddos-protection/index.md).
 
 {% endnote %}
 
@@ -45,8 +45,8 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 | [{{ mch-name }}](../../managed-clickhouse/) | [Cluster](../../managed-clickhouse/concepts/network.md#security-groups) |
 | [{{ mgp-name }}](../../managed-greenplum/) | [Cluster](../../managed-greenplum/concepts/network.md#security-groups) |
 | [{{ mmy-name }}](../../managed-mysql/) | [Cluster](../../managed-mysql/concepts/network.md#security-groups) |
-| [{{ mrd-name }}](../../managed-redis/) | [Cluster](../../managed-redis/concepts/network.md#security-groups) |
-| [{{ mmg-name }}](../../managed-mongodb) | [Cluster](../../managed-mongodb/concepts/network.md#security-groups) |
+| [{{ mrd-name }}](../../managed-valkey/) | [Cluster](../../managed-valkey/concepts/network.md#security-groups) |
+| [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
 | [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
 | [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
 | [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
@@ -56,7 +56,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 
 {% note info %}
 
-For more information about using security groups in a specific {{ yandex-cloud }} service, see the documentation for the service.
+For more information about using security groups in a specific {{ yandex-cloud }} service, see the relevant documentation.
 
 {% endnote %}
 
@@ -77,8 +77,8 @@ Each rule in a security group has a fixed set of fields:
 | **Description** | Brief description of the rule. You can also describe metadata in this field.
 | **Protocol** | Specifies the [network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1) to be used for this rule.<br> You can use the following protocols for security group rules:<ul><li>`TCP`</li><li>`UDP`</li><li>`ICMP`</li><li>`AH` (for IPsec connections)</li><li>`ESP` (for IPsec connections)</li><li>`GRE` (for tunnel connections)</li><li>`Any`: [Any network protocol](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml#protocol-numbers-1)</li></ul>
 | **Port range** | Range of ports for the network protocol selected in the rule.<br> You can only specify a continuous port range. You cannot list arbitrary comma-separated ports.
-| **Source** <br>For incoming traffic only | Traffic source IP addresses.<br>You can specify traffic source IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
-| **Destination** <br>For outgoing traffic only | Traffic target IP addresses.<br>You can specify traffic target IP addresses in one of the following ways:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing SG.</li><li>`Load balancer health checks`: Special rule that defines how to interact with the [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
+| **Source** <br>For incoming traffic only | Traffic source IP addresses.<br>You can use the following methods to specify traffic source IP adresses:<ul><li>`CIDR`: List of traffic source IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
+| **Target** <br>For outgoing traffic only | Traffic target IP addresses.<br>You can use the following methods to specify traffic target IP addresses:<ul><li>`CIDR`: List of traffic target IPv4 prefixes. You can set [up to 50 CIDR blocks](./limits.md#vpc-limits) per rule.</li><li>`Security group`: Name of an existing security group.</li><li>`Load balancer health checks`: Special rule that defines how to interact with [{{ network-load-balancer-name }} health check nodes](../../network-load-balancer/concepts/health-check.md#target-statuses).</li></ul>
 
 ### Self rule {#self-rule}
 
@@ -221,7 +221,7 @@ To avoid network connectivity issues when deploying and using {{ managed-k8s-nam
 
 #### Security groups and {{ alb-name }} tools for {{ managed-k8s-name }} {#security-groups-and-alb-for-k8s}
 
-For proper operation of the [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api), you need to configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+For proper operation of the [ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) or [Gateway API](https://github.com/kubernetes-sigs/gateway-api), configure security groups for the {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node groups](../../managed-kubernetes/concepts/index.md#node-group), and for the {{ alb-name }} [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md). For more information, see [this guide](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
 
 {% note alert %}
 
@@ -296,14 +296,24 @@ resource yandex_vpc_security_group vm_group_sg {
 In {{ yandex-cloud }}, you can work with security groups using:
 
 * [Management console]({{ link-console-main }}/folders/{folder-id}/vpc/security-groups/)
-* [Command line interface (CLI)](../../cli/cli-ref/managed-services/vpc/security-group/index.md)
+* [Command line interface (CLI)](../../cli/cli-ref/vpc/cli-ref/security-group/index.md)
 * {{ TF }}:
-  * [Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group)
-  * [Security Group Rule](https://terraform-provider.yandexcloud.net/Resources/vpc_security_group_rule)
-  * [Default Security Group](https://terraform-provider.yandexcloud.net/Resources/vpc_default_security_group)
+  * [Security Group]({{ tf-provider-resources-link }}/vpc_security_group)
+  * [Security Group Rule]({{ tf-provider-resources-link }}/vpc_security_group_rule)
+  * [Default Security Group]({{ tf-provider-resources-link }}/vpc_default_security_group)
 
 ## Step-by-step guides for working with security groups {#security-group-howto}
 
 [Sample use cases for security groups](../../vpc/operations/index.md#security-groups) in {{ yandex-cloud }}
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/web-service.md)
+* [{#T}](../tutorials/openvpn.md)
+* [{#T}](../tutorials/usergate-proxy.md)
+* [{#T}](../tutorials/bastion.md)
+* [{#T}](../tutorials/data-processing-nat-instance.md)
+* [{#T}](../tutorials/high-accessible-dmz.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

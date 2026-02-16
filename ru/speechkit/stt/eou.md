@@ -22,13 +22,13 @@ EOU наступает в следующих случаях:
 
 Чтобы повлиять на определение EOU, настройте использование [API v3](../stt-v3/api-ref/grpc/):
 
-* Задайте [параметр](../stt-v3/api-ref/grpc/stt_service#DefaultEouClassifier) `max_pause_between_words_hint_ms`, который управляет ожидаемой длительностью пауз между словами в рамках одной фразы (в миллисекундах). С помощью этого параметра можно избежать ложного определения EOU при медленной диктовке цифр или настроить быстроту реакции голосового помощника на остановку речи.
-* Задайте [параметр](../stt-v3/api-ref/grpc/stt_service#DefaultEouClassifier) `type` в классификаторе `eou_classifier_options=default_classifier`, который задает чувствительность метода обнаружения EOU:
+* Задайте [параметр](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.DefaultEouClassifier) `max_pause_between_words_hint_ms`, который управляет ожидаемой длительностью пауз между словами в рамках одной фразы (в миллисекундах). С помощью этого параметра можно избежать ложного определения EOU при медленной диктовке цифр или настроить быстроту реакции голосового помощника на остановку речи.
+* Задайте [параметр](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.DefaultEouClassifier) `type` в классификаторе `eou_classifier_options=default_classifier`, который задает чувствительность метода обнаружения EOU:
   * `DEFAULT` — метод по умолчанию.
   * `HIGH` — по сравнению с `DEFAULT`, быстрее обнаруживает EOU (время ответа от сервера меньше), но возможны ложные срабатывания (точность определения ниже).
 
 Вы также можете определять EOU самостоятельно по данным от {{ speechkit-short-name }} (части фразы, статистика распознавания и т. д.):
-  1. В запросе API, инициирующем [сессию распознавания](streaming.md#requests), укажите [параметр](../stt-v3/api-ref/grpc/stt_service#EouClassifierOptions) `eou_classifier_options=external_classifier`.
+  1. В запросе API, инициирующем [сессию распознавания](streaming.md#requests), укажите [параметр](../stt-v3/api-ref/grpc/Recognizer/recognizeStreaming#speechkit.stt.v3.EouClassifierOptions) `eou_classifier_options=external_classifier`.
   1. При обнаружении EOU в рамках сессии добавьте в запрос к серверу {{ speechkit-short-name }} параметр `eou` (не заполняется).
 
   {{ speechkit-short-name }} использует это как указатель на EOU и вернет законченную фразу в ответе.

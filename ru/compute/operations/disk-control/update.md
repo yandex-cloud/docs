@@ -19,8 +19,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет изменен диск.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя и описание диска.
   1. Нажмите **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
@@ -77,8 +77,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Увеличьте размер диска.
   1. Нажмите **{{ ui-key.yacloud.compute.disks.edit.button_update }}**.
@@ -236,8 +236,14 @@ description: Следуя данной инструкции, вы сможете
 
      В графе `NAME` перечислены разделы диска. Если в графе `MOUNTPOINTS` нужного раздела есть значение, значит ваш раздел смонтирован.
 
-  1. Отмонтируйте раздел, если перед изменением его размера вы хотите выполнить проверку и восстановление файловой системы. В противном случае переходите к следующему шагу.
-  
+  1. (Опционально) Выполните проверку и восстановление файловой системы.
+
+     {% note info %}
+
+     Пропустите этот шаг, если вы хотите увеличить корневой раздел.
+
+     {% endnote %}
+
      1. Отмонтируйте диск:
 
         ```bash
@@ -402,4 +408,3 @@ description: Следуя данной инструкции, вы сможете
      ```
 
 {% endlist %}
-

@@ -14,7 +14,7 @@ An asymmetric key pair of a digital signature consists of two parts: a public ke
 A digital signature key pair in {{ kms-short-name }} may have the following parameters:
 * ID: Unique key pair identifier in {{ yandex-cloud }}. It is used for working with key pairs via the SDK, API, and CLI.
 * Name: Non-unique key pair name. It can be used to work with key pairs in the CLI if the folder only contains a single key pair with this name.
-* Signature algorithm: Algorithm used to create and verify a digital signature. The following signature algorithms are supported:
+* Signature algorithm: Algorithm used to create and verify a digital signature. The following signature algorithms are supported: 
 
     * `rsa-2048-sign-pss-sha-256`
     * `rsa-2048-sign-pss-sha-384`
@@ -29,12 +29,12 @@ A digital signature key pair in {{ kms-short-name }} may have the following para
     * `ecdsa-nist-p384-sha-384`
     * `ecdsa-nist-p521-sha-512`
     * `ecdsa-secp256-k1-sha-256`
-
+    
 * Status: Current state of the key pair. The following statuses are possible:
     * `Creating`: Key pair is being created.
     * `Active`: Key pair can be used for signing data and verifying the signature.
     * `Inactive`: Key pair cannot be used.
-
+    
     You can change the key pair status from `Active` to `Inactive` and back using the [AsymmetricSignatureKeyService/Update](../asymmetricsignature/api-ref/grpc/AsymmetricSignatureKey/update.md) gRPC API call.
 
 ## Using a digital signature key pair {#use}
@@ -44,3 +44,7 @@ You can use an asymmetric key pair of a digital signature in digital signature a
 ## Deleting a digital signature key pair {#delete}
 
 If you delete a digital signature key pair or its parent resource (folder or cloud), this destroys the cryptographic material contained in it.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/sign-cr-with-cosign.md)

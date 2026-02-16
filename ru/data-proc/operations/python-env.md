@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
 
     Настройки ресурсов хостов рекомендуется указать минимальными.
 
-1. [Подключитесь по SSH](./connect.md#data-proc-ssh) к временному кластеру {{ dataproc-name }}.
+1. [Подключитесь по SSH](connect-ssh.md) к временному кластеру {{ dataproc-name }}.
 1. Запустите встроенный инструмент [Virtualenv](https://spark.apache.org/docs/latest/api/python/user_guide/python_packaging.html#using-virtualenv) для работы с виртуальными окружениями:
 
     ```bash
@@ -104,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
     Подробнее о режиме размещения драйвера см. в разделе [{#T}](../concepts/spark-sql.md#resource-management).
 
-1. На стороне сервиса {{ ml-platform-full-name }} [создайте сессию Livy](../../datasphere/concepts/data-proc.md#session) со следующими настройками:
+1. На стороне сервиса {{ ml-platform-full-name }} [создайте сессию Livy](../../datasphere/concepts/data-processing.md#session) со следующими настройками:
 
     ```livy
     %create_livy_session \
@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
     * `<псевдоним>` — псевдоним окружения, может быть любым. Псевдоним будет служить именем подкаталога, в который будет распакован архив.
     * `<прочие_параметры_контекста_Spark>` задаются при необходимости. Полный список параметров приведен в [документации Spark](https://spark.apache.org/docs/latest/configuration.html#available-properties).
 
-Укажите созданную сессию [при запуске кода Python в кластере](../../datasphere/concepts/data-proc.md#run-code). Зависимости, включенные в состав виртуального окружения, будут доступны для использования.
+Укажите созданную сессию [при запуске кода Python в кластере](../../datasphere/concepts/data-processing.md#run-code). Зависимости, включенные в состав виртуального окружения, будут доступны для использования.
 
 ### Использование виртуального окружения в ноутбуке Zeppelin {#launch-zeppelin}
 

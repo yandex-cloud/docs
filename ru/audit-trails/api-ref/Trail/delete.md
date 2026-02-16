@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+    method: delete
+    path:
+      type: object
+      properties:
+        trailId:
+          description: |-
+            **string**
+            Required field. ID of the trail to be deleted.
+          type: string
+      required:
+        - trailId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/audittrails/v1/api-ref/Trail/delete.md
 ---
 
-# Audit Trails API, REST: Trail.Delete {#Delete}
+# Audit Trails API, REST: Trail.Delete
 
 Deletes the specified trail.
 

@@ -1,6 +1,17 @@
 # Как синтезировать речь в {{ speechkit-short-name }} API v1
 
+
 [Синтез речи](../tts/index.md) преобразует текст в речь и сохраняет ее в аудиофайл. В этом разделе вы научитесь синтезировать речь из текста с помощью {{ speechkit-short-name }} [API v1](../tts/request.md) (REST).
+
+Для работы с API в примере используется утилита [cURL](https://curl.se/).
+
+## Аутентификация для работы с API {#auth}
+
+{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
+
+В примере ниже аутентификация выполняется от имени аккаунта на Яндексе.
+
+## Выполните запрос {#execute}
 
 Отправьте запрос на преобразование текста в речь:
 
@@ -12,7 +23,7 @@ read -r -d '' TEXT << EOM
 EOM
 export FOLDER_ID=<идентификатор_каталога>
 export IAM_TOKEN=<IAM-токен>
-curl 
+curl \
   --request POST \
   --header "Authorization: Bearer ${IAM_TOKEN}" \
   --data-urlencode "text=${TEXT}" \
@@ -22,8 +33,8 @@ curl
 
 Где:
 
-* `FOLDER_ID` — идентификатор каталога, полученный [перед началом работы](index.md#before-you-begin).
-* `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](index.md#before-you-begin).
+* `FOLDER_ID` — идентификатор каталога, полученный [ранее](#auth).
+* `IAM_TOKEN` — IAM-токен, полученный [ранее](#auth).
 * `TEXT` — текст с примененным URL-кодированием, который нужно распознать.
 * `lang` — [язык](../tts/index.md#langs) текста.
 * `voice` — [голос](../tts/voices.md) для синтеза речи.

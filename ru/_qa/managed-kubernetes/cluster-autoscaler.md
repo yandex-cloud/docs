@@ -1,5 +1,3 @@
-# Вопросы и ответы про автоматическое масштабирование группы узлов в {{ managed-k8s-name }}
-
 #### Почему в моем кластере стало N узлов и он не уменьшается? {#not-scaling-down}
 
 [Автоматическое масштабирование](../../managed-kubernetes/concepts/autoscale.md) не останавливает узлы с [подами](../../managed-kubernetes/concepts/index.md#pod), которые не могут быть расселены. Масштабированию препятствуют:
@@ -53,6 +51,23 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
   ```bash
   kubectl annotate node <имя_узла> cluster-autoscaler.kubernetes.io/scale-down-disabled-
   ```
+  
+#### В группе с автоматическим масштабированием количество узлов не уменьшается до одного, даже при отсутствии нагрузки {#autoscaler-one-node}
+
+В кластере {{ managed-k8s-name }} приложение `kube-dns-autoscaler` регулирует количество реплик CoreDNS. Если в конфигурации `kube-dns-autoscaler` параметр `preventSinglePointFailure` имеет значение `true` и в группе больше одного узла, минимальное количество реплик CoreDNS равно двум. В этом случае Cluster Autoscaler не может уменьшить количество узлов в кластере так, чтобы оно стало меньше количества подов CoreDNS.
+
+[Подробнее о масштабировании DNS по размеру кластера](../../tutorials/container-infrastructure/dns-autoscaler.md).
+
+**Решение**:
+
+1. Отключите защиту, при которой минимальное количество реплик CoreDNS равно двум. Для этого в [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) `kube-dns-autoscaler` установите значение параметра `preventSinglePointFailure` равным `false`.
+1. Разрешите вытеснение подов `kube-dns-autoscaler`, добавив аннотацию `save-to-evict` в [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/):
+
+    ```bash
+    kubectl patch deployment kube-dns-autoscaler -n kube-system \
+      --type merge \
+      -p '{"spec":{"template":{"metadata":{"annotations":{"cluster-autoscaler.kubernetes.io/safe-to-evict":"true"}}}}}'
+    ```
 
 #### Почему под удалился, а размер группы узлов не уменьшается? {#not-scaling-pod}
 
@@ -67,3 +82,7 @@ kubectl annotate pod <имя_пода> cluster-autoscaler.kubernetes.io/safe-to-
 Это происходит из-за того, что во время автоматического масштабирования контроллер [Pod garbage collector (PodGC)](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-garbage-collection) не успевает удалять поды. Подробнее в разделе [Удаление подов в статусе Terminated](../../managed-kubernetes/operations/autoscale.md#delete-terminated).
 
 Ответы на другие вопросы об автоматическом масштабировании смотрите в [документации {{ k8s }}](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#table-of-contents).
+
+#### Есть ли поддержка Horizontal Pod Autoscaler? {#horizontal-pod-autoscaler}
+
+Да, {{ managed-k8s-name }} поддерживает механизм [горизонтального автомасштабирования подов](../../managed-kubernetes/concepts/autoscale.md#hpa) (Horizontal Pod Autoscaler).

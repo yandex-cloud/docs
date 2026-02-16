@@ -1,12 +1,12 @@
 ```yaml
-name: group-for-load # The instance group name that must be unique within the folder.
+name: group-for-load # VM group name, unique within the folder.
 service_account_id: ajeab0cnib1p******** # Service account ID.
-allocation_policy: # VM allocation policy in the group.
+allocation_policy: # VM allocation policy for the group.
    zones:
-     - zone_id: {{ region-id }}-a
+     - zone_id: {{ region-id }}-d
      - zone_id: {{ region-id }}-b
 instance_template:
-  service_account_id: ajeab0cnib1p******** # ID of the service account for access to private Docker images.
+  service_account_id: ajeab0cnib1p******** # ID of the service account to access private Docker images.
   platform_id: standard-v1 # Platform ID.
   resources_spec:
     memory: 2G # Amount of memory (RAM).
@@ -14,7 +14,7 @@ instance_template:
   boot_disk_spec:
     mode: READ_WRITE # Disk access mode (read and write).
     disk_spec:
-      image_id: <ID_of_the_latest_COI_version>
+      image_id: <latest_COI_version_ID>
     type_id: network-ssd # Disk type.
     size: 30G # Disk size.
   network_interface_specs:
@@ -26,8 +26,8 @@ instance_template:
        one_to_one_nat_spec: {
          ip_version: IPV4 # IPv4 specification for public access to the VM.
        }
-     }
-  metadata: # Values to be delivered to the VM metadata.
+     }         
+  metadata: # Values to send to the VM metadata.
     docker-container-declaration: |- # Key in the VM metadata that is used with the Docker Container specification.
       spec:
         containers:
@@ -38,11 +38,11 @@ instance_template:
             restartPolicy: Always
             tty: false
             stdin: false
-    ssh-keys: | # Parameter for sending an SSH key to the VM.
-      yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for the VM connection.
-deploy_policy: # Deployment policy for instances in the group.
+    ssh-keys: | # Parameter for providing an SSH key to the VM.
+      yc-user:ssh-ed25519 ABC...d01 user@desktop.ru # Username for connecting to the VM.
+deploy_policy: # VM deployment policy for the group.
   max_unavailable: 4
-scale_policy: # Scaling policy for instances in the group.
+scale_policy: # Instance scaling policy for the group.
   fixed_scale:
     size: 6
 load_balancer_spec: # Network load balancer.

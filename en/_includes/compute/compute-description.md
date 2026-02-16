@@ -1,0 +1,1 @@
+[{{ compute-full-name }}](../../compute/) provides scalable computing capacity to create and manage virtual machines. The service supports [preemptible](../../compute/concepts/preemptible-vm.md) VMs and fault-tolerant [instance groups](../../compute/concepts/instance-groups/index.md).

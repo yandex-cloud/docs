@@ -1,1 +1,1 @@
-You cannot modify a secret created in a different project, but you can modify its [copy](../../datasphere/operations/data/secrets.md#copy).
+You cannot edit a secret created in a different project, but you can edit its [copy](../../datasphere/operations/data/secrets.md#copy).

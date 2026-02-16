@@ -1,5 +1,5 @@
 ---
-title: How to work with {{ lockbox-full-name }}
+title: Guides on using {{ lockbox-full-name }}
 description: In this article, you will learn how to work with {{ lockbox-full-name }} in {{ yandex-cloud }}.
 ---
 
@@ -12,3 +12,7 @@ description: In this article, you will learn how to work with {{ lockbox-full-na
 * [{#T}](secret-delete.md)
 * [{#T}](secret-activation-manage.md)
 * [{#T}](secret-version-manage.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

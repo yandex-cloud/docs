@@ -1,9 +1,50 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to create the database in.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        databaseSpec:
+          description: |-
+            **[DatabaseSpec](#yandex.cloud.mdb.mysql.v1.DatabaseSpec)**
+            Required field. Configuration of the database.
+          $ref: '#/definitions/DatabaseSpec'
+      required:
+        - databaseSpec
+      additionalProperties: false
+    definitions:
+      DatabaseSpec:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the database.
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+            pattern: '[a-zA-Z0-9_-]*'
+            type: string
+        required:
+          - name
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/Database/create.md
 ---
 
-# Managed Service for MySQL API, REST: Database.Create {#Create}
+# Managed Service for MySQL API, REST: Database.Create
 
 Creates a new database in a cluster.
 
@@ -21,7 +62,9 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 
 Required field. ID of the cluster to create the database in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.CreateDatabaseRequest}
@@ -47,7 +90,9 @@ Required field. Configuration of the database. ||
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the database. ||
+Required field. Name of the database.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

@@ -1,6 +1,6 @@
 ---
-title: FAQ about {{ mmy-full-name }}®
-description: This page presents FAQ about {{ mmy-short-name }}®.
+title: FAQ about {{ mmy-full-name }}
+description: This page covers FAQ about {{ mmy-short-name }}®.
 ---
 
 # FAQ about {{ mmy-short-name }}®
@@ -18,7 +18,7 @@ description: This page presents FAQ about {{ mmy-short-name }}®.
 
 {% include [connection-minitoc](../../_qa/managed-mysql/minitoc/connection.md) %}
 
-### Cluster read/write issues {#toc-read-write}
+### Cluster read and write issues {#toc-read-write}
 
 {% include [read-write-minitoc](../../_qa/managed-mysql/minitoc/read-write.md) %}
 
@@ -54,7 +54,7 @@ description: This page presents FAQ about {{ mmy-short-name }}®.
 
 {% include [connection](../../_qa/managed-mysql/connection.md) %}
 
-## Cluster read/write issues {#read-write}
+## Cluster read and write issues {#read-write}
 
 {% include [read-write](../../_qa/managed-mysql/read-write.md) %}
 

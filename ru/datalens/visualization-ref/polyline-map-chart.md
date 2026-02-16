@@ -1,8 +1,15 @@
-# Полилинейная карта ![](../../_assets/datalens/polyline-map.svg)
+---
+title: Полилинейная карта в {{ datalens-full-name }}
+description: Из статьи вы узнаете, как в {{ datalens-full-name }} создать и настроить тип визуализации Полилинейная карта.
+---
 
-Полилинейная карта — это тип геослоя на чарте **Карта**, позволяющий рисовать полилинии на карте. Полилиния состоит из точек, соединенных в определенном порядке. Полилинейная карта используется, например, для отображения траектории движения объектов.
+# Полилинейная карта ![](../../_assets/datalens/polyline-map.svg) в {{ datalens-full-name }}
 
-![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png)
+Полилинейная карта — это тип геослоя на чарте **Карта**, позволяющий рисовать полилинии на карте. Полилиния состоит из точек, соединенных в определенном порядке. 
+
+Полилинейная карта используется, например, для отображения траектории движения объектов.
+
+  ![polyline-map-chart](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart.png =800x)
 
 Для построения полилинейной карты необходимы данные:
 
@@ -14,11 +21,23 @@
 
 * градиентом по показателю (например, средняя скорость в точке);
 
+  
+  {% cut "Пример" %}
+  
   ![polyline-map-chart-2](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-chart-2.png)
+
+  {% endcut %}
+  
 
 * дискретными цветами по измерению (например, по названию поездки).
 
+  
+  {% cut "Пример" %}
+
   ![polyline-map-color-dimensions](../../_assets/datalens/visualization-ref/polyline-map-chart/polyline-map-color-dimensions.png)
+
+  {% endcut %}
+
 
 ## Секции в визарде {#wizard-sections}
 
@@ -40,23 +59,26 @@
 {% include [datalens-workbooks-collections-note](../../_includes/datalens/operations/datalens-workbooks-collections-note-step4.md) %}
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-1. На панели слева выберите ![chart](../../_assets/console-icons/chart-column.svg) **Чарты**.
-1. Нажмите кнопку **Создать чарт** → **Чарт**.
-1. Слева вверху нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и укажите датасет для визуализации.
-1. Выберите тип чарта **Карта**.
+1. {% include [create-1](../../_includes/datalens/visualization-ref/create-1.md) %}
+1. {% include [create-2](../../_includes/datalens/visualization-ref/create-2.md) %}
+1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
+1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
+1. {% include [create-5](../../_includes/datalens/visualization-ref/create-5.md) %}
 1. Выберите тип слоя **Полилинии (Геоточки)**.
 1. Перетащите измерение с типом [Геоточка](../dataset/data-types.md#geopoint) из датасета в секцию с выбором типа слоя.
 1. Задайте группу точек, которая определяет полилинии. Перенесите измерение в секцию **Группировка**.
 1. Задайте порядок соединения точек внутри группы. Перенесите измерение в секцию **Порядок**.
 1. Закрасьте линию на карте. Перенесите показатель или измерение в секцию **Цвета**.
 
-Дополнительно вы можете:
+{% include [datalens-map-scale-note](../../_includes/datalens/datalens-map-scale-note.md) %}
 
-* добавить, переименовать, удалить слой;
-* применить фильтр ко всему чарту или к одному слою.
+{% include [you-can-2](../../_includes/datalens/visualization-ref/you-can-2.md) %}
 
 ## Рекомендации {#recomendations}
 
 * Сокращайте количество точек маршрута на уровне источника, если их слишком много. На уровне чарта используйте для этого фильтр. Это позволит ускорить загрузку и отрисовку карты.
-* Используйте функцию скользящего среднего [MAVG](../function-ref/MAVG.md), чтобы сгладить выбросы показателей отдельных точек/участков. Например, при построении линии средней скорости с помощью функции `MAVG([speed],2,2)` усредняются значения показателя скорости в точках: текущей, двух предыдущих и двух следующих. В результате градиент цвета меняется более плавно.
+* Используйте функцию скользящего среднего [MAVG](../function-ref/MAVG.md), чтобы сгладить выбросы показателей отдельных точек/участков. 
+  
+  Например, при построении линии средней скорости с помощью функции `MAVG([speed],2,2)` усредняются значения показателя скорости в точках: текущей, двух предыдущих и двух следующих. В результате градиент цвета меняется более плавно.
+
+{% include [see-also](../../_includes/datalens/visualization-ref/see-also-sub.md) %}

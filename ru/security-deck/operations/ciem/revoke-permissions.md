@@ -1,13 +1,11 @@
 ---
-title: Отзыв доступов в CIEM {{ sd-full-name }}
+title: Отзыв доступов в {{ ciem-name }} {{ sd-full-name }}
 description: В данном разделе вы узнаете, как в {{ sd-name }} можно отозвать у аккаунта или группы права доступа к ресурсам организации.
 ---
 
 # Отозвать доступ у субъекта
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
-[Диагностика доступов (CIEM)](../../concepts/ciem.md) {{ sd-name }} позволяет централизованно просматривать список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации и отзывать лишние доступы.
+[Модуль диагностики доступов](../../concepts/ciem.md) (Cloud Infrastructure Entitlement Management) позволяет централизованно просматривать список доступов [субъектов](../../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../../iam/concepts/access-control/resources-with-access-control.md) организации и отзывать лишние доступы.
 
 Отозвать доступ может пользователь, обладающий одной из ролей: `admin`, `resource-manager.admin`, `organization-manager.admin`, `resource-manager.clouds.owner`, `organization-manager.organizations.owner` или ролью администратора того [сервиса](../../../overview/concepts/services.md), к ресурсу которого у субъекта отзывается доступ.
 
@@ -42,7 +40,7 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       * Чтобы отозвать доступ у всей группы, [откройте](./view-permissions.md) список доступов этой группы и воспользуйтесь инструкцией для отзыва доступа, назначенного напрямую.
 
-{% endlist %}
+    {% endlist %}
 
 #### См. также {#see-also}
 

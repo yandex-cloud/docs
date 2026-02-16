@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ maf-full-name }}
+description: Из статьи вы узнаете про метрики {{ maf-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/managed-airflow-ref.md
 ---
 
 # Метрики {{ maf-full-name }}

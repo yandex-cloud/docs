@@ -1,9 +1,174 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
+    method: post
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Yandex Data Processing cluster to create a subcluster in.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Name of the subcluster. The name must be unique within the cluster. The name can't be
+            changed when the subcluster is created.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        role:
+          description: |-
+            **enum** (Role)
+            Required field. Role that is fulfilled by hosts of the subcluster.
+            - `MASTERNODE`: The subcluster fulfills the master role.
+              Master can run the following services, depending on the requested components:
+            * HDFS: Namenode, Secondary Namenode
+            * YARN: ResourceManager, Timeline Server
+            * HBase Master
+            * Hive: Server, Metastore, HCatalog
+            * Spark History Server
+            * Zeppelin
+            * ZooKeeper
+            - `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
+              DATANODE can run the following services, depending on the requested components:
+            * HDFS DataNode
+            * YARN NodeManager
+            * HBase RegionServer
+            * Spark libraries
+            - `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
+              COMPUTENODE can run the following services, depending on the requested components:
+            * YARN NodeManager
+            * Spark libraries
+          type: string
+          enum:
+            - ROLE_UNSPECIFIED
+            - MASTERNODE
+            - DATANODE
+            - COMPUTENODE
+        resources:
+          description: |-
+            **[Resources](#yandex.cloud.dataproc.v1.Resources)**
+            Required field. Resources allocated for each host in the subcluster.
+          $ref: '#/definitions/Resources'
+        subnetId:
+          description: |-
+            **string**
+            Required field. ID of the VPC subnet used for hosts in the subcluster.
+            The maximum string length in characters is 50.
+          type: string
+        hostsCount:
+          description: |-
+            **string** (int64)
+            Required field. Number of hosts in the subcluster.
+            The minimum value is 1.
+          type: string
+          format: int64
+        autoscalingConfig:
+          description: |-
+            **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
+            Configuration for instance group based subclusters
+          $ref: '#/definitions/AutoscalingConfig'
+      required:
+        - role
+        - resources
+        - subnetId
+        - hostsCount
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the resource preset for computational resources available to a host (CPU, memory etc.).
+              All available presets are listed in the [documentation](/docs/data-proc/concepts/instance-types).
+            type: string
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+              Possible values:
+              * network-hdd - network HDD drive,
+              * network-ssd - network SSD drive.
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes.
+            type: string
+            format: int64
+      AutoscalingConfig:
+        type: object
+        properties:
+          maxHostsCount:
+            description: |-
+              **string** (int64)
+              Upper limit for total instance subcluster count.
+              Acceptable values are 1 to 100, inclusive.
+            type: string
+            format: int64
+          preemptible:
+            description: |-
+              **boolean**
+              Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
+              if their resources are needed by Compute.
+              For more information, see [Preemptible Virtual Machines](/docs/compute/concepts/preemptible-vm).
+            type: boolean
+          measurementDuration:
+            description: |-
+              **string** (duration)
+              Required field. Time in seconds allotted for averaging metrics.
+            type: string
+            format: duration
+          warmupDuration:
+            description: |-
+              **string** (duration)
+              The warmup time of the instance in seconds. During this time,
+              traffic is sent to the instance, but instance metrics are not collected.
+            type: string
+            format: duration
+          stabilizationDuration:
+            description: |-
+              **string** (duration)
+              Minimum amount of time in seconds allotted for monitoring before
+              Instance Groups can reduce the number of instances in the group.
+              During this time, the group size doesn't decrease, even if the new metric values
+              indicate that it should.
+            type: string
+            format: duration
+          cpuUtilizationTarget:
+            description: |-
+              **string**
+              Defines an autoscaling rule based on the average CPU utilization of the instance group.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+          decommissionTimeout:
+            description: |-
+              **string** (int64)
+              Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+              Acceptable values are 0 to 86400, inclusive.
+            default: '120'
+            type: string
+            format: int64
+        required:
+          - measurementDuration
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/create.md
 ---
 
-# Data Proc API, REST: Subcluster.Create {#Create}
+# Yandex Data Processing API, REST: Subcluster.Create
 
 Creates a subcluster in the specified cluster.
 
@@ -19,9 +184,11 @@ POST https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subcluster
 ||Field | Description ||
 || clusterId | **string**
 
-Required field. ID of the Data Proc cluster to create a subcluster in.
+Required field. ID of the Yandex Data Processing cluster to create a subcluster in.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.dataproc.v1.CreateSubclusterRequest}
@@ -54,12 +221,13 @@ To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluste
 || name | **string**
 
 Name of the subcluster. The name must be unique within the cluster. The name can't be
-changed when the subcluster is created. ||
+changed when the subcluster is created.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || role | **enum** (Role)
 
 Required field. Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -70,14 +238,14 @@ Required field. Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -87,10 +255,14 @@ Required field. Role that is fulfilled by hosts of the subcluster.
 Required field. Resources allocated for each host in the subcluster. ||
 || subnetId | **string**
 
-Required field. ID of the VPC subnet used for hosts in the subcluster. ||
+Required field. ID of the VPC subnet used for hosts in the subcluster.
+
+The maximum string length in characters is 50. ||
 || hostsCount | **string** (int64)
 
-Required field. Number of hosts in the subcluster. ||
+Required field. Number of hosts in the subcluster.
+
+The minimum value is 1. ||
 || autoscalingConfig | **[AutoscalingConfig](#yandex.cloud.dataproc.v1.AutoscalingConfig)**
 
 Configuration for instance group based subclusters ||
@@ -121,7 +293,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -142,10 +316,14 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -276,10 +454,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-ID of the cluster that the subcluster is being added to. ||
+ID of the cluster that the subcluster is being added to.
+
+The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
-ID of the subcluster that is being created. ||
+ID of the subcluster that is being created.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -301,7 +483,7 @@ A list of messages that carry the error details. ||
 
 ## Subcluster {#yandex.cloud.dataproc.v1.Subcluster}
 
-A Data Proc subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
+A Yandex Data Processing subcluster. For details about the concept, see [documentation](/docs/data-proc/concepts/).
 
 #|
 ||Field | Description ||
@@ -310,7 +492,7 @@ A Data Proc subcluster. For details about the concept, see [documentation](/docs
 ID of the subcluster. Generated at creation time. ||
 || clusterId | **string**
 
-ID of the Data Proc cluster that the subcluster belongs to. ||
+ID of the Yandex Data Processing cluster that the subcluster belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -323,12 +505,13 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the subcluster. The name is unique within the cluster. ||
+Name of the subcluster. The name is unique within the cluster.
+
+The string length in characters must be 1-63. ||
 || role | **enum** (Role)
 
 Role that is fulfilled by hosts of the subcluster.
 
-- `ROLE_UNSPECIFIED`
 - `MASTERNODE`: The subcluster fulfills the master role.
 
   Master can run the following services, depending on the requested components:
@@ -339,14 +522,14 @@ Role that is fulfilled by hosts of the subcluster.
 * Spark History Server
 * Zeppelin
 * ZooKeeper
-- `DATANODE`: The subcluster is a DATANODE in a Data Proc cluster.
+- `DATANODE`: The subcluster is a DATANODE in a Yandex Data Processing cluster.
 
   DATANODE can run the following services, depending on the requested components:
 * HDFS DataNode
 * YARN NodeManager
 * HBase RegionServer
 * Spark libraries
-- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Data Proc cluster.
+- `COMPUTENODE`: The subcluster is a COMPUTENODE in a Yandex Data Processing cluster.
 
   COMPUTENODE can run the following services, depending on the requested components:
 * YARN NodeManager
@@ -396,7 +579,9 @@ Volume of the storage available to a host, in bytes. ||
 ||Field | Description ||
 || maxHostsCount | **string** (int64)
 
-Upper limit for total instance subcluster count. ||
+Upper limit for total instance subcluster count.
+
+Acceptable values are 1 to 100, inclusive. ||
 || preemptible | **boolean**
 
 Preemptible instances are stopped at least once every 24 hours, and can be stopped at any time
@@ -417,8 +602,12 @@ During this time, the group size doesn't decrease, even if the new metric values
 indicate that it should. ||
 || cpuUtilizationTarget | **string**
 
-Defines an autoscaling rule based on the average CPU utilization of the instance group. ||
+Defines an autoscaling rule based on the average CPU utilization of the instance group.
+
+Acceptable values are 0 to 100, inclusive. ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120 ||
+Timeout to gracefully decommission nodes during downscaling. In seconds. Default value: 120
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#

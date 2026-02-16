@@ -6,6 +6,7 @@ description: Из статьи вы узнаете, как подготовит�
 # Подготовка к трансферу
 
 
+
 ## Подготовка источника {#source}
 
 ### Источники {{ AB }} {#source-airbyte}
@@ -35,11 +36,6 @@ description: Из статьи вы узнаете, как подготовит�
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/sources/clickhouse-prepare.md) %}
 
-### Источник {{ ES }} {#source-es}
-
-
-{% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
-
 ### Источник {{ GP }} {#source-gp}
 
 
@@ -54,6 +50,11 @@ description: Из статьи вы узнаете, как подготовит�
 ### Источник {{ MY }} {#source-my}
 
 {% include [prepare mysql db](../../_includes/data-transfer/endpoints/sources/mysql-prepare.md) %}
+
+### Источник {{ ES }} {#source-es}
+
+
+{% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
 ### Источник {{ OS }} {#source-os}
 
@@ -85,11 +86,6 @@ description: Из статьи вы узнаете, как подготовит�
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
 
-### Приемник {{ ES }} {#target-es}
-
-
-{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
-
 ### Приемник {{ GP }} {#target-gp}
 
 
@@ -109,6 +105,11 @@ description: Из статьи вы узнаете, как подготовит�
 
 {% include [prepare object storage db](../../_includes/data-transfer/endpoints/targets/object-storage-prepare.md) %}
 
+### Приемник {{ ES }} {#target-es}
+
+
+{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
+
 ### Приемник {{ OS }} {#target-os}
 
 {% include [prepare opensearch db](../../_includes/data-transfer/endpoints/targets/opensearch-prepare.md) %}
@@ -116,7 +117,6 @@ description: Из статьи вы узнаете, как подготовит�
 ### Приемник {{ PG }} {#target-pg}
 
 {% include [prepare postgresql db](../../_includes/data-transfer/endpoints/targets/pg-prepare.md) %}
-
 
 
 ### Приемник {{ ydb-full-name }} {#target-ydb}
@@ -127,6 +127,5 @@ description: Из статьи вы узнаете, как подготовит�
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

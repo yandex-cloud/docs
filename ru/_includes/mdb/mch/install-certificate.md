@@ -1,4 +1,3 @@
-
 {% list tabs group=operating_system %}
 
 - Linux (Bash) {#linux}
@@ -58,6 +57,8 @@
         -CertStoreLocation cert:\CurrentUser\Root
       ```
 
+      Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее см. в разделе [Вопросы и ответы](../../../managed-clickhouse/qa/connection.md#get-ssl-error).
+
    1. Подтвердите согласие с установкой сертификатов в хранилище <q>Доверенные корневые центры сертификации</q>.
 
    Сертификаты будут сохранены в файлах:
@@ -66,4 +67,3 @@
    * `$HOME\.yandex\{{ crt-local-file-int }}`
 
 {% endlist %}
-

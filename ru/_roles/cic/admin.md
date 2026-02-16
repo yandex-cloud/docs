@@ -1,0 +1,16 @@
+Роль `cic.admin` позволяет управлять ресурсами сервиса Cloud Interconnect.
+
+{% cut "Пользователи с этой ролью могут:" %}
+
+* просматривать информацию о [транковых подключениях](../../interconnect/concepts/trunk.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [приватных соединениях](../../interconnect/concepts/priv-con.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [публичных соединениях](../../interconnect/concepts/pub-con.md), а также создавать, изменять и удалять их;
+* просматривать информацию о [точках присутствия](../../interconnect/concepts/pops.md);
+* просматривать информацию о [партнерах CIC](../../interconnect/concepts/partners.md);
+* просматривать информацию о [квотах](../../interconnect/concepts/limits.md#interconnect-quotas) сервиса Cloud Interconnect;
+* просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
+* просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+{% endcut %}
+
+Включает разрешения, предоставляемые ролью `cic.editor`.

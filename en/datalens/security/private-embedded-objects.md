@@ -1,12 +1,35 @@
-# Embedding private objects 
+---
+title: Embedding private objects
+description: In this article, you will learn how to securely embed private charts and dashboards into a website or app.
+---
 
-{% include [business-note](../../_includes/datalens/datalens-functionality-available-business-note.md) %}
+# Embedding private objects
 
 You can securely embed private [charts](../concepts/chart/index.md) or [dashboards](../concepts/dashboard.md) into a website or app using special [JWT token](https://en.wikipedia.org/wiki/JSON_Web_Token) links.
 
-Embedding private objects only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](./roles.md#workbooks-admin).
+Embedding private objects only works in the new {{ datalens-short-name }} object model at the [workbook](../workbooks-collections/index.md) level and is only available to the workbook [administrator](./roles.md#datalens-workbooks-admin).
 
 {% include [datalens-embeded-connection-stop-list](../../_includes/datalens/datalens-embeded-connection-stop-list.md) %}
+
+## Display parameters {#view-parameters}
+
+To configure the features and appearance of embedded objects, you can use special parameters which you provide in the link:
+
+* `_autoupdate`: Sets the [auto-update](../dashboard/settings.md#auto-update) time for dashboards and charts in seconds. By default, these are not updated automatically. The feature only works for the active browser tab. Objects due for auto-update on inactive tabs will be auto-updated when the tab becomes active again. The minimum values are:
+
+  * 30 seconds for dashboards.
+  * 15 seconds for charts.
+
+* `_theme`: Specifies the object's appearance. The possible values are:
+
+  * `light`: Light theme.
+  * `dark`: Dark theme.
+
+* `_lang`: In charts, sets the language of the menu that opens when you click ![image](../../_assets/console-icons/ellipsis.svg). The possible values are `ru` or `en`.
+
+Provide the parameters formatted as `<parameter_name>=<value>`. For example, to set the auto-update time to 50 seconds, specify `_autoupdate=50`.
+
+Add this parameter to the object's address after the `?` character before the hash with the token. You can provide them together with [unsigned parameters](#unsigned-parameters). To provide multiple parameters, list them separated by `&` (ampersand).
 
 ## How to embed a private object {#how-to-private-embed}
 
@@ -25,7 +48,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
       ![image](../../_assets/datalens/security/embedding-keys.png)
 
-   1. In the window that opens:
+   1. In the window that opens, do the following:
 
       1. Click ![plus](../../_assets/console-icons/plus.svg) **Create key**.
       1. Enter the key name and click **Create**.
@@ -65,16 +88,25 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
           * **Enable all** (default): All the [unsigned parameters](#unsigned-parameters) are enabled, unless explicitly disabled.
           * **Disable all**: All the unsigned parameters are disabled, unless explicitly enabled.
 
-          These restrictions do not apply to signed parameters from the token.
+          These restrictions do not apply to [signed parameters](#signed-parameters) from the token.
 
-        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want to disable when embedding a chart. Available in **Enable all** mode.
-        * (Optional) **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
+        * Optionally, **Disabled parameters**: Specify the names of unsigned parameters you want disabled when embedding a chart. Available in **Enable all** mode.
+        * Optionally, **Enabled parameters**: Specify the names of unsigned parameters that can be provided in the embedding link. Any parameters not specified in the list will be ignored when attempting to provide them in the embedding link. Available in **Disable all** mode.
+        * Optionally, **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, hover over the chart, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in its top-right corner, and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       - For a dashboard {#dashboard}
 
         * **Name**: Enter a name for the embedding.
         * **Key**: Select a previously created key for embedding.
-        * (Optional) **Disabled parameters**: Specify the names of unsigned parameters you want to disable when embedding a dashboard. These restrictions do not apply to signed parameters from the token. By default, any parameters [specified](../operations/dashboard/add-parameters.md) in the dashboard settings can be provided in the embedding link.
+        * Optionally, **Disabled parameters**: Specify the names of [unsigned parameters](#unsigned-parameters) you want disabled when embedding a dashboard. These restrictions do not apply to [signed parameters](#signed-parameters) from the token. By default, you can provide any parameters in the embedding link. If they are [specified](../operations/dashboard/add-parameters.md) in the dashboard settings, they can affect charts and selectors.
+
+          {% note info %}
+
+          If there are selectors with restricted parameters on the dashboard, those will not be available when embedding.
+
+          {% endnote %}
+
+        * Optionally, **Allow data export**: Enable the display of the menu that allows you to export the chart data. To export data, hover over the chart, click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** in its top-right corner, and select the format: `XLSX`, `CSV`, or `Markdown`.
 
       {% endlist %}
 
@@ -97,7 +129,14 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
       * `dlEmbedService`: Service ID string constant, `YC_DATALENS_EMBEDDING_SERVICE_MARK`.
       * (Optional) `params`: Signed chart parameters provided as part of the token. They cannot be changed without regenerating the token.
 
-        Example:
+        {% note warning %}
+
+        * The generated token is transmitted as part of the network request header, so its maximum size is limited to 30 KB. Keep this in mind when using signed parameters.
+        * For correct operation, use only a string or an array of strings as parameter values.
+
+        {% endnote %}
+
+        Here is an example:
 
         ```json
         {
@@ -130,7 +169,14 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
 
         ```bash
         pip3 install cryptography
+        pip3 install PyJWT
         ```
+
+        {% note info %}
+
+        For correct operation, use PyJWT version 2.0.0 or higher.
+        
+        {% endnote %}
 
         Run the following code:
 
@@ -201,7 +247,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Run the following code:
 
         ```golang
-
+        
         package main
 
         import (
@@ -246,7 +292,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         {{ link-datalens-main }}/embeds/chart#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT token.
+        Where `<token>` is the JWT.
 
       - For a dashboard {#dashboard}
 
@@ -254,11 +300,11 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         {{ link-datalens-main }}/embeds/dash#dl_embed_token=<token>
         ```
 
-        Where `<token>` is the JWT token.
+        Where `<token>` is the JWT.
 
       {% endlist %}
 
-1. Add an embedding link to your website or app, e.g.:
+1. Add the embedding link to your website or application. Here is an example:
 
       {% list tabs group=datalens_public %}
 
@@ -271,7 +317,7 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Where:
 
         * `src`: Embedding URL.
-        * `<token>`: JWT token.
+        * `<token>`: JWT.
         * `width`: Chart width.
         * `height`: Chart height.
         * `frameborder`: Chart border (yes or no).
@@ -285,12 +331,50 @@ Embedding private objects only works in the new {{ datalens-short-name }} object
         Where:
 
         * `src`: Embedding URL.
-        * `<token>`: JWT token.
+        * `<token>`: JWT.
         * `width`: Dashboard width.
         * `height`: Dashboard height.
         * `frameborder`: Dashboard border (yes or no).
 
       {% endlist %}
+
+      {% note info %}
+
+      If the website and app your chart or dashboard will be embedded into have a whitelist access policy, add the `{{ link-datalens-main }}` domain to the allowed list.
+
+      {% endnote %}
+
+## Updating a token without losing your filter states {#token-update}
+
+Replacing a JWT in an embedding link resets filters on the embedded dashboard to their default values.
+
+To update the embedding link without losing filter states, use the [postMessage](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) method.
+
+To update a JWT in a link, send an object of the following type to `iframe` using the `postMessage` method:
+
+```js
+{
+    type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
+    token: <updated_token>
+}
+```
+
+Where `<updated_token>` is your updated JWT.
+
+As a result, queries from your dashboard or chart will be signed with the new token. The dashboard or chart will automatically get updated if you changed the signed parameters in your new token.
+
+Here is an example:
+
+```js
+const iframe = document.getElementById('ID_IFRAME');
+
+iframe.contentWindow.postMessage({
+    type: 'SECURE_EMBEDDING_TOKEN_UPDATE',
+    token: 'NEW_TOKEN'
+}, '{{ link-datalens-main }}/');
+```
+
+When updating a token, keep in mind its expiration time.
 
 ## Unsigned parameters {#unsigned-parameters}
 
@@ -309,7 +393,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
   Where:
 
   * `src`: Embedding URL.
-  * `<token>`: JWT token.
+  * `<token>`: JWT.
   * `from=2022-01-01&to=2023-02-05`: Unsigned parameters.
 
 - For a dashboard {#dashboard}
@@ -321,7 +405,7 @@ For example, where a chart or dashboard employs the `from` and/or `to` parameter
   Where:
 
   * `src`: Embedding URL.
-  * `<token>`: JWT token.
+  * `<token>`: JWT.
   * `from=2022-01-01&to=2023-02-05`: Unsigned parameters.
 
 {% endlist %}
@@ -341,38 +425,37 @@ In the embedding link, any unsigned parameters are ignored if:
 
 {% endlist %}
 
+## Signed parameters {#signed-parameters}
+
+Signed parameters are provided as part of the token. They cannot be changed without regenerating the token. For correct operation, use only a string or an array of strings as parameter values.
+
+Embedding settings for enabled and disabled parameters do not apply to signed parameters. They will be provided to charts and selectors in any case.
+
+You can dynamically update signed parameters by [refreshing a token without losing filter states](#token-update).
+
+When working with parameters:
+
+* Signed parameters take priority. If a widget gets both a signed and an external parameter of the same name at the same time, the signed one will apply.
+* Signed parameter selectors do not affect the dashboard charts.
+
+Signed parameters ensure more secure data access: users with access to embedded objects are unable to change these parameters. You can use signed parameters to filter charts and provide a specific user with only the slice of data they need.
+
 ## Recommendations {#recommendations}
 
-When embedding private objects, please follow these guidelines:
+When embedding private objects, follow these guidelines:
 
 * Default values should be provided in the link parameters.
-* Note that any parameter in the link will override any signed parameter with the same name.
-* To block changes to a parameter value:
-
-  {% list tabs group=datalens_public %}
-
-  - For a chart {#chart}
-
-    1. Add a signed parameter with a required value into the token.
-    1. In chart embedding settings:
-
-       * In **Enable all** mode, add the parameter to the disabled list.
-       * In **Disable all** mode, do not add the parameter to the enabled list.
-
-  - For a dashboard {#dashboard}
-
-    1. Add a signed parameter with a required value into the token.
-    1. In the dashboard embedding settings, add the parameter to the disabled list.
-
-  {% endlist %}
+* Note that any parameter in the link will override any signed parameter of the same name.
+* To make it uneditable, add the [signed parameter](#signed-parameters) to a token.
 
 ## Things to consider when embedding dashboards {#dash-embed-specialties}
 
 When embedding dashboards, consider the following:
 
-* Any embedded dashboard can only be opened in view mode. The navigation bar and the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden.
+* Embedded dashboards can only be opened in view mode. Their navigation bar and, by default, the ![image](../../_assets/console-icons/ellipsis.svg) menu for charts are hidden. Enable **Allow data export** in embedding settings for your charts to display the ![image](../../_assets/console-icons/ellipsis.svg) menu, which allows exporting the chart data.
 * When you open a dashboard, its [settings](../dashboard/settings.md) apply.
-* For any embedded dashboard, only the parameters [specified in the dashboard settings](../operations/dashboard/add-parameters.md) are enabled.
+* For unsigned parameters to work correctly, [specify them](../operations/dashboard/add-parameters.md) in the dashboard settings.
+* Unsigned parameters work in the same way as regular [parameters in a dashboard link](../dashboard/dashboard_parameters.md#params-in-url).
 * You cannot provide the state of filtered charts in the `state` parameter.
 * The embedding link may not contain a dashboard header.
 * In the embedding link, use `tab` to specify the tab to open the dashboard on.

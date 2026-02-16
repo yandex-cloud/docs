@@ -1,5 +1,9 @@
-# Резервируемое потребление
+---
+title: Резервируемое потребление
+description: Из статьи вы узнаете, что такое резервируемое потребление и для каких сервисов оно доступно.
+---
 
+# Резервируемое потребление
 
 {% include [cvos-term](../_includes/cvos-term.md) %}
 
@@ -39,6 +43,8 @@
 После подключения CVoS скидка на использование сервисов применяется автоматически.
 
 В течение выбранного срока действия вы обязаны оплачивать CVoS, даже если не используете сервисы {{ yandex-cloud }}. [Способ оплаты](../payment/index.md) зависит от юридического статуса ([типа платежного аккаунта](../concepts/billing-account.md#ba-types)).
+
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
 Подробная схема использования и оплаты CVoS представлена ниже.
 
@@ -103,7 +109,7 @@
 * [{{ mmy-name }}](../../managed-mysql/pricing.md#cvos)
 * [{{ mos-name }}](../../managed-opensearch/pricing.md#cvos)
 * [{{ mpg-name }}](../../managed-postgresql/pricing.md#cvos)
-* [{{ mrd-name }}](../../managed-redis/pricing.md#cvos)
-* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos)
+* [{{ mrd-name }}](../../managed-valkey/pricing.md#cvos)
+* [{{ ydb-name }}](../../ydb/pricing/dedicated.md#cvos) 
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

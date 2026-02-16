@@ -1,5 +1,5 @@
 {% note warning %}
 
-The cloud network selected for cluster deployment can't be changed. If you need to move your cluster to a different cloud network later, use the [restore from a backup](../../../managed-postgresql/operations/cluster-backups.md) feature and specify the desired network for the cluster backup.
+The cloud network selected for cluster deployment cannot be changed later. If you need to migrate your cluster to another cloud network in the future, use the [restore from a backup](../../../managed-postgresql/operations/cluster-backups.md) feature and specify the required network for your new cluster copy.
 
 {% endnote %}

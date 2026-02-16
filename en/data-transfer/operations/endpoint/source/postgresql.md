@@ -19,7 +19,7 @@ description: In this tutorial, you will learn how to configure a {{ PG }} source
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
-    * [Migrating a {{ PG }}](../../../tutorials/managed-postgresql.md) cluster.
+    * [Migrating a {{ PG }} cluster](../../../tutorials/managed-postgresql.md).
     * [Migrating from AWS RDS for {{ PG }}](../../../tutorials/rds-to-mpg.md).
     * [Migration with change of storage from {{ PG }} to {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md).
     * [Migration with change of storage from {{ PG }} to {{ MY }}](../../../tutorials/mpg-to-mmy.md).
@@ -58,12 +58,12 @@ Before you get started, check the [Service specifics for {{ PG }} sources and ta
 
 {% note warning %}
 
-To create or edit an endpoint of a managed database, you need to have the [`{{ roles.mpg.viewer }}` role](../../../../managed-postgresql/security/index.md#mpg-viewer) or the [`viewer` primitive role](../../../../iam/roles-reference.md#viewer) assigned for the folder where this managed database cluster resides.
+To create or edit an endpoint of a managed database, you will need the [`{{ roles.mpg.viewer }}`](../../../../managed-postgresql/security/index.md#mpg-viewer) role or the primitive [`viewer`](../../../../iam/roles-reference.md#viewer) role for the folder the cluster of this managed database resides in.
 
 {% endnote %}
 
 
-Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
+Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -85,7 +85,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -107,7 +107,7 @@ Connecting to the database with the cluster ID specified in {{ yandex-cloud }}.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -139,7 +139,7 @@ For OnPremise, all fields are filled in manually.
 
     Here is an example of the configuration file structure:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<endpoint_name_in_{{ TF }}>" {
       name = "<endpoint_name>"
@@ -164,7 +164,7 @@ For OnPremise, all fields are filled in manually.
     ```
 
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -177,14 +177,14 @@ For OnPremise, all fields are filled in manually.
 {% list tabs group=instructions %}
 
 - Management console {#console}
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.table_filter.title }}**: 
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.table_filter.title }}**: 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}**: Only data from the tables listed here will be transferred.
 
             {% include [Description for Included tables](../../../../_includes/data-transfer/fields/description-included-tables.md) %}
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.exclude_tables.title }}**: Data from the listed tables is not transferred.
 
-      The lists include the name of the [schema]({{pg-docs}}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
+      The lists include the name of the [schema]({{ pg-docs }}/ddl-schemas.html) that describes the DB contents, structure, and integrity constraints, as well as the table name. Both lists support expressions in the following format:
 
         * `<schema_name>.<table_name>`: Full table name.
         * `<schema_name>.*`: All tables in the specified schema.
@@ -201,13 +201,13 @@ For OnPremise, all fields are filled in manually.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.object_transfer_settings.title }}**: If required, select the DB schema elements to transfer when activating or deactivating a transfer.
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.advanced_settings.title }}**:
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.advanced_settings.title }}**:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not prevent disk overflow in the source database. You can only use it for {{ PG }} version below 13, and we recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}**: Maximum size of write-ahead log kept in the replication slot. If exceeded, the replication process is stopped and the replication slot is deleted. The default value is 50 GB. This setting does not provide a complete guarantee against disk overflow in the source database. We recommend [monitoring the WAL slot value](../../prepare.md#source-pg) in the source database while leveraging the `Max slot wal keep size` [setting](../../prepare.md#wal-setup-recommendation).
           
             {% note warning %}
 
-            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).
+            The **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.slot_byte_lag_limit.title }}** setting does not guarantee replication slot deletion when its threshold value is reached, particularly if there are issues with the transfer or connectivity between the transfer and the source cluster. For additional tips, see [Preparing the source database](#wal-setup-recommendation).  
 
             {% endnote %}
 
@@ -293,7 +293,7 @@ For OnPremise, all fields are filled in manually.
         * `AFTER_DATA`: Transferring when deactivating the transfer.
         * `NEVER`: No tansfer.
 
-    For more information, see the [{{ TF }} provider documentation]({{ tf-provider-dt-endpoint }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -362,7 +362,7 @@ Configure one of the supported data targets:
 * [{{ objstorage-full-name }}](../target/object-storage.md)
 * [{{ KF }}](../target/kafka.md)
 * [{{ DS }}](../target/data-streams.md)
-* [{{ ES }}](../target/elasticsearch.md)
+* [{{ ytsaurus-name }}](../source/yt.md)
 * [{{ OS }}](../target/opensearch.md)
 
 For a complete list of supported sources and targets in {{ data-transfer-full-name }}, see [Available transfers](../../../transfer-matrix.md).
@@ -387,16 +387,19 @@ Known issues when using a {{ PG }} endpoint:
 * [Unable to transfer child tables](#successor-tables).
 * [Insufficient replication slots in a source database](#replication-slots).
 * [No data transfer after changing a source endpoint](#no-data-transfer).
-* [Transfer error when changing a master host](#master-change).
+* [Transfer error when changing the master host](#master-change).
+* [WAL lacks records to continue replication after changing the master host](#no-wal-story).
 * [Error when transferring nested transactions](#inner-tables).
 * [Error transferring tables with deferred constraints](#deferrable-constr).
 * [Cannot create a replication slot at the activation step](#lock-replication).
 * [Excessive WAL size increase](#excessive-wal).
 * [Error when replicating from an external source](#external-replication).
 * [Error when transferring tables without primary keys](#primary-keys).
+* [Duplicate key violates a unique constraint](#duplicate-key)
 * [Error when dropping a table under the Drop cleanup policy](#drop-table-error).
+* [Error when transferring tables with generated columns](#generated-columns)
 
-For more troubleshooting tips, see the [Troubleshooting](../../../troubleshooting/index.md) section.
+For more troubleshooting tips, see [Troubleshooting](../../../troubleshooting/index.md).
 
 {% include [master-trans-stop](../../../../_includes/data-transfer/troubles/postgresql/master-trans-stop.md) %}
 
@@ -420,6 +423,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 
 {% include [master-change](../../../../_includes/data-transfer/troubles/postgresql/master-change.md) %}
 
+{% include [no-wal-story](../../../../_includes/data-transfer/troubles/postgresql/no-wal-story.md) %}
+
 {% include [inner-tables](../../../../_includes/data-transfer/troubles/postgresql/inner-tables.md) %}
 
 {% include [deferrable-tables](../../../../_includes/data-transfer/troubles/postgresql/deferrable-constraints.md) %}
@@ -432,4 +437,8 @@ For more troubleshooting tips, see the [Troubleshooting](../../../troubleshootin
 
 {% include [primary-keys](../../../../_includes/data-transfer/troubles/primary-keys.md) %}
 
+{% include [duplicate-key](../../../../_includes/data-transfer/troubles/duplicate-key.md) %}
+
 {% include [drop-table-error](../../../../_includes/data-transfer/troubles/drop-table-error.md) %}
+
+{% include [generated-columns](../../../../_includes/data-transfer/troubles/generated-columns.md) %}

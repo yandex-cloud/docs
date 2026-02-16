@@ -107,9 +107,9 @@
   1. В [консоли управления]({{ link-console-main }}) выберите бакет, логи которого хотите записывать.
   1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.  
-  1. Включите опцию **{{ ui-key.yacloud.storage.server-logs.label_server-logs }}**.
-  1. Выберите **{{ ui-key.yacloud.storage.server-logs.label_target-bucket }}**.
-  1. В поле **{{ ui-key.yacloud.storage.server-logs.label_prefix }}** укажите префикс `s3-logs/`.
+  1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
+  1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
+  1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс `s3-logs/`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - AWS CLI {#cli}
@@ -201,6 +201,8 @@
 
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** нажмите ![image](../../_assets/console-icons/pencil.svg) и включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
         * В поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите `{{ ui-key.yacloud.common.disabled }}`.
@@ -213,7 +215,7 @@
      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** включите опции:
 
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+        * **Доступ из консоли управления**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -252,7 +254,7 @@
 
 - {{ TF }} {#tf}
 
-  1. Добавьте в конфигурационный файл описание кластера и его хостов:
+  1. Добавьте в конфигурационный файл описание кластера, базы данных и пользователя:
 
      ```hcl
      resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
@@ -268,18 +270,6 @@
          }
        }
 
-       database {
-         name = "s3_data"
-       }
-
-       user {
-         name     = "user"
-         password = "<пароль>"
-         permission {
-           database_name = "s3_data"
-         }
-       }
-
        host {
          type      = "CLICKHOUSE"
          zone      = "<зона_доступности>"
@@ -289,6 +279,24 @@
        access {
          datalens  = true
          web_sql   = true
+       }
+
+       lifecycle {
+         ignore_changes = [database, user]
+       }
+     }
+
+     resource "yandex_mdb_clickhouse_database" "s3-data" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "s3_data"
+     }
+
+     resource "yandex_mdb_clickhouse_user" "user1" {
+       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       name       = "user"
+       password   = "<пароль>"
+       permission {
+         database_name = yandex_mdb_clickhouse_database.s3-data.name
        }
      }
      ```
@@ -330,7 +338,7 @@
 
 ### Создайте статический ключ {#create-static-key}
 
-Для создания таблицы с доступом к {{ objstorage-name }} вам понадобится статический ключ. [Создайте его](../../iam/operations/sa/create-access-key.md) и сохраните идентификатор и секретную часть ключа.
+Для создания таблицы с доступом к {{ objstorage-name }} вам понадобится статический ключ. [Создайте его](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и сохраните идентификатор и секретную часть ключа.
 
 ### Создайте таблицу в БД {#create-table}
 
@@ -340,8 +348,8 @@
 
   1. Выберите кластер `s3-logs`.
   1. Перейдите на вкладку **SQL**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль.
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В поле **Пароль** введите пароль.
+  1. Нажмите кнопку **Подключиться**.
   1. В окне справа напишите SQL-запрос:
 
      ```sql
@@ -388,7 +396,7 @@
      SETTINGS date_time_input_format='best_effort';
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_execute }}**.
+  1. Нажмите кнопку **Выполнить**.
 
 {% endlist %}
 

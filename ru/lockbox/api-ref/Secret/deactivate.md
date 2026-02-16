@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:deactivate
+    method: post
+    path:
+      type: object
+      properties:
+        secretId:
+          description: |-
+            **string**
+            Required field. ID of the secret to be deactivated.
+          type: string
+      required:
+        - secretId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/lockbox/v1/api-ref/Secret/deactivate.md
 ---
 
-# Lockbox API, REST: Secret.Deactivate {#Deactivate}
+# Lockbox API, REST: Secret.Deactivate
 
 Deactivates the specified secret.
 
@@ -51,7 +68,7 @@ Required field. ID of the secret to be deactivated. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "kmsKeyId": "string",
     "status": "string",
     "currentVersion": {
@@ -218,7 +235,7 @@ Name of the secret. ||
 || description | **string**
 
 Description of the secret. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key. ||
 || kmsKeyId | **string**
@@ -320,7 +337,7 @@ whether at least one 0..9 character is included in the password, true by default
 || includePunctuation | **boolean**
 
 whether at least one punctuation character is included in the password, true by default
-punctuation characters by default (there are 32): !"#$%&'()*+,-./:;<=>?@[\]^_`{\|}~
+punctuation characters by default (there are 32): !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
 to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
 || includedPunctuation | **string**
 

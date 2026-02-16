@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+    method: get
+    path:
+      type: object
+      properties:
+        dashboardId:
+          description: |-
+            **string**
+            Required field. ID of the dashboard to return.
+          type: string
+      required:
+        - dashboardId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/RegressionDashboard/get.md
 ---
 
-# Load Testing API, REST: RegressionDashboard.Get {#Get}
+# Load Testing API, REST: RegressionDashboard.Get
 
 Returns the specified regression dashboard.
 
@@ -396,7 +413,7 @@ Value for comparison with an actual KPI value. ||
 
 Comparison operator for comparing actual with the threshold value.
 
-Rule: actual (</<=/>/>=) reference
+Rule: actual (&lt;/<=/&gt;/>=) reference
 
 - `COMPARISON_UNSPECIFIED`: Unspecified.
 - `COMPARISON_LT`: Less than the specified value.

@@ -1,11 +1,1802 @@
 ---
-title: YC CLI releases
-description: This page provides a list of YC CLI releases and updates rolled out in each of them.
+title: CLI releases
+description: This page presents a list of CLI releases and the updates of each.
 ---
 
-# YC CLI Releases
+# CLI releases
 
 ## Current version {#latest-release}
+
+### Version 0.188.0 (26/01/26) {#version0.188.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mkf-name }}
+
+Added the `message-timestamp-type` parameter for managing {{ KF }} topics to the following commands:
+* `yc managed-kafka topic create`
+* `yc managed-kafka topic update`
+
+## Previous releases {#previous-release}
+
+### Version 0.187.0 (23/01/26) {#version0.187.0}
+
+#### Changes to the CLI {#cli}
+
+Added access to the initialization service for the YC CLI tools.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mpg-name }}
+
+Added the `--user_password_encryption` parameter for selecting the user password encryption type to the following commands:
+* `yc managed-postgresql user create`
+* `yc managed-postgresql user update`
+
+##### {{ objstorage-name }}
+
+Added the `--http-method` parameter to the `yc storage s3 presign` command to specify the HTTP method (GET/PUT).
+
+##### {{ mtr-name }}
+
+Added the `private-access` parameter to these cluster management commands:
+* `yc managed-trino cluster create`
+* `yc managed-trino cluster update`
+* `yc managed-trino cluster get`
+
+### Version 0.186.0 (19/01/26) {#version0.186.0}
+
+#### Changes to the CLI {#cli-0.186.0}
+
+Fixed color display when using `--pager` set to `less` in `yc beta`.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.186.0}
+
+##### {{ cloud-registry-full-name }} {#cloud-registry-full-name-0.186.0}
+
+Added the `configure-docker` command for the Docker credential helper.
+
+##### {{ data-transfer-name }} {#data-transfer-name-0.186.0}
+
+Added the `--labels` parameter to the following commands:
+* `datatransfer transfer create`
+* `datatransfer transfer update`
+* `datatransfer endpoint <ENDPOINT_TYPE> create`
+* `datatransfer endpoint <ENDPOINT_TYPE> update`
+
+##### {{ dataproc-name }} {#dataproc-name-0.186.0}
+
+Added commands for granting access permissions in {{ dataproc-name }}:
+* `yc dataproc cluster list-access-bindings`
+* `yc dataproc cluster set-access-bindings`
+* `yc dataproc cluster add-access-binding`
+* `yc dataproc cluster remove-access-binding`
+  
+##### {{ org-name }} {#org-name-0.186.0}
+
+Added parameters for password complexity configuration to the following commands:
+* `yc organization-manager idp userpool create`
+* `yc organization-manager idp userpool update`
+
+### Version 0.185.0 (22/12/25) {#version0.185.0}
+
+#### Changes to the CLI {#cli} {#cli-0.185.0}
+
+Fixed an error when calling `yc beta` commands.
+
+### Version 0.184.0 (22/12/25) {#version0.184.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.184.0}
+
+##### {{ container-registry-name }} {#container-registry-name-0.184.0}
+
+Fixed Docker version parsing in the `yc container registry configure-docker` command.
+
+### Version 0.183.0 (18/12/25) {#version0.183.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.183.0}
+
+##### {{ objstorage-name }} {#objstorage-name-0.183.0}
+
+* Added the following parameters to the `yc storage bucket update` command:
+  * `--disable-statickey-auth=<true_or_false>`: Static key authentication in the bucket.
+  * `--private-endpoints-force-cloudconsole-access=<true_or_false>`: Access from the management console to the bucket accessible only from {{ vpc-short-name }} service connections.
+ 
+##### {{ mtr-name }} {#mtr-name-0.183.0}
+
+* Added the following commands for creating and updating {{ GP }} catalogs in {{ mtr-name }}:
+  * `yc managed trino catalog create greenplum`
+  * `yc managed trino catalog update greenplum`
+
+### Version 0.182.0 (15/12/25) {#version0.182.0}
+
+#### Changes to the CLI {#cli-0.182.0}
+
+* Added the `--username` parameter to the `yc init` command.
+
+#### Changes to {{ yandex-cloud }} services {#services-0.182.0}
+
+##### {{ iam-name }} {#iam-name-0.182.0}
+
+* For the `yc iam whoami` command, fixed the error when getting the current subject's ID.
+
+##### {{ mkf-name }} {#mkf-name-0.182.0}
+
+* Added support for {{ KF }} version 4.0.
+
+##### {{ objstorage-full-name }} {#objstorage-0.182.0}
+
+* Added the following commands to control the upload of object metadata in tabular form (S3 Inventory):
+  * `yc storage bucket get-inventory-configuration`
+  * `yc storage bucket create-inventory-configuration`
+  * `yc storage bucket delete-inventory-configuration`
+  * `yc storage bucket list-inventory-configurations`
+
+### Version 0.181.0 (11/12/25) {#version0.181.0}
+
+#### Changes to {{ yandex-cloud }} services {#services-0.181.0}
+
+##### {{ api-gw-name }} {#api-gw-name-0.181.0}
+
+Added commands to stop and resume an API gateway:
+* `yc serverless api-gateway stop`
+* `yc serverless api-gateway resume`
+
+##### {{ baremetal-name }} {#baremetal-name-0.181.0}
+
+Added the `ephemeral-public-subnet` option for the `--network-interfaces` parameter in the `yc baremetal server create` and `yc baremetal server update` commands to explicitly specify an ephemeral public subnet. Also added validation of the number of transmitted subnets.
+
+##### {{ interconnect-name }} {#interconnect-name-0.181.0}
+
+Fixed updating of composite fields in the `yc cic private-connection update` command.
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.181.0}
+
+Added commands for managing artifact lifecycle policies in registries:
+* `yc cloud-registry registry lifecycle-policy get`
+* `yc cloud-registry registry lifecycle-policy list`
+* `yc cloud-registry registry lifecycle-policy create`
+* `yc cloud-registry registry lifecycle-policy update`
+* `yc cloud-registry registry lifecycle-policy delete`
+* `yc cloud-registry registry lifecycle-policy change-state`
+
+##### {{ iam-name }} {#iam-name-0.181.0}
+
+Added the `yc iam access-key issue-ephemeral` command for issuing ephemeral static access keys.
+
+##### {{ org-name }} {#org-name-0.181.0}
+
+Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands.
+
+##### {{ maf-name }} {#maf-name-0.181.0}
+
+Added the `--gitsync` parameter to the `yc managed-airflow cluster create` and `yc managed-airflow cluster update` commands to use a git repository as a source for the DAG.
+
+##### {{ msp-name }} {#msp-name-0.181.0}
+
+Added the `--spark-version` parameter to the `yc managed-spark cluster create` and `yc managed-spark cluster update` commands for selection of a specific {{ SPRK }} version when creating and modifying a cluster.
+
+##### {{ mspqr-name }} {#mspqr-name-0.181.0}
+
+In the `yc managed-sharded-postgresql cluster update-config` command, fixed a router configuration update error.
+
+##### {{ mtr-name }} {#mtr-name-0.181.0}
+
+To manage the configuration of resource groups and request parameters:
+* Added the following commands:
+  * `yc managed-trino cluster get-resource-groups`
+  * `yc managed-trino cluster set-resource-groups`
+  * `yc managed-trino cluster remove-resource-groups`
+* Added the `--resource-groups-from-file` parameter to the `yc managed-trino cluster create` command.
+* Added the `--query-properties` parameter to the `yc managed-trino cluster create` and `yc managed-trino cluster update` commands.
+
+##### {{ mmg-name }} {#mmg-name-0.181.0}
+
+Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb cluster restore` command for partial cluster recovery.
+
+### Version 0.180.0 (04/12/25) {#version0.180.0}
+
+##### {{ mtr-short-name }}
+
+* Added the following commands for creating and updating a {{ TR }} catalog with a {{ MY }} connector for {{ mtr-name }}:
+  * `yc managed trino catalog create mysql`
+  * `yc managed trino catalog update mysql`
+
+##### {{ org-name }}
+
+* Removed certain password policies from user pool management commands:
+  * `yc organization-manager idp userpool create`
+  * `yc organization-manager idp userpool update`
+
+### Version 0.179.0 (02/12/25) {#version0.179.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the new `yc beta` command subtree with beta commands that use the updated interface.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+* Added commands for authorization policy management at the organization level:
+  * `yc organization-manager organization list-access-policy-bindings`
+  * `yc organization-manager organization bind-access-policy`
+  * `yc organization-manager organization unbind-access-policy`
+
+##### {{ resmgr-name }}
+
+* Added commands for authorization policy management at the cloud level:
+  * `yc resource-manager cloud list-access-policy-bindings`
+  * `yc resource-manager cloud bind-access-policy`
+  * `yc resource-manager cloud unbind-access-policy`
+
+##### {{ resmgr-name }}
+
+* Added commands for authorization policy management at the folder level:
+  * `yc resource-manager folder list-access-policy-bindings`
+  * `yc resource-manager folder bind-access-policy`
+  * `yc resource-manager folder unbind-access-policy`
+
+##### {{ at-name }}
+
+* Added the `--destination-yds-codec` flag to select an event compression method when configuring {{ yds-name }} trails:
+  * `yc audit-trails trail create`
+  * `yc audit-trails trail update`
+
+### Version 0.178.0 (01/12/25) {#version0.178.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mkf-name }}
+
+* Added the `--disk-encryption-key-id` parameter to specify an encryption key for cluster disks: `yc managed-kafka cluster create`.
+
+##### {{ ig-name }}
+
+* Added commands to manage the zonal shift in {{ ig-name }}:
+  * `yc compute instance-group disable-zones`
+  * `yc compute instance-group enable-zones`
+
+### Version 0.177.0 (20/11/25) {#version0.177.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cr-name }}
+
+* Added commands to move PublicConnection, PrivateConnection, TrunkConnection, and RoutingInstance:
+  * `yc cic public-connection move`
+  * `yc cic private-connection move`
+  * `yc cic trunk-connection move`
+  * `yc cloudrouter routing-instance move`
+
+##### {{ iam-name }}
+
+* Added automatic saving of SubjectID when initializing the `yc init` profile.
+
+##### {{ maf-name }}, {{ mch-name }}, {{ mgp-name }}, {{ mkf-name }}, {{ metastore-name }}, {{ mmy-name }}, {{ mos-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ msp-name }}, {{ mtr-name }}, {{ mmg-name }}
+
+* Added commands to manage access bindings:
+  * `yc managed-airflow cluster list-access-bindings`
+  * `yc managed-airflow cluster set-access-bindings`
+  * `yc managed-airflow cluster add-access-bindings`
+  * `yc managed-airflow cluster remove-access-bindings`
+  * `yc managed-clickhouse cluster list-access-bindings`
+  * `yc managed-clickhouse cluster set-access-bindings`
+  * `yc managed-clickhouse cluster add-access-bindings`
+  * `yc managed-clickhouse cluster remove-access-bindings`
+  * `yc managed-greenplum cluster list-access-bindings`
+  * `yc managed-greenplum cluster set-access-bindings`
+  * `yc managed-greenplum cluster add-access-bindings`
+  * `yc managed-greenplum cluster remove-access-bindings`
+  * `yc managed-kafka cluster list-access-bindings`
+  * `yc managed-kafka cluster set-access-bindings`
+  * `yc managed-kafka cluster add-access-bindings`
+  * `yc managed-kafka cluster remove-access-bindings`
+  * `yc managed-metastore cluster list-access-bindings`
+  * `yc managed-metastore cluster set-access-bindings`
+  * `yc managed-metastore cluster add-access-bindings`
+  * `yc managed-metastore cluster remove-access-bindings`
+  * `yc managed-mongodb cluster list-access-bindings`
+  * `yc managed-mongodb cluster set-access-bindings`
+  * `yc managed-mongodb cluster add-access-bindings`
+  * `yc managed-mongodb cluster remove-access-bindings`
+  * `yc managed-mysql cluster list-access-bindings`
+  * `yc managed-mysql cluster set-access-bindings`
+  * `yc managed-mysql cluster add-access-bindings`
+  * `yc managed-mysql cluster remove-access-bindings`
+  * `yc managed-opensearch cluster list-access-bindings`
+  * `yc managed-opensearch cluster set-access-bindings`
+  * `yc managed-opensearch cluster add-access-bindings`
+  * `yc managed-opensearch cluster remove-access-bindings`
+  * `yc managed-postgresql cluster list-access-bindings`
+  * `yc managed-postgresql cluster set-access-bindings`
+  * `yc managed-postgresql cluster add-access-bindings`
+  * `yc managed-postgresql cluster remove-access-bindings`
+  * `yc managed-redis cluster list-access-bindings`
+  * `yc managed-redis cluster set-access-bindings`
+  * `yc managed-redis cluster add-access-bindings`
+  * `yc managed-redis cluster remove-access-bindings`
+  * `yc managed-spark cluster list-access-bindings`
+  * `yc managed-spark cluster set-access-bindings`
+  * `yc managed-spark cluster add-access-bindings`
+  * `yc managed-spark cluster remove-access-bindings`
+  * `yc managed-trino cluster list-access-bindings`
+  * `yc managed-trino cluster set-access-bindings`
+  * `yc managed-trino cluster add-access-bindings`
+  * `yc managed-trino cluster remove-access-bindings`
+
+### Version 0.176.0 (20/11/25) {#version0.176.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ sw-name }}
+
+Added commands to manage access permissions:
+* `serverless workflow list-access-bindings`
+* `serverless workflow set-access-bindings`
+* `serverless workflow add-access-binding`
+* `serverless workflow remove-access-binding`
+* `serverless workflow allow-unauthenticated-execution`
+* `serverless workflow deny-unauthenticated-execution`
+
+##### {{ mmy-name }}
+
+Added the `yc managed-mysql connect` command.
+
+##### {{ ai-studio-name }}
+
+Added commands for {{ mcp-hub-name }}:
+* `serverless mcp-gateway get`
+* `serverless mcp-gateway list`
+* `serverless mcp-gateway create`
+* `serverless mcp-gateway update`
+* `serverless mcp-gateway delete`
+* `serverless mcp-gateway list-operations`
+* `serverless mcp-gateway list-access-bindings`
+* `serverless mcp-gateway set-access-bindings`
+* `serverless mcp-gateway add-access-binding`
+* `serverless mcp-gateway remove-access-binding`
+* `serverless mcp-gateway allow-unauthenticated-invoke`
+* `serverless mcp-gateway deny-unauthenticated-invoke`
+
+### Version 0.175.0 (10/11/25) {#version0.175.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+Added missing fields to SAML application management commands:
+
+* `organization-manager idp application saml application create`
+* `organization-manager idp application saml application update`
+
+### Version 0.174.0 (06/11/25) {#version0.174.0}
+
+#### Changes to the CLI {#cli}
+
+Added the `subject-id` parameter to the `yc init` command.
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }}
+
+Added support for the `path` field for ALB session affinity using cookies:
+  * `yc application-load-balancer backend-group update`
+  * `yc application-load-balancer backend-group create`
+
+##### {{ baremetal-full-name }}
+
+Added the `yc baremetal private-cloud-connection` command group:
+  * `yc baremetal private-cloud-connection get`
+  * `yc baremetal private-cloud-connection list`
+  * `yc baremetal private-cloud-connection create`
+  * `yc baremetal private-cloud-connection delete`
+
+##### {{ iam-full-name }}
+
+Added a command to view the list of access policy templates:
+  * `yc iam access-policy-template list`
+
+##### {{ org-full-name }}
+
+* Added the `yc organization-manager idp application saml application` command group for SAML app management:
+  * `yc iam organization-manager idp application saml application get`
+  * `yc iam organization-manager idp application saml application list`
+  * `yc iam organization-manager idp application saml application create`
+  * `yc iam organization-manager idp application saml application update`
+  * `yc iam organization-manager idp application saml application delete`
+  * `yc iam organization-manager idp application saml application suspend`
+  * `yc iam organization-manager idp application saml application reactivate`
+  * `yc iam organization-manager idp application saml application list-operations`
+  * `yc iam organization-manager idp application saml application list-assignments`
+  * `yc iam organization-manager idp application saml application add-assignments`
+  * `yc iam organization-manager idp application saml application remove-assignments`
+  * `yc iam organization-manager idp application saml application list-access-bindings`
+  * `yc iam organization-manager idp application saml application set-access-bindings`
+  * `yc iam organization-manager idp application saml application update-access-bindings`
+
+* Added the `yc organization-manager idp application saml signature-certificate` command group for SAML certificate management:
+  * `yc iam organization-manager idp application saml signature-certificate get`
+  * `yc iam organization-manager idp application saml signature-certificate list`
+  * `yc iam organization-manager idp application saml signature-certificate create`
+  * `yc iam organization-manager idp application saml signature-certificate update`
+  * `yc iam organization-manager idp application saml signature-certificate delete`
+
+##### {{ mgp-full-name }}
+
+Added the `--connection-pooling-idle-in-transaction-timeout` parameter to the `yc managed-greenplum cluster update` command:
+  * `yc managed-greenplum cluster update`
+
+##### {{ mpg-name }}
+
+Added the `AUTH_METHOD_PASSWORD` and `AUTH_METHOD_IAM` user authentication methods to these commands:
+  * `yc managed-postgresql user create`
+  * `yc managed-postgresql user update`
+
+##### {{ objstorage-full-name }}
+
+Fixed the error with filtering uploaded objects in the `yc storage s3 cp` command.
+
+### Version 0.173.0 (30/10/25) {#version0.173.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mch-name }}
+
+Added the `engine` parameter for selecting and displaying the {{ CH }} database engine type to the following commands:
+  * `yc managed-clickhouse database create`
+  * `yc managed-clickhouse database get`
+  * `yc managed-clickhouse database list`
+
+##### {{ baremetal-name }}
+
+Added the `yc baremetal image` command for working with images:
+* `yc baremetal image get`
+* `yc baremetal image list`
+
+#### Changes to the CLI {#cli}
+
+* Added support for {{ mspqr-full-name}}. Use the `yc managed-sharded-postgresql` commands.
+* Added the `userpool-id` parameter to `yc init`.
+
+### Version 0.172.0 (27/10/25) {#version0.172.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ org-name }}
+
+* Added the `yc organization-manager mfa-enforcement` command group.
+* Added commands for managing SAML federation users:
+  * `yc organization-manager federation saml suspend-user-accounts`: To suspend users.
+  * `yc organization-manager federation saml reactivate-user-accounts`: To reactivate users.
+
+* Fixed the processing error of the `--is-active` flag in the `yc organization-manager idp user create` command where users were created as active.
+
+### Version 0.171.0 (20/10/25) {#version0.171.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ dns-name }}
+
+Added the `yc dns zone move` command to migrate a DNS zone to a different folder.
+
+##### {{ org-name }}
+
+* Added a new feature to the `yc organization-manager idp user create` command: you can now create a user without specifying a password. The password will be generated automatically.
+* Added the `yc organization-manager idp user reset-password` command to reset a user password.
+
+##### {{ iam-name }}
+
+Added the `yc iam access-analyzer list-subject-access-bindings` command to get access bindings by subject.
+
+##### {{ mtr-name }}
+
+* For configuring a {{ mtr-name }} cluster's trusted certificates, added the following flags to the `yc managed-trino cluster create` and `yc managed-trino cluster update` commands:
+  * `--trusted-certs-from-files`: To provide a list of trusted certificate files.
+  * `--remove-trusted-certs`: To delete all trusted certificates.
+
+### Version 0.170.0 (16/10/25) {#version0.170.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mpg-name }}
+
+Added the `yc managed-postgresql connect` command to connect users with IAM authentication.
+
+##### {{ maf-name }}
+
+Added DAG processor configuration for Airflow 3.0 and higher.
+
+##### {{ interconnect-name }}
+
+* Added a command to get info about a resource by its ID.
+* Added the `get-by-vpc-network-id` and `get-by-cic-private-connection-id` commands.
+
+##### {{ org-name }}
+
+* Added the `yc organization-manager group list-effective` command to output groups to which the user belongs within an organization.
+* Added an ability to manage password policies when creating or updating a user pool.
+* Added the `yc organization-manager idp application oauth application` command group for OAuth app management:
+  * `yc organization-manager idp application oauth application get`
+  * `yc organization-manager idp application oauth application list`
+  * `yc organization-manager idp application oauth application create`
+  * `yc organization-manager idp application oauth application update`
+  * `yc organization-manager idp application oauth application delete`
+  * `yc organization-manager idp application oauth application suspend`
+  * `yc organization-manager idp application oauth application reactivate`
+  * `yc organization-manager idp application oauth application list-operations`
+  * `yc organization-manager idp application oauth application list-assignments`
+  * `yc organization-manager idp application oauth application add-assignments`
+  * `yc organization-manager idp application oauth application remove-assignments`
+  * `yc organization-manager idp application oauth application list-access-bindings`
+  * `yc organization-manager idp application oauth application add-access-bindings`
+  * `yc organization-manager idp application oauth application set-access-bindings`
+  * `yc organization-manager idp application oauth application update-access-bindings`
+  * `yc organization-manager idp application oauth application remove-access-bindings`
+
+##### {{ mgp-name }}
+
+* For the `yc managed-greenplum cluster create` command, changed the default version to 6.28.
+* For the `yc managed-greenplum connect` command with IAM authentication, deleted the `--user` option. The user is now defined automatically.
+
+##### {{ objstorage-short-name }}
+
+Added a check for the maximum object size in the `yc storage s3 cp` command.
+
+##### {{ baremetal-name }}
+
+Added the `yc baremetal rental-period list` command that returns available rent periods for a server.
+
+##### {{ cr-name }}
+
+Provided more specific descriptions of the `yc cloudrouter routing-instance create`, `yc cloudrouter routing-instance upsert-prefixes`, and `yc cloudrouter routing-instance remove-prefixes` commands and added examples.
+
+##### {{ mtr-name }}
+
+Added the following commands for creating and updating Hudi catalogs for {{ mtr-name }}:
+  * `yc managed-trino catalog create hudi`
+  * `yc managed trino catalog update hudi`
+
+##### {{ myt-name }}
+
+Added {{ myt-name }} cluster management commands:
+  * `yc managed-ytsaurus cluster get`
+  * `yc managed-ytsaurus cluster start`
+  * `yc managed-ytsaurus cluster stop`
+  * `yc managed-ytsaurus cluster delete`
+  * `yc managed-ytsaurus cluster list`
+  * `yc managed-ytsaurus cluster get-configuration`
+
+### Version 0.169.0 (01/10/25) {#version0.169.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ container-registry-name }} {#container-registry-name-0.169.0}
+
+Added the `--page-token` parameter to the following commands for paginated presentation of the list of resources:
+* `yc container registry list`
+* `yc container registry list-access-bindings`
+* `yc container repository list`
+* `yc container repository lifecycle-policy list`
+* `yc container repository lifecycle-policy list-dry-run-results`
+* `yc container image list-scan-results`
+* `yc container image list-vulnerabilities`
+
+##### {{ cloud-registry-name }} {#cloud-registry-name-0.169.0}
+
+Added the `--page-token` parameter to the following commands for paginated presentation of the list of resources:
+* `yc cloud-registry registry list-access-binding`
+* `yc cloud-registry registry list`
+* `yc cloud-registry registry list-artifact`
+
+##### {{ org-name }} {#org-name-0.169.0}
+
+The following commands now allow you to specify domain not just in the command itself, e.g., `yc organization-manager idp userpool domain get <user_pool_ID> <domain>` but also using the `--domain` parameter:
+* `yc organization-manager idp userpool domain get`
+* `yc organization-manager idp userpool domain list`
+* `yc organization-manager idp userpool domain add`
+* `yc organization-manager idp userpool domain validate`
+* `yc organization-manager idp userpool domain delete`
+
+##### {{ mrd-name }} {#mrd-name-0.169.0}
+
+Added the `--valkey-modules` parameter to the `yc managed-redis cluster update` command to manage Valkey™ modules.
+
+##### {{ baremetal-name }} {#baremetal-name-0.169.0}
+
+Fixed the display of processor info in the `yc baremetal configuration list` command output.
+
+### Version 0.168.0 (29/09/25) {#version0.168.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ container-registry-name }} {#cr-0.168.0}
+
+Added the `--page-token` parameter to the `yc container image list` for paginated presentation of the list of images.
+
+##### {{ baremetal-name }} {#baremetal-0.168.0}
+
+Fixed the display of the number of cores and added the processor frequency value in the `yc baremetal configuration list` command output.
+
+### Version 0.167.0 (25/09/25) {#version0.167.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ connection-manager-name }}
+
+* Added connection-manager commands within the `metadata-hub` command group:
+  * `yc metadata-hub connection-manager connection create`
+  * `yc metadata-hub connection-manager connection update`
+  * `yc metadata-hub connection-manager connection delete`
+  * `yc metadata-hub connection-manager connection get`
+  * `yc metadata-hub connection-manager connection resolve-cluster`
+  * `yc metadata-hub connection-manager connection list`
+  * `yc metadata-hub connection-manager connection list-operations`
+
+* Added support for {{ KF }}, {{ CH }} shard groups, and the `auth_source` MG (SD) field in the `yc metadata-hub connection-manager connection create kafka` command.
+
+##### {{ at-name }}
+
+* Added the `--destination-eventrouter-connector-id` parameter to assign {{ er-name }} to trail creation and modification commands:
+  * `yc audit-trails trail create`
+  * `yc audit-trails trail update`
+
+##### {{ mpg-short-name }}
+
+* Added support for {{ PG}} 18 for the following commands:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql cluster restore`
+
+* Fixed the `ERROR: Unsupported PostgreSQL version` error when updating a {{ PG }} 17 and 18 cluster in the `yc managed-postgresql cluster update` command.
+
+##### {{ org-name }}
+
+* Fixed the `yc organization-manager idp` commands.
+
+### Version 0.166.0 (18/09/25) {#version0.166.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cr-name }} {#cloud-routing}
+
+Added a command for routing instance management: `yc cloudrouter routing-instance update-networks`.
+
+##### {{ compute-name }} {#compute}
+
+Fixed the output error for the `yc compute maintenance list` command.
+
+##### {{ msp-name }} {#msp}
+
+Added management commands for {{ msp-name }} clusters and jobs:
+* `yc managed-spark cluster get`
+* `yc managed-spark cluster list`
+* `yc managed-spark cluster create`
+* `yc managed-spark cluster update`
+* `yc managed-spark cluster delete`
+* `yc managed-spark cluster start`
+* `yc managed-spark cluster stop`
+* `yc managed-spark cluster list-operations`
+* `yc managed-spark job create-spark`
+* `yc managed-spark job create-pyspark`
+* `yc managed-spark job create-spark-connect`
+* `yc managed-spark job get`
+* `yc managed-spark job list`
+* `yc managed-spark job cancel`
+
+##### {{ mmy-name }} {#mmy}
+
+Added the `mysql_no_login` and `mdb_iamproxy_auth` authentication plugins into the following commands:
+* `yc managed-mysql user create`
+* `yc managed-mysql user update`
+
+##### {{ mtr-name }} {#mtr}
+
+Added the following commands for setting up access control in a {{ mtr-name }} cluster:
+* `yc managed-trino cluster create`
+* `yc managed-trino cluster get-access-control`
+* `yc managed-trino cluster set-access-control`
+* `yc managed-trino cluster remove-access-control`
+
+### Version 0.165.0 (15/09/25) {#version0.165.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ iam-name }} {#iam}
+
+Added the `yc iam oauth-client-service` command group for managing OAuth client secrets:
+* `yc iam oauth-client-secret get`
+* `yc iam oauth-client-secret list`
+* `yc iam oauth-client-secret create`
+* `yc iam oauth-client-secret delete`
+
+### Version 0.164.0 (11/09/25) {#version0.164.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ managed-k8s-name }}
+
+Added the `--enable-workload-identity-federation` parameter that allows you to enable a [workload identity federation](../iam/concepts/workload-identity.md).
+
+The parameter is available in these commands:
+* `yc managed-kubernetes cluster create`
+* `yc managed-kubernetes cluster update`
+
+##### {{ org-name }}
+
+Added new command groups:
+
+* `yc organization-manager idp userpool` to manage [user pools](../organization/concepts/user-pools.md). 
+* `yc organization-manager idp user` to manage [local uesrs](../iam/concepts/users/accounts.md#local).
+
+##### {{ iam-short-name }}
+
+To manage OAuth clients, added the `yc iam oauth-client` command group:
+* `yc iam oauth-client get`
+* `yc iam oauth-client list`
+* `yc iam oauth-client create`
+* `yc iam oauth-client update`
+* `yc iam oauth-client delete`
+
+##### {{ mmy-name }}
+
+Added the `maintenance-window` and `performance-diagnostics` parameters to the cluster create and restore commands. For the `disk-size-autoscaler.disk-size-limit` parameter, updated the measurement unit from bytes to gigabytes.
+
+Updated these commands:
+* `yc managed-mysql cluster create`
+* `yc managed-mysql cluster update`
+* `yc managed-mysql cluster restore`
+
+### Version 0.163.0 (08/09/25) {#version0.163.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ compute-name }}
+
+* Fixed the tooltip for the `--order` parameter of the `yc compute maintenance list` command: replaced the `planned_at` field with `start_scheduled_at`.
+
+##### {{ mes-name }}
+
+* Deleted the `managed-elasticsearch` support.
+
+### Version 0.162.0 (04/09/25) {#version0.162.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ baremetal-name }}
+
+Added the `--folder-id` parameter to these commands for getting configuration:
+  * `yc baremetal configuration get`
+  * `yc baremetal configuration list`
+
+##### {{ mmy-name }}
+
+Added the `MDB_ADMIN` role for the `--global-permissions` parameter to these commands:
+  * `yc managed-mysql user create`
+  * `yc managed-mysql user update`
+
+##### {{ quota-manager-name }}
+
+Added the `yc quota-manager quota-request` command group for managing quota requests:
+  * `yc quota-manager quota-request get`
+  * `yc quota-manager quota-request list`
+  * `yc quota-manager quota-request create`
+  * `yc quota-manager quota-request cancel`
+  * `yc quota-manager quota-request list-operations`
+
+##### {{ serverless-containers-name }}
+
+Added the `--async-service-account-id` parameter to the `yc serverless container revision deploy` command for specifying a service account for asynchronous calls.
+
+##### {{ objstorage-name }}
+
+Increased the maximum lifetime of signed links to 30 days in the `yc storage s3 presign` command.
+
+### Version 0.161.0 (28/08/25) {#version0.161.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ connection-manager-name }}
+
+Added management commands for {{ connection-manager-full-name }}:
+* `yc connection-manager connection create`
+* `yc connection-manager connection update`
+* `yc connection-manager connection delete`
+* `yc connection-manager connection get`
+* `yc connection-manager connection resolve-cluster`
+* `yc connection-manager connection list`
+* `yc connection-manager connection list-operations`
+
+##### {{ sw-name }}
+
+Added support for {{ sw-full-name }} cron timers:
+* `yc serverless workflow create`
+* `yc serverless workflow update`
+
+### Version 0.160.0 (25/08/25) {#version0.160.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mtr-name }}
+
+Added the `--version` option to the following commands:
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+
+##### {{ mrd-name }}
+
+Added the `sharded` option to the `yc managed-redis cluster restore` command.
+
+##### {{ objstorage-name }}
+
+* Added the `tags` option to the `yc storage bucket create` command.
+* Added the `yc storage s3 presign` command.
+
+### Version 0.159.0 (18/08/25) {#version0.159.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mmg-name }}
+Added the `priority` and `hidden` output to `yc managed-mongodb hosts list`.
+
+##### {{ compute-name }}
+Added the following commands for managing reserved instance pools:
+* `compute reserved-instance-pool list-instances`
+* `compute reserved-instance-pool list-operations`
+
+##### {{ compute-name }}
+Extended the following commands for managing reserved instance pools:
+* `compute reserved-instance-pool create`
+* `compute reserved-instance-pool update`
+
+##### {{ er-name }}
+
+Fixed the `--deletion-protection` flag in the `yc serverless eventrouter connector update` command.
+
+##### {{ org-name }}
+
+Fixed the display of timestamps in the listing of SAML federation domains.
+
+### Version 0.158.0 (11/08/25) {#version0.158.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ mos-name }}
+Added support for `ExtensionService` to the `yc managed-opensearch` command.
+
+##### {{ alb-name }}
+
+* The `yc apploadbalancer disable-zones` command now includes the ability to manage the zone disabling period.
+* Added the `disable_security_profile` parameter to route management commands:
+  * `yc application-load-balancer virtual-host append-http-route`
+  * `yc application-load-balancer virtual-host prepend-http-route`
+  * `yc application-load-balancer virtual-host insert-http-route`
+  * `yc application-load-balancer virtual-host update-http-route`
+  * `yc application-load-balancer virtual-host append-grpc-route`
+  * `yc application-load-balancer virtual-host prepend-grpc-route`
+  * `yc application-load-balancer virtual-host insert-grpc-route`
+  * `yc application-load-balancer virtual-host update-grpc-route`
+
+### Version 0.157.0 (04/08/25) {#version0.157.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cloud-desktop-name }}
+Added the `--update-policy` flag to the `desktops group update` command (the default value is `manual`).
+
+##### {{ org-name }}
+Added commands for managing SAML federation domains:
+* `yc organization-manager federation saml get-domain`
+* `yc organization-manager federation saml list-domains`
+* `yc organization-manager federation saml add-domain`
+* `yc organization-manager federation saml validate-domain`
+* `yc organization-manager federation saml delete-domain`
+
+##### {{ compute-name }}
+* Added sorting of the subcommand list in `yc compute`.
+* Added the `yc compute maintenance` commands:
+  * `yc compute maintenance get`
+  * `yc compute maintenance list`
+  * `yc compute maintenance reschedule`
+
+##### {{ objstorage-name }}
+Deleted the `--sse-c`, `--sse-c-key`, `--sse-c-copy-source`, and `--sse-c-copy-source-keys` parameters from the `yc storage cp` command.
+
+##### {{ er-name }}
+Adjusted the defaults values of these `serverless eventrouter connector create message-queue` command parameters in line with the respective API method:
+* `--visibility-timeout`
+* `--polling-timeout`
+* `--batch-size`
+
+### Version 0.156.0 (28/07/25) {#version0.156.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ managed-k8s-name }}
+
+* Added the `--master-scale-policy` parameter to the `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands for managing computing resources in the cluster masters.
+* Added the `scale_policy` field to the `yc managed-kubernetes cluster get` command output to indicate the computing resource configuration for the cluster masters.
+* Added the following commands for getting available computing resource configurations for the cluster masters: `yc managed-kubernetes resource-preset get` and `yc managed-kubernetes resource-preset list`.
+
+### Version 0.155.0 (23/07/25) {#version0.155.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ compute-name }}
+
+Fixed the description for the `--memory` parameter in the `yc compute instance create` and `yc compute instance update` commands.
+
+##### {{ backup-name }}
+
+Added the confirmation prompt for provider activation to the `yc backup provider activate` command and the `--force` flag for running the command without confirmation.
+
+##### {{ mkf-name }}
+
+Added the `--kafka-ui-enabled` flag to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands to enable Kafka UI in the cluster.
+
+##### {{ dataproc-name }}
+
+In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group where the cluster hosts reside.
+* `--autoscaling-service-account-id`
+* `--autoscaling-service-account-name`
+
+##### {{ mch-name }}
+
+Added the following parameters to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands:
+* `--maintenance-window`: For specifying a cluster maintenance window.
+* `--disk-encryption-key-id`: For specifying a disk encryption key.
+
+##### {{ mos-name }}
+
+* In the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster update` commands, added parameters for managing cluster snapshot creation:
+    * `--snapshot-schedule`
+    * `--snapshot-day`
+    * `--snapshot-hour`
+    * `--snapshot-minute`
+    * `--snapshot-max-age-days`
+* In the `yc managed-opensearch cluster create` and `yc managed-opensearch cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mmy-name }}
+
+* In the `yc managed-mysql cluster create` and `yc managed-mysql cluster update` commands, added the `--yandexquery-access` parameter for enabling access to the cluster from {{ yq-full-name }}.
+* In the `yc managed-mysql cluster create` and `yc managed-mysql cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ metastore-name }}
+
+In the `yc managed-metastore cluster create` and `yc managed-metastore cluster update` commands, added the `--version` parameter to support cluster versioning.
+
+##### {{ mpg-name }}
+
+In the `yc managed-postgresql cluster create` and `yc managed-postgresql cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mmg-name }}
+
+In the `yc managed-mongodb cluster create` and `yc managed-mongodb cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+##### {{ mrd-name }}
+
+In the `yc managed-redis cluster create` and `yc managed-redis cluster restore` commands, added the `--disk-encryption-key-id` parameter for specifying a disk encryption key.
+
+### Version 0.154.0 (09/07/25) {#version0.154.0}
+
+#### {{ alb-name }}
+
+Added these commands to manage traffic routing in load balancer availability zones:
+* `yc alb load-balancer disable-zones`
+* `yc alb load-balancer enable-zones`
+
+#### {{ cloud-desktop-name }}
+
+The `--id` flag in the `yc desktop update-properties` command is now optional.
+
+#### {{ mch-name }}
+
+Added disk autoscaling management parameters. The new parameters can be used in these commands:
+* `yc clickhouse cluster create`
+* `yc clickhouse cluster update`
+* `yc clickhouse restore`
+* `yc clickhouse shards add`
+* `yc clickhouse shard update`
+
+#### {{ mgl-name }}
+
+Added this instance update command: `yc managed-gitlab instance update`.
+
+#### {{ mgp-name }}
+
+Added the `yc managed-greenplum connect` command to connect users with IAM authentication.
+
+#### {{ mmy-name }}
+
+Added the `--disk-size-autoscaling` flag to the `yc managed-mysql cluster update` command.
+
+#### {{ mos-name }}
+
+Added these cluster start/stop commands:
+* `yc managed-opensearch cluster start`
+* `yc managed-opensearch cluster stop`
+
+#### {{ network-load-balancer-name }}
+
+Renamed these load balancer zone lock start/stop commands:
+* `yc load-balancer network-load-balancer disable-zones`
+* `yc load-balancer network-load-balancer enable-zones`
+
+### Version 0.153.0 (30/06/25) {#version0.153.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ cloud-desktop-name }}
+
+In the `desktops update group` command, changed the `--disk-size` flag type to `byteSize` for boot and data disks.
+
+### Version 0.152.0 (25/06/25) {#version0.152.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }} {#version-0.152-alb}
+
+You can now specify a list of zones in the `yc application-load-balancer load-balancer start-zonal-shift` and `yc application-load-balancer load-balancer cancel-zonal-shift` load balancer zonal shift start/stop commands.
+
+##### {{ cloud-desktop-name }} {#version-0.152-desktop}
+
+* Added the `yc desktops group update` command for updating desktop group info.
+* Added the following parameters to the `yc desktops group create` command: `max-group-size`, `hot-standby`, and `user-account-id`.
+
+##### {{ network-load-balancer-name }} {#version-0.152-nlb}
+
+Added load balancer zone lock start/stop commands:
+* `yc load-balancer network-load-balancer start-zonal-shift`
+* `yc load-balancer network-load-balancer cancel-zonal-shift`
+
+##### {{ metastore-full-name }} {#version-0.152-metastore}
+
+Added {{ metastore-name }} cluster management commands:
+* `yc managed-metastore cluster get`
+* `yc managed-metastore cluster list`
+* `yc managed-metastore cluster create`
+* `yc managed-metastore cluster update`
+* `yc managed-metastore cluster delete`
+* `yc managed-metastore cluster start`
+* `yc managed-metastore cluster stop`
+* `yc managed-metastore cluster import-data`
+* `yc managed-metastore cluster export-data`
+* `yc managed-metastore cluster list-operations`
+
+##### Managed database services {#version-0.152-managed-db}
+
+**{{ mpg-name }}**
+
+The `postgresql database` command no longer includes the deprecated `version` argument of the `extension` parameter.
+
+### Version 0.151.0 (19/06/25) {#version0.151.0}
+
+#### Changes in {{ yandex-cloud }} services
+
+##### {{ alb-name }}
+
+* Added the `regex_rewrite` field to modify HTTP request parameters by means of regular expressions on virtual hosts. The field is supported in these commands:
+  * `yc application-load-balancer virtual-host append-http-route`
+  * `yc application-load-balancer virtual-host prepend-http-route`
+  * `yc application-load-balancer virtual-host insert-http-route`
+  * `yc application-load-balancer virtual-host update-http-route`
+
+##### {{ cloud-desktop-name }}
+
+* Added the `yc desktops image update` command to update image info.
+* Added the `yc desktops desktop update-properties` command to update desktop info.
+* Added the `yc desktops desktop start` command to start a desktop.
+* Added the `yc desktops desktop stop` command to stop a desktop.
+* Added the `yc desktops desktop update` command to synchronize a desktop with the group configuration.
+* Added the `yc desktops group update` command to update a group of desktops.
+
+##### {{ managed-k8s-name }}
+
+* Added commands to manage {{ managed-k8s-name }} cluster access permissions:
+  * `yc managed-kubernetes cluster list-access-bindings`
+  * `yc managed-kubernetes cluster set-access-bindings`
+  * `yc managed-kubernetes cluster add-access-binding`
+  * `yc managed-kubernetes cluster remove-access-binding`
+
+##### Managed database services {#managed-db}
+
+**{{ mch-name }}**
+
+* Added the `yc managed-clickhouse cluster update-external-dictionary` command to edit dictionaries created in a cluster.
+* In the `yc managed-clickhouse cluster list-logs` command, the `--service-type` parameter now supports `clickhouse-keeper` as a new valid value.
+
+**{{ mkf-name }}**
+
+* In the `role` key, the `--permission` parameter now supports new valid values: `topic_producer`, `topic_consumer`, `schema_reader`, and `schema_writer`. This applies to the following commands:
+  * `yc managed-kafka user create`
+  * `yc managed-kafka user update`
+  * `yc managed-kafka user grant-permission`
+  * `yc managed-kafka user revoke-permission`
+
+**{{ mtr-name }}**
+
+* Added commands to work with {{ mtr-full-name }} catalogs:
+  * `yc managed-trino catalog create`
+  * `yc managed-trino catalog delete`
+  * `yc managed-trino catalog get`  
+  * `yc managed-trino catalog list`
+  * `yc managed-trino catalog update`
+
+### Version 0.150.0 (02/06/25) {#version0.150.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ baremetal-name }}
+* Added the following groups of commands for {{ baremetal-name }}:
+  * `yc baremetal boot-image`
+  * `yc baremetal configuration`
+  * `yc baremetal private-subnet`
+  * `yc baremetal public-subnet`
+  * `yc baremetal hardware-pool`
+  * `yc baremetal server`
+  * `yc baremetal vrf`
+  * `yc baremetal zone`
+
+##### {{ compute-name }}
+* Added the `--snapshot-description` and `--snapshot-labels` parameters to the `yc compute snapshot-schedule update` command, which you can use to provide descriptions and labels for scheduled disk snapshots.
+* Added the following commands to edit labels of scheduled disk snapshots:
+  * `yc compute snapshot-schedule add-snapshot-labels`
+  * `yc compute snapshot-schedule remove-snapshot-labels`
+
+##### {{ dataproc-name }}
+* Added the `--oslogin` parameter to the `yc dataproc cluster create` command to enable OS Login access on the cluster.
+
+##### {{ mgl-name }}
+* Added these {{ mgl-name }} instance management commands:
+  * `yc managed-gitlab instance get`
+  * `yc managed-gitlab instance list`
+  * `yc managed-gitlab instance create`
+  * `yc managed-gitlab instance stop`
+  * `yc managed-gitlab instance start`
+  * `yc managed-gitlab instance delete`
+
+##### {{ objstorage-name }}
+* Added these commands for bucket and object ACLs:
+  * `yc storage s3api get-bucket-acl`
+  * `yc storage s3api put-bucket-acl`
+  * `yc storage s3api get-object-acl`
+  * `yc storage s3api put-object-acl`
+
+##### Managed database services {#managed-db}
+
+**{{ mmy-name }}**
+* Updated the `--permissions` parameter behavior in the `yc mysql users create` and `yc mysql users update` commands.
+
+**{{ mtr-name }}**
+* Added commands for {{ mtr-name }} cluster management:
+  * `yc managed-trino cluster get`
+  * `yc managed-trino cluster list`
+  * `yc managed-trino cluster create`
+  * `yc managed-trino cluster update`
+  * `yc managed-trino cluster delete`
+  * `yc managed-trino cluster start`
+  * `yc managed-trino cluster stop`
+  * `yc managed-trino cluster list-operations`
+
+### Version 0.149.0 (20/05/25) {#version0.149.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.149.0-services}
+
+##### {{ mkf-name }}
+
+* In the `yc kafka cluster create` and `yc kafka cluster update` commands, deleted the `--log-preallocate` parameter to manage the relevant Apache Kafka broker setting.
+* In the `yc kafka topic create` and `yc kafka topic update` commands, deleted the `--preallocate` parameter to manage the relevant Apache Kafka topic setting.
+
+##### {{ mch-name }}
+
+Added these extension management commands:
+* `yc managed-clickhouse extension list`
+* `yc managed-clickhouse extension get`
+* `yc managed-clickhouse cluster add-extension`
+* `yc managed-clickhouse cluster update-extension`
+* `yc managed-clickhouse cluster get-extension`
+* `yc managed-clickhouse cluster list-extensions`
+* `yc managed-clickhouse cluster remove-extension`
+
+### Version 0.148.0 (30/04/25) {#version0.148.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.148.0-services}
+
+##### {{ compute-name }}
+
+* In the scheduled snapshot creation command, added the option to specify the description and labels for your snapshots:
+  
+  ```bash
+  yc compute snapshot-schedule create --snapshot-description --snapshot-labels
+  ```
+
+##### {{ iam-name }}
+* Added the `yc iam whoami` command that gives you information about your account.
+
+##### {{ mos-name }}
+
+Fixed the error message that would appear after a successful OpenSearch cluster restart or master host change.
+
+##### {{ mpg-name }}
+Added commands for user management in {{ GP }} resource groups:
+  * `yc managed-greenplum user create`
+  * `yc managed-greenplum user get`
+  * `yc managed-greenplum user list`
+  * `yc managed-greenplum user update`
+  * `yc managed-greenplum`
+
+##### {{ er-name }}
+* Added the `yc serverless eventrouter connector create event-service` command to create an `event_service` type connector for messages to the bus via gRPC.
+* Added the `yc serverless eventrouter send-event` command to send messages to the bus via gRPC for `event_service` type connector.
+
+##### {{ objstorage-name }}
+
+* Fixed the issue where the bucket would sometimes be treated as empty when running the `yc storage s3 cp` command and no copying was taking place.
+
+* Added the `yc storage s3 cp` command setup parameters to the CLI configuration:
+  * `s3.max-queue-size`: Maximum number of issues per queue. The default value is `1000`.
+  * `s3.max-concurrent-requests`: Maximum number of simultaneous requests. The default value is `10`.
+  * `s3.multipart-threshold`: Object threshold size to trigger a multipart upload if exceeded. The default value is `8MB`.
+  * `s3.multipart-chunksize`: Size of parts the object will be split into in a multipart upload. The default value is `8MB`.
+
+   To set these parameters, use the `us config set <parameter> <value>` command.
+
+##### {{ mpg-name }}
+
+Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc managed-greenplum cluster update` command.
+
+### Version 0.147.0 (02/04/25) {#version0.147.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.147.0-services}
+
+##### Managed database services {#managed-db}
+
+* Added the `--rest-api-enabled` parameter to the `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands to enable the REST API on the cluster.
+
+* Added support for the `--user generate-password` argument in the `yc managed-mysql cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* Added support for the `--user generate-password` argument in the `yc managed-postgresql cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
+
+* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+
+* Added support for the `--shard` repeatable composite parameter in the `yc managed-clickhouse shard add` command.
+  * The command will create as many shards as there are `--shard` parameters.
+  * For each shard, you need to specify a name, and you can also specify a weight: `yc managed-clickhouse shard add --shard name=myshard,weight=200`.
+  * You cannot use the `--shard` parameter with the `--name` and `--weight` parameters or when specifying a shard name as a positional argument.
+
+* Deleting multiple shards via `yc managed-clickhouse shards delete` now takes less time.
+
+* Added the following parameters to the `yc managed-clickhouse cluster add-external-dictionary` command:
+  * `--layout-allow-read-expired-keys `
+  * `--layout-max-update-queue-size`
+  * `--layout-update-queue-push-timeout-milliseconds`
+  * `--layout-query-wait-timeout-milliseconds`
+  * `--layout-max-threads-for-updates`
+  * `--layout-initial-array-size`
+  * `--layout-access-to-key-from-attributes`
+  
+##### {{ alb-name }} {#alb}
+
+* Added commands to manage manual switching of a load balancer’s availability zone:
+  * `yc application-load-balancer load-balancer start-zonal-shift`
+  * `yc application-load-balancer load-balancer cancel-zonal-shift`
+
+* Added the `--allow-zonal-shift` parameter to indicate that the balancer can operate in case an availability zone fails:
+  * `yc application-load-balancer load-balancer create`
+  * `yc application-load-balancer load-balancer update`
+
+##### {{ iam-name }} {#iam}
+
+Added commands to manage access to workload identity federations:
+* `yc iam workload-identity oidc federation list-access-bindings`
+* `yc iam workload-identity oidc federation set-access-bindings`
+* `yc iam workload-identity oidc federation add-access-binding`
+* `yc iam workload-identity oidc federation remove-access-binding`
+
+##### {{ ydb-name }} {#ydb}
+
+Added support for the storage-class argument in the `yc ydb database backup` command to specify the storage type.
+
+##### {{ compute-name }} {#compute}
+
+Added commands to link instances to reserved instance pools.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added the `yc storage s3 cp` command for copying objects between the file system and object storage or between object storage buckets.
+* Added the `yc storage s3 mv` command for moving objects between the file system and object storage or between object storage buckets.
+* Added the `yc storage s3 rm` command for deleting objects in a bucket.
+
+
+### Version 0.146.1 (03/04/25) {#version0.146.1}
+
+#### Changes to {{ yandex-cloud }} services {#version0.146.1-services}
+
+##### {{ compute-name }} {#compute}
+
+* Added the following commands for managing reserved instance pools:
+  * `yc compute reserved-instance-pool get`
+  * `yc compute reserved-instance-pool list`
+  * `yc compute reserved-instance-pool create`
+  * `yc compute reserved-instance-pool update`
+  * `yc compute reserved-instance-pool delete`
+
+### Version 0.146.0 (02/04/25) {#version0.146.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.146.0-services}
+
+##### {{ at-name }} {#audit-trails}
+
+* The `--filter-from-*` parameters are no longer checked in the `yc audit-trails trail create` and `yc audit-trails trail update` commands. These parameters will be deleted in the next release.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Deleted the `--capacity` and `--pop` parameters from the `yc cic trunk-connection update` command.
+ 
+##### {{ iam-name }} {#iam}
+
+* In the `yc iam api-key create` command, the `--scope` parameter is marked as **DEPRECATED**.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added the `yc storage s3api list-objects` command to get a list of bucket objects.
+
+##### Managed database services {#managed-db}
+
+* Added the `--generate-password` flag for automatic password generation using {{ connection-manager-name }} to these commands:
+  * `yc managed-clickhouse user create`, `yc managed-clickhouse user update`
+  * `yc managed-mysql user create`, `yc managed-mysql user update`
+  * `yc managed-postgresql user create`, `yc managed-postgresql user update`
+
+**{{ mkf-name }}**
+
+* In the `yc managed-kafka user create` and `yc managed-kafka user update` commands, added a new possible value, `topic_admin`, for the `role` key in the `--permission` parameter.
+
+**{{ mgp-name }}**
+
+* Fixed the default version from 6.19 to 6.25 for the `yc managed-greenplum cluster create` command.
+
+**{{ mos-name }}**
+
+* Added the `yc managed-opensearch cluster restart-opensearch` command for restarting the service on the host specified in the `--host` parameter.
+* Added the `yc managed-opensearch cluster switch-master` command for switching the current master.
+  * In the `--from-hosts host,[host...]` parameter, you can specify a list of hosts to switch the master from. If the master is no longer on any of these hosts, no changes will take place.
+  * If the `--from-hosts` parameter is missing, the master will be switched from the host it is currently on.
+
+**{{ ydb-name }}**
+
+* Added the `--security-group-name` and `--security-group-id` parameters to the `yc ydb database create` and `yc ydb database update` commands.
+
+### Version 0.145.0 (18/03/25) {#version0.145.0}
+
+#### Changes to {{ yandex-cloud }} services {#version0.145.0-services}
+
+##### {{ mrd-name }} {#version0.145.0-mrd}
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
+  * `activedefrag`
+  * `aof-max-size-percent`
+
+* The `--persistence-mode` parameter can now take the `ON_REPLICAS` value in the following commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update`
+
+##### {{ mos-name }} {#version0.145.0-mos}
+
+* Added support for `local-ssd` disks.
+* Added the ability to automatically assign subnets when creating a cluster or adding a host group.
+
+##### {{ quota-manager-name }} {#version0.145.0-quota-manager}
+
+* Added the `yc quota-manager quota-limit` command group to view quota limits:
+  * `yc quota-manager quota-limit get`: Output the value of a specific quota.
+  * `yc quota-manager quota-limit list`: Output a list of quotas for a specific service.
+  * `yc quota-manager quota-limit list-service`: Output the list of services that have available quotas.
+
+##### {{ interconnect-name }} {#version0.145.0-cic}
+
+* Added commands for TrunkConnection management:
+  * `yc cic trunk-connection create`
+  * `yc cic trunk-connection update`
+  * `yc cic trunk-connection delete`
+  * `yc cic trunk-connection add-labels`
+  * `yc cic trunk-connection remove-labels`
+  * `yc cic trunk-connection list-operations`
+
+* Added commands for PrivateConnection management:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+  * `yc cic private-connection delete`
+  * `yc cic private-connection add-labels`
+  * `yc cic private-connection remove-labels`
+  * `yc cic private-connection upsert-static-route`
+  * `yc cic private-connection remove-static-route`
+  * `yc cic private-connection list-operations`
+
+##### {{ cr-name }} {#version0.145.0-cloudrouter}
+
+* Added commands for RoutingInstance management:
+  * `yc cloudrouter routing-instance create`
+  * `yc cloudrouter routing-instance update`
+  * `yc cloudrouter routing-instance delete`
+  * `yc cloudrouter routing-instance add-labels`
+  * `yc cloudrouter routing-instance remove-labels`
+  * `yc cloudrouter routing-instance upsert-prefixes`
+  * `yc cloudrouter routing-instance remove-prefixes`
+  * `yc cloudrouter routing-instance add-private-connection`
+  * `yc cloudrouter routing-instance remove-private-connection`
+  * `yc cloudrouter routing-instance list-operations`
+
+##### {{ network-load-balancer-name }} {#version0.145.0-nlb}
+
+* Fixed an error for the `yc network-load-balancer update` command in the `--allow-zonal-shift` flag listener.
+
+### Version 0.144.0 (27/02/25) {#version0.144.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ mrd-name }}
+
+* Added the commands for outputting, reading, creating, updating, and deleting users:
+  * `yc managed-redis user list`
+  * `yc managed-redis user get`
+  * `yc managed-redis user create`
+  * `yc managed-redis user update`
+  * `yc managed-redis user delete`
+
+* Added the `--auth-sentinel` parameter (allowing you to log in to {{ RD }} Sentinel) to these commands:
+
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update`
+
+* Added the `--user` parameter (allowing you to add users to {{ RD }}) to the `yc managed-redis cluster create` command.
+
+* Added the `--zset-max-listpack-values` parameter to these commands:
+  * `yc managed-redis cluster create`
+  * `yc managed-redis cluster restore`
+  * `yc managed-redis cluster update-config`
+
+##### {{ resmgr-name }} {#resmgr}
+
+* Added the `--organization-id` optional parameter to the `yc resource-manager cloud create` command.
+
+##### {{ backup-name }} {#backup}
+
+* Added the `backup backup batch-delete` command for deleting all backups in an archive and the archive itself. You can specify the archive using the `--archive-id` parameter or the `--instance-id` and `--policy-id` parameters.
+
+##### {{ yc-mdb-gp }}
+
+* Updated the list of supported Greenplum® versions for the `yc managed-greenplum cluster update-config` command:
+
+  * Discontinued support for versions 6.17 and 6.19.
+  * Added support for version 6.25+.
+
+* Added the `--service-account` parameter to the `yc managed-greenplum cluster create/update/restore` command: This parameter allows you to specify a service account for accessing {{ yandex-cloud }} resources in a user cloud, e.g., {{ cloud-logging-name }}.
+
+* Added the following parameters for these `yc managed-greenplum cluster create/update` commands:
+
+  * `--log-enabled`: Enabling log delivery to {{ cloud-logging-name }}.
+  * `--log-folder-id <folder_id>` and `--log-group-id <log_group_id>`: Specifying a folder or group for log delivery in {{ cloud-logging-name }}.
+  * `--log-command-center-enabled`: Enabling log delivery from Command Center.
+  * `--log-greenplum-enabled`: Enabling log delivery from Greenplum®.
+  * `--log-pooler-enabled`: Enabling log delivery from Odyssey®.
+
+##### {{ network-load-balancer-name }}
+
+* Added the `--allow-zonal-shift` parameter for the `yc network-load-balancer create/update` commands that allows the load balancer to work in one-AZ (one availability zone) fault mode.
+
+### Version 0.143.0 (11/02/25) {#version0.143.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ objstorage-name }}
+
+* Added a parameter to the `yc storage bucket update` command to specify a {{ vpc-full-name }} [service connection](../vpc/concepts/private-endpoint.md) to access the bucket from:
+  * `--private-endpoint`, e.g.,`--enable-private-endpoints true --private-endpoints cba,abc`.
+
+### Version 0.142.0 (30/01/25) {#version0.142.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ dataproc-name }} {#dataproc}
+
+* Added the `--environment` parameter to the `yc dataproc cluster create` command for specifying an environment, e.g., `--environment prestable`.
+
+##### {{ iam-name }} {#iam}
+
+* Added the `yc iam refresh-token list` command to get a list of refresh tokens.
+* Added the `yc iam refresh-token revoke` command to revoke refresh tokens.
+
+##### {{ objstorage-name }} {#storage}
+
+* Added commands for reading, editing, and deleting object labels:
+  * `yc storage s3api get-object-tagging`
+  * `yc storage s3api put-object-tagging`
+  * `yc storage s3api delete-object-tagging`
+ 
+##### Managed database services {#managed-db}
+
+**{{ mmg-name }}**
+
+* Added the `--websql-access` parameter to the `yc managed-mongodb cluster create`, `yc managed-mongodb cluster restore`, and `yc managed-mongodb cluster update` commands for setting up access to {{ MG }} via {{ websql-name }}.
+
+* Added the options for restoring a sharded {{ MG }} cluster to the `yc managed-mongodb cluster restore` command.
+
+**{{ mrd-name }}**
+
+* Added the `--backup-retain-period-days` parameter to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands.
+
+### Version 0.141.0 (16/12/24) {#version0.141.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ sf-name }} {#serverless-functions}
+
+Added the `--metadata-options` parameter to the `yc serverless function version create` command to specify options to obtain metadata in a function. Here is a possible use case: 
+
+```bash
+yc serverless function version create --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+Added the `--metadata-options` parameter to the `yc serverless container revision deploy` command to specify the options to get metadata in a container. Here is a possible use case:
+
+```bash
+yc serverless container revision deploy --metadata-options aws-v1-http-endpoint=disabled,gce-http-endpoint=enabled
+```
+
+##### {{ iam-name }}
+
+Added the `--scopes` parameter to the `yc iam api-key create` command to specify the scope of the API key. If the parameter is not specified, no restrictions will apply to the new key. 
+
+The `--scope` parameter will be removed in the next YC CLI version.
+
+* Added the `yc iam api-key update` command for updating the API key. The command has the following parameters:
+  * `--description`, to edit the API key description.
+  * `--scopes`, to update the API key scope.
+  * `--expires_at`, to update the key expiration date. If the parameter is not set, the API key will have no expiration date.
+
+##### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+Added the `--cloud-storage` parameter to the `yc managed-greenplum cluster create` command to specify the cloud storage management parameters. Example command to enable cloud storage: 
+
+```bash 
+yc managed-greenplum cluster create --cloud-storage enabled=true
+```
+
+### Version 0.140.0 (29/11/24) {#version0.140.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ alb-name }} {#alb}
+
+* Added the `--expected-statuses` property to the `yc alb backend-group add-http-backend` and `yc alb backend-group update-http-backend` commands for the `--http-healthcheck` parameter. You can use it to specify custom HTTP status codes, which the backend health check will treat as correct.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Added the `subnet-id` parameter to the `yc desktops desktop create` command.
+
+##### {{ cloud-registry-name }} {#cloud-registry}
+
+* Added the `yc cloud-registry artifact get` and `yc cloud-registry artifact delete` commands you can use to manage artifacts.
+* Added these registry management commands: `yc cloud-registry registry [ get | list | create | update | delete | add-labels | remove-labels | list-access-bindings | set-access-bindings | add-access-bindings | remove-access-bindings | list-ip-permissions | set-ip-permissions | add-ip-permissions | remove-ip-permissions ]`.
+
+##### {{ data-transfer-name }} {#data-transfer}
+
+* Added the `--cleanup-policy` parameter to the `yc datatransfer endpoint create <endpoint_type>` command for the `postgres-target`, `clickhouse-target`, `mysql-target`, and `mongo-target` endpoints. With this parameter, you can set target cleanup policies when activating or reactivating a transfer (`drop`, `truncate`, or `disabled`).
+
+##### {{ iot-name }} {#iot}
+
+* Added the STATUS column to the text format of the `iot registry list` and `iot device list` commands.
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-full-name }}**
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, and `yc managed-redis cluster update-config` commands:
+  * `use-luajit`
+  * `io-threads-allowed`
+
+### Version 0.139.0 (18/11/24) {#version0.139.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Added the `user-account-id` parameter to the `yc desktops desktop` command. Deleted the `subject` parameter.
+* Added the `yc desktops image` command to manage desktop images.
+
+##### {{ container-registry-name }} {#container-registry}
+
+* Fixed a regression in Docker credential helper making it impossible to select a non-default profile.
+
+##### {{ compute-name }} {#compute}
+
+* Added the `kms-key-id` and `kms-key-name` parameters to the `yc compute disk create` and `yc compute instance create` commands to support disk encryption.
+
+##### {{ serverless-containers-name }} {#serverless-containers}
+
+* Added the `--runtime` parameter to the `yc serverless container revision deploy` command allowing you to set the container operating mode (`http` or `task`).
+
+### Version 0.138.0 (06/11/24) {#version0.138.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ compute-name }} {#compute}
+
+* The `yc compute connect-to-serial-port` command now explicitly checks the instance metadata for the `serial-port-enable` and `enable-oslogin` flags.
+
+##### {{ interconnect-name }} {#interconnect}
+
+* The `yc cic point-of-presence get` and `yc cic partner get` commands now only work with IDs without parameters.
+* Fixed the output format of the `list` command for `trunk-connection`, `private-connection`, and `public-connection` in {{ interconnect-name }} and for `routing-instance` in Cloud Router: some fields were removed with display formats revised.
+
+### Version 0.137.0 (01/11/24) {#version0.137.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Fixed the `get` commands without parameters in {{ interconnect-name }} and Cloud Router.
+* Fixed the output format of the `list` commands in {{ interconnect-name }} and Cloud Router: now a table is returned.
+
+##### {{ objstorage-name }} {#object-storage}
+
+* Added the `yc storage s3api get-object-retention` and `yc storage s3api put-object-retention` commands to read and modify object temporary lock (retention).
+* Added the `yc storage s3api get-object-legal-hold` and `yc storage s3api put-object-legal-hold` commands to read and change object indefinite lock (legal hold).
+
+##### Managed database services {#managed-db}
+
+**{{ mpg-name }}**
+
+* Added the `17` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. You can now create a version 17 {{ PG }} cluster.
+
+### Version 0.136.0 (21/10/24) {#version0.136.0}
+
+#### Changes to the CLI {#cli}
+
+* The `yc init` command now does not offer the `ru-central1-c` zone because it is no longer in use.
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ alb-name }} {#alb}
+
+* The `yc application-load-balancer load-balancer add-stream-listener`, `yc application-load-balancer load-balancer update-stream-listener`, `yc application-load-balancer load-balancer add-stream-sni`, `yc application-load-balancer load-balancer update-stream-sni` commands have been updated with the `--idle-timeout` parameter allowing you to specify the connection idle timeout. 
+
+##### {{ er-name }} {#eventrouter}
+
+* Added parameter validation for the `yc serverless eventrouter` command.
+* Fixed an error with the `yc serverless eventrouter put-event` command.
+
+##### {{ objstorage-name }} {#object-storage}
+
+* Added the ability to set `--storage-endpoint` using `yc config set`. If the user did not explicitly specify `--storage-endpoint`, it will be obtained from `ApiEndpointService`.
+
+##### Managed database services {#managed-db}
+
+**{{ mrd-full-name }}**
+
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`, `yc managed-redis cluster update-config` commands:
+  * `--lua-time-limit`
+  * `--repl-backlog-size-percent`
+  * `--cluster-require-full-coverage`
+  * `--cluster-allow-reads-when-down`
+  * `--cluster-allow-pubsubshard-when-down`
+  * `--lfu-decay-time`
+  * `--lfu-log-factor`
+  * `--turn-before-switchover`
+  * `--allow-data-loss`
+
+**{{ yc-mdb-mg }}, {{ yc-mdb-ch }}, {{ yc-mdb-gp }}, {{ yc-mdb-pg }}, {{ yc-mdb-rd }}, {{ yc-mdb-my }}, {{ yc-mdb-kf }}, {{ yc-mdb-es }}, {{ yc-mdb-os }}**
+
+* Clarified the description of the `--disk-size` parameters. By default, the disk size is specified in GB.
+
+### Version 0.135.0 (07/10/24) {#version0.135.0}
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ managed-k8s-name }} {#k8s}
+
+* Added commands for working with {{ marketplace-name }} products in a {{ managed-k8s-name }} cluster: 
+   * `yc managed-kubernetes marketplace helm-release install`: Installs the Helm chart of a {{ marketplace-name }} product to the specified {{ managed-k8s-name }} cluster.
+   * `yc managed-kubernetes marketplace helm-release update`: Upgrades the Helm chart version for a {{ marketplace-name }} product.
+   * `yc managed-kubernetes marketplace helm-release uninstall`: Deletes a Helm chart version of a {{ marketplace-name }} product.
+   * `yc managed-kubernetes marketplace helm-release get`: Getting information about the Helm chart of a {{ marketplace-name }} product.
+   * `yc managed-kubernetes marketplace helm-release list`: Returns a list of {{ marketplace-name }} Helm charts installed in a {{ managed-k8s-name }} cluster.
+
+##### {{ load-testing-name }}
+
+* Added the `log-group-id` and `log-group-name` parameters to the `yc loadtesting agent create` command to specify a target log group for load testing agent logs.
+
+### Version 0.134.0 (02/10/24) {#version0.134.0}
+
+#### Changes to the CLI {#cli}
+
+* Added the global `--jq` parameter. It is used for filtering and converting the output with the help of jq templates. Examples:
+  * `yc iam role list --jq '.[].id'`
+  * `ID="instance_id" yc compute instance list --jq '.[] | select(.id == env.ID)'`
+
+#### Changes to {{ yandex-cloud }} services {#services}
+
+##### {{ objstorage-name }} {#storage}
+
+* Added basic support for object operations via the S3 API:
+  * `yc storage s3api get-object`: Getting an object from a bucket.
+  * `yc storage s3api put-object`: Uploading an object to a bucket.
+  * `yc storage s3api delete-object`: Deleting an object.
+  * `yc storage s3api copy-object`: Copying an existing bucket object.
+  * `yc storage s3api head-object`: Getting object metadata.
+  * `yc storage s3api delete-objects`: Deleting an object group.
+
+  To work with objects, in the `~/.config/yandex-cloud/config.yaml` CLI configuration file, specify the {{ objstorage-name }} endpoint:
+
+  ```yaml
+  ...
+  profiles:
+    default:
+      ...
+      storage-endpoint: https://{{ s3-storage-host }}/
+  ```
+
+##### {{ interconnect-name }} {#interconnect}
+
+* Added the `yc cic point-of-presence get` and `yc cic point-of-presence list` commands to read points of presence.
+* Added the `yc cic partner get` and `yc cic partner list` commands to read {{ interconnect-name }} partners.
+* Added the `yc cic trunk-connection get` and `yc cic trunk-connection list` commands to read trunk links.
+* Added the `yc cic private-connection get` and `yc cic private-connection list` commands to read private connections.
+* Added the `yc cic public-connection get` and `yc cic public-connection list` commands to read public connections.
+
+##### {{ cloud-desktop-name }} {#cloud-desktop}
+
+* Added the `--image-id` parameter to the `yc desktops group create` command to provide an image ID to a desktop group. 
+
+##### {{ backup-name }} {#backup}
+
+* Added the following commands:
+  * `yc backup agent install`: Installing a [{{ backup-name }} agent](../backup/concepts/agent.md) and connecting a VM with {{ oslogin }} to {{ backup-name }}.
+  * `yc backup agent reinstall`: Re-installing a {{ backup-name }} agent for a VM with {{ oslogin }} installed.
+  * `yc backup agent debug-info`: Getting {{ backup-name }} agent installation logs for a VM with {{ oslogin }} installed.
+  * `yc backup provider activate`: Activating the service and connecting to a backup provider.
+
+* When running commands, a {{ backup-name }} activation check is now performed on the folder.
+
+##### {{ si-name }} {#serverless-integrations}
+
+* Added {{ er-full-name }} support.
+
+##### {{ iam-name }} {#iam}
+
+* Changed the header in the `yc iam service accounts list` table output.
+
+##### {{ org-full-name }} {#organization}
+
+* Added the last user authentication time to the `yc organization-manager user list --organization-id` command output.
+
+##### Managed database services {#managed-db}
+
+**{{ mgp-name }}**
+
+* `yc managed-greenplum cluster create` and `yc managed-greenplum cluster restore` now support `--master-host-group-ids` and `--segment-host-group-ids` options for specifying the dedicated host groups to place master hosts and {{ GP }} segments in.
+
+**{{ mrd-full-name }}**
+
+* Added the `yc managed-redis backup delete` command to delete backups.
+* Changed the default {{ RD }} version to 7.2 as versions 6.2 and 7.0 will no longer be supported.
+
+**{{ mkf-name }}**
+
+* Upgraded the `--permission` parameter for the `yc managed-kafka cluster create`, `yc managed-kafka cluster update`, `yc managed-kafka cluster grant-permission`, and`yc managed-kafka cluster revoke-permission` commands. Its value is set in `key=value,...` format. As the `key`, `allow_host` can now be used, which is the host the rule operates from for the user.
+
+**{{ maf-name }}**
+
+* Bug fixes and {{ maf-name }} performance improvements
 
 ### Version 0.133.0 (09/09/24) {#version0.133.0}
 
@@ -35,11 +1826,11 @@ description: This page provides a list of YC CLI releases and updates rolled out
   * `yc managed-mysql cluster update`
   * `yc managed-kafka cluster update`
   * `yc managed-elasticsearch cluster update`
-  * `yc managed-opensearch cluster update`.
+  * `yc managed-opensearch cluster update`
 
 **{{ mch-name }}**
 
-* Added the `yc managed-clickhouse cluster [ clear-query-masking-rules | set-query-masking-rules ]` commands to engage the `query_masking_rules` option in {{ CH }} which creates request rules meant to stop confidential information leaks.
+* Added the `yc managed-clickhouse cluster [ clear-query-masking-rules | set-query-masking-rules ]` commands to enable the use of the `query_masking_rules` option in {{ CH }}. This option creates request rules to address confidential information leakage.
 * Added the following parameters to the `yc managed-clickhouse cluster add-external-dictionary` command:
   * `--layout-max-array-size`: Determining the maximum number of dictionary keys.
   * `--http-header`: Adding HTTP headers for HTTP sources of external dictionaries.
@@ -48,20 +1839,18 @@ description: This page provides a list of YC CLI releases and updates rolled out
   * `--close-connection`: Closing the connection after each request.
   * `--share-connection`: Sharing the connection between multiple requests.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added the `--websql-access` parameter to the `yc managed-redis cluster [ create | update | restore ]` commands allowing you to establish access via {{ websql-name }} in {{ RD }}.
 
 **{{ mgp-name }}**
 
 * Added the `--yandexquery-access` parameter to the `yc managed-greenplum cluster [ create | update | restore ]` commands allowing you to access the cluster from {{ yq-full-name }}.
-* Added the `--yandexquery-access` parameter to the `yc managed-greenplum cluster [ create | update ]` commands allowing you to manage {{ mgp-name }} background processes.
+* To the `yc managed-greenplum cluster [ create | update ]` commands, added the `--analyze-and-vacuum`, `--query-killer-idle`, `--query-killer-idle-in-transaction`, and `--query-killer-long-running` parameters which can be used to manage the {{ mgp-name }} background processes.
 
 **{{ maf-name }}**
 
-* Added the following commands for working with {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
-
-## Previous releases {#previous-releases}
+* Added the following commands for {{ maf-name }}: `yc managed-airflow cluster [ get | list | delete | list-operations | start | stop | create | update ]`.
 
 ### Version 0.132.1 (28/08/24) {#version0.132.1}
 
@@ -90,7 +1879,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ##### {{ backup-name }} {#backup}
 
-* Added the `--type` flag to the `backup vm list` command to specify the type of resources to return in the list.
+* Added the `--type` parameter to the `backup vm list` command to specify the type of resources to return in the list.
 
 ##### {{ vpc-name }} {#vpc}
 
@@ -102,7 +1891,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 * Added the `--disk-size-autoscaling` parameter to the `yc managed-mongodb cluster create` and `yc managed-mongodb cluster update` commands to enable automatic disk scaling.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * In the `yc managed-redis cluster create` and `yc managed-redis cluster update` commands, the `disk-size-limit` measurement units for `--disk-size-autoscaling` were changed from bytes to gigabytes.
 
@@ -142,7 +1931,7 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ##### {{ data-transfer-name }}
 
-* Added the `--cluster-name` flag to the `yc datatransfer endpoint create clickhouse-source` command to specify the name of the ClickHouse cluster for data transfer.
+* Added the `--cluster-name` parameter to the `yc datatransfer endpoint create clickhouse-source` command to specify the name of the ClickHouse cluster for data transfer.
 
 ##### {{ marketplace-name }}
 
@@ -154,11 +1943,11 @@ description: This page provides a list of YC CLI releases and updates rolled out
 
 ##### {{ compute-name }}
 
-* Added the `--host-id` flag to the `yc compute host-group list-instances` command to specify the host ID in a host group for VM listing.
+* Added the `--host-id` parameter to the `yc compute host-group list-instances` command to specify the host ID in a host group for VM listing.
 
 ##### {{ load-testing-name }}
 
-* In the `yc loadtesting agent create` command, added the option to wait for the created agent to connect to {{ load-testing-name }}:
+* In the `yc loadtesting agent create` command, you can now choose to wait for the new agent to connect to {{ load-testing-name }}:
   * `--wait-ready` flag: Do not terminate the command until the agent has the `READY FOR TEST` status.
   * `--wait-ready-timeout` parameter: Maximum wait time for `--wait-ready` (default: 5m).
 
@@ -188,7 +1977,7 @@ Added support for {{ sws-name }}:
 
 ##### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added the `--disk-size-autoscaling` parameter to the `yc managed-redis cluster create` and `yc managed-redis cluster update` commands to enable automatic disk scaling.
 
@@ -196,9 +1985,9 @@ Added support for {{ sws-name }}:
 
 * Added the `yc managed-kafka user grant-permission` and `yc managed-kafka user revoke-permission` permission management commands.
 * Added the `{{ yc-mdb-ch }} hosts add` and `{{ yc-mdb-ch }} shards add` commands. The `copy-schema` parameter is enabled by default.
-* Added the `yc managed-clickhouse backup delete` backup delete command.
+* Added the `yc managed-clickhouse backup delete` command to delete backups.
 * Added the `--disk-type` parameter to the `yc managed-kafka cluster update` command.
-* Added the `--backup-retain-period-days` parameter to configure the automatic backup storage period.
+* Added the `--backup-retain-period-days` parameter to configure the automatic backup retention period.
 
 ##### {{ marketplace-name }} {#marketplace}
 
@@ -232,7 +2021,7 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 * Added the `yc iam service-account add-labels` and `yc iam service-account remove-labels` label management commands.
 * The `yc iam service-account create` and `yc iam service-account update` commands now have the `--labels` parameter, which specifies a set of DB labels.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the following label management commands:
   * `yc organization-manager organization add-labels`
@@ -259,28 +2048,28 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 
 ##### {{ sf-name }} {#cloud-functions}
 
-* Added a new `concurrency` flag for the `yc serverless function version create` command.
+* Added the new `concurrency` parameter to the `yc serverless function version create` command.
 
 ### Version 0.126.0 (04/06/24) {#version0.126.0}
 
 #### Changes to the CLI {#cli}
 
 * Added the `region` field to the profile to manage different regions.
-* Added the `--region` flag to the `init` command to initialize the CLI with a specific region.
+* Added the `--region` parameter to the `init` command to initialize the CLI with a specific region.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ resmgr-name }} {#resmgr}
 
 * Added the `yc resource-manager cloud create` command for creating a cloud.
-   * The `--billing-account-id` flag allows you to automatically link a new cloud to a billing account.
+   * The `--billing-account-id` parameter allows you to automatically link a new cloud to a billing account.
 * Added the `yc resource-manager cloud delete` command for deleting a cloud.
-   * The `--delete-after` flag allows you to delete a cloud after a specified period of time.
-* Added the `--delete-after` flag to the `yc resource-manager folder delete` command for delayed deletion after a specified period of time.
+   * The `--delete-after` parameter allows you to delete a cloud after a specified period of time.
+* Added the `--delete-after` parameter to the `yc resource-manager folder delete` command for delayed deletion after a specified period of time.
 
 ##### {{ load-testing-name }} {#load-testing}
 
-* Added the `--platform-id` flag to the `yc loadtesting agent create` command to create a VM on a specified platform.
+* Added the `--platform-id` parameter to the `yc loadtesting agent create` command to create a VM on a specified platform.
 * Added the following parameters to the `yc loadtesting test create` command to manage the export of agent artifacts to {{ objstorage-name }}:
   * `--artifacts-output-bucket`: To specify the name of the bucket to export the artifacts to.
   * `--artifacts-make-archive`: To specify whether to export the artifacts as a single archive or separately.
@@ -321,12 +2110,12 @@ Added the `--execution-timeout` parameter to the `yc serverless api-gateway crea
 
 * `yc serverless trigger create` command.
 
-  The `--gateway-name`, `--gateway-id`, and `--gateway-websocket-broadcast-path` flags allow you to specify parameters for the trigger to send messages to the {{ api-gw-name }} websocket connections.
+  The `--gateway-name`, `--gateway-id`, and `--gateway-websocket-broadcast-path` parameters allow you to specify parameters for the trigger to send messages to the {{ api-gw-name }} websocket connections.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
-* Added the `yc organization-manager oslogin profile` group of commands for managing OS Login user profiles.
-* Fixed the `--expires-at` flag for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, `5h` now supplies a value in the future.
+* Added the `yc organization-manager oslogin profile` group of commands for managing {{ oslogin }} user profiles.
+* Fixed the `--expires-at` parameter for interval values in the `yc organization-manager oslogin user-ssh-key create` and `yc organization-manager oslogin user-ssh-key update` commands. For example, `5h` now refers to a value in the future.
 
 ### Version 0.124.0 (22/04/24) {#version0.124.0}
 
@@ -405,11 +2194,11 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 * Added the `yc managed-greenplum pxf-datasource` command tree with the `get`, `list`, and `delete` commands.
 * Added the `yc managed-greenplum pxf-datasource s3` and `yc managed-greenplum pxf-datasource jdbc` command trees with the `create` and `update` commands.
-* Added the `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, and `--pxf-xms` flags for the `yc managed-greenplum cluster update` command.
+* Added the `--pxf-connection-timeout`, `--pxf-upload-timeout`, `--pxf-max-threads`, `--pxf-pool-allow-core-thread-timeout`, `--pxf-poll-core-size`, `--pxf-pool-queue-capacity`, `--pxf-pool-max-size`, `--pxf-xmx`, `--pxf-xms` parameters to the `yc managed-greenplum cluster update` command.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
-* Added the `yc organization-manager oslogin` group of commands for managing OS Login settings and custom SSH keys.
+* Added the `yc organization-manager oslogin` group of commands for managing {{ oslogin }} settings and custom SSH keys.
 
 ##### {{ container-registry-name }} {#container-registry}
 
@@ -418,14 +2207,14 @@ Added the `--deletion-protection` parameter to the following commands to protect
 ##### {{ load-testing-name }} {#load-testing}
 
 * Added the `yc loadtesting test wait` command to wait for the end of the load test.
-* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to wait for the end of the created load test.
-* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` flags to the `yc loadtesting test create` command for selecting a load testing agent by filter or an anonymous agent, respectively.
-* Added the `--filter` flag to the `yc loadtesting agent list` command to filter the agent list.
+* Added the `--wait` and `--wait-idle-timeout` flags to the `yc loadtesting test create` command to wait for the end of the load test.
+* Added the `--configuration agent-by-filter=""` and `--configuration anonymous-agent=true` parameters to the `yc loadtesting test create` command for selecting a load testing agent by filter or an anonymous agent, respectively.
+* Added the `--filter` parameter to the `yc loadtesting agent list` command to filter the agent list.
 
 ##### {{ vpc-name }} {#vpc}
 
-* Added the `--dns-record` flag to the `yc vpc address create` command for providing DNS specifications of the address.
-* Added the following flags to the `yc vpc address update` command:
+* Added the `--dns-record` parameter to the `yc vpc address create` command for setting DNS address specifications.
+* Added the following parameters to the `yc vpc address update` command:
 
   * `--dns-record`: To provide DNS specifications of the address.
   * `--clear-dns-records`: To delete all DNS specifications of the address.
@@ -436,7 +2225,7 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ compute-name }}
 
-* The `yc compute connect-to-serial-port` command supports authorization through OS Login.
+* The `yc compute connect-to-serial-port` command supports authorization through {{ oslogin }}.
 
 ##### {{ at-name }}
 
@@ -465,17 +2254,17 @@ Added the `--deletion-protection` parameter to the following commands to protect
 
 ##### {{ compute-name }}
 
-* Added the `--identity-file` flag to the `yc compute ssh` command to connect to the VM via SSH by specifying a user key.
+* Added the `--identity-file` parameter to the `yc compute ssh` command to connect to the VM via SSH by specifying a user key.
 
 ##### {{ data-transfer-name }}
 
-- Added the `--file` flag for the following commands to specify a YAML file for request configuration:
+- Added the `--file` parameter for the following commands to specify a YAML file for request configuration:
   * `yc datatransfer transfer create`
   * `yc datatransfer transfer update`
   * `yc datatransfer endpoint create`
   * `yc datatransfer endpoint update`
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `yc organization-manager federation saml delete-user-accounts` command to delete federated users.
 
@@ -495,15 +2284,15 @@ Added the `yc loadtesting test get-report-table` command to get a tabular report
 
 **{{ mgp-name }}**
 
-Added the `restore-only` flag for the `yc managed-greenplum cluster restore` command to restore only specified objects.
+Added the `restore-only` parameter for the `yc managed-greenplum cluster restore` command to restore only specified objects.
 
 ##### {{ iot-name }} {#iot}
 
-Added the following parameters to the `yc iot registry create`, `yc iot registry update`, `yc iot broker create` and `yc iot broker update` commands:
+Added the following parameters to the `yc iot registry create`, `yc iot registry update`, `yc iot broker create`, and `yc iot broker update` commands:
 
 * `--no-logging`: Disables logging from a registry or a broker.
 * `--log-group-id`, `--log-group-name`: ID or name of the log group to deliver the logs to.
-* `--log-folder-id`, `--log-folder-name`: ID or name of the folder to the default log group of which the logs will be delivered.
+* `--log-folder-id`, `--log-folder-name`: ID or name of the folder the default log group of which will receive the logs.
 * `--min-log-level`: Minimum record logging level.
 
 ##### {{ managed-k8s-name }} {#k8s}
@@ -518,9 +2307,9 @@ Fixed the error in the `k8s cluster update` command occurring when `cluster-id` 
 
 Added the `yc serverless network` command group to manage networks used in serverless computing services ({{ sf-name }}, {{ serverless-containers-name }}, and {{ api-gw-name }}):
 
-  * `yc serverless network get-used`: Get information about the network connected to the resources of serverless computing services.
+  * `yc serverless network get-used`: Getting information about the network connected to the resources of serverless computing services.
   * `yc serverless network list-used`: Get a list of networks connected to the resources of serverless computing services.
-  * `yc serverless network list-connections`: Get a list of resources of serverless computing services connected to any network in the specified area (network, directory, or cloud).
+  * `yc serverless network list-connections`: Get a list of resources of serverless computing services connected to any network in the specified area (network, folder, cloud).
   * `yc serverless network trigger-used-cleanup`: Initiate an early cleanup of the network from system subnets if it is no longer used in serverless computing services.
 
 ##### {{ iam-name }} {#iam}
@@ -529,8 +2318,8 @@ Added the `yc serverless network` command group to manage networks used in serve
 
 ##### {{ objstorage-name }}
 
-* Added `AND` (`andOperation`) support to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to merge conditions in the object filter.
-* For the `yc storage bucket update` command, added the `--encryption key-id=<key_ID>` parameter to change the used encryption key and the `--remove-encryption` parameter to disable encryption in the bucket.
+* Added the `AND` (`andOperation`) operator support to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to merge conditions in the object filter.
+* Added the `--encryption key-id=<key_ID>` parameter to the `yc storage bucket update` command to modify the encryption key currently in use and the `--remove-encryption` parameter which disables bucket encryption.
 
 ##### Managed database services {#managed-db}
 
@@ -542,7 +2331,7 @@ Added the `yc serverless network` command group to manage networks used in serve
 
 Added the following parameters to the `yc cdn resource update` and `yc cdn resource create` commands to configure the *ip address acl* option:
 
-* `--policy-type`: Client IP-based access policy. Possible values: *allow* or *deny*.
+* `--policy-type`: Client IP-based access policy, either *allow* or *deny*.
 * `--acl-excepted-values`: List of IP addresses for which access will be allowed or denied depending on the specified policy type.
 
 ##### {{ load-testing-name }}
@@ -561,15 +2350,15 @@ Added the `yc loadtesting` command tree to manage the load testing service:
 
 **{{ mgp-name }}**
 
-* Added the `--backup-retain-period-days` flag to the `yc managed-greenplum cluster create` and `yc managed-greenplum cluster update` commands.
+* Added the `--backup-retain-period-days` parameter to the `yc managed-greenplum cluster create` and `yc managed-greenplum cluster update` commands.
 
 **{{ mch-name }}**
 
-* The `network-id` parameter for `yc clickhouse cluster restore` is now optional.
+* The `network-id` parameter for `yc managed-clickhouse cluster restore` is now optional.
 
 ##### {{ alb-name }} {#alb}
 
-* Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a security profile from {{ sws-name }}.
+* Added the `--security-profile-id` parameter to the `yc alb virtual-host create` and `yc alb virtual-host update` commands to specify a {{ sws-name }} profile.
 
 ##### {{ compute-name }} {#compute}
 
@@ -602,7 +2391,7 @@ Added the following parameter to the `yc serverless container revision deploy` c
 * In the `yc compute ssh` command, user parameters are now placed at the end of the executed `ssh` command.
 * The `yc compute disk relocate` and `yc compute instance relocate` commands now enable relocation of non-replicated disks with specified placement groups and VMs with such disks.
 * Added the `--maintenance-policy` and `--maintenance-grace-period` parameters to the `yc compute instance create` and `yc compute instance update` commands.
-* Added a check for simultaneous use of the `--spread-strategy` and `--partitions` flags when creating a placement group.
+* Added a check for simultaneous use of the `--spread-strategy` and `--partitions` parameters when creating a placement group.
 * PAGER now runs correctly when requesting `help`. Now when you run a command with the `--help` flag, the `less` window opens.
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
@@ -611,7 +2400,7 @@ Added the following parameter to the `yc serverless container revision deploy` c
 
 #### {{ cdn-name }} {#cdn}
 
-Added the following parameters to the `yc cdn resource update` and `yc cdn resource create` commands for configuring access to a resource via a _secure token_:
+Added the following parameters to the `yc cdn resource update` and `yc cdn resource create` commands to configure access to a resource via a _secure token_:
 
 * `--secure-key`: Secret key to generate custom links.
 * `--enable-ip-url-signing`: Optional parameter to restrict access to resources by IP address.
@@ -623,7 +2412,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 
 * Extended the list of fields in the default list of shards and clusters.
 * Added backup type and size info to the list of backups.
-* Fixed a bug that occurred when attempting to restore a cluster with enabled hybrid storage or SQL Management using the `yc clickhouse cluster restore` command.
+* Fixed a bug that occurred when attempting to restore a cluster with enabled hybrid storage or SQL Management using the `yc managed-clickhouse cluster restore` command.
 
 ### Version 0.113.0 (31/10/23) {#version0.113.0}
 
@@ -637,7 +2426,7 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 
 **{{ mkf-name }}**
 
-* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: The `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag is kept for backward compatibility.
+* `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands: The `--unmanaged-topics` flag is marked as `deprecated`. The relevant field is no longer sent in API requests, but the flag remains for backward compatibility.
 
 **{{ mos-name }}**
 
@@ -672,11 +2461,11 @@ Added the following parameters to the `yc cdn resource update` and `yc cdn resou
 ##### {{ compute-name }} {#compute}
 
 * Added support for the `--network-interface` parameter in the `yc compute instance relocate` command.
-* Added the `yc compute ssh` command group to connect to a VM using a certificate issued using OS Login and to export this certificate. OS Login is used to provide users with SSH access to VMs through {{ iam-short-name }}.
+* Added the `yc compute ssh` command group to connect to a VM using a certificate issued using {{ oslogin }} and to export this certificate. {{ oslogin }} is used to provide users with access to the VM via SSH through {{ iam-short-name }}.
 
 ##### {{ mpg-name }}
 
-* Added the `16` value for the `--postgresql-version string` flag to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 16.
+* Added the `16` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 16.
 
 
 ##### {{ iot-name }} {#iot}
@@ -706,7 +2495,6 @@ Added the following asynchronous call parameters to the `yc serverless function 
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
-
 ##### {{ api-gw-name }} {#api-gw}
 
 * Added the following parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands:
@@ -719,7 +2507,6 @@ Added the following asynchronous call parameters to the `yc serverless function 
 * Added the `yc serverless api-gateway rollback-canary` command to disable the canary release by setting the `weight` parameter to `0`.
 
 
-
 ##### {{ iam-name }} {#iam}
 
 * Deleted the `yc iam federation` and `yc iam certificate` command groups used for managing SAML-compatible federations at the folder level. Now you should use the `yc organization-manager federation` command group to work with SAML-compatible federations.
@@ -727,31 +2514,31 @@ Added the following asynchronous call parameters to the `yc serverless function 
 
 ##### {{ ig-name }} {#instance-groups}
 
-Fixed the `yc compute instance-group update` command issue where the VM group name failed to be processed if a YAML file was used for configuration.
+Fixed the `yc compute instance-group update` command issue where the instance group name failed to be processed if a YAML file was used for configuration.
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--placement-group-partition` flag to the `yc compute instance create` and `yc compute instance update` commands to specify the partition number in a placement group.
+* Added the `--placement-group-partition` parameter to the `yc compute instance create` and `yc compute instance update` commands to specify the partition number in a placement group.
 
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* Removed a limit for the `--limit` flag in the `yc logging read` command. You can now output more than 1,000 records.
+* Removed a limit for the `--limit` parameter in the `yc logging read` command. You can now output more than 1,000 records.
 
 
 ##### Managed database services {#managed-db}
 
 **{{ mmg-name }}**
 
-* You can now create sharded clusters. If a configuration contains the appropriate host types, a cluster will be created automatically.
+* Added the ability to create a sharded cluster. If the configuration contains the relevant host types, a cluster will be created automatically.
 * Added the `--performance-diagnostics` parameter to the `yc mongodb cluster create`, `yc mongodb cluster update`, and `yc mongodb cluster restore` commands.
 
 **{{ mpg-name }}**
 
 * Added the `yc managed-postgresql backup delete` command for deleting manual backups.
 * Added the following flags to the `yc managed-postgresql cluster update` command:
-  * `--disk-size-autoscaling`: To manage the automatic disk size expansion service settings.
-  * `--yandexquery-access`: To enable cluster access from {{ yq-full-name }}.
+  * `--disk-size-autoscaling`: To manage the automatic disk size increase service settings.
+  * `--yandexquery-access`: To allow access to the cluster from {{ yq-full-name }}.
 
 **{{ mch-name }}**
 
@@ -764,7 +2551,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 ##### {{ sf-name }} {#cloud-functions}
 
 * You can now set up a bucket to save email attachments using the `yc serverless trigger create mail` command.
-* Added the the following parameters to the `yc serverless trigger create iot-devices`, `yc serverless trigger create iot-broker`, `yc serverless trigger create object-storage`, `yc serverless trigger create container-registry` and `yc serverless trigger create mail` commands:
+* Added the following parameters to the `yc serverless trigger create iot-devices`, `yc serverless trigger create iot-broker`, `yc serverless trigger create object-storage`, `yc serverless trigger create container-registry`, and `yc serverless trigger create mail` commands:
   * `--batch-size`: To specify message group size.
   * `--batch-cutoff`: To specify the maximum group formation time.
 * Added the `--stream-names` parameter to the `yc serverless trigger create logging` command for filtering by log stream name.
@@ -782,9 +2569,9 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 ##### {{ compute-name }} {#compute}
 
-* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. Its possible values are `SPREAD` or `PARTITION`.
-* Added the `--partition-count` flag to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
-* Added the `--disk-placement-group-partition` flag to the `yc compute disk create` command to specify the partition number in a placement group.
+* Added the `--strategy` parameter to the `yc compute disk-placement-group create` command to specify a placement strategy. It can be either `SPREAD` or `PARTITION`.
+* Added the `--partition-count` parameter to the `yc compute disk-placement-group create` command. The flag sets the number of partitions for a group with the `PARTITION` strategy.
+* Added the `--disk-placement-group-partition` parameter to the `yc compute disk create` command to specify the partition number in a placement group.
 * Added the `PLACEMENT GROUP` column to the table with a list of disks you get using the `yc compute disk list` command.
 * Added the `STRATEGY` column to the table with a list of disk placement groups you get using the `yc compute disk-placement-group list` command.
 
@@ -817,13 +2604,13 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 #### Changes to the CLI {#cli}
 
 * Added the `oslogin` command to get the username of the current OS user.
-* Disabled the display of global flags for all commands by default when running `yc [command] -h`. To view global flags, run `yc help [command]`.
+* Disabled the display of global parameters for all commands by default when running `yc [command] -h`. To view global settings, use `yc help [command]`.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ kms-name }} {#kms}
 
-* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../kms/).
+* {{ kms-full-name }} now supports operations with asymmetric cryptographic keys. The functionality is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
 
 ### Version 0.107.0 (15/06/23) {#version0.107.0}
 
@@ -835,9 +2622,9 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 ##### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* Unified the configuration parameters of {{ mrd-name }} clusters for different {{ RD }} versions.
+* Unified the configuration parameters of {{ mrd-full-name }} clusters for different {{ RD }} versions.
 
 **{{ mgp-name }}**
 
@@ -870,7 +2657,7 @@ Fixed the `yc compute instance-group update` command issue where the VM group na
 
 #### Changes to the CLI {#cli}
 
-* Added the `--impersonate-service-account-id` parameter to perform actions on behalf of a service account. This parameter is used to provide the service account ID. The value data type is string.
+* Added the `--impersonate-service-account-id` parameter to perform actions under a service account. This parameter is used to provide the service account ID. The value data type is string.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -914,16 +2701,16 @@ Added the `yc managed-clickhouse cluster list-external-dictionaries` command to 
 
 ##### {{ cloud-logging-name }} {#cloud-logging}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g.: `yc logging read default 1d "level = INFO"`.
-* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g.: `yc logging write default test "{\"key\":\"value\"}"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc logging read` command, e.g., `yc logging read default 1d "level = INFO"`.
+* Added the `MESSAGE` and `JSON-PAYLOAD` positional parameters to the `yc logging write` command, e.g., `yc logging write default test "{\"key\":\"value\"}"`.
 
 ##### {{ sf-name }} {#functions}
 
-* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g.: `yc serverless function logs default 1d "level = INFO"`.
+* Added the `SINCE` and `FILTER` positional parameters to the `yc serverless function logs` and `yc serverless function version logs` commands, e.g., `yc serverless function logs default 1d "level = INFO"`.
 
 ##### {{ iot-name }} {#iot}
 
-Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g.: `yc iot broker logs default 1d "level = INFO"`.
+Added the `SINCE` and `FILTER` positional parameters to the `yc iot broker logs` command, e.g., `yc iot broker logs default 1d "level = INFO"`.
 
 ### Version 0.103.0 (15/03/23) {#version0.103.00}
 
@@ -991,7 +2778,7 @@ Added the `--master-logging` parameter with the following properties to the `yc 
 
 * `enabled`: Flag to send the logs to {{ cloud-logging-name }}.
 * `log-group-id`: ID of the [log group](../logging/concepts/log-group.md) to send the logs to.
-* `folder-id`: ID of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `folder-id`: ID of the folder to send the logs to. Logs will be sent to the log group of the default folder.
 * `kube-apiserver-enabled`: Flag to send the `kube-apiserver` logs to {{ cloud-logging-name }}.
 * `cluster-autoscaler-enabled`: Flag to send the `cluster-autoscaler` logs to {{ cloud-logging-name }}.
 * `events-enabled`: Flag to send the {{ k8s }} events to {{ cloud-logging-name }}.
@@ -1010,7 +2797,7 @@ Added the following parameters to the `yc serverless container revision deploy` 
 
 * `--no-logging`: Flag to disable logging from a container.
 * `--log-group-id` and `--log-group-name`: ID or name of the [log group](../logging/concepts/log-group.md) to send the logs to.
-* `--log-folder-id` and `--log-folder-name`: ID or name of the folder to send the logs to. The logs will be sent to the log group of the default folder.
+* `--log-folder-id` and `--log-folder-name`: ID or name of the folder to send the logs to. Logs will be sent to the log group of the default folder.
 * `--min-log-level`: Minimum logging level.
 
 
@@ -1027,13 +2814,13 @@ Added the `--deletion-protection` flag to the `yc vpc address create` and `yc vp
 
 ##### {{ compute-name }} {#compute}
 
-* Added the option of editing rules for placement of instances on hosts in the `yc compute instance update` command.
+* You can now edit the placement rules for hosts in the `yc compute instance update` command.
 
 
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-Added the following flags to the `yc serverless container revision deploy` command:
+Added the following parameters to the `yc serverless container revision deploy` command:
 * `--zone-instances-limit`: Maximum number of container instances per availability zone.
 * `--zone-requests-limit`: Maximum number of simultaneous container invocations per availability zone.
 
@@ -1056,7 +2843,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added support for {{ objstorage-name }} (control plane). List of features:
   * Creating buckets with an option to specify the storage class, maximum bucket size, and ACL.
-  * Updating bucket parameters: `ACL`, `policy`, `website settings`, `CORS`, `anonymous access flags`, `Lifecycle settings`, `maximum bucket size` and `storage class`.
+  * Updating bucket settings: `ACL`, `policy`, `website settings`, `CORS`, `anonymous access flags`, `lifecycle settings`, `maximum bucket size`, and `storage class`.
   * Deleting a bucket.
   * Linking/unlinking an HTTPS certificate for a bucket.
 
@@ -1073,36 +2860,32 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### Managed database services {#managed-db}
 
-
 **{{ mes-name }}**
 
-* In the `{{ yc-mdb-es }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
+* In the `{{ yc-mdb-es }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
 **{{ mmg-name }}**
 
-* In the `{{ yc-mdb-mg }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
-
+* In the `{{ yc-mdb-mg }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
 **{{ mmy-name }}**
 
-* In the `{{ yc-mdb-my }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
+* In the `{{ yc-mdb-my }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
+**{{ mrd-full-name }}**
 
-**{{ mrd-name }}**
-
-* In the `{{ yc-mdb-rd }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
+* In the `{{ yc-mdb-rd }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
 
 **{{ mms-name }}**
 
-* In the `{{ yc-mdb-ms }} cluster restore` command with the `--folder-id` flag, you can provide a folder for cluster recovery.
-
+* In the `{{ yc-mdb-ms }} cluster restore` command with the `--folder-id` parameter, you can provide a folder for cluster recovery.
 
 
 
 ##### {{ sf-name }} {#serverless-functions}
 
-Added the following parameters to the `yc serverless function version create` command:
+Added the following parameters to the `yc serverless function version create` command: 
 * `--no-logging`: Disables logging for a function.
 * `--log-group-id` and `--log-group-name`: Sends the logs to the specified log group.
 * `--log-folder-id` and `--log-folder-name`: Sends the logs to the default log group of the specified folder.
@@ -1125,7 +2908,7 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mpg-name }}**
 
-* Added the `15` value for the `--postgresql-version string` flag to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 15.
+* Added the `15` value for the `--postgresql-version string` parameter to the `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands. It enables you to create a {{ PG }} cluster version 15.
 
 * For the `yc managed-postgresql cluster create` command, changed the default value for the version of the new {{ PG }} cluster. The new default value is `15`.
 
@@ -1143,15 +2926,13 @@ Added the following parameters to the `yc serverless function version create` co
 
 #### Managed database services {#managed-db}
 
-
 **{{ mgp-name }}**
 
-* Added the `yc managed-greenplum cluster expand` command, which allows you to expand the existing {{ mgp-name }} cluster. Command parameters:
+* Added the `yc managed-greenplum cluster expand` command which allows you to expand the existing {{ mgp-name }} cluster. Command parameters:
 
   * `--segment-host-count`: Number of hosts added to a cluster.
   * `--add-segments-per-host-count`: Number of segments added per cluster host.
   * `--duration-seconds`: Maximum duration of a data distribution session in seconds.
-
 
 **{{ mkf-name }}**
 
@@ -1169,18 +2950,18 @@ Added the following parameters to the `yc serverless function version create` co
   * `--min-zone-size`: Minimum number of resource units in a single zone.
   * `--max-size`: Maximum total number of resource units in all zones.
 
-* Added the following flags to the `yc alb load-balancer create` command:
+* Added the following parameters to the `yc alb load-balancer create` command:
   * `--log-group-id`, `--log-group-name`: To set a {{ cloud-logging-name }} log group.
   * `--disable-logging`: To create a load balancer without logging to a {{ cloud-logging-name }} log group.
 
-* Added the following flags to the `yc alb load-balancer update` command:
+* Added the following parameters to the `yc alb load-balancer update` command:
   * `--log-group-id`, `--log-group-name`: To set a {{ cloud-logging-name }} log group.
   * `--enable-logging` and `--disable-logging`: To enable and disable load balancer logging to a {{ cloud-logging-name }} log group.
 
 ##### {{ compute-name }} {#compute}
 
 * Added the `yc compute snapshot-schedule` command group to manage scheduled disk snapshots.
-* Added the `--metadata-options` flag to the `yc compute instance create` command to manage VM metadata access.
+* Added the `--metadata-options` parameter to the `yc compute instance create` command to manage VM metadata access.
 
 ###### {{ dns-name }} {#dns}
 
@@ -1191,25 +2972,25 @@ Added the following parameters to the `yc serverless function version create` co
 
 **{{ mpg-name }}**
 
-* `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands: Added the `11-1c`, `12-1c`, `13-1c`, and `14-1c` values for the `--postgresql-version string` flag to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
+* The `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands: added new `--postgresql-version string` parameter values `11-1c`, `12-1c`, `13-1c`, and `14-1c` to create a {{ PG }} cluster of versions 11-1c, 12-1c, 13-1c, and 14-1c.
 
 
 ##### {{ iot-name }} {#iot}
 
-* Added the `yc compute gpu-cluster` command group to manage an MQTT broker.
+* Added the `yc iot broker` command group for MQTT broker management.
 
 ##### {{ sf-name }} {#serverless-functions}
 
 Added the following commands:
 
 * `yc serverless trigger create iot-broker`: To create triggers for MQTT brokers.
-* `yc serverless trigger create mail`: Create mail triggers.
+* `yc serverless trigger create mail`: To create triggers for email.
 
 Added the `--secret` parameter to the `yc serverless function version create` command to add [secrets](../lockbox/) to a version.
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-Added the following flags to the `yc serverless container revision deploy` command:
+Added the following parameters to the `yc serverless container revision deploy` command:
 * `--secret`: To add secrets to a revision.
 * `--min-instances`: To specify the minimum number of prepared container instances.
 
@@ -1223,14 +3004,14 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added the following parameters to the `yc serverless api-gateway add-domain` command:
 
-  * `--domain`: To specify the FQDN of a [domain](../certificate-manager/concepts/domains/index.md) from {{ certificate-manager-name }} you are connecting.
+  * `--domain`: To specify the FQDN of a domain from {{ certificate-manager-name }} you are connecting.
   * `--certificate-id`: To specify the ID of a certificate from {{ certificate-manager-name }}.
 
   The `--domain-id` parameter is considered obsolete. Use the `--domain` and `--certificate-id` parameters instead.
 
 * Added the following `yc serverless api-gateway websocket` command group to manage WebSocket connections:
 
-  * `yc serverless api-gateway websocket get`: Getting information about a connection.
+  * `yc serverless api-gateway websocket get`: Getting connection info.
   * `yc serverless api-gateway websocket send`: Sending data in a connection.
   * `yc serverless api-gateway websocket disconnect`: Connection break.
 
@@ -1270,15 +3051,12 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 * Added support for {{ KF }} 3.0, 3.1, and 3.2.
 
-
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * {{ RD }} 5.0 and 6.0 are no longer supported.
 
 
-
-
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 * Added the `--organization-id` parameter to the `yc organization-manager federation saml` group commands to specify the organization ID. Fixed an error that occurred in these commands when specifying the name of a SAML-compatible identity federation as a positional argument.
 * Added the `yc organization-manager group` command group to manage [user groups](../organization/operations/manage-groups.md).
@@ -1296,7 +3074,6 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### Managed database services {#managed-db}
 
-
 **{{ mgp-name }}**
 
 * Added support for the commands:
@@ -1305,20 +3082,17 @@ Added the following flags to the `yc serverless container revision deploy` comma
   * `yc managed-greenplum cluster update-config`: Allows updating the configuration parameters of existing clusters.
 
 
+**{{ mrd-full-name }}**
 
-
-**{{ mrd-name }}**
-
-* Added the following flags to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
-  `yc managed-redis hosts add`, `yc managed-redis hosts update`, and `yc managed-redis shards add` commands:
+* Added the following parameters to the `yc managed-redis cluster create`, `yc managed-redis cluster restore`,
+  `yc managed-redis hosts add`, `yc managed-redis hosts update`, `yc managed-redis shards add` commands:
 
   * `--assign-public-ip=true|false`: Links or deletes a host's public IP address.
   * `--replica-priority=50`: Sets the replica priority (for non-sharded clusters only).
 
-
 **{{ mch-name }}**
 
-* Added the following flags to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster update` commands:
+* Added the following parameters to the `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster update` commands:
 
   * `--cloud-storage-move-factor`: To specify the free space percentage on the local disk to initiate data transmission to {{ objstorage-name }}.
   * `--cloud-storage-data-cache`: To allow the use of local cache for {{ objstorage-name }}.
@@ -1337,7 +3111,7 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
 ##### {{ vpc-name }} {#vpc}
 
-* Added the `yc vpc gateway` command group to manage route gateways.
+* Added the `yc vpc gateway` command group to manage routing gateways.
 * Added the ability to specify a gateway as a route destination to the `yc vpc route-table` group commands.
 
 
@@ -1356,8 +3130,8 @@ Added the following flags to the `yc serverless container revision deploy` comma
   * `--host`
   * `--user`
 
-  If these parameters are not specified, they are taken from the original cluster.
-  **{{ CH }}** and **{{ ZK }}** hosts will be restored with the same configuration as in the source cluster.
+  If these parameters are not specified, they will be taken from the original cluster.
+  **{{ CH }}** and **{{ ZK }}** hosts will be restored with the same configuration as in the original cluster.
   **{{ CH }}** hosts will only be restored for the shards whose backups are specified for restoration.
 
 **{{ mpg-name }}**
@@ -1366,26 +3140,24 @@ Added the following flags to the `yc serverless container revision deploy` comma
 
   Added support for templates when creating a database using `--template-db string`.
 
-
 **{{ mmg-name }}**
 
 * When creating a new cluster, MongoDB version 5.0 is selected by default.
-
 
 
 ##### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands:
 
-  * Added the `--node-name` flag, which allows you to specify the naming pattern for nodes in a group.
+  * Added the `--node-name` parameter allowing you to specify the naming pattern for nodes in a group.
 
-  * Added the `--template-labels` and `--template-labels-from-files` flags that allow you to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for group node VMs (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
+  * Added the `--template-labels` and `--template-labels-from-files` parameters that allow you to specify [{{ yandex-cloud }} resource labels](../resource-manager/concepts/labels.md) for group node VMs (not to be confused with [{{ k8s }} node labels](../managed-kubernetes/concepts/index.md#node-labels)).
 
 
 
 ##### {{ serverless-containers-name }} {#serverless-containers}
 
-* Added the `--network-id` and `--network-name` flags to the `yc serverless container revision deploy` command to specify the network the container revision will use. Also added the `--subnets` flag to the command to get a detailed list of subnets.
+* Added the `--network-id` and `--network-name` parameters to the `yc serverless container revision deploy` command to specify the network the container revision will use. Also added the `--subnets` flag to the command to get a detailed list of subnets.
 
 
 ### Version 0.92.0 (05/07/22) {#version0.92.0}
@@ -1406,30 +3178,25 @@ Added the following flags to the `yc serverless container revision deploy` comma
 * Added the `--deletion-protection` and `--no-deletion-protection` flags to the `yc certificate-manager certificate update` command to enable/disable certificate deletion protection.
 
 
-
 ##### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added the `--client-output-buffer-limit-normal` and `--client-output-buffer-limit-pubsub` flags to the `yc managed-redis cluster` command group for `create`, `restore`, `update` (see redis.conf for a description). 
 
 **{{ mgp-name }}**
 
-Added commands for {{ mgp-name }} primary support:
-* The `yc managed-greenplum cluster` command group allows managing clusters.
-* Commands in the `yc managed-greenplum hosts` group allow you to manage hosts.
+Added {{ mgp-name }} primary support commands:
+* The `yc managed-greenplum cluster` command group for cluster management.
+* The `yc managed-greenplum hosts` command group for host management.
 
 
 **{{ mms-name }}**
 
-* Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command, which links or deletes a host's public IP address.
-
-
+* Added the `yc managed-sqlserver hosts update <HOST> --assign-public-ip=true|false` command which links or deletes a host's public IP address.
 
 
 ### Version 0.91.0 (12/05/22) {#version0.91.0}
-
-
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1473,19 +3240,19 @@ Added commands for {{ mgp-name }} primary support:
 
 **{{ mmy-name }}**
 
-* Added the `--host-group-ids` parameter to the `yc managed-mysql cluster create` command to list the hosts to host a cluster on dedicated servers.
+* Added the `--host-group-ids` parameter to the `yc managed-mysql cluster create` command listing the hosts to host a cluster on dedicated servers.
 * Added the following to the `yc managed-mysql cluster restore` command:
 
-  * The `--host-group-ids` parameter that lists the hosts to host a cluster on dedicated servers.
-  * The `--deletion-protection` flag that allows restoring a cluster with deletion protection enabled right away.
+  * The `--host-group-ids` parameter listing the hosts to host a cluster on dedicated servers.
+  * The `--deletion-protection` flag that allows restoring a cluster with deletion protection enabled directly.
 
 **{{ mpg-name }}**
 
-* Added the `--host-group-ids` parameter to the `yc managed-postgresql cluster create` command to list the hosts to host a cluster on dedicated servers.
-* Added the following to the `yc managed-postgresql cluster restore` command:
+* Added the `--host-group-ids` parameter to the `yc managed-postgresql cluster create` command listing the hosts to host a cluster on dedicated servers.
+* Added the following parameters to the `yc managed-postgresql cluster restore` command:
 
-  * The `--host-group-ids` parameter that lists the hosts to host a cluster on dedicated servers.
-  * The `--deletion-protection` flag that allows restoring a cluster with deletion protection enabled right away.
+  * `--host-group-ids` to provide a list of hosts on dedicated servers to allocate to a cluster.
+  * The `--deletion-protection` flag that allows restoring a cluster with deletion protection enabled directly.
 
 
 **{{ mms-name }}**
@@ -1506,7 +3273,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ dataproc-name }} {#dataproc}
 
-* Added the `--initialization-action` flag to the `yc dataproc cluster create` command to specify the initialization script for the cluster.
+* Added the `--initialization-action` parameter to the `yc dataproc cluster create` command for specifying a cluster initialization script.
 
 ##### {{ compute-name }} {#compute}
 
@@ -1514,7 +3281,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ alb-name }} {#alb}
 
-* Added the `--enable-proxy-protocol` flag to the `yc alb backend-group add-stream-backend` and `yc alb backend-group update-stream-backend` commands to enable a proxy protocol for a backend.
+* Added the `--enable-proxy-protocol` flag to the `yc alb backend-group add-stream-backend` and `yc alb backend-group update-stream-backend` commands to enable a proxy protocol for backend.
 
 ##### {{ dns-name }} {#dns}
 
@@ -1525,18 +3292,18 @@ Added commands for {{ mgp-name }} primary support:
 
 **{{ mch-name }}**
 
-* Added the `--folder-id` flag to the `yc managed-clickhouse cluster restore` command to specify the folder to create the restored cluster in.
+* Added the `--folder-id` parameter to the `yc managed-clickhouse cluster restore` command to specify the folder to create the restored cluster in.
 
 * Added the following flags to the `yc managed-clickhouse cluster update` command:
 
 
-  * `--yandexquery-access`: To enable cluster access from {{ yq-full-name }}.
+  * `--yandexquery-access`: To allow access to the cluster from {{ yq-full-name }}.
 
 
 **{{ mmy-name }}**
 
 
-* Added the `--performance-diagnostics` flag to the `yc managed-mysql cluster update` command to manage the settings of the performance diagnostic service.
+* Added the `--performance-diagnostics` parameter to the `yc managed-mysql cluster update` command to manage the performance diagnostic service settings.
 
 
 ### Version 0.89.0 (23/03/22) {#version0.89.0}
@@ -1561,14 +3328,14 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added the `--persistence-mode` parameter for selecting the persistence level of a {{ RD }} cluster to the following commands:
 
   * `yc managed-redis cluster create`
   * `yc managed-redis cluster restore`
   * `yc managed-redis cluster update`
-
+  
   The last command also got the `--force` flag required when disabling cluster persistence.
 
 **{{ mch-name }}**
@@ -1579,7 +3346,7 @@ Added commands for {{ mgp-name }} primary support:
 
 **{{ mmy-name }}**
 
-* Added the `PRIORITY` column to the `yc managed-postgresql cluster restore` command output.
+* Added the `PRIORITY` column to the `yc managed-mysql hosts list` command output.
 * Added the `--priority` parameter to the `yc managed-mysql hosts update` command to change a host's priority when switching a master.
 
 ### Version 0.88.0 (16/02/22) {#version0.88.0}
@@ -1593,7 +3360,7 @@ Added commands for {{ mgp-name }} primary support:
   * `yc datatransfer endpoint list`
   * `yc datatransfer transfer list`
 
-* Added the following commands for updating `endpoint` and `transfer`:
+* Added the following commands for `endpoint` and `transfer` updates:
 
   * `yc datatransfer endpoint update postgres-source`
   * `yc datatransfer endpoint update postgres-target`
@@ -1604,12 +3371,12 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ cdn-name }} {#cdn}
 
-* Added the ability to purge a resource cache: `yc cdn cache purge --all`.
+* Added the ability to purge resource cache: `yc cdn cache purge --all`.
 * Fixed resource creation when the source is a bucket or balancer.
 
 ##### {{ api-gw-name }} {#api-gw}
 
-* Added the `--network-id` and `--network-name` flags to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands to specify the API gateway network as well as the `--subnet-id` and `--subnet-name` flags for a detailed subnet list.
+* Added the `--network-id` and `--network-name` parameters to the `yc serverless api-gateway create` and `yc serverless api-gateway update` commands to specify the API gateway network as well as the `--subnet-id` and `--subnet-name` parameters for a detailed subnet list.
 
 ##### {{ compute-name }} {#compute}
 
@@ -1629,7 +3396,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ dataproc-name }} {#dataproc}
 
-* Added the `yc dataproc job cancel <JOB-ID>|<JOB-NAME>` command.
+* Added the `yc dataproc job cancel <JOB-ID>|<JOB-NAME>`.
 
   Now you can cancel unfinished jobs.
 
@@ -1639,14 +3406,14 @@ Added commands for {{ mgp-name }} primary support:
 **{{ mes-name }}**
 
 * Added information about the current maintenance window and the scheduled maintenance operation to the cluster information.
-* Added the `--maintenance-window-anytime` and `--maintenance-window-weekly` flags to the `yc managed-elasticsearch cluster update` command to specify the maintenance window parameters.
+* Added the `--maintenance-window-anytime` and `--maintenance-window-weekly` parameters to the `yc managed-elasticsearch cluster update` command to specify the maintenance window parameters.
 * Added the `yc managed-elasticsearch cluster reschedule-maintenance` command to manage a scheduled cluster maintenance task.
 * Added the `yc managed-elasticsearch cluster backup` command to take a cluster snapshot.
 * Added the `yc managed-elasticsearch cluster restore` command to restore a cluster from a backup.
 * Added the `yc managed-elasticsearch cluster list-backups` command to view the cluster's backups.
 * Added the `yc managed-elasticsearch backup list` command to view the backups of all clusters in the folder.
 * Added the `yc managed-elasticsearch backup get` command to view information about a specific backup.
-* Added the `--host-group-ids` flag to the `yc managed-sqlserver cluster create` and `yc managed-sqlserver cluster restore` commands to list the hosts to host a cluster on dedicated servers.
+* Added the `--host-group-ids` parameter to the `yc managed-sqlserver cluster create` and `yc managed-sqlserver cluster restore` commands listing the hosts to host a cluster on dedicated servers.
 * Added the `--deletion-protection` flag to the `yc managed-sqlserver cluster restore` command to set up protection against accidental cluster deletion.
 
 ### Version 0.86.0 (15/12/21) {#version0.86.0}
@@ -1664,7 +3431,7 @@ Added commands for {{ mgp-name }} primary support:
 **{{ mkf-name }}**
 
 * Added the `--maintenance-window` parameter to the `yc managed-kafka cluster update` command to set maintenance window parameters.
-* Added the `yc managed-kafka cluster reschedule-maintenance` command, which allows you to change the start time of a scheduled cluster maintenance task.
+* Added the `yc managed-kafka cluster reschedule-maintenance` command that allows you to change the start time of a scheduled cluster maintenance task.
 
 
 ##### {{ alb-name }} {#alb}
@@ -1732,7 +3499,7 @@ Added commands for {{ mgp-name }} primary support:
 
 ##### {{ resmgr-name }} {#resmgr}
 
-* Added the `yc resource-manager folder delete` command, which allows you to delete a folder.
+* Added the `yc resource-manager folder delete` command that allows you to delete a folder.
 
 
 #### Changes to the CLI {#cli}
@@ -1801,7 +3568,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added the `--hostnames` parameter to the `yc managed-redis cluster start-failover` command to specify the cluster hosts to switch the master from. You can use this parameter with sharded clusters as well.
 
@@ -1827,7 +3594,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 ##### {{ compute-name }} {#compute}
 
 * Added the `--pooled` flag to the `yc compute image create` command to create a deployment-optimized image.
-* Added the `yc compute filesystem` command group to manage file storages.
+* Added the `yc compute filesystem` command group for file storage management.
 * Added new commands to attach and detach file storages to/from VMs: `yc compute instance attach-filesystem` and `yc compute instance detach-filesystem`.
 * Added the `--attach-filesystem` parameter to the `yc compute instance create` command to create a VM with an attached file storage.
 
@@ -1863,17 +3630,17 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
   * `--sls-provisioned-rcu`
 
 
-##### {{ mrd-name }}
+##### {{ mrd-full-name }}
 
 * The default value of the `--redis-version` parameter in the `yc managed-redis cluster create` command is changed to 6.2.
 
 ##### {{ mmy-name }}
 
-* Added displaying the `replication source` setting to the `yc managed-mysql hosts list` command.
+* Enabled the display of the `replication source` setting in the `yc managed-mysql hosts list` command.
 
 ##### {{ mpg-name }}
 
-* Added displaying the `replication source` setting to the `yc managed-postgresql hosts list` command.
+* Enabled the display of the `replication source` setting in the `yc managed-postgresql hosts list` command.
 
 ##### {{ data-transfer-name }}
 
@@ -1883,11 +3650,11 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 #### Changes to the CLI {#cli}
 
-* Added a description of flags and commands in auto-completion by default.
-* `yc completion <SHELL>` command.
+* Added a description of default autocompletion parameters and commands.
+* `yc completion <SHELL>` command
 
   Added the `--without-desc` flag to disable descriptions in autocompletion.
-* Autocompletion is supported for the following flags: `folder-id`, `folder-name`, `cloud-id`, `format`, and `profile`.
+* Added support for autocompletion of the following parameters: `folder-id`, `folder-name`, `cloud-id`, `format`, `profile`.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -1911,7 +3678,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### {{ ig-name }} {#instance-groups}
 
-* Added the following new flags for the VM group update command (`yc compute instance-group update`):
+* Added the following new parameters for the instance group update command (`yc compute instance-group update`):
   * `--new-name`
   * `--description`
   * `--labels`
@@ -1951,11 +3718,11 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
 ##### Managed database services {#managed-db}
 
-**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mms-name }}**
+**{{ mch-name }}, {{ mes-name }}, {{ mkf-name }}, {{ mmg-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-full-name }}, {{ mms-name }}**
 
-* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update` commands.
+* `yc <managed DB service name> cluster create` and `yc <managed DB service name> cluster update` commands
 
-  The `--deletion-protection` flag allows you to set up protection against accidental cluster deletion. To disable cluster deletion protection, specify `--deletion-protection=false`.
+  The `--deletion-protection` flag allows you to enable protection against accidental cluster deletion. To disable cluster deletion protection, specify `--deletion-protection=false`.
 
 **{{ mmg-name }}**
 
@@ -1966,7 +3733,7 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
   Added the `backup-retain-period-days` field representing the number of days to retain automatic backups.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added support for {{ RD }} version 6.2.
 
@@ -2003,19 +3770,19 @@ Added the following new flags to the `yc managed-clickhouse cluster create` and 
 
   Added the display of an organization linked to a cloud.
 
-##### {{ org-name }} {#organization}
+##### {{ org-full-name }} {#organization}
 
 Added support for {{ org-full-name }}.
 
 {{ org-name }} is an enterprise solution that you can use to connect your organization to {{ yandex-cloud }} services and manage employee access to these services.
 
-{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). Read more about the service in the [documentation](../organization/).
+{{ org-name }} is at the [Preview stage](../overview/concepts/launch-stages.md). For more information about the service, refer to [this guide](../organization/).
 
 ##### {{ sf-name }} {#serverless-functions}
 
-* `yc serverless trigger create` command.
+* `yc serverless trigger create` command
 
-  The `--invoke-container-name`, `--invoke-container-id`, and `--invoke-container-path` flags allow you to specify a {{ serverless-containers-name }} container for a trigger.
+  The `--invoke-container-name`, `--invoke-container-id`, and `--invoke-container-path` parameters allow you to specify the {{ serverless-containers-name }} for the trigger.
 
 
 ### Version 0.79.0 (13/07/21) {#version0.79.0}
@@ -2029,7 +3796,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 {{ cloud-logging-name }} is a service for reading and recording service logs and user applications.
 
-{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../logging/).
+{{ cloud-logging-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../logging/).
 
 #### {{ sf-name }} {#serverless-functions}
 
@@ -2038,7 +3805,7 @@ Added support for {{ cloud-logging-full-name }}.
 * Added the `yc serverless function remove-scaling-policy` command to delete the function scaling settings.
 * `yc serverless function version create` command.
 
-  Fixed directory processing for the `--source-path` flag on Windows.
+  Fixed directory processing for the `--source-path` parameter on Windows.
 
 
 #### Managed database services {#managed-db}
@@ -2047,7 +3814,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-clickhouse cluster update` command.
 
-  Added the `--cloud-storage` flag to enable data storage in {{ objstorage-name }}.
+  Added the `--cloud-storage` parameter to enable data storage in {{ objstorage-name }}.
 
 ### Version 0.78.0 (29/06/21) {#version0.78.0}
 
@@ -2057,15 +3824,15 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--network-acceleration-type` flag, which allows you to specify a network type for a node group: standard or software-accelerated.
+  Added the `--network-acceleration-type` parameter to specify network type for a node group: standard or software-accelerated.
 
 * `yc managed-kubernetes cluster create` command.
 
-  Added the `--cilium` flag to create a cluster that supports tunnel mode and uses Cilium CNI.
+  Added the `--cilium` flag to create a cluster that supports the tunnel mode and uses the Cilium CNI.
 
 #### {{ dataproc-name }} {#dataproc}
 
-* `yc dataproc job create-<JOB-TYPE>` command.
+* `yc dataproc job create-<JOB-TYPE>` command
 
   Now, after starting a job, its execution log is displayed in the terminal.
 
@@ -2091,23 +3858,23 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc managed-elasticsearch cluster list-logs` command.
 
-  Added the `--service-type` flag to generate Kibana logs.
+  Added the `--service-type` parameter to get Kibana logs.
 
 * `yc managed-elasticsearch cluster create` and `yc managed-elasticsearch cluster update` commands.
 
-  Added the `--service-account` flag.
+  Add the `--service-account` parameter.
 
 **{{ mkf-name }}**
 
 * `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands.
 
-  Added the `--num-partitions` and `--default-replication-factor` flags to set and edit configuration settings of {{ KF }} brokers.
+  Added the `--num-partitions` and `--default-replication-factor` parameters to set and edit configuration settings of {{ KF }} brokers.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * `yc managed-redis cluster create\update` commands.
 
-  Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` flags (see redis.conf for a description).
+  Added the `--slowlog-log-slower-than`, `--slowlog-max-len`, `--databases`, and `--notify-keyspace-events` parameters (see the description in redis.conf).
 
 ### Version 0.76.0 (19/05/21) {#version0.76.0}
 
@@ -2138,22 +3905,22 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc compute create-with-container` command.
 
-  Added the `--gpus` flag, which allows you to create a {{ coi }} with a GPU.
+  Added the `--gpus` parameter you can use to create a {{ coi }} with a GPU.
 
 
 #### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* `yc managed-redis cluster create` command.
+* `yc managed-redis cluster create` command
 
-  Added the `--disk-type-id [local-ssd|network-ssd]` key, which allows you to select the disk type.
+  Added the `--disk-type-id [local-ssd|network-ssd]` parameter for disk type selection.
 
 **{{ mmy-name }}**
 
 * `yc managed-mysql cluster list-logs` command.
 
-  Logs are now printed as-is by default. To enable the previous log format, use the `--format=yaml` flag.
+  Logs are now printed as-is by default. To enable the previous log format, use the `--format=yaml` parameter.
 
 **{{ mes-name }}**
 
@@ -2164,22 +3931,22 @@ Added support for {{ cloud-logging-full-name }}.
   * `--generate-admin-password`: Allows you to generate a password automatically.
   * `--read-admin-password`: Allows you to set a password from a file.
 * Deleted the `yc managed-elasticsearch user` commands. You can now perform user management using native {{ ES }} tools as the `admin` user.
-* `yc managed-elasticsearch create` command.
+* `yc managed-elasticsearch create` command
 
-  Added the `--edition [basic|gold|platinum]` flag, which allows you to specify the {{ ES }} edition when creating a cluster.
+  Added the `--edition [basic|gold|platinum]` parameter, which allows you to specify the {{ ES }} edition when creating a cluster.
 
 **{{ mkf-name }}**
 
 * `yc managed-kafka cluster create` command.
 
-  Added the `--host-group-ids` flag that controls cluster hosting on dedicated servers.
+  Added the `--host-group-ids` parameter to control cluster hosting on dedicated servers.
 
 
 #### {{ dataproc-name }} {#dataproc}
 
 * `yc dataproc cluster create` command.
 
-  Added the `--host-group-ids` flag that controls cluster hosting on dedicated servers.
+  Added the `--host-group-ids` parameter to control cluster hosting on dedicated servers.
 
 
 ### Version 0.74.0 (29/03/21) {#version0.74.0}
@@ -2193,7 +3960,7 @@ Added support for {{ cloud-logging-full-name }}.
 
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
 
-  Added the `--security-group-ids` flag, which allows you to specify a set of security groups for a cluster.
+  Added the `--security-group-ids` parameter, which allows you to specify a set of security groups for a cluster.
 
 
 ### Version 0.73.0 (17/03/21) {#version0.73.0}
@@ -2213,12 +3980,12 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
 * `yc serverless function version create` command.
 
-  Added default values for flags:
+  Added default values for the following parameters:
   * `--execution-timeout`: 3 seconds
   * `--memory`: 128 MB
-* `yc serverless function version create` command.
+* `yc serverless function version create` command
 
-  Added the `--add-service-account` flag to specify additional service accounts for the version.
+  Added the `--add-service-account` parameter to specify additional service accounts for a version.
 
 #### {{ cloud-logs-name }} {#logs}
 
@@ -2229,10 +3996,10 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
 **{{ mkf-name }}**
 
-* `yc managed-kafka cluster create` command.
+* `yc managed-kafka cluster create` command
 
-  The `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type`, and `--zookeeper-resource-preset` flags no longer have default values. If no values are specified, the default values set on the server are used.
-* `yc managed-kafka cluster create` command.
+  No default values are now specified for the `--disk-size`, `--disk-type`, `--resource-preset`, `--zookeeper-disk-size`, `--zookeeper-disk-type`, and `--zookeeper-resource-preset` parameters. If no values are specified, the defaults set on the server will be used.
+* `yc managed-kafka cluster create` command
 
   Added the `--unmanaged-topics` flag, which allows you to enable management of {{ KF }} topics via AdminAPI.
 
@@ -2242,9 +4009,9 @@ Added commands for managing the allowed IP addresses for pushing and pulling Doc
 
   Added the `admin` role, which allows you to enable {{ KF }} cluster topic management via AdminAPI.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* `yc managed-redis cluster create` command.
+* `yc managed-redis cluster create` command
 
   Added the `--enable-tls` flag, which allows you to enable TLS when creating a {{ RD }} cluster.
 
@@ -2281,7 +4048,7 @@ Added primary support for {{ alb-full-name }}:
 
 * `yc managed-kubernetes node-group create` command.
 
-  Added the `--placement-group` flag, which allows you to specify a `placement policy group` for a node group when creating it.
+  Added the `--placement-group` parameter, which allows you to specify a `placement policy group` for a node group when creating it.
 
 
 #### Managed database services {#managed-db}
@@ -2290,7 +4057,7 @@ Added primary support for {{ alb-full-name }}:
 
 * `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands.
 
-  Added the `13` value for the `--postgresql-version string` flag to create a {{ PG }} cluster version 13.
+  Added a new value, `13`, for the `--postgresql-version string` parameter to create a {{ PG }} cluster version 13.
 
 **{{ mmy-name }}**
 
@@ -2339,20 +4106,20 @@ Added the `yc iam federation list-user-accounts` command for listing federation 
 
 #### Managed database services {#managed-db}
 
-**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-name }}, {{ mmg-name }}, {{ mkf-name }}**
+**{{ mmy-name }}, {{ mpg-name }}, {{ mch-name }}, {{ mrd-full-name }}, {{ mmg-name }}, {{ mkf-name }}**
 
-* Commands: `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update` and `yc <managed DB service name> cluster restore`.
+* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, and `yc <managed DB service name> cluster restore` commands
 
-  The `--security-group-ids` flag allows specifying a set of security groups for a cluster.
+  You can use the `--security-group-ids` parameter to specify security groups for a cluster.
 
 **{{ mkf-name }}**
 
 * `yc managed-kafka cluster create` and `yc managed-kafka cluster update` commands.
 
-  Added the following flags to set and edit configuration settings of {{ KF }} brokers: `--compression-type`, `--log-flush-interval-messages`, `--log-flush-interval-ms`, `--log-flush-scheduler-interval-ms`, `--log-retention-bytes`, `--log-retention-hours`, `--log-retention-minutes`, `--log-retention-ms`, `--log-segment-bytes`, `--log-preallocate`.
+  Added the following parameters to set and edit configuration settings of {{ KF }} brokers: `--compression-type`, `--log-flush-interval-messages`, `--log-flush-interval-ms`, `--log-flush-scheduler-interval-ms`, `--log-retention-bytes`, `--log-retention-hours`, `--log-retention-minutes`, `--log-retention-ms`, `--log-segment-bytes`, `--log-preallocate`.
 * `yc managed-kafka topic create` and `yc managed-kafka topic update` commands.
 
-  Added the following flags to set and edit topic settings: `--cleanup-policy`, `--compression-type`, `--delete-retention-ms`, `--file-delete-delay-ms`, `--flush-messages`, `--flush-ms`, `--min-compaction-lag-ms`, `--retention-bytes`, `--retention-ms`, `--max-message-bytes`, `--min-insync-replicas`, `--segment-bytes`, `--preallocate`.
+  Added the following parameters to set and edit topic settings: `--cleanup-policy`, `--compression-type`, `--delete-retention-ms`, `--file-delete-delay-ms`, `--flush-messages`, `--flush-ms`, `--min-compaction-lag-ms`, `--retention-bytes`, `--retention-ms`, `--max-message-bytes`, `--min-insync-replicas`, `--segment-bytes`, `--preallocate`.
 
 **{{ mes-name }}**
 
@@ -2383,11 +4150,11 @@ Added primary support for {{ mkf-name }}:
 
 * `yc managed-mysql user grant-permission` command.
 
-  The `--permissions` flag supports the `REFERENCES` privilege.
+  The `--permissions` parameter supports the `REFERENCES` privilege.
 
 **{{ mmy-name }}, {{ mpg-name }}**
 
-* `yc <managed DB service name> cluster update` command.
+* `yc <managed DB service name> cluster update` command
 
   Added the `--websql-access` flag to manage access from the [management console]({{ link-console-main }}).
 
@@ -2423,22 +4190,22 @@ Added primary support for {{ mkf-name }}:
 
 **{{ mmy-name }}**
 
-* `yc managed-mysql user grant-permission` command.
+* `yc managed-mysql user grant-permission` command
 
-  Added the `--permissions` flag that supports `ALL_PRIVILEGES` (synonym for `ALL`).
+  Added the `--permissions` parameter supporting `ALL_PRIVILEGES` (synonymous to `ALL`).
 
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
   Added the `--cluster-ipv6-range`, `--dual-stack`, and `--service-ipv6-range` flags that allow you to create {{ k8s }} clusters with concurrent use of IPv4 and IPv6.
 * `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands.
 
-  Added the `--security-group-ids` flag that sets a security group for the cluster.
+  Added the `--security-group-ids` parameter that sets a security group for the cluster.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--network-interface` flag, which allows you to set network specification for nodes in more detail. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
+  Added the `--network-interface` parameter, which allows you to set network specification for nodes in more detail. For example, you can manage security group settings for network interfaces and configure node interfaces for concurrent use of IPv4 and IPv6 in {{ k8s }} clusters.
 
 
 ### Version 0.67.0 (05/10/20) {#version0.67.0}
@@ -2465,9 +4232,9 @@ Added primary support for {{ mkf-name }}:
 
 #### {{ compute-name }} {#compute}
 
-* Added the `yc compute host-group` command, which allows you to manage dedicated hosts.
-* Added the `yc compute host-type` command, which allows you to manage dedicated host types.
-* Added the `yc compute disk-placement-group` command, which allows you to manage groups of non-replicated disks.
+* Added the `yc compute host-group` command that allows you to manage dedicated hosts.
+* Added the `yc compute host-type` command that allows you to manage dedicated host types.
+* Added the `yc compute disk-placement-group` command that allows you to manage groups of non-replicated disks.
 
 
 #### Managed database services {#managed-db}
@@ -2476,7 +4243,7 @@ Added primary support for {{ mkf-name }}:
 
 * `yc managed-mongodb cluster restore --help` command.
 
-  Added an example of using the `--recovery-target-timestamp` flag.
+  Added an example of using the `--recovery-target-timestamp` parameter.
 
 ### Version 0.65.0 (22/09/20) {#version0.65.0}
 
@@ -2486,19 +4253,19 @@ Added primary support for {{ mkf-name }}:
 #### {{ dataproc-name }} {#dataproc}
 
 Added UI Proxy support:
-* Added the `yc dataproc cluster list-ui-links` command, which allows you to get a list of links to access {{ dataproc-name }} cluster interfaces.
+* Added the `yc dataproc cluster list-ui-links` command that allows you to get a list of links to access {{ dataproc-name }} cluster interfaces.
 * `yc dataproc cluster create` and `yc dataproc cluster update` commands.
   Added the `--ui-proxy` parameter, which allows you to enable the UI Proxy functionality for a {{ dataproc-full-name }} cluster.
 * `yc dataproc cluster create`, `yc dataproc subcluster create`, and `yc dataproc subcluster update` commands.
-  Added the following flags for auto-scalable subclusters: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration`, and `--warmup-duration`.
+  Added the following parameters for auto-scalable subclusters: `--autoscaling-decommission-timeout`, `--cpu-utilization-target`, `--max-hosts-count`, `--measurement-duration`, `--preemptible`, `--stabilization-duration`, and `--warmup-duration`.
 * `yc dataproc subcluster list` command.
-  The response now contains the `instance group id` field with VM group IDs of auto-scalable subclusters.
+  The response now contains the `instance group id` field with auto-scalable subcluster instance group IDs.
 
 #### {{ certificate-manager-name }} {#certificate-manager}
 
 * Added the `yc certificate-manager certificate content` command to get the certificate contents.
 
-  It allows you to upload a certificate chain and a private key to use on your own when configuring a web server on a VM.
+  It allows you to upload a certificate chain and a private key you can use by yourself to configure a web server on a VM.
 
 
 #### Managed database services {#managed-db}
@@ -2524,31 +4291,31 @@ Added UI Proxy support:
 
 #### {{ compute-name }} {#compute}
 
-* `yc compute instance-group` command.
+* `yc compute instance-group` command
 
-  * Added the ability to set and view a list of roles for a VM group: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
-  * Added commands for deleting and stopping VMs in a VM group: `stop-instances` and`delete-instances`.
+  * Added the ability to set and view the list of instance group roles: `list-access-bindings`, `set-access-bindings`, `add-access-binding`, and `remove-access-binding`.
+  * Added commands for deleting and stopping instance group VMs: `stop-instances` and `delete-instances`.
 
 
 #### Managed database services {#managed-db}
 
-* The `yc <managed DB service name> cluster list-logs` command for all managed DBs uses new `StreamLogs` API methods for log streaming.
+* The `yc <managed DB service name> cluster list-logs` command uses new `StreamLogs` API methods across all managed DBs.
 
-  All commands now have the `--follow` flag, which allows you to get new log entries as they appear.
+  All commands now have the `--follow` flag, which allows you to get new log entries as they are created.
 
 **{{ mch-name }}**
 
 * Added the `yc managed-clickhouse versions list` command to get a list of versions available for installation.
 * `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands.
 
-  Added the `--cloud-storage` flag to enable data storage in {{ objstorage-name }}.
+  Added the `--cloud-storage` parameter to enable data storage in {{ objstorage-name }}.
 
 **{{ mmg-name }}**
 
 * Added support for creating a cluster with {{ MG }} version 4.4.
 * `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster enable-sharding` commands.
 
-  For [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now set the `mongoinfra` host type.
+  For [sharded](../storedoc/concepts/sharding.md) clusters, you can now set the `mongoinfra` host type.
 
 
 #### {{ certificate-manager-name }} {#certificate-manager}
@@ -2559,7 +4326,7 @@ You can use {{ certificate-manager-name }} to obtain and update TLS certificates
 
 These certificates can be used in {{ yandex-cloud }} services to provide connection security.
 
-{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../certificate-manager/).
+{{ certificate-manager-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../certificate-manager/).
 
 
 ### Version 0.63.0 (28/08/20) {#version0.63.0}
@@ -2568,7 +4335,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 **Fixed**
 
-* Fixed the issue with federated user authorization when initializing a new YC CLI profile.
+* Fixed the issue with federated user authorization when initializing a new CLI profile.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -2585,9 +4352,9 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 #### {{ sf-name }} {#serverless-functions}
 
-* `yc serverless function version create` command.
-  * Added the `--source-version-id` flag to specify a function's source version.
-  * Added the `--network-id` and `--network-name` flags to specify a network for the function version. You can use the `--subnet-id` and `--subnet-name` flags to provide a detailed list of subnets.
+* `yc serverless function version create` command
+  * Added the `--source-version-id` parameter to specify the source version of the function.
+  * Added the `--network-id` and `--network-name` parameters to specify a network for a function version. You can use the `--subnet-id` and `--subnet-name` parameters to specify a detailed list of subnets.
 
 
 #### Managed database services {#managed-db}
@@ -2598,18 +4365,18 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
   The `--global-permissions` flag allows you to grant the `PROCESS` privilege.
 
-**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-name }}, {{ mmg-name }}**
+**{{ mch-name }}, {{ mmy-name }}, {{ mpg-name }}, {{ mrd-full-name }}, {{ mmg-name }}**
 
-* `yc <managed DB service name> cluster update`.
+* `yc <managed DB service name> cluster update` command
 
-  Added the `--maintenance-window-anytime` and `--maintenance-window-weekly` flags to specify maintenance window parameters. They will be used to schedule cluster maintenance.
-* Added the `yc <managed DB service name> cluster reschedule-maintenance` command for scheduled cluster maintenance task management.
+  Added the `--maintenance-window-anytime` and `--maintenance-window-weekly` parameters to specify maintenance window parameters. They will be used to schedule cluster maintenance.
+* Added the `yc <managed DB service name> cluster reschedule-maintenance` command to manage a scheduled cluster maintenance job.
 
 **{{ mmg-name }}**
 
 * `yc managed-mongodb cluster restore` command.
 
-  Added the `--recovery-target-timestamp` flag to specify the backup recovery point.
+  Added the `--recovery-target-timestamp` parameter to specify the backup recovery point.
 
 ### Version 0.61.0 (03/08/20) {#version0.61.0}
 
@@ -2619,27 +4386,27 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
-  The `--version` flag value is now used correctly when creating a regional cluster.
+  The `--version` parameter value is now used correctly when creating a regional cluster.
 
 ##### {{ compute-name }} {#compute}
 
 * `yc compute instance update-network-interface` command.
 
-  The `--security-group-id` flag now accepts a comma-separated list of values.
+  The `--security-group-id` parameter now accepts a comma-separated list of values.
 
 * `yc compute instance create-with-container` and `yc compute instance update-container` commands.
 
-  Added the `--coi-spec-file` flag to provide the [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
+  Added the `--coi-spec-file` parameter to provide [image specification](../cos/concepts/coi-specifications.md#coi-spec-example).
 
-  Added the `--coi-spec-file` flag to provide the image specification.
+  Added the `--coi-spec-file` parameter to provide image specification.
 
 ##### {{ vpc-name }} {#vpc}
 
 * `yc vpc subnet create` and `yc vpc subnet update` commands.
 
-  The `--domain-name-server` and `--ntp-server` flags now accept comma-separated lists of values.
+  The `--domain-name-server` and `--ntp-server` parameters now accept a comma-separated lists of values.
 * Added the `yc vpc subnet list-used-addresses` command.
 
   It returns a list of addresses used in a subnet.
@@ -2669,7 +4436,7 @@ These certificates can be used in {{ yandex-cloud }} services to provide connect
 
 * `yc managed-clickhouse cluster create`, `yc managed-clickhouse cluster update`, and `yc managed-clickhouse cluster restore` commands.
 
-  Added the `--service account` flag to select a service account linked to hosts.
+  Added the `--service-account` parameter to select a service account linked to hosts.
 * Added commands for managing `yc managed-clickhouse shard-groups` shard groups.
 
 ### Version 0.59.0 (02/07/20) {#version0.59.0}
@@ -2684,7 +4451,7 @@ Added support for {{ api-gw-full-name }}.
 
 {{ api-gw-name }} is an API gateway management service supporting [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) and extensions for compatibility with other cloud services.
 
-{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. If you want to learn more about the service, see [our relevant documentation](../api-gateway/).
+{{ api-gw-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../api-gateway/).
 
 #### {{ iam-name }} {#iam}
 
@@ -2709,13 +4476,13 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc vpc subnet create` and `yc vpc subnet update` commands.
 
-  Added flags for configuring DHCP options: `--domain-name`, `--domain-name-server`, and `--ntp-server`.
+  Added parameters for configuring DHCP options: `--domain-name`, `--domain-name-server`, and `--ntp-server`.
 
 ##### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--gpus=GPUS` flag to specify the number of GPUs on the nodes.
+  Added the `--gpus=GPUS` parameter to specify the number of GPUs on the nodes.
 
 ##### {{ container-registry-name }} {#container-registry}
 
@@ -2728,7 +4495,7 @@ Added support for {{ api-gw-full-name }}.
 
 * Added the `yc managed-mysql cluster add-labels` and `yc managed-mysql cluster remove-labels` commands to manage labels.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
 * Added support for {{ RD }} version 6.
 
@@ -2751,7 +4518,7 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes node-group create` command.
+* `yc managed-kubernetes node-group create` command
 
   Changed the default platform and number of cores used when creating a node group. The Intel Cascade Lake (`standard-v2`) platform is now used in a dual-core (`cores: 2`) configuration.
 
@@ -2788,13 +4555,13 @@ Added support for {{ api-gw-full-name }}.
 
 **{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
 
-* `yc <managed DB service name> host list`.
+* `yc <managed DB service name> host list` command.
 
-  The output now includes a column with `assign_public_ip` values.
+  Added a column with `assign_public_ip` values to the output.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* `yc managed-redis host list` command.
+* `yc managed-redis host list` command
 
   The output now includes columns with the `type` and `shard_name` values.
 
@@ -2803,7 +4570,7 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc compute instance create-with-container` and `yc compute instance update-container` commands.
 
-  When you send a file with environment variables using the `--container-env-file` flag, the `=` characters in variable values are now processed correctly.
+  When you send a file with environment variables using the `--container-env-file` parameter, the `=` characters in variable values are now processed correctly.
 
 
 ### Version 0.55.0 (13/04/20) {#version0.55.0}
@@ -2825,35 +4592,35 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
-  Added the `--node-ipv4-mask-size` flag to configure the size of `CIDR` allocated to each cluster node.
+  Added the `--node-ipv4-mask-size` parameter to configure the size of `CIDR` allocated to each cluster node.
 * `yc managed-kubernetes node-group create` and `yc managed-kubernetes node-group update` commands.
 
-  Added the `--max-unavailable` and `--max-expansion` flags to control the number of nodes deleted and created when updating the group.
+  Added the `--max-unavailable` and `--max-expansion` parameters to control the number of nodes deleted and created when updating the group.
 
 
 #### Managed database services {#managed-db}
 
 **{{ mch-name }}, {{ mpg-name }}, {{ mmy-name }}**
 
-* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster restore`, `yc <managed DB service name> host add` commands.
+* `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster restore`, and `yc <managed DB service name> host add` commands
 
-  Added the `subnet-name` property to the `--host` flag to specify a subnet by name.
+  Added the `subnet-name` property to the `--host` parameter to specify a subnet by name.
 
-**{{ mmg-name }}, {{ mch-name }}, {{ mrd-name }}**
+**{{ mmg-name }}, {{ mch-name }}, {{ mrd-full-name }}**
 
-* `yc <managed DB service name> cluster list-logs`.
+* `yc <managed DB service name> cluster list-logs` command.
 
   Added formatting for log lines.
 
 
 #### {{ coi }} {#coi}
 
-* `yc compute instance create-with-container` command.
+* `yc compute instance create-with-container` command
 
-  Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` flags.
-* `yc compute instance update-container` command.
+  Added mounting of `docker volumes` into a Docker container created in {{ coi }} by using the `container-volume-tmpfs` and `container-volume-host-path` parameters.
+* `yc compute instance update-container` command
 
   Now you can update `docker volumes` in a Docker container created in {{ coi }}.
 
@@ -2864,16 +4631,16 @@ Added support for {{ api-gw-full-name }}.
 
 **Improved**
 
-* Error messages thrown by commands and flags are now more intuitive.
+* Error messages have become clearer when entering commands and parameters.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
 ##### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
-  Added the `--kms-key-id` and `--kms-key-name` flags for creating a {{ k8s }} cluster with secret encryption in KMS.
+  Added the `--kms-key-id` and `--kms-key-name` parameters for creating a {{ k8s }} cluster with secret encryption in KMS.
 
 
 ### Version 0.53.0 (04/03/20) {#version0.53.0}
@@ -2914,7 +4681,7 @@ Added support for {{ api-gw-full-name }}.
 
   It allows you to manage ML models in {{ CH }} clusters.
 
-**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-name }}**
+**{{ mmg-name }}, {{ mpg-name }}, {{ mmy-name }}, {{ mrd-full-name }}**
 
 * `yc <managed DB service name> cluster create`, `yc <managed DB service name> cluster update`, `yc <managed DB service name> cluster restore` commands.
 
@@ -2948,13 +4715,13 @@ Added support for {{ api-gw-full-name }}.
 
 * `yc compute instance create` command.
 
-  Added the `nat-address` parameter to the `--network-interface` flag, which allows you to assign a specific NAT address for the new instance.
+  The `--network-interface` parameter now has a new `nat-address` property, which allows you to assign a specific NAT address for the new instance.
 * Added the `yc compute instance add-one-to-one-nat` and `yc compute instance remove-one-to-one-nat` commands.
 
   These commands allow you to manage NAT on the existing instances.
 * `yc compute instance create` and `yc compute instance update` commands.
 
-  Added the `--network-settings` flag, which allows changing network type to `Software accelerated` and back to `Standard`.
+  Added the `--network-settings` parameter, which allows changing network type to `Software accelerated` and back to `Standard`.
 
 #### {{ kms-name }} {#kms}
 
@@ -2964,14 +4731,14 @@ Added support for {{ api-gw-full-name }}.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
   Added the `--enable-network-policy` flag to create a {{ k8s }} cluster with [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/) support.
-* `yc k8s cluster get-credentials` command.
+* `yc k8s cluster get-credentials` command
 
-  Added the `--context-name` flag that allows the user to specify the name of the `context` created in `kubeconfig`.
+  Added the `--context-name` parameter allowing the user to specify the name of the `context` created in `kubeconfig`.
 
-  The default name of the new context is now more intuitive: `yc-<cluster-name>`.
+  The default new context name is now more intuitive: `yc-<cluster-name>`.
 
   An explanation of the result is returned.
 
@@ -2982,20 +4749,20 @@ Added support for {{ api-gw-full-name }}.
 
 **Improved**
 
-* Commands: `yc <service> <resource> create`.
+* `yc <service> <resource> create` commands.
 
   Added an option to provide resource names as command arguments. Now the `yc <service> <resource> create --name <resource name>` and `yc <service> <resource> create <resource name>` commands are equal.
 
   For example, instead of the `yc managed-kubernetes cluster create --name my-cluster ...` command, you can now use the `yc managed-kubernetes cluster create my-cluster ...` command.
-* `yc <service> <resource> set-access-binding` command.
+* ` yc <service> <resource> set-access-binding` commands
 
-  Added a warning that the command deletes assigned roles. If the user runs the command directly (rather than using another command or script), they are asked for confirmation.
+  Added a warning that the command is going to delete assigned roles. If the user runs the command directly (rather than using another command or script), they are asked for confirmation.
 
 **Fixed**
 
 * `yc init` command.
 
-  The values of the `--cloud-id`, `--folder-id`, and `--folder-name` flags are now properly recognized.
+  The values of the `--cloud-id`, `--folder-id`, and `--folder-name` parameters are now properly recognized.
 * Disabled messages about there being a new `yc` version when invoking a command in non-interactive mode.
 
 
@@ -3014,17 +4781,17 @@ Added support for {{ api-gw-full-name }}.
 
 * For [resources that you can assign roles for](../iam/concepts/access-control/resources-with-access-control.md).
 
-  Added the following alternatives to the `--subject` flag for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
+  Added the following alternatives to the `--subject` parameter for role management commands: `--service-account-id`, `--service-account-name`, `--user-account-id`, `--user-yandex-login`, and `--all-authenticated-users`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes node-group create` command.
+* `yc managed-kubernetes node-group create` command
 
   Added the `--auto-scale` flag allowing to create a dynamic-size node group controlled by [Cluster Autoscaler](https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler#cluster-autoscaler).
 
 #### {{ compute-name }} {#compute}
 
-* `yc compute instance create` command.
+* `yc compute instance create` command
 
   If you set the `--gpus` flag, the `gpu-standard-v1` platform is automatically selected.
 
@@ -3035,7 +4802,7 @@ Added support for {{ api-gw-full-name }}.
 
 **Improved**
 
-* When running the YC CLI with the `--debug` flag, the API call response log line now returns the gRPC status code as well as its description.
+* When running the CLI with the `--debug` flag, the API call response log line now returns the gRPC status code as well as its description.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -3048,7 +4815,7 @@ Support for the cryptographic key management service: {{ kms-full-name }}.
 
 Use the keys to protect your secrets, private data, and other confidential information you store in the cloud.
 
-{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. Read more about the service in the [documentation](../kms/).
+{{ kms-name }} is at the [Preview](../overview/concepts/launch-stages.md) stage. For more information about the service, refer to [this guide](../kms/).
 
 
 ### Version 0.48.0 (27/12/19) {#version0.48.0}
@@ -3057,7 +4824,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* When updating YC CLI, the current version to be installed is now displayed.
+* When updating the CLI, you can now see which version is being installed.
 
 #### Changes to {{ yandex-cloud }} services {#services}
 
@@ -3067,11 +4834,10 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * Added the ability to work with the `yc compute placement-group --help` placement group.
 * `yc compute instance create` and `yc compute instance update` commands.
 
-  The platform flag is renamed from `--platform-id` to `--platform`. The old flag name is still supported.
+  The platform parameter is renamed from `--platform-id` to `--platform`. The old flag name is still supported.
+* `yc compute instance create` command
 
-* `yc compute instance create` command.
-
-  The SSH key added using the `--ssh-key` flag is saved to the metadata with the `ssh-keys` key instead of `ec2-user-data`.
+  The SSH key added using the `--ssh-key` parameter is now saved to the metadata with the `ssh-keys` key instead of `ec2-user-data`.
 
 
 #### Managed database services {#managed-db}
@@ -3082,26 +4848,26 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * Added a command to manually switch the master for a specified cluster: {{ MY }} `{{ yc-mdb-my }} cluster start-failover`.
 * `{{ yc-mdb-my }} cluster update` command.
 
-  Added the ability to rename a cluster using the `--new-name` flag.
+  Added renaming a cluster using the `--new-name` parameter.
 
 **{{ mpg-name }}**
 
 * Added a command to manually switch the master for a specified cluster: {{ PG }} `{{ yc-mdb-pg }} cluster start-failover`.
 * `{{ yc-mdb-pg }} cluster update` command.
 
-  Added the ability to rename a cluster using the `--new-name` flag.
+  Added renaming a cluster using the `--new-name` parameter.
 
 **{{ mch-name }}**
 
 * `{{ yc-mdb-ch }} cluster update` command.
 
-  Added the ability to rename a cluster using the `--new-name` flag.
+  Added renaming a cluster using the `--new-name` parameter.
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* `{{ yc-mdb-rd }} cluster update` command.
+* `{{ yc-mdb-rd }} cluster update` command
 
-  Added the ability to rename a cluster using the `--new-name` flag.
+  Added renaming a cluster using the `--new-name` parameter.
 
 ### Version 0.47.0 (17/12/19) {#version0.47.0}
 
@@ -3191,7 +4957,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * Added CLI authentication using [SAML-compatible identity federations](../organization/concepts/add-federation.md).
 
-  To do this, run the `yc init --federation-id=<FEDERATION_ID>` command, whereupon you can use the CLI as a user of this federation.
+  To use the CLI as a federated user, run the `yc init --federation-id=<FEDERATION_ID>` command.
 
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -3221,17 +4987,17 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ compute-name }} {#compute}
 
-* Added the `yc compute instance-group start` and `yc compute instance-group stop` commands to run and stop a VM group.
+* Added the `yc compute instance-group start` and `yc compute instance-group stop` commands to start and stop an instance group.
 
 #### {{ container-registry-name }} {#container-registry}
 
 * `yc compute instance create-with-container` and `yc compute instance update-container` commands.
 
-  Added these alternative spellings for the "always", "never", and "on-failure" `--container-restart-policy` flag values: "Always", "Never", "OnFailure".
+  Added these alternative spellings for the "always", "never", and "on-failure" `--container-restart-policy` parameter values: "Always", "Never", "OnFailure".
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
   Deleted the `--default-gateway-v4-address` flag.
 
@@ -3242,7 +5008,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc managed-postgresql cluster create`, `yc managed-postgresql cluster update`, and `yc managed-postgresql cluster restore` commands.
 
-  Added the `10_1s` value for the `--postgresql-version string` flag to create the {{ PG }} cluster version 10-1s.
+  Added the `10_1c` value for the `--postgresql-version string` parameter to create a {{ PG }} cluster version 10-1c.
 
 ### Version 0.41.1 (26/09/19) {#version0.41.1}
 
@@ -3256,21 +5022,21 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ container-registry-name }} {#container-registry}
 
-* `yc compute instance create-with-container` command.
+* `yc compute instance create-with-container` command
 
-  The `--create-boot-disk` flag no longer supports `snapshot-*` parameters.
+  The `--create-boot-disk` parameter no longer supports `snapshot-*` properties.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster create` command.
+* `yc managed-kubernetes cluster create` command
 
-  Added flags for master type management: `--regional`, `--region`, and `--master-location`.
+  Added parameters for master type management: `--regional`, `--region`, and `--master-location`.
 * `yc managed-kubernetes cluster create` and `yc managed-kubernetes cluster update` commands.
 
-  Added flags for maintenance policy management: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
-* `yc managed-kubernetes node-groups update` command.
+  Added parameters for maintenance policy management: `--auto-upgrade`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+* `yc managed-kubernetes node-groups update` command
 
-  Added flags for maintenance policy management: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
+  Added parameters for maintenance policy management: `--auto-upgrade`, `--auto-repair`, `--anytime-maintenance-window`, `--daily-maintenance-window`, and `--weekly-maintenance-window`.
 
 
 ### Version 0.40.0 (20/09/19) {#version0.40.0}
@@ -3290,15 +5056,15 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **All managed database services**
 
-* `yc <managed DB service name> create clusters`.
+* `yc <managed DB service name> create clusters` command
 
-  Added a default value for the `--*resource-preset` flags: s2.micro.
+  Added the following default value for the `--*resource-preset` parameter: s2.micro.
 
 **{{ mmg-name }}**
 
-* `{{ yc-mdb-mg }} create clusters` command.
+* `{{ yc-mdb-mg }} create clusters` command
 
-  For the `--mongodb-version` flag, changed the default value from 3.6 to 4.0.
+  For the `--mongodb-version` parameter, changed the default value from 3.6 to 4.0.
 
 ### Version 0.39.0 (16/09/19) {#version0.39.0}
 
@@ -3316,7 +5082,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **All managed database services**
 
-* `yc <managed DB service name> users list`.
+* `yc <managed DB service name> users list` command.
 
   The unique cluster ID is no longer displayed when viewing a list of users.
 
@@ -3334,7 +5100,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **Improved**
 
-* Added API endpoint availability checks for {{ iam-full-name }}, {{ resmgr-full-name }}, and {{ compute-full-name }}. If an endpoint is unavailable, an error is returned.
+* Added API endpoint availability checks for {{ iam-full-name }}, {{ resmgr-full-name }}, {{ compute-full-name }}. If an endpoint is unavailable, an error is returned.
 * Added detailed error reporting.
 
 #### Changes to {{ yandex-cloud }} services {#services}
@@ -3349,16 +5115,16 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ ig-name }} {#instance-groups}
 
-* Added commands to manage VM group metadata: `yc compute instance-group add-metadata` and `yc compute instance-group remove-metadata`.
+* Added commands to manage instance group metadata: `yc compute instance-group add-metadata` and `yc compute instance-group remove-metadata`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
 * `yc managed-kubernetes cluster update` command.
 
-  Added the `--node-service-account-id` and `--node-service-account-name` flags to add or change service accounts for nodes in an existing {{ k8s }} cluster.
+  Added the `--node-service-account-id` and `--node-service-account-name` parameters to add or change service accounts for nodes in an existing {{ k8s }} cluster.
 * `yc managed-kubernetes node-group update` command.
 
-  Added flags to edit existing node group parameters: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
+  Added parameters to edit existing node group parameters: `--metadata`, `--metadata-from-file`, `--platform-id`, `--memory`, `--cores`, `--core-fraction`, `--disk-type`, `--disk-size`, `--preemptible`.
 * Added commands to manage labels: `yc managed-kubernetes node-group add-labels` and `yc managed-kubernetes node-group remove-labels`.
 * Added commands to manage node group metadata: `yc managed-kubernetes node-group add-metadata` and `yc managed-kubernetes node-group remove-metadata`.
 
@@ -3367,12 +5133,12 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **{{ mpg-name }}**
 
-* `{{ yc-mdb-pg }} cluster update` command.
+* `{{ yc-mdb-pg }} cluster update` command
 
   Added the `--connection-pool-discard` flag to disable the connection pooler.
 * `{{ yc-mdb-pg }} user create` and `yc managed-postgresql user update` commands.
 
-  You can now specify a login and set user access permissions using the `--login` and `--grants` flags.
+  You can now specify a login and set user access permissions using the `--login` and `--grants` parameters.
 
 ### Version 0.36.0 (27/08/19) {#version0.36.0}
 
@@ -3395,9 +5161,9 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 **All managed database services**
 
-* `yc <managed DB service name> cluster create`.
+* `yc <managed DB service name> cluster create` command.
 
-  Renamed the default disk types: `network-nvme` to `network-ssd`, `local-nvme` to `local-ssd`.
+  Renamed the default disk types as follows: `network-nvme` to `network-ssd`, `local-nvme` to `local-ssd`.
 
 ### Version 0.35.0 (09/08/19) {#version0.35.0}
 
@@ -3415,7 +5181,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-pg }} cluster create` command.
 
-  Added the following parameters for the `--user` flag: `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement`.
+  Added the `permission`, `conn-limit`, `default-transaction-isolation`, `lock-timeout`, `log-min-duration-statement`, `synchronous-commit`, `temp-file-limit`, `log-statement` properties for the `--user` parameter.
 
 ### Version 0.34.0 (26/07/19) {#version0.34.0}
 
@@ -3423,9 +5189,9 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### Managed database services {#managed-db}
 
-**{{ mrd-name }}**
+**{{ mrd-full-name }}**
 
-* `{{ yc-mdb-rd }} shards` command.
+* `{{ yc-mdb-rd }} shards` command
 
   Added shard support for {{ RD }} clusters.
 
@@ -3457,7 +5223,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-pg }} user create` and `{{ yc-mdb-pg }} user update` commands.
 
-  Now you can set up user parameters using flags, including `--lock_timeout` and `--log_min_duration_statement`.
+  You can now set up user parameters using such parameters as `--lock_timeout` and `--log_min_duration_statement`, etc.
 
 ### Version 0.32.0 (05/07/19) {#version0.32.0}
 
@@ -3477,7 +5243,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-mg }} cluster update` and `{{ yc-mdb-mg }} cluster update-config` commands.
 
-  In [sharded](../managed-mongodb/concepts/sharding.md) clusters, you can now change the `mongos` and `mongocfg` component parameters.
+  In [sharded](../storedoc/concepts/sharding.md) clusters, you can now change the `mongos` and `mongocfg` component parameters.
 
 ### Version 0.31.0 (01/07/19) {#version0.31.0}
 
@@ -3500,7 +5266,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc load-balancer network-load-balancer create` and `yc load-balancer network-load-balancer update` commands.
 
-  For the `--listener` flag, you can now set the `target-port` parameter, which allows you to configure NAT so that target resources receive traffic on a port other than the `listener` port.
+  For the `--listener` parameter, you can now set the `target-port` property, which allows you to configure NAT for targets to receive traffic on a port other than the `listener` port.
 
 
 #### Managed database services {#managed-db}
@@ -3509,7 +5275,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `{{ yc-mdb-ch }} user create` and `{{ yc-mdb-ch }} user update` commands.
 
-  Added the `--settings` flag, which allows you to specify user settings.
+  Added the `--settings` parameter to specify user settings.
 
 ### Version 0.30.0 (18/06/19) {#version0.30.0}
 
@@ -3521,14 +5287,14 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 * `yc compute instance update` command.
 
-  Added the `--node-service-account-id` and `--node-service-account-name` flags to add or change a service account for an existing VM.
-* `yc compute instance create` command.
+  Added the `--service-account-id` and `--service-account-name` parameters to add or change a service account for an existing VM.
+* `yc compute instance create` command
 
   Changed the default number of cores used when creating a VM based on Intel Cascade Lake (`standard-v2`). Now it is `cores: 2`.
 
 #### {{ managed-k8s-name }} {#k8s}
 
-* `yc managed-kubernetes cluster update` command.
+* `yc managed-kubernetes cluster update` command
 
   Added the `--default-gateway-v4-address` flag, which allows you to update the gateway address for an existing {{ k8s }} cluster.
 
@@ -3548,21 +5314,21 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### {{ compute-name }} {#compute-cloud}
 
-* `yc compute instance create` command.
+* `yc compute instance create` command
 
-  Added the `--gpus` flag, which allows you to specify the number of the virtual machine's GPUs.
+  Added the `--gpus` parameter to specify the number of GPUs for a virtual machine.
 
 
 #### Managed database services {#managed-db}
 
 **All managed database services**
 
-* Command: `yc <managed DB service name> cluster get`.
+* `yc <managed DB service name> cluster get` command.
 
   Improved cluster information printout.
 * `yc <managed DB service name> cluster create` command.
 
-  Added the `--backup-window-start` flag, which allows you to set the daily cluster backup time when creating a cluster.
+  Added the `--backup-window-start` parameter, which allows you to set the daily cluster backup time when creating a cluster.
 
 **{{ mch-name }}**
 
@@ -3572,9 +5338,8 @@ Use the keys to protect your secrets, private data, and other confidential infor
 * `{{ yc-mdb-ch }} shards add` command.
 
   Changed the logic of creating shards:
-  * If the `--host` flag is not specified, the shard parameters are copied from the oldest shard.
-  * If the `--host` flag is specified, all parameters must be entered.
+  * If the `--host` parameter is not specified, the shard parameters are copied from the oldest shard.
+  * If the `--host` parameter is specified, all parameters must be entered.
   * If there are no shards, all parameters have to be entered to create a shard.
-
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

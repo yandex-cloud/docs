@@ -1,9 +1,53 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list API gateways in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListApiGatewayResponse.nextPageToken](#yandex.cloud.serverless.apigateway.v1.ListApiGatewayResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListApiGatewayResponse.nextPageToken](#yandex.cloud.serverless.apigateway.v1.ListApiGatewayResponse) returned by a previous list request.
+          type: string
+        filter:
+          description: |-
+            **string**
+            A filter expression that filters functions listed in the response.
+            The expression must specify:
+            1. The field name. Currently filtering can only be applied to the [ApiGateway.name](index) field.
+            2. An `=` operator.
+            3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z]([-a-z0-9]{0,61}[a-z0-9])?`.
+            Example of a filter: `name=my-apigw`.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/list.md
 ---
 
-# API Gateway Service, REST: ApiGateway.List {#List}
+# API Gateway Service, REST: ApiGateway.List
 
 Retrieves the list of API gateways in the specified folder.
 
@@ -57,7 +101,7 @@ Example of a filter: `name=my-apigw`. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "domain": "string",
       "logGroupId": "string",
@@ -83,24 +127,10 @@ Example of a filter: `name=my-apigw`. ||
         // end of the list of possible fields
         "minLevel": "string"
       },
-      "variables": {
-        // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-        "stringValue": "string",
-        "intValue": "string",
-        "doubleValue": "string",
-        "boolValue": "boolean"
-        // end of the list of possible fields
-      },
+      "variables": "object",
       "canary": {
         "weight": "string",
-        "variables": {
-          // Includes only one of the fields `stringValue`, `intValue`, `doubleValue`, `boolValue`
-          "stringValue": "string",
-          "intValue": "string",
-          "doubleValue": "string",
-          "boolValue": "boolean"
-          // end of the list of possible fields
-        }
+        "variables": "object"
       },
       "executionTimeout": "string"
     }
@@ -149,19 +179,19 @@ Name of the API gateway. The name is unique within the folder. ||
 || description | **string**
 
 Description of the API gateway. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 API gateway labels as `key:value` pairs. ||
 || status | **enum** (Status)
 
 Status of the API gateway.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: API gateway is being created.
 - `ACTIVE`: API gateway is ready for use.
 - `DELETING`: API gateway is being deleted.
 - `ERROR`: API gateway failed. The only allowed action is delete.
-- `UPDATING`: API gateway is being updated. ||
+- `UPDATING`: API gateway is being updated.
+- `STOPPED`: API gateway stopped. ||
 || domain | **string**
 
 Default domain for the API gateway. Generated at creation time. ||
@@ -177,7 +207,7 @@ Network access. If specified the gateway will be attached to specified network/s
 || logOptions | **[LogOptions](#yandex.cloud.serverless.apigateway.v1.LogOptions)**
 
 Options for logging from the API gateway. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
 
 Values of variables defined in the specification. ||
 || canary | **[Canary](#yandex.cloud.serverless.apigateway.v1.Canary)**
@@ -249,9 +279,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -304,8 +331,12 @@ Variable value that can has only primitive type ||
 ||Field | Description ||
 || weight | **string** (int64)
 
-It describes percentage of requests, which will be processed by canary. ||
-|| variables | **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**
+It describes percentage of requests, which will be processed by canary.
 
-Values specification variables, associated with canary. ||
+Acceptable values are 0 to 99, inclusive. ||
+|| variables | **object** (map<**string**, **[VariableInput](#yandex.cloud.serverless.apigateway.v1.VariableInput)**>)
+
+Values specification variables, associated with canary.
+
+More than 0 per resource. ||
 |#

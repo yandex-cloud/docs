@@ -1,6 +1,6 @@
 ---
 title: Управление доступом в {{ mpg-full-name }}
-description: Управление доступом в сервисе по созданию и управлению базами данных PostgreSQL. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
+description: Управление доступом в сервисе по созданию и управлению базами данных {{ PG }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе, какие роли необходимы для того или иного действия.
 ---
 
 # Управление доступом в {{ mpg-name }}
@@ -24,13 +24,19 @@ description: Управление доступом в сервисе по соз
 
 {% include [assign-roles-mdb](../../_includes/iam/assign-roles-mdb.md) %}
 
+В [консоли управления]({{ link-console-main }}), через [CLI](../../cli) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+
 ## Какие роли действуют в сервисе {#roles-list}
 
 На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/mdb/roles-managed-postgresql.svg)
+{% include [roles-managed-postgresql](../../_mermaid/roles/managed-postgresql.md) %}
 
 ### Сервисные роли {#service-roles}
+
+#### managed-postgresql.clusters.connector {#managed-postgresql-clusters-connector}
+
+{% include [managed-postgresql.clusters.connector](../../_roles/managed-postgresql/clusters/connector.md) %}
 
 #### managed-postgresql.auditor {#managed-postgresql-auditor}
 
@@ -39,6 +45,10 @@ description: Управление доступом в сервисе по соз
 #### managed-postgresql.viewer {#managed-postgresql-viewer}
 
 {% include [managed-postgresql.viewer](../../_roles/managed-postgresql/viewer.md) %}
+
+#### managed-postgresql.restorer {#managed-postgresql-restorer}
+
+{% include [managed-postgresql.restorer](../../_roles/managed-postgresql/restorer.md) %}
 
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
@@ -60,10 +70,13 @@ description: Управление доступом в сервисе по соз
 
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
+#### mdb.restorer {#mdb-restorer}
+
+{% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
-
 
 ### Примитивные роли {#primitive-roles}
 

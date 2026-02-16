@@ -2,7 +2,11 @@
 
 В этом разделе вы научитесь синтезировать речь из текста с помощью {{ speechkit-short-name }} [API v3](../tts-v3/api-ref/grpc/) ([gRPC](../../glossary/grpc)).
 
-Для работы с API нужна утилита `grpcurl`.
+## Аутентификация для работы с API {#auth}
+
+{% include [ai-before-beginning](../../_includes/speechkit/ai-before-beginning.md) %}
+
+В примере ниже аутентификация выполняется от имени аккаунта на Яндексе.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -57,20 +61,22 @@
    jq . -c tts_req.json | \
    grpcurl -H "authorization: Bearer ${IAM_TOKEN}" \
            -H "x-folder-id: ${FOLDER_ID}" \
-           -d @ tts.{{ api-host }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
+           -d @ {{ api-host-sk-tts }}:443 speechkit.tts.v3.Synthesizer/UtteranceSynthesis | \
    jq -r '.audioChunk.data' | base64 -d > speech.wav
    ```
 
    Где:
 
-   * `FOLDER_ID` — идентификатор каталога, полученный [перед началом работы](index.md#before-you-begin). Если вы используете IAM-токен сервисного аккаунта, не указывайте в запросе идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
-   * `IAM_TOKEN` — IAM-токен, полученный [перед началом работы](index.md#before-you-begin).
+   * `FOLDER_ID` — идентификатор каталога, полученный [ранее](#auth).
+
+       Если вы используете IAM-токен сервисного аккаунта, не указывайте в запросе идентификатор каталога — сервис использует каталог, в котором был создан сервисный аккаунт.
+   * `IAM_TOKEN` — IAM-токен, полученный [ранее](#auth).
    * `speech.wav` – файл, в который будет записан ответ.
 
 В результате в папке будет создан файл `speech.wav` с синтезированной речью.
 
 #### См. также {#what-is-next}
 
-* [Подробнее про API v3](../../tts-v3/api-ref/grpc/)
+* [Подробнее про API v3](../tts-v3/api-ref/grpc/)
 * [Аутентификация в API](../concepts/auth.md)
 * [{#T}](../tts/api/tts-examples-v3.md)

@@ -1,5 +1,5 @@
-To refer to every possible subdomain at any level, replace the first-level domain name with an asterisk (`*`). In this case, the value must be wrapped in quotes.
+To match all subdomains at any level, use a wildcard `*` in place of the first-level domain name. Wildcard domain values must be quoted.
 
-> For instance, the `"*.example.com"` value matches `foo.example.com`, `foo-bar.example.com`, `foo.bar.example.com`, `foo.bar.baz.example.com`, etc., but does not match `example.com`.
+> For example, `"*.example.com"` matches `foo.example.com`, `foo-bar.example.com`, `foo.bar.example.com`, and `foo.bar.baz.example.com`, but not `example.com`.
 
-You cannot replace only a part of a first-level domain name with an asterisk, as in `*foo.example.com`.
+Wildcards must replace complete domain levels; for example, `*foo.example.com` is invalid.

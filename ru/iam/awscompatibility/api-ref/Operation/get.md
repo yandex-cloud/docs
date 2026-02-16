@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/awscompatibility/api-ref/Operation/get.md
 ---
 
-# Identity and Access Management API, REST: Operation.Get {#Get}
+# Access Key, REST: Operation.Get
 
 Returns the specified Operation resource.
 

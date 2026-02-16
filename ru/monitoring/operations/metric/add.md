@@ -1,3 +1,6 @@
+---
+sourcePath: ru/monitoring_includes/operations/metric/add.md
+---
 # Запись пользовательских метрик через API
 
 Чтобы начать записывать пользовательские метрики через API, воспользуйтесь методом [write](../../api-ref/MetricsData/write.md).
@@ -13,6 +16,7 @@
    * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
    * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
    * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
+   * [Инструкция](../../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
 ### Пример запроса {#sample-request}
 

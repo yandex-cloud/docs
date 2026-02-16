@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
-    1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
     1. Напротив секрета нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
     1. Скорректируйте имя и описание секрета, отметьте опцию **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}** при необходимости.

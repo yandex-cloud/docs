@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/kms/v1/asymmetricsignature/api-ref/grpc/AsymmetricSignatureCrypto/getPublicKey.md
 ---
 
-# Key Management Service API, gRPC: AsymmetricSignatureCryptoService.GetPublicKey {#GetPublicKey}
+# Key Management Service API, gRPC: AsymmetricSignatureCryptoService.GetPublicKey
 
 Gets value of public key.
 
@@ -15,32 +15,34 @@ Gets value of public key.
 
 ```json
 {
-  "keyId": "string"
+  "key_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
-Required field. ID of the asymmetric KMS key to be used for public key retrieval. ||
+Required field. ID of the asymmetric KMS key to be used for public key retrieval.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## AsymmetricGetPublicKeyResponse {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricGetPublicKeyResponse}
 
 ```json
 {
-  "keyId": "string",
-  "publicKey": "string"
+  "key_id": "string",
+  "public_key": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| keyId | **string**
+|| key_id | **string**
 
 ID of the asymmetric KMS key to get public key of. ||
-|| publicKey | **string**
+|| public_key | **string**
 
 Public key value.
 The value is a PEM-encoded X.509 public key, also known as SubjectPublicKeyInfo (SPKI),

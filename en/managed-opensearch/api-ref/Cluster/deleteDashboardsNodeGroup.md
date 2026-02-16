@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/dashboards/node_groups/{name}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
+            To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Required field. Name of the Dashboards type host group to delete.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - name
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/opensearch/v1/api-ref/Cluster/deleteDashboardsNodeGroup.md
 ---
 
-# Managed Service for OpenSearch API, REST: Cluster.DeleteDashboardsNodeGroup {#DeleteDashboardsNodeGroup}
+# Managed Service for OpenSearch API, REST: Cluster.DeleteDashboardsNodeGroup
 
 Deletes a Dashboards type host group.
 
@@ -21,10 +48,14 @@ DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/das
 
 Required field. ID of the OpenSearch cluster to delete the Dashboards type host group in.
 
-To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request. ||
+To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Name of the Dashboards type host group to delete. ||
+Required field. Name of the Dashboards type host group to delete.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

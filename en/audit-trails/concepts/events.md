@@ -1,3 +1,8 @@
+---
+title: Control plane event reference {{ at-full-name }}
+description: This section provides descriptions of management events collected in {{ yandex-cloud }} services.
+---
+
 # Management event reference
 
 The value of the `event_type` field in a management event audit log is determined by the event source service.
@@ -8,53 +13,11 @@ The general value format is as follows:
 {{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
+{% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
+
 On this page, you will find events for the following services:
 
-* [{{ api-gw-full-name }}](#api-gateway)
-* [{{ alb-full-name }}](#alb)
-* [{{ at-full-name }}](#audit-trails)
-* [{{ certificate-manager-full-name }}](#certificate-manager)
-* [{{ cloud-apps-full-name }}](#cloud-apps)
-* [{{ backup-full-name }}](#backup)
-* [{{ cdn-full-name }}](#cdn)
-* [{{ dns-full-name }}](#dns)
-* [{{ sf-full-name }}](#functions)
-* [{{ cloud-logging-full-name }}](#cloud-logging)
-* [{{ marketplace-full-name }}](#marketplace)
-* [{{ org-full-name }}](#organization)
-* [{{ compute-full-name }}](#compute)
-* [{{ container-registry-full-name }}](#container-registry)
-* [{{ dataproc-full-name }}](#dataproc)
-* [{{ data-transfer-full-name }}](#datatransfer)
-* [{{ ml-platform-full-name }}](#datasphere)
-* [{{ iam-full-name }}](#iam)
-* [{{ iot-full-name }}](#iot)
-* [{{ kms-full-name }}](#kms)
-* [{{ load-testing-full-name }}](#loadtesting)
-* [{{ lockbox-full-name }}](#lockbox)
-* [{{ maf-full-name }}](#managed-service-for-airflow)
-* [{{ mkf-full-name }}](#managed-service-for-kafka)
-* [{{ mch-full-name }}](#managed-service-for-clickhouse)
-* [{{ mgl-full-name }}](#managed-service-for-gitlab)
-* [{{ mgp-full-name }}](#managed-service-for-greenplum)
-* [{{ managed-k8s-full-name }}](#managed-service-for-kubernetes)
-* [{{ mmg-full-name }}](#managed-service-for-mongodb)
-* [{{ mmy-full-name }}](#managed-service-for-mysql)
-* [{{ mos-full-name }}](#managed-service-for-opensearch)
-* [{{ mpg-full-name }}](#managed-service-for-postgresql)
-* [{{ mrd-full-name }}](#managed-service-for-redis)
-* [{{ ydb-full-name }}](#ydb)
-* [{{ network-load-balancer-full-name }}](#network-load-balancer)
-* [{{ objstorage-full-name }}](#objstorage)
-* [{{ yq-full-name }}](#yq)
-* [{{ resmgr-full-name }}](#resmgr)
-* [{{ search-api-full-name }}](#searchapi)
-* [{{ serverless-containers-full-name }}](#serverless-containers)
-* [{{ captcha-full-name }}](#smartcaptcha)
-* [{{ sws-full-name }}](#smartwebsecurity)
-* [{{ speechsense-full-name }}](#speechsense)
-* [{{ vpc-full-name }}](#vpc)
-* [{{ websql-full-name }}](#websql)
+{% include [cp-events-service-list](../../_includes/audit-trails/cp-events-service-list.md) %}
 
 ## {{ api-gw-full-name }} {#api-gateway}
 
@@ -68,6 +31,12 @@ Service name: `apploadbalancer`.
 
 {% include [alb-events](../../_includes/audit-trails/events/alb-events.md) %}
 
+## {{ ai-studio-full-name }} {#ai-studio}
+
+Service name: `ai`.
+
+{% include [ai-studio-events](../../_includes/audit-trails/events/ai-studio-events.md) %}
+
 ## {{ at-full-name }} {#audit-trails}
 
 Service name: `audittrails`.
@@ -80,6 +49,12 @@ Event name | Description
 `UpdateTrail` | Editing a trail
 `UpdateTrailAccessBindings` | Updating access permissions for a trail
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Service name: `baremetal`.
+
+{% include [baremetal-events](../../_includes/audit-trails/events/baremetal-events.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Service name: `certificatemanager`.
@@ -90,13 +65,7 @@ Service name: `certificatemanager`.
 
 Service name: `cloudapps`.
 
-Event name | Description
---- | ---
-`CreateCloudApplication` | Creating an application
-`DeleteCloudApplication` | Deleting an application
-`SetApplicationAccessBindings` | Assigning access permissions for an application
-`UpdateApplicationAccessBindings` | Updating access permissions for an application
-`UpdateCloudApplication` | Updating an application
+{% include [cloud-apps-events](../../_includes/audit-trails/events/cloud-apps-events.md) %}
 
 ## {{ backup-full-name }} {#backup}
 
@@ -104,11 +73,23 @@ Service name: `backup`.
 
 {% include [backup-events](../../_includes/audit-trails/events/backup-events.md) %}
 
+## {{ billing-name }} {#billing}
+
+Service name: `billing`.
+
+{% include [billing-events](../../_includes/audit-trails/events/billing-events.md) %}
+
 ## {{ cdn-full-name }} {#cdn}
 
 Service name: `cdn`.
 
 {% include [cdn-events](../../_includes/audit-trails/events/cdn-events.md) %}
+
+## {{ cloud-desktop-full-name }} {#clouddesktop}
+
+Service name: `clouddesktop`.
+
+{% include [clouddesktop-events](../../_includes/audit-trails/events/clouddesktop-events.md) %}
 
 ## {{ dns-full-name }} {#dns}
 
@@ -140,6 +121,24 @@ Service name: `organizationmanager`.
 
 {% include [org-events](../../_includes/audit-trails/events/org-events.md) %}
 
+## {{ postbox-full-name }} {#postbox}
+
+Service name: `postbox`.
+
+{% include [postbox-events](../../_includes/audit-trails/events/postbox-events.md) %}
+
+## {{ cloud-registry-full-name }} {#cloud-registry}
+
+Service name: `cloudregistry`.
+
+{% include [cloudregistry-events](../../_includes/audit-trails/events/cloudregistry-events.md) %}
+
+## {{ video-full-name }} {#video}
+
+Service name: `video`.
+
+{% include [video-events](../../_includes/audit-trails/events/video-events.md) %}
+
 ## {{ compute-full-name }} {#compute}
 
 Service name: `compute`.
@@ -156,13 +155,19 @@ Service name: `containerregistry`.
 
 Service name: `dataproc`.
 
-{% include [dataproc-events](../../_includes/audit-trails/events/dataproc-events.md) %}
+{% include [dataproc-events](../../_includes/audit-trails/events/data-processing-events.md) %}
 
 ## {{ data-transfer-full-name }} {#datatransfer}
 
 Service name: `datatransfer`.
 
 {% include [datatransfer-events](../../_includes/audit-trails/events/datatransfer-events.md) %}
+
+## {{ datalens-full-name }} {#datalens}
+
+Service name: `datalens`.
+
+{% include [datalens-events](../../_includes/audit-trails/events/datalens-events.md) %}
 
 ## {{ ml-platform-full-name }} {#datasphere}
 
@@ -261,6 +266,24 @@ Service name: `mdb.postgresql`.
 
 {% include [mpg-events](../../_includes/audit-trails/events/managed-postgresql-events.md) %}
 
+## {{ mspqr-full-name }} {#managed-service-for-sharded-postgresql}
+
+Service name: `mdb.spqr`.
+
+{% include [mspqr-events](../../_includes/audit-trails/events/mspqr-events.md) %}
+
+## {{ mtr-full-name }} {#managed-service-for-trino}
+
+Service name: `trino`.
+
+{% include [mtr-events](../../_includes/audit-trails/events/managed-trino-events.md) %}
+
+## {{ msp-full-name }} {#managed-service-for-spark}
+
+Service name: `spark`.
+
+{% include [managed-spark-events](../../_includes/audit-trails/events/managed-spark-events.md) %}
+
 ## {{ mrd-full-name }} {#managed-service-for-redis}
 
 Service name: `mdb.redis`.
@@ -272,6 +295,20 @@ Service name: `mdb.redis`.
 Service name: `ydb`.
 
 {% include [ydb-events](../../_includes/audit-trails/events/ydb-events.md) %}
+
+## {{ message-queue-full-name }} {#ymq}
+
+Service name: `ymq`.
+
+{% include [ymq-events](../../_includes/audit-trails/events/ymq-events.md) %}
+
+## {{ metadata-hub-full-name }} {#metadata-hub}
+
+### {{ metastore-full-name }} {#hive-metastore}
+
+Service name: `metastore`.
+
+{% include [hive-metastore-events](../../_includes/audit-trails/events/hive-metastore-events.md) %}
 
 ## {{ network-load-balancer-full-name }} {#network-load-balancer}
 
@@ -291,6 +328,12 @@ Service name: `yq`.
 
 {% include [yq-events](../../_includes/audit-trails/events/yq-events.md) %}
 
+## {{ myt-full-name }} {#ytsaurus}
+
+Service name: `ytsaurus`.
+
+{% include [ytsaurus-events](../../_includes/audit-trails/events/ytsaurus-events.md) %}
+
 ## {{ resmgr-full-name }} {#resmgr}
 
 Service name: `resourcemanager`.
@@ -302,6 +345,28 @@ Service name: `resourcemanager`.
 Service name: `searchapi`.
 
 {% include [searchapi-events](../../_includes/audit-trails/events/searchapi-events.md) %}
+
+## {{ sd-full-name }} {#security-deck}
+
+Service name: `securitydeck`.
+
+### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+
+Module name: `securitydeck.kspm`.
+
+{% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
+
+### Cloud Security Posture Management (CSPM) {#sd-cspm}
+
+Module name: `securitydeck.cspm`.
+
+{% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### {{ sd-name }} workspaces {#sd-orchestrator}
+
+Module name: `securitydeck.orchestrator`.
+
+{% include [sd-orchestrator-events](../../_includes/audit-trails/events/sd-orchestrator-events.md) %}
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}
 
@@ -325,7 +390,7 @@ Service name: `smartwebsecurity`.
 
 Service name: `speechsense`.
 
-{% include [org-events](../../_includes/audit-trails/events/speechsense-events.md) %}
+{% include [speechsense-events](../../_includes/audit-trails/events/speechsense-events.md) %}
 
 ## {{ vpc-full-name }} {#vpc}
 

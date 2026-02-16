@@ -1,9 +1,37 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+    method: get
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster the user belongs to.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to return information about.
+            To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/get.md
 ---
 
-# Managed Service for MySQL API, REST: User.Get {#Get}
+# Managed Service for MySQL API, REST: User.Get
 
 Retrieves information about the specified user.
 
@@ -21,12 +49,16 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{user
 
 Required field. ID of the cluster the user belongs to.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to return information about.
 
-To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request. ||
+To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mysql.v1.User}
@@ -54,7 +86,10 @@ To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/lis
     "maxConnectionsPerHour": "string",
     "maxUserConnections": "string"
   },
-  "authenticationPlugin": "string"
+  "authenticationPlugin": "string",
+  "connectionManager": {
+    "connectionId": "string"
+  }
 }
 ```
 
@@ -77,7 +112,6 @@ Set of permissions granted to the user. ||
 
 Set of global permissions to grant to the user.
 
-- `GLOBAL_PERMISSION_UNSPECIFIED`
 - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
@@ -91,7 +125,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of user connection limits. ||
@@ -99,10 +134,14 @@ Set of user connection limits. ||
 
 User authentication plugin.
 
-- `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html). ||
+- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -118,7 +157,8 @@ Roles granted to the user within the database.
 
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
-- `PRIVILEGE_UNSPECIFIED`
+The minimum number of elements is 1.
+
 - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
 - `ALTER`: Altering tables.
 - `ALTER_ROUTINE`: Altering stored routines and functions.
@@ -150,14 +190,31 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 ||Field | Description ||
 || maxQuestionsPerHour | **string** (int64)
 
-The maximum permitted number of user questions per hour. ||
+The maximum permitted number of user questions per hour.
+
+The minimum value is 0. ||
 || maxUpdatesPerHour | **string** (int64)
 
-The maximum permitted number of user updates per hour. ||
+The maximum permitted number of user updates per hour.
+
+The minimum value is 0. ||
 || maxConnectionsPerHour | **string** (int64)
 
-The maximum permitted number of simultaneous client connections per hour. ||
+The maximum permitted number of simultaneous client connections per hour.
+
+The minimum value is 0. ||
 || maxUserConnections | **string** (int64)
 
-The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+The maximum number of simultaneous connections permitted to any given MySQL user account.
+
+The minimum value is 0. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager Connection ||
 |#

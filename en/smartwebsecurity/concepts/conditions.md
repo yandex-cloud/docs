@@ -5,20 +5,28 @@ description: You can set up conditions for your security rules. For more informa
 
 # Conditions
 
+{% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
+
 You can set the following rule [conditions](rules.md):
 
 #|
-|| **Type** | **Match criteria** | **Values** | **Example** | **Logical Operator** ||
+|| **Type** | **Match options** | **Values** | **Example** | **Logical operator** ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` |
 * Matches or falls within the range
 * Mismatches or lies outside the range
 * IP belongs to the region
 * IP does not belong to the region
+* IP belongs to the list
+* IP does not belong to the list
+* IP belongs to the ASN
+* IP does not belong to the ASN
 |
 * IP address
 * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
 * Address range
 * Two-letter country code as per [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+* Name of the preset or custom address list
+* [ASN](https://wikipedia.org/wiki/Autonomous_system_(Internet)) value as an integer without the `as` prefix
 |
 * `1.2.33.44`
 * `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
@@ -26,6 +34,7 @@ You can set the following rule [conditions](rules.md):
 * `1.2.0.0-1.2.1.1`
 * `ru`
 * `kz`
+* 12345
 | _or_ ||
 || `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` |
 * Matches
@@ -33,11 +42,12 @@ You can set the following rule [conditions](rules.md):
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-Format `key: value`, where key is the HTTP header,
-value is a specific header value, value
-prefix or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the [PIRE](https://github.com/yandex/pire) library
+`key: value` format, where `key` is an HTTP header,
+and `value` is a specific header value, value prefix, 
+or [regular expression](https://en.wikipedia.org/wiki/Regular_expression) of the
+[PIRE](https://github.com/yandex/pire)
 |
 * `User-Agent: curl/7.55.1`
 | _and_ ||
@@ -47,26 +57,26 @@ prefix or [regular expression](https://en.wikipedia.org/wiki/Regular_expression)
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
-|
-Request path, beginning of request path, or regular
-expression of PIRE library
+* Does not match regular expression
+| 
+Request path, initial part of the request path, or regular
+expression of the PIRE library
 |
 * `/`
-| _Not used_ ||
+| _N/A_ ||
 || `Query Match` |
 * Matches
 * Mismatches
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-Format `key: value`, where key is the request
-parameter, value is a specific parameter value,
+`key: value` format, where `key` is a request parameter, 
+value is a specific parameter value,
 value prefix, or regular expression of the
-PIRE library
-|
+PIRE
+|  
 * `a: 1`
 * `A: 2`
 | _and_ ||
@@ -76,12 +86,12 @@ PIRE library
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-Values of the `Host` header for HTTP/1.1 or
-the `authority` pseudoheader for HTTP/2 by which a virtual
-host, value prefix, or PIRE library
-regular expression is selected
+Values of the `Host` header for HTTP/1.1 or 
+the `authority` pseudoheader for HTTP/2 used to
+select a virtual host, value prefix, or 
+regular expression of the PIRE library
 |
 * `example.com`
 | _or_ ||
@@ -91,40 +101,156 @@ regular expression is selected
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-[HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in the upper case,
-with an arbitrary value, value prefix, or PIRE library
-regular expression allowed
+[HTTP request method](https://en.wikipedia.org/wiki/HTTP#Request_methods) in uppercase.
+You may use a random value, value prefix,
+or regular expression of the PIRE library
 |
 * `GET`
 * `POST`
 * `DELETE`
 | _or_ ||
 
-|| `Cookie` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}` |
 * Matches
 * Mismatches
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-Format`key: value`, where key is the Cookie header, value is the specific Cookie value, value prefix, or regular expression of the PIRE library
+`key: value` format, where `key` is a cookie header,
+and `value` is a specific cookie value, value prefix, 
+or regular expression of the PIRE library
 |
 * `csrftoken=u32t4o3tb`
 | _and_ ||
 
-|| `HTTP body` |
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-body }}` |
 * Matches
 * Mismatches
 * Starts with
 * Does not start with
 * Matches regular expression
-* Mismatches regular expression
+* Does not match regular expression
 |
-String in the HTTP packet body or PIRE library regular expression
+String in the HTTP packet body or 
+regular expression of the PIRE library
 |
 * `<br><input type='submit'>`
 | _or_ ||
+|| `Bot name` |
+* Belongs to the list
+* Does not belong to the list
+|
+List of legitimate bots of various companies and services
+|
+* `YandexBot`, `SEMrushBot`
+| _or_ ||
+|| `Bot category` |
+* Belongs to the list
+* Does not belong to the list
+| List of bots of a certain category
+|
+`AccessibilityBot`, `SearchEngineCrawlerBot`
+| _or_ ||
+|| `Verified bot` |
+* Yes
+* No
+| Whether this bot is verified and approved
+| | ||
+|| `Bot score` | |
+When analyzing traffic, the system assigns it a score from `0` to `100`. You can filter traffic by specifying a score value or a range of values using the following operators: `>=`, `<=`, `=`, and `!=`.
+Score ranges: `up to 20`: human; `20–40`: likely human; `40–60`: undetermined; `60–80`: likely bot; `over 80`: bot.
+|
+`=10`, `>=20, and <=40`
+| _and_ ||
 |#
+
+## Regular expression format {#regular-expressions}
+
+You can use regular expressions in such conditions as `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`, or `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`. These conditions support the match types _Matches regular expression_ and _Does not match regular expression_.
+
+### Regular expression operators {#regular-expressions-operators}
+
+* Quantifiers. These set the allowed number of element repetitions.
+
+  * `*`: Zero or more occurrences of any characters. `a*`: Zero or more occurrences of the `a` character. `a*b`: Any occurrence of `a` before `b`.
+
+    For example, `a*` means an empty string, `a`, `aa`, `aaa`, etc.
+
+  * `a+`: One or more occurrences of `a`.
+
+    For example, `a+`: `a`, `aa`, `aaa`, etc.
+
+  * `a?`: Zero or one occurrence of `a`.
+    
+    For example, `https?://` means `http://` and `https://`.
+
+  * `{n}`: n occurrences. For example, `a{3}`: `aaa`.
+
+  * `{n,m}`: From n through m occurrences. For example, `a{3,5}`: `aaa`, `aaaa`, and `aaaaa`.
+
+  * `{n,}`: At least n occurrences. For example, `a{3,}`: `aaa`, `aaaa`, `aaaaa`, etc.
+
+* Characters and operations.
+  
+    * `.`: Any single character, but for line break one.
+  
+      For example, `a.b` means `aab` and `acb`, but not `ab`.
+
+    * `[abc]`: One of the characters between the square brackets.
+      
+      For example, `[abc]` means `a`, `b`, and `c`.
+
+    * `[^abc]`: Any character, but for those between the square brackets.
+      
+      For example, `[^abc]` means any character other than `a`, `b`, or `c`.
+
+    * `[a-z]`: Any character from `a` through `z`.
+  
+      For example, `[a-z]` means any lowercase letter from `a` through `z`.
+    
+    * `a|b`: Mutually exclusive options, either `a` or `b`.
+    
+      For example, `example|domain` means either `example` or `domain`.
+
+    * `\\w`: Any letter.
+    * `\\W`: Non-letter (digit, underscore, punctuation marks, space, etc).
+    * `\\d`: Digit. `\\D`: Non-digit.
+    * `\\s`: Space. `\\S`: Non-space.
+
+{% note info %}
+
+To use a character not as a regular expression operator or special character, escape it with `\`. For example, you need to escape such characters as `. + * [ ] ( ) { } ^ $ ?`.
+
+{% endnote %}
+
+### Case in regular expressions {#regular-expressions-case}
+
+* Case sensitive. Enter a regular expression in required case.
+  
+  For example, `exaMple` will represent the `exaMple` string.
+
+* Case insensitive. Add `(?i)` to the beginning of the expression.
+  
+  For example, `(?i)example` will represent strings like `example`, `EXaMple`, `EXAMPLE`, etc.
+
+### Examples of regular expressions
+
+* `User-Agent:\s*`: Block requests with empty or space-only `User-Agent` header value.
+    
+    In this expression, `\s*` is zero or more spaces.
+
+* `\\[\'\"\.\;]`: Block requests containing `\` before a suspicious character (backslash injections).
+
+    In this expression, `\\` is backslash, and `[\'\"\.\;]` is any character from between the square brackets.
+
+* `a{100,}`: Block requests containing long sequences of identical characters, as this may be a sign of an attack.
+    
+    In this expression, `a{100,}` stands for 100 or more `a` in a row.
+
+* `--.*`: Block requests containing comments in SQL queries, as this may be a sign of an SQL injection.
+
+    In this expression, `--` is the beginning of an SQL comment, and `.*` is zero or more of any characters.

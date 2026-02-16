@@ -4,7 +4,6 @@
 
 При создании ресурса для него указывается один источник или одна [группа источников](#groups). После создания в настройках ресурса можно заменить один источник на другой, а группу источников — на другую группу.
 
-
 ## Тип источника {#types}
 
 Источником может быть:
@@ -12,6 +11,15 @@
 * [Бакет](../../storage/concepts/bucket.md) из {{ objstorage-full-name }}, в том числе настроенный как [хостинг статического сайта](../../storage/concepts/hosting.md).
 * [L7-балансировщик нагрузки](../../application-load-balancer/concepts/application-load-balancer.md) из {{ alb-full-name }}. CDN-серверы будут обращаться к балансировщику по одному из его IP-адресов, который нужно выбрать в настройках источника.
 * Ваш собственный сервер или другой ресурс, доступный по доменному имени. Например, если источник — сервер с доменным именем `files.example.com`, то за файлом `/static/common.css` CDN-серверы будут обращаться к серверу по адресу `files.example.com/static/common.css`.
+
+
+### Примеры использования {#examples-types}
+
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
+* [{#T}](../tutorials/prefetch.md)
+* [{#T}](../tutorials/thumbor.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)
 
 
 ## Хостинг статического сайта в бакете-источнике {#bucket-website-hosting}
@@ -23,6 +31,12 @@
 1. Создайте главную страницу сайта, например `index.html`, и [загрузите ее](../../storage/operations/objects/upload.md) в бакет.
 1. [Настройте хостинг статического сайта](../../storage/operations/hosting/setup.md#hosting) в бакете. В настройках укажите главную страницу, загруженную на предыдущем шаге.
 1. [Настройте источник](#instructions) в CDN-ресурсе или в группе источников: укажите бакет и включите его использование как хостинга статического сайта. После этого CDN-сервер будет обращаться к бакету по доменному имени `<имя_бакета>.{{ s3-web-host }}`.
+
+
+### Примеры использования {#examples-bwh}
+
+* [{#T}](../tutorials/protected-access-to-content/index.md)
+* [{#T}](../tutorials/cdn-hosting/index.md)
 
 
 ## Время ответа от источника {#timeout}
@@ -50,6 +64,15 @@
 
 {% endnote %}
 
+
+### Примеры использования {#examples-g}
+
+* [{#T}](../tutorials/thumbor.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
+* [{#T}](../tutorials/protected-access-to-content/terraform.md)
+
+
 ## Как настроить источники {#instructions}
 
 См. инструкции:
@@ -57,3 +80,8 @@
 * [Создание ресурса](../operations/resources/create-resource.md), при котором настраивается источник или группа источников.
 * [Изменение основных настроек ресурса](../operations/resources/configure-basics.md), в том числе замена источника на другой источник или группы на другую группу.
 * [Управление группами источников](../operations/index.md#origin-groups): создание, изменение, подключение к ресурсу и удаление.
+
+
+### Примеры использования {#examples-ins}
+
+* [{#T}](../tutorials/cdn-storage-integration/index.md)

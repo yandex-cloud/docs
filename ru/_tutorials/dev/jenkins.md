@@ -22,14 +22,12 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
 * Плата за постоянно запущенные ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
 * Плата за хранение созданных образов (см. [тарифы {{ compute-name }}](../../compute/pricing#prices-storage)).
 * Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-
 
 ## Настройте окружение {#prepare}
 
@@ -38,7 +36,7 @@
 * [Установите](https://www.terraform.io/downloads) {{ TF }}. См. также раздел [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [Загрузите](https://stedolan.github.io/jq/download/) утилиту jq.
 * [Настройте](https://gitforwindows.org) Git. Если вы работаете под Windows, используйте Git Bash.
-* [Создайте](https://github.com/yandex-cloud/examples) ответвление репозитория с примерами в своем аккаунте на GitHub.
+* [Создайте](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer) ответвление репозитория с примерами в своем аккаунте на GitHub.
 * [Подготовьте](../../compute/operations/vm-connect/ssh.md) [SSH-ключ](../../glossary/ssh-keygen.md) для доступа к ВМ.
 
 ## Создайте сервисный аккаунт {#create-service-account}
@@ -49,7 +47,7 @@
 
    ```bash
    yc iam service-account create --name <имя_пользователя>
-   yc iam key create --service-account-name <имя_пользователя> -o <имя_пользователя.json>
+   yc iam key create --service-account-name <имя_пользователя> -o <имя_пользователя>.json
    SERVICE_ACCOUNT_ID=$(yc iam service-account get --name <имя_пользователя> --format json | jq -r .id)
    ```
 
@@ -68,7 +66,7 @@ Jenkins будет получать изменения в конфигураци
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
 1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [Jenkins](/marketplace/products/yc/jenkins).
 
@@ -79,7 +77,7 @@ Jenkins будет получать изменения в конфигураци
     {% endnote %}
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `15 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `15 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
@@ -100,7 +98,7 @@ Jenkins будет получать изменения в конфигураци
 
     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить виртуальной машине случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
 
@@ -227,7 +225,7 @@ Packer позволяет создавать образы дисков ВМ с �
 1. В блоке **Pipeline** в списке **Definition** выберите `Pipeline script from SCM`.
 1. В списке **SCM** выберите `Git`.
 1. В поле **Repository URL** укажите URL вашего ответвления из GitHub.
-1. В поле **Script path** укажите `jenkins-packer/Jenkinsfile`.
+1. В поле **Script path** укажите `Jenkinsfile`.
 1. Оставьте остальные поля без изменений и нажмите **Сохранить**.
 
 ## Настройте GitHub-репозиторий {#configure-github-repo}
@@ -254,13 +252,13 @@ Packer позволяет создавать образы дисков ВМ с �
 ## Создайте образ с помощью Jenkins {#create-image}
 
 Сборка образа в Jenkins запускается автоматически после выполнения команды `push` в ветке `master` GitHub-репозитория.
-1. Склонируйте на ваш компьютер ответвление репозитория [examples](https://github.com/yandex-cloud/examples), которое вы создали во время [подготовки к работе](#before-you-begin):
+1. Склонируйте на ваш компьютер ответвление репозитория [examples](https://github.com/yandex-cloud-examples/yc-marketplace-vm-image-packer), которое вы создали во время [подготовки к работе](#before-you-begin):
 
    ```bash
-   git clone https://github.com/<логин_на_GitHub>/examples.git
+   git clone https://github.com/<логин_на_GitHub>/yc-marketplace-vm-image-packer.git
    ```
 
-1. Внесите изменения в шаблоны Packer, находящиеся в директории `jenkins-packer/packer/`. Документацию шаблонов Packer можно найти на [сайте](http://packer.io/docs/templates/index.html) разработчика. В параметрах `image_family` и `source_image_family` указываются [семейства образов](../../compute/concepts/image#family), которые будет собирать Jenkins.
+1. Внесите изменения в шаблоны Packer, находящиеся в директории `packer`. Документацию шаблонов Packer можно найти на [сайте](http://packer.io/docs/templates/index.html) разработчика. В параметрах `image_family` и `source_image_family` указываются [семейства образов](../../compute/concepts/image#family), которые будет собирать Jenkins.
 1. Внесите изменения в файл описания Pipeline для Jenkins `Jenkinsfile`, расположенный в корневой директории репозитория. Документацию Pipeline см. на [сайте](https://jenkins.io/doc/book/pipeline/syntax/) разработчика.
 1. Загрузите изменения на GitHub:
 
@@ -279,7 +277,7 @@ Packer позволяет создавать образы дисков ВМ с �
 
 {% endnote %}
 
-После этого в разделе **{{ ui-key.yacloud.compute.switch_images }}** сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** появятся три новых образа:
+После этого в разделе **{{ ui-key.yacloud.compute.images_e7RdQ }}** сервиса **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** появятся три новых образа:
 * `Debian` — базовый образ с последними обновлениями.
 * `Nginx` — образ с веб-сервером nginx, базирующийся на образе `Debian`.
 * `Django` — образ с фреймворком Django, базирующийся на образе `Debian`.
@@ -314,7 +312,7 @@ Packer позволяет создавать образы дисков ВМ с �
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 * [Удалите созданные ВМ](../../compute/operations/vm-control/vm-delete.md).
 * [Удалите созданные образы](../../compute/operations/image-control/delete.md).
-* [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) и файл `<имя_пользователя.json>`.
+* [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md) и файл `<имя_пользователя>.json`.
 * [Удалите сеть и подсеть](../../vpc/operations/network-delete.md).
 
 Для удаления созданных с помощью {{ TF }} используйте команду `terraform destroy`.

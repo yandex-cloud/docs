@@ -1,5 +1,5 @@
 ---
-title: Управление доступом в {{ backup-full-name }} (S3)
+title: Управление доступом в {{ backup-full-name }}
 description: Управление доступом в сервисе, предоставляющим решение для резервного копирования данных в {{ yandex-cloud }} — {{ backup-full-name }}. В разделе описано, на какие ресурсы можно назначить роль, какие роли действуют в сервисе.
 ---
 
@@ -18,15 +18,25 @@ description: Управление доступом в сервисе, предо
 
 ## На какие ресурсы можно назначить роль {#resources}
 
-В консоли {{ yandex-cloud }} или с помощью YC CLI вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Назначенные роли будут действовать и на вложенные ресурсы.
+В консоли {{ yandex-cloud }} или с помощью CLI вы можете назначить роль на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Назначенные роли будут действовать и на вложенные ресурсы.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+{% include [roles-backup](../../_mermaid/roles/backup.md) %}
+
 ### Сервисные роли {#service-roles}
+
+#### backup.auditor {#backup-auditor}
+
+{% include [backup.auditor](../../_roles/backup/auditor.md) %}
 
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../../_roles/backup/viewer.md) %}
+
+#### backup.user {#backup-user}
+
+{% include [backup.user](../../_roles/backup/user.md) %}
 
 #### backup.editor {#backup-editor}
 

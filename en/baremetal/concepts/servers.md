@@ -1,0 +1,82 @@
+# Servers
+
+A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
+
+Servers come either in one of the [stock configurations](./server-configurations.md#standard) or a [configuration](./server-configurations.md#custom) built as per the user's [specification](../operations/servers/custom-server-lease.md).
+
+{% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
+
+## Server lease {#server-lease}
+
+You can lease a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
+
+You can lease a custom-configured server for one month, six months, or one year.
+
+## Server access {#server-access}
+
+You can manage a server using the [KVM console](../operations/servers/server-kvm.md), which is available from the [management console]({{ link-console-main }}).
+
+## Server pools {#server-pools}
+
+Pools are infrastructurally separate data center modules servers physically reside in. Pools are distributed across [availability zones](../../overview/concepts/geo-scope.md) located in [regions](../../overview/concepts/region.md). Currently, {{ baremetal-full-name }} is only available in the Russia region.
+
+| Region        | Availability zone | Pools                               |
+|---------------|------------------|------------------------------------|
+| `{{ region-id }}` | `{{ region-id }}-m`  | `{{ region-id }}-m3`<br>`{{ region-id }}-m4` |
+
+## Redundant power supply for servers {#server-power-supply}
+
+When leasing a sever, you can select your configurations based on redundant power supply type:
+
+* Servers with one power supply unit (`1 PSU`).
+* Servers with two or more power supply units (`2+ PSU`).
+* [Open Compute Project (OCP)](https://en.wikipedia.org/wiki/Open_Compute_Project) servers. These servers share a redundant power bus between all servers in the same rack instead of using individual power supply units.
+
+## Server network interfaces {#network-interfaces}
+
+Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
+
+* [Public](./network.md#public-network) network interface.
+* [Private](./network.md#private-network) network interface.
+
+In total, there may be more than two network interfaces:
+* In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
+
+    These inactive interfaces belong to the integrated NICs of the server motherboard. They are not connected to any networks and do not require any configuration.
+* In configurations with the [MC-LAG](./mc-lag.md) network connection redundancy, the server uses not one but two network interfaces at once to connect to each of the networks.
+
+    Network interfaces connected to the same network are combined into aggregation groups at the OS level, which increases the network connection speed and ensures fault tolerance.
+
+## Server statuses {#server-status}
+
+A server can have one of the following statuses:
+
+* `PROVISIONING`: Server is being prepared to be issued to the user. You get your stock configuration server within anywhere from 30 seconds to several minutes. A custom-configured server takes up to four calendar days to be built and started.
+* `RUNNING`: Leased server is fully available to the user. In this status, the server's power supply can be turned on or off.
+* `STARTING`: Server is being powered up.
+* `STOPPING`: Server is being powered down.
+* `RESTARTING`: Server is rebooting.
+* `REINSTALLING`: Server operating system is being reinstalled.
+* `UPDATING`: Server or network settings are being updated.
+* `QUARANTINING`: Server is being [quarantined](#quarantine).
+* `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
+* `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
+* `ERROR`: Error has occurred, the KVM console is unavailable. Please contact [support]({{ link-console-support }}).
+
+## Quarantine {#quarantine}
+
+Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+
+At any time during the quarantine period, you can restore the server for further use. To restore the server, contact [support]({{ link-console-support }}).
+
+{% note info %}
+
+A quarantined server does consume the server number [quota](./limits.md) but is [free of charge](../pricing.md).
+
+If a server is not restored for further use during the quarantine period, its quarantine time will be included into the paid lease term. 
+
+{% endnote %}
+
+#### See also {#see-also}
+
+* [{#T}](../../backup/tutorials/backup-baremetal.md)

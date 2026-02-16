@@ -2,18 +2,18 @@
 title: How to get information about a disk snapshot schedule in {{ compute-full-name }}
 ---
 
-# Getting information about a disk snapshot schedule
+# Getting disk snapshot schedule info
 
 {% list tabs %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your [schedule](../../concepts/snapshot-schedule.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
-  1. Go to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
-  1. Select the required schedule.
-  1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the disk snapshot schedule.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+  1. In the left-hand panel, select ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
+  1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
+  1. Select the schedule.
+  1. The **{{ ui-key.yacloud.common.overview }}** page will show the disk snapshot schedule details.
 
 - CLI
 
@@ -21,13 +21,13 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command to get information about a schedule:
+  1. See the description of the CLI command for getting information about a schedule:
 
       ```bash
       yc compute snapshot-schedule get --help
       ```
 
-  1. Get information about your schedule by specifying its name or ID:
+  1. Get information about a schedule by specifying its name or ID:
 
       ```bash
       yc compute snapshot-schedule get <schedule_name>
@@ -73,15 +73,15 @@ title: How to get information about a disk snapshot schedule in {{ compute-full-
       * `data "yandex_compute_snapshot_schedule"`: Description of the disk snapshot schedule as a data source:
         * `snapshot_schedule_id`: Disk snapshot schedule ID.
       * `output "snapshot_schedule"`: Output variable that contains information about the disk snapshot schedule:
-        * `value`: Returned value.
+        * `value`: Return value.
 
-      You can replace `status` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/datasource_compute_snapshot_schedule).
+      You can replace `status` with any other parameter to get the information you need. For more information about the `yandex_compute_snapshot_schedule` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/compute_snapshot_schedule).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output

@@ -6,6 +6,7 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 # Preparing for a transfer
 
 
+
 ## Preparing a source {#source}
 
 ### {{ AB }} sources {#source-airbyte}
@@ -35,11 +36,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/sources/clickhouse-prepare.md) %}
 
-### {{ ES }} source {#source-es}
-
-
-{% include [prepare elasticsearch db](../../_includes/data-transfer/endpoints/sources/elasticsearch-prepare.md) %}
-
 ### {{ GP }} source {#source-gp}
 
 
@@ -54,6 +50,11 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 ### {{ MY }} source {#source-my}
 
 {% include [prepare mysql db](../../_includes/data-transfer/endpoints/sources/mysql-prepare.md) %}
+
+### {{ ES }} source {#source-es}
+
+
+{% include notitle [White IP list](../../_includes/data-transfer/configure-white-ip.md) %}
 
 ### {{ OS }} source {#source-os}
 
@@ -85,11 +86,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 
 {% include [prepare clickhouse db](../../_includes/data-transfer/endpoints/targets/clickhouse-prepare.md) %}
 
-### {{ ES }} target {#target-es}
-
-
-{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
-
 ### {{ GP }} target {#target-gp}
 
 
@@ -109,6 +105,11 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 
 {% include [prepare object storage db](../../_includes/data-transfer/endpoints/targets/object-storage-prepare.md) %}
 
+### {{ ES }} target {#target-es}
+
+
+{% include [prepare elastic db](../../_includes/data-transfer/endpoints/targets/elasticsearch-prepare.md) %}
+
 ### {{ OS }} target {#target-os}
 
 {% include [prepare opensearch db](../../_includes/data-transfer/endpoints/targets/opensearch-prepare.md) %}
@@ -116,7 +117,6 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 ### {{ PG }} target {#target-pg}
 
 {% include [prepare postgresql db](../../_includes/data-transfer/endpoints/targets/pg-prepare.md) %}
-
 
 
 ### {{ ydb-full-name }} target {#target-ydb}
@@ -127,6 +127,5 @@ description: In this tutorial, you will learn how to prepare for a transfer.
 {% include [airbyte-trademark](../../_includes/data-transfer/airbyte-trademark.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
-
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

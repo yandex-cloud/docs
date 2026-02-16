@@ -1,23 +1,23 @@
-1. View the description of the CLI command to set up limits:
+1. See the description of the CLI command for setting up limits:
 
    ```bash
    yc alb load-balancer autoscale --help
    ```
 
-1. Set limits by running the command below:
+1. Specify limits by running this command:
 
    ```bash
    yc alb load-balancer autoscale <load_balancer_name_or_ID> \
-     --min-zone-size <minimum_number_of_resource_units_per_zone> \
-     --max-size <maximum_total_number_of_resource_units>
+     --min-zone-size <resource_unit_minimum_per_zone> \
+     --max-size <resource_unit_maximum_total>
    ```
 
    Where:
 
-   * `--min-zone-size`: Minimum number of resource units in each availability zone. The default minimum is 2. You cannot set a minimum value below 2.
-   * `--max-size`: Maximum total number of resource units. By default, this number is unlimited. Make sure the value is not less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone.
+   * `--min-zone-size`: Resource unit minimum per availability zone The default minimum is 2. You cannot set a minimum below 2.
+   * `--max-size`: Resource unit maximum total. By default, it is unlimited. Make sure this value is no less than (number of load balancer availability zones) × (minimum number of resource units per zone).
 
-   You can set one or both parameters in the command.
+   You can specify one or both settings at once using this command.
 
    For example:
 

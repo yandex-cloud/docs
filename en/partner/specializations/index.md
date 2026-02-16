@@ -1,6 +1,6 @@
 # {{ yandex-cloud }} Professional specializations
 
-{{ yandex-cloud }} Professional specializations are a seal of quality: they are granted to partners who are experts in a given technology field. Specialization partners get additional benefits, bonuses, and an increased partner bonus. Joining {{ yandex-cloud }} Professional ensures integration into {{ yandex-cloud }} business and development in your specialization together with us. For more information on how to get the specialization, see [{#T}](./conditions.md).
+{{ yandex-cloud }} Professional specializations are a seal of quality: they are granted to partners who are experts in a certain technology field. Partners with a confirmed specialization get additional benefits, bonuses, and an increased partner bonus. Joining {{ yandex-cloud }} Professional ensures integration into {{ yandex-cloud }} business, as well as getting even more experience in your specialization with our support. For more information on how to get a specialization, see [{#T}](./conditions.md).
 
 Technology specialization advantages:
 
@@ -10,8 +10,8 @@ Technology specialization advantages:
 * Marketing support
 * Dedicated DevOps and Data Platform architects
 * Projects with the Professional Services team
-* Early access to services in Technical Preview
-* Grants for professional training programs and demo stands up to 150,000 rubles
+* Early access to services at the technical preview stage
+* Grants for professional training programs and demo sandboxes for up to ₽150,000
 
 ## Types of technology specializations {#spec-types}
 
@@ -28,12 +28,12 @@ Technology specialization advantages:
 1. Automated development environment.
 1. Creating digital products and services for the customer.
 
-### ML & AI {#ml-spec}
+### ML and AI {#ml-spec}
 
-1. Building intelligent voice assistants.
+1. Building smart voice assistants.
 1. Call center automation.
 1. Speech analytics.
-1. AI-enabled solutions.
+1. AI-based solutions.
 
 ### Data Platform {#platform-spec}
 
@@ -50,11 +50,11 @@ Technology specialization advantages:
 
 A specialization reward is credited as a [rebate](../terms.md#rebate):
 
-* **Infrastructure**: 10% of paid consumption increase across [subaccounts](../terms.md#subaccount) and registered [projects](../program/var-tools.md#project-reg).
+* **Infrastructure**: 10% of paid consumption increase across [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg).
 * **DevOps**: 10% of paid consumption increase across subaccounts and registered projects.
 * **Data Platform**: 10% of paid consumption increase across subaccounts and registered projects.
 * **ML & AI**: 10% of paid specialization service consumption across subaccounts.
 
-A rebate is credited for each quarter during which a partner had an active specialization. Accrued rebates are displayed in the [partner portal]({{ link-cloud-partners }}) under **Rebate accrual balance**.
+A rebate is credited for each quarter during which a partner had an active specialization. You can see your accrued rebates on the [partner portal]({{ link-cloud-partners }}) under **Rebate accrual balance**.
 
-For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=en).
+For more information on getting partner rewards, see the [Partner Agreement](https://yandex.ru/legal/cloud_partnership/?lang=ru).

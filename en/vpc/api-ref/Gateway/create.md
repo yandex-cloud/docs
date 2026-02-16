@@ -1,9 +1,63 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/gateways
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a gateway in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the gateway.
+            The name must be unique within the folder.
+          pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the gateway.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Gateway labels as `key:value` pairs.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        sharedEgressGatewaySpec:
+          description: |-
+            **object**
+            Includes only one of the fields `sharedEgressGatewaySpec`.
+            Gateway configuration specification
+          $ref: '#/definitions/SharedEgressGatewaySpec'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      SharedEgressGatewaySpec:
+        type: object
+        properties: {}
 sourcePath: en/_api-ref/vpc/v1/api-ref/Gateway/create.md
 ---
 
-# Virtual Private Cloud API, REST: Gateway.Create {#Create}
+# Virtual Private Cloud API, REST: Gateway.Create
 
 Creates a gateway in the specified folder.
 
@@ -20,7 +74,7 @@ POST https://vpc.{{ api-host }}/vpc/v1/gateways
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   // Includes only one of the fields `sharedEgressGatewaySpec`
   "sharedEgressGatewaySpec": "object"
   // end of the list of possible fields
@@ -41,7 +95,7 @@ The name must be unique within the folder. ||
 || description | **string**
 
 Description of the gateway. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs. ||
 || sharedEgressGatewaySpec | **object**
@@ -80,7 +134,7 @@ Gateway configuration specification ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `sharedEgressGateway`
     "sharedEgressGateway": "object"
     // end of the list of possible fields
@@ -214,7 +268,7 @@ Value must match the regular expression ``\\|[a-z]([-a-z0-9]{0,61}[a-z0-9])?``. 
 || description | **string**
 
 Description of the gateway. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Gateway labels as `key:value` pairs.
 No more than 64 per resource.

@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как получить ин
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [политика резервного копирования](../../../backup/concepts/policy.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
   1. На панели слева выберите ![policies](../../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.backup.label_policies }}**.
   1. Выберите политику резервного копирования для просмотра.
   1. На странице **Обзор** отобразится подробная информация о политике.
@@ -79,7 +79,7 @@ description: Из статьи вы узнаете, как получить ин
      ...
      ```
 
-  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/managed-services/backup/policy/get.md).
+  Подробнее о команде читайте в [справочнике CLI](../../../cli/cli-ref/backup/cli-ref/policy/get.md).
 
 - {{ TF }} {#tf}
 

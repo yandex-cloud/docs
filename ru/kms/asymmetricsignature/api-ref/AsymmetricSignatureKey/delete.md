@@ -1,14 +1,32 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        keyId:
+          description: |-
+            **string**
+            Required field. ID of the key to be deleted.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - keyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/asymmetricsignature/api-ref/AsymmetricSignatureKey/delete.md
 ---
 
-# Key Management Service API, REST: AsymmetricSignatureKey.Delete {#Delete}
+# Key Management Service API, REST: AsymmetricSignatureKey.Delete
 
 Deletes the specified asymmetric KMS key. This action also automatically schedules
 the destruction of all of the key's versions in 72 hours.
 
-The key and its versions appear absent in [AsymmetricSignatureKeyService.Get](/docs/kms/api-ref/AsymmetricSignatureKey/get#Get) and [AsymmetricSignatureKeyService.List](/docs/kms/api-ref/AsymmetricSignatureKey/list#List)
+The key and its versions appear absent in [AsymmetricSignatureKeyService.Get](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/get#Get) and [AsymmetricSignatureKeyService.List](/docs/kms/asymmetricsignature/api-ref/AsymmetricSignatureKey/list#List)
 requests, but can be restored within 72 hours with a request to tech support.
 
 ## HTTP request
@@ -23,7 +41,9 @@ DELETE https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}
 ||Field | Description ||
 || keyId | **string**
 
-Required field. ID of the key to be deleted. ||
+Required field. ID of the key to be deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -55,7 +75,7 @@ Required field. ID of the key to be deleted. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "signatureAlgorithm": "string",
     "deletionProtection": "boolean"
@@ -187,14 +207,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption or signature and verification.
 Can be set to INACTIVE using the [AsymmetricKeyService.Update] method.
@@ -204,7 +223,6 @@ Can be set to ACTIVE using the [AsymmetricKeyService.Update] method. ||
 
 Signature Algorithm ID.
 
-- `ASYMMETRIC_SIGNATURE_ALGORITHM_UNSPECIFIED`
 - `RSA_2048_SIGN_PSS_SHA_256`: RSA-2048 signature with PSS padding and SHA-256
 - `RSA_2048_SIGN_PSS_SHA_384`: RSA-2048 signature with PSS padding and SHA-384
 - `RSA_2048_SIGN_PSS_SHA_512`: RSA-2048 signature with PSS padding and SHA-512

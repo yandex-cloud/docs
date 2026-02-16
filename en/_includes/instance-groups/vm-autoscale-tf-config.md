@@ -1,4 +1,3 @@
-
 ```hcl
 # Declaring variables for confidential parameters
 
@@ -15,7 +14,7 @@ variable "ssh_key" {
   sensitive = true
 }
 
-# Setting up the provider
+# Configuring a provider
 
 terraform {
   required_providers {
@@ -86,7 +85,7 @@ resource "yandex_vpc_security_group" "sg-1" {
   }
 }
 
-# Specifying a ready-made VM image
+# Specifying a prebuilt VM image
 
 data "yandex_compute_image" "autoscale-image" {
   family = "container-optimized-image"
@@ -105,7 +104,7 @@ resource "yandex_compute_instance_group" "autoscale-group" {
       memory = 2
       cores  = 2
     }
-
+  
     boot_disk {
       mode = "READ_WRITE"
       initialize_params {
@@ -184,6 +183,3 @@ resource "yandex_lb_network_load_balancer" "balancer" {
   }
 }
 ```
-
-
-

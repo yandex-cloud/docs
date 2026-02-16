@@ -6,6 +6,19 @@ description: Видеозаписи конференций и вебинаров
 # Публичные материалы о {{ mmy-full-name }}
 
 ## Конференции и вебинары {#conf-and-webinars}
+### 2025: Статьи {#article-2025}
+
+* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/performance-gains).
+
+*  {{ MY }}: фундамент для управления базами данных и аналитики.
+
+   * [Текст статьи](https://yandex.cloud/ru/blog/mysql-overview).
+
+* {{ MY }}: что это за система и какую версию выбрать.
+
+  * [Текст статьи](https://yandex.cloud/ru/blog/posts/2025/05/mysql).
 
 ### 2022: {{ yandex-cloud }} {#yc-2022}
 

@@ -1,29 +1,30 @@
-# Mounting a volume in Block mode
+---
+title: Mounting a volume in block mode
+description: Follow this guide to mount a volume in block mode.
+---
+
+# Mounting a volume in block mode
 
 
-To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#block):
-1. [{#T}](#create-pvc)
-1. [{#T}](#create-pod)
+To mount a [volume](../../concepts/volume.md#block) in `volumeMode: Block` mode:
+1. [Create a PersistentVolumeClaim](#create-pvc).
+1. [Create a pod with the mounted volume](#create-pod).
 
 {% include [Install kubectl to get started](../../../_includes/managed-kubernetes/kubectl-before-you-begin.md) %}
 
-## Create a PersistentVolumeClaim object {#create-pvc}
+## Create a PersistentVolumeClaim {#create-pvc}
 
-1. To create a volume in Block mode, set the `spec.volumeMode` field value to `Block`.
+1. To create a volume in block mode, set the `spec.volumeMode` field to `Block`.
 
    Save the following [PersistentVolumeClaim](dynamic-create-pv.md) creation specification to a YAML file named `pvc-block.yaml`.
 
-
    {% note info %}
 
-   If the `storageClassName` parameter is not specified, the default storage class (`yc-network-hdd`) is used. To change the default class, see [{#T}](manage-storage-class.md#sc-default).
+   If the `storageClassName` parameter is not specified, the default storage class, `yc-network-hdd`, will be used. Learn how to change the default class in [{#T}](manage-storage-class.md#sc-default).
 
    {% endnote %}
 
-
-
-   To learn more about the `PersistentVolumeClaim` creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
-
+   Learn more about the `PersistentVolumeClaim` creation specification in the [{{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/config-and-storage-resources/persistent-volume-claim-v1/).
 
    ```yaml
    apiVersion: v1
@@ -40,8 +41,6 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
          storage: 1Gi
    ```
 
-
-
 1. Create a `PersistentVolumeClaim`:
 
    ```bash
@@ -56,11 +55,11 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
 
 ## Create a pod with the mounted volume {#create-pod}
 
-1. When creating a volume pod in Block mode, specify the `spec.containers.volumeDevices` field.
+1. When creating a volume pod in block mode, specify the `spec.containers.volumeDevices` field.
 
    Save the following pod creation specification to a YAML file named `pod.yaml`.
 
-   To learn more about the pod creation specification, see the [{{ k8s }} documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
+   Learn more about the pod creation specification in [this {{ k8s }} guide](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#pod-v1-core).
 
    ```yaml
    apiVersion: v1
@@ -82,7 +81,7 @@ To mount a volume in the `volumeMode: Block` [mode](../../concepts/volume.md#blo
          claimName: pvc-block
    ```
 
-1. Run the following command:
+1. Run this command:
 
    ```bash
    kubectl create -f pod.yaml

@@ -26,18 +26,23 @@ keywords:
 
 ## Изменить сервисный аккаунт {#change-service-account}
 
-{% note warning %}
 
-Если для доступа к объектам из {{ objstorage-full-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+Для привязки сервисного аккаунта к кластеру {{ mos-name }} [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
-{% endnote %}
+
+{% include [mdb-service-account-update](../../_includes/mdb/service-account-update.md) %}
+
+О настройке сервисного аккаунта читайте в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -59,6 +64,8 @@ keywords:
     Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
 
 - {{ TF }} {#tf}
+
+    Чтобы изменить сервисный аккаунт, привязанный к кластеру {{ mos-name }}:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
@@ -83,16 +90,82 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить настройки сервисного аккаунта, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Идентификатор сервисного аккаунта, используемого для работы с кластером, в параметре `serviceAccountId`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    Подробнее о настройке сервисного аккаунта см. в разделе [Настройка доступа к {{ objstorage-name }}](s3-access.md).
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                        "updateMask": "serviceAccountId",
+                        "serviceAccountId": "<идентификатор_сервисного_аккаунта>"
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае передается только один параметр.
+
+        * `serviceAccountId` — идентификатор сервисного аккаунта, используемого для работы с кластером.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                        "paths": [
+                            "service_account_id"
+                        ]
+                    },
+                    "service_account_id": "<идентификатор_сервисного_аккаунта>"
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `service_account_id` — идентификатор сервисного аккаунта, используемого для работы с кластером.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -103,9 +176,13 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В поле **{{ ui-key.yacloud.mdb.forms.database_field_admin-password }}** укажите новый пароль.
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -122,6 +199,8 @@ keywords:
         {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
            --admin-password <новый_пароль>
         ```
+
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
 
     * Автоматическая генерация пароля. Сгенерированный пароль будет выведен в консоль.
 
@@ -149,6 +228,8 @@ keywords:
         }
         ```
 
+        {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -157,14 +238,90 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новый пароль пользователя `admin` в параметре `configSpec.adminPassword`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                        "updateMask": "configSpec.adminPassword",
+                        "configSpec": {
+                            "adminPassword": "<новый_пароль>"
+                        }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае передается только один параметр.
+
+        * `configSpec.adminPassword` — новый пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.admin_password"
+                        ]
+                    },
+                    "config_spec": {
+                        "admin_password": "<новый_пароль>"
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `config_spec.admin_password` — новый пароль пользователя `admin`.
+
+            {% include [os-password-requirements.md](../../_includes/mdb/mos/os-password-requirements.md) %}
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -195,16 +352,109 @@ keywords:
     * `--fielddata-cache-size` — объем кучи JVM, который выделен для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
     * `--reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить настройки {{ OS }}, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Новое максимально допустимое количество булевых выражений в параметре `configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
-    * Новый объем кучи JVM, выделенный для структуры данных fielddata, в параметре `configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize`. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/index-settings/#cluster-level-index-settings).
-    * Новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации, в параметре `configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                        "updateMask": "configSpec.opensearchSpec.opensearchConfig_2.maxClauseCount,configSpec.opensearchSpec.opensearchConfig_2.fielddataCacheSize,configSpec.opensearchSpec.opensearchConfig_2.reindexRemoteWhitelist",
+                        "configSpec": {
+                            "opensearchSpec": {
+                                "opensearchConfig_2": {
+                                    "maxClauseCount": "<количество_булевых_выражений>",
+                                    "fielddataCacheSize": "<объем_кучи_JVM>",
+                                    "reindexRemoteWhitelist": "<адрес_хоста>:9200"
+                                }
+                            }
+                        }
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+        * `configSpec.opensearchSpec.opensearchConfig_2` — настройки {{ OS }}:
+
+            * `maxClauseCount` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
+
+            * `fielddataCacheSize` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/).
+
+            * `reindexRemoteWhitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.opensearch_spec.opensearch_config_2.max_clause_count",
+                            "config_spec.opensearch_spec.opensearch_config_2.fielddata_cache_size",
+                            "config_spec.opensearch_spec.opensearch_config_2.reindex_remote_whitelist"
+                        ]
+                    },
+                    "config_spec": {
+                        "opensearch_spec": {
+                            "opensearch_config_2": {
+                                "max_clause_count": "<количество_булевых_выражений>",
+                                "fielddata_cache_size": "<объем_кучи_JVM>",
+                                "reindex_remote_whitelist": "<адрес_хоста>:9200"
+                            }
+                        }
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `config_spec.opensearch_spec.opensearch_config_2` — настройки {{ OS }}:
+
+            * `max_clause_count` — новое максимально допустимое количество булевых выражений. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/query-dsl/compound/bool/).
+
+            * `fielddata_cache_size` — новый объем кучи JVM, выделенный для структуры данных fielddata. Можно указать абсолютное значение или проценты, например, `512mb` или `50%`. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/configuring-opensearch/).
+
+            * `reindex_remote_whitelist` — новый список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите [FQDN хоста](connect/fqdn.md) и через двоеточие порт 9200. Чтобы указать несколько хостов, перечислите их через запятую, указанную после порта. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -214,8 +464,9 @@ keywords:
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
 
         * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
@@ -225,7 +476,7 @@ keywords:
 
         * {% include [Deletion protection](../../_includes/mdb/console/deletion-protection.md) %}
 
-            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -243,8 +494,8 @@ keywords:
                     `weekday=<день_недели>,`
                     `hour=<час_дня> \
        --delete-protection \
-       --data-transfer-access=<true_или_false> \
-       --serverless-access=<true_или_false>
+       --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
+       --serverless-access=<разрешить_доступ_из_Serverless_Containers>
     ```
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -258,9 +509,9 @@ keywords:
 
             Возможные значения параметра `weekday`: `mon`, `tue`, `wed`, `thu`, `fry`, `sat`, `sun`. В параметре `hour` укажите, во сколько должно завершиться техническое обслуживание. Например, если указать `14`, техническое обслуживание будет проходить с 13:00 до 14:00 по UTC.
 
-    * `--delete-protection` — защита кластера от непреднамеренного удаления пользователем.
+    * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
 
-        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
 
     * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
@@ -295,13 +546,13 @@ keywords:
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
             ...
-            deletion_protection = <true_или_false>
+            deletion_protection = <защитить_кластер_от_удаления>
         }
         ```
 
-        Где `deletion_protection` — защита от удаления кластера.
+        Где `deletion_protection` — защита кластера от непреднамеренного удаления.
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+        Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
 
     1. Проверьте корректность настроек.
 
@@ -311,34 +562,157 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить пароль пользователя `admin`, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров) в параметре `maintenanceWindow`.
-    * Настройки защиты от удаления кластера в параметре `deletionProtection`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-        {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
-    * Настройки доступа из [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) в параметре `configSpec.access.dataTransfer`.
-    * Настройки доступа из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) в параметре `configSpec.access.serverless`.
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+        
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                        "updateMask": "configSpec.access,deletionProtection,maintenanceWindow",
+                        "configSpec": {
+                            "access": {
+                                "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
+                                "serverless": <разрешить_доступ_из_Serverless_Containers>
+                            }
+                        },
+                        "deletionProtection": <защитить_кластер_от_удаления>,
+                        "maintenanceWindow": {
+                            "weeklyMaintenanceWindow": {
+                                "day": "<день_недели>",
+                                "hour": "<час>"
+                            }
+                        }
+                    }'
+        ```
+
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+        
+        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+            * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+            * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+            Возможные значения настроек: `true` или `false`.
+
+
+        * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
+
+        * `maintenanceWindow.weeklyMaintenanceWindow` — расписание окна технического обслуживания:
+
+            * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+            * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                        "paths": [
+                            "config_spec.access",
+                            "deletion_protection",
+                            "maintenance_window"
+                        ]
+                    },
+                    "config_spec": {
+                        "access": {
+                            "data_transfer": <разрешить_доступ_из_Data_Transfer>,
+                            "serverless": <разрешить_доступ_из_Serverless_Containers>
+                        }
+                    },
+                    "deletion_protection": <защитить_кластер_от_удаления>,
+                    "maintenance_window": {
+                        "weekly_maintenance_window": {
+                            "day": "<день_недели>",
+                            "hour": "<час>"
+                        }
+                    }
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        
+        * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+
+            * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
+            * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
+
+            Возможные значения настроек: `true` или `false`.
+
+
+        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
+
+            Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.
+
+        * `maintenance_window.weekly_maintenance_window` — расписание окна технического обслуживания:
+
+            * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
+            * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
 
 ## Изменить группы безопасности {#change-sg-set}
 
-После того как вы назначите другие [группы безопасности](../concepts/network.md#security-groups), может потребоваться их [дополнительная настройка](connect.md#security-groups) для подключения к кластеру.
+После того как вы назначите другие [группы безопасности](../concepts/network.md#security-groups), может потребоваться их [дополнительная настройка](connect/fqdn.md#security-groups) для подключения к кластеру.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для сетевого трафика кластера.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -382,14 +756,92 @@ keywords:
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-- API {#api}
+- REST API {#api}
 
-    Чтобы изменить список групп безопасности для кластера, воспользуйтесь методом REST API [update](../api-ref/Cluster/update.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и передайте в запросе:
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-    * Идентификатор кластера в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-    * Список идентификаторов групп безопасности в параметре `securityGroupIds`.
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+        {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+        ```bash
+        curl \
+            --request PATCH \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --data '{
+                        "updateMask": "securityGroupIds",
+                        "securityGroupIds": [
+                            "<идентификатор_группы_безопасности_1>",
+                            "<идентификатор_группы_безопасности_2>",
+                            ...
+                            "<идентификатор_группы_безопасности_N>"
+                        ]
+                    }'
+        ```
+
+        Где:
+
+        * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+            В данном случае передается только один параметр.
+
+        * `securityGroupIds` — идентификаторы групп безопасности.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+        {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                        "paths": [
+                            "security_group_ids"
+                        ]
+                    },
+                    "security_group_ids": [
+                        "<идентификатор_группы_безопасности_1>",
+                        "<идентификатор_группы_безопасности_2>",
+                        ...
+                        "<идентификатор_группы_безопасности_N>"
+                    ]
+                }' \
+        {{ api-host-mdb }}:{{ port-https }} \
+        yandex.cloud.mdb.opensearch.v1.ClusterService.Update
+        ```
+
+        Где:
+
+        * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+            В данном случае передается только один параметр.
+
+        * `security_group_ids` — идентификаторы групп безопасности.
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

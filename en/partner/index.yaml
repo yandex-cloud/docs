@@ -1,24 +1,42 @@
 title: Yandex Cloud partner program
 description:
-  - 'On the <a href="https://partners.yandex.cloud">partner portal</a> you can:'
-  - '- Register customers who use Yandex Cloud with your help.'
-  - '- Manage customer resources and monitor how they use Yandex Cloud services.'
-  - '- Manage your employees'' access to your partner profile.'
-  - '- Keep track of how your partner bonus is calculated and how it grows.'
+  - >-
+    The Yandex Cloud partner program empowers you to meet your customers’ needs
+    using technologies and services tested with Yandex workloads. You can:
+    <ul><li>Sell Yandex Cloud technologies and get rewards.</li> <li>Earn money
+    on advice, migration, integration, and other cloud deployment
+    services.</li></ul>
+  - >-
+    The <a href="https://partners.yandex.cloud">partner portal</a> helps you
+    manage customers, track their consumption, register deals and projects, view
+    partner bonuses and accrued rebates, and manage referral links.
+  - >-
+    To learn how to publish your products and sell them to Yandex Cloud
+    customers, see the <a href="/docs/marketplace/quickstart">Yandex Cloud
+    Marketplace</a>.
+links:
+  - title: Partner program
+    description: Accept customer payments and manage document flow on your own.
+    href: program/var
+  - title: Partner portal
+    description: The core tool for managing customers.
+    href: portal
+  - title: FAQ
+    description: Answers to frequently asked questions
+    href: qa/all
 meta:
   title: Partner program
   description: >-
-    On the partner portal you can register customers who use Yandex Cloud with
-    your help, manage customer resources and monitor how they use Yandex Cloud
-    services, manage your employees access to your partner profile, keep track
-    of how your partner bonus is calculated and how it grows.
-links:
-  - title: Referral program
-    description: Learn how to attract customers via referral links
-    href: program/referral
-  - title: VAR program
-    description: Learn how to sell Yandex Cloud services and get a partner bonus
-    href: program/var
-  - title: Questions and answers
-    description: Answers to frequently asked questions
-    href: qa/all
+    The Yandex Cloud partner program empowers you to meet your customers’ needs
+    using technologies and services tested with Yandex workloads.
+  keywords:
+    - '{{ yandex-cloud }} partner program'
+    - '{{ yandex-cloud }} referral program '
+    - How to earn in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} referral program '
+    - How to earn in the cloud
+    - '{{ yandex-cloud }} partner portal'
+    - Partnership in {{ yandex-cloud }}
+    - '{{ yandex-cloud }} partners'
+    - How to sell in {{ yandex-cloud }}
+    - How to publish your products and sell them to {{ yandex-cloud }} customers

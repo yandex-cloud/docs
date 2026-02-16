@@ -1,93 +1,93 @@
 
 
-If you have your own corporate networks connected to internal [networks](../../vpc/concepts/network.md#network) in your {{ yandex-cloud }} [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name, regardless of their location, both in corporate and cloud networks.
+If you have your own corporate networks connected to your [{{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) internal [networks](../../vpc/concepts/network.md#network) via [{{ interconnect-full-name }}](../../interconnect/index.yaml), you can integrate your corporate DNS with [{{ dns-name }}](../../dns). This will allow you to access resources and services by name in both corporate and cloud networks.
 
-You cannot delegate DNS record management in [private zones](../../dns/concepts/dns-zone.md#private-zones) in {{ yandex-cloud }} to your DNS servers in the corporate network, because NS records are ignored for private DNS zones. To ensure domain name recognition for cloud network services and resources in private zones, configure separate DNS forwarders in your cloud subnets. _DNS forwarders_ are DNS servers that redirect requests differently depending on the name specified in the request. We recommend [CoreDNS](https://coredns.io/) or [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
+You cannot delegate DNS record management in {{ yandex-cloud }} [private zones](../../dns/concepts/dns-zone.md#private-zones) to your corporate DNS servers, as private zone NS records are ignored. To ensure that domain names of private zone services and resources are recognized, configure separate DNS forwarders in your cloud subnets. A _DNS forwarder_ is a DNS server forwarding requests that cannot be resolved locally to an external DNS server. We recommend [CoreDNS](https://coredns.io/) or [Unbound](https://www.nlnetlabs.nl/projects/unbound/).
 
 {% note warning %}
 
-Some DNS forwarders map the location of zones in {{ dns-name }} to their own settings when validating responses. In this case, only specify existing {{ dns-name }} zones in the settings. For example, if records share a `.` zone, configure redirects for this zone.
+Some DNS forwarders use their own settings to determine which DNS requests to resolve. In this case, you should only specify existing {{ dns-name }} zones in their settings. For example, you need to configure redirects for records residing in a shared `.` zone.
 
 {% endnote %}
 
-To set up name recognition for corporate services and resources in {{ yandex-cloud }} cloud networks:
+To set up DNS resolution for your corporate services and {{ yandex-cloud }} resources:
 
-1. [Read an integration example description](#network-desc).
+1. [Read the description of an integration example](#network-desc).
 1. [Set up cloud DNS](#setup-cloud-dns).
-1. [Set up corporate DNS servers](#setup-on-prem-dns).
-1. [Run a health check for the service](#check-dns-service).
+1. [Set up your corporate DNS servers](#setup-on-prem-dns).
+1. [Test the service](#check-dns-service).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Integration example {#network-desc}
+## Sample integration solution {#network-desc}
 
 ![DNS integration example](../../_assets/dns/dns-integration.svg "DNS integration example")
 
 1. The corporate network consists of two [subnets](../../vpc/concepts/network.md#subnet): `172.16.1.0/24` and `172.16.2.0/24`.
 
-1. Each subnet has one DNS server:
+1. Each subnet hosts a DNS server:
 
-   * `172.16.1.5`: ns1.corp.example.net
-   * `172.16.2.5`: ns2.corp.example.net
+    * `172.16.1.5`: ns1.corp.example.net
+    * `172.16.2.5`: ns2.corp.example.net
+   
+    These servers manage the `corp.example.net` DNS zone.
 
-   These servers serve the `corp.example.net` DNS zone.
+1. The {{ yandex-cloud }} network also consists of two subnets:
 
-1. The {{ yandex-cloud }} cloud network also consists of two subnets:
+   * `172.16.3.0/24`: `subnet3` in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
+   * `172.16.4.0/24`: `subnet4` in the `{{ region-id }}-b` availability zone.
 
-   * `172.16.3.0/24`: subnet3, in the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
-   * `172.16.4.0/24`: subnet4, in the `{{ region-id }}-b` availability zone.
+    These subnets host the `172.16.3.2` and `172.16.4.2` {{ yandex-cloud }} DNS servers.
 
-   These subnets host the {{ yandex-cloud }} DNS servers, `172.16.3.2` and `172.16.4.2`.
+    These servers manage [private DNS zones](../../dns/concepts/dns-zone.md#private-zones) in your cloud network.
 
-   These servers serve the cloud network's [private DNS zones](../../dns/concepts/dns-zone.md#private-zones).
+1. All corporate network subnets are accessible from the cloud network subnets, and vice versa.
 
-1. The corporate and cloud networks are interconnected so that all subnets of one network are accessible from subnets of the other network, and vice versa.
-
-Next, you need to set up two DNS forwarders in the cloud network:
+Next, you need to set up two DNS forwarders in your cloud network:
 
 * `172.16.3.5`: forwarder1.internal
 * `172.16.4.5`: forwarder2.internal
 
 They will redirect DNS requests as follows:
 
-* Requests to the `corp.example.net` zone: Via corporate DNS servers, `172.16.1.5` and `172.16.2.5`.
-* All other requests (to the `.` zone): Via internal {{ yandex-cloud }} DNS servers to the corresponding subnets, `172.16.3.2` and `172.16.4.2`.
+* `corp.example.net` zone requests will go to the `172.16.1.5` and `172.16.2.5` corporate DNS servers.
+* The rest, i.e., `.` zone requests, will go to the `172.16.3.2` and `172.16.4.2` {{ yandex-cloud }} internal DNS servers.
 
-To ensure fault tolerance for DNS forwarders, they will be placed behind the [internal network load balancer](../../network-load-balancer/concepts/nlb-types.md){{ network-load-balancer-full-name }}. All requests to DNS forwarders (both from the cloud network and from the corporate network) will pass through this load balancer.
+To ensure fault tolerance, DNS forwarders will be placed behind an [internal {{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/nlb-types.md) routing DNS requests from both your cloud and your corporate network.
 
 ## Getting started {#before-you-begin}
 
-1. To install DNS forwarders in each cloud subnet (`subnet3` and `subnet4`), [create a VM](../../compute/operations/vm-create/create-linux-vm.md) from the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following parameters:
+1. To install DNS forwarders in `subnet3` and `subnet4`, [create a VM](../../compute/operations/vm-create/create-linux-vm.md) running an [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following settings:
 
-   * **{{ ui-key.yacloud.common.name }}**:
-      * `forwarder1`: For the VM in `subnet3`.
-      * `forwarder2`: For the VM in `subnet4`.
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+    * **{{ ui-key.yacloud.common.name }}**:
+        * `forwarder1`: For the VM in `subnet3`.
+        * `forwarder2`: For the VM in `subnet4`.
+    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`
       * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: Select `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` and specify:
-         * 172.16.3.5: For the `forwarder1` VM.
-         * 172.16.4.5: For the `forwarder2` VM.
+        * `172.16.3.5` for `forwarder1`.
+        * `172.16.4.5` for `forwarder2`.
 
-1. To connect from the internet and check the service in `subnet4`, create other VM instance from the [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) public image with the following parameters:
+1. To test the `subnet4`-hosted service from the internet, create another [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts) VM with the following settings:
 
-   * **{{ ui-key.yacloud.common.name }}**: `test1`.
-   * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-
-1. To be able to install software from the internet in `subnet3` and `subnet4`, set up a [NAT gateway](../../vpc/operations/create-nat-gateway.md).
+    * **{{ ui-key.yacloud.common.name }}**: `test1`
+    * Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
+      * **{{ ui-key.yacloud.component.compute.network-select.field_internal-ipv4 }}**: `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`
+  
+1. [Set up a NAT gateway](../../vpc/operations/create-nat-gateway.md) to download software from the web in `subnet3` and `subnet4`.
 
 ### Required paid resources {#paid-resources}
 
 The infrastructure support costs include:
 * Fee for a continuously running VM (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using a dynamic or static external IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for a dynamic or static public IP address (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for using a network load balancer (see [{{ network-load-balancer-full-name }} pricing](../../network-load-balancer/pricing.md)).
 
 ## Set up cloud DNS {#setup-cloud-dns}
 
 1. [Set up DNS forwarders](#setup-dns-forwarders).
-1. [Set up the network load balancer](#setup-cloud-balancer).
+1. [Set up a network load balancer](#setup-cloud-balancer).
 1. [Set up DHCP](#setup-cloud-dhcp).
 
 ### Set up DNS forwarders {#setup-dns-forwarders}
@@ -96,18 +96,18 @@ The infrastructure support costs include:
 
 - CoreDNS
 
-   1. [Connect to the VM](../../compute/operations/vm-connect/ssh) to install a DNS forwarder via the `test1` intermediate VM instance.
+  1. [Connect](../../compute/operations/vm-connect/ssh) to the DNS forwarder VM from the `test1` VM over SSH.
 
-   1. Download the current `CoreDNS` version from the [developer page](https://github.com/coredns/coredns/releases/latest) and install it:
+  1. Download the latest `CoreDNS` version from [GitHub](https://github.com/coredns/coredns/releases/latest) and install it:
 
       ```bash
       cd /var/tmp && wget <package_URL> -O - | tar -zxvf
       sudo mv coredns /usr/local/sbin
       ```
 
-   1. Create the `CoreDNS` configuration file:
-
-      * `forwarder1`:
+  1. Create a `CoreDNS` configuration file: 
+     
+     * `forwarder1`:
 
          ```bash
          sudo mkdir /etc/coredns
@@ -122,7 +122,7 @@ The infrastructure support costs include:
          EOF
          ```
 
-      * `forwarder2`:
+     * `forwarder2`:
 
          ```bash
          sudo mkdir /etc/coredns
@@ -137,7 +137,7 @@ The infrastructure support costs include:
          EOF
          ```
 
-   1. Enable automatic startup for `CoreDNS`:
+  1. Enable running `CoreDNS` at boot:
 
       ```bash
       sudo tee >> /etc/systemd/system/coredns.service <<EOF
@@ -159,7 +159,7 @@ The infrastructure support costs include:
       sudo systemctl enable --now coredns
       ```
 
-   1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
+  1. Disable system DNS resolution to delegate it to the local DNS forwarder. To do this in Ubuntu 20.04, run these commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -169,17 +169,17 @@ The infrastructure support costs include:
 
 - Unbound
 
-   1. [Connect to the VM](../../compute/operations/vm-connect/ssh.md) of DNS forwarder via the `test1` intermediate VM instance.
-   1. Install the `unbound` package:
+  1. [Connect to the DNS forwarder VM](../../compute/operations/vm-connect/ssh.md) from the `test1` VM over SSH.
+  1. Install the `unbound` package:
 
       ```bash
       sudo apt update && sudo apt install --yes unbound
       ```
 
-   1. Set up and restart the DNS forwarder:
+  1. Configure and restart the DNS forwarder:
 
-      {% cut "unbound.conf for forwarder1" %}
-
+      {% cut "`unbound.conf` for `forwarder1`" %}
+    
       ```bash
       sudo tee -a /etc/unbound/unbound.conf <<EOF
       server:
@@ -197,10 +197,10 @@ The infrastructure support costs include:
         name: "."
         forward-addr: 172.16.3.2
       EOF
-      ```
+      ``` 
       {% endcut %}
 
-      {% cut "unbound.conf for forwarder2" %}
+      {% cut "`unbound.conf` for `forwarder2`" %}
 
       ```bash
       sudo tee -a /etc/unbound/unbound.conf <<EOF
@@ -222,13 +222,13 @@ The infrastructure support costs include:
       ```
       {% endcut %}
 
-   1. Restart Unbound:
+  1. Restart Unbound:
 
       ```bash
       sudo systemctl restart unbound
       ```
 
-   1. Disable the DNS name resolution system service to delegate its function to the local DNS forwarder. In Ubuntu 20.04, this can be done with the commands:
+  1. Disable system DNS resolution to delegate it to the local DNS forwarder To do this in Ubuntu 20.04, run these commands:
 
       ```bash
       sudo systemctl disable --now systemd-resolved
@@ -238,99 +238,99 @@ The infrastructure support costs include:
 
 {% endlist %}
 
-### Set up the {{ network-load-balancer-name }} network load balancer {#setup-cloud-balancer}
+### Set up {{ network-load-balancer-name }} {#setup-cloud-balancer}
 
-Create an [internal network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following parameters:
+Create an [internal network load balancer](../../network-load-balancer/operations/internal-lb-create.md) with the following settings:
 
 {% note info %}
 
-By default, UDP traffic processing is disabled for the network load balancer. To enable UDP traffic processing on the network load balancer, contact [support](../../support/overview.md). You can learn more [here](../../network-load-balancer/concepts/specifics.md#nlb-udp).
+By default, the network load balancer does not process UDP traffic. To enable UDP traffic, contact our [support](../../support/overview.md). You can learn more [here](../../network-load-balancer/concepts/specifics.md#nlb-udp).
 
 {% endnote %}
 
-* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`.
+* **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_network-load-balancer-type }}**: `{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_internal }}`
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}**:
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: Select `subnet3` from the list.
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`
-   * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-subnet-id }}**: Select `subnet3` from the list.
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-protocol }}**: `{{ ui-key.yacloud.common.label_udp }}`
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}**: `53`
+  * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}**: `53`
 
 * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}**:
-   * Create a group with the `forwarder1` and `forwarder2` hosts.
-   * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, specify the parameters:
+  * Create a group including `forwarder1` and `forwarder2`.
+  * Under **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check }}**, specify the following settings:
 
-      {% list tabs %}
+    {% list tabs %}
 
-      * CoreDNS
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`
+    * CoreDNS
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_http }}`
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-path }}**: `/health`
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `8080`
 
-      * Unbound
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
-         * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`
+    * Unbound
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`
+      * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}**: `53`
 
-      {% endlist %}
+    {% endlist %}
 
-When you create a load balancer, it is automatically assigned an IP address from `subnet3`.
+Once you create a load balancer, it will automatically receive an IP address within the `subnet3` range.
 
 {% note info %}
 
-The internal network load balancer will not respond to DNS requests from forwarders that make up its target group: `forwarder1` and `forwarder2`. This is due to its implementation. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
+The internal network load balancer will not respond to DNS requests from forwarders that make up its target group, i.e., `forwarder1` and `forwarder2`. This is due to its specifications. For more information, see [{#T}](../../network-load-balancer/concepts/nlb-types.md).
 
 {% endnote %}
 
 ### Set up DHCP {#setup-cloud-dhcp}
 
-To make sure that hosts in the cloud network automatically use the corporate DNS service, [in the DHCP settings](../../vpc/concepts/dhcp-options.md) for `subnet3` and `subnet4`, specify:
+To ensure that your cloud network hosts automatically use your corporate DNS service, specify the following [DHCP settings](../../vpc/concepts/dhcp-options.md) for `subnet3` and `subnet4`:
 
-1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}**: IP address that was [assigned to the load balancer](#setup-cloud-balancer).
-1. (Optional) **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}**: `corp.example.net`.
+1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name-servers }}**: [Network load balancer](#setup-cloud-balancer) IP address.
+1. **{{ ui-key.yacloud.vpc.subnetworks.create.field_domain-name }}**: `corp.example.net`. This is an optional setting.
 
-To update the network settings on the `forwarder1`, `forwarder2`, and `test1` hosts, run the following command:
+Update `forwarder1`, `forwarder2`, and `test1` network settings by running the following command:
 
 ```bash
 sudo netplan apply
 ```
 
-Once the network settings are updated, the hosts in the cloud network will use the load balancer instead of the {{ yandex-cloud }} DNS server.
+Once the network settings are updated, the cloud network hosts will use the load balancer instead of the {{ yandex-cloud }} DNS server.
 
-## Set up corporate DNS servers {#setup-on-prem-dns}
+## Set up your corporate DNS servers {#setup-on-prem-dns}
 
-Configure the corporate servers so that DNS queries to the [{{ yandex-cloud }} private zones](../../dns/concepts/dns-zone.md#private-zones) are forwarded to the IP address that was [assigned to the load balancer](#setup-cloud-balancer).
+Configure your corporate DNS servers to forward DNS queries to [{{ yandex-cloud }} private zones](../../dns/concepts/dns-zone.md#private-zones) to the [load balancer](#setup-cloud-balancer) IP address.
 
-## Run a health check for the service {#check-dns-service}
+## Test the service {#check-dns-service}
 
-1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in the `corp.example.net` private zone:
+1. From the `forwarder1`, `forwarder2`, and `test1` cloud hosts, make sure names in the `corp.example.net` private zone are resolved:
 
-   ```bash
-   host ns1.corp.example.net
-   ns1.corp.example.net has address 172.16.1.5
-   ```
+    ```bash
+    host ns1.corp.example.net
+    ns1.corp.example.net has address 172.16.1.5
+    ```
 
-1. Check that on the `forwarder1`, `forwarder2`, and `test1` cloud hosts, domain names are resolved in public zones, for example:
+1. From the `forwarder1`, `forwarder2`, and `test1` cloud hosts, make sure public domain names are resolved:
 
-   ```bash
-   host cisco.com
-   cisco.com has address 72.163.4.185
-   ...
-   ```
-1. Check that on the `ns1` and `ns2` corporate DNS servers, internal {{ yandex-cloud }} names are resolved, for example:
+    ```bash
+    host cisco.com
+    cisco.com has address 72.163.4.185
+    ...
+    ```
+1. Make sure internal {{ yandex-cloud }} domain names are resolved on your corporate DNS servers, `ns1` and `ns2`, e.g.:
 
-   ```bash
-   host ns.internal
-   ns.internal has address 10.130.0.2
-   ```
+    ```bash
+    host ns.internal
+    ns.internal has address 10.130.0.2
+    ```
 
-1. To make sure that the services start up automatically, restart the `forwarder1`, `forwarder2`, and `test1` VM instances and then re-run the health checks.
+1. To make sure the services run at boot, restart the `forwarder1`, `forwarder2`, and `test1` VMs and repeat the checks.
 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources:
 
 * [Delete the VM](../../compute/operations/vm-control/vm-delete).
-* [Delete the static public IP addresses](../../vpc/operations/address-delete) if you reserved them specifically for your VMs.
+* If you reserved static public IP addresses for your VMs, [delete](../../vpc/operations/address-delete.md) them.
 * [Delete the target groups](../../network-load-balancer/operations/target-group-delete.md).
 * [Delete the listeners](../../network-load-balancer/operations/listener-remove.md).
 * [Delete the network load balancer](../../network-load-balancer/operations/load-balancer-delete.md).

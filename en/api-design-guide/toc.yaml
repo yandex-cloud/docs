@@ -34,5 +34,3 @@ items:
         href: concepts/operation.md
       - name: Idempotency
         href: concepts/idempotency.md
-base: en/api-design-guide
-deepBase: 2

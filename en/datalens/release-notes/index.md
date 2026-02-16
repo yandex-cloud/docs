@@ -1,102 +1,73 @@
 ---
-title: '{{ datalens-full-name }} release notes: August 2024'
-description: Check out {{ datalens-full-name }} release notes for August 2024.
+title: '{{ datalens-full-name }} release notes: December 2025'
+description: Check out the {{ datalens-full-name }} release notes for December 2025.
 ---
 
-# {{ datalens-full-name }} release notes: August 2024
-
+# {{ datalens-full-name }} release notes: December 2025
 
 * [Changes in basic features](#base)
-* [Changes available with the _Business_ service plan](#business)
+* [Fixes and improvements](#fixes)
 
 ## Changes in basic features {#base}
 
 
-
-### Searching by fields in the wizard and dataset {#search-in-wizard}
-
-In the wizard and dataset, added the ability to search not only by name but also by field description.
-
-
-### List of published objects {#public-objects-list}
-
-The {{ datalens-short-name }} instance [admin](../security/roles.md#datalens-admin) can [view a list](../concepts/datalens-public.md#public-objects-list) of all published objects.
+* The annual [{{ datalens-short-name }} Fest]({{ link-datalens-main }}/festival), held from December 8 to 16, 2025, presented a series of offline and online activities – videos, live broadcasts, use cases, and contests – for participants to explore the all-new {{ datalens-short-name }} features, including [AI tools](../concepts/neuroanalyst.md), [customization](../settings/appearance.md), on-premises, and migration.
+* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://t.me/YandexDataLens/28631/145412) Telegram chat.
+* [Neuroanalyst on your dashboard](../dashboard/insights.md) can now search for insights within an entire dashboard tab. It will analyze your question and dashboard contents, select relevant charts, draw data from them, and come up with the final insight. For context, it uses descriptions of dashboards, charts, datasets, and connections, as well as the data you upload.
+  To try it, click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
 
 
-### Support ticket creation form {#support-form}
+* Added the option to add [connection](../operations/connection/add-description.md) and [dataset](../dataset/add-description.md) info.
+* Added the following to the [calculated field](../concepts/calculations/index.md) formula editor:
 
-Updated the support ticket creation form.
+  * [Hash functions](../function-ref/hash-functions.md): `MD5`, `SHA256`, `CITYHASH64` and others.
+  * `DB_CALL` [native functions](../function-ref/native-functions.md) for access to database functions. The `DB_CALL` functions allow you to:
+    
+    * Securely use string and aggregate functions from any databases.
+    * Access types not currently supported by {{ datalens-short-name }}.
+    * Streamline your workflow and optimize source workloads.
 
+    {% note info %}
+    
+    Use these native functions for specific point operations {{ datalens-short-name }} does not support yet. For standard operations, e.g., aggregations, math operations, use the built-in {{ datalens-short-name }} functions for better optimization.
 
-![image](../../_assets/datalens/release-notes/support-form.png)
-
-
-
-### Position of selector title {#selector-title-position}
-
-Added a selector setting that allows you to specify the position of the title: `Left` (default) or `Top`.
-
-
-### **Selector** widget improvements {#group-selectors-fix}
-
-Fixed these group selector related errors:
-
-* Widget failed to regain its original height after canceling the edits made in the selector.
-* Dashboard stopped working correctly on canceling selector deletion in a widget with two selectors and auto update.
-* Navigation window reopened after a dataset was selected in the widget.
-* Widget width went incorrect after other selectors were added to the widget's group.
-
-### Displaying a tooltip next to the selector title {#selector-tooltips}
-
-Fixed the error that caused the system tooltip next to the selector title to remain visible when hovering over ![icon](../../_assets/console-icons/circle-question.svg).
-
-### Tooltip text in the selector {#selector-hint-text}
-
-In the selector's **Tooltip** setting, fixed an error where the text from the dataset field description was not added to the selector's tooltip text field.
+    {% endnote %}
 
 
-### Auto update of selectors on a public dashboard {#selector-auto-update}
+* Implemented the option to save a chart as a `PNG` image. To do this:
 
-Fixed the error that interrupted a public dashboard's operation upon enabling a selector's **Dependent selector auto update** setting on that dashboard.
+  1. Open the chart and click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **Image** in its top-right corner.
+
+  1. Select resolution:
+
+     * Standard, 800x600.
+     * Widescreen, 1600x720.
+     * Specify manually.
+  
+  1. Optionally, enable **Display interface elements**.
+  1. Click **Download**.
 
 
-### SQL source name in a dataset {#dataset-sql-source-name}
 
-Fixed the error that caused an SQL source name to reset to default after each subquery edit in the dialog box for [adding the SQL source](../dataset/create-dataset.md#add-data) in a dataset.
+## Fixes and improvements {#fixes}
 
-
-### Display of heat map charts {#heat-map-fix}
-
-Fixed the display of [heat map](../visualization-ref/heat-map-chart.md) charts in the wizard.
+* Fixed the issue of incorrectly saved original background when copying a dashboard widget. Earlier, if set to `Basic chart background`, the original widget background would reset to transparent when copying.
+* Updated the appearance of the selector and chart setup window.
 
 
-### Documentation link in the migration section {#migrate-link}
+* Restored the display of `Request-id` and `Trace-Id` in the [private embedding](../security/private-embedded-objects.md) errors.
 
-Fixed the [documentation](../concepts/organizations.md#migration) link in the description of the section about migration from a folder to an organization.
 
-### Usernames in {{ datalens-short-name }} Usage Analytics Light {#usage-analytics-light-user-name}
 
-Fixed the display of usernames in [{{ datalens-short-name }} Usage Analytics Light](../operations/connection/create-usage-tracking.md#light-dash).
+### Fixes in Neuroanalyst {#neuroanalyst-fixes}
 
-## Changes available with the _Business_ service plan {#business}
+* Now charts save the context of your chat with [Neuroanalyst for creating calculated fields](../concepts/calculations/formulas-helper.md):
 
-### Object publishing prohibition {#publication-disable}
+  * When changing a formula.
+  * When closing the chat.
 
-Added the ability to [prohibit publishing](../concepts/datalens-public.md#publication-disable) charts and dashboards at the {{ datalens-short-name }} instance level.
 
-### Embedding private objects {#private-embedded-hints}
+### Fixes in charts {#chart-fixes}
 
-Improved the interface for [embedding private objects](../security/private-embedded-objects.md):
-
-* In the **Embedding keys** dialog box, added tooltips about embedding a private object with links to the relevant documentation.
-* In the **Create embedding** dialog box, the **Key** field is blocked if the workbook does not contain any available keys for the object.
-* In the **Embedding settings** dialog box:
-
-  * Added tooltips about embedding a private object with links to the relevant documentation.
-  * In the table with the list of embeddings:
-
-    * When hovering over a row, you will now see buttons for copying the embedding ID and name.
-    * A click on a row now opens an information window about the embedding in view mode.
-    * Changed the color of dependent objects and parameters.
-    * Parameters and dependent objects displayed in the button now also state the number of objects that did not fit (when there are more than three of them).
+* Fixed the [pie chart](../visualization-ref/pie-chart.md) colors issue. Now colors are as per your selection in the [dataset field settings](../dataset/create-dataset.md#setup-fields).
 

@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        snapshotId:
+          description: |-
+            **string**
+            Required field. ID of the Snapshot resource to list operations for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - snapshotId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListSnapshotOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListSnapshotOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Snapshot/listOperations.md
 ---
 
-# Compute Cloud API, REST: Snapshot.ListOperations {#ListOperations}
+# Compute Cloud API, REST: Snapshot.ListOperations
 
 Lists operations for the specified snapshot.
 
@@ -19,7 +56,9 @@ GET https://compute.{{ api-host }}/compute/v1/snapshots/{snapshotId}/operations
 ||Field | Description ||
 || snapshotId | **string**
 
-Required field. ID of the Snapshot resource to list operations for. ||
+Required field. ID of the Snapshot resource to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListSnapshotOperationsRequest}
@@ -30,11 +69,15 @@ Required field. ID of the Snapshot resource to list operations for. ||
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListSnapshotOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListSnapshotOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotOperationsResponse) returned by a previous list request. ||
+[ListSnapshotOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListSnapshotOperationsResponse}

@@ -1,9 +1,436 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a ARL profile in.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Labels as `` key:value `` pairs. Maximum of 64 per resource.
+          type: object
+          additionalProperties:
+            type: string
+        name:
+          description: |-
+            **string**
+            Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
+          type: string
+        description:
+          description: |-
+            **string**
+            Optional description of the ARL profile.
+          type: string
+        advancedRateLimiterRules:
+          description: |-
+            **[AdvancedRateLimiterRule](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule)**
+            List of rules.
+          type: array
+          items:
+            $ref: '#/definitions/AdvancedRateLimiterRule'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      StringMatcher:
+        type: object
+        properties:
+          exactMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          exactNotMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          prefixNotMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+          pireRegexNotMatch:
+            description: |-
+              **string**
+              The string length in characters must be 0-255.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+            type: string
+        oneOf:
+          - required:
+              - exactMatch
+          - required:
+              - exactNotMatch
+          - required:
+              - prefixMatch
+          - required:
+              - prefixNotMatch
+          - required:
+              - pireRegexMatch
+          - required:
+              - pireRegexNotMatch
+      AuthorityMatcher:
+        type: object
+        properties:
+          authorities:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of authorities. OR semantics implied.
+              The maximum number of elements is 20.
+            type: array
+            items:
+              $ref: '#/definitions/StringMatcher'
+      HttpMethodMatcher:
+        type: object
+        properties:
+          httpMethods:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of HTTP methods. OR semantics implied.
+              The maximum number of elements is 20.
+            type: array
+            items:
+              $ref: '#/definitions/StringMatcher'
+      QueryMatcher:
+        type: object
+        properties:
+          key:
+            description: |-
+              **string**
+              Required field. Key of the query parameter.
+              The string length in characters must be 1-255.
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Required field. Value of the query parameter.
+            $ref: '#/definitions/StringMatcher'
+        required:
+          - key
+          - value
+      RequestUriMatcher:
+        type: object
+        properties:
+          path:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
+            $ref: '#/definitions/StringMatcher'
+          queries:
+            description: |-
+              **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
+              List of query matchers. AND semantics implied.
+              The maximum number of elements is 20.
+            type: array
+            items:
+              $ref: '#/definitions/QueryMatcher'
+      HeaderMatcher:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of header (case insensitive).
+              The string length in characters must be 1-255.
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Required field. Value of the header.
+            $ref: '#/definitions/StringMatcher'
+        required:
+          - name
+          - value
+      IpRangesMatcher:
+        type: object
+        properties:
+          ipRanges:
+            description: |-
+              **string**
+              List of IP ranges. OR semantics implied.
+              The maximum number of elements is 10000.
+            type: array
+            items:
+              type: string
+      GeoIpMatcher:
+        type: object
+        properties:
+          locations:
+            description: |-
+              **string**
+              ISO 3166-1 alpha 2. OR semantics implied.
+              The minimum number of elements is 1.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      IpMatcher:
+        type: object
+        properties:
+          ipRangesMatch:
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          ipRangesNotMatch:
+            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            $ref: '#/definitions/IpRangesMatcher'
+          geoIpMatch:
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+          geoIpNotMatch:
+            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            $ref: '#/definitions/GeoIpMatcher'
+      Condition:
+        type: object
+        properties:
+          authority:
+            description: |-
+              **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher)**
+              Match authority (Host header).
+            $ref: '#/definitions/AuthorityMatcher'
+          httpMethod:
+            description: |-
+              **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher)**
+              Match HTTP method.
+            $ref: '#/definitions/HttpMethodMatcher'
+          requestUri:
+            description: |-
+              **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher)**
+              Match Request URI.
+            $ref: '#/definitions/RequestUriMatcher'
+          headers:
+            description: |-
+              **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
+              Match HTTP headers.
+              The maximum number of elements is 20.
+            type: array
+            items:
+              $ref: '#/definitions/HeaderMatcher'
+          sourceIp:
+            description: |-
+              **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
+              Match IP.
+            $ref: '#/definitions/IpMatcher'
+      StaticQuota:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              Action in case of exceeding this quota.
+              - `DENY`: Deny request.
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - DENY
+          condition:
+            description: |-
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
+              The condition for matching the quota.
+            $ref: '#/definitions/Condition'
+          limit:
+            description: |-
+              **string** (int64)
+              Desired maximum number of requests per period.
+              Enter an integer within the range of 1 and 9999999999999.
+              Acceptable values are 1 to 9999999999999, inclusive.
+            type: string
+            format: int64
+          period:
+            description: |-
+              **string** (int64)
+              Period of time in seconds.
+            type: string
+            format: int64
+      SimpleCharacteristic:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of simple characteristic.
+              - `REQUEST_PATH`: HTTP Request path.
+              - `HTTP_METHOD`: HTTP Method.
+              - `IP`: IP address.
+              - `GEO`: Region.
+              - `HOST`: Host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - REQUEST_PATH
+              - HTTP_METHOD
+              - IP
+              - GEO
+              - HOST
+      KeyCharacteristic:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (Type)
+              Type of key characteristic.
+              - `REQUEST_PATH`: HTTP Request path.
+              - `HTTP_METHOD`: HTTP Method.
+              - `IP`: IP address.
+              - `GEO`: Region.
+              - `HOST`: Host.
+            type: string
+            enum:
+              - TYPE_UNSPECIFIED
+              - REQUEST_PATH
+              - HTTP_METHOD
+              - IP
+              - GEO
+              - HOST
+          value:
+            description: |-
+              **string**
+              String value of the key.
+            type: string
+      Characteristic:
+        type: object
+        properties:
+          simpleCharacteristic:
+            description: |-
+              **[SimpleCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.SimpleCharacteristic)**
+              Characteristic automatically based on the Request path, HTTP method, IP address, Region, and Host attributes.
+              See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+              Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+            $ref: '#/definitions/SimpleCharacteristic'
+          keyCharacteristic:
+            description: |-
+              **[KeyCharacteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic.KeyCharacteristic)**
+              Characteristic based on key match in the Query params, HTTP header, and HTTP cookie attributes.
+              See [Rules](/docs/smartwebsecurity/concepts/arl#requests-counting) for more details.
+              Includes only one of the fields `simpleCharacteristic`, `keyCharacteristic`.
+            $ref: '#/definitions/KeyCharacteristic'
+          caseInsensitive:
+            description: |-
+              **boolean**
+              Determines case-sensitive or case-insensitive keys matching.
+            type: boolean
+        oneOf:
+          - required:
+              - simpleCharacteristic
+          - required:
+              - keyCharacteristic
+      DynamicQuota:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (Action)
+              Action in case of exceeding this quota.
+              - `DENY`: Deny request.
+            type: string
+            enum:
+              - ACTION_UNSPECIFIED
+              - DENY
+          condition:
+            description: |-
+              **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
+              The condition for matching the quota.
+            $ref: '#/definitions/Condition'
+          limit:
+            description: |-
+              **string** (int64)
+              Desired maximum number of requests per period.
+              Enter an integer within the range of 1 and 9999999999999.
+              Acceptable values are 1 to 9999999999999, inclusive.
+            type: string
+            format: int64
+          period:
+            description: |-
+              **string** (int64)
+              Period of time in seconds.
+            type: string
+            format: int64
+          characteristics:
+            description: |-
+              **[Characteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
+              List of characteristics.
+              The maximum number of elements is 3.
+            type: array
+            items:
+              $ref: '#/definitions/Characteristic'
+      AdvancedRateLimiterRule:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+              The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+            pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
+            type: string
+          priority:
+            description: |-
+              **string** (int64)
+              Determines the priority in case there are several matched rules.
+              Enter an integer within the range of 1 and 999999.
+              The rule priority must be unique within the entire ARL profile.
+              A lower numeric value means a higher priority.
+              Acceptable values are 1 to 999999, inclusive.
+            type: string
+            format: int64
+          description:
+            description: |-
+              **string**
+              Optional description of the rule. 0-512 characters long.
+              The maximum string length in characters is 512.
+            type: string
+          dryRun:
+            description: |-
+              **boolean**
+              This allows you to evaluate backend capabilities and find the optimum limit values.
+              Requests will not be blocked in this mode.
+            type: boolean
+          staticQuota:
+            description: |-
+              **[StaticQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.StaticQuota)**
+              Static quota. Counting each request individually.
+              Includes only one of the fields `staticQuota`, `dynamicQuota`.
+            $ref: '#/definitions/StaticQuota'
+          dynamicQuota:
+            description: |-
+              **[DynamicQuota](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota)**
+              Dynamic quota. Grouping requests by a certain attribute and limiting the number of groups.
+              Includes only one of the fields `staticQuota`, `dynamicQuota`.
+            $ref: '#/definitions/DynamicQuota'
+        required:
+          - name
+        oneOf:
+          - required:
+              - staticQuota
+          - required:
+              - dynamicQuota
 sourcePath: en/_api-ref/smartwebsecurity/v1/advanced_rate_limiter/api-ref/AdvancedRateLimiterProfile/create.md
 ---
 
-# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Create {#Create}
+# SmartWebSecurity ARL API, REST: AdvancedRateLimiterProfile.Create
 
 Creates a ARL profile in the specified folder using the data specified in the request.
 
@@ -18,7 +445,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLim
 ```json
 {
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "name": "string",
   "description": "string",
   "advancedRateLimiterRules": [
@@ -251,7 +678,7 @@ POST https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLim
 || folderId | **string**
 
 Required field. ID of the folder to create a ARL profile in. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
@@ -273,16 +700,22 @@ A AdvancedRateLimiterRule object, see [Rules](/docs/smartwebsecurity/concepts/ar
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **string** (int64)
 
 Determines the priority in case there are several matched rules.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire ARL profile.
-A lower numeric value means a higher priority. ||
+A lower numeric value means a higher priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 || dryRun | **boolean**
 
 This allows you to evaluate backend capabilities and find the optimum limit values.
@@ -309,7 +742,6 @@ StaticQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
@@ -317,7 +749,9 @@ The condition for matching the quota. ||
 || limit | **string** (int64)
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **string** (int64)
 
 Period of time in seconds. ||
@@ -341,7 +775,9 @@ Match HTTP method. ||
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher)**
 
-Match HTTP headers. ||
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
@@ -355,7 +791,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -366,20 +804,32 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 |#
@@ -392,7 +842,9 @@ HttpMethodMatcher object.
 ||Field | Description ||
 || httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -406,7 +858,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher}
@@ -417,7 +871,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the query parameter. ||
@@ -431,7 +887,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
 
 Required field. Value of the header. ||
@@ -457,7 +915,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -468,7 +928,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## DynamicQuota {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota}
@@ -481,7 +943,6 @@ DynamicQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
 
@@ -489,13 +950,17 @@ The condition for matching the quota. ||
 || limit | **string** (int64)
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **string** (int64)
 
 Period of time in seconds. ||
 || characteristics[] | **[Characteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic)**
 
-List of characteristics. ||
+List of characteristics.
+
+The maximum number of elements is 3. ||
 |#
 
 ## Characteristic {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic}
@@ -527,7 +992,6 @@ Determines case-sensitive or case-insensitive keys matching. ||
 
 Type of simple characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `REQUEST_PATH`: HTTP Request path.
 - `HTTP_METHOD`: HTTP Method.
 - `IP`: IP address.
@@ -543,7 +1007,6 @@ Type of simple characteristic.
 
 Type of key characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `COOKIE_KEY`: HTTP cookie key.
 - `HEADER_KEY`: HTTP header key.
 - `QUERY_KEY`: Query params key. ||
@@ -578,7 +1041,7 @@ String value of the key. ||
   "response": {
     "id": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "name": "string",
     "description": "string",
     "advancedRateLimiterRules": [
@@ -917,15 +1380,21 @@ ID of the ARL profile. ||
 || folderId | **string**
 
 ID of the folder that the ARL profile belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
+Labels as `` key:value `` pairs. Maximum of 64 per resource.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || name | **string**
 
-Required field. Name of the ARL profile. The name is unique within the folder. 1-50 characters long. ||
+Required field. Name of the ARL profile. The name is unique within the folder. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
-Optional description of the ARL profile. ||
+Optional description of the ARL profile.
+
+The maximum string length in characters is 512. ||
 || advancedRateLimiterRules[] | **[AdvancedRateLimiterRule](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule2)**
 
 List of rules. ||
@@ -952,16 +1421,22 @@ A AdvancedRateLimiterRule object, see [Rules](/docs/smartwebsecurity/concepts/ar
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long. ||
+Required field. Name of the rule. The name is unique within the ARL profile. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || priority | **string** (int64)
 
 Determines the priority in case there are several matched rules.
 Enter an integer within the range of 1 and 999999.
 The rule priority must be unique within the entire ARL profile.
-A lower numeric value means a higher priority. ||
+A lower numeric value means a higher priority.
+
+Acceptable values are 1 to 999999, inclusive. ||
 || description | **string**
 
-Optional description of the rule. 0-512 characters long. ||
+Optional description of the rule. 0-512 characters long.
+
+The maximum string length in characters is 512. ||
 || dryRun | **boolean**
 
 This allows you to evaluate backend capabilities and find the optimum limit values.
@@ -988,7 +1463,6 @@ StaticQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
 
@@ -996,7 +1470,9 @@ The condition for matching the quota. ||
 || limit | **string** (int64)
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **string** (int64)
 
 Period of time in seconds. ||
@@ -1020,7 +1496,9 @@ Match HTTP method. ||
 Match Request URI. ||
 || headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2)**
 
-Match HTTP headers. ||
+Match HTTP headers.
+
+The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
 
 Match IP. ||
@@ -1034,7 +1512,9 @@ AuthorityMatcher object.
 ||Field | Description ||
 || authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
-List of authorities. OR semantics implied. ||
+List of authorities. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2}
@@ -1045,20 +1525,32 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+The string length in characters must be 0-255.
+
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 |#
@@ -1071,7 +1563,9 @@ HttpMethodMatcher object.
 ||Field | Description ||
 || httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
-List of HTTP methods. OR semantics implied. ||
+List of HTTP methods. OR semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2}
@@ -1085,7 +1579,9 @@ RequestUriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2)**
 
-List of query matchers. AND semantics implied. ||
+List of query matchers. AND semantics implied.
+
+The maximum number of elements is 20. ||
 |#
 
 ## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2}
@@ -1096,7 +1592,9 @@ QueryMatcher object.
 ||Field | Description ||
 || key | **string**
 
-Required field. Key of the query parameter. ||
+Required field. Key of the query parameter.
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 Required field. Value of the query parameter. ||
@@ -1110,7 +1608,9 @@ HeaderMatcher object.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of header (case insensitive). ||
+Required field. Name of header (case insensitive).
+
+The string length in characters must be 1-255. ||
 || value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
 
 Required field. Value of the header. ||
@@ -1136,7 +1636,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied. ||
+List of IP ranges. OR semantics implied.
+
+The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2}
@@ -1147,7 +1649,9 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied. ||
+ISO 3166-1 alpha 2. OR semantics implied.
+
+The minimum number of elements is 1. ||
 |#
 
 ## DynamicQuota {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota2}
@@ -1160,7 +1664,6 @@ DynamicQuota object.
 
 Action in case of exceeding this quota.
 
-- `ACTION_UNSPECIFIED`
 - `DENY`: Deny request. ||
 || condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
 
@@ -1168,13 +1671,17 @@ The condition for matching the quota. ||
 || limit | **string** (int64)
 
 Desired maximum number of requests per period.
-Enter an integer within the range of 1 and 9999999999999. ||
+Enter an integer within the range of 1 and 9999999999999.
+
+Acceptable values are 1 to 9999999999999, inclusive. ||
 || period | **string** (int64)
 
 Period of time in seconds. ||
 || characteristics[] | **[Characteristic](#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic2)**
 
-List of characteristics. ||
+List of characteristics.
+
+The maximum number of elements is 3. ||
 |#
 
 ## Characteristic {#yandex.cloud.smartwebsecurity.v1.advanced_rate_limiter.AdvancedRateLimiterRule.DynamicQuota.Characteristic2}
@@ -1206,7 +1713,6 @@ Determines case-sensitive or case-insensitive keys matching. ||
 
 Type of simple characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `REQUEST_PATH`: HTTP Request path.
 - `HTTP_METHOD`: HTTP Method.
 - `IP`: IP address.
@@ -1222,7 +1728,6 @@ Type of simple characteristic.
 
 Type of key characteristic.
 
-- `TYPE_UNSPECIFIED`
 - `COOKIE_KEY`: HTTP cookie key.
 - `HEADER_KEY`: HTTP header key.
 - `QUERY_KEY`: Query params key. ||

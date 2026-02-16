@@ -1,3 +1,8 @@
+---
+title: Удалить алиас в {{ ml-platform-full-name }}
+description: Следуя данной инструкции, вы сможете удалить алиас в {{ ml-platform-name }}.
+---
+
 # Удалить алиас
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}

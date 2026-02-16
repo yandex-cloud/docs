@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/containerregistry/v1/api-ref/grpc/Scanner/get.md
 ---
 
-# Container Registry API, gRPC: ScannerService.Get {#Get}
+# Container Registry API, gRPC: ScannerService.Get
 
 Returns the specified ScanResult resource.
 
@@ -17,15 +17,17 @@ To get the list of ScanResults for specified Image, make a [List](/docs/containe
 
 ```json
 {
-  "scanResultId": "string"
+  "scan_result_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| scanResultId | **string**
+|| scan_result_id | **string**
 
-Required field. ID of the ScanResult to return. ||
+Required field. ID of the ScanResult to return.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## ScanResult {#yandex.cloud.containerregistry.v1.ScanResult}
@@ -33,8 +35,8 @@ Required field. ID of the ScanResult to return. ||
 ```json
 {
   "id": "string",
-  "imageId": "string",
-  "scannedAt": "google.protobuf.Timestamp",
+  "image_id": "string",
+  "scanned_at": "google.protobuf.Timestamp",
   "status": "Status",
   "vulnerabilities": {
     "critical": "int64",
@@ -54,17 +56,16 @@ A ScanResult resource.
 || id | **string**
 
 Output only. ID of the ScanResult. ||
-|| imageId | **string**
+|| image_id | **string**
 
 Output only. ID of the Image that the ScanResult belongs to. ||
-|| scannedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. ||
 || status | enum **Status**
 
 Output only. The status of the ScanResult.
 
-- `STATUS_UNSPECIFIED`
 - `RUNNING`: Image scan is in progress.
 - `READY`: Image has been scanned and result is ready.
 - `ERROR`: Image scan is failed. ||

@@ -1,0 +1,1 @@
+If the address status is `DISABLED`, click **Temporarily disable CARP** and then **Enable CARP**. As a result, the virtual address status should change to the right one.

@@ -1,3 +1,8 @@
+---
+title: Как создать нереплицируемый диск в {{ compute-full-name }}
+description: Следуя данной инструкции, вы сможете создать нереплицируемый диск.
+---
+
 # Создать нереплицируемый диск
 
 
@@ -12,23 +17,23 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать диск.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
 
   1. Если требуется, добавьте произвольное описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
   1. Выберите нужный размер блока.
   1. Задайте нужный размер диска.
-  1. {% include [encryption-section-without-sa](../../../_includes/compute/encryption-section-without-sa.md) %}
+  1. {% include [encryption-section](../../../_includes/compute/encryption-section.md) %}
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться [снимки](../../concepts/snapshot.md), или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      При создании диска для него можно выбрать только одно расписание снимков. Если требуется, после создания диска вы можете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 
@@ -46,8 +51,21 @@
      yc compute disk create \
        --name nr-disk \
        --type network-ssd-nonreplicated \
-       --size 93
+       --size 93 \
+       --kms-key-id <идентификатор_ключа>
      ```
+
+       Где:
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      Результат:
 
@@ -59,6 +77,12 @@
      block_size: "4096"
      status: READY
      disk_placement_policy: {}
+     hardware_generation:
+       legacy_features:
+         pci_topology: PCI_TOPOLOGY_V1
+     kms_key:
+       key_id: abjbaqdga6hs********
+       version_id: abj295dgqnlp********
      ```
 
 - {{ TF }} {#tf}
@@ -76,6 +100,7 @@
        block_size = <размер_блока>
        type       = "network-ssd-nonreplicated"
        zone       = "<зона_доступности>"
+       kms_key_id = "<идентификатор_KMS_ключа>"
      }
      ```
 
@@ -88,6 +113,13 @@
      * `block_size` — размер блока в байтах (минимальный объем хранения информации на диске). Максимальный размер диска зависит от заданного размера блока. По умолчанию размер блоков всех создаваемых дисков равен 4 КБ, однако для дисков больше 8 ТБ этого недостаточно. Подробнее см. в разделе [{#T}](../../../compute/operations/disk-create/empty-disk-blocksize.md).
      * `type` — тип создаваемого диска. Укажите `network-ssd-nonreplicated` для создания нереплицируемого диска.
      * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
+     * `kms_key_id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания [зашифрованного](../../concepts/encryption.md) диска. Необязательный параметр.
+
+        {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+
+        {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+        {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      Более подробную информацию о параметрах ресурса `yandex_compute_disk` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk#example-usage---non-replicated-disk).
   1. Проверьте корректность конфигурационных файлов.
@@ -129,9 +161,9 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.switch_disks }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
   1. Введите имя диска. Требования к имени:
 
      {% include [name-format](../../../_includes/name-format.md) %}
@@ -140,7 +172,7 @@
   1. Выберите зону доступности, в которой будет находиться диск.
 
      Зона доступности для диска должна соответствовать зоне группы размещения, в которой вы хотите создать диск.
-  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated }}`.
+  1. Укажите тип диска `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}`.
   1. Выберите группу размещения дисков.
 
       Если вы выбрали группу со стратегией [размещения разделами](../../concepts/disk-placement-group.md#partition) (partition), укажите номер раздела, в который вы хотите добавить диск.
@@ -148,7 +180,7 @@
   1. Если требуется, выберите [расписание](../../concepts/snapshot-schedule.md), по которому для диска будут автоматически создаваться снимки, или создайте его. Подробнее о настройках расписания см. в [инструкции](../snapshot-control/create-schedule.md).
 
      Если вы хотите указать еще одно расписание, вы сможете [добавить](../disk-control/configure-schedule.md#add-schedule) его после создания диска.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.button_create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 
 - CLI {#cli}
 
@@ -170,14 +202,22 @@
          --name <имя_диска> \
          --type network-ssd-nonreplicated \
          --size <размер_диска> \
-         --disk-placement-group-name <имя_группы_размещения>
+         --disk-placement-group-name <имя_группы_размещения> \
+         --kms-key-id <идентификатор_ключа>
        ```
 
        Где:
-       * `--name` – имя диска.
-       * `--type` – тип диска.
-       * `--size` – размер диска.
-       * `--disk-placement-group-name` – имя группы размещения.
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--disk-placement-group-name` — имя группы размещения.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Результат:
 
@@ -189,6 +229,12 @@
        status: READY
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
+       hardware_generation:
+         legacy_features:
+           pci_topology: PCI_TOPOLOGY_V1
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
      * [Размещение разделами](../../concepts/disk-placement-group.md#partition) (partition):
@@ -203,11 +249,18 @@
        ```
 
        Где:
-       * `--name` – имя диска.
-       * `--type` – тип диска.
-       * `--size` – размер диска.
-       * `--disk-placement-group-name` – имя группы размещения.
-       * `--disk-placement-group-partition` – номер раздела в группе размещения.
+       * `--name` — имя диска.
+       * `--type` — тип диска.
+       * `--size` — размер диска.
+       * `--disk-placement-group-name` — имя группы размещения.
+       * `--disk-placement-group-partition` — номер раздела в группе размещения.
+       * `--kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного диска. Необязательный параметр.
+
+         {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+         
+         {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+         {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
        Результат:
 
@@ -219,6 +272,9 @@
        disk_placement_policy:
          placement_group_id: epdn946ilslh********
          placement_group_partition: 2
+       kms_key:
+         key_id: abjbaqdga6hs********
+         version_id: abj295dgqnlp********
        ```
 
 
@@ -228,6 +284,7 @@
 
 {% endlist %}
 
+
 #### См. также {#see-also}
 
-* [{#T}](../snapshot-control/create-schedule.md).
+* [{#T}](../snapshot-control/create-schedule.md)

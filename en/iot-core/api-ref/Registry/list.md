@@ -1,9 +1,43 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/registries
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to list registries in.
+            To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `page_size`, the service returns a [ListRegistriesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistriesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `page_token` to the
+            [ListRegistriesResponse.nextPageToken](#yandex.cloud.iot.devices.v1.ListRegistriesResponse) returned by a previous list request.
+          type: string
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Registry/list.md
 ---
 
-# IoT Core Service, REST: Registry.List {#List}
+# IoT Core Service, REST: Registry.List
 
 Retrieves the list of registries in the specified folder.
 
@@ -47,7 +81,7 @@ Page token. To get the next page of results, set `page_token` to the
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "status": "string",
       "logGroupId": "string",
       "logOptions": {
@@ -106,7 +140,7 @@ Name of the registry. The name is unique within the folder. ||
 || description | **string**
 
 Description of the registry. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || status | **enum** (Status)

@@ -12,6 +12,15 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -19,6 +28,8 @@
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
+
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
     1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
@@ -28,10 +39,10 @@
         * Имя базы данных — такое же, как на кластере-источнике.
         * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
-
+    
     1. Если вы используете группы безопасности в кластерах, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-        * [{{ mmy-name }}](../../managed-mysql/operations/connect.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
         * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
@@ -47,7 +58,7 @@
         В этом файле описаны:
 
         * [сеть](../../vpc/concepts/network.md#network);
-        * [подсеть](../../vpc/concepts/network.md#subnet);
+        * [подсети](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mmy-name }};
         * кластер-источник {{ mmy-name }};
         * кластер-приемник {{ mch-name }};
@@ -60,11 +71,12 @@
         * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
             * `source_mysql_version` — версия {{ MY }};
-            * `source_db_name` — имя базы данных {{ MY }}, которое будет использоваться как имя базы данных {{ mch-name }};
+            * `source_db_name` — имя базы данных {{ MY }};
             * `source_user` и `source_password` — имя и пароль пользователя-владельца базы данных.
 
         * параметры кластера-приемника {{ mch-name }}, которые будут использоваться как [параметры эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
+            * `target_db_name` — имя базы данных {{ CH }};
             * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных.
 
     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
@@ -87,7 +99,7 @@
 
 1. Если вы создавали инфраструктуру вручную, [подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными.
 
@@ -186,7 +198,7 @@
 
 1. Удалите строку с `id` `41` и измените с `id` `42` в таблице `x_tab` базы-источника {{ MY }}:
 
-    1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect.md).
+    1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
     1. Выполните запросы:
 
@@ -243,7 +255,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
@@ -256,20 +268,6 @@ WHERE __data_transfer_delete_time == 0;
 
 - {{ TF }} {#tf}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mmy-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mmy-mch.tf`, будут удалены.
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

@@ -1,6 +1,6 @@
 ---
-title: How to create a bucket
-description: Follow this guide to create a bucket.
+title: Creating a bucket in {{ objstorage-full-name }}
+description: Follow this guide to create a bucket in {{ objstorage-name }}.
 ---
 
 # Creating a bucket

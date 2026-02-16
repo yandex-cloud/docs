@@ -15,8 +15,8 @@ description: Из статьи вы узнаете, как создать рас
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [диск](../../concepts/disk.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.switch_snapshots }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте параметры расписания снимков:
      * Введите имя расписания в формате:
@@ -76,7 +76,7 @@ description: Из статьи вы узнаете, как создать рас
      * `--start-at "2022-12-31T16:39:00+05:00"` — начало 31 декабря 2022 г. в 16:39 UTC+5.
      * `--start-at "2h"` — начало два часа назад от текущего момента.
 
-     Подробнее о команде `yc compute snapshot-schedule create` см. в [справочнике CLI](../../../cli/cli-ref/managed-services/compute/snapshot-schedule/create.md).
+     Подробнее о команде `yc compute snapshot-schedule create` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/create.md).
   1. Получите идентификаторы [дисков](../../concepts/disk.md), чтобы добавить их в расписание:
 
      ```bash

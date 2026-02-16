@@ -1,11 +1,11 @@
 ---
 title: Getting started with {{ mkf-full-name }}
-description: Follow this guide to create and set up an {{ KF }} cluster.
+description: Follow this guide to set up and configure an {{ KF }} cluster.
 ---
 
 # Getting started with {{ mkf-name }}
 
-To get started with the service:
+To get started:
 1. [Create a cluster](#cluster-create).
 1. [Create a topic](#topic-create).
 1. [Create a user](#account-create).
@@ -20,14 +20,17 @@ To get started with the service:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Make sure](../iam/operations/roles/get-assigned-roles.md) your account has the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) for creating a cluster.
-1. You can connect to an {{ KF }} cluster from both inside and outside {{ yandex-cloud }}:
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mkf.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
-   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md) virtual machine in the same network as the cluster.
+    {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
+
+1. You can access a {{ KF }} cluster both from within the {{ yandex-cloud }} infrastructure and from external networks:
+
+   * To connect from inside {{ yandex-cloud }}, create a [Linux](../compute/quickstart/quick-create-linux.md)-based VM in the same network as the cluster.
 
    * To connect to a cluster from the internet, enable public access to the cluster when [creating](operations/cluster-create.md) it.
 
-1. [Connect](../compute/operations/vm-connect/ssh.md) to the VM over SSH.
+1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
 
    {% note info %}
 
@@ -41,15 +44,17 @@ To get started with the service:
    sudo apt-get install kafkacat
    ```
 
+   Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../managed-kafka/operations/connect/clients.md#bash-zsh).
+
 
 ## Create a cluster {#cluster-create}
 
 To create a cluster:
 1. In the management console, select the folder where you want to create a cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Set the cluster parameters and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating clusters](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take some time.
+1. Configure your cluster and click **{{ ui-key.yacloud.common.create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mkf-name }} dashboard will change to `Running`, and its state, to `Alive`. This may take a while.
 
 Then create a topic in the cluster.
 
@@ -59,7 +64,7 @@ A [topic](concepts/topics.md) is a way to group message streams into categories.
 
 To create a topic:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
 1. Specify the topic settings and click **{{ ui-key.yacloud.common.create }}**. This process is described in detail in [{#T}](operations/cluster-topics.md).
@@ -68,11 +73,13 @@ Then create users for producers and consumers.
 
 ## Create a user {#account-create}
 
-User settings let you manage [producer and consumer](./concepts/producers-consumers.md) permissions to cluster topics.
+User settings let you manage [producer and consumer](concepts/producers-consumers.md) permissions to cluster topics.
+
+[Learn more](concepts/account-roles.md) about the permissions you get with each role.
 
 To create a user:
 1. In the management console, select the folder where the cluster is located.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
 1. Click the name of the cluster you created and select the **{{ ui-key.yacloud.mdb.cluster.switch_users }}** tab.
 1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
 1. Enter a username and password (from 8 to 128 characters).
@@ -86,10 +93,10 @@ Then connect to the cluster using this username.
 
 You can connect the producer and consumer to the cluster on behalf of one user. Both the producer and consumer will only be able to work with the topics that this user is allowed to access.
 
-To connect to a cluster:
+To connect to your cluster:
 
 
-1. If using security groups for a cloud network, [configure](operations/connect/index.md#configuring-security-groups) them to enable all relevant traffic between the cluster and the connecting host.
+1. If using security groups for your cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to allow all relevant traffic between the cluster and the connecting host.
 
 
 1. Install an SSL certificate on the VM:
@@ -100,7 +107,7 @@ To connect to a cluster:
 
    {% include [default-get-string](../_includes/mdb/mkf/default-send-string.md) %}
 
-   In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
+   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -108,7 +115,7 @@ To connect to a cluster:
 
    {% include [default-get-string](../_includes/mdb/mkf/default-get-string.md) %}
 
-   In the command, specify the broker FQDN, the topic name, and the username and password of the {{ KF }} user that you created in the previous step.
+   In the command, specify the broker FQDN, topic name, username and password of the {{ KF }} user you created earlier.
 
    {% include [fqdn](../_includes/mdb/mkf/fqdn-host.md) %}
 
@@ -116,5 +123,5 @@ For more information about connecting to a {{ mkf-name }} cluster, see [Connecti
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](concepts/index.md).
+* Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).

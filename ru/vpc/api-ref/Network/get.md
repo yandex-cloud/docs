@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}
+    method: get
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to return.
+            To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/list#List) request.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/get.md
 ---
 
-# Virtual Private Cloud API, REST: Network.Get {#Get}
+# Virtual Private Cloud API, REST: Network.Get
 
 Returns the specified Network resource.
 
@@ -36,7 +54,7 @@ To get the network ID, use a [NetworkService.List](/docs/vpc/api-ref/Network/lis
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "defaultSecurityGroupId": "string"
 }
 ```
@@ -69,7 +87,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the network. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
 No more than 64 per resource.

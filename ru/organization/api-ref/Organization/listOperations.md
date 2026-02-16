@@ -1,9 +1,49 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{organizationId}/operations
+    method: get
+    path:
+      type: object
+      properties:
+        organizationId:
+          description: |-
+            **string**
+            Required field. ID of the Organization resource to list operations for.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - organizationId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`, the service returns a [ListOrganizationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive. Default value: 100.
+            Acceptable values are 0 to 1000, inclusive.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListOrganizationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
+            returned by a previous list request to get the next page of results.
+            The maximum string length in characters is 2000.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/organizationmanager/v1/api-ref/Organization/listOperations.md
 ---
 
-# Cloud Organization API, REST: Organization.ListOperations {#ListOperations}
+# Identity Hub API, REST: Organization.ListOperations
 
 Lists operations for the specified organization.
 
@@ -19,7 +59,9 @@ GET https://organization-manager.{{ api-host }}/organization-manager/v1/organiza
 ||Field | Description ||
 || organizationId | **string**
 
-Required field. ID of the Organization resource to list operations for. ||
+Required field. ID of the Organization resource to list operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsRequest}
@@ -31,12 +73,16 @@ Required field. ID of the Organization resource to list operations for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListOrganizationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Acceptable values are 0 to 1000, inclusive. Default value: 100. ||
+Acceptable values are 0 to 1000, inclusive. Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`
 to the [ListOrganizationOperationsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse)
-returned by a previous list request to get the next page of results. ||
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.ListOrganizationOperationsResponse}

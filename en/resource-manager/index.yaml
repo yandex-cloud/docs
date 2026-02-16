@@ -1,22 +1,17 @@
 title: Yandex Resource Manager
 description:
   - >-
-    Yandex Resource Manager service defines the Yandex Cloud resource model and
-    allows you to use folders to structure your resources.
+    Yandex Resource Manager defines the Yandex Cloud resource model and allows
+    you to use folders to structure your resources.
   - >-
     The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">fully
-    secure</a> and in compliance with Russian Federal Law 152-FZ.
-meta:
-  title: Yandex Resource Manager
-  description: >-
-    Yandex Resource Manager service defines the Yandex Cloud resource model and
-    allows you to use folders to structure your resources.
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
+    pursuant to the Russian Federal Law 152-FZ on Personal Data.
 links:
   - title: Getting started
     description: Create your first folder
     href: quickstart
-  - title: Step-by-step instructions
+  - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
   - title: Concepts
@@ -26,8 +21,25 @@ links:
     description: HTTP API method descriptions
     href: api-ref/
   - title: Quotas and limits
-    description: Technical and organizational limitations of the service
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Set up access rights to work with the service
+    description: Configure access permissions to use the service
     href: security/
+meta:
+  title: Yandex Resource Manager
+  description: >-
+    Yandex Resource Manager defines the Yandex Cloud resource model and allows
+    you to use folders to structure your resources.
+  keywords:
+    - '{{ resmgr-name }}'
+    - '{{ resmgr-full-name }}'
+    - '{{ resmgr-name }}'
+    - '{{ yandex-cloud }} resources'
+    - '{{ yandex-cloud }} resource model'
+    - '{{ yandex-cloud }} resource manager'
+    - '{{ yandex-cloud }} management'
+    - cloud resource manager
+    - managing cloud resources
+    - managing a cloud
+    - cloud resource model

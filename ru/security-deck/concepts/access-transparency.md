@@ -1,13 +1,17 @@
 ---
-title: Access Transparency в {{ sd-full-name }}
-description: Access Transparency — это один из модулей сервиса {{ sd-name }}, представляющий собой автоматизированный инструмент для обеспечения прозрачности работы {{ yandex-cloud }}.
+title: '{{ atr-name }} в {{ sd-full-name }}'
+description: '{{ atr-name }} — это один из модулей сервиса {{ sd-name }}, представляющий собой автоматизированный инструмент для обеспечения прозрачности работы {{ yandex-cloud }}.'
 ---
 
-# Access Transparency
+# {{ atr-name }}
 
-[Access Transparency]({{ link-sd-main }}trasparency/) — это автоматизированный инструмент, предназначенный для просмотра аналитической информации о действиях, производимых инженерами {{ yandex-cloud }} с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности. Этот инструмент позволяет обеспечить прозрачность работы и контроль над действиями инженеров {{ yandex-cloud }}.
+[{{ atr-name }}]({{ link-sd-main }}transparency/) — это автоматизированный инструмент, предназначенный для просмотра аналитической информации о действиях, производимых инженерами {{ yandex-cloud }} с ресурсами организации в ходе технического обслуживания, работы с [обращениями](../../support/overview.md) или решения задач безопасности. Этот инструмент позволяет обеспечить прозрачность работы и контроль над действиями инженеров {{ yandex-cloud }}.
 
-Основные функции Access Transparency:
+{% include [access-transparency-attach-ba-notice](../../_includes/security-deck/access-transparency-attach-ba-notice.md) %}
+
+Для управления подпиской {{ atr-name }} необходима роль `access-transparency.subscriptionManager`. Чтобы указать платежный аккаунт при подключении {{ atr-name }}, потребуется роль `access-transparency.billingProvider`. Обе роли включены в `access-transparency.admin` и `access-transparency.editor`. Подробнее см. в разделе [{#T}](../security/access-transparency-roles.md).
+
+Основные функции {{ atr-name }}:
 
 * Сбор и анализ данных о действиях инженеров {{ yandex-cloud }}, произведенных с ресурсами организации.
 * Предоставление доступа к вердиктам о безопасности конкретных сессий пользователей.

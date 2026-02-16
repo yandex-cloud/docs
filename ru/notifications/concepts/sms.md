@@ -1,3 +1,8 @@
+---
+title: SMS в {{ cns-full-name }}
+description: Из статьи вы узнаете про SMS в {{ cns-name }}, типы отправителей и песочницу.
+---
+
 # SMS в {{ cns-full-name }}
 
 
@@ -18,6 +23,8 @@
 {% include [common-sender-description](../../_includes/notifications/common-sender-description.md) %}
 
 ### Индивидуальный отправитель {#individual-sender}
+
+{% include [legal-entity-note](../../_includes/notifications/legal-entity-note.md) %}
 
 {% include [individual-sender-description](../../_includes/notifications/individual-sender-description.md) %}
 

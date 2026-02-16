@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/speechsense/v1/api-ref/grpc/Talk/upload.md
 ---
 
-# Talk Analytics API, gRPC: TalkService.Upload {#Upload}
+# Talk Analytics API, gRPC: TalkService.Upload
 
 rpc for uploading talk document as single message
 
@@ -15,31 +15,32 @@ rpc for uploading talk document as single message
 
 ```json
 {
+  "talk_id": "string",
   "metadata": {
-    "connectionId": "string",
-    "fields": "string",
+    "connection_id": "string",
+    "fields": "map<string, string>",
     "users": [
       {
         "id": "string",
         "role": "UserRole",
-        "fields": "string"
+        "fields": "map<string, string>"
       }
     ]
   },
   "audio": {
-    "audioMetadata": {
-      // Includes only one of the fields `rawAudio`, `containerAudio`
-      "rawAudio": {
-        "audioEncoding": "AudioEncoding",
-        "sampleRateHertz": "int64",
-        "audioChannelCount": "int64"
+    "audio_metadata": {
+      // Includes only one of the fields `raw_audio`, `container_audio`
+      "raw_audio": {
+        "audio_encoding": "AudioEncoding",
+        "sample_rate_hertz": "int64",
+        "audio_channel_count": "int64"
       },
-      "containerAudio": {
-        "containerAudioType": "ContainerAudioType"
+      "container_audio": {
+        "container_audio_type": "ContainerAudioType"
       }
       // end of the list of possible fields
     },
-    "audioData": {
+    "audio_data": {
       "data": "bytes"
     }
   }
@@ -50,6 +51,9 @@ request to create audio dialog
 
 #|
 ||Field | Description ||
+|| talk_id | **string**
+
+talk_id, blank if initial upload request and present on metadata update ||
 || metadata | **[TalkMetadata](#yandex.cloud.speechsense.v1.TalkMetadata)** ||
 || audio | **[AudioRequest](#yandex.cloud.speechsense.v1.AudioRequest)**
 
@@ -60,10 +64,10 @@ audio payload ||
 
 #|
 ||Field | Description ||
-|| connectionId | **string**
+|| connection_id | **string**
 
 id of connection this talk belongs too ||
-|| fields | **string**
+|| fields | **object** (map<**string**, **string**>)
 
 channel defined fields ||
 || users[] | **[UserMetadata](#yandex.cloud.speechsense.v1.UserMetadata)**
@@ -82,7 +86,7 @@ per user specific metadata ||
 - `USER_ROLE_OPERATOR`
 - `USER_ROLE_CLIENT`
 - `USER_ROLE_BOT` ||
-|| fields | **string** ||
+|| fields | **object** (map<**string**, **string**>) ||
 |#
 
 ## AudioRequest {#yandex.cloud.speechsense.v1.AudioRequest}
@@ -91,10 +95,10 @@ request for sending small audios (< 128 mb) in one go
 
 #|
 ||Field | Description ||
-|| audioMetadata | **[AudioMetadata](#yandex.cloud.speechsense.v1.AudioMetadata)**
+|| audio_metadata | **[AudioMetadata](#yandex.cloud.speechsense.v1.AudioMetadata)**
 
 audio metadata ||
-|| audioData | **[AudioChunk](#yandex.cloud.speechsense.v1.AudioChunk)**
+|| audio_data | **[AudioChunk](#yandex.cloud.speechsense.v1.AudioChunk)**
 
 Bytes with audio data. ||
 |#
@@ -105,16 +109,16 @@ Audio format options.
 
 #|
 ||Field | Description ||
-|| rawAudio | **[RawAudio](#yandex.cloud.speechsense.v1.RawAudio)**
+|| raw_audio | **[RawAudio](#yandex.cloud.speechsense.v1.RawAudio)**
 
 Audio without container.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
-|| containerAudio | **[ContainerAudio](#yandex.cloud.speechsense.v1.ContainerAudio)**
+Includes only one of the fields `raw_audio`, `container_audio`. ||
+|| container_audio | **[ContainerAudio](#yandex.cloud.speechsense.v1.ContainerAudio)**
 
 Audio is wrapped in container.
 
-Includes only one of the fields `rawAudio`, `containerAudio`. ||
+Includes only one of the fields `raw_audio`, `container_audio`. ||
 |#
 
 ## RawAudio {#yandex.cloud.speechsense.v1.RawAudio}
@@ -123,16 +127,16 @@ RAW Audio format spec (no container to infer type). Used in AudioFormat options.
 
 #|
 ||Field | Description ||
-|| audioEncoding | enum **AudioEncoding**
+|| audio_encoding | enum **AudioEncoding**
 
 Type of audio encoding
 
 - `AUDIO_ENCODING_UNSPECIFIED`
 - `AUDIO_ENCODING_LINEAR16_PCM`: Audio bit depth 16-bit signed little-endian (Linear PCM). ||
-|| sampleRateHertz | **int64**
+|| sample_rate_hertz | **int64**
 
 PCM sample rate ||
-|| audioChannelCount | **int64**
+|| audio_channel_count | **int64**
 
 PCM channel count. ||
 |#
@@ -143,7 +147,7 @@ Audio with fixed type in container. Used in AudioFormat options.
 
 #|
 ||Field | Description ||
-|| containerAudioType | enum **ContainerAudioType**
+|| container_audio_type | enum **ContainerAudioType**
 
 Type of audio container.
 
@@ -168,13 +172,13 @@ Bytes with audio data. ||
 
 ```json
 {
-  "talkId": "string"
+  "talk_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| talkId | **string**
+|| talk_id | **string**
 
 id of created talk document ||
 |#

@@ -1,15 +1,155 @@
 common:
-    - from: data-proc/concepts/metastore.md
-      to: metadata-hub/concepts/metastore.md
-    - from: data-proc/concepts/metastore-impersonation.md
-      to: metadata-hub/concepts/metastore-impersonation.md
-    - from: data-proc/operations/metastore/cluster-create.md
-      to: metadata-hub/operations/metastore/cluster-create.md
-    - from: data-proc/operations/metastore/cluster-delete.md
-      to: metadata-hub/operations/metastore/cluster-delete.md
-    - from: data-proc/operations/metastore/dataproc-connect.md
-      to: metadata-hub/operations/metastore/dataproc-connect.md
-    - from: data-proc/operations/metastore/export-and-import.md
-      to: metadata-hub/operations/metastore/export-and-import.md
-    - from: security/domains/checklist.md
-      to: security/domains/index.md
+  - from: ^/data-proc/concepts/metastore
+    to: /metadata-hub/concepts/metastore
+  - from: ^/data-proc/concepts/metastore-impersonation
+    to: /metadata-hub/concepts/metastore-impersonation
+  - from: ^/data-proc/operations/metastore/(.*)
+    to: /metadata-hub/operations/metastore/$1
+  - from: ^/security/domains/checklist
+    to: /security/domains
+  - from: ^/datalens/concepts/dataset/(.*)
+    to: /datalens/dataset/$1
+  - from: ^/datalens/operations/dataset/(.*)
+    to: /datalens/dataset/create-dataset
+  - from: ^/troubleshooting/dataproc/(.*)
+    to: /troubleshooting/data-processing
+  - from: ^/data-proc/tutorials/dataproc-to-dataproc
+    to: /data-proc/tutorials/data-processing-to-data-processing
+  - from: ^/data-proc/tutorials/s3-dataproc-ch
+    to: /data-proc/tutorials/s3-data-processing-ch
+  - from: ^/datasphere/concepts/data-proc-operations
+    to: /datasphere/concepts/data-processing-operations
+  - from: ^/datasphere/concepts/data-proc-template
+    to: /datasphere/concepts/data-processing-template
+  - from: ^/datasphere/concepts/data-proc$
+    to: /datasphere/concepts/data-processing
+  - from: ^/datasphere/concepts/temporary-data-proc-clusters
+    to: /datasphere/concepts/temporary-data-processing-clusters
+  - from: ^/datasphere/operations/data-proc-template
+    to: /datasphere/operations/data-processing-template
+  - from: ^/datasphere/tutorials/data-proc-integration
+    to: /datasphere/tutorials/data-processing-integration
+  - from: ^/free-trial/concepts/limits
+    to: /getting-started/free-trial/concepts/limits
+  - from: ^/free-trial/concepts/quickstart
+    to: /getting-started/free-trial/concepts/quickstart
+  - from: ^/free-trial/concepts/trial-ending
+    to: /getting-started/free-trial/concepts/trial-ending
+  - from: ^/free-trial/concepts/upgrade-to-paid
+    to: /getting-started/free-trial/concepts/upgrade-to-paid
+  - from: ^/free-trial/concepts/usage-grant
+    to: /getting-started/usage-grant
+  - from: ^/free-trial/concepts/usage-monitor
+    to: /billing/operations/check-charges
+  - from: ^/free-trial/(.*)
+    to: /getting-started/$1
+  - from: ^/managed-airflow/tutorials/data-proc-automation
+    to: /managed-airflow/tutorials/data-processing-automation
+  - from: ^/managed-kafka/tutorials/data-proc$
+    to: /managed-kafka/tutorials/data-processing
+  - from: ^/marketplace-products/neoflex-datagram-dataproc
+    to: /marketplace-products/neoflex-datagram-data-processing
+  - from: ^/metadata-hub/operations/metastore/dataproc-connect
+    to: /metadata-hub/operations/metastore/data-processing-connect
+  - from: ^/monitoring/metrics-ref/data-proc-ref
+    to: /monitoring/metrics-ref/data-processing-ref
+  - from: ^/storage/tutorials/data-proc-init-actions-geesefs
+    to: /storage/tutorials/data-processing-init-actions-geesefs
+  - from: ^/troubleshooting/dataproc/known-issues/hosts-of-dataproc-cluster-are-in-status-unknown-after-creation
+    to: /troubleshooting/data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation
+  - from: ^/tutorials/dataplatform/data-proc-and-airflow
+    to: /tutorials/dataplatform/data-processing-and-airflow
+  - from: ^/tutorials/dataplatform/data-proc-and-kafka
+    to: /tutorials/dataplatform/data-processing-and-kafka
+  - from: ^/tutorials/dataplatform/data-proc-init-actions-geesefs
+    to: /tutorials/dataplatform/data-processing-init-actions-geesefs
+  - from: ^/tutorials/dataplatform/dataproc-to-dataproc
+    to: /tutorials/dataplatform/data-processing-to-data-processing
+  - from: ^/vpc/tutorials/dataproc-nat-instance
+    to: /vpc/tutorials/data-processing-nat-instance
+  - from: ^/security/standard/backup
+    to: /security/standard/virtualenv-safe-config
+  - from: ^/security/standard/physical-security
+    to: /security/standard/index
+  - from: ^/managed-clickhouse/tutorials/data-from-ch-over-yt
+    to: /datalens/tutorials/data-from-ch-over-yt
+
+ru-ru: 
+  - from: ^/audit-trails/operations/export-organization-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/iam/operations/sa/create-access-key
+    to: /iam/operations/authentication/manage-access-keys
+  - from: ^/iam/operations/sa/delete-access-key
+    to: /iam/operations/authentication/manage-access-keys
+  - from: ^/iam/operations/api-key/create
+    to: /iam/operations/authentication/manage-api-keys
+  - from: ^/iam/operations/api-key/delete
+    to: /iam/operations/authentication/manage-api-keys
+  - from: ^/iam/operations/authorized-key/create
+    to: /iam/operations/authentication/manage-authorized-keys
+  - from: ^/iam/operations/authorized-key/delete
+    to: /iam/operations/authentication/manage-authorized-keys
+  - from: ^/organization/concepts/manage-services
+    to: /resource-manager/concepts/resources-hierarchy
+  - from: ^/tutorials/dataplatform/lockbox-and-airflow
+    to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster
+  - from: ^/foundation-models/concepts/tuning/classifier
+    to: /foundation-models/concepts/resources/dataset
+  - from: ^/foundation-models/concepts/tuning/generating
+    to: /foundation-models/concepts/resources/dataset
+
+ru-kz:
+  - from: ^/audit-trails/operations/export-organization-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-organization-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-folder-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-logging
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-data-streams
+    to: /audit-trails/operations/create-trail
+  - from: ^/audit-trails/operations/export-cloud-bucket
+    to: /audit-trails/operations/create-trail
+  - from: ^/iam/operations/sa/create-access-key
+    to: /iam/operations/authentication/manage-access-keys
+  - from: ^/iam/operations/sa/delete-access-key
+    to: /iam/operations/authentication/manage-access-keys
+  - from: ^/iam/operations/api-key/create
+    to: /iam/operations/authentication/manage-api-keys
+  - from: ^/iam/operations/api-key/delete
+    to: /iam/operations/authentication/manage-api-keys
+  - from: ^/iam/operations/authorized-key/create
+    to: /iam/operations/authentication/manage-authorized-keys
+  - from: ^/iam/operations/authorized-key/delete
+    to: /iam/operations/authentication/manage-authorized-keys
+  - from: ^/organization/concepts/manage-services
+    to: /resource-manager/concepts/resources-hierarchy
+  - from: ^/tutorials/dataplatform/lockbox-and-airflow
+    to: /managed-airflow/operations/lockbox-secrets-in-maf-cluster
+  - from: ^/foundation-models/concepts/tuning/classifier
+    to: /foundation-models/concepts/resources/dataset
+  - from: ^/foundation-models/concepts/tuning/generating
+    to: /foundation-models/concepts/resources/dataset

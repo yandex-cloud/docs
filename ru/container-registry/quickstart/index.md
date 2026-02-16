@@ -1,3 +1,8 @@
+---
+title: Как начать работать с {{ container-registry-name }}
+description: В этой инструкции вы создадите свой первый реестр {{ container-registry-name }} и попробуете управлять Docker-образами.
+---
+
 # Как начать работать с {{ container-registry-name }}
 
 В этой инструкции вы создадите свой первый [реестр](../concepts/registry.md) и попробуете управлять [Docker-образами](../concepts/docker-image.md).

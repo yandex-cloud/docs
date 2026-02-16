@@ -1,9 +1,38 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
+    method: post
+    path:
+      type: object
+      properties:
+        backendGroupId:
+          description: |-
+            **string**
+            Required field. ID of the backend group to remove a backend from.
+            To get the backend group ID, make a [BackendGroupService.List](/docs/application-load-balancer/api-ref/BackendGroup/list#List) request.
+          type: string
+      required:
+        - backendGroupId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        backendName:
+          description: |-
+            **string**
+            Required field. Name of the backend to remove.
+            To get the backend name, make a [BackendGroupService.Get](/docs/application-load-balancer/api-ref/BackendGroup/get#Get) request.
+          type: string
+      required:
+        - backendName
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/BackendGroup/removeBackend.md
 ---
 
-# Application Load Balancer API, REST: BackendGroup.RemoveBackend {#RemoveBackend}
+# Application Load Balancer API, REST: BackendGroup.RemoveBackend
 
 Removes backends from the specified backend group.
 
@@ -70,7 +99,7 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     // Includes only one of the fields `http`, `grpc`, `stream`
     "http": {
       "backends": [
@@ -118,7 +147,10 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -159,7 +191,8 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
       },
       "cookie": {
         "name": "string",
-        "ttl": "string"
+        "ttl": "string",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -206,7 +239,10 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -246,7 +282,8 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
       },
       "cookie": {
         "name": "string",
-        "ttl": "string"
+        "ttl": "string",
+        "path": "string"
       }
       // end of the list of possible fields
     },
@@ -293,7 +330,10 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
               "http": {
                 "host": "string",
                 "path": "string",
-                "useHttp2": "boolean"
+                "useHttp2": "boolean",
+                "expectedStatuses": [
+                  "string"
+                ]
               },
               "grpc": {
                 "serviceName": "string"
@@ -322,7 +362,8 @@ To get the backend name, make a [BackendGroupService.Get](/docs/application-load
               // end of the list of possible fields
             }
           },
-          "enableProxyProtocol": "boolean"
+          "enableProxyProtocol": "boolean",
+          "keepConnectionsOnHostHealthFailure": "boolean"
         }
       ],
       // Includes only one of the fields `connection`
@@ -455,7 +496,7 @@ Description of the backend group. The string is 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the backend group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Backend group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -559,7 +600,9 @@ An HTTP backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -573,7 +616,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -636,7 +681,9 @@ For details about panic mode, see [documentation](/docs/application-load-balance
 
 If the value is `0`, panic mode will never be activated and traffic is routed only to healthy backends at all times.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || localityAwareRoutingPercent | **string** (int64)
 
 Percentage of traffic that a load balancer node sends to healthy backends in its availability zone.
@@ -648,7 +695,9 @@ If there are no healthy backends in an availability zone, all the traffic is div
 If `strictLocality` is `true`, the specified value is ignored.
 A load balancer node sends all the traffic within its availability zone, regardless of backends' health.
 
-Default value: `0`. ||
+Default value: `0`.
+
+Acceptable values are 0 to 100, inclusive. ||
 || strictLocality | **boolean**
 
 Specifies whether a load balancer node should only send traffic to backends in its availability zone,
@@ -701,7 +750,9 @@ A resource for target groups that belong to the backend.
 
 List of ID's of target groups that belong to the backend.
 
-To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request. ||
+To get the ID's of all available target groups, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StorageBucketBackend {#yandex.cloud.apploadbalancer.v1.StorageBucketBackend}
@@ -756,7 +807,9 @@ Default value: `0`. ||
 
 Port used for health checks.
 
-If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks. ||
+If not specified, the backend port ([HttpBackend.port](#yandex.cloud.apploadbalancer.v1.HttpBackend) or [GrpcBackend.port](#yandex.cloud.apploadbalancer.v1.GrpcBackend)) is used for health checks.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || stream | **[StreamHealthCheck](#yandex.cloud.apploadbalancer.v1.HealthCheck.StreamHealthCheck)**
 
 TCP stream health check settings.
@@ -831,6 +884,8 @@ A health check payload resource.
 
 Payload text.
 
+The string length in characters must be greater than 0.
+
 Includes only one of the fields `text`.
 
 Payload. ||
@@ -854,6 +909,12 @@ or value for the HTTP/2 `:path` pseudo-header. ||
 Enables HTTP/2 usage in health checks.
 
 Default value: `false`, HTTP/1.1 is used. ||
+|| expectedStatuses[] | **string** (int64)
+
+A list of HTTP response statuses considered healthy.
+By default only 200 HTTP status code considered healthy.
+
+Acceptable values are 100 to 599, inclusive. ||
 |#
 
 ## GrpcHealthCheck {#yandex.cloud.apploadbalancer.v1.HealthCheck.GrpcHealthCheck}
@@ -938,7 +999,9 @@ A resource for HTTP-header-field-based session affinity configuration.
 ||Field | Description ||
 || headerName | **string**
 
-Name of the HTTP header field that is used for session affinity. ||
+Name of the HTTP header field that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 |#
 
 ## CookieSessionAffinity {#yandex.cloud.apploadbalancer.v1.CookieSessionAffinity}
@@ -949,7 +1012,9 @@ A resource for cookie-based session affinity configuration.
 ||Field | Description ||
 || name | **string**
 
-Name of the cookie that is used for session affinity. ||
+Name of the cookie that is used for session affinity.
+
+The string length in characters must be 1-256. ||
 || ttl | **string** (duration)
 
 Maximum age of cookies that are generated for sessions.
@@ -958,6 +1023,14 @@ If set to `0`, session cookies are used, which are stored by clients in temporar
 on client restarts.
 
 If not set, the balancer does not generate cookies and only uses incoming ones for establishing session affinity. ||
+|| path | **string**
+
+Path of cookie.
+This will be used to set the path of a new cookie when it is generated.
+
+If path is unspecified or empty, no path will be set for the cookie.
+
+The string length in characters must be 0-256. ||
 |#
 
 ## GrpcBackendGroup {#yandex.cloud.apploadbalancer.v1.GrpcBackendGroup}
@@ -1023,7 +1096,9 @@ A gRPC backend resource.
 ||Field | Description ||
 || name | **string**
 
-Required field. Name of the backend. ||
+Required field. Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1037,7 +1112,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend.
@@ -1096,7 +1173,9 @@ A stream (TCP) backend resource.
 ||Field | Description ||
 || name | **string**
 
-Name of the backend. ||
+Name of the backend.
+
+Value must match the regular expression ` [a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
 || backendWeight | **string** (int64)
 
 Backend weight. Traffic is distributed between backends of a backend group according to their weights.
@@ -1110,7 +1189,9 @@ If the weight is non-positive, traffic is not sent to the backend. ||
 Load balancing configuration for the backend. ||
 || port | **string** (int64)
 
-Port used by all targets to receive traffic. ||
+Port used by all targets to receive traffic.
+
+Acceptable values are 0 to 65535, inclusive. ||
 || targetGroups | **[TargetGroupsBackend](#yandex.cloud.apploadbalancer.v1.TargetGroupsBackend)**
 
 Target groups that belong to the backend. For details about target groups, see
@@ -1135,4 +1216,8 @@ If not specified, the load balancer establishes unencrypted TCP connections with
 || enableProxyProtocol | **boolean**
 
 If set, proxy protocol will be enabled for this backend. ||
+|| keepConnectionsOnHostHealthFailure | **boolean**
+
+If a backend host becomes unhealthy (as determined by the configured health checks),
+keep connections to the failed host. ||
 |#

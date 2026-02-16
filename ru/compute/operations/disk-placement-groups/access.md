@@ -15,8 +15,8 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -60,7 +60,7 @@ description: Следуя данной инструкции, вы настрои
 
        Где:
 
-       * `--user-account-id` — [идентификатор пользователя](../../../iam/operations/users/get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
+       * `--user-account-id` — [идентификатор пользователя](../../../organization/operations/users-get.md). Чтобы назначить роль для всех аутентифицированных пользователей, воспользуйтесь флагом `--all-authenticated-users`.
        * `--role` — назначаемая [роль](../../security/index.md#roles-list).
 
      * Сервисному аккаунту:
@@ -125,8 +125,8 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
@@ -242,8 +242,8 @@ description: Следуя данной инструкции, вы настрои
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположена группа размещения дисков.
-  1. Выберите сервис **{{ ui-key.yacloud.compute.label_service }}**.
-  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.switch_placement-groups }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** нажмите на имя нужной группы.
   1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. В строке нужного пользователя нажмите значок ![image](../../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
@@ -279,7 +279,7 @@ description: Следуя данной инструкции, вы настрои
      Где:
 
      * `--role` — идентификатор роли, которую надо отозвать.
-     * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), которому назначается роль.
+     * `--subject` — тип и идентификатор [субъекта](../../../iam/concepts/access-control/index.md#subject), у которого вы хотите отозвать роль.
 
      Например, чтобы отозвать роль `{{ roles-viewer }}` у пользователя с идентификатором `ajel6l0jcb9s********` на группу размещения дисков:
 

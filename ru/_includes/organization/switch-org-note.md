@@ -1,0 +1,1 @@
+Если у вас несколько организаций, вы можете [переключиться](../../organization/operations/manage-organizations.md#switch-to-another-org) на нужную. Для этого в левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужную организацию.

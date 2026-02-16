@@ -1,7 +1,14 @@
+---
+title: Сделать виртуальную машину прерываемой
+description: Следуя данной инструкции, вы сможете сделать виртуальную машину прерываемой.
+---
+
 # Сделать виртуальную машину прерываемой
 
 
 Вы можете [создать прерываемую](#create-preemptible) [ВМ](../../concepts/vm.md) или [изменить тип](#preemptible-to-regular) существующей ВМ.
+
+{% include [role-note](../../../_includes/compute/role-note.md) %}
 
 ## Создать прерываемую ВМ {#create-preemptible}
 
@@ -11,16 +18,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана прерываемая ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.  
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана прерываемая ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../concepts/image.md) и версию операционной системы.
 
       {% include [change-custom-disk-settings-image](../../../_includes/compute/create/change-custom-disk-settings-image.md) %}
 
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться прерываемая ВМ.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages_ru }}** настройте загрузочный [диск](../../concepts/disk.md):
+  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../../concepts/disk.md):
 
       * Выберите [тип диска](../../concepts/disk.md#disks_types).
       * Задайте нужный размер диска.
@@ -35,7 +42,7 @@
       * Выберите [платформу](../../../compute/concepts/vm-platforms.md).
       * Укажите [гарантированную долю](../../../compute/concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
       * В поле **{{ ui-key.yacloud.component.compute.resources.field_advanced }}** включите опцию **{{ ui-key.yacloud.component.compute.resources.field_preemptible }}**.
-      * (Опционально) Включите [программно-ускоренную сеть](../../concepts/software-accelerated-network.md).
+      * (Опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
 
@@ -75,7 +82,7 @@
        --zone {{ region-id }}-a \
        --network-interface subnet-name=default-a,nat-ip-version=ipv4 \
        --preemptible \
-       --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
+       --create-boot-disk image-folder-id=standard-images,image-family=centos-7,kms-key-id=<идентификатор_ключа> \
        --ssh-key ~/.ssh/id_ed25519.pub
      ```
 
@@ -98,6 +105,13 @@
      * `--preemptible` — выбор прерываемого типа ВМ.
      * `--create-boot-disk` — настройки загрузочного диска ВМ:
          * `image-family` — [семейство образов](../../concepts/image.md#family), например, `centos-7`. Эта опция позволит установить последнюю версию ОС из указанного семейства.
+         * `kms-key-id` — идентификатор [симметричного ключа {{ kms-short-name }}](../../../kms/concepts/key.md) для создания зашифрованного загрузочного диска. Необязательный параметр.
+
+           {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
+           
+           {% include [encryption-disable-warning](../../../_includes/compute/encryption-disable-warning.md) %}
+
+           {% include [encryption-keys-note](../../../_includes/compute/encryption-keys-note.md) %}
 
      * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на прерываемой ВМ будет автоматически создан пользователь `yc-user`.
 
@@ -214,8 +228,8 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится прерываемая ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.switch_instances }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. В строке с нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
   1. В строке с нужной ВМ нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -304,7 +318,7 @@
 
   1. Удалите поле `scheduling_policy` со значением `preemptible = true`.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}/).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:

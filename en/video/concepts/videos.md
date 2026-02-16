@@ -4,27 +4,37 @@ With {{ video-name }}, you can upload _videos_ to your [channel](index.md#channe
 
 {% include [video-characteristic](../../_includes/video/video-characteristic-multiple.md) %}
 
-{{ video-name }} [limits](limits.md) the resolution of the videos you are publishing.
+{% include [video-multi-soundtracks](../../_includes/video/video-multi-soundtracks.md) %}
+
+{% include [video-resolution-limits](../../_includes/video/video-resolution-limits.md) %}
 
 You can upload custom covers for your videos. The cover will appear in the {{ video-name }} interface and the [player](./player.md) on the website hosting the video.
 
 {% include [image-characteristic](../../_includes/video/image-characteristic.md) %}
 
-You can [publish](../operations/video/get-link.md) via a direct link or post to a website either single videos or videos grouped into [playlists](playlists.md) in desired order. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
+You can [publish](../operations/video/get-link.md) a video and select its access type:
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-sign-url-access }}**: Available via a dedicated link. {#temporary-link}
+
+    {% include [video-temporary-links](../../_includes/video/video-temporary-links.md) %}
+
+* **{{ ui-key.yacloud_video.videos.label_access_rights-public }}**: Available indefinitely to anyone with a link to it. {#permanent-link}
+
+On the website, you can post both single videos and [playlists](playlists.md) with videos in a particular order. In playlists, only videos with permanent links will be available for viewing. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
 
 ## Statuses {#statuses}
 
 ### Video statuses {#video-statuses}
 
 * `{{ ui-key.yacloud_video.videos.status_wait-uploading }}`: Original video file is being uploaded to a {{ yandex-cloud }} storage.
-* `{{ ui-key.yacloud_video.videos.status_processing }}`: Original video file is being transcoded into several versions with different bitrates and resolutions. When viewing the video on client devices, the video player selects the best version for smooth playback at a given internet connection speed.
+* `{{ ui-key.yacloud_video.videos.status_processing }}`: Original video file is transcoded into several video versions with different bitrates and resolutions. When viewing the video on client devices, the video player selects the best version for smooth playback at a given internet connection speed.
 * `{{ ui-key.yacloud_video.videos.status_ready }}`: Transcoding is complete. The video is ready for viewing.
 * `{{ ui-key.yacloud_video.videos.status_error }}`: Error uploading a file or transcoding a video. Check the stability of your internet connection, the integrity and format of the file and try again.
 
 ### Publication statuses {#publication-statuses}
 
-* `{{ ui-key.yacloud_video.videos.status_published }}`: The video is [published](../operations/video/publish.md).
-* `{{ ui-key.yacloud_video.videos.status_unpublished }}`: The video is not published.
+* `{{ ui-key.yacloud_video.videos.status_published }}`: Video is [published](../operations/video/publish.md).
+* `{{ ui-key.yacloud_video.videos.status_unpublished }}`: Video is not published.
 
 ## Video publishing parameters {#video-parameters}
 
@@ -35,6 +45,8 @@ You can change the following basic video playback settings when [generating](../
 * Displaying video controls in the player.
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
+
+Also, you can use [presets](presets.md) to configure some of the player settings, e.g., widget color palette and layout.
 
 ## Video viewing statistics {#video-statistics}
 
@@ -59,7 +71,34 @@ The following viewing statistics are currently available:
 
     On the heat map, the fact of video fragment playback is counted as a view regardless of playback duration. For example, if you start a video and stop it right away, a view will be counted for the first fragment of the video.
 
+## AI features {#ai-capabilities}
+
+To provide users with more options and expand your video audience, enable AI features built on Yandex ML models. For more information about AI features, see [this article](https://habr.com/ru/companies/yandex/articles/792608/) in the Yandex blog. 
+
+### Summarization {#summarization}
+
+Summarization automatically creates a short summary of your video conveying its main points and key message. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or [add your own timecodes manually](#timecodes).
+
+### Neural translation {#stranslation}
+
+Neural translation enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+
+### Subtitles {#subtitles}
+
+Neural subtitles not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+
+You can also upload custom subtitles in SRT and VTT formats. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video.
+
+## Timecodes {#timecodes}
+
+You can [split your video into chapters](../operations/video/add-timecodes.md). The time and chapter name formats are as follows:
+
+{% include [video-timecodes](../../_includes/video/video-timecodes.md) %}
+
+You can also generate timecodes automatically by enabling video [summarization](#summarization).
+
 ## See also {#see-also}
 
 * [Getting started with video hosting](../hosting.md)
 * [Getting started with API](../api-ref/quickstart.md)
+* [How to enable monetization](../operations/channels/settings.md#ad-settings)

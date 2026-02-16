@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies/{scanPolicyId}
+    method: delete
+    path:
+      type: object
+      properties:
+        scanPolicyId:
+          description: |-
+            **string**
+            Required field. ID of the scan policy.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - scanPolicyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/delete.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Delete {#Delete}
+# Container Registry API, REST: ScanPolicy.Delete
 
 Deletes the specified scan policy.
 
@@ -19,7 +37,9 @@ DELETE https://container-registry.{{ api-host }}/container-registry/v1/scanPolic
 ||Field | Description ||
 || scanPolicyId | **string**
 
-Required field. ID of the scan policy. ||
+Required field. ID of the scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

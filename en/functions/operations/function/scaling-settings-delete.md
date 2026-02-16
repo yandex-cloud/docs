@@ -12,10 +12,10 @@ description: Follow this guide to delete function scaling settings.
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select a function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag of the function version (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) you want to delete scaling settings for.
-    1. In the pop-up window, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-tag }}**.
+    1. In the pop-up window, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_edit-scale-settings }}**.
     1. To delete a scaling setting, set it equal to zero.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -31,21 +31,21 @@ description: Follow this guide to delete function scaling settings.
 
     Where:
 
-    * `--id`: ID of the function. To find out the ID, [request](./function-list.md) a list of functions.
+    * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
     * `--tag`: Function version [tag](../../concepts/function.md#tag).
 
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
     To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
-    1. In the configuration file, describe the parameters of the resources you want to create:
+    1. In the configuration file, describe the resources you want to create:
 
        * `yandex_function_scaling_policy`: Description of function scaling settings.
-         * `function_id`: ID of the function.
+         * `function_id`: Function ID.
          * `policy`: Scaling settings:
            * `policy.0.tag`: Function version [tag](../../concepts/function.md#tag).
            * `policy.0.zone_instances_limit`: Number of function instances. Set the `0` value.
@@ -64,7 +64,7 @@ description: Follow this guide to delete function scaling settings.
         }
         ```
       
-        For more information about the `yandex_function_scaling_policy` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function_scaling_policy).
+        For more information about `yandex_function_scaling_policy` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_scaling_policy).
       
     1. Check the configuration using this command:
         
@@ -84,14 +84,14 @@ description: Follow this guide to delete function scaling settings.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
          
-    1. Apply the configuration changes:
+    1. Apply the changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
 
     You can check the deletion of the scaling settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
     
@@ -101,11 +101,8 @@ description: Follow this guide to delete function scaling settings.
 
 - API {#api}
 
-   To remove function scaling settings, use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
+    To delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
 
-- {{ yandex-cloud }} Toolkit {#yc-toolkit}
-
-    You can delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`) using the [{{ yandex-cloud }} Toolkit plugin](https://github.com/yandex-cloud/ide-plugin-jetbrains/blob/master/README.en.md) for the IDE family on the [JetBrains](https://www.jetbrains.com/) [IntelliJ platform](https://www.jetbrains.com/opensource/idea/).
 
 {% endlist %}
 

@@ -14,9 +14,9 @@
 
 Чтобы подготовиться к загрузке переписки из чата:
 
-1. [Создайте подключение](../connection/create.md#create-chat-connection) типа **Чат**.
+1. [Создайте подключение](../connection/create.md#create-chat-connection) типа **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**.
 
-   Если вы хотите загрузить [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в общих метаданных подключения строковый ключ `ticket_id`. По этому ключу чаты будут связаны.
+   Если вы хотите загрузить [связанные диалоги](../../concepts/dialogs.md#related-dialogs), добавьте в общие метаданные подключения строковый ключ `ticket_id`. По этому ключу чаты будут связаны.
 
 1. [Создайте проект](../project/create.md) с новым подключением.
 
@@ -29,6 +29,14 @@
 1. {% include [install-grpcio-tools](../../../_includes/speechsense/data/install-grpcio-tools.md) %}
 
 ## Загрузить данные {#upload-data}
+
+{% note info %}
+
+{% include [data-format](../../../_includes/speechsense/data/data-format.md) %}
+
+{% include notitle [max-dialog-string](../../../_includes/speechsense/data/max-dialog-string.md) %}
+
+{% endnote %}
 
 1. {% include [interface-code-generation](../../../_includes/speechsense/data/interface-code-generation.md) %}
 
@@ -48,7 +56,7 @@
       # Для аутентификации с IAM-токеном замените параметр api_key на iam_token
       def upload_talk(connection_id: str, metadata: Dict[str, str], api_key: str, text_data):
          credentials = grpc.ssl_channel_credentials()
-         channel = grpc.secure_channel('api.talk-analytics.yandexcloud.net:443', credentials)
+         channel = grpc.secure_channel('api.speechsense.yandexcloud.net:443', credentials)
 
          talk_service_stub = talk_service_pb2_grpc.TalkServiceStub(channel)
 
@@ -109,20 +117,20 @@
       "bot_name": "<имя_бота>",
       "bot_id": "<идентификатор_бота>",
       "date": "<дата_начала>",
-      "direction_outgoing": "<исходящее_направление:_true_или_false>",
+      "direction_outgoing": "<сделать_направление_исходящим>",
       "language": "<язык>",
       <дополнительные_параметры_подключения>
    }
    ```
 
-   Значение поля `date` задайте в формате `ГГГГ-ММ-ДДTЧЧ:ММ:СС.ССС`.
+   Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете текстовые сообщения. В шаблоне выше указаны обязательные поля для подключений типа **{{ ui-key.yc-ui-talkanalytics.connections.type.chat-key-value }}**. Поле `direction_outgoing` определяет направление диалога: `true` — исходящее, `false` — входящее.
 
-   Поля в файле должны соответствовать параметрам подключения, в которое вы загружаете текстовые сообщения. В шаблоне выше указаны обязательные поля для подключений типа **Чат**. Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете связанные чаты, добавьте в файл параметр:
+   Если вы добавляли другие параметры в подключение, укажите их в файле `metadata.json`. Например, если вы загружаете [связанные чаты](../../concepts/dialogs.md#related-dialogs), добавьте в файл параметр:
 
    ```json
    {
       ...
-      "ticket_id": "номер_задачи"
+      "ticket_id": "<номер_задачи>"
    }
    ```
 
@@ -166,4 +174,4 @@
    * `--connection-id` — идентификатор подключения, в которое вы загружаете данные.
    * `--key` — API-ключ для аутентификации. Если вы используете IAM-токен, укажите переменную окружения `IAM_TOKEN` вместо `API_KEY`.
 
-1. С [главной страницы]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите на страницу проекта, который вы создали для текстовых сообщений. Убедитесь, что во вкладке **Диалоги** появилась загруженная переписка.
+1. С [главной страницы]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите на страницу проекта, который вы создали для текстовых сообщений. Убедитесь, что во вкладке **{{ ui-key.yc-ui-talkanalytics.dialogs.dialogs }}** появилась загруженная переписка.

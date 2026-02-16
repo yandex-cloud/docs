@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://operation.{{ api-host }}/operations/{operationId}
+    method: get
+    path:
+      type: object
+      properties:
+        operationId:
+          description: |-
+            **string**
+            Required field. ID of the Operation resource to return.
+          type: string
+      required:
+        - operationId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/Operation/get.md
 ---
 
-# API Gateway Service, REST: Operation.Get {#Get}
+# API Gateway Service, REST: Operation.Get
 
 Returns the specified Operation resource.
 

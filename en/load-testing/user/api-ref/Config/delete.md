@@ -1,9 +1,24 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://loadtesting.{{ api-host }}/loadtesting/api/v1/configs/{configId}
+    method: delete
+    path:
+      type: object
+      properties:
+        configId:
+          description: |-
+            **string**
+            ID of the config to deleted.
+          type: string
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/loadtesting/api/v1/user/api-ref/Config/delete.md
 ---
 
-# Load Testing API, REST: Config.Delete {#Delete}
+# Load Testing API, REST: Config.Delete
 
 Deletes the specified config.
 

@@ -5,7 +5,7 @@ description: Follow this guide to configure redirection of requests from a CDN r
 
 # Configuring request redirection
 
-With [request redirection](../../concepts/http-rewrite.md), you can reconfigure paths of requests to your content. This can be useful when restructuring files and folders on an [origin](../../concepts/origins.md). You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
+With [request redirection](../../concepts/http-rewrite.md), you can reconfigure paths of requests to your content. This can be useful when rearranging files and folders on an [origin](../../concepts/origins.md). You can also use redirection if you want to keep search engine rankings of your content when moving your resource to a new address.
 
 To enable request redirection on a CDN resource:
 
@@ -15,7 +15,7 @@ To enable request redirection on a CDN resource:
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the CDN resource name.
 
@@ -39,7 +39,7 @@ To enable request redirection on a CDN resource:
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -161,13 +161,13 @@ To enable request redirection on a CDN resource:
 
       {% endcut %}
 
-     To disable request redirection for a CDN resource, run this command, specifying the appropriate CDN resource ID:
+     To disable request redirection for a CDN resource, run this command by specifying the CDN resource ID:
 
       ```bash
       yc cdn resource update <resource_ID> --clear-rewrite
       ```
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - API {#api}
 

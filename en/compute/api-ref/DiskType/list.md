@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/diskTypes
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page to return. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse)
+            that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. To get the next page of results, set `pageToken` to the
+            [ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/DiskType/list.md
 ---
 
-# Compute Cloud API, REST: DiskType.List {#List}
+# Compute Cloud API, REST: DiskType.List
 
 Retrieves the list of disk types for the specified folder.
 
@@ -22,11 +49,15 @@ GET https://compute.{{ api-host }}/compute/v1/diskTypes
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse) returned by a previous list request. ||
+[ListDiskTypesResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskTypesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListDiskTypesResponse}

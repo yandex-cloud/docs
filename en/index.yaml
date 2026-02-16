@@ -1,7 +1,4 @@
 title: Yandex Cloud documentation
-meta:
-  title: Yandex Cloud
-  noIndex: true
 description: []
 links:
   - title: Yandex Cloud API
@@ -22,7 +19,7 @@ links:
   - title: Certificate Manager
     description: Managing TLS certificates
     href: certificate-manager/
-  - title: Yandex Cloud CLI
+  - title: CLI Yandex Cloud
     description: Command line interface
     href: cli/
   - title: Cloud Apps
@@ -37,12 +34,18 @@ links:
   - title: Cloud Interconnect
     description: Connecting to Yandex Cloud resources via a dedicated link
     href: interconnect/
+  - title: Cloud Router
+    description: Creating network topologies
+    href: cloud-router/
   - title: Cloud Logging
     description: Logs of services and user applications
     href: logging/
   - title: Cloud Notification Service
     description: Service for sending notifications
     href: notifications/
+  - title: Cloud Router
+    description: Service for managing network topologies
+    href: cloud-router/
   - title: Cloud Video
     description: Video hosting and online streaming
     href: video/
@@ -52,6 +55,9 @@ links:
   - title: Container Registry
     description: Docker image management
     href: container-registry/
+  - title: Cloud Registry
+    description: Managing artifacts
+    href: cloud-registry/
   - title: Container Solution
     description: VM use cases
     href: cos/
@@ -67,6 +73,11 @@ links:
   - title: DataSphere
     description: A service for developing ML models
     href: datasphere/
+  - title: Yandex Cloud Detection and Response
+    description: >-
+      Service that monitors and responds to Yandex Cloud infrastructure
+      incidents.
+    href: ycdr/
   - title: Cloud CDN
     description: Content delivery network (CDN)
     href: cdn/
@@ -79,11 +90,11 @@ links:
   - title: Cloud Functions
     description: Run code as a function
     href: functions/
-  - title: Foundation Models
+  - title: '{{ foundation-models-name }}'
     description: Generative ML models
-    href: foundation-models/
+    href: ai-studio/
   - title: Identity and Access Management
-    description: Identification and access control to cloud resources
+    description: Identification and cloud resource access control
     href: iam/
   - title: IoT Core
     description: Solutions for the internet of things
@@ -103,24 +114,27 @@ links:
   - title: Managed Service for Apache Kafka®
     description: Apache Kafka® cluster management
     href: managed-kafka/
+  - title: Managed Service for Apache Spark™
+    description: Apache Spark™ cluster management
+    href: managed-spark/
+  - title: Managed Service for Sharded PostgreSQL
+    description: Sharded PostgreSQL cluster management
+    href: managed-spqr/
   - title: Managed Service for ClickHouse
     description: ClickHouse database management
     href: managed-clickhouse/
-  - title: Managed Service for Elasticsearch
-    description: Elasticsearch cluster management
-    href: managed-elasticsearch/
   - title: Managed Service for GitLab
     description: GitLab instance management
     href: managed-gitlab/
-  - title: Managed Service for Greenplum®
+  - title: Yandex MPP Analytics for PostgreSQL
     description: Greenplum® cluster management
     href: managed-greenplum/
   - title: Managed Service for Kubernetes®
     description: Kubernetes cluster management
     href: managed-kubernetes/
-  - title: Managed Service for MongoDB
-    description: MongoDB database management
-    href: managed-mongodb/
+  - title: Yandex StoreDoc
+    description: Yandex StoreDoc database management
+    href: storedoc/
   - title: Managed Service for MySQL®
     description: MySQL database management
     href: managed-mysql/
@@ -130,9 +144,12 @@ links:
   - title: Managed Service for PostgreSQL
     description: PostgreSQL database management
     href: managed-postgresql/
-  - title: Managed Service for Redis™
-    description: Redis database management
-    href: managed-redis/
+  - title: Managed Service for Trino
+    description: Managing the Trino distributed analytical SQL engine
+    href: managed-trino/
+  - title: '{{ mrd-full-name }}'
+    description: Valkey™ database management
+    href: managed-valkey/
   - title: Yandex Cloud Marketplace
     description: Tools and solutions by leading vendors
     href: marketplace/
@@ -140,10 +157,10 @@ links:
     description: A group of database management services
     href: mdb/
   - title: Message Queue
-    description: Queues for messaging between applications
+    description: Message queues for applications
     href: message-queue/
   - title: Yandex MetaData Hub
-    description: Connection management
+    description: Managing connection settings and data schemas
     href: metadata-hub/
   - title: Using Microsoft products
     description: Using Microsoft products
@@ -154,7 +171,7 @@ links:
   - title: Network Load Balancer
     description: Network load balancers
     href: network-load-balancer/
-  - title: Cloud Organization
+  - title: Identity Hub
     description: Cloud services for corporate clients
     href: organization/
   - title: Cloud Postbox
@@ -172,10 +189,13 @@ links:
   - title: Serverless Containers
     description: Running containers without Kubernetes®
     href: serverless-containers/
+  - title: Serverless Integrations
+    description: Integrations across Yandex Cloud services
+    href: serverless-integrations/
   - title: Yandex Cloud tutorials
     description: Guides for handling various tasks using cloud services
     href: tutorials/
-  - title: Search API
+  - title: '{{ search-api-name }}'
     description: >-
       This service allows you to send requests to the Yandex search database and
       get responses over the API.
@@ -186,6 +206,9 @@ links:
   - title: Smart Web Security
     description: Advanced DDoS attack protection service
     href: smartwebsecurity/
+  - title: '{{ src-full-name }}'
+    description: A platform for developing source code
+    href: sourcecraft/
   - title: '{{ speechkit-name }}'
     description: Speech recognition and speech synthesis technologies
     href: speechkit/
@@ -198,9 +221,6 @@ links:
   - title: Yandex Cloud technical support description
     description: Technical support terms and conditions
     href: support/
-  - title: Tracker
-    description: A tool for effective team collaboration
-    href: tracker/
   - title: Translate
     description: Machine translation with support for over 90 languages
     href: translate/
@@ -219,3 +239,6 @@ links:
   - title: Query
     description: Real-time analytical and streaming queries
     href: query/
+meta:
+  title: Yandex Cloud
+  noIndex: true

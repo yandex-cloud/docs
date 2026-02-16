@@ -1,9 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/origins
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
+          type: string
+        originGroupId:
+          description: |-
+            **string** (int64)
+            ID of the group to request origins from.
+            Value must be greater than 0.
+          type: string
+          format: int64
+      required:
+        - folderId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/list.md
 ---
 
-# Cloud CDN API, REST: Origin.List {#List}
+# Cloud CDN API, REST: Origin.List
 
 Lists origins of origin group.
 
@@ -19,10 +44,14 @@ GET https://cdn.{{ api-host }}/cdn/v1/origins
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || originGroupId | **string** (int64)
 
-ID of the group to request origins from. ||
+ID of the group to request origins from.
+
+Value must be greater than 0. ||
 |#
 
 ## Response {#yandex.cloud.cdn.v1.ListOriginsResponse}
@@ -53,7 +82,8 @@ ID of the group to request origins from. ||
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "providerType": "string"
     }
   ]
 }
@@ -98,6 +128,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

@@ -10,9 +10,13 @@
 
 Вы можете использовать собственный файл с [образом](../../concepts/image.md) [диска](../../concepts/disk.md) [виртуальной машины](../../concepts/vm.md) под управлением операционной системы из семейства Linux. После подготовки образа [загрузите его](upload.md) в {{ compute-name }}.
 
-
 Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в {{ marketplace-full-name }}.
 
+{% note warning %}
+
+Образы с [UEFI/EFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчиком не совместимы с {{ compute-name }}. Чтобы загрузиться с дисков объемом более 2 ТБ с разметкой [GUID Partition Table (GPT)](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID), используйте загрузчик [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html).
+
+{% endnote %}
 
 ## Настройте ОС в соответствии с требованиями {#requirements}
 
@@ -175,10 +179,26 @@
 
 ```yaml
 #cloud-config
+datasource_list: [Ec2]
 datasource:
   Ec2:
     strict_id: false
 ```
+
+{% note alert %}
+
+В релизах пакета `cloud-init`, начиная с версии `25.1.4`, а также `24.4.1-0ubuntu0~20.04.3+esm1` и `23.1.2-0ubuntu0~18.04.1+esm1`, были внесены [изменения](https://cloudinit.readthedocs.io/en/latest/reference/breaking_changes.html#id3), которые могут повлиять на работу существующих виртуальных машин, созданных из пользовательских образов.
+
+После обновления у таких виртуальных машин может наблюдаться проблема с запуском из [снимка](../../concepts/snapshot.md) или [образа](../../concepts/image.md) загрузочного диска.
+
+Чтобы исправить эту проблему, на существующей ВМ выполните команду:
+
+```bash
+echo "datasource_list: [Ec2]" | sudo tee /etc/cloud/cloud.cfg.d/99999_ds_list.cfg
+```
+
+{% endnote %}
+
 
 ## Установите драйверы для совместимости с GPU {#gpu-drivers}
 

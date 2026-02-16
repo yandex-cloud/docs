@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/Origin/list.md
 ---
 
-# Cloud CDN API, gRPC: OriginService.List {#List}
+# Cloud CDN API, gRPC: OriginService.List
 
 Lists origins of origin group.
 
@@ -15,19 +15,23 @@ Lists origins of origin group.
 
 ```json
 {
-  "folderId": "string",
-  "originGroupId": "int64"
+  "folder_id": "string",
+  "origin_group_id": "int64"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
-|| originGroupId | **int64**
+Required field. ID of the folder that the origin belongs to.
 
-ID of the group to request origins from. ||
+The maximum string length in characters is 50. ||
+|| origin_group_id | **int64**
+
+ID of the group to request origins from.
+
+Value must be greater than 0. ||
 |#
 
 ## ListOriginsResponse {#yandex.cloud.cdn.v1.ListOriginsResponse}
@@ -37,7 +41,7 @@ ID of the group to request origins from. ||
   "origins": [
     {
       "id": "int64",
-      "originGroupId": "int64",
+      "origin_group_id": "int64",
       "source": "string",
       "enabled": "bool",
       "backup": "bool",
@@ -56,7 +60,8 @@ ID of the group to request origins from. ||
           "id": "string"
         }
         // end of the list of possible fields
-      }
+      },
+      "provider_type": "string"
     }
   ]
 }
@@ -78,7 +83,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -101,6 +106,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}

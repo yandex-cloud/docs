@@ -1,0 +1,1 @@
+**Вычислительный пул YT** — укажите [вычислительный пул](https://ytsaurus.tech/docs/ru/user-guide/data-processing/scheduler/scheduler-and-pools#puly-i-derevya-pulov), в котором будут запускаться операции над таблицами.

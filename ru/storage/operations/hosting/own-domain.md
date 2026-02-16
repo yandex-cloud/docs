@@ -25,7 +25,9 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-      1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** и перейдите в бакет, для которого хотите использовать собственный домен.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Выберите бакет, для которого хотите использовать собственный домен.
       1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
@@ -95,6 +97,10 @@ description: Следуя данной инструкции, вы сможете
     1. {% include [add-cert.md](../../../_includes/storage/add-cert.md) %}
 
     {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
-   
+
+    
+    {% include [tls-support-alert](../../../_includes/storage/tls-support-alert.md) %}
+
+
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}

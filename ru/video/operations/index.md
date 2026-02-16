@@ -15,7 +15,10 @@ description: Пошаговые инструкции по работе с сер
 
 * [{#T}](video/upload.md)
 * [{#T}](video/update.md)
+* [{#T}](video/add-thumbnail.md)
 * [{#T}](video/subtitles.md)
+* [{#T}](video/translation.md)
+* [{#T}](video/summarization.md)
 * [{#T}](video/download.md)
 * [{#T}](video/publish.md)
 * [{#T}](video/unpublish.md)
@@ -34,6 +37,7 @@ description: Пошаговые инструкции по работе с сер
 
 * [{#T}](streams/create.md)
 * [{#T}](streams/update.md)
+* [{#T}](streams/add-thumbnail.md)
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)
@@ -50,6 +54,15 @@ description: Пошаговые инструкции по работе с сер
 ## Видеоплеер {#player}
 
 * [{#T}](player-control.md)
+
+## Шаблоны плеера {#style-presets}
+
+* [{#T}](style-presets/create.md)
+* [{#T}](style-presets/update.md)
+* [{#T}](style-presets/get.md)
+* [{#T}](style-presets/set-default.md)
+* [{#T}](style-presets/assign-to-video.md)
+* [{#T}](style-presets/delete.md)
 
 ## Участники {#members}
 

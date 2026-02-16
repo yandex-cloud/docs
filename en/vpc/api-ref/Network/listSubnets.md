@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}/subnets
+    method: get
+    path:
+      type: object
+      properties:
+        networkId:
+          description: |-
+            **string**
+            Required field. ID of the Network resource to list subnets for.
+          type: string
+      required:
+        - networkId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of results per page that should be returned. If the number of available
+            results is larger than `pageSize`,
+            the service returns a [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+            that can be used to get the next page of results in subsequent list requests. Default value: 100.
+          default: '100'
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token. Set `pageToken`
+            to the [ListNetworkSubnetsResponse.nextPageToken](#yandex.cloud.vpc.v1.ListNetworkSubnetsResponse)
+            returned by a previous list request to get the next page of results.
+          type: string
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/vpc/v1/api-ref/Network/listSubnets.md
 ---
 
-# Virtual Private Cloud API, REST: Network.ListSubnets {#ListSubnets}
+# Virtual Private Cloud API, REST: Network.ListSubnets
 
 Lists subnets from the specified network.
 
@@ -52,7 +89,7 @@ returned by a previous list request to get the next page of results. ||
       "createdAt": "string",
       "name": "string",
       "description": "string",
-      "labels": "string",
+      "labels": "object",
       "networkId": "string",
       "zoneId": "string",
       "v4CidrBlocks": [
@@ -122,7 +159,7 @@ Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z
 || description | **string**
 
 Optional description of the subnet. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels, `key:value` pairs.
 No more than 64 per resource.

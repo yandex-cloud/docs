@@ -1,37 +1,39 @@
 # How to change the cloud owner
 
 
-## Scenario description {#case-description}
+
+## Case description {#case-description}
 
 You need to change the cloud owner, and you have access to the old account.
 
 ## Solution {#case-resolution}
 
-To change the cloud owner, you need to:
+To change the cloud owner, you need to do the following:
 
-1. [Add a new user to the organization](https://org.cloud.yandex.ru/users)
-2. [Assign a new user the `resource-manager.clouds.owner` role for the cloud](https://console.cloud.yandex.ru/cloud/?section=resource-acl).
-3. Revoke the `resource-manager.clouds.owner` role from the old user and assign them other roles, for example, the `admin` role.
+1. [Add a new user to the organization](https://org.yandex.cloud/users).
+1. [Assign the `{{ roles-cloud-owner }}` role for the cloud to the new user]({{ link-console-main }}/cloud/?section=resource-acl). 
+1. Revoke the `{{ roles-cloud-owner }}` role from the old user and assign them other roles, e.g., `{{ roles-admin }}`. 
+1. To change the organization owner, [add a new user to the organization](https://org.yandex.cloud/users) and assign the `{{ roles-organization-owner }}` role to them.
+1. As the new cloud owner, revoke the `{{ roles-organization-owner }}` role from the old user.
 
 {% note info %}
 
-This role allows access to cloud resources and resource management. Instead of the `admin` role, you can assign the user other, more specific roles for the cloud or folders according to their authority. Note: the user owns the organization in which the cloud is created. The owner role applies to all clouds in the organization.
+This role allows access to cloud resources and resource management. Instead of `{{ roles-admin }}`, you can assign more specific roles to the user for the cloud or folders, as required. 
 
-Read more in our documentation:
-* [How to add a user to an organization](../../../organization/operations/add-account)
-* [How to assign roles to users](../../../iam/operations/roles/grant)
-* [About roles and their permissions](../../../resource-manager/concepts/resources-hierarchy).
+The user owns the organization in which the cloud is created. The owner role applies to all clouds in the organization.
+
+For more information, see these help guides:
+
+* [How to add a user to an organization](../../../organization/operations/add-account.md)
+* [How to assign roles to users](../../../iam/operations/roles/grant.md)
+* [Roles and their permissions](../../../resource-manager/concepts/resources-hierarchy.md)
 
 {% endnote %}
 
-4. To change the owner of the organization, [add a new user to the organization](https://org.cloud.yandex.ru/users) and assign them the `organization-manager.organizations.owner` role.
-5. Revoke the `organization-manager.organizations.owner` role from the old user and assign it to new cloud owners.
+## If nothing helped {#if-nothing-worked}
 
-## If nothing helped {#if-issue-still-persists}
-
-If the above actions did not help resolve the issue, the best option is to create a new Yandex ID account (or specify an existing one: username[@yandex.ru](http://staff.yandex-team.ru/yandex.ru)) and link the organization owner to it by sending us an email containing the signature of the authorized person and the organization's stamp.
-
-Be sure to include in your email:
-1. Organization ID (`bpfXXXXXXXXXXXXXXXX`)
-2. Old owner's username
-3. New owner's username.
+If the above measures did not help, the best option is to create a new Yandex ID account or specify the one you already have, `username@yandex.ru`, and link the organization owner to it. To do this, [create a support ticket]({{ link-console-support }}). Provide the following information in your ticket:
+ 
+1. Organization ID, in `bpf*****************` format.
+1. Old owner username.
+1. New owner username.

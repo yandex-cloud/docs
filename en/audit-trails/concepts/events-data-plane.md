@@ -1,3 +1,8 @@
+---
+title: Data plane event reference {{ at-full-name }}
+description: This section provides descriptions of the data events collected in {{ yandex-cloud }} services.
+---
+
 # Data event reference
 
 The value of the `event_type` field in a data event audit log is determined by the event source service.
@@ -8,28 +13,29 @@ The general value format is as follows:
 {{ at-event-prefix }}.audit.<service_name>.<event_name>
 ```
 
+{% include [about-events-ref](../../_includes/audit-trails/about-events-ref.md) %}
+
 On this page, you will find events for the following services:
 
-* [{{ certificate-manager-full-name }}](#certificate-manager)
-* [{{ dns-full-name }}](#dns)
-* [{{ compute-full-name }}](#compute)
-* [{{ iam-full-name }}](#iam)
-* [{{ kms-full-name }}](#kms)
-* [{{ lockbox-full-name }}](#lockbox)
-* [{{ mmg-full-name }}](#mmg)
-* [{{ mmy-full-name }}](#mmy)
-* [{{ mpg-full-name }}](#mpg)
-* [{{ objstorage-full-name }}](#objstorage)
-* [{{ speechsense-full-name }}](#speechsense)
-* [{{ sws-full-name }}](#sws)
-* [{{ wiki-full-name }}](#wiki)
-* [{{ websql-full-name }}](#websql)
+{% include [dp-events-service-list](../../_includes/audit-trails/dp-events-service-list.md) %}
+
+## {{ alb-full-name }} {#alb}
+
+Service name: `apploadbalancer`.
+
+{% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
 
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Service name: `certificatemanager`.
 
 {% include [certificate-manager-events-dp](../../_includes/audit-trails/events/certificate-manager-events-dp.md) %}
+
+## {{ cloud-desktop-full-name }} {#clouddesktop}
+
+Service name: `clouddesktop`.
+
+{% include [clouddesktop-events-dp](../../_includes/audit-trails/events/clouddesktop-events-dp.md) %}
 
 ## {{ dns-full-name }} {#dns}
 
@@ -42,6 +48,18 @@ Service name: `dns`.
 Service name: `compute`.
 
 {% include [compute-events-dp](../../_includes/audit-trails/events/compute-events-dp.md) %}
+
+## {{ ai-studio-full-name }} {#ai-studio}
+
+Service name: `ai`.
+
+{% include [ai-studio-events-dp](../../_includes/audit-trails/events/ai-studio-events-dp.md) %}
+
+## {{ org-full-name }} {#organization}
+
+Service name: `organizationmanager`.
+
+{% include [org-events-dp](../../_includes/audit-trails/events/org-events-dp.md) %}
 
 ## {{ iam-full-name }} {#iam}
 
@@ -61,6 +79,18 @@ Service name: `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mch-full-name }} {#mch}
+
+Service name: `mdb.clickhouse`.
+
+{% include [mch-events-dp](../../_includes/audit-trails/events/mch-events-dp.md) %}
+
+## {{ managed-k8s-full-name }} {#managed-service-for-kubernetes}
+
+Service name: `k8s`.
+
+{% include [managed-k8s-events-dp](../../_includes/audit-trails/events/managed-k8s-events-dp.md) %}
+
 ## {{ mmg-full-name }} {#mmg}
 
 Service name: `mdb.mongodb`.
@@ -73,17 +103,69 @@ Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
 
+## {{ mgp-full-name }} {#mgp}
+
+Service name: `mdb.greenplum`.
+
+{% include [mgp-events-dp](../../_includes/audit-trails/events/mgp-events-dp.md) %}
+
 ## {{ mpg-full-name }} {#mpg}
 
 Service name: `mdb.postgresql`.
 
 {% include [mpg-events-dp](../../_includes/audit-trails/events/mpg-events-dp.md) %}
 
+## {{ mspqr-full-name }} {#spqr}
+
+Service name: `mdb.spqr`.
+
+{% include [mspqr-events-dp](../../_includes/audit-trails/events/mspqr-events-dp.md) %}
+
+## {{ mrd-full-name }} {#mrd}
+
+Service name: `mdb.redis`.
+
+{% include [mrd-events-dp](../../_includes/audit-trails/events/mrd-events-dp.md) %}
+
 ## {{ objstorage-full-name }} {#objstorage}
 
 Service name: `storage`.
 
 {% include [storage-events-dp](../../_includes/audit-trails/events/storage-events-dp.md) %}
+
+## {{ sd-full-name }} {#security-deck}
+
+Service name: `securitydeck`.
+
+### {{ atr-name }} module {#sd-access-transparency}
+
+Module name: `securitydeck.accesstransparency`.
+
+{% include [sd-at-events-dp](../../_includes/audit-trails/events/sd-at-events-dp.md) %}
+
+### {{ alerts-name }} module {#sd-alerts}
+
+Module name: `securitydeck.alerts`.
+
+{% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
+
+### Cloud Security Posture Management ({{ cspm-name }}) {#sd-cspm}
+
+Module name: `securitydeck.cspm`.
+
+{% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
+
+### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+
+Module name: `securitydeck.kspm`.
+
+{% include [sd-kspm-events-dp](../../_includes/audit-trails/events/sd-kspm-events-dp.md) %}
+
+## {{ speechkit-full-name }} {#speechkit}
+
+Service name: `ai.speechkit`.
+
+{% include [speechkit-events-dp](../../_includes/audit-trails/events/speechkit-events-dp.md) %}
 
 ## {{ speechsense-full-name }} {#speechsense}
 
@@ -96,6 +178,24 @@ Service name: `speechsense`.
 Service name: `smartwebsecurity`.
 
 {% include [sws-events-dp](../../_includes/audit-trails/events/sws-events-dp.md) %}
+
+## {{ translate-full-name }} {#translate}
+
+Service name: `ai.translate`.
+
+{% include [translate-events-dp](../../_includes/audit-trails/events/translate-events-dp.md) %}
+
+## {{ vpc-full-name }} {#vpc}
+
+Service name: `network`.
+
+{% include [vpc-events-dp](../../_includes/audit-trails/events/vpc-events-dp.md) %}
+
+## {{ vision-full-name }} {#vision}
+
+Service name: `ai.ocr`.
+
+{% include [vision-events-dp](../../_includes/audit-trails/events/vision-events-dp.md) %}
 
 ## {{ wiki-full-name }} {#wiki}
 

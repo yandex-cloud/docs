@@ -16,6 +16,15 @@
 
 {% endnote %}
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../../data-transfer/pricing.md)).
+* NAT-шлюз: почасовое использование и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md#nat-gateways)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
@@ -45,6 +54,8 @@
         * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mpg_db`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mpg_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
+
+        {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
     1. Убедитесь, что группа безопасности кластера {{ mpg-name }} [настроена правильно](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и допускает подключение к кластеру через интернет.
     1. Настройте [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) в интернет для подсети, в которой расположен кластер-приемник.
@@ -287,37 +298,21 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    * [Трансфер](../../../data-transfer/operations/transfer.md#delete).
-    * [Эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
-    * [Инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
-    * [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
-    * [Таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
-    * [NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
+    1. [Удалите трансфер](../../../data-transfer/operations/transfer.md#delete).
+    1. [Удалите эндпоинты](../../../data-transfer/operations/endpoint/index.md#delete).
+    1. [Удалите инстанс Amazon RDS for {{ PG }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_DeleteInstance.html).
+    1. [Удалите кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md).
+    1. [Удалите таблицу маршрутизации](../../../vpc/operations/delete-route-table.md).
+    1. [Удалите NAT-шлюз](../../../vpc/operations/delete-nat-gateway.md).
 
 - {{ TF }} {#tf}
 
-    Если вы создавали ресурсы с помощью {{ TF }}:
-
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `rds-pg-mpg.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `rds-pg-mpg.tf`, будут удалены.
+    {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

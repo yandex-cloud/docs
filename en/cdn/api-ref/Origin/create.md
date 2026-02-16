@@ -1,9 +1,131 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://cdn.{{ api-host }}/cdn/v1/origins
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder that the origin belongs to.
+            The maximum string length in characters is 50.
+          type: string
+        originGroupId:
+          description: |-
+            **string** (int64)
+            `originGroupId` group ID to request origins from.
+            Value must be greater than 0.
+          type: string
+          format: int64
+        source:
+          description: |-
+            **string**
+            Required field. IP address or Domain name of your origin and the port (if custom).
+            Used if `meta` variant is `common`.
+            The maximum string length in characters is 50.
+          type: string
+        enabled:
+          description: |-
+            **boolean**
+            The setting allows to enable or disable an Origin source in the Origins group.
+            It has two possible values:
+            True - The origin is enabled and used as a source for the CDN. An origins
+            group must contain at least one enabled origin. Default value.
+            False - The origin is disabled and the CDN is not using it to pull content.
+          type: boolean
+        backup:
+          description: |-
+            **boolean**
+            Specifies whether the origin is used in its origin group as backup.
+            A backup origin is used when one of active origins becomes unavailable.
+            Default value: False.
+          default: 'False'
+          type: boolean
+        meta:
+          description: |-
+            **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
+            Set up origin of the content.
+          $ref: '#/definitions/OriginMeta'
+        providerType:
+          description: |-
+            **string**
+            Set up origin provider
+            It has two possible values:
+            ourcdn - Based on Yandex technologies
+            gcore - Based on an external partner infrastructure
+            Default value: ourcdn
+          default: ourcdn
+          type: string
+      required:
+        - folderId
+        - source
+      additionalProperties: false
+    definitions:
+      OriginNamedMeta:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Name of the origin.
+            type: string
+      OriginBalancerMeta:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the origin.
+            type: string
+      OriginMeta:
+        type: object
+        properties:
+          common:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              A server with a domain name linked to it
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          bucket:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket not configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          website:
+            description: |-
+              **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+              An Object Storage bucket configured as a static site hosting.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginNamedMeta'
+          balancer:
+            description: |-
+              **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+              An L7 load balancer from Application Load Balancer.
+              CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+              Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+              Type of the origin.
+            $ref: '#/definitions/OriginBalancerMeta'
+        oneOf:
+          - required:
+              - common
+          - required:
+              - bucket
+          - required:
+              - website
+          - required:
+              - balancer
 sourcePath: en/_api-ref/cdn/v1/api-ref/Origin/create.md
 ---
 
-# Cloud CDN API, REST: Origin.Create {#Create}
+# Cloud CDN API, REST: Origin.Create
 
 Creates origin inside origin group.
 
@@ -37,7 +159,8 @@ POST https://cdn.{{ api-host }}/cdn/v1/origins
       "id": "string"
     }
     // end of the list of possible fields
-  }
+  },
+  "providerType": "string"
 }
 ```
 
@@ -45,14 +168,20 @@ POST https://cdn.{{ api-host }}/cdn/v1/origins
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder that the origin belongs to. ||
+Required field. ID of the folder that the origin belongs to.
+
+The maximum string length in characters is 50. ||
 || originGroupId | **string** (int64)
 
-`originGroupId` group ID to request origins from. ||
+`originGroupId` group ID to request origins from.
+
+Value must be greater than 0. ||
 || source | **string**
 
 Required field. IP address or Domain name of your origin and the port (if custom).
-Used if `meta` variant is `common`. ||
+Used if `meta` variant is `common`.
+
+The maximum string length in characters is 50. ||
 || enabled | **boolean**
 
 The setting allows to enable or disable an Origin source in the Origins group.
@@ -71,6 +200,16 @@ Default value: False. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Set up origin provider
+
+It has two possible values:
+
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+
+Default value: ourcdn ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -177,7 +316,8 @@ ID of the origin. ||
         "id": "string"
       }
       // end of the list of possible fields
-    }
+    },
+    "providerType": "string"
   }
   // end of the list of possible fields
 }
@@ -258,10 +398,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || originId | **string** (int64)
 
-ID of the origin. ||
+ID of the origin.
+
+Value must be greater than 0. ||
 || originGroupId | **string** (int64)
 
-ID pf the parent origins group. ||
+ID pf the parent origins group.
+
+Value must be greater than 0. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -313,6 +457,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta2)**
 
 Set up origin of the content. ||
+|| providerType | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta2}

@@ -1,10 +1,27 @@
 - **Audit log**{#setting-audit-log} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Управляет записью лога аудита {{ MY }}.
 
   По умолчанию запись лога аудита выключена.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#audit-log-options-variables).
+
+- **Audit log policy**{#setting-audit-log-policy} {{ tag-con }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
+
+  Параметр определяет, какие события будут записываться в лог аудита:
+
+  * `ALL` — регистрируются все события.
+  * `LOGINS` (по умолчанию) — регистрируются только события входа в систему.
+  * `QUERIES` — регистрируются только события запросов.
+  * `NONE` — никакие события не регистрируются.
+
+  Параметр **Audit log policy** актуален, только если включен параметр **Audit log**.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy).
 
 - **Auto increment**{#setting-auto-increment-increment} {{ tag-all }}
 
@@ -62,7 +79,7 @@
   Доступные значения:
 
   - `COMMIT_ORDER` (по умолчанию) — две транзакции считаются независимыми, если интервал времени фиксации первой транзакции пересекается с интервалом времени фиксации второй транзакции.
-  - `WRITESET` — схема основана на `COMMIT_ORDER`. Дополнительно к ней две транзакции считаются конфликтующими, если есть некоторое число (хэш), которое встречается в наборах записи обеих транзакций.
+  - `WRITESET` — схема основана на `COMMIT_ORDER`. Дополнительно к ней две транзакции считаются конфликтующими, если есть некоторое число (хеш), которое встречается в наборах записи обеих транзакций.
   - `WRITESET_SESSION` — две транзакции считаются зависимыми, если выполняется хотя бы одно из условий:
 
     - Транзакции зависимы в соответствии со схемой `WRITESET`.
@@ -88,9 +105,11 @@
 
 - **Default authentication plugin**{#setting-authentication-plugin} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Плагин аутентификации, используемый в кластере {{ mmy-name }}:
   - `mysql_native_password` — метод аутентификации, который использовался в {{ MY }} до внедрения плагинов аутентификации;
-  - `sha256_password` — аутентификация с использованием алгоритма хэширования SHA-256 для паролей;
+  - `sha256_password` — аутентификация с использованием алгоритма хеширования SHA-256 для паролей;
   - `caching_sha2_password` (по умолчанию) — аналогичен `sha256_password`, использует кеширование на стороне сервера для лучшей производительности и предоставляет некоторые дополнительные возможности.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin).
@@ -129,13 +148,19 @@
 
 - **Innodb adaptive hash index**{#setting-adaptive-hash-index} {{ tag-all }}
 
-  Управляет [адаптивным хэш-индексом]({{ my.docs }}/refman/8.0/en/glossary.html#glos_adaptive_hash_index) InnoDB. Для некоторых видов нагрузки на базу данных может быть полезно отключение этого индекса. Документация {{ MY }} рекомендует провести нагрузочное тестирование на реальных данных, чтобы определить необходимость включения или отключения адаптивного хэш-индекса.
+  Управляет [адаптивным хеш-индексом]({{ my.docs }}/refman/8.0/en/glossary.html#glos_adaptive_hash_index) InnoDB. Для некоторых видов нагрузки на базу данных может быть полезно отключение этого индекса. Документация {{ MY }} рекомендует провести нагрузочное тестирование на реальных данных, чтобы определить необходимость включения или отключения адаптивного хеш-индекса.
 
-  По умолчанию адаптивный хэш-индекс включен.
+  По умолчанию адаптивный хеш-индекс включен.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index).
 
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
+
+  {% note warning %}
+
+  Если кластер использует {{ MY }} версии 5.7, изменение этой настройки приведет к поочередному перезапуску хостов кластера. Для кластера {{ MY }} версии 8.0 перезапуск произойдет только при уменьшении параметра.
+
+  {% endnote %}
 
   Размер буфера InnoDB (в байтах), который используется для кеширования данных таблиц и индексов. Буфер большого размера приводит к снижению количества операций ввода-вывода при многократном обращении к одним и тем же данным в таблице.
 
@@ -148,6 +173,21 @@
   | ≥ 8                        | `0,5 × RAM`           | `0,8 × RAM`           |
 
   Подробнее см. в [рекомендациях по настройке параметра](../../managed-mysql/qa/configuring.md#innodb-buffer-pool-size) и в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+
+- **Innodb change buffering**{#setting-innodb-change-buffering} {{ tag-all }}
+
+  Определяет, какие изменения вторичных индексов будут временно храниться в буфере изменений Innodb до записи на диск.
+
+  Возможные значения:
+
+  * `none` — не хранить изменения.
+  * `inserts` — хранить изменения, вызванные операциями вставки.
+  * `deletes` — хранить изменения, вызванные операциями удаления.
+  * `changes` — хранить изменения, вызванные операциями вставки и удаления.
+  * `purges` — хранить изменения, вызванные только фоновыми операциями удаления.
+  * `all` — хранить все изменения. Значение по умолчанию.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
 - **Innodb compression level**{#setting-innodb-compression-level} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -167,6 +207,8 @@
 
 - **Innodb ft max token size**{#setting-ft-max-token-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Максимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
 
   Минимальное значение — `10`, максимальное значение — `84`, по умолчанию — `84`.
@@ -174,6 +216,8 @@
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
 
 - **Innodb ft min token size**{#setting-ft-min-token-size} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Минимальная длина слов, хранящихся в индексе InnoDB `FULLTEXT`.
 
@@ -217,6 +261,8 @@
 
 - **Innodb log file size**{#setting-log-file-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Размер одного файла redo-логов InnoDB (в байтах). Чем больше значение, тем реже требуется сбрасывать [контрольные точки]({{ my.docs }}/refman/8.0/en/glossary.html#glos_checkpoint) (checkpoints) на диск, что позволяет экономить ресурсы ввода-вывода. Однако большой размер лог-файлов приводит к более медленному восстановлению после сбоев.
 
   Минимальное значение — `268435456` (256 МБ), максимальное значение — `4294967296` (4 ГБ), по умолчанию — `268435456` (256 МБ).
@@ -242,6 +288,8 @@
   * [описание настройки]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth).
 
 - **Innodb numa interleave**{#setting-innodb-numa-interleave} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Управляет политикой [NUMA Interleave](https://www.kernel.org/doc/html/latest/admin-guide/mm/numa_memory_policy.html#components-of-memory-policies) при выделении памяти для буфера InnoDB.
 
@@ -275,6 +323,8 @@
 
 - **Innodb purge threads**{#setting-innodb-purge-threads} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Количество потоков ввода-вывода InnoDB, используемых для [операций очистки]({{ my.docs }}/refman/8.0/en/glossary.html#glos_purge) (purge). Увеличение количества этих потоков полезно в системах, где операции манипуляции с данными (`INSERT`, `UPDATE`, `DELETE`) выполняются над несколькими таблицами.
 
   Минимальное значение — `1`, максимальное значение — `16`, по умолчанию — `4`.
@@ -282,6 +332,8 @@
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads).
 
 - **Innodb read io threads**{#setting-innodb-read-io-threads} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Количество потоков ввода-вывода InnoDB, используемых для операций чтения.
 
@@ -307,6 +359,8 @@
 
 - **Innodb temp data file max size**{#setting-temp-data-max-size} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Максимальный размер [временного табличного пространства]({{ my.docs }}/refman/8.0/en/innodb-temporary-tablespace.html#innodb-global-temporary-tablespace) InnoDB (в байтах).
 
   Минимальное значение — `0` (не использовать временное табличное пространство), максимальное значение — `107374182400` (100 ГБ), по умолчанию — `0`.
@@ -322,6 +376,8 @@
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_thread_concurrency).
 
 - **Innodb write io threads**{#setting-innodb-write-io-threads} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Количество потоков ввода-вывода InnoDB, используемых для операций записи.
 
@@ -440,7 +496,7 @@
 
   По умолчанию задан небольшой размер, что позволяет отбрасывать некорректные пакеты, которые обычно больше. Увеличьте значение настройки, если вы используете большие BLOB-столбцы или длинные строки.
 
-  Минимальное значение — `1024` (1 КБ), максимальное значение — `134217728` (128 МБ), по умолчанию — `16777216` (16 МБ).
+  Минимальное значение — `1024` (1 КБ), максимальное значение — `1073741824` (1 ГБ), по умолчанию — `16777216` (16 МБ).
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet).
 
@@ -456,6 +512,8 @@
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_connections).
 
 - **Max digest length**{#setting-max-digest-length} {{ tag-con }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Размер памяти (в байтах), зарезервированной для вычисления [дайджестов нормализованных выражений]({{ my.docs }}/refman/8.0/en/performance-schema-statement-digests.html).
 
@@ -496,6 +554,14 @@
   Минимальное значение — `0` (рекурсия выключена), максимальное значение — `255`, по умолчанию — `0`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+- **Mdb force SSL**{#setting-mdb-force-ssl} {{ tag-all }}
+
+  Включает для всех хостов кластера настройку `require_secure_transport`,  которая разрешает подключение только по протоколу SSL/TLS.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_require_secure_transport).  
 
 - **Mdb offline mode disable lag**{#setting-mdb-offline-mode-disable-lag} {{ tag-all }}
 
@@ -566,6 +632,8 @@
   Ограничение на количество шагов при поиске соответствия (match) с помощью [REGEXP_LIKE()]({{ my.docs }}/refman/8.0/en/regexp.html#function_regexp-like) и других подобных функций для [работы с регулярными выражениями]({{ my.docs }}/refman/8.0/en/regexp.html). Таким образом, эта настройка влияет на время выполнения косвенно.
 
   Минимальное значение — `0` (нет ограничений), максимальное значение — `1048576`. По умолчанию: `0`.
+
+  Функциональность поддерживается только в {{ MY }} версии 8.0.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit).
 
@@ -706,6 +774,14 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/sql-mode.html#sql-mode-setting).
 
+- **SQL require primary key**{#setting-sql-require-primary-key} {{ tag-all }}
+
+  Запрещает создавать и импортировать таблицы без первичного ключа, а также удалять его из таблиц.
+
+  По умолчанию настройка выключена.
+
+  Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key).
+
 - **Sync binlog**{#setting-sync-binlog} {{ tag-all }}
 
   Частота синхронизации бинарного лога с диском:
@@ -737,6 +813,8 @@
 
 - **Table open cache instances**{#setting-table-open-cache-instances} {{ tag-all }}
 
+  {% include [requires-restart](note-requires-restart.md) %}
+
   Для повышения масштабируемости [кеш открытых таблиц](#setting-table-open-cache) может быть разбит на более мелкие сегменты. Эта настройка задает количество таких сегментов.
 
   Минимальное значение — `1`, максимальное значение — `32`, по умолчанию — `16`.
@@ -758,6 +836,8 @@
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size).
 
 - **Thread stack**{#setting-thread-stack} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
 
   Размер стека (в байтах) для каждого потока. Значение по умолчанию достаточно велико, чтобы обеспечить нормальную работу {{ MY }}. Слишком маленькое значение настройки ограничивает сложность SQL-выражений, глубину рекурсии для хранимых процедур и другие параметры, связанные с потреблением памяти.
 

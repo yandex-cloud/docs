@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/policies/{policyId}
+    method: get
+    path:
+      type: object
+      properties:
+        policyId:
+          description: |-
+            **string**
+            Required field. Policy ID.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - policyId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Policy/get.md
 ---
 
-# Cloud Backup API, REST: Policy.Get {#Get}
+# Cloud Backup API, REST: Policy.Get
 
 Get specific policy.
 
@@ -19,7 +37,9 @@ GET https://backup.{{ api-host }}/backup/v1/policies/{policyId}
 ||Field | Description ||
 || policyId | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.backup.v1.Policy}
@@ -118,7 +138,8 @@ Required field. Policy ID. ||
             "months": [
               "string"
             ],
-            "type": "string"
+            "type": "string",
+            "runLater": "boolean"
           },
           "sinceLastExecTime": {
             "delay": {
@@ -137,11 +158,41 @@ Required field. Policy ID. ||
         "count": "string"
       },
       "scheme": "string",
-      "weeklyBackupDay": "string"
+      "weeklyBackupDay": "string",
+      "taskFailure": {
+        "enabled": "boolean",
+        "interval": {
+          "type": "string",
+          "count": "string"
+        },
+        "maxAttempts": "string"
+      }
     },
     "cbt": "string",
     "fastBackupEnabled": "boolean",
-    "quiesceSnapshottingEnabled": "boolean"
+    "quiesceSnapshottingEnabled": "boolean",
+    "fileFilters": {
+      "exclusionMasks": [
+        "string"
+      ],
+      "inclusionMasks": [
+        "string"
+      ]
+    },
+    "sectorBySector": "boolean",
+    "validationEnabled": "boolean",
+    "lvmSnapshottingEnabled": "boolean",
+    "prePostCommands": [
+      {
+        "cmd": "string",
+        "args": "string",
+        "enabled": "boolean",
+        "stopOnError": "boolean",
+        "type": "string",
+        "wait": "boolean",
+        "workdir": "string"
+      }
+    ]
   },
   "folderId": "string"
 }
@@ -151,10 +202,14 @@ Required field. Policy ID. ||
 ||Field | Description ||
 || id | **string**
 
-Required field. Policy ID. ||
+Required field. Policy ID.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Required field. Policy name. ||
+Required field. Policy name.
+
+The maximum string length in characters is 50. ||
 || createdAt | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -192,7 +247,6 @@ Set of policy settings
 
 Required field. Archive compression level.
 
-- `COMPRESSION_UNSPECIFIED`
 - `NORMAL`
 - `HIGH`
 - `MAX`
@@ -201,7 +255,6 @@ Required field. Archive compression level.
 
 Required field. Format of the Acronis backup archive.
 
-- `FORMAT_UNSPECIFIED`
 - `VERSION_11`: A legacy backup format used in older versions. It's not recommended to use.
 - `VERSION_12`: A new format recommended in most cases for fast backup and recovery.
 - `AUTO`: Automatic version selection. Will be used version 12 unless the protection
@@ -212,7 +265,8 @@ versions. ||
 If true, snapshots of multiple volumes will be taken simultaneously. ||
 || preserveFileSecuritySettings | **boolean**
 
-If true, the file security settings will be preserved. ||
+If true, the file security settings will be preserved.
+Deprecated. ||
 || reattempts | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
 
 Required field. Configuration of retries on recoverable errors during the backup operations like reconnection to destination. No attempts to fix recoverable errors will be made if retry configuration is not set. ||
@@ -244,7 +298,6 @@ Required field. Configuration of the backup schedule. ||
 
 Required field. A configuration of Changed Block Tracking (CBT).
 
-- `CHANGED_BLOCK_TRACKING_UNSPECIFIED`
 - `USE_IF_ENABLED`
 - `ENABLE_AND_USE`
 - `DO_NOT_USE` ||
@@ -253,7 +306,31 @@ Required field. A configuration of Changed Block Tracking (CBT).
 If true, determines whether a file has changed by the file size and timestamp. Otherwise, the entire file contents are compared to those stored in the backup. ||
 || quiesceSnapshottingEnabled | **boolean**
 
-If true, a quiesced snapshot of the virtual machine will be taken. ||
+If true, a quiesced snapshot of the virtual machine will be taken.
+Deprecated. ||
+|| fileFilters | **[FileFilters](#yandex.cloud.backup.v1.PolicySettings.FileFilters)**
+
+File filters to specify masks of files to backup or to exclude of backuping ||
+|| sectorBySector | **boolean**
+
+A sector-by-sector backup of a disk or volume creates a backup copy of all sectors of the disk or volume,
+including those that do not contain data.
+Therefore, the size of such a backup copy will be equal to the size of the original disk or volume.
+This method can be used to back up a disk or volume with an unsupported file system. ||
+|| validationEnabled | **boolean**
+
+Validation is a time-consuming process, even with incremental or differential backups of small amounts of data.
+This is because not only the data physically contained in the backup copy is verified,
+but all data restored when it is selected.
+This option requires access to previously created backup copies. ||
+|| lvmSnapshottingEnabled | **boolean**
+
+LVM will be used to create the volume snapshot.
+If LVM fails to create a snapshot (for example, because there is not enough free space),
+the software will create the snapshot itself. ||
+|| prePostCommands[] | **[PrePostCommand](#yandex.cloud.backup.v1.PolicySettings.PrePostCommand)**
+
+Commands to launch before or after backup execution ||
 |#
 
 ## RetriesConfiguration {#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration}
@@ -269,7 +346,9 @@ Required field. An interval between retry attempts. ||
 || maxAttempts | **string** (int64)
 
 Max number of retry attempts. Operation will be considered as failed
-when max number of retry attempts is reached. ||
+when max number of retry attempts is reached.
+
+Value must be greater than 0. ||
 |#
 
 ## Interval {#yandex.cloud.backup.v1.PolicySettings.Interval}
@@ -280,7 +359,6 @@ when max number of retry attempts is reached. ||
 
 Required field. A type of the interval.
 
-- `TYPE_UNSPECIFIED`
 - `SECONDS`
 - `MINUTES`
 - `HOURS`
@@ -289,7 +367,9 @@ Required field. A type of the interval.
 - `MONTHS` ||
 || count | **string** (int64)
 
-The amount of value specified in `Interval.Type`. ||
+The amount of value specified in `Interval.Type`.
+
+Value must be greater than 0. ||
 |#
 
 ## Splitting {#yandex.cloud.backup.v1.PolicySettings.Splitting}
@@ -316,7 +396,6 @@ If true, the VSS will be enabled. ||
 
 Required field. A type of VSS provider to use in backup.
 
-- `VSS_PROVIDER_UNSPECIFIED`
 - `NATIVE`
 - `TARGET_SYSTEM_DEFINED` ||
 |#
@@ -360,7 +439,6 @@ If true, retention rules will be applied before backup is finished. ||
 
 A list of backup sets where rules are effective.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
@@ -379,7 +457,9 @@ Includes only one of the fields `maxAge`, `maxCount`. ||
 ||Field | Description ||
 || backupSets[] | **[BackupSet](#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet)**
 
-A list of schedules with backup sets that compose the whole scheme. ||
+A list of schedules with backup sets that compose the whole scheme.
+
+The number of elements must be greater than 0. ||
 || enabled | **boolean**
 
 If true, the backup schedule will be enabled. ||
@@ -393,7 +473,6 @@ Required field. Configuration of the random delay between the execution of paral
 
 Required field. A backup scheme. Available values: `simple`, `always_full`, `always_incremental`, `weekly_incremental`, `weekly_full_daily_incremental`, `custom`, `cdp`.
 
-- `SCHEME_UNSPECIFIED`
 - `SIMPLE`
 - `ALWAYS_FULL`
 - `ALWAYS_INCREMENTAL`
@@ -406,7 +485,6 @@ and incremental backups additionally.
 
 Required field. A day of week to start weekly backups.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -414,6 +492,9 @@ Required field. A day of week to start weekly backups.
 - `FRIDAY`
 - `SATURDAY`
 - `SUNDAY` ||
+|| taskFailure | **[RetriesConfiguration](#yandex.cloud.backup.v1.PolicySettings.RetriesConfiguration)**
+
+Task failure settings in case of failure of scheduled task, not applicable to  manually launched tasks ||
 |#
 
 ## BackupSet {#yandex.cloud.backup.v1.PolicySettings.Scheduling.BackupSet}
@@ -431,7 +512,6 @@ Includes only one of the fields `time`, `sinceLastExecTime`. ||
 BackupSet type -- one of incr, full, differential or auto.
 if custom scheme is used the BackupSet type should be specified
 
-- `TYPE_UNSPECIFIED`
 - `TYPE_AUTO`
 - `TYPE_FULL`
 - `TYPE_INCREMENTAL`
@@ -446,7 +526,6 @@ if custom scheme is used the BackupSet type should be specified
 
 Days in a week to perform a backup.
 
-- `DAY_UNSPECIFIED`
 - `MONDAY`
 - `TUESDAY`
 - `WEDNESDAY`
@@ -481,11 +560,13 @@ Set of values. Allowed values form 1 to 12. ||
 
 Required field. Possible types: `REPEATE_PERIOD_UNSPECIFIED`, `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`.
 
-- `REPEATE_PERIOD_UNSPECIFIED`
 - `HOURLY`
 - `DAILY`
 - `WEEKLY`
 - `MONTHLY` ||
+|| runLater | **boolean**
+
+If the machine is off, launch missed tasks on boot up. ||
 |#
 
 ## TimeOfDay {#yandex.cloud.backup.v1.PolicySettings.TimeOfDay}
@@ -507,4 +588,48 @@ Minutes. ||
 || delay | **[Interval](#yandex.cloud.backup.v1.PolicySettings.Interval)**
 
 Required field. The interval between backups. ||
+|#
+
+## FileFilters {#yandex.cloud.backup.v1.PolicySettings.FileFilters}
+
+#|
+||Field | Description ||
+|| exclusionMasks[] | **string**
+
+Do not backup files that match the following criteria ||
+|| inclusionMasks[] | **string**
+
+Backup only files that match the following criteria ||
+|#
+
+## PrePostCommand {#yandex.cloud.backup.v1.PolicySettings.PrePostCommand}
+
+#|
+||Field | Description ||
+|| cmd | **string**
+
+Command to execute ||
+|| args | **string**
+
+Command args ||
+|| enabled | **boolean**
+
+Is command enabled ||
+|| stopOnError | **boolean**
+
+Stop backup execution on error ||
+|| type | **enum** (CommandType)
+
+Type of command: pre or post
+
+- `PRE_COMMAND`: Launch command before backup execution
+- `POST_COMMAND`: Launch command after backup execution
+- `PRE_DATA_COMMAND`: Launch command before data capture (snapshot execution)
+- `POST_DATA_COMMAND`: Launch command after data capture (snapshot execution) ||
+|| wait | **boolean**
+
+Wait command finish before launching backup ||
+|| workdir | **string**
+
+Workdir for command execution ||
 |#

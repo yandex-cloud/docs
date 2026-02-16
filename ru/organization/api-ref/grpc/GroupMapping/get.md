@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/organizationmanager/v1/api-ref/grpc/GroupMapping/get.md
 ---
 
-# Cloud Organization API, gRPC: GroupMappingService.Get {#Get}
+# Identity Hub API, gRPC: GroupMappingService.Get
 
 Returns a group mapping configured for the specific federation
 If a federation does not exist this call will return an error
@@ -19,23 +19,25 @@ the call FAILED_PRECONDITION will be returned.
 
 ```json
 {
-  "federationId": "string"
+  "federation_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
-Required field.  ||
+Required field.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## GetGroupMappingResponse {#yandex.cloud.organizationmanager.v1.GetGroupMappingResponse}
 
 ```json
 {
-  "groupMapping": {
-    "federationId": "string",
+  "group_mapping": {
+    "federation_id": "string",
     "enabled": "bool"
   }
 }
@@ -43,7 +45,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| groupMapping | **[GroupMapping](#yandex.cloud.organizationmanager.v1.GroupMapping)** ||
+|| group_mapping | **[GroupMapping](#yandex.cloud.organizationmanager.v1.GroupMapping)** ||
 |#
 
 ## GroupMapping {#yandex.cloud.organizationmanager.v1.GroupMapping}
@@ -53,7 +55,7 @@ Absence of this object for a federation means that there is no group synchroniza
 
 #|
 ||Field | Description ||
-|| federationId | **string**
+|| federation_id | **string**
 
 Federation id ||
 || enabled | **bool**

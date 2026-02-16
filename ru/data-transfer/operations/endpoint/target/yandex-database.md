@@ -18,15 +18,15 @@ description: Из статьи вы узнаете, как задать наст
 ## Сценарии передачи данных в {{ ydb-name }} {#scenarios}
 
 1. {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
-    
+
     * [Миграция со сменой хранилища: {{ MY }} в {{ ydb-short-name }}](../../../tutorials/managed-mysql-to-ydb.md);
     * [Миграция со сменой хранилища: {{ PG }} в {{ ydb-short-name }}](../../../tutorials/mpg-to-ydb.md);
     * [Миграция со сменой хранилища: {{ OS }} в {{ ydb-short-name }}](../../../tutorials/opensearch-to-ydb.md).
 
 1. {% include [queue](../../../../_includes/data-transfer/scenario-captions/queue.md) %}
-    
-    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md).
 
+    * [Поставка данных из {{ KF }} в {{ ydb-short-name }}](../../../tutorials/mkf-to-ydb.md);
+    * [Поставка данных из {{ DS }} в {{ ydb-short-name }}](../../../tutorials/yds-to-ydb.md).
 1. {% include [data-mart](../../../../_includes/data-transfer/scenario-captions/data-mart.md) %}
 
     * [Загрузка данных из {{ objstorage-name }} в {{ ydb-short-name }}](../../../tutorials/object-storage-to-ydb.md).
@@ -42,8 +42,8 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ AB }}](../../../transfer-matrix.md#airbyte);
 * [{{ DS }}](../source/data-streams.md);
 * [{{ objstorage-full-name }}](../source/object-storage.md);
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ PG }}](../source/postgresql.md);
-* [{{ ES }}](../source/elasticsearch.md);
 * [{{ OS }}](../source/opensearch.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -69,13 +69,38 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
     {% include [YDB UI](../../../../_includes/data-transfer/necessary-settings/ui/yandex-database.md) %}
+
+- {{ TF }} {#tf}
+
+    * Тип эндпоинта — `ydb_target`.
+
+    {% include [Managed YDB {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-ydb-target.md) %}
+
+    Пример структуры конфигурационного файла (приведены не все параметры):
+
+    
+    ```hcl
+    resource "yandex_datatransfer_endpoint" "ydb-target" {
+    name        = "<имя_эндпоинта_приемника>"
+    settings {
+        ydb_target {
+          database           = "<путь_целевой_БД>"
+          cleanup_policy     = "<политика_очистки_данных>"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+        }
+      }
+    }
+    ```
+
+
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 {% endlist %}
 
@@ -104,7 +129,7 @@ description: Из статьи вы узнаете, как задать наст
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbPartitionPolicy.time_column.title }}** — по значениям какой колонки разбивать (_партицировать_) таблицу. Колонка должна иметь тип <q>время</q>.
 
-
+            
             Подробнее о партицировании таблиц см. в документации [{{ ydb-full-name }}]({{ ydb.docs }}/concepts/datamodel/table#partitioning).
 
 
@@ -113,6 +138,18 @@ description: Из статьи вы узнаете, как задать наст
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.alt_names.title }}** — заполните, если необходимо переименовать таблицы базы-источника при переносе в базу-приемник.
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTargetAdvancedSettings.is_table_column_oriented.title }}** — выберите эту опцию, чтобы создавать колоночные таблицы (OLAP). По умолчанию используются строковые таблицы (OLTP). 
+
+    * {% include [alter-schema-change](../../../../_includes/data-transfer/fields/alter-schema-change.md) %}
+
+- {{ TF }} {#tf}
+
+    * `path` — поддиректория для размещения таблиц.
+
+    * `default_compression` — сжатие для группы колонок по умолчанию.
+
+    * `is_table_column_oriented` — укажите значение `true` чтобы создавать колоночные таблицы (OLAP). По умолчанию используются строковые таблицы (OLTP).
+
+    * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 
 {% endlist %}
 

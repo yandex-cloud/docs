@@ -9,9 +9,9 @@ description: '{{ AF }} is an open-source platform that enables you to create, sc
 
 ## About {{ AF }} {#about-the-service}
 
-{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, e.g., [data processing in {{ SPRK }}](../tutorials/data-proc-automation.md).
+{{ AF }} is an open-source platform that enables you to create, schedule, and monitor batch-oriented _workflows_. A workflow defines job relationships and their execution sequence. It is presented as a directed acyclic graph (DAG). DAGs in {{ AF }} can be used for automation and scheduled runs of any processes, e.g., [data processing in {{ SPRK }}](../tutorials/data-processing-automation.md).
 
-{{ AF }} uses the _Workflows as code_ approach. It implies that each workflow is implemented using a Python 3.8 script. A file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
+{{ AF }} follows the _Workflows as code_ approach. It implies that each workflow is implemented using a Python 3 script. A file with this script is called a _DAG file_. It describes jobs, their run schedule, and dependencies between them. This approach allows storing workflows in a version control system, running tests, and enabling technology required for workflows.
 
 {{ AF }} is not used for streaming and continuous data processing. If such processing is required, you can develop a solution based on [{{ mkf-full-name }}](../../managed-kafka/index.yaml).
 
@@ -43,9 +43,10 @@ The main entity {{ maf-name }} operates is a _cluster_. Inside a cluster, [{{ AF
 
 A workflow running in a cluster may access any {{ yandex-cloud }} resource within the cloud network where the cluster is located. For example, a workflow can send requests to {{ yandex-cloud }} VMs or managed DB clusters. You can build a workflow using multiple resources, e.g., a workflow that collects data from one DB and sends it to another DB or [{{ dataproc-full-name }}](../../data-proc/index.yaml).
 
+
 ## {{ AF }} main components {#components}
 
-The main {{ AF }} components are as follows:
+The main {{ AF }} components are shown below:
 
 ![components](../../_assets/managed-airflow/components.svg)
 
@@ -57,9 +58,13 @@ The main {{ AF }} components are as follows:
 
 * _Scheduler_: Server in {{ yandex-cloud }} that controls the job run schedule. The scheduler gets schedule information from DAG files. It uses this schedule to notify workers that it is time to run a DAG file.
 
+* _DAG processor_: {{ yandex-cloud }} server to process DAG files.
+
+   {% include notitle [dag-processor](../../_includes/mdb/maf/dag-processor.md) %}
+
 * _Workers_: Executors of jobs specified in DAG files. The workers run jobs on the schedule received from the scheduler.
 
-* [_Triggerer_](#triggerer): Service that releases a worker in the event of its downtime while executing a job with a long event timeout (optional component).
+* [_Triggerer_](#triggerer): Service that releases a worker if it goes idle while executing a job with a long event timeout (optional component).
 
 * _DAG file storage_: [{{ objstorage-full-name }} bucket](../../storage/concepts/bucket.md) that stores DAG files. This storage can be accessed by web servers, schedulers, workers, and Triggerer.
 
@@ -67,11 +72,20 @@ To ensure fault tolerance and enhance performance, web servers, schedulers, and 
 
 For workers, you can also set the minimum and maximum number of instances while creating a cluster. Their number will be scaled dynamically. This feature is provided by the [KEDA](https://airflow.apache.org/docs/helm-chart/stable/keda.html) controller.
 
+### {{ AF }} component configurations {#presets}
+
+A configuration decides the computing power allocated for the web server, scheduler, workers, and the Triggerer service. The available [configuration types](instance-types.md) are as follows:
+
+ * **standard**: With 4:1 RAM GB to vCPU ratio.
+ * **cpu-optimized**: With reduced RAM to vCPU ratio (2:1). These configurations may be useful for clusters with higher processor performance requirements.
+
+You can select configurations when [creating a cluster](../operations/cluster-create.md) or change them while [editing it](../operations/cluster-update.md).
+
 ## Triggerer {#triggerer}
 
-The Triggerer service reduces the workers downtime.
+The Triggerer service reduces worker idle time.
 
-DAGs may contain jobs that send requests to an external system (such as a {{ SPRK }} cluster) and wait for it to respond for a certain period of time. If [standard operators](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) are used, such a job will keep a worker busy while it is waiting for the response. This results in the worker's downtime. If this happens to a large number of workers, job queues will form, reducing the job run speed and slowing down execution.
+DAGs may contain jobs that send requests to an external system (such as a {{ SPRK }} cluster) and wait for it to respond for a certain period of time. If [standard operators](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) are used, such a job will occupy a worker while awaiting the response. This keeps the worker idle. If this happens to a large number of workers, job queues will form, reducing the job run speed and slowing down execution.
 
 _Deferrable operators_ help avoid a situation like this. They allow pausing a job, releasing a worker, and isolating the external system request into a separate process called a _trigger_. All triggers are independent from each other and processed by Triggerer asynchronously, with separate resources allocated for it in the cluster. Once a response is received from the external system, a trigger fires, and the scheduler returns the job to the worker.
 
@@ -80,3 +94,13 @@ See how to work with Triggerer in the figure below:
 ![triggerer](../../_assets/managed-airflow/triggerer.svg)
 
 For more information about deferrable operators, triggers, and the Triggerer service, see the [{{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/deferring.html#deferrable-operators-triggers) documentation.
+
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/data-processing-automation.md)
+* [{#T}](../tutorials/airflow-auto-tasks.md)
+
+#### See also {#see-also}
+
+* [{{ AF }} in {{ yandex-cloud }}: Managed service or independent deployment](https://yandex.cloud/ru/blog/posts/2025/05/apache-airflow-in-yc)

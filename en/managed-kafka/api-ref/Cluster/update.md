@@ -1,9 +1,829 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the Apache Kafka® cluster to update.
+            To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            New description of the Apache Kafka® cluster.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the Apache Kafka® cluster as `key:value` pairs.
+            For example, "project": "mvp" or "source": "dictionary".
+            The new set of labels will completely replace the old ones.
+            To add a label, request the current set with the [ClusterService.Get](/docs/managed-kafka/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        configSpec:
+          description: |-
+            **[ConfigSpec](#yandex.cloud.mdb.kafka.v1.ConfigSpec)**
+            New configuration and resources for hosts in the Apache Kafka® cluster.
+            Use `updateMask` to prevent reverting all cluster settings that are not listed in `configSpec` to their default values.
+          $ref: '#/definitions/ConfigSpec'
+        name:
+          description: |-
+            **string**
+            New name for the Apache Kafka® cluster.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+        securityGroupIds:
+          description: |-
+            **string**
+            User security groups
+          type: array
+          items:
+            type: string
+        deletionProtection:
+          description: |-
+            **boolean**
+            Deletion Protection inhibits deletion of the cluster
+          type: boolean
+        maintenanceWindow:
+          description: |-
+            **[MaintenanceWindow](#yandex.cloud.mdb.kafka.v1.MaintenanceWindow)**
+            New maintenance window settings for the cluster.
+          $ref: '#/definitions/MaintenanceWindow'
+        networkId:
+          description: |-
+            **string**
+            ID of the network to move the cluster to.
+            The maximum string length in characters is 50.
+          type: string
+        subnetIds:
+          description: |-
+            **string**
+            IDs of subnets where the hosts are located or a new host is being created
+          type: array
+          items:
+            type: string
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          resourcePresetId:
+            description: |-
+              **string**
+              ID of the preset for computational resources available to a host (CPU, memory, etc.).
+              All available presets are listed in the [documentation](/docs/managed-kafka/concepts/instance-types).
+            type: string
+          diskSize:
+            description: |-
+              **string** (int64)
+              Volume of the storage available to a host, in bytes. Must be greater than 2 * partition segment size in bytes * partitions count, so each partition can have one active segment file and one closed segment file that can be deleted.
+            type: string
+            format: int64
+          diskTypeId:
+            description: |-
+              **string**
+              Type of the storage environment for the host.
+            type: string
+      KafkaConfig2_8:
+        type: object
+        properties:
+          compressionType:
+            description: |-
+              **enum** (CompressionType)
+              Cluster topics compression type.
+              - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+              - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+              - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+              - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+              - `COMPRESSION_TYPE_GZIP`: GZip codec.
+              - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+            type: string
+            enum:
+              - COMPRESSION_TYPE_UNSPECIFIED
+              - COMPRESSION_TYPE_UNCOMPRESSED
+              - COMPRESSION_TYPE_ZSTD
+              - COMPRESSION_TYPE_LZ4
+              - COMPRESSION_TYPE_SNAPPY
+              - COMPRESSION_TYPE_GZIP
+              - COMPRESSION_TYPE_PRODUCER
+          logFlushIntervalMessages:
+            description: |-
+              **string** (int64)
+              The number of messages accumulated on a log partition before messages are flushed to disk.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+            type: string
+            format: int64
+          logFlushIntervalMs:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+              If not set, the value of [logFlushSchedulerIntervalMs](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+            type: string
+            format: int64
+          logFlushSchedulerIntervalMs:
+            description: |-
+              **string** (int64)
+              The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+              This check is done by the log flusher.
+            type: string
+            format: int64
+          logRetentionBytes:
+            description: |-
+              **string** (int64)
+              Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig2_8.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) is in effect.
+              This setting is helpful if you need to control the size of a log due to limited disk space.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+            type: string
+            format: int64
+          logRetentionHours:
+            description: |-
+              **string** (int64)
+              The number of hours to keep a log segment file before deleting it.
+            type: string
+            format: int64
+          logRetentionMinutes:
+            description: |-
+              **string** (int64)
+              The number of minutes to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionHours](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+            type: string
+            format: int64
+          logRetentionMs:
+            description: |-
+              **string** (int64)
+              The number of milliseconds to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionMinutes](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+            type: string
+            format: int64
+          logSegmentBytes:
+            description: |-
+              **string** (int64)
+              The maximum size of a single log file.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+            type: string
+            format: int64
+          logPreallocate:
+            description: |-
+              **boolean**
+              Should pre allocate file when create new segment?
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+              Deprecated. Feature useless for Yandex Cloud.
+            deprecated: true
+            type: boolean
+          socketSendBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          socketReceiveBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          autoCreateTopicsEnable:
+            description: |-
+              **boolean**
+              Enable auto creation of topic on the server
+            type: boolean
+          numPartitions:
+            description: |-
+              **string** (int64)
+              Default number of partitions per topic on the whole cluster
+            type: string
+            format: int64
+          defaultReplicationFactor:
+            description: |-
+              **string** (int64)
+              Default replication factor of the topic on the whole cluster
+            type: string
+            format: int64
+          messageMaxBytes:
+            description: |-
+              **string** (int64)
+              The largest record batch size allowed by Kafka. Default value: 1048588.
+            default: '1048588'
+            type: string
+            format: int64
+          replicaFetchMaxBytes:
+            description: |-
+              **string** (int64)
+              The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+            default: '1048576'
+            type: string
+            format: int64
+          sslCipherSuites:
+            description: |-
+              **string**
+              A list of cipher suites.
+            type: array
+            items:
+              type: string
+          offsetsRetentionMinutes:
+            description: |-
+              **string** (int64)
+              Offset storage time after a consumer group loses all its consumers. Default: 10080.
+            default: '10080'
+            type: string
+            format: int64
+          saslEnabledMechanisms:
+            description: |-
+              **enum** (SaslMechanism)
+              The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+              - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+              - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512.
+            default: '[SCRAM_SHA_512]'
+            type: array
+            items:
+              type: string
+              enum:
+                - SASL_MECHANISM_UNSPECIFIED
+                - SASL_MECHANISM_SCRAM_SHA_256
+                - SASL_MECHANISM_SCRAM_SHA_512
+      KafkaConfig3:
+        type: object
+        properties:
+          compressionType:
+            description: |-
+              **enum** (CompressionType)
+              Cluster topics compression type.
+              - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+              - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+              - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+              - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+              - `COMPRESSION_TYPE_GZIP`: GZip codec.
+              - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+            type: string
+            enum:
+              - COMPRESSION_TYPE_UNSPECIFIED
+              - COMPRESSION_TYPE_UNCOMPRESSED
+              - COMPRESSION_TYPE_ZSTD
+              - COMPRESSION_TYPE_LZ4
+              - COMPRESSION_TYPE_SNAPPY
+              - COMPRESSION_TYPE_GZIP
+              - COMPRESSION_TYPE_PRODUCER
+          logFlushIntervalMessages:
+            description: |-
+              **string** (int64)
+              The number of messages accumulated on a log partition before messages are flushed to disk.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logFlushIntervalMs:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+              If not set, the value of [logFlushSchedulerIntervalMs](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logFlushSchedulerIntervalMs:
+            description: |-
+              **string** (int64)
+              The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+              This check is done by the log flusher.
+            type: string
+            format: int64
+          logRetentionBytes:
+            description: |-
+              **string** (int64)
+              Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig3.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) is in effect.
+              This setting is helpful if you need to control the size of a log due to limited disk space.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logRetentionHours:
+            description: |-
+              **string** (int64)
+              The number of hours to keep a log segment file before deleting it.
+            type: string
+            format: int64
+          logRetentionMinutes:
+            description: |-
+              **string** (int64)
+              The number of minutes to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionHours](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+            type: string
+            format: int64
+          logRetentionMs:
+            description: |-
+              **string** (int64)
+              The number of milliseconds to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionMinutes](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logSegmentBytes:
+            description: |-
+              **string** (int64)
+              The maximum size of a single log file.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logPreallocate:
+            description: |-
+              **boolean**
+              Should pre allocate file when create new segment?
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+              Deprecated. Feature useless for Yandex Cloud.
+            deprecated: true
+            type: boolean
+          socketSendBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          socketReceiveBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          autoCreateTopicsEnable:
+            description: |-
+              **boolean**
+              Enable auto creation of topic on the server
+            type: boolean
+          numPartitions:
+            description: |-
+              **string** (int64)
+              Default number of partitions per topic on the whole cluster
+            type: string
+            format: int64
+          defaultReplicationFactor:
+            description: |-
+              **string** (int64)
+              Default replication factor of the topic on the whole cluster
+            type: string
+            format: int64
+          messageMaxBytes:
+            description: |-
+              **string** (int64)
+              The largest record batch size allowed by Kafka. Default value: 1048588.
+            default: '1048588'
+            type: string
+            format: int64
+          replicaFetchMaxBytes:
+            description: |-
+              **string** (int64)
+              The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+            default: '1048576'
+            type: string
+            format: int64
+          sslCipherSuites:
+            description: |-
+              **string**
+              A list of cipher suites.
+            type: array
+            items:
+              type: string
+          offsetsRetentionMinutes:
+            description: |-
+              **string** (int64)
+              Offset storage time after a consumer group loses all its consumers. Default: 10080.
+            default: '10080'
+            type: string
+            format: int64
+          saslEnabledMechanisms:
+            description: |-
+              **enum** (SaslMechanism)
+              The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+              - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+              - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512.
+            default: '[SCRAM_SHA_512]'
+            type: array
+            items:
+              type: string
+              enum:
+                - SASL_MECHANISM_UNSPECIFIED
+                - SASL_MECHANISM_SCRAM_SHA_256
+                - SASL_MECHANISM_SCRAM_SHA_512
+      KafkaConfig4:
+        type: object
+        properties:
+          compressionType:
+            description: |-
+              **enum** (CompressionType)
+              Cluster topics compression type.
+              - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+              - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+              - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+              - `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+              - `COMPRESSION_TYPE_GZIP`: GZip codec.
+              - `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs).
+            type: string
+            enum:
+              - COMPRESSION_TYPE_UNSPECIFIED
+              - COMPRESSION_TYPE_UNCOMPRESSED
+              - COMPRESSION_TYPE_ZSTD
+              - COMPRESSION_TYPE_LZ4
+              - COMPRESSION_TYPE_SNAPPY
+              - COMPRESSION_TYPE_GZIP
+              - COMPRESSION_TYPE_PRODUCER
+          logFlushIntervalMessages:
+            description: |-
+              **string** (int64)
+              The number of messages accumulated on a log partition before messages are flushed to disk.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logFlushIntervalMs:
+            description: |-
+              **string** (int64)
+              The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+              If not set, the value of [logFlushSchedulerIntervalMs](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting.
+            type: string
+            format: int64
+          logFlushSchedulerIntervalMs:
+            description: |-
+              **string** (int64)
+              The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+              This check is done by the log flusher.
+            type: string
+            format: int64
+          logRetentionBytes:
+            description: |-
+              **string** (int64)
+              Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
+              This setting is helpful if you need to control the size of a log due to limited disk space.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+            type: string
+            format: int64
+          logRetentionHours:
+            description: |-
+              **string** (int64)
+              The number of hours to keep a log segment file before deleting it.
+            type: string
+            format: int64
+          logRetentionMinutes:
+            description: |-
+              **string** (int64)
+              The number of minutes to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionHours](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+            type: string
+            format: int64
+          logRetentionMs:
+            description: |-
+              **string** (int64)
+              The number of milliseconds to keep a log segment file before deleting it.
+              If not set, the value of [logRetentionMinutes](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8) is used.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting.
+            type: string
+            format: int64
+          logSegmentBytes:
+            description: |-
+              **string** (int64)
+              The maximum size of a single log file.
+              This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting.
+            type: string
+            format: int64
+          socketSendBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          socketReceiveBufferBytes:
+            description: |-
+              **string** (int64)
+              The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
+            type: string
+            format: int64
+          autoCreateTopicsEnable:
+            description: |-
+              **boolean**
+              Enable auto creation of topic on the server
+            type: boolean
+          numPartitions:
+            description: |-
+              **string** (int64)
+              Default number of partitions per topic on the whole cluster
+            type: string
+            format: int64
+          defaultReplicationFactor:
+            description: |-
+              **string** (int64)
+              Default replication factor of the topic on the whole cluster
+            type: string
+            format: int64
+          messageMaxBytes:
+            description: |-
+              **string** (int64)
+              The largest record batch size allowed by Kafka. Default value: 1048588.
+            default: '1048588'
+            type: string
+            format: int64
+          replicaFetchMaxBytes:
+            description: |-
+              **string** (int64)
+              The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576.
+            default: '1048576'
+            type: string
+            format: int64
+          sslCipherSuites:
+            description: |-
+              **string**
+              A list of cipher suites.
+            type: array
+            items:
+              type: string
+          offsetsRetentionMinutes:
+            description: |-
+              **string** (int64)
+              Offset storage time after a consumer group loses all its consumers. Default: 10080.
+            default: '10080'
+            type: string
+            format: int64
+          saslEnabledMechanisms:
+            description: |-
+              **enum** (SaslMechanism)
+              The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+              - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+              - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512.
+            default: '[SCRAM_SHA_512]'
+            type: array
+            items:
+              type: string
+              enum:
+                - SASL_MECHANISM_UNSPECIFIED
+                - SASL_MECHANISM_SCRAM_SHA_256
+                - SASL_MECHANISM_SCRAM_SHA_512
+      Kafka:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+              Resources allocated to Kafka brokers.
+            $ref: '#/definitions/Resources'
+          kafkaConfig_2_8:
+            description: |-
+              **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
+              Configuration of an Apache Kafka® 2.8 broker.
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig2_8'
+          kafkaConfig_3:
+            description: |-
+              **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
+              Configuration of an Apache Kafka® 3.x broker.
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig3'
+          kafkaConfig_4:
+            description: |-
+              **[KafkaConfig4](#yandex.cloud.mdb.kafka.v1.KafkaConfig4)**
+              Configuration of an Apache Kafka® 4.x broker.
+              Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
+              Kafka broker configuration.
+            $ref: '#/definitions/KafkaConfig4'
+        oneOf:
+          - required:
+              - kafkaConfig_2_8
+          - required:
+              - kafkaConfig_3
+          - required:
+              - kafkaConfig_4
+      Zookeeper:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+              Resources allocated to ZooKeeper hosts.
+            $ref: '#/definitions/Resources'
+      Access:
+        type: object
+        properties:
+          dataTransfer:
+            description: |-
+              **boolean**
+              Allow access for DataTransfer.
+            type: boolean
+      RestAPIConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Is REST API enabled for this cluster.
+            type: boolean
+      DiskSizeAutoscaling:
+        type: object
+        properties:
+          plannedUsageThreshold:
+            description: |-
+              **string** (int64)
+              Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          emergencyUsageThreshold:
+            description: |-
+              **string** (int64)
+              Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+          diskSizeLimit:
+            description: |-
+              **string** (int64)
+              New storage size (in bytes) that is set when one of the thresholds is achieved.
+            type: string
+            format: int64
+      KRaft:
+        type: object
+        properties:
+          resources:
+            description: |-
+              **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
+              Resources allocated to KRaft controller hosts.
+            $ref: '#/definitions/Resources'
+      KafkaUIConfig:
+        type: object
+        properties:
+          enabled:
+            description: |-
+              **boolean**
+              Is Kafka UI enabled for this cluster.
+            type: boolean
+      ConfigSpec:
+        type: object
+        properties:
+          version:
+            description: |-
+              **string**
+              Version of Apache Kafka® used in the cluster. Possible values: `2.8`, `3.0`, `3.1`, `3.2`, `3.3`, `3.4`, `3.5`, `3.6`.
+            type: string
+          kafka:
+            description: |-
+              **[Kafka](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka)**
+              Configuration and resource allocation for Kafka brokers.
+            $ref: '#/definitions/Kafka'
+          zookeeper:
+            description: |-
+              **[Zookeeper](#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper)**
+              Configuration and resource allocation for ZooKeeper hosts.
+            $ref: '#/definitions/Zookeeper'
+          zoneId:
+            description: |-
+              **string**
+              IDs of availability zones where Kafka brokers reside.
+            type: array
+            items:
+              type: string
+          brokersCount:
+            description: |-
+              **string** (int64)
+              The number of Kafka brokers deployed in each availability zone.
+            type: string
+            format: int64
+          assignPublicIp:
+            description: |-
+              **boolean**
+              The flag that defines whether a public IP address is assigned to the cluster.
+              If the value is `true`, then Apache Kafka® cluster is available on the Internet via it's public IP address.
+            type: boolean
+          unmanagedTopics:
+            description: |-
+              **boolean**
+              Allows to manage topics via AdminAPI
+              Deprecated. Feature enabled permanently.
+            deprecated: true
+            type: boolean
+          schemaRegistry:
+            description: |-
+              **boolean**
+              Enables managed schema registry on cluster
+            type: boolean
+          access:
+            description: |-
+              **[Access](#yandex.cloud.mdb.kafka.v1.Access)**
+              Access policy for external services.
+            $ref: '#/definitions/Access'
+          restApiConfig:
+            description: |-
+              **[RestAPIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.RestAPIConfig)**
+              Configuration of REST API.
+            $ref: '#/definitions/RestAPIConfig'
+          diskSizeAutoscaling:
+            description: |-
+              **[DiskSizeAutoscaling](#yandex.cloud.mdb.kafka.v1.DiskSizeAutoscaling)**
+              DiskSizeAutoscaling settings
+            $ref: '#/definitions/DiskSizeAutoscaling'
+          kraft:
+            description: |-
+              **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
+              Configuration and resource allocation for KRaft-controller hosts.
+            $ref: '#/definitions/KRaft'
+          kafkaUiConfig:
+            description: |-
+              **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
+              Configuration of Kafka UI.
+            $ref: '#/definitions/KafkaUIConfig'
+          patchVersion:
+            description: |-
+              **string**
+              Patch or release version ex. 3.9.1, 4.0.1 etc
+            type: string
+      AnytimeMaintenanceWindow:
+        type: object
+        properties: {}
+      WeeklyMaintenanceWindow:
+        type: object
+        properties:
+          day:
+            description: |-
+              **enum** (WeekDay)
+              - `MON`
+              - `TUE`
+              - `WED`
+              - `THU`
+              - `FRI`
+              - `SAT`
+              - `SUN`
+            type: string
+            enum:
+              - WEEK_DAY_UNSPECIFIED
+              - MON
+              - TUE
+              - WED
+              - THU
+              - FRI
+              - SAT
+              - SUN
+          hour:
+            description: |-
+              **string** (int64)
+              Hour of the day in UTC.
+              Acceptable values are 1 to 24, inclusive.
+            type: string
+            format: int64
+      MaintenanceWindow:
+        type: object
+        properties:
+          anytime:
+            description: |-
+              **object**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/AnytimeMaintenanceWindow'
+          weeklyMaintenanceWindow:
+            description: |-
+              **[WeeklyMaintenanceWindow](#yandex.cloud.mdb.kafka.v1.WeeklyMaintenanceWindow)**
+              Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`.
+            $ref: '#/definitions/WeeklyMaintenanceWindow'
+        oneOf:
+          - required:
+              - anytime
+          - required:
+              - weeklyMaintenanceWindow
 sourcePath: en/_api-ref/mdb/kafka/v1/api-ref/Cluster/update.md
 ---
 
-# Managed Service for Apache Kafka® API, REST: Cluster.Update {#Update}
+# Managed Service for Apache Kafka® API, REST: Cluster.Update
 
 Updates the specified Apache Kafka® cluster.
 
@@ -21,7 +841,9 @@ PATCH https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
 
 Required field. ID of the Apache Kafka® cluster to update.
 
-To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request. ||
+To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed-kafka/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.kafka.v1.UpdateClusterRequest}
@@ -30,7 +852,7 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
 {
   "updateMask": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "configSpec": {
     "version": "string",
     "kafka": {
@@ -39,7 +861,7 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
         "diskSize": "string",
         "diskTypeId": "string"
       },
-      // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`
+      // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`
       "kafkaConfig_2_8": {
         "compressionType": "string",
         "logFlushIntervalMessages": "string",
@@ -91,6 +913,31 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
         "saslEnabledMechanisms": [
           "string"
         ]
+      },
+      "kafkaConfig_4": {
+        "compressionType": "string",
+        "logFlushIntervalMessages": "string",
+        "logFlushIntervalMs": "string",
+        "logFlushSchedulerIntervalMs": "string",
+        "logRetentionBytes": "string",
+        "logRetentionHours": "string",
+        "logRetentionMinutes": "string",
+        "logRetentionMs": "string",
+        "logSegmentBytes": "string",
+        "socketSendBufferBytes": "string",
+        "socketReceiveBufferBytes": "string",
+        "autoCreateTopicsEnable": "boolean",
+        "numPartitions": "string",
+        "defaultReplicationFactor": "string",
+        "messageMaxBytes": "string",
+        "replicaFetchMaxBytes": "string",
+        "sslCipherSuites": [
+          "string"
+        ],
+        "offsetsRetentionMinutes": "string",
+        "saslEnabledMechanisms": [
+          "string"
+        ]
       }
       // end of the list of possible fields
     },
@@ -125,7 +972,11 @@ To get the Apache Kafka® cluster ID, make a [ClusterService.List](/docs/managed
         "diskSize": "string",
         "diskTypeId": "string"
       }
-    }
+    },
+    "kafkaUiConfig": {
+      "enabled": "boolean"
+    },
+    "patchVersion": "string"
   },
   "name": "string",
   "securityGroupIds": [
@@ -162,15 +1013,19 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-New description of the Apache Kafka® cluster. ||
-|| labels | **string**
+New description of the Apache Kafka® cluster.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Kafka® cluster as `key:value` pairs.
 
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones.
-To add a label, request the current set with the [ClusterService.Get](/docs/managed-kafka/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+To add a label, request the current set with the [ClusterService.Get](/docs/managed-kafka/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.kafka.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the Apache Kafka® cluster.
@@ -178,7 +1033,9 @@ New configuration and resources for hosts in the Apache Kafka® cluster.
 Use `updateMask` to prevent reverting all cluster settings that are not listed in `configSpec` to their default values. ||
 || name | **string**
 
-New name for the Apache Kafka® cluster. ||
+New name for the Apache Kafka® cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || securityGroupIds[] | **string**
 
 User security groups ||
@@ -190,7 +1047,9 @@ Deletion Protection inhibits deletion of the cluster ||
 New maintenance window settings for the cluster. ||
 || networkId | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 50. ||
 || subnetIds[] | **string**
 
 IDs of subnets where the hosts are located or a new host is being created ||
@@ -238,6 +1097,12 @@ DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig)**
+
+Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka}
@@ -249,12 +1114,23 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 Resources allocated to Kafka brokers. ||
 || kafkaConfig_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_8)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Configuration of an Apache Kafka® 2.8 broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
 
 Kafka broker configuration. ||
 || kafkaConfig_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig3)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Configuration of an Apache Kafka® 3.x broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
+
+Kafka broker configuration. ||
+|| kafkaConfig_4 | **[KafkaConfig4](#yandex.cloud.mdb.kafka.v1.KafkaConfig4)**
+
+Configuration of an Apache Kafka® 4.x broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
 
 Kafka broker configuration. ||
 |#
@@ -285,7 +1161,6 @@ Kafka version 2.8 broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -337,7 +1212,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -369,9 +1245,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -384,7 +1259,6 @@ Kafka version 3.x broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -436,7 +1310,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -468,9 +1343,100 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|#
+
+## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
+
+Kafka version 4.x broker configuration.
+
+#|
+||Field | Description ||
+|| compressionType | **enum** (CompressionType)
+
+Cluster topics compression type.
+
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| logFlushIntervalMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logFlushIntervalMs | **string** (int64)
+
+The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| logFlushSchedulerIntervalMs | **string** (int64)
+
+The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+This check is done by the log flusher. ||
+|| logRetentionBytes | **string** (int64)
+
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
+This setting is helpful if you need to control the size of a log due to limited disk space.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logRetentionHours | **string** (int64)
+
+The number of hours to keep a log segment file before deleting it. ||
+|| logRetentionMinutes | **string** (int64)
+
+The number of minutes to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionHours` is used. ||
+|| logRetentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionMinutes` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| logSegmentBytes | **string** (int64)
+
+The maximum size of a single log file.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| socketSendBufferBytes | **string** (int64)
+
+The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| socketReceiveBufferBytes | **string** (int64)
+
+The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| autoCreateTopicsEnable | **boolean**
+
+Enable auto creation of topic on the server ||
+|| numPartitions | **string** (int64)
+
+Default number of partitions per topic on the whole cluster ||
+|| defaultReplicationFactor | **string** (int64)
+
+Default replication factor of the topic on the whole cluster ||
+|| messageMaxBytes | **string** (int64)
+
+The largest record batch size allowed by Kafka. Default value: 1048588. ||
+|| replicaFetchMaxBytes | **string** (int64)
+
+The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
+|| sslCipherSuites[] | **string**
+
+A list of cipher suites. ||
+|| offsetsRetentionMinutes | **string** (int64)
+
+Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
+|| saslEnabledMechanisms[] | **enum** (SaslMechanism)
+
+The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}
@@ -506,10 +1472,14 @@ Is REST API enabled for this cluster. ||
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -522,6 +1492,15 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources)**
 
 Resources allocated to KRaft controller hosts. ||
+|#
+
+## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Is Kafka UI enabled for this cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.kafka.v1.MaintenanceWindow}
@@ -542,7 +1521,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -552,7 +1530,9 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -584,7 +1564,7 @@ Hour of the day in UTC. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "environment": "string",
     "monitoring": [
       {
@@ -601,7 +1581,7 @@ Hour of the day in UTC. ||
           "diskSize": "string",
           "diskTypeId": "string"
         },
-        // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`
+        // Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`
         "kafkaConfig_2_8": {
           "compressionType": "string",
           "logFlushIntervalMessages": "string",
@@ -653,6 +1633,31 @@ Hour of the day in UTC. ||
           "saslEnabledMechanisms": [
             "string"
           ]
+        },
+        "kafkaConfig_4": {
+          "compressionType": "string",
+          "logFlushIntervalMessages": "string",
+          "logFlushIntervalMs": "string",
+          "logFlushSchedulerIntervalMs": "string",
+          "logRetentionBytes": "string",
+          "logRetentionHours": "string",
+          "logRetentionMinutes": "string",
+          "logRetentionMs": "string",
+          "logSegmentBytes": "string",
+          "socketSendBufferBytes": "string",
+          "socketReceiveBufferBytes": "string",
+          "autoCreateTopicsEnable": "boolean",
+          "numPartitions": "string",
+          "defaultReplicationFactor": "string",
+          "messageMaxBytes": "string",
+          "replicaFetchMaxBytes": "string",
+          "sslCipherSuites": [
+            "string"
+          ],
+          "offsetsRetentionMinutes": "string",
+          "saslEnabledMechanisms": [
+            "string"
+          ]
         }
         // end of the list of possible fields
       },
@@ -687,7 +1692,11 @@ Hour of the day in UTC. ||
           "diskSize": "string",
           "diskTypeId": "string"
         }
-      }
+      },
+      "kafkaUiConfig": {
+        "enabled": "boolean"
+      },
+      "patchVersion": "string"
     },
     "networkId": "string",
     "health": "string",
@@ -711,7 +1720,11 @@ Hour of the day in UTC. ||
     "plannedOperation": {
       "info": "string",
       "delayedUntil": "string"
-    }
+    },
+    "kafkaUi": {
+      "url": "string"
+    },
+    "diskEncryptionKeyId": "string"
   }
   // end of the list of possible fields
 }
@@ -843,7 +1856,7 @@ The name must be unique within the folder. 1-63 characters long. Value must matc
 || description | **string**
 
 Description of the Apache Kafka® cluster. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the Apache Kafka® cluster as `key:value` pairs.
 A maximum of 64 labels per resource is allowed. ||
@@ -851,7 +1864,6 @@ A maximum of 64 labels per resource is allowed. ||
 
 Deployment environment of the Apache Kafka® cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy when only hotfixes are applied during regular maintenance.
 - `PRESTABLE`: Environment with a more aggressive update policy when new versions are rolled out irrespective of backward compatibility. ||
 || monitoring[] | **[Monitoring](#yandex.cloud.mdb.kafka.v1.Monitoring)**
@@ -900,6 +1912,12 @@ Window of maintenance operations. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.kafka.v1.MaintenanceOperation)**
 
 Scheduled maintenance operation. ||
+|| kafkaUi | **[KafkaUI](#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI)**
+
+KafkaUI state. ||
+|| diskEncryptionKeyId | **string**
+
+ID of the key to encrypt cluster disks. ||
 |#
 
 ## Monitoring {#yandex.cloud.mdb.kafka.v1.Monitoring}
@@ -961,6 +1979,12 @@ DiskSizeAutoscaling settings ||
 || kraft | **[KRaft](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KRaft2)**
 
 Configuration and resource allocation for KRaft-controller hosts. ||
+|| kafkaUiConfig | **[KafkaUIConfig](#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2)**
+
+Configuration of Kafka UI. ||
+|| patchVersion | **string**
+
+Patch or release version ex. 3.9.1, 4.0.1 etc ||
 |#
 
 ## Kafka {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Kafka2}
@@ -972,12 +1996,23 @@ Configuration and resource allocation for KRaft-controller hosts. ||
 Resources allocated to Kafka brokers. ||
 || kafkaConfig_2_8 | **[KafkaConfig2_8](#yandex.cloud.mdb.kafka.v1.KafkaConfig2_82)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Configuration of an Apache Kafka® 2.8 broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
 
 Kafka broker configuration. ||
 || kafkaConfig_3 | **[KafkaConfig3](#yandex.cloud.mdb.kafka.v1.KafkaConfig32)**
 
-Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`.
+Configuration of an Apache Kafka® 3.x broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
+
+Kafka broker configuration. ||
+|| kafkaConfig_4 | **[KafkaConfig4](#yandex.cloud.mdb.kafka.v1.KafkaConfig42)**
+
+Configuration of an Apache Kafka® 4.x broker.
+
+Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig_4`.
 
 Kafka broker configuration. ||
 |#
@@ -1008,7 +2043,6 @@ Kafka version 2.8 broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -1060,7 +2094,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig2_8.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig2_8) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -1092,9 +2127,8 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig32}
@@ -1107,7 +2141,6 @@ Kafka version 3.x broker configuration.
 
 Cluster topics compression type.
 
-- `COMPRESSION_TYPE_UNSPECIFIED`
 - `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
 - `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
 - `COMPRESSION_TYPE_LZ4`: LZ4 codec.
@@ -1159,7 +2192,8 @@ This is the global cluster-level setting that can be overridden on a topic level
 
 Should pre allocate file when create new segment?
 
-This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.preallocate](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting.
+Deprecated. Feature useless for Yandex Cloud. ||
 || socketSendBufferBytes | **string** (int64)
 
 The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
@@ -1191,9 +2225,100 @@ Offset storage time after a consumer group loses all its consumers. Default: 100
 
 The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
 
-- `SASL_MECHANISM_UNSPECIFIED`
-- `SASL_MECHANISM_SCRAM_SHA_256`
-- `SASL_MECHANISM_SCRAM_SHA_512` ||
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|#
+
+## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig42}
+
+Kafka version 4.x broker configuration.
+
+#|
+||Field | Description ||
+|| compressionType | **enum** (CompressionType)
+
+Cluster topics compression type.
+
+- `COMPRESSION_TYPE_UNCOMPRESSED`: no codec (uncompressed).
+- `COMPRESSION_TYPE_ZSTD`: Zstandard codec.
+- `COMPRESSION_TYPE_LZ4`: LZ4 codec.
+- `COMPRESSION_TYPE_SNAPPY`: Snappy codec.
+- `COMPRESSION_TYPE_GZIP`: GZip codec.
+- `COMPRESSION_TYPE_PRODUCER`: the codec to use is set by a producer (can be any of `ZSTD`, `LZ4`, `GZIP` or `SNAPPY` codecs). ||
+|| logFlushIntervalMessages | **string** (int64)
+
+The number of messages accumulated on a log partition before messages are flushed to disk.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.flushMessages](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logFlushIntervalMs | **string** (int64)
+
+The maximum time (in milliseconds) that a message in any topic is kept in memory before flushed to disk.
+If not set, the value of `logFlushSchedulerIntervalMs` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.flushMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| logFlushSchedulerIntervalMs | **string** (int64)
+
+The frequency of checks (in milliseconds) for any logs that need to be flushed to disk.
+This check is done by the log flusher. ||
+|| logRetentionBytes | **string** (int64)
+
+Partition size limit; Kafka will discard old log segments to free up space if `delete` [TopicConfig4.cleanupPolicy](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) is in effect.
+This setting is helpful if you need to control the size of a log due to limited disk space.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig3.retentionBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig3) setting. ||
+|| logRetentionHours | **string** (int64)
+
+The number of hours to keep a log segment file before deleting it. ||
+|| logRetentionMinutes | **string** (int64)
+
+The number of minutes to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionHours` is used. ||
+|| logRetentionMs | **string** (int64)
+
+The number of milliseconds to keep a log segment file before deleting it.
+
+If not set, the value of `logRetentionMinutes` is used.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.retentionMs](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| logSegmentBytes | **string** (int64)
+
+The maximum size of a single log file.
+
+This is the global cluster-level setting that can be overridden on a topic level by using the [TopicConfig4.segmentBytes](/docs/managed-kafka/api-ref/Cluster/create#yandex.cloud.mdb.kafka.v1.TopicConfig4) setting. ||
+|| socketSendBufferBytes | **string** (int64)
+
+The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| socketReceiveBufferBytes | **string** (int64)
+
+The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used. ||
+|| autoCreateTopicsEnable | **boolean**
+
+Enable auto creation of topic on the server ||
+|| numPartitions | **string** (int64)
+
+Default number of partitions per topic on the whole cluster ||
+|| defaultReplicationFactor | **string** (int64)
+
+Default replication factor of the topic on the whole cluster ||
+|| messageMaxBytes | **string** (int64)
+
+The largest record batch size allowed by Kafka. Default value: 1048588. ||
+|| replicaFetchMaxBytes | **string** (int64)
+
+The number of bytes of messages to attempt to fetch for each partition. Default value: 1048576. ||
+|| sslCipherSuites[] | **string**
+
+A list of cipher suites. ||
+|| offsetsRetentionMinutes | **string** (int64)
+
+Offset storage time after a consumer group loses all its consumers. Default: 10080. ||
+|| saslEnabledMechanisms[] | **enum** (SaslMechanism)
+
+The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512].
+
+- `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
+- `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper2}
@@ -1229,10 +2354,14 @@ Is REST API enabled for this cluster. ||
 ||Field | Description ||
 || plannedUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers automatic scaling of the storage during the maintenance window. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || emergencyUsageThreshold | **string** (int64)
 
-Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold. ||
+Threshold of storage usage (in percent) that triggers immediate automatic scaling of the storage. Zero value means disabled threshold.
+
+Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
@@ -1245,6 +2374,15 @@ New storage size (in bytes) that is set when one of the thresholds is achieved. 
 || resources | **[Resources](#yandex.cloud.mdb.kafka.v1.Resources2)**
 
 Resources allocated to KRaft controller hosts. ||
+|#
+
+## KafkaUIConfig {#yandex.cloud.mdb.kafka.v1.ConfigSpec.KafkaUIConfig2}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+Is Kafka UI enabled for this cluster. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.kafka.v1.MaintenanceWindow2}
@@ -1265,7 +2403,6 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 ||Field | Description ||
 || day | **enum** (WeekDay)
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1275,14 +2412,18 @@ Includes only one of the fields `anytime`, `weeklyMaintenanceWindow`. ||
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC. ||
+Hour of the day in UTC.
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.kafka.v1.MaintenanceOperation}
 
 #|
 ||Field | Description ||
-|| info | **string** ||
+|| info | **string**
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -1291,4 +2432,13 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#
+
+## KafkaUI {#yandex.cloud.mdb.kafka.v1.Cluster.KafkaUI}
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL for connection to kafka ui ||
 |#

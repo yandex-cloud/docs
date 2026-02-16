@@ -1,12 +1,7 @@
----
-title: Визуализация данных из {{ tracker-short-name }}
-description: Для визуализация данных из {{ tracker-short-name }} необходимо организовать регулярный экспорт данных во внешнее хранилище и средствами {{ datalens-short-name }} визуализировать необходимые метрики и данные.
----
-
 # {{ tracker-full-name }}: экспорт и визуализация данных
 
 
-Визуализация данных из {{ tracker-short-name }} в {{ datalens-full-name }} позволяет построить более сложную аналитику, чем это возможно средствами самого {{ tracker-short-name }}.
+Визуализация данных из [{{ tracker-full-name }}]({{ link-tracker-cloudless }}) в {{ datalens-full-name }} позволяет построить более сложную аналитику, чем это возможно средствами самого {{ tracker-short-name }}.
 
 Для визуализации данных из {{ tracker-short-name }} в {{ datalens-short-name }} необходимо:
 * организовать регулярный экспорт данных во внешнее хранилище;
@@ -28,7 +23,7 @@ description: Для визуализация данных из {{ tracker-short-
 
 {% note info %}
 
-Рекомендуется [создать](../../tracker/enable-tracker.md) отдельную учетную запись {{ tracker-short-name }} для работы с сервисом.
+Рекомендуется создать отдельную учетную запись {{ tracker-short-name }} для работы с сервисом.
 
 {% endnote %}
 
@@ -55,7 +50,7 @@ description: Для визуализация данных из {{ tracker-short-
         * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`;
         * **{{ ui-key.yacloud.mdb.forms.base_field_version }}** — `22.8 LTS`; 
     * {{ ui-key.yacloud.mdb.forms.new_section_resource }}:
-        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`;
+        * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`;
         * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** — `standart`;
         * **{{ ui-key.yacloud.mdb.forms.section_resource }}** — `{{ s3-c2-m8 }}`;
     * {{ ui-key.yacloud.mdb.forms.section_disk }} — `30 {{ ui-key.yacloud.common.units.label_gigabyte }}`;
@@ -94,7 +89,7 @@ description: Для визуализация данных из {{ tracker-short-
     Где `client_id` — идентификатор созданного приложения в поле **ClientID**.
 
 1. Авторизуйтесь с помощью учетной записи {{ tracker-short-name }}, которая будет использоваться для визуализации.
-1. Сохраните полученный [OAuth токен](../../tracker/concepts/access.md#section_about_OAauth).
+1. Сохраните полученный OAuth токен.
 
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 
@@ -147,7 +142,7 @@ description: Для визуализация данных из {{ tracker-short-
     1. Нажмите ![trigger](../../_assets/console-icons/gear-play.svg) → **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
     1. Укажите тип триггера — **{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}**.
     1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cron-expression }}** выберите `{{ ui-key.yacloud.common.button_cron-day }}`.
-    1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.component.service-account-select.button_create-account-new }}**.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Укажите имя аккаунта. По умолчанию аккаунту присвоена роль `{{ roles-functions-invoker }}` для работы с триггером.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
@@ -228,3 +223,8 @@ description: Для визуализация данных из {{ tracker-short-
 Чтобы перестать платить за созданные ресурсы:
 * [Удалите {{ CH }}-кластер](../../managed-clickhouse/operations/cluster-delete.md);
 * [Удалите функцию {{ sf-name }}](../../functions/operations/function/function-delete.md).
+
+
+#### См. также {#see-also}
+
+* [Аналитика задач в {{ tracker-full-name }}: встроенные возможности и интеграция с {{ datalens-full-name }}](/blog/posts/2023/10/yandex-tracker-and-datalens)

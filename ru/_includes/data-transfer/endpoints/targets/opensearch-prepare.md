@@ -1,10 +1,8 @@
 {% list tabs %}
 
-
 - {{ mos-name }}
 
   {% include [prepare-os](../../prepare-os.md) %}
-
 
 - {{ OS }}
     

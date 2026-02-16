@@ -9,6 +9,9 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](update-kubernetes.md)
 * [{#T}](autoscale.md)
+* [{#T}](apply-tf-provider.md)
+* [{#T}](apply-helm-provider.md)
+* [{#T}](private-registries.md)
 
 ## Подключение к кластеру {#cluster-connect}
 
@@ -16,10 +19,10 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](connect/security-groups.md)
 * [{#T}](connect/create-static-conf.md)
 
-
 ## Установка приложений из {{ marketplace-full-name }} {#marketplace}
 
 * [{#T}](applications/marketplace.md)
+* [{#T}](applications/bitrix.md)
 * [{#T}](applications/argo-cd.md)
 * [{#T}](applications/chaos-mesh.md)
 * [{#T}](applications/cert-manager-cloud-dns.md)
@@ -34,22 +37,24 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](applications/gateway-api.md)
 * [{#T}](applications/gitlab-agent.md)
 * [{#T}](applications/gitlab-runner.md)
+* [{#T}](../alb-ref/gwin-quickstart.md)
 * [{#T}](applications/hashicorp-vault.md)
-* [{#T}](applications/ingress-nginx.md)
 * [{#T}](applications/alb-ingress-controller.md)
 * [{#T}](applications/upgrade-alb-ingress-controller.md)
 * [{#T}](applications/istio.md)
 * [{#T}](applications/jaeger.md)
+* [{#T}](applications/keda.md)
 * [{#T}](applications/kruise.md)
+* [{#T}](applications/kubernetes-node-remediation.md)
 * [{#T}](applications/kyverno.md)
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/oidc.md)
 * [{#T}](applications/policy-reporter.md)
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
-
 
 ## Сетевые сценарии {#network-scenarios}
 
@@ -64,17 +69,21 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](volumes/dynamic-create-pv.md)
 * [{#T}](volumes/static-create-pv.md)
 * [{#T}](volumes/manage-storage-class.md)
+* [{#T}](volumes/encrypted-disks.md)
 * [{#T}](volumes/volume-expansion.md)
-* [{#T}](volumes/statefulset-pvc-expansion.md)
 * [{#T}](volumes/mode-block.md)
 * [{#T}](volumes/s3-csi-integration.md)
 
 ## Управление кластером {{ managed-k8s-name }} {#kubernetes-cluster}
 
 * [{#T}](kubernetes-cluster/kubernetes-cluster-list.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-get-stats.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
 
 ## Управление группой узлов {#node-group}
@@ -82,6 +91,7 @@ description: Из статьи вы узнаете, как работать с �
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
 * [{#T}](node-connect-ssh.md)
+* [{#T}](node-connect-oslogin.md)
 * [{#T}](autoscale.md)
 * [{#T}](node-group/node-group-update.md)
 * [{#T}](node-group/node-label-management.md)
@@ -91,3 +101,6 @@ description: Из статьи вы узнаете, как работать с �
 ## Работа с внешними узлами {#external-nodes}
 
 * [{#T}](external-nodes-connect.md)
+* [{#T}](external-nodes-connect-wireguard.md)
+* [{#T}](external-nodes-connect-ipsec.md)
+* [{#T}](bms-server-connect.md)

@@ -2,16 +2,16 @@
 
 #### What is the initial grant? {#start-grant}
 
+The initial grant enables you to gain hands-on experience with {{ yandex-cloud }} without paying for the resources you consume. The grant is issued automatically as soon as you create your first partner [billing account](../../billing/concepts/billing-account.md) or get your customer billing account verified. You can read more about the grants in [this article](../../billing/concepts/bonus-account.md).
 
+#### How do I get the initial grant for an already activated partner account? {#connected-accounts}
 
-#### How do I get the initial grant for an activated partner account? {#connected-accounts}
-
-The initial grant is provided when the first billing account is activated. You cannot get the initial grant for any previously activated accounts. If required, you can use [{#T}](../../partner/qa/additional-grants.md).
+You get your initial grant when you activate your first billing account. It cannot be issued for any previously activated accounts. Use [{#T}](../../partner/qa/additional-grants.md) if required.
 
 #### How do I activate the initial grant for new partner accounts? {#new-accounts}
 
-When you create your first billing account as a partner, the initial grant is given automatically. You cannot get the initial grant for additional billing accounts. If required, you can use [{#T}](../../partner/qa/additional-grants.md).
+The initial grant will be issued automatically as soon as you create your first partner billing account. You cannot get the initial grant for additional billing accounts. Use [{#T}](../../partner/qa/additional-grants.md) if required.
 
-#### How do I get the initial grant when I connect a customer under the partner program and create a subaccount? {#client connection}
+#### How do I get the initial grant if I connect a customer under the partner program and create a subaccount? {#client connection}
 
-The initial grant is only provided when the customer's first and main billing account is created. It is not available for subaccounts. If required, you can use [{#T}](../../partner/qa/additional-grants.md).
+You get the initial grant only when creating the first and main customer billing account. No initial grants are issued for subaccounts. Use [{#T}](../../partner/qa/additional-grants.md) if required.

@@ -1,6 +1,6 @@
 ---
 title: Как работать с топиками и разделами кластера {{ KF }} в {{ mkf-full-name }}
-description: Следуя данной инструкции, вы сможете работать с топиками и разделами.
+description: 'Следуя данной инструкции, вы сможете работать с топиками и разделами: создавать топик, изменять настройки топика, получать список топиков в кластере, получать детальную информацию о топике, импортировать топик в {{ TF }}, удалять топик.'
 ---
 
 # Управление топиками {{ KF }}
@@ -16,6 +16,7 @@ description: Следуя данной инструкции, вы сможете
     * [получить список топиков в кластере](#list-topics);
     * [получить детальную информацию о топике](#get-topic);
     * [импортировать топик в {{ TF }}](#import-topic);
+    * [перенести информацию о созданных топиках в файл состояния {{ TF }}](#move-info-topic);
     * [удалить топик](#delete-topic).
 
 * С помощью [Admin API {{ KF }}](#admin-api). Способ подходит, если вы хотите использовать уже существующее у вас решение для управления топиками и разделами.
@@ -31,11 +32,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.kafka.button_create-topic }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** задайте базовые параметры топика:
      * Имя топика (должно быть уникально в пределах кластера {{ KF }}).
+
+       {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
+
      * Количество разделов в топике.
      * Фактор репликации. Значение этого параметра не должно превышать количество брокеров в кластере. Минимальное значение: `1`. Максимальное значение: `3`. Значение по умолчанию:
        * для кластера из одного или двух брокеров: `1`;
@@ -67,6 +71,8 @@ description: Следуя данной инструкции, вы сможете
 
      При необходимости здесь же задайте [настройки топика](../concepts/settings-list.md#topic-settings).
 
+     {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -88,6 +94,8 @@ description: Следуя данной инструкции, вы сможете
      }
      ```
 
+     {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
+
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -98,13 +106,79 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы создать топик, воспользуйтесь методом REST API [create](../api-ref/Topic/create.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Create](../api-ref/grpc/Topic/create.md) и передайте в запросе:
-  * Идентификатор кластера, в котором нужно создать топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Настройки топика в параметре `topicSpec`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Воспользуйтесь методом [Topic.create](../api-ref/Topic/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request POST \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics' \
+       --data '{
+                 "topicSpec": {
+                  "name": "<имя_топика>",
+                  "partitions": "<количество_партиций>",
+                  "replicationFactor": "<фактор_репликации>"
+               }'
+     ```
+
+     Где:
+
+     * `topicSpec` — настройки топика:
+
+        {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Topic/create.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [TopicService/Create](../api-ref/grpc/Topic/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "topic_spec": {
+                  "name": "<имя_топика>",
+                  "partitions": {
+                    "value": "<количество_партиций>"
+                  },
+                  "replication_factor": {
+                    "value": "<фактор_репликации>"
+                  }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Create
+     ```
+
+     Где:
+
+     * `topic_spec` — настройки топика:
+
+        {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Topic/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -125,7 +199,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Измените базовые параметры топика:
@@ -189,17 +263,117 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы изменить настройки топика, воспользуйтесь методом REST API [update](../api-ref/Topic/update.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Update](../api-ref/grpc/Topic/update.md) и передайте в запросе:
-  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
-  * Новые значения [настроек топика](../concepts/settings-list.md#topic-settings) в параметре `topicSpec`.
-  * Список настроек, которые необходимо изменить, в параметре `updateMask`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
+  1. Воспользуйтесь методом [Topic.update](../api-ref/Topic/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+     {% include [note-rest-updatemask](../../_includes/note-api-updatemask.md) %}
+
+     ```bash
+     curl \
+       --request PATCH \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --header "Content-Type: application/json" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>' \
+       --data '{
+                 "clusterId": "<идентификатор_кластера>",
+                 "updateMask": "topicSpec.partitions,topicSpec.replicationFactor,topicSpec.topicConfig_2_8.<настройка_1>,...,topicSpec.topicConfig_2_8.<настройка_N>,topicSpec.topicConfig_3.<настройка_1>,...,topicSpec.topicConfig_3.<настройка_N>",
+                 "topicSpec": {
+                   "partitions": "<количество_партиций>",
+                   "replicationFactor": "<фактор_репликации>",
+                   "topicConfig_3": {
+                     "<настройка_1_топика_{{ KF }}_версии_3.x>": "<значение_1>",
+                     "<настройка_2_топика_{{ KF }}_версии_3.x>": "<значение_2>",
+                     ...
+                     "<настройка_N_топика_{{ KF }}_версии_3.x>": "<значение_N>"
+                   }
+                 } 
+               }'
+     ```
+
+     Где:
+
+     * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+       В данном случае перечислите все изменяемые настройки топика.
+
+     * `topicSpec` — новые настройки топика:
+
+        {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs-update.md) %}
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Topic/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [TopicService/Update](../api-ref/grpc/Topic/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "topic_name": "<имя_топика>",
+             "update_mask": {
+               "paths": [
+                 "topic_spec.partitions",
+                 "topic_spec.replication_factor",
+                 "topic_spec.topic_config_2_8.<настройка_1>",
+                 ...,
+                 "topic_spec.topic_config_2_8.<настройка_N>",
+                 "topic_spec.topic_config_3.<настройка_1>",
+                 ...,
+                 "topic_spec.topic_config_3.<настройка_N>"
+               ]
+             },
+             "topic_spec": {
+                  "partitions": {
+                    "value": "<количество_партиций>"
+                  },
+                  "replication_factor": {
+                    "value": "<фактор_репликации>"
+                  },
+                   "topic_сonfig_3": {
+                     "<настройка_1_топика_{{ KF }}_версии_3.x>": "<значение_1>",
+                     "<настройка_2_топика_{{ KF }}_версии_3.x>": "<значение_2>",
+                     ...
+                     "<настройка_N_топика_{{ KF }}_версии_3.x>": "<значение_N>"
+                   }
+             }
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Update
+     ```
+
+     Где:
+
+     * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+       В данном случае перечислите все изменяемые настройки топика.
+
+     * `topic_spec` — новые настройки топика:
+
+        {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs-update.md) %}
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Topic/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -210,7 +384,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
 
 - CLI {#cli}
@@ -225,13 +399,51 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-kf }} topic list --cluster-name <имя_кластера>
   ```
 
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы получить список топиков в кластере, воспользуйтесь методом REST API [list](../api-ref/Topic/list.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/List](../api-ref/grpc/Topic/list.md) и передайте в запросе идентификатор требуемого кластера в параметре `clusterId`.
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  Чтобы узнать идентификатор кластера, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
+  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [TopicService/List](../api-ref/grpc/Topic/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.List
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse).
 
 {% endlist %}
 
@@ -242,7 +454,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
   1. Нажмите на имя нужного топика.
 
@@ -258,13 +470,52 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-kf }} topic get <имя_топика> --cluster-name <имя_кластера>
   ```
 
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы получить детальную информацию о топике, воспользуйтесь методом REST API [get](../api-ref/Topic/get.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Get](../api-ref/grpc/Topic/get.md) и передайте в запросе:
-  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Воспользуйтесь методом [Topic.list](../api-ref/Topic/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request GET \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Topic/get.md#yandex.cloud.mdb.kafka.v1.Topic).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [TopicService/Get](../api-ref/grpc/Topic/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "topic_name": "<имя_топика>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Get
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.Topic).
 
 {% endlist %}
 
@@ -292,6 +543,158 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+### Перенести информацию о созданных топиках в файл состояния {{ TF }} {#move-info-topic}
+
+При переходе на новую версию Terraform-провайдера между файлом состояния и конфигурационным файлом могут возникнуть расхождения по созданным топикам: устаревшие атрибуты `topic` и новые ресурсы `yandex_mdb_kafka_topic`. Чтобы убрать расхождения, необходимо удалить атрибуты `topic` и перенести информацию о созданных ресурсах `yandex_mdb_kafka_topic` в файл состояния `.tfstate` одним из двух способов.
+
+#### Первый способ {#first}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Удалите информацию о кластере из файла состояния `.tfstate`, используя команду:
+
+     ```bash
+     terraform state rm yandex_mdb_kafka_cluster.<имя_кластера>
+     ```
+
+  1. Отредактируйте конфигурационный файл Terraform:
+     * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
+
+      {% cut "Пример обновленного конфигурационного файла" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+        
+  1. Выполните импорт кластера и топиков:
+
+     ```bash
+     terraform import yandex_mdb_kafka_cluster.<имя_кластера> <идентификатор_кластера>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     ```
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
+
+{% endlist %}
+
+#### Второй способ {#second}
+
+{% list tabs %}
+
+- {{ TF }} {#tf}
+
+  1. Скачайте файл состояния `.tfstate`, используя команду:
+
+     ```bash
+     terraform state pull
+     ```
+    
+  1. Откройте скачанный файл в любом текстовом редакторе и удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`.
+  1. Отправьте обновленный файл состояния, используя команду:
+
+     ```bash
+     terraform state push
+     ```
+    
+  1. Отредактируйте конфигурационный файл Terraform:
+     * удалите атрибуты `topic` из ресурса `yandex_mdb_kafka_cluster`;
+     * [добавьте новые ресурсы]({{ tf-provider-resources-link }}/mdb_kafka_topic) `yandex_mdb_kafka_topic`.
+
+      {% cut "Пример обновленного конфигурационного файла" %}
+        
+      ```hcl
+      resource "yandex_mdb_kafka_cluster" "this" {
+        name = "terraform-test"
+        environment = "PRODUCTION"
+        network_id = data.yandex_vpc_network.this.id
+
+        config {
+          version = "3.4"
+          brokers_count = 1
+          zones = ["ru-central1-a"]
+          kafka {
+            resources {
+              resource_preset_id = "s2.small"
+              disk_size = 30
+              disk_type_id = "network-ssd"
+            }
+            kafka_config {
+              log_segment_bytes = 104857600
+            }
+          }
+        }
+      }
+
+      resource "yandex_mdb_kafka_topic" "topic1" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic1"
+        partitions = 3
+        replication_factor = 1
+      }
+
+
+      resource "yandex_mdb_kafka_topic" "topic2" {
+        cluster_id = yandex_mdb_kafka_cluster.this.id
+        name = "topic2"
+        partitions = 3
+        replication_factor = 1
+      }
+      ```
+        
+      {% endcut %}
+
+  1. Выполните импорт топиков:
+
+     ```bash
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     terraform import yandex_mdb_kafka_topic.<имя_топика> <идентификатор_кластера>:<имя_топика>
+     ``` 
+    
+  1. {% include [terraform-plan](../../_includes/mdb/terraform/plan.md) %}
+
+{% endlist %}
+
 ### Удалить топик {#delete-topic}
 
 {% include [mkf-deleted-topic-permissions-note](../../_includes/mdb/mkf-deleted-topic-permissions-note.md) %}
@@ -301,7 +704,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.kafka.label_topics }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного топика и выберите пункт **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -313,7 +716,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   Чтобы удалить топик:
-  1. Посмотрите описание команды CLI для изменения топиков:
+  1. Посмотрите описание команды CLI для удаления топиков:
 
      ```bash
      {{ yc-mdb-kf }} topic delete --help
@@ -341,20 +744,59 @@ description: Следуя данной инструкции, вы сможете
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_topic).
 
+- REST API {#api}
 
-- API {#api}
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
-  Чтобы удалить топик, воспользуйтесь методом REST API [delete](../api-ref/Topic/delete.md) для ресурса [Topic](../api-ref/Topic/index.md) или вызовом gRPC API [TopicService/Delete](../api-ref/grpc/Topic/delete.md) и передайте в запросе:
-  * Идентификатор кластера, в котором находится топик, в параметре `clusterId`. Чтобы узнать идентификатор, [получите список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя топика в параметре `topicName`. Чтобы узнать имя, [получите список топиков в кластере](#list-topics).
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
+  1. Воспользуйтесь методом [Topic.delete](../api-ref/Topic/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+
+     ```bash
+     curl \
+       --request DELETE \
+       --header "Authorization: Bearer $IAM_TOKEN" \
+       --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>/topics/<имя_топика>'
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Topic/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+     {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. Воспользуйтесь вызовом [TopicService/Delete](../api-ref/grpc/Topic/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+
+     ```bash
+     grpcurl \
+       -format json \
+       -import-path ~/cloudapi/ \
+       -import-path ~/cloudapi/third_party/googleapis/ \
+       -proto ~/cloudapi/yandex/cloud/mdb/kafka/v1/topic_service.proto \
+       -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+       -d '{
+             "cluster_id": "<идентификатор_кластера>",
+             "topic_name": "<имя_топика>"
+           }' \
+       {{ api-host-mdb }}:{{ port-https }} \
+       yandex.cloud.mdb.kafka.v1.TopicService.Delete
+     ```
+
+     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя топика — со [списком топиков в кластере](#list-topics).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
 ## Управление топиками через Admin API {{ KF }} {#admin-api}
 
 Чтобы управлять топиками через Admin API {{ KF }}:
-1. [Создайте](cluster-accounts.md#create-account) в кластере пользователя-администратора с ролью `ACCESS_ROLE_ADMIN`.
+1. [Создайте](cluster-accounts.md#create-account) в кластере пользователя-администратора с ролью `ACCESS_ROLE_ADMIN` или `ACCESS_ROLE_TOPIC_ADMIN`. [Подробнее](../concepts/account-roles.md) о правах, которые предоставляет каждая роль.
 1. Управляйте топиками от имени этого пользователя с помощью запросов к Admin API {{ KF }}. О работе с Admin API читайте в документации выбранного языка программирования.
 
 Подробнее о работе с Admin API и о действующих ограничениях читайте в разделе [{#T}](../concepts/topics.md#management) и в [документации {{ KF }}](https://kafka.apache.org/documentation/#adminapi).

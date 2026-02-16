@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Добавить видео в плейлист
 
+Внешним видом плейлиста можно управлять через [шаблоны](../style-presets/create.md).
+
 {% list tabs group=instructions %}
 
 - Интерфейс {{ video-name }} {#console}

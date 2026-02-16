@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/cdn/v1/api-ref/grpc/OriginGroup/list.md
 ---
 
-# Cloud CDN API, gRPC: OriginGroupService.List {#List}
+# Cloud CDN API, gRPC: OriginGroupService.List
 
 Lists origins of origin group.
 
@@ -15,44 +15,50 @@ Lists origins of origin group.
 
 ```json
 {
-  "folderId": "string",
-  "pageSize": "int64",
-  "pageToken": "string"
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| folderId | **string**
+|| folder_id | **string**
 
-Required field. ID of the folder that the origin group belongs to.. ||
-|| pageSize | **int64**
+Required field. ID of the folder that the origin group belongs to..
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
-results is larger than `pageSize`,
-the service returns a [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
-|| pageToken | **string**
+results is larger than `page_size`,
+the service returns a [ListOriginGroupsResponse.next_page_token](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
+|| page_token | **string**
 
 Page token. To get the next page of results,
-set `pageToken` to the [ListOriginGroupsResponse.nextPageToken](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
-returned by a previous list request. ||
+set `page_token` to the [ListOriginGroupsResponse.next_page_token](#yandex.cloud.cdn.v1.ListOriginGroupsResponse)
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListOriginGroupsResponse {#yandex.cloud.cdn.v1.ListOriginGroupsResponse}
 
 ```json
 {
-  "originGroups": [
+  "origin_groups": [
     {
       "id": "int64",
-      "folderId": "string",
+      "folder_id": "string",
       "name": "string",
-      "useNext": "bool",
+      "use_next": "bool",
       "origins": [
         {
           "id": "int64",
-          "originGroupId": "int64",
+          "origin_group_id": "int64",
           "source": "string",
           "enabled": "bool",
           "backup": "bool",
@@ -71,27 +77,35 @@ returned by a previous list request. ||
               "id": "string"
             }
             // end of the list of possible fields
-          }
+          },
+          "provider_type": "string"
+        }
+      ],
+      "provider_type": "string",
+      "resources_metadata": [
+        {
+          "id": "string",
+          "cname": "string"
         }
       ]
     }
   ],
-  "nextPageToken": "string"
+  "next_page_token": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| originGroups[] | **[OriginGroup](#yandex.cloud.cdn.v1.OriginGroup)**
+|| origin_groups[] | **[OriginGroup](#yandex.cloud.cdn.v1.OriginGroup)**
 
 List of all Origin Groups associated with folder. ||
-|| nextPageToken | **string**
+|| next_page_token | **string**
 
-`nextPageToken` token allows you to get the next page of results for list requests.
-If the number of results is larger than [ListOriginGroupsRequest.pageSize](#yandex.cloud.cdn.v1.ListOriginGroupsRequest), use
-the `nextPageToken` as the value for the [ListOriginGroupsRequest.pageToken](#yandex.cloud.cdn.v1.ListOriginGroupsRequest) query parameter
+`next_page_token` token allows you to get the next page of results for list requests.
+If the number of results is larger than [ListOriginGroupsRequest.page_size](#yandex.cloud.cdn.v1.ListOriginGroupsRequest), use
+the `next_page_token` as the value for the [ListOriginGroupsRequest.page_token](#yandex.cloud.cdn.v1.ListOriginGroupsRequest) query parameter
 in the next list request. Each subsequent list request will have its own
-`nextPageToken` to continue paging through the results. ||
+`next_page_token` to continue paging through the results. ||
 |#
 
 ## OriginGroup {#yandex.cloud.cdn.v1.OriginGroup}
@@ -103,13 +117,13 @@ Origin group parameters. For details about the concept, see [documentation](/doc
 || id | **int64**
 
 ID of the origin group. Generated at creation time. ||
-|| folderId | **string**
+|| folder_id | **string**
 
 ID of the folder that the origin group belongs to. ||
 || name | **string**
 
 Name of the origin group. ||
-|| useNext | **bool**
+|| use_next | **bool**
 
 This option have two possible conditions:
 true - the option is active. In case the origin responds with 4XX or 5XX codes,
@@ -118,6 +132,12 @@ false - the option is disabled. ||
 || origins[] | **[Origin](#yandex.cloud.cdn.v1.Origin)**
 
 List of origins. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
+|| resources_metadata[] | **[ResourceMetadata](#yandex.cloud.cdn.v1.ResourceMetadata)**
+
+List of CDN resources currently using this origin group. ||
 |#
 
 ## Origin {#yandex.cloud.cdn.v1.Origin}
@@ -129,7 +149,7 @@ An origin. For details about the concept, see [documentation](/docs/cdn/concepts
 || id | **int64**
 
 ID of the origin. ||
-|| originGroupId | **int64**
+|| origin_group_id | **int64**
 
 ID of the parent origin group. ||
 || source | **string**
@@ -152,6 +172,9 @@ A backup origin is used when one of active origins becomes unavailable. ||
 || meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
 
 Set up origin of the content. ||
+|| provider_type | **string**
+
+Type of the CDN provider for this origin group. ||
 |#
 
 ## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
@@ -211,4 +234,18 @@ Application Load Balancer origin info. For details about the concept, see [docum
 || id | **string**
 
 ID of the origin. ||
+|#
+
+## ResourceMetadata {#yandex.cloud.cdn.v1.ResourceMetadata}
+
+Metadata of a CDN resource referencing an origin group.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CDN resource using the origin group. ||
+|| cname | **string**
+
+CNAME of the CDN resource using the origin group. ||
 |#

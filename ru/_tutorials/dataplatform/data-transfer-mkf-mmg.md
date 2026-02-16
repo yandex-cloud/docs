@@ -1,4 +1,4 @@
-# Поставка данных из очереди {{ KF }} в {{ MG }} с помощью {{ data-transfer-full-name }}
+# Поставка данных из очереди {{ KF }} в {{ SD }} с помощью {{ data-transfer-full-name }}
 
 
 В кластер {{ mmg-name }} можно в реальном времени поставлять данные из топиков {{ KF }}.
@@ -11,6 +11,14 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Кластер {{ mmg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmg-name }}](../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте инфраструктуру поставки данных:
@@ -19,24 +27,26 @@
 
     - Вручную {#manual}
 
+        {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. [Создайте кластер-источник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
 
         1. [Создайте в кластере-источнике топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `sensors`.
 
         1. [Создайте в кластере-источнике пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `mkf-user` и правами доступа `ACCESS_ROLE_PRODUCER` и `ACCESS_ROLE_CONSUMER` к созданному топику.
 
-        1. [Создайте кластер-приемник {{ mmg-name }}](../../managed-mongodb/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+        1. [Создайте кластер-приемник {{ mmg-name }}](../../storedoc/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
             * Имя базы данных — `db1`.
             * Имя пользователя — `mmg-user`.
             * В той же зоне доступности, что и кластер-источник.
             * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к хостам кластера.
 
-
+        
         1. Для подключения к кластерам с локальной машины пользователя, настройте группы безопасности:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
-            * [{{ mmg-name }}](../../managed-mongodb/operations/connect/index.md#configuring-security-groups).
+            * [{{ mmg-name }}](../../storedoc/operations/connect/index.md#configuring-security-groups).
 
 
     - {{ TF }} {#tf}
@@ -57,15 +67,15 @@
             * топик {{ KF }} с именем `sensors`;
             * пользователь {{ KF }} `mkf-user` с правами доступа `ACCESS_ROLE_PRODUCER`, `ACCESS_ROLE_CONSUMER` к топику `sensors`;
             * кластер-приемник {{ mmg-name }};
-            * база данных {{ MG }} `db1`;
-            * пользователь {{ MG }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
+            * база данных {{ SD }} `db1`;
+            * пользователь {{ SD }} `mmg-user` с правами доступа `readWrite` к базе данных `db1`;
             * трансфер.
 
         1. Укажите в файле `data-transfer-mkf-mmg.tf` переменные:
 
             * `source_kf_version` — версия {{ KF }} в кластере-источнике;
             * `source_user_password` — пароль пользователя `mkf-user` в кластере-источнике;
-            * `target_mg_version` — версия {{ MG }} в кластере-приемнике;
+            * `target_mg_version` — версия {{ SD }} в кластере-приемнике;
             * `target_user_password` — пароль пользователя `mmg-user` в кластере-приемнике;
             * `transfer_enabled` — значение `0`, чтобы не создавать трансфер до [создания эндпоинтов вручную](#prepare-transfer).
 
@@ -292,7 +302,7 @@
 
 1. Проверьте, что коллекция `sensors` кластера {{ mmg-name }} содержит отправленные данные:
 
-    1. [Подключитесь к кластеру {{ mmg-name }}](../../managed-mongodb/operations/connect/index.md).
+    1. [Подключитесь к кластеру {{ mmg-name }}](../../storedoc/operations/connect/index.md).
 
     1. Получите содержимое коллекции `sensors` с помощью запроса:
 
@@ -308,36 +318,21 @@
 
 {% endnote %}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=instructions %}
 
-{% list tabs group=instructions %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+       1. [Удалите кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).
 
-    * [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
-    * [Удалите кластер {{ mmg-name }}](../../managed-mongodb/operations/cluster-delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `data-transfer-mkf-mmg.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `data-transfer-mkf-mmg.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}

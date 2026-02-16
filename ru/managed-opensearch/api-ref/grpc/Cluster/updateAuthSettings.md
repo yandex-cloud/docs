@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/mdb/opensearch/v1/api-ref/grpc/Cluster/updateAuthSettings.md
 ---
 
-# Managed Service for OpenSearch API, gRPC: ClusterService.UpdateAuthSettings {#UpdateAuthSettings}
+# Managed Service for OpenSearch API, gRPC: ClusterService.UpdateAuthSettings
 
 Updates auth settings for specified cluster.
 
@@ -15,17 +15,17 @@ Updates auth settings for specified cluster.
 
 ```json
 {
-  "clusterId": "string",
+  "cluster_id": "string",
   "settings": {
     "saml": {
       "enabled": "bool",
-      "idpEntityId": "string",
-      "idpMetadataFile": "bytes",
-      "spEntityId": "string",
-      "dashboardsUrl": "string",
-      "rolesKey": "string",
-      "subjectKey": "string",
-      "jwtDefaultExpirationTimeout": "google.protobuf.Int64Value"
+      "idp_entity_id": "string",
+      "idp_metadata_file": "bytes",
+      "sp_entity_id": "string",
+      "dashboards_url": "string",
+      "roles_key": "string",
+      "subject_key": "string",
+      "jwt_default_expiration_timeout": "google.protobuf.Int64Value"
     }
   }
 }
@@ -33,9 +33,11 @@ Updates auth settings for specified cluster.
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
-Required field. Required. ID of the OpenSearch cluster. ||
+Required field. Required. ID of the OpenSearch cluster.
+
+The maximum string length in characters is 50. ||
 || settings | **[AuthSettings](#yandex.cloud.mdb.opensearch.v1.AuthSettings)**
 
 Required. Auth settings. ||
@@ -55,25 +57,37 @@ SAML settings ||
 #|
 ||Field | Description ||
 || enabled | **bool** ||
-|| idpEntityId | **string**
+|| idp_entity_id | **string**
 
-Required. The entity ID of your IdP. ||
-|| idpMetadataFile | **bytes**
+Required. The entity ID of your IdP.
 
-Required. The SAML 2.0 metadata file of your IdP. ||
-|| spEntityId | **string**
+The maximum string length in characters is 250. ||
+|| idp_metadata_file | **bytes**
 
-Required. The entity ID of the service provider. ||
-|| dashboardsUrl | **string**
+Required. The SAML 2.0 metadata file of your IdP.
 
-Required. The OpenSearch Dashboards base URL. ||
-|| rolesKey | **string**
+The maximum string length in characters is 10000. ||
+|| sp_entity_id | **string**
 
-Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. ||
-|| subjectKey | **string**
+Required. The entity ID of the service provider.
 
-Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. ||
-|| jwtDefaultExpirationTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+The maximum string length in characters is 250. ||
+|| dashboards_url | **string**
+
+Required. The OpenSearch Dashboards base URL.
+
+The maximum string length in characters is 250. ||
+|| roles_key | **string**
+
+Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
+
+The maximum string length in characters is 250. ||
+|| subject_key | **string**
+
+Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
+
+The maximum string length in characters is 250. ||
+|| jwt_default_expiration_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 default jwt expiration timeout. ||
 |#
@@ -84,25 +98,25 @@ default jwt expiration timeout. ||
 {
   "id": "string",
   "description": "string",
-  "createdAt": "google.protobuf.Timestamp",
-  "createdBy": "string",
-  "modifiedAt": "google.protobuf.Timestamp",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
   "metadata": {
-    "clusterId": "string"
+    "cluster_id": "string"
   },
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
   "response": {
     "saml": {
       "enabled": "bool",
-      "idpEntityId": "string",
-      "idpMetadataFile": "bytes",
-      "spEntityId": "string",
-      "dashboardsUrl": "string",
-      "rolesKey": "string",
-      "subjectKey": "string",
-      "jwtDefaultExpirationTimeout": "google.protobuf.Int64Value"
+      "idp_entity_id": "string",
+      "idp_metadata_file": "bytes",
+      "sp_entity_id": "string",
+      "dashboards_url": "string",
+      "roles_key": "string",
+      "subject_key": "string",
+      "jwt_default_expiration_timeout": "google.protobuf.Int64Value"
     }
   }
   // end of the list of possible fields
@@ -119,13 +133,13 @@ ID of the operation. ||
 || description | **string**
 
 Description of the operation. 0-256 characters long. ||
-|| createdAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
-|| createdBy | **string**
+|| created_by | **string**
 
 ID of the user or service account who initiated the operation. ||
-|| modifiedAt | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 The time when the Operation resource was last modified. ||
 || done | **bool**
@@ -168,7 +182,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
+|| cluster_id | **string**
 
 ID of the OpenSearch cluster. ||
 |#
@@ -187,25 +201,37 @@ SAML settings ||
 #|
 ||Field | Description ||
 || enabled | **bool** ||
-|| idpEntityId | **string**
+|| idp_entity_id | **string**
 
-Required. The entity ID of your IdP. ||
-|| idpMetadataFile | **bytes**
+Required. The entity ID of your IdP.
 
-Required. The SAML 2.0 metadata file of your IdP. ||
-|| spEntityId | **string**
+The maximum string length in characters is 250. ||
+|| idp_metadata_file | **bytes**
 
-Required. The entity ID of the service provider. ||
-|| dashboardsUrl | **string**
+Required. The SAML 2.0 metadata file of your IdP.
 
-Required. The OpenSearch Dashboards base URL. ||
-|| rolesKey | **string**
+The maximum string length in characters is 10000. ||
+|| sp_entity_id | **string**
 
-Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used. ||
-|| subjectKey | **string**
+Required. The entity ID of the service provider.
 
-Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used. ||
-|| jwtDefaultExpirationTimeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+The maximum string length in characters is 250. ||
+|| dashboards_url | **string**
+
+Required. The OpenSearch Dashboards base URL.
+
+The maximum string length in characters is 250. ||
+|| roles_key | **string**
+
+Optional. The attribute in the SAML response where the roles are stored. If not configured, no roles are used.
+
+The maximum string length in characters is 250. ||
+|| subject_key | **string**
+
+Optional. The attribute in the SAML response where the subject is stored. If not configured, the NameID attribute is used.
+
+The maximum string length in characters is 250. ||
+|| jwt_default_expiration_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 default jwt expiration timeout. ||
 |#

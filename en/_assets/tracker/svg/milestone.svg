@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" aria-hidden="true" class="yc-icon Bubble-Icon Bubble-Icon_issue-type_milestone">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 14">
-        <path fill-rule="evenodd" d="M4.97 7.35a.5.5 0 0 1 0-.7l2.48-2.49c.2-.2.52-.2.71 0l2.49 2.49c.2.2.2.5 0 .7L8.16 9.84a.5.5 0 0 1-.7 0l-2.5-2.49zm2.84.72L6.74 7 7.8 5.93 8.88 7 7.8 8.07z" clip-rule="evenodd"/>
-        <path fill-rule="evenodd" d="M1.44 8.41a2 2 0 0 1 0-2.82L6.4.64a2 2 0 0 1 2.83 0l4.95 4.95a2 2 0 0 1 0 2.82l-4.95 4.95a2 2 0 0 1-2.83 0L1.44 8.41zM2.5 6.65 7.45 1.7c.2-.2.52-.2.71 0l4.95 4.95c.2.2.2.5 0 .7L8.16 12.3a.5.5 0 0 1-.7 0L2.5 7.35a.5.5 0 0 1 0-.7z" clip-rule="evenodd"/>
-    </svg>
-</svg>

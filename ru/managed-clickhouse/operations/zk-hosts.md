@@ -1,43 +1,58 @@
+---
+title: Управление хостами {{ ZK }}
+description: Следуя данной инструкции, вы сможете управлять хостами {{ ZK }}.
+---
+
 # Управление хостами {{ ZK }}
 
 
-[Шарды](../concepts/sharding.md) из одного хоста не отказоустойчивы и не обеспечивают [репликацию данных](../concepts/replication.md). Чтобы сделать такие шарды отказоустойчивыми, нужно добавить в них еще хосты. Если в кластере уже есть шард из нескольких хостов, то можно сразу [добавлять хосты {{ CH }}](hosts.md#add-host) в нужный шард, в противном случае сначала нужно включить отказоустойчивость и только потом добавлять хосты {{ CH }}.
+{{ ZK }} — это сервис, который обеспечивает координацию и распределение запросов между хостами {{ CH }} для [репликации данных](../concepts/replication.md). Для обеспечения репликации в кластере {{ mch-name }} должно быть [три или пять хостов {{ ZK }}](../qa/cluster-settings.md#zookeeper-hosts-number). Такой кластер будет отказоустойчивым.
 
-{% note warning %}
+Если вы создаете кластер с двумя или более хостами {{ CH }} на шард, в кластер автоматически добавятся три хоста {{ ZK }}. При создании вы можете настроить только их конфигурацию. Если вы создали кластер из одного хоста или нескольких однохостовых шардов, хосты {{ ZK }} можно добавить позднее.
 
-Если для кластера уже включена отказоустойчивость и созданы хосты {{ ZK }}, то полностью удалить эти хосты невозможно — в кластере всегда будет минимум три хоста {{ ZK }}.
+Подробнее о работе хостов {{ ZK }} читайте в разделе [{#T}](../concepts/replication.md#zk).
 
-{% endnote %}
-
-Вы можете выполнить следующие действия над хостами {{ ZK }} в отказоустойчивом кластере:
+Вы можете выполнить следующие действия над хостами {{ ZK }}:
 
 * [получить список хостов в кластере](#list-hosts);
-* [включить отказоустойчивость для кластера](#add-zk) с помощью хостов {{ ZK }};
-* [добавить хост](#add-zk-host);
-* [перезапустить хост](#restart);
+* [добавить хосты {{ ZK }}](#add-zk);
+* [изменить настройки хостов {{ ZK}}](#update-zk-settings);
+* [перезагрузить хост](#restart);
+* [перенести хосты {{ ZK }} в другую зону доступности](host-migration.md#zookeeper-hosts);
 * [удалить хост](#delete-zk-host).
-
-Всего в отказоустойчивом кластере может быть от трех до пяти хостов {{ ZK }} включительно.
-
-О том, как перенести хосты {{ ZK }} в другую зону доступности, читайте в [инструкции](host-migration.md#zookeeper-hosts).
 
 ## Получить список хостов в кластере {#list-hosts}
 
 {% include notitle [get-hosts](../../_includes/mdb/mch/get-hosts.md) %}
 
 
-## Включить отказоустойчивость для кластера {#add-zk}
+## Добавить хосты {{ ZK }} {#add-zk}
+
+{% note info %}
+
+В [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` недоступно использование платформы Intel Broadwell.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-zookeeper }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. Укажите [класс хостов](../concepts/instance-types.md).
   1. Задайте настройки хранилища.
   1. При необходимости измените настройки хостов {{ ZK }}. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
+  1. Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+     {% note warning %}
+
+     После включения этой настройки ее нельзя отключить.
+
+     {% endnote %}
+
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -46,7 +61,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы включить отказоустойчивость для кластера:
+  Чтобы добавить в кластер хосты {{ ZK }}:
   1. Посмотрите описание команды CLI для добавления хостов {{ ZK }}:
 
      ```bash
@@ -64,13 +79,26 @@
 
      Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям.
 
+     Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), добавьте в команду параметр `--convert-tables-to-replicated`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+
+     {% note warning %}
+
+     После включения этой настройки ее нельзя отключить.
+
+     {% endnote %}
+
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
 
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  Чтобы добавить в кластер хосты {{ ZK }}:
+
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+
   1. Убедитесь, что в конфигурационном файле описаны три подсети — по одной для каждой зоны доступности. При необходимости добавьте недостающие:
 
      ```hcl
@@ -100,38 +128,7 @@
      }
      ```
 
-  1. Добавьте к описанию кластера {{ CH }} необходимое количество блоков `host` с типом `CLICKHOUSE`.
-
-     Требования к хостам {{ CH }}:
-     * Минимальный класс хоста — `b1.medium`.
-     * Если хостов больше одного, они должны размещаться в разных зонах доступности.
-
-     При необходимости измените класс существующих хостов {{ CH }} и зоны доступности, добавьте необходимое количество новых хостов.
-
-     ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
-       name = "<имя_кластера>"
-       ...
-       clickhouse {
-         resources {
-           resource_preset_id = "<класс_хоста>"
-           disk_type_id       = "<тип_диска>"
-           disk_size          = <размер_хранилища_ГБ>
-         }
-       }
-       ...
-       host {
-         type      = "CLICKHOUSE"
-         zone      = "{{ region-id }}-a"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
-       }
-       ...
-     }
-     ```
-
-     Где `resource_preset_id` — класс хоста: `b1.medium` или выше.
-
-  1. Добавьте к описанию кластера {{ CH }} не меньше трех блоков `host` с типом `ZOOKEEPER`.
+  1. Добавьте к описанию кластера {{ CH }} блок с конфигурацией {{ ZK }} и не менее трех блоков `host` с типом `ZOOKEEPER`.
 
      Требования к хостам {{ ZK }}:
      * В каждой зоне доступности должно быть минимум по одному хосту.
@@ -144,7 +141,7 @@
        ...
        zookeeper {
          resources {
-           resource_preset_id = "<класс_хоста>"
+           resource_preset_id = "<класс_хостов>"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = <размер_хранилища_ГБ>
          }
@@ -182,9 +179,13 @@
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы включить отказоустойчивость для кластера, воспользуйтесь методом [addZookeeper](../api-ref/Cluster/addZookeeper.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md). При добавлении укажите настройки для трех хостов {{ ZK }}, перечислив их в параметре `hostSpecs`.
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
+
+- gRPC API {#grpc-api}
+
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
 
@@ -196,17 +197,32 @@
 
 {% endnote %}
 
-## Добавить хост {{ ZK }} {#add-zk-host}
+## Изменить настройки хостов {{ ZK }} {#update-zk-settings}
+
+После создания хостов {{ ZK }} вы можете изменить их [класс](../concepts/instance-types.md), размер хранилища и [тип диска](../concepts/storage.md).
+
+{% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
+
+{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
+{% note info %}
+
+Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
+
+Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Репликация](../concepts/replication.md#zk).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-zookeeper }}**.
-  1. При необходимости измените настройки хоста.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** задайте размер хранилища и тип диска для хостов {{ ZK }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
@@ -214,47 +230,64 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Чтобы добавить хост в кластер:
-  1. Соберите необходимую информацию:
-     * Запросите идентификатор подсети, выполнив команду:
+  Чтобы изменить конфигурацию хостов {{ ZK }}:
 
-       ```bash
-       yc vpc subnet list
-       ```
-
-
-       Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
-
-
-     * Запросите имя кластера со [списком кластеров в каталоге](cluster-list.md#list-clusters).
-  1. Посмотрите описание команды CLI для добавления хостов:
+  1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-ch }} host add --help
+     {{ yc-mdb-ch }} cluster update --help
      ```
 
-  1. Выполните команду добавления хоста {{ ZK }}:
+  1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      ```bash
-     {{ yc-mdb-ch }} hosts add \
-       --cluster-name <имя_кластера> \
-       --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>,type=zookeeper
+     {{ yc-mdb-ch }} resource-preset list
+
+     +-----------+--------------------------------+-------+----------+
+     |    ID     |            ZONE IDS            | CORES |  MEMORY  |
+     +-----------+--------------------------------+-------+----------+
+     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
+     |           | {{ region-id }}-d                  |       |          |
+     | ...                                                           |
+     +-----------+--------------------------------+-------+----------+
      ```
+
+  1. В команде изменения кластера передайте новый класса хоста {{ ZK }}, тип диска и размер хранилища:
+
+     ```bash
+     {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+        --zookepeer-resource-preset=<класс_хостов> \
+        --zookeeper-disk-size=<размер_хранилища_ГБ> \
+        --zookeeper-disk-type=<тип_диска>
+     ```
+
+     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 - {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  Чтобы изменить настройки хостов {{ ZK }}:
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`:
 
-    ```hcl
+  1. В блоке с конфигурацией {{ ZK }} укажите новый класс хоста, тип диска и размер хранилища.
+
+     Требования к хостам {{ ZK }}:
+     * Минимальный класс хоста — `b1.medium`.
+     * Минимальный размер хранилища — 10 гигабайт.
+
+     ```hcl
      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
        ...
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "<зона_доступности>"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_выбранной_зоне_доступности>.id
+       zookeeper {
+         resources {
+           resource_preset_id = "<класс_хостов>"
+           disk_type_id       = "<тип_диска>"
+           disk_size          = <размер_хранилища_ГБ>
+         }
        }
        ...
      }
@@ -268,29 +301,176 @@
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы добавить хост {{ ZK }}, воспользуйтесь методом REST API [addHosts](../api-ref/Cluster/addHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и передайте в запросе:
-  * Идентификатор кластера, в котором нужно разместить хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Настройки для хоста в параметре `hostSpecs` (в том числе укажите тип `ZOOKEEPER` в параметре `hostSpecs.type`). Не указывайте настройки для нескольких хостов в этом параметре — хосты {{ ZK }} добавляются в кластер по одному, в отличие от [хостов {{ CH }}](hosts.md#add-host), которых можно добавить сразу несколько.
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Запросите список доступных классов хостов:
+
+      1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+          ```bash
+          curl \
+              --request GET \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
+          ```
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ResourcePreset/list.md#responses).
+
+  1. Измените класс хостов, тип диска и размер хранилища:
+
+      1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+          {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
+
+          ```bash
+          curl \
+              --request PATCH \
+              --header "Authorization: Bearer $IAM_TOKEN" \
+              --header "Content-Type: application/json" \
+              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+              --data '{
+                        "updateMask": "configSpec.zookeeper.resources.resourcePresetId,configSpec.zookeeper.resources.diskTypeId,configSpec.zookeeper.resources.diskSize",
+                        "configSpec": {
+                          "zookeeper": {
+                            "resources": {
+                              "resourcePresetId": "<класс_хостов>",
+                              "diskTypeId": "<тип_диска>",
+                              "diskSize": "<размер_хранилища_ГБ>"
+                            }
+                          }
+                        }
+                      }'
+          ```
+
+          Где:
+
+          * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+
+              Укажите нужные параметры:
+              * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
+              * `configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска для хостов {{ ZK }}.
+              * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища {{ ZK }}.
+
+          * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md).
+          * `configSpec.zookeeper.resources.diskTypeId` — [тип диска](../concepts/storage.md).
+          * `configSpec.zookeeper.resources.diskSize` — размер хранилища в гигабайтах.
+
+          Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+  1. Запросите список доступных классов хостов:
+
+      1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/resource_preset_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
+          ```
+
+      1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/ResourcePreset/list.md#yandex.cloud.mdb.clickhouse.v1.ListResourcePresetsResponse).
+
+  1. Измените класс хостов, тип диска и размер хранилища:
+
+      1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+
+          {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
+
+          ```bash
+          grpcurl \
+              -format json \
+              -import-path ~/cloudapi/ \
+              -import-path ~/cloudapi/third_party/googleapis/ \
+              -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/cluster_service.proto \
+              -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+              -d '{
+                    "cluster_id": "<идентификатор_кластера>",
+                    "update_mask": {
+                      "paths": [
+                        "config_spec.zookeeper.resources.resource_preset_id",
+                        "config_spec.zookeeper.resources.disk_type_id",
+                        "config_spec.zookeeper.resources.disk_size"
+                      ]
+                    },
+                    "config_spec": {
+                      "zookeeper": {
+                        "resources": {
+                          "resource_preset_id": "<класс_хостов>",
+                          "disk_type_id": "<тип_диска>",
+                          "disk_size": "<размер_хранилища_ГБ>"
+                        }
+                      }
+                    }
+                  }' \
+              {{ api-host-mdb }}:{{ port-https }} \
+              yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
+          ```
+
+          Где:
+
+          * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+
+              Укажите нужные параметры:
+              * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
+              * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска для хостов {{ ZK }}.
+              * `config_spec.zookeeper.resources.disk_size` — если нужно изменить размер хранилища {{ ZK }}.
+
+          * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md).
+          * `config_spec.zookeeper.resources.disk_type_id` — [тип диска](../concepts/storage.md).
+          * `config_spec.zookeeper.resources.disk_size` — размер хранилища в гигабайтах.
+
+          Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
-## Перезапустить хост {{ ZK }} {#restart}
+## Перезагрузить хост {{ ZK }} {#restart}
 
 {% include notitle [restart-host](../../_includes/mdb/mch/restart-host.md) %}
 
+## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
+
+Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), добавьте хосты {{ ZK }} с включенным преобразованием таблиц.
+
+Подробнее читайте в разделе [Добавить хосты {{ ZK }}](#add-zk) и в [документации {{ CH }}]({{ ch.docs }}/development/architecture#replication).
+
 ## Удалить хост {{ ZK }} {#delete-zk-host}
+
+{% note warning %}
+
+Если в кластере уже созданы хосты {{ ZK }}, то удалить их полностью невозможно — в кластере всегда будет минимум три хоста {{ ZK }}.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. Наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/xmark.svg).
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -312,6 +492,10 @@
 
 - {{ TF }} {#tf}
 
+   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+   Чтобы удалить хост {{ ZK }}:
+
    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
@@ -328,11 +512,13 @@
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
-- API {#api}
+- REST API {#api}
 
-  Чтобы удалить хост {{ ZK }}, воспользуйтесь методом REST API [deleteHosts](../api-ref/Cluster/deleteHosts.md) для ресурса [Cluster](../api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и передайте в запросе:
-  * Идентификатор кластера, в котором находится хост, в параметре `clusterId`. Чтобы узнать идентификатор, получите [список кластеров в каталоге](cluster-list.md#list-clusters).
-  * Имя хоста в параметре `hostNames`. Чтобы узнать имя, получите [список хостов в кластере](hosts.md#list-hosts).
+  {% include [zk-hosts-rest](../../_includes/mdb/mch/api/delete-zk-hosts-rest.md) %}
+
+- gRPC API {#grpc-api}
+
+  {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/delete-zk-hosts-grpc.md) %}
 
 {% endlist %}
 

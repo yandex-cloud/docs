@@ -2,26 +2,25 @@
 
 {{ ml-platform-full-name }} allows you to build ML models using the {{ jlab }} Notebook interface.
 
-This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. It is assumed that the CCTV system captures images from cameras when detecting motion and saves them to a bucket in {{ objstorage-full-name }}.
+This tutorial solves the problem of binary image classification. You may have to deal with it when recognizing vehicle types based on CCTV camera images. The CCTV system is assumed to capture images from cameras when detecting motion and save them to a bucket in {{ objstorage-full-name }}.
 
-To get an idea of how the problem might be solved:
-1. [Prepare your infrastructure](#deploy-infrastructure).
+To get an idea of how to solve the problem:
+1. [Set up your infrastructure](#deploy-infrastructure).
 1. [Configure {{ ml-platform-name }}](#project).
 1. [Create secrets](#create-secrets).
 1. [Prepare notebooks](#set-notebooks).
-1. [Install dependencies](#satisfy-dependencies).
+1. [Install the dependencies](#satisfy-dependencies).
 1. [Upload and label the data](#load-dataset).
-1. [Prepare the ML model and calculate the properties](#get-cnn-model).
-1. [Train the classifier using the properties you calculated](#classifier-fit).
-1. [Predict the property for the test image](#model-test).
-1. [View practical applications of the model](#model-apply).
+1. [Prepare the ML model and calculate the features](#get-cnn-model).
+1. [Train the classifier using the features you calculated](#classifier-fit).
+1. [Predict the feature for the test image](#model-test).
+1. [View possible applications of the model](#model-apply).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin-datasphere.md) %}
-
 
 ### Required paid resources {#paid-resources}
 
@@ -30,14 +29,13 @@ The model operation cost includes:
 * Fee for bucket usage (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 * Fee for computing resource usage (see [{{ ml-platform-full-name }} pricing](../../datasphere/pricing.md)).
 
-
-## Prepare the infrastructure {#deploy-infrastructure}
+## Set up your infrastructure {#deploy-infrastructure}
 
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
 {% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
 
-### Create a folder to work in {#create-folder}
+### Create a folder {#create-folder}
 
 Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [network](../../vpc/concepts/network.md#network) with subnets in each [availability zone](../../overview/concepts/geo-scope.md).
 
@@ -46,7 +44,7 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select a cloud and click ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
-   1. Give your folder a name, e.g., `data-folder`.
+   1. Name your folder, e.g., `data-folder`.
    1. Click **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
@@ -57,12 +55,13 @@ Create a [folder](../../resource-manager/concepts/resources-hierarchy.md) and [n
 
 - Management console {#console}
 
-   1. Go to the `data-folder` folder.
-   1. In the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-   1. Enter the name of the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-project`.
+   1. Navigate to `data-folder`.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-project`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
       * `storage.viewer` to read data from the {{ objstorage-name }} bucket.
-      * `vpc.gateways.user` to use a subnet.
+      * `vpc.gateways.user` to use the subnet.
 
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -76,12 +75,14 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. In the `data-folder` folder, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
-   1. Choose the `sa-for-project` service account and click the line with its name.
-   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
-   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-   1. Enter a description of the key so that you can easily find it in the management console.
-   1. Save the ID and secret key. The secret key is not saved in {{ yandex-cloud }}, so you will not be able to view it in the management console.
+  1. Navigate to `data-folder`.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. In the list that opens, select the `sa-for-project` service account.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
+  1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Enter a description of the key so that you can easily find it in the management console.
+  1. Save the ID and secret key. The secret key is not saved in {{ yandex-cloud }}, so you will not be able to view it in the management console.
 
 {% endlist %}
 
@@ -91,10 +92,10 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. In the `data-folder` folder, select **{{ vpc-name }}**.
+   1. In `data-folder`, select **{{ vpc-name }}**.
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and set the gateway parameters:
-      * Enter the gateway name, e.g., `nat-for-cluster`.
+      * Name the gateway, e.g., `nat-for-cluster`.
       * Gateway **{{ ui-key.yacloud.vpc.gateways.field_type }}**: **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -102,20 +103,20 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
    1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Click **{{ ui-key.yacloud.common.create }}** and specify the route table parameters:
-      1. Enter the name, e.g., `route-table`.
-      1. Select the `data-folder` folder's network.
+      1. Enter a name, e.g., `route-table`.
+      1. Select the `data-folder` network.
       1. Click **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
          * In the window that opens, select **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** in the **{{ ui-key.yacloud.vpc.route-table-form.label_next-hop-address }}** field.
-         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will be propagated automatically.
+         * In the **{{ ui-key.yacloud.vpc.add-static-route.value_gateway }}** field, select the NAT gateway you created. The destination prefix will apply automatically.
          * Click **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Click **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
-   Link the route table to a subnet to route traffic from it via the NAT gateway:
+   Associate the route table with a subnet to route traffic from it through the NAT gateway:
 
    1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. In the required subnet row, click ![image](../../_assets/console-icons/ellipsis.svg).
+   1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
    1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-   1. In the window that opens, select the created table from the list.
+   1. In the window that opens, select your route table from the list.
    1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
@@ -126,15 +127,15 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 
 - Management console {#console}
 
-   1. Go to the `data-folder` folder.
+   1. Navigate to `data-folder`.
    1. In the list of services, select **{{ objstorage-name }}**.
-   1. Click **{{ ui-key.yacloud.storage.buckets.button_empty-create }}**.
+   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
    1. On the bucket creation page:
-      1. Enter a name for the bucket according to the [naming requirements](../../storage/concepts/bucket.md#naming).
-
+      1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
+      
          {% note warning %}
 
-         Do not use buckets with periods in their names for connection.
+         Do not use buckets with a dot in their name for connection.
 
          {% endnote %}
 
@@ -153,12 +154,12 @@ To allow your service account to get authenticated in {{ objstorage-name }}, cre
 ### Edit the project settings {#change-settings}
 
 1. {% include [include](../../_includes/datasphere/ui-find-project.md) %}
-1. Go to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
+1. Navigate to the **{{ ui-key.yc-ui-datasphere.project-page.tab.settings }}** tab.
 1. Under **{{ ui-key.yc-ui-datasphere.edit-project-page.advanced-settings }}**, click **![pencil](../../_assets/console-icons/pencil-to-line.svg) {{ ui-key.yc-ui-datasphere.common.edit }}**.
 1. Specify the parameters:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}**: `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}**: `sa-for-project`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{ region-id }}-a` availability zone in the `data-folder` folder.
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}**: Subnet of the `{{ region-id }}-a` availability zone in `data-folder`.
 
    {% include [subnet-create](../../_includes/subnet-create.md) %}
 
@@ -171,22 +172,22 @@ Create [secrets](../../datasphere/concepts/secrets.md) to store the ID and secre
 
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret. Name the secret with the static key ID as `token` and the secret with the secret part as `key_value`.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to be stored in encrypted form.
-1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. This will display the created secret's info page.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret. Name the secret with the static key ID as `token`, and the secret with the secret part as `key_value`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter a value to store in encrypted form.
+1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will see a page with detailed info on the secret you created.
 
 ## Prepare notebooks {#set-notebooks}
 
 Clone the Git repository containing the notebooks with the examples of the ML model training and testing:
-1. In the top menu, click **Git** and select **Clone**.
-1. In the window that opens, specify the repository URI `https://github.com/yandex-cloud-examples/yc-datasphere-video-recognition.git` and click **Clone**.
-
-Wait until cloning is complete. It may take some time. The cloned repository folder appears in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
+   1. In the top menu, click **Git** and select **Clone**.
+   1. In the window that opens, enter `https://github.com/yandex-cloud-examples/yc-datasphere-video-recognition.git` and click **Clone**.
+   
+   Wait until cloning is complete. It may take some time. You will see the cloned repository folder in the ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** section.
 
 There are two notebooks in the repository:
 
-* `model-building.ipynb` to set up the environment and train the model using the ResNet50 [Convolutional Neural Network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNN).
-* `model-testing.ipynb` to test the model.
+* `model-building.ipynb`: To set up the environment and train your model using the ResNet50 [convolutional neural network](https://en.wikipedia.org/wiki/Convolutional_neural_network) (CNN).
+* `model-testing.ipynb`: To test your model.
 
 ## Install dependencies {#satisfy-dependencies}
 
@@ -197,7 +198,7 @@ In this example, the model is trained and tested using the g1.1 computing resour
 {% endnote %}
 
 1. Open the **ML** folder and then the **model-building.ipynb** notebook.
-1. Click on the first cell to select it:
+1. Click the first cell to select it:
 
    ```
    #!g1.1
@@ -210,19 +211,19 @@ In this example, the model is trained and tested using the g1.1 computing resour
    ...
    ```
 
-1. To run the cell, click ![run](../../_assets/datasphere/jupyterlab/run.svg) (or press **Shift** + **Enter**).
+1. To run the cell, click ![run](../../_assets/datasphere/jupyterlab/run.svg) or press **Shift** + **Enter**.
 1. Wait for the operation to complete.
 
-The solution uses the [Keras interface](https://keras.io/about/) of the TensorFlow library with a [CNTK backend](https://docs.microsoft.com/en-us/cognitive-toolkit/). The `boto3` package is required to connect to the bucket with images. The cell also sets the environment variables needed to access the CNTK backend and connect to the bucket.
+The solution uses the [Keras interface](https://keras.io/about/) of the TensorFlow library with a [CNTK backend](https://docs.microsoft.com/en-us/cognitive-toolkit/). To connect to the bucket with images, you need the `boto3` package. The cell also sets the environment variables to access the CNTK backend and connect to the bucket.
 
-The packages listed in the cell are already installed in {{ ml-platform-name }} and you can `import` them using the import command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../../datasphere/concepts/preinstalled-packages.md).
+The packages listed in the cell are already installed in {{ ml-platform-name }} and you can import them using the `import` command. For the full list of packages pre-installed in {{ ml-platform-name }}, see [{#T}](../../datasphere/concepts/preinstalled-packages.md).
 
 ## Upload and label the data {#load-dataset}
 
-Go to the **Connect S3** section. You can use it to:
+Go to the **Connect S3** section to:
 
 1. Set up a connection to the S3 bucket.
-1. Load the list of objects, i.e., images of cars and buses. These will be used to train the model.
+1. Load the list of objects, i.e., images of cars and buses to train the model.
 1. Define the function to extract an image using a key (name).
 
 The next section, **Labeling**, is used for labeling data:
@@ -232,7 +233,7 @@ The next section, **Labeling**, is used for labeling data:
 To upload and label the data:
 
 1. In the first cell, replace the `bucket_name` variable value with the name of your bucket. The default value is `bucketwithvideo`.
-1. Select all the cells containing code in the **Connect S3** and **Labeling** sections. To do this, hold **Shift** and click to the left of the cells in question:
+1. Select all the cells containing code in the **Connect S3** and **Labeling** sections by holding **Shift** and clicking to the left of the cells in question:
 
    ```
    #!g1.1
@@ -244,15 +245,15 @@ To upload and label the data:
 1. Run the selected cells.
 1. Wait for the operation to complete. When the operation is complete, one of the images is displayed to check if the data was uploaded and labeled correctly.
 
-## Prepare the ML model and calculate the properties {#get-cnn-model}
+## Prepare the ML model and calculate the features {#get-cnn-model}
 
-Go to the **Calculating the characteristics** section. You can use it to:
+Go to the **Calculating the characteristics** section to:
 
-1. Load the ResNet50 model from the Keras package with weights pre-selected using the ImageNet dataset. This set contains 1.2 million images in 1,000 categories.
-1. Define the `featurize_images` function. It splits the list of images into 'chunks' of 32 each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) for uploading to the Keras model. Next, the function calculates their properties and returns them in a NumPy array.
-1. Use the function to calculate binary properties (`1` means car, `0` means other) and save them to a file. This step may take 10-15 minutes. You can read more about the ResNet50 model [here](https://www.kaggle.com/keras/resnet50).
+1. Load the ResNet50 model from the Keras package, with weights pretrained on the ImageNet dataset. This dataset contains 1.2 million images in 1,000 categories.
+1. Define the `featurize_images` function. It splits the list of images into chunks of 32 images each, scales the images down to 224×224 pixels, and converts them to a four-dimensional [tensor](https://en.wikipedia.org/wiki/Tensor) to feed to the Keras model. Next, the function calculates their features and returns them as a NumPy array.
+1. Use the function to calculate binary features (`1` means a car, `0` means other) and save them to a file. This step may take 10-15 minutes. [Learn more about the ResNet50 model](https://www.kaggle.com/keras/resnet50).
 
-To prepare the model and calculate the properties:
+To prepare the model and calculate the features:
 
 1. Select all the cells containing code in the **Calculating the characteristics** section:
 
@@ -265,24 +266,24 @@ To prepare the model and calculate the properties:
 1. Run the selected cells.
 1. Wait for the operation to complete.
 
-## Train the classifier using the properties you calculated {#classifier-fit}
+## Train the classifier using the features you calculated {#classifier-fit}
 
-In this section, you will train the LightGBM classifier on the properties calculated in the previous section. The model's characterization is done using cross-validation.
+In this section, you will train the LightGBM classifier on the features calculated in the previous section. To evaluate the model, you will use cross-validation.
 
-The [K-fold](http://scikit-learn.org/0.16/modules/generated/sklearn.cross_validation.StratifiedKFold.html) method of the scikit-learn package is used. Parts of the training sample (folds) are created based on the specified percentage of data from each class.
+The [K-fold](http://scikit-learn.org/0.16/modules/generated/sklearn.cross_validation.StratifiedKFold.html) method of the _scikit-learn_ package is used. Parts of the training sample (folds) are created based on the specified percentage of data from each class.
 
 This is important when your data contains much fewer images of one category than another. This example uses five-fold cross-validation. You can set a different number of folds in the `n_splits` parameter.
 
-Go to the **Training and cross-validation** and **Saving the model** sections. These are used to perform the following operations:
+Go to the **Training and cross-validation** and **Saving the model** sections to:
 
 1. Define an object for cross-validation of training results using the **K-fold** method.
 1. Prepare a table to store the classification quality metrics.
-1. Define the `classification_metrics` function to calculate the selected metrics.
-1. Start the LightGBM classifier training. This example uses cross-validation comprising five folds:
-   1. The training sample is divided into five equal non-overlapping parts.
+1. Define the `classification_metrics` function for calculating the selected metrics.
+1. Start the LightGBM classifier training. This example uses five-fold cross-validation:
+   1. The training sample is divided into five equal non-overlapping folds.
    1. Five iterations take place. At each one, the following steps are performed:
-      1. The model is trained on four parts from the sample.
-      1. The model is tested on the sample part not used for training.
+      1. The model is trained on four folds from the sample.
+      1. The model is tested on the sample fold not used for training.
       1. The selected quality metrics are output.
 1. Train the classifier on the full dataset and output the resulting error matrix.
 
@@ -300,7 +301,7 @@ To use the resulting model:
 
    {% note info %}
 
-   You need much less resources to use your model than to train it; therefore, the minimum c1.4 configuration is left for this purpose (default).
+   You need much less resources to use your model than to train it; therefore, the minimum c1.4 configuration is used by default.
 
    {% endnote %}
 
@@ -321,9 +322,9 @@ To use the resulting model:
 
    {% endnote %}
 
-1. In the cell from the **Prediction** section, load the ResNet50 model and the prepared LightGBM classifier and calculate the probability of the predicted binary property value (`1` means a car).
+1. In the cell from the **Prediction** section, load the ResNet50 model and the prepared LightGBM classifier and calculate the probability of the predicted binary feature value (`1` means a car).
 
-   It takes longer to process the cell with prediction calculation for the first time, because the models are loaded into the memory. The subsequent runs will be executed faster:
+   It takes longer to process the cell with prediction calculation for the first time, because the models are loaded into the memory. The subsequent runs will be faster:
 
    ```
    %%time
@@ -332,7 +333,7 @@ To use the resulting model:
    ...
    ```
 
-1. Make sure that the probability value is close to 1 (you should get ≈`0.98`).
+1. Make sure that the probability value is close to 1 (you should get `≈0.98`).
 1. Edit the cell code before loading the model:
 
    ```
@@ -344,20 +345,20 @@ To use the resulting model:
 1. Run the cell.
 1. Repeat the probability calculation and make sure that the value is much less than `0.5`.
 
-Now you see that the classifier well predicts the property for both images.
+This means the classifier can successfully predict the feature for both images.
 
 {% note info %}
 
-You can [share](../../datasphere/operations/projects/publication.md) the prepared notebook with the computations or [export the whole project](../../datasphere/operations/projects/export.md).
+You can [share](../../datasphere/operations/projects/publication.md) your finished notebook of computations or [export the whole project](../../datasphere/operations/projects/export.md).
 
 {% endnote %}
 
-## Practical use of the model {#model-apply}
+## Possible model application {#model-apply}
 
-There are several practical uses for your model:
+There are several possible applications for your model:
 
-* The code of the proposed solution allows running a web service using [{{ sf-full-name }}](../../functions/) and analyze on-event CCTV content.
-* For parallel processing of images collected from multiple video cameras into an S3 bucket, you can upload the code to an Apache Spark™ cluster in [{{ dataproc-full-name }}](../../data-proc/) using the PySpark package.
+* The code of the solution allows running a web service using [{{ sf-full-name }}](../../functions/) and analyze on-event CCTV content.
+* For parallel processing of images collected from multiple CCTV cameras into an S3 bucket, you can upload the code to an Apache Spark™ cluster in [{{ dataproc-full-name }}](../../data-proc/) using the PySpark package.
 
 
 ## How to delete the resources you created {#clear-out}

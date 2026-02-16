@@ -1,9 +1,211 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{userName}
+    method: patch
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to update the user in.
+            To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        userName:
+          description: |-
+            **string**
+            Required field. Name of the user to update.
+            To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z0-9_-]*'
+          type: string
+      required:
+        - clusterId
+        - userName
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        password:
+          description: |-
+            **string**
+            New password for the user.
+            The string length in characters must be 8-128.
+          type: string
+        permissions:
+          description: |-
+            **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
+            A new set of permissions that should be granted to the user.
+          type: array
+          items:
+            $ref: '#/definitions/Permission'
+        globalPermissions:
+          description: |-
+            **enum** (GlobalPermission)
+            New set of global permissions to grant to the user.
+            - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
+            - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
+            using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
+            - `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
+              The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
+            You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
+            - `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
+            - `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
+            This access includes:
+            The contents of the Information Schema `ROUTINES` table.
+            The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
+            The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
+            The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+            - `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases.
+          type: array
+          items:
+            type: string
+            enum:
+              - GLOBAL_PERMISSION_UNSPECIFIED
+              - REPLICATION_CLIENT
+              - REPLICATION_SLAVE
+              - PROCESS
+              - FLUSH_OPTIMIZER_COSTS
+              - SHOW_ROUTINE
+              - MDB_ADMIN
+        connectionLimits:
+          description: |-
+            **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
+            Set of changed user connection limits.
+          $ref: '#/definitions/ConnectionLimits'
+        authenticationPlugin:
+          description: |-
+            **enum** (AuthPlugin)
+            New user authentication plugin.
+            - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
+            - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
+            - `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+            - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+            - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/).
+          type: string
+          enum:
+            - AUTH_PLUGIN_UNSPECIFIED
+            - MYSQL_NATIVE_PASSWORD
+            - CACHING_SHA2_PASSWORD
+            - SHA256_PASSWORD
+            - MYSQL_NO_LOGIN
+            - MDB_IAMPROXY_AUTH
+        generatePassword:
+          description: |-
+            **boolean**
+            Generate password using Connection Manager.
+          type: boolean
+      additionalProperties: false
+    definitions:
+      Permission:
+        type: object
+        properties:
+          databaseName:
+            description: |-
+              **string**
+              Name of the database that the permission grants access to.
+            type: string
+          roles:
+            description: |-
+              **enum** (Privilege)
+              Roles granted to the user within the database.
+              See [the documentation](/docs/managed-mysql/operations/grant) for details.
+              The minimum number of elements is 1.
+              - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
+              - `ALTER`: Altering tables.
+              - `ALTER_ROUTINE`: Altering stored routines and functions.
+              - `CREATE`: Creating tables or indexes.
+              - `CREATE_ROUTINE`: Creating stored routines.
+              - `CREATE_TEMPORARY_TABLES`: Creating temporary tables.
+              - `CREATE_VIEW`: Creating views.
+              - `DELETE`: Deleting tables.
+              - `DROP`: Removing tables or views.
+              - `EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.
+              - `EXECUTE`: Executing stored routines.
+              - `INDEX`: Creating and removing indexes.
+              - `INSERT`: Inserting rows into the database.
+              - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
+              - `SELECT`: Selecting rows from tables.
+                Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+                See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+              - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
+              - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
+              - `UPDATE`: Updating rows in the database.
+              - `REFERENCES`: Creation of a foreign key constraint for the parent table.
+            type: array
+            items:
+              type: string
+              enum:
+                - PRIVILEGE_UNSPECIFIED
+                - ALL_PRIVILEGES
+                - ALTER
+                - ALTER_ROUTINE
+                - CREATE
+                - CREATE_ROUTINE
+                - CREATE_TEMPORARY_TABLES
+                - CREATE_VIEW
+                - DELETE
+                - DROP
+                - EVENT
+                - EXECUTE
+                - INDEX
+                - INSERT
+                - LOCK_TABLES
+                - SELECT
+                - SHOW_VIEW
+                - TRIGGER
+                - UPDATE
+                - REFERENCES
+      ConnectionLimits:
+        type: object
+        properties:
+          maxQuestionsPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of user questions per hour.
+              The minimum value is 0.
+            type: string
+            format: int64
+          maxUpdatesPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of user updates per hour.
+              The minimum value is 0.
+            type: string
+            format: int64
+          maxConnectionsPerHour:
+            description: |-
+              **string** (int64)
+              The maximum permitted number of simultaneous client connections per hour.
+              The minimum value is 0.
+            type: string
+            format: int64
+          maxUserConnections:
+            description: |-
+              **string** (int64)
+              The maximum number of simultaneous connections permitted to any given MySQL user account.
+              The minimum value is 0.
+            type: string
+            format: int64
 sourcePath: en/_api-ref/mdb/mysql/v1/api-ref/User/update.md
 ---
 
-# Managed Service for MySQL API, REST: User.Update {#Update}
+# Managed Service for MySQL API, REST: User.Update
 
 Updates a user in a cluster.
 
@@ -21,12 +223,16 @@ PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{us
 
 Required field. ID of the cluster to update the user in.
 
-To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request. ||
+To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to update.
 
-To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request. ||
+To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.UpdateUserRequest}
@@ -52,7 +258,8 @@ To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/lis
     "maxConnectionsPerHour": "string",
     "maxUserConnections": "string"
   },
-  "authenticationPlugin": "string"
+  "authenticationPlugin": "string",
+  "generatePassword": "boolean"
 }
 ```
 
@@ -70,7 +277,9 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
 
 A new set of permissions that should be granted to the user. ||
@@ -78,7 +287,6 @@ A new set of permissions that should be granted to the user. ||
 
 New set of global permissions to grant to the user.
 
-- `GLOBAL_PERMISSION_UNSPECIFIED`
 - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
@@ -92,7 +300,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits)**
 
 Set of changed user connection limits. ||
@@ -100,10 +309,14 @@ Set of changed user connection limits. ||
 
 New user authentication plugin.
 
-- `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html). ||
+- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
+|| generatePassword | **boolean**
+
+Generate password using Connection Manager. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission}
@@ -119,7 +332,8 @@ Roles granted to the user within the database.
 
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
-- `PRIVILEGE_UNSPECIFIED`
+The minimum number of elements is 1.
+
 - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
 - `ALTER`: Altering tables.
 - `ALTER_ROUTINE`: Altering stored routines and functions.
@@ -151,16 +365,24 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 ||Field | Description ||
 || maxQuestionsPerHour | **string** (int64)
 
-The maximum permitted number of user questions per hour. ||
+The maximum permitted number of user questions per hour.
+
+The minimum value is 0. ||
 || maxUpdatesPerHour | **string** (int64)
 
-The maximum permitted number of user updates per hour. ||
+The maximum permitted number of user updates per hour.
+
+The minimum value is 0. ||
 || maxConnectionsPerHour | **string** (int64)
 
-The maximum permitted number of simultaneous client connections per hour. ||
+The maximum permitted number of simultaneous client connections per hour.
+
+The minimum value is 0. ||
 || maxUserConnections | **string** (int64)
 
-The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+The maximum number of simultaneous connections permitted to any given MySQL user account.
+
+The minimum value is 0. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -207,7 +429,10 @@ The maximum number of simultaneous connections permitted to any given MySQL user
       "maxConnectionsPerHour": "string",
       "maxUserConnections": "string"
     },
-    "authenticationPlugin": "string"
+    "authenticationPlugin": "string",
+    "connectionManager": {
+      "connectionId": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -332,7 +557,6 @@ Set of permissions granted to the user. ||
 
 Set of global permissions to grant to the user.
 
-- `GLOBAL_PERMISSION_UNSPECIFIED`
 - `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
@@ -346,7 +570,8 @@ This access includes:
 The contents of the Information Schema `ROUTINES` table.
 The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
 The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements. ||
+The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
+- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
 || connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits2)**
 
 Set of user connection limits. ||
@@ -354,10 +579,14 @@ Set of user connection limits. ||
 
 User authentication plugin.
 
-- `AUTH_PLUGIN_UNSPECIFIED`
 - `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
 - `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html). ||
+- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
+- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
+- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
+|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
+
+Connection Manager Connection and settings associated with user. Read only field. ||
 |#
 
 ## Permission {#yandex.cloud.mdb.mysql.v1.Permission2}
@@ -373,7 +602,8 @@ Roles granted to the user within the database.
 
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
-- `PRIVILEGE_UNSPECIFIED`
+The minimum number of elements is 1.
+
 - `ALL_PRIVILEGES`: All privileges that can be made available to the user.
 - `ALTER`: Altering tables.
 - `ALTER_ROUTINE`: Altering stored routines and functions.
@@ -405,14 +635,31 @@ See [the documentation](/docs/managed-mysql/operations/grant) for details.
 ||Field | Description ||
 || maxQuestionsPerHour | **string** (int64)
 
-The maximum permitted number of user questions per hour. ||
+The maximum permitted number of user questions per hour.
+
+The minimum value is 0. ||
 || maxUpdatesPerHour | **string** (int64)
 
-The maximum permitted number of user updates per hour. ||
+The maximum permitted number of user updates per hour.
+
+The minimum value is 0. ||
 || maxConnectionsPerHour | **string** (int64)
 
-The maximum permitted number of simultaneous client connections per hour. ||
+The maximum permitted number of simultaneous client connections per hour.
+
+The minimum value is 0. ||
 || maxUserConnections | **string** (int64)
 
-The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+The maximum number of simultaneous connections permitted to any given MySQL user account.
+
+The minimum value is 0. ||
+|#
+
+## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of Connection Manager Connection ||
 |#

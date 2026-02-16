@@ -1,9 +1,26 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}
+    method: delete
+    path:
+      type: object
+      properties:
+        communityId:
+          description: |-
+            **string**
+            Required field. ID of the community.
+          type: string
+      required:
+        - communityId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/datasphere/v2/api-ref/Community/delete.md
 ---
 
-# DataSphere API v2, REST: Community.Delete {#Delete}
+# DataSphere API v2, REST: Community.Delete
 
 Deletes specified community.
 

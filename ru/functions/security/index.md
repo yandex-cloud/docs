@@ -20,11 +20,13 @@ description: Управление доступом сервиса для зап�
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-На [функцию](../concepts/function.md) роль можно назначить через YC CLI или API {{ yandex-cloud }}.
+На [функцию](../concepts/function.md) роль можно назначить через {{ yandex-cloud }} [CLI](../../cli/cli-ref/serverless/cli-ref/function/add-access-binding.md), [API](../api-ref/functions/authentication.md) или [{{ TF }}]({{ tf-provider-resources-link }}/function_iam_binding).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ sf-name }}.
+
+{% include [functions](../../_mermaid/roles/functions.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -44,11 +46,9 @@ description: Управление доступом сервиса для зап�
 
 {% include [functions.editor](../../_roles/functions/editor.md) %}
 
-
 #### functions.mdbProxiesUser {#functions-mdbProxiesUser}
 
 {% include [functions.mdbProxiesUser](../../_roles/functions/mdbProxiesUser.md) %}
-
 
 #### functions.admin {#functions-admin}
 

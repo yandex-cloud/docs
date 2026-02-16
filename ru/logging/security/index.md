@@ -17,13 +17,30 @@
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-Через YC CLI или API {{ yandex-cloud }} роль можно назначить на отдельные ресурсы сервиса:
+Вы также можете назначать роли на отдельные ресурсы сервиса:
 
-{% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Через [{{ yandex-cloud }} CLI](../../cli/cli-ref/logging/cli-ref/index.md) вы можете назначить роли на следующие ресурсы:
+
+  * [Лог-группа](../concepts/log-group.md)
+  * [Приемник логов](../operations/create-sink.md)
+
+- API {#api}
+
+  Через [API {{ yandex-cloud }}](../api-ref/authentication.md) вы можете назначить роли на следующие ресурсы:
+
+  {% include notitle [logging-resources](../../_includes/iam/resources-with-access-control/logging.md) %}
+
+{% endlist %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 
 Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ cloud-logging-name }}.
+
+{% include [logging](../../_mermaid/roles/logging.md) %}
 
 ### Сервисные роли {#service-roles}
 

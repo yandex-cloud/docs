@@ -12,6 +12,8 @@
         newgrp docker
         ```
 
+    Чтобы группы успешно обновились, может потребоваться войти в ОС заново или перезагрузить компьютер.
+
     Информацию о дополнительных настройках Docker в OS Linux см. в [документации разработчика](https://docs.docker.com/engine/install/linux-postinstall/).
 
     Если вы работаете на компьютере с графическим интерфейсом, вы также можете [установить](https://docs.docker.com/desktop/install/linux-install/) Docker Desktop для Linux.

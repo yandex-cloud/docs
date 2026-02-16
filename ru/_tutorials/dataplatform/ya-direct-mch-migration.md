@@ -8,6 +8,16 @@
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Сервис {{ sf-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+* Сервис {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Кластер {{ mch-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
 ## Перед началом работы {#before-you-begin}
 
 1. Подготовьте тестовые данные для выгрузки из {{ yandex-direct }}:
@@ -75,7 +85,7 @@
     - Вручную {#manual}
 
         1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `storage-lockbox-sa` и назначьте ему роли `storage.uploader` и `lockbox.payloadViewer`.
-        1. [Создайте статический ключ доступа](../../iam/operations/sa/create-access-key.md) для сервисного аккаунта `storage-lockbox-sa`.
+        1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта `storage-lockbox-sa`.
         1. [Создайте секрет в {{ lockbox-full-name }}](../../lockbox/operations/secret-create.md) с тремя парами `ключ:значение`:
 
             * `access_key:<открытый_ключ>`;
@@ -84,6 +94,9 @@
 
         1. В {{ objstorage-short-name }} [создайте бакет](../../storage/operations/buckets/create.md).
         1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+
+            {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
         1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
     - {{ TF }} {#tf}
@@ -200,7 +213,7 @@
 
     {% endlist %}
 
-1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.switch_list }}** на панели слева.
+1. Откройте созданную функцию в консоли управления и выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** на панели слева.
 1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** и дождитесь выполнения функции.
 
 В бакете появится файл в формате Parquet.
@@ -209,10 +222,9 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Object Storage`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Yandex Object Storage`.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.bucket.title }}** — имя бакета в {{ objstorage-name }}.
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_access_key_id.title }}** — открытая часть статического ключа сервисного аккаунта. Можно [скопировать из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.aws_secret_access_key.title }}** — закрытая часть статического ключа сервисного аккаунта. Можно [скопировать из секрета {{ lockbox-name }}](../../lockbox/operations/secret-get-info.md#secret-contents).
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.service_account_id.title }}** – выберите из списка [созданный ранее](#before-you-begin) сервисный аккаунт.
     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Provider.endpoint.title }}** — `https://{{ s3-storage-host }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.region.title }}** — `{{ region-id }}`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.parquet.title }}`.
@@ -220,7 +232,7 @@
     * **{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.RenameTablesTransformer.rename_tables.array_item_label }}** — имя Parquet-файла в бакете, например: `ac05e4fe818e463f88a8a299d290734d.snappy.parquet`.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.result_schema.title }}** — выберите `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageDataSchema.data_schema.title }}` и укажите имена полей и тип данных:
 
-        * `Id` : `Int64`;
+        * `Id`: `Int64`;
         * `Name` : `String`.
 
     Остальные параметры оставьте по умолчанию.
@@ -284,43 +296,28 @@
 
 ## Удалите созданные ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+Чтобы снизить потребление ресурсов, которые вам не нужны, удалите их:
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
+1. [Удалите объекты](../../storage/operations/objects/delete.md) из бакета.
+1. Остальные ресурсы удалите в зависимости от способа их создания:
 
-Остальные ресурсы удалите в зависимости от способа их создания:
+   {% list tabs group=resources %}
 
-{% list tabs group=resources %}
+   - Вручную {#manual}
 
-- Вручную {#manual}
+       1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
+       1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+       1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+       1. [Удалите функцию](../../functions/operations/function/function-delete.md).
+       1. [Удалите секрет в {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
+       1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    * [Эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-    * [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
-    * [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-    * [Функцию](../../functions/operations/function/function-delete.md).
-    * [Секрет в {{ lockbox-name }}](../../lockbox/operations/secret-delete.md).
-    * [Сервисный аккаунт](../../iam/operations/sa/delete.md).
+   - {{ TF }} {#tf}
 
-- {{ TF }} {#tf}
+       {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. [Удалите объекты из бакета](../../storage/operations/objects/delete.md).
-    1. В терминале перейдите в директорию с планом инфраструктуры.
-    1. Удалите конфигурационный файл `ya-direct-to-mch.tf`.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Подтвердите изменение ресурсов.
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        Все ресурсы, которые были описаны в конфигурационном файле `ya-direct-to-mch.tf`, будут удалены.
-
-{% endlist %}
+   {% endlist %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

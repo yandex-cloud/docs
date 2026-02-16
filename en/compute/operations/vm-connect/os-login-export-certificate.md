@@ -1,19 +1,21 @@
 ---
-title: How to export an OS Login certificate
-description: Follow this guide to locally export an OS Login certificate so it can be used to connect over SSH to VMs with OS Login access configured.
+title: How to export an SSH certificate
+description: Follow this guide to locally export an SSH certificate to use it for {{ oslogin }} access to properly configured VMs.
 ---
 
-# Exporting an OS Login certificate
+# Exporting an SSH certificate
 
-You can use a certificate to enable a user or a third-party tool, such as [Terraform](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to a VM with OS Login access enabled. To do this, locally export an OS Login certificate and use it to access a VM using a standard SSH client. The exported certificate is valid for one hour.
+You can use an SSH certificate of an [organization user](../../../organization/concepts/membership.md) or service account to enable a user or (via a [service account](../../../iam/concepts/users/service-accounts.md)) a third-party tool, such as [{{ TF }}](https://www.terraform.io/) or [Ansible](https://www.ansible.com/), to use SSH to connect to [{{ compute-name }} VM instances](../../concepts/vm.md#project), [{{ dataproc-name }} cluster hosts](../../../data-proc/operations/connect-oslogin.md), or [separate nodes in a {{ k8s }} node group](../../../managed-kubernetes/concepts/index.md#node-group) with {{ oslogin }} access enabled. To do this, locally export an SSH certificate and use it to access the VM or {{ k8s }} node with a standard SSH client. The exported certificate is valid for one hour.
 
 {% include [oslogin-export-certificate](../../../_includes/compute/oslogin-export-certificate.md) %}
 
-You can use the exported OS Login certificate to [connect](./os-login.md#connect-via-exported-certificate) to a VM with OS Login access [configured](../vm-control/vm-update.md#enable-oslogin-access).
+You can use the exported SSH certificate to [connect](./os-login.md#connect-with-ssh-client) to a {{ compute-name }} instance, {{ dataproc-name }} cluster, or {{ k8s }} node with {{ oslogin }} access [enabled](../vm-control/vm-update.md#enable-oslogin-access).
 
 #### See also {#see-also}
 
 * [{#T}](../../../organization/operations/os-login-access.md)
 * [{#T}](../../../organization/operations/add-ssh.md)
-* [{#T}](./os-login.md)
-* [Connecting to a {{ k8s }} node via OS Login](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [{#T}](os-login.md)
+* [Connecting to a {{ k8s }} node via {{ oslogin }}](../../../managed-kubernetes/operations/node-connect-oslogin.md)
+* [Connecting to a {{ dataproc-name }} cluster via {{ oslogin }}](../../../data-proc/operations/connect-oslogin.md)
+* [Using a service account with an {{ oslogin }} profile for VM management via Ansible](../../../tutorials/security/sa-oslogin-ansible.md)

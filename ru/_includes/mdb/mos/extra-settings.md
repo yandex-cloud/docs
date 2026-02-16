@@ -9,4 +9,4 @@
 
 * {% include [Deletion protection](../console/deletion-protection.md) %}
 
-    {% include [Ограничения защиты от удаления кластера](../deletion-protection-limits-data.md) %}
+    Включенная защита кластера от удаления не помешает удалить пользователя или подключиться к кластеру вручную и удалить данные.

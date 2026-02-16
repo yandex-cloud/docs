@@ -1,3 +1,8 @@
+---
+title: Writing to the execution log in {{ serverless-containers-full-name }}
+description: Follow this guide to configure container logging.
+---
+
 # Writing to the container execution log
 
 {% include [logging-note](../../_includes/functions/logging-note.md) %}
@@ -7,16 +12,19 @@
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with your container.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container you want to configure logging for.
-    1. Go to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
-    1. Under **{{ ui-key.yacloud.logging.label_title }}**, select the following in the **{{ ui-key.yacloud.logging.label_destination }}** field:
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: To disable logging.
-        * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the folder the container is in.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
-        * `{{ ui-key.yacloud.logging.label_loggroup }}`: To write logs to a custom log group.
-            1. (Optional) In the **{{ ui-key.yacloud.logging.label_minlevel }}** field, select the minimum logging level.
-            1. In the **{{ ui-key.yacloud.logging.label_loggroup }}** field, select the log group to write the logs to. If you do not have a log group, [create one](../../logging/operations/create-group.md).
+    1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
+    1. Under **{{ ui-key.yacloud.logging.label_title }}**:
+
+        1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
+        1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:
+                  
+           * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../concepts/logs.md) to the default [log group](../../logging/concepts/log-group.md) for the folder the container is in.
+           * {% include [log-group](../../_includes/functions/log-group.md) %}
+        
+        1. Optionally, select the minimum logging level.
+
     1. At the top of the page, click **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. 
     
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
@@ -31,7 +39,9 @@
 
     {% include [logging-destination](../../_includes/serverless-containers/logging-destination.md) %}
 
-    To write logs to a custom log group, provide the log group ID in the `--log-group-id` parameter when [creating a container revision](manage-revision.md). The log group must reside in the same folder as the container.
+    For logging to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating a container revision](manage-revision.md). The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
+
+    For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
     ### Minimum logging level {#log-level}
 
@@ -45,7 +55,7 @@
 
     ### Command example {#example}
 
-    To write logs to a custom log group, run this command:
+    For logging to a custom log group, run this command:
 
     ```bash
     {{ yc-serverless }} container revision deploy \
@@ -95,11 +105,13 @@
 
     {% include [logging-destination](../../_includes/serverless-containers/logging-destination.md) %}
 
-    To write logs to a custom log group, in the `log_options` section, provide the log group ID in the `log_group_id` parameter when [creating a container revision](manage-revision.md). The log group must reside in the same folder as the container.
+    For logging to another folder's default log group, provide that folder's ID under `log_options` in the `folder_id` parameter when [creating a container revision](manage-revision.md). The [account](../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../logging/security/index.md#logging-editor) or higher for the folder.
+
+    For logging to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating a container revision. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
     ### Minimum logging level {#log-level}
 
-    To set a minimum logging level, specify it in the `log_group_id` parameter when creating a container revision. 
+    To set a minimum logging level, specify it under `log_options` in the `min_level` parameter when creating a container revision. 
 
     {% include [min-log-level](../../_includes/serverless-containers/min-log-level.md) %}
 
@@ -109,7 +121,7 @@
 
     ### Example {#example}
 
-    To write logs to a custom log group:
+    For logging to a custom log group:
 
     1. Open the {{ TF }} configuration file and add the `log_options` section to the `yandex_serverless_container` resource description:
 
@@ -119,7 +131,7 @@
         resource "yandex_serverless_container" "<container_name>" {
           name               = "<container_name>"
           service_account_id = "<service_account_ID>"
-          memory             = <RAM_amount>
+          memory             = <RAM_size>
           image {
             url = "<Docker_image_URL>"
           }
@@ -134,19 +146,21 @@
         * `name`: Container name.
         * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
         * `memory`: Required memory. The default value is 128 MB.
-        * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
-        * `folder_id`: Folder ID.
-        * `min_level`: Minimum logging level. This is an optional parameter.
+        * `image`: Docker image parameters:
+            * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
+        * `log_options`: Logging settings:
+            * `folder_id`: Folder ID.
+            * `min_level`: Minimum logging level. This is an optional parameter.
 
         For more information about the `yandex_serverless_container` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/serverless_container).
 
-    1. Create resources:
+    1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
  - API {#api}
 
-    To write to the container execution log, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
+    For logging to the container execution log, use the [deployRevision](../containers/api-ref/Container/deployRevision.md) REST API method for the [Container](../containers/api-ref/Container/index.md) resource or the [ContainerService/DeployRevision](../containers/api-ref/grpc/Container/deployRevision.md) gRPC API call.
 
 {% endlist %}
 
@@ -203,7 +217,6 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
     ```
 
     **index.py**
-
   
     ```python
     import logging
@@ -241,7 +254,6 @@ Apart from text, you can write [structured logs](../concepts/logs.md#structured-
     if __name__ == "__main__":
         app.run(host='0.0.0.0', port=int(os.environ['PORT']), motd=False, access_log=False)
     ```
-
 
     **Dockerfile**
     ```dockerfile

@@ -20,7 +20,6 @@ description: Из статьи вы узнаете, как задать наст
 {% include [migration](../../../../_includes/data-transfer/scenario-captions/migration.md) %}
 
 * [Миграция кластера {{ CH }}](../../../tutorials/managed-clickhouse.md).
-* [Перераспределение данных по шардам](../../../tutorials/mch-mch-resharding.md).
 
 Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
 
@@ -45,7 +44,7 @@ description: Из статьи вы узнаете, как задать наст
 {% endnote %}
 
 
-Подключение к БД с указанием идентификатора кластера в {{ yandex-cloud }}.
+Подключение к БД с указанием кластера в {{ yandex-cloud }}.
 
 {% list tabs group=instructions %}
 
@@ -67,7 +66,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -125,7 +124,7 @@ description: Из статьи вы узнаете, как задать наст
 
     Пример структуры конфигурационного файла:
 
-
+    
     ```hcl
     resource "yandex_datatransfer_endpoint" "<имя_эндпоинта_в_{{ TF }}>" {
       name = "<имя_эндпоинта>"
@@ -223,6 +222,7 @@ description: Из статьи вы узнаете, как задать наст
 
 Настройте эндпоинт-приемник:
 
+* [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ CH }}](../target/clickhouse.md).
 
 Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
@@ -238,8 +238,6 @@ description: Из статьи вы узнаете, как задать наст
 См. полный список рекомендаций в разделе [Решение проблем](../../../troubleshooting/index.md).
 
 {% include [no-new-tables](../../../../_includes/data-transfer/troubles/clickhouse/no-new-tables.md) %}
-
-{% include [table-names](../../../../_includes/data-transfer/troubles/clickhouse/table-names.md) %}
 
 {% include [date-range](../../../../_includes/data-transfer/troubles/clickhouse/date-range.md) %}
 

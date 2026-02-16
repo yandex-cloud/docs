@@ -1,38 +1,34 @@
 # Access management in {{ yq-name }}
 
-{{ yq-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access rights.
+{{ yq-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To allow access to {{ yq-full-name }} resources, assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource (folder or cloud). Roles are inherited by nested resources.
+To allow access to {{ yq-full-name }} resources, assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). Currently, a role can only be assigned for a parent resource, such as a folder or cloud. Roles are inherited by nested resources.
 
-Roles for a resource can be assigned by users who have the `yq.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you should have the `yq.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
 
 {% endnote %}
 
 ## Assigning roles {#grant-roles}
 
-To assign a user a role:
+To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
-You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows which roles are available in the service and how they inherit each other's permissions. For example, the `editor` role includes all `viewer` role permissions. You can find the description of each role under the chart.
+You can manage access to {{ yq-name }} objects using both service and primitive roles. The chart below shows the roles existing in the service and their permission inheritance. For example, `editor` inherits all `viewer` permissions. You can find the role descriptions below the chart.
 
-<center>
+{% include [query](../../_mermaid/roles/query.md) %}
 
-![image](../../_assets/query/service-roles-hierarchy.svg)
-
-</center>
-
-The list below shows all roles considered when verifying access permissions in {{ yq-name }}.
+The list below shows all roles used for access control in {{ yq-name }}.
 
 ### Service roles {#service-roles}
 

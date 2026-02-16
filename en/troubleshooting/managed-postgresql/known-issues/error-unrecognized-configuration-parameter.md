@@ -1,16 +1,15 @@
-# Resolving the error: Unrecognized configuration parameter "stats_temp_directory"
+# Fixing the `Unrecognized configuration parameter "stats_temp_directory"` error
+
 
 
 ## Issue description {#issue-description}
 
-When executing the `SHOW stats_temp_directory` request, you see this error in the PostgreSQL cluster logs: `unrecognized configuration parameter "stats_temp_directory"`.
+When running the `SHOW stats_temp_directory` query, `unrecognized configuration parameter "stats_temp_directory"` errors occur in {{ PG }} cluster logs.
 
 ## Solution {#issue-resolution}
 
-This behavior is [expected in PostgreSQL version 15](https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=6f0cf87872ab2fd4a81249ca9d6299b9b1a52277), and you can ignore these errors.
+This behavior is [expected in {{ PG }} version 15](https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=6f0cf87872ab2fd4a81249ca9d6299b9b1a52277), and you can ignore these errors.
 
 ## If the issue persists {#if-issue-still-persists}
 
-If, for any reason, your {{ mpg-full-name }} cluster continues to operate improperly, [create a request for technical support]({{ link-console-support }}).
-
-In your request, specify the ID of the problem cluster and briefly describe the issue.
+If your {{ mpg-name }} cluster continues to have issues, [create a support ticket]({{ link-console-support }}). When creating a ticket, specify your cluster ID and describe the issue in brief.

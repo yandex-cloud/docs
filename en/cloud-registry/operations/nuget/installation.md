@@ -1,0 +1,65 @@
+---
+title: Setting up NuGet
+description: Follow this guide to set up NuGet.
+---
+
+# Setting up NuGet
+
+1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
+1. Set up the [NuGet](../../concepts/art-nuget.md) configuration file:
+
+    {% list tabs %}
+
+    - dotnet CLI
+
+      To edit the NuGet configuration file using the [dotnet CLI](https://learn.microsoft.com/en-us/nuget/reference/dotnet-commands), run this command:
+
+      ```bash
+      dotnet nuget add source "https://{{ cloud-registry }}/nuget/v3/<registry_ID>/index.json" \
+        -n "cloud-registry" \
+        -u %REGISTRY_USERNAME% \
+        -p %REGISTRY_PASSWORD% \
+        --store-password-in-clear-text --protocol-version 3
+      ```
+
+    - NuGet CLI
+
+      To edit the NuGet configuration file using the [NuGet CLI](https://learn.microsoft.com/en-us/nuget/reference/nuget-exe-cli-reference), run the `nuget.exe` file with the following parameters:
+
+      ```
+      nuget sources add -Name "cloud-registry" \
+        -Source "https://{{ cloud-registry }}/nuget/v3/<registry_ID>/index.json" \
+        -Username "%REGISTRY_USERNAME%" \
+        -Password "%REGISTRY_PASSWORD%" \
+        -StorePasswordInClearText -ProtocolVersion 3
+      ```
+
+    - Manually
+
+      1. Open the NuGet [configuration file](https://learn.microsoft.com/en-us/nuget/consume-packages/configuring-nuget-behavior#config-file-locations-and-uses):
+
+          {% note info %}
+
+          When using the dotnet CLI, the configuration file is located at `~/.nuget/NuGet/NuGet.Config`, while for the NuGet CLI, at `~/.config/NuGet/NuGet.Config`.
+
+          {% endnote %}
+
+      1. Update the configuration in the file as follows:
+
+          ```xml
+          <?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <packageSources>
+              <add key="cloud-registry" value="https://{{ cloud-registry }}/nuget/v3/<registry_ID>/index.json" protocolVersion="3" />
+            </packageSources>
+
+            <packageSourceCredentials>
+              <cloud-registry>
+                <add key="Username" value="%REGISTRY_USERNAME%" />
+                <add key="ClearTextPassword" value="%REGISTRY_PASSWORD%" />
+              </cloud-registry>
+            </packageSourceCredentials>
+          </configuration>
+          ```
+
+    {% endlist %}

@@ -1,0 +1,10 @@
+* `yc.ai.imageGeneration.execute`;
+* `yc.ai.languageModels.execute`;
+* `yc.ai.speechkitStt.execute`;
+* `yc.ai.speechkitTts.execute`;
+* `yc.ai.translate.execute`;
+* `yc.ai.vision.execute`;
+* `yc.monitoring.manage`;
+* `yc.search-api.execute`;
+* `yc.serverless.containers.invoke`;
+* `yc.serverless.functions.invoke`.

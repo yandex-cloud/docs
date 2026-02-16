@@ -1,25 +1,40 @@
+---
+title: Установка Container Storage Interface для S3
+description: Следуя данной инструкции, вы сможете установить Container Storage Interface для S3.
+---
+
 # Установка Container Storage Interface для S3
 
 
 [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) (_CSI_) позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) S3-совместимых хранилищ и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в виде [постоянных томов](../../concepts/volume.md#persistent-volume) (_PersistentVolume_). Подключение выполняется при помощи [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра))-реализации файловой системы [GeeseFS](https://github.com/yandex-cloud/geesefs).
 
+{% include [csi-s3-actual](../../../_includes/managed-kubernetes/csi-s3-actual.md) %}
+
+Установить Container Storage Interface для S3 можно следующими способами:
+* [В консоли управления с помощью {{ marketplace-name }}](#marketplace-install)
+* [C помощью Helm-чарта из репозитория {{ marketplace-name }}](#helm-install)
+* [С помощью Helm-чарта из репозитория на GitHub](#helm-github-install)
+
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../../../storage/security/index.md#storage-editor) `storage.editor`.
-1. [Создайте](../../../iam/operations/sa/create-access-key.md) статический ключ доступа для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
+1. [Создайте](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке приложения.
 1. (Опционально) Чтобы новые тома помещались в один бакет с разными префиксами, [создайте](../../../storage/operations/buckets/create.md) бакет {{ objstorage-full-name }}. Сохраните имя бакета — оно понадобится при установке приложения. Пропустите этот шаг, если для каждого тома требуется создавать отдельный бакет.
 
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка в консоли управления с помощью {{ marketplace-name }} {#marketplace-install}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Container Storage Interface для S3](/marketplace/products/yc/csi-s3) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — выберите [пространство имен](../../concepts/index.md#namespace) `kube-system`.
+
+      {% include [Namespace warning](../../../_includes/managed-kubernetes/kube-system-namespace-warning.md) %}
+
    * **Название приложения** — укажите название приложения, например `csi-s3`.
    * **Создать класс хранения** — выберите эту опцию, чтобы создать новый [класс хранилища](../volumes/manage-storage-class.md) при развертывании приложения.
    * **Создать секрет** — выберите эту опцию, чтобы создать новый секрет для класса хранилища при установке приложения.
@@ -37,11 +52,11 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
-## Установка с помощью Helm-чарта {#helm-install}
+## Установка с помощью Helm-чарта из репозитория {{ marketplace-name }} {#helm-install}
 
 1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
 1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
-1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду, указав в ней параметры ключа, созданного [ранее](#before-you-begin):
 
    ```bash
    helm pull oci://{{ mkt-k8s-key.yc_csi-s3.helmChart.name }} \
@@ -56,7 +71,34 @@
 
    {% include [Support OCI](../../../_includes/managed-kubernetes/note-helm-experimental-oci.md) %}
 
-При установке приложения CSI обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.
+   Также вы можете [задать дополнительные параметры](#installation-parameters) Container Storage Interface для S3.
+
+## Установка с помощью Helm-чарта из репозитория на GitHub {#helm-github-install}
+
+В [репозитории на GitHub](https://github.com/yandex-cloud/k8s-csi-s3) размещается наиболее актуальная версия Container Storage Interface для S3 с поддержкой {{ objstorage-name }}.
+
+1. {% include [Установка Helm](../../../_includes/managed-kubernetes/helm-install.md) %}
+1. {% include [Install and configure kubectl](../../../_includes/managed-kubernetes/kubectl-install.md) %}
+1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с CSI выполните команду:
+
+    ```bash
+    helm repo add yandex-s3 https://yandex-cloud.github.io/k8s-csi-s3/charts && \
+    helm repo update && \
+    helm pull yandex-s3/csi-s3 --untar && \
+    helm install \
+      --namespace kube-system \
+      --set secret.accessKey=<идентификатор_ключа> \
+      --set secret.secretKey=<секретный_ключ> \
+      csi-s3 ./csi-s3/
+    ```
+
+    Также вы можете [задать дополнительные параметры](#installation-parameters) Container Storage Interface для S3.
+
+    Подробнее об [обновлении с разных версий k8s-csi-s3](https://github.com/yandex-cloud/k8s-csi-s3/tree/master#upgrading).
+
+## Параметры для установки с помощью Helm-чарта {#installation-parameters}
+
+При установке приложения Container Storage Interface для S3 обязательными являются параметры `secret.accessKey` и `secret.secretKey`. Вы можете не указывать остальные параметры, либо переопределить их в команде установки с помощью ключа `--set <имя_параметра>=<новое_значение>`.
 
 Список доступных для переопределения параметров и их значения по умолчанию приведены в таблице:
 
@@ -76,6 +118,8 @@
 
 ## См. также {#see-also}
 
-* [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md).
-* [Интеграция с {{ objstorage-name }}](../volumes/s3-csi-integration.md).
-* [Работа с постоянными и динамическими томами в {{ k8s }}](../../concepts/volume.md).
+* [Спецификация CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)
+* [Container Storage Interface для S3 с поддержкой {{ objstorage-name }} на GitHub](https://github.com/yandex-cloud/k8s-csi-s3)
+* [Интеграция с {{ objstorage-name }}](../volumes/s3-csi-integration.md)
+* [Примеры использования CSI](../volumes/s3-csi-integration.md#examples)
+* [Работа с постоянными и динамическими томами в {{ k8s }}](../../concepts/volume.md)

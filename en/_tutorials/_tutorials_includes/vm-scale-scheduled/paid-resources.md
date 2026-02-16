@@ -1,0 +1,3 @@
+The infrastructure support costs include:
+* Fee for [disks](../../../compute/concepts/disk.md) and continuously running [VMs](../../../compute/concepts/vm.md) (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
+* [Function calls](../../../functions/concepts/function.md), computing resources allocated to executing the function, and outgoing traffic (see [{{ sf-name }} pricing](../../../functions/pricing.md)).

@@ -1,4 +1,4 @@
-# Интерактивная отладка функций {{ sf-name }}
+# Интерактивная отладка функций {{ sf-full-name }}
 
 
 В этом руководстве вы настроите систему интерактивной отладки [функций](../../functions/concepts/function.md) {{ sf-full-name }} с помощью перенаправления запросов на локальный сервер. Подробнее о схеме решения читайте в [репозитории yc-serverless-live-debug](https://github.com/yandex-cloud/yc-serverless-live-debug).
@@ -17,7 +17,6 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
@@ -26,7 +25,6 @@
 * плата за количество запросов к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
 * плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
 * плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
-
 
 ## Установите необходимые утилиты {#install-utilities}
 
@@ -320,7 +318,7 @@
     Watching changes in: live-debug.config.ts
     WS connection opened
     Local client ready.
-    Check url: https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    Check url: https://{{ api-host-apigw }}
     Waiting requests...
     ```
 
@@ -329,7 +327,7 @@
 1. Проверьте, что отладочный код работает. Для этого откройте еще один терминал и выполните команду:
 
     ```
-    curl https://d5ddt4ltdvh7********.apigw.yandexcloud.net
+    curl https://{{ api-host-apigw }}
     ```
 
     Результат:

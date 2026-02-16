@@ -1,0 +1,3 @@
+* `max_bytes`: Maximum total amount of data in the messages. If the data comes in a single message, this limit may be exceeded. Valid values range from 0 to 262,144 bytes. The default value is 0. This is an optional parameter.
+* `max_count`: Maximum number of messages {{ er-name }} will group before sending them to the target. The number of messages per group cannot exceed the specified value. Valid values range from 0 to 1,000. The default value is 0. This is an optional parameter.
+* `cutoff`: Maximum time for {{ er-name }} to group messages before sending them to the target, e.g., `10s`. The values may range from 0 to 60 seconds. The default value is 0. This is an optional parameter.

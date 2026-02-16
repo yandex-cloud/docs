@@ -59,6 +59,8 @@ items:
         href: tutorials/connect-migration.md
       - name: Интеграция с корпоративным сервисом DNS
         href: tutorials/dns-integration.md
+      - name: Интеграция {{ managed-k8s-name }} с корпоративной зоной DNS
+        href: tutorials/custom-dns.md
       - name: >-
           Настройка {{ dns-name }} для доступа к кластерам управляемых баз
           данных из других облачных сетей
@@ -66,7 +68,13 @@ items:
       - name: Создание веб-хука резолвера ACME для ответов на DNS01-проверки
         href: tutorials/cert-manager-webhook.md
       - name: Привязка доменного имени к ВМ с веб-сервером
-        href: tutorials/bind-domain-vm.md
+        items:
+          - name: Обзор
+            href: tutorials/bind-domain-vm/index.md
+          - name: Консоль управления, CLI и API
+            href: tutorials/bind-domain-vm/console.md
+          - name: '{{ TF }}'
+            href: tutorials/bind-domain-vm/terraform.md
       - name: Публикация обновлений для игр
         href: tutorials/prefetch.md
       - name: Терминирование TLS-соединений
@@ -77,12 +85,68 @@ items:
             href: tutorials/tls-termination/console.md
           - name: '{{ TF }}'
             href: tutorials/tls-termination/terraform.md
+      - name: Подключение к {{ objstorage-name }} из {{ vpc-name }}
+        href: tutorials/storage-vpc-access.md
+      - name: Подключение к {{ container-registry-name }} из {{ vpc-name }}
+        href: tutorials/vpc-cr-access.md
+      - name: >-
+          Переключение сетевого соединения при пересоздании кластера {{
+          dataproc-name }}
+        href: tutorials/reconnect-network.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
-  - name: Справочник CLI
-    href: ../cli/cli-ref/managed-services/dns/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: bind-file
+        items:
+          - name: Overview
+            href: cli-ref/bind-file/index.md
+          - name: migrate-to-terraform
+            href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: zone
+        items:
+          - name: Overview
+            href: cli-ref/zone/index.md
+          - name: add-access-binding
+            href: cli-ref/zone/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/zone/add-labels.md
+          - name: add-records
+            href: cli-ref/zone/add-records.md
+          - name: create
+            href: cli-ref/zone/create.md
+          - name: delete
+            href: cli-ref/zone/delete.md
+          - name: delete-records
+            href: cli-ref/zone/delete-records.md
+          - name: get
+            href: cli-ref/zone/get.md
+          - name: list
+            href: cli-ref/zone/list.md
+          - name: list-access-bindings
+            href: cli-ref/zone/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/zone/list-operations.md
+          - name: list-records
+            href: cli-ref/zone/list-records.md
+          - name: move
+            href: cli-ref/zone/move.md
+          - name: remove-access-binding
+            href: cli-ref/zone/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/zone/remove-labels.md
+          - name: replace-records
+            href: cli-ref/zone/replace-records.md
+          - name: set-access-bindings
+            href: cli-ref/zone/set-access-bindings.md
+          - name: update
+            href: cli-ref/zone/update.md
+          - name: update-private-networks
+            href: cli-ref/zone/update-private-networks.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -105,6 +169,8 @@ items:
                 href: api-ref/grpc/DnsZone/create.md
               - name: Update
                 href: api-ref/grpc/DnsZone/update.md
+              - name: Move
+                href: api-ref/grpc/DnsZone/move.md
               - name: Delete
                 href: api-ref/grpc/DnsZone/delete.md
               - name: GetRecordSet
@@ -149,6 +215,8 @@ items:
                 href: api-ref/DnsZone/create.md
               - name: Update
                 href: api-ref/DnsZone/update.md
+              - name: Move
+                href: api-ref/DnsZone/move.md
               - name: Delete
                 href: api-ref/DnsZone/delete.md
               - name: GetRecordSet
@@ -187,5 +255,3 @@ items:
     href: qa/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/dns
-deepBase: 2

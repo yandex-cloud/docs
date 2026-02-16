@@ -1,30 +1,25 @@
 title: Yandex Cloud Desktop
 description:
   - >-
-    <em>Yandex Cloud Desktop is currently at the <a
+    <em>Yandex Cloud Desktop is at the <a
     href="/docs/overview/concepts/launch-stages">Preview stage</a></em>.
   - >-
     Yandex Cloud Desktop is a service to manage virtual Linux-based <a
     href="/docs/cloud-desktop/concepts/desktops-and-groups">desktop</a>
     infrastructure.
   - >-
-    With Cloud Desktop, you can: <ul> <li>Quickly create virtual workspaces for
-    new employees.</li> <li>Safely connect remote employees to your enterprise
-    network.</li>  <li>Allow your employees to work from any up-to-date device
-    with internet access, including their own devices (<a
-    href="https://https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
-    <li>Manage  desktop computing resources.</li> <li>Administer desktops
-    remotely.</li>  <li>Create desktop groups with the same computing resources
-    and cloud <a href="/docs/vpc/concepts/network">network</a>.</li> </ul>
+    Use this service to: <ul><li>Quickly create virtual workspaces for new
+    employees.</li> <li>Safely connect remote employees to your corporate
+    network.</li> <li>Allow your employees to work from any modern
+    internet-enabled device, including a privately owned one (<a
+    href="https://en.wikipedia.org/wiki/Bring_your_own_device">BYOD</a>).</li>
+    <li>Manage desktop computing resources.</li> <li>Administer desktops
+    remotely.</li> <li>Create desktop groups with the same computing resources
+    and cloud <a href="/docs/vpc/concepts/network">network</a>.</li></ul>
   - >-
-    To connect to desktops, use <a
+    Desktop connections are established via the <a
     href="https://en.wikipedia.org/wiki/Remote_Desktop_Protocol">Remote Desktop
     Protocol</a> (RDP).
-meta:
-  title: Yandex Cloud Desktop
-  description: >-
-    Yandex Cloud Desktop is a service to manage virtual Linux-based desktop
-    infrastructure.
 links:
   - title: Getting started
     description: Create a desktop and connect to it
@@ -36,11 +31,35 @@ links:
     description: 'Learn about the basic concepts of the service: desktops and their groups'
     href: concepts/desktops-and-groups
   - title: Quotas and limits
-    description: Technical and organizational restrictions
+    description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Setting up access permissions for the service
+    description: Configure access permissions to use the service
     href: security/
+  - title: Pricing policy
+    description: Service pricing and cost calculations
+    href: pricing
   - title: API reference
     description: HTTP API method descriptions
     href: api-ref/
+meta:
+  title: Yandex Cloud Desktop
+  description: >-
+    Yandex Cloud Desktop is a service to manage virtual Linux-based desktop
+    infrastructure.
+  keywords:
+    - desktop
+    - '{{ cloud-desktop-name }} desktop'
+    - desktop in {{ yandex-cloud }}
+    - Desktop in {{ yandex-cloud }}
+    - desktop group
+    - '{{ cloud-desktop-name }}'
+    - '{{ cloud-desktop-name }} in {{ yandex-cloud }}'
+    - remote desktop in {{ yandex-cloud }}
+    - BYOD
+    - '{{ cloud-desktop-name }}'
+    - RDP in {{ cloud-desktop-name }}
+    - RDP in {{ yandex-cloud }}
+    - ACL {{ cloud-desktop-name }}
+    - ACL
+    - clouddesktop

@@ -1,4 +1,4 @@
-# Docker image lifecycle policies
+# Docker image lifecycle policy
 
 A [Docker image](docker-image.md) lifecycle policy lets you set [rules](#lifecycle-rules) for deleting Docker images automatically.
 
@@ -14,7 +14,7 @@ You can only set a lifecycle policy for a [repository](repository.md). The polic
 
 A lifecycle policy can have the following statuses:
 * `ACTIVE`: The policy is active and regularly deletes Docker images according to the rules you set.
-* `DISABLED`: The policy is disabled and doesn't delete Docker images from a repository. You can use policies in this status to create and test rules.
+* `DISABLED`: The policy is disabled and does not delete Docker images from the repository. You can use policies in this status to create and test rules.
 
 {% note info %}
 
@@ -40,15 +40,15 @@ When [creating a lifecycle policy](../operations/lifecycle-policy/lifecycle-poli
 1. Filtering Docker images by tag:
    * `tag_regexp`: Tag to specify a filter as a regular expression.
 
-     Usage examples for `tag_regexp`:
+     Use cases of `tag_regexp`:
      * `.*`: All images with tags.
-     * `prefix.*`: Images with tags that start with the `prefix`.
-   * `untagged`: Tag to have rules applied to untagged Docker images.
+     * `prefix.*`: Images with tags that start with `prefix`.
+   * `untagged`: Tag to apply the rule to untagged Docker images.
 1. Conditions for deleting Docker images:
-   * `expire_period`: The period of time that must pass after creating a Docker image for it to suit the automatic deletion criteria. It must be a multiple of 24 hours.
-   * `retained_top`: The number of Docker images (meeting the specified tag-based filter conditions) to be retained even if the `expire_period` already expired.
+   * `expire_period`: Period of time that must pass after creating a Docker image for it to satisfy the automatic deletion criteria. It must be a multiple of 24 hours.
+   * `retained_top`: Number of Docker images (meeting the specified tag-based filter conditions) to be retained even if the period set in `expire_period` has already expired.
 
-#### Sample JSON file with rules {#example}
+#### Example of a JSON file with rules {#example}
 
 The `Test` rule deletes all images that meet the following conditions:
 * Tag starts with `test`.
@@ -78,12 +78,16 @@ The `Untagged` rule deletes all images that meet the following conditions:
 
 Where:
 * `description`: Description of the policy rule.
-* `tag_regexp`: Docker image tag for filtering. A `test.*` regular expression for `tag_regexp` lets you get all images with tags starting with `test`.
+* `tag_regexp`: Docker image tag for filtering. The `test.*` regular expression for `tag_regexp` retrieves all images with tags starting with `test`.
 * `untagged`: Flag indicating that the rule applies to Docker images without tags.
-* `expire_period`: Time after which the lifecycle policy may apply to the Docker image. This parameter is formatted as a number and a unit of measure, such as `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
+* `expire_period`: Time after which the lifecycle policy may apply to the Docker image. This parameter comes as a number followed by a unit of measurement: `s`, `m`, `h`, or `d` (seconds, minutes, hours, or days). `expire_period` must be a multiple of 24 hours.
 * `retained_top`: Number of Docker images that are not deleted even if they match the rule.
 
 ## Resolving rule conflicts {#resolve}
 
-* If a Docker image filtered by tag only falls under a single delete rule, it's deleted according to the settings of this rule.
-* If a Docker image filtered by tag falls under several conflicting rules, it's deleted only if all the rules require it. If there is at least one rule saying that a Docker image shouldn't be deleted, the image is retained.
+* If a Docker image filtered by tag only falls under a single delete rule, it is deleted according to this rule's settings.
+* If a Docker image filtered by tag falls under several conflicting rules, it is deleted only if all the rules require it. If there is at least one rule saying that a Docker image shouldn't be deleted, the image is retained.
+
+## Use cases {#examples}
+
+* [{#T}](../tutorials/image-storage.md)

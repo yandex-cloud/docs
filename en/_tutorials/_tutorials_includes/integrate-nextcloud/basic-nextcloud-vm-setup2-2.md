@@ -1,0 +1,1 @@
+After the installation is over, you will see a window with recommended apps. Click **Skip**. You can get back to installing the applications you need at a later time.

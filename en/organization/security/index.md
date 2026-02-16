@@ -2,27 +2,71 @@
 
 Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant a user certain privileges or access to a resource, you must assign the user the appropriate roles.
 
-Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only a user with the organization [owner](#admin) role can assign this role: the administrator role is not sufficient to do this.
+Each role consists of a set of permissions that describe operations that can be performed with the resource. A user can assign a role with only those permissions which are available to themselves. For example, only a user with the organization [owner](#organization-manager-organizations-owner) role can assign this role: the administrator role is not sufficient to do this.
 
 If a resource has child resources, all permissions from the parent resource will be inherited by the child resources. For example, if you assign the administrator role for the organization hosting the cloud, all the role's permissions will apply to the cloud and all its nested resources.
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual resources of the service:
+You can also assign roles for individual resources within the service:
 
-{% include notitle [organization-resources](../../_includes/iam/resources-with-access-control/organization.md) %}
+{% list tabs group=instructions %}
 
-## Which roles exist in the service {#roles-list}
+- {{ cloud-center }} UI {#cloud-center}
+
+  You can use the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User group](../operations/access-manage-group.md)
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/organization-manager/cli-ref/index.md) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
+  * [User group](../operations/access-manage-group.md)
+  * [SAML app](../concepts/applications.md#saml)
+  * [OIDC app](../concepts/applications.md#oidc)
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-link }}) to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User group](../operations/access-manage-group.md)
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
+  * [User group](../operations/access-manage-group.md)
+  * [SAML app](../concepts/applications.md#saml)
+  * [OIDC app](../concepts/applications.md#oidc)
+
+{% endlist %}
+
+## Roles this service has {#roles-list}
 
 ### Service roles {#service-roles}
+
+#### organization-manager.auditor {#organization-manager-auditor}
+
+{% include [organizationmanager-auditor](../../_roles/organization-manager/auditor.md) %}
 
 #### organization-manager.viewer {#organization-manager-viewer}
 
 {% include [organizationmanager-viewer](../../_roles/organization-manager/viewer.md) %}
+
+#### organization-manager.editor {#organization-manager-editor}
+
+{% include [organizationmanager-editor](../../_roles/organization-manager/editor.md) %}
 
 #### organization-manager.admin {#organization-manager-admin}
 
@@ -32,9 +76,29 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 {% include [organizationmanager-organizations-owner](../../_roles/organization-manager/organizations/owner.md) %}
 
+#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
+
+{% include [organization-manager.federations.extGroupsViewer](../../_roles/organization-manager/federations/extGroupsViewer.md) %}
+
+#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
+
+{% include [organization-manager.federations.extGroupsManager](../../_roles/organization-manager/federations/extGroupsManager.md) %}
+
+#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
+
+{% include [organization-manager.federations.extGroupsCleaner](../../_roles/organization-manager/federations/extGroupsCleaner.md) %}
+
+#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
+
+{% include [organization-manager.federations.auditor](../../_roles/organization-manager/federations/auditor.md) %}
+
 #### organization-manager.federations.viewer {#organization-manager-federations-viewer}
 
 {% include [organization-manager.federations.viewer](../../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.editor {#organization-manager-federations-editor}
+
+{% include [organization-manager.federations.editor](../../_roles/organization-manager/federations/editor.md) %}
 
 #### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
 
@@ -52,9 +116,121 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 {% include [organizationmanager-oslogins-admin](../../_roles/organization-manager/osLogins/admin.md) %}
 
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
+
+{% include [organization-manager-groups-externalCreator](../../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
+
+{% include [organization-manager-groups-externalConverter](../../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
+
+{% include [organization-manager.groups.externalManager](../../_roles/organization-manager/groups/externalManager.md) %}
+
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../../_roles/organization-manager/groups/editor.md) %}
+
 #### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
 
 {% include [organizationmanager-groups-memberAdmin](../../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../../_roles/organization-manager/groups/admin.md) %}
+
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../../_roles/organization-manager/users/viewer.md) %}
+
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../../_roles/organization-manager/passportUserAdmin.md) %}
+
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
+
+{% include [organizationmanager-oauthApplications-userAdmin](../../_roles/organization-manager/oauthApplications/userAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
+
+{% include [organizationmanager-samlApplications-userAdmin](../../_roles/organization-manager/samlApplications/userAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
+
+{% include [organization-manager.userpools.extGroupsViewer](../../_roles/organization-manager/userpools/extGroupsViewer.md) %}
+
+#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
+
+{% include [organization-manager.userpools.extGroupsManager](../../_roles/organization-manager/userpools/extGroupsManager.md) %}
+
+#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
+
+{% include [organization-manager.userpools.extGroupsCleaner](../../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../../_roles/organization-manager/userpools/syncAgent.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
+
+{% include [organizationmanager-userpools-userAdmin](../../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../../_roles/organization-manager/userpools/admin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../../_roles/organization-manager/idpInstances/billingViewer.md) %}
+
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../../_roles/organization-manager/idpInstances/billingAdmin.md) %}
 
 ### Primitive roles {#primitive-roles}
 
@@ -62,12 +238,9 @@ You can assign a role via the YC CLI or {{ yandex-cloud }} API for individual re
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-### Appointing a user the organization administrator {#admin}
+### Assigning a user as an organization administrator {#add-admin}
 
-To grant a user organization management access, [assign](#add-role) the user one of the following roles:
-
-* `organization-manager.admin`
-* `organization-manager.organizations.owner`
+To grant a user permissions to manage an organization, [assign](#add-role) them the `organization-manager.admin` role.
 
 ### Assigning a role to a user {#add-role}
 
@@ -77,23 +250,9 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} UI {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. If the respective user has at least one role, select it from the list or use the search bar at the top of the page. In the line with the user you need, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-     If the user is not on the list, click **{{ ui-key.yacloud_org.entity.user.action.acl }}** in the top-right corner. In the window that opens, click **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** and select the appropriate user from the list or use the search bar.
-
-  1. Click **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and enter the role name or select one from the list.
-
-      You can find the description of the available roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md).
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [assign-role-to-user](../../_includes/organization/assign-role-to-user.md) %}
 
 - CLI {#cli}
 
@@ -101,18 +260,19 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. Assign the role using the command:
+  1. To assign the role, run the following command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
           --role <role_ID> \
           --subject <subject_type>:<subject_ID>
       ```
+
       * `<service_name>`: Name of the service for whose resource you are assigning the role, e.g., `organization-manager`.
       * `<resource>`: Resource category. For an organization, it is always `organization`.
       * `<resource_name_or_ID>`: Resource name or ID. For an organization, use its [technical name](../operations/org-profile.md).
       * `--role`: Role ID, e.g., `organization-manager.admin`.
-      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
+      * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, this command assigns the administrator role for the organization with the `bpf3crucp1v2********` ID:
 
@@ -128,14 +288,14 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Describe the parameters of the roles you assign in the configuration file:
 
-     * `organization_id`: Organization ID.
+     * `organization_id`: [Organization ID](../operations/organization-get-id.md).
      * `role`: Role you want to assign. You can find the description of the roles in the {{ iam-full-name }} documentation in the [{{ yandex-cloud }} role reference](../../iam/roles-reference.md). For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
      * `members`: Array of the IDs of users to assign the role to:
-       * `userAccount:{user_id}`: ID of the user Yandex account.
+       * `userAccount:{user_id}`: User Yandex account ID.
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is an example of the configuration file structure:
+     Here is a configuration file example:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -147,21 +307,21 @@ For information about roles available in {{ yandex-cloud }} and their associated
      }
      ```
 
-     For more details about resources you can create using {{ TF }}, see [the provider documentation]({{ tf-provider-link }}/).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Make sure the configuration files are correct.
-
-     1. In the command line, go to the folder where you created the configuration file.
+    
+     1. In the command line, navigate to the directory where you created the configuration file.
      1. Run a check using this command:
-
+ 
        ```
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will point them out. 
-
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will show them. 
+ 
   1. Assign roles.
-
+  
      If the configuration does not contain any errors, run this command:
 
        ```
@@ -201,10 +361,12 @@ For information about roles available in {{ yandex-cloud }} and their associated
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
      For detailed instructions on assigning a role to a resource, please see the {{ iam-full-name }} and {{ resmgr-full-name }} documentation:
@@ -218,27 +380,15 @@ In a similar way, you can [assign roles](../../iam/operations/sa/assign-role-for
 
 ### Revoking a user's role {#revoke}
 
-If you want to deny a user access to a resource, revoke the relevant roles for this resource and for resources that grant inherited access rights. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
+If you want to deny a user access to a resource, revoke the relevant roles for this resource as well as for other resources access permissions can be inherited from. For more information on access management in {{ yandex-cloud }}, see the [{{ iam-full-name }}](../../iam/concepts/access-control/index.md) documentation.
 
-The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant roles to a user, see [Roles](#admin).
+The role can be revoked by a user with the `organization-manager.admin` or `organization-manager.organizations.owner` role. To learn how to grant a role to a user, see the [Roles](#add-role) section.
 
 {% list tabs group=instructions %}
 
-- {{ org-name }} interface {#cloud-org}
+- {{ cloud-center }} UI {#cloud-center}
 
-  1. [Log in]({{ link-passport }}) as the organization administrator or owner.
-
-  1. Go to [{{ org-full-name }}]({{ link-org-main }}).
-
-  1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) [{{ ui-key.yacloud_org.pages.acl }}]({{ link-org-acl }}).
-
-  1. Select a user from the list or use the search bar at the top of the page.
-
-  1. In the right-hand column, click ![icon-context-menu](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
-
-  1. Click ![cross](../../_assets/console-icons/xmark.svg) next to a role to delete it.
-
-  1. Click **{{ ui-key.yacloud.common.save }}**.
+  {% include [revoke-role-from-user](../../_includes/organization/revoke-role-from-user.md) %}
 
 - CLI {#cli}
 
@@ -271,7 +421,6 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       +------------------------------------------+--------------+----------------------+
       ```
 
-
   1. To delete access permissions, run this command:
 
       ```bash
@@ -291,7 +440,6 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
           --subject userAccount:aje6o61dvog2********
       ```
 
-
 - API {#api}
 
   To revoke a role from a subject, delete access permissions for the appropriate resource:
@@ -301,7 +449,9 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -H "Authorization: Bearer ${IAM_TOKEN}" "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
+      curl \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:listAccessBindings"
       ```
 
       Result:
@@ -344,17 +494,19 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
       ```bash
       export ORGANIZATION_ID=bpf3crucp1v2********
       export IAM_TOKEN=CggaAT********
-      curl -X POST \
-          -H "Content-Type: application/json" \
-          -H "Authorization: Bearer ${IAM_TOKEN}" \
-          -d '@body.json' \	"https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
+      curl \
+        --request POST \
+        --header "Content-Type: application/json" \
+        --header "Authorization: Bearer ${IAM_TOKEN}" \
+        --data '@body.json' \
+        "https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/${ORGANIZATION_ID}:updateAccessBindings"
       ```
 
 {% endlist %}
 
 ### Assigning a role to a user group {#access-group-users}
 
-Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../iam/operations/groups/access-binding-object.md).
+Assign a role to a [user group](../../organization/operations/manage-groups.md) to grant access to a resource. To grant group access permissions to a [subject](../../iam/concepts/access-control/index.md#subject), see [{#T}](../../organization/operations/access-manage-group.md).
 
 In {{ org-full-name }}, you can assign a group a role for an organization, cloud, folder, another group, or service account.
 
@@ -365,3 +517,8 @@ In {{ org-full-name }}, you can assign a group a role for an organization, cloud
 #### Assigning a role for an organization {#access-binding-organization}
 
 {% include [accessbinding-group-as-subject-org](../../_includes/organization/accessbinding-group-as-subject-org.md) %}
+
+
+## What roles are assigned in an organization {#list-access-bingings}
+
+{% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}

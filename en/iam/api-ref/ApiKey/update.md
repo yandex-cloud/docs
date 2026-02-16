@@ -1,9 +1,68 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        apiKeyId:
+          description: |-
+            **string**
+            Required field. ID of the ApiKey resource to update.
+            To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - apiKeyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        description:
+          description: |-
+            **string**
+            Description of the API key.
+            The maximum string length in characters is 256.
+          type: string
+        scopes:
+          description: |-
+            **string**
+            Scopes of the API key.
+            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256.
+          type: array
+          items:
+            type: string
+        expiresAt:
+          description: |-
+            **string** (date-time)
+            API key expiration timestamp, if not specified, then the API key doesn't expire
+            String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+            `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+            To work with values in this field, use the APIs described in the
+            [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+            In some languages, built-in datetime utilities do not support nanosecond precision (9 digits).
+          type: string
+          format: date-time
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/iam/v1/api-ref/ApiKey/update.md
 ---
 
-# Identity and Access Management API, REST: ApiKey.Update {#Update}
+# Identity and Access Management API, REST: ApiKey.Update
 
 Updates the specified API key.
 
@@ -20,7 +79,9 @@ PATCH https://iam.{{ api-host }}/iam/v1/apiKeys/{apiKeyId}
 || apiKeyId | **string**
 
 Required field. ID of the ApiKey resource to update.
-To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request. ||
+To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.iam.v1.UpdateApiKeyRequest}
@@ -28,7 +89,11 @@ To get the API key ID, use a [ApiKeyService.List](/docs/iam/api-ref/ApiKey/list#
 ```json
 {
   "updateMask": "string",
-  "description": "string"
+  "description": "string",
+  "scopes": [
+    "string"
+  ],
+  "expiresAt": "string"
 }
 ```
 
@@ -46,7 +111,24 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || description | **string**
 
-Description of the API key. ||
+Description of the API key.
+
+The maximum string length in characters is 256. ||
+|| scopes[] | **string**
+
+Scopes of the API key.
+
+The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
+|| expiresAt | **string** (date-time)
+
+API key expiration timestamp, if not specified, then the API key doesn't expire
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -79,6 +161,9 @@ Description of the API key. ||
     "description": "string",
     "lastUsedAt": "string",
     "scope": "string",
+    "scopes": [
+      "string"
+    ],
     "expiresAt": "string"
   }
   // end of the list of possible fields
@@ -215,9 +300,9 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| scope | **string**
+|| scopes[] | **string**
 
-Scope of the API key. 0-256 characters long. ||
+Scopes of the API key. 0-256 characters long. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp.

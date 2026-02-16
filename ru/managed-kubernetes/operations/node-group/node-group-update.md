@@ -21,7 +21,16 @@ description: Следуя данной инструкции, вы сможете
 * Описание.
 * Масштабирование: для фиксированного типа — количество узлов {{ managed-k8s-name }}, для [автоматического](../../concepts/node-group/cluster-autoscaler.md) — минимальное, максимальное и начальное количество узлов {{ managed-k8s-name }}. Тип масштабирования нельзя изменить.
 * [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
-* Способ назначения [IP-адреса](../../../vpc/concepts/address.md): только внутреннего или также внешнего.
+* Способ назначения [IP-адресов](../../../vpc/concepts/address.md) узлам группы: только внутренние адреса или также публичные.
+
+    {% note info %}
+
+    {% include [nodes-internet-access](../../../_includes/managed-kubernetes/nodes-internet-access.md) %}
+
+    {% include [nodes-internet-access-additional](../../../_includes/managed-kubernetes/nodes-internet-access-additional.md) %}
+
+    {% endnote %}
+
 * Список [групп безопасности](../connect/security-groups.md).
 
   {% note alert %}
@@ -41,8 +50,8 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   Чтобы изменить группу узлов {{ managed-k8s-name }}:
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+  1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера.
   1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
   1. Выберите нужную группу узлов.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
@@ -70,7 +79,7 @@ description: Следуя данной инструкции, вы сможете
 
   * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
-    * `software-accelerated` — программно-ускоренная сеть.
+    * `software-accelerated` — программно ускоренная сеть.
 
       {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
@@ -96,6 +105,8 @@ description: Следуя данной инструкции, вы сможете
     * `--anytime-maintenance-window` — обновлять в любое время.
     * `--daily-maintenance-window` — обновлять ежедневно в выбранное время.
     * `--weekly-maintenance-window` — обновлять в выбранные дни.
+
+      {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
 
   {% note warning %}
 
@@ -154,6 +165,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
@@ -176,10 +189,13 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Нажмите на имя нужной ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
-  1. Укажите нужные настройки и нажмите кнопку **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Нажмите на имя нужного кластера.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Выберите нужную группу узлов.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}** в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`. Узлам будут назначены случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.   
 
 - CLI {#cli}
 
@@ -194,12 +210,12 @@ description: Следуя данной инструкции, вы сможете
      {{ yc-k8s }} node-group update --help
      ```
 
-  1. Выполните команду изменения группы узлов, передав ей флаг `--network-interface`:
+  1. Выполните команду изменения группы узлов, передав ей параметр `--network-interface`:
 
      ```bash
      {{ yc-k8s }} node-group update <идентификатор_или_имя_группы_узлов> \
      ...
-       --network-interface subnets=<имя_подсети_группы_узлов>, ipv4-address=nat
+       --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],ipv4-address=nat
      ```
 
      Имена и идентификаторы групп узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в каталоге](node-group-list.md#list).
@@ -218,9 +234,13 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
-## Назначить taint-политику на группу узлов {#assign-taint}
+## Пересоздать группу узлов с новой taint-политикой {#assign-taint}
 
-Добавление [taint-политик](../../concepts/index.md#taints-tolerations) пересоздает группу узлов {{ managed-k8s-name }}. Сначала удаляются все узлы в группе, затем в нее добавляются узлы с taint-политиками.
+{% note warning %}
+
+При добавлении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -261,22 +281,19 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
-
-- API {#api}
-
-  Чтобы назначить taint-политику на группу узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
-
-  * Taint-политики в параметре `nodeTaints`.
-  * Обновляемый параметр `nodeTaints` в параметре `updateMask`.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
-## Снять taint-политику с группы узлов {#remove-taint}
+## Пересоздать группу узлов без taint-политики {#remove-taint}
 
-Удаление [taint-политик](../../concepts/index.md#taints-tolerations) пересоздает группу узлов {{ managed-k8s-name }}. Сначала удаляются все узлы в группе, затем в нее добавляются узлы с новой конфигурацией.
+{% note warning %}
+
+При удалении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -298,22 +315,15 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
-
-- API {#api}
-
-  Чтобы снять taint-политику с группы узлов, воспользуйтесь методом [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) и передайте в запросе:
-
-  * Новый набор taint-политик в параметре `nodeTaints`. Если вы хотите снять все политики, передайте в запросе `"nodeTaints": []`.
-  * Обновляемый параметр `nodeTaints` в параметре `updateMask`.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
 ## Управлять облачными метками группы узлов {#manage-label}
 
-Вы можете выполнять следующие действия с [облачными метками](../../../resource-manager/concepts/labels.md) группы узлов {{ managed-k8s-name }}:
+Вы можете выполнять следующие действия с [облачными метками](../../concepts/index.md#node-labels) группы узлов {{ managed-k8s-name }}:
 * [Добавить](#add-label).
 * [Изменить](#update-label).
 * [Удалить](#remove-label).
@@ -321,6 +331,17 @@ description: Следуя данной инструкции, вы сможете
 ### Добавить облачную метку {#add-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Выберите нужную группу узлов.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Введите ключ и значение и нажмите **Enter**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -367,6 +388,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
@@ -375,15 +398,24 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
+
+    1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Выберите нужную группу узлов.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
+    1. Нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}** и введите новые ключ и/или значение метки.
+    1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   Измените облачную метку группы узлов {{ managed-k8s-name }}:
 
-  {% note warning %}
-
-  Существующий набор `labels` полностью перезаписывается набором, переданным в запросе.
-
-  {% endnote %}
+  {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
   ```bash
   yc managed-kubernetes node-group update my-node-group --labels test_label=my_ng_label
@@ -425,6 +457,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
@@ -432,6 +466,16 @@ description: Следуя данной инструкции, вы сможете
 ### Удалить облачную метку {#remove-label}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Выберите нужную группу узлов.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -464,6 +508,8 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 
 {% endlist %}
@@ -476,8 +522,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
     1. Выберите нужную группу узлов.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
@@ -543,8 +589,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-    1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
+    1. Перейдите на страницу [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. Нажмите на имя нужного кластера.
     1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
     1. Выберите нужную группу узлов.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
@@ -654,6 +700,8 @@ description: Следуя данной инструкции, вы сможете
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+        {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
 

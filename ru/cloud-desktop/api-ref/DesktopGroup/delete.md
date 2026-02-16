@@ -1,16 +1,35 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        desktopGroupId:
+          description: |-
+            **string**
+            Required field. ID of the desktop group to delete.
+            To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - desktopGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/DesktopGroup/delete.md
 ---
 
-# Cloud Desktop API, REST: DesktopGroup.Delete {#Delete}
+# Cloud Desktop API, REST: DesktopGroup.Delete
 
 Deletes the specified desktop group.
 
 ## HTTP request
 
 ```
-DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+DELETE https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
 ```
 
 ## Path parameters
@@ -21,7 +40,9 @@ DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desk
 
 Required field. ID of the desktop group to delete.
 
-To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request. ||
+To get a desktop group ID make a [DesktopGroupService.List](/docs/cloud-desktop/api-ref/DesktopGroup/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

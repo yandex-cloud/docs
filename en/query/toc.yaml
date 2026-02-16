@@ -41,7 +41,7 @@ items:
             href: concepts/match-recognize.md
       - name: Unified analysis of streaming and analytical data
         href: concepts/unified-processing.md
-      - name: Backup
+      - name: Backups
         href: concepts/backup.md
   - name: Step-by-step guides
     items:
@@ -75,32 +75,64 @@ items:
             href: sources-and-sinks/data-streams-binding.md
           - name: Writing data
             href: sources-and-sinks/data-streams-write.md
+      - name: Working with {{ monitoring-full-name }}
+        items:
+          - name: Reading data using connections
+            href: sources-and-sinks/monitoring.md
+          - name: Writing data
+            href: sources-and-sinks/monitoring-write.md
       - name: Working with {{ mch-name }} databases
         href: sources-and-sinks/clickhouse.md
+      - name: Working with {{ mgp-name }} databases
+        href: sources-and-sinks/greenplum.md
       - name: Working with {{ mmy-name }} databases
         href: sources-and-sinks/mysql.md
       - name: Working with {{ mpg-name }} databases
         href: sources-and-sinks/postgresql.md
       - name: Working with {{ ydb-name }} databases
         href: sources-and-sinks/ydb.md
-      - name: Writing metrics to {{ monitoring-full-name }}
-        href: sources-and-sinks/monitoring.md
+      - name: Reading data from {{ yq-iceberg-name }} tables
+        href: sources-and-sinks/iceberg.md
   - name: Tutorials
     items:
+      - name: All tutorials
+        href: tutorials/index.md
       - name: Processing {{ cloud-logging-name }} logs
         href: tutorials/cloud-logging.md
-      - name: Processing CDC Debezium streams
+      - name: Processing Debezium CDC streams
         href: tutorials/debezium.md
-      - name: Visualizing {{ datalens-name }} data in {{ objstorage-name }}
+      - name: Visualizing {{ objstorage-name }} data in {{ datalens-name }}
         href: tutorials/datalens.md
-      - name: Processing {{ at-name }} audit logs
+      - name: Processing {{ at-name }} events
         href: tutorials/audit-trails.md
-      - name: Processing files with billing details
+      - name: Processing files with usage details in {{ billing-name }}
         href: tutorials/billing.md
-      - name: Analyzing data with Jupyter
+      - name: Analyzing data with {{ jlab }}
         href: tutorials/jupyter.md
       - name: Automating tasks using {{ maf-short-name }}
         href: tutorials/airflow-auto-tasks.md
+      - name: Analyzing data with {{ yq-name }}
+        href: tutorials/yq.md
+      - name: Working with data in {{ objstorage-name }}
+        href: tutorials/yq-storage.md
+      - name: Working with data in {{ mch-name }}
+        href: tutorials/yq-clickhouse.md
+      - name: Working with data in {{ mpg-name }}
+        href: tutorials/yq-postgre.md
+      - name: Federated data queries
+        href: tutorials/yq-federative-queries.md
+      - name: Searching for {{ yandex-cloud }} events in {{ yq-name }}
+        href: tutorials/search-events-query.md
+      - name: >-
+          Migrating data from {{ forms-full-name }} to {{ datalens-full-name }}
+          using {{ sf-full-name }} and {{ yq-full-name }}
+        items:
+          - name: Overview
+            href: tutorials/forms-and-datalens-integration/index.md
+          - name: Management console
+            href: tutorials/forms-and-datalens-integration/console.md
+          - name: Terraform
+            href: tutorials/forms-and-datalens-integration/terraform.md
   - name: Working with YQL
     items:
       - name: Overview
@@ -151,11 +183,9 @@ items:
             href: api/yql-json-conversion-rules.md
       - name: '{{ AF }}'
         href: airflow/operator.md
-  - name: Integrations
+  - name: Integration
     href: integrations.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: FAQ
     href: qa/index.md
-base: en/query
-deepBase: 2

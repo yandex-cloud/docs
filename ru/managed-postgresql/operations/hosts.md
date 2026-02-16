@@ -13,7 +13,7 @@ description: Из статьи вы узнаете, как управлять х
 
 - Консоль управления {#console}
 
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
 
 - CLI {#cli}
@@ -31,7 +31,7 @@ description: Из статьи вы узнаете, как управлять х
 
   Результат:
 
-
+  
   ```text
   +----------------------------+----------------------+---------+--------+--------------------+
   |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID       |
@@ -50,7 +50,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.listHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -61,7 +61,7 @@ description: Из статьи вы узнаете, как управлять х
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.postgresql.v1.ListClusterHostsResponse).
 
 - gRPC API {#grpc-api}
 
@@ -70,7 +70,7 @@ description: Из статьи вы узнаете, как управлять х
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -101,11 +101,11 @@ description: Из статьи вы узнаете, как управлять х
 - Консоль управления {#console}
 
   Чтобы создать хост:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
-
+  
   1. Укажите параметры хоста:
      * Зону доступности.
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
@@ -121,7 +121,7 @@ description: Из статьи вы узнаете, как управлять х
 
   Чтобы создать хост:
 
-
+  
   1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
 
      ```bash
@@ -152,15 +152,15 @@ description: Из статьи вы узнаете, как управлять х
 
   1. Выполните команду добавления хоста:
 
-
+     
      ```bash
-     {{ yc-mdb-pg }} host add
-       --cluster-name <имя_кластера>
+     {{ yc-mdb-pg }} host add \
+       --cluster-name <имя_кластера> \
        --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>
      ```
 
 
-
+     
      Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mpg-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
@@ -219,7 +219,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.addHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -232,7 +232,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "zoneId": "<зона_доступности>",
                      "subnetId": "<идентификатор_подсети>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                     "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -252,16 +252,16 @@ description: Из статьи вы узнаете, как управлять х
 
      * `zoneId` — зона доступности.
      * `subnetId` — идентификатор подсети.
-     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу.
+     * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/addHosts.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -270,7 +270,7 @@ description: Из статьи вы узнаете, как управлять х
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -285,7 +285,7 @@ description: Из статьи вы узнаете, как управлять х
                {
                  "zone_id": "<зона_доступности>",
                  "subnet_id": "<идентификатор_подсети>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                 "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
@@ -307,7 +307,7 @@ description: Из статьи вы узнаете, как управлять х
 
      * `zone_id` — зона доступности.
      * `subnet_id` — идентификатор подсети.
-     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу.
+     * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
      * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
@@ -316,7 +316,7 @@ description: Из статьи вы узнаете, как управлять х
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -337,12 +337,16 @@ description: Из статьи вы узнаете, как управлять х
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Задайте новые настройки для хоста:
      1. Выберите источник репликации для хоста для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
+
+     
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+
+
   1. Нажмите кнопку **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
@@ -354,9 +358,9 @@ description: Из статьи вы узнаете, как управлять х
   Чтобы изменить параметры хоста в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} host update <имя_хоста>
-    --cluster-name <имя_кластера>
-    --replication-source <имя_хоста-источника>
+  {{ yc-mdb-pg }} host update <имя_хоста> \
+    --cluster-name <имя_кластера> \
+    --replication-source <имя_хоста-источника> \
     --assign-public-ip=<публичный_доступ_к_хосту>
   ```
 
@@ -411,7 +415,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -426,7 +430,7 @@ description: Из статьи вы узнаете, как управлять х
                    {
                      "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<версия_{{ PG }}>",
                      "hostName": "<FQDN_хоста>",
-                     "assignPublicIp": <публичный_адрес_хоста:_true_или_false>,
+                     "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
@@ -451,11 +455,11 @@ description: Из статьи вы узнаете, как управлять х
      * `priority` — приоритет хоста среди всех хостов.
      * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/updateHosts.md#body_params). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -464,7 +468,7 @@ description: Из статьи вы узнаете, как управлять х
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -488,7 +492,7 @@ description: Из статьи вы узнаете, как управлять х
                      ]
                  },
                  "host_name": "<FQDN_хоста>",
-                 "assign_public_ip": <публичный_адрес_хоста:_true_или_false>,
+                 "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
@@ -516,7 +520,7 @@ description: Из статьи вы узнаете, как управлять х
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -539,7 +543,7 @@ description: Из статьи вы узнаете, как управлять х
 - Консоль управления {#console}
 
   Чтобы удалить хост из кластера:
-  1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
@@ -552,7 +556,7 @@ description: Из статьи вы узнаете, как управлять х
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-pg }} host delete <имя_хоста>
+  {{ yc-mdb-pg }} host delete <имя_хоста> \
     --cluster-name <имя_кластера>
   ```
 
@@ -583,7 +587,7 @@ description: Из статьи вы узнаете, как управлять х
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -602,7 +606,7 @@ description: Из статьи вы узнаете, как управлять х
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#responses).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -611,7 +615,7 @@ description: Из статьи вы узнаете, как управлять х
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -634,6 +638,6 @@ description: Из статьи вы узнаете, как управлять х
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
 
 {% endlist %}

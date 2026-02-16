@@ -13,11 +13,11 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   1. In the [management console]({{ link-console-main }}), select the folder where your resource is located.
 
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Click the resource name.
 
-  1. Go to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-cache }}** tab.
 
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
 
@@ -28,13 +28,13 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
           * Enable **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
           * Select the setting type: `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-source-settings }}` or `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}`.
           * Select the cache lifetime from the list.
-          * (Optional) For the `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` setting type, set the cache lifetime for the required HTTP response codes.
+          * Optionally, for the `{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-settings-type-custom-settings }}` setting type, set the cache lifetime for the required HTTP response codes.
 
       * Under **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache }}**:
 
           * Enable **{{ ui-key.yacloud.cdn.label_resource-cache-browser-cache-enabled }}**.
 
-  1. (Optional) Under **{{ ui-key.yacloud.cdn.label_additional }}**:
+  1. Optionally, under **{{ ui-key.yacloud.cdn.label_additional }}**:
 
       * Select the option to ignore Cookies.
       * Select the option to ignore the Query parameters.
@@ -47,7 +47,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI update resource command:
+  1. View the description of the CLI command to update a resource:
 
       ```bash
       yc cdn resource update --help
@@ -117,14 +117,13 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       * `--ignore-cookie`: If `true`, ignores cookies.
       * `--ignore-query-string`: Ignores query parameters.
 
-      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/managed-services/cdn/resource/update.md).
+      For more information about the `yc cdn resource update` command, see the [CLI reference](../../../cli/cli-ref/cdn/cli-ref/resource/update.md).
 
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the parameters of the `yandex_cdn_resource` CDN resource you want to create:
-
+  1. In the configuration file, describe the properties of the `yandex_cdn_resource` CDN resource you want to create:
 
       ```hcl
       terraform {
@@ -159,24 +158,22 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
       }
       ```
 
-
-
       Where:
 
-      * `cname`: Primary domain name used for content distribution. This is a required parameter.
-      * `active`: Flag indicating access to content for end users. If set to `True`, CDN content will be available to clients. This is an optional parameter. The default value is `true`.
-      * `origin_protocol`: Origin protocol. This is an optional parameter. The default value is `http`.
-      * `secondary_hostnames`: Additional domain names. This is an optional parameter.
-      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required parameter. Use the ID from the origin group description in the `yandex_cdn_origin_group` resource.
+      * `cname`: Primary domain name used for content distribution. This is a required setting.
+      * `active`: Flag indicating content availability to end users. `True`: CDN content will be available to clients. This is an optional setting. The default value is `true`.
+      * `origin_protocol`: Protocol for origins. This is an optional setting. The default value is `http`.
+      * `secondary_hostnames`: Additional domain names. This is an optional setting.
+      * `origin_group_id`: [Origin group](../../concepts/origins.md) ID. This is a required setting. Use the ID from the description of the origin group in the `yandex_cdn_origin_group` resource.
       * The `options` section contains additional parameters of CDN resources:
-         * `browser_cache_settings`: Browser cache lifetime in seconds. This is an optional parameter. The default value is `0`.
-         * `edge_cache_settings`: Cache lifetime for response codes in seconds. This is an optional parameter. The default value is `345600`.
-         * `ignore_query_params`: Ignore query parameters. This is an optional parameter. The default value is `false`.
-         * `ignore_cookie`: Ignore cookies. This is an optional parameter. The default value is `false`.
+         * `browser_cache_settings`: Browser cache lifetime in seconds. This is an optional setting. The default value is `0`.
+         * `edge_cache_settings`: Cache lifetime for response codes in seconds. This is an optional setting. The default value is `345600`.
+         * `ignore_query_params`: Ignore query parameters. This is an optional setting. The default value is `false`.
+         * `ignore_cookie`: Ignore cookies. This is an optional setting. The default value is `false`.
 
-      For more information about the `yandex_cdn_resource` parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
+      For more information about the `yandex_cdn_resource` properties in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/cdn_resource).
 
-  1. In the command line, go to the folder with the {{ TF }} configuration file.
+  1. In the command line, go to the directory with the {{ TF }} configuration file.
 
   1. Check the configuration using this command:
      ```
@@ -194,14 +191,14 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
      terraform plan
      ```
 
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
 
-  1. Apply the configuration changes:
+  1. Apply the changes:
      ```
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the CDN resource update in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 

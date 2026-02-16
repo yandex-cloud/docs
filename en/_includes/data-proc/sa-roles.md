@@ -1,2 +1,0 @@
-* [dataproc.agent](../../data-proc/security/index.md#dataproc-agent): To enable the service account to get info on cluster host states, [jobs](../../data-proc/concepts/jobs.md), and [log groups](../../logging/concepts/log-group.md).
-* [dataproc.provisioner](../../data-proc/security/index.md#dataproc-provisioner): To enable the service account to work with an autoscaling instance group. This will enable [subcluster autoscaling](../../data-proc/concepts/autoscaling.md).

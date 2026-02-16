@@ -1,4 +1,9 @@
-# Subquery exceeds data weight limit
+---
+title: Ошибка {{ datalens-full-name }} ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Subquery exceeds data weight limit.
+---
+
+# [{{ datalens-full-name }}] Subquery exceeds data weight limit
 
 `ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED`
 

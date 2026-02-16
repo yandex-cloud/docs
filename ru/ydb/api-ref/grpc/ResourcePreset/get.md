@@ -3,7 +3,7 @@ editable: false
 sourcePath: en/_api-ref-grpc/ydb/v1/api-ref/grpc/ResourcePreset/get.md
 ---
 
-# Managed Service for YDB API, gRPC: ResourcePresetService.Get {#Get}
+# Managed Service for YDB API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
 
@@ -15,13 +15,13 @@ Returns the specified resource preset.
 
 ```json
 {
-  "resourcePresetId": "string"
+  "resource_preset_id": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string**
+|| resource_preset_id | **string**
 
 Required field. Required. ID of the resource preset to return. ||
 |#

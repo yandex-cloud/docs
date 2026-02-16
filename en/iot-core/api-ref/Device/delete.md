@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://iot-devices.{{ api-host }}/iot-devices/v1/devices/{deviceId}
+    method: delete
+    path:
+      type: object
+      properties:
+        deviceId:
+          description: |-
+            **string**
+            Required field. ID of the device to delete.
+            To get a device ID make a [DeviceService.List](/docs/iot-core/api-ref/Device/list#List) request.
+          type: string
+      required:
+        - deviceId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/iot/devices/v1/api-ref/Device/delete.md
 ---
 
-# IoT Core Service, REST: Device.Delete {#Delete}
+# IoT Core Service, REST: Device.Delete
 
 Deletes the specified device.
 

@@ -19,8 +19,8 @@
 
 * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
 
-    * `{{ ui-key.yacloud.common.label_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-    * `{{ ui-key.yacloud.common.label_list }}` — чтобы выбрать внутренний IP-адрес из списка зарезервированных заранее IP-адресов. При необходимости нажмите кнопку **{{ ui-key.yacloud.component.internal-v4-address-field.button_internal-address-reserve }}**, чтобы зарезервировать внутренний IP-адрес в выбранной подсети.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+    * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы задать внутренний IP-адрес ВМ вручную.
     * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
 
 * (Опционально) Создайте записи для ВМ в [зоне DNS](../../../dns/concepts/dns-zone.md):

@@ -1,4 +1,9 @@
-# Request size limit exceeded
+---
+title: Ошибка {{ datalens-full-name }} ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED
+description: На странице приведено описание ошибки {{ datalens-full-name }} Request size limit exceeded.
+---
+
+# [{{ datalens-full-name }}] Request size limit exceeded
 
 `ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED`
 

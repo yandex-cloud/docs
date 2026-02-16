@@ -1,4 +1,6 @@
 ---
+title: Правила тарификации для {{ speechsense-full-name }}
+description: В статье содержатся правила тарификации сервиса {{ speechsense-name }}.
 editable: false
 ---
 
@@ -6,15 +8,28 @@ editable: false
 
 
 
-{% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
+{% note tip %}
+
+
+Чтобы рассчитать стоимость аналитики [текстового диалога](https://yandex.cloud/ru/prices?state=719a3e32f3dd#calculator) и [аудиодиалога](https://yandex.cloud/ru/prices?state=82a33349cfc5#calculator), воспользуйтесь калькулятором на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+
+{% include [vat](../_includes/vat.md) %}
+
 ## Из чего складывается стоимость использования {{ speechsense-name }} {#rules}
 
-При анализе аудиозаписей диалогов стоимость использования сервиса {{ speechsense-name }} зависит от длительности двухканальных аудиофайлов. Единица тарификации — 1 секунда двухканального аудио.
+При анализе аудиозаписей диалогов стоимость использования сервиса {{ speechsense-name }} зависит от длительности двухканальных аудиофайлов. Одноканальные аудио конвертируются и тарифицируются как двухканальные. Единица тарификации — 1 секунда двухканального аудио.
 
-При анализе текстовых диалогов стоимость использования сервиса зависит от количества символов в диалоге. Единица тарификации — 10 символов. Количество символов в каждом диалоге округляется до десятков в большую сторону. В расчете учитываются все символы диалога. 
+При анализе текстовых диалогов стоимость использования сервиса зависит от количества символов в диалоге. Единица тарификации — 10 символов. Количество символов в каждом диалоге округляется до десятков в большую сторону. В расчете учитываются все символы диалога.
+
+Автоматический пересчет измененных и вновь созданных словарных и смысловых [тегов](../speechsense/concepts/tags.md) не тарифицируется.
 
 ## Цены для региона Россия {#prices}
 
@@ -39,12 +54,6 @@ editable: false
 
 ### Анализ текстовых диалогов {#text}
 
-{% note warning %}
-
-Цена, указанная ниже, начнет действовать с 10 сентября 2024 года.
-
-{% endnote %}
-
 
 {% list tabs group=pricing %}
 
@@ -60,7 +69,24 @@ editable: false
 
 
 
-### Пример расчета стоимости анализа аудиозаписей {#price-example}
+### Стоимость использования моделей в ассистенте {#price-model-assistant}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub-model.md](../_pricing/speechsense/rub-model-assistant.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt-model.md](../_pricing/speechsense/kzt-model-assistant.md) %}
+
+{% endlist %}
+
+
+
+### Пример расчета стоимости анализа аудиозаписей {#price-example-speech}
 
 
 {% list tabs group=pricing %}
@@ -72,6 +98,90 @@ editable: false
 - Расчет в тенге {#prices-kzt}
 
   {% include [kzt-speechsense](../_pricing_examples/speechsense/kzt-speechsense.md) %}
+
+{% endlist %}
+
+
+
+### Пример расчета стоимости анализа текстовых диалогов {#price-example-text}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+#### Пример 1 {#example-1}
+
+Пусть за месяц использования {{ speechsense-name }} было проанализировано 90 000 015 символов. Количество символов в каждом диалоге округляется до десятков в большую сторону, значит тарифицироваться будет 90 000 020 символов или 90 000,02 тысяч символов.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-speechsense-text-100k](../_pricing_examples/speechsense/rub-speechsense-text-100k.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-speechsense-text-100k](../_pricing_examples/speechsense/kzt-speechsense-text-100k.md) %}
+
+{% endlist %}
+
+
+
+#### Пример 2 {#example-2}
+
+Пусть за месяц использования {{ speechsense-name }} было проанализировано 150 000 023 символа. Количество символов в каждом диалоге округляется до десятков в большую сторону, значит тарифицироваться будет 150 000 030 символов или 150 000,03 тысяч символов.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-speechsense-text-500k](../_pricing_examples/speechsense/rub-speechsense-text-500k.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-speechsense-text-500k](../_pricing_examples/speechsense/kzt-speechsense-text-500k.md) %}
+
+{% endlist %}
+
+
+
+#### Пример 3 {#example-3}
+
+Пусть за месяц использования {{ speechsense-name }} было проанализировано 685 000 000 символов или 685 000 тысяч символов.
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-speechsense-text-1M](../_pricing_examples/speechsense/rub-speechsense-text-1M.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-speechsense-text-1M](../_pricing_examples/speechsense/kzt-speechsense-text-1M.md) %}
+
+{% endlist %}
+
+
+
+### Пример расчета стоимости анализа аудиозаписей с использованием ассистента {#price-example-assistant}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+В фильтр попали аудиозаписи общей длительностью 115 000 минут. Ассистент содержит 3 000 символов, символы подсчитываются в блоках **Инструкция** и **Результат**.
+
+Сервис {{ speechsense-name }} распознал и проанализировал аудиозаписи общей длительностью 115 000 минут. Инструкция, поля результата и аудиозаписи были отправлены в LLM-модель YandexGPT Pro. Одна минута аудио приблизительно равна 1 000 символов (значения зависят от скорости речи).
+
+
+{% list tabs group=pricing %}
+
+- Расчет в рублях {#prices-rub}
+
+  {% include [rub-assistant](../_pricing_examples/speechsense/rub-assistant.md) %}
+
+- Расчет в тенге {#prices-kzt}
+
+  {% include [kzt-assistant](../_pricing_examples/speechsense/kzt-assistant.md) %}
 
 {% endlist %}
 

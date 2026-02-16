@@ -9,18 +9,28 @@ items:
         href: operations/index.md
       - name: Работа с данными
         items:
-          - name: Загрузка аудиоданных
-            href: operations/data/upload-data.md
-          - name: Загрузка переписки из чата
-            href: operations/data/upload-chat-text.md
+          - name: Загрузка данных
+            items:
+              - name: Загрузка аудиоданных через консоль управления
+                href: operations/data/upload-audio-console.md
+              - name: Загрузка аудиоданных через gRPC API
+                href: operations/data/upload-data.md
+              - name: Загрузка длинных аудиозаписей с разбиением через gRPC API
+                href: operations/data/upload-data-split.md
+              - name: Загрузка переписки из чата
+                href: operations/data/upload-chat-text.md
           - name: Поиск данных
             items:
-              - name: Обзор
-                href: operations/data/search-data.md
               - name: Поиск данных через gRPC API
                 href: operations/data/search-data-grpc.md
               - name: Поиск данных через REST API
-                href: operations/data/search-data-rest.md
+                items:
+                  - name: Полнотекстовый поиск в REST API
+                    href: operations/data/rest-full-text-search.md
+                  - name: Фильтрация по параметрам в REST API
+                    href: operations/data/rest-search-filters.md
+                  - name: Получение информации о диалоге в REST API
+                    href: operations/data/rest-get-dialog-data.md
           - name: Работа с диалогами
             href: operations/data/manage-dialogs.md
           - name: Просмотр связанных диалогов
@@ -33,6 +43,8 @@ items:
             href: operations/space/create.md
           - name: Привязать платежный аккаунт
             href: operations/space/link-ba.md
+          - name: Изменить платежный аккаунт
+            href: operations/space/change-ba.md
           - name: Добавить пользователя в пространство
             href: operations/space/add-user-to-space.md
           - name: Удалить пространство
@@ -43,6 +55,8 @@ items:
         items:
           - name: Создать подключение
             href: operations/connection/create.md
+          - name: Изменить подключение
+            href: operations/connection/edit.md
       - name: Проекты
         items:
           - name: Создать проект
@@ -53,12 +67,34 @@ items:
             href: operations/project/delete.md
           - name: Удалить пользователя из проекта
             href: operations/project/delete-user-from-project.md
+          - name: Обучение {{ yagpt-name }}
+            href: operations/project/yandexgpt-training
+      - name: Ассистенты
+        items:
+          - name: Создать ассистента
+            href: operations/assistant/create.md
+          - name: Изменить ассистента
+            href: operations/assistant/edit.md
+          - name: Удалить ассистента
+            href: operations/assistant/delete.md
       - name: Теги
         items:
-          - name: Создать тег
-            href: operations/project/tag/create.md
-          - name: Изменить тег
-            href: operations/project/tag/change.md
+          - name: Создать словарный тег
+            href: operations/project/tag/create-dictionary-tag.md
+          - name: Создать смысловой тег
+            href: operations/project/tag/create-sense-tag.md
+          - name: Создать смысловой Pro-тег
+            href: operations/project/tag/create-sense-pro-tag.md
+          - name: Создать зависимый тег
+            href: operations/project/tag/create-dependent-tag.md
+          - name: Изменить словарный тег
+            href: operations/project/tag/change-dictionary-tag.md
+          - name: Изменить смысловой тег
+            href: operations/project/tag/change-sense-tag.md
+          - name: Изменить смысловой Pro-тег
+            href: operations/project/tag/change-sense-pro-tag.md
+          - name: Протестировать тег
+            href: operations/project/tag/test.md
           - name: Удалить тег
             href: operations/project/tag/delete.md
       - name: Словари
@@ -71,10 +107,36 @@ items:
             href: operations/dictionary/add.md
           - name: Удалить словарь
             href: operations/dictionary/delete.md
+      - name: Задачи на пересчет
+        items:
+          - name: Пересчет тегов
+            href: operations/task-recalculation/tags-recalc.md
+          - name: Пересчет ассистентов
+            href: operations/task-recalculation/assistants-recalc.md
+      - name: Внешние интеграции
+        items:
+          - name: >-
+              Создание подключения к {{ speechsense-name }} из {{
+              datalens-short-name }}
+            href: operations/external-integrations/create-datalens-connection.md
+  - name: Практические руководства
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Автоматическая загрузка данных с помощью {{ sw-full-name }}
+        href: tutorials/auto-upload.md
+      - name: Интеграция с {{ amocrm-name }}
+        href: tutorials/amocrm.md
+      - name: Интеграция с {{ bitrix24-name }}
+        href: tutorials/bitrix24.md
+      - name: Работа с AI-ассистентом
+        href: tutorials/ai-assistant.md
   - name: Концепции
     items:
       - name: Иерархия ресурсов
         href: concepts/resources-hierarchy.md
+      - name: Ассистенты
+        href: concepts/assistants.md
       - name: Диалоги
         href: concepts/dialogs.md
       - name: Теги в диалогах
@@ -91,10 +153,12 @@ items:
             href: concepts/reports/comparison.md
           - name: Детализация
             href: concepts/reports/details.md
-          - name: Нейропараметры
-            href: concepts/reports/neuro-parameters.md
+          - name: Смысловые атрибуты
+            href: concepts/reports/sense-attributes.md
       - name: Поддерживаемые форматы аудио
         href: concepts/formats.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -103,6 +167,20 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/grpc/Assistants/index.md
+              - name: List
+                href: api-ref/grpc/Assistants/list.md
+              - name: ListModels
+                href: api-ref/grpc/Assistants/listModels.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/grpc/Classifiers/index.md
+              - name: List
+                href: api-ref/grpc/Classifiers/list.md
           - name: Operation
             items:
               - name: Overview
@@ -127,6 +205,8 @@ items:
                 href: api-ref/grpc/Talk/upload.md
               - name: UploadText
                 href: api-ref/grpc/Talk/uploadText.md
+              - name: UploadBadge
+                href: api-ref/grpc/Talk/uploadBadge.md
               - name: Search
                 href: api-ref/grpc/Talk/search.md
               - name: Get
@@ -135,6 +215,20 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: Assistants
+            items:
+              - name: Overview
+                href: api-ref/Assistants/index.md
+              - name: List
+                href: api-ref/Assistants/list.md
+              - name: ListModels
+                href: api-ref/Assistants/listModels.md
+          - name: Classifiers
+            items:
+              - name: Overview
+                href: api-ref/Classifiers/index.md
+              - name: List
+                href: api-ref/Classifiers/list.md
           - name: Operation
             items:
               - name: Overview
@@ -147,10 +241,6 @@ items:
             items:
               - name: Overview
                 href: api-ref/Talk/index.md
-              - name: Upload
-                href: api-ref/Talk/upload.md
-              - name: UploadText
-                href: api-ref/Talk/uploadText.md
               - name: Search
                 href: api-ref/Talk/search.md
               - name: Get
@@ -161,7 +251,9 @@ items:
     href: security/index.md
   - name: Правила тарификации
     href: pricing.md
+  - name: История изменений
+    href: release-notes/index.md
   - name: Вопросы и ответы
     href: qa/index.md
-base: ru/speechsense
-deepBase: 2
+  - name: Обучающие курсы
+    href: training.md

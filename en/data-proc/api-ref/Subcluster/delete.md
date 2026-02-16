@@ -1,9 +1,46 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+    method: delete
+    path:
+      type: object
+      properties:
+        clusterId:
+          description: |-
+            **string**
+            Required field. ID of the cluster to remove a subcluster from.
+            To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+        subclusterId:
+          description: |-
+            **string**
+            Required field. ID of the subcluster to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - clusterId
+        - subclusterId
+      additionalProperties: false
+    query:
+      type: object
+      properties:
+        decommissionTimeout:
+          description: |-
+            **string** (int64)
+            Timeout to gracefully decommission nodes. In seconds. Default value: 0
+            Acceptable values are 0 to 86400, inclusive.
+          default: '0'
+          type: string
+          format: int64
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/dataproc/v1/api-ref/Subcluster/delete.md
 ---
 
-# Data Proc API, REST: Subcluster.Delete {#Delete}
+# Yandex Data Processing API, REST: Subcluster.Delete
 
 Deletes the specified subcluster.
 
@@ -21,10 +58,14 @@ DELETE https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclust
 
 Required field. ID of the cluster to remove a subcluster from.
 
-To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request. ||
+To get a cluster ID, make a [ClusterService.List](/docs/data-proc/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
-Required field. ID of the subcluster to delete. ||
+Required field. ID of the subcluster to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.dataproc.v1.DeleteSubclusterRequest}
@@ -33,7 +74,9 @@ Required field. ID of the subcluster to delete. ||
 ||Field | Description ||
 || decommissionTimeout | **string** (int64)
 
-Timeout to gracefully decommission nodes. In seconds. Default value: 0 ||
+Timeout to gracefully decommission nodes. In seconds. Default value: 0
+
+Acceptable values are 0 to 86400, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -124,10 +167,14 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || clusterId | **string**
 
-ID of the cluster whose subcluster is being deleted. ||
+ID of the cluster whose subcluster is being deleted.
+
+The maximum string length in characters is 50. ||
 || subclusterId | **string**
 
-ID of the subcluster that is being deleted. ||
+ID of the subcluster that is being deleted.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Status {#google.rpc.Status}

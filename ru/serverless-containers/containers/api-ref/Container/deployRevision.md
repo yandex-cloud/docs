@@ -1,9 +1,501 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        containerId:
+          description: |-
+            **string**
+            Required field. ID of the container to create a revision for.
+            To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the revision.
+          type: string
+        resources:
+          description: |-
+            **[Resources](#yandex.cloud.serverless.containers.v1.Resources)**
+            Required field. Resources allocated to the revision.
+          $ref: '#/definitions/Resources'
+        executionTimeout:
+          description: |-
+            **string** (duration)
+            Timeout for the execution of the revision.
+            If the timeout is exceeded, Serverless Containers responds with a 504 HTTP code.
+          type: string
+          format: duration
+        serviceAccountId:
+          description: |-
+            **string**
+            ID of the service account to associate with the revision.
+          type: string
+        imageSpec:
+          description: |-
+            **[ImageSpec](#yandex.cloud.serverless.containers.v1.ImageSpec)**
+            Required field. Image configuration for the revision.
+          $ref: '#/definitions/ImageSpec'
+        concurrency:
+          description: |-
+            **string** (int64)
+            The number of concurrent requests allowed per container instance.
+            The default value is 1.
+          type: string
+          format: int64
+        secrets:
+          description: |-
+            **[Secret](#yandex.cloud.serverless.containers.v1.Secret)**
+            Yandex Lockbox secrets to be used by the revision.
+          type: array
+          items:
+            $ref: '#/definitions/Secret'
+        connectivity:
+          description: |-
+            **[Connectivity](#yandex.cloud.serverless.containers.v1.Connectivity)**
+            Network access. If specified the revision will be attached to specified network/subnet(s).
+          $ref: '#/definitions/Connectivity'
+        provisionPolicy:
+          description: |-
+            **[ProvisionPolicy](#yandex.cloud.serverless.containers.v1.ProvisionPolicy)**
+            Policy for provisioning instances of the revision.
+            The policy is only applied when the revision is ACTIVE.
+          $ref: '#/definitions/ProvisionPolicy'
+        scalingPolicy:
+          description: |-
+            **[ScalingPolicy](#yandex.cloud.serverless.containers.v1.ScalingPolicy)**
+            Policy for scaling instances of the revision.
+          $ref: '#/definitions/ScalingPolicy'
+        logOptions:
+          description: |-
+            **[LogOptions](#yandex.cloud.serverless.containers.v1.LogOptions)**
+            Options for logging from the container.
+          $ref: '#/definitions/LogOptions'
+        storageMounts:
+          description: |-
+            **[StorageMount](#yandex.cloud.serverless.containers.v1.StorageMount)**
+            S3 mounts to be used by the revision.
+          type: array
+          items:
+            $ref: '#/definitions/StorageMount'
+        mounts:
+          description: |-
+            **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
+            Mounts to be used by the revision.
+          type: array
+          items:
+            $ref: '#/definitions/Mount'
+        runtime:
+          description: |-
+            **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
+            The container's execution mode.
+          $ref: '#/definitions/Runtime'
+        metadataOptions:
+          description: |-
+            **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+            Metadata options for the revision.
+          $ref: '#/definitions/MetadataOptions'
+        asyncInvocationConfig:
+          description: |-
+            **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
+            Config for asynchronous invocations of the revision.
+          $ref: '#/definitions/AsyncInvocationConfig'
+      required:
+        - containerId
+        - resources
+        - imageSpec
+      additionalProperties: false
+    definitions:
+      Resources:
+        type: object
+        properties:
+          memory:
+            description: |-
+              **string** (int64)
+              Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+              Acceptable values are 134217728 to 8589934592, inclusive.
+            type: string
+            format: int64
+          cores:
+            description: |-
+              **string** (int64)
+              Number of cores available to the revision.
+              Acceptable values are 0 to 4, inclusive.
+            type: string
+            format: int64
+          coreFraction:
+            description: |-
+              **string** (int64)
+              Specifies baseline performance for a core in percent, multiple of 5%.
+              Should be 100% for cores > 1.
+              Acceptable values are 0 to 100, inclusive.
+            type: string
+            format: int64
+      Command:
+        type: object
+        properties:
+          command:
+            description: |-
+              **string**
+              Command that will override ENTRYPOINT of an image.
+              Commands will be executed as is. The runtime will not substitute environment
+              variables or execute shell commands. If one wants to do that, they should
+              invoke shell interpreter with an appropriate shell script.
+            type: array
+            items:
+              type: string
+      Args:
+        type: object
+        properties:
+          args:
+            description: |-
+              **string**
+              Arguments that will override CMD of an image.
+              Arguments will be passed as is. The runtime will not substitute environment
+              variables or execute shell commands. If one wants to do that, they should
+              invoke shell interpreter with an appropriate shell script.
+            type: array
+            items:
+              type: string
+      ImageSpec:
+        type: object
+        properties:
+          imageUrl:
+            description: |-
+              **string**
+              Required field. Image URL, that is used by the revision.
+            type: string
+          command:
+            description: |-
+              **[Command](#yandex.cloud.serverless.containers.v1.Command)**
+              Override for the image's ENTRYPOINT.
+            $ref: '#/definitions/Command'
+          args:
+            description: |-
+              **[Args](#yandex.cloud.serverless.containers.v1.Args)**
+              Override for the image's CMD.
+            $ref: '#/definitions/Args'
+          environment:
+            description: |-
+              **object** (map<**string**, **string**>)
+              Additional environment for the container.
+              The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `.
+            type: object
+            additionalProperties:
+              type: string
+              maxLength: 4096
+            propertyNames:
+              type: string
+              pattern: '[a-zA-Z][a-zA-Z0-9_]*'
+          workingDir:
+            description: |-
+              **string**
+              Override for the image's WORKDIR.
+            type: string
+        required:
+          - imageUrl
+      Secret:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of Yandex Lockbox secret.
+            type: string
+          versionId:
+            description: |-
+              **string**
+              ID of Yandex Lockbox secret.
+            type: string
+          key:
+            description: |-
+              **string**
+              Key in secret's payload, which value to be delivered into container environment.
+            type: string
+          environmentVariable:
+            description: |-
+              **string**
+              Environment variable in which secret's value is delivered.
+              Includes only one of the fields `environmentVariable`.
+            type: string
+        oneOf:
+          - required:
+              - environmentVariable
+      Connectivity:
+        type: object
+        properties:
+          networkId:
+            description: |-
+              **string**
+              Network the revision will have access to.
+            type: string
+          subnetIds:
+            description: |-
+              **string**
+              The list of subnets (from the same network) the revision can be attached to.
+              Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+              The string length in characters for each value must be greater than 0.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      ProvisionPolicy:
+        type: object
+        properties:
+          minInstances:
+            description: |-
+              **string** (int64)
+              Minimum number of guaranteed provisioned container instances for all zones
+              in total.
+            type: string
+            format: int64
+      ScalingPolicy:
+        type: object
+        properties:
+          zoneInstancesLimit:
+            description: |-
+              **string** (int64)
+              Upper limit for instance count in each zone.
+              0 means no limit.
+            type: string
+            format: int64
+          zoneRequestsLimit:
+            description: |-
+              **string** (int64)
+              Upper limit of requests count in each zone.
+              0 means no limit.
+            type: string
+            format: int64
+      LogOptions:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **boolean**
+              Is logging from container disabled.
+            type: boolean
+          logGroupId:
+            description: |-
+              **string**
+              Entry should be written to log group resolved by ID.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          folderId:
+            description: |-
+              **string**
+              Entry should be written to default log group for specified folder.
+              Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+              Includes only one of the fields `logGroupId`, `folderId`.
+              Log entries destination.
+            pattern: ([a-zA-Z][-a-zA-Z0-9_.]{0,63})?
+            type: string
+          minLevel:
+            description: |-
+              **enum** (Level)
+              Minimum log entry level.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              - `TRACE`: Trace log level.
+                Possible use case: verbose logging of some business logic.
+              - `DEBUG`: Debug log level.
+                Possible use case: debugging special cases in application logic.
+              - `INFO`: Info log level.
+                Mostly used for information messages.
+              - `WARN`: Warn log level.
+                May be used to alert about significant events.
+              - `ERROR`: Error log level.
+                May be used to alert about errors in infrastructure, logic, etc.
+              - `FATAL`: Fatal log level.
+                May be used to alert about unrecoverable failures and events.
+            type: string
+            enum:
+              - LEVEL_UNSPECIFIED
+              - TRACE
+              - DEBUG
+              - INFO
+              - WARN
+              - ERROR
+              - FATAL
+        oneOf:
+          - required:
+              - logGroupId
+          - required:
+              - folderId
+      StorageMount:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. S3 bucket name for mounting.
+              The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              S3 bucket prefix for mounting.
+            type: string
+          readOnly:
+            description: |-
+              **boolean**
+              Is mount read only.
+            type: boolean
+          mountPointPath:
+            description: |-
+              **string**
+              Required field. Mount point path inside the container for mounting.
+              The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+            pattern: '[-_0-9a-zA-Z/]*'
+            type: string
+        required:
+          - bucketId
+          - mountPointPath
+      ObjectStorage:
+        type: object
+        properties:
+          bucketId:
+            description: |-
+              **string**
+              Required field. ObjectStorage bucket name for mounting.
+              The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `.
+            pattern: '[-.0-9a-zA-Z]*'
+            type: string
+          prefix:
+            description: |-
+              **string**
+              ObjectStorage bucket prefix for mounting.
+            type: string
+        required:
+          - bucketId
+      DiskSpec:
+        type: object
+        properties:
+          size:
+            description: |-
+              **string** (int64)
+              The size of disk for mount in bytes
+              Value must be greater than 0.
+            type: string
+            format: int64
+          blockSize:
+            description: |-
+              **string** (int64)
+              Optional block size of disk for mount in bytes
+            type: string
+            format: int64
+      Mount:
+        type: object
+        properties:
+          mountPointPath:
+            description: |-
+              **string**
+              Required field. The absolute mount point path inside the container for mounting.
+              The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `.
+            pattern: '[-_0-9a-zA-Z/]*'
+            type: string
+          mode:
+            description: |-
+              **enum** (Mode)
+              Mount's mode
+              - `READ_ONLY`
+              - `READ_WRITE`
+            type: string
+            enum:
+              - MODE_UNSPECIFIED
+              - READ_ONLY
+              - READ_WRITE
+          objectStorage:
+            description: |-
+              **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
+              Object storage mounts
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/ObjectStorage'
+          ephemeralDiskSpec:
+            description: |-
+              **[DiskSpec](#yandex.cloud.serverless.containers.v1.Mount.DiskSpec)**
+              Working disk (worker-local non-shared read-write NBS disk templates)
+              Includes only one of the fields `objectStorage`, `ephemeralDiskSpec`.
+              Target mount option
+            $ref: '#/definitions/DiskSpec'
+        required:
+          - mountPointPath
+        oneOf:
+          - required:
+              - objectStorage
+          - required:
+              - ephemeralDiskSpec
+      Http:
+        type: object
+        properties: {}
+      Task:
+        type: object
+        properties: {}
+      Runtime:
+        type: object
+        properties:
+          http:
+            description: |-
+              **object**
+              The classic one. You need to run an HTTP server inside the container.
+              Includes only one of the fields `http`, `task`.
+            $ref: '#/definitions/Http'
+          task:
+            description: |-
+              **object**
+              We run a process from ENTRYPOINT inside the container for each user request.
+              Includes only one of the fields `http`, `task`.
+            $ref: '#/definitions/Task'
+        oneOf:
+          - required:
+              - http
+          - required:
+              - task
+      MetadataOptions:
+        type: object
+        properties:
+          gceHttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to GCE flavored metadata
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+          awsV1HttpEndpoint:
+            description: |-
+              **enum** (MetadataOption)
+              Enabled access to AWS flavored metadata (IMDSv1)
+              - `ENABLED`: Option is enabled
+              - `DISABLED`: Option is disabled
+            type: string
+            enum:
+              - METADATA_OPTION_UNSPECIFIED
+              - ENABLED
+              - DISABLED
+      AsyncInvocationConfig:
+        type: object
+        properties:
+          serviceAccountId:
+            description: |-
+              **string**
+              Optional id of service account with permission to invoke container.
+            type: string
 sourcePath: en/_api-ref/serverless/containers/v1/containers/api-ref/Container/deployRevision.md
 ---
 
-# Serverless Containers Service, REST: Container.DeployRevision {#DeployRevision}
+# Serverless Containers Service, REST: Container.DeployRevision
 
 Deploys a revision for the specified container.
 
@@ -38,7 +530,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
         "string"
       ]
     },
-    "environment": "string",
+    "environment": "object",
     "workingDir": "string"
   },
   "concurrency": "string",
@@ -96,7 +588,20 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
       }
       // end of the list of possible fields
     }
-  ]
+  ],
+  "runtime": {
+    // Includes only one of the fields `http`, `task`
+    "http": "object",
+    "task": "object"
+    // end of the list of possible fields
+  },
+  "metadataOptions": {
+    "gceHttpEndpoint": "string",
+    "awsV1HttpEndpoint": "string"
+  },
+  "asyncInvocationConfig": {
+    "serviceAccountId": "string"
+  }
 }
 ```
 
@@ -106,7 +611,7 @@ POST https://serverless-containers.{{ api-host }}/containers/v1/revisions:deploy
 
 Required field. ID of the container to create a revision for.
 
-To get a container ID, make a [ContainerService.List](/docs/serverless/containers/api-ref/Container/list#List) request. ||
+To get a container ID, make a [ContainerService.List](/docs/serverless-containers/containers/api-ref/Container/list#List) request. ||
 || description | **string**
 
 Description of the revision. ||
@@ -152,6 +657,15 @@ S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount)**
 
 Mounts to be used by the revision. ||
+|| runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime)**
+
+The container's execution mode. ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions)**
+
+Metadata options for the revision. ||
+|| asyncInvocationConfig | **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig)**
+
+Config for asynchronous invocations of the revision. ||
 |#
 
 ## Resources {#yandex.cloud.serverless.containers.v1.Resources}
@@ -162,14 +676,20 @@ Resources allocated to a revision.
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the revision, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 || cores | **string** (int64)
 
-Number of cores available to the revision. ||
+Number of cores available to the revision.
+
+Acceptable values are 0 to 4, inclusive. ||
 || coreFraction | **string** (int64)
 
 Specifies baseline performance for a core in percent, multiple of 5%.
-Should be 100% for cores > 1. ||
+Should be 100% for cores > 1.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## ImageSpec {#yandex.cloud.serverless.containers.v1.ImageSpec}
@@ -187,9 +707,11 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
-Additional environment for the container. ||
+Additional environment for the container.
+
+The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `. ||
 || workingDir | **string**
 
 Override for the image's WORKDIR. ||
@@ -256,7 +778,9 @@ Network the revision will have access to. ||
 
 The list of subnets (from the same network) the revision can be attached to.
 
-Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. ||
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy}
@@ -294,12 +818,16 @@ Is logging from container disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -310,9 +838,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -339,7 +864,9 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
@@ -348,7 +875,9 @@ S3 bucket prefix for mounting. ||
 Is mount read only. ||
 || mountPointPath | **string**
 
-Required field. Mount point path inside the container for mounting. ||
+Required field. Mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.containers.v1.Mount}
@@ -359,12 +888,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || mountPointPath | **string**
 
-Required field. The absolute mount point path inside the container for mounting. ||
+Required field. The absolute mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 || mode | **enum** (Mode)
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage)**
@@ -391,7 +921,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -405,10 +937,57 @@ Disk as a mount
 ||Field | Description ||
 || size | **string** (int64)
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## Runtime {#yandex.cloud.serverless.containers.v1.Runtime}
+
+The container's execution mode
+
+#|
+||Field | Description ||
+|| http | **object**
+
+The classic one. You need to run an HTTP server inside the container.
+
+Includes only one of the fields `http`, `task`. ||
+|| task | **object**
+
+We run a process from ENTRYPOINT inside the container for each user request.
+
+Includes only one of the fields `http`, `task`. ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|#
+
+## AsyncInvocationConfig {#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Optional id of service account with permission to invoke container. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -452,7 +1031,7 @@ Optional block size of disk for mount in bytes ||
           "string"
         ]
       },
-      "environment": "string",
+      "environment": "object",
       "workingDir": "string"
     },
     "resources": {
@@ -518,7 +1097,20 @@ Optional block size of disk for mount in bytes ||
         }
         // end of the list of possible fields
       }
-    ]
+    ],
+    "runtime": {
+      // Includes only one of the fields `http`, `task`
+      "http": "object",
+      "task": "object"
+      // end of the list of possible fields
+    },
+    "metadataOptions": {
+      "gceHttpEndpoint": "string",
+      "awsV1HttpEndpoint": "string"
+    },
+    "asyncInvocationConfig": {
+      "serviceAccountId": "string"
+    }
   }
   // end of the list of possible fields
 }
@@ -663,7 +1255,6 @@ ID of the service account associated with the revision. ||
 
 Status of the revision.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Revision is being created.
 - `ACTIVE`: Revision is currently used by the container.
 - `OBSOLETE`: Revision is not used by the container. May be deleted later. ||
@@ -690,6 +1281,15 @@ S3 mounts to be used by the revision. ||
 || mounts[] | **[Mount](#yandex.cloud.serverless.containers.v1.Mount2)**
 
 Mounts to be used by the revision. ||
+|| runtime | **[Runtime](#yandex.cloud.serverless.containers.v1.Runtime2)**
+
+The container's execution mode. ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.serverless.containers.v1.MetadataOptions2)**
+
+Metadata options for the revision. ||
+|| asyncInvocationConfig | **[AsyncInvocationConfig](#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig2)**
+
+Config for asynchronous invocations of the revision. ||
 |#
 
 ## Image {#yandex.cloud.serverless.containers.v1.Image}
@@ -710,9 +1310,11 @@ Override for the image's ENTRYPOINT. ||
 || args | **[Args](#yandex.cloud.serverless.containers.v1.Args2)**
 
 Override for the image's CMD. ||
-|| environment | **string**
+|| environment | **object** (map<**string**, **string**>)
 
-Additional environment for the container. ||
+Additional environment for the container.
+
+The maximum string length in characters for each value is 4096. Each key must match the regular expression ` [a-zA-Z][a-zA-Z0-9_]* `. ||
 || workingDir | **string**
 
 Override for the image's WORKDIR. ||
@@ -752,14 +1354,20 @@ Resources allocated to a revision.
 ||Field | Description ||
 || memory | **string** (int64)
 
-Amount of memory available to the revision, specified in bytes, multiple of 128MB. ||
+Amount of memory available to the revision, specified in bytes, multiple of 128MB.
+
+Acceptable values are 134217728 to 8589934592, inclusive. ||
 || cores | **string** (int64)
 
-Number of cores available to the revision. ||
+Number of cores available to the revision.
+
+Acceptable values are 0 to 4, inclusive. ||
 || coreFraction | **string** (int64)
 
 Specifies baseline performance for a core in percent, multiple of 5%.
-Should be 100% for cores > 1. ||
+Should be 100% for cores > 1.
+
+Acceptable values are 0 to 100, inclusive. ||
 |#
 
 ## Secret {#yandex.cloud.serverless.containers.v1.Secret2}
@@ -797,7 +1405,9 @@ Network the revision will have access to. ||
 
 The list of subnets (from the same network) the revision can be attached to.
 
-Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids. ||
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
+
+The string length in characters for each value must be greater than 0. ||
 |#
 
 ## ProvisionPolicy {#yandex.cloud.serverless.containers.v1.ProvisionPolicy2}
@@ -835,12 +1445,16 @@ Is logging from container disabled. ||
 
 Entry should be written to log group resolved by ID.
 
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
+
 Includes only one of the fields `logGroupId`, `folderId`.
 
 Log entries destination. ||
 || folderId | **string**
 
 Entry should be written to default log group for specified folder.
+
+Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `logGroupId`, `folderId`.
 
@@ -851,9 +1465,6 @@ Minimum log entry level.
 
 See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
-- `LEVEL_UNSPECIFIED`: Default log level.
-
-  Equivalent to not specifying log level at all.
 - `TRACE`: Trace log level.
 
   Possible use case: verbose logging of some business logic.
@@ -880,7 +1491,9 @@ See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.Lo
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. S3 bucket name for mounting. ||
+Required field. S3 bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 S3 bucket prefix for mounting. ||
@@ -889,7 +1502,9 @@ S3 bucket prefix for mounting. ||
 Is mount read only. ||
 || mountPointPath | **string**
 
-Required field. Mount point path inside the container for mounting. ||
+Required field. Mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 |#
 
 ## Mount {#yandex.cloud.serverless.containers.v1.Mount2}
@@ -900,12 +1515,13 @@ Mount contains an information about version's external storage mount
 ||Field | Description ||
 || mountPointPath | **string**
 
-Required field. The absolute mount point path inside the container for mounting. ||
+Required field. The absolute mount point path inside the container for mounting.
+
+The string length in characters must be 1-300. Value must match the regular expression ` [-_0-9a-zA-Z/]* `. ||
 || mode | **enum** (Mode)
 
 Mount's mode
 
-- `MODE_UNSPECIFIED`
 - `READ_ONLY`
 - `READ_WRITE` ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.containers.v1.Mount.ObjectStorage2)**
@@ -932,7 +1548,9 @@ ObjectStorage as a mount
 ||Field | Description ||
 || bucketId | **string**
 
-Required field. ObjectStorage bucket name for mounting. ||
+Required field. ObjectStorage bucket name for mounting.
+
+The string length in characters must be 3-63. Value must match the regular expression ` [-.0-9a-zA-Z]* `. ||
 || prefix | **string**
 
 ObjectStorage bucket prefix for mounting. ||
@@ -946,8 +1564,55 @@ Disk as a mount
 ||Field | Description ||
 || size | **string** (int64)
 
-The size of disk for mount in bytes ||
+The size of disk for mount in bytes
+
+Value must be greater than 0. ||
 || blockSize | **string** (int64)
 
 Optional block size of disk for mount in bytes ||
+|#
+
+## Runtime {#yandex.cloud.serverless.containers.v1.Runtime2}
+
+The container's execution mode
+
+#|
+||Field | Description ||
+|| http | **object**
+
+The classic one. You need to run an HTTP server inside the container.
+
+Includes only one of the fields `http`, `task`. ||
+|| task | **object**
+
+We run a process from ENTRYPOINT inside the container for each user request.
+
+Includes only one of the fields `http`, `task`. ||
+|#
+
+## MetadataOptions {#yandex.cloud.serverless.containers.v1.MetadataOptions2}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|#
+
+## AsyncInvocationConfig {#yandex.cloud.serverless.containers.v1.AsyncInvocationConfig2}
+
+#|
+||Field | Description ||
+|| serviceAccountId | **string**
+
+Optional id of service account with permission to invoke container. ||
 |#

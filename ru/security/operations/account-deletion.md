@@ -1,6 +1,6 @@
-# Удаление паспортного аккаунта из организации
+# Удаление аккаунта на Яндексе из организации
 
-Данная инструкция описывает, как удалить привилегированный паспортный аккаунт с ролью `organization-manager.organizations.owner` из [организации](../../organization/).
+Данная инструкция описывает, как удалить привилегированный [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport) с ролью `organization-manager.organizations.owner` из [организации](../../organization/).
 
 Такая потребность может возникнуть в сценариях, когда необходимо полностью контролировать аутентификацию привилегированного аккаунта. В данном случае привилегированного аккаунта, который имеет полные права на организацию и все ресурсы организации.
 
@@ -79,7 +79,7 @@
 
 1. [Создайте авторизованный ключ](../../iam/operations/iam-token/create-for-sa.md#via-cli) для сервисного аккаунта.
 1. Сохраните файл ключа в доверенном хранилище.
-1. Удалите роль `organization-manager.organizations.owner` у паспортного аккаунта через консоль или интерфейс командной строки:
+1. Удалите роль `organization-manager.organizations.owner` у аккаунта на Яндексе через консоль или интерфейс командной строки:
 
     {% list tabs group=instructions %}
 
@@ -88,7 +88,7 @@
         ``` yc
         yc organization-manager organization remove-access-binding \
             --id=<идентификатор_организации> \
-            --user-account-id=<идентификатор_паспортного_аккаунта> \
+            --user-account-id=<идентификатор_аккаунта_на_Яндексе> \
             --role=organization-manager.organizations.owner 
         ```
 
@@ -100,7 +100,7 @@
 
 1. [Настройте сбор аудитных логов с уровня организации](../../audit-trails/quickstart.md) в {{ at-full-name }}.
 
-1. Отслеживайте как минимум следующие события (в [Object Storage](../../audit-trails/tutorials/search-bucket.md), [лог-группе](../../audit-trails/tutorials/search-cloud-logging.md), [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
+1. [Отслеживайте](../../audit-trails/tutorials/search-events-audit-logs/index.md) как минимум следующие события (в Object Storage, лог-группе, [Managed ELK](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-elk) и [в вашем SIEM](../../audit-trails/concepts/export-siem.md)):
 
     * Создание ключей для сервисного аккаунта (события: `{{ at-event-prefix }}.audit.iam.CreateAccessKey`, `{{ at-event-prefix }}.audit.iam.CreateKey`, `{{ at-event-prefix }}.audit.iam.CreateApiKey` и `authentication.subject_id = <идентификатор_сервисного_аккаунта>`).
     * Назначение прав доступа на сервисный аккаунт (событие: `UpdateServiceAccountAccessBindings` и `details.service_account_id = <идентификатор_сервисного_аккаунта>`).
@@ -114,12 +114,12 @@
 1. [Аутентифицируйтесь](../../cli/operations/authentication/service-account.md#auth-as-sa) от имени сервисного аккаунта.
 1. Далее:
 
-    * Либо назначьте роль `organization-manager.organizations.owner` паспортной учетной записи и с ее помощью восстановите федерацию.
+    * Либо назначьте роль `organization-manager.organizations.owner` учетной записи на Яндексе и с ее помощью восстановите федерацию.
     * Либо восстановите федерацию из интерфейса командной строки CLI.
 
 1. Проверьте доступ от лица федеративного пользователя.
 
 ## Действия после восстановления федерации {#after-federation-repairation}
 
-1. Если паспортной учетной записи была выдана роль `organization-manager.organizations.owner` — [отзовите роль](../../iam/operations/roles/revoke.md).
+1. Если учетной записи на Яндексе была выдана роль `organization-manager.organizations.owner` — [отзовите роль](../../iam/operations/roles/revoke.md).
 1. Создайте новый авторизованный ключ для сервисного аккаунта и сохраните его в доверенном хранилище.

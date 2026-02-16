@@ -1,46 +1,246 @@
 # HTTPRoute resource fields
 
+The `HTTPRoute` resource sets traffic routing rules for {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) operating as backends or redirection rules. `HTTPRoute` receives incoming traffic from those [Gateway resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
 
+`HTTPRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
-The `HTTPRoute` resource defines the rules for routing traffic to backends that are {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for redirecting traffic. `HTTPRoute` receives incoming traffic from the [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
-
-`HTTPRoute` is designed for application developers. Cluster operators should use `Gateway`.
-
-`HTTPRoute` is a {{ k8s }} resource specified by the [{{ k8s }} Gateway API project](https://gateway-api.sigs.k8s.io/). Below, you can find the descriptions of the resource fields and annotations the {{ alb-name }} Gateway API interfaces with. For a full description of the resource configuration, see the [{{ k8s }} Gateway API documentation](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1alpha2.HTTPRoute).
+`HTTPRoute` is a [{{ k8s }} Gateway API](https://gateway-api.sigs.k8s.io/) project resource. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API. For configuration details, see the [{{ k8s }} Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRoute).
 
 ## HTTPRoute {#httproute}
 
 ```yaml
-apiVersion: gateway.networking.k8s.io/v1alpha2
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: <string>
   namespace: <string>
+  annotations:
+    gateway.alb.yc.io/rules.backends.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting: <string>
+    gateway.alb.yc.io/rules.backends.balancing.strictLocality: <bool>
+    gateway.alb.yc.io/rules.backends.balancing.panicThreshold: <string>
+    gateway.alb.yc.io/rule.<rule_name>.backends.balancing.mode: <string>
+    gateway.alb.yc.io/rules.backends.hc.timeout: <string>
+    gateway.alb.yc.io/rules.backends.hc.interval: <string>
+    gateway.alb.yc.io/rules.backends.hc.healthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold: <string>
+    gateway.alb.yc.io/rules.backends.hc.port: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.path: <string>
+    gateway.alb.yc.io/rules.backends.hc.http.useHTTP2: <bool>
+    gateway.alb.yc.io/rules.backends.hc.http.host: <string>
+    gateway.alb.yc.io/rules.backends.hc.grpc.serviceName: "Check"
+    gateway.alb.yc.io/rules.backends.hc.stream.send: <string>
+    gateway.alb.yc.io/rules.backends.hc.stream.receive: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.header.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.name: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl: <string>
+    gateway.alb.yc.io/rules.sessionAffinity.sourceIP: <bool>
+    gateway.alb.yc.io/rules.timeout: <string>
+    gateway.alb.yc.io/rules.idleTimeout: <string>
+    gateway.alb.yc.io/rule.<rule_name>.timeout: <string>
+    gateway.alb.yc.io/rule.<rule_name>.idleTimeout: <string>
+    gateway.alb.yc.io/rules.httpUpgradeTypes: <string>
+    gateway.alb.yc.io/rules.securityProfileId: <string>
+    gateway.alb.yc.io/rules.rbac.action: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.name: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.regex: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.exact: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.prefix: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.ip.remoteIp: <string>
+    gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.any: <bool>
+    gateway.alb.yc.io/hosts.securityProfileId: <string>
+    gateway.alb.yc.io/hosts.rbac.action: <string>
 spec: <HTTPRouteSpec>
 ```
 
 Where:
 
-* `apiVersion`: `gateway.networking.k8s.io/v1alpha2`
+* `apiVersion`: `gateway.networking.k8s.io/v1`
 * `kind`: `HTTPRoute`
-* `metadata` (`ObjectMeta`, required)
+* `metadata` (`ObjectMeta`; this is a required field)
 
-   Resource metadata.
+  Resource metadata.
 
-   * `name` (`string`, required)
+  * `name` (`string`; this is a required field)
 
-      Resource name. For more information about the format, please see the [{{ k8s }} documentation](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-      This name is not the route name in {{ alb-name }}.
+    Do not mistake this name for the {{ alb-name }} route name.
 
-   * `namespace` (`string`)
+  * `namespace` (`string`)
 
-      [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
+    [Namespace](../../../managed-kubernetes/concepts/index.md#namespace) the resource belongs to. The default value is `default`.
 
-* `spec` (`HTTPRouteSpec`, required)
+  * `annotations` (`map[string]string`)
 
-   Resource specification. For more information, see [below](#spec).
+    Resource annotations.
 
+    {% note info %}
+
+    You can define the [RoutePolicy](../../../application-load-balancer/k8s-ref/route-policy.md) resource instead of annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
+
+    {% endnote %}
+
+    * `gateway.alb.yc.io/rules.timeout` (`string`)
+
+      Timeout for HTTP connection between the load balancer and backend. The connection is maintained until the specified time expires regardless of any outgoing data transfer. After the timeout expires, the resource returns the `UNAVAILABLE` status.
+
+    * `gateway.alb.yc.io/rules.idleTimeout` (`string`)
+
+      Inactive HTTP connection timeout during which no data is transferred. After the timeout expires, the resource returns the `504 Gateway Timeout` status.
+    
+    * `gateway.alb.yc.io/rules.securityProfileId` (`string`)
+    
+      {{ sws-name }} [security profile](../../../smartwebsecurity/concepts/profiles.md) ID for the route.
+
+    * `gateway.alb.yc.io/hosts.securityProfileId` (`string`)
+    
+      Security profile ID for the host.
+
+    * `gateway.alb.yc.io/rules.backends.http.useHTTP2`
+
+      Use HTTP/2 for connection between the load balancer and backend.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.header.name`
+
+      HTTP header name for [session affinity](../../../application-load-balancer/concepts/backend-group.md#session-affinity).
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.name`
+
+      Cookie name for session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.cookie.ttl`
+
+      Cookie lifetime for session affinity.
+
+    * `gateway.alb.yc.io/rules.sessionAffinity.sourceIP`
+
+      Indicator of using a client IP address for session affinity.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.mode`
+
+      Load balancing mode. The possible values are `RANDOM`, `ROUND_ROBIN`, and `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rules.backends.balancing.localityAwareRouting`
+
+      Percentage of traffic that goes to the `HTTPRoute` resource's availability zone with `healthy` backends. The remaining traffic is distributed across other availability zones. The parameter is not applied if `strictLocality=true` (see below).
+
+    * `gateway.alb.yc.io/rules.backends.balancing.strictLocality`
+
+      Strictly local routing of traffic to backends (only in the `HTTPRoute` resource's availability zone).
+
+    * `gateway.alb.yc.io/rules.backends.balancing.panicThreshold`
+
+      Panic mode threshold for load balancing in %.
+
+    * `gateway.alb.yc.io/rules.backends.hc.timeout`
+
+      Health check response timeout.
+
+    * `gateway.alb.yc.io/rules.backends.hc.interval`
+
+      Health check interval.
+
+    * `gateway.alb.yc.io/rules.backends.hc.healthyThreshold`
+
+      Number of successful health checks for resource to get the `healthy` status.
+
+    * `gateway.alb.yc.io/rules.backends.hc.unhealthyThreshold`
+
+      Number of failed health checks for resource to get the `unhealthy` status.
+
+    * `gateway.alb.yc.io/rules.backends.hc.port`
+
+      Health check port.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.path`
+
+      Path for HTTP health checks, e.g., `/health`. It is used for HTTP(S) backends.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.useHTTP2`
+
+      Use HTTP/2 for health checks. HTTP/1.1 is used by default. It is used for HTTP(S) backends.
+
+    * `gateway.alb.yc.io/rules.backends.hc.http.host`
+
+      Host address for HTTP health checks.
+
+    * `gateway.alb.yc.io/rules.backends.hc.grpc.serviceName`
+
+      gRPC service name for gRPC backend health checks.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.send`
+
+      Data to send for a TCP health check. It is used for backends with a TCP interface.
+
+    * `gateway.alb.yc.io/rules.backends.hc.stream.receive`
+
+      Expected response in a TCP health check. It is used for backends with a TCP interface.
+
+    * `gateway.alb.yc.io/rules.timeout`
+
+      Total HTTP connection timeout between the load balancer and backend.
+
+    * `gateway.alb.yc.io/rules.idleTimeout`
+
+      Inactive HTTP connection timeout.
+
+    * `gateway.alb.yc.io/rules.httpUpgradeTypes`
+
+      Supported `HTTP Upgrade` values, e.g., websocket.
+
+    * `gateway.alb.yc.io/rules.securityProfileId`
+
+      {{ sws-name }} security profile ID for the route.
+
+    * `gateway.alb.yc.io/rules.rbac.action`
+    
+      Action when specified conditions (`ALLOW`/`DENY`) match for backend access control.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.name`
+
+      Header name for RBAC condition checks.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.regex`
+
+      Regular expression for checking header value to manage access to the host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.exact`
+
+      Exact header value to manage access to the host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.header.prefix`
+
+      Header value prefix to manage access to the host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.ip.remoteIp`
+
+      IP address or CIDR block to manage access to the host over RBAC.
+
+    * `gateway.alb.yc.io/rules.rbac.principals.<group_name>.<principal_name>.any`
+
+      Any match of specified conditions to manage access to the host over RBAC (`true`/`false`).
+
+    * `gateway.alb.yc.io/hosts.rbac.action`
+
+      Action when specified conditions match (`ALLOW`/`DENY`) to manage access to the host over RBAC.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.backends.balancing.mode`
+
+      Load balancing mode for a given rule. The possible values are `RANDOM`, `ROUND_ROBIN`, and `LEAST_REQUEST`.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.timeout`
+
+      Timeout for a given load balancing rule.
+
+    * `gateway.alb.yc.io/rule.<rule_name>.idleTimeout`
+
+      Inactivity timeout for a given load balancing rule.
+
+* `spec` (`HTTPRouteSpec`; this is a required field)
+
+  Resource specification. For more information, see [below](#spec).
 
 ## HTTPRouteSpec {#spec}
 
@@ -81,115 +281,125 @@ rules:
 
 Where:
 
-* `parentRefs` (`[]ParentReference`, required)
+* `parentRefs` (`[]ParentReference`; this is a required field)
 
-   List of `Gateway` resources (or their listeners from the `spec.listeners` field, see the [reference](../../../application-load-balancer/k8s-ref/gateway.md#spec)), that `HTTPRoute` must be linked to.
+  `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `HTTPRoute`. For more information, see [this reference](../../../application-load-balancer/k8s-ref/gateway.md#spec).
 
-   The route must also comply with the rules described in the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) (the `spec.listeners.allowedRoutes` field).
+  Routes must also comply with the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
+  
+  * `namespace` (`string`)
 
-   * `namespace` (`string`)
+    `Gateway` resource namespace specified in its `metadata.namespace` field.
 
-      Namespace the `Gateway` resource belongs to (specified in its metadata in the `metadata.namespace` field).
+    By default, it matches the `HTTPRoute` resource namespace (`metadata.namespace` field).
 
-      By default, matches the namespace of the `HTTPRoute` resource (the `metadata.namespace` field).
+  * `name` (`string`; this is a required field)
 
-   * `name` (`string`, required)
+    `Gateway` resource name specified in its `metadata.name` field.
 
-      Name of the `Gateway` resource (specified in its metadata in the `metadata.name` field).
+  * `sectionName` (`string`)
 
-   * `sectionName` (`string`)
-
-      Name of the listener specified in the `Gateway` resource (specified in the `spec.listeners.name` field).
+    Name of the listener specified in the `Gateway` resource (specified in the `spec.listeners.name` field).
 
 * `hostnames` (`[]string`)
 
-   List of domain names (values of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) matching the route. For each hostname, virtual hosts will be created in HTTP routers.
+  List of domain names (values of the `Host` header for HTTP/1.1 or the `:authority` pseudo-header for HTTP/2) for the route. The system will create HTTP router virtual hosts for each specified domain name.
 
-   {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
+  {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
 
 * `rules` (`[]HTTPRouteRule`)
 
-   Rules for routing and redirecting requests.
+  Request routing and redirection rules.
 
-   * `matches` (`[]HTTPRouteMatch`)
+  * `matches` (`[]HTTPRouteMatch`)
 
-      List of conditions at least one of which must be met by a request to apply the rule to it.
+    List of conditions for the rule to apply to a request if it meets at least one of them.
 
-      For example, any `POST` request to the `/foo` path and any request to the `/bar` path will meet the list of conditions below:
+    For example, the conditions below allow all `POST` requests to the `/foo` endpoint and any requests to the `/bar` endpoint:
 
-      ```yaml
-      matches:
-        - path:
-            value: /foo
-          method: POST
-        - path:
-            value: /bar
-      ```
+    ```yaml
+    matches:
+      - path:
+          value: /foo
+        method: POST
+      - path:
+          value: /bar
+    ```
 
-      Only the fields listed below are supported. Other fields described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1beta1.HTTPRouteMatch) (`headers` and `queryParams`) are not supported.
+    You can only use fields listed below. Other fields described in the [Gateway API reference](https://gateway-api.sigs.k8s.io/references/spec/#gateway.networking.k8s.io/v1.HTTPRouteMatch), i.e.,`headers` and `queryParams`, are not supported.
 
-      * `path` (`HTTPPathMatch`)
+    * `path` (`HTTPPathMatch`)
 
-         Reference to the path in the request URI.
+      Reference to the path in the request URI.
 
-         * `type` (`string`)
+      * `type` (`string`)
 
-            Type of reference to the path in the request URI:
+        Type of reference to the path in the request URI:
 
-            * `Exact`: The path must _exactly match_ the `rules.matches.path.value` field value.
-            * `PathPrefix`: The path must _begin_ with the `rules.matches.path.value` field value.
+        * `Exact`: Path must _match_ `rules.matches.path.value`.
+        * `PathPrefix`: Path must _begin_ with `rules.matches.path.value`.
 
-            Apart from traffic distribution, the type affects the path replacement mechanism used during a redirect. For more information, see [below](#filter).
+        The selected path type will affect traffic distribution and the path replacement mechanism for redirects. For more information, see [below](#filter).
 
-         * `value` (`string`)
+      * `value` (`string`)
 
-            Path in the incoming request URI (if `Exact`) or its prefix (if `PathPrefix`).
+        Incoming request URI full path or its prefix, depending on whether `Exact` or `PathPrefix` is selected, respectively.
+ 
+    * `method` (`HTTPMethod`)
 
-      * `method` (`HTTPMethod`)
+      Request HTTP method.
 
-         HTTP method of the request.
+  * `filters` (`[]HTTPRouteFilter`)
 
-   * `filters` (`[]HTTPRouteFilter`)
+    Filters specifying how request headers are modified when routing a request to any backend or redirecting it. For more information, see [below](#filter).
 
-      List of filters describing how request headers are modified when routing a request to any backend or redirecting them. For more information, see [below](#filter).
+    You can specify either the `RequestHeaderModifier` or the `RequestRedirect` filter, but not both at the same time.
 
-      You can only set either the `RequestHeaderModifier` filter or the `RequestRedirect` filter, but not both of them at the same time.
+  * `backendRefs` (`[]HTTPBackendRef`)
 
-   * `backendRefs` (`[]HTTPBackendRef`)
+    [{{ k8s }} services](../../../managed-kubernetes/concepts/index.md#service) for processing requests as backends.
 
-      List of [{{ k8s }} services](../../../managed-kubernetes/concepts/index.md#service) to handle requests as a backend.
+    You can specify either the [YCStorageBucket](../../../application-load-balancer/k8s-ref/yc-storage-bucket.md) resource ({{ objstorage-name }} bucket) or the [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resource.
 
-      The `Service` resource this field refers to must be described in line with the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+     * `name` (`string`)
 
-      * `name` (`string`)
+       Name of {{ k8s }} service or bucket resource.
 
-         {{ k8s }} service name.
+     * `namespace` (`string`)
+  
+       Namespace the service or bucket resource belongs to.
 
-      * `namespace` (`string`)
+     * `group` (`string`)
 
-         Namespace the service belongs to.
+       Name of the {{ k8s }} API group the bucket resource belongs to, e.g., `gwin.yandex.cloud`. Only for the `YCStorageBucket` resource.
 
-      * `port` (`int32`)
+       The default value is an empty string that indicates the root API group.
 
-         Service port number.
+     * `kind` (`string`)
 
-         The number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       Type of the {{ k8s }} resource with a bucket. Only for the `YCStorageBucket` resource. The `YCStorageBucket` value is used.
 
-         The field is designed for the Gateway API operation and does not match any of the {{ alb-name }} resource fields.
+     * `port` (`int32`)
 
-      * `weight` (`int32`)
+       Service port number. Only for the `Service` resource.
 
-         Relative backend weight. Traffic is distributed to backends in a group as a function of backend weights.
+       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
 
-         Weights must be specified either for all backends in a group, or for none. If weights are not specified, traffic is distributed to the backends as if they had identical positive weights.
+       This field is designed for the Gateway API and does not match any of the {{ alb-name }} resource fields.
 
-         If a non-positive weight is specified, a backend will not receive traffic.
+     * `weight` (`int32`)
 
-      * `filters` (`[]HTTPRouteFilter`)
+       Backend weight. Backends in a group receive traffic in proportion to their weights.
 
-         Settings for modifying request headers when routing requests to backends. For more information, see [below](#filter).
+       You should either specify weights for all backends in a group, or not specify them at all. If weights are not specified, traffic will be equally distributed across backends.
 
-         You can only set the `RequestHeaderModifier` filter type.
+       A backend with zero or negative weight will not be receiving traffic.
+
+     * `filters` (`[]HTTPRouteFilter`)
+
+       Settings for modifying request headers when routing requests to backends. For more information, see [below](#filter).
+
+       You can only specify the `RequestHeaderModifier` filter.
 
 
 ## HTTPRouteFilter {#filter}
@@ -223,78 +433,158 @@ Where:
 
 * `type` (`string`)
 
-   Filter type:
+  Filter type:
 
-   * `RequestHeaderModifier`: Request headers are modified. Specify the settings in the `requestHeaderModifier` field.
-   * `RequestRedirect`: Requests are redirected. Specify the settings in the `requestRedirect` field.
+  * `RequestHeaderModifier`: Request header modification. Specify the required settings in the `requestHeaderModifier` field.
+  * `RequestRedirect`: Request redirection. Specify the required settings in the `requestRedirect` field.
 
 * `requestHeaderModifier` (`HTTPRequestHeaderFilter`)
 
-   Settings for modifying request headers for the `RequestHeaderModifier` filter type.
+  Request header modification settings for the `RequestHeaderModifier` filter type.
 
-   * `set` (`[]HTTPHeader`)
+  * `set` (`[]HTTPHeader`)
 
-      List of headers to be overwritten.
+    Headers to overwrite.
 
-      * `name` (`string`)
+    * `name` (`string`)
 
-         Overwritable header name.
+      Header name to overwrite.
 
-      * `value` (`string`)
+    * `value` (`string`)
 
-         Value written to the header.
+      Value written to the header.
 
-   * `add` (`[]HTTPHeader`)
+  * `add` (`[]HTTPHeader`)
 
-      List of added headers.
+    Headers to add.
 
-      * `name` (`string`)
+    * `name` (`string`)
 
-         Added header's name.
+      Name of the header to add.
 
-      * `value` (`string`)
+    * `value` (`string`)
 
-         Added header's value.
+      Value of the header to add.
+ 
+  * `remove` (`[]string`)
 
-   * `remove` (`[]string`)
-
-      List of headers to be removed.
+    Header names to remove.
 
 * `requestRedirect` (`HTTPRequestRedirectFilter`)
 
-   Request redirect settings for the `RequestRedirect` filter type.
+    {% include [gateway-filters-support-note](./gateway-filters-support-note.md) %}
 
-   * `scheme` (`string`)
+  Request redirect settings for the `RequestRedirect` filter type.
 
-      New schema in the request URI: `http` or `https`. By default, the schema remains unchanged.
+  * `scheme` (`string`)
 
-   * `hostname` (`string`)
+    New request URI scheme, either `http` or `https`. By default, the scheme remains unchanged.
 
-      New hostname in the request URI. By default, the hostname remains unchanged.
+    For redirection to work, an HTTPS traffic listener must be configured for Gateway.
 
-   * `path` (`HTTPPathModifier`)
+    [Below](#example-scheme-redirect) is an example of request redirection with scheme change.
 
-      Settings for replacing the path in the request URI.
+  * `hostname` (`string`)
 
-      * `type` (`string`)
+    New domain name in the request URI. By default, the domain name remains unchanged.
 
-         Path replacement type:
+    [Below](#example-hostname-redirect) is an example of request redirection with domain name change.
 
-         * `ReplaceFullPath`: Full path is replaced. Specify a new path in the `replaceFullPath` field.
-         * `ReplacePrefixMatch`: Replacement depending on the path set in the [`HTTPRoute` specification](#spec) (the `spec.rules.matches.path` field): if `Exact`, the full path is replaced and if `PathPrefix`, its prefix only. Specify a new path or its prefix in the `replacePrefixMatch` field.
+  * `path` (`HTTPPathModifier`)
 
-      * `replaceFullPath` (`string`)
+    Settings for replacing the path in the request URI.
 
-         New path if the `ReplaceFullPath` type is used.
+    * `type` (`string`)
 
-      * `replacePrefixMatch` (`string`)
+      Path replacement type:
 
-         New path or its prefix if the `ReplacePrefixMatch` type is used (see the type description above).
+      * `ReplaceFullPath`: Full path replacement. Specify the new path in the `replaceFullPath` field.
+      * `ReplacePrefixMatch`: Full path or prefix replacement based on the [`HTTPRoute`](#spec) `spec.rules.matches.path` value: `Exact` or `PathPrefix`, respectively. Specify the new path or its prefix in the `replacePrefixMatch` field.
 
-   * `port` (`int32`)
+    * `replaceFullPath` (`string`)
 
-      New port in the request URI.
+      New path for the `ReplaceFullPath` replacement type.
 
-   * `statusCode` (`int`)
+    * `replacePrefixMatch` (`string`)
 
-      HTTP status code returned in the event of a redirect.
+      New path or its prefix for the `ReplacePrefixMatch` replacement type. See the type description above.
+
+  * `port` (`int32`)
+
+    New port in the request URI.
+
+  * `statusCode` (`int`)
+
+    Redirect HTTP status code.
+
+## Examples of manifests for HTTPRoute resources {#examples}
+
+{% include [gateway-filters-support-note](./gateway-filters-support-note.md) %}
+
+### Request redirection with scheme change {#example-scheme-redirect}
+
+In this example, requests arriving at the `http` listener configured for `sample-gateway` are routed. For redirection to work, an HTTPS traffic listener must be configured for Gateway.
+
+All requests to `http://demo.example.com/sample` will be redirected to `https://demo.example.com/sample` with the HTTP code [301 Moved Permanently](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301).
+
+{% cut "Manifest for HTTPRoute: Request redirection with scheme change" %}
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: sample-scheme-redirect
+  namespace: sample-namespace
+spec:
+  parentRefs:
+  - name: sample-gateway
+    sectionName: http
+    namespace: gateways
+  hostnames:
+    - demo.example.com
+  rules:
+  - matches:
+    - path:
+        value: /sample
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        scheme: https
+        statusCode: 301
+```
+
+{% endcut %}
+
+### Request redirection with domain name change {#example-hostname-redirect}
+
+In this example, requests arriving at the `http` listener configured for `sample-gateway` are routed.
+
+All requests to `http://demo.example.com/sample` will be redirected to `http://example.org/sample` with the HTTP code [301 Moved Permanently](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301).
+
+{% cut "Manifest for HTTPRoute: Request redirection with domain name change" %}
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: HTTPRoute
+metadata:
+  name: sample-hostname-redirect
+  namespace: sample-namespace
+spec:
+  parentRefs:
+  - name: sample-gateway
+    sectionName: http
+    namespace: gateways
+  hostnames:
+    - demo.example.com
+  rules:
+  - matches:
+    - path:
+        value: /sample
+    filters:
+    - type: RequestRedirect
+      requestRedirect:
+        hostname: example.org
+        statusCode: 301
+```
+
+{% endcut %}

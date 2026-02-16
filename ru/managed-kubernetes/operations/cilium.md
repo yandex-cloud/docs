@@ -72,6 +72,8 @@
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
+        {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
+
 {% endlist %}
 
 ### Подготовьтесь к работе с кластером {#do-preparations}
@@ -113,6 +115,12 @@
     ```
 
     {% endcut %}
+
+1. Выведите список узлов кластера, на которых запущен Cilium:
+
+    ```bash
+    kubectl get cn
+    ```
 
 1. Создайте файл `hubble-ui.yaml` со спецификацией ресурсов, необходимых для Hubble UI:
 
@@ -391,6 +399,36 @@
                            cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
                            hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                            hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
+    ```
+
+    {% endcut %}
+
+1. Проверьте состояние системных подов Cilium в кластере:
+
+    ```bash
+    for p in $(kubectl get po -o name -n kube-system -l k8s-app=cilium)
+    do
+    echo "\n"$p
+    kubectl exec $p -n kube-system -c cilium-agent -- cilium status | tail -5
+    done
+    ```
+
+    {% cut "Пример результата выполнения команды" %}
+
+    ```text
+    pod/cilium-fwpg6
+    Proxy Status:            OK, ip 172.16.0.1, 0 redirects active on ports 10000-20000
+    Global Identity Range:   min 256, max 65535
+    Hubble:                  Ok   Current/Max Flows: 4095/4095 (100.00%), Flows/s: 5.29       Metrics: Ok
+    Encryption:              Disabled
+    Cluster health:          3/3 reachable   (2025-05-14T09:50:51Z)
+
+    pod/cilium-ph5dx
+    Proxy Status:            OK, ip 172.16.0.37, 0 redirects active on ports 10000-20000
+    Global Identity Range:   min 256, max 65535
+    Hubble:                  Ok   Current/Max Flows: 4095/4095 (100.00%), Flows/s: 5.72   Metrics: Ok
+    Encryption:              Disabled
+    Cluster health:          3/3 reachable   (2025-05-14T09:50:06Z)
     ```
 
     {% endcut %}
@@ -810,13 +848,6 @@
 
 - {{ TF }} {#tf}
 
-  1. В командной строке перейдите в директорию, в которой расположен актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
-  1. Удалите конфигурационный файл `k8s-cilium.tf`.
-  1. {% include [terraform-validate](../../_includes/managed-kubernetes/terraform-validate.md) %}
-  1. Подтвердите изменение ресурсов.
-
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-     Все ресурсы, которые были описаны в конфигурационном файле `k8s-cilium.tf`, будут удалены.
+  {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

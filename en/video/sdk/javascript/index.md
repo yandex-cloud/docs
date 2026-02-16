@@ -1,18 +1,18 @@
 ---
-title: Getting started with JavaScript SDK for Cloud Video Player
-description: This page summarizes the basic controls for Cloud Video Player using JavaScript SDK.
+title: Getting started with the JavaScript SDK for {{ video-player-name }}
+description: This page describes the basic controls for {{ video-player-name }} in the JavaScript SDK.
 ---
 
 # Getting Started with the video player SDK for JavaScript
 
-You can integrate a [video player](../../concepts/player.md) with content from Cloud Video into your [JavaScript](https://en.wikipedia.org/wiki/JavaScript) project using the Cloud Video Player SDK for JavaScript.
+You can integrate a [video player](../../concepts/player.md) with content from {{ video-name }} into your [JavaScript](https://en.wikipedia.org/wiki/JavaScript) project using the {{ video-player-name }} SDK for JavaScript.
 
-## Connecting a player on your page {#add-player}
+## Adding a player to your page {#add-player}
 
 To connect a player to a page, add the following code to it:
 
 ```html
-<script src="https://storage.yandexcloud.net/videoplatform-public/player/yandex-video-player-iframe-api-bundles/1.0-11944/js/player-sdk.js"></script>
+<script src="https://runtime.video.cloud.yandex.net/player/js/player-sdk.js"></script>
 ```
 
 ## Initializing a player {#initialize-player}
@@ -21,9 +21,9 @@ To initialize a player, add the following code to the page:
 
 ```javascript
 var player = Ya.playerSdk.init({
-    /** @type {(string|HTMLElement)} where the player will be created */
+    /** @type {(string|HTMLElement)} to create the player in */
     element: 'video-player',
-    /** @type {string} playable content link */
+    /** @type {string} link to playable content */
     source: 'https://runtime.video.cloud.yandex.net/player/...',
     /** @type {boolean} autoplay when loading content */
     autoplay: false
@@ -32,29 +32,29 @@ var player = Ya.playerSdk.init({
 
 {% include [video-content-id-desc](../../../_includes/video/video-content-id-desc.md) %}
 
-For more information on initializing a player, see the following sections:
+For more information on initializing a player, see:
 
 * [Player initialization parameters](./initialization.md)
-* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
-* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkInitConfig](../../api-ref/javascript/interfaces/PlayerSdkInitConfig.md) in the API reference
+* [Interface: PlayerSdkSourceParams](../../api-ref/javascript/interfaces/PlayerSdkSourceParams.md) in the API reference
 
 ## Player controls {#player-controls}
 
-For information on player control methods, see the following sections:
+For information on player control methods, see:
 
 * [Player methods](./player-methods.md)
-* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkApi](../../api-ref/javascript/interfaces/PlayerSdkApi.md) in the API reference
 
 ## Player state {#player-state}
     
-For information about an object containing player state parameters, see the following sections:
+For information about the object containing player state parameters, see:
 
 * [Player state](./player-state.md)
-* [Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkState](../../api-ref/javascript/interfaces/PlayerSdkState.md) in the API reference
 
 ## Player events {#player-events}
 
-For information about player events, see the following sections:
+For information about player events, see:
 
 * [Player events](./player-events.md)
-* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) API reference
+* [Interface: PlayerSdkEventHandlers](../../api-ref/javascript/interfaces/PlayerSdkEventHandlers.md) in the API reference

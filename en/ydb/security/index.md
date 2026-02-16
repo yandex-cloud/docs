@@ -1,45 +1,70 @@
 ---
 title: Access management in {{ ydb-full-name }}
-description: Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign appropriate roles from the list to the user.
+description: Access management in {{ ydb-full-name }}, a solution for creating and managing databases. To allow access to {{ ydb-short-name }} resources (databases and their users), assign to the user the relevant roles from the list.
 sourcePath: overlay/security/start_auth.md
 ---
 
 # Access management in {{ ydb-name }}
 
-{{ yandex-cloud }} users can only perform operations on resources that are allowed by the roles assigned to them. As long as a user has no roles assigned, almost all operations are forbidden.
+{% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To enable access to {{ ydb-short-name }} resources (databases and their users), assign the required roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated users](../../iam/concepts/federations.md), [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). A role can be assigned for a parent resource (folder or cloud) whose roles are inherited by nested resources.
+To allow access to {{ ydb-short-name }} resources (databases and their users), assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). A role can be assigned for a parent resource (folder or cloud) whose roles are inherited by nested resources.
 
 You can also grant a role to access a specific database. This will allow a user without any roles in the directory hosting the database to access the database according to the role assigned.
 
-Roles for a resource can be assigned by users who have the `ydb.admin` role or one of the following roles for that resource:
+To assign a role for a resource, a user should have the `ydb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
 {% note info %}
 
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} documentation.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
 
 {% endnote %}
 
 ## Assigning roles {#grant-roles}
 
-To assign a user a role:
+To assign a role to a user:
 
 {% include [grant-role-console](../../_includes/grant-role-console.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-You can also assign a role for individual resources of the service. The list of such resources depends on the {{ yandex-cloud }} interfaces you use to assign roles:
+You can also assign roles for individual resources within the service:
 
-* In the management console, you can only assign roles for a [YDB DBMS](../concepts/index.md#ydb).
-* Via the YC CLI or {{ yandex-cloud }} API, you can assign roles for a DBMS and its backup.
+{% list tabs group=instructions %}
 
-## Which roles exist in the service {#roles-list}
+- Management console {#console}
 
-The list below shows all roles considered when verifying access permissions in {{ ydb-name }}.
+  You can use the [management console]({{ link-console-main }}) to assign roles for a YDB database.
+
+- CLI {#cli}
+
+  You can use the [{{ yandex-cloud }} CLI](../../cli/cli-ref/ydb/cli-ref/index.md) to assign roles for the following resources:
+
+  * YDB database.
+  * YDB database backup.
+
+- {{ TF }} {#tf}
+
+  You can use [{{ TF }}]({{ tf-provider-resources-link }}/ydb_database_iam_binding) to assign roles for a YDB database.
+
+- API {#api}
+
+  You can use the [{{ yandex-cloud }}](../api-ref/authentication.md) API to assign roles for the following resources:
+
+  * YDB database.
+  * YDB database backup.
+
+{% endlist %}
+
+## Roles this service has {#roles-list}
+
+The list below shows all roles used for access control in {{ ydb-name }}.
+
+{% include [ydb](../../_mermaid/roles/ydb.md) %}
 
 ### Service roles {#service-roles}
 

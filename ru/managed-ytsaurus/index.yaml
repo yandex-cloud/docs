@@ -1,0 +1,46 @@
+title: '{{ myt-full-name }}'
+description:
+  - >-
+    Сервис {{ myt-full-name }} помогает разворачивать и поддерживать кластеры {{
+    ytsaurus-name }} в инфраструктуре Yandex Cloud. <a
+    href="https://ytsaurus.tech/ru">YTsaurus</a>  — это платформа
+    распределённого хранения и обработки больших данных с открытым исходным
+    кодом.
+  - >-
+    Инфраструктура {{ yandex-cloud }} <a
+    href="/docs/security/conform">защищена</a> в соответствии с Федеральным
+    законом Российской Федерации «О персональных данных» № 152-ФЗ.
+  - >-
+    Для сервиса действует <a
+    href="https://yandex.ru/legal/cloud_sla/ru/">соглашение об уровне
+    обслуживания</a>. Уровень обслуживания сервиса определен в документе <a
+    href="https://yandex.ru/legal/cloud_sla_yt/ru/">Уровень обслуживания Yandex
+    Managed Service for YTsaurus</a>.
+links:
+  - title: Начало работы
+    description: Создайте первый кластер {{ ytsaurus-name }}
+    href: quickstart
+  - title: Пошаговые инструкции
+    description: Инструкции по выполнению рутинных операций
+    href: operations/
+  - title: Квоты и лимиты
+    description: Технические и организационные ограничения сервиса
+    href: concepts/limits
+  - title: Управление доступом
+    description: Настройте права доступа для работы с сервисом
+    href: security/
+  - title: Правила тарификации
+    description: Цены и правила расчета стоимости услуг сервиса
+    href: pricing
+  - title: История изменений
+    description: Перечень обновлений сервиса
+    href: release-notes
+meta:
+  title: '{{ myt-full-name }}'
+  description: >-
+    Сервис {{ myt-name }} помогает разворачивать и поддерживать кластеры {{
+    ytsaurus-name }} в инфраструктуре Yandex Cloud.
+  keywords:
+    - '{{ myt-name }}'
+    - '{{ myt-full-name }}'
+    - сервис {{ myt-name }}

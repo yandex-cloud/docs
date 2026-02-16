@@ -10,7 +10,7 @@ description:
     безопасности;</li> <li>автоматизировать бизнес-операции;</li>
     <li>настраивать пайпланы CI/CD;</li> <li>разрабатывать
     событийно-ориентированные приложения на базе serverless, используя
-    оркестрацию и хореографию, чтобы организовывать взаимодействие между 
+    оркестрацию и хореографию, чтобы организовывать взаимодействие между
     событиями и управлять ими.</li></ul>
   - >-
     {{ sw-name }} и {{ er-name }} находятся на стадии <a
@@ -22,11 +22,6 @@ description:
     }},  читайте в <a
     href="https://yandex.cloud/ru/docs/api-gateway/">документации {{
     api-gw-full-name }}</a>.
-meta:
-  title: '{{ si-full-name }}'
-  description: >-
-    Сервис {{ si-full-name }} позволяет интегрировать сервисы {{ yandex-cloud }}
-    друг с другом.
 links:
   - title: Начало работы c {{ sw-name }}
     description: Создайте рабочий процесс и запустите его
@@ -49,3 +44,23 @@ links:
   - title: Справочник API {{ er-name }} (англ.)
     description: Описание методов HTTP API {{ er-name }}
     href: eventrouter/api-ref/
+meta:
+  title: '{{ si-full-name }}'
+  description: >-
+    Сервис {{ si-full-name }} позволяет интегрировать сервисы {{ yandex-cloud }}
+    друг с другом.
+  keywords:
+    - cloud serverless integrations
+    - '{{ si-name }}'
+    - '{{ si-full-name }}'
+    - '{{ sw-full-name }}'
+    - '{{ er-full-name }}'
+    - сервис {{ si-name }}
+    - сервис {{ sw-name }}
+    - сервис {{ er-name }}
+    - интеграция в {{ yandex-cloud }}
+    - рабочие процессы в {{ yandex-cloud }}
+    - роутер событий в {{ yandex-cloud }}
+    - бессерверная интеграция
+    - облачная интеграция
+    - интеграция в облаке

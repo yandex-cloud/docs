@@ -1,5 +1,8 @@
 ---
+title: Метрики {{ message-queue-full-name }}
+description: Из статьи вы узнаете про метрики {{ message-queue-name }}.
 editable: false
+sourcePath: ru/monitoring_includes/metrics-ref/message-queue-ref.md
 ---
 
 # Метрики {{ message-queue-full-name }}

@@ -1,9 +1,33 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/{backupId}
+    method: delete
+    path:
+      type: object
+      properties:
+        computeInstanceId:
+          description: |-
+            **string**
+            Required field. Compute Cloud instance ID of the Backup.
+            The maximum string length in characters is 50.
+          type: string
+        backupId:
+          description: |-
+            **string**
+            Required field. Backup ID that should be deleted.
+          type: string
+      required:
+        - computeInstanceId
+        - backupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/backup/v1/backup/api-ref/Backup/delete.md
 ---
 
-# Cloud Backup API, REST: Backup.Delete {#Delete}
+# Cloud Backup API, REST: Backup.Delete
 
 Delete specific backup.
 
@@ -19,7 +43,9 @@ DELETE https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/{back
 ||Field | Description ||
 || computeInstanceId | **string**
 
-Required field. Compute Cloud instance ID of the Backup. ||
+Required field. Compute Cloud instance ID of the Backup.
+
+The maximum string length in characters is 50. ||
 || backupId | **string**
 
 Required field. Backup ID that should be deleted. ||

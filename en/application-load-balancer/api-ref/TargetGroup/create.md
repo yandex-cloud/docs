@@ -1,9 +1,91 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a target group in.
+            To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the target group.
+            The name must be unique within the folder.
+            Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `.
+          pattern: ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)?
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the target group.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Target group labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        targets:
+          description: |-
+            **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
+            List of targets in the target group.
+          type: array
+          items:
+            $ref: '#/definitions/Target'
+      required:
+        - folderId
+      additionalProperties: false
+    definitions:
+      Target:
+        type: object
+        properties:
+          ipAddress:
+            description: |-
+              **string**
+              IP address of the target.
+              Includes only one of the fields `ipAddress`.
+              Reference to the target. As of now, targets must only be referred to by their IP addresses.
+            type: string
+          subnetId:
+            description: |-
+              **string**
+              ID of the subnet that the target is connected to.
+            type: string
+          privateIpv4Address:
+            description: |-
+              **boolean**
+              If set, will not require `subnet_id` to validate the target.
+              Instead, the address should belong to one of the following ranges:
+              10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+              Only one of `subnet_id` or `private_ipv4_address` should be set.
+            type: boolean
+        oneOf:
+          - required:
+              - ipAddress
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/create.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.Create {#Create}
+# Application Load Balancer API, REST: TargetGroup.Create
 
 Creates a target group in the specified folder.
 
@@ -20,7 +102,7 @@ POST https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "targets": [
     {
       // Includes only one of the fields `ipAddress`
@@ -43,14 +125,20 @@ To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List
 || name | **string**
 
 Name of the target group.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
 || description | **string**
 
-Description of the target group. ||
-|| labels | **string**
+Description of the target group.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
+For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
 
 List of targets in the target group. ||
@@ -109,7 +197,7 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "targets": [
       {
         // Includes only one of the fields `ipAddress`
@@ -239,7 +327,7 @@ Description of the target group. ||
 || folderId | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

@@ -2,9 +2,15 @@ title: Yandex Managed Service for Apache Kafka®
 description:
   - >-
     Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
-    поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий 2.8, 3.0,
-    3.1, 3.2, 3.3, 3.4, 3.5 и 3.6 в инфраструктуре Yandex Cloud.
-  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\"> защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
+    поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий {{
+    versions.console.str }} в инфраструктуре Yandex Cloud.
+  - >-
+    Инфраструктура Yandex Cloud <a href="/docs/security/conform">защищена</a> в
+    соответствии со следующими стандартами: <ul><li>Федеральный закон Российской
+    Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности
+    индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li>
+    <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ
+    57580.1-2017.</li></ul>
   - >-
     Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
     об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
@@ -14,12 +20,6 @@ description:
     <em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются
     зарегистрированными товарными знаками или товарными знаками Apache Software
     Foundation в США и/или других странах.</em>
-meta:
-  title: Yandex Managed Service for Apache Kafka®
-  description: >-
-    Сервис Managed Service for Apache Kafka® помогает разворачивать и
-    поддерживать кластеры серверов Apache Kafka® версий 2.8, 3.0, 3.1, 3.2, 3.3,
-    3.4 и 3.5 в инфраструктуре Yandex Cloud.
 links:
   - title: Начало работы
     description: Создайте первый кластер
@@ -45,3 +45,21 @@ links:
   - title: Обучающие курсы
     description: Информация о доступных программах обучения
     href: training
+meta:
+  title: Yandex Managed Service for Apache Kafka®
+  description: >-
+    Сервис Managed Service for Apache Kafka® помогает разворачивать и
+    поддерживать кластеры серверов Apache Kafka® версий {{ versions.console.str
+    }} в инфраструктуре Yandex Cloud.
+  keywords:
+    - Apache Kafka
+    - Kafka
+    - кластер {{ mkf-name }}
+    - '{{ mkf-name }}'
+    - хост-брокер
+    - KRaft
+    - кластеры серверов {{ mkf-name }}
+    - Kafka в {{ yandex-cloud }}
+    - Apache Kafka в {{ yandex-cloud }}
+    - '{{ mkf-name }} в {{ yandex-cloud }}'
+    - сервис {{ mkf-name }}

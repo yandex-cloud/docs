@@ -1,16 +1,34 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+    method: delete
+    path:
+      type: object
+      properties:
+        desktopId:
+          description: |-
+            **string**
+            Required field. ID of the desktop to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - desktopId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/clouddesktop/v1/api-ref/Desktop/delete.md
 ---
 
-# Cloud Desktop API, REST: Desktop.Delete {#Delete}
+# Cloud Desktop API, REST: Desktop.Delete
 
 Deletes the specified desktop.
 
 ## HTTP request
 
 ```
-DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
+DELETE https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters
@@ -19,7 +37,9 @@ DELETE https://cloud-desktop.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId
 ||Field | Description ||
 || desktopId | **string**
 
-Required field. ID of the desktop to delete. ||
+Required field. ID of the desktop to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

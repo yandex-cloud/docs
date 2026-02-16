@@ -1,9 +1,117 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies/{scanPolicyId}
+    method: patch
+    path:
+      type: object
+      properties:
+        scanPolicyId:
+          description: |-
+            **string**
+            Required field. ID of the scan policy.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - scanPolicyId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            Name of the scan policy.
+            Value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `.
+          pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the scan policy.
+            The maximum string length in characters is 256.
+          type: string
+        rules:
+          description: |-
+            **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules)**
+            Rules of the scan policy.
+          $ref: '#/definitions/ScanRules'
+      additionalProperties: false
+    definitions:
+      PushRule:
+        type: object
+        properties:
+          repositoryPrefixes:
+            description: |-
+              **string**
+              List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+              The number of elements must be greater than 0. Each value must match the regular expression ` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
+            pattern: \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*
+            type: array
+            items:
+              type: string
+          disabled:
+            description: |-
+              **boolean**
+              Turns off scan rule.
+            type: boolean
+      ScheduledRule:
+        type: object
+        properties:
+          repositoryPrefixes:
+            description: |-
+              **string**
+              List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+              The number of elements must be greater than 0. Each value must match the regular expression ` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* `.
+            pattern: \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))*
+            type: array
+            items:
+              type: string
+          rescanPeriod:
+            description: |-
+              **string** (duration)
+              Required field. Period of time since last scan to trigger automatic rescan.
+            type: string
+            format: duration
+          disabled:
+            description: |-
+              **boolean**
+              Turns off scan rule.
+            type: boolean
+        required:
+          - rescanPeriod
+      ScanRules:
+        type: object
+        properties:
+          pushRule:
+            description: |-
+              **[PushRule](#yandex.cloud.containerregistry.v1.PushRule)**
+              Description of on-push scan rule.
+            $ref: '#/definitions/PushRule'
+          scheduleRules:
+            description: |-
+              **[ScheduledRule](#yandex.cloud.containerregistry.v1.ScheduledRule)**
+              Description of time based rescan rule.
+            type: array
+            items:
+              $ref: '#/definitions/ScheduledRule'
 sourcePath: en/_api-ref/containerregistry/v1/api-ref/ScanPolicy/update.md
 ---
 
-# Container Registry API, REST: ScanPolicy.Update {#Update}
+# Container Registry API, REST: ScanPolicy.Update
 
 Updates the specified scan policy.
 
@@ -19,7 +127,9 @@ PATCH https://container-registry.{{ api-host }}/container-registry/v1/scanPolici
 ||Field | Description ||
 || scanPolicyId | **string**
 
-Required field. ID of the scan policy. ||
+Required field. ID of the scan policy.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpdateScanPolicyRequest}
@@ -63,10 +173,14 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-Name of the scan policy. ||
+Name of the scan policy.
+
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
-Description of the scan policy. ||
+Description of the scan policy.
+
+The maximum string length in characters is 256. ||
 || rules | **[ScanRules](#yandex.cloud.containerregistry.v1.ScanRules)**
 
 Rules of the scan policy. ||
@@ -90,7 +204,9 @@ Description of time based rescan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **boolean**
 
 Turns off scan rule. ||
@@ -102,7 +218,9 @@ Turns off scan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || rescanPeriod | **string** (duration)
 
 Required field. Period of time since last scan to trigger automatic rescan. ||
@@ -312,7 +430,9 @@ Description of time based rescan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || disabled | **boolean**
 
 Turns off scan rule. ||
@@ -324,7 +444,9 @@ Turns off scan rule. ||
 ||Field | Description ||
 || repositoryPrefixes[] | **string**
 
-List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry ||
+List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
+
+The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || rescanPeriod | **string** (duration)
 
 Required field. Period of time since last scan to trigger automatic rescan. ||

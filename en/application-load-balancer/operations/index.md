@@ -1,6 +1,6 @@
 ---
 title: Working with {{ alb-full-name }}. Step-by-step guides
-description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to create L7 load balancers and manage them, and how to use HTTP routers and target groups.
+description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud }}. In this article, you will learn how to create and manage L7 load balancers, how to use HTTP routers, and how to work with target groups.
 ---
 
 # Step-by-step guides for {{ alb-name }}
@@ -29,6 +29,8 @@ description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud
 * [{#T}](http-router-create-grpc.md)
 * [{#T}](http-router-get.md)
 * [{#T}](http-router-update.md)
+* [{#T}](manage-virtual-hosts.md)
+* [{#T}](manage-routes.md)
 * [{#T}](http-router-delete.md)
 
 ## L7 load balancers {#application-load-balancer-operations}
@@ -44,9 +46,18 @@ description: Step-by-step guides on using {{ alb-full-name }} in {{ yandex-cloud
 * [{#T}](application-load-balancer-relocate.md)
 * [{#T}](application-load-balancer-delete.md)
 
+### Availability zone management {#manage-zone}
+
+* [{#T}](manage-zone/allow-and-deny-shift.md)
+* [{#T}](manage-zone/start-and-cancel-shift.md)
+
 ## Tools for {{ managed-k8s-name }} {#k8s-ingress-controller}
 
 * [{#T}](k8s-ingress-controller-install.md)
 * [{#T}](k8s-ingress-controller-upgrade.md)
 * [{#T}](k8s-gateway-api-install.md)
 * [{#T}](k8s-ingress-controller-apply.md)
+
+## Getting additional information {#get-additional-info}
+
+* [{#T}](operation-logs.md)

@@ -31,7 +31,7 @@ items:
     items:
       - name: Service settings
         href: settings.md
-      - name: '{{ sk-hybrid-name }} service monitoring'
+      - name: Monitoring {{ sk-hybrid-name }} services
         href: monitoring.md
       - name: Envoy monitoring
         href: monitoring-envoy.md
@@ -39,10 +39,10 @@ items:
         href: operations/logging.md
       - name: TLS termination
         href: operations/tls-proxy.md
+  - name: API authentication
+    href: auth.md
   - name: gRPC API reference
     items:
-      - name: Authentication with the API
-        href: auth.md
       - name: Speech synthesis
         items:
           - name: Overview
@@ -57,7 +57,5 @@ items:
             href: api-ref/stt/v3/grpc/stt_service.md
   - name: Pricing policy
     href: pricing.md
-  - name: '{{ sk-hybrid-name }} administration'
+  - name: '{{ sk-hybrid-name }} releases'
     href: release-notes.md
-base: en/speechkit-hybrid
-deepBase: 2

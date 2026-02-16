@@ -1,9 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://{{ api-host-kms }}/kms/v1/keys
+    method: post
+    path: null
+    query: null
+    body:
+      type: object
+      properties:
+        folderId:
+          description: |-
+            **string**
+            Required field. ID of the folder to create a symmetric KMS key in.
+            The maximum string length in characters is 50.
+          type: string
+        name:
+          description: |-
+            **string**
+            Name of the key.
+            The maximum string length in characters is 100.
+          type: string
+        description:
+          description: |-
+            **string**
+            Description of the key.
+            The maximum string length in characters is 1024.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
+            For example, `"project": "mvp"` or `"source": "dictionary"`.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_0-9a-z]*'
+          maxProperties: 64
+        defaultAlgorithm:
+          description: |-
+            **enum** (SymmetricAlgorithm)
+            Required field. Encryption algorithm to be used with a new key version, generated with the next rotation.
+            - `AES_128`: AES algorithm with 128-bit keys.
+            - `AES_192`: AES algorithm with 192-bit keys.
+            - `AES_256`: AES algorithm with 256-bit keys.
+            - `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+            - `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm
+          type: string
+          enum:
+            - SYMMETRIC_ALGORITHM_UNSPECIFIED
+            - AES_128
+            - AES_192
+            - AES_256
+            - AES_256_HSM
+            - GOST_R_3412_2015_K
+        rotationPeriod:
+          description: |-
+            **string** (duration)
+            Interval between automatic rotations. To disable automatic rotation, don't include
+            this field in the creation request.
+          type: string
+          format: duration
+        deletionProtection:
+          description: |-
+            **boolean**
+            Flag that inhibits deletion of the symmetric KMS key
+          type: boolean
+      required:
+        - folderId
+        - defaultAlgorithm
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/kms/v1/api-ref/SymmetricKey/create.md
 ---
 
-# Key Management Service API, REST: SymmetricKey.Create {#Create}
+# Key Management Service API, REST: SymmetricKey.Create
 
 Creates a symmetric KMS key in the specified folder.
 
@@ -20,7 +95,7 @@ POST https://{{ api-host-kms }}/kms/v1/keys
   "folderId": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "defaultAlgorithm": "string",
   "rotationPeriod": "string",
   "deletionProtection": "boolean"
@@ -31,26 +106,34 @@ POST https://{{ api-host-kms }}/kms/v1/keys
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create a symmetric KMS key in. ||
+Required field. ID of the folder to create a symmetric KMS key in.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
-Name of the key. ||
+Name of the key.
+
+The maximum string length in characters is 100. ||
 || description | **string**
 
-Description of the key. ||
-|| labels | **string**
+Description of the key.
+
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the symmetric KMS key as `key:value` pairs. Maximum 64 per key.
-For example, `"project": "mvp"` or `"source": "dictionary"`. ||
+For example, `"project": "mvp"` or `"source": "dictionary"`.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
 || defaultAlgorithm | **enum** (SymmetricAlgorithm)
 
-Encryption algorithm to be used with a new key version, generated with the next rotation.
+Required field. Encryption algorithm to be used with a new key version, generated with the next rotation.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || rotationPeriod | **string** (duration)
 
 Interval between automatic rotations. To disable automatic rotation, don't include
@@ -90,7 +173,7 @@ Flag that inhibits deletion of the symmetric KMS key ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "primaryVersion": {
       "id": "string",
@@ -237,14 +320,13 @@ Name of the key. ||
 || description | **string**
 
 Description of the key. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Custom labels for the key as `key:value` pairs. Maximum 64 per key. ||
 || status | **enum** (Status)
 
 Current status of the key.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The key is being created.
 - `ACTIVE`: The key is active and can be used for encryption and decryption.
 Can be set to INACTIVE using the [SymmetricKeyService.Update](/docs/kms/api-ref/SymmetricKey/update#Update) method.
@@ -258,11 +340,11 @@ when no version ID is specified. ||
 
 Default encryption algorithm to be used with new versions of the key.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || rotatedAt | **string** (date-time)
 
 Time of the last key rotation (time when the last version was created).
@@ -298,7 +380,6 @@ ID of the symmetric KMS key that the version belongs to. ||
 
 Status of the key version.
 
-- `STATUS_UNSPECIFIED`
 - `ACTIVE`: The version is active and can be used for encryption and decryption.
 - `SCHEDULED_FOR_DESTRUCTION`: The version is scheduled for destruction, the time when it will be destroyed
 is specified in the `SymmetricKeyVersion.destroyAt` field.
@@ -307,11 +388,11 @@ is specified in the `SymmetricKeyVersion.destroyAt` field.
 
 Encryption algorithm that should be used when using the key version to encrypt plaintext.
 
-- `SYMMETRIC_ALGORITHM_UNSPECIFIED`
 - `AES_128`: AES algorithm with 128-bit keys.
 - `AES_192`: AES algorithm with 192-bit keys.
 - `AES_256`: AES algorithm with 256-bit keys.
-- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM ||
+- `AES_256_HSM`: AES algorithm with 256-bit keys hosted by HSM
+- `GOST_R_3412_2015_K`: GOST R 34.12-2015 Kuznyechik algorithm ||
 || createdAt | **string** (date-time)
 
 Time when the key version was created.

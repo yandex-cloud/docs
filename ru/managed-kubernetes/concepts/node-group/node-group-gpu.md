@@ -1,3 +1,8 @@
+---
+title: Группы узлов с GPU
+description: Из статьи вы узнаете про группы узлов с GPU, требования к ним и ознакомитесь с особенностями тарификации.
+---
+
 # Группы узлов с GPU
 
 
@@ -9,10 +14,9 @@
 
   {% include [compute-gpu-zero-quota](../../../_includes/compute/gpu-zero-quota.md) %}
 
-* Группа узлов должна находиться в [зоне доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, `{{ region-id }}-b` или в обеих зонах. ВМ с GPU доступны только в этих зонах.
+* {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
 
-  Запрашивая квоту GPU, учитывайте, в каких зонах вы собираетесь запускать кластеры {{ k8s }}.
-
+  При выборе этих платформ группа узлов должна находиться в одной из указанных зон доступности или в обеих зонах.
 
 ## Тарификация {#pricing}
 
@@ -20,3 +24,7 @@
 * Использование [мастера {{ managed-k8s-name }}](../index.md#master) оплачивается по [правилам {{ managed-k8s-name }}](../../pricing.md).
 * ВМ с GPU — по [правилам {{ compute-full-name }}](../../../compute/pricing.md#prices-instance-resources).
 * Исходящий трафик — по [правилам {{ vpc-full-name }}](../../../vpc/pricing.md).
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/driverless-gpu.md)

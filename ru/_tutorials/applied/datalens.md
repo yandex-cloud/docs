@@ -3,7 +3,7 @@
 
 В этом руководстве вы настроите мониторинг состояния устройств (например, вендинговых автоматов), подключенных к сервису [{{ iot-full-name }}](../../iot-core/index.yaml) и расположенных в разных точках города. Вы сможете наблюдать за состоянием автоматов на карте и графиках сервиса [{{ datalens-full-name }}](../../datalens/index.yaml). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/index.yaml). Если у вас есть подключенные датчики, используйте их. Для хранения данных будет использован сервис [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
-Исходный код, который используется в этом руководстве, доступен на [GitHub](https://github.com/yandex-cloud/examples/tree/master/iot/Scenarios).
+Исходный код руководства доступен в репозитории на [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring).
 
 Чтобы настроить мониторинг показаний датчиков:
 1. [Подготовьте облако к работе](#configure-cloud).
@@ -55,7 +55,7 @@
   1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `15`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** укажите:
 
-      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `{{ ui-key.yacloud.mdb.forms.resource_presets_field_gen_v3 }}`.
+      * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`.
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** — `standard`.
       * Класс — `{{ s3-c2-m8 }}`.
 
@@ -86,7 +86,7 @@
       1. Нажмите значок ![image](../../_assets/console-icons/pencil.svg).
       1. В открывшемся окне включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** и **{{ ui-key.yacloud.mdb.forms.additional-field-websql }}**.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** и **Доступ из консоли управления**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
   Создание кластера может занять несколько минут.
@@ -180,7 +180,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `device-emulator.js`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/device-emulator.js).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/device-emulator.js).
 
       1. Аналогичным образом создайте файл `package.json` со следующим содержимым:
 
@@ -248,7 +248,7 @@
 
       Выполнение команды не должно прерываться до завершения тестирования функции.
 
-      Подробнее о команде `yc iot mqtt subscribe` читайте в [справочнике CLI](../../cli/cli-ref/managed-services/iot/mqtt/subscribe.md).
+      Подробнее о команде `yc iot mqtt subscribe` читайте в [справочнике CLI](../../cli/cli-ref/iot/cli-ref/mqtt/subscribe.md).
 
     {% endlist %}
 
@@ -354,7 +354,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `myfunction.py`.
-          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud/examples/blob/master/iot/Scenarios/DashboardForGeoDistributedDevices/myfunction.py).
+          * Содержимое файла — код функции с [GitHub](https://github.com/yandex-cloud-examples/yc-geo-dist-devices-iot-monitoring/blob/main/myfunction.py).
 
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `myfunction.msgHandler`.
       1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
@@ -435,8 +435,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В меню слева выберите **SQL**.
+  1. В поле **Пароль** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите результаты обработки данных в таблицах `iot_events` и `iot_position`.
 
@@ -490,8 +490,8 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
-  1. В меню слева выберите **{{ ui-key.yacloud.postgresql.cluster.switch_explore }}**.
-  1. В поле **{{ ui-key.yacloud.clickhouse.cluster.explore.label_password }}** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.explore.button_submit-creds }}**.
+  1. В меню слева выберите **SQL**.
+  1. В поле **Пароль** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
   1. Выберите папку `public`.
   1. Посмотрите изменения в таблице `iot_events`.
 
@@ -499,7 +499,7 @@
 
 ## Настройте мониторинг в {{ datalens-name }} {#configure-datalens}
 
-Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
+Чтобы наблюдать за состоянием устройств, настройте [подключение](../../datalens/concepts/connection/index.md), создайте [датасет](../../datalens/dataset/index.md), [чарты](../../datalens/concepts/chart/index.md) и [дашборд](../../datalens/concepts/dashboard.md).
 
 ### Настройте подключение к {{ mpg-name }} {#connect-mpg}
 
@@ -512,7 +512,7 @@
   1. Нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ PG }}**.
 
-      При подключении к внешнему источнику данных (который не является ресурсом {{ yandex-cloud }}) предоставьте доступ к источнику [для диапазонов IP-адресов сервиса {{ datalens-name }}](../../datalens/concepts/connection.md#changing-connection-ranges).
+      При подключении к внешнему источнику данных (который не является ресурсом {{ yandex-cloud }}) предоставьте доступ к источнику [для диапазонов IP-адресов сервиса {{ datalens-name }}](../../datalens/concepts/connection/index.md#changing-connection-ranges).
 
   1. Выберите облако и каталог.
   1. Выберите кластер `my-pg-database` и хост.

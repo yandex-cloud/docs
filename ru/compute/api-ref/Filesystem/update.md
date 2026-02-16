@@ -1,9 +1,84 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
+    method: patch
+    path:
+      type: object
+      properties:
+        filesystemId:
+          description: |-
+            **string**
+            Required field. ID of the filesystem to update.
+            To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - filesystemId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        updateMask:
+          description: |-
+            **string** (field-mask)
+            A comma-separated names off ALL fields to be updated.
+            Only the specified fields will be changed. The others will be left untouched.
+            If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+            the field's value will be reset to the default. The default value for most fields is null or 0.
+            If `` updateMask `` is not sent in the request, all fields' values will be updated.
+            Fields specified in the request will be updated to provided values.
+            The rest of the fields will be reset to the default.
+          type: string
+          format: field-mask
+        name:
+          description: |-
+            **string**
+            New name of the filesystem. The name must be unique within the folder.
+            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
+          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+          type: string
+        description:
+          description: |-
+            **string**
+            New description of the filesystem.
+            The maximum string length in characters is 256.
+          type: string
+        labels:
+          description: |-
+            **object** (map<**string**, **string**>)
+            New filesystem labels as `key:value` pairs.
+            For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
+            Existing set of labels is completely replaced by the provided set, so if you just want
+            to add or remove a label:
+            1. Get the current set of labels with a [FilesystemService.Get](/docs/compute/api-ref/Filesystem/get#Get) request.
+            2. Add or remove a label in this set.
+            3. Send the new set in this field.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+          type: object
+          additionalProperties:
+            type: string
+            pattern: '[-_./\@0-9a-z]*'
+            maxLength: 63
+          propertyNames:
+            type: string
+            pattern: '[a-z][-_./\@0-9a-z]*'
+            maxLength: 63
+            minLength: 1
+          maxProperties: 64
+        size:
+          description: |-
+            **string** (int64)
+            Size of the filesystem, specified in bytes.
+          type: string
+          format: int64
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Filesystem/update.md
 ---
 
-# Compute Cloud API, REST: Filesystem.Update {#Update}
+# Compute Cloud API, REST: Filesystem.Update
 
 Updates the specified filesystem.
 
@@ -21,7 +96,9 @@ PATCH https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 
 Required field. ID of the filesystem to update.
 
-To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request. ||
+To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateFilesystemRequest}
@@ -31,7 +108,7 @@ To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/
   "updateMask": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "size": "string"
 }
 ```
@@ -50,11 +127,15 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name of the filesystem. The name must be unique within the folder. ||
+New name of the filesystem. The name must be unique within the folder.
+
+Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
-New description of the filesystem. ||
-|| labels | **string**
+New description of the filesystem.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
 
 New filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
@@ -63,7 +144,9 @@ Existing set of labels is completely replaced by the provided set, so if you jus
 to add or remove a label:
 1. Get the current set of labels with a [FilesystemService.Get](/docs/compute/api-ref/Filesystem/get#Get) request.
 2. Add or remove a label in this set.
-3. Send the new set in this field. ||
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || size | **string** (int64)
 
 Size of the filesystem, specified in bytes. ||
@@ -98,7 +181,7 @@ Size of the filesystem, specified in bytes. ||
     "createdAt": "string",
     "name": "string",
     "description": "string",
-    "labels": "string",
+    "labels": "object",
     "typeId": "string",
     "zoneId": "string",
     "size": "string",
@@ -233,7 +316,7 @@ Name of the filesystem. The name is unique within the folder. ||
 || description | **string**
 
 Description of the filesystem. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -257,7 +340,6 @@ Block size used for the filesystem, specified in bytes. ||
 
 Current status of the filesystem.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The filesystem is being created.
 - `READY`: The filesystem is ready to use.
 - `ERROR`: The filesystem encountered a problem and cannot operate.

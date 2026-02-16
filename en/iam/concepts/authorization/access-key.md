@@ -1,3 +1,8 @@
+---
+title: Static access keys compatible with the AWS API
+description: In this article, you will learn about the purpose of a static access key, its format, and about the services supporting this authentication method.
+---
+
 # Static access keys compatible with the AWS API
 
 
@@ -10,13 +15,13 @@ It consists of two parts:
 
 Both parts are used in requests to the AWS-compatible API. A key ID is specified in open format. A secret key is used to sign request parameters and is not specified in the request.
 
-The secret key is stored by the user on their own. {{ yandex-cloud }} gives access to it only while the [static key is being created](../../operations/sa/create-access-key.md).
+It is the client's responsibility to store the secret key. {{ yandex-cloud }} gives access to it only when [creating a static key](../../operations/authentication/manage-access-keys.md#create-access-key).
 
-Static keys do not expire.
+A static key has no expiration date.
 
 {% note alert %}
 
-Make sure no third party has access to the secret key. Keep your key in a secure location. If the key becomes known to a third party, [reissue](../../operations/compromised-credentials.md#access-key-reissue) it.
+Make sure no third party has access to your secret key. Keep your key in a secure location. If your key has become known to a third party, [reissue](../../operations/compromised-credentials.md#access-key-reissue) it.
 
 {% endnote %}
 
@@ -30,23 +35,23 @@ In addition to static access keys, you can use [{{ sts-name }}](sts.md) temporar
 
 A key ID consists of 25 characters and always starts with `YC`. Other characters may include:
 
-* Latin letters
-* Numbers
-* Underscores (`_`) and hyphens (`-`)
+* Latin letters.
+* Numbers.
+* Underscores (`_`) and hyphens (`-`).
 
 Here is an example of a key ID: `YCchbYEDdcsYFBnxSWbcjDJDn`.
 
 ### Secret key {#private-key}
 
-A secret consists of 40 characters and always starts with `YC`. Other characters may include:
+A secret key consists of 40 characters and always starts with `YC`. Other characters may include:
 
-* Latin letters
-* Numbers
-* Underscores (`_`) and hyphens (`-`)
+* Latin letters.
+* Numbers.
+* Underscores (`_`) and hyphens (`-`).
 
 Here is an example of a secret key: `YCVdheub7w9bImcGAnd3dZnf08FRbvjeUFvehGvc`.
 
-For an example of using a secret key and its ID in an AWS-compliant API, see the [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files) section.
+For an example of using a secret key and its ID in an AWS-compatible API, see the [AWS Command Line Interface](../../../storage/tools/aws-cli.md#config-files) section.
 
 ## Services that support this authentication method {#supported-services}
 
@@ -56,10 +61,15 @@ The following services support authentication based on static access keys:
 * [{{ message-queue-name }}](../../../message-queue/api-ref/index.md)
 * [{{ ydb-name }}](../../../ydb/docapi/tools/aws-setup.md)
 * [{{ yds-full-name }}](../../../data-streams/index.yaml)
+* [{{ postbox-full-name }}](../../../postbox/aws-compatible-api/index.md)
+
+## Use cases {#examples}
+
+* [Using a {{ lockbox-full-name }} secret to store a static access key](../../tutorials/static-key-in-lockbox/index.md)
 
 #### See also {#see-also}
 
-* [{#T}](../../operations/sa/create-access-key.md)
+* [{#T}](../../operations/authentication/manage-access-keys.md#create-access-key)
 * [{#T}](./index.md)
 * [{#T}](./sts.md)
-* [{#T}](../../tutorials/static-key-in-lockbox.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

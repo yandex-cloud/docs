@@ -1,3 +1,8 @@
+---
+title: Гарантии поставки данных
+description: Из статьи вы узнаете про гарантии поставки данных.
+---
+
 # Гарантии поставки данных
 
 Существует три стратегии поставки данных:
@@ -19,7 +24,7 @@
     | База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/)  | ![no](../../_assets/common/no.svg)   |
     | Собственная база данных {{ ES }}                                                                            | ![yes](../../_assets/common/yes.svg)  |
     | База данных {{ GP }} — собственная или в составе [сервиса {{ mgp-short-name }}](../../managed-greenplum/)   | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ MG }} — собственная или в составе [сервиса {{ mmg-short-name }}](../../managed-mongodb/)     | ![yes](../../_assets/common/yes.svg) |
+    | База данных {{ MG }} — собственная или в составе [сервиса {{ mmg-short-name }}](../../storedoc/)     | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/)       | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/)  | ![yes](../../_assets/common/yes.svg) |
     | База данных {{ OS }} — собственная или в составе [сервиса {{ mos-short-name }}](../../managed-opensearch/)  | ![yes](../../_assets/common/yes.svg) |

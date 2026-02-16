@@ -1,3 +1,5 @@
-# All solutions for Partner program
+# Solutions for partner program
 
-{% include [ki-index](known-issues/index.md) %}
+{% include [how-to-index](how-to/index.md) %}
+
+{% include [known-issues-index](known-issues/index.md) %}

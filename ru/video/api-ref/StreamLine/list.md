@@ -1,11 +1,69 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines
+    method: get
+    path: null
+    query:
+      type: object
+      properties:
+        channelId:
+          description: |-
+            **string**
+            Required field. ID of the channel containing the stream lines to list.
+            The maximum string length in characters is 50.
+          type: string
+        pageSize:
+          description: |-
+            **string** (int64)
+            The maximum number of stream lines to return per page.
+            The maximum value is 100.
+          type: string
+          format: int64
+        pageToken:
+          description: |-
+            **string**
+            Page token for retrieving the next page of results.
+            This token is obtained from the next_page_token field in the previous ListStreamLinesResponse.
+            The maximum string length in characters is 15000.
+          type: string
+        orderBy:
+          description: |-
+            **string**
+            Specifies the ordering of results.
+            Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
+            Default: "id asc".
+            Supported fields: ["id", "title", "createdAt", "updatedAt"].
+            Both snake_case and camelCase field names are supported.
+            The maximum string length in characters is 50.
+          type: string
+        filter:
+          description: |-
+            **string**
+            Filter expression to narrow down the list of returned stream lines.
+            Expressions consist of terms connected by logical operators.
+            Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+            with inner quotes being backslash-escaped.
+            Supported logical operators: ["AND", "OR"].
+            Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+            Parentheses can be used to group logical expressions.
+            Example: `title:'main' AND id='line-1'`
+            Filterable fields: ["id", "title"].
+            Both snake_case and camelCase field names are supported.
+            The maximum string length in characters is 1000.
+          type: string
+      required:
+        - channelId
+      additionalProperties: false
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/list.md
 ---
 
-# Video API, REST: StreamLine.List {#List}
+# Video API, REST: StreamLine.List
 
-List lines for channel.
+Lists all stream lines in a specific channel with pagination support.
+Results can be filtered and sorted using the provided parameters.
 
 ## HTTP request
 
@@ -19,28 +77,46 @@ GET https://video.{{ api-host }}/video/v1/streamLines
 ||Field | Description ||
 || channelId | **string**
 
-ID of the channel. ||
+Required field. ID of the channel containing the stream lines to list.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
-The maximum number of the results per page to return. Default value: 100. ||
+The maximum number of stream lines to return per page.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
-Page token for getting the next page of the result. ||
+Page token for retrieving the next page of results.
+This token is obtained from the next_page_token field in the previous ListStreamLinesResponse.
+
+The maximum string length in characters is 15000. ||
 || orderBy | **string**
 
-By which column the listing should be ordered and in which direction,
-format is "createdAt desc". "id asc" if omitted.
-Possible fields: ["id", "title", "createdAt", "updatedAt"]
-Both snake_case and camelCase are supported for fields. ||
+Specifies the ordering of results.
+Format is "&lt;field&gt; &lt;order&gt;" (e.g., "createdAt desc").
+Default: "id asc".
+Supported fields: ["id", "title", "createdAt", "updatedAt"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 50. ||
 || filter | **string**
 
-Filter expression that filters resources listed in the response.
-Expressions are composed of terms connected by logic operators.
-Value in quotes: `'` or `"`
-Example: "key1='value' AND key2='value'"
-Supported operators: ["AND"].
-Supported fields: ["title"]
-Both snake_case and camelCase are supported for fields. ||
+Filter expression to narrow down the list of returned stream lines.
+Expressions consist of terms connected by logical operators.
+Values containing spaces or quotes must be enclosed in quotes (`'` or `"`)
+with inner quotes being backslash-escaped.
+
+Supported logical operators: ["AND", "OR"].
+Supported comparison operators: ["=", "!=", ":"] where ":" enables substring matching.
+Parentheses can be used to group logical expressions.
+
+Example: `title:'main' AND id='line-1'`
+
+Filterable fields: ["id", "title"].
+Both snake_case and camelCase field names are supported.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.ListStreamLinesResponse}
@@ -54,24 +130,14 @@ Both snake_case and camelCase are supported for fields. ||
       "id": "string",
       "channelId": "string",
       "title": "string",
-      "thumbnailId": "string",
-      // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
+      // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
       "rtmpPush": {
-        "url": "string"
-      },
-      "srtPush": {
         "url": "string"
       },
       "rtmpPull": {
         "url": "string"
       },
       "srtPull": {
-        "url": "string"
-      },
-      "tcpPull": {
-        "url": "string"
-      },
-      "rtspPull": {
         "url": "string"
       },
       // end of the list of possible fields
@@ -83,7 +149,7 @@ Both snake_case and camelCase are supported for fields. ||
       // end of the list of possible fields
       "createdAt": "string",
       "updatedAt": "string",
-      "labels": "string"
+      "labels": "object"
     }
   ],
   "nextPageToken": "string"
@@ -94,15 +160,17 @@ Both snake_case and camelCase are supported for fields. ||
 ||Field | Description ||
 || streamLines[] | **[StreamLine](#yandex.cloud.video.v1.StreamLine)**
 
-List of lines for channel. ||
+List of stream lines matching the request criteria.
+May be empty if no stream lines match the criteria or if the channel has no stream lines. ||
 || nextPageToken | **string**
 
-Token for getting the next page. ||
+Token for retrieving the next page of results.
+Empty if there are no more results available. ||
 |#
 
 ## StreamLine {#yandex.cloud.video.v1.StreamLine}
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -111,72 +179,48 @@ Entity that is responsible for the incoming video signal settings.
 ID of the line. ||
 || channelId | **string**
 
-ID of the channel where the line was created. ||
+ID of the channel to which this stream line belongs. ||
 || title | **string**
 
-Line title. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail. ||
+Title of the stream line. ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-RTMP push input type.
+Real-Time Messaging Protocol (RTMP) push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
-
-SRT push input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
-RTMP pull input type.
+Real-Time Messaging Protocol (RTMP) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
 
-SRT pull input type.
+Secure Reliable Transport (SRT) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| tcpPull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
-
-TCP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
-|| rtspPull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
-
-RTSP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || createdAt | **string** (date-time)
 
-Time when line was created.
+Timestamp when the stream line was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -186,7 +230,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last line update.
+Timestamp of the last modification to the stream line or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -194,12 +238,18 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}
+
+Settings for an RTMP (Real-Time Messaging Protocol) push input.
+Used when the video stream is pushed to an RTMP server.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -208,16 +258,11 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 RTMP server url. ||
 |#
 
-## SRTPushInput {#yandex.cloud.video.v1.SRTPushInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-SRT server url. ||
-|#
-
 ## RTMPPullInput {#yandex.cloud.video.v1.RTMPPullInput}
+
+Settings for an RTMP pull input.
+Used when the service pulls the video stream from an RTMP source.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -228,6 +273,10 @@ RTMP url for receiving video signal. ||
 
 ## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
 
+Settings for an SRT pull input.
+Used when the service pulls the video stream from an SRT source.
+@see https://en.wikipedia.org/wiki/Secure_Reliable_Transport
+
 #|
 ||Field | Description ||
 || url | **string**
@@ -235,35 +284,16 @@ RTMP url for receiving video signal. ||
 SRT url for receiving video signal. ||
 |#
 
-## TCPPullInput {#yandex.cloud.video.v1.TCPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-TCP url for receiving video signal. ||
-|#
-
-## RTSPPullInput {#yandex.cloud.video.v1.RTSPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-RTSP url for receiving video signal. ||
-|#
-
 ## AutoLine {#yandex.cloud.video.v1.AutoLine}
 
-Auto line type.
+Represents an automatic line type where the stream control is handled automatically.
 
 #|
 ||Field | Description ||
 || status | **enum** (AutoLineStatus)
 
-Status of auto line.
+The status of the automatic line.
 
-- `AUTO_LINE_STATUS_UNSPECIFIED`: Auto line status unspecified.
-- `DEACTIVATED`: Auto line deactivated.
-- `ACTIVE`: Auto line active. ||
+- `DEACTIVATED`: The automatic line is deactivated and not currently active.
+- `ACTIVE`: The automatic line is active and operational. ||
 |#

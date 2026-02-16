@@ -1,6 +1,7 @@
 ---
 title: Инструкция о том, как удалить лог-группу в {{ cloud-logging-name }}
 description: Из статьи вы узнаете, как удалить лог-группу в {{ cloud-logging-name }}.
+sourcePath: ru/logging_includes/operations/delete-group.md
 ---
 
 # Удалить лог-группу
@@ -16,7 +17,7 @@ description: Из статьи вы узнаете, как удалить лог
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите удалить [лог-группу](../concepts/log-group.md).
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. В строке с лог-группой нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 
@@ -108,7 +109,6 @@ description: Из статьи вы узнаете, как удалить лог
 
   Чтобы удалить пользовательскую лог-группу, воспользуйтесь методом REST API [delete](../api-ref/LogGroup/delete.md) для ресурса [LogGroup](../api-ref/LogGroup/index.md) или вызовом gRPC API [LogGroupService/Delete](../api-ref/grpc/LogGroup/delete.md).
 
-
   **Пример запроса**
 
   {% include [api-example-introduction](../../_includes/logging/api-example-introduction.md) %}
@@ -139,6 +139,5 @@ description: Из статьи вы узнаете, как удалить лог
     }
   }
   ```
-
 
 {% endlist %}

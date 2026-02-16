@@ -1,5 +1,11 @@
-[Включите](../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
+[Включите](../../organization/operations/os-login-access.md) доступ по {{ oslogin }} на уровне организации.
 
-Чтобы подключиться к ВМ по OS Login с SSH-ключом, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
+Чтобы подключиться к ВМ по {{ oslogin }} с SSH-ключом, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_user-ssh-key-settings }}**.
 
-Чтобы иметь возможность добавить SSH-ключ в профиль пользователя организации, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
+Чтобы пользователи могли самостоятельно добавлять SSH-ключи в свои профили {{ oslogin }}, включите опцию **{{ ui-key.yacloud_org.form.oslogin-settings.title_allow-edit-own-keys }}**.
+
+{% note info %}
+
+{% include [adding-sa-ssh-keys-notice](../organization/adding-sa-ssh-keys-notice.md) %}
+
+{% endnote %}

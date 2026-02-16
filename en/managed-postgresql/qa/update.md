@@ -1,3 +1,8 @@
+---
+title: Updating a {{ PG }} cluster
+description: This page covers FAQ about updating a {{ PG }} cluster.
+---
+
 # Updating a {{ PG }} cluster
 
 

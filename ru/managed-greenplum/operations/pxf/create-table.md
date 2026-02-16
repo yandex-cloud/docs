@@ -1,9 +1,14 @@
+---
+title: Создание внешней таблицы по протоколу PXF
+description: Следуя данной инструкции, вы создадите внешнюю таблицу по протоколу PXF с помощью SQL-запроса.
+---
+
 # Создание внешней таблицы по протоколу PXF
 
 ## Перед началом работы {#before-you-begin}
 
 
-1. В подсети кластера {{ mgp-name }} [настройте NAT-шлюз и привяжите таблицу маршрутизации](../../../vpc/operations/create-nat-gateway.md).
+1. В подсети кластера {{ GP }} [настройте NAT-шлюз и привяжите таблицу маршрутизации](../../../vpc/operations/create-nat-gateway.md).
 1. В той же подсети [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 1. Создайте внешний источник данных. Инструкции по созданию зависят от типа подключения источника:
 
@@ -32,13 +37,13 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 * `<путь_к_данным_или_имя_таблицы>` — имя внешнего объекта, см. [примеры внешних таблиц](#pxf-examples).
 * `PROFILE` — стандарт взаимодействия с внешней СУБД (профиль). Например, `JDBC`. Список возможных значений зависит от типа подключения:
 
-    * [S3]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/access_objstore.html#connectors-data-formats-and-profiles-1);
-    * [JDBC]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/jdbc_pxf.html#accessing-an-external-sql-database-3);
-    * [HDFS и Hive]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/access_hdfs.html#connectors-data-formats-and-profiles-3).
+    * [S3]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/access_objstore.html#objstore_connectors);
+    * [JDBC]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/jdbc_pxf.html#queryextdata);
+    * [HDFS и Hive]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/access_hdfs.html#hadoop_connectors).
 
 * `SERVER` — имя внешнего источника данных PXF.
 
-    Вместо `SERVER` вы можете передать параметры, которые задают конфигурацию внешнего источника данных. Они зависят от типа подключения источника. Подробнее см. в документации [{{ GP }} PXF]({{ gp.docs.vmware }}-Platform-Extension-Framework/6.9/greenplum-platform-extension-framework/intro_pxf.html#creating-an-external-table-6) и примерах создания внешних таблиц.
+    Вместо `SERVER` вы можете передать параметры, которые задают конфигурацию внешнего источника данных. Они зависят от типа подключения источника. Подробнее см. в документации [{{ GP }} PXF]({{ gp.docs.broadcom }}-platform-extension-framework/6-9/gp-pxf/intro_pxf.html#create_external_table) и примерах создания внешних таблиц.
 
 Опция `WRITABLE` позволяет записывать данные во внешний объект. Чтобы считать данные из внешнего объекта, создайте внешнюю таблицу с опцией `READABLE`.
 
@@ -50,7 +55,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
     1. [Создайте кластер {{ mch-full-name }}](../../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -58,7 +63,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `chserver`;
         * **Driver** — `com.clickhouse.jdbc.ClickHouseDriver`;
-        * **Url** — `jdbc:clickhouse:http://c-<идентификатор_кластера>.rw.{{ dns-zone }}:8123/db1`;
+        * **Url** — `jdbc:clickhouse:http://c-<идентификатор_кластера>.rw.{{ dns-zone }}:8123/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto), который всегда указывает на доступный хост кластера {{ mch-name }}.
+            * `8123` — порт для [подключения](../../../managed-clickhouse/operations/connect/index.md) к кластеру {{ mch-name }}.
+            * `db1` — имя БД в кластере {{ mch-name }}.
+
         * **User** — `chuser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
@@ -76,7 +86,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         INSERT INTO test VALUES (1);
         ```
 
-    1. [Подключитесь к БД {{ GP }}](../connect.md).
+    1. [Подключитесь к БД {{ GP }}](../connect/index.md).
     1. Создайте внешнюю таблицу `pxf_ch`, которая будет ссылаться на таблицу `test` в кластере {{ CH }}. SQL-запрос зависит от того, был ли создан ранее внешний источник данных:
 
         * С источником данных:
@@ -109,7 +119,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
             ```sql
             CREATE READABLE EXTERNAL TABLE pxf_ch(id int)
-            LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
+            LOCATION ('pxf://test?PROFILE=JDBC&JDBC_DRIVER=com.clickhouse.jdbc.ClickHouseDriver&DB_URL=jdbc:clickhouse:https://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mch-http }}/db1&USER=chuser&ssl=true&sslmode=strict&sslrootcert=/etc/greenplum/ssl/allCAs.pem')
             FORMAT 'CUSTOM' (FORMATTER='pxfwritable_import');
             ```
 
@@ -136,7 +146,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `mysqluser`.
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -144,14 +154,19 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `mysqlserver`;
         * **Driver** — `com.mysql.jdbc.Driver`;
-        * **Url** — `jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`;
+        * **Url** — `jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mmy-name }}.
+            * `{{ port-mmy }}` — порт для [подключения](../../../managed-mysql/operations/connect/index.md) к кластеру {{ mmy-name }}.
+            * `db1` — имя БД в кластере {{ mmy-name }}.
+
         * **User** — `mysqluser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-mysql/operations/cluster-list.md#list-clusters) в каталоге.
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.
 
-    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect.md#connection-string) с помощью утилиты `mysql`.
+    1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) с помощью утилиты `mysql`.
     1. Создайте тестовую таблицу и наполните ее данными:
 
         ```sql
@@ -162,7 +177,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         INSERT INTO test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Подключитесь к БД {{ GP }}](../connect.md).
+    1. [Подключитесь к БД {{ GP }}](../connect/index.md).
     1. Создайте внешнюю таблицу `pxf_mysql`, которая будет ссылаться на таблицу `test` в кластере {{ MY }}. SQL-запрос зависит от того, был ли создан ранее внешний источник данных:
 
         * С источником данных:
@@ -205,7 +220,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         * Имя пользователя — `pguser`;
         * В настройках хостов выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
@@ -213,7 +228,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `pgserver`;
         * **Driver** — `org.postgresql.Driver`;
-        * **Url** — `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`;
+        * **Url** — `jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, где:
+
+            * `c-<идентификатор_кластера>.rw.{{ dns-zone }}` — [особый FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mpg-name }}.
+            * `{{ port-mpg }}` — порт для [подключения](../../../managed-postgresql/operations/connect.md) к кластеру {{ mpg-name }}.
+            * `db1` — имя БД в кластере {{ mpg-name }}.
+
         * **User** — `pguser`.
 
         Идентификатор кластера можно [получить со списком кластеров](../../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
@@ -231,7 +251,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         INSERT INTO public.test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Подключитесь к БД {{ GP }}](../connect.md).
+    1. [Подключитесь к БД {{ GP }}](../connect/index.md).
     1. Создайте внешнюю таблицу `pxf_pg`, которая будет ссылаться на таблицу `public.test` в кластере {{ PG }}. SQL-запрос зависит от того, был ли создан ранее внешний источник данных:
 
         * С источником данных:
@@ -269,12 +289,12 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 - {{ objstorage-name }} {#storage}
 
-
+    
     1. В подсети кластера [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) и [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 
 
     1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с ограниченным доступом.
-    1. [Создайте статический ключ доступа](../../../iam/operations/sa/create-access-key.md).
+    1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
     1. (Опционально) [Создайте внешний источник данных S3](create-s3-source.md) с параметрами:
 
         * **Имя** — `objserver`;
@@ -295,7 +315,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         Файлы, которые вы загружаете в бакет, не должны начинаться с символов `.` и `_`. Такие файлы считаются скрытыми, и PXF не считывает из них данные.
 
-    1. [Подключитесь к БД {{ GP }}](../connect.md).
+    1. [Подключитесь к БД {{ GP }}](../connect/index.md).
     1. Чтобы считать данные из бакета {{ objstorage-name }}:
 
         1. Создайте внешнюю таблицу `pxf_s3_read`, которая будет ссылаться на бакет. SQL-запрос зависит от того, был ли создан ранее внешний источник данных:

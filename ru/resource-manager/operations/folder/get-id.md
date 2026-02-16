@@ -9,11 +9,34 @@ description: Из статьи вы узнаете, как получить ид
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления]({{ link-console-cloud }}) и в списке слева выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder). На открывшейся странице идентификатор каталога указан сверху, рядом с именем каталога.
+  Вы можете получить идентификатор каталога на дашборде или на вкладке **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}**.
+
+  **Получение идентификатора на дашборде**
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Идентификатор каталога указан сверху, под именем каталога. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "Расположение идентификатора" %}
+    
+     ![folder-dashboard-id](../../../_assets/resource-manager/folder-dashboard-id.png)
+
+     {% endcut %}
+
+  **Получение идентификатора на вкладке {{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoTooltip.title_folder-info-dialog_c4F7i }}**
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../concepts/resources-hierarchy.md#folder).
+  1. Справа от названия каталога нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_folder-info }}**.
+  1. В открывшемся окне идентификатор каталога указан в поле **{{ ui-key.yacloud.dashboard.FoldersSelector.FolderInfoDialog.folder-id_6KQJv }}**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "Расположение идентификатора" %}
+
+     ![folder-info-menu](../../../_assets/resource-manager/folder-info-option.png)
+    
+     ![folder-info-id](../../../_assets/resource-manager/folder-info-id.png)
+
+     {% endcut %}
   
-  1. Чтобы скопировать идентификатор, наведите на него указатель и нажмите значок ![image](../../../_assets/console-icons/copy.svg).
-  
-  Также получить идентификатор можно из URL страницы каталога в консоли управления:
+  Вы также можете получить идентификатор из URL страницы каталога в консоли управления:
   
   ```text
   {{ link-console-main }}/folders/<идентификатор_каталога>

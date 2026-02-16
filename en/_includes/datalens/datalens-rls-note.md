@@ -4,5 +4,6 @@
 
 * RLS supports access control for string values only.
 
-{% endnote %}
+* The RLS limits apply to whole rows, not just the fields used to configure access control.
 
+{% endnote %}

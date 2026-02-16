@@ -13,14 +13,14 @@ Storing images from {{ GL }} projects in {{ container-registry-full-name }} has
 
 * The images are still available in {{ container-registry-full-name }}, even if {{ mgl-name }} is not.
 
-* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application. You can learn more about security scans in the [{{ yandex-cloud }} blog](/blog/posts/2023/04/vulnerability-scanner-and-yandex-container-registry).
+* {{ container-registry-full-name }} supports the [Docker image vulnerability scanner](../../container-registry/concepts/vulnerability-scanner.md). Use the scanner to detect vulnerabilities and fix them before deploying your application.
 
 To set up storage of {{ mgl-name }} Docker images in {{ container-registry-full-name }}:
 
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
-1. [Create a {{ GLR }}](#runner).
+1. [Create a {{ GLR }}](#runners).
 1. [Create {{ GL }} environment variables](#add-variables).
 1. [Create the CI script configuration file](#add-ci).
 1. [Check the result](#check-result).
@@ -41,7 +41,6 @@ By default, {{ GL }} {{ container-registry-name }} is disabled when creating an 
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
-
 ### Required paid resources {#paid-resources}
 
 Infrastructure support costs include fees for the following resources:
@@ -51,22 +50,21 @@ Infrastructure support costs include fees for the following resources:
 * Storing the Docker images you created and a vulnerability scanner, if [activated](#vulnerability-scanner) (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
 * Using a {{ managed-k8s-name }} master (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
-
-### Prepare the infrastructure {#deploy-infrastructure}
+### Set up your infrastructure {#deploy-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Manually {#manual}
 
    1. If you do not have a [network](../../vpc/concepts/network.md#network) yet, [create one](../../vpc/operations/network-create.md).
-   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet), [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
-   1. [Create a service account](../../iam/operations/sa/create.md) named `account-for-container-registry` with [roles](../../iam/concepts/access-control/roles.md) for the folder.
+   1. If you do not have any [subnets](../../vpc/concepts/network.md#subnet) yet, [create them](../../vpc/operations/subnet-create.md) in the [availability zones](../../overview/concepts/geo-scope.md) where your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and [node group](../../managed-kubernetes/concepts/index.md#node-group) will be created.
+   1. [Create a service account](../../iam/operations/sa/create.md) named `account-for-container-registry` with the following [roles](../../iam/concepts/access-control/roles.md) for the folder:
 
       * `{{ roles-editor }}`
       * `{{ roles-cr-pusher }}`
       * `{{ roles-cr-puller }}`
 
-   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a zonal master and a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
+   1. [Create a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) with a basic master and create a [node group](../../managed-kubernetes/operations/node-group/node-group-create.md). When creating a cluster, specify the service account you created previously.
    1. Configure a security group for the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/connect/security-groups.md) and [{{ mgl-name }} instance](../../managed-gitlab/operations/configure-security-group.md).
 
    1. [Create a registry in {{ container-registry-full-name }}](../../container-registry/operations/registry/registry-create.md).
@@ -78,19 +76,19 @@ Infrastructure support costs include fees for the following resources:
    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud/examples/tree/master/tutorials/terraform/managed-gitlab/container-registry-and-gitlab.tf) configuration file to the same working directory.
+   1. Download the [container-registry-and-gitlab.tf](https://github.com/yandex-cloud-examples/yc-gitlab-cr-integration/blob/main/container-registry-and-gitlab.tf) configuration file to the same working directory.
 
       This file describes:
 
       * [Network](../../vpc/concepts/network.md#network).
       * [Subnet](../../vpc/concepts/network.md#subnet).
-      * [Security group](../../vpc/concepts/security-groups.md) and rules required for running the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-      * {{ managed-k8s-name }} cluster with a zonal master.
+      * [Security group](../../vpc/concepts/security-groups.md) and rules required for the {{ mgl-name }} instance and [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+      * {{ managed-k8s-name }} cluster with a basic master.
       * [Node group for the cluster](../../managed-kubernetes/concepts/index.md#node-group).
-      * [Service account](../../iam/concepts/users/service-accounts.md) required to use the {{ managed-k8s-name }} cluster and node group.
+      * [Service account](../../iam/concepts/users/service-accounts.md) required for the {{ managed-k8s-name }} cluster and node group.
       * {{ container-registry-full-name }} registry.
 
-   1. In the `container-registry-and-gitlab.tf` file, specify:
+   1. Specify the following in the `container-registry-and-gitlab.tf` file:
 
       * [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
       * [Folder ID](../../resource-manager/operations/folder/get-id.md).
@@ -118,20 +116,20 @@ Infrastructure support costs include fees for the following resources:
 
 ## Create a test application {#app-create}
 
-Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add `Dockerfile` to the project:
+Create a test application that can be deployed in a {{ managed-k8s-name }} cluster. To do this, add the following to the `Dockerfile` project:
 
-1. Log in to {{ GL }}.
-1. Open the {{ GL }} project.
-1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-1. Name the file as `Dockerfile` and add the following code to it:
+   1. Log in to {{ GL }}.
+   1. Open the {{ GL }} project.
+   1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
+   1. Name the file as `Dockerfile` and add the following code to it:
 
-   ```Dockerfile
-   FROM alpine:3.10
-   CMD echo "Hello"
-   ```
+      ```Dockerfile
+      FROM alpine:3.10
+      CMD echo "Hello"
+      ```
 
-1. Add a commit comment in the **Commit message** field: `Dockerfile for a test application`.
-1. Click **Commit changes**.
+   1. Add a comment in the **Commit message** field: `Dockerfile for a test application`.
+   1. Click **Commit changes**.
 
 {% include [create glr](../../_includes/managed-gitlab/k8s-runner.md) %}
 
@@ -149,7 +147,7 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
    yc iam key create --service-account-name account-for-container-registry -o key.json
    ```
 
-   The key is saved in the `key.json` file in the folder where you ran the command.
+   The key is saved in the `key.json` file in the directory you ran the command in.
 
 1. Open your project in {{ GL }}.
 
@@ -159,15 +157,15 @@ To allow {{ mgl-name }} to save Docker images and their tags in {{ container-reg
 
 1. Add environment variables with the protection option disabled:
 
-   | **Variable** | **Its value** |
+   | **Variable**        | **Its value**                    |
    | --------------------- | ---------------------------------- |
-   | `CI_REGISTRY` | `{{ registry }}/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
-   | `CI_REGISTRY_KEY` | Contents of the `key.json` file. |
+   | `CI_REGISTRY`         | `{{ registry }}/<registry_ID>`. Specify the ID of the {{ container-registry-full-name }} registry that you created previously. |
+   | `CI_REGISTRY_KEY`     | `key.json` file contents.       |
 
    To add a variable:
 
    1. Click **Add variable**.
-   1. In the window that opens, enter the variable name in the **Key** field and the value in the **Value** field.
+   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
    1. Disable the **Protect variable** option.
    1. Click **Add variable**.
 
@@ -179,20 +177,20 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
 1. Open the `gitlab-test` project.
 1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-1. Name the file as `.gitlab-ci.yml`. Add to it the steps to build a Docker image and push it to {{ container-registry-full-name }}:
+1. Name your file `.gitlab-ci.yml`. Add to it the steps to build a Docker image and push it to {{ container-registry-full-name }}:
 
    {% cut ".gitlab-ci.yml" %}
 
    ```yaml
    build:
       stage: build
-      # Using kaniko to create a container inside the container for enhanced security.
+      # Using `kaniko` to create a container inside another container for enhanced security.
       image:
          name: gcr.io/kaniko-project/executor:debug
          entrypoint: [""]
       script:
          - mkdir -p /kaniko/.docker
-         # Pushing the container image to the registry. The image is marked with the commit hash.
+         # Upload the container image to the registry. The image is tagged with the commit hash.
          - echo "{\"auths\":{\"$CI_REGISTRY\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
          - >-
             /kaniko/executor
@@ -205,19 +203,19 @@ To publish Docker images from your {{ GL }} project in {{ container-registry-ful
 
    This file includes the variables:
 
-   * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab at the [previous step](#add-variables).
-   * `CI_PROJECT_DIR`, `CI_PROJECT_PATH`, and `CI_COMMIT_SHORT_SHA`: [Pre-defined in GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).
+   * `CI_REGISTRY` and `CI_REGISTRY_KEY`: Added to GitLab in the [previous step](#add-variables).
+   * `CI_PROJECT_DIR`, `CI_PROJECT_PATH`, and `CI_COMMIT_SHORT_SHA`: [Preset in GitLab](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html).
 
-1. Add the following commit comment in the **Commit message** field: `Create a CI pipeline`.
+1. Add a comment in the **Commit message** field: `Create a CI pipeline`.
 1. Click **Commit changes**.
 
 ## Check the result {#check-result}
 
 Each commit is followed by a build script. To check the script execution results:
 
-1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
+1. Select **Build** on the left-hand panel in the `gitlab-test` project and select **Pipelines** from the drop-down menu.
 
-1. Make sure that the `build` step has the `passed` status. This means that the CI script has been executed successfully.
+1. Make sure the `build` step gets the `passed` status. This means that the CI script has been executed successfully.
 
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 
@@ -229,7 +227,7 @@ To avoid storing outdated Docker images and their tags, configure a [Docker imag
 
 To create a policy, [follow the guide](../../container-registry/operations/lifecycle-policy/lifecycle-policy-create.md).
 
-Specifics of working with the policy:
+When using the policy:
 
 * External {{ container-registry-name }} and Docker image lifecycle policies [affect CI script performance](https://docs.gitlab.com/ee/user/packages/container_registry/reduce_container_registry_storage.html#use-with-external-container-registries).
 
@@ -252,12 +250,12 @@ To enable scanning, expand your {{ GL }} project's CI script:
       - build
       - test
 
-   <the_build_section_that_you_previously_added_to_the_file>
+   <build_block_previously_added_to_file>
 
    container_scanning_free_yc:
       stage: test
-      # Using the jq utility to search for an ID and write logs.
-      image:
+      # Using the jq utility to search for ID and write logs.
+      image: 
          name: pindar/jq
          entrypoint: [""]
       artifacts:
@@ -265,16 +263,16 @@ To enable scanning, expand your {{ GL }} project's CI script:
          paths:
             - gl-container-scanning-report-yc.json
       variables:
-         # Specify the ID of the registry you created earlier.
+         # Specify the ID of the registry you previously created.
          CI_REGISTRY_ID: "<registry_ID>"
       script:
          - export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA}
-         # Install Yandex Cloud CLI.
+         # Installing Yandex Cloud CLI.
          - curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash -s -- -a && cp /root/yandex-cloud/bin/yc /usr/bin/
-       # Start scanning.
+         # Start of scanning.
          - echo "Scanning image ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}..."
          - export IMAGE_ID=$(yc container image list --registry-id $CI_REGISTRY_ID --format=json | jq -r --arg CI_COMMIT_SHORT_SHA $CI_COMMIT_SHORT_SHA '.[] | select(.tags[0]==$CI_COMMIT_SHORT_SHA) | .id ')
-         # Write logs.
+         # Logging.
          - export SCAN_RESULT=$(yc container image scan $IMAGE_ID --format=json)
          - export CRIT_VULN=$(echo $SCAN_RESULT | jq -r '.vulnerabilities.critical // 0')
          - export HIGH_VULN=$(echo $SCAN_RESULT | jq -r '.vulnerabilities.high // 0')
@@ -282,22 +280,22 @@ To enable scanning, expand your {{ GL }} project's CI script:
          - echo "Scan results:"
          - yc container image list-vulnerabilities --scan-result-id="${SCAN_ID}" --format json | jq -r '.[] | select(.severity=="CRITICAL", .severity=="HIGH")'
          - yc container image list-vulnerabilities --scan-result-id="${SCAN_ID}" --format json | jq -r '.[] | select(.severity=="CRITICAL", .severity=="HIGH")' > gl-container-scanning-report-yc.json
-         # Check the result.
+         # Checking the result.
          - (( SUM = $CRIT_VULN + $HIGH_VULN )) && (( RES = (SUM >= 1) )) && echo $RES && echo "image has $CRIT_VULN critical vulnerabilities and $HIGH_VULN high vulnerabilities" && exit 1 || echo "image has no high or critical vulnerabilities" exit 0
    ```
 
    {% endcut %}
 
-1. Add the following commit comment in the **Commit message** field: `Turn on a vulnerability scanner`.
+1. Add a comment in the **Commit message** field: `Turn on a vulnerability scanner`.
 1. Click **Commit changes**. After that, the updated script will run.
 
 To make sure that the image scan was successful:
 
 1. Select **Build** on the left-hand panel in the `gitlab-test` project, and then select **Pipelines** from the drop-down menu.
-1. Make sure that the `build` and `test` steps have the `passed` status. This means that the CI script has been executed successfully.
+1. Make sure that the `build` and `test` steps got the `passed` status. This means that the CI script has been executed successfully.
 1. Go to the [management console]({{ link-console-main }}/), then open the {{ container-registry-full-name }} registry.
 1. Open your repository with Docker images from the {{ GL }} project.
-1. Go to the folder with the {{ GL }} project name.
+1. Go to the directory with the {{ GL }} project name.
 1. Make sure that the **{{ ui-key.yacloud.cr.image.label_scan-status }}** column includes **{{ ui-key.yacloud.cr.registry.label_scan-status-READY }}**.
 1. In the **{{ ui-key.yacloud.cr.image.label_last-scan-time }}** column, click the link with the scan time.
 
@@ -324,22 +322,6 @@ Delete the other resources depending on how they were created:
 
 - {{ TF }} {#tf}
 
-   To delete the infrastructure [created with {{ TF }}](#deploy-infrastructure):
-
-   1. In the terminal window, go to the directory containing the infrastructure plan.
-   1. Delete the `container-registry-and-gitlab.tf` configuration file.
-   1. Make sure the {{ TF }} configuration files are correct using this command:
-
-      ```bash
-      terraform validate
-      ```
-
-      If there are any errors in the configuration files, {{ TF }} will point them out.
-
-   1. Confirm updating the resources.
-
-      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-      All the resources described in the `container-registry-and-gitlab.tf` configuration file will be deleted.
+   {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}

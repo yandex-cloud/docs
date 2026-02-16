@@ -1,17 +1,99 @@
 title: Yandex Cloud Interconnect
 href: index.yaml
 items:
+  - name: Пошаговые инструкции
+    expanded: false
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Получить информацию о партнерах {{ interconnect-name }}
+        href: operations/partner-get-info.md
+      - name: Получить информацию о точках присутствия {{ interconnect-name }}
+        href: operations/pop-get-info.md
+      - name: Получить информацию о транковых подключениях
+        href: operations/trunk-get-info.md
+      - name: Создать транковое подключение
+        href: operations/trunk-create.md
+      - name: Изменить параметры транкового подключения
+        href: operations/trunk-update.md
+      - name: Получить список операций транкового подключения
+        href: operations/trunk-operations.md
+      - name: Удалить транковое подключение
+        href: operations/trunk-delete.md
+      - name: Получить информацию о приватных соединениях
+        href: operations/priv-con-get-info.md
+      - name: Создать приватное соединение
+        href: operations/priv-con-create.md
+      - name: Изменить параметры приватного соединения
+        href: operations/priv-con-update.md
+      - name: Получить список операций приватного соединения
+        href: operations/priv-con-operations.md
+      - name: Изменить список статических маршрутов для приватного соединения
+        href: operations/priv-con-static-upsert.md
+      - name: Удалить статические маршруты для приватного соединения
+        href: operations/priv-con-static-remove.md
+      - name: Удалить приватное соединение
+        href: operations/priv-con-delete.md
+      - name: Получить информацию о публичных соединениях
+        href: operations/pub-con-get-info.md
+      - name: Получить информацию о Routing Instance
+        href: ../cloud-router/operations/ri-get-info.md
+  - name: Практические руководства
+    expanded: false
+    items:
+      - name: Все руководства
+        href: tutorials/index.md
+      - name: Создать прямое транковое подключение и приватное соединение в нем
+        href: tutorials/trunk-priv-add.md
+      - name: Создать прямое транковое подключение и публичное соединение в нем
+        href: tutorials/trunk-pub-add.md
+      - name: >-
+          Создать транковое подключение через партнера и приватное соединение в
+          нем
+        href: tutorials/partner-trunk-priv-add.md
+      - name: >-
+          Создать транковое подключение через партнера и публичное соединение в
+          нем
+        href: tutorials/partner-trunk-pub-add.md
+      - name: Добавить приватное соединение в транковое подключение
+        href: tutorials/priv-add.md
+      - name: Изменить IP-префиксы VPC в Routing Instance
+        href: tutorials/ri-prefixes-upsert.md
+      - name: Добавить публичное соединение в транковое подключение
+        href: tutorials/pub-add.md
+      - name: Изменить емкость транкового подключения
+        href: tutorials/trunk-capacity-change.md
+      - name: Удалить приватное соединение
+        href: tutorials/priv-del.md
+      - name: Удалить публичное соединение
+        href: tutorials/pub-del.md
+      - name: Удалить транковое подключение
+        href: tutorials/trunk-del.md
+      - name: Интеграция с корпоративным сервисом DNS
+        href: tutorials/dns-integration.md
+      - name: >-
+          Организация доступа через {{ interconnect-name }} к облачным сетям,
+          размещенным за NGFW
+        href: tutorials/cic-with-ngfw
+      - name: >-
+          Настройка сетевой связности между подсетями {{ baremetal-name }} и {{
+          vpc-name }}
+        href: tutorials/bm-vrf-and-vpc-interconnect.md
+      - name: >-
+          Организация сетевой связности между приватной подсетью {{
+          baremetal-name }} и on-premise-ресурсами
+        href: tutorials/bms-cic-onprem.md
   - name: Концепции
     expanded: true
     items:
-      - name: Обзор
+      - name: Обзор сервиса
         href: concepts/index.md
+      - name: Обзор операций
+        href: operations/cic-cr-ops.md
       - name: Терминология
         href: concepts/terms.md
       - name: Точки присутствия
         href: concepts/pops.md
-      - name: Партнеры CIC
-        href: concepts/partners.md
       - name: Трансиверы
         href: concepts/transceivers.md
       - name: Транковое подключение
@@ -20,42 +102,243 @@ items:
         href: concepts/priv-con.md
       - name: Публичное соединение
         href: concepts/pub-con.md
-      - name: Маршрутизация
-        href: concepts/routing.md
+      - name: Партнеры CIC
+        href: concepts/partners.md
       - name: Мониторинг
         href: concepts/monitoring.md
       - name: Объемы данных и емкости подключений
         href: concepts/capacity.md
       - name: Квоты и лимиты
         href: concepts/limits.md
-  - name: Инструкции
-    expanded: false
-    items:
-      - name: Все инструкции
-        href: operations/index.md
-      - name: Создать прямое транковое подключение и приватное соединение в нем
-        href: operations/trunk-priv-add.md
-      - name: Создать прямое транковое подключение и публичное соединение в нем
-        href: operations/trunk-pub-add.md
-      - name: Создать партнерское транковое подключение и приватное соединение в нем
-        href: operations/partner-trunk-priv-add.md
-      - name: Создать партнерское транковое подключение и публичное соединение в нем
-        href: operations/partner-trunk-pub-add.md
-      - name: >-
-          Добавить приватное соединение в прямое или партнерское транковое
-          подключение
-        href: operations/priv-add.md
-      - name: >-
-          Добавить публичное соединение в прямое или партнерское транковое
-          подключение
-        href: operations/pub-add.md
-  - name: Практические руководства
-    items:
-      - name: Интеграция с корпоративным сервисом DNS
-        href: tutorials/dns-integration.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
+  - name: Справочник CLI (англ.)
+    items:
+      - name: Overview
+        href: cli-ref/index.md
+      - name: partner
+        items:
+          - name: Overview
+            href: cli-ref/partner/index.md
+          - name: get
+            href: cli-ref/partner/get.md
+          - name: list
+            href: cli-ref/partner/list.md
+      - name: point-of-presence
+        items:
+          - name: Overview
+            href: cli-ref/point-of-presence/index.md
+          - name: get
+            href: cli-ref/point-of-presence/get.md
+          - name: list
+            href: cli-ref/point-of-presence/list.md
+      - name: private-connection
+        items:
+          - name: Overview
+            href: cli-ref/private-connection/index.md
+          - name: add-labels
+            href: cli-ref/private-connection/add-labels.md
+          - name: create
+            href: cli-ref/private-connection/create.md
+          - name: delete
+            href: cli-ref/private-connection/delete.md
+          - name: get
+            href: cli-ref/private-connection/get.md
+          - name: list
+            href: cli-ref/private-connection/list.md
+          - name: list-operations
+            href: cli-ref/private-connection/list-operations.md
+          - name: move
+            href: cli-ref/private-connection/move.md
+          - name: remove-labels
+            href: cli-ref/private-connection/remove-labels.md
+          - name: remove-static-routes
+            href: cli-ref/private-connection/remove-static-routes.md
+          - name: update
+            href: cli-ref/private-connection/update.md
+          - name: upsert-static-routes
+            href: cli-ref/private-connection/upsert-static-routes.md
+      - name: public-connection
+        items:
+          - name: Overview
+            href: cli-ref/public-connection/index.md
+          - name: get
+            href: cli-ref/public-connection/get.md
+          - name: list
+            href: cli-ref/public-connection/list.md
+          - name: move
+            href: cli-ref/public-connection/move.md
+      - name: trunk-connection
+        items:
+          - name: Overview
+            href: cli-ref/trunk-connection/index.md
+          - name: add-labels
+            href: cli-ref/trunk-connection/add-labels.md
+          - name: create
+            href: cli-ref/trunk-connection/create.md
+          - name: delete
+            href: cli-ref/trunk-connection/delete.md
+          - name: get
+            href: cli-ref/trunk-connection/get.md
+          - name: list
+            href: cli-ref/trunk-connection/list.md
+          - name: list-operations
+            href: cli-ref/trunk-connection/list-operations.md
+          - name: move
+            href: cli-ref/trunk-connection/move.md
+          - name: remove-labels
+            href: cli-ref/trunk-connection/remove-labels.md
+          - name: update
+            href: cli-ref/trunk-connection/update.md
+  - name: Справочник API
+    items:
+      - name: Аутентификация в API
+        href: api-ref/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Partner
+            items:
+              - name: Overview
+                href: api-ref/grpc/Partner/index.md
+              - name: Get
+                href: api-ref/grpc/Partner/get.md
+              - name: List
+                href: api-ref/grpc/Partner/list.md
+          - name: PointOfPresence
+            items:
+              - name: Overview
+                href: api-ref/grpc/PointOfPresence/index.md
+              - name: Get
+                href: api-ref/grpc/PointOfPresence/get.md
+              - name: List
+                href: api-ref/grpc/PointOfPresence/list.md
+          - name: PrivateConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/PrivateConnection/index.md
+              - name: Get
+                href: api-ref/grpc/PrivateConnection/get.md
+              - name: List
+                href: api-ref/grpc/PrivateConnection/list.md
+              - name: Create
+                href: api-ref/grpc/PrivateConnection/create.md
+              - name: Update
+                href: api-ref/grpc/PrivateConnection/update.md
+              - name: Delete
+                href: api-ref/grpc/PrivateConnection/delete.md
+              - name: UpsertStaticRoute
+                href: api-ref/grpc/PrivateConnection/upsertStaticRoute.md
+              - name: RemoveStaticRoute
+                href: api-ref/grpc/PrivateConnection/removeStaticRoute.md
+              - name: ListOperations
+                href: api-ref/grpc/PrivateConnection/listOperations.md
+          - name: PublicConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/PublicConnection/index.md
+              - name: Get
+                href: api-ref/grpc/PublicConnection/get.md
+              - name: List
+                href: api-ref/grpc/PublicConnection/list.md
+          - name: TrunkConnection
+            items:
+              - name: Overview
+                href: api-ref/grpc/TrunkConnection/index.md
+              - name: Get
+                href: api-ref/grpc/TrunkConnection/get.md
+              - name: List
+                href: api-ref/grpc/TrunkConnection/list.md
+              - name: Create
+                href: api-ref/grpc/TrunkConnection/create.md
+              - name: Update
+                href: api-ref/grpc/TrunkConnection/update.md
+              - name: Delete
+                href: api-ref/grpc/TrunkConnection/delete.md
+              - name: ListOperations
+                href: api-ref/grpc/TrunkConnection/listOperations.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+          - name: Partner
+            items:
+              - name: Overview
+                href: api-ref/Partner/index.md
+              - name: Get
+                href: api-ref/Partner/get.md
+              - name: List
+                href: api-ref/Partner/list.md
+          - name: PointOfPresence
+            items:
+              - name: Overview
+                href: api-ref/PointOfPresence/index.md
+              - name: Get
+                href: api-ref/PointOfPresence/get.md
+              - name: List
+                href: api-ref/PointOfPresence/list.md
+          - name: PrivateConnection
+            items:
+              - name: Overview
+                href: api-ref/PrivateConnection/index.md
+              - name: Get
+                href: api-ref/PrivateConnection/get.md
+              - name: List
+                href: api-ref/PrivateConnection/list.md
+              - name: Create
+                href: api-ref/PrivateConnection/create.md
+              - name: Update
+                href: api-ref/PrivateConnection/update.md
+              - name: Delete
+                href: api-ref/PrivateConnection/delete.md
+              - name: UpsertStaticRoute
+                href: api-ref/PrivateConnection/upsertStaticRoute.md
+              - name: RemoveStaticRoute
+                href: api-ref/PrivateConnection/removeStaticRoute.md
+              - name: ListOperations
+                href: api-ref/PrivateConnection/listOperations.md
+          - name: PublicConnection
+            items:
+              - name: Overview
+                href: api-ref/PublicConnection/index.md
+              - name: Get
+                href: api-ref/PublicConnection/get.md
+              - name: List
+                href: api-ref/PublicConnection/list.md
+          - name: TrunkConnection
+            items:
+              - name: Overview
+                href: api-ref/TrunkConnection/index.md
+              - name: Get
+                href: api-ref/TrunkConnection/get.md
+              - name: List
+                href: api-ref/TrunkConnection/list.md
+              - name: Create
+                href: api-ref/TrunkConnection/create.md
+              - name: Update
+                href: api-ref/TrunkConnection/update.md
+              - name: Delete
+                href: api-ref/TrunkConnection/delete.md
+              - name: ListOperations
+                href: api-ref/TrunkConnection/listOperations.md
   - name: История изменений
     href: release-notes.md
-base: ru/interconnect
-deepBase: 2

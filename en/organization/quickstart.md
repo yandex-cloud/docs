@@ -1,82 +1,195 @@
-# Getting started with {{ org-name }}
+# Creating your first organization
 
-To get started, create an organization and add users to it.
+An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
-_Organization_ is a workspace that combines different types of {{ yandex-cloud }} resources and users. [Learn more about organizations, resources, and users](../overview/roles-and-resources.md).
+When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
 
-## Create an organization {#create}
 
-1. [Log in]({{link-passport}}) to your Yandex account. If you do not have an account, [create]({{ support-passport-create }}) one.
+{{ yandex-cloud }} organization structure:
 
-1. Go to [{{org-full-name}}]({{link-org-main}}).
+![users-and-resources](../_assets/overview/users-resources.svg "Users and resources hierarchy")
 
-1. Read the {{yandex-cloud}} terms of use and click **{{ ui-key.yacloud_org.form.organization.select.action.enter }}**.
+## Getting started {#before-you-begin}
 
-1. Enter your company name and description.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or [sign up](../getting-started/) if not signed up yet.
+1. Accept the user agreement.
+1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../billing/concepts/billing-account.md) linked and its status is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 
-1. Click **{{ ui-key.yacloud_org.pages.create }}**.
+## Create an organization {#create-organization}
 
-After registering, you become the organization owner. You will be able to manage employee accounts, as well as connect and disable services.
+{% list tabs group=instructions %}
 
-## Add employees {#add-users}
+- {{ cloud-center }} UI {#cloud-center}
 
-To provide your employees with access to the organization's services, connect them using their Yandex accounts. If your company already uses a different account management system (such as Active Directory or Google Workspace), configure an identity federation so that your employees can use their work accounts to access {{yandex-cloud}} services.
+  {% include [create-new-org](../_includes/organization/create-new-org.md) %}
 
-### Connect employees with Yandex accounts {#add-ya-users}
+{% endlist %}
 
-If your employees have Yandex accounts (for example, `{{login-example}}`), they can use them to access the {{yandex-cloud}} services enabled in your organization.
+After registering, you will become the organization owner. You will be able to manage employee accounts, connect and disconnect services.
+
+## Manage users {#manage-users}
+
+### Add a user to your organization {#add-user-to-organization}
+
+You can connect your employees using their Yandex accounts for access to the corporate services. If your company already uses a different account management system (such as Active Directory or Google Workspace), you can [create an identity federation](#create-federation) so that your employees can use their corporate accounts to access {{ yandex-cloud }} services.
 
 To connect employees with Yandex accounts:
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.users }}]({{link-org-users}}) ![icon-users](../_assets/console-icons/person.svg).
+{% list tabs group=instructions %}
 
-1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
+- {{ cloud-center }} UI {#cloud-center}
 
-1. Enter the email addresses of the users you want to invite to the organization (e.g., `{{ login-example }}`).
+  {% include [add-yandex-user](../_includes/organization/add-yandex-user.md) %}
 
-   {% include [send-invitation](../_includes/organization/send-invitation.md) %}
+{% endlist %}
 
+The user will be connected to the organization as soon as they accept the invitation via the emailed link and select the appropriate account to log in. After that, you will be able to [assign them the required roles](#add-role).
 
-1. Click **{{ ui-key.yacloud_org.entity.invitation.action_send-invitation }}**.
+For more information about users, see [Organization membership](../organization/concepts/membership.md).
 
-The users will be connected to the organization upon accepting the invitation via the emailed link and selecting an account for log-in.
+### Create a user group {#create-group}
 
-### Configure an identity federation {#add-federation}
+You can configure access for multiple users at once by adding them to a group and assigning a role to this group. You can grant access to any {{ yandex-cloud }} resources to the group.
 
-An identity federation is a technology that allows you to implement a Single Sign-On (SSO) authentication scheme and use corporate accounts to log in to {{ org-full-name }}. In this case, your corporate account management system acts as an identity provider (IdP).
+To create a user group:
 
-To configure your identity federation, follow these steps:
+{% list tabs group=instructions %}
 
-1. In the left-hand panel, select [{{ ui-key.yacloud_org.pages.federations }}]({{link-org-federations}}) ![icon-federation](../_assets/console-icons/vector-square.svg).
+- {{ cloud-center }} UI {#cloud-center}
 
-1. Click **{{ ui-key.yacloud_org.form.federation.action.create }}**.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Enter the federation name and description.
+  1. In the left-hand panel, select ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.cookieMaxAge }}** field, specify the time before the browser asks the user to re-authenticate.
+  1. In the top-right corner of the page, click ![Circles3Plus](../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.issuer }}** field, specify the IdP server ID to be used for authentication. The IdP server must send the same ID in its response to {{ org-name }} during user authentication.
+  1. Enter a name and description for the [group](../organization/concepts/groups.md).
 
-   {% note info %}
+      The name must be unique within the organization and satisfy the relevant requirements:
 
-   ID format depends on the type of IdP server you use (for example, Active Directory or Google Workspace).
+      {% include [group-name-format](../_includes/organization/group-name-format.md) %}
 
-   {% endnote %}
+  1. Click **{{ ui-key.yacloud_org.groups.action_create-group }}**.
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoBinding }}** field, choose **POST**.
+{% endlist %}
 
-1. In the **{{ ui-key.yacloud_org.entity.federation.field.ssoUrl }}** field, specify the address of the page that the browser redirects the user to for authentication.
+### Add the user to the group {#add-member-group}
 
-1. Add an [identity provider certificate](#add-cert) to the created federation.
+{% list tabs group=instructions %}
 
-1. Enable **{{ ui-key.yacloud_org.entity.federation.field.autocreateUsers }}** to add authenticated users to your organization automatically.
+- {{ cloud-center }} UI {#cloud-center}
 
-   If you do not enable this option, you will need to [manually add](operations/add-account.md#add-user-sso) your federated users.
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-1. Configure the identity provider's server to transmit successful authentication information and user attributes to {{ yandex-cloud }}.
+  1. In the left-hand panel, select ![groups](../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../organization/concepts/groups.md) you need.
 
-   User attributes supported by {{ org-full-name }} services are listed in identity federation setup guides for different identity providers:
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
 
-   * [Active Directory](tutorials/federations/integration-adfs.md)
-   * [Google Workspace](tutorials/federations/integration-gworkspace.md)
-   * [Other SAML-compatible identity providers](operations/setup-federation.md)
+  1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+
+  1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). Use search, if required.
+
+  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+
+{% endlist %}
+
+## Manage access {#security}
+
+### Assign a role to a user {#add-role}
+
+To grant access to a resource, assign a role for the resource to the user. You can assign roles for an [organization](concepts/organization), [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../resource-manager/concepts/resources-hierarchy.md#folder). The roles assigned to organizations, clouds, and folders also apply to their nested resources.
+You can also assign roles to users to manage individual {{ yandex-cloud }} services using [{{ iam-full-name }}](../iam/concepts/index.md).
+
+To assign a role to a user:
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  {% include [assign-role-to-user](../_includes/organization/assign-role-to-user.md) %}
+
+{% endlist %}
+
+### Assign a role for a cloud or folder to a user group {#group-add-role-cloud}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator or owner account.
+
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../_assets/console-icons/chevron-down.svg) and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
+
+  1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
+
+      1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../organization/concepts/groups.md) you need or search by group name.
+
+          You can also assign a role to one of the [system](../iam/concepts/access-control/system-group.md) groups:
+
+          * `All users in organization X`: The group includes all users in organization `X`.
+          * `All users in federation N`: The group includes all users in federation `N`.
+
+      1. Click ![plus](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../iam/concepts/access-control/roles.md) you want to assign to the group for the cloud or folder you selected earlier. You can assign multiple roles.
+
+      1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+### Assign a role for an organization to a user group {#group-add-role-organization}
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
+
+  1. In the left-hand panel, select ![persons-lock](../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+
+  1. At the top right, click **{{ ui-key.yacloud_org.entity.user.action.acl }}**.
+
+  1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../organization/concepts/groups.md) you need or search by group name.
+
+     You can also assign a role to one of the [system](../iam/concepts/access-control/system-group.md) groups:
+
+     * `All users in organization X`: The group includes all users in organization `X`.
+     * `All users in federation N`: The group includes all users in federation `N`.
+
+  1. Click ![plus](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the [role](../iam/concepts/access-control/roles.md) for the organization you want to assign to the group. You can assign multiple roles.
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+{% endlist %}
+
+## Additional features {#additional-functionality}
+
+### Create an identity federation or user pool {#create-federation}
+
+If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
+
+You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-name }} [organization](./concepts/organization.md).
+
+Moreover, {{ org-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
+
+For more information, see these sections:
+* [{#T}](./concepts/add-federation.md)
+* [{#T}](./concepts/user-pools.md)
+* [{#T}](./concepts/applications.md)
+
+### Enable access via {{ oslogin }} {#os-login-access}
+
+With {{ oslogin }}, you can manage SSH access to VMs by relying solely on the [{{ iam-full-name }}](../iam/concepts/index.md) mechanisms. There is no need to upload SSH keys to each new VM when creating it. You can use {{ oslogin }} to access both [{{ compute-full-name }} VM instances](../compute/concepts/vm.md#project) and [individual nodes in node groups](../managed-kubernetes/concepts/index.md#node-group) within [{{ managed-k8s-full-name }} clusters](../managed-kubernetes/concepts/index.md#kubernetes-cluster).
+
+{{ oslogin }} benefits:
+
+* Instant update of user [access permissions](../iam/concepts/access-control/roles.md) within a VM when revoking or assigning roles. If you revoke the roles, the user will lose access to all VMs with {{ oslogin }} access enabled.
+* Multiple available options to access VMs: you can use both short-lived SSH certificates and SSH keys including those added to the organization user profile.
+
+For more information, see [{{ oslogin }}](./concepts/os-login.md).
+
+## What's next {#what-is-next}
+
+* [Learn more about the relationships between organizations and other services](./concepts/organization.md)
+* [Managing organizations](./operations/organizations-overview.md)
+* [Managing user groups](./operations/manage-groups.md)
+* [Managing identity federations](./operations/manage-federations.md)
+* [Access control for user groups with different roles](./tutorials/user-group-access-control.md)

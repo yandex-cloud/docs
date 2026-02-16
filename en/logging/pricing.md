@@ -1,6 +1,6 @@
 ---
 title: '{{ cloud-logging-full-name }} pricing policy'
-description: This article describes the {{ cloud-logging-name }} pricing policy.
+description: This article covers the {{ cloud-logging-name }} pricing policy.
 editable: false
 ---
 
@@ -10,11 +10,15 @@ editable: false
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
+{% include [currency-choice](../_includes/pricing/currency-choice.md) %}
+
+{% include [vat](../_includes/vat.md) %}
+
 ## What goes into the cost of using {{ cloud-logging-name }} {#rules}
 
-{{ cloud-logging-name }} charges you for the amount of data written and the time the data is stored.
+{{ cloud-logging-name }} charges you for the amount of written data and the time over which the data is stored.
 
-The monthly prices are based on 720 hours per month.
+The monthly prices are based on 720 hours per month.
 
 
 ## Prices for the Russia region {#prices}
@@ -24,20 +28,16 @@ The monthly prices are based on 720 hours per month.
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
-### Adding data {#data-ingested}
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|logging }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
 
 
 
-
-{% include [usd-data-ingested.md](../_pricing/logging/usd-data-ingested.md) %}
-
-
-### Data storage {#storage}
-
-
-
-
-{% include [usd-storage.md](../_pricing/logging/usd-storage.md) %}
-
-
-The unused balance of free services is reset at the end of the month.
+Any unused free service balance is reset at the end of each calendar month.

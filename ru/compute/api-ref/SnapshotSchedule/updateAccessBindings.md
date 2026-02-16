@@ -1,9 +1,114 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{resourceId}:updateAccessBindings
+    method: post
+    path:
+      type: object
+      properties:
+        resourceId:
+          description: |-
+            **string**
+            Required field. ID of the resource for which access bindings are being updated.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - resourceId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        accessBindingDeltas:
+          description: |-
+            **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
+            Updates to access bindings.
+            The number of elements must be in the range 1-1000.
+          type: array
+          items:
+            $ref: '#/definitions/AccessBindingDelta'
+      additionalProperties: false
+    definitions:
+      Subject:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              Required field. ID of the subject.
+              It can contain one of the following values:
+              * `allAuthenticatedUsers`: A special public group that represents anyone
+              who is authenticated. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              * `allUsers`: A special public group that represents anyone. No authentication is required.
+              For example, you don't need to specify the IAM token in an API query.
+              It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              * `group:organization:<id>:users`: A special system group that represents all members of organization
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              * `group:federation:<id>:users`: A special system group that represents all users of federation
+              with given &lt;id&gt;. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
+              * `<cloud generated id>`: An identifier that represents a user account.
+              It can be used only if the [type](#yandex.cloud.access.Subject) is `userAccount`, `federatedUser` or `serviceAccount`.
+              The maximum string length in characters is 100.
+            type: string
+          type:
+            description: |-
+              **string**
+              Required field. Type of the subject.
+              It can contain one of the following values:
+              * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
+              * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
+              * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
+              * `system`: System group. This type represents several accounts with a common system identifier.
+              For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+              The maximum string length in characters is 100.
+            type: string
+        required:
+          - id
+          - type
+      AccessBinding:
+        type: object
+        properties:
+          roleId:
+            description: |-
+              **string**
+              Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
+              The maximum string length in characters is 50.
+            type: string
+          subject:
+            description: |-
+              **[Subject](#yandex.cloud.access.Subject)**
+              Required field. Identity for which access binding is being created.
+              It can represent an account with a unique ID or several accounts with a system identifier.
+            $ref: '#/definitions/Subject'
+        required:
+          - roleId
+          - subject
+      AccessBindingDelta:
+        type: object
+        properties:
+          action:
+            description: |-
+              **enum** (AccessBindingAction)
+              Required field. The action that is being performed on an access binding.
+              - `ADD`: Addition of an access binding.
+              - `REMOVE`: Removal of an access binding.
+            type: string
+            enum:
+              - ACCESS_BINDING_ACTION_UNSPECIFIED
+              - ADD
+              - REMOVE
+          accessBinding:
+            description: |-
+              **[AccessBinding](#yandex.cloud.access.AccessBinding)**
+              Required field. Access binding. For more information, see [Access Bindings](/docs/iam/concepts/access-control/#access-bindings).
+            $ref: '#/definitions/AccessBinding'
+        required:
+          - action
+          - accessBinding
 sourcePath: en/_api-ref/compute/v1/api-ref/SnapshotSchedule/updateAccessBindings.md
 ---
 
-# Compute Cloud API, REST: SnapshotSchedule.UpdateAccessBindings {#UpdateAccessBindings}
+# Compute Cloud API, REST: SnapshotSchedule.UpdateAccessBindings
 
 Updates access bindings for the snapshot schedule.
 
@@ -19,7 +124,9 @@ POST https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{resourceId}:up
 ||Field | Description ||
 || resourceId | **string**
 
-Required field. ID of the resource for which access bindings are being updated. ||
+Required field. ID of the resource for which access bindings are being updated.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UpdateAccessBindingsRequest}
@@ -45,7 +152,9 @@ Required field. ID of the resource for which access bindings are being updated. 
 ||Field | Description ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
 
-Updates to access bindings. ||
+Updates to access bindings.
+
+The number of elements must be in the range 1-1000. ||
 |#
 
 ## AccessBindingDelta {#yandex.cloud.access.AccessBindingDelta}
@@ -56,7 +165,6 @@ Updates to access bindings. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding)**
@@ -70,7 +178,9 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 ||Field | Description ||
 || roleId | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 50. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -92,11 +202,13 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -107,7 +219,9 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -263,7 +377,6 @@ Result access binding deltas. ||
 
 Required field. The action that is being performed on an access binding.
 
-- `ACCESS_BINDING_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an access binding.
 - `REMOVE`: Removal of an access binding. ||
 || accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding2)**
@@ -277,7 +390,9 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 ||Field | Description ||
 || roleId | **string**
 
-Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`. ||
+Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
+
+The maximum string length in characters is 50. ||
 || subject | **[Subject](#yandex.cloud.access.Subject2)**
 
 Required field. Identity for which access binding is being created.
@@ -299,11 +414,13 @@ who is authenticated. It can be used only if the `type` is `system`.
 For example, you don't need to specify the IAM token in an API query.
 It can be used only if the `type` is `system`.
 * `group:organization:<id>:users`: A special system group that represents all members of organization
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `group:federation:<id>:users`: A special system group that represents all users of federation
-with given <id>. It can be used only if the `type` is `system`.
+with given &lt;id&gt;. It can be used only if the `type` is `system`.
 * `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`. ||
+It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
+
+The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
@@ -314,5 +431,7 @@ It can contain one of the following values:
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
 
-For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject). ||
+For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
+
+The maximum string length in characters is 100. ||
 |#

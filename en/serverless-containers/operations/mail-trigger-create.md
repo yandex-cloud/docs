@@ -4,24 +4,24 @@ Create an [email trigger](../concepts/trigger/mail-trigger.md) to invoke a {{ se
 
 ## Getting started {#before-you-begin}
 
-To create a trigger, you need:
+To create a trigger, you will need:
 
 * A container that the trigger will invoke. If you do not have a container:
 
     * [Create a container](../../serverless-containers/operations/create.md).
     * [Create a container revision](../../serverless-containers/operations/manage-revision.md#create).
 
-* (Optional) A [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../../serverless-containers/concepts/dlq.md) where messages that could not be processed by a container will be redirected. If you do not have a queue, [create one](../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../iam/concepts/users/service-accounts.md) with the following permissions:
     
     * To invoke a container.
-    * (Optional) To write to a dead-letter queue.
-    * (Optional) To upload objects to buckets.
+    * Optionally, to write to a dead-letter queue.
+    * Optionally, to upload objects to buckets.
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../iam/operations/sa/create.md).
 
-* (Optional) [Bucket](../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../storage/concepts/bucket.md) to save email attachments to (optional). If you do not have a bucket, [create one](../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,7 +33,7 @@ To create a trigger, you need:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a trigger.
 
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
 
     1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
@@ -41,11 +41,11 @@ To create a trigger, you need:
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
-        * (Optional) Enter a trigger name and description.
+        * Optionally, enter a trigger name and description.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_mail }}`.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
     
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_mail-attachments }}**:
       
         {% include [mail-trigger-attachements](../../_includes/functions/mail-trigger-attachements.md) %}
 
@@ -57,7 +57,7 @@ To create a trigger, you need:
 
         {% include [batch-messages](../../_includes/serverless-containers/batch-messages.md) %} 
 
-    1. (Optional) Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
 
         {% include [repeat-request](../../_includes/serverless-containers/repeat-request.md) %}
 
@@ -82,9 +82,9 @@ To create a trigger, you need:
       --attachements-service-account-id <service_account_ID> \
       --invoke-container-id <container_ID> \
       --invoke-container-service-account-id <service_account_ID> \
-      --retry-attempts <number_of_retries> \
-      --retry-interval <time_between_retry_attempts> \
-      --dlq-queue-id <dead_letter_queue_ID> \
+      --retry-attempts <number_of_retry_attempts> \
+      --retry-interval <interval_between_retry_attempts> \
+      --dlq-queue-id <dead-letter_queue_ID> \
       --dlq-service-account-id <service_account_ID>
     ```
 
@@ -142,17 +142,17 @@ To create a trigger, you need:
          container {
            id                 = "<container_ID>"
            service_account_id = "<service_account_ID>"
-           retry_attempts     = <number_of_retries>
+           retry_attempts     = <number_of_retry_attempts>
            retry_interval     = <time_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
            service_account_id    = "<service_account_ID>"
-           batch_cutoff          = <maximum_timeout>
+           batch_cutoff          = <maximum_wait_time>
            batch_size            = <message_batch_size>
          }
          dlq {
-           queue_id           = "<dead_letter_queue_ID>"
+           queue_id           = "<dead-letter_queue_ID>"
            service_account_id = "<service_account_ID>"
          }
        }
@@ -179,9 +179,9 @@ To create a trigger, you need:
 
        {% include [tf-dlq-params](../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+       For more information about `yandex_function_trigger` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function_trigger).
 
-    1. Create resources:
+    1. Create the resources:
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -197,7 +197,7 @@ To create a trigger, you need:
 
 {% endlist %}
 
-{{ serverless-containers-name }} will automatically generate an email address that will cause the trigger to fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ serverless-containers-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
 
 ## Checking the result {#check-result}
 

@@ -1,0 +1,115 @@
+---
+title: Создание политики MFA в {{ org-full-name }}
+description: Следуя данной инструкции, вы сможете создать и настроить политику MFA в {{ org-full-name }}.
+---
+
+# Создать политику MFA
+
+[Политики MFA](../../concepts/mfa.md#mfa-policies) позволяют настроить [многофакторную аутентификацию](https://ru.wikipedia.org/wiki/Многофакторная_аутентификация) (MFA) для [федеративных](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных](../../../iam/concepts/users/accounts.md#local) аккаунтов пользователей.
+
+Чтобы создать политику MFA:
+
+{% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.pages.securitySettings }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}**.
+  1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.security-settings.mfa-policies-create-policy-action }}** и в открывшемся окне:
+
+      1. В поле **{{ ui-key.yacloud_org.forms.field.display-name }}** задайте имя создаваемой политики. Требования к имени:
+
+          {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+      1. {% include [mfa-create-policy-step2](../../../_includes/organization/mfa-create-policy-step2.md) %}
+      1. Если вы не хотите активировать создаваемую политику при создании, выключите опцию **{{ ui-key.yacloud_org.form.mfa-enforcement.caption.active }}**.
+      1. {% include [mfa-create-policy-step4](../../../_includes/organization/mfa-create-policy-step4.md) %}
+      1. {% include [mfa-create-policy-step5](../../../_includes/organization/mfa-create-policy-step5.md) %}
+      1. {% include [mfa-create-policy-step6](../../../_includes/organization/mfa-create-policy-step6.md) %}
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.form.mfa-enforcement.create.action.create }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  1. Посмотрите описание команды CLI для создания политики MFA:
+
+     ```bash
+     yc organization-manager mfa-enforcement create --help
+     ```
+
+  1. Создайте политику MFA, выполнив команду:
+
+      ```bash
+      yc organization-manager mfa-enforcement create \
+        --organization-id <идентификатор_организации> \
+        --acr-id <тип_фактора_аутентификации> \
+        --ttl <время_жизни> \
+        --status <статус_политики> \
+        --apply-at <время_активации> \
+        --enroll-window <срок_создания> \
+        --name <имя_политики> \
+        --description <описание_политики>
+      ```
+
+     Где:
+
+     * `--name` — имя политики. Требования к формату имени:
+
+        {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `--organization-id` — идентификатор организации.
+     * {% include [mfa-acr-id-cli-flag-legend](../../../_includes/organization/mfa-acr-id-cli-flag-legend.md) %}
+     * `--ttl` — срок действия учетных данных в днях.
+     * `--status` — статус политики: `status-active` — активна, `status-inactive` — неактивна.
+     * `--apply-at` — время, по истечении которого политика станет активна. Необязательный параметр.
+     * `--enroll-window` — период в днях после регистрации, в течение которого пользователь должен добавить второй фактор аутентификации.
+     * `--description` — описание политики. Необязательный параметр.
+
+  1. (Опционально) Чтобы активировать неактивную политику MFA, выполните команду:
+
+      ```bash
+      yc organization-manager mfa-enforcement activate \
+        --id <идентификатор_политики>
+      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Опишите в конфигурационном файле {{ TF }} параметры политики MFA:
+
+     {% include [mfa-tf-code-block](../../../_includes/organization/mfa-tf-code-block.md) %}
+
+     {% include [mfa-tf-params-description](../../../_includes/organization/mfa-tf-params-description.md) %}
+
+  1. Создайте ресурсы:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} создаст все требуемые ресурсы. Проверить создание политики MFA можно в интерфейсе [{{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/):
+
+     ```bash
+     yc organization-manager mfa-enforcement get <идентификатор_политики>
+     ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [Create](../../../organization/api-ref/MfaEnforcement/create.md) для ресурса [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) или вызовом gRPC API [MfaEnforcementService/Create](../../../organization/api-ref/grpc/MfaEnforcement/create.md).
+
+{% endlist %}
+
+{% include [mfa-policy-add-users-notice](../../../_includes/organization/mfa-policy-add-users-notice.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](./update-policy.md)
+* [{#T}](./add-users.md)
+* [{#T}](./deactivate-reactivate-policy.md)
+* [{#T}](./delete-policy.md)
+* [{#T}](./manage-verification.md)
+* [{#T}](../../concepts/mfa.md)

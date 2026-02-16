@@ -22,8 +22,18 @@ items:
             href: operations/create-trial-period.md
           - name: Integration with the {{ license-manager }} API
             href: operations/license-manager-integration.md
+          - name: Creating a configuration for a {{ cloud-apps-name }} product
+            href: operations/create-configuration.md
+          - name: Product access requests
+            href: operations/access-requests.md
+      - name: Tutorials
+        items:
+          - name: Creating a demo {{ cloud-apps-name }} product
+            href: tutorials/demo-cloud-apps.md
       - name: Concepts
         items:
+          - name: Partner profile
+            href: concepts/publisher.md
           - name: Product
             href: concepts/product.md
           - name: Version
@@ -43,20 +53,34 @@ items:
             href: concepts/api-usage.md
           - name: Trial period
             href: concepts/trial-period.md
+          - name: '{{ cloud-apps-name }} product form field reference'
+            href: concepts/form-fields-ref.md
+          - name: >-
+              Calculated expressions in a {{ cloud-apps-name }} product
+              configuration
+            href: concepts/expressions.md
       - name: Access management
         href: security/partners.md
-      - name: API reference
+      - name: Metering API reference
         items:
+          - name: Getting started with the API
+            href: api-ref/quickstart.md
           - name: REST
             items:
               - name: Overview
-                href: api-ref/index.md
+                href: metering/api-ref/index.md
               - name: ImageProductUsage
                 items:
-                  - name: Description
-                    href: api-ref/ImageProductUsage/index.md
-                  - name: write
-                    href: api-ref/ImageProductUsage/write.md
+                  - name: Overview
+                    href: metering/api-ref/ImageProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ImageProductUsage/write.md
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/ProductUsage/write.md
           - name: gRPC
             items:
               - name: Overview
@@ -67,8 +91,16 @@ items:
                     href: metering/api-ref/grpc/ImageProductUsage/index.md
                   - name: Write
                     href: metering/api-ref/grpc/ImageProductUsage/write.md
-      - name: License Manager API reference
+              - name: ProductUsage
+                items:
+                  - name: Overview
+                    href: metering/api-ref/grpc/ProductUsage/index.md
+                  - name: Write
+                    href: metering/api-ref/grpc/ProductUsage/write.md
+      - name: '{{ license-manager }} API reference'
         items:
+          - name: Getting started with the {{ license-manager }} API
+            href: license-manager/api-ref/quickstart.md
           - name: gRPC
             items:
               - name: Overview
@@ -142,8 +174,10 @@ items:
                     href: license-manager/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/api-ref/Operation/cancel.md
-      - name: License Manager SaaS API reference
+      - name: '{{ license-manager }} SaaS API reference'
         items:
+          - name: Getting started with the {{ license-manager }} SaaS API
+            href: license-manager/saas/api-ref/quickstart.md
           - name: gRPC
             items:
               - name: Overview
@@ -154,6 +188,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/grpc/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview
@@ -162,6 +198,8 @@ items:
                     href: license-manager/saas/api-ref/grpc/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/grpc/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/grpc/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -180,6 +218,8 @@ items:
                     href: license-manager/saas/api-ref/Instance/index.md
                   - name: Get
                     href: license-manager/saas/api-ref/Instance/get.md
+                  - name: GetUserInfo
+                    href: license-manager/saas/api-ref/Instance/getUserInfo.md
               - name: Lock
                 items:
                   - name: Overview
@@ -188,6 +228,8 @@ items:
                     href: license-manager/saas/api-ref/Lock/ensure.md
                   - name: Get
                     href: license-manager/saas/api-ref/Lock/get.md
+                  - name: GetByResourceID
+                    href: license-manager/saas/api-ref/Lock/getByResourceID.md
               - name: Operation
                 items:
                   - name: Overview
@@ -196,21 +238,144 @@ items:
                     href: license-manager/saas/api-ref/Operation/get.md
                   - name: Cancel
                     href: license-manager/saas/api-ref/Operation/cancel.md
+      - name: '{{ cloud-apps-name }} Workload API reference'
+        items:
+          - name: Getting started with the {{ cloud-apps-name }} Workload API
+            href: cloudapps/workload/api-ref/quickstart.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: workload/api-ref/grpc/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/grpc/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/grpc/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: >-
+                      workload/api-ref/grpc/CloudApplication/resolveByWorkload.md
+          - name: REST
+            items:
+              - name: Overview
+                href: workload/api-ref/index.md
+              - name: CloudApplication
+                items:
+                  - name: Overview
+                    href: workload/api-ref/CloudApplication/index.md
+                  - name: Get
+                    href: workload/api-ref/CloudApplication/get.md
+                  - name: ResolveByWorkload
+                    href: workload/api-ref/CloudApplication/resolveByWorkload.md
+      - name: Product Instance Management API reference
+        items:
+          - name: REST
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/ProductInstance/claim.md
+          - name: gRPC
+            items:
+              - name: Overview
+                href: pim/saas/api-ref/grpc/index.md
+              - name: Operation
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/Operation/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/Operation/get.md
+                  - name: Cancel
+                    href: pim/saas/api-ref/grpc/Operation/cancel.md
+              - name: ProductInstance
+                items:
+                  - name: Overview
+                    href: pim/saas/api-ref/grpc/ProductInstance/index.md
+                  - name: Get
+                    href: pim/saas/api-ref/grpc/ProductInstance/get.md
+                  - name: Claim
+                    href: pim/saas/api-ref/grpc/ProductInstance/claim.md
   - name: Users
     expanded: true
     items:
+      - name: Getting started
+        href: operations/users/quickstart.md
       - name: Step-by-step guides
         items:
-          - name: Buying a subscription
-            href: operations/users/buy-subscription.md
-          - name: Linking a subscription
-            href: operations/users/lock-subscription.md
-          - name: Unlinking a subscription
-            href: operations/users/unlock-subscription.md
-          - name: Moving a subscription
-            href: operations/users/move-subscription.md
-          - name: Disabling auto-renewal
-            href: operations/users/cancel-subscription.md
+          - name: Managing a subscription
+            items:
+              - name: Buying a subscription
+                href: operations/users/buy-subscription.md
+              - name: Linking a subscription
+                href: operations/users/lock-subscription.md
+              - name: Unlinking a subscription
+                href: operations/users/unlock-subscription.md
+              - name: Moving a subscription
+                href: operations/users/move-subscription.md
+              - name: Disabling auto-renewal
+                href: operations/users/cancel-subscription.md
+          - name: Requesting product access
+            href: operations/users/access-requests.md
+      - name: Tutorials
+        items:
+          - name: All tutorials
+            href: tutorials/index.md
+          - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
+            items:
+              - name: Integration with Argo CD
+                href: tutorials/argo-cd.md
+              - name: Integration with Crossplane
+                href: tutorials/crossplane.md
+              - name: Syncing with {{ lockbox-name }} secrets
+                href: tutorials/kubernetes-lockbox-secrets.md
+              - name: Configuring Fluent Bit for {{ cloud-logging-name }}
+                href: tutorials/fluent-bit-logging.md
+              - name: Setting up the Gateway API
+                href: tutorials/gateway-api.md
+              - name: Configuring an L7 {{ alb-name }} using an ingress controller
+                href: tutorials/alb-ingress-controller.md
+              - name: >-
+                  Configuring L7 {{ alb-name }} logging via an ingress
+                  controller
+                href: tutorials/alb-ingress-controller-log-options.md
+              - name: >-
+                  Creating an L7 load balancer with a {{ sws-name }} profile
+                  through an {{ alb-name }} ingress controller
+                href: tutorials/alb-ingress-with-sws-profile.md
+              - name: >-
+                  Health checking applications in a {{ managed-k8s-name }}
+                  cluster via an L7 {{ alb-name }}
+                href: tutorials/custom-health-checks.md
+              - name: Using Jaeger to trace queries in {{ ydb-name }}
+                href: tutorials/jaeger-over-ydb.md
+              - name: Setting up Kyverno & Kyverno Policies
+                href: tutorials/kyverno.md
+              - name: Using {{ MP }} to deliver metrics
+                href: tutorials/metrics-provider.md
+              - name: Editing website images with Thumbor
+                href: tutorials/thumbor.md
+              - name: Using Istio
+                href: tutorials/istio.md
+              - name: Using HashiCorp Vault to store secrets
+                href: tutorials/hashicorp-vault.md
+              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+                href: tutorials/s2s-vpn.md
+              - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
+                href: tutorials/ghost-cms-cloudapp.md
       - name: Concepts
         items:
           - name: Subscription
@@ -221,5 +386,3 @@ items:
         href: security/index.md
       - name: '{{ at-name }} events'
         href: at-ref.md
-base: en/marketplace
-deepBase: 2

@@ -1,20 +1,21 @@
-# Enabling advanced DDoS protection
+# How to enable advanced DDoS protection
 
 
-## Scenario description {#case-description}
 
-You need to enable Advanced DDoS protection or Managed WAF.
+## Case description {#case-description}
+
+You need to enable {{ adv-ddos-protection }} or Managed Web Application Firewall.
 
 ## Solution {#case-resolution}
 
-The Advanced Yandex DDoS Protection service is connected upon request via this [form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
+You can enable {{ adv-ddos-protection }} by filling out [this form](https://forms.yandex.ru/surveys/13203262.d03e905cf02195bec1093aa2b032802fe13caac0/).
 
-You can familiarize yourself with the Managed WAF pricing rules in the [relevant documentation section](../../../vpc/pricing.md#prices-ddos-advanced).
+Check the Managed Web Application Firewall pricing policy in [this article](../../../vpc/pricing.md#prices-ddos-advanced).
 
 {% note info %}
 
-The subscription fee for Advanced Yandex DDoS Protection and Managed Web Application Firewall is charged monthly and not prorated daily. For example, if you enable or disable services in the middle of the month, the monthly subscription fee is still charged in full.
+Please note that the subscription fee for {{ adv-ddos-protection }} and Managed Web Application Firewall is charged for the whole month and is not calculated in proportion to the number of days. For example, if you activate or deactivate the services mid-month, you will still be charged the full subscription fee.
 
 {% endnote %}
 
-For more detailed consultation on advanced protection, create a [support request]({{ link-console-support }}), indicating in it the desired values of the [parameters specified in the documentation](../../../vpc/ddos-protection/index.md#advanced-protection).
+For more detailed advice on advanced protection, [create a support ticket]({{ link-console-support }}) and tell us the values of [these properties](../../../vpc/ddos-protection/index.md#advanced-protection) that you need.

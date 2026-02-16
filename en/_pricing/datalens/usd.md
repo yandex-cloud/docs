@@ -1,4 +1,3 @@
-Service plan | Cost per active user <br>per month, without VAT
+Service | Price per month, without VAT
 ----- | -----
-| Community | Free of charge |
-| Business | {{ sku|USD|datalens.users.v1|string }} |
+| Seat in {{ datalens-name }} | {{ sku|USD|datalens.users.v1|string }} |

@@ -1,3 +1,8 @@
+---
+title: Миграция групп хостов в кластере {{ mos-full-name }} в другую зону доступности
+description: Следуя данной инструкции, вы сможете переместить группы хостов в кластере {{ mos-full-name }} в другую зону доступности.
+---
+
 # Миграция групп хостов в кластере {{ mos-name }} в другую зону доступности
 
 
@@ -7,7 +12,8 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
    1. В строке с группой хостов нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Изменить**.
    1. В поле **Размещение хостов** выберите зону доступности, куда вы переносите кластеры, и уберите первоначальную зону.

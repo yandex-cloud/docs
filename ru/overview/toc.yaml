@@ -1,8 +1,6 @@
 title: Обзор платформы
 href: index.yaml
 items:
-  - name: Начало работы
-    href: quickstart.md
   - name: Платформа {{ yandex-cloud }}
     expanded: true
     items:
@@ -12,22 +10,28 @@ items:
         items:
           - name: Обзор
             href: concepts/geo-scope.md
-          - name: Вывод из эксплуатации зоны {{ region-id }}-c
-            href: concepts/ru-central1-c-deprecation.md
-          - name: Миграция в зону {{ region-id }}-d
+          - name: Миграция ресурсов в другую зону
             href: concepts/zone-migration.md
           - name: Миграция ресурсов с помощью партнеров
             href: concepts/zone-migration-partners.md
-          - name: Последствия принудительной миграции из зоны {{ region-id }}-c
-            href: concepts/zone-migration-consequences.md
       - name: Регионы
         href: concepts/region.md
       - name: Устройство сети
         href: concepts/network.md
+      - name: Диапазоны публичных IP-адресов
+        href: concepts/public-ips.md
       - name: Взаимодействие пользователей и ресурсов
         href: roles-and-resources.md
+      - name: Разграничение зон контроля в MDB
+        href: concepts/mdb-responsibilities.md
+      - name: Разграничение зон контроля в {{ managed-k8s-name }}
+        href: concepts/kubernetes-responsibilities.md
       - name: Удаление данных пользователей
         href: concepts/data-deletion.md
+      - name: >-
+          Получение сведений для запроса на включение ресурса в белый список
+          Минцифры
+        href: concepts/info-for-federal-ip-whitelist.md
   - name: Сервисы {{ yandex-cloud }}
     expanded: true
     items:
@@ -35,6 +39,8 @@ items:
         href: concepts/services.md
       - name: Стадии готовности сервисов
         href: concepts/launch-stages.md
+      - name: Observability-инструменты мониторинга и логирования
+        href: concepts/monitoring-logging-tools.md
       - name: SLA
         href: sla.md
       - name: Квоты и лимиты
@@ -46,10 +52,18 @@ items:
   - name: Интерфейсы для работы с сервисами
     expanded: true
     items:
+      - name: Обзор
+        href: concepts/interfaces.md
       - name: Мобильное приложение
         href: mobile-app/index.md
       - name: API
         href: api.md
+      - name: SDK
+        items:
+          - name: Обзор
+            href: sdk/overview.md
+          - name: Начало работы
+            href: sdk/quickstart.md
       - name: Работа с {{ yandex-cloud }} CLI и API в Microsoft Windows
         href: concepts/console-syntax-guide.md
   - name: Сопоставление с другими платформами
@@ -80,5 +94,3 @@ items:
     href: ../glossary/index.md
   - name: Обучающие курсы
     href: training.md
-base: ru/overview
-deepBase: 2

@@ -12,7 +12,7 @@
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
     ```
@@ -116,7 +116,7 @@ window.smartCaptcha.render('captcha-container', {
 
     ```html
     <script
-      src="https://smartcaptcha.yandexcloud.net/captcha.js?render=onload&onload=onloadFunction"
+      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onloadFunction"
       defer
     ></script>
 
@@ -137,7 +137,7 @@ window.smartCaptcha.render('captcha-container', {
 
       function callback(token) {
         if (typeof token === "string" && token.length > 0) {
-            // Отправить форму на бекенд
+            // Отправить форму на бэкенд
             console.log(token);
             document.querySelector('form').submit()
         }

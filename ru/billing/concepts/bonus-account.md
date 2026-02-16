@@ -2,15 +2,26 @@
 
 Грант — скидка, которая предоставляется ИП, организации или физическому лицу на использование любых сервисов {{ yandex-cloud }}. Размер скидки соответствует размеру гранта. Скидка применяется к итоговой стоимости потребленных услуг.
 
-
 {% note info %}
 
 Гранты нельзя использовать для пополнения [лицевого счета](personal-account.md).
 
 {% endnote %}
 
-
 {% include [currency](../_includes/currency.md) %}
+
+## Просмотр полученных грантов {#how-to-view}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Выберите платежный аккаунт из списка.
+  1. На странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}** нажмите ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
+  1. На странице **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** на вкладке **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** отобразится информация обо всех полученных грантах.
+
+{% endlist %}
 
 ## Стартовый грант {#start}
 
@@ -25,8 +36,7 @@
 {% endnote %}
 
 ## Дополнительные гранты {#additional}
-Дополнительные гранты могут быть предоставлены по решению менеджера {{ yandex-cloud }} или в рамках [контент-программы](../../../content-program), [реферальной программы](../../../referral-program) и [программы Yandex Cloud Boost](../../../cloud-boost). Размер дополнительных грантов и срок их действия отображается в сервисе {{ billing-name }}.
-
+Дополнительные гранты могут быть предоставлены по решению менеджера {{ yandex-cloud }} или в рамках [контент-программы](../../../content-program), реферальной программы и [программы Yandex Cloud Boost](../../../cloud-boost). Размер дополнительных грантов и срок их действия отображается в сервисе {{ billing-name }}.
 
 
 ## Гранты для благотворительных фондов {#foundations-grants}
@@ -39,6 +49,9 @@
 После рассмотрения заявки с вами свяжутся для обсуждения деталей. Будьте готовы предоставить комплект документов, подтверждающих деятельность вашей организации.
 
 
-
 ## Применение грантов {#how-to-use}
-Очередность применения зависит от срока действия гранта: чем раньше заканчивается срок действия, тем раньше применяется грант. Подробнее о применении грантов см. в [описании цикла оплаты](../payment/billing-cycle-individual).
+Очередность применения зависит от срока действия гранта: чем раньше заканчивается срок действия, тем раньше применяется грант.
+
+{% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
+
+Подробнее о применении грантов см. в [описании цикла оплаты](../payment/billing-cycle-individual).

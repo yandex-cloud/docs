@@ -1,9 +1,28 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://compute.{{ api-host }}/compute/v1/images/{imageId}
+    method: get
+    path:
+      type: object
+      properties:
+        imageId:
+          description: |-
+            **string**
+            Required field. ID of the Image resource to return.
+            To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - imageId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/compute/v1/api-ref/Image/get.md
 ---
 
-# Compute Cloud API, REST: Image.Get {#Get}
+# Compute Cloud API, REST: Image.Get
 
 Returns the specified Image resource.
 
@@ -22,7 +41,9 @@ GET https://compute.{{ api-host }}/compute/v1/images/{imageId}
 || imageId | **string**
 
 Required field. ID of the Image resource to return.
-To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request. ||
+To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Image}
@@ -36,7 +57,7 @@ To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#
   "createdAt": "string",
   "name": "string",
   "description": "string",
-  "labels": "string",
+  "labels": "object",
   "family": "string",
   "storageSize": "string",
   "minDiskSize": "string",
@@ -45,7 +66,10 @@ To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#
   ],
   "status": "string",
   "os": {
-    "type": "string"
+    "type": "string",
+    "nvidia": {
+      "driver": "string"
+    }
   },
   "pooled": "boolean",
   "hardwareGeneration": {
@@ -55,6 +79,10 @@ To get the image ID, use a [ImageService.List](/docs/compute/api-ref/Image/list#
     },
     "generation2Features": "object"
     // end of the list of possible fields
+  },
+  "kmsKey": {
+    "keyId": "string",
+    "versionId": "string"
   }
 }
 ```
@@ -71,6 +99,8 @@ ID of the image. ||
 ID of the folder that the image belongs to. ||
 || createdAt | **string** (date-time)
 
+Creation timestamp.
+
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
 
@@ -83,7 +113,7 @@ Name of the image. 1-63 characters long. ||
 || description | **string**
 
 Description of the image. 0-256 characters long. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
 || family | **string**
@@ -113,7 +143,6 @@ You can specify them in the [yandex.cloud.compute.v1.ImageService.Create](/docs/
 
 Current status of the image.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered a problem and cannot operate.
@@ -128,6 +157,9 @@ When true, indicates there is an image pool for fast creation disks from the ima
 
 If specified, forces the same HardwareGeneration features to be applied to the instance
 created using this image as a source for the boot disk. Otherwise the current default will be used. ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
 |#
 
 ## Os {#yandex.cloud.compute.v1.Os}
@@ -140,9 +172,21 @@ Operating system type. The default is `LINUX`.
 
 This field is used to correctly emulate a vCPU and calculate the cost of using an instance.
 
-- `TYPE_UNSPECIFIED`
 - `LINUX`: Linux operating system.
 - `WINDOWS`: Windows operating system. ||
+|| nvidia | **[Nvidia](#yandex.cloud.compute.v1.Nvidia)**
+
+Gpu type.
+This field is used to correctly select a node with a host gpu that matches the gpu from here, in order to run the VM on it. ||
+|#
+
+## Nvidia {#yandex.cloud.compute.v1.Nvidia}
+
+#|
+||Field | Description ||
+|| driver | **string**
+
+Gpu driver version. ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -171,7 +215,18 @@ Allows switching to PCI_TOPOLOGY_V2 and back.
 ||Field | Description ||
 || pciTopology | **enum** (PCITopology)
 
-- `PCI_TOPOLOGY_UNSPECIFIED`
 - `PCI_TOPOLOGY_V1`
 - `PCI_TOPOLOGY_V2` ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
 |#

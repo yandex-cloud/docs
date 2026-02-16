@@ -6,18 +6,30 @@ Below, we consider a [directed acyclic graph (DAG)](../../managed-airflow/concep
 
 To use configuration data from a {{ lockbox-name }} secret in the graph:
 
-1. [Prepare your infrastructure](#create-infrastracture).
+1. [Set up your infrastructure](#create-infrastracture).
 1. [Create a {{ lockbox-name }} secret](#create-lockbox-secret).
 1. [Prepare the DAG file and run the graph](#dag).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
-## Prepare the infrastructure {#create-infrastracture}
+
+## Required paid resources {#paid-resources}
+
+The support cost includes:
+
+* {{ mpg-name }} cluster fee: Computing resources and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ maf-name }} cluster fee: Computing resources and disk space (see [{{ AF }} pricing](../../managed-airflow/pricing.md)).
+* {{ objstorage-name }} bucket fee: Storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* Fee for using a {{ lockbox-name }} secret (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#create-infrastracture}
 
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) named `airflow-sa` with the following roles:
 
-   * `managed-airflow.integrationProvider`
+   * `{{ roles.maf.integrationProvider }}`
    * `lockbox.payloadViewer`
 
    {% note info }
@@ -32,9 +44,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 1. [Create a {{ maf-name }} cluster](../../managed-airflow/operations/cluster-create.md#create-cluster) with the following parameters:
 
-   * **Service account**: `airflow-sa`
-   * **Bucket name**: Name of the new bucket
-   * **{{ ui-key.yacloud.airflow.field_lockbox }}**: Make sure to enable this option
+   * **Service account**: `airflow-sa`.
+   * **Bucket name**: Name of the new bucket.
+   * **{{ ui-key.yacloud.airflow.field_lockbox }}**: Make sure to enable this option.
 
 1. [Create a {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) cluster with the following parameters:
 
@@ -46,11 +58,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's name must have this format: `airflow/<artifact_type>/<artifact_ID>`, where:
 
-   * `<artifact_type>`: Type of the artifact that will be stored in the secret. The following types are available:
-     * `connections`: Connections
-     * `variables`: Variables
-     * `config`: Configuration data
-   * `<artifact_ID>`: ID that will be used to access the artifact in {{ AF }}.
+   * `<artifact_type>`: Type of the artifact to store in the secret. The following types are available:
+     * `connections`: Connections.
+     * `variables`: Variables.
+     * `config`: Configuration data.
+   * `<artifact_ID>`: ID to use to access the artifact in {{ AF }}.
 
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
 

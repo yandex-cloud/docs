@@ -5,7 +5,7 @@ description: This page covers some aspects of notifications about upcoming force
 
 # Function termination notifications
 
-In some cases, the service may forcibly terminate a [function instance](./function.md#scaling). In which case the custom code of the function will get a _notification of upcoming forced termination_. 
+In some cases, the service may forcibly terminate a [function instance](./function.md#function-instance). In which case the custom code of the function will get a _notification of upcoming forced termination_. 
 
 Depending on the timeout specified in the [function version](./function.md#version) and the current state of the function instance, you can see one of the two notification types:
 
@@ -15,8 +15,6 @@ Depending on the timeout specified in the [function version](./function.md#versi
 The most important difference between these types of notifications is the amount of time allowed for a function to complete its operation normally before the instance is forced to terminate. You should keep this difference in mind for listeners of these notification types.
 
 ## Notifying the custom code in an active instance of a long-lived function {#possible-termination}
-
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 
 This type of notification is sent to the custom code of the function if the following conditions are met:
 
@@ -28,7 +26,7 @@ The function custom code receives a notification about the upcoming forced termi
 
 The default notification signal is [`SIGTERM` (Termination signal)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGTERM). 
 
-Instead of `SIGTERM`, the custom code of the function may get the [`SIGINT` (Interrupt from keyboard)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT) signal. To do this, you need to add the `X_YCF_GRACEFUL_SHUTDOWN_SIGNAL_SIGINT` environment variable set to `1` to the function version.
+Instead of `SIGTERM`, the function's custom code may get the [`SIGINT` (Interrupt from keyboard)](https://en.wikipedia.org/wiki/Signal_(IPC)#SIGINT) signal. To do this, you need to add the `X_YCF_GRACEFUL_SHUTDOWN_SIGNAL_SIGINT` environment variable set to `1` to the function version.
 
 If the [runtime environment](./runtime/index.md#runtimes) supports this, add to the function a listener that will respond to the incoming POSIX signal from the operating system (`SIGTERM` or `SIGINT`). This will allow you to prevent data loss in case of abnormal abort of call processing due to forced termination of the function instance.
 

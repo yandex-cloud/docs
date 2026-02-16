@@ -1,11 +1,30 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
+    method: get
+    path:
+      type: object
+      properties:
+        streamLineId:
+          description: |-
+            **string**
+            Required field. ID of the stream line to retrieve.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - streamLineId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/StreamLine/get.md
 ---
 
-# Video API, REST: StreamLine.Get {#Get}
+# Video API, REST: StreamLine.Get
 
-Returns the specific stream line.
+Retrieves detailed information about a specific stream line by its ID.
+Returns all stream line metadata, configuration, and related information.
 
 ## HTTP request
 
@@ -19,7 +38,9 @@ GET https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}
 ||Field | Description ||
 || streamLineId | **string**
 
-Required field. ID of the line. ||
+Required field. ID of the stream line to retrieve.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.StreamLine}
@@ -31,24 +52,14 @@ Required field. ID of the line. ||
   "id": "string",
   "channelId": "string",
   "title": "string",
-  "thumbnailId": "string",
-  // Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`
+  // Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`
   "rtmpPush": {
-    "url": "string"
-  },
-  "srtPush": {
     "url": "string"
   },
   "rtmpPull": {
     "url": "string"
   },
   "srtPull": {
-    "url": "string"
-  },
-  "tcpPull": {
-    "url": "string"
-  },
-  "rtspPull": {
     "url": "string"
   },
   // end of the list of possible fields
@@ -60,11 +71,11 @@ Required field. ID of the line. ||
   // end of the list of possible fields
   "createdAt": "string",
   "updatedAt": "string",
-  "labels": "string"
+  "labels": "object"
 }
 ```
 
-Entity that is responsible for the incoming video signal settings.
+Entity representing the incoming video signal settings.
 
 #|
 ||Field | Description ||
@@ -73,72 +84,48 @@ Entity that is responsible for the incoming video signal settings.
 ID of the line. ||
 || channelId | **string**
 
-ID of the channel where the line was created. ||
+ID of the channel to which this stream line belongs. ||
 || title | **string**
 
-Line title. ||
-|| thumbnailId | **string**
-
-ID of the thumbnail. ||
+Title of the stream line. ||
 || rtmpPush | **[RTMPPushInput](#yandex.cloud.video.v1.RTMPPushInput)**
 
-RTMP push input type.
+Real-Time Messaging Protocol (RTMP) push input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| srtPush | **[SRTPushInput](#yandex.cloud.video.v1.SRTPushInput)**
-
-SRT push input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || rtmpPull | **[RTMPPullInput](#yandex.cloud.video.v1.RTMPPullInput)**
 
-RTMP pull input type.
+Real-Time Messaging Protocol (RTMP) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || srtPull | **[SRTPullInput](#yandex.cloud.video.v1.SRTPullInput)**
 
-SRT pull input type.
+Secure Reliable Transport (SRT) pull input type.
 
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
+Includes only one of the fields `rtmpPush`, `rtmpPull`, `srtPull`.
 
-Video signal settings. ||
-|| tcpPull | **[TCPPullInput](#yandex.cloud.video.v1.TCPPullInput)**
-
-TCP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
-|| rtspPull | **[RTSPPullInput](#yandex.cloud.video.v1.RTSPPullInput)**
-
-RTSP pull input type.
-
-Includes only one of the fields `rtmpPush`, `srtPush`, `rtmpPull`, `srtPull`, `tcpPull`, `rtspPull`.
-
-Video signal settings. ||
+Specifies the input type and settings for the video signal source. ||
 || manualLine | **object**
 
-Manual control of stream.
+Manual stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || autoLine | **[AutoLine](#yandex.cloud.video.v1.AutoLine)**
 
-Automatic control of stream.
+Automatic stream control.
 
 Includes only one of the fields `manualLine`, `autoLine`.
 
-Line type. ||
+Specifies the control type of the stream line. ||
 || createdAt | **string** (date-time)
 
-Time when line was created.
+Timestamp when the stream line was initially created in the system.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -148,7 +135,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || updatedAt | **string** (date-time)
 
-Time of last line update.
+Timestamp of the last modification to the stream line or its metadata.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -156,12 +143,18 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
-Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
+Custom user-defined labels as `key:value` pairs.
+Maximum 64 labels per stream line.
+Labels can be used for organization, filtering, and metadata purposes. ||
 |#
 
 ## RTMPPushInput {#yandex.cloud.video.v1.RTMPPushInput}
+
+Settings for an RTMP (Real-Time Messaging Protocol) push input.
+Used when the video stream is pushed to an RTMP server.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -170,16 +163,11 @@ Custom labels as `` key:value `` pairs. Maximum 64 per resource. ||
 RTMP server url. ||
 |#
 
-## SRTPushInput {#yandex.cloud.video.v1.SRTPushInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-SRT server url. ||
-|#
-
 ## RTMPPullInput {#yandex.cloud.video.v1.RTMPPullInput}
+
+Settings for an RTMP pull input.
+Used when the service pulls the video stream from an RTMP source.
+@see https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol
 
 #|
 ||Field | Description ||
@@ -190,6 +178,10 @@ RTMP url for receiving video signal. ||
 
 ## SRTPullInput {#yandex.cloud.video.v1.SRTPullInput}
 
+Settings for an SRT pull input.
+Used when the service pulls the video stream from an SRT source.
+@see https://en.wikipedia.org/wiki/Secure_Reliable_Transport
+
 #|
 ||Field | Description ||
 || url | **string**
@@ -197,35 +189,16 @@ RTMP url for receiving video signal. ||
 SRT url for receiving video signal. ||
 |#
 
-## TCPPullInput {#yandex.cloud.video.v1.TCPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-TCP url for receiving video signal. ||
-|#
-
-## RTSPPullInput {#yandex.cloud.video.v1.RTSPPullInput}
-
-#|
-||Field | Description ||
-|| url | **string**
-
-RTSP url for receiving video signal. ||
-|#
-
 ## AutoLine {#yandex.cloud.video.v1.AutoLine}
 
-Auto line type.
+Represents an automatic line type where the stream control is handled automatically.
 
 #|
 ||Field | Description ||
 || status | **enum** (AutoLineStatus)
 
-Status of auto line.
+The status of the automatic line.
 
-- `AUTO_LINE_STATUS_UNSPECIFIED`: Auto line status unspecified.
-- `DEACTIVATED`: Auto line deactivated.
-- `ACTIVE`: Auto line active. ||
+- `DEACTIVATED`: The automatic line is deactivated and not currently active.
+- `ACTIVE`: The automatic line is active and operational. ||
 |#

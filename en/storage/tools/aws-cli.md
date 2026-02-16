@@ -1,3 +1,8 @@
+---
+title: AWS Command Line Interface (AWS CLI)
+description: In this article, you will learn about the AWS Command Line Interface (AWS CLI), how to install and configure it, explore some of its features when working with {{ objstorage-name }} and example operations.
+---
+
 # AWS Command Line Interface (AWS CLI)
 
 
@@ -17,53 +22,78 @@ To work with {{ objstorage-name }} via the AWS CLI, you can use the following co
 
 {% include [install-aws-cli](../../_includes/aws-tools/install-aws-cli.md) %}
 
-## Setup {#setup}
+## Configuration {#setup}
 
-To configure the AWS CLI, run the `aws configure` command in your terminal. The command requests values for the following parameters:
-1. `AWS Access Key ID`: ID of the static key created when [getting started](#before-you-begin).
-1. `AWS Secret Access Key`: Contents of the static access key.
+To configure the AWS CLI, run the `aws configure` command in your terminal. The command will request values for the following parameters:
+1. `AWS Access Key ID`: Static key ID [you got previously](#before-you-begin).
+1. `AWS Secret Access Key`: Static key contents [you got previously](#before-you-begin).
 1. `Default region name`: `{{ region-id }}`.
 
-    To work with {{ objstorage-name }}, always specify `{{ region-id }}` as the region. A different region value may lead to an authorization error.
+    To work with {{ objstorage-name }}, always specify the `{{ region-id }}`. A different region value may lead to an authorization error.
 
-1. Leave the other parameter values unchanged.
+1. Leave the other parameters unchanged.
 
 ### Configuration files {#config-files}
 
 The `aws configure` command saves the static key and the region.
-* Static key format in `.aws/credentials`:
+* The static key in `.aws/credentials` has the following format:
 
   ```ini
   [default]
-    aws_access_key_id = <static_key_ID>
-    aws_secret_access_key = <static_key_contents>
+  aws_access_key_id = <static_key_ID>
+  aws_secret_access_key = <static_key_contents>
   ```
 
-* Default region format in `.aws/config`:
+* The default region in `.aws/config` has the following format:
 
   ```ini
   [default]
-    region = {{ region-id }}
+  region = {{ region-id }}
   ```
 
-* You can create multiple profiles for different service accounts by specifying their details in the `.aws/credentials` file:
+
+{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
+
+
+### Setting up an additional profile {#additional-profile}
+
+You can create multiple AWS CLI profiles with the following command:
+
+  ```bash
+  aws configure --profile <profile_name>
+  ```
+
+The profile data will be saved to the `.aws/credentials` and `.aws/config` files as follows:
+* `credentials`:
 
   ```ini
   [default]
-    aws_access_key_id = <ID_of_static_key_1>
-    aws_secret_access_key = <contents_of_static_key_1>
+  aws_access_key_id = <ID_of_static_key_1>
+  aws_secret_access_key = <contents_of_static_key_1>
   [<name_of_profile_2>]
-    aws_access_key_id = <ID_of_static_key_2>
-    aws_secret_access_key = <contents_of_static_key_2>
+  aws_access_key_id = <ID_of_static_key_2>
+  aws_secret_access_key = <contents_of_static_key_2>
   ...
   [<name_of_profile_n>]
-    aws_access_key_id = <ID_of_static_key_n>
-    aws_secret_access_key = <contents_of_static_key_n>
+  aws_access_key_id = <ID_of_static_key_n>
+  aws_secret_access_key = <contents_of_static_key_n>
+  ```
+
+* `config`:
+
+  ```ini
+  [default]
+  region = {{ region-id }}
+  [profile <name_of_profile_2>]
+  region = {{ region-id }}
+  ...
+  [profile <name_of_profile_n>]
+  region = {{ region-id }}
   ```
 
   Where `default` is the default profile.
 
-  To switch between different profiles, the AWS CLI commands use the `--profile` option, e.g.:
+To switch between profiles, the AWS CLI commands use the `--profile` option, e.g.:
 
   ```bash
   aws --endpoint-url=https://{{ s3-storage-host }}/ \
@@ -71,13 +101,9 @@ The `aws configure` command saves the static key and the region.
     s3 mb s3://<bucket_name>
   ```
 
+## Features {#specifics}
 
-{% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
-
-
-## Things to consider {#specifics}
-
-Give consideration to the special aspects of using the AWS CLI with {{ objstorage-name }}:
+Take note of these AWS CLI features when used with {{ objstorage-name }}:
 
 * The AWS CLI treats {{ objstorage-name }} as a hierarchical file system and object keys look like file paths.
 * By default, the client is configured to work with Amazon servers. Therefore, when running the `aws` command to work with {{ objstorage-name }}, make sure to use the `--endpoint-url` parameter. To avoid adding the parameter manually each time you run the command, you can use a configuration file or an alias.
@@ -89,7 +115,7 @@ Give consideration to the special aspects of using the AWS CLI with {{ objstorag
 
        This enables you to invoke commands without explicitly specifying an endpoint. For example, you can specify `aws s3 ls` instead of `aws --endpoint-url=https://{{ s3-storage-host }} s3 ls`. For more information, see the [AWS CLI](https://docs.aws.amazon.com/sdkref/latest/guide/feature-ss-endpoints.html) documentation.
 
-    * To create an alias, use the following command:
+    * Create an alias using the following command:
 
       ```bash
       alias {{ storage-aws-cli-alias }}='aws s3 --endpoint-url=https://{{ s3-storage-host }}'
@@ -107,11 +133,11 @@ Give consideration to the special aspects of using the AWS CLI with {{ objstorag
       {{ storage-aws-cli-alias }} ls
       ```
 
-## Example operations {#aws-cli-examples}
+## Examples of operations {#aws-cli-examples}
 
 {% note info %}
 
-To enable debug output in the console, use the `--debug` key.
+To enable debug output in the console, use the `--debug` flag.
 
 {% endnote %}
 
@@ -182,7 +208,6 @@ aws s3 ls --recursive s3://bucket-name
 ```
 
 Result:
-
 ```text
 2022-09-05 17:10:34      10023 other/test1.png
 2022-09-05 17:10:34      57898 other/test2.png

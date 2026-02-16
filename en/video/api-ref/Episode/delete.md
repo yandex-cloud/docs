@@ -1,11 +1,29 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://video.{{ api-host }}/video/v1/episodes/{episodeId}
+    method: delete
+    path:
+      type: object
+      properties:
+        episodeId:
+          description: |-
+            **string**
+            Required field. ID of the episode to delete.
+            The maximum string length in characters is 50.
+          type: string
+      required:
+        - episodeId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/video/v1/api-ref/Episode/delete.md
 ---
 
-# Video API, REST: Episode.Delete {#Delete}
+# Video API, REST: Episode.Delete
 
-Delete episode.
+Deletes a specific episode by its ID.
 
 ## HTTP request
 
@@ -19,7 +37,9 @@ DELETE https://video.{{ api-host }}/video/v1/episodes/{episodeId}
 ||Field | Description ||
 || episodeId | **string**
 
-Required field. ID of the episode. ||
+Required field. ID of the episode to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -109,7 +129,8 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || episodeId | **string**
 
-ID of the episode. ||
+ID of the episode being deleted.
+This identifier can be used to track the episode deletion operation. ||
 |#
 
 ## Status {#google.rpc.Status}

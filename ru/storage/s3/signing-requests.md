@@ -1,4 +1,15 @@
+---
+title: Подписывание запросов к {{ objstorage-full-name }}
+description: Следуя данной инструкции, вы сможете настроить подпись запросов к {{ objstorage-name }}.
+---
+
 # Подписывание запросов
+
+{% note warning %}
+
+Подписывать запросы необходимо только при использовании аутентификации с помощью [статического ключа доступа](../../iam/concepts/authorization/access-key.md). Если вы используете аутентификацию с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md), подписывать запросы не требуется.
+
+{% endnote %}
 
 
 Многие запросы к {{ objstorage-name }} аутентифицируются на стороне сервиса и пользователь, отправляющий запрос, должен его подписать.
@@ -86,5 +97,6 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 #### См. также {#see-also}
 
+* [{#T}](./s3-api-quickstart.md)
 * [Пример отправки подписанного запроса с помощью утилиты curl](../api-ref/authentication.md#s3-api-example)
 * [Пример кода для генерации подписи](../concepts/pre-signed-urls.md#code-examples)

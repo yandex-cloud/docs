@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeListener
+    method: post
+    path:
+      type: object
+      properties:
+        loadBalancerId:
+          description: |-
+            **string**
+            Required field. ID of the application load balancer to remove the listener from.
+          type: string
+      required:
+        - loadBalancerId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        name:
+          description: |-
+            **string**
+            Required field. Name of the listener to remove from the application load balancer.
+          type: string
+      required:
+        - name
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/LoadBalancer/removeListener.md
 ---
 
-# Application Load Balancer API, REST: LoadBalancer.RemoveListener {#RemoveListener}
+# Application Load Balancer API, REST: LoadBalancer.RemoveListener
 
 Deletes the specified listener.
 
@@ -66,7 +93,7 @@ Required field. Name of the listener to remove from the application load balance
     "name": "string",
     "description": "string",
     "folderId": "string",
-    "labels": "string",
+    "labels": "object",
     "status": "string",
     "regionId": "string",
     "networkId": "string",
@@ -178,7 +205,9 @@ Required field. Name of the listener to remove from the application load balance
         {
           "zoneId": "string",
           "subnetId": "string",
-          "disableTraffic": "boolean"
+          "disableTraffic": "boolean",
+          "zonalShiftActive": "boolean",
+          "zonalTrafficDisabled": "boolean"
         }
       ]
     },
@@ -208,7 +237,8 @@ Required field. Name of the listener to remove from the application load balance
         }
       ],
       "disable": "boolean"
-    }
+    },
+    "allowZonalShift": "boolean"
   }
   // end of the list of possible fields
 }
@@ -331,7 +361,7 @@ Description of the application load balancer. ||
 || folderId | **string**
 
 ID of the folder that the application load balancer belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Application load balancer labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
@@ -339,7 +369,6 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 
 Status of the application load balancer.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: The application load balancer is being created.
 - `STARTING`: The application load balancer is being started.
 - `ACTIVE`: The application load balancer is active and sends traffic to the targets.
@@ -366,7 +395,7 @@ For details about the concept, see [documentation](/docs/application-load-balanc
 
 ID of the log group that stores access logs of the application load balancer.
 
-The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloudlogs-trigger-create). ||
+The logs can be accessed using a Cloud Functions [trigger for Cloud Logs](/docs/functions/operations/trigger/cloud-logging-trigger-create). ||
 || securityGroupIds[] | **string**
 
 ID's of the security groups attributed to the application load balancer.
@@ -396,6 +425,9 @@ see [documentation](/docs/application-load-balancer/concepts/application-load-ba
 || logOptions | **[LogOptions](#yandex.cloud.apploadbalancer.v1.LogOptions)**
 
 Cloud logging settings of the application load balancer. ||
+|| allowZonalShift | **boolean**
+
+Specifies whether application load balancer is available to zonal shift. ||
 |#
 
 ## Listener {#yandex.cloud.apploadbalancer.v1.Listener}
@@ -450,10 +482,14 @@ An endpoint resource.
 ||Field | Description ||
 || addresses[] | **[Address](#yandex.cloud.apploadbalancer.v1.Address)**
 
-Endpoint public (external) and internal addresses. ||
+Endpoint public (external) and internal addresses.
+
+The number of elements must be greater than 0. ||
 || ports[] | **string** (int64)
 
-Endpoint ports. ||
+Endpoint ports.
+
+The number of elements must be greater than 0. Acceptable values are 1 to 65535, inclusive. ||
 |#
 
 ## Address {#yandex.cloud.apploadbalancer.v1.Address}
@@ -645,7 +681,9 @@ Settings for handling requests. ||
 
 ID's of the TLS server certificates from [Certificate Manager](/docs/certificate-manager/).
 
-RSA and ECDSA certificates are supported, and only the first certificate of each type is used. ||
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
 |#
 
 ## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
@@ -679,7 +717,9 @@ A SNI handler resource.
 Required field. Name of the SNI handler. ||
 || serverNames[] | **string**
 
-Server names that are matched by the SNI handler. ||
+Server names that are matched by the SNI handler.
+
+The number of elements must be greater than 0. ||
 || handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
 
 Required field. Settings for handling requests with Server Name Indication (SNI) matching one of `serverNames` values. ||
@@ -704,7 +744,9 @@ A locality settings (allocation policy) resource.
 ||Field | Description ||
 || locations[] | **[Location](#yandex.cloud.apploadbalancer.v1.Location)**
 
-Availability zones and subnets that the application load balancer resides. ||
+Availability zones and subnets that the application load balancer resides.
+
+The minimum number of elements is 1. ||
 |#
 
 ## Location {#yandex.cloud.apploadbalancer.v1.Location}
@@ -730,6 +772,14 @@ Disables the load balancer node in the specified availability zone.
 Backends in the availability zone are not directly affected by this setting.
 They still may receive traffic from the load balancer nodes in other availability zones,
 subject to [LoadBalancingConfig.localityAwareRoutingPercent](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) and [LoadBalancingConfig.strictLocality](/docs/application-load-balancer/api-ref/BackendGroup/get#yandex.cloud.apploadbalancer.v1.LoadBalancingConfig) settings. ||
+|| zonalShiftActive | **boolean**
+
+Show zonal shift status for the location.
+Deprecated: use `zonalTrafficDisabled` below to track traffic status. ||
+|| zonalTrafficDisabled | **boolean**
+
+Computed field: will be set to true if all traffic in zone is disabled
+either manually by user or automatically by Cloud infrastructure. ||
 |#
 
 ## AutoScalePolicy {#yandex.cloud.apploadbalancer.v1.AutoScalePolicy}
@@ -745,7 +795,9 @@ Lower limit for the number of resource units in each availability zone.
 If not specified previously (using other instruments such as management console), the default value is 2.
 To revert to it, specify it explicitly.
 
-The minimum value is 2. ||
+The minimum value is 2.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || maxSize | **string** (int64)
 
 Upper limit for the total number of resource units across all availability zones.
@@ -753,7 +805,9 @@ Upper limit for the total number of resource units across all availability zones
 If a positive value is specified, it must be at least `minZoneSize` multiplied by the size of
 [AllocationPolicy.locations](#yandex.cloud.apploadbalancer.v1.AllocationPolicy).
 
-If the value is 0, there is no upper limit. ||
+If the value is 0, there is no upper limit.
+
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## LogOptions {#yandex.cloud.apploadbalancer.v1.LogOptions}
@@ -782,12 +836,13 @@ If neither codes or intervals are provided, rule applies to all logs.
 ||Field | Description ||
 || httpCodes[] | **string** (int64)
 
-HTTP codes that should be discarded. ||
+HTTP codes that should be discarded.
+
+Acceptable values are 100 to 599, inclusive. ||
 || httpCodeIntervals[] | **enum** (HttpCodeInterval)
 
 Groups of HTTP codes like 4xx that should be discarded.
 
-- `HTTP_CODE_INTERVAL_UNSPECIFIED`
 - `HTTP_1XX`
 - `HTTP_2XX`
 - `HTTP_3XX`
@@ -919,5 +974,7 @@ a backoff.
   HTTP Mapping: 500 Internal Server Error ||
 || discardPercent | **string** (int64)
 
-Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all ||
+Percent of logs to be discarded: 0 - keep all, 100 or unset - discard all
+
+Acceptable values are 0 to 100, inclusive. ||
 |#

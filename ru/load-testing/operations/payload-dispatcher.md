@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
    sudo apt install git
    ```
 
-## Сбор запросов { #collecting-payload }
+## Сбор запросов {#collecting-payload}
 
 1. Клонируйте [репозиторий](https://github.com/yandex-cloud-examples/yc-load-testing-dispatcher) из GitHub и перейдите в папку `yc-load-testing-dispatcher`:
    

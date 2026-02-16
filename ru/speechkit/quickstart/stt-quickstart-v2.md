@@ -1,4 +1,10 @@
+---
+title: Как распознать длинные аудиофайлы в {{ speechkit-full-name }}
+description: Следуя данной инструкции, вы научитесь распознавать длинные аудиофайлы в {{ speechkit-name }}.
+---
+
 # Как распознать длинные аудиофайлы в {{ speechkit-name }}
+
 
 Сервис позволяет распознавать речь [различными способами](../stt/index.md#stt-ways). В примере аудиофайл распознается с помощью [асинхронного распознавания](../stt/transcribation.md). Асинхронное распознавание доступно в API v3 и API v2. Для асинхронного распознавания действуют ограничения:
 
@@ -19,7 +25,7 @@
    {% endnote %}
 
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли `storage.uploader` и `ai.speechkit-stt.user` на каталог, в котором вы ранее создали бакет.
-1. [Получите API-ключ](../../iam/operations/api-key/create.md) или [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
+1. [Получите API-ключ](../../iam/operations/authentication/manage-api-keys.md#create-api-key) или [IAM-токен](../../iam/operations/iam-token/create-for-sa.md) для созданного сервисного аккаунта.
 1. Скачайте пример аудиофайла:
 
    * для API v3 — [файл WAV](https://{{ s3-storage-host }}/doc-files/speech.wav);

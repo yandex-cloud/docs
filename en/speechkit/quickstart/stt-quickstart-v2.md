@@ -1,4 +1,10 @@
+---
+title: How to recognize long audio files in {{ speechkit-full-name }}
+description: Follow this guide to recognize long audio files in {{ speechkit-name }}.
+---
+
 # How to recognize long audio files in {{ speechkit-name }}
+
 
 The service can recognize speech [in different ways](../stt/index.md#stt-ways). The provided example demonstrates [asynchronous recognition](../stt/transcribation.md) of an audio file. Asynchronous recognition is available via API v3 and API v2. Asynchronous recognition is subject to these restrictions:
 
@@ -19,7 +25,7 @@ In the example, the API is used via the [cURL](https://curl.se/) utility. If you
    {% endnote %}
 
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) to the service account the `storage.uploader` and `ai.speechkit-stt.user` roles for the folder you had created the bucket in.
-1. [Get an API key](../../iam/operations/api-key/create.md) or [IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
+1. [Get an API key](../../iam/operations/authentication/manage-api-keys.md#create-api-key) or [IAM token](../../iam/operations/iam-token/create-for-sa.md) for your service account.
 1. Download a sample audio file:
 
    * For API v3: a WAV file.

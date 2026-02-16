@@ -1,21 +1,21 @@
 ---
-title: How to get information about an HTTP router in {{ alb-full-name }}
+title: How to get HTTP router information in {{ alb-full-name }}
 ---
 
-# Getting information about an HTTP router
+# Getting HTTP router information
 
-You can view a router's ID, its hosts, and routes in the hosts.
+You can get the router ID, its hosts, and their routes.
 
-To get information about an HTTP router:
+To get HTTP router information:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your router.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
-  1. Select the HTTP router.
+  1. Select your HTTP router.
   1. The **{{ ui-key.yacloud.common.overview }}** page will show the HTTP router details.
 
 - CLI {#cli}
@@ -24,13 +24,13 @@ To get information about an HTTP router:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See a description of the CLI command to get information about an HTTP router:
+  1. See the description of the CLI command for getting HTTP router information:
 
       ```bash
       yc alb http-router get --help
       ```
 
-  1. Get information about an HTTP router by specifying its ID or name:
+  1. To get HTTP router information, run this command with its ID or name specified:
 
       ```bash
       yc alb http-router get <HTTP_router_name>
@@ -47,12 +47,17 @@ To get information about an HTTP router:
           authority:
             - www.first-site.ru
             - first-site.ru
+          route_options:
+            security_profile_id: fevcifh6tr**********
+          rate_limit:
+            all_requests:
+              per_second: "100"
           routes:
             - name: route-1
               http:
                 route:
                   backend_group_id: ds7maho6c4or********
-      created_at: "2023-10-24T12:20:44.091821711Z"
+      created_at: "2024-12-12T12:20:44.091821711Z"
       ```
 
 - {{ TF }} {#tf}
@@ -61,9 +66,9 @@ To get information about an HTTP router:
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about an HTTP router using {{ TF }}:
+  To get HTTP router information using {{ TF }}:
 
-  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+  1. Add `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_alb_http_router" "tf-router" {
@@ -79,16 +84,16 @@ To get information about an HTTP router:
 
       * `data "yandex_alb_http_router"`: Description of the HTTP router as a data source:
          * `http_router_id`: HTTP router ID.
-      * `output "tf-router-name"`: Output variable that contains the HTTP router name:
-         * `value`: Returned value.
+      * `output "tf-router-name"`: Output variable with the HTTP router name:
+         * `value`: Return value.
 
-     You can replace `name` with any other parameter to get the information you need. For more information about the `yandex_alb_http_router` data source parameters, see the [provider documentation]({{ tf-provider-datasources-link }}/datasource_alb_http_router).
+     You can replace `name` with another variable to get the information you need. For more information about the `yandex_alb_http_router` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/alb_http_router).
 
-  1. Create resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create an HTTP router and display the output variable values in the terminal. To check the results, run:
+      {{ TF }} will create the HTTP router and display its output variable. To check the results, run this command:
 
       ```bash
       terraform output
@@ -102,6 +107,6 @@ To get information about an HTTP router:
 
 - API {#api}
 
-  To get detailed information about an HTTP router, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md) gRPC API call.
+  To get HTTP router details, use the [get](../api-ref/HttpRouter/get.md) REST API method for the [Origin](../api-ref/HttpRouter/index.md) resource or the [HttpRouterService/Get](../api-ref/grpc/HttpRouter/get.md) gRPC API call.
 
 {% endlist %}

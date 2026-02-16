@@ -1,9 +1,27 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups/{targetGroupId}
+    method: get
+    path:
+      type: object
+      properties:
+        targetGroupId:
+          description: |-
+            **string**
+            Required field. ID of the target group to return.
+            To get the target group ID, make a [TargetGroupService.List](/docs/application-load-balancer/api-ref/TargetGroup/list#List) request.
+          type: string
+      required:
+        - targetGroupId
+      additionalProperties: false
+    query: null
+    body: null
+    definitions: null
 sourcePath: en/_api-ref/apploadbalancer/v1/api-ref/TargetGroup/get.md
 ---
 
-# Application Load Balancer API, REST: TargetGroup.Get {#Get}
+# Application Load Balancer API, REST: TargetGroup.Get
 
 Returns the specified target group.
 
@@ -36,7 +54,7 @@ To get the target group ID, make a [TargetGroupService.List](/docs/application-l
   "name": "string",
   "description": "string",
   "folderId": "string",
-  "labels": "string",
+  "labels": "object",
   "targets": [
     {
       // Includes only one of the fields `ipAddress`
@@ -67,7 +85,7 @@ Description of the target group. ||
 || folderId | **string**
 
 ID of the folder that the target group belongs to. ||
-|| labels | **string**
+|| labels | **object** (map<**string**, **string**>)
 
 Target group labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||

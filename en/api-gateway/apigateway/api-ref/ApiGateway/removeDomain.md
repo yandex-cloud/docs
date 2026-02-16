@@ -1,9 +1,36 @@
 ---
 editable: false
+apiPlayground:
+  - url: https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:removeDomain
+    method: post
+    path:
+      type: object
+      properties:
+        apiGatewayId:
+          description: |-
+            **string**
+            Required field. ID of the API gateway from which the domain is being detached.
+          type: string
+      required:
+        - apiGatewayId
+      additionalProperties: false
+    query: null
+    body:
+      type: object
+      properties:
+        domainId:
+          description: |-
+            **string**
+            Required field. ID of the detaching domain.
+          type: string
+      required:
+        - domainId
+      additionalProperties: false
+    definitions: null
 sourcePath: en/_api-ref/serverless/apigateway/v1/apigateway/api-ref/ApiGateway/removeDomain.md
 ---
 
-# API Gateway Service, REST: ApiGateway.RemoveDomain {#RemoveDomain}
+# API Gateway Service, REST: ApiGateway.RemoveDomain
 
 Detaches domain from the specified API gateway.
 

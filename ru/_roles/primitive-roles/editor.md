@@ -1,4 +1,4 @@
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/quickstart.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 

@@ -1,4 +1,6 @@
 ---
+title: '{{ mos-full-name }} pricing policy'
+description: This article covers the {{ mos-name }} pricing policy.
 editable: false
 ---
 
@@ -6,40 +8,51 @@ editable: false
 
 In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
-{% include [use-calculator](../_includes/pricing/use-calculator.md) %}
+{% note tip %}
+
+
+
+
+For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=6045f728368e#calculator) on our website or check out the pricing below.
+
+
+
+{% endnote %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
+{% include [vat](../_includes/vat.md) %}
+
 ## Cluster status {#running-stopped}
 
-Prices are applied differently depending on the cluster status:
+The prices apply differently depending on the cluster status:
 
-* For a `Running` cluster, you pay for both the computing resources and your storage size.
+* For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
 
 {% include [pricing-status-warning.md](../_includes/mdb/pricing-status-warning.md) %}
 
 ## What goes into the cost of using {{ mos-short-name }} {#rules}
 
-The {{ mos-name }} usage cost is based on:
+The {{ mos-name }} usage cost includes:
 
 * Computing resources allocated to cluster hosts (including hosts with the `MANAGER` role).
 
 * Disk type and disk space.
 
-* Egress traffic from {{ yandex-cloud }}.
+* Egress traffic from {{ yandex-cloud }} to the internet.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Using cluster hosts {#rules-hosts-uptime}
 
-Host operation cost depends on what resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
+The host operation cost depends on what resources you allocate for it. You can find the supported resource configurations in the [Host classes](concepts/instance-types.md) section. For the vCPU and RAM prices, see [Prices](#prices).
 
-You can select host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
+You can select a host class both for hosts with the `DATA` role and hosts with the `MANAGER` and `DASHBOARDS` roles.
 
-Host operation cost is charged per hour. The minimum billing unit is one minute (for example, 1.5 minutes of host operation cost the same as 2 minutes). You do not pay for the time when the {{ OS }} host is unable to perform its main functions.
+The host operation cost is charged per hour. The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ OS }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -47,28 +60,57 @@ You pay for the following:
 
 * Storage allocated for clusters.
 
-* Storage taken up by backups over specified cluster storage.
+* Storage taken up by backups over the specified cluster storage.
 
-    * Backups are stored free of charge as long as the combined size of the data in the cluster and all backups is smaller than the selected storage size.
+    * Backups are stored free of charge as long as the combined size of data in the cluster and all backups is smaller than the selected storage size.
 
-    * When performing automatic backups, {{ mos-short-name }} does not create a new copy but saves the data changed from the previous backup. It means the storage space used by automatic backups only increases in proportion to the volume of changes.
+    * All automatic and [manual](operations/cluster-backups.md) backups are incremental. This means the initial backup contains all index segments, and all subsequent backups contain only the _increment_, i.e., changes made since the previous backup. This saves storage space and reduces the cost of using resources.
 
-    * The number of hosts in a cluster does not affect the storage volume and, consequently, the free volume of backups.
+    * When [requesting information about a backup](operations/cluster-backups.md#get-backup), you will get the full size of restorable data, but you only pay for the incremental part.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute (for example, storing 1 GB for 1.5 minutes costs the same as storing 1 GB for 2 minutes).
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
+
+The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+
+### Example of cluster cost calculation {#example}
+
+Let's calculate the cost of using a cluster with the following properties for 30 days:
+
+* **{{ OS }} hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 GB of network HDD storage.
+
+Cost calculation for {{ OS }} hosts:
 
 
-## Discount for committed volumes of services (CVoS) {#cvos}
+
+
+
+
+{% include [usd-opensearch-host](../_pricing_examples/managed-opensearch/usd-host.md) %}
+
+
+Calculation for the storage cost and total cost:
+
+
+
+
+
+
+{% include [usd-opensearch-storage](../_pricing_examples/managed-opensearch/usd-storage.md) %}
+
+
+## Discount for committed volume of services (CVoS) {#cvos}
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are planning to use in your DB clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also forecast your monthly payments for the required number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-CVoS discount is only available for certain types of resources. For non-supported resources, CVoS columns feature dashes under [Prices](#prices). Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
 
 {% endnote %}
+
 
 ## Prices for the Russia region {#prices}
 
@@ -76,22 +118,26 @@ CVoS discount is only available for certain types of resources. For non-supporte
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-
-All prices below do not include VAT.
-
-
 {% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
-### Host computing resources {#prices-hosts}
 
 
 {% include [Access to Compute Optimized on request](../_includes/mdb/note-compute-optimized-request.md) %}
 
+{% include [local-ssd for Intel Ice Lake only on request](../_includes/ice-lake-local-ssd-note.md) %}
 
 
 
-{% include [usd-hosts-and-storage.md](../_pricing/managed-opensearch/usd-hosts-and-storage.md) %}
+
+
+<MDX>
+  <PriceList
+    serviceIds={['{{ pcs|mdb.opensearch }}']}
+    excludeSkuIds={['{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v4a.cores }}', '{{ pc|mdb.software_accelerated_network.opensearch.highfreq-v3.cores }}']}
+    installationCode="ru"
+    currency="USD"
+  />
+</MDX>
+
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
